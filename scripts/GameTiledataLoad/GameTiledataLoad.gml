@@ -19,7 +19,7 @@ function read_file(name)
 				case "data_angval.txt": 
 					for (var j = 0; j < 4; j++) 
 					{
-						Game.AngleValueOf[i][j] = file_text_read_real(File);
+						Game.AngleValueOf[i][j] = (256 - file_text_read_real(File)) * 360 / 256;
 						file_text_readln(File);
 					}
 				break;
