@@ -138,6 +138,7 @@
     {"id":{"name":"background_use_parallax","path":"scripts/background_use_parallax/background_use_parallax.yy",},"order":8,},
     {"id":{"name":"ScreenDebugDisplay","path":"scripts/ScreenDebugDisplay/ScreenDebugDisplay.yy",},"order":15,},
     {"id":{"name":"CollapsingPlatformHandler","path":"objects/CollapsingPlatformHandler/CollapsingPlatformHandler.yy",},"order":2,},
+    {"id":{"name":"spr_tileset_a","path":"sprites/spr_tileset_a/spr_tileset_a.yy",},"order":16,},
     {"id":{"name":"LayerChange","path":"objects/LayerChange/LayerChange.yy",},"order":10,},
     {"id":{"name":"ScreenCameraBoundariesSet","path":"scripts/ScreenCameraBoundariesSet/ScreenCameraBoundariesSet.yy",},"order":7,},
     {"id":{"name":"DiscordInformationUpdate","path":"scripts/DiscordInformationUpdate/DiscordInformationUpdate.yy",},"order":2,},
