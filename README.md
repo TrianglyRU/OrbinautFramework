@@ -2,9 +2,9 @@
 An accurate classic Sonic framework, made for GameMaker Studio 2.
 
 # Features
-- Classic-acurate physics.
-- Orignal-engine like stage collision method, based on distances.
-- Two types of stage collision: collision masks or actual tiles with pre-calculated tiles.
+- Classic-accurate physics.
+- Orignal-engine-like stage collision method based on distances.
+- Two types of stage collision: collision masks or actual tiles with pre-calculated angles.
 - Improved original object collision method. Instead of copying it directly, we used it as a basis to make our own.
 - Various toggable frameworks tweaks, including differences between classic trilogy.
 - Discord Rich Presence support.
