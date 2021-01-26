@@ -8,12 +8,14 @@ function PlayerRollPerform()
 	{
 		if Input.Down 
 		{	
-			// Update radiuses
+			// Update radiuses and adjust position
 			yRadius = yRadiusRoll;
 			xRadius	= xRadiusRoll;
 			PosY   += yRadiusDefault - yRadiusRoll;
-			
 			Rolling = true;
+			
+			// Set animation
+			Animation = AnimRoll;
 		}
 	}	
 }

@@ -7,8 +7,11 @@ function PlayerInitialization()
 	var Spawn = Game.SavedCheckpoint != 0 ? Game.SavedCheckpoint : Spawnpoint;
 	PosX	  = Spawn.x;
 	PosY	  = Spawn.y;
-	DrawOrder = Spawn.depth;
+	
+	// Set sprite
 	Facing	  = FacingRight;
+	Animation = AnimIdle;
+	DrawOrder = Spawn.depth;
 	
 	// Set basic constants
 	Acc		= 0.046875;

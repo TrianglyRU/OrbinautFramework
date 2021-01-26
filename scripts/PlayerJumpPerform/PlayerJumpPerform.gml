@@ -10,17 +10,19 @@ function PlayerJumpPerform()
 	// Jump
 	if Input.ABCPress
 	{
-		Xsp          -= Jump * dsin(Angle);
-		Ysp	         -= Jump * dcos(Angle);	
-		Jumping		  = true;	
-		Grounded      = false;
-		OnObject	  = false;
-		if (Game.RolljumpControl) Rolling  = false;
+		Xsp     -= Jump * dsin(Angle);
+		Ysp	    -= Jump * dcos(Angle);	
+		Jumping  = true;	
+		Grounded = false;
+		OnObject = false;
+		if (Game.RolljumpControl) Rolling = false;
 		
 		// Update radiuses
 		yRadius = yRadiusRoll;
-		xRadius	= 7;
-		PosY   += 5;
-	}
-	
+		xRadius	= xRadiusRoll;
+		if (!Rolling) PosY += 5;
+
+		// Set animation
+		Animation = AnimRoll;
+	}	
 }

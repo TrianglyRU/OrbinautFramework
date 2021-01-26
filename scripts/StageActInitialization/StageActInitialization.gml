@@ -19,7 +19,7 @@ function StageActInitialization()
 			RightBoundary			= room_width;
 			BottomBoundary			= room_height;
 			LastCheckpoint			= Game.SavedCheckpoint;	
-			State					= StateDefault;
+			State					= ActStateDefault;
 		break;	
 	}	
 }

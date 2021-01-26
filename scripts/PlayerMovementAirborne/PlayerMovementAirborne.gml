@@ -5,7 +5,6 @@ function PlayerMovementAirborne()
 	{
 		if Input.Left 
 		{		
-			Facing = FacingLeft;
 			if Xsp > 0 
 			{
 				Xsp -= Acc * 2;
@@ -13,15 +12,12 @@ function PlayerMovementAirborne()
 			else if Xsp > -TopAcc 
 			{
 				Xsp -= Acc * 2;
-				if Xsp <= -TopAcc 
-				{
-					Xsp = -TopAcc;
-				}
+				if (Xsp <= -TopAcc) Xsp = -TopAcc;
 			}
+			Facing = FacingLeft;
 		}
 		if Input.Right 
-		{
-			Facing = FacingRight;
+		{	
 			if Xsp < 0 
 			{
 				Xsp += Acc * 2;
@@ -29,11 +25,9 @@ function PlayerMovementAirborne()
 			else if Xsp < TopAcc 
 			{
 				Xsp += Acc * 2;
-				if Xsp >= TopAcc 
-				{
-					Xsp = TopAcc;
-				}
+				if (Xsp >= TopAcc) Xsp = TopAcc;
 			}
+			Facing = FacingRight;
 		}	
 	}
 	

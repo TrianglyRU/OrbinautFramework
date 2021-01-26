@@ -5,8 +5,9 @@
 	PlayerStateUpdate();
 	
 	// Run main code basing on current state
-	switch State {
-		case StateNormal:
+	switch State 
+	{
+		case PlayerStateNormal:
 			PlayerMovementLock();
 			PlayerSlopeResist();
 			PlayerMovementNormal();
@@ -20,7 +21,7 @@
 			PlayerSlopeDetach();
 			PlayerCollideSolidObjects();
 		break;
-		case StateAirborne:
+		case PlayerStateAirborne:
 			PlayerJumpResist();
 			PlayerMovementAirborne();
 			PlayerPositionUpdate();
@@ -31,7 +32,7 @@
 			PlayerCollideSolidObjects();
 			PlayerResetOnFloor();
 		break;
-		case StateRolling:
+		case PlayerStateRoll:
 			PlayerMovementLock();
 			PlayerSlopeResistRolling();	
 			PlayerMovementRolling();

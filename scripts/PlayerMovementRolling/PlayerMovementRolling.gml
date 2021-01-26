@@ -52,14 +52,18 @@ function PlayerMovementRolling()
 	if (Xsp > 16)  Xsp = 16;
 	if (Xsp < -16) Xsp = -16;
 	
-	// Unroll
+	// If inertia is 0
 	if Inertia = 0 
 	{
-		// Reset radiuses
+		// Reset radiuses and adjust position
 		yRadius = yRadiusDefault;
 		xRadius = xRadiusDefault;
 		PosY   -= yRadiusDefault - yRadiusRoll;
 		
+		// Unroll
 		Rolling = false;
+		
+		// Set animation
+		Animation = AnimIdle;
 	}
 }

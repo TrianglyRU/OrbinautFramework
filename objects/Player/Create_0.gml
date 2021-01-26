@@ -34,9 +34,7 @@
 	SpindashRev		     = 0;
 	isSuper				 = 0;
 	
-	ObjectAnimation	     = 0;
-	ObjectAnimationSpeed = 0;
-	ObjectAnimationTimer = 0;
+	Animation			 = 0;
 	DrawOrder			 = 0;
 	
 	yRadius				 = 0;

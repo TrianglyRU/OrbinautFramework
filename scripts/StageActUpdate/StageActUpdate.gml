@@ -6,7 +6,7 @@ function StageActUpdate()
 	// Perform super palette cycle
 	if Player.isSuper
 	{
-		if Player.CharacterID = 0 
+		if Player.CharacterID = CharSonic
 		{
 			for (var i = 0; i < 4; i++) 
 			{
@@ -16,7 +16,7 @@ function StageActUpdate()
 				palette_cycle_perform(i, 9, 4);
 			}
 		}
-		if Player.CharacterID = 1 
+		if Player.CharacterID = CharTails
 		{
 			for (var i = 0; i < 4; i++) 
 			{

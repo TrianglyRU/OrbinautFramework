@@ -11,75 +11,39 @@ function PlayerMovementNormal()
 			// If moving right and left key is pressed, decelerate
 			if Inertia > 0 
 			{
-				Inertia -= Dec;
-				if Inertia <= 0
-				{
-					Inertia = -0.5;	
-				}
+				Inertia     -= Dec;
+				if (Inertia <= 0) Inertia = -0.5;	
 			} 
 			
 			// If moving left and left key is pressed, accelerate
 			else 
 			{
-				Facing = FacingLeft;
-
-				if !Game.GroundSpeedcap 
+				if (!Game.GroundSpeedcap and Inertia > -TopAcc) or Game.GroundSpeedcap
 				{
-					if Inertia > -TopAcc 
-					{
-						Inertia -= Acc;
-						if Inertia <= -TopAcc 
-						{
-							Inertia = -TopAcc;
-						}
-					}
+					Inertia     -= Acc;					
+					if (Inertia <= -TopAcc) Inertia = -TopAcc;		
 				} 
-				else 
-				{
-					Inertia -= Acc;
-					if Inertia <= -TopAcc
-					{
-						Inertia = -TopAcc;
-					}
-				}	
+				Facing = FacingLeft;
 			}
 		}
 		if Input.Right 
-		{	
+		{				
 			// If moving left and right key is pressed, decelerate
 			if Inertia < 0 
 			{
-				Inertia += Dec;
-				if Inertia >= 0
-				{
-					Inertia = 0.5;
-				}
+				Inertia     += Dec;
+				if (Inertia >= 0) Inertia = 0.5;
 			} 
 			
 			// If moving right and right key is pressed, accelerate
 			else 
 			{
-				Facing = FacingRight;
-				
-				if !Game.GroundSpeedcap
+				if (!Game.GroundSpeedcap and Inertia < TopAcc) or Game.GroundSpeedcap
 				{
-					if Inertia < TopAcc 
-					{
-						Inertia += Acc;
-						if Inertia >= TopAcc
-						{
-							Inertia = TopAcc;
-						}
-					}
+					Inertia     += Acc;
+					if (Inertia >= TopAcc) Inertia = TopAcc;	
 				} 
-				else 
-				{
-					Inertia += Acc;
-					if Inertia >= TopAcc
-					{
-						Inertia = TopAcc;
-					}
-				}				
+				Facing = FacingRight;
 			}
 		}
 	}
@@ -90,20 +54,35 @@ function PlayerMovementNormal()
 		if Inertia > 0
 		{
 			Inertia -= Acc;
-			if Inertia < 0
-			{
-				Inertia = 0;
-			}
+			if (Inertia < 0) Inertia = 0;
 		}
 		else
 		{
 			Inertia += Acc;
-			if Inertia >= 0
-			{
-				Inertia = 0;
-			}
+			if (Inertia >= 0) Inertia = 0;
 		}
-	}	
+	}
+	
+	// Set animation
+	if Inertia = 0
+	{
+		if Input.Down
+		{
+			Animation = AnimCrouch;
+		}
+		else if Input.Up
+		{
+			Animation = AnimLookup;
+		}
+		else
+		{
+			Animation = AnimIdle;
+		}
+	} 
+	else
+	{
+		Animation = abs(Inertia) < TopAcc? AnimWalk : AnimRun;
+	}
 	
 	// Update axis speeds
 	Xsp = Inertia * dcos(Angle);

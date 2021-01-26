@@ -9,6 +9,7 @@ function PlayerSpindashPerform()
 	// Charge
 	if Input.Down and Input.ABCPress 
 	{	
+		Animation = AnimSpindash;
 		if (SpindashRev < 8) SpindashRev += 2;
 	}
 	if SpindashRev > 0 
@@ -28,6 +29,10 @@ function PlayerSpindashPerform()
 		xRadius	= xRadiusRoll;
 		PosY   += yRadiusDefault - yRadiusRoll;
 		
+		// Start rolling
 		Rolling	= true;
+		
+		// Set animation
+		Animation = AnimRoll;
 	}
 }

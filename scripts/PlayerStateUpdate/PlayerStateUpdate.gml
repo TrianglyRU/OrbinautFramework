@@ -2,10 +2,10 @@ function PlayerStateUpdate()
 {
 	if Grounded
 	{
-		State = !Rolling ? StateNormal : StateRolling;
+		State = !Rolling ? PlayerStateNormal : PlayerStateRoll;
 	}
 	else
 	{
-		State = StateAirborne;
+		State = PlayerStateAirborne;
 	}
 }

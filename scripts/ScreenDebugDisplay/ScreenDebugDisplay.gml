@@ -58,9 +58,8 @@ function ScreenDebugDisplay()
 			+ "\n"
 			+ "\n         * CHARACTER VISUALS *"
 			+ "\n"
-			+ "\n   ANIMATION ID: " + string(Player.ObjectAnimation)
-			+ "\n   ANIMATION DURATIOM: " + string(Player.ObjectAnimationSpeed)
-			+ "\n   NEXT ANIMATION FRAME IN: " + string(Player.ObjectAnimationTimer)
+			+ "\n   ANIMATION ID: " + string(Player.sprite_index)
+			+ "\n   FRAME INDEX: " + string(floor(Player.image_index))
 			+ "\n   VISUAL ANGLE: " + string(Player.VisualAngle)
 			+ "\n"
 			+ "\n              * CAMERA *"
@@ -76,10 +75,11 @@ function ScreenDebugDisplay()
 			+ "\n   SPIN OFFSET: " + string(SpinOffset)
 			+ "\n"
 			+ "\n"
-			+ "\n   F1: GAME RESTART"
-			+ "\n   F2: FRAME BY FRAME MODE"
-			+ "\n   F3: SHOW DEBUG VIEW"
-			+ "\n   F4: SHOW COLLISION MASKS"
+			+ "\n   F1: STAGE RESTART"
+			+ "\n   F2: GAME RESTART"
+			+ "\n   F3: FRAME BY FRAME MODE"
+			+ "\n   F4: SHOW DEBUG VIEW"
+			+ "\n   F5: SHOW COLLISION MASKS"
  			+ "\n",			
 	10, 0.3);
 }

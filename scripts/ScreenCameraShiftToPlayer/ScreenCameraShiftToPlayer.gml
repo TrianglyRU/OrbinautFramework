@@ -1,8 +1,8 @@
 function ScreenCameraShiftToPlayer() 
 {	
 	// Update player's position on the screen
-	PlayerScreenX = floor(Player.PosX - Screen.ViewX);
-	PlayerScreenY = floor(Player.PosY - Screen.ViewY);	
+	PlayerScreenX = Player.PosX - Screen.ViewX;
+	PlayerScreenY = Player.PosY - Screen.ViewY;	
 	
 	// Set horizontal shift speed
 	if PlayerScreenX <= Width / 2 - 16 
