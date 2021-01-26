@@ -6,7 +6,7 @@ function collision_meeting(X, Y, ignorePlatforms)
 	var MaskLayer, PlatformFlag;
 
 	// Get a MaskID and proceed if found
-	CollisionMask = instance_position(X, Y, StageCollision);
+	CollisionMask = instance_position(X, Y, CollisionMasks);
 	
 	if CollisionMask 
 	{

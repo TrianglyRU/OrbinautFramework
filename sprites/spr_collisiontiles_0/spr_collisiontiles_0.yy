@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"917c2cfe-65db-45f4-8585-449c6b9f70ae","path":"sprites/spr_tileset_a/spr_tileset_a.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"917c2cfe-65db-45f4-8585-449c6b9f70ae","path":"sprites/spr_tileset_a/spr_tileset_a.yy",},"LayerId":{"name":"ba2bbc39-d8fe-41ec-bf21-cf7bb16d9ced","path":"sprites/spr_tileset_a/spr_tileset_a.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_tileset_a","path":"sprites/spr_tileset_a/spr_tileset_a.yy",},"resourceVersion":"1.0","name":"917c2cfe-65db-45f4-8585-449c6b9f70ae","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"917c2cfe-65db-45f4-8585-449c6b9f70ae","path":"sprites/spr_collisiontiles_0/spr_collisiontiles_0.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"917c2cfe-65db-45f4-8585-449c6b9f70ae","path":"sprites/spr_collisiontiles_0/spr_collisiontiles_0.yy",},"LayerId":{"name":"ba2bbc39-d8fe-41ec-bf21-cf7bb16d9ced","path":"sprites/spr_collisiontiles_0/spr_collisiontiles_0.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_collisiontiles_0","path":"sprites/spr_collisiontiles_0/spr_collisiontiles_0.yy",},"resourceVersion":"1.0","name":"917c2cfe-65db-45f4-8585-449c6b9f70ae","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_tileset_a","path":"sprites/spr_tileset_a/spr_tileset_a.yy",},
+    "spriteId": {"name":"spr_collisiontiles_0","path":"sprites/spr_collisiontiles_0/spr_collisiontiles_0.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"4666488c-7cbd-4898-811a-0fec74e93800","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"917c2cfe-65db-45f4-8585-449c6b9f70ae","path":"sprites/spr_tileset_a/spr_tileset_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4666488c-7cbd-4898-811a-0fec74e93800","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"917c2cfe-65db-45f4-8585-449c6b9f70ae","path":"sprites/spr_collisiontiles_0/spr_collisiontiles_0.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_tileset_a","path":"sprites/spr_tileset_a/spr_tileset_a.yy",},
+    "parent": {"name":"spr_collisiontiles_0","path":"sprites/spr_collisiontiles_0/spr_collisiontiles_0.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_tileset_a",
+    "name": "spr_collisiontiles_0",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -68,11 +68,11 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ba2bbc39-d8fe-41ec-bf21-cf7bb16d9ced","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Collision Tilesets",
+    "path": "folders/Stage Data/Collision Tilesets.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_tileset_a",
+  "name": "spr_collisiontiles_0",
   "tags": [],
   "resourceType": "GMSprite",
 }

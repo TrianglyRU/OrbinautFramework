@@ -1,7 +1,7 @@
 function StageActInitialization()
 {	
 	// Disable collision showcase
-	//StageCollision.visible = true;
+	//CollisionMasks.visible = true;
 	
 	switch room 
 	{

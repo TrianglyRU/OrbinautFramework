@@ -16,7 +16,8 @@
 			PlayerSpindashPerform();
 			PlayerRollPerform();
 			PlayerJumpPerform();
-			PlayerCollideFloor();	
+			PlayerCollideFloorTiles();	
+			//PlayerCollideFloorMasks();	
 			PlayerSlopeDetach();
 			PlayerCollideSolidObjects();
 		break;
@@ -38,7 +39,7 @@
 			PlayerHitWalls();
 			PlayerPositionUpdate();
 			PlayerJumpPerform();
-			PlayerCollideFloor();
+			PlayerCollideFloorMasks();
 			PlayerSlopeDetach();
 			PlayerCollideSolidObjects();
 		break;

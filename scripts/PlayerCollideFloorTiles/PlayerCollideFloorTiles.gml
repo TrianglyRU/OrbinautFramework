@@ -1,4 +1,4 @@
-function PlayerCollideFloor()
+function PlayerCollideFloorTiles()
 {	
 	if sensor_active(Sensor[FloorL]) and sensor_active(Sensor[FloorR])
 	{
@@ -32,10 +32,10 @@ function PlayerCollideFloor()
 		}
 	
 		// Calculate distances and angles for each floor sensor
-		Sensor[FloorL][Dist] = collision_get_distance(Sensor[FloorL]);
-		Sensor[FloorR][Dist] = collision_get_distance(Sensor[FloorR]);
-		Sensor[FloorL][Ang]  = collision_get_angle(Sensor[FloorL]);
-		Sensor[FloorR][Ang]  = collision_get_angle(Sensor[FloorR]);
+		Sensor[FloorL][Dist] = tile_get_distance(Sensor[FloorL]);
+		Sensor[FloorR][Dist] = tile_get_distance(Sensor[FloorR]);
+		Sensor[FloorL][Ang]  = tile_get_angle(Sensor[FloorL]);
+		Sensor[FloorR][Ang]  = tile_get_angle(Sensor[FloorR]);
 
 		// Define the sensor to use
 		var Used = Sensor[FloorL][Dist] <= Sensor[FloorR][Dist] ? FloorL : FloorR;

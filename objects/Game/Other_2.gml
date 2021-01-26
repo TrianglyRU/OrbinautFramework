@@ -13,3 +13,6 @@
 	
 	// Initialize shaders
 	GameShadersInitialization();
+	
+	// Load tiledata
+	GameTiledataLoad();

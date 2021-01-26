@@ -5,8 +5,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "StageCollision",
-    "path": "objects/StageCollision/StageCollision.yy",
+    "name": "CollisionMasks",
+    "path": "objects/CollisionMasks/CollisionMasks.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

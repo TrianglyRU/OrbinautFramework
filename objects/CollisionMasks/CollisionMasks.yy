@@ -28,7 +28,7 @@
     "path": "folders/Stage Data/Collision Masks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageCollision",
+  "name": "CollisionMasks",
   "tags": [],
   "resourceType": "GMObject",
 }

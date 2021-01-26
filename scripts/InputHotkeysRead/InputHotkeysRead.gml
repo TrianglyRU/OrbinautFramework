@@ -39,13 +39,13 @@ function InputHotkeysRead()
 	// Show stage collision
 	if keyboard_check_pressed(vk_f5) 
 	{
-		if StageCollision.visible 
+		if CollisionMasks.visible 
 		{
-			StageCollision.visible = false;
+			CollisionMasks.visible = false;
 		} 
 		else 
 		{
-			StageCollision.visible = true;
+			CollisionMasks.visible = true;
 		}
 	}
 	
