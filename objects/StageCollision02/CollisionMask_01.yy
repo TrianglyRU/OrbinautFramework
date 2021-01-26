@@ -1,0 +1,43 @@
+{
+  "spriteId": {
+    "name": "spr_colmask_00",
+    "path": "sprites/spr_colmask_00/spr_colmask_00.yy",
+  },
+  "solid": false,
+  "visible": true,
+  "spriteMaskId": null,
+  "persistent": false,
+  "parentObjectId": {
+    "name": "CollisionPath",
+    "path": "objects/CollisionPath/CollisionPath.yy",
+  },
+  "physicsObject": false,
+  "physicsSensor": false,
+  "physicsShape": 1,
+  "physicsGroup": 1,
+  "physicsDensity": 0.5,
+  "physicsRestitution": 0.1,
+  "physicsLinearDamping": 0.1,
+  "physicsAngularDamping": 0.1,
+  "physicsFriction": 0.2,
+  "physicsStartAwake": true,
+  "physicsKinematic": false,
+  "physicsShapePoints": [],
+  "eventList": [],
+  "properties": [
+    {"varType":6,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "0",
+        "1",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PathID","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"JumpThrough","tags":[],"resourceType":"GMObjectProperty",},
+  ],
+  "overriddenProperties": [],
+  "parent": {
+    "name": "Collision Masks",
+    "path": "folders/Stage/Collision Masks.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "CollisionMask_01",
+  "tags": [],
+  "resourceType": "GMObject",
+}
