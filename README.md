@@ -13,7 +13,7 @@ An accurate classic Sonic framework, made for GameMaker Studio 2.
 
 # Architecture
 Orbinaut is built to be simple to use and easy to understand. All main global code is stored in scripts that are called from the framework 
-controllers (Player, Game, Input, Screen, Discord, Stage), and objects perform their own code on their own. The project library is sorted 
+controllers (Player, Game, Input, Screen, Discord, Stage), and objects perform code on their own. The project library is sorted 
 and organized as compact and understandable as possible, so it's very difficult to get lost navigating it.
 
 # Custom functions
