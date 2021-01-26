@@ -1,5 +1,5 @@
-/// @function collision_meeting(X, Y, ignorePlatforms) 
-function collision_meeting(X, Y, ignorePlatforms) 
+/// @function colmask_meeting(X, Y, ignorePlatforms) 
+function colmask_meeting(X, Y, ignorePlatforms) 
 {	
 	// Variables 
 	var CollisionMask, MaskID

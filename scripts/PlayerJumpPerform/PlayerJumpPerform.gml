@@ -1,8 +1,8 @@
 function PlayerJumpPerform()
 {	
 	// Exit the code if found the low ceiling
-	if collision_meeting(floor(PosX - 9), floor(PosY - 25), true)
-	or collision_meeting(floor(PosX + 9), floor(PosY - 25), true) exit;
+	if colmask_meeting(floor(PosX - 9), floor(PosY - 25), true)
+	or colmask_meeting(floor(PosX + 9), floor(PosY - 25), true) exit;
 	
 	// Exit the code if spindashing
 	if SpindashRev >= 0 exit;

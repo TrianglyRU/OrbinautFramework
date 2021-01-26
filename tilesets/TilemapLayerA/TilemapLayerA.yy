@@ -1,5 +1,4 @@
 {
-  "name": "TilemapLayerA",
   "spriteId": {
     "name": "spr_collisiontiles_0",
     "path": "sprites/spr_collisiontiles_0/spr_collisiontiles_0.yy",
@@ -293,6 +292,7 @@
     "path": "folders/Stage Data/Collision Tilesets.yy",
   },
   "resourceVersion": "1.0",
+  "name": "TilemapLayerA",
   "tags": [],
   "resourceType": "GMTileSet",
 }

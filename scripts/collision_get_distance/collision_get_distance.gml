@@ -1,5 +1,5 @@
-/// @function collision_get_distance(sensor)
-function collision_get_distance(sensor) 
+/// @function colmask_get_distance(sensor)
+function colmask_get_distance(sensor) 
 {	
 	// Set coorditanes, then find edge of the collision tile & return it
 	var X = sensor[xPos];
@@ -16,11 +16,11 @@ function collision_get_distance(sensor)
 		{	
 			case ModeFloor:
 		
-				while !collision_meeting(X, Y, false) and Y < sensor[yPos] + MaxDistance
+				while !colmask_meeting(X, Y, false) and Y < sensor[yPos] + MaxDistance
 				{
 					Y++;
 				}
-				while collision_meeting(X, Y, false)
+				while colmask_meeting(X, Y, false)
 				{
 					Y--;
 				}
@@ -29,11 +29,11 @@ function collision_get_distance(sensor)
 			break;
 			case ModeWallR:	
 		
-				while !collision_meeting(X, Y, false) and X < sensor[xPos] + MaxDistance
+				while !colmask_meeting(X, Y, false) and X < sensor[xPos] + MaxDistance
 				{
 					X++;
 				}
-				while collision_meeting(X, Y, false)
+				while colmask_meeting(X, Y, false)
 				{
 					X--;
 				}
@@ -42,11 +42,11 @@ function collision_get_distance(sensor)
 			break;
 			case ModeRoof:	
 		
-				while !collision_meeting(X, Y, false) and Y > sensor[yPos] - MaxDistance
+				while !colmask_meeting(X, Y, false) and Y > sensor[yPos] - MaxDistance
 				{
 					Y--;
 				}
-				while collision_meeting(X, Y, false)
+				while colmask_meeting(X, Y, false)
 				{
 					Y++;
 				}
@@ -55,11 +55,11 @@ function collision_get_distance(sensor)
 			break;
 			case ModeWallL:	
 		
-				while !collision_meeting(X, Y, false) and X > sensor[xPos] - MaxDistance
+				while !colmask_meeting(X, Y, false) and X > sensor[xPos] - MaxDistance
 				{
 					X--;
 				}
-				while collision_meeting(X, Y, false)
+				while colmask_meeting(X, Y, false)
 				{
 					X++;
 				}
@@ -72,7 +72,7 @@ function collision_get_distance(sensor)
 	// Ceiling sensor
 	if sensor = Sensor[RoofL] or sensor = Sensor[RoofR]
 	{
-		while collision_meeting(X, Y, true)
+		while colmask_meeting(X, Y, true)
 		{
 			Y++;
 		}
@@ -86,7 +86,7 @@ function collision_get_distance(sensor)
 		{
 			case ModeFloor: 
 		
-				while collision_meeting(X, Y, true)
+				while colmask_meeting(X, Y, true)
 				{
 					X++;
 				}
@@ -95,7 +95,7 @@ function collision_get_distance(sensor)
 			break;
 			case ModeWallR: 
 		
-				while collision_meeting(X, Y, true)
+				while colmask_meeting(X, Y, true)
 				{
 					Y--; 
 				}
@@ -104,7 +104,7 @@ function collision_get_distance(sensor)
 			break;
 			case ModeRoof: 
 		
-				while collision_meeting(X, Y, true)
+				while colmask_meeting(X, Y, true)
 				{
 					X--; 
 				}
@@ -113,7 +113,7 @@ function collision_get_distance(sensor)
 			break;
 			case ModeWallL: 
 		
-				while collision_meeting(X, Y, true)
+				while colmask_meeting(X, Y, true)
 				{
 					Y++;
 				}
@@ -130,7 +130,7 @@ function collision_get_distance(sensor)
 		{
 			case ModeFloor: 
 		
-				while collision_meeting(X, Y, true)
+				while colmask_meeting(X, Y, true)
 				{
 					X--;
 				}
@@ -139,7 +139,7 @@ function collision_get_distance(sensor)
 			break;
 			case ModeWallR: 
 		
-				while collision_meeting(X, Y, true)
+				while colmask_meeting(X, Y, true)
 				{
 					Y++; 
 				}
@@ -148,7 +148,7 @@ function collision_get_distance(sensor)
 			break;
 			case ModeRoof: 
 		
-				while collision_meeting(X, Y, true)
+				while colmask_meeting(X, Y, true)
 				{
 					X++; 
 				}
@@ -157,7 +157,7 @@ function collision_get_distance(sensor)
 			break;
 			case ModeWallL: 
 		
-				while collision_meeting(X, Y, true)
+				while colmask_meeting(X, Y, true)
 				{
 					Y--;
 				}

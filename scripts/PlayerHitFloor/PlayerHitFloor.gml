@@ -8,11 +8,19 @@ function PlayerHitFloor()
 		Sensor[FloorR][xPos] = floor(PosX + xRadius);
 		Sensor[FloorR][yPos] = floor(PosY + yRadius);
 		
-		// Reset angle and find a distance for each
-		Sensor[FloorL][Ang]  = 0;
-		Sensor[FloorR][Ang]  = 0;
-		Sensor[FloorL][Dist] = collision_get_distance(Sensor[FloorL]);
-		Sensor[FloorR][Dist] = collision_get_distance(Sensor[FloorR]);
+		// Reset angle and find a distance for each	
+		if !Game.TileCollisionMethod
+		{
+			Sensor[FloorL][Dist] = colmask_get_distance(Sensor[FloorL]);
+			Sensor[FloorR][Dist] = colmask_get_distance(Sensor[FloorR]);
+		}
+		else
+		{
+			Sensor[FloorL][Dist] = tile_get_distance(Sensor[FloorL]);
+			Sensor[FloorR][Dist] = tile_get_distance(Sensor[FloorR]);
+		}
+		Sensor[FloorL][Ang] = 0;
+		Sensor[FloorR][Ang] = 0;
 	
 		// Define the sensor to use
 		var Used = Sensor[FloorL][Dist] <= Sensor[FloorR][Dist] ? FloorL : FloorR;
@@ -21,9 +29,17 @@ function PlayerHitFloor()
 		if Sensor[Used][Dist] < 0
 		{	
 			// Update angle
-			Sensor[FloorL][Ang] = collision_get_angle(Sensor[FloorL]);
-			Sensor[FloorR][Ang] = collision_get_angle(Sensor[FloorR]);
-			Angle               = Sensor[Used][Ang];
+			if !Game.TileCollisionMethod
+			{
+				Sensor[FloorL][Ang] = colmask_get_angle(Sensor[FloorL]);
+				Sensor[FloorR][Ang] = colmask_get_angle(Sensor[FloorR]);
+			}
+			else
+			{
+				Sensor[FloorL][Ang] = tile_get_angle(Sensor[FloorL]);
+				Sensor[FloorR][Ang] = tile_get_angle(Sensor[FloorR]);
+			}
+			Angle = Sensor[Used][Ang];
 		
 			// If we're moving downwards, calculate a momentum using floor angle
 			if abs(Xsp) < abs(Ysp)

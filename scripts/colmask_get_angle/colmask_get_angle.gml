@@ -1,5 +1,5 @@
-/// @function collision_get_angle(sensor)
-function collision_get_angle(sensor) 
+/// @function colmask_get_angle(sensor)
+function colmask_get_angle(sensor) 
 {	
 	// Get floor sensor coordinates
 	var X = sensor[xPos];
@@ -18,19 +18,19 @@ function collision_get_angle(sensor)
 				var AY = Y;	
 				var BY = Y;
 				
-				while !collision_meeting(AX, AY, false) and AY < sensor[yPos] + 32
+				while !colmask_meeting(AX, AY, false) and AY < sensor[yPos] + 32
 				{
 					++AY;
 				}
-				while !collision_meeting(BX, BY, false) and BY < sensor[yPos] + 32 
+				while !colmask_meeting(BX, BY, false) and BY < sensor[yPos] + 32 
 				{
 					++BY;
 				}
-				while collision_meeting(AX, AY, false) and AY > sensor[yPos] - 16 
+				while colmask_meeting(AX, AY, false) and AY > sensor[yPos] - 16 
 				{
 					--AY;
 				}
-				while collision_meeting(BX, BY, false) and BY > sensor[yPos] - 16 
+				while colmask_meeting(BX, BY, false) and BY > sensor[yPos] - 16 
 				{
 					--BY;
 				}
@@ -43,19 +43,19 @@ function collision_get_angle(sensor)
 				var AY = Y + (15 - Y mod 16);	
 				var BY = Y       - Y mod 16;
 				
-				while !collision_meeting(AX, AY, true) and AX < sensor[xPos] + 32 
+				while !colmask_meeting(AX, AY, true) and AX < sensor[xPos] + 32 
 				{
 					++AX;
 				}
-				while !collision_meeting(BX, BY, true) and BX < sensor[xPos] + 32 
+				while !colmask_meeting(BX, BY, true) and BX < sensor[xPos] + 32 
 				{
 					++BX;
 				}	
-				while collision_meeting(AX, AY, true) and AX > sensor[xPos] - 16 
+				while colmask_meeting(AX, AY, true) and AX > sensor[xPos] - 16 
 				{
 					--AX;
 				}	
-				while collision_meeting(BX, BY, true) and BX > sensor[xPos] - 16 
+				while colmask_meeting(BX, BY, true) and BX > sensor[xPos] - 16 
 				{
 					--BX;
 				}
@@ -68,19 +68,19 @@ function collision_get_angle(sensor)
 				var AY = Y;	
 				var BY = Y;	
 					
-				while !collision_meeting(AX, AY, false) and AY > sensor[yPos] - 32
+				while !colmask_meeting(AX, AY, false) and AY > sensor[yPos] - 32
 				{
 					--AY;
 				}
-				while !collision_meeting(BX, BY, false) and BY > sensor[yPos] - 32 
+				while !colmask_meeting(BX, BY, false) and BY > sensor[yPos] - 32 
 				{
 					--BY;
 				}
-				while collision_meeting(AX, AY, false) and AY < sensor[yPos] + 16
+				while colmask_meeting(AX, AY, false) and AY < sensor[yPos] + 16
 				{
 					++AY;
 				}
-				while collision_meeting(BX, BY, false) and BY < sensor[yPos] + 16
+				while colmask_meeting(BX, BY, false) and BY < sensor[yPos] + 16
 				{
 					++BY;
 				}	
@@ -93,19 +93,19 @@ function collision_get_angle(sensor)
 				var AY = Y       - Y mod 16;
 				var BY = Y + (15 - Y mod 16);
 					
-				while !collision_meeting(AX, AY, true) and AX > sensor[xPos] - 32 
+				while !colmask_meeting(AX, AY, true) and AX > sensor[xPos] - 32 
 				{
 					--AX;
 				}
-				while !collision_meeting(BX, BY, true) and BX > sensor[xPos] - 32 
+				while !colmask_meeting(BX, BY, true) and BX > sensor[xPos] - 32 
 				{
 					--BX;
 				}
-				while collision_meeting(AX, AY, true) and AX < sensor[xPos] + 16  
+				while colmask_meeting(AX, AY, true) and AX < sensor[xPos] + 16  
 				{
 					++AX;
 				}
-				while collision_meeting(BX, BY, true) and BX < sensor[xPos] + 16  
+				while colmask_meeting(BX, BY, true) and BX < sensor[xPos] + 16  
 				{
 					++BX;
 				}
@@ -126,19 +126,19 @@ function collision_get_angle(sensor)
 		var AY = Y;	
 		var BY = Y;	
 	
-		while !collision_meeting(AX, AY, true) and AY > sensor[yPos] - 32 
+		while !colmask_meeting(AX, AY, true) and AY > sensor[yPos] - 32 
 		{
 			--AY;
 		}
-		while !collision_meeting(BX, BY, true) and BY > sensor[yPos] - 32 
+		while !colmask_meeting(BX, BY, true) and BY > sensor[yPos] - 32 
 		{
 			--BY;
 		}
-		while collision_meeting(AX, AY, true) 
+		while colmask_meeting(AX, AY, true) 
 		{
 			++AY;
 		}
-		while collision_meeting(BX, BY, true) 
+		while colmask_meeting(BX, BY, true) 
 		{
 			++BY;
 		}

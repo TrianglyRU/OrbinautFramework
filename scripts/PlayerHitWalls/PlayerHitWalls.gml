@@ -28,7 +28,14 @@ function PlayerHitWalls()
 				Sensor[WallL][yPos] = floor(PosY + SpdY - 10);
 			break;
 		}
-		Sensor[WallL][Dist] = collision_get_distance(Sensor[WallL]);
+		if !Game.TileCollisionMethod
+		{
+			Sensor[WallL][Dist] = colmask_get_distance(Sensor[WallL]);
+		}
+		else
+		{
+			Sensor[WallL][Dist] = tile_get_distance(Sensor[WallL]);
+		}
 
 		// Collide when the distance is negative
 		if Sensor[WallL][Dist] < 0
@@ -75,7 +82,14 @@ function PlayerHitWalls()
 				Sensor[WallR][yPos] = floor(PosY + SpdY + 10);
 			break
 		}
-		Sensor[WallR][Dist] = collision_get_distance(Sensor[WallR]);
+		if !Game.TileCollisionMethod
+		{
+			Sensor[WallR][Dist] = colmask_get_distance(Sensor[WallR]);
+		}
+		else
+		{
+			Sensor[WallR][Dist] = tile_get_distance(Sensor[WallR]);
+		}
 		
 		// Collide when the distance is negative
 		if Sensor[WallR][Dist] < 0

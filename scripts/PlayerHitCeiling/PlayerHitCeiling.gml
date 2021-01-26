@@ -9,10 +9,18 @@ function PlayerHitCeiling()
 		Sensor[RoofR][yPos] = floor(PosY - yRadius);
 
 		// Reset angle and find a distance for each
-		Sensor[RoofL][Ang]  = 0;
-		Sensor[RoofR][Ang]  = 0;
-		Sensor[RoofL][Dist] = collision_get_distance(Sensor[RoofL]);
-		Sensor[RoofR][Dist] = collision_get_distance(Sensor[RoofR]);
+		if !Game.TileCollisionMethod
+		{
+			Sensor[RoofL][Dist] = colmask_get_distance(Sensor[RoofL]);
+			Sensor[RoofR][Dist] = colmask_get_distance(Sensor[RoofR]);
+		}
+		else
+		{
+			Sensor[RoofL][Dist] = tile_get_distance(Sensor[RoofL]);
+			Sensor[RoofR][Dist] = tile_get_distance(Sensor[RoofR]);
+		}
+		Sensor[RoofL][Ang] = 0;
+		Sensor[RoofR][Ang] = 0;
 	
 		// Define the sensor to use
 		var Used = Sensor[RoofL][Dist] <= Sensor[RoofR][Dist] ? RoofL : RoofR;
@@ -26,16 +34,31 @@ function PlayerHitCeiling()
 			// If moving upwards, calculate tile angles and reattach if it is steep enough
 			if abs(Ysp) > abs(Xsp)
 			{
-				Sensor[RoofL][Ang] = collision_get_angle(Sensor[RoofL]);
-				Sensor[RoofR][Ang] = collision_get_angle(Sensor[RoofR]);
+				if !Game.TileCollisionMethod
+				{
+					Sensor[RoofL][Ang] = colmask_get_angle(Sensor[RoofL]);
+					Sensor[RoofR][Ang] = colmask_get_angle(Sensor[RoofR]);
+				}
+				else
+				{
+					Sensor[RoofL][Ang] = tile_get_angle(Sensor[RoofL]);
+					Sensor[RoofR][Ang] = tile_get_angle(Sensor[RoofR]);
+				}
 				
 				// Сheck the winning angle
 				if Sensor[Used][Ang] < 135 or Sensor[Used][Ang] > 225
 				{	
-					Inertia	      = Sensor[Used][Ang] < 180 ? -Ysp : Ysp;
-					Angle		  = Sensor[Used][Ang];					
-					Grounded      = true;
-					CollisionMode = round(Angle/90) % 4;
+					if !Game.TileCollisionMethod
+					{
+						Inertia	      = Sensor[Used][Ang] < 180 ? -Ysp : Ysp;
+						Angle		  = Sensor[Used][Ang];					
+						Grounded      = true;
+						CollisionMode = round(Angle/90) % 4;
+					}
+					else
+					{
+						Ysp = 0;
+					}
 				} 
 				else 
 				{

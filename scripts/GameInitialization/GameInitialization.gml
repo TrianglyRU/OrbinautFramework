@@ -18,6 +18,7 @@ function GameInitialization()
 	Game.SoundVolume			= 5;
 	
 	// Engine customization
+	Game.TileCollisionMethod    = true;
 	Game.SpindashEnabled		= true;		// S2 Spindash
 	Game.PeeloutEnabled         = false;	// SCD Super Peel Out
 	Game.GroundSpeedcap			= false;	// S1-like ground speedcap

@@ -1,4 +1,4 @@
-/// @function collision_get_distance(sensor)
+/// @function colmask_get_distance(sensor)
 function tile_get_distance(sensor) 
 {	
 	// Set coorditanes, then find edge of the collision tile & return it
@@ -29,11 +29,11 @@ function tile_get_distance(sensor)
 			break;
 			case ModeWallR:	
 		
-				while !collision_meeting(X, Y, false) and X < sensor[xPos] + MaxDistance
+				while !tile_meeting(X, Y, "CollisionTilesA") and X < sensor[xPos] + MaxDistance
 				{
 					X++;
 				}
-				while collision_meeting(X, Y, false)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					X--;
 				}
@@ -42,11 +42,11 @@ function tile_get_distance(sensor)
 			break;
 			case ModeRoof:	
 		
-				while !collision_meeting(X, Y, false) and Y > sensor[yPos] - MaxDistance
+				while !tile_meeting(X, Y, "CollisionTilesA") and Y > sensor[yPos] - MaxDistance
 				{
 					Y--;
 				}
-				while collision_meeting(X, Y, false)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					Y++;
 				}
@@ -55,11 +55,11 @@ function tile_get_distance(sensor)
 			break;
 			case ModeWallL:	
 		
-				while !collision_meeting(X, Y, false) and X > sensor[xPos] - MaxDistance
+				while !tile_meeting(X, Y, "CollisionTilesA") and X > sensor[xPos] - MaxDistance
 				{
 					X--;
 				}
-				while collision_meeting(X, Y, false)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					X++;
 				}
@@ -72,7 +72,7 @@ function tile_get_distance(sensor)
 	// Ceiling sensor
 	if sensor = Sensor[RoofL] or sensor = Sensor[RoofR]
 	{
-		while collision_meeting(X, Y, true)
+		while tile_meeting(X, Y, "CollisionTilesA")
 		{
 			Y++;
 		}
@@ -86,7 +86,7 @@ function tile_get_distance(sensor)
 		{
 			case ModeFloor: 
 		
-				while collision_meeting(X, Y, true)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					X++;
 				}
@@ -95,7 +95,7 @@ function tile_get_distance(sensor)
 			break;
 			case ModeWallR: 
 		
-				while collision_meeting(X, Y, true)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					Y--; 
 				}
@@ -104,7 +104,7 @@ function tile_get_distance(sensor)
 			break;
 			case ModeRoof: 
 		
-				while collision_meeting(X, Y, true)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					X--; 
 				}
@@ -113,7 +113,7 @@ function tile_get_distance(sensor)
 			break;
 			case ModeWallL: 
 		
-				while collision_meeting(X, Y, true)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					Y++;
 				}
@@ -130,7 +130,7 @@ function tile_get_distance(sensor)
 		{
 			case ModeFloor: 
 		
-				while collision_meeting(X, Y, true)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					X--;
 				}
@@ -139,7 +139,7 @@ function tile_get_distance(sensor)
 			break;
 			case ModeWallR: 
 		
-				while collision_meeting(X, Y, true)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					Y++; 
 				}
@@ -148,7 +148,7 @@ function tile_get_distance(sensor)
 			break;
 			case ModeRoof: 
 		
-				while collision_meeting(X, Y, true)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					X++; 
 				}
@@ -157,7 +157,7 @@ function tile_get_distance(sensor)
 			break;
 			case ModeWallL: 
 		
-				while collision_meeting(X, Y, true)
+				while tile_meeting(X, Y, "CollisionTilesA")
 				{
 					Y--;
 				}

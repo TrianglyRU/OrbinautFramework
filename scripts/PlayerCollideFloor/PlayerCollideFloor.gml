@@ -1,4 +1,4 @@
-function PlayerCollideFloorTiles()
+function PlayerCollideFloor()
 {	
 	if sensor_active(Sensor[FloorL]) and sensor_active(Sensor[FloorR])
 	{
@@ -32,16 +32,26 @@ function PlayerCollideFloorTiles()
 		}
 	
 		// Calculate distances and angles for each floor sensor
-		Sensor[FloorL][Dist] = tile_get_distance(Sensor[FloorL]);
-		Sensor[FloorR][Dist] = tile_get_distance(Sensor[FloorR]);
-		Sensor[FloorL][Ang]  = tile_get_angle(Sensor[FloorL]);
-		Sensor[FloorR][Ang]  = tile_get_angle(Sensor[FloorR]);
-
+		if !Game.TileCollisionMethod
+		{
+			Sensor[FloorL][Dist] = colmask_get_distance(Sensor[FloorL]);
+			Sensor[FloorR][Dist] = colmask_get_distance(Sensor[FloorR]);
+			Sensor[FloorL][Ang]  = colmask_get_angle(Sensor[FloorL]);
+			Sensor[FloorR][Ang]  = colmask_get_angle(Sensor[FloorR]);
+		}
+		else
+		{	
+			Sensor[FloorL][Dist] = tile_get_distance(Sensor[FloorL]);
+			Sensor[FloorR][Dist] = tile_get_distance(Sensor[FloorR]);
+			Sensor[FloorL][Ang]  = tile_get_angle(Sensor[FloorL]);
+			Sensor[FloorR][Ang]  = tile_get_angle(Sensor[FloorR]);
+		}
+			
 		// Define the sensor to use
 		var Used = Sensor[FloorL][Dist] <= Sensor[FloorR][Dist] ? FloorL : FloorR;
 	
 		// Calculate a winning tile angle and update collision mode
-		if Game.CardinalSlopeAngle
+		if Game.CardinalSlopeAngle and !Game.TileCollisionMethod
 		{	
 			// if S2+ angle detection method is enabled, check for the difference
 			var angle_diff = abs(Angle - Sensor[Used][Ang]);
