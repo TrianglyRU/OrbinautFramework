@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3c7b67d4-63cb-4525-b425-b29cf451666d","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Moonlight Base Zone",
-    "path": "folders/Stage Data/Moonlight Base Zone.yy",
+    "name": "Textures",
+    "path": "folders/Stage Data/Moonlight Base Zone/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_mbz_bg_layer1",

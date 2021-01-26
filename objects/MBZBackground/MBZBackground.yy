@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_mbz_bg_layer1",
-    "path": "sprites/spr_mbz_bg_layer1/spr_mbz_bg_layer1.yy",
+    "name": "spr_mbz_bg_layer0",
+    "path": "sprites/spr_mbz_bg_layer0/spr_mbz_bg_layer0.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,7 +21,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"MBZBackgroundLayer1","path":"objects/MBZBackgroundLayer1/MBZBackgroundLayer1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"MBZBackground","path":"objects/MBZBackground/MBZBackground.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -30,7 +30,7 @@
     "path": "folders/Stage Data/Moonlight Base Zone.yy",
   },
   "resourceVersion": "1.0",
-  "name": "MBZBackgroundLayer1",
+  "name": "MBZBackground",
   "tags": [],
   "resourceType": "GMObject",
 }
