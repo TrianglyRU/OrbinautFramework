@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "screen_fade_perform",
+  "name": "stop_sound",
   "tags": [],
   "resourceType": "GMScript",
 }

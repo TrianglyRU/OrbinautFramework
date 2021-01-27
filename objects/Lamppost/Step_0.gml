@@ -15,5 +15,8 @@
 				Active = 1;
 				animation_set(spr_obj_checkpoint_active, 1, true);
 			}
+			
+			// Play sound
+			play_sound(sfxLamppost, false);
 		}
 	}

@@ -9,6 +9,9 @@
 		// Create shine object
 		instance_create_depth(x, y, depth - 1, ShineFX);	
 		
+		// Play sound
+		play_sound(sfxRing, false);
+		
 		// Destroy ring
-		instance_destroy(self);	
-	}		
+		instance_destroy(self);		
+	}

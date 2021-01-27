@@ -14,8 +14,8 @@ function GameInitialization()
 	Game.WindowSize				= 2;
 	
 	// Audio settings
-	Game.MusicVolume			= 5;
-	Game.SoundVolume			= 5;
+	Game.MusicVolume			= 0.5;
+	Game.SoundVolume			= 0.5;
 	
 	// Engine customization
 	Game.TileCollisionMethod    = false;

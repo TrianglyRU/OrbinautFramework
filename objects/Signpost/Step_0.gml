@@ -9,6 +9,9 @@
 			Active			  = true;
 			Stage.TimeEnabled = false;
 			Stage.State       = ActStateFinished;
+			
+			// Play sound
+			play_sound(sfxSignpost, false);
 		}
 	}
 	else

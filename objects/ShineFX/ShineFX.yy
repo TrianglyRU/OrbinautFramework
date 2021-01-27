@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "General",
-    "path": "folders/Objects/General.yy",
+    "name": "Global",
+    "path": "folders/Objects/Global.yy",
   },
   "resourceVersion": "1.0",
   "name": "ShineFX",

@@ -11,6 +11,9 @@ function PlayerSpindashPerform()
 	{	
 		Animation = AnimSpindash;
 		if (SpindashRev < 8) SpindashRev += 2;
+		
+		// Play sound
+		play_sound(sfxCharge, false);
 	}
 	if SpindashRev > 0 
 	{
@@ -34,5 +37,9 @@ function PlayerSpindashPerform()
 		
 		// Set animation
 		Animation = AnimRoll;
+		
+		// Play sound
+		stop_sound(sfxCharge);
+		play_sound(sfxRelease, false);
 	}
 }

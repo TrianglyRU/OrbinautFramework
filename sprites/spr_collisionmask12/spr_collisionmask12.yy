@@ -17,8 +17,8 @@
   "width": 128,
   "height": 128,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "Collision",
+    "path": "texturegroups/Collision",
   },
   "swatchColours": null,
   "gridX": 0,

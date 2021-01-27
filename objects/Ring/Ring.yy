@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "Sprite77",
-    "path": "sprites/Sprite77/Sprite77.yy",
+    "name": "spr_ring",
+    "path": "sprites/spr_ring/spr_ring.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "General",
-    "path": "folders/Objects/General.yy",
+    "name": "Global",
+    "path": "folders/Objects/Global.yy",
   },
   "resourceVersion": "1.0",
   "name": "Ring",
