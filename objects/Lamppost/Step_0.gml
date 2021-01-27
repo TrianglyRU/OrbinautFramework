@@ -13,7 +13,7 @@
 			with Lamppost if !Active and LamppostID <= tempValue 
 			{
 				Active = 1;
-				animation_set(spr_obj_checkpoint_active, 1);
+				animation_set(spr_obj_checkpoint_active, 1, true);
 			}
 		}
 	}
