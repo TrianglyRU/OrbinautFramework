@@ -21,7 +21,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [],
-  "properties": [],
+  "properties": [
+    {"varType":6,"value":"\"Both Layers\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"Both Layers\"",
+        "\"Layer A\"",
+        "\"Layer B\"",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"LayerID","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":6,"value":"\"Solid All\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"Solid All\"",
+        "\"Solid Top\"",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Solidity","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "Collision Masks",

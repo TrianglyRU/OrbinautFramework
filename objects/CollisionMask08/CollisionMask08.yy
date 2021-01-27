@@ -24,14 +24,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [],
-  "properties": [
-    {"varType":6,"value":"\"Both\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
-        "\"Both\"",
-        "0",
-        "1",
-      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"LayerID","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"JumpThrough","tags":[],"resourceType":"GMObjectProperty",},
-  ],
+  "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Collision Masks",

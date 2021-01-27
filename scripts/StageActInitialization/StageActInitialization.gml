@@ -2,7 +2,10 @@ function StageActInitialization()
 {	
 	// Disable collision showcase
 	//CollisionMasks.visible = true;
-	
+	with CollisionMasks
+	{
+		sprite_collision_mask(sprite_index, false, 1, 0, 0, 0, 0, 0, 0);
+	}
 	switch room 
 	{
 		// Moonlight Base
