@@ -12,7 +12,7 @@
 		Active      = true;
 	}
 	
-	// Set draw order
+	// Render behind the player
 	object_set_depth(false);
 	
 	

@@ -23,7 +23,10 @@ function StageHorizontalBoundariesUpdate()
 			{
 				if floor(Player.PosX) >= (ActEndObject.x - Screen.Width * 1.5 + 64) + Screen.Width / 2 
 				{
-					LeftBoundary  = ActEndObject.x - Screen.Width * 1.5 + 64;
+					if Screen.PlayerScreenX > Screen.Width / 2
+					{
+						LeftBoundary = floor(Player.PosX) - Screen.Width / 2;
+					}
 					RightBoundary = ActEndObject.x + Screen.Width / 2;
 				}	
 			} 
@@ -38,8 +41,10 @@ function StageHorizontalBoundariesUpdate()
 		// Set limits in "act finished" state
 		case ActStateFinished:
 		{
-			LeftBoundary  = ActEndObject.x - Screen.Width / 2;
-			RightBoundary = ActEndObject.x + Screen.Width / 2;
+			if floor(Player.PosX) > ActEndObject.x
+			{
+				LeftBoundary = ActEndObject.x - Screen.Width / 2;
+			}
 		}
 		break;
 	
