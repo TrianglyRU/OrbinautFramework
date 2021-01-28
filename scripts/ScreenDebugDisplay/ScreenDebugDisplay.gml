@@ -24,8 +24,6 @@ function ScreenDebugDisplay()
 			+ "\n   X RADIUS: " + string(Player.yRadius)
 			+ "\n   Y RADIUS: " + string(Player.xRadius)
 			+ "\n   WALL OFFSET: " + string((Player.Grounded and Player.Angle == 0) * 8)
-			+ "\n   DISTANCE LEFT: " + string(Player.Sensor[FloorL][Dist])
-			+ "\n   DISTANCE RIGHT: " + string(Player.Sensor[FloorR][Dist])
 			+ "\n   MAX DISTANCE: " + string(Player.CollisionDistance)
 			+ "\n"
 			+ "\n          * PLAYER MOTION *"
@@ -39,7 +37,7 @@ function ScreenDebugDisplay()
 			+ "\n"
 			+ "\n          * SLOPE PHYSICS *"
 			+ "\n"
-			+ "\n   ANGLE: " + string(Player.Angle) + " MODE: " + string(Player.CollisionMode)
+			+ "\n   ANGLE: " + string(Player.Angle)
 			+ "\n   CEILING ANGLE: " + string(Player.CeilingAngle)
 			+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 			+ "\n"

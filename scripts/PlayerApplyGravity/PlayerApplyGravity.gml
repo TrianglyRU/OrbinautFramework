@@ -16,7 +16,4 @@ function PlayerApplyGravity()
 	{
 		Angle = 0;
 	}	
-	
-	// Reset collision mode
-	CollisionMode = 0;
 }

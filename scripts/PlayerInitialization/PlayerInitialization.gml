@@ -52,25 +52,5 @@ function PlayerInitialization()
 	// Stats
 	Score = Game.SavedScore;
 	Lives = Game.SavedLives;
-	Rings = 0;
-	
-	// Set default sensors attributes
-	Sensor[FloorL][xPos] = 0;
-	Sensor[FloorL][yPos] = 0;
-	Sensor[FloorL][Dist] = 0;
-	Sensor[FloorR][xPos] = 0;
-	Sensor[FloorR][yPos] = 0;
-	Sensor[FloorR][Dist] = 0;
-	Sensor[RoofL][xPos]	 = 0;
-	Sensor[RoofL][yPos]	 = 0;
-	Sensor[RoofL][Dist]	 = 0;
-	Sensor[RoofR][xPos]	 = 0;
-	Sensor[RoofR][yPos]	 = 0;
-	Sensor[RoofR][Dist]	 = 0;
-	Sensor[WallL][xPos]	 = 0;
-	Sensor[WallL][yPos]	 = 0;
-	Sensor[WallL][Dist]  = 0;
-	Sensor[WallR][xPos]	 = 0;
-	Sensor[WallR][yPos]	 = 0;
-	Sensor[WallR][Dist]	 = 0;	
+	Rings = 0;	
 }

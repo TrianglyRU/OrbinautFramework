@@ -1,136 +1,216 @@
 function PlayerHitWalls()
-{		
-	/* Wall collision is performed a frame ahead when grounded, so we add Xsp and Ysp to sensor position. 
-	We also offset the position down 8 pixels on flat floor to keep us from clipping up small steps */	
-	var SpdX = Grounded * Xsp;
-	var SpdY = Grounded * Ysp;
-	var Ofst = (Grounded and !Angle) * 8; 
-	
-	// Left wall
-	if sensor_active(Sensor[WallL])
-	{	
-		// Update position
-		switch CollisionMode
+{	
+	// Update angle mode for wall collision when grounded
+	if Grounded
+	{
+		switch round(Angle/90) % 4
 		{
-			case ModeFloor: 
-				Sensor[WallL][xPos] = floor(PosX + SpdX - 10);
-				Sensor[WallL][yPos] = floor(PosY + SpdY + Ofst);
-			break;
-			case ModeWallR: 		
-				Sensor[WallL][xPos] = floor(PosX + SpdX);
-				Sensor[WallL][yPos] = floor(PosY + SpdY + 10);
-			break;
-			case ModeRoof: 
-				Sensor[WallL][xPos] = floor(PosX + SpdX + 10);
-				Sensor[WallL][yPos] = floor(PosY + SpdY);
-			break;
-			case ModeWallL: 	
-				Sensor[WallL][xPos] = floor(PosX + SpdX);
-				Sensor[WallL][yPos] = floor(PosY + SpdY - 10);
-			break;
-		}
-		
-		// Get distance
-		if !Game.TileCollisionMethod
-		{
-			Sensor[WallL][Dist] = colmask_get_distance(Sensor[WallL]);
-		}
-		else
-		{
-			Sensor[WallL][Dist] = tile_get_distance(Sensor[WallL]);
-		}
-
-		// Collide if the distance is negative
-		if Sensor[WallL][Dist] < 0
-		{	
-			if Grounded 
-			{
-				switch CollisionMode 
-				{
-					case ModeFloor: 
-						Xsp -= Sensor[WallL][Dist]; 
-					break;
-					case ModeWallR: 
-						Ysp += Sensor[WallL][Dist]; 
-					break;
-					case ModeRoof:  
-						Xsp += Sensor[WallL][Dist]; 
-					break;
-					case ModeWallL: 
-						Ysp -= Sensor[WallL][Dist]; 
-					break;
-				}
+			case ModeFloor:
+			{	
+				// Set coordinates
+				var xLeft  = floor(PosX - xRadius);
+				var yLeft  = floor(PosY + yRadius);
+				var xRight = floor(PosX + xRadius);
+				var yRight = floor(PosY + yRadius);
+			
+				// Get floor distances
+				var dLeft  = colmask_get_distance_v(xLeft, yLeft, true, TileSize)
+				var dRight = colmask_get_distance_v(xRight, yRight, true, TileSize)
+			
+				// Get floor angle
+				var Ang = dLeft <= dRight? colmask_get_angle_v(xLeft, yLeft, true) : colmask_get_angle_v(xRight, yRight, true);
 			}
-			else 
-			{
-				PosX -= Sensor[WallL][Dist];
-				Xsp   = 0;
+			break;
+			case ModeWallR:
+			{	
+				// Set coordinates
+				var xLeft  = floor(PosX + yRadius);
+				var yLeft  = floor(PosY + xRadius);
+				var xRight = floor(PosX + yRadius);
+				var yRight = floor(PosY - xRadius);
+			
+				// Get floor distances
+				var dLeft  = colmask_get_distance_h(xLeft, yLeft, true, TileSize)
+				var dRight = colmask_get_distance_h(xRight, yRight, true, TileSize)
+			
+				// Get floor angle
+				var Ang = dLeft <= dRight? colmask_get_angle_h(xLeft, yLeft, true) : colmask_get_angle_h(xRight, yRight, true);
 			}
-			Inertia = 0;
+			break;
+			case ModeRoof:
+			{	
+				// Set coordinates
+				var xLeft  = floor(PosX + xRadius);
+				var yLeft  = floor(PosY - yRadius);
+				var xRight = floor(PosX - xRadius);
+				var yRight = floor(PosY - yRadius);
+			
+				// Get floor distances and angles
+				var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, TileSize)
+				var dRight = colmask_get_distance_v(xRight, yRight, false, TileSize)
+			
+				// Get floor angle
+				var Ang = dLeft <= dRight? colmask_get_angle_v(xLeft, yLeft, false) : colmask_get_angle_v(xRight, yRight, false);		
+			}
+			break;
+			case ModeWallL:
+			{	
+				// Set coordinates
+				var xLeft  = floor(PosX - yRadius);
+				var yLeft  = floor(PosY - xRadius);
+				var xRight = floor(PosX - yRadius);
+				var yRight = floor(PosY + xRadius);
+			
+				// Get floor distances and angles
+				var dLeft  = colmask_get_distance_h(xLeft, yLeft, false, TileSize)
+				var dRight = colmask_get_distance_h(xRight, yRight, false, TileSize)
+			
+				// Get floor angle
+				var Ang = dLeft <= dRight? colmask_get_angle_h(xLeft, yLeft, false) : colmask_get_angle_h(xRight, yRight, false);
+			}
+			break;
 		}
 	}
 	
-	// Right wall
-	if sensor_active(Sensor[WallR])
-	{	
-		// Update position
-		switch CollisionMode
+	// Left wall collision
+	if Grounded
+	{
+		if (Ang < 90 or Ang > 270 or Game.ExtensiveWallCollision and Ang mod 90 = 0) and Inertia < 0
 		{
-			case ModeFloor: 
-				Sensor[WallR][xPos] = floor(PosX + SpdX + 10);
-				Sensor[WallR][yPos] = floor(PosY + SpdY + Ofst);
-			break;
-			case ModeWallR: 		
-				Sensor[WallR][xPos] = floor(PosX + SpdX);
-				Sensor[WallR][yPos] = floor(PosY + SpdY - 10);
-			break;
-			case ModeRoof: 
-				Sensor[WallR][xPos] = floor(PosX + SpdX - 10);
-				Sensor[WallR][yPos] = floor(PosY + SpdY);
-			break;
-			case ModeWallL: 	
-				Sensor[WallR][xPos]	= floor(PosX + SpdX);
-				Sensor[WallR][yPos] = floor(PosY + SpdY + 10);
-			break;
-		}
-		
-		// Get distance
-		if !Game.TileCollisionMethod
-		{
-			Sensor[WallR][Dist] = colmask_get_distance(Sensor[WallR]);
-		}
-		else
-		{
-			Sensor[WallR][Dist] = tile_get_distance(Sensor[WallR]);
-		}
-		
-		// Collide if the distance is negative
-		if Sensor[WallR][Dist] < 0
-		{
-			if Grounded 
+			// Get position
+			var PlayerX = floor(PosX + Xsp);
+			var PlayerY = floor(PosY + Ysp);
+			
+			// Collide if distance is negative (frame ahead)
+			switch round(Ang/90) % 4
 			{
-				switch CollisionMode 
-				{
-					case ModeFloor:
-						Xsp += Sensor[WallR][Dist]; 
-					break;
-					case ModeWallR:
-						Ysp -= Sensor[WallR][Dist]; 
-					break;
-					case ModeRoof: 
-						Xsp -= Sensor[WallR][Dist]; 
-					break;
-					case ModeWallL: 
-						Ysp += Sensor[WallR][Dist]; 
-					break;
+				case ModeFloor:
+				{	
+					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, false, 0)
+					if  Distance < 0
+					{	
+						PosX    = PlayerX - Distance;
+						Xsp     = 0;
+						Inertia = 0;
+					}
 				}
-			} 
-			else 
-			{
-				PosX += Sensor[WallR][Dist];
-				Xsp   = 0;
+				break;
+				case ModeWallR:
+				{
+					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true, 0)
+					if  Distance < 0
+					{	
+						PosY    = PlayerY + Distance;
+						Ysp     = 0;
+						Inertia = 0;
+					}
+				}
+				break;
+				case ModeRoof:
+				{	
+					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY, true, 0)
+					if  Distance < 0
+					{	
+						PosX    = PlayerX + Distance;
+						Xsp     = 0;
+						Inertia = 0;
+					}
+				}
+				break;
+				case ModeWallL:
+				{
+					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false, 0)
+					if  Distance < 0
+					{	
+						PosY    = PlayerY - Distance;
+						Ysp     = 0;
+						Inertia = 0;
+					}
+				}
+				break;
 			}
-			Inertia = 0;
+		}
+	}
+	else if !(Xsp > abs(Ysp))
+	{
+		// Collide airborne at the current frame
+		var Distance = colmask_get_distance_h(floor(PosX - 10), floor(PosY), false, 0)
+		if  Distance < 0
+		{
+			PosX    -= Distance;
+			Xsp      = 0;
+			Inertia  = 0;
+		}
+	}
+	
+	// Right wall collision
+	if Grounded
+	{
+		if (Ang < 90 or Ang > 270 or Game.ExtensiveWallCollision and Ang mod 90 = 0) and Inertia > 0
+		{
+			// Get position
+			var PlayerX = floor(PosX + Xsp);
+			var PlayerY = floor(PosY + Ysp);
+			
+			// Collide if distance is negative (frame ahead)
+			switch round(Ang/90) % 4
+			{
+				case ModeFloor:
+				{	
+					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, true, 0)
+					if  Distance < 0
+					{	
+						PosX    = PlayerX + Distance;
+						Xsp     = 0;
+						Inertia = 0;
+					}
+				}
+				break;
+				case ModeWallR:
+				{
+					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false, 0)
+					if  Distance < 0
+					{	
+						PosY    = PlayerY - Distance;
+						Ysp     = 0;
+						Inertia = 0;
+					}
+				}
+				break;
+				case ModeRoof:
+				{	
+					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY, false, 0)
+					if  Distance < 0
+					{	
+						PosX    = PlayerX - Distance;
+						Xsp     = 0;
+						Inertia = 0;
+					}
+				}
+				break;
+				case ModeWallL:
+				{
+					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true, 0)
+					if  Distance < 0
+					{	
+						PosY    = PlayerY + Distance;
+						Ysp     = 0;
+						Inertia = 0;
+					}
+				}
+				break;
+			}
+		}
+	}
+	else if !(-Xsp > abs(Ysp))
+	{	
+		// Collide airborne at the current frame
+		var Distance = colmask_get_distance_h(floor(PosX + 10), floor(PosY), true, 0)
+		if  Distance < 0
+		{
+			PosX    += Distance;
+			Xsp      = 0;
+			Inertia  = 0;
 		}
 	}
 }

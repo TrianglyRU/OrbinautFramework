@@ -11,14 +11,12 @@
 			PlayerMovementLock();
 			PlayerSlopeResist();
 			PlayerMovementNormal();
-			PlayerUpdateAnglePosition();
 			PlayerHitWalls();
 			PlayerPositionUpdate();
 			PlayerPushPerform();
 			PlayerSpindashPerform();
 			PlayerRollPerform();
 			PlayerJumpPerform();
-			PlayerUpdateAnglePosition();
 			PlayerCollideFloor();	
 			PlayerSlopeDetach();
 			PlayerCollideSolidObjects();
@@ -27,11 +25,9 @@
 			PlayerMovementLock();
 			PlayerSlopeResistRolling();	
 			PlayerMovementRolling();
-			PlayerUpdateAnglePosition();
 			PlayerHitWalls();
 			PlayerPositionUpdate();
 			PlayerJumpPerform();
-			PlayerUpdateAnglePosition();
 			PlayerCollideFloor();	
 			PlayerSlopeDetach();
 			PlayerCollideSolidObjects();

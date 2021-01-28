@@ -29,7 +29,6 @@ function colmask_meeting(X, Y, onlyFullSolid)
 		{
 			return false;
 		}
-		//return PlatformFlag == false;
 	} 
 	
 	// Confirm collision if all the checks has been done

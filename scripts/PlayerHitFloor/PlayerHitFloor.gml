@@ -1,33 +1,26 @@
 function PlayerHitFloor()
 {	
-	if sensor_active(Sensor[FloorL]) and sensor_active(Sensor[FloorR])
-	{
-		// Get distances, then define a sensor to use
-		if !Game.TileCollisionMethod
-		{
-			Sensor[FloorL][Dist] = colmask_get_distance(Sensor[FloorL]);
-			Sensor[FloorR][Dist] = colmask_get_distance(Sensor[FloorR]);
-		}
-		else
-		{
-			Sensor[FloorL][Dist] = tile_get_distance(Sensor[FloorL]);
-			Sensor[FloorR][Dist] = tile_get_distance(Sensor[FloorR]);
-		}
-		var Used = Sensor[FloorL][Dist] <= Sensor[FloorR][Dist] ? FloorL : FloorR;
-
-		// When the distance is negative, we are touching the floor
-		if Sensor[Used][Dist] < 0
-		{	
-			// Update angle
-			if !Game.TileCollisionMethod
-			{
-				Angle = colmask_get_angle(Sensor[Used]);
-			}
-			else
-			{
-				Angle = tile_get_angle(Sensor[Used]);
-			}
+	if Ysp > 0 or abs(Xsp) > abs(Ysp)
+	{	
+		// Set coordinates
+		var xLeft  = floor(PosX - xRadius);
+		var yLeft  = floor(PosY + yRadius);
+		var xRight = floor(PosX + xRadius);
+		var yRight = floor(PosY + yRadius);
+			
+		// Get floor distances
+		var DistLeft  = colmask_get_distance_v(xLeft, yLeft, true, TileSize)
+		var DistRight = colmask_get_distance_v(xRight, yRight, true, TileSize)
 		
+		// Use the shortest distance
+		Distance = DistLeft <= DistRight? DistLeft : DistRight;
+
+		// When distance is negative, we're touching the floor
+		if Distance < 0
+		{
+			// Get floor angle
+			Angle = DistLeft <= DistRight? colmask_get_angle_v(xLeft, yLeft, true) : colmask_get_angle_v(xRight, yRight, true);
+			
 			// If we're moving downwards, calculate a momentum using floor angle
 			if abs(Xsp) < abs(Ysp)
 			{
@@ -61,10 +54,10 @@ function PlayerHitFloor()
 			}
 		
 			// Adhere to the floor
-			PosY += Sensor[Used][Dist];
+			PosY += Distance;
 	
-			// Set flags
-			Grounded = true;
+			// Land and set animation
+			Grounded  = true;
 		}
 	}
 }

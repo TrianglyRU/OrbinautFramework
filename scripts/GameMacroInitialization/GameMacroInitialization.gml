@@ -7,6 +7,7 @@ function GameMacroInitialization()
 	#macro black 0
 	#macro white 1
 	#macro flash 2
+	#macro TileSize 16
 	
 	// Player sensor macros
 	#macro FloorL 0

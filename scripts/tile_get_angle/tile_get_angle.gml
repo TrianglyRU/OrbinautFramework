@@ -1,9 +1,9 @@
-/// @function tile_get_angle(sensor)
+/// @function tile_get_angle()
 function tile_get_angle(sensor) 
 {	
 	// Get sensors anchor points
-	var X = sensor[xPos];
-	var Y = sensor[yPos];
+	var X = sensor[0];
+	var Y = sensor[1];
 	
 	// Get an angle of the tile
 	var Tile  = tilemap_get_at_pixel(layer_tilemap_get_id(layer_get_id("CollisionTilesA")), X, Y);

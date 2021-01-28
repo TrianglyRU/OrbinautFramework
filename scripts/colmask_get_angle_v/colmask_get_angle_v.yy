@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Player Scripts",
-    "path": "folders/Game Code/Player Scripts.yy",
+    "name": "Framework Logic",
+    "path": "folders/Game Functions/Framework Logic.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerUpdateAnglePosition",
+  "name": "colmask_get_angle_v",
   "tags": [],
   "resourceType": "GMScript",
 }

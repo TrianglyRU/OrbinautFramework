@@ -1,36 +1,113 @@
 function PlayerCollideFloor()
 {	
-	if sensor_active(Sensor[FloorL]) and sensor_active(Sensor[FloorR])
+	// Get distances and floor angle
+	switch round(Angle/90) % 4
 	{
-		// Use a sensor with a shortest distance
-		var Used = Sensor[FloorL][Dist] <= Sensor[FloorR][Dist] ? FloorL : FloorR;
-		
-		// Calculate collision tolerance
-		if !Game.SpeedFloorClip 
-		{
-			CollisionDistance = 14;
-		} 
-		else 
-		{
-			CollisionDistance = min(4 + abs(floor(CollisionMode mod 2 = 0 ? Xsp : Ysp)), 14);
+		case ModeFloor:
+		{	
+			// Set coordinates
+			var xLeft  = floor(PosX - xRadius);
+			var yLeft  = floor(PosY + yRadius);
+			var xRight = floor(PosX + xRadius);
+			var yRight = floor(PosY + yRadius);
+			
+			// Get floor distances
+			var dLeft  = colmask_get_distance_v(xLeft, yLeft, true, TileSize)
+			var dRight = colmask_get_distance_v(xRight, yRight, true, TileSize)
+			
+			// Get floor angle
+			var Ang = dLeft <= dRight? colmask_get_angle_v(xLeft, yLeft, true) : colmask_get_angle_v(xRight, yRight, true);
 		}
-		
-		// Go airborne if the distance is greater than collision tolerance
-		if Sensor[Used][Dist] > CollisionDistance
-		{
-			Grounded = false;
+		break;
+		case ModeWallR:
+		{	
+			// Set coordinates
+			var xLeft  = floor(PosX + yRadius);
+			var yLeft  = floor(PosY + xRadius);
+			var xRight = floor(PosX + yRadius);
+			var yRight = floor(PosY - xRadius);
+			
+			// Get floor distances
+			var dLeft  = colmask_get_distance_h(xLeft, yLeft, true, TileSize)
+			var dRight = colmask_get_distance_h(xRight, yRight, true, TileSize)
+			
+			// Get floor angle
+			var Ang = dLeft <= dRight? colmask_get_angle_h(xLeft, yLeft, true) : colmask_get_angle_h(xRight, yRight, true);
 		}
-		
-		// Else adhere to the floor
+		break;
+		case ModeRoof:
+		{	
+			// Set coordinates
+			var xLeft  = floor(PosX + xRadius);
+			var yLeft  = floor(PosY - yRadius);
+			var xRight = floor(PosX - xRadius);
+			var yRight = floor(PosY - yRadius);
+			
+			// Get floor distances and angles
+			var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, TileSize)
+			var dRight = colmask_get_distance_v(xRight, yRight, false, TileSize)
+			
+			// Get floor angle
+			var Ang = dLeft <= dRight? colmask_get_angle_v(xLeft, yLeft, false) : colmask_get_angle_v(xRight, yRight, false);		
+		}
+		break;
+		case ModeWallL:
+		{	
+			// Set coordinates
+			var xLeft  = floor(PosX - yRadius);
+			var yLeft  = floor(PosY - xRadius);
+			var xRight = floor(PosX - yRadius);
+			var yRight = floor(PosY + xRadius);
+			
+			// Get floor distances and angles
+			var dLeft  = colmask_get_distance_h(xLeft, yLeft, false, TileSize)
+			var dRight = colmask_get_distance_h(xRight, yRight, false, TileSize)
+			
+			// Get floor angle
+			var Ang = dLeft <= dRight? colmask_get_angle_h(xLeft, yLeft, false) : colmask_get_angle_h(xRight, yRight, false);
+		}
+		break;
+	}
+	
+	// Update player's angle
+	if Game.ConsiderAngleDifference
+	{	
+		var Difference = abs(Angle - Ang);
+		if  Difference < 180
+		{	
+			Angle = Difference > 45 ? (round(Angle/90) % 4) * 90 : Ang;
+		}
 		else
-		{
-			switch CollisionMode 
-			{	
-				case ModeFloor:	PosY += Sensor[Used][Dist]; break;
-				case ModeWallR: PosX += Sensor[Used][Dist]; break;
-				case ModeRoof:  PosY -= Sensor[Used][Dist]; break;
-				case ModeWallL: PosX -= Sensor[Used][Dist]; break;
-			}
-		}
+		{	
+			Angle = Difference < 315 ? (round(Angle/90) % 4) * 90 : Ang;
+		}	
+	}
+	else
+	{	
+		Angle = Ang;
+	}
+	
+	// Calculate collision tollerance
+	if (round(Angle/90) % 4) mod 2 = 0
+	{
+		CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+	}
+	else
+	{
+		CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+	}
+	
+	// Collide using shortest distance
+	var Distance = dLeft <= dRight ? dLeft : dRight;
+	if  Distance > CollisionDistance
+	{
+		Grounded = false;
+	}
+	else switch round(Angle/90) % 4
+	{
+		case ModeFloor: PosY += Distance; break;
+		case ModeWallR: PosX += Distance; break;
+		case ModeRoof:  PosY -= Distance; break;
+		case ModeWallL: PosX -= Distance; break;
 	}
 }

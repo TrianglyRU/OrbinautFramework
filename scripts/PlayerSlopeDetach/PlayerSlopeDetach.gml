@@ -25,12 +25,12 @@ function PlayerSlopeDetach()
 		else
 		{	
 			// If we're on steep enough slope and going slowly
-			if CollisionMode != 0 and abs(Inertia) < 2.5
+			if (round(Angle/90) % 4) != ModeFloor and abs(Inertia) < 2.5
 			{	
 				// Reset inertia, lock controls for 30 frames and go airborne
 				Inertia      = 0;
-				Grounded     = false;
 				MovementLock = 30;
+				Grounded     = false;
 			}
 		}
 	}
