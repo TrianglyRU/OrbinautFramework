@@ -10,6 +10,8 @@ function StageActInitialization()
 	{
 		// Moonlight Base
 		case MBZ:
+			BackgroundMusic			= MoonlightBase;
+			BackgroundDAC			= noone;
 			CardName				= "MOONLIGHT BASE";	
 			TimeEnabled				= false;	
 			CardEnabled				= true;	

@@ -26,6 +26,6 @@ function PlayerJumpPerform()
 		Animation = AnimRoll;
 		
 		// Play sound
-		play_sound(sfxJump, false);
+		sound_sfx_play(sfxJump, false);
 	}	
 }

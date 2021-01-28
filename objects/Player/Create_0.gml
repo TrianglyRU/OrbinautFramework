@@ -33,6 +33,8 @@
 	
 	SpindashRev		     = 0;
 	isSuper				 = 0;
+	HighSpeedBonus		 = 0;
+	InvincibilityBonus   = 0;
 	
 	Animation			 = 0;
 	DrawOrder			 = 0;

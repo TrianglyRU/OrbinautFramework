@@ -51,6 +51,10 @@ function GameMacroInitialization()
 	#macro ActStateBossfight 2
 	#macro ActStateAfterboss 3
 	
+	// Audio macros
+	#macro bgmMain 0
+	#macro bgmDAC  1
+	
 	// Object macros
 	#macro SolidAll 0
 	#macro SolidTop 1	

@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "stop_sound",
+  "name": "sound_bgm_play",
   "tags": [],
   "resourceType": "GMScript",
 }

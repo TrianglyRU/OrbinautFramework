@@ -11,7 +11,7 @@
 			Stage.State       = ActStateFinished;
 			
 			// Play sound
-			play_sound(sfxSignpost, false);
+			sound_sfx_play(sfxSignpost, false);
 		}
 	}
 	else

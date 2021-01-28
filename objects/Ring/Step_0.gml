@@ -10,7 +10,7 @@
 		instance_create_depth(x, y, depth - 1, ShineFX);	
 		
 		// Play sound
-		play_sound(sfxRing, false);
+		sound_sfx_play(sfxRing, false);
 		
 		// Destroy ring
 		instance_destroy(self);		

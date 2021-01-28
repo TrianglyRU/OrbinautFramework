@@ -13,7 +13,14 @@ function PlayerCharacterAnimationList()
 					animation_set(spr_sonic_walk, round(max(1, 8 - abs(Inertia))), true);
 				break;
 				case AnimRun: 
-					animation_set(spr_sonic_run, round(max(1, 8 - abs(Inertia))), true);
+					if abs(Inertia) < 16
+					{
+						animation_set(spr_sonic_run, round(max(1, 8 - abs(Inertia))), true);
+					}
+					else
+					{
+						animation_set(spr_sonic_peelout, round(max(1, 8 - abs(Inertia))), true);
+					}
 				break;
 				case AnimRoll:
 					animation_set(spr_sonic_roll, round(max(1, 5 - abs(Inertia))), true);

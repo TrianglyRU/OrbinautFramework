@@ -18,7 +18,7 @@ function PlayerRollPerform()
 			Animation = AnimRoll;
 			
 			// Play sound
-			play_sound(sfxRoll, false);
+			sound_sfx_play(sfxRoll, false);
 		}
 	}	
 }

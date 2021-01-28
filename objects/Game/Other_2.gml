@@ -5,14 +5,17 @@
 	GameMacroInitialization();
 	GameInitialization();
 	
+	// Initialize audio
+	GameAudioGroupsLoad();
+	
 	// Initialize fonts
 	GameFontsInitialization();
-	
-	// Initialize application window
-	GameApplicationWindowCreate();
-	
+
 	// Initialize shaders
 	GameShadersInitialization();
 	
 	// Load tiledata
 	GameTiledataLoad();
+	
+	// Initialize application window
+	GameApplicationWindowCreate();

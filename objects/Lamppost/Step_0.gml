@@ -17,6 +17,6 @@
 			}
 			
 			// Play sound
-			play_sound(sfxLamppost, false);
+			sound_sfx_play(sfxLamppost, false);
 		}
 	}
