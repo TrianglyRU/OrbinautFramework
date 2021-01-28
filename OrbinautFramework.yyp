@@ -36,6 +36,7 @@
     {"id":{"name":"PlayerSlopeResist","path":"scripts/PlayerSlopeResist/PlayerSlopeResist.yy",},"order":7,},
     {"id":{"name":"ScreenCameraInitialization","path":"scripts/ScreenCameraInitialization/ScreenCameraInitialization.yy",},"order":8,},
     {"id":{"name":"spr_collisionmask01","path":"sprites/spr_collisionmask01/spr_collisionmask01.yy",},"order":1,},
+    {"id":{"name":"spr_collisiontiles_1","path":"sprites/spr_collisiontiles_1/spr_collisiontiles_1.yy",},"order":2,},
     {"id":{"name":"PlayerInitialization","path":"scripts/PlayerInitialization/PlayerInitialization.yy",},"order":15,},
     {"id":{"name":"CollisionMask13","path":"objects/CollisionMask13/CollisionMask13.yy",},"order":25,},
     {"id":{"name":"GameAudioGroupsVolumeReset","path":"scripts/GameAudioGroupsVolumeReset/GameAudioGroupsVolumeReset.yy",},"order":13,},
@@ -192,6 +193,7 @@
     {"id":{"name":"MoonlightBase","path":"sounds/MoonlightBase/MoonlightBase.yy",},"order":2,},
     {"id":{"name":"background_apply_parallax","path":"scripts/background_apply_parallax/background_apply_parallax.yy",},"order":15,},
     {"id":{"name":"fontTexture_TitleCard","path":"sprites/fontTexture_TitleCard/fontTexture_TitleCard.yy",},"order":5,},
+    {"id":{"name":"TileSet2","path":"tilesets/TileSet2/TileSet2.yy",},"order":3,},
     {"id":{"name":"GameAudioGroupsLoad","path":"scripts/GameAudioGroupsLoad/GameAudioGroupsLoad.yy",},"order":12,},
     {"id":{"name":"palette_cycle_perform","path":"scripts/palette_cycle_perform/palette_cycle_perform.yy",},"order":1,},
     {"id":{"name":"PlayerCharacterDisplay","path":"scripts/PlayerCharacterDisplay/PlayerCharacterDisplay.yy",},"order":1,},
@@ -307,10 +309,6 @@
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"data_angval.txt","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"data_left.txt","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"data_ceiling.txt","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"data_height.txt","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"data_width.txt","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.1.542",
