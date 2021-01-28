@@ -11,12 +11,27 @@
 			PlayerMovementLock();
 			PlayerSlopeResist();
 			PlayerMovementNormal();
+			PlayerUpdateAnglePosition();
 			PlayerHitWalls();
 			PlayerPositionUpdate();
 			PlayerPushPerform();
 			PlayerSpindashPerform();
 			PlayerRollPerform();
 			PlayerJumpPerform();
+			PlayerUpdateAnglePosition();
+			PlayerCollideFloor();	
+			PlayerSlopeDetach();
+			PlayerCollideSolidObjects();
+		break;
+		case PlayerStateRoll:
+			PlayerMovementLock();
+			PlayerSlopeResistRolling();	
+			PlayerMovementRolling();
+			PlayerUpdateAnglePosition();
+			PlayerHitWalls();
+			PlayerPositionUpdate();
+			PlayerJumpPerform();
+			PlayerUpdateAnglePosition();
 			PlayerCollideFloor();	
 			PlayerSlopeDetach();
 			PlayerCollideSolidObjects();
@@ -27,20 +42,9 @@
 			PlayerPositionUpdate();
 			PlayerApplyGravity();
 			PlayerHitWalls();
-			PlayerHitCeiling();
+			PlayerHitRoof();
 			PlayerHitFloor();
 			PlayerCollideSolidObjects();
 			PlayerResetOnFloor();
-		break;
-		case PlayerStateRoll:
-			PlayerMovementLock();
-			PlayerSlopeResistRolling();	
-			PlayerMovementRolling();
-			PlayerHitWalls();
-			PlayerPositionUpdate();
-			PlayerJumpPerform();
-			PlayerCollideFloor();	
-			PlayerSlopeDetach();
-			PlayerCollideSolidObjects();
 		break;
 	}

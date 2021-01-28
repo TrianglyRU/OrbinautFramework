@@ -27,8 +27,6 @@ function ScreenDebugDisplay()
 			+ "\n   DISTANCE LEFT: " + string(Player.Sensor[FloorL][Dist])
 			+ "\n   DISTANCE RIGHT: " + string(Player.Sensor[FloorR][Dist])
 			+ "\n   MAX DISTANCE: " + string(Player.CollisionDistance)
-			+ "\n   LEFT ANGLE: " + string(Player.Sensor[FloorL][Ang])
-			+ "\n   RIGHT ANGLE: " + string(Player.Sensor[FloorR][Ang])
 			+ "\n"
 			+ "\n          * PLAYER MOTION *"
 			+ "\n"

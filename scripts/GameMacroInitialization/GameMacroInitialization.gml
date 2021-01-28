@@ -17,8 +17,7 @@ function GameMacroInitialization()
 	#macro WallR  5	
 	#macro xPos	  0
 	#macro yPos	  1
-	#macro Ang	  2
-	#macro Dist	  3
+	#macro Dist	  2
 	
 	// Player macros
 	#macro ModeFloor	       0
@@ -50,10 +49,6 @@ function GameMacroInitialization()
 	#macro ActStateFinished  1
 	#macro ActStateBossfight 2
 	#macro ActStateAfterboss 3
-	
-	// Audio macros
-	#macro bgmMain 0
-	#macro bgmDAC  1
 	
 	// Object macros
 	#macro SolidAll 0

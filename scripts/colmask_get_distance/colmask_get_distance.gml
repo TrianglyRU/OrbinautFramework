@@ -1,10 +1,6 @@
 /// @function colmask_get_distance(sensor)
 function colmask_get_distance(sensor) 
 {	
-	// Set coorditanes, then find edge of the collision tile & return it
-	var X = sensor[xPos];
-	var Y = sensor[yPos];
-
 	// Floor sensor
 	if sensor = Sensor[FloorL] or sensor = Sensor[FloorR]
 	{
@@ -15,7 +11,16 @@ function colmask_get_distance(sensor)
 		switch CollisionMode 
 		{	
 			case ModeFloor:
-		
+				
+				// Update position
+				Sensor[FloorL][xPos] = floor(PosX - xRadius);
+				Sensor[FloorL][yPos] = floor(PosY + yRadius);
+				Sensor[FloorR][xPos] = floor(PosX + xRadius);
+				Sensor[FloorR][yPos] = floor(PosY + yRadius);
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while !colmask_meeting(X, Y, false) and Y < sensor[yPos] + MaxDistance
 				{
 					Y++;
@@ -28,7 +33,16 @@ function colmask_get_distance(sensor)
 			
 			break;
 			case ModeWallR:	
+				
+				// Update position
+				Sensor[FloorL][xPos] = floor(PosX + yRadius);
+				Sensor[FloorL][yPos] = floor(PosY + xRadius);
+				Sensor[FloorR][xPos] = floor(PosX + yRadius);
+				Sensor[FloorR][yPos] = floor(PosY - xRadius);
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
 		
+				// Find distance
 				while !colmask_meeting(X, Y, false) and X < sensor[xPos] + MaxDistance
 				{
 					X++;
@@ -41,7 +55,16 @@ function colmask_get_distance(sensor)
 			
 			break;
 			case ModeRoof:	
-		
+				
+				// Update position
+				Sensor[FloorL][xPos] = floor(PosX + xRadius);
+				Sensor[FloorL][yPos] = floor(PosY - yRadius);
+				Sensor[FloorR][xPos] = floor(PosX - xRadius);
+				Sensor[FloorR][yPos] = floor(PosY - yRadius);
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while !colmask_meeting(X, Y, false) and Y > sensor[yPos] - MaxDistance
 				{
 					Y--;
@@ -54,7 +77,16 @@ function colmask_get_distance(sensor)
 				
 			break;
 			case ModeWallL:	
-		
+					
+				// Update position
+				Sensor[FloorL][xPos] = floor(PosX - yRadius);
+				Sensor[FloorL][yPos] = floor(PosY - xRadius);
+				Sensor[FloorR][xPos] = floor(PosX - yRadius);
+				Sensor[FloorR][yPos] = floor(PosY + xRadius);
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while !colmask_meeting(X, Y, false) and X > sensor[xPos] - MaxDistance
 				{
 					X--;
@@ -69,9 +101,18 @@ function colmask_get_distance(sensor)
 		}	
 	}
 	
-	// Ceiling sensor
+	// Roof sensor
 	if sensor = Sensor[RoofL] or sensor = Sensor[RoofR]
-	{
+	{	
+		// Update position
+		Sensor[RoofL][xPos] = floor(PosX - xRadius);
+		Sensor[RoofL][yPos] = floor(PosY - yRadius);
+		Sensor[RoofR][xPos] = floor(PosX + xRadius);
+		Sensor[RoofR][yPos] = floor(PosY - yRadius);
+		var X = sensor[xPos];
+		var Y = sensor[yPos];
+	
+		// Find distances
 		while colmask_meeting(X, Y, true)
 		{
 			Y++;
@@ -81,11 +122,16 @@ function colmask_get_distance(sensor)
 	
 	// Left wall sensor
 	if sensor = Sensor[WallL]
-	{
+	{	
 		switch CollisionMode 
 		{
 			case ModeFloor: 
-		
+			
+				// Update position
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while colmask_meeting(X, Y, true)
 				{
 					X++;
@@ -94,16 +140,26 @@ function colmask_get_distance(sensor)
 			
 			break;
 			case ModeWallR: 
-		
+				
+				// Update position
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while colmask_meeting(X, Y, true)
 				{
 					Y--; 
 				}
-				return sensor[yPos] - Y;
+				return Y - sensor[yPos];
 			
 			break;
 			case ModeRoof: 
-		
+				
+				// Update position
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while colmask_meeting(X, Y, true)
 				{
 					X--; 
@@ -112,12 +168,17 @@ function colmask_get_distance(sensor)
 			
 			break;
 			case ModeWallL: 
-		
+				
+				// Update position
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while colmask_meeting(X, Y, true)
 				{
 					Y++;
 				}
-				return Y - sensor[yPos];
+				return sensor[yPos] - Y;
 			
 			break;
 		}	
@@ -125,11 +186,16 @@ function colmask_get_distance(sensor)
 	
 	// Right wall sensor
 	if sensor = Sensor[WallR]
-	{
+	{	
 		switch CollisionMode 
 		{
 			case ModeFloor: 
-		
+				
+				// Update position
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while colmask_meeting(X, Y, true)
 				{
 					X--;
@@ -138,16 +204,26 @@ function colmask_get_distance(sensor)
 			
 			break;
 			case ModeWallR: 
-		
+				
+				// Update position
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while colmask_meeting(X, Y, true)
 				{
 					Y++; 
 				}
-				return Y - sensor[yPos];
+				return sensor[yPos] - Y;
 			
 			break;
 			case ModeRoof: 
-		
+				
+				// Update position
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
+				
+				// Find distance
 				while colmask_meeting(X, Y, true)
 				{
 					X++; 
@@ -156,12 +232,17 @@ function colmask_get_distance(sensor)
 			
 			break;
 			case ModeWallL: 
+					
+				// Update position
+				var X = sensor[xPos];
+				var Y = sensor[yPos];
 		
+				// Find distance
 				while colmask_meeting(X, Y, true)
 				{
 					Y--;
 				}
-				return sensor[yPos] - Y;
+				return Y - sensor[yPos];
 			
 			break;
 		}

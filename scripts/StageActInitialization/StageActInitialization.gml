@@ -14,7 +14,7 @@ function StageActInitialization()
 			BackgroundDAC			= noone;
 			CardName				= "MOONLIGHT BASE";	
 			TimeEnabled				= false;	
-			CardEnabled				= true;	
+			CardEnabled				= false;	
 			ZoneID					= 10; 
 			ActID					= 0;	
 			WaterLevel				= 0;	

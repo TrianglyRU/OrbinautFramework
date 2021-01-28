@@ -1,33 +1,36 @@
 function PlayerHitWalls()
 {		
-	// Adjust sensors position by adding player's speed to them
+	/* Wall collision is performed a frame ahead when grounded, so we add Xsp and Ysp to sensor position. 
+	We also offset the position down 8 pixels on flat floor to keep us from clipping up small steps */	
 	var SpdX = Grounded * Xsp;
 	var SpdY = Grounded * Ysp;
-	var Ofst = Grounded and Angle == 0;
+	var Ofst = (Grounded and !Angle) * 8; 
 	
-	// Left wall collision
+	// Left wall
 	if sensor_active(Sensor[WallL])
 	{	
-		// Update sensor position and find the distance
-		switch CollisionMode 
+		// Update position
+		switch CollisionMode
 		{
-			case ModeFloor:
+			case ModeFloor: 
 				Sensor[WallL][xPos] = floor(PosX + SpdX - 10);
-				Sensor[WallL][yPos] = floor(PosY + SpdY + Ofst * 8);	
+				Sensor[WallL][yPos] = floor(PosY + SpdY + Ofst);
 			break;
-			case ModeWallR:
+			case ModeWallR: 		
 				Sensor[WallL][xPos] = floor(PosX + SpdX);
 				Sensor[WallL][yPos] = floor(PosY + SpdY + 10);
 			break;
-			case ModeRoof:
+			case ModeRoof: 
 				Sensor[WallL][xPos] = floor(PosX + SpdX + 10);
 				Sensor[WallL][yPos] = floor(PosY + SpdY);
 			break;
-			case ModeWallL:
+			case ModeWallL: 	
 				Sensor[WallL][xPos] = floor(PosX + SpdX);
 				Sensor[WallL][yPos] = floor(PosY + SpdY - 10);
 			break;
 		}
+		
+		// Get distance
 		if !Game.TileCollisionMethod
 		{
 			Sensor[WallL][Dist] = colmask_get_distance(Sensor[WallL]);
@@ -37,17 +40,25 @@ function PlayerHitWalls()
 			Sensor[WallL][Dist] = tile_get_distance(Sensor[WallL]);
 		}
 
-		// Collide when the distance is negative
+		// Collide if the distance is negative
 		if Sensor[WallL][Dist] < 0
 		{	
 			if Grounded 
 			{
 				switch CollisionMode 
 				{
-					case ModeFloor: Xsp -= Sensor[WallL][Dist]; break;
-					case ModeWallR: Ysp += Sensor[WallL][Dist]; break;
-					case ModeRoof:  Xsp += Sensor[WallL][Dist]; break;
-					case ModeWallL: Ysp -= Sensor[WallL][Dist];	break;
+					case ModeFloor: 
+						Xsp -= Sensor[WallL][Dist]; 
+					break;
+					case ModeWallR: 
+						Ysp += Sensor[WallL][Dist]; 
+					break;
+					case ModeRoof:  
+						Xsp += Sensor[WallL][Dist]; 
+					break;
+					case ModeWallL: 
+						Ysp -= Sensor[WallL][Dist]; 
+					break;
 				}
 			}
 			else 
@@ -59,29 +70,31 @@ function PlayerHitWalls()
 		}
 	}
 	
-	// Right wall collision
+	// Right wall
 	if sensor_active(Sensor[WallR])
-	{
-		// Update sensor position and find the distance
-		switch CollisionMode 
+	{	
+		// Update position
+		switch CollisionMode
 		{
-			case ModeFloor:
+			case ModeFloor: 
 				Sensor[WallR][xPos] = floor(PosX + SpdX + 10);
-				Sensor[WallR][yPos] = floor(PosY + SpdY + Ofst * 8);
+				Sensor[WallR][yPos] = floor(PosY + SpdY + Ofst);
 			break;
-			case ModeWallR:
+			case ModeWallR: 		
 				Sensor[WallR][xPos] = floor(PosX + SpdX);
 				Sensor[WallR][yPos] = floor(PosY + SpdY - 10);
 			break;
-			case ModeRoof:
+			case ModeRoof: 
 				Sensor[WallR][xPos] = floor(PosX + SpdX - 10);
 				Sensor[WallR][yPos] = floor(PosY + SpdY);
 			break;
-			case ModeWallL:
+			case ModeWallL: 	
 				Sensor[WallR][xPos]	= floor(PosX + SpdX);
 				Sensor[WallR][yPos] = floor(PosY + SpdY + 10);
-			break
+			break;
 		}
+		
+		// Get distance
 		if !Game.TileCollisionMethod
 		{
 			Sensor[WallR][Dist] = colmask_get_distance(Sensor[WallR]);
@@ -91,17 +104,25 @@ function PlayerHitWalls()
 			Sensor[WallR][Dist] = tile_get_distance(Sensor[WallR]);
 		}
 		
-		// Collide when the distance is negative
+		// Collide if the distance is negative
 		if Sensor[WallR][Dist] < 0
 		{
 			if Grounded 
 			{
 				switch CollisionMode 
 				{
-					case ModeFloor: Xsp += Sensor[WallR][Dist]; break;
-					case ModeWallR: Ysp -= Sensor[WallR][Dist]; break;
-					case ModeRoof:  Xsp -= Sensor[WallR][Dist]; break;
-					case ModeWallL: Ysp += Sensor[WallR][Dist]; break;
+					case ModeFloor:
+						Xsp += Sensor[WallR][Dist]; 
+					break;
+					case ModeWallR:
+						Ysp -= Sensor[WallR][Dist]; 
+					break;
+					case ModeRoof: 
+						Xsp -= Sensor[WallR][Dist]; 
+					break;
+					case ModeWallL: 
+						Ysp += Sensor[WallR][Dist]; 
+					break;
 				}
 			} 
 			else 

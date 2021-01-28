@@ -32,7 +32,7 @@ function sensor_active(sensor_id)
 	{	
 		if Grounded
 		{
-			if (Angle <= 90 or Angle >= 270) and Inertia < 0
+			if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision && Angle mod 90 = 0) and Inertia < 0
 			{
 				return true;
 			}
@@ -46,7 +46,7 @@ function sensor_active(sensor_id)
 	{
 		if Grounded
 		{
-			if (Angle < 90 or Angle > 270) and Inertia > 0
+			if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision && Angle mod 90 = 0) and Inertia > 0
 			{
 				return true;
 			}
