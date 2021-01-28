@@ -229,7 +229,6 @@
     {"id":{"name":"CollisionMask27","path":"objects/CollisionMask27/CollisionMask27.yy",},"order":38,},
     {"id":{"name":"spr_obj_checkpoint_active","path":"sprites/spr_obj_checkpoint_active/spr_obj_checkpoint_active.yy",},"order":18,},
     {"id":{"name":"PlayerJumpPerform","path":"scripts/PlayerJumpPerform/PlayerJumpPerform.yy",},"order":11,},
-    {"id":{"name":"sensor_active","path":"scripts/sensor_active/sensor_active.yy",},"order":1,},
     {"id":{"name":"spr_tails_idle","path":"sprites/spr_tails_idle/spr_tails_idle.yy",},"order":5,},
     {"id":{"name":"CollisionMask11","path":"objects/CollisionMask11/CollisionMask11.yy",},"order":23,},
     {"id":{"name":"spr_tails_tail_idle","path":"sprites/spr_tails_tail_idle/spr_tails_tail_idle.yy",},"order":9,},

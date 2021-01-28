@@ -8,18 +8,7 @@ function GameMacroInitialization()
 	#macro white 1
 	#macro flash 2
 	#macro TileSize 16
-	
-	// Player sensor macros
-	#macro FloorL 0
-	#macro FloorR 1
-	#macro RoofL  2
-	#macro RoofR  3
-	#macro WallL  4
-	#macro WallR  5	
-	#macro xPos	  0
-	#macro yPos	  1
-	#macro Dist	  2
-	
+
 	// Player macros
 	#macro ModeFloor	       0
 	#macro ModeWallR	       1
