@@ -42,5 +42,8 @@ function GameInitialization()
 	Game.PalIndex[0]			= 0;
 	
 	// Temporary value array. Can be used for various things
-	Game.TempValue[0]			= 0;
+	for (var i = 0; i < 100; i++)
+	{
+		Game.TempValue[i] = 0;
+	}
 }
