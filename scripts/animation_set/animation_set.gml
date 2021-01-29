@@ -2,7 +2,7 @@
 function animation_set(objSprite, aniSpeed, doLoop) 
 {	
 	// First check if correct speed type is set for the sprite we call
-	if sprite_get_speed_type(objSprite) != spritespeed_framespergameframe || sprite_get_speed(objSprite) != 1
+	if sprite_get_speed_type(objSprite) != spritespeed_framespergameframe or sprite_get_speed(objSprite) != 1
 	{
 		sprite_set_speed(objSprite, 1, spritespeed_framespergameframe);
 	}

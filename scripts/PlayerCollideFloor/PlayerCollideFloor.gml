@@ -1,5 +1,8 @@
 function PlayerCollideFloor()
 {	
+	// Do not collide with floor when on object
+	if OnObject exit;
+	
 	// Get distances and floor angle first
 	switch round(Angle/90) % 4
 	{

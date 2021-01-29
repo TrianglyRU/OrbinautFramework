@@ -7,7 +7,7 @@ function sound_bgm_play(musicID, endAt, returnTo)
 	}
 	
 	// Loop it
-	else
+	else if endAt != -1 and returnTo != -1
 	{
 		if audio_sound_get_track_position(loopTrack[musicID]) > endAt
 		{

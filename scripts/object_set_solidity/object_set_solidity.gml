@@ -1,6 +1,6 @@
 function object_set_solidity(type)
 {	
-	// Accept only SOLID_FULL or SOLID_PLATFORM
+	// Accept only SolidAll or SolidTop
 	if type != SolidAll and type != SolidTop
 	{	
 		show_message("Wrong solidity attribute set for object ID " + string(id) + " in function object_set_solidity. Expected SolidAll or SolidTop");
