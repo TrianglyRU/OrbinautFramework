@@ -23,8 +23,11 @@ function ScreenDebugDisplay()
 			+ "\n"
 			+ "\n   X RADIUS: " + string(Player.yRadius)
 			+ "\n   Y RADIUS: " + string(Player.xRadius)
-			+ "\n   WALL OFFSET: " + string((Player.Grounded and Player.Angle == 0) * 8)
+			+ "\n   WALL OFFSET: " + string((Player.Grounded and !Player.Angle) * 8)
 			+ "\n   MAX DISTANCE: " + string(Player.CollisionDistance)
+			+ "\n   MASK ID: " + string(Game.TempValue[98])
+			+ "\n   MASK LAYER: " + string(Game.TempValue[99])
+			+ "\n   MASK SOLIDITY: " + string(Game.TempValue[100])
 			+ "\n"
 			+ "\n          * PLAYER MOTION *"
 			+ "\n"
@@ -38,12 +41,11 @@ function ScreenDebugDisplay()
 			+ "\n          * SLOPE PHYSICS *"
 			+ "\n"
 			+ "\n   ANGLE: " + string(Player.Angle)
-			+ "\n   CEILING ANGLE: " + string(Player.CeilingAngle)
 			+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 			+ "\n"
 			+ "\n         * STATES AND FLAGS *"
 			+ "\n"
-			+ "\n   CODE SCRIPT: " + string(Player.State)
+			+ "\n   STATE SCRIPT: " + string(Player.State)
 			+ "\n   ON OBJECT: " + string(Player.OnObject)
 			+ "\n   GROUNDED: " + string(Player.Grounded)
 			+ "\n   IS ROLLING: " + string(Player.Rolling)
@@ -51,6 +53,8 @@ function ScreenDebugDisplay()
 			+ "\n   IS PUSHING: " + string(Player.Pushing)
 			+ "\n   ON LAYER: " + string(Player.Layer)
 			+ "\n   SPINDASH REV: " + string(Player.SpindashRev)
+			+ "\n   HIGHSPEED TIMER: " + string(Player.HighSpeedBonus)
+			+ "\n   INVINCIBILITY TIMER: " + string(Player.InvincibilityBonus)
 			+ "\n"
 			+ "\n         * CHARACTER VISUALS *"
 			+ "\n"

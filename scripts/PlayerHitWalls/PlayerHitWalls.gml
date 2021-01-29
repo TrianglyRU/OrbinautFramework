@@ -1,88 +1,16 @@
 function PlayerHitWalls()
 {	
-	// Update angle mode for wall collision when grounded
-	if Grounded
-	{
-		switch round(Angle/90) % 4
-		{
-			case ModeFloor:
-			{	
-				// Set coordinates
-				var xLeft  = floor(PosX - xRadius);
-				var yLeft  = floor(PosY + yRadius);
-				var xRight = floor(PosX + xRadius);
-				var yRight = floor(PosY + yRadius);
-			
-				// Get floor distances
-				var dLeft  = colmask_get_distance_v(xLeft, yLeft, true, TileSize)
-				var dRight = colmask_get_distance_v(xRight, yRight, true, TileSize)
-			
-				// Get floor angle
-				var Ang = dLeft <= dRight? colmask_get_angle_v(xLeft, yLeft, true) : colmask_get_angle_v(xRight, yRight, true);
-			}
-			break;
-			case ModeWallR:
-			{	
-				// Set coordinates
-				var xLeft  = floor(PosX + yRadius);
-				var yLeft  = floor(PosY + xRadius);
-				var xRight = floor(PosX + yRadius);
-				var yRight = floor(PosY - xRadius);
-			
-				// Get floor distances
-				var dLeft  = colmask_get_distance_h(xLeft, yLeft, true, TileSize)
-				var dRight = colmask_get_distance_h(xRight, yRight, true, TileSize)
-			
-				// Get floor angle
-				var Ang = dLeft <= dRight? colmask_get_angle_h(xLeft, yLeft, true) : colmask_get_angle_h(xRight, yRight, true);
-			}
-			break;
-			case ModeRoof:
-			{	
-				// Set coordinates
-				var xLeft  = floor(PosX + xRadius);
-				var yLeft  = floor(PosY - yRadius);
-				var xRight = floor(PosX - xRadius);
-				var yRight = floor(PosY - yRadius);
-			
-				// Get floor distances and angles
-				var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, TileSize)
-				var dRight = colmask_get_distance_v(xRight, yRight, false, TileSize)
-			
-				// Get floor angle
-				var Ang = dLeft <= dRight? colmask_get_angle_v(xLeft, yLeft, false) : colmask_get_angle_v(xRight, yRight, false);		
-			}
-			break;
-			case ModeWallL:
-			{	
-				// Set coordinates
-				var xLeft  = floor(PosX - yRadius);
-				var yLeft  = floor(PosY - xRadius);
-				var xRight = floor(PosX - yRadius);
-				var yRight = floor(PosY + xRadius);
-			
-				// Get floor distances and angles
-				var dLeft  = colmask_get_distance_h(xLeft, yLeft, false, TileSize)
-				var dRight = colmask_get_distance_h(xRight, yRight, false, TileSize)
-			
-				// Get floor angle
-				var Ang = dLeft <= dRight? colmask_get_angle_h(xLeft, yLeft, false) : colmask_get_angle_h(xRight, yRight, false);
-			}
-			break;
-		}
-	}
-	
 	// Left wall collision
 	if Grounded
 	{
-		if (Ang < 90 or Ang > 270 or Game.ExtensiveWallCollision and Ang mod 90 = 0) and Inertia < 0
+		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 = 0) and Inertia < 0
 		{
 			// Get position
 			var PlayerX = floor(PosX + Xsp);
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide if distance is negative (frame ahead)
-			switch round(Ang/90) % 4
+			switch round(Angle/90) % 4
 			{
 				case ModeFloor:
 				{	
@@ -146,14 +74,14 @@ function PlayerHitWalls()
 	// Right wall collision
 	if Grounded
 	{
-		if (Ang < 90 or Ang > 270 or Game.ExtensiveWallCollision and Ang mod 90 = 0) and Inertia > 0
+		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 = 0) and Inertia > 0
 		{
 			// Get position
 			var PlayerX = floor(PosX + Xsp);
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide if distance is negative (frame ahead)
-			switch round(Ang/90) % 4
+			switch round(Angle/90) % 4
 			{
 				case ModeFloor:
 				{	

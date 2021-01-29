@@ -1,5 +1,5 @@
-/// @description Object Properties
+/// @description Setup
 // You can call your scripts in this editor	
 	
-	// Render behind the player
-	object_set_depth(false);
+	// Call object script
+	ObjSignpostSetup();

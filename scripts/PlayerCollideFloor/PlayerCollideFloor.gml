@@ -1,6 +1,9 @@
 function PlayerCollideFloor()
 {	
-	// Get distances and floor angle
+	// Do not collide with floor when on object
+	if OnObject exit;
+	
+	// Get distances and floor angle first
 	switch round(Angle/90) % 4
 	{
 		case ModeFloor:
@@ -80,7 +83,7 @@ function PlayerCollideFloor()
 		else
 		{	
 			Angle = Difference < 315 ? (round(Angle/90) % 4) * 90 : Ang;
-		}	
+		}
 	}
 	else
 	{	
@@ -103,11 +106,14 @@ function PlayerCollideFloor()
 	{
 		Grounded = false;
 	}
-	else switch round(Angle/90) % 4
+	else if Distance > -14
 	{
-		case ModeFloor: PosY += Distance; break;
-		case ModeWallR: PosX += Distance; break;
-		case ModeRoof:  PosY -= Distance; break;
-		case ModeWallL: PosX -= Distance; break;
+		switch round(Angle/90) % 4
+		{
+			case ModeFloor: PosY += Distance; break;
+			case ModeWallR: PosX += Distance; break;
+			case ModeRoof:  PosY -= Distance; break;
+			case ModeWallL: PosX -= Distance; break;
+		}
 	}
 }

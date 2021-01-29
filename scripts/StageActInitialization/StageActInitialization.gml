@@ -1,30 +1,26 @@
 function StageActInitialization()
 {	
-	// Disable collision showcase
-	//CollisionMasks.visible = true;
-	with CollisionMasks
-	{
-		sprite_collision_mask(sprite_index, false, 1, 0, 0, 0, 0, 0, 0);
-	}
 	switch room 
 	{
 		// Moonlight Base
 		case MBZ:
-			BackgroundMusic			= MoonlightBase;
-			BackgroundDAC			= noone;
-			CardName				= "MOONLIGHT BASE";	
-			TimeEnabled				= false;	
-			CardEnabled				= false;	
-			ZoneID					= 10; 
-			ActID					= 0;	
-			WaterLevel				= 0;	
-			Time					= 0;
-			LeftBoundary			= 0;
-			TopBoundary				= 0;
-			RightBoundary			= room_width;
-			BottomBoundary			= room_height;
-			LastCheckpoint			= Game.SavedCheckpoint;	
-			State					= ActStateDefault;
+			CardName				= "MOONLIGHT BASE";				// Level name
+			BackgroundMusic			= MoonlightBase;				// Background music
+			BackgroundDAC			= noone;						// DAC channel of bgm
+			LoopStart				= 69.490;						// Music loop start point
+			LoopEnd					= 125.120;						// Music loop end point			
+			ZoneID					= 10;							// Zone ID, used for saving
+			ActID					= 0;							// Act ID, used for displaying act number and saving
+			CardEnabled				= false;						// Enable title card, else just fade in
+			TimeEnabled				= false;						// Enable time counter right from the start
+			Time					= 0;							// Default stage time upon loading
+			WaterLevel				= 0;							// Water level (from bottom of the stage)
+			LeftBoundary			= 0;							// Left stage limit
+			TopBoundary				= 0;							// Top stage limit
+			RightBoundary			= room_width;					// Right stage limit
+			BottomBoundary			= room_height;					// Bottom stage limit
+			LastCheckpoint			= Game.SavedCheckpoint;			// Last checkpoint used on the stage
+			State					= ActStateDefault;				// Stage state upon loading
 		break;	
 	}	
 }

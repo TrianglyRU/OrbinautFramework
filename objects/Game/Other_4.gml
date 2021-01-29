@@ -1,8 +1,8 @@
-/// @description Room-based Initialization
+/// @description Handle Framework
 // You can call your scripts in this editor
 	
-	// Initialize/overwrite room settings
-	GameRoomInitialization();
+	// Automaticly configure the room
+	GameRoomSetup();
 	
 	// Reset fade shader
 	GameShaderFadeReset();

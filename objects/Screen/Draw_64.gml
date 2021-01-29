@@ -1,4 +1,4 @@
-/// @description GUI Events
+/// @description Display
 // You can call your scripts in this editor
 	
 	// Display framework debug

@@ -50,10 +50,19 @@ function InputHotkeysRead()
 		}
 	}
 	
-	// Player acceleration
+	// Player
 	if keyboard_check_pressed(ord("X")) 
 	{
 		Player.Inertia = 20 * Player.Facing;
+	}
+	if keyboard_check_pressed(ord("G")) 
+	{
+		Player.HighSpeedBonus = 1200;
+	}
+	if keyboard_check_pressed(ord("H")) 
+	{
+		Player.Grounded = false;
+		Player.Ysp      = -16;
 	}
 	
 	// Ignore input mode

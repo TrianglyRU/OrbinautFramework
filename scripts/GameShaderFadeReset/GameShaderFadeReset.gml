@@ -1,6 +1,6 @@
 function GameShaderFadeReset()
 {	
-	// Reenable fade and turn the screen into the black colour
+	// Enable fade and turn our screen into the black colour
 	Game.FadeEnabled = true;
 	Game.FadeMode	 = 0;
 	Game.FadeColour	 = 0;

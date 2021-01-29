@@ -1,5 +1,6 @@
 function PlayerStateUpdate()
 {
+	// Update main state
 	if Grounded
 	{
 		State = !Rolling ? PlayerStateNormal : PlayerStateRoll;
@@ -8,4 +9,8 @@ function PlayerStateUpdate()
 	{
 		State = PlayerStateAirborne;
 	}
+	
+	// Update bonuses state
+	if (HighSpeedBonus > 0) HighSpeedBonus--;
+
 }

@@ -14,3 +14,8 @@
 	Time           = 0;
 	CardEnabled	   = 0;
 	CardName	   = 0;
+	
+	BackgroundMusic = 0;
+	BackgroundBGM   = 0;
+	LoopStart       = 0;
+	LoopEnd			= 0;
