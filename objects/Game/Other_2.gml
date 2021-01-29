@@ -1,21 +1,19 @@
-/// @description Startup Initialization
+/// @description Game Startup
 // You can call your scripts in this editor. One-time initial
 	
 	// Initialize the framework
-	GameMacroInitialization();
-	GameInitialization();
+	GameMacroSetup();
+	GameFrameworkSetup();
+	GameTiledataLoad();
 	
 	// Initialize audio
 	GameAudioGroupsLoad();
 	
 	// Initialize fonts
-	GameFontsInitialization();
+	GameFontsSetup();
 
 	// Initialize shaders
-	GameShadersInitialization();
-	
-	// Load tiledata
-	GameTiledataLoad();
+	GameShadersSetup();
 	
 	// Initialize application window
-	GameApplicationWindowCreate();
+	GameWindowSetup();

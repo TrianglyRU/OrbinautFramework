@@ -1,5 +1,5 @@
-/// @description Initialization
+/// @description Setup
 // You can call your scripts in this editor
 	
-	// Initialize input
-	InputInitialization();
+	// Setup input system
+	InputSetup();

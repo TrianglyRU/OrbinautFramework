@@ -1,4 +1,4 @@
-/// @description Input Scripts
+/// @description Read
 // You can call your scripts in this editor
 	
 	// Update input device

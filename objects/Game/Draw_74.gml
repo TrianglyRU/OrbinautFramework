@@ -5,4 +5,4 @@
 	GameFadeShaderUpdate();
 	
 	// Render the screen surface
-	GameRenderSurface();
+	GameRendererUpdate();

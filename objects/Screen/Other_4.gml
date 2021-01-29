@@ -1,11 +1,11 @@
-/// @description Initialization
+/// @description Setup
 // You can call your scripts in this editor
 	
-	// Initialize camera
-	ScreenCameraInitialization();
+	// Setup camera
+	ScreenCameraSetup();
 	
-	// Initialize HUD
-	ScreenInterfaceInitialization()
+	// Setup HUD
+	ScreenInterfaceSetup()
 	
-	// Initialize title card
-	ScreenTitleCardInitialization();
+	// Setup title card
+	ScreenTitleCardSetup();

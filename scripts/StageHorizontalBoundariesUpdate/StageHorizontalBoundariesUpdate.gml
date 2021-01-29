@@ -14,7 +14,15 @@ function StageHorizontalBoundariesUpdate()
 		var ActEndObject = noone;
 	}
 	
-	switch State
+	// If we placed Signpost AND Capsule in the stage, show error message and close the game
+	if instance_exists(Signpost) and instance_exists(Capsule)
+	{	
+		show_message("Both act end objects found in the room. Only one act end object is expected to be found.");
+		game_end();
+	}	
+	
+	// Perform code according to current stage state
+	else switch State
 	{
 		// Set limits in normal stage state
 		case ActStateDefault:

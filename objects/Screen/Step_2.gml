@@ -1,14 +1,14 @@
-/// @description Camera Events
+/// @description Camera
 // You can call your scripts in this editor
 	
 	// Follow the character
-	ScreenCameraShiftToPlayer();
+	ScreenCameraShift();
 	
 	// Set camera dynamic offsets
-	ScreenCameraOffsetsSet();
+	ScreenCameraOffsetView();
 	
 	// Keep the camera inside the stage boundaries
-	ScreenCameraBoundariesSet();
+	ScreenCameraBoundariesLock();
 	
 	// Update camera position
 	ScreenCameraPositionUpdate();

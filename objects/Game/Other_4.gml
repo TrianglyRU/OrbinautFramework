@@ -1,4 +1,4 @@
-/// @description Room-based Initialization
+/// @description Handle Framework
 // You can call your scripts in this editor
 	
 	// Automaticly configure the room
