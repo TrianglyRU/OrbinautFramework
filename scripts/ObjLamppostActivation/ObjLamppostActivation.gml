@@ -7,7 +7,7 @@ function ObjLamppostActivation()
 			// Set last used checkpoint ID to our ID
 			Stage.LastCheckpoint = id;
 			
-			// Activate all inactive checkpoint with ID lower than ours
+			// Activate all inactive checkpoints with ID lower than ours
 			var tempValue = LamppostID;
 			with Lamppost if !Active and LamppostID <= tempValue 
 			{
