@@ -1,6 +1,7 @@
 function GameMacroInitialization()
 {		
 	// Game macros
+	#macro Script function
 	#macro Game  global
 	#macro to    0
 	#macro from  1

@@ -1,5 +1,5 @@
-/// @description Destroy Object
+/// @description Destroy
 // You can call your scripts in this editor
 
-	// Destroy outselves if animation has ended
+	// Destroy outself if animation has ended
 	instance_destroy();

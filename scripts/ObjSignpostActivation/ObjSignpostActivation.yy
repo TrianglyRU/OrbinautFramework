@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage Scripts",
-    "path": "folders/Game Code/Screen Scripts/Stage Scripts.yy",
+    "name": "Object Scripts",
+    "path": "folders/Game Code/Object Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageHorizontalBoundariesUpdate",
+  "name": "ObjSignpostActivation",
   "tags": [],
   "resourceType": "GMScript",
 }

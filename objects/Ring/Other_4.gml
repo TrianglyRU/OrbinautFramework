@@ -1,8 +1,5 @@
-/// @description Object Properties
+/// @description Setup
 // You can call your scripts in this editor
 	
-	// Set animation speed
-	animation_set(sprite_index, 4, true);
-	
-	// Render behind the player
-	object_set_depth(false);
+	// Call object script
+	ObjRingSetup();

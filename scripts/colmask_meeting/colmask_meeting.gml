@@ -19,8 +19,8 @@ function colmask_meeting(X, Y, onlyFullSolid)
 	var MaskIDSolidity = variable_instance_get(MaskID, "Solidity");
 	
 	// Get those values to debug
-	var DebugMaskLayer = MaskIDLayer == "Layer A" ? "LAYER A" : (MaskIDLayer == "Layer B" ? "LAYER B" : "BOTH LAYERS");
-	var DebugMaskSolid = MaskIDSolidity == "Solid All" ? "SOLID ALL" : "SOLID TOP";
+	var DebugMaskLayer  = MaskIDLayer == "Layer A" ? "LAYER A" : (MaskIDLayer == "Layer B" ? "LAYER B" : "BOTH LAYERS");
+	var DebugMaskSolid  = MaskIDSolidity == "Solid All" ? "SOLID ALL" : "SOLID TOP";
 	Game.TempValue[98]  = MaskID;
 	Game.TempValue[99]  = DebugMaskLayer;
 	Game.TempValue[100] = DebugMaskSolid;

@@ -1,8 +1,8 @@
-/// @description Object Properties
+/// @description Setup
 // You can call your scripts in this editor
 	
-	// Render above the player
-	object_set_depth(true);
+	/* We do setup in create event becuse this object is not 
+	loaded into the room by default */
 	
-	// Set animation speed
-	animation_set(sprite_index, 6, false);
+	// Call object script
+	ObjShineFXSetup();
