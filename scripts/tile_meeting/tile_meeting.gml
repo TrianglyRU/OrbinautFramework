@@ -13,14 +13,14 @@ function tile_meeting(X, Y, Layer)
 	}
 		
 	// Check for its index
-	var Ind = tile_get_index(Tile);
-	if  Ind == 247 
+	var Ind = tile_get_index(Tile) mod 175;
+	if  Ind == 174
 	{
 		return true;
 	}
 		
 	// Return
-	var ModY = Y mod 16, 
+	var ModY = Y mod 16;
 	var ModX = X mod 16;
-	return (Game.IsCeilingOf[Ind] ? ModY : (15 - ModY)) < Game.HeightValueOf[Ind][(tile_get_mirror(Tile) ? (15 - ModX) : ModX)];
+	return (tile_get_flip(Tile) ? ModY : (15 - ModY)) < Game.HeightValueOf[Ind][(tile_get_mirror(Tile) ? (15 - ModX) : ModX)];
 }
