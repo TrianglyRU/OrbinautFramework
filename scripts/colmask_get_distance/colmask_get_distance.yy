@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/Framework Logic.yy",
   },
   "resourceVersion": "1.0",
-  "name": "colmask_get_angle_v",
+  "name": "colmask_get_distance",
   "tags": [],
   "resourceType": "GMScript",
 }

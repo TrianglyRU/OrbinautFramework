@@ -17,7 +17,7 @@ function InputHotkeysRead()
 	// Low FPS mode
 	if keyboard_check(vk_f3) 
 	{
-		game_set_speed(3, gamespeed_fps);
+		game_set_speed(1, gamespeed_fps);
 	}
 	else 
 	{

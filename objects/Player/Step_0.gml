@@ -1,4 +1,4 @@
-/// @description Player Scripts
+/// @description Scripts
 // You can call your scripts in this editor
 	
 	// Update player's state
@@ -8,27 +8,30 @@
 	switch State 
 	{
 		case PlayerStateNormal:
-			PlayerMovementLock();
+			PlayerMovementLock();		
 			PlayerSlopeResist();
+			PlayerAnglePosition();
 			PlayerMovementNormal();
-			PlayerHitWalls();
+			//PlayerHitWalls();
 			PlayerPositionUpdate();
 			PlayerPushPerform();
 			PlayerSpindashPerform();
 			PlayerRollPerform();
 			PlayerJumpPerform();
-			PlayerCollideFloor();	
+			PlayerCollideFloor();
 			PlayerSlopeDetach();
 			PlayerCollideSolidObjects();
 		break;
 		case PlayerStateRoll:
 			PlayerMovementLock();
 			PlayerSlopeResistRolling();	
+			PlayerAnglePosition();
 			PlayerMovementRolling();
-			PlayerHitWalls();
+			//PlayerHitWalls();
 			PlayerPositionUpdate();
 			PlayerJumpPerform();
 			PlayerCollideFloor();	
+			PlayerAnglePosition();
 			PlayerSlopeDetach();
 			PlayerCollideSolidObjects();
 		break;

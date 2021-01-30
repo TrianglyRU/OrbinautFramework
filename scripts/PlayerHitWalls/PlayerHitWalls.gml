@@ -10,9 +10,9 @@ function PlayerHitWalls()
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide if distance is negative (frame ahead)
-			switch round(Angle/90) % 4
+			switch AnglePosition
 			{
-				case ModeFloor:
+				case PositionFloor:
 				{	
 					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, false, 0)
 					if  Distance < 0
@@ -23,7 +23,7 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case ModeWallR:
+				case PositionRightwall:
 				{
 					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true, 0)
 					if  Distance < 0
@@ -34,7 +34,7 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case ModeRoof:
+				case PositionRoof:
 				{	
 					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY, true, 0)
 					if  Distance < 0
@@ -45,7 +45,7 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case ModeWallL:
+				case PositionLeftwall:
 				{
 					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false, 0)
 					if  Distance < 0
@@ -81,9 +81,9 @@ function PlayerHitWalls()
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide if distance is negative (frame ahead)
-			switch round(Angle/90) % 4
+			switch CollisionMode
 			{
-				case ModeFloor:
+				case PositionFloor:
 				{	
 					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, true, 0)
 					if  Distance < 0
@@ -94,7 +94,7 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case ModeWallR:
+				case PositionRightwall:
 				{
 					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false, 0)
 					if  Distance < 0
@@ -105,7 +105,7 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case ModeRoof:
+				case PositionRoof:
 				{	
 					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY, false, 0)
 					if  Distance < 0
@@ -116,7 +116,7 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case ModeWallL:
+				case PositionLeftwall:
 				{
 					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true, 0)
 					if  Distance < 0

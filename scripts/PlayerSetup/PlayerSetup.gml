@@ -1,4 +1,4 @@
-function PlayerInitialization()
+function PlayerSetup()
 {	
 	// Set character
 	CharacterID	= Game.GlobalCharacter;

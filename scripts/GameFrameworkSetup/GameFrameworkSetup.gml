@@ -1,7 +1,7 @@
 function GameFrameworkSetup()
 {
-	// Ggame state
-	Game.GlobalCharacter		= 0;
+	// Game state
+	Game.GlobalCharacter		= CharSonic;
 	Game.SavedCheckpoint        = 0;
 	Game.SavedScore				= 0;
 	Game.SavedLives				= 3;
@@ -9,12 +9,12 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen		= false;
-	Game.ResolutionWidth		= 398;
-	Game.ResolutionHeight		= 224;
+	Game.ResolutionWidth		= 426;
+	Game.ResolutionHeight		= 240;
 	Game.WindowSize				= 2;
 	
 	// Audio settings
-	Game.MusicVolume			= 0.5;
+	Game.MusicVolume			= 0;
 	Game.SoundVolume			= 0.5;
 	
 	// Engine customization
@@ -29,21 +29,15 @@ function GameFrameworkSetup()
 	Game.RolljumpControl		= false;	// In every game but CD your controls are locked if you jump after rolling
 	Game.StrongerSlopeDetach    = false;    // Before S3 you were able to slide down on 45-degree floors. True - Sonic 3 method
 	Game.SpeedFloorClip		    = true;     // In S2+, the max distance you're allowed to clip to a floor is based on your speed (instead of static 14 in S1). True = S2+ method
-	Game.ExtensiveWallCollision = true;		// In SK you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 45->0->315
-	
-	Game.ExtendedCamera			= false;
-	Game.SmoothPaletteCycle		= false;
-	Game.SmoothRotation			= true;
-	Game.RichPresenceSupport    = true;
-	
+	Game.ExtensiveWallCollision = true;		// In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
+	Game.ImprovedObjCollision   = false;    // In original games collision with objects is pretty wacky. If set to true, Orbinaut will apply its fixes to collision
+	Game.ExtendedCamera			= false;	// In SCD, the camera will shift forward to the direction you're running
+	Game.SmoothPaletteCycle		= false;	// Apply interpolation to palette cycles
+	Game.SmoothRotation			= true;		// Use Mania-like smooth rotation
+	Game.RichPresenceSupport    = true;		// Enable Rich Presence
+		
 	// Default palette status
 	Game.FadeEnabled			= true;
 	Game.PaletteSet				= 0;
 	Game.PalIndex[0]			= 0;
-	
-	// Temporary value array. Can be used for various things
-	for (var i = 0; i < 100; i++)
-	{
-		Game.TempValue[i] = 0;
-	}
 }

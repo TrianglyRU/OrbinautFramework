@@ -1,10 +1,7 @@
-function PlayerCollideFloor()
-{	
-	// Do not collide with floor when on object
-	if OnObject exit;
-	
-	// Collide with floor basing on angle position
-	switch AnglePosition
+function PlayerAnglePosition()
+{
+	// Get floor angle
+	switch round(Angle/90) % 4
 	{
 		case PositionFloor:
 		{	
@@ -21,27 +18,11 @@ function PlayerCollideFloor()
 			// Define distance and angle to use
 			if dLeft <= dRight
 			{
-				var Distance   = dLeft;
 				var FloorAngle = colmask_get_angle_v(xLeft, yLeft, true);
 			}
 			else
 			{
-				var Distance   = dRight;
 				var FloorAngle = colmask_get_angle_v(xRight, yRight, true);
-			}
-			
-			// Calculate collision tolerance
-			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			
-			// Collide
-			if Distance > CollisionDistance
-			{
-				Grounded = false;
-			}
-			else if Distance > -TileSize * 2
-			{
-				PosY += Distance;
-				Angle = FloorAngle;
 			}
 		}
 		break;
@@ -60,27 +41,11 @@ function PlayerCollideFloor()
 			// Define distance and angle to use
 			if dLeft <= dRight
 			{
-				var Distance   = dLeft;
 				var FloorAngle = colmask_get_angle_h(xLeft, yLeft, true);
 			}
 			else
 			{
-				var Distance   = dRight;
 				var FloorAngle = colmask_get_angle_h(xRight, yRight, true);
-			}
-			
-			// Calculate collision tolerance
-			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-
-			// Collide
-			if Distance > CollisionDistance
-			{
-				Grounded = false;
-			}
-			else if Distance > -TileSize * 2
-			{
-				PosX += Distance;
-				Angle = FloorAngle;
 			}
 		}
 		break;
@@ -99,27 +64,11 @@ function PlayerCollideFloor()
 			// Define distance and angle to use
 			if dLeft <= dRight
 			{
-				var Distance   = dLeft;
 				var FloorAngle = colmask_get_angle_v(xLeft, yLeft, false);
 			}
 			else
 			{
-				var Distance   = dRight;
 				var FloorAngle = colmask_get_angle_v(xRight, yRight, false);
-			}
-			
-			// Calculate collision tolerance
-			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			
-			// Collide
-			if Distance > CollisionDistance
-			{
-				Grounded = false;
-			}
-			else if Distance > -TileSize * 2
-			{
-				PosY -= Distance;
-				Angle = FloorAngle;
 			}
 		}
 		break;
@@ -138,29 +87,16 @@ function PlayerCollideFloor()
 			// Define distance and angle to use
 			if dLeft <= dRight
 			{
-				var Distance   = dLeft;
 				var FloorAngle = colmask_get_angle_h(xLeft, yLeft, false);
 			}
 			else
 			{
-				var Distance   = dRight;
 				var FloorAngle = colmask_get_angle_h(xRight, yRight, false);
-			}
-			
-			// Calculate collision tolerance
-			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-
-			// Collide
-			if Distance > CollisionDistance
-			{
-				Grounded = false;
-			}
-			else if Distance > -TileSize * 2
-			{
-				PosX -= Distance;
-				Angle = FloorAngle;
 			}
 		}
 		break;
-	}	
+	}
+	
+	// Set angle position
+	AnglePosition = round(FloorAngle/90) % 4;
 }

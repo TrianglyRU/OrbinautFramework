@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Framework Logic",
-    "path": "folders/Game Functions/Framework Logic.yy",
+    "name": "Player Scripts",
+    "path": "folders/Game Code/Player Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "colmask_get_distance_v",
+  "name": "PlayerSetup",
   "tags": [],
   "resourceType": "GMScript",
 }

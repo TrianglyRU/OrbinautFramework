@@ -22,7 +22,7 @@ function PlayerCharacterDisplay()
 				VisualAngle = 0;
 			}
 		}
-	} 
+	}
 	else 
 	{
 		if (Angle > 334.5 or Angle < 25.5)  VisualAngle =   0;
