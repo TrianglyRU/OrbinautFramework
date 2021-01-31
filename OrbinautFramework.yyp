@@ -38,7 +38,6 @@
     {"id":{"name":"spr_collisionmask01","path":"sprites/spr_collisionmask01/spr_collisionmask01.yy",},"order":1,},
     {"id":{"name":"spr_collisiontiles_1","path":"sprites/spr_collisiontiles_1/spr_collisiontiles_1.yy",},"order":2,},
     {"id":{"name":"PlayerSetup","path":"scripts/PlayerSetup/PlayerSetup.yy",},"order":15,},
-    {"id":{"name":"PlayerAnglePosition","path":"scripts/PlayerAnglePosition/PlayerAnglePosition.yy",},"order":28,},
     {"id":{"name":"CollisionMask13","path":"objects/CollisionMask13/CollisionMask13.yy",},"order":25,},
     {"id":{"name":"GameAudioGroupsVolumeReset","path":"scripts/GameAudioGroupsVolumeReset/GameAudioGroupsVolumeReset.yy",},"order":13,},
     {"id":{"name":"InputGamepadRead","path":"scripts/InputGamepadRead/InputGamepadRead.yy",},"order":3,},

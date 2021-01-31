@@ -1,9 +1,10 @@
 // Function 1
-function colmask_get_distance_h(xStart, yStart, toPositive, maxDistance)
+function colmask_get_distance_h(xStart, yStart, toPositive)
 {	
 	// Set adjustable coordinates
 	var X = xStart;
 	var Y = yStart;
+	var maxDistance = Grounded * (TileSize * 2)
 	
 	// Find distance to the right
 	if toPositive
@@ -35,11 +36,12 @@ function colmask_get_distance_h(xStart, yStart, toPositive, maxDistance)
 }
 
 // Function 2
-function colmask_get_distance_v(xStart, yStart, toPositive, maxDistance)
+function colmask_get_distance_v(xStart, yStart, toPositive)
 {			
 	// Set adjustable coordinates
 	var X = xStart;
 	var Y = yStart;
+	var maxDistance = Grounded * (TileSize * 2)
 	
 	// Find distance downwards
 	if toPositive

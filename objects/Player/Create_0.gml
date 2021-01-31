@@ -27,7 +27,6 @@
 	
 	SlopeGravity		 = 0;
 	Angle				 = 0;
-	CollisionMode		 = 0;
 	VisualAngle			 = 0;
 	
 	SpindashRev		     = 0;

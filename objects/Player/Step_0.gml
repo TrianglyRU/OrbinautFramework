@@ -4,46 +4,102 @@
 	// Update player's state
 	PlayerStateUpdate();
 	
+	// Check for movement lock
+	PlayerMovementLock();
+	
 	// Run main code basing on current state
 	switch State 
 	{
 		case PlayerStateNormal:
-			PlayerMovementLock();		
-			PlayerSlopeResist();
-			PlayerAnglePosition();
-			PlayerMovementNormal();
-			//PlayerHitWalls();
-			PlayerPositionUpdate();
-			PlayerPushPerform();
-			PlayerSpindashPerform();
-			PlayerRollPerform();
+		{	
+			// Perform jump and exit the code
 			PlayerJumpPerform();
+			if Jumping exit;
+			
+			// Set slope gravity
+			PlayerSlopeResist();
+			
+			// Update player's speeds
+			PlayerMovementNormal();
+			
+			// Collide with walls
+			PlayerHitWalls();
+			
+			// Update player's position and keep them inside the stage
+			PlayerPositionUpdate();
+			
+			// Perform spindash
+			PlayerSpindashPerform();
+			
+			// Perform roll
+			PlayerRollPerform();
+			
+			// Collide with floor and update player's angle
 			PlayerCollideFloor();
+			
+			// Fall off the ceiling and walls
 			PlayerSlopeDetach();
+			
+			// Collide with the objects
 			PlayerCollideSolidObjects();
+		}
 		break;
 		case PlayerStateRoll:
-			PlayerMovementLock();
-			PlayerSlopeResistRolling();	
-			PlayerAnglePosition();
-			PlayerMovementRolling();
-			//PlayerHitWalls();
-			PlayerPositionUpdate();
+		{
+			// Perform jump and exit the code
 			PlayerJumpPerform();
-			PlayerCollideFloor();	
-			PlayerAnglePosition();
+			if Jumping exit;
+			
+			// Set slope gravity
+			PlayerSlopeResistRolling();	
+			
+			// Update player's speeds
+			PlayerMovementRolling();
+			
+			// Collide with walls
+			PlayerHitWalls();
+			
+			// Update player's position and keep them inside the stage
+			PlayerPositionUpdate();
+			
+			// Collide with floor and update player's angle
+			PlayerCollideFloor();
+			
+			// Fall off the ceiling and walls
 			PlayerSlopeDetach();
+			
+			// Collide with the objects
 			PlayerCollideSolidObjects();
+		}
 		break;
 		case PlayerStateAirborne:
+		{
+			// Limit jump height
 			PlayerJumpResist();
+			
+			// Update player's speeds
 			PlayerMovementAirborne();
+			
+			// Update player's position and keep them inside the stage
 			PlayerPositionUpdate();
+			
+			// Apply gravity and rotation
 			PlayerApplyGravity();
+			
+			// Collide with walls
 			PlayerHitWalls();
+			
+			// Collide with roof
 			PlayerHitRoof();
+			
+			// Collide with floor
 			PlayerHitFloor();
+			
+			// Collide with solid objects
 			PlayerCollideSolidObjects();
+			
+			// Landing events
 			PlayerResetOnFloor();
+		}
 		break;
 	}

@@ -12,5 +12,4 @@ function PlayerStateUpdate()
 	
 	// Update bonuses state
 	if (HighSpeedBonus > 0) HighSpeedBonus--;
-
 }

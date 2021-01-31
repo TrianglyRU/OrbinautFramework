@@ -10,7 +10,7 @@ function PlayerHitWalls()
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide if distance is negative (frame ahead)
-			switch AnglePosition
+			switch round(Angle/90) % 4
 			{
 				case PositionFloor:
 				{	
@@ -81,7 +81,7 @@ function PlayerHitWalls()
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide if distance is negative (frame ahead)
-			switch CollisionMode
+			switch round(Angle/90) % 4
 			{
 				case PositionFloor:
 				{	

@@ -2,11 +2,11 @@ function PlayerMovementNormal()
 {	
 	// Exit if spindashing
 	if SpindashRev >= 0 exit;
-	
+
 	// Accelerate and decelerate
 	if !MovementLock
 	{
-		if Input.Left 
+		if Input.Left
 		{	
 			// If moving right and left key is pressed, decelerate
 			if Inertia > 0 
@@ -16,7 +16,7 @@ function PlayerMovementNormal()
 			} 
 			
 			// If moving left and left key is pressed, accelerate
-			else 
+			else
 			{
 				if (!Game.GroundSpeedcap and Inertia > -TopAcc) or Game.GroundSpeedcap
 				{
@@ -36,7 +36,7 @@ function PlayerMovementNormal()
 			} 
 			
 			// If moving right and right key is pressed, accelerate
-			else 
+			else
 			{
 				if (!Game.GroundSpeedcap and Inertia < TopAcc) or Game.GroundSpeedcap
 				{

@@ -17,11 +17,11 @@ function colmask_get_angle_h(xTile, yTile, toPositive)
 		{
 			++BX;
 		}	
-		while colmask_meeting(AX, AY, true) and AX > xTile - TileSize 
+		while colmask_meeting(AX, AY, true) and AX > xTile - TileSize * 2
 		{
 			--AX;
 		}	
-		while colmask_meeting(BX, BY, true) and BX > xTile - TileSize 
+		while colmask_meeting(BX, BY, true) and BX > xTile - TileSize * 2
 		{
 			--BX;
 		}
@@ -43,11 +43,11 @@ function colmask_get_angle_h(xTile, yTile, toPositive)
 		{
 			--BX;
 		}
-		while colmask_meeting(AX, AY, true) and AX < xTile + TileSize  
+		while colmask_meeting(AX, AY, true) and AX < xTile + TileSize * 2
 		{
 			++AX;
 		}
-		while colmask_meeting(BX, BY, true) and BX < xTile + TileSize  
+		while colmask_meeting(BX, BY, true) and BX < xTile + TileSize * 2 
 		{
 			++BX;
 		}
@@ -76,11 +76,11 @@ function colmask_get_angle_v(xTile, yTile, toPositive)
 		{
 			++BY;
 		}
-		while colmask_meeting(AX, AY, false) and AY > yTile - TileSize 
+		while colmask_meeting(AX, AY, false) and AY > yTile - TileSize * 2
 		{
 			--AY;
 		}
-		while colmask_meeting(BX, BY, false) and BY > yTile - TileSize 
+		while colmask_meeting(BX, BY, false) and BY > yTile - TileSize * 2
 		{
 			--BY;
 		}
@@ -102,11 +102,11 @@ function colmask_get_angle_v(xTile, yTile, toPositive)
 		{
 			--BY;
 		}
-		while colmask_meeting(AX, AY, false) and AY < yTile + TileSize
+		while colmask_meeting(AX, AY, false) and AY < yTile + TileSize * 2
 		{
 			++AY;
 		}
-		while colmask_meeting(BX, BY, false) and BY < yTile + TileSize
+		while colmask_meeting(BX, BY, false) and BY < yTile + TileSize * 2
 		{
 			++BY;
 		}
