@@ -52,5 +52,5 @@ function PlayerSetup()
 	// Stats
 	Score = Game.SavedScore;
 	Lives = Game.SavedLives;
-	Rings = 0;	
+	Rings = 0;
 }

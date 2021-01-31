@@ -19,3 +19,5 @@
 	BackgroundBGM   = 0;
 	LoopStart       = 0;
 	LoopEnd			= 0;
+	
+	TargetTileLayer = 0;

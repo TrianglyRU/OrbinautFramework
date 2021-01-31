@@ -21,6 +21,7 @@ function StageActInitialization()
 			BottomBoundary			= room_height;					// Bottom stage limit
 			LastCheckpoint			= Game.SavedCheckpoint;			// Last checkpoint used on the stage
 			State					= ActStateDefault;				// Stage state upon loading
+			TargetTileLayer			= [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];
 		break;	
 	}	
 }

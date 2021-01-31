@@ -16,6 +16,7 @@ function PlayerCollideFloor()
 			
 			// Get floor distances
 			var dLeft  = colmask_get_distance_v(xLeft, yLeft, true)
+			show_debug_message(string(tile_get_distance(xLeft, yLeft, LayerA)) + ":" + string(dLeft)) 
 			var dRight = colmask_get_distance_v(xRight, yRight, true)
 			
 			// Get the closest distance and floor angle

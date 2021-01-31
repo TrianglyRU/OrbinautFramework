@@ -2,6 +2,8 @@
   "resources": [
     {"id":{"name":"spr_collisionmask04","path":"sprites/spr_collisionmask04/spr_collisionmask04.yy",},"order":4,},
     {"id":{"name":"ScreenInterfaceDisplay","path":"scripts/ScreenInterfaceDisplay/ScreenInterfaceDisplay.yy",},"order":0,},
+    {"id":{"name":"tile_get_height","path":"scripts/tile_get_height/tile_get_height.yy",},"order":23,},
+    {"id":{"name":"get_tile","path":"scripts/get_tile/get_tile.yy",},"order":22,},
     {"id":{"name":"ScreenCameraPositionUpdate","path":"scripts/ScreenCameraPositionUpdate/ScreenCameraPositionUpdate.yy",},"order":6,},
     {"id":{"name":"spr_mbz_bg_layer0","path":"sprites/spr_mbz_bg_layer0/spr_mbz_bg_layer0.yy",},"order":0,},
     {"id":{"name":"spr_engine_gamedata","path":"sprites/spr_engine_gamedata/spr_engine_gamedata.yy",},"order":1,},
