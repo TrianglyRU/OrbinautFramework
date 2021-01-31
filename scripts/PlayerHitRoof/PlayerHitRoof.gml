@@ -9,10 +9,10 @@ function PlayerHitRoof()
 		var yRight = floor(PosY - yRadius);
 			
 		// Get roof distances
-		var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, TileSize)
-		var dRight = colmask_get_distance_v(xRight, yRight, false, TileSize)
+		var dLeft  = colmask_get_distance_v(xLeft, yLeft, false)
+		var dRight = colmask_get_distance_v(xRight, yRight, false)
 		
-		// Use the shortest distance
+		// Use the closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
 		
 		// If the distance is negative, we're touching the roof

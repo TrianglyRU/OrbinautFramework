@@ -12,7 +12,7 @@ function PlayerHitFloor()
 		var dLeft  = colmask_get_distance_v(xLeft, yLeft, true)
 		var dRight = colmask_get_distance_v(xRight, yRight, true)
 		
-		// Use the shortest distance
+		// Use the closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
 
 		// When distance is negative, we're touching the floor
@@ -32,7 +32,7 @@ function PlayerHitFloor()
 					Inertia = Angle < 180 ? -Ysp : Ysp;
 				}
 		
-				// If angle is >= 22.5 degrees, use vertical speed (halved)
+				// If angle is >= 22.5 degrees, use halved vertical speed
 				else if Angle >= 22.5 and Angle <= 337.5
 				{
 					Inertia = Angle <= 180 ? -Ysp / 2 : Ysp / 2;
@@ -53,10 +53,8 @@ function PlayerHitFloor()
 				Inertia = Xsp;
 			}
 		
-			// Adhere to the floor
-			PosY += Distance;
-	
-			// Land and set animation
+			// Land and adhere to the floor
+			PosY     += Distance;
 			Grounded  = true;
 		}
 	}

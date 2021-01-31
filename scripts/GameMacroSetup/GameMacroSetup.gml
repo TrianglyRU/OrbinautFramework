@@ -11,10 +11,10 @@ function GameMacroSetup()
 	#macro TileSize 16
 
 	// Player macros
-	#macro PositionFloor	       0
-	#macro PositionRightwall	       1
-	#macro PositionRoof			   2
-	#macro PositionLeftwall		   3	
+	#macro RangeFloor	       0
+	#macro RangeRWall	       1
+	#macro RangeRoof		   2
+	#macro RangeLWall		   3	
 	#macro PlayerStateNormal   0
 	#macro PlayerStateRoll     1
 	#macro PlayerStateAirborne 2

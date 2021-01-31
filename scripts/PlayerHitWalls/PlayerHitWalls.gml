@@ -9,12 +9,12 @@ function PlayerHitWalls()
 			var PlayerX = floor(PosX + Xsp);
 			var PlayerY = floor(PosY + Ysp);
 			
-			// Collide if distance is negative (frame ahead)
+			// Collide with walls based on current angle range, frame ahead
 			switch round(Angle/90) % 4
 			{
-				case PositionFloor:
+				case RangeFloor:
 				{	
-					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, false, 0)
+					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, false)
 					if  Distance < 0
 					{	
 						PosX    = PlayerX - Distance;
@@ -23,9 +23,9 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case PositionRightwall:
+				case RangeRWall:
 				{
-					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true, 0)
+					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true)
 					if  Distance < 0
 					{	
 						PosY    = PlayerY + Distance;
@@ -34,9 +34,9 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case PositionRoof:
+				case RangeRoof:
 				{	
-					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY, true, 0)
+					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY, true)
 					if  Distance < 0
 					{	
 						PosX    = PlayerX + Distance;
@@ -45,9 +45,9 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case PositionLeftwall:
+				case RangeLWall:
 				{
-					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false, 0)
+					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false)
 					if  Distance < 0
 					{	
 						PosY    = PlayerY - Distance;
@@ -62,7 +62,7 @@ function PlayerHitWalls()
 	else if !(Xsp > abs(Ysp))
 	{
 		// Collide airborne at the current frame
-		var Distance = colmask_get_distance_h(floor(PosX - 10), floor(PosY), false, 0)
+		var Distance = colmask_get_distance_h(floor(PosX - 10), floor(PosY), false)
 		if  Distance < 0
 		{
 			PosX    -= Distance;
@@ -80,12 +80,12 @@ function PlayerHitWalls()
 			var PlayerX = floor(PosX + Xsp);
 			var PlayerY = floor(PosY + Ysp);
 			
-			// Collide if distance is negative (frame ahead)
+			// Collide with walls based on current angle range, frame ahead
 			switch round(Angle/90) % 4
 			{
-				case PositionFloor:
+				case RangeFloor:
 				{	
-					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, true, 0)
+					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, true)
 					if  Distance < 0
 					{	
 						PosX    = PlayerX + Distance;
@@ -94,9 +94,9 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case PositionRightwall:
+				case RangeRWall:
 				{
-					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false, 0)
+					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false)
 					if  Distance < 0
 					{	
 						PosY    = PlayerY - Distance;
@@ -105,9 +105,9 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case PositionRoof:
+				case RangeRoof:
 				{	
-					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY, false, 0)
+					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY, false)
 					if  Distance < 0
 					{	
 						PosX    = PlayerX - Distance;
@@ -116,9 +116,9 @@ function PlayerHitWalls()
 					}
 				}
 				break;
-				case PositionLeftwall:
+				case RangeLWall:
 				{
-					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true, 0)
+					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true)
 					if  Distance < 0
 					{	
 						PosY    = PlayerY + Distance;
@@ -133,7 +133,7 @@ function PlayerHitWalls()
 	else if !(-Xsp > abs(Ysp))
 	{	
 		// Collide airborne at the current frame
-		var Distance = colmask_get_distance_h(floor(PosX + 10), floor(PosY), true, 0)
+		var Distance = colmask_get_distance_h(floor(PosX + 10), floor(PosY), true)
 		if  Distance < 0
 		{
 			PosX    += Distance;

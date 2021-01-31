@@ -3,10 +3,10 @@ function PlayerCollideFloor()
 	// Do not collide with floor when on object
 	if OnObject exit;
 
-	// Collide with floor basing on angle position
+	// Collide with one of four floor sides based on current angle range
 	switch round(Angle/90) % 4
 	{
-		case PositionFloor:
+		case RangeFloor:
 		{	
 			// Set coordinates
 			var xLeft  = floor(PosX - xRadius);
@@ -18,7 +18,7 @@ function PlayerCollideFloor()
 			var dLeft  = colmask_get_distance_v(xLeft, yLeft, true)
 			var dRight = colmask_get_distance_v(xRight, yRight, true)
 			
-			// Use closest distance in our calculations
+			// Get the closest distance and floor angle
 			if dLeft <= dRight
 			{
 				var Distance   = dLeft;
@@ -30,17 +30,17 @@ function PlayerCollideFloor()
 				var FloorAngle = colmask_get_angle_v(xRight, yRight, true);
 			}
 			
-			// Update player's angle
+			// Update player's angle, use cardinal one if the difference is higher than 45
 			if Game.ConsiderAngleDifference
 			{
 				var Difference = abs(Angle - FloorAngle);
 				if  Difference < 180
 				{
-					Angle = Difference > 45 ? round(Angle/90) % 4 * 4 : FloorAngle;
+					Angle = Difference > 45 ? 0 : FloorAngle;
 				}
 				else
 				{
-					Angle = Difference < 315 ? round(Angle/90) % 4 * 4 : FloorAngle;
+					Angle = Difference < 315 ? 0 : FloorAngle;
 				}
 			}
 			
@@ -52,13 +52,13 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if Distance > -14
+			else if (abs(Inertia) < 20 and Distance > -14) or abs(Inertia) >= 20
 			{
 				PosY += Distance;
 			}
 		}
 		break;
-		case PositionRightwall:
+		case RangeRWall:
 		{	
 			// Set coordinates
 			var xLeft  = floor(PosX + yRadius);
@@ -70,7 +70,7 @@ function PlayerCollideFloor()
 			var dLeft  = colmask_get_distance_h(xLeft, yLeft, true)
 			var dRight = colmask_get_distance_h(xRight, yRight, true)
 
-			// Define distance and angle to use
+			// Get the closest distance and floor angle
 			if dLeft <= dRight
 			{
 				var Distance   = dLeft;
@@ -82,17 +82,17 @@ function PlayerCollideFloor()
 				var FloorAngle = colmask_get_angle_h(xRight, yRight, true);
 			}
 			
-			// Update player's angle
+			// Update player's angle, use cardinal one if the difference is higher than 45
 			if Game.ConsiderAngleDifference
 			{
 				var Difference = abs(Angle - FloorAngle);
 				if  Difference < 180
 				{
-					Angle = Difference > 45 ? round(Angle/90) % 4 * 4 : FloorAngle;
+					Angle = Difference > 45 ? 90 : FloorAngle;
 				}
 				else
 				{
-					Angle = Difference < 315 ? round(Angle/90) % 4 * 4 : FloorAngle;
+					Angle = Difference < 315 ? 90 : FloorAngle;
 				}
 			}
 			
@@ -104,13 +104,13 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if Distance > -14
+			else if (abs(Inertia) < 20 and Distance > -14) or abs(Inertia) >= 20
 			{
 				PosX += Distance;;
 			}
 		}
 		break;
-		case PositionRoof:
+		case RangeRoof:
 		{	
 			// Set coordinates
 			var xLeft  = floor(PosX + xRadius);
@@ -118,11 +118,11 @@ function PlayerCollideFloor()
 			var xRight = floor(PosX - xRadius);
 			var yRight = floor(PosY - yRadius);
 			
-			// Get floor distances and angles
+			// Get floor distances
 			var dLeft  = colmask_get_distance_v(xLeft, yLeft, false)
 			var dRight = colmask_get_distance_v(xRight, yRight, false)
 			
-			// Define distance and angle to use
+			// Get the closest distance and floor angle
 			if dLeft <= dRight
 			{
 				var Distance   = dLeft;
@@ -134,17 +134,17 @@ function PlayerCollideFloor()
 				var FloorAngle = colmask_get_angle_v(xRight, yRight, false);
 			}
 			
-			// Update player's angle
+			// Update player's angle, use cardinal one if the difference is higher than 45
 			if Game.ConsiderAngleDifference
 			{
 				var Difference = abs(Angle - FloorAngle);
 				if  Difference < 180
 				{
-					Angle = Difference > 45 ? round(Angle/90) % 4 * 4 : FloorAngle;
+					Angle = Difference > 45 ? 180 : FloorAngle;
 				}
 				else
 				{
-					Angle = Difference < 315 ? round(Angle/90) % 4 * 4 : FloorAngle;
+					Angle = Difference < 315 ? 180 : FloorAngle;
 				}
 			}
 			
@@ -156,13 +156,13 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if Distance > -14
+			else if (abs(Inertia) < 20 and Distance > -14) or abs(Inertia) >= 20
 			{
 				PosY -= Distance;
 			}
 		}
 		break;
-		case PositionLeftwall:
+		case RangeLWall:
 		{	
 			// Set coordinates
 			var xLeft  = floor(PosX - yRadius);
@@ -174,7 +174,7 @@ function PlayerCollideFloor()
 			var dLeft  = colmask_get_distance_h(xLeft, yLeft, false)
 			var dRight = colmask_get_distance_h(xRight, yRight, false)
 			
-			// Define distance and angle to use
+			// Get the closest distance and floor angle
 			if dLeft <= dRight
 			{
 				var Distance   = dLeft;
@@ -186,17 +186,17 @@ function PlayerCollideFloor()
 				var FloorAngle = colmask_get_angle_h(xRight, yRight, false);
 			}
 			
-			// Update player's angle
+			// Update player's angle, use cardinal one if the difference is higher than 45
 			if Game.ConsiderAngleDifference
 			{
 				var Difference = abs(Angle - FloorAngle);
 				if  Difference < 180
 				{
-					Angle = Difference > 45 ? round(Angle/90) % 4 * 4 : FloorAngle;
+					Angle = Difference > 45 ? 270 : FloorAngle;
 				}
 				else
 				{
-					Angle = Difference < 315 ? round(Angle/90) % 4 * 4 : FloorAngle;
+					Angle = Difference < 315 ? 270 : FloorAngle;
 				}
 			}
 			
@@ -208,7 +208,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if Distance > -14
+			else if (abs(Inertia) < 20 and Distance > -14) or abs(Inertia) >= 20
 			{
 				PosX -= Distance;
 			}

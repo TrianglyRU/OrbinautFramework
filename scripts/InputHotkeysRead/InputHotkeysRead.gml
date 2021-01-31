@@ -4,7 +4,7 @@ function InputHotkeysRead()
 	if keyboard_check_pressed(vk_f1) 
 	{
 		Game.SavedCheckpoint = Stage.LastCheckpoint;
-		sound_bgm_stop(Stage.BackgroundMusic, 0);
+		audio_stop_all();
 		room_restart();
 	}
 	

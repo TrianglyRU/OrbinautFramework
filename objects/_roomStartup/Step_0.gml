@@ -9,5 +9,5 @@
 	objLoadingIcon.y = Game.ResolutionHeight - 24;	
 			
 	// Start initialization timer and proceed to dev menu
-	Timer   += 1;
-	if (Timer = 30) room_goto(MBZ);
+	Timer    += 1;
+	if (Timer = 10) room_goto(DevMenu);
