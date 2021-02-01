@@ -103,3 +103,4 @@
 		}
 		break;
 	}
+	//show_debug_message(string(tile_get_distance_v(floor(PosX - xRadius), floor(PosY - yRadius), LayerA, false, false)) + ":" + string(colmask_get_distance_v(floor(PosX - xRadius), floor(PosY - yRadius), false, false)));

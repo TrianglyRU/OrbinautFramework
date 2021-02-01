@@ -4,3 +4,4 @@
 	// Update character
 	PlayerCharacterAnimationList();
 	PlayerCharacterDisplay();
+	draw_point(floor(PosX - xRadius), floor(PosY - yRadius))
