@@ -10,8 +10,8 @@
     "name": "BGM",
     "path": "audiogroups/BGM",
   },
-  "soundFile": "HighSpeedPowerup.ogg",
-  "duration": 22.24618,
+  "soundFile": "HighSpeedPowerup.mp3",
+  "duration": 64.213974,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

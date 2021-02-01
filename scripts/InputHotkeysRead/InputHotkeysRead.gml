@@ -57,7 +57,7 @@ function InputHotkeysRead()
 	}
 	if keyboard_check_pressed(ord("G")) 
 	{
-		Player.HighSpeedBonus = 1200;
+		Player.HighSpeedBonus = 1500;
 	}
 	if keyboard_check_pressed(ord("H")) 
 	{

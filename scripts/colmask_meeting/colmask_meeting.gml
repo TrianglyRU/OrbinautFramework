@@ -1,5 +1,5 @@
-/// @function colmask_meeting(X, Y, onlyFullSolid) 
-function colmask_meeting(X, Y, onlyFullSolid) 
+/// @function colmask_meeting(X, Y, onlyFullsolid) 
+function colmask_meeting(X, Y, onlyFullsolid) 
 {	
 	// Get an ID of the collision mask object at given coordinates
 	var FoundCollision = instance_position(X, Y, CollisionMasks);
@@ -30,9 +30,9 @@ function colmask_meeting(X, Y, onlyFullSolid)
 	{
 		return false;
 	}
-	if onlyFullSolid 
+	if onlyFullsolid
 	{
-		if  MaskIDSolidity = "Solid Top"
+		if MaskIDSolidity = "Solid Top" 
 		{
 			return false;
 		}

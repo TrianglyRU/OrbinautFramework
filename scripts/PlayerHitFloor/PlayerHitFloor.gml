@@ -9,8 +9,8 @@ function PlayerHitFloor()
 		var yRight = floor(PosY + yRadius);
 			
 		// Get floor distances
-		var dLeft  = colmask_get_distance_v(xLeft, yLeft, true)
-		var dRight = colmask_get_distance_v(xRight, yRight, true)
+		var dLeft  = colmask_get_distance_v(xLeft, yLeft, true, false)
+		var dRight = colmask_get_distance_v(xRight, yRight, true, false)
 		
 		// Use the closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;

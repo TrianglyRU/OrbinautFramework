@@ -18,7 +18,6 @@ function GameFrameworkSetup()
 	Game.SoundVolume			= 0.5;
 	
 	// Engine customization
-	Game.TileCollisionMethod    = false;	// If enabled, player will collide with actual tiles instead of collision masks
 	Game.SpindashEnabled		= true;		// S2 Spindash
 	Game.PeeloutEnabled         = false;	// SCD Super Peel Out
 	Game.GroundSpeedcap			= false;	// S1-like ground speedcap
@@ -34,7 +33,10 @@ function GameFrameworkSetup()
 	Game.ExtendedCamera			= false;	// In SCD, the camera will shift forward to the direction you're running
 	Game.SmoothPaletteCycle		= false;	// Apply interpolation to palette cycles
 	Game.SmoothRotation			= true;		// Use Mania-like smooth rotation
+	
+	Game.TileCollisionMethod    = false;	// If enabled, player will collide with actual tiles instead of collision masks
 	Game.RichPresenceSupport    = true;		// Enable Rich Presence
+	Game.AllowUnroll			= true;     // Allows you to unroll with UP button when rolling. Good for more complex momentum gaining!
 		
 	// Default palette status
 	Game.FadeEnabled			= true;

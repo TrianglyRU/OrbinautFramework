@@ -14,7 +14,7 @@ function StageActInitialization()
 			CardEnabled				= false;						// Enable title card, else just fade in
 			TimeEnabled				= false;						// Enable time counter right from the start
 			Time					= 0;							// Default stage time upon loading
-			WaterLevel				= 0;							// Water level (from bottom of the stage)
+			WaterLevel				= 0;							// Water level (y position)
 			LeftBoundary			= 0;							// Left stage limit
 			TopBoundary				= 0;							// Top stage limit
 			RightBoundary			= room_width;					// Right stage limit

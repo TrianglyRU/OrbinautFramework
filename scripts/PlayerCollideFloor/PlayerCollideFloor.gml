@@ -15,9 +15,9 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY + yRadius);
 			
 			// Get floor distances
-			var dLeft  = colmask_get_distance_v(xLeft, yLeft, true)
-			show_debug_message(string(tile_get_distance(xLeft, yLeft, LayerA)) + ":" + string(dLeft)) 
-			var dRight = colmask_get_distance_v(xRight, yRight, true)
+			var dLeft  = colmask_get_distance_v(xLeft, yLeft, true, false);			
+			var dRight = colmask_get_distance_v(xRight, yRight, true, false);
+			//show_debug_message(string(tile_get_distance(xLeft, yLeft, LayerA)) + ":" + string(dLeft)) 
 			
 			// Get the closest distance and floor angle
 			if dLeft <= dRight
@@ -53,7 +53,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if (abs(Inertia) < 20 and Distance > -14) or abs(Inertia) >= 20
+			else //if Distance > -14
 			{
 				PosY += Distance;
 			}
@@ -68,8 +68,8 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY - xRadius);
 			
 			// Get floor distances
-			var dLeft  = colmask_get_distance_h(xLeft, yLeft, true)
-			var dRight = colmask_get_distance_h(xRight, yRight, true)
+			var dLeft  = colmask_get_distance_h(xLeft, yLeft, true, false)
+			var dRight = colmask_get_distance_h(xRight, yRight, true, false)
 
 			// Get the closest distance and floor angle
 			if dLeft <= dRight
@@ -105,7 +105,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if (abs(Inertia) < 20 and Distance > -14) or abs(Inertia) >= 20
+			else //if Distance > -14
 			{
 				PosX += Distance;;
 			}
@@ -120,8 +120,8 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY - yRadius);
 			
 			// Get floor distances
-			var dLeft  = colmask_get_distance_v(xLeft, yLeft, false)
-			var dRight = colmask_get_distance_v(xRight, yRight, false)
+			var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, false)
+			var dRight = colmask_get_distance_v(xRight, yRight, false, false)
 			
 			// Get the closest distance and floor angle
 			if dLeft <= dRight
@@ -157,7 +157,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if (abs(Inertia) < 20 and Distance > -14) or abs(Inertia) >= 20
+			else //if Distance > -14
 			{
 				PosY -= Distance;
 			}
@@ -172,8 +172,8 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY + xRadius);
 			
 			// Get floor distances and angles
-			var dLeft  = colmask_get_distance_h(xLeft, yLeft, false)
-			var dRight = colmask_get_distance_h(xRight, yRight, false)
+			var dLeft  = colmask_get_distance_h(xLeft, yLeft, false, false)
+			var dRight = colmask_get_distance_h(xRight, yRight, false, false)
 			
 			// Get the closest distance and floor angle
 			if dLeft <= dRight
@@ -209,7 +209,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if (abs(Inertia) < 20 and Distance > -14) or abs(Inertia) >= 20
+			else //if Distance > -14
 			{
 				PosX -= Distance;
 			}

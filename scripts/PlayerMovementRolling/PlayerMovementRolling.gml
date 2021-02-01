@@ -52,8 +52,8 @@ function PlayerMovementRolling()
 	if (Xsp > 16)  Xsp = 16;
 	if (Xsp < -16) Xsp = -16;
 	
-	// If inertia is 0
-	if Inertia = 0 or Input.UpPress
+	// If our inertia is 0 or we pressed UP, unroll
+	if Inertia = 0 or (Game.AllowUnroll and Input.UpPress and abs(Inertia) > 2.5)
 	{
 		// Reset radiuses and adjust position
 		yRadius = yRadiusDefault;

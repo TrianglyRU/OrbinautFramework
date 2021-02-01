@@ -1,5 +1,5 @@
 // Function 1
-function colmask_get_distance_h(xStart, yStart, toPositive)
+function colmask_get_distance_h(xStart, yStart, toPositive, onlyFullsolid)
 {	
 	// Set adjustable coordinates
 	var X = xStart;
@@ -9,11 +9,11 @@ function colmask_get_distance_h(xStart, yStart, toPositive)
 	// Find distance to the right
 	if toPositive
 	{
-		while !colmask_meeting(X, Y, false) and X < xStart + maxDistance
+		while !colmask_meeting(X, Y, onlyFullsolid) and X < xStart + maxDistance
 		{
 			X++;
 		}
-		while colmask_meeting(X, Y, false)
+		while colmask_meeting(X, Y, onlyFullsolid)
 		{
 			X--;
 		}
@@ -23,11 +23,11 @@ function colmask_get_distance_h(xStart, yStart, toPositive)
 	// Find distance to the left
 	else
 	{
-		while !colmask_meeting(X, Y, false) and X > xStart - maxDistance
+		while !colmask_meeting(X, Y, onlyFullsolid) and X > xStart - maxDistance
 		{
 			X--;
 		}
-		while colmask_meeting(X, Y, false)
+		while colmask_meeting(X, Y, onlyFullsolid)
 		{
 			X++;
 		}
@@ -36,7 +36,7 @@ function colmask_get_distance_h(xStart, yStart, toPositive)
 }
 
 // Function 2
-function colmask_get_distance_v(xStart, yStart, toPositive)
+function colmask_get_distance_v(xStart, yStart, toPositive, onlyFullsolid)
 {			
 	// Set adjustable coordinates
 	var X = xStart;
@@ -46,11 +46,11 @@ function colmask_get_distance_v(xStart, yStart, toPositive)
 	// Find distance downwards
 	if toPositive
 	{
-		while !colmask_meeting(X, Y, false) and Y < yStart + maxDistance
+		while !colmask_meeting(X, Y, onlyFullsolid) and Y < yStart + maxDistance
 		{
 			Y++;
 		}
-		while colmask_meeting(X, Y, false)
+		while colmask_meeting(X, Y, onlyFullsolid)
 		{
 			Y--;
 		}
@@ -60,11 +60,11 @@ function colmask_get_distance_v(xStart, yStart, toPositive)
 	// Find distance upwards
 	else
 	{
-		while !colmask_meeting(X, Y, false) and Y > yStart - maxDistance
+		while !colmask_meeting(X, Y, onlyFullsolid) and Y > yStart - maxDistance
 		{
 			Y--;
 		}
-		while colmask_meeting(X, Y, false)
+		while colmask_meeting(X, Y, onlyFullsolid)
 		{
 			Y++;
 		}
