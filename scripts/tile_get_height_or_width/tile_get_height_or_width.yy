@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/Framework Logic.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_get_data",
+  "name": "tile_get_height_or_width",
   "tags": [],
   "resourceType": "GMScript",
 }
