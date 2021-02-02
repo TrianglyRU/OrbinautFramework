@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/Framework Logic.yy",
   },
   "resourceVersion": "1.0",
-  "name": "math_tiled_min",
+  "name": "tile_get_height",
   "tags": [],
   "resourceType": "GMScript",
 }

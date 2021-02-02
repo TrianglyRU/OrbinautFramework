@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/Framework Logic.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_get_distance",
+  "name": "tile_get_distance_h",
   "tags": [],
   "resourceType": "GMScript",
 }
