@@ -6,21 +6,14 @@ function tile_meeting(X, Y, Layer)
 	if Y < 0 or Y > room_height exit;
 	
 	// Check for the tile
-	var Tile = tilemap_get(Stage.TargetTileLayer[Layer], X div 16, Y div 16);
-	if  Tile == 0 
-	{
-		return false;
-	}
-		
+	var Tile = get_tile(Layer, X, Y);
+	if (Tile == 0) return false;
+	
 	// Check for its index
 	var Ind = tile_get_index(Tile) mod 175;
-	if  Ind == 174
-	{
-		return true;
-	}
+	if (Ind == 174) return true;
 		
 	// Return
-	var ModY = Y mod 16;
-	var ModX = X mod 16;
-	return (tile_get_flip(Tile) ? ModY : (15 - ModY)) < Game.HeightValueOf[Ind][(tile_get_mirror(Tile) ? (15 - ModX) : ModX)];
+	var Height = Y mod TileSize;
+	return (tile_get_flip(Tile) ? Height : (TileSize - 1 - Height)) < tile_get_height(Tile, Ind, X);
 }

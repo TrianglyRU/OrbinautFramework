@@ -19,6 +19,7 @@ function PlayerCollideFloor()
 			var dRight = colmask_get_distance_v(xRight, yRight, true, false);
 			
 			show_debug_message(tile_get_distance_v(xLeft, yLeft, Layer, true, false));
+			show_debug_message(tile_get_distance_v(xRight, yRight, Layer, true, false));
 			
 			// Get the closest distance and floor angle
 			if dLeft <= dRight
@@ -124,7 +125,7 @@ function PlayerCollideFloor()
 			var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, false)
 			var dRight = colmask_get_distance_v(xRight, yRight, false, false)
 			
-			show_debug_message(tile_get_distance_v(xLeft, yLeft, Layer, false, false));
+			//show_debug_message(tile_get_distance_v(xLeft, yLeft, Layer, false, false));
 			
 			// Get the closest distance and floor angle
 			if dLeft <= dRight

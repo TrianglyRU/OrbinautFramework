@@ -103,3 +103,4 @@
 		}
 		break;
 	}
+	//show_debug_message("TO CEILING: " + string(tile_get_distance_v(floor(PosX - xRadius), floor(PosY - yRadius), LayerA, false, false)));

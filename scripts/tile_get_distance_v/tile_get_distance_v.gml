@@ -5,95 +5,47 @@ function tile_get_distance_v(X, Y, Layer, toPositive, onlyFullsolid)
 	if X < 0 or Y < 0 or X > room_width or Y > room_height exit;	
 
 	// Variables list
-	var Tile, Tile2, Height, Index, TileEdge;
+	var Tile, Tile2, Height, Index,
+	Invert = toPositive ? 1 : -1;
 	
-	// Find tile downwards
-	if toPositive
-	{	
-		// Get tile
-		var Tile = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, Y div TileSize);
+	// Get tile
+	var Tile = get_tile(Layer, X, Y);
 		
-		// Search for the second tile below if the one we got is empty
-		if Tile = 0
-		{
-			Tile2  = +TileSize;
-			Index  = 0;
-			Height = 0;
-		}
-		
-		// Search for the second tile below and above, and use it if needed
-		else
-		{	
-			Index  = tile_get_index(Tile) mod 175;
-			Height = tile_get_height(Tile, Index, X);
-		
-			if Height = TileSize
-			{
-				Tile2 = -TileSize;
-			}
-			else if Height = 0
-			{
-				Tile2 = +TileSize;
-			}
-			else
-			{
-				Tile2 = 0;
-			}
-		}
-		if Tile2 != 0
-		{	
-			Tile   = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, (Y + Tile2) div TileSize);
-			Index  = tile_get_index(Tile) mod 175;
-			Height = tile_get_height(Tile, Index, X); 
-		}
-		
-		// Return distance to edge of the tile
-		TileEdge = (Y + Tile2) div TileSize * TileSize + (TileSize - Height - 1);
-		return TileEdge - Y;
-	}
-	
-	// Find tile upwards
-	if !toPositive
+	// Search for the second tile below if the one we got is empty
+	if Tile = 0
 	{
-		// Get tile
-		var Tile = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, Y div TileSize);
+		Tile2  = TileSize;
+		Index  = 0;
+		Height = 0;
+	}
 		
-		// Search for the second tile above if the one we got is empty
-		if Tile = 0
+	// Search for the second tile below and above, and use it if needed
+	else
+	{	
+		Index  = tile_get_index(Tile) mod 175;
+		Height = tile_get_height(Tile, Index, X);
+		
+		if Height =  TileSize
 		{
-			Tile2  = -TileSize;
-			Index  = 0;
-			Height = 0;
+			Tile2 = -TileSize;
 		}
-		
-		// Search for the second tile below and above, and use it if needed
+		else if Height = 0
+		{
+			Tile2 =  TileSize;
+		}
 		else
-		{	
-			Index = tile_get_index(Tile) mod 175;
-			Height = tile_get_height(Tile, Index, X);
-			
-			if Height = TileSize
-			{
-				Tile2 = +TileSize;
-			}
-			else if Height = 0
-			{
-				Tile2 = -TileSize;
-			}
-			else
-			{
-				Tile2 = 0;
-			}
+		{
+			Tile2 = 0;
 		}
-		if Tile2 != 0
-		{	
-			Tile   = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, (Y + Tile2) div TileSize);
-			Index  = tile_get_index(Tile) mod 175;
-			Height = tile_get_height(Tile, Index, X); 
-		}
+	}
+	if Tile2 != 0
+	{	
+		Tile2 *= Invert;
+		Tile   = get_tile(Layer, X, Y + Tile2);
+		Index  = tile_get_index(Tile) mod 175;
+		Height = tile_get_height(Tile, Index, X); 
+	}
 		
-		// Return distance to edge of the tile
-		TileEdge = (Y + Tile2) div TileSize * TileSize + Height;
-		return Y - TileEdge;
-	}	
+	// Return distance to edge of the tile
+	return (Tile2 - (Y mod TileSize) + (toPositive ? (TileSize - Height - 1) : Height)) * Invert;
 }
