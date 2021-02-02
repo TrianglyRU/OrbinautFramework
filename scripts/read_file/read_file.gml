@@ -1,10 +1,4 @@
-function GameTiledataLoad() 
-{	
-	read_file("data_angval.txt");
-	read_file("data_height.txt");
-	read_file("data_width.txt");
-}
-
+/// @function read_file(name)
 function read_file(name) 
 {
 	var File = file_text_open_read(name);				

@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/Framework Logic.yy",
   },
   "resourceVersion": "1.0",
-  "name": "get_tile",
+  "name": "read_file",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -1,15 +1,16 @@
-/// @function tile_get_angle()
-function tile_get_angle(sensor) 
+/// @function tile_get_angle(x, y, layer)
+function tile_get_angle(X, Y, Layer) 
 {	
-	// Get sensors anchor points
-	var X = sensor[0];
-	var Y = sensor[1];
+	// Get angle of the tile
+	var Tile     = tilemap_get_at_pixel(Stage.TileLayer[Layer], X, Y);
+	var FloorAng = Game.AngleValueOf[tile_get_index(Tile)][round(Angle/90) % 4];
 	
-	// Get an angle of the tile
-	var Tile  = tilemap_get_at_pixel(layer_tilemap_get_id(layer_get_id("CollisionTilesA")), X, Y);
-	var Angle = Game.AngleValueOf[tile_get_index(Tile)][round(Angle/90) % 4];
+	// Adjust the angle if tile is flipped
+	if tile_get_flip(Tile)
+	{
+		FloorAng = (540 - FloorAng) mod 360;
+	}
 	
-	// Return an angle and also check if it is mirrored or flipped
-	if (tile_get_flip(Tile)) Angle = (540 - Angle) mod 360;
-	return tile_get_mirror(Tile) ? 360 - Angle : Angle;
+	// Check if tile is mirrored and then return its angle
+	return tile_get_mirror(Tile) ? 360 - FloorAng : FloorAng;
 }

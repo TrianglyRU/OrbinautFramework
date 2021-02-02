@@ -15,22 +15,42 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY + yRadius);
 			
 			// Get floor distances
-			var dLeft  = colmask_get_distance_v(xLeft, yLeft, true, false);			
-			var dRight = colmask_get_distance_v(xRight, yRight, true, false);
-			
-			show_debug_message(tile_get_distance_v(xLeft, yLeft, Layer, true, false));
-			show_debug_message(tile_get_distance_v(xRight, yRight, Layer, true, false));
-			
-			// Get the closest distance and floor angle
-			if dLeft <= dRight
+			if !Game.TileCollisionMethod
 			{
-				var Distance   = dLeft;
-				var FloorAngle = colmask_get_angle_v(xLeft, yLeft, true);
+				var dLeft  = colmask_get_distance_v(xLeft, yLeft, true, false);			
+				var dRight = colmask_get_distance_v(xRight, yRight, true, false);
 			}
 			else
 			{
-				var Distance   = dRight;
-				var FloorAngle = colmask_get_angle_v(xRight, yRight, true);
+				var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);			
+				var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
+			}
+			
+			// Get the closest distance
+			var Distance = dLeft <= dRight ? dLeft : dRight;
+			
+			// Get floor angle
+			if !Game.TileCollisionMethod
+			{
+				if dLeft <= dRight
+				{
+					var FloorAngle = colmask_get_angle_v(xLeft, yLeft, true);
+				}
+				else
+				{
+					var FloorAngle = colmask_get_angle_v(xRight, yRight, true);
+				}
+			}
+			else
+			{
+				if dLeft <= dRight
+				{
+					var FloorAngle = tile_get_angle(xLeft, yLeft, Layer);
+				}
+				else
+				{
+					var FloorAngle = tile_get_angle(xRight, yRight, Layer);
+				}
 			}
 			
 			// Update player's angle, use cardinal one if the difference is higher than 45
@@ -70,19 +90,42 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY - xRadius);
 			
 			// Get floor distances
-			var dLeft  = colmask_get_distance_h(xLeft, yLeft, true, false)
-			var dRight = colmask_get_distance_h(xRight, yRight, true, false)
-
-			// Get the closest distance and floor angle
-			if dLeft <= dRight
+			if !Game.TileCollisionMethod
 			{
-				var Distance   = dLeft;
-				var FloorAngle = colmask_get_angle_h(xLeft, yLeft, true);
+				var dLeft  = colmask_get_distance_h(xLeft, yLeft, true, false);
+				var dRight = colmask_get_distance_h(xRight, yRight, true, false);
 			}
 			else
 			{
-				var Distance   = dRight;
-				var FloorAngle = colmask_get_angle_h(xRight, yRight, true);
+				var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, true, false);
+				var dRight = tile_get_distance_h(xRight, yRight, Layer, true, false);
+			}
+				
+			// Get the closest distance
+			var Distance = dLeft <= dRight ? dLeft : dRight;
+
+			// Get floor angle
+			if !Game.TileCollisionMethod
+			{
+				if dLeft <= dRight
+				{
+					var FloorAngle = colmask_get_angle_h(xLeft, yLeft, true);
+				}
+				else
+				{
+					var FloorAngle = colmask_get_angle_h(xRight, yRight, true);
+				}
+			}
+			else
+			{
+				if dLeft <= dRight
+				{
+					var FloorAngle = tile_get_angle(xLeft, yLeft, Layer);
+				}
+				else
+				{
+					var FloorAngle = tile_get_angle(xRight, yRight, Layer);
+				}
 			}
 			
 			// Update player's angle, use cardinal one if the difference is higher than 45
@@ -122,21 +165,42 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY - yRadius);
 			
 			// Get floor distances
-			var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, false)
-			var dRight = colmask_get_distance_v(xRight, yRight, false, false)
-			
-			//show_debug_message(tile_get_distance_v(xLeft, yLeft, Layer, false, false));
-			
-			// Get the closest distance and floor angle
-			if dLeft <= dRight
+			if !Game.TileCollisionMethod
 			{
-				var Distance   = dLeft;
-				var FloorAngle = colmask_get_angle_v(xLeft, yLeft, false);
+				var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, false);
+				var dRight = colmask_get_distance_v(xRight, yRight, false, false);
 			}
 			else
 			{
-				var Distance   = dRight;
-				var FloorAngle = colmask_get_angle_v(xRight, yRight, false);
+				var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, false);
+				var dRight = tile_get_distance_v(xRight, yRight, Layer, false, false);
+			}
+			
+			// Get the closest distance
+			var Distance = dLeft <= dRight ? dLeft : dRight;
+			
+			// Get floor angle
+			if !Game. TileCollisionMethod
+			{
+				if dLeft <= dRight
+				{
+					var FloorAngle = colmask_get_angle_v(xLeft, yLeft, false);
+				}
+				else
+				{
+					var FloorAngle = colmask_get_angle_v(xRight, yRight, false);
+				}
+			}
+			else
+			{
+				if dLeft <= dRight
+				{
+					var FloorAngle = tile_get_angle(xLeft, yLeft, Layer);
+				}
+				else
+				{
+					var FloorAngle = tile_get_angle(xRight, yRight, Layer);
+				}
 			}
 			
 			// Update player's angle, use cardinal one if the difference is higher than 45
@@ -176,19 +240,42 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY + xRadius);
 			
 			// Get floor distances and angles
-			var dLeft  = colmask_get_distance_h(xLeft, yLeft, false, false)
-			var dRight = colmask_get_distance_h(xRight, yRight, false, false)
-			
-			// Get the closest distance and floor angle
-			if dLeft <= dRight
+			if !Game.TileCollisionMethod
 			{
-				var Distance   = dLeft;
-				var FloorAngle = colmask_get_angle_h(xLeft, yLeft, false);
+				var dLeft  = colmask_get_distance_h(xLeft, yLeft, false, false);
+				var dRight = colmask_get_distance_h(xRight, yRight, false, false);
 			}
 			else
 			{
-				var Distance   = dRight;
-				var FloorAngle = colmask_get_angle_h(xRight, yRight, false);
+				var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, false, false);
+				var dRight = tile_get_distance_h(xRight, yRight, Layer, false, false);
+			}
+			
+			// Get the closest distance
+			var Distance = dLeft <= dRight ? dLeft : dRight;
+			
+			// Get the closest distance and floor angle
+			if !Game.TileCollisionMethod
+			{
+				if dLeft <= dRight
+				{
+					var FloorAngle = colmask_get_angle_h(xLeft, yLeft, false);
+				}
+				else
+				{
+					var FloorAngle = colmask_get_angle_h(xRight, yRight, false);
+				}
+			}
+			else
+			{
+				if dLeft <= dRight
+				{
+					var FloorAngle = tile_get_angle(xLeft, yLeft, Layer);
+				}
+				else
+				{
+					var FloorAngle = tile_get_angle(xRight, yRight, Layer);
+				}
 			}
 			
 			// Update player's angle, use cardinal one if the difference is higher than 45

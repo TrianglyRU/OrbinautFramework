@@ -34,7 +34,7 @@ function GameFrameworkSetup()
 	Game.SmoothPaletteCycle		= false;	// Apply interpolation to palette cycles
 	Game.SmoothRotation			= true;		// Use Mania-like smooth rotation
 	
-	Game.TileCollisionMethod    = false;	// If enabled, player will collide with actual tiles instead of collision masks
+	Game.TileCollisionMethod    = true;	// If enabled, player will collide with actual tiles instead of collision masks
 	Game.RichPresenceSupport    = true;		// Enable Rich Presence
 	Game.AllowUnroll			= true;     // Allows you to unroll with UP button when rolling. Good for more complex momentum gaining!
 		

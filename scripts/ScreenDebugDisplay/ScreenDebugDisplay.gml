@@ -25,9 +25,6 @@ function ScreenDebugDisplay()
 			+ "\n   Y RADIUS: " + string(Player.xRadius)
 			+ "\n   WALL OFFSET: " + string((Player.Grounded and !Player.Angle) * 8)
 			+ "\n   MAX DISTANCE: " + string(Player.CollisionDistance)
-			+ "\n   MASK ID: " + string(Game.TempValue[98])
-			+ "\n   MASK LAYER: " + string(Game.TempValue[99])
-			+ "\n   MASK SOLIDITY: " + string(Game.TempValue[100])
 			+ "\n"
 			+ "\n          * PLAYER MOTION *"
 			+ "\n"

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Scripts",
-    "path": "folders/Game Code/Game Scripts.yy",
+    "name": "Stage Scripts",
+    "path": "folders/Game Code/Stage Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameTiledataLoad",
+  "name": "StageTiledataLoad",
   "tags": [],
   "resourceType": "GMScript",
 }

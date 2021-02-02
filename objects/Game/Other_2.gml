@@ -4,7 +4,6 @@
 	// Initialize the framework
 	GameMacroSetup();
 	GameFrameworkSetup();
-	GameTiledataLoad();
 	
 	// Initialize audio
 	GameAudioGroupsLoad();

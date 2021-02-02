@@ -3,3 +3,6 @@
 	
 	// Set stage properties
 	StageActInitialization();
+	
+	// Load tiledata
+	StageTiledataLoad();
