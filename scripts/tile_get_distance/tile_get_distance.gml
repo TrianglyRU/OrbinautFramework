@@ -2,69 +2,100 @@
 function tile_get_distance_v(X, Y, Layer, toPositive, onlyFullsolid) 
 {	
 	// Do not perform outside of room boundaries or the game will crash
-	if X < 0 or X > room_width  exit;
-	if Y < 0 or Y > room_height exit;
-	
-	var Hgh, NextTileIn, Ind;
-	
-	// Get tiledata of a tile from our collision layer
-	var Tiledata = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, Y div TileSize);
+	if X < 0 or Y < 0 or X > room_width or Y > room_height exit;	
 
-	// If tiledata index is 0, ignore tile index and its height, set distance to the next tile to tilesize
-	if Tiledata = 0
-	{ 
-		NextTileIn = TileSize; 
-		Ind = 0; 
-		Hgh = 0;
-	}
-	else
+	// Variables list
+	var Tile, Tile2, Height, Index, TileEdge;
+	
+	// Find tile downwards
+	if toPositive
 	{	
-		// Get index of our tile
-		Ind = tile_get_index(Tiledata) mod 175;
+		// Get tile
+		var Tile = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, Y div TileSize);
 		
-		// If this is full tile, get the distance to the second tile (above)
-		if Ind = 174
-		{ 
-			NextTileIn = -TileSize;
-			Hgh		   = TileSize;
-		}
-		
-		// If our tile is not full
-		else 
+		// Search for the second tile if the one we got is empty
+		if Tile = 0
 		{
-			// Get tile height
-			Hgh = tile_get_height(Tiledata, Ind, X);
-			
-			// Get distance to the second tile if needed
-			if Hgh = 0
-			{
-				NextTileIn = TileSize;
-			}
-			else if Hgh = TileSize
-			{
-				NextTileIn = -TileSize;
-			}
-			else NextTileIn = 0;
+			Tile2  = +TileSize;
+			Index  = 0;
+			Height = 0;
 		}
-	}
-
-	// If we check for a second tile
-	if NextTileIn != 0 
-	{	
-		// Reverse if we're calculating to the negative Y
-		NextTileIn *= toPositive ? 1 : -1;
 		
-		// Get tiledata of the second tile
-		Tiledata = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, (Y + NextTileIn) div TileSize);
+		// Search for the second tile and use it if needed
+		else
+		{	
+			Index  = tile_get_index(Tile) mod 175;
+			Height = tile_get_height(Tile, Index, X);
 		
-		// Get its index and height
-		Ind = tile_get_index(Tiledata) mod 175;
-		Hgh = tile_get_height(Tiledata, Ind, X);
+			if Height = TileSize
+			{
+				Tile2 = -TileSize;
+			}
+			else if Height = 0
+			{
+				Tile2 = +TileSize;
+			}
+			else
+			{
+				Tile2 = 0;
+			}
+		}
+		if Tile2 != 0
+		{	
+			Tile   = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, (Y + Tile2) div TileSize);
+			Index  = tile_get_index(Tile) mod 175;
+			Height = tile_get_height(Tile, Index, X); 
+		}
+		
+		// Return distance to edge of the tile
+		TileEdge = (Y + Tile2) div TileSize * TileSize + (tile_get_flip(Tile) ? -1 : (TileSize - 1 - Height));
+		return TileEdge - Y;
 	}
-
-	// Return distance to the tile we're working with
-	return ((tile_get_flip(Ind) ? Hgh : 16 - Hgh) - (Y mod 16 + 1)) * (toPositive ? 1 : -1) + NextTileIn;
-	//return (tile_get_mirror(Ind) ? Hgh : 16 - Hgh) - (Y mod 16 + 1) + Diff;
+	
+	// Find tile upwards
+	if !toPositive
+	{
+		// Get tile
+		var Tile = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, Y div TileSize);
+		
+		// Search for the second tile if the one we got is empty
+		if Tile = 0
+		{
+			Tile2  = -TileSize;
+			Index  = 0;
+			Height = 0;
+		}
+		
+		// Search for the second tile and use it if needed
+		else
+		{	
+			Index = tile_get_index(Tile) mod 175;
+			Height = tile_get_height(Tile, Index, X);
+			
+			if Height = TileSize
+			{
+				Tile2 = +TileSize;
+			}
+			if Height = 0
+			{
+				Tile2 = -TileSize;
+			}
+			else
+			{
+				Tile2 = 0;
+			}
+		}
+		if Tile2 != 0
+		{	
+			Tile   = tilemap_get(Stage.TargetTileLayer[Layer], X div TileSize, (Y + Tile2) div TileSize);
+			Index  = tile_get_index(Tile) mod 175;
+			Height = tile_get_height(Tile, Index, X); 
+		}
+		
+		// Return distance to edge of the tile
+		TileEdge = (Y + Tile2) div TileSize * TileSize + (tile_get_flip(Tile) ? Height : TileSize);
+		return Y - TileEdge;
+	}	
 }
 
 /// @function tile_get_distance_h(x, y, layer, toPositive, onlyFullsolid)
