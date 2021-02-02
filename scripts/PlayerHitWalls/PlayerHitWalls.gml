@@ -15,7 +15,7 @@ function PlayerHitWalls()
 				case RangeFloor:
 				{
 					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, false, true)
-					//show_debug_message(string(tile_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, LayerA, false, true)) + ":" + string(Distance))
+	
 					if  Distance < 0
 					{	
 						PosX    = PlayerX - Distance;
@@ -86,8 +86,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, true, true)
-					//show_debug_message(string(tile_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, LayerA, true, true)) + ":" + string(Distance))
+					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, true, true)	
 					if  Distance < 0
 					{	
 						PosX    = PlayerX + Distance;

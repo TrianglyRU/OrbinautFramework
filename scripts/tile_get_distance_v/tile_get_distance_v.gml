@@ -48,7 +48,7 @@ function tile_get_distance_v(X, Y, Layer, toPositive, onlyFullsolid)
 		}
 		
 		// Return distance to edge of the tile
-		TileEdge = (Y + Tile2) div TileSize * TileSize + (tile_get_flip(Tile) ? -1 : (TileSize - 1 - Height));
+		TileEdge = (Y + Tile2) div TileSize * TileSize + (TileSize - Height - 1);
 		return TileEdge - Y;
 	}
 	
@@ -76,7 +76,7 @@ function tile_get_distance_v(X, Y, Layer, toPositive, onlyFullsolid)
 			{
 				Tile2 = +TileSize;
 			}
-			if Height = 0
+			else if Height = 0
 			{
 				Tile2 = -TileSize;
 			}
@@ -93,7 +93,7 @@ function tile_get_distance_v(X, Y, Layer, toPositive, onlyFullsolid)
 		}
 		
 		// Return distance to edge of the tile
-		TileEdge = (Y + Tile2) div TileSize * TileSize + (tile_get_flip(Tile) ? Height : TileSize);
+		TileEdge = (Y + Tile2) div TileSize * TileSize + Height;
 		return Y - TileEdge;
 	}	
 }
