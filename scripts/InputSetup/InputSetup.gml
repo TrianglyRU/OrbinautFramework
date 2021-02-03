@@ -1,6 +1,6 @@
 function InputSetup()
 {	
-	// Select input device
+	// Use gamepad as input device if it is conneected, else use keyboard
 	if gamepad_is_connected(0) 
 	{
 		Type = "Gamepad";

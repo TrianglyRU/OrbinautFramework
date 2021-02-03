@@ -6,7 +6,8 @@ function tile_meeting(X, Y, Layer)
 	if Y < 0 or Y > room_height exit;
 	
 	// Check for the tile
-	var Tile = get_tile(Layer, X, Y);
+	//var Tile = get_tile(Layer, X, Y);
+	var Tile = tilemap_get(Stage.TileLayer[Layer], X, Y)
 	if (Tile == 0) return false;
 	
 	// Check for its index

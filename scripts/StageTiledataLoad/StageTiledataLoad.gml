@@ -1,12 +1,12 @@
 function StageTiledataLoad() 
 {	
-	// Load angle data
+	// Load tile angle data
 	read_file("data_angval.txt");
 	
-	// Load height data
+	// Load tile height data
 	read_file("data_height.txt");
 	
-	// Load width data
+	// Load tile width data
 	read_file("data_width.txt");
 	
 	// Set tile layers IDs

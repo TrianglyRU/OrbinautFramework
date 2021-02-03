@@ -7,5 +7,7 @@ function GameShaderFadeReset()
 	Game.FadeStep	 = 0;
 	Game.FadeTimer	 = 0;
 	Game.FadePower	 = 0;
+	
+	// Reset surface
 	application_surface_draw_enable(false);
 }

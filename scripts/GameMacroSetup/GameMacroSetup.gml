@@ -1,13 +1,13 @@
 function GameMacroSetup()
 {		
 	// Game macros
-	#macro Script function
-	#macro Game  global
-	#macro to    0
-	#macro from  1
-	#macro black 0
-	#macro white 1
-	#macro flash 2
+	#macro Script	function
+	#macro Game		global
+	#macro to		0
+	#macro from		1
+	#macro black	0
+	#macro white	1
+	#macro flash	2
 	#macro TileSize 16
 
 	// Player macros

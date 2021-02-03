@@ -1,6 +1,6 @@
 function PlayerSlopeDetach() 
 {
-	/*if MovementLock = 0
+	if MovementLock = 0
 	{
 		if !Game.StrongerSlopeDetach
 		{
@@ -33,5 +33,5 @@ function PlayerSlopeDetach()
 				Grounded     = false;
 			}
 		}
-	}*/
+	}
 }

@@ -22,8 +22,10 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);			
-				var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
+				//var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);			
+				//var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
+				var dLeft  = tile_get_distance_v2(xLeft, yLeft, true, false);			
+				var dRight = tile_get_distance_v2(xRight, yRight, true, false);
 			}
 			
 			// Get the closest distance

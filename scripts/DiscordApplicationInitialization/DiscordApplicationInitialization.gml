@@ -5,7 +5,7 @@ function DiscordApplicationInitialization()
 	
 	// Application ID. Use yours
 	var DiscordAppId = "795659000645287996";
-	var SteamAppId = ""; 
+	var SteamAppId	 = ""; 
 	
 	// Proceed initial
 	discord_init(DiscordAppId, SteamAppId);

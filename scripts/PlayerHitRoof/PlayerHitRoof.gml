@@ -9,12 +9,19 @@ function PlayerHitRoof()
 		var yRight = floor(PosY - yRadius);
 			
 		// Get roof distances
-		var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, true);
-		var dRight = colmask_get_distance_v(xRight, yRight, false, true);
+		if !Game.TileCollisionMethod
+		{
+			var dLeft  = colmask_get_distance_v(xLeft, yLeft, false, true);
+			var dRight = colmask_get_distance_v(xRight, yRight, false, true);
+		}
+		else
+		{
+			var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, true);
+			var dRight = tile_get_distance_v(xRight, yRight, Layer, false, true);
+		}
 		
 		// Use the closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
-		//show_debug_message(tile_get_distance_v(xLeft, yLeft, Layer, false, false));
 		
 		// If the distance is negative, we're touching the roof
 		if Distance < 0
@@ -26,10 +33,17 @@ function PlayerHitRoof()
 			if abs(Ysp) > abs(Xsp)
 			{	
 				// Get roof angle
-				var RoofAngle = dLeft <= dRight? colmask_get_angle_v(xLeft, yLeft, false) : colmask_get_angle_v(xRight, yRight, false);
+				if !Game.TileCollisionMethod
+				{
+					var RoofAngle = dLeft <= dRight? colmask_get_angle_v(xLeft, yLeft, false) : colmask_get_angle_v(xRight, yRight, false);
+				}
+				else
+				{
+					var RoofAngle = dLeft <= dRight? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
+				}
 				
 				// Land on the roof if it is steep enough
-				if RoofAngle < 135 or RoofAngle > 225
+				if RoofAngle > 90 and RoofAngle < 135 or RoofAngle > 225 and RoofAngle < 270
 				{	
 					Inertia  = RoofAngle < 180 ? -Ysp : Ysp;
 					Angle	 = RoofAngle;					
