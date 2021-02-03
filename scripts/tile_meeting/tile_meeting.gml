@@ -7,7 +7,7 @@ function tile_meeting(X, Y, Layer)
 	
 	// Check for the tile
 	//var Tile = get_tile(Layer, X, Y);
-	var Tile = tilemap_get(Stage.TileLayer[Layer], X, Y)
+	var Tile = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize)
 	if (Tile == 0) return false;
 	
 	// Check for its index

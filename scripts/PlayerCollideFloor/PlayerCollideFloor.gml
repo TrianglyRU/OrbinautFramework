@@ -22,14 +22,9 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				//var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);			
-				//var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
-				var dLeft  = tile_get_distance_v2(xLeft, yLeft, true, false);			
-				var dRight = tile_get_distance_v2(xRight, yRight, true, false);
+				var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);			
+				var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
 			}
-			
-			// Get the closest distance
-			var Distance = dLeft <= dRight ? dLeft : dRight;
 			
 			// Get floor angle
 			if !Game.TileCollisionMethod
@@ -72,6 +67,9 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 			
+			// Get the closest distance
+			var Distance = dLeft <= dRight ? dLeft : dRight;
+			
 			// Collide
 			if Distance > CollisionDistance
 			{
@@ -103,9 +101,6 @@ function PlayerCollideFloor()
 				var dRight = tile_get_distance_h(xRight, yRight, Layer, true, false);
 			}
 				
-			// Get the closest distance
-			var Distance = dLeft <= dRight ? dLeft : dRight;
-
 			// Get floor angle
 			if !Game.TileCollisionMethod
 			{
@@ -146,6 +141,9 @@ function PlayerCollideFloor()
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+			
+			// Get the closest distance
+			var Distance = dLeft <= dRight ? dLeft : dRight;
 
 			// Collide
 			if Distance > CollisionDistance
@@ -177,9 +175,6 @@ function PlayerCollideFloor()
 				var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, false);
 				var dRight = tile_get_distance_v(xRight, yRight, Layer, false, false);
 			}
-			
-			// Get the closest distance
-			var Distance = dLeft <= dRight ? dLeft : dRight;
 			
 			// Get floor angle
 			if !Game. TileCollisionMethod
@@ -222,6 +217,9 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 			
+			// Get the closest distance
+			var Distance = dLeft <= dRight ? dLeft : dRight;
+			
 			// Collide
 			if Distance > CollisionDistance
 			{
@@ -252,10 +250,7 @@ function PlayerCollideFloor()
 				var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, false, false);
 				var dRight = tile_get_distance_h(xRight, yRight, Layer, false, false);
 			}
-			
-			// Get the closest distance
-			var Distance = dLeft <= dRight ? dLeft : dRight;
-			
+
 			// Get the closest distance and floor angle
 			if !Game.TileCollisionMethod
 			{
@@ -296,6 +291,9 @@ function PlayerCollideFloor()
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+			
+			// Get the closest distance
+			var Distance = dLeft <= dRight ? dLeft : dRight;
 
 			// Collide
 			if Distance > CollisionDistance
