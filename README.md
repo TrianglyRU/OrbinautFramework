@@ -2,7 +2,7 @@
 An accurate classic Sonic framework, made for GameMaker Studio 2.
 
 Framework is under development, and there is no practical way to use it yet.
-If you plan to use ANY part of our code, please, credit me AND MicG as additional programmers, do not steal. Thank you!
+If you plan to use ANY part of our code in your own project outside of Orbinaut Framework and fangames made on it, please, credit me AND MicG as additional programmers, do not steal. Thank you!
 
 # Features
 - Classic-accurate physics.
