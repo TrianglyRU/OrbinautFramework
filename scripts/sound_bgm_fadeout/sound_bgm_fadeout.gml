@@ -1,3 +1,4 @@
+/// @function sound_bgm_fadeout(musicID, fadeTime)
 function sound_bgm_fadeout(musicID, fadeTime)
 {
 	// Fade to 0

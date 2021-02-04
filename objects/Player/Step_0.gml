@@ -1,44 +1,47 @@
 /// @description Scripts
 // You can call your scripts in this editor
 	
-	// Update player's state
-	PlayerStateUpdate();
+	// Update player's states
+	PlayerStatesUpdate();
 	
-	// Check for movement lock
-	PlayerMovementLock();
+	// Simulate how player behaviours when double input registered
+	PlayerInputSimulation();
 	
-	// Run main code basing on current state
+	// Run main code based on current state
 	switch State 
 	{
 		case PlayerStateNormal:
 		{	
 			// Perform jump and exit the code
-			PlayerJumpPerform();
+			PlayerCheckJump();
 			if Jumping exit;
 			
 			// Set slope gravity
 			PlayerSlopeResist();
 			
 			// Update player's speeds
-			PlayerMovementNormal();
+			PlayerMove();
 			
 			// Collide with walls
 			PlayerHitWalls();
 			
-			// Update player's position and keep them inside the stage
-			PlayerPositionUpdate();
+			// Update player's position
+			PlayerSpeedToPos();
+			
+			// Check for crossing stage boundaries
+			PlayerLevelBound();
 			
 			// Perform spindash
-			PlayerSpindashPerform();
+			PlayerCheckSpindash();
 			
 			// Perform roll
-			PlayerRollPerform();
+			PlayerCheckRoll();
 			
 			// Collide with floor and update player's angle
 			PlayerCollideFloor();
 			
 			// Fall off the ceiling and walls
-			PlayerSlopeDetach();
+			PlayerSlopeRepel();
 			
 			// Collide with the objects
 			PlayerCollideSolidObjects();
@@ -47,26 +50,29 @@
 		case PlayerStateRoll:
 		{
 			// Perform jump and exit the code
-			PlayerJumpPerform();
+			PlayerCheckJump();
 			if Jumping exit;
 			
 			// Set slope gravity
-			PlayerSlopeResistRolling();	
+			PlayerSlopeResist();	
 			
 			// Update player's speeds
-			PlayerMovementRolling();
+			PlayerMoveRoll();
 			
 			// Collide with walls
 			PlayerHitWalls();
 			
-			// Update player's position and keep them inside the stage
-			PlayerPositionUpdate();
+			// Update player's position
+			PlayerSpeedToPos();
+			
+			// Check for crossing stage boundaries
+			PlayerLevelBound();
 			
 			// Collide with floor and update player's angle
 			PlayerCollideFloor();
 			
 			// Fall off the ceiling and walls
-			PlayerSlopeDetach();
+			PlayerSlopeRepel();
 			
 			// Collide with the objects
 			PlayerCollideSolidObjects();
@@ -78,10 +84,13 @@
 			PlayerJumpResist();
 			
 			// Update player's speeds
-			PlayerMovementAirborne();
+			PlayerMoveAirborne();
 			
-			// Update player's position and keep them inside the stage
-			PlayerPositionUpdate();
+			// Update player's position
+			PlayerSpeedToPos();
+			
+			// Check for crossing stage boundaries
+			PlayerLevelBound();
 			
 			// Apply gravity and rotation
 			PlayerApplyGravity();
@@ -103,4 +112,3 @@
 		}
 		break;
 	}
-	//show_debug_message("TO CEILING: " + string(tile_get_distance_v(floor(PosX - xRadius), floor(PosY - yRadius), LayerA, false, false)));

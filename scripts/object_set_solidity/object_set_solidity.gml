@@ -1,3 +1,4 @@
+/// @function object_set_solidity(type)
 function object_set_solidity(type)
 {	
 	// Accept only SolidAll or SolidTop

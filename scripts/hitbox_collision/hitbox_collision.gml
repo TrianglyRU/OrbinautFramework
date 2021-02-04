@@ -1,3 +1,4 @@
+/// @function hitbox_collision(collideFrom, collideWith)
 function hitbox_collision(collideFrom, collideWith)
 {	
 	// Define if we need to use player's hitbox or not

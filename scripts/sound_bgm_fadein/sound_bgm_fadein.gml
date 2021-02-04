@@ -1,3 +1,4 @@
+/// @function sound_bgm_fadein(musicID, fadeTime)
 function sound_bgm_fadein(musicID, fadeTime)
 {
 	// Fade back to music volume if it is not on this volume level

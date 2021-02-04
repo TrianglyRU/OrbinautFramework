@@ -1,3 +1,4 @@
+/// @function sound_sfx_play(soundID, doLoop)
 function sound_sfx_play(soundID, doLoop)
 {	
 	// Stop the sound if it is playing already

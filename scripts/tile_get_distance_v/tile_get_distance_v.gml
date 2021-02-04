@@ -12,7 +12,7 @@ function tile_get_distance_v(X, Y, Layer, toPositive, onlyFullsolid)
 	
 	// Get tile and its index
 	Tile  = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
-	Index = tile_get_index(Tile) mod 175;
+	Index = tile_get_index(Tile) mod TileAmount;
 	
 	// Read heightmap
 	Height = tile_get_height(Tile, Index, X);

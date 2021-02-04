@@ -1,6 +1,8 @@
 /// @description Render
 // You can call your scripts in this editor
 	
-	// Update character
+	// Use character animation list
 	PlayerCharacterAnimationList();
+	
+	// Display character
 	PlayerCharacterDisplay();

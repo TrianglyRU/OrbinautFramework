@@ -12,7 +12,7 @@ function tile_get_distance_h(X, Y, Layer, toPositive, onlyFullsolid)
 	
 	// Get tile and its index
 	Tile  = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
-	Index = tile_get_index(Tile) mod 175;
+	Index = tile_get_index(Tile) mod TileAmount;
 		
 	// Read widthmap
 	Width = tile_get_width(Tile, Index, Y);
@@ -40,7 +40,7 @@ function tile_get_distance_h(X, Y, Layer, toPositive, onlyFullsolid)
 	{	
 		Tile2 *= Invert;
 		Tile   = tilemap_get(Stage.TileLayer[Layer], (X + Tile2) div TileSize, Y div TileSize)
-		Index  = tile_get_index(Tile) mod 175;
+		Index  = tile_get_index(Tile) mod TileAmount;
 		Width  = tile_get_width(Tile, Index, Y); 
 	}
 		

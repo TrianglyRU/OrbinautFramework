@@ -1,3 +1,4 @@
+/// @function sound_bgm_stop(musicID, fadeTime)
 function sound_bgm_stop(musicID, fadeTime)
 {	
 	// Check if music is playing

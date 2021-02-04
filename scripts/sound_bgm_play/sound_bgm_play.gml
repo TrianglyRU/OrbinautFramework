@@ -1,3 +1,4 @@
+/// @function sound_bgm_play(musicID, endAt, returnTo)
 function sound_bgm_play(musicID, endAt, returnTo)
 {	
 	// Loop the track if it is playing

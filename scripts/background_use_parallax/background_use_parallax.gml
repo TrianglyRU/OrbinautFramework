@@ -1,3 +1,4 @@
+/// @function background_use_parallax() 
 function background_use_parallax() 
 {	
 	// Apply a parallax shader to the object

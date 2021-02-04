@@ -1,3 +1,4 @@
+/// @function sound_sfx_stop(soundID)
 function sound_sfx_stop(soundID)
 {	
 	// Stop the sound if it is playing
