@@ -11,7 +11,7 @@ function PlayerMovementNormal()
 			// If moving right and left key is pressed, decelerate
 			if Inertia > 0 
 			{
-				Inertia     -= Dec;
+				Inertia -= Dec;
 				if (Inertia <= 0) Inertia = -0.5;	
 			} 
 			
@@ -20,7 +20,7 @@ function PlayerMovementNormal()
 			{
 				if (!Game.GroundSpeedcap and Inertia > -TopAcc) or Game.GroundSpeedcap
 				{
-					Inertia     -= Acc;					
+					Inertia -= Acc;					
 					if (Inertia <= -TopAcc) Inertia = -TopAcc;		
 				} 
 				Facing = FacingLeft;
@@ -31,7 +31,7 @@ function PlayerMovementNormal()
 			// If moving left and right key is pressed, decelerate
 			if Inertia < 0 
 			{
-				Inertia     += Dec;
+				Inertia += Dec;
 				if (Inertia >= 0) Inertia = 0.5;
 			} 
 			
@@ -40,7 +40,7 @@ function PlayerMovementNormal()
 			{
 				if (!Game.GroundSpeedcap and Inertia < TopAcc) or Game.GroundSpeedcap
 				{
-					Inertia     += Acc;
+					Inertia += Acc;
 					if (Inertia >= TopAcc) Inertia = TopAcc;	
 				} 
 				Facing = FacingRight;

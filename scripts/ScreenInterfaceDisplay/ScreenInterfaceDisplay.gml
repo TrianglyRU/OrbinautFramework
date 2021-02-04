@@ -1,8 +1,8 @@
 function ScreenInterfaceDisplay() 
 {		
 	// Show FPS
-	//string_set_font(Game.Font[0], "left");
-	//string_display(Width - 40, Height - 4, "FPS: " + string(floor(fps_real)), 0.5);
+	string_set_font(Game.Font[0], "left");
+	string_display(Width - 40, Height - 4, "FPS: " + string(floor(fps_real)), 0.5);
 	
 	// Variables list
 	var TimeValue, Minutes, Seconds;

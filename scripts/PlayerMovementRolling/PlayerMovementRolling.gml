@@ -35,22 +35,31 @@ function PlayerMovementRolling()
 	// Apply friction
 	if Inertia > 0
 	{
-		Inertia -= RollDec / 2;
+		Inertia -= Acc / 2;
 		if (Inertia < 0) Inertia = 0;
 	}
 	else if Inertia < 0
 	{
-		Inertia += RollDec / 2;
+		Inertia += Acc / 2;
 		if (Inertia >= 0) Inertia = 0;
 	}
 	
 	// Update axis speeds
-	Xsp  = Inertia * dcos(Angle);
-	Ysp  = Inertia *-dsin(Angle);
+	Xsp = Inertia * dcos(Angle);
+	Ysp = Inertia *-dsin(Angle);
 	
-	// Limit speed
-	if (Xsp > 16)  Xsp = 16;
-	if (Xsp < -16) Xsp = -16;
+	// Limit rolling speed. Original engine limits xsp instead of inertia, resulting
+	// desync on high speeds
+	if Game.OriginalRollLimit
+	{
+		if (Xsp > 16)  Xsp = 16;
+		if (Xsp < -16) Xsp = -16;
+	}
+	else
+	{
+		if (Inertia > 16)  Inertia = 16;
+		if (Inertia < -16) Inertia = -16;
+	}
 	
 	// If our inertia is 0 or we pressed UP, unroll
 	if Inertia = 0 or (Game.AllowUnroll and Input.UpPress and abs(Inertia) > 2.5)

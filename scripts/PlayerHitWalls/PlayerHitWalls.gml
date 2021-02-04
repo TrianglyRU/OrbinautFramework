@@ -14,14 +14,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					if !Game.TileCollisionMethod
-					{
-						var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, false, true);
-					}
-					else
-					{
-						var Distance = tile_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, Layer, false, true);
-					}
+					var Distance = tile_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, Layer, false, true);
 					if  Distance < 0
 					{	
 						PosX    = PlayerX - Distance;
@@ -69,14 +62,7 @@ function PlayerHitWalls()
 	else if !(Xsp > abs(Ysp))
 	{
 		// Collide airborne at the current frame
-		if !Game.TileCollisionMethod
-		{
-			var Distance = colmask_get_distance_h(floor(PosX - 10), floor(PosY), false, true);
-		}
-		else
-		{
-			var Distance = tile_get_distance_h(floor(PosX - 10), floor(PosY), Layer, false, true);
-		}
+		var Distance = tile_get_distance_h(floor(PosX - 10), floor(PosY), Layer, false, true);
 		if  Distance < 0
 		{
 			PosX    -= Distance;
@@ -99,14 +85,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					if !Game.TileCollisionMethod
-					{
-						var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, true, true);
-					}
-					else
-					{
-						var Distance = tile_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, Layer, true, true);
-					}
+					var Distance = tile_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, Layer, true, true);
 					if  Distance < 0
 					{	
 						PosX    = PlayerX + Distance;
@@ -154,14 +133,7 @@ function PlayerHitWalls()
 	else if !(-Xsp > abs(Ysp))
 	{	
 		// Collide airborne at the current frame
-		if !Game.TileCollisionMethod
-		{
-			var Distance = colmask_get_distance_h(floor(PosX + 10), floor(PosY), true, true);
-		}
-		else
-		{
-			var Distance = tile_get_distance_h(floor(PosX + 10), floor(PosY), Layer, true, true);
-		}		
+		var Distance = tile_get_distance_h(floor(PosX + 10), floor(PosY), Layer, true, true);	
 		if  Distance < 0
 		{
 			PosX    += Distance;

@@ -33,6 +33,7 @@ function GameFrameworkSetup()
 	Game.ExtendedCamera			 = false;	// In SCD, the camera will shift forward to the direction you're running
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
 	Game.SmoothRotation			 = true;	// Use Mania-like smooth rotation
+	Game.OriginalRollLimit		 = false;
 	Game.TileCollisionMethod	 = true;	// If enabled, player will collide with actual tiles instead of collision masks
 	Game.RichPresenceSupport	 = true;	// Enable Rich Presence
 	Game.AllowUnroll			 = true;    // Allows you to unroll with UP button when rolling. Good for more complex momentum gaining!

@@ -10,36 +10,32 @@ function tile_get_distance_v(X, Y, Layer, toPositive, onlyFullsolid)
 	// Check if we need to invert our calculations
 	Invert = toPositive ? 1 : -1;
 	
-	// Get tile
-	var Tile = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
-		
-	// Search for the second tile if the one we got is empty
-	if Tile = 0
+	// Get tile and its index
+	Tile  = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
+	Index = tile_get_index(Tile) mod 175;
+	
+	// Read heightmap
+	Height = tile_get_height(Tile, Index, X);
+	
+	// Use a tile above if this tile height is 16
+	if Height = TileSize
 	{
-		Tile2  = +TileSize;
-		Index  = 0;
-		Height = 0;
+		Tile2 = -TileSize;
 	}
-		
-	// Search for the second tile below and above, and use it if needed
+	
+	// Use a tile below if this tile height is 0
+	else if Height = 0
+	{
+		Tile2 = +TileSize;
+	}
+	
+	// Else use current tile
 	else
-	{	
-		Index  = tile_get_index(Tile) mod 175;
-		Height = tile_get_height(Tile, Index, X);
-		
-		if Height = TileSize
-		{
-			Tile2 = -TileSize;
-		}
-		else if Height = 0
-		{
-			Tile2 = +TileSize;
-		}
-		else
-		{
-			Tile2 = 0;
-		}
+	{
+		Tile2 = 0;
 	}
+	
+	// Get second tile properties if we're using it
 	if Tile2 != 0
 	{	
 		Tile2 *= Invert;

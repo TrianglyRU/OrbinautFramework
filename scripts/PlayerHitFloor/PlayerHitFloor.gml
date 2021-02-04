@@ -9,16 +9,8 @@ function PlayerHitFloor()
 		var yRight = floor(PosY + yRadius);
 			
 		// Get floor distances
-		if !Game.TileCollisionMethod
-		{
-			var dLeft  = colmask_get_distance_v(xLeft, yLeft, true, false);
-			var dRight = colmask_get_distance_v(xRight, yRight, true, false);
-		}
-		else
-		{
-			var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);
-			var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
-		}
+		var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);
+		var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
 		
 		// Use the closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
@@ -27,14 +19,7 @@ function PlayerHitFloor()
 		if Distance < 0
 		{
 			// Get floor angle
-			if !Game.TileCollisionMethod
-			{
-				Angle = dLeft <= dRight ? colmask_get_angle_v(xLeft, yLeft, true) : colmask_get_angle_v(xRight, yRight, true);
-			}
-			else
-			{
-				Angle = dLeft <= dRight ? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
-			}
+			Angle = dLeft <= dRight ? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
 			
 			// If we're moving downwards, calculate a momentum using floor angle
 			if abs(Xsp) < abs(Ysp)

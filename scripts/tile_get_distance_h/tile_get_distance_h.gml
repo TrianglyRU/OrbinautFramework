@@ -5,49 +5,45 @@ function tile_get_distance_h(X, Y, Layer, toPositive, onlyFullsolid)
 	if X < 0 or Y < 0 or X > room_width or Y > room_height exit;	
 
 	// Variables list
-	var Tile, Tile2, Height, Index, Invert
+	var Tile, Tile2, Width, Index, Invert
 	
 	// Check if we need to invert our calculations
 	Invert = toPositive ? 1 : -1;
 	
-	// Get tile
-	Tile = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
+	// Get tile and its index
+	Tile  = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
+	Index = tile_get_index(Tile) mod 175;
 		
-	// Search for the second tile if the one we got is empty
-	if Tile = 0
+	// Read widthmap
+	Width = tile_get_width(Tile, Index, Y);
+		
+	// Use a tile to the left if this tile width is 16
+	if Width = TileSize
 	{
-		Tile2  = +TileSize;
-		Index  = 0;
-		Height = 0;
+		Tile2 = -TileSize;
 	}
-		
-	// Search for the second tile to the left and to the right, and use it if needed
+	
+	// Use a tile to the right if this tile width is 0
+	else if Width = 0
+	{
+		Tile2 = +TileSize;
+	}
+	
+	// Else use current tile
 	else
-	{	
-		Index  = tile_get_index(Tile) mod 175;
-		Height = tile_get_width(Tile, Index, Y);
-		
-		if Height = TileSize
-		{
-			Tile2 = -TileSize;
-		}
-		else if Height = 0
-		{
-			Tile2 = +TileSize;
-		}
-		else
-		{
-			Tile2 = 0;
-		}
+	{
+		Tile2 = 0;
 	}
+
+	// Get second tile properties if we're using it
 	if Tile2 != 0
 	{	
 		Tile2 *= Invert;
 		Tile   = tilemap_get(Stage.TileLayer[Layer], (X + Tile2) div TileSize, Y div TileSize)
 		Index  = tile_get_index(Tile) mod 175;
-		Height = tile_get_width(Tile, Index, Y); 
+		Width  = tile_get_width(Tile, Index, Y); 
 	}
 		
 	// Return distance to edge of the tile
-	return (Tile2 - (X mod TileSize) + (toPositive ? (TileSize - Height - 1) : Height)) * Invert;
+	return (Tile2 - (X mod TileSize) + (toPositive ? (TileSize - Width - 1) : Width)) * Invert;
 }
