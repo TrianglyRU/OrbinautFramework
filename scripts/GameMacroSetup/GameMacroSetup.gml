@@ -9,7 +9,7 @@ function GameMacroSetup()
 	#macro white	  1
 	#macro flash	  2
 	#macro TileSize   16
-	#macro TileAmount 190
+	#macro TileAmount 154
 
 	// Player macros
 	#macro RangeFloor	       0

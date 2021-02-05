@@ -1,5 +1,5 @@
-/// @function object_set_damage_type(whenStanding)
-function object_set_damage_type(whenStanding)
+/// @function object_perform_damage(whenStanding)
+function object_perform_damage(whenStanding)
 {
 	// Exit if player has been hurt already or invincible
 	if Player.Hurt or Player.isInvincible exit;

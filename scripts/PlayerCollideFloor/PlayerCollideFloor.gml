@@ -29,7 +29,7 @@ function PlayerCollideFloor()
 			}
 			
 			// Update player's angle, use cardinal one if the difference is higher than 45
-			if Game.ConsiderAngleDifference
+			/*if Game.ConsiderAngleDifference
 			{
 				var Difference = abs(Angle - FloorAngle);
 				if  Difference < 180
@@ -40,7 +40,8 @@ function PlayerCollideFloor()
 				{
 					Angle = Difference < 315 ? 0 : FloorAngle;
 				}
-			}
+			}*/
+			Angle = FloorAngle;
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
@@ -80,7 +81,7 @@ function PlayerCollideFloor()
 			}
 			
 			// Update player's angle, use cardinal one if the difference is higher than 45
-			if Game.ConsiderAngleDifference
+			/*if Game.ConsiderAngleDifference
 			{
 				var Difference = abs(Angle - FloorAngle);
 				if  Difference < 180
@@ -91,7 +92,8 @@ function PlayerCollideFloor()
 				{
 					Angle = Difference < 315 ? 90 : FloorAngle;
 				}
-			}
+			}*/
+			Angle = FloorAngle;
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
@@ -131,7 +133,7 @@ function PlayerCollideFloor()
 			}
 
 			// Update player's angle, use cardinal one if the difference is higher than 45
-			if Game.ConsiderAngleDifference
+			/*if Game.ConsiderAngleDifference
 			{
 				var Difference = abs(Angle - FloorAngle);
 				if  Difference < 180
@@ -142,7 +144,8 @@ function PlayerCollideFloor()
 				{
 					Angle = Difference < 315 ? 180 : FloorAngle;
 				}
-			}
+			}*/
+			Angle = FloorAngle;
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
@@ -182,7 +185,7 @@ function PlayerCollideFloor()
 			}
 			
 			// Update player's angle, use cardinal one if the difference is higher than 45
-			if Game.ConsiderAngleDifference
+			/*if Game.ConsiderAngleDifference
 			{
 				var Difference = abs(Angle - FloorAngle);
 				if  Difference < 180
@@ -193,7 +196,8 @@ function PlayerCollideFloor()
 				{
 					Angle = Difference < 315 ? 270 : FloorAngle;
 				}
-			}
+			}*/
+			Angle = FloorAngle;
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;

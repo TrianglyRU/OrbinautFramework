@@ -8,7 +8,7 @@ function tile_get_angle(X, Y, Layer)
     Tile = tilemap_get_at_pixel(Stage.TileLayer[Layer], X, Y);
 	
 	// Get its index on the tilemap
-	Ind  = tile_get_index(Tile) mod TileAmount;
+	Ind = tile_get_index(Tile) mod TileAmount;
 	if (Ind = 0) return 0;
 	
 	// Get our current angle range, ignore it for full tile
