@@ -204,6 +204,7 @@
     {"id":{"name":"spr_collisionmask27","path":"sprites/spr_collisionmask27/spr_collisionmask27.yy",},"order":26,},
     {"id":{"name":"ObjSignpostActivation","path":"scripts/ObjSignpostActivation/ObjSignpostActivation.yy",},"order":7,},
     {"id":{"name":"sound_bgm_fadein","path":"scripts/sound_bgm_fadein/sound_bgm_fadein.yy",},"order":22,},
+    {"id":{"name":"PlayerCheckHurt","path":"scripts/PlayerCheckHurt/PlayerCheckHurt.yy",},"order":29,},
     {"id":{"name":"object_set_depth","path":"scripts/object_set_depth/object_set_depth.yy",},"order":12,},
     {"id":{"name":"CollisionMask16","path":"objects/CollisionMask16/CollisionMask16.yy",},"order":28,},
     {"id":{"name":"MoonlightBase","path":"sounds/MoonlightBase/MoonlightBase.yy",},"order":1,},
