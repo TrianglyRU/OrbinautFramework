@@ -17,6 +17,7 @@
 	OnObject			 = 0;
 	Layer				 = 0;
 	Facing				 = 0;
+	Hurt			     = 0;
 	CharacterID			 = 0;
 	
 	PosX				 = 0;
@@ -33,6 +34,8 @@
 	
 	SpindashRev		     = 0;
 	isSuper				 = 0;
+	isInvincible		 = 0;
+	
 	HighSpeedBonus		 = 0;
 	InvincibilityBonus   = 0;
 	

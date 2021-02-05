@@ -741,6 +741,7 @@
             {"propertyId":{"name":"LeftDirection","path":"objects/LayerChange/LayerChange.yy",},"objectId":{"name":"LayerChange","path":"objects/LayerChange/LayerChange.yy",},"value":"\"To LayerB\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"RightDirection","path":"objects/LayerChange/LayerChange.yy",},"objectId":{"name":"LayerChange","path":"objects/LayerChange/LayerChange.yy",},"value":"\"To LayerA\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"LayerChange","path":"objects/LayerChange/LayerChange.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":515.0,"y":1248.0,"resourceVersion":"1.0","name":"inst_49DE984F","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"TestObject2","path":"objects/TestObject2/TestObject2.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":200.0,"y":776.0,"resourceVersion":"1.0","name":"inst_3A10FE76","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"ForegroundPlaneA","tags":[],"resourceType":"GMRAssetLayer",},
     {"instances":[
@@ -869,6 +870,7 @@
     {"name":"inst_58560B72","path":"rooms/MBZ/MBZ.yy",},
     {"name":"inst_61C5BE8E","path":"rooms/MBZ/MBZ.yy",},
     {"name":"inst_3FFA22A9","path":"rooms/MBZ/MBZ.yy",},
+    {"name":"inst_3A10FE76","path":"rooms/MBZ/MBZ.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

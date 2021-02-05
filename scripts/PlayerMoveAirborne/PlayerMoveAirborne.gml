@@ -1,7 +1,7 @@
 function PlayerMoveAirborne()
 {	
 	// Accelerate and decelerate
-	if !(Jumping and Rolling) 
+	if !(Jumping and Rolling) and !Hurt
 	{
 		if Input.Left 
 		{		
@@ -32,7 +32,7 @@ function PlayerMoveAirborne()
 	}
 	
 	// Apply air drag
-	if Ysp < 0 and Ysp > -4 
+	if Ysp < 0 and Ysp > -4 and !Hurt
 	{
 		Xsp -= floor(Xsp/0.125) / 256;
 	}	

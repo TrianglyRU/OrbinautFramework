@@ -11,6 +11,15 @@ function PlayerResetOnFloor()
 		// Reset flags
 		Rolling	 = false;
 		Jumping	 = false;
-		Pushing  = false;	
+		Pushing  = false;
+		
+		// Reset hurt state
+		if Hurt
+		{
+			Grv			 = 0.21875;
+			Inertia		 = 0;
+			isInvincible = 120;
+			Hurt		 = false;			
+		}
 	}
 }

@@ -1,6 +1,9 @@
 /// @function object_set_damage_type(whenStanding)
 function object_set_damage_type(whenStanding)
 {
+	// Exit if player has been hurt already or invincible
+	if Player.Hurt or Player.isInvincible exit;
+	
 	// If whenStanding flag is set, check if player is standing on us
 	if whenStanding
 	{

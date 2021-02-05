@@ -45,6 +45,9 @@
 			
 			// Collide with the objects
 			PlayerCollideSolidObjects();
+			
+			// Check for being hurt
+			PlayerCheckHurt();
 		}
 		break;
 		case PlayerStateRoll:
@@ -76,6 +79,9 @@
 			
 			// Collide with the objects
 			PlayerCollideSolidObjects();
+			
+			// Check for being hurt
+			PlayerCheckHurt();
 		}
 		break;
 		case PlayerStateAirborne:
@@ -106,6 +112,9 @@
 			
 			// Collide with solid objects
 			PlayerCollideSolidObjects();
+			
+			// Check for being hurt
+			PlayerCheckHurt();
 			
 			// Landing events
 			PlayerResetOnFloor();
