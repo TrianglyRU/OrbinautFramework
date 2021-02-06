@@ -47,6 +47,7 @@
     {"id":{"name":"InputGamepadRead","path":"scripts/InputGamepadRead/InputGamepadRead.yy",},"order":3,},
     {"id":{"name":"CollisionMask24","path":"objects/CollisionMask24/CollisionMask24.yy",},"order":36,},
     {"id":{"name":"spr_obj_spawnpoint","path":"sprites/spr_obj_spawnpoint/spr_obj_spawnpoint.yy",},"order":5,},
+    {"id":{"name":"PlayerAnglePosition","path":"scripts/PlayerAnglePosition/PlayerAnglePosition.yy",},"order":30,},
     {"id":{"name":"HighSpeedPowerup","path":"sounds/HighSpeedPowerup/HighSpeedPowerup.yy",},"order":2,},
     {"id":{"name":"spr_collisionmask03","path":"sprites/spr_collisionmask03/spr_collisionmask03.yy",},"order":3,},
     {"id":{"name":"Screen","path":"objects/Screen/Screen.yy",},"order":5,},

@@ -31,7 +31,7 @@
 	SlopeGravity		 = 0;
 	Angle				 = 0;
 	VisualAngle			 = 0;
-	
+
 	SpindashRev		     = 0;
 	isSuper				 = 0;
 	isInvincible		 = 0;

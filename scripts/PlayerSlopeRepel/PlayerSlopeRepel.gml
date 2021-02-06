@@ -5,7 +5,7 @@ function PlayerSlopeRepel()
 	{
 		--MovementLock;
 	}	
-	/*else
+	else
 	{
 		if !Game.StrongerSlopeDetach
 		{
@@ -38,5 +38,5 @@ function PlayerSlopeRepel()
 				Grounded     = false;
 			}
 		}
-	}*/
+	}
 }

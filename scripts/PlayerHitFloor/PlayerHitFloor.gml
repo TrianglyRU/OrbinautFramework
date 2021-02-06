@@ -54,8 +54,8 @@ function PlayerHitFloor()
 			}
 		
 			// Land and adhere to the floor
-			PosY     += Distance;
 			Grounded  = true;
+			PosY     += Distance;
 		}
 	}
 }

@@ -9,7 +9,7 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen = false;
-	Game.ResolutionWidth  = 320;
+	Game.ResolutionWidth  = 398;
 	Game.ResolutionHeight = 224;
 	Game.WindowSize		  = 2;
 	
@@ -27,12 +27,12 @@ function GameFrameworkSetup()
 	Game.LooseCrouch			 = false;	// In SK, you can start crouching when you are moving slowly. True - SK method.
 	Game.RolljumpControl		 = false;	// In every game but CD your controls are locked if you jump after rolling
 	Game.StrongerSlopeDetach     = false;   // Before S3 you were able to slide down on 45-degree floors. True - Sonic 3 method
-	Game.SpeedFloorClip			 = true;    // In S2+, the max distance you're allowed to clip to a floor is based on your speed (instead of static 14 in S1). True = S2+ method
+	Game.SpeedFloorClip			 = false;    // In S2+, the max distance you're allowed to clip to a floor is based on your speed (instead of static 14 in S1). True = S2+ method
 	Game.ExtensiveWallCollision	 = true;	// In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.ImprovedObjCollision	 = false;   // In original games collision with objects is pretty wacky. If set to true, Orbinaut will apply its fixes to collision
 	Game.ExtendedCamera			 = false;	// In SCD, the camera will shift forward to the direction you're running
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
-	Game.SmoothRotation			 = true;	// Use Mania-like smooth rotation
+	Game.SmoothRotation			 = false;	// Use Mania-like smooth rotation
 	Game.OriginalRollLimit		 = false;
 	Game.TileCollisionMethod	 = true;	// If enabled, player will collide with actual tiles instead of collision masks
 	Game.RichPresenceSupport	 = true;	// Enable Rich Presence

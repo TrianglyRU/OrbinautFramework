@@ -18,7 +18,7 @@
 			
 			// Set slope gravity
 			PlayerSlopeResist();
-			
+
 			// Update player's speeds
 			PlayerMove();
 			
