@@ -3,18 +3,18 @@ function PlayerHitWalls()
 	// Left wall collision
 	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 = 0) and Inertia < 0
+		if (FloorAngle < 90 or FloorAngle > 270 or Game.ExtensiveWallCollision and FloorAngle mod 90 = 0) and Inertia < 0
 		{
 			// Get position
 			var PlayerX = floor(PosX + Xsp);
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide with walls based on current angle range, frame ahead
-			switch round(Angle/90) % 4
+			switch round(FloorAngle/90) % 4
 			{
 				case RangeFloor:
 				{	
-					var Distance = tile_get_distance_h(PlayerX - 10, PlayerY + !Angle * 8, Layer, false, true);
+					var Distance = tile_get_distance_h(PlayerX - 10, PlayerY + !FloorAngle * 8, Layer, false, true);
 					if  Distance < 0
 					{	
 						PosX    = PlayerX - Distance;
@@ -25,7 +25,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRWall:
 				{
-					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true, true)
+					var Distance = tile_get_distance_v(PlayerX, PlayerY + 10, Layer, true, true)
 					if  Distance < 0
 					{	
 						PosY    = PlayerY + Distance;
@@ -36,7 +36,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRoof:
 				{	
-					var Distance = colmask_get_distance_h(PlayerX + 10, PlayerY, true, true)
+					var Distance = tile_get_distance_h(PlayerX + 10, PlayerY, Layer, true, true)
 					if  Distance < 0
 					{	
 						PosX    = PlayerX + Distance;
@@ -47,7 +47,7 @@ function PlayerHitWalls()
 				break;
 				case RangeLWall:
 				{
-					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false, true)
+					var Distance = tile_get_distance_v(PlayerX, PlayerY - 10, Layer, false, true)
 					if  Distance < 0
 					{	
 						PosY    = PlayerY - Distance;
@@ -74,18 +74,18 @@ function PlayerHitWalls()
 	// Right wall collision
 	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 = 0) and Inertia > 0
+		if (FloorAngle < 90 or FloorAngle > 270 or Game.ExtensiveWallCollision and FloorAngle mod 90 = 0) and Inertia > 0
 		{
 			// Get position
 			var PlayerX = floor(PosX + Xsp);
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide with walls based on current angle range, frame ahead
-			switch round(Angle/90) % 4
+			switch round(FloorAngle/90) % 4
 			{
 				case RangeFloor:
 				{	
-					var Distance = tile_get_distance_h(PlayerX + 10, PlayerY + !Angle * 8, Layer, true, true);
+					var Distance = tile_get_distance_h(PlayerX + 10, PlayerY + !FloorAngle * 8, Layer, true, true);
 					if  Distance < 0
 					{	
 						PosX    = PlayerX + Distance;
@@ -96,7 +96,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRWall:
 				{
-					var Distance = colmask_get_distance_v(PlayerX, PlayerY - 10, false, true)
+					var Distance = tile_get_distance_v(PlayerX, PlayerY - 10, Layer, false, true)
 					if  Distance < 0
 					{	
 						PosY    = PlayerY - Distance;
@@ -107,7 +107,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRoof:
 				{	
-					var Distance = colmask_get_distance_h(PlayerX - 10, PlayerY, false, true)
+					var Distance = tile_get_distance_h(PlayerX - 10, PlayerY, Layer, false, true)
 					if  Distance < 0
 					{	
 						PosX    = PlayerX - Distance;
@@ -118,7 +118,7 @@ function PlayerHitWalls()
 				break;
 				case RangeLWall:
 				{
-					var Distance = colmask_get_distance_v(PlayerX, PlayerY + 10, true, true)
+					var Distance = tile_get_distance_v(PlayerX, PlayerY + 10, Layer, true, true)
 					if  Distance < 0
 					{	
 						PosY    = PlayerY + Distance;

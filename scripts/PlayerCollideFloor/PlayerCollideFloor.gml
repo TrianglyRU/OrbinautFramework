@@ -3,8 +3,8 @@ function PlayerCollideFloor()
 	// Do not collide with floor when on object
 	if OnObject exit;
 
-	// Collide with one of four floor sides based on current angle range
-	switch round(Angle/90) % 4
+	// Collide with one of four floor sides based on current floor angle range
+	switch round(FloorAngle/90) % 4
 	{
 		case RangeFloor:
 		{	
@@ -21,7 +21,7 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 			
-			// Collide using closest distance
+			// Collide using closest distance and get movement angle
 			var Distance = dLeft <= dRight ? dLeft : dRight;
 			if  Distance > CollisionDistance
 			{
@@ -49,7 +49,7 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
 
-			// Collide using closest distance
+			// Collide using closest distance and get movement angle
 			var Distance = dLeft <= dRight ? dLeft : dRight;
 			if  Distance > CollisionDistance
 			{
@@ -77,7 +77,7 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 			
-			// Collide using closest distance
+			// Collide using closest distance and get movement angle
 			var Distance = dLeft <= dRight ? dLeft : dRight;
 			if  Distance > CollisionDistance
 			{
@@ -97,7 +97,7 @@ function PlayerCollideFloor()
 			var yLeft  = floor(PosY - xRadius);
 			var xRight = floor(PosX - yRadius);
 			var yRight = floor(PosY + xRadius);
-			
+			 
 			// Get floor distances and angles
 			var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, false, false);
 			var dRight = tile_get_distance_h(xRight, yRight, Layer, false, false);
@@ -105,7 +105,7 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
 
-			// Collide using closest distance
+			// Collide using closest distance and get movement angle
 			var Distance = dLeft <= dRight ? dLeft : dRight;
 			if  Distance > CollisionDistance
 			{

@@ -32,7 +32,7 @@ function GameFrameworkSetup()
 	Game.ImprovedObjCollision	 = false;   // In original games collision with objects is pretty wacky. If set to true, Orbinaut will apply its fixes to collision
 	Game.ExtendedCamera			 = false;	// In SCD, the camera will shift forward to the direction you're running
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
-	Game.SmoothRotation			 = false;	// Use Mania-like smooth rotation
+	Game.SmoothRotation			 = true;	// Use Mania-like smooth rotation
 	Game.OriginalRollLimit		 = false;
 	Game.TileCollisionMethod	 = true;	// If enabled, player will collide with actual tiles instead of collision masks
 	Game.RichPresenceSupport	 = true;	// Enable Rich Presence

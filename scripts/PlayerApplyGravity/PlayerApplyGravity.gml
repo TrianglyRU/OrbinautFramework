@@ -15,5 +15,5 @@ function PlayerApplyGravity()
 	if Angle < 0 or Angle > 360 
 	{
 		Angle = 360;
-	}	
+	}
 }

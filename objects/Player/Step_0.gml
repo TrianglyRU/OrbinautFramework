@@ -12,6 +12,9 @@
 	{
 		case PlayerStateNormal:
 		{	
+			// Get floor angle
+			PlayerAnglePosition();
+			
 			// Perform jump and exit the code
 			PlayerCheckJump();
 			if Jumping exit;
@@ -51,7 +54,10 @@
 		}
 		break;
 		case PlayerStateRoll:
-		{
+		{		
+			// Get floor angle
+			PlayerAnglePosition();
+			
 			// Perform jump and exit the code
 			PlayerCheckJump();
 			if Jumping exit;
@@ -61,7 +67,7 @@
 			
 			// Update player's speeds
 			PlayerMoveRoll();
-			
+
 			// Collide with walls
 			PlayerHitWalls();
 			

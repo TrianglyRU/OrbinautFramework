@@ -38,7 +38,9 @@ function ScreenDebugDisplay()
 			+ "\n          * SLOPE PHYSICS *"
 			+ "\n"
 			+ "\n   ANGLE: " + string(Player.Angle)
-			+ "\n   ANGLE MODE: " + string(round(Player.Angle/90) % 4)
+			+ "\n   FLOOR ANGLE: " + string(Player.FloorAngle)
+			+ "\n   FLOOR ANGLE RANGE: " + string(round(Player.FloorAngle/90) % 4)
+			+ "\n   ROOF ANGLE: " + string(Player.RoofAngle)
 			+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 			+ "\n"
 			+ "\n         * STATES AND FLAGS *"

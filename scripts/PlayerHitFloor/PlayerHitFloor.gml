@@ -1,5 +1,8 @@
 function PlayerHitFloor()
 {	
+	// Floor angle is always 0 in air until we touch the floor
+	FloorAngle = 0;
+	
 	if Ysp > 0 or abs(Xsp) > abs(Ysp)
 	{	
 		// Set coordinates
@@ -19,23 +22,23 @@ function PlayerHitFloor()
 		if Distance < 0
 		{
 			// Get floor angle
-			Angle = dLeft <= dRight ? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
+			FloorAngle = dLeft <= dRight ? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
 			
 			// If we're moving downwards, calculate a momentum using floor angle
 			if abs(Xsp) < abs(Ysp)
 			{
 				// If angle is >= 45 degrees, use vertical speed
-				if Angle >= 45 and Angle <= 315
+				if FloorAngle >= 45 and FloorAngle <= 315
 				{
 					Xsp = 0;
 					if (Ysp > 16) Ysp = 16;
-					Inertia = Angle < 180 ? -Ysp : Ysp;
+					Inertia = FloorAngle < 180 ? -Ysp : Ysp;
 				}
 		
 				// If angle is >= 22.5 degrees, use halved vertical speed
-				else if Angle >= 22.5 and Angle <= 337.5
+				else if FloorAngle >= 22.5 and FloorAngle <= 337.5
 				{
-					Inertia = Angle <= 180 ? -Ysp / 2 : Ysp / 2;
+					Inertia = FloorAngle <= 180 ? -Ysp / 2 : Ysp / 2;
 				}
 		
 				// If angle is < 22.5 degrees, use horizontal speed
@@ -54,7 +57,8 @@ function PlayerHitFloor()
 			}
 		
 			// Land and adhere to the floor
-			Grounded  = true;
+			Grounded  = true;	
+			Angle     = FloorAngle;
 			PosY     += Distance;
 		}
 	}

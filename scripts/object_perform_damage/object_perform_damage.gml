@@ -15,12 +15,9 @@ function object_perform_damage(whenStanding)
 	}
 	
 	// If not, check for hitbox collision
-	else
+	if hitbox_collision(Player, id)
 	{
-		if hitbox_collision(Player, id)
-		{
-			// Hurt them using ours id
-			Player.Hurt = id;
-		}
-	}				
+		// Hurt them using ours id
+		Player.Hurt = id;
+	}			
 }
