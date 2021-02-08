@@ -1,6 +1,5 @@
 function ObjLamppostSpin()
 {
-	// Let checkpoint spin twice
-	if (Active = 2) animation_set(spr_obj_checkpoint_active, 0, false);
-	if (Active = 1) Active = 2;
+	draw_self();
+	if (Active and Angle < 900) draw_sprite(spr_obj_lamppost_lamp, 0, x + dsin(Angle) * 12, y + dcos(Angle) * 12 - 12);
 }

@@ -3,5 +3,3 @@
 	
 	// Call object script
 	ObjLamppostSetup();
-	
-	

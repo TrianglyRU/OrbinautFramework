@@ -12,11 +12,16 @@ function ObjLamppostActivation()
 			with Lamppost if !Active and LamppostID <= tempValue 
 			{
 				Active = 1;
-				animation_set(spr_obj_checkpoint_active, 1, true);
+				image_index = 1;
 			}
 			
 			// Play sound
 			sound_sfx_play(sfxLamppost, false);
 		}
+	}
+	else if Angle < 900 
+	{
+		Angle += 22.5;
+		if (Angle == 900) image_index = 2;
 	}
 }

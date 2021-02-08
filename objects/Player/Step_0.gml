@@ -1,6 +1,8 @@
 /// @description Scripts
 // You can call your scripts in this editor
 	
+	if keyboard_check(vk_space) exit;
+	
 	// Update player's states
 	PlayerStatesUpdate();
 	
