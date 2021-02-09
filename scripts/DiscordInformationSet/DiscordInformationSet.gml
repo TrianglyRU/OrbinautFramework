@@ -22,10 +22,11 @@ function DiscordInformationSet()
 	discord_set_details(DetailsString);
 	
 	// Set state strings (currect character)
+	var Char;
 	switch Player.CharacterID 
 	{
-		case CharSonic: var Char = "SONIC"; break
-		case CharTails: var Char = "TAILS"; break
+		case CharSonic: Char = "SONIC"; break
+		case CharTails: Char = "TAILS"; break
 	}
 	StateString = "Playing as: " + string(Char);
 	discord_set_state(StateString);	 

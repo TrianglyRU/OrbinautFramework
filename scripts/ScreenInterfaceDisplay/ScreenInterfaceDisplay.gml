@@ -9,10 +9,13 @@ function ScreenInterfaceDisplay()
 
 	// Time counter system
 	TimeValue = Stage.Time div 60;
-	if TimeValue < 600 
+	if TimeValue < 599 
 	{
 		Minutes = TimeValue div 60;
 		Seconds = TimeValue - Minutes * 60;
+	} else {
+		Minutes = 9;
+		Seconds = 59;
 	}
 	
 	// Exit the code if we're not allowed to draw HUD

@@ -13,7 +13,7 @@ function StageActInitialization()
 			ActID					= 0;							// Act ID, used for displaying act number and saving
 			CardEnabled				= false;						// Enable title card, else just fade in
 			TimeEnabled				= false;						// Enable time counter right from the start
-			Time					= 0;							// Default stage time upon loading
+			Time					= 35500;							// Default stage time upon loading
 			WaterLevel				= 0;							// Water level (y position)
 			LeftBoundary			= 0;							// Left stage limit
 			TopBoundary				= 0;							// Top stage limit
