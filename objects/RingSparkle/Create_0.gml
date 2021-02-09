@@ -5,4 +5,4 @@
 	loaded into the room by default */
 	
 	// Call object script
-	ObjShineFXSetup();
+	ObjRingSparkleSetup();
