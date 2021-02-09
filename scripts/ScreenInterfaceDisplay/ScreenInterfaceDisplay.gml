@@ -19,10 +19,12 @@ function ScreenInterfaceDisplay()
 	}
 	
 	// Exit the code if we're not allowed to draw HUD
-	if EnableHUD = false exit;
-	
+	if !EnableHUD exit;
+		var RedFlash = Stage.Time mod 16 < 8;
 		// Draw graphics
-		draw_sprite(sprHUD_ScoreTimeRings, 0, 17 + OffsetHUD[0], 9 + OffsetHUD[1]);
+		draw_sprite(sprHUD_Score, 0, 17 + OffsetHUD[0], 9 + OffsetHUD[1]);
+		draw_sprite(sprHUD_Time,  TimeValue > 540 ? RedFlash : 0, 17 + OffsetHUD[0], 9 + OffsetHUD[1] + 16);
+		draw_sprite(sprHUD_Rings, !Player.Rings   ? RedFlash : 0, 17 + OffsetHUD[0], 9 + OffsetHUD[1] + 32);
 		draw_sprite(sprHUD_Lives, Player.CharacterID, 14 + OffsetHUD[0], Height - 23 + OffsetHUD[1]);
 	
 		// Display SCORE, TIME, RINGS counters
