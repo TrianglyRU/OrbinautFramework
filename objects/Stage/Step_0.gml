@@ -9,3 +9,5 @@
 	
 	// Update horizontal boundaries
 	StageHorizontalBoundariesUpdate();
+	
+	StageObjectsUnload();

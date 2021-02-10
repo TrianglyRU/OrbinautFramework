@@ -15,6 +15,7 @@
     {"id":{"name":"spr_tails_tail_roll","path":"sprites/spr_tails_tail_roll/spr_tails_tail_roll.yy",},"order":11,},
     {"id":{"name":"BreakableWallHandler","path":"objects/BreakableWallHandler/BreakableWallHandler.yy",},"order":0,},
     {"id":{"name":"fontTexture_Counter","path":"sprites/fontTexture_Counter/fontTexture_Counter.yy",},"order":2,},
+    {"id":{"name":"StageObjectsUnload","path":"scripts/StageObjectsUnload/StageObjectsUnload.yy",},"order":5,},
     {"id":{"name":"spr_engine_player","path":"sprites/spr_engine_player/spr_engine_player.yy",},"order":3,},
     {"id":{"name":"tile_get_distance_v","path":"scripts/tile_get_distance_v/tile_get_distance_v.yy",},"order":26,},
     {"id":{"name":"spr_engine_stage","path":"sprites/spr_engine_stage/spr_engine_stage.yy",},"order":6,},
