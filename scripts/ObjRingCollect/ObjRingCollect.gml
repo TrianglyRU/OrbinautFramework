@@ -9,7 +9,7 @@ function ObjRingCollect()
 		instance_create_depth(x, y, depth, RingSparkle);	
 		
 		// Play sound
-		sound_sfx_play(sfxRing, false);
+		audio_sfx_play(sfxRing, false);
 		
 		// Destroy ring
 		instance_destroy(self);		

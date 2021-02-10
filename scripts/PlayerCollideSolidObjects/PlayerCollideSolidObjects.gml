@@ -1,12 +1,12 @@
 function PlayerCollideSolidObjects()
 {	
 	// Player's position variables
-	var PlayerX      = floor(PosX);
-	var PlayerY		 = floor(PosY);
-	var PlayerLeft   = floor(PosX - 10);
-	var PlayerRight  = floor(PosX + 10);
-	var PlayerTop    = floor(PosY - yRadius);
-	var PlayerBottom = floor(PosY + yRadius);
+	var PlayerX      = PosX;
+	var PlayerY		 = PosY;
+	var PlayerLeft   = PosX - 10;
+	var PlayerRight  = PosX + 10;
+	var PlayerTop    = PosY - yRadius;
+	var PlayerBottom = PosY + yRadius;
 	
 	// ObjectID variables
 	var	ObjectID   = collision_rectangle(PlayerLeft, PlayerTop, PlayerRight, PlayerBottom, Objects, true, true);

@@ -20,7 +20,10 @@ function ScreenInterfaceDisplay()
 	
 	// Exit the code if we're not allowed to draw HUD
 	if !EnableHUD exit;
+	
+		// Red flash timer
 		var RedFlash = Stage.Time mod 16 < 8;
+		
 		// Draw graphics
 		draw_sprite(sprHUD_Score, 0, 17 + OffsetHUD[0], 9 + OffsetHUD[1]);
 		draw_sprite(sprHUD_Time,  TimeValue > 540 ? RedFlash : 0, 17 + OffsetHUD[0], 9 + OffsetHUD[1] + 16);

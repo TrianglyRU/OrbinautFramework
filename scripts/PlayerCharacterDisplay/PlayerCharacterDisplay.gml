@@ -40,8 +40,8 @@ function PlayerCharacterDisplay()
 	}
 	
 	// Update character
-	x		     = floor(PosX);
-	y			 = floor(PosY);
+	x		     = floor(RealPosX);
+	y			 = floor(RealPosY);
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
 	depth		 = DrawOrder;

@@ -5,8 +5,8 @@ function PlayerSetup()
 	
 	// Set spawn properties
 	var Spawn = Game.SavedCheckpoint != 0 ? Game.SavedCheckpoint : Spawnpoint;
-	PosX	  = Spawn.x;
-	PosY	  = Spawn.y;
+	RealPosX = Spawn.x;
+	RealPosY = Spawn.y;
 	
 	// Set sprite
 	Facing	  = FacingRight;

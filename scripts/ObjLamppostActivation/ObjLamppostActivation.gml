@@ -16,7 +16,7 @@ function ObjLamppostActivation()
 			}
 			
 			// Play sound
-			sound_sfx_play(sfxLamppost, false);
+			audio_sfx_play(sfxLamppost, false);
 		}
 	}
 	else if Angle < 900 

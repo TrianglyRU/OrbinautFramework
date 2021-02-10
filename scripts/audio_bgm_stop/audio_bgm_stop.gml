@@ -1,5 +1,5 @@
-/// @function sound_bgm_stop(musicID, fadeTime)
-function sound_bgm_stop(musicID, fadeTime)
+/// @function audio_bgm_stop(musicID, fadeTime)
+function audio_bgm_stop(musicID, fadeTime)
 {	
 	// Check if music is playing
 	if audio_is_playing(musicID)
@@ -17,7 +17,8 @@ function sound_bgm_stop(musicID, fadeTime)
 			// Stop music if its volume is 0
 			if audio_sound_get_gain(musicID) = 0
 			{
-				audio_stop_sound(musicID);
+				loopTrack[musicID] = 0;
+				audio_stop_sound(musicID);	
 			}
 		}
 	}

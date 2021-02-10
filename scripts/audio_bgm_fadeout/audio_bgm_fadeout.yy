@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sound_bgm_play",
+  "name": "audio_bgm_fadeout",
   "tags": [],
   "resourceType": "GMScript",
 }

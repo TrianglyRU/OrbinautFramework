@@ -8,17 +8,16 @@ function PlayerCheckRoll()
 	{
 		if Input.Down 
 		{	
-			// Update radiuses and adjust position
-			yRadius = yRadiusRoll;
-			xRadius	= xRadiusRoll;
-			PosY   += yRadiusDefault - yRadiusRoll;
-			Rolling = true;
+			// Update radiuses (we do not adjust position, tile collision will do this automatically)
+			yRadius   = yRadiusRoll;
+			xRadius	  = xRadiusRoll;
+			Rolling   = true;
 			
 			// Set animation
 			Animation = AnimRoll;
 			
 			// Play sound
-			sound_sfx_play(sfxRoll, false);
+			audio_sfx_play(sfxRoll, false);
 		}
 	}	
 }

@@ -1,8 +1,10 @@
 function ScreenCameraShift() 
-{	
+{		
 	// Update player's position on the screen
-	PlayerScreenX = Player.PosX - Screen.ViewX;
-	PlayerScreenY = Player.PosY - Screen.ViewY;	
+	//PlayerScreenX = Player.PosX - RenderX;
+	//PlayerScreenY = Player.PosY - RenderY;	
+	PlayerScreenX = Player.RealPosX - ViewX;
+	PlayerScreenY = Player.RealPosY - ViewY;
 	
 	// Set horizontal shift speed
 	if PlayerScreenX <= Width / 2 - 16 
@@ -39,7 +41,7 @@ function ScreenCameraShift()
 	}	
 	
 	// Vertical follow
-	if Player.Grounded or Player.OnObject 
+	if Player.Grounded
 	{
 		if PlayerScreenY != Height / 2 - 16 
 		{
@@ -48,7 +50,7 @@ function ScreenCameraShift()
 	} 
 	else 
 	{
-		if PlayerScreenY < Height / 2 - 48  and Player.Ysp < 0
+		if PlayerScreenY < Height / 2 - 48 and Player.Ysp < 0
 		or PlayerScreenY > Height / 2 + 16 and Player.Ysp > 0 
 		{
 			ViewY += ShiftY

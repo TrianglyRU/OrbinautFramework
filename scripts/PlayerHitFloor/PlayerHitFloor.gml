@@ -6,10 +6,10 @@ function PlayerHitFloor()
 	if Ysp > 0 or abs(Xsp) > abs(Ysp)
 	{	
 		// Set coordinates
-		var xLeft  = floor(PosX - xRadius);
-		var yLeft  = floor(PosY + yRadius);
-		var xRight = floor(PosX + xRadius);
-		var yRight = floor(PosY + yRadius);
+		var xLeft  = PosX - xRadius;
+		var yLeft  = PosY + yRadius;
+		var xRight = PosX + xRadius;
+		var yRight = PosY + yRadius;
 			
 		// Get floor distances
 		var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);
@@ -59,7 +59,7 @@ function PlayerHitFloor()
 			// Land and adhere to the floor
 			Grounded  = true;	
 			Angle     = FloorAngle;
-			PosY     += Distance;
+			RealPosY += Distance;
 		}
 	}
 }

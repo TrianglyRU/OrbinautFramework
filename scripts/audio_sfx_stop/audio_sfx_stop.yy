@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Framework Logic",
-    "path": "folders/Game Functions/Framework Logic.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "colmask_get_distance_h",
+  "name": "audio_sfx_stop",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -4,9 +4,9 @@ function PlayerResetOnFloor()
 	if Grounded
 	{			
 		// Reset radiuses and adjust position
-		yRadius = yRadiusDefault; 
-		xRadius	= xRadiusDefault;
-		PosY   -= (Rolling or Jumping) * 5;
+		yRadius   = yRadiusDefault; 
+		xRadius	  = xRadiusDefault;
+		RealPosY -= (Rolling or Jumping) * 5;
 		
 		// Reset flags
 		Rolling	 = false;

@@ -3,14 +3,14 @@ function ObjSignpostActivation()
 	if !Active
 	{
 		// Activate on overlap and change stage state
-		if floor(Player.PosX) > x
+		if Player.PosX > x
 		{
 			Active			  = true;
 			Stage.TimeEnabled = false;
 			Stage.State       = ActStateFinished;
 			
 			// Play sound
-			sound_sfx_play(sfxSignpost, false);
+			audio_sfx_play(sfxSignpost, false);
 		}
 	}
 	else

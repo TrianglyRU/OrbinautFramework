@@ -20,10 +20,10 @@
 	Hurt			     = 0;
 	CharacterID			 = 0;
 	
+	RealPosX			 = 0;
+	RealPosY			 = 0;
 	PosX				 = 0;
 	PosY				 = 0;
-	PosXPrev			 = 0;
-	PosYPrev			 = 0;
 	Xsp					 = 0;
 	Ysp					 = 0;
 	Inertia				 = 0;

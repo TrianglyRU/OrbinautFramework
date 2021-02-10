@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "background_use_parallax",
+  "name": "audio_bgm_play",
   "tags": [],
   "resourceType": "GMScript",
 }

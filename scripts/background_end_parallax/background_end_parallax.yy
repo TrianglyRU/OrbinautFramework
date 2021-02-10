@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Framework Logic",
-    "path": "folders/Game Functions/Framework Logic.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "colmask_get_angle_v",
+  "name": "background_end_parallax",
   "tags": [],
   "resourceType": "GMScript",
 }

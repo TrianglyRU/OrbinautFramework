@@ -1,10 +1,10 @@
 function PlayerSpeedToPos() 
 {	
-	// Update previous position
-	PosXPrev = PosX;
-	PosYPrev = PosY;
+	// Update real position
+	RealPosX += Xsp;
+	RealPosY += Ysp;	
 	
-	// Update current position
-	PosX += Xsp;
-	PosY += Ysp;
+	// Update floored position (the one we use in objects and stuff)
+	PosX = floor(RealPosX);
+	PosY = floor(RealPosY);
 }

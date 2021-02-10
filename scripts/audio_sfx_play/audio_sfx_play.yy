@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sound_sfx_stop",
+  "name": "audio_sfx_play",
   "tags": [],
   "resourceType": "GMScript",
 }

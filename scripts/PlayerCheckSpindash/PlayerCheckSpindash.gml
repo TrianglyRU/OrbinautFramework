@@ -13,7 +13,7 @@ function PlayerCheckSpindash()
 		if (SpindashRev < 8) SpindashRev += 2;
 		
 		// Play sound
-		sound_sfx_play(sfxCharge, false);
+		audio_sfx_play(sfxCharge, false);
 	}
 	if SpindashRev > 0 
 	{
@@ -28,9 +28,9 @@ function PlayerCheckSpindash()
 		SpindashRev        = -2;
 		
 		// Update radiuses
-		yRadius = yRadiusRoll;
-		xRadius	= xRadiusRoll;
-		PosY   += yRadiusDefault - yRadiusRoll;
+		yRadius   = yRadiusRoll;
+		xRadius	  = xRadiusRoll;
+		RealPosY += yRadiusDefault - yRadiusRoll;
 		
 		// Start rolling
 		Rolling	= true;
@@ -39,7 +39,7 @@ function PlayerCheckSpindash()
 		Animation = AnimRoll;
 		
 		// Play sound
-		sound_sfx_stop(sfxCharge);
-		sound_sfx_play(sfxRelease, false);
+		audio_sfx_stop(sfxCharge);
+		audio_sfx_play(sfxRelease, false);
 	}
 }

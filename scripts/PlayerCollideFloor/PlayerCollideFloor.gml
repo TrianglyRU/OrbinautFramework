@@ -9,10 +9,10 @@ function PlayerCollideFloor()
 		case RangeFloor:
 		{	
 			// Set coordinates
-			var xLeft  = floor(PosX - xRadius);
-			var yLeft  = floor(PosY + yRadius);
-			var xRight = floor(PosX + xRadius);
-			var yRight = floor(PosY + yRadius);
+			var xLeft  = PosX - xRadius;
+			var yLeft  = PosY + yRadius;
+			var xRight = PosX + xRadius;
+			var yRight = PosY + yRadius;
 			
 			// Get floor distances
 			var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);			
@@ -29,7 +29,7 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				PosY += Distance;
+				RealPosY += Distance;
 				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 			}
 		}
@@ -37,10 +37,10 @@ function PlayerCollideFloor()
 		case RangeRWall:
 		{	
 			// Set coordinates
-			var xLeft  = floor(PosX + yRadius);
-			var yLeft  = floor(PosY + xRadius);
-			var xRight = floor(PosX + yRadius);
-			var yRight = floor(PosY - xRadius);
+			var xLeft  = PosX + yRadius;
+			var yLeft  = PosY + xRadius;
+			var xRight = PosX + yRadius;
+			var yRight = PosY - xRadius;
 			
 			// Get floor distances
 			var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, true, false);
@@ -57,7 +57,7 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				PosX += Distance;
+				RealPosX += Distance;
 				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 			}
 		}
@@ -65,10 +65,10 @@ function PlayerCollideFloor()
 		case RangeRoof:
 		{	
 			// Set coordinates
-			var xLeft  = floor(PosX + xRadius);
-			var yLeft  = floor(PosY - yRadius);
-			var xRight = floor(PosX - xRadius);
-			var yRight = floor(PosY - yRadius);
+			var xLeft  = PosX + xRadius;
+			var yLeft  = PosY - yRadius;
+			var xRight = PosX - xRadius;
+			var yRight = PosY - yRadius;
 			
 			// Get floor distances
 			var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, false);
@@ -85,7 +85,7 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				PosY -= Distance;
+				RealPosY -= Distance;
 				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 			}
 		}
@@ -93,10 +93,10 @@ function PlayerCollideFloor()
 		case RangeLWall:
 		{	
 			// Set coordinates
-			var xLeft  = floor(PosX - yRadius);
-			var yLeft  = floor(PosY - xRadius);
-			var xRight = floor(PosX - yRadius);
-			var yRight = floor(PosY + xRadius);
+			var xLeft  = PosX - yRadius;
+			var yLeft  = PosY - xRadius;
+			var xRight = PosX - yRadius;
+			var yRight = PosY + xRadius;
 			 
 			// Get floor distances and angles
 			var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, false, false);
@@ -113,7 +113,7 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				PosX -= Distance;
+				RealPosX -= Distance;
 				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 			}
 		}

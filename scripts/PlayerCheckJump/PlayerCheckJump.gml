@@ -3,8 +3,8 @@ function PlayerCheckJump()
 	// Do not jump if found the low ceiling
 	if round(Angle/90 % 4) = RangeFloor
 	{
-		if colmask_meeting(floor(PosX - 9), floor(PosY - 25), true)
-		or colmask_meeting(floor(PosX + 9), floor(PosY - 25), true) 
+		if tile_get_distance_v(floor(PosX - 9), floor(PosY - 25), Layer, false, true) < 6
+		or tile_get_distance_v(floor(PosX + 9), floor(PosY - 25), Layer, false, true) < 6
 		{
 			exit;
 		}
@@ -33,6 +33,6 @@ function PlayerCheckJump()
 		Animation = AnimRoll;
 		
 		// Play sound
-		sound_sfx_play(sfxJump, false);
+		audio_sfx_play(sfxJump, false);
 	}	
 }

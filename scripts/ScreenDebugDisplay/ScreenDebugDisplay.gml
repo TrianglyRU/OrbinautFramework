@@ -28,8 +28,8 @@ function ScreenDebugDisplay()
 			+ "\n"
 			+ "\n          * PLAYER MOTION *"
 			+ "\n"
-			+ "\n   POS X: " + string(Player.PosX)
-			+ "\n   POS Y: " + string(Player.PosY)
+			+ "\n   POS X: " + string(Player.PosX) + " REAL: " + string(Player.RealPosX)
+			+ "\n   POS Y: " + string(Player.PosY) + " REAL: " + string(Player.RealPosY)
 			+ "\n   SPEED X: " + string(Player.Xsp) 
 			+ "\n   SPEED Y: " + string(Player.Ysp) 
 			+ "\n   INERTIA: " + string(Player.Inertia) 

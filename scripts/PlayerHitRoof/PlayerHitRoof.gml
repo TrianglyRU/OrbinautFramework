@@ -3,10 +3,10 @@ function PlayerHitRoof()
 	if Ysp < 0 or abs(Xsp) > abs(Ysp)
 	{
 		// Set coordinates
-		var xLeft  = floor(PosX - xRadius);
-		var yLeft  = floor(PosY - yRadius);
-		var xRight = floor(PosX + xRadius);
-		var yRight = floor(PosY - yRadius);
+		var xLeft  = PosX - xRadius;
+		var yLeft  = PosY - yRadius;
+		var xRight = PosX + xRadius;
+		var yRight = PosY - yRadius;
 			
 		// Get roof distances
 		var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, true);
@@ -19,7 +19,7 @@ function PlayerHitRoof()
 		if Distance < 0
 		{		
 			// Collide 
-			PosY -= Distance;
+			RealPosY -= Distance;
 			
 			// If moving upwards, check roof angle
 			if abs(Ysp) > abs(Xsp)
