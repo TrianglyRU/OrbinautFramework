@@ -13,7 +13,7 @@ function PlayerHitWalls()
 			var PlayerY = floor(PosY + Ysp);
 			
 			// Collide with walls based on current angle range, frame ahead
-			switch round(Angle/90) % 4
+			switch AngleRange//round(Angle/90) % 4
 			{
 				case RangeFloor:
 				{	
@@ -80,7 +80,7 @@ function PlayerHitWalls()
 			var PlayerY = floor(PosY) + floor(Ysp);
 			
 			// Collide with walls based on current angle range, frame ahead
-			switch round(Angle/90) % 4
+			switch AngleRange//round(Angle/90) % 4
 			{
 				case RangeFloor:
 				{	

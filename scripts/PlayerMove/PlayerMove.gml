@@ -85,6 +85,6 @@ function PlayerMove()
 	}
 	
 	// Convert inertia to normal axis speeds
-	Xsp = Inertia *  dcos(SlopeAngle);
-	Ysp = Inertia * -dsin(SlopeAngle);
+	Xsp = Inertia *  dcos(Angle);
+	Ysp = Inertia * -dsin(Angle);
 }

@@ -3,7 +3,7 @@ function PlayerCharacterDisplay()
 	// Set visual angle
 	if Game.SmoothRotation 
 	{
-		if SlopeAngle >= 25.5 and SlopeAngle <= 334.5 or !Grounded or SlopeAngle = 0 
+		if Angle >= 25.5 and Angle <= 334.5 or !Grounded or Angle = 0 
 		{
 			VisualAngle = Angle;
 		} 

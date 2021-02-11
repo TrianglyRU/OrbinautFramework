@@ -45,8 +45,8 @@ function PlayerMoveRoll()
 	}
 	
 	// Convert inertia to normal axis speeds
-	Xsp = Inertia *  dcos(SlopeAngle);
-	Ysp = Inertia * -dsin(SlopeAngle);
+	Xsp = Inertia *  dcos(Angle);
+	Ysp = Inertia * -dsin(Angle);
 	
 	// Limit rolling speed. Original engine limits xsp instead of inertia, resulting
 	// desync on high speeds

@@ -5,7 +5,7 @@ function PlayerSlopeResist()
 	{
 		if !Game.StrongerSlopeGravity
 		{			
-			if SlopeAngle < 45 or SlopeAngle > 315 
+			if Angle < 45 or Angle > 315 
 			{	
 				// Apply only when moving if angle is less than 45
 				SlopeGravity = (Inertia != 0) * 0.125;			
@@ -18,7 +18,7 @@ function PlayerSlopeResist()
 		} 
 		else 
 		{											
-			if SlopeAngle < 22.5 or SlopeAngle > 337.5 
+			if Angle < 22.5 or Angle > 337.5 
 			{	
 				// Apply only when moving if angle is less than 22.5
 				SlopeGravity = (Inertia != 0) * 0.125;
@@ -34,7 +34,7 @@ function PlayerSlopeResist()
 	// Rolling slope gravity
 	else
 	{
-		if sign(Inertia) = sign(dsin(SlopeAngle)) 
+		if sign(Inertia) = sign(dsin(Angle)) 
 		{
 			SlopeGravity = 0.078125;
 		} 
@@ -45,5 +45,5 @@ function PlayerSlopeResist()
 	}
 	
 	// Update inertia
-	Inertia -= SlopeGravity * dsin(SlopeAngle);
+	Inertia -= SlopeGravity * dsin(Angle);
 }

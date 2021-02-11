@@ -29,8 +29,8 @@
 	Inertia				 = 0;
 	
 	SlopeGravity		 = 0;
-	SlopeAngle			 = 0;	// Used for physics
-	Angle				 = 0;	// Main angle. Used for collision stuff and visuals
+	AngleRange			 = 0;
+	Angle				 = 0;
 	VisualAngle			 = 0;
 
 	SpindashRev		     = 0;

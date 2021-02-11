@@ -109,12 +109,12 @@
 			
 			// Collide with walls
 			PlayerHitWalls();
+		
+			// Collide with roof
+			PlayerHitRoof();
 			
 			// Collide with floor
 			PlayerHitFloor();
-			
-			// Collide with roof
-			PlayerHitRoof();
 			
 			// Collide with solid objects
 			PlayerCollideSolidObjects();

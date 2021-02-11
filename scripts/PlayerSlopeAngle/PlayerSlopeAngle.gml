@@ -1,12 +1,9 @@
 function PlayerSlopeAngle()
 {	
-	/* While originals use only player's angle for both physics and collision calculations,
-	we're adding another angle variable called "Slope Angle" for physics calculations */
-	
-	// Get slope angle based on player's angle range
+	// Get floor angle
 	if !OnObject
 	{
-		switch round(Angle/90) % 4
+		switch AngleRange
 		{
 			case RangeFloor:
 			{	
@@ -53,12 +50,12 @@ function PlayerSlopeAngle()
 			}
 			break;
 		}
-		SlopeAngle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
+		Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 	}
 	
-	// Set slope angle to 0 if we're on the object
+	// Set angle to 0 if we're on the object
 	else
 	{
-		SlopeAngle = 0;
+		Angle = 0;
 	}
 }

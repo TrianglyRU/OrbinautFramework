@@ -4,7 +4,7 @@ function PlayerCollideFloor()
 	if OnObject exit;
 
 	// Collide with one of four floor sides based on current player's angle range
-	switch round(Angle/90) % 4
+	switch AngleRange
 	{
 		case RangeFloor:
 		{	
@@ -29,8 +29,8 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				PosY += Distance;
-				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
+				PosY      += Distance;
+				AngleRange = round(tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer)/90) % 4;
 			}
 		}
 		break;
@@ -57,8 +57,8 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				PosX += Distance;
-				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
+				PosX	  += Distance;
+				AngleRange = round(tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer)/90) % 4;
 			}
 		}
 		break;
@@ -85,8 +85,8 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				PosY -= Distance;
-				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
+				PosY	  -= Distance;
+				AngleRange = round(tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer)/90) % 4;
 			}
 		}
 		break;
@@ -113,8 +113,8 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				PosX -= Distance;
-				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
+				PosX	  -= Distance;
+				AngleRange = round(tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer)/90) % 4;
 			}
 		}
 		break;
