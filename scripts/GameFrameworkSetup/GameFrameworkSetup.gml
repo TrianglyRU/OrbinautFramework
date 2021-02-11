@@ -43,4 +43,7 @@ function GameFrameworkSetup()
 	Game.FadeEnabled = true;
 	Game.PaletteSet	 = 0;
 	Game.PalIndex[0] = 0;
+	
+	// Control
+	Game.Control = [vk_up, vk_down, vk_left, vk_right, ord("A"), ord("S"), ord("D"), vk_space, vk_enter];
 }

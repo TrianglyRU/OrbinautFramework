@@ -8,3 +8,4 @@
 	TextPrint  = 0;
 	MainTimer  = 0;
 	MainPrint  = 0;
+	ChngCntrl  = 0;

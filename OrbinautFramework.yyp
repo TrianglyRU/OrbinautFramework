@@ -116,6 +116,7 @@
     {"id":{"name":"Ring","path":"objects/Ring/Ring.yy",},"order":12,},
     {"id":{"name":"spr_collisionmask08","path":"sprites/spr_collisionmask08/spr_collisionmask08.yy",},"order":8,},
     {"id":{"name":"spr_engine_audio","path":"sprites/spr_engine_audio/spr_engine_audio.yy",},"order":0,},
+    {"id":{"name":"MenuGoto","path":"scripts/MenuGoto/MenuGoto.yy",},"order":0,},
     {"id":{"name":"sprHUD_Lives","path":"sprites/sprHUD_Lives/sprHUD_Lives.yy",},"order":4,},
     {"id":{"name":"PlayerCheckRoll","path":"scripts/PlayerCheckRoll/PlayerCheckRoll.yy",},"order":12,},
     {"id":{"name":"sfxJump","path":"sounds/sfxJump/sfxJump.yy",},"order":1,},
@@ -314,6 +315,7 @@
     {"folderPath":"folders/Audio.yy","order":12,"resourceVersion":"1.0","name":"Audio","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Audio/SFX.yy","order":0,"resourceVersion":"1.0","name":"SFX","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Game Code/Object Scripts.yy","order":5,"resourceVersion":"1.0","name":"Object Scripts","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Game Code/Menu Scripts.yy","order":7,"resourceVersion":"1.0","name":"Menu Scripts","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

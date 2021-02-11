@@ -1,13 +1,13 @@
 /// @description Options
 // You can write your code in this editor
 	
-	var Timer = TextTimer div 3;
-	var Print = TextPrint div 2;
+	var Timer  = TextTimer div 3;
+	var Print  = TextPrint div 2;
 	var MTimer = MainTimer div 3;
 	var MPrint = MainPrint div 2;
 	
 	// Get centre
-	var X = Game.ResolutionWidth / 2;
+	var X = Game.ResolutionWidth  / 2;
 	var Y = Game.ResolutionHeight / 2;
 	
 	// Set font to use in the room
@@ -74,26 +74,40 @@
 			draw_set_halign(fa_left);
 			
 			string_display(X - 80, Y - 15, string_distort("ASPECT RATIO", Print, Timer), 1);
-			string_display(X - 80, Y,      string_distort("WINDOW SIZE", Print, Timer), 1);
-			string_display(X - 80, Y + 15, string_distort("FULLSCREEN", Print, Timer), 1);
+			string_display(X - 80, Y,      string_distort("WINDOW SIZE",  Print, Timer), 1);
+			string_display(X - 80, Y + 15, string_distort("FULLSCREEN",   Print, Timer), 1);
 			string_display(X - 80, Y + 30, string_distort("MUSIC VOLUME", Print, Timer), 1);
 			string_display(X - 80, Y + 45, string_distort("SOUND VOLUME", Print, Timer), 1);
-			string_display(X - 80, Y + 60, string_distort("BACK", Print, Timer), 1);
+			string_display(X - 80, Y + 60, string_distort("BACK",		  Print, Timer), 1);
 			
 			string_display(X + 50, Y - 15, string_distort(Game.ResolutionWidth == 398 ? "16:9" : "4:3", Print, Timer), 1);
-			string_display(X + 50, Y,	   string_distort(string(Game.WindowSize) + "X", Print, Timer), 1);
-			string_display(X + 50, Y + 15, string_distort(Game.WindowFullscreen ? "ON" : "OFF", Print, Timer), 1);
-			string_display(X + 50, Y + 30, string_distort(string(Game.MusicVolume), Print, Timer), 1);
-			string_display(X + 50, Y + 45, string_distort(string(Game.SoundVolume), Print, Timer), 1);
+			string_display(X + 50, Y,	   string_distort(string(Game.WindowSize) + "X",		 Print, Timer), 1);
+			string_display(X + 50, Y + 15, string_distort(Game.WindowFullscreen ? "ON" : "OFF",  Print, Timer), 1);
+			string_display(X + 50, Y + 30, string_distort(string(round(Game.MusicVolume * 100)), Print, Timer), 1);
+			string_display(X + 50, Y + 45, string_distort(string(round(Game.SoundVolume * 100)), Print, Timer), 1);
 		}
 		break;
 		
 		// Display menu 5 (input options)
 		case 5:
 		{
-			draw_set_halign(fa_left);
+			draw_set_halign(fa_right);
 			
-			string_display(X - 80, Y, string_distort("BACK", Print, Timer), 1);
+			string_display(X - 50, Y - 45, string_distort("UP",      Print, Timer), 1);
+			string_display(X - 50, Y - 30, string_distort("DOWN",    Print, Timer), 1);
+			string_display(X - 50, Y - 15, string_distort("LEFT",    Print, Timer), 1);
+			string_display(X - 50, Y,	   string_distort("RIGHT",   Print, Timer), 1);
+			string_display(X - 50, Y + 15, string_distort("A",		 Print, Timer), 1);
+			string_display(X - 50, Y + 30, string_distort("B",		 Print, Timer), 1);
+			string_display(X - 50, Y + 45, string_distort("C",		 Print, Timer), 1);
+			string_display(X - 50, Y + 60, string_distort("MODE",    Print, Timer), 1);
+			string_display(X - 50, Y + 75, string_distort("START",   Print, Timer), 1);
+			string_display(X - 50, Y + 90, string_distort("BACK",	 Print, Timer), 1);
+			
+			draw_set_halign(fa_center);
+			for (var i = 0; i < 9; i++) {
+				string_display(X, Y - 45 + 15 * i, string_distort(i == MenuOption and ChngCntrl ? ": :" : string(Game.Control[i]), Print, Timer), 1);
+			}
 		}
 		break;
 	}
