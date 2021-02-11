@@ -14,12 +14,11 @@
 	{
 		case PlayerStateNormal:
 		{	
-			// Get floor angle
-			PlayerAnglePosition();
-			
 			// Perform jump and exit the code
-			PlayerCheckJump();
-			if Jumping exit;
+			if PlayerCheckJump() break;
+			
+			// Update slope angle
+			PlayerSlopeAngle();
 			
 			// Set slope gravity
 			PlayerSlopeResist();
@@ -42,9 +41,9 @@
 			// Perform roll
 			PlayerCheckRoll();
 			
-			// Collide with floor and update player's angle
+			// Collide with floor and update collision angle
 			PlayerCollideFloor();
-			
+
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
@@ -57,12 +56,11 @@
 		break;
 		case PlayerStateRoll:
 		{		
-			// Get floor angle
-			PlayerAnglePosition();
-			
 			// Perform jump and exit the code
-			PlayerCheckJump();
-			if Jumping exit;
+			if PlayerCheckJump() break;
+			
+			// Update slope angle
+			PlayerSlopeAngle();
 			
 			// Set slope gravity
 			PlayerSlopeResist();	
@@ -79,7 +77,7 @@
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
 			
-			// Collide with floor and update player's angle
+			// Collide with floor and update collision angle
 			PlayerCollideFloor();
 			
 			// Fall off the ceiling and walls
@@ -112,11 +110,11 @@
 			// Collide with walls
 			PlayerHitWalls();
 			
-			// Collide with roof
-			PlayerHitRoof();
-			
 			// Collide with floor
 			PlayerHitFloor();
+			
+			// Collide with roof
+			PlayerHitRoof();
 			
 			// Collide with solid objects
 			PlayerCollideSolidObjects();

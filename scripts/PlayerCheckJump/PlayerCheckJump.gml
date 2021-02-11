@@ -17,8 +17,8 @@ function PlayerCheckJump()
 	if Input.ABCPress
 	{	
 		// Set speeds and flags
-		Xsp     -= Jump * dsin(Angle);
-		Ysp	    -= Jump * dcos(Angle);	
+		Xsp     -= Jump * dsin(SlopeAngle);
+		Ysp	    -= Jump * dcos(SlopeAngle);	
 		Jumping  = true;	
 		Grounded = false;
 		OnObject = false;
@@ -34,5 +34,8 @@ function PlayerCheckJump()
 		
 		// Play sound
 		audio_sfx_play(sfxJump, false);
-	}	
+		
+		// Return true if we jumped
+		return Jumping
+	}
 }

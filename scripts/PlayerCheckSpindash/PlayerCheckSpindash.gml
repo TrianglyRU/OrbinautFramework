@@ -28,9 +28,9 @@ function PlayerCheckSpindash()
 		SpindashRev        = -2;
 		
 		// Update radiuses
-		yRadius   = yRadiusRoll;
-		xRadius	  = xRadiusRoll;
-		RealPosY += yRadiusDefault - yRadiusRoll;
+		yRadius = yRadiusRoll;
+		xRadius	= xRadiusRoll;
+		PosY   += yRadiusDefault - yRadiusRoll;
 		
 		// Start rolling
 		Rolling	= true;

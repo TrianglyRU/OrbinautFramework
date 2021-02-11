@@ -3,10 +3,10 @@ function PlayerHitRoof()
 	if Ysp < 0 or abs(Xsp) > abs(Ysp)
 	{
 		// Set coordinates
-		var xLeft  = PosX - xRadius;
-		var yLeft  = PosY - yRadius;
-		var xRight = PosX + xRadius;
-		var yRight = PosY - yRadius;
+		var xLeft  = floor(PosX) - xRadius;
+		var yLeft  = floor(PosY) - yRadius;
+		var xRight = floor(PosX) + xRadius;
+		var yRight = floor(PosY) - yRadius;
 			
 		// Get roof distances
 		var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, true);
@@ -19,19 +19,19 @@ function PlayerHitRoof()
 		if Distance < 0
 		{		
 			// Collide 
-			RealPosY -= Distance;
+			PosY -= Distance;
 			
 			// If moving upwards, check roof angle
 			if abs(Ysp) > abs(Xsp)
 			{	
 				// Get roof angle
-				RoofAngle = dLeft <= dRight? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
+				SlopeAngle = dLeft <= dRight? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
 
 				// Land on the roof if it is steep enough
-				if RoofAngle > 90 and RoofAngle < 135 or RoofAngle > 225 and RoofAngle < 270
+				if SlopeAngle > 90 and SlopeAngle < 135 or SlopeAngle > 225 and SlopeAngle < 270
 				{	
-					Inertia  = RoofAngle < 180 ? -Ysp : Ysp;
-					Angle	 = RoofAngle;					
+					Inertia  = SlopeAngle < 180 ? -Ysp : Ysp;
+					Angle	 = SlopeAngle;
 					Grounded = true;
 				} 
 				else 

@@ -1,5 +1,6 @@
 function ObjLamppostActivation()
-{
+{	
+	// If not active, activate
 	if !Active 
 	{
 		if hitbox_collision(Player, self) 
@@ -19,6 +20,8 @@ function ObjLamppostActivation()
 			audio_sfx_play(sfxLamppost, false);
 		}
 	}
+	
+	// Else rotate the lamp and stop it after 2 loops
 	else if Angle < 900 
 	{
 		Angle += 22.5;

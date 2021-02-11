@@ -2,11 +2,14 @@ function PlayerResetOnFloor()
 {	
 	// If grounded flag has been set to true when we've been airborne, we have landed
 	if Grounded
-	{			
+	{	
+		// Set collision angle to slope angle
+		Angle = SlopeAngle;
+		
 		// Reset radiuses and adjust position
 		yRadius   = yRadiusDefault; 
 		xRadius	  = xRadiusDefault;
-		RealPosY -= (Rolling or Jumping) * 5;
+		PosY -= (Rolling or Jumping) * 5;
 		
 		// Reset flags
 		Rolling	 = false;

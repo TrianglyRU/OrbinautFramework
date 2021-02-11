@@ -3,16 +3,16 @@ function PlayerCollideFloor()
 	// Do not collide with floor when on object
 	if OnObject exit;
 
-	// Collide with one of four floor sides based on current floor angle range
-	switch round(FloorAngle/90) % 4
+	// Collide with one of four floor sides based on current player's angle range
+	switch round(Angle/90) % 4
 	{
 		case RangeFloor:
 		{	
 			// Set coordinates
-			var xLeft  = PosX - xRadius;
-			var yLeft  = PosY + yRadius;
-			var xRight = PosX + xRadius;
-			var yRight = PosY + yRadius;
+			var xLeft  = floor(PosX) - xRadius;
+			var yLeft  = floor(PosY) + yRadius;
+			var xRight = floor(PosX) + xRadius;
+			var yRight = floor(PosY) + yRadius;
 			
 			// Get floor distances
 			var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);			
@@ -21,7 +21,7 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 			
-			// Collide using closest distance and get movement angle
+			// Collide using closest distance and update player's angle
 			var Distance = dLeft <= dRight ? dLeft : dRight;
 			if  Distance > CollisionDistance
 			{
@@ -29,7 +29,7 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				RealPosY += Distance;
+				PosY += Distance;
 				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 			}
 		}
@@ -37,10 +37,10 @@ function PlayerCollideFloor()
 		case RangeRWall:
 		{	
 			// Set coordinates
-			var xLeft  = PosX + yRadius;
-			var yLeft  = PosY + xRadius;
-			var xRight = PosX + yRadius;
-			var yRight = PosY - xRadius;
+			var xLeft  = floor(PosX) + yRadius;
+			var yLeft  = floor(PosY) + xRadius;
+			var xRight = floor(PosX) + yRadius;
+			var yRight = floor(PosY) - xRadius;
 			
 			// Get floor distances
 			var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, true, false);
@@ -49,7 +49,7 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
 
-			// Collide using closest distance and get movement angle
+			// Collide using closest distance and update player's angle
 			var Distance = dLeft <= dRight ? dLeft : dRight;
 			if  Distance > CollisionDistance
 			{
@@ -57,7 +57,7 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				RealPosX += Distance;
+				PosX += Distance;
 				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 			}
 		}
@@ -65,10 +65,10 @@ function PlayerCollideFloor()
 		case RangeRoof:
 		{	
 			// Set coordinates
-			var xLeft  = PosX + xRadius;
-			var yLeft  = PosY - yRadius;
-			var xRight = PosX - xRadius;
-			var yRight = PosY - yRadius;
+			var xLeft  = floor(PosX) + xRadius;
+			var yLeft  = floor(PosY) - yRadius;
+			var xRight = floor(PosX) - xRadius;
+			var yRight = floor(PosY) - yRadius;
 			
 			// Get floor distances
 			var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, false);
@@ -77,7 +77,7 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 			
-			// Collide using closest distance and get movement angle
+			// Collide using closest distance and update player's angle
 			var Distance = dLeft <= dRight ? dLeft : dRight;
 			if  Distance > CollisionDistance
 			{
@@ -85,7 +85,7 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				RealPosY -= Distance;
+				PosY -= Distance;
 				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 			}
 		}
@@ -93,10 +93,10 @@ function PlayerCollideFloor()
 		case RangeLWall:
 		{	
 			// Set coordinates
-			var xLeft  = PosX - yRadius;
-			var yLeft  = PosY - xRadius;
-			var xRight = PosX - yRadius;
-			var yRight = PosY + xRadius;
+			var xLeft  = floor(PosX) - yRadius;
+			var yLeft  = floor(PosY) - xRadius;
+			var xRight = floor(PosX) - yRadius;
+			var yRight = floor(PosY) + xRadius;
 			 
 			// Get floor distances and angles
 			var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, false, false);
@@ -105,7 +105,7 @@ function PlayerCollideFloor()
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
 
-			// Collide using closest distance and get movement angle
+			// Collide using closest distance and update player's angle
 			var Distance = dLeft <= dRight ? dLeft : dRight;
 			if  Distance > CollisionDistance
 			{
@@ -113,7 +113,7 @@ function PlayerCollideFloor()
 			}
 			else
 			{
-				RealPosX -= Distance;
+				PosX -= Distance;
 				Angle = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
 			}
 		}

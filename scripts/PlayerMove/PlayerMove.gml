@@ -84,7 +84,7 @@ function PlayerMove()
 		Animation = abs(Inertia) < TopAcc? AnimWalk : AnimRun;
 	}
 	
-	// Update axis speeds
-	Xsp = Inertia * dcos(Angle);
-	Ysp = Inertia *-dsin(Angle);
+	// Convert inertia to normal axis speeds
+	Xsp = Inertia *  dcos(SlopeAngle);
+	Ysp = Inertia * -dsin(SlopeAngle);
 }

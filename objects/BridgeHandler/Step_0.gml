@@ -5,7 +5,7 @@
     var CurrentSegment, PlayerPosition, Tension, i, log_difference;
 	
 	// Get a log number player is standing on
-	PlayerPosition = (Player.PosX - x + 16) div 16;
+	PlayerPosition = (floor(Player.PosX) - x + 16) div 16;
 	CurrentSegment = clamp(PlayerPosition, 1, SegmentAmount);
 	
 	// Set a recovery angle

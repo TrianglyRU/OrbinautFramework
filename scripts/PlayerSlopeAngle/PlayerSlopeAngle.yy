@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Player Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerAnglePosition",
+  "name": "PlayerSlopeAngle",
   "tags": [],
   "resourceType": "GMScript",
 }

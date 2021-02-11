@@ -5,6 +5,6 @@ function ScreenCameraSetup()
 	Height = Game.ResolutionHeight;
 	
 	// Set default position
-	ViewX = Player.RealPosX - Width  / 2;
-	ViewY = Player.RealPosY - Height / 2;
+	ViewX = Player.PosX - Width  / 2;
+	ViewY = Player.PosY - Height / 2;
 }

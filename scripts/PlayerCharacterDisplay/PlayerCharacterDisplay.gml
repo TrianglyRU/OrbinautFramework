@@ -3,7 +3,7 @@ function PlayerCharacterDisplay()
 	// Set visual angle
 	if Game.SmoothRotation 
 	{
-		if Angle >= 25.5 and Angle <= 334.5 or !Grounded or Angle = 0 
+		if SlopeAngle >= 25.5 and SlopeAngle <= 334.5 or !Grounded or SlopeAngle = 0 
 		{
 			VisualAngle = Angle;
 		} 
@@ -40,8 +40,8 @@ function PlayerCharacterDisplay()
 	}
 	
 	// Update character
-	x		     = floor(RealPosX);
-	y			 = floor(RealPosY);
+	x		     = floor(PosX);
+	y			 = floor(PosY);
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
 	depth		 = DrawOrder;

@@ -20,8 +20,8 @@
 	Hurt			     = 0;
 	CharacterID			 = 0;
 	
-	RealPosX			 = 0;
-	RealPosY			 = 0;
+	PosX				 = 0;
+	PosY				 = 0;
 	PosX				 = 0;
 	PosY				 = 0;
 	Xsp					 = 0;
@@ -29,10 +29,9 @@
 	Inertia				 = 0;
 	
 	SlopeGravity		 = 0;
-	Angle				 = 0;
+	SlopeAngle			 = 0;	// Used for physics
+	Angle				 = 0;	// Main angle. Used for collision stuff and visuals
 	VisualAngle			 = 0;
-	FloorAngle			 = 0;
-	RoofAngle			 = 0;
 
 	SpindashRev		     = 0;
 	isSuper				 = 0;
