@@ -25,7 +25,7 @@
 			draw_set_halign(fa_center);
 			
 			string_display(X, Y - 15, string_distort("STAGE SELECT", Print, Timer), 1);
-			string_display(X, Y, string_distort("OPTIONS", Print, Timer), 1);
+			string_display(X, Y,	  string_distort("OPTIONS", Print, Timer), 1);
 			string_display(X, Y + 15, string_distort("CLOSE GAME", Print, Timer), 1);
 		}
 		break;
@@ -33,24 +33,66 @@
 		// Display menu 1 (stage select)
 		case 1:
 		{
+			draw_set_halign(fa_left);
+			
+			string_display(X - 80, Y - 15, string_distort("MOONLIGHT BASE ZONE", Print, Timer), 1);
+			string_display(X - 80, Y,	   string_distort("BACK", Print, Timer), 1);
 		}
 		break;
 		
 		// Display menu 2 (options)
 		case 2:
 		{	
-			draw_set_halign(fa_left);
+			draw_set_halign(fa_center);
 			
-			string_display(X - 80, Y - 15, string_distort("COLLISION METHOD:", Print, Timer), 1);
-			string_display(X - 80, Y, string_distort("BACK", Print, Timer), 1);
+			string_display(X, Y - 15, string_distort("GAMEPLAY", Print, Timer), 1);
+			string_display(X, Y,	  string_distort("VIDEO AND AUDIO", Print, Timer), 1);
+			string_display(X, Y + 15, string_distort("INPUT", Print, Timer), 1);
+			string_display(X, Y + 30, string_distort("BACK", Print, Timer), 1);
 		}
 		break;
-		// Display menu 3 (control)
+		
+		// Display menu 3 (framework options)
 		case 3:
 		{
 			draw_set_halign(fa_left);
 			
-			string_display(X - 80, Y - 15, string_distort("COLLISION METHOD:", Print, Timer), 1);
+			string_display(X - 80, Y - 15, string_distort("SPINDASH", Print, Timer), 1);
+			string_display(X - 80, Y,	   string_distort("DROPDASH", Print, Timer), 1);
+			string_display(X - 80, Y + 15, string_distort("SUPER PEEL OUT", Print, Timer), 1);
+			string_display(X - 80, Y + 30, string_distort("BACK", Print, Timer), 1);
+			
+			string_display(X + 65, Y - 15, string_distort(Game.SpindashEnabled ? "ON" : "OFF", Print, Timer), 1);
+			string_display(X + 65, Y,	   string_distort(Game.DropdashEnabled ? "ON" : "OFF", Print, Timer), 1);
+			string_display(X + 65, Y + 15, string_distort(Game.PeeloutEnabled  ? "ON" : "OFF", Print, Timer), 1);
+		}
+		break;
+		
+		// Display menu 4 (video and audio options)
+		case 4:
+		{
+			draw_set_halign(fa_left);
+			
+			string_display(X - 80, Y - 15, string_distort("ASPECT RATIO", Print, Timer), 1);
+			string_display(X - 80, Y,      string_distort("WINDOW SIZE", Print, Timer), 1);
+			string_display(X - 80, Y + 15, string_distort("FULLSCREEN", Print, Timer), 1);
+			string_display(X - 80, Y + 30, string_distort("MUSIC VOLUME", Print, Timer), 1);
+			string_display(X - 80, Y + 45, string_distort("SOUND VOLUME", Print, Timer), 1);
+			string_display(X - 80, Y + 60, string_distort("BACK", Print, Timer), 1);
+			
+			string_display(X + 50, Y - 15, string_distort(Game.ResolutionWidth == 398 ? "16:9" : "4:3", Print, Timer), 1);
+			string_display(X + 50, Y,	   string_distort(string(Game.WindowSize) + "X", Print, Timer), 1);
+			string_display(X + 50, Y + 15, string_distort(Game.WindowFullscreen ? "ON" : "OFF", Print, Timer), 1);
+			string_display(X + 50, Y + 30, string_distort(string(Game.MusicVolume), Print, Timer), 1);
+			string_display(X + 50, Y + 45, string_distort(string(Game.SoundVolume), Print, Timer), 1);
+		}
+		break;
+		
+		// Display menu 5 (input options)
+		case 5:
+		{
+			draw_set_halign(fa_left);
+			
 			string_display(X - 80, Y, string_distort("BACK", Print, Timer), 1);
 		}
 		break;

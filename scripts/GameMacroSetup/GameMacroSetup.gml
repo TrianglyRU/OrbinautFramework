@@ -1,17 +1,21 @@
 function GameMacroSetup()
 {		
-	// Game macros
-	#macro scriptcode function
-	#macro Game		  global
-	#macro to		  0
-	#macro from		  1
-	#macro black	  0
-	#macro white	  1
-	#macro flash	  2
-	#macro TileSize   16
-	#macro TileAmount 154
+	// Game macro
+	#macro Game		   global
+	#macro to		   0
+	#macro from		   1
+	#macro black	   0
+	#macro white	   1
+	#macro flash	   2
+	#macro TileSize    16
+	#macro TileAmount  154
+	#macro FontDebug   0
+	#macro FontDigits1 1
+	#macro FontDigits2 2
+	#macro FontCard    3
+	#macro FontMenu    4
 
-	// Player macros
+	// Player macro
 	#macro RangeFloor	       0
 	#macro RangeRWall	       1
 	#macro RangeRoof		   2
@@ -36,13 +40,13 @@ function GameMacroSetup()
 	#macro AnimCrouch		   7
 	#macro AnimLookup		   8
 	
-	// Stage macros
+	// Stage macro
 	#macro ActStateDefault   0
 	#macro ActStateFinished  1
 	#macro ActStateBossfight 2
 	#macro ActStateAfterboss 3
 	
-	// Object macros
+	// Object macro
 	#macro SolidAll 0
 	#macro SolidTop 1	
 }

@@ -3,7 +3,8 @@ function string_distort(String, Length, distStart)
 {	
 	var Len = string_length(String);
 	
-	if Len > Length {
+	if Len > Length 
+	{
 		String = string_copy(String, 0, Length);
 		Len = Length;
 	}

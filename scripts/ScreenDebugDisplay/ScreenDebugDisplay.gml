@@ -9,7 +9,7 @@ function ScreenDebugDisplay()
 	
 	// Set font
 	draw_set_alpha(1);
-	string_set_font(Game.Font[0], "left");
+	string_set_font(Game.Font[FontDebug], "left");
 	
 	// Display
 	string_display_list(Width - 93, 8,

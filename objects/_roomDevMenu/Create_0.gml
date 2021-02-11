@@ -8,5 +8,3 @@
 	TextPrint  = 0;
 	MainTimer  = 0;
 	MainPrint  = 0;
-	
-	draw_set_font(Game.Font[4]);

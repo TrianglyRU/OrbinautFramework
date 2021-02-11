@@ -20,6 +20,7 @@ function GameFrameworkSetup()
 	// Engine customization
 	Game.SpindashEnabled		 = true;	// S2 Spindash
 	Game.PeeloutEnabled          = false;	// SCD Super Peel Out
+	Game.DropdashEnabled		 = false;	// Dropdash
 	Game.GroundSpeedcap			 = false;	// S1-like ground speedcap
 	Game.AirSpeedcap			 = false;	// Pre S3-like air speedcap
 	Game.StrongerSlopeGravity	 = false;	// In Sonic 3+, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
