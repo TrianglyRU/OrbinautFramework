@@ -1,62 +1,81 @@
 /// @description Navigation
 // You can write your code in this editor
 	
+	if (TextTimer < 60) TextTimer++;
+	if (TextPrint < 40) TextPrint++;
+	if (MainTimer < 60) MainTimer++;
+	if (MainPrint < 40) MainPrint++;
+	
 	// Disable fade
 	Game.FadeEnabled = false;
 	
 	// Navigate between options
-	if Input.DownPress
-	{
-		MenuOption += 1;
-	}
-	if Input.UpPress
-	{
-		MenuOption -= 1;
-	}
+	if (Input.DownPress) MenuOption++;
+	if (Input.UpPress)   MenuOption--;
 	
 	// Cycle through options
+	var LinesCount;
 	switch MenuState
 	{
-		case 0:
-		{
-			if (MenuOption < 0) MenuOption = 2;
-			if (MenuOption > 2) MenuOption = 0;
-		}
-		break;
-		case 2:
-		{
-			if (MenuOption < 0) MenuOption = 1;
-			if (MenuOption > 1) MenuOption = 0;
-		}
+		case 0: LinesCount = 3 break;
+		case 2: LinesCount = 2 break;
 	}
+	MenuOption = wrap_zero(MenuOption, LinesCount);
 	
 	// Key A
 	if Input.APress
 	{
-		// Main menu behaviour
-		if MenuState = 0
+		switch MenuState
 		{
-			switch MenuOption
+			// Main menu behaviour
+			case 0:
 			{
-				case 0: MenuState = 1; room_goto(MBZ) break;
-				case 1: MenuState = 2; MenuOption = 0; break;
-				case 2: game_end(); break;
+				switch MenuOption
+				{
+					case 0: MenuState = 1; room_goto(MBZ) break;
+					case 1: 
+					{
+						MenuState = 2; MenuOption = 0; 
+						TextTimer = 0; TextPrint = 0; 
+					} 
+					break;
+					case 2: game_end(); break;
+				}
 			}
-		}
+			break;
 		
-		// Stage select behaviour
-		if MenuState = 1
-		{
-		}
-		
-		// Options behaviour
-		if MenuState = 2
-		{
-			switch MenuOption
+			// Stage select behaviour
+			case 1:
 			{
-				case 0: Game.TileCollisionMethod = Game.TileCollisionMethod == false ? true : false; break;
-				case 1: MenuState = 0; MenuOption = 1; break;
+		
 			}
+			break;
+		
+			// Options behaviour
+			case 2:
+			{
+				switch MenuOption
+				{
+					case 0: Game.TileCollisionMethod = Game.TileCollisionMethod == false ? true : false; break;
+					case 1: 
+					{
+					MenuState = 0; MenuOption = 1; 
+					TextTimer = 0; TextPrint = 0;
+					}
+					break;
+				}
+			}
+			break;
+			// Control behaviour
+			case 3:
+			{
+				switch MenuOption
+				{
+					case 0: break;
+					case 1: break;
+				}
+			}
+			break;
 		}
 	}
 	
@@ -83,6 +102,3 @@
 			case 1: objLoadingIcon.y = Y - 6; break;
 		}
 	}
-		
-	
-	
