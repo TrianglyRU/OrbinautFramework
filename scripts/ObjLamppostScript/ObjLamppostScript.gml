@@ -1,4 +1,4 @@
-function ObjLamppostActivation()
+function ObjLamppostScript()
 {	
 	// If not active, activate
 	if !Active 
@@ -12,7 +12,7 @@ function ObjLamppostActivation()
 			var tempValue = LamppostID;
 			with Lamppost if !Active and LamppostID <= tempValue 
 			{
-				Active = 1;
+				Active      = 1;
 				image_index = 1;
 			}
 			

@@ -24,7 +24,7 @@
 		case 4: LinesCount = 6  break;
 		case 5: LinesCount = 10 break;
 	}
-	MenuOption = wrap(MenuOption, 0, LinesCount);
+	MenuOption = loop_value(MenuOption, 0, LinesCount);
 		
 	// React to key A and key start
 	if Input.APress or Input.StartPress
@@ -117,7 +117,7 @@
 					{
 						Game.WindowSize--;
 					}
-					Game.WindowSize = wrap(Game.WindowSize, 1, 5);
+					Game.WindowSize = loop_value(Game.WindowSize, 1, 5);
 					window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
 				}
 				break;
@@ -141,7 +141,7 @@
 					{
 						Game.MusicVolume -= 0.1;
 					}
-					Game.MusicVolume = wrap(round(Game.MusicVolume * 10), 0, 11) / 10;
+					Game.MusicVolume = loop_value(round(Game.MusicVolume * 10), 0, 11) / 10;
 				}
 				break;
 					
@@ -156,7 +156,7 @@
 					{
 						Game.SoundVolume -= 0.1;
 					}
-					Game.SoundVolume = wrap(round(Game.SoundVolume * 10), 0, 11) / 10;
+					Game.SoundVolume = loop_value(round(Game.SoundVolume * 10), 0, 11) / 10;
 				}
 				break;
 			}

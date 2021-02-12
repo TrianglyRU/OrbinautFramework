@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+    "name": "Object Scripts",
+    "path": "folders/Game Code/Object Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "animation_set",
+  "name": "ObjRingScript",
   "tags": [],
   "resourceType": "GMScript",
 }

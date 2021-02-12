@@ -10,7 +10,8 @@ function object_perform_damage(whenStanding)
 		if Player.OnObject = id
 		{
 			// Hurt them using ours id
-			Player.Hurt = id;
+			Player.Hurt  = id;
+			Player.Rings = 0;
 		}
 	}
 	
@@ -18,6 +19,7 @@ function object_perform_damage(whenStanding)
 	if hitbox_collision(Player, id)
 	{
 		// Hurt them using ours id
-		Player.Hurt = id;
-	}			
+		Player.Hurt  = id;
+		Player.Rings = 0;
+	}		
 }

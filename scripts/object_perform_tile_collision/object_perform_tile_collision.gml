@@ -1,33 +1,79 @@
-/// @function object_perform_tile_collision(xLeft, yLeft, xRight, yRight)
-function object_perform_tile_collision(xLeft, yLeft, xRight, yRight)
+/// @function object_perform_tile_collision(xLeft, yLeft, xRight, yRight, angRange)
+function object_perform_tile_collision(xLeft, yLeft, xRight, yRight, angRange)
 {
-	// Variables list
-	var CollisionLayer, NewY1, NewY2;
-	
 	// Get collision layers
-	CollisionLayer = Stage.TileLayer[LayerA] or Stage.TileLayer[LayerB];
+	var colLayer = Stage.TileLayer[LayerA] or Stage.TileLayer[LayerB];
 	
-	// Get coordinates
-	NewY1 = yLeft;
-	NewY2 = yRight;
-	
-	// Check if we're colliding with tiles on our left
-	if tile_meeting(xLeft, yLeft, CollisionLayer)
-	{	
-		while tile_meeting(xLeft, yLeft, CollisionLayer)
-		{
-			NewY1--;
-		}
-		return yLeft - NewY1;
-	}
-	
-	// Check fif we're colliding with tile on our right
-	if tile_meeting(xRight, yRight, CollisionLayer)
+	// Collide based on given angle range
+	switch angRange
 	{
-		while tile_meeting(xRight, yRight, CollisionLayer)
-		{
-			NewY2--;
+		case RangeFloor:
+		{	
+			// Get distances
+			var distLeft  = tile_get_distance_v(xLeft, yLeft, colLayer, true, false);
+			var distRight = tile_get_distance_v(xRight, yRight, colLayer, true, false);
+			
+			// Collide using closest one
+			if distLeft <= distRight
+			{
+				y += distLeft;
+			}
+			else
+			{
+				y += distRight;
+			}	
 		}
-		return yRight - NewY2;
-	}			
+		break;
+		case RangeRWall:
+		{
+			// Get distances
+			var distLeft  = tile_get_distance_h(xLeft, yLeft, colLayer, true, false);
+			var distRight = tile_get_distance_h(xRight, yRight, colLayer, true, false);
+			
+			// Collide using closest one
+			if distLeft <= distRight
+			{
+				x += distLeft;
+			}
+			else
+			{
+				x += distRight;
+			}
+		}
+		break;
+		case RangeRoof:
+		{	
+			// Get distances
+			var distLeft  = tile_get_distance_v(xLeft, yLeft, colLayer, false, false);
+			var distRight = tile_get_distance_v(xRight, yRight, colLayer, false, false);
+			
+			// Collide using closest one
+			if distLeft <= distRight
+			{
+				y -= distLeft;
+			}
+			else
+			{
+				y -= distRight;
+			}	
+		}
+		break;
+		case RangeLWall:
+		{
+			// Get distances
+			var distLeft  = tile_get_distance_h(xLeft, yLeft, colLayer, false, false);
+			var distRight = tile_get_distance_h(xRight, yRight, colLayer, false, false);
+			
+			// Collide using closest one
+			if distLeft <= distRight
+			{
+				x -= distLeft;
+			}
+			else
+			{
+				x -= distRight;
+			}
+		}
+		break;		
+	}	
 }

@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Object Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjSignpostActivation",
+  "name": "ObjRingSparkleScript",
   "tags": [],
   "resourceType": "GMScript",
 }

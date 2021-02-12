@@ -1,5 +1,9 @@
-function ObjRingCollect()
+function ObjRingScript()
 {
+	// Play animation
+	animation_play(sprite_index, 4, 1);
+	
+	// Check for collision
 	if hitbox_collision(Player, self)
 	{	
 		// Add 1 to ring counter

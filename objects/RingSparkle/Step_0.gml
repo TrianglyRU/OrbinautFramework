@@ -1,5 +1,5 @@
-/// @description Activation
+/// @description Destroy
 // You can write your code in this editor
 
 	// Call object script
-	ObjLamppostScript();
+	ObjRingSparkleScript();

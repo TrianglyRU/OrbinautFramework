@@ -1,9 +1,9 @@
-function ObjSignpostActivation()
+function ObjSignpostScript()
 {
 	if !Active
 	{
 		// Activate on overlap and change stage state
-		if Player.PosX > x
+		if floor(Player.PosX) > x
 		{
 			Active			  = true;
 			Stage.TimeEnabled = false;
@@ -32,8 +32,8 @@ function ObjSignpostActivation()
 			case  98: instance_create_depth(x - 23, y - 14, depth - 1, RingSparkle); break;
 			case 110: instance_create_depth(x + 7,  y + 7,  depth - 1, RingSparkle); break;
 			case 122: instance_create_depth(x - 14, y,      depth - 1, RingSparkle); break;
-			case 160: screen_fade_perform(to, black, 1);						 break;
-			case 200: room_goto(MBZ);											 break;
+			case 160: screen_fade_perform(to, black, 1);							 break;
+			case 200: room_goto(MBZ);												 break;
 		}	
 	}
 }
