@@ -1,8 +1,5 @@
 function PlayerHitWalls()
 {	
-	// Use different wall radiuses. Originals don't do this, but we want to improve stability, so here we go!
-	var WallRadius = Rolling or Jumping ? 8 : 10;
-
 	// Left wall collision
 	if Grounded
 	{
@@ -13,7 +10,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp - WallRadius), floor(PosY + Ysp + !Angle * 8), Layer, false, true);
+					var Distance = tile_get_distance_h(floor(PosX + Xsp - 10), floor(PosY + Ysp + !Angle * 8), Layer, false, true);
 					if  Distance < 0
 					{	
 						Xsp    -= Distance;
@@ -23,7 +20,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRWall:
 				{
-					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp + WallRadius), Layer, true, true)
+					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), Layer, true, true)
 					if  Distance < 0
 					{	
 						Ysp    += Distance;
@@ -33,7 +30,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRoof:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp + WallRadius), floor(PosY + Ysp), Layer, true, true)
+					var Distance = tile_get_distance_h(floor(PosX + Xsp + 10), floor(PosY + Ysp), Layer, true, true)
 					if  Distance < 0
 					{	
 						Xsp    += Distance;
@@ -43,7 +40,7 @@ function PlayerHitWalls()
 				break;
 				case RangeLWall:
 				{
-					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp - WallRadius), Layer, false, true)
+					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), Layer, false, true)
 					if  Distance < 0
 					{	
 						Ysp    -= Distance;
@@ -57,7 +54,7 @@ function PlayerHitWalls()
 	else if !(Xsp > abs(Ysp))
 	{
 		// Collide airborne at the current frame
-		var Distance = tile_get_distance_h(floor(PosX - WallRadius), floor(PosY), Layer, false, true);
+		var Distance = tile_get_distance_h(floor(PosX - 10), floor(PosY), Layer, false, true);
 		if  Distance < 0
 		{
 			PosX   -= Distance;
@@ -76,7 +73,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp + WallRadius), floor(PosY + Ysp + !Angle * 8), Layer, true, true);
+					var Distance = tile_get_distance_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + !Angle * 8), Layer, true, true);
 					if  Distance < 0
 					{	
 						Xsp    += Distance;
@@ -86,7 +83,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRWall:
 				{
-					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp - WallRadius), Layer, false, true)
+					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), Layer, false, true)
 					if  Distance < 0
 					{	
 						Ysp    -= Distance;
@@ -96,7 +93,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRoof:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp - WallRadius), floor(PosY + Ysp), Layer, false, true)
+					var Distance = tile_get_distance_h(floor(PosX + Xsp - 10), floor(PosY + Ysp), Layer, false, true)
 					if  Distance < 0
 					{	
 						Xsp    -= Distance;
@@ -106,7 +103,7 @@ function PlayerHitWalls()
 				break;
 				case RangeLWall:
 				{
-					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp + WallRadius), Layer, true, true)
+					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), Layer, true, true)
 					if  Distance < 0
 					{	
 						Ysp    += Distance;
@@ -120,7 +117,7 @@ function PlayerHitWalls()
 	else if !(-Xsp > abs(Ysp))
 	{	
 		// Collide airborne at the current frame
-		var Distance = tile_get_distance_h(floor(PosX + WallRadius), floor(PosY), Layer, true, true);	
+		var Distance = tile_get_distance_h(floor(PosX + 10), floor(PosY), Layer, true, true);	
 		if  Distance < 0
 		{
 			PosX	+= Distance;
