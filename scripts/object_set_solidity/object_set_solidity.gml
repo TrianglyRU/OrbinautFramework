@@ -9,5 +9,5 @@ function object_set_solidity(type)
 	}
 	
 	// If solidity type is correct, set a variable for the object
-	variable_instance_set(id, "Solidity", type);
+	Solidity = type;
 }
