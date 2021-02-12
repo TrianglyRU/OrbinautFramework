@@ -44,9 +44,59 @@ function PlayerMoveRoll()
 		if (Inertia >= 0) Inertia = 0;
 	}
 	
+	// Get movement angle
+	switch round(Angle/90) % 4
+	{
+		case RangeFloor:
+		{	
+			var xLeft  = floor(PosX - xRadius);
+			var yLeft  = floor(PosY + yRadius);
+			var xRight = floor(PosX + xRadius);
+			var yRight = floor(PosY + yRadius);
+			
+			var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);			
+			var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
+		}
+		break;
+		case RangeRWall:
+		{	
+			var xLeft  = floor(PosX + yRadius);
+			var yLeft  = floor(PosY + xRadius);
+			var xRight = floor(PosX + yRadius);
+			var yRight = floor(PosY - xRadius);
+			
+			var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, true, false);
+			var dRight = tile_get_distance_h(xRight, yRight, Layer, true, false);
+		}
+		break;
+		case RangeRoof:
+		{	
+			var xLeft  = floor(PosX + xRadius);
+			var yLeft  = floor(PosY - yRadius);
+			var xRight = floor(PosX - xRadius);
+			var yRight = floor(PosY - yRadius);
+
+			var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, false);
+			var dRight = tile_get_distance_v(xRight, yRight, Layer, false, false);
+		}
+		break;
+		case RangeLWall:
+		{	
+			var xLeft  = floor(PosX - yRadius);
+			var yLeft  = floor(PosY - xRadius);
+			var xRight = floor(PosX - yRadius);
+			var yRight = floor(PosY + xRadius);
+			
+			var dLeft  = tile_get_distance_h(xLeft, yLeft, Layer, false, false);
+			var dRight = tile_get_distance_h(xRight, yRight, Layer, false, false);
+		}
+		break;
+	}
+	var Ang = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
+	
 	// Convert inertia to normal axis speeds
-	Xsp = Inertia *  dcos(Angle);
-	Ysp = Inertia * -dsin(Angle);
+	Xsp = Inertia *  dcos(Ang);
+	Ysp = Inertia * -dsin(Ang);
 	
 	// Limit rolling speed. Original engine limits xsp instead of inertia, resulting
 	// desync on high speeds
@@ -54,11 +104,6 @@ function PlayerMoveRoll()
 	{
 		if (Xsp > 16)  Xsp = 16;
 		if (Xsp < -16) Xsp = -16;
-	}
-	else
-	{
-		if (Inertia > 16)  Inertia = 16;
-		if (Inertia < -16) Inertia = -16;
 	}
 	
 	// If our inertia is 0 or we pressed UP, unroll

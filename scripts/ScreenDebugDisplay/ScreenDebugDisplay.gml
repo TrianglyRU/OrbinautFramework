@@ -38,7 +38,6 @@ function ScreenDebugDisplay()
 			+ "\n          * SLOPE PHYSICS *"
 			+ "\n"
 			+ "\n   ANGLE: " + string(Player.Angle)
-			+ "\n   ANGLE RANGE: " + string(Player.AngleRange)
 			+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 			+ "\n"
 			+ "\n         * STATES AND FLAGS *"

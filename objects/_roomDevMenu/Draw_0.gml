@@ -20,7 +20,7 @@
 	switch MenuState
 	{
 		// Display menu 0 (main)
-		case 0:
+		case Main:
 		{	
 			draw_set_halign(fa_center);
 			
@@ -31,7 +31,7 @@
 		break;
 		
 		// Display menu 1 (stage select)
-		case 1:
+		case StageSelect:
 		{
 			draw_set_halign(fa_left);
 			
@@ -41,7 +41,7 @@
 		break;
 		
 		// Display menu 2 (options)
-		case 2:
+		case Options:
 		{	
 			draw_set_halign(fa_center);
 			
@@ -53,7 +53,7 @@
 		break;
 		
 		// Display menu 3 (framework options)
-		case 3:
+		case FrameworkConfig:
 		{
 			draw_set_halign(fa_left);
 			
@@ -69,7 +69,7 @@
 		break;
 		
 		// Display menu 4 (video and audio options)
-		case 4:
+		case AudioVideoConfig:
 		{
 			draw_set_halign(fa_left);
 			
@@ -89,7 +89,7 @@
 		break;
 		
 		// Display menu 5 (input options)
-		case 5:
+		case InputConfig:
 		{
 			draw_set_halign(fa_right);
 			

@@ -13,18 +13,18 @@ function ScreenTitleCardDisplay()
 		{	
 			Input.IgnoreInput = false;
 			Stage.TimeEnabled = true;
-			Screen.EnableHUD  = true;
+			InterfaceEnabled  = true;
 			screen_fade_perform(from, black, 1);
 		}
-		if CardTimer > 10 and OffsetHUD[0] < 0
+		if CardTimer > 10 and InterfaceOffsetX < 0
 		{
-			OffsetHUD[0] += 5;
+			InterfaceOffsetX += 5;
 		}
 		exit;
 	}
 	
 	// Set a font to use 
-	string_set_font(Game.Font[3], "right");
+	string_set_font(Game.Font[FontCard], "right");
 	
 	// Elements appear
 	if CardTimer < 200 
@@ -64,8 +64,7 @@ function ScreenTitleCardDisplay()
 		{
 			Input.IgnoreInput = false;
 			Stage.TimeEnabled = true;
-		}
-			
+		}		
 	} 
 	
 	// Elements disappear
@@ -78,10 +77,10 @@ function ScreenTitleCardDisplay()
 	}
 		
 	// Move HUD
-	if CardTimer > 130 and OffsetHUD[0] < 0 
+	if CardTimer > 130 and InterfaceOffsetX < 0 
 	{
-		OffsetHUD[0] += 5;
-		EnableHUD     = true;
+		InterfaceOffsetX += 5;
+		InterfaceEnabled  = true;
 	}
 	
 	// Display sprites on coordinates

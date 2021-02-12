@@ -17,9 +17,6 @@
 			// Perform jump and exit the code
 			if PlayerCheckJump() break;
 			
-			// Update slope angle
-			PlayerSlopeAngle();
-			
 			// Set slope gravity
 			PlayerSlopeResist();
 
@@ -58,9 +55,6 @@
 		{		
 			// Perform jump and exit the code
 			if PlayerCheckJump() break;
-			
-			// Update slope angle
-			PlayerSlopeAngle();
 			
 			// Set slope gravity
 			PlayerSlopeResist();	

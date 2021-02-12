@@ -3,7 +3,7 @@ function tile_get_angle(X, Y, Layer)
 {    
     // Variable list
     var Tile, Ind, Range, Ang, Flip, Mirr;
-    Range = AngleRange;
+    Range = round(Angle/90) % 4;
     
     // Get tile
     Tile = tilemap_get_at_pixel(Stage.TileLayer[Layer], X, Y);

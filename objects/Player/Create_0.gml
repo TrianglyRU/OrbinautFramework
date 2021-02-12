@@ -29,7 +29,6 @@
 	Inertia				 = 0;
 	
 	SlopeGravity		 = 0;
-	AngleRange			 = 0;
 	Angle				 = 0;
 	VisualAngle			 = 0;
 

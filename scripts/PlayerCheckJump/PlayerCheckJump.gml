@@ -1,7 +1,7 @@
 function PlayerCheckJump()
 {	
 	// Do not jump if found the low ceiling
-	if AngleRange = RangeFloor
+	if round(Angle/90) % 4 = RangeFloor
 	{
 		if tile_get_distance_v(floor(PosX - 9), floor(PosY - 25), Layer, false, true) < 6
 		or tile_get_distance_v(floor(PosX + 9), floor(PosY - 25), Layer, false, true) < 6

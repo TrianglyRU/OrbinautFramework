@@ -16,7 +16,4 @@ function PlayerApplyGravity()
 	{
 		Angle = 360;
 	}
-	
-	// Angle range is always 0 mid-air
-	AngleRange = 0;
 }

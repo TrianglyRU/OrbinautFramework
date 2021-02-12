@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/System.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_get_angle",
+  "name": "application_set_size",
   "tags": [],
   "resourceType": "GMScript",
 }

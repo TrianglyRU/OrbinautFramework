@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Framework Logic",
-    "path": "folders/Game Functions/Framework Logic.yy",
+    "name": "System",
+    "path": "folders/Game Functions/System.yy",
   },
   "resourceVersion": "1.0",
   "name": "tile_get_distance_h",

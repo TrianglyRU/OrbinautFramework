@@ -5,6 +5,9 @@
 	CardValue	    = 0;
 	CardString	    = 0;
 	OffsetHUD	    = 0;
+	InterfaceEnabled = 0;
+	InferfaceOffsetX = 0;
+	InterfaceOffsetY = 0;
 	EnableHUD		= 0;
 	EnableDebug		= 0;
 	Width			= 0;
