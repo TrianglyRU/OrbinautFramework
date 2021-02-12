@@ -16,7 +16,7 @@ function PlayerCollideSolidObjects()
 	if variable_instance_exists(ObjectID, "Solidity")
 	{	
 		// Collide horizontally, but only if it is full solid object and we're on horizontal axis
-		if Solidity = SolidAll and abs(ObjectID.x - PlayerX) > abs(ObjectID.y - PlayerY - 4)
+		if ObjectID.Solidity = SolidAll and abs(ObjectID.x - PlayerX) > abs(ObjectID.y - PlayerY - 4)
 		{
 			// Collide on the left
 			if PlayerX < ObjectID.x
@@ -44,8 +44,8 @@ function PlayerCollideSolidObjects()
 		// Collide vertically, but check if we're on vertical axis if object is full solid
 		if !Grounded 
 		{
-			if Solidity = SolidAll and abs(ObjectID.x - PlayerX) <= abs(ObjectID.y - PlayerY - 4) 
-			or Solidity = SolidTop
+			if ObjectID.Solidity = SolidAll and abs(ObjectID.x - PlayerX) <= abs(ObjectID.y - PlayerY - 4) 
+			or ObjectID.Solidity = SolidTop
 			{
 				// Try to land on the object
 				if PlayerY < ObjectID.y
@@ -63,7 +63,7 @@ function PlayerCollideSolidObjects()
 				// Collide from the bottom if it is full solid object
 				else
 				{
-					if Ysp < 0 and Solidity = SolidAll
+					if Ysp < 0 and ObjectID.Solidity = SolidAll
 					{
 						Ysp   = 0;
 						PosY += ObjectID.bbox_bottom - floor(PosY - yRadius) + 1;
