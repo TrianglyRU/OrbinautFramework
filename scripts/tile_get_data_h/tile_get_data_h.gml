@@ -66,7 +66,7 @@ function tile_get_data_h(X, Y, Layer, toPositive, getData)
 		Index = tile_get_index(Tile) mod TileAmount;
 
 	    // Get tile angle based on its range
-	    var Ang = Game.AngleValueOf[Index][0];
+	    var Ang = Game.AngleValueOf[Index];
     
 	    // Adjust the angle if tile is flipped
 	    if (Flip) Ang = (540 - Ang) mod 360;
