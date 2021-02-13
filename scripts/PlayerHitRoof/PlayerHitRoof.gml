@@ -9,8 +9,8 @@ function PlayerHitRoof()
 		var yRight = floor(PosY - yRadius);
 			
 		// Get roof distances
-		var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, false, true);
-		var dRight = tile_get_distance_v(xRight, yRight, Layer, false, true);
+		var dLeft  = tile_get_data_v(xLeft, yLeft, Layer, false, 0);
+		var dRight = tile_get_data_v(xRight, yRight, Layer, false, 0);
 		
 		// Use the closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
@@ -25,7 +25,7 @@ function PlayerHitRoof()
 			if abs(Ysp) > abs(Xsp)
 			{	
 				// Get roof angle
-				var roofAngle = dLeft <= dRight? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
+				var roofAngle = dLeft <= dRight? tile_get_data_v(xLeft, yLeft, Layer, false, 1) : tile_get_data_v(xRight, yRight, Layer, false, 1);
 
 				// Land on the roof if it is steep enough
 				if roofAngle > 90 and roofAngle < 135 or roofAngle > 225 and roofAngle < 270

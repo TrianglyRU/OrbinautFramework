@@ -1,8 +1,6 @@
 /// @description Scripts
 // You can call your scripts in this editor
 	
-	if keyboard_check(vk_space) exit;
-	
 	// Update player's states
 	PlayerStatesUpdate();
 	
@@ -41,7 +39,10 @@
 			// Perform roll
 			PlayerCheckRoll();
 			
-			// Collide with floor and update collision angle
+			// Update player's angle
+			PlayerUpdateAngle();
+			
+			// Collide with floor
 			PlayerCollideFloor();
 
 			// Fall off the ceiling and walls
@@ -74,7 +75,10 @@
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
 			
-			// Collide with floor and update collision angle
+			// Update player's angle
+			PlayerUpdateAngle();
+			
+			// Collide with floor
 			PlayerCollideFloor();
 			
 			// Fall off the ceiling and walls

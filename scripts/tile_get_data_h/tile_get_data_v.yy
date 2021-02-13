@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/System.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_get_distance_v",
+  "name": "tile_get_data_v",
   "tags": [],
   "resourceType": "GMScript",
 }

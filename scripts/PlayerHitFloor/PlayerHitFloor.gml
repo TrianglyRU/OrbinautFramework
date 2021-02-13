@@ -9,8 +9,8 @@ function PlayerHitFloor()
 		var yRight = floor(PosY + yRadius);
 			
 		// Get floor distances
-		var dLeft  = tile_get_distance_v(xLeft, yLeft, Layer, true, false);
-		var dRight = tile_get_distance_v(xRight, yRight, Layer, true, false);
+		var dLeft  = tile_get_data_v(xLeft, yLeft, Layer, true, 0);
+		var dRight = tile_get_data_v(xRight, yRight, Layer, true, 0);
 		
 		// Use the closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
@@ -19,7 +19,7 @@ function PlayerHitFloor()
 		if Distance < 0
 		{
 			// Get floor angle
-			var floorAngle = dLeft <= dRight ? tile_get_angle(xLeft, yLeft, Layer) : tile_get_angle(xRight, yRight, Layer);
+			var floorAngle = dLeft <= dRight ? tile_get_data_v(xLeft, yLeft, Layer, true, 1) : tile_get_data_v(xLeft, yLeft, Layer, true, 1);
 			
 			// If we're moving downwards, calculate a momentum using floor angle
 			if abs(Xsp) < abs(Ysp)
