@@ -35,6 +35,9 @@
 			// Perform spindash
 			PlayerCheckSpindash();
 			
+			// Perform super peel out
+			PlayerCheckPeelout();
+			
 			// Perform roll
 			PlayerCheckRoll();
 			

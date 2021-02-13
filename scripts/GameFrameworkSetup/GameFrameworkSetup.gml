@@ -19,7 +19,7 @@ function GameFrameworkSetup()
 	
 	// Engine customization
 	Game.SpindashEnabled		 = true;	// S2 Spindash
-	Game.PeeloutEnabled          = false;	// SCD Super Peel Out
+	Game.PeeloutEnabled          = true;	// SCD Super Peel Out
 	Game.DropdashEnabled		 = false;	// Dropdash
 	Game.GroundSpeedcap			 = false;	// S1-like ground speedcap
 	Game.AirSpeedcap			 = false;	// Pre S3-like air speedcap

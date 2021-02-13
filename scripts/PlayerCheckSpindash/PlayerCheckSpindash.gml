@@ -3,18 +3,16 @@ function PlayerCheckSpindash()
 	// Check if spindash is enabled
 	if Game.SpindashEnabled = false exit;
 	
-	// Check if we're allowed to spindash
-	if Inertia != 0 exit;
-	
-	// Charge
-	if Input.Down and Input.ABCPress 
+	// Charge spindash
+	if Inertia = 0 and Input.Down and Input.ABCPress 
 	{	
 		Animation = AnimSpindash;
 		if (SpindashRev < 8) SpindashRev += 2;
 		
-		// Play sound
 		audio_sfx_play(sfxCharge, false);
 	}
+	
+	// Decrease spindash force
 	if SpindashRev > 0 
 	{
 		SpindashRev -= floor(SpindashRev/0.125) / 256;

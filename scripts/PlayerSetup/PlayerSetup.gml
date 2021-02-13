@@ -31,6 +31,7 @@ function PlayerSetup()
 	MovementLock = false;
 	isSuper		 = false;
 	isInvincible = false;
+	PeeloutRev   = -2;
 	SpindashRev  = -2;
 
 	// Set collision radiuses

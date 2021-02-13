@@ -85,7 +85,7 @@ function PlayerMove()
 	}
 	
 	// Get movement angle
-	switch round(Angle/90) % 4
+	/*switch round(Angle/90) % 4
 	{
 		case RangeFloor:
 		{	
@@ -133,8 +133,8 @@ function PlayerMove()
 		break;
 	}
 	var Ang = tile_get_angle(dLeft <= dRight ? xLeft : xRight, dLeft <= dRight ? yLeft : yRight, Layer);
-	
+	*/
 	// Convert inertia to normal axis speeds
-	Xsp = Inertia *  dcos(Ang);
-	Ysp = Inertia * -dsin(Ang);
+	Xsp = Inertia *  dcos(Angle);
+	Ysp = Inertia * -dsin(Angle);
 }

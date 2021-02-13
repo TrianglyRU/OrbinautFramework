@@ -12,6 +12,7 @@ function PlayerCheckJump()
 	
 	// Exit the code if trying to spindash
 	if Game.SpindashEnabled and Input.Down exit;
+	if Game.PeeloutEnabled and Input.Up exit;
 
 	// Jump
 	if Input.ABCPress
