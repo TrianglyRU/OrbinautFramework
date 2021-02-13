@@ -36,42 +36,37 @@ function tile_get_data_v(X, Y, Layer, toPositive, getData)
 	{	
 		Tile2 *= Invert;
 		Tile   = tilemap_get(Stage.TileLayer[Layer], X div TileSize, (Y + Tile2) div TileSize);
-		Index  = tile_get_index(Tile) mod 175;
-		Height = tile_get_height(Tile, Index, X); 
+		if !getData {
+			Index  = tile_get_index(Tile) mod 175;
+			Height = tile_get_height(Tile, Index, X); 
+		}
 	}
 		
 	// Return distance to edge of the tile
-	if getData = 0
+	if !getData
 	{
 		return (Tile2 - (Y mod TileSize) + (toPositive ? (TileSize - Height - 1) : Height)) * Invert;
 	}
 	
 	//////////////////////////////////
 	
-	if getData = 1
+	else
 	{
-		var Range = round(Angle/90) % 4;
-	    if (Index = 1) return Range * 90;
-    
-	    // Get tile properties
-	    var Flip = tile_get_flip(Tile);
-	    var Mirr = tile_get_mirror(Tile);
-    
-	    // Get angle range of the tile based on its properties
-	    if Grounded
-	    {        
-	        if (Range mod 2) and Mirr or !(Range mod 2) and Flip
-	        {
-	            Range = (Range + 2) mod 4;
-	        }
-	    }
-	    else
-	    {
-	        Range = 0;
-	    }
+		if !Tile return 0;
+		
+		// Get tile properties
+		var Flip = tile_get_flip(Tile);
+		
+		if  toPositive and  Flip return 0;
+		else
+		if !toPositive and !Flip return 180;
+		
+		var Mirr = tile_get_mirror(Tile);
+		
+		Index  = tile_get_index(Tile) mod 175;
     
 	    // Get tile angle based on its range
-	    var Ang = Game.AngleValueOf[Index][Range];
+	    var Ang = Game.AngleValueOf[Index][0];
     
 	    // Adjust the angle if tile is flipped
 	    if (Flip) Ang = (540 - Ang) mod 360;
