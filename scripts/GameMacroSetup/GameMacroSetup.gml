@@ -45,6 +45,7 @@ function GameMacroSetup()
 	#macro ActStateFinished  1
 	#macro ActStateBossfight 2
 	#macro ActStateAfterboss 3
+	#macro ActStateRestart   4
 	
 	// Object macro
 	#macro SolidAll 0

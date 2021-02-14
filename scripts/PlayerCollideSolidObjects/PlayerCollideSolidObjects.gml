@@ -1,5 +1,7 @@
 function PlayerCollideSolidObjects()
 {	
+	if !AllowCollision exit;
+	
 	// Player's position variables
 	var PlayerX      = floor(PosX);
 	var PlayerY		 = floor(PosY);

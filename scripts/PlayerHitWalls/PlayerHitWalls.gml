@@ -1,5 +1,7 @@
 function PlayerHitWalls()
 {	
+	if !AllowCollision exit;
+	
 	// Left wall collision
 	if Grounded
 	{

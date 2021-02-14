@@ -22,6 +22,7 @@ function PlayerSetup()
 	TopAcc	= 6;
 	
 	// Set default flags
+	AllowCollision = true;
 	Grounded	 = true;
 	OnObject	 = false;
 	Jumping		 = false;

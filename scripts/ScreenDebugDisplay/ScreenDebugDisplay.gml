@@ -50,8 +50,9 @@ function ScreenDebugDisplay()
 			+ "\n   IS PUSHING: " + string(Player.Pushing)
 			+ "\n   ON LAYER: " + string(Player.Layer)
 			+ "\n   SPINDASH REV: " + string(Player.SpindashRev)
-			+ "\n   HIGHSPEED TIMER: " + string(Player.HighSpeedBonus)
-			+ "\n   INVINCIBILITY TIMER: " + string(Player.InvincibilityBonus)
+			+ "\n   INVINCIBILITY TIMER: " + string(Player.isInvincible)
+			+ "\n   HIGHSPEED BONUS: " + string(Player.HighSpeedBonus)
+			+ "\n   INVINCIBILITY BONUS: " + string(Player.InvincibilityBonus)
 			+ "\n"
 			+ "\n         * CHARACTER VISUALS *"
 			+ "\n"

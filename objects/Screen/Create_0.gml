@@ -24,4 +24,5 @@
 	OverviewDelay	= 0;
 	SpinOffset		= 0;
 	ExtendedOffset	= 0;
-	OverviewOffset	= 0;	
+	OverviewOffset	= 0;
+	CameraEnabled   = 0;

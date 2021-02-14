@@ -39,17 +39,10 @@ function InputHotkeysRead()
 			}
 		}
 	
-		// Show stage collision
+		// Set stage timer
 		if keyboard_check_pressed(vk_f5) 
 		{
-			if CollisionMasks.visible 
-			{
-				CollisionMasks.visible = false;
-			} 
-			else 
-			{
-				CollisionMasks.visible = true;
-			}
+			Stage.Time = 580
 		}
 	
 		// Player

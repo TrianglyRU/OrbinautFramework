@@ -1,5 +1,7 @@
 function ScreenCameraShift() 
-{		
+{	
+	if !CameraEnabled exit;
+	
 	// Update player's position on the screen
 	PlayerScreenX = Player.PosX - ViewX;
 	PlayerScreenY = Player.PosY - ViewY;

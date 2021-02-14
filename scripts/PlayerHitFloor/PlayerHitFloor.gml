@@ -1,5 +1,7 @@
 function PlayerHitFloor()
 {	
+	if !AllowCollision exit;
+	
 	if Ysp > 0 or abs(Xsp) > abs(Ysp)
 	{	
 		// Set coordinates

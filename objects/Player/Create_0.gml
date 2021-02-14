@@ -50,6 +50,7 @@
 	yRadiusRoll			 = 0;
 	xRadiusRoll			 = 0;	
 	CollisionDistance	 = 0;
+	AllowCollision		 = 0;
 	
 	Score				 = 0;
 	Rings				 = 0;

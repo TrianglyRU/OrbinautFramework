@@ -10,4 +10,5 @@
 	// Update horizontal boundaries
 	StageHorizontalBoundariesUpdate();
 	
+	// Unload objects outside of our view
 	StageObjectsUnload();

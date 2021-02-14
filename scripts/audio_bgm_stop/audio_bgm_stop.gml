@@ -17,7 +17,6 @@ function audio_bgm_stop(musicID, fadeTime)
 			// Stop music if its volume is 0
 			if audio_sound_get_gain(musicID) = 0
 			{
-				loopTrack[musicID] = 0;
 				audio_stop_sound(musicID);	
 			}
 		}

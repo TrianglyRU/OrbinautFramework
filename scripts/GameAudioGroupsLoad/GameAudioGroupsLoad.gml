@@ -4,6 +4,9 @@ function GameAudioGroupsLoad()
 	audio_group_load(GlobalSFX);
 	audio_group_load(BGM);
 	
+	// Init looptrack variable
+	Game.loopTrack = 0;
+	
 	// Set volume
 	audio_group_set_gain(GlobalSFX, Game.SoundVolume, 0);
 	audio_group_set_gain(BGM, Game.MusicVolume, 0);

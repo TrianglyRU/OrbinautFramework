@@ -7,6 +7,7 @@
 	BottomBoundary = 0;
 	WaterLevel     = 0;
 	State		   = 0;
+	StateTimer     = 0;
 	ZoneID	       = 0;
 	ActID	       = 0;
 	GamePaused     = 0;
@@ -16,8 +17,6 @@
 	CardName	   = 0;
 	
 	BackgroundMusic = 0;
-	BackgroundBGM   = 0;
+	BackgroundDAC   = 0;
 	LoopStart       = 0;
 	LoopEnd			= 0;
-	
-	TargetTileLayer = 0;

@@ -1,7 +1,10 @@
 function ObjRingScript()
 {
 	// Play animation
-	animation_play(sprite_index, 4, 1);
+	if Stage.State != ActStateRestart
+	{
+		animation_play(sprite_index, 4, 1);
+	}
 	
 	// Check for collision
 	if hitbox_collision(Player, self)

@@ -1,6 +1,12 @@
 /// @function hitbox_collision(collideFrom, collideWith)
 function hitbox_collision(collideFrom, collideWith)
 {	
+	// Ignore collision
+	if collideFrom = Player
+	{
+		if !Player.AllowCollision return false;
+	}
+	
 	// Define if we need to use player's hitbox or not
 	var x1 = collideFrom == Player ? floor(Player.PosX - 8)				     : collideFrom.bbox_left;
 	var x2 = collideFrom == Player ? floor(Player.PosX + 8)				     : collideFrom.bbox_right;
