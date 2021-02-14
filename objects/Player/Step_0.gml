@@ -26,11 +26,11 @@
 			// Collide with walls
 			PlayerHitWalls();
 			
-			// Update player's position
-			PlayerSpeedToPos();
-			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
+			
+			// Update player's position
+			PlayerSpeedToPos();
 			
 			// Perform spindash
 			PlayerCheckSpindash();
@@ -71,11 +71,11 @@
 			// Collide with walls
 			PlayerHitWalls();
 			
-			// Update player's position
-			PlayerSpeedToPos();
-			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
+			
+			// Update player's position
+			PlayerSpeedToPos();
 			
 			// Collide with floor
 			PlayerCollideFloor();
@@ -101,11 +101,11 @@
 			// Update player's speeds
 			PlayerMoveAirborne();
 			
-			// Update player's position
-			PlayerSpeedToPos();
-			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
+			
+			// Update player's position
+			PlayerSpeedToPos();
 			
 			// Apply gravity and rotation
 			PlayerApplyGravity();

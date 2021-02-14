@@ -23,7 +23,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else
+			else if Distance > -14
 			{
 				PosY += Distance;
 			}
@@ -44,7 +44,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else
+			else if Distance > -14
 			{
 				PosX += Distance;
 			}
@@ -65,7 +65,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else
+			else if Distance > -14
 			{
 				PosY -= Distance;
 			}
@@ -86,7 +86,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else
+			else if Distance > -14
 			{
 				PosX -= Distance;
 			}
