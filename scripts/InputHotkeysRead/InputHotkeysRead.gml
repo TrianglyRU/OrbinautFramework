@@ -17,32 +17,21 @@ function InputHotkeysRead()
 		}
 	
 		// Low FPS mode
-		if keyboard_check(vk_f3) 
+		if keyboard_check_pressed(vk_f3) 
 		{
-			game_set_speed(3, gamespeed_fps);
-		}
-		else 
-		{
-			game_set_speed(60, gamespeed_fps);
+			game_set_speed(game_get_speed(gamespeed_fps) == 60 ? 3 : 60, gamespeed_fps);
 		}
 	
 		// Debug view
 		if keyboard_check_pressed(vk_f4) 
 		{
-			if Screen.EnableDebug
-			{
-				Screen.EnableDebug = false;
-			} 
-			else 
-			{
-				Screen.EnableDebug = true;
-			}
+			Screen.EnableDebug = Screen.EnableDebug ? false : true;
 		}
 	
 		// Set stage timer
 		if keyboard_check_pressed(vk_f5) 
 		{
-			Stage.Time = 580
+			Stage.Time = 35900
 		}
 	
 		// Player

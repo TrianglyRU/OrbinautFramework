@@ -29,6 +29,7 @@ function PlayerSetup()
 	Rolling	     = false;
 	Pushing		 = false;
 	Hurt		 = false;
+	Death		 = false;
 	MovementLock = false;
 	isSuper		 = false;
 	isInvincible = false;

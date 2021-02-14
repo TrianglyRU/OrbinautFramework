@@ -1,24 +1,22 @@
 function PlayerCheckHurt()
 {
 	// Check if our hurt flag equals to object ID we got harmed by
-	if Hurt > 1
+	if Hurt > 1 and !Death
 	{	
 		if Rings = 0
 		{
 			// Set flags and disable camera
-			Grounded			 = false;
-			Rolling				 = false;
-			Jumping				 = false;
-			AllowCollision		 = false;
-			Screen.CameraEnabled = false;
-			Stage.TimeEnabled    = false;
+			Grounded	   = false;
+			Rolling		   = false;
+			Jumping		   = false;
+			AllowCollision = false;
 			
 			// Perform movement
 			Xsp = 0;
 			Ysp = -7;	
 			
 			// Enter death script
-			Hurt = -1;
+			Death = true;
 		}
 		else
 		{	

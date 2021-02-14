@@ -1,6 +1,7 @@
 function ScreenCameraShift() 
 {	
-	if !CameraEnabled exit;
+	// Do not perform if player died
+	if Player.Death exit;
 	
 	// Update player's position on the screen
 	PlayerScreenX = Player.PosX - ViewX;

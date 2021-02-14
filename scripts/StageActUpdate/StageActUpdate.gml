@@ -36,31 +36,32 @@ function StageActUpdate()
 	}
 	
 	// Kill player on time limit	
-	if Time = 36000 and TimeEnabled
+	if Time = 36000 and !Player.Death
 	{
 		// Set flags and disable camera
 		Player.Grounded	      = false;
 		Player.Rolling		  = false;
 		Player.Jumping		  = false;
 		Player.AllowCollision = false;
-		Screen.CameraEnabled  = false;
-		Stage.TimeEnabled     = false;
 			
 		// Perform movement
 		Player.Xsp = -0.5;
 		Player.Ysp = -7;	
 			
 		// Enter death script
-		Player.Hurt = -1;
+		Player.Death = true;
+	}
+	
+	// Set state flag to ActStateRestart if player died
+	if Player.Death and State != ActStateRestart
+	{
+		Stage.TimeEnabled = false;
+		StateTimer		  = 0;
+		State			  = ActStateRestart;	
 	}
 	
 	// TODO: Correct stateTimer timings
-	// Restart on player death
-	if Player.Hurt = -1 and State != ActStateRestart
-	{
-		State	   = ActStateRestart;
-		StateTimer = 0;
-	}
+	// Restart the act
 	if State = ActStateRestart
 	{
 		if floor(Player.PosY) > Screen.RenderY + Screen.Height + 128

@@ -1,7 +1,5 @@
 function ScreenCameraSetup() 
-{	
-	CameraEnabled = true;
-	
+{		
 	// Set width and height values
 	Width  = Game.ResolutionWidth;
 	Height = Game.ResolutionHeight;

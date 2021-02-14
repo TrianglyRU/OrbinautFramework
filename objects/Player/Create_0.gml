@@ -18,6 +18,7 @@
 	Layer				 = 0;
 	Facing				 = 0;
 	Hurt			     = 0;
+	Death				 = 0;
 	CharacterID			 = 0;
 	
 	PosX				 = 0;

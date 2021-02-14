@@ -40,12 +40,12 @@
 			
 			// Perform roll
 			PlayerCheckRoll();
+
+			// Collide with floor
+			PlayerCollideFloor();
 			
 			// Update player's angle
 			PlayerUpdateAngle();
-			
-			// Collide with floor
-			PlayerCollideFloor();
 
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
@@ -77,11 +77,11 @@
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
 			
-			// Update player's angle
-			PlayerUpdateAngle();
-			
 			// Collide with floor
 			PlayerCollideFloor();
+			
+			// Update player's angle
+			PlayerUpdateAngle();
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
@@ -95,7 +95,6 @@
 		break;
 		case PlayerStateAirborne:
 		{
-			//show_debug_message("AIRBORNE frame: " + string(Stage.Time));
 			// Limit jump height
 			PlayerJumpResist();
 			
