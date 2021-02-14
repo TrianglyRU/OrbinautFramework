@@ -13,22 +13,19 @@ function tile_get_data_v(X, Y, Layer, toPositive, getData)
 	// Read heightmap
 	var Height = tile_get_height(Tile, Index, X);
 	
-	// Use a tile above if this tile height is 16
-	if Height = TileSize
-	{
-		var Tile2 = -TileSize;
-	}
-	
+	// Use current tile
+	var Tile2 = 0;
+
 	// Use a tile below if this tile height is 0
-	else if Height = 0
+	if !Height
 	{
-		var Tile2 = +TileSize;
+		Tile2 = +TileSize;
 	}
 	
-	// Else use current tile
-	else
+	// Use a tile above if this tile height is 16
+	else if !getData and Height = TileSize
 	{
-		var Tile2 = 0;
+		Tile2 = -TileSize;
 	}
 	
 	// Get second tile properties if we're using it
@@ -52,6 +49,8 @@ function tile_get_data_v(X, Y, Layer, toPositive, getData)
 	
 	else
 	{	
+		if (!Tile) return 360;
+		
 		// Get tile properties
 		var Flip = tile_get_flip(Tile);
 		

@@ -12,25 +12,22 @@ function tile_get_data_h(X, Y, Layer, toPositive, getData)
 		
 	// Read widthmap
 	var Width = tile_get_width(Tile, Index, Y);
-		
-	// Use a tile to the left if this tile width is 16
-	if Width = TileSize
-	{
-		var Tile2 = -TileSize;
-	}
 	
-	// Use a tile to the right if this tile width is 0
-	else if Width = 0
-	{
-		var Tile2 = +TileSize;
-	}
-	
-	// Else use current tile
-	else
-	{
-		var Tile2 = 0;
-	}
+	// Use current tile
+	var Tile2 = 0;
 
+	// Use a tile to the right if this tile width is 0
+	if !Width
+	{
+		Tile2 = +TileSize;
+	}
+	
+	// Use a tile to the left if this tile width is 16
+	else if !getData and Width = TileSize
+	{
+		Tile2 = -TileSize;
+	}
+	
 	// Get second tile properties if we're using it
 	if Tile2 != 0
 	{	
@@ -52,7 +49,9 @@ function tile_get_data_h(X, Y, Layer, toPositive, getData)
 	
 	else
 	{	
-		if (Tile <= 1) return toPositive ? 90 : 270;
+		if (!Tile) return 360;
+		
+		if (Tile = 1) return toPositive ? 90 : 270;
 
 		// Get tile properties
 	    var Mirr = tile_get_mirror(Tile);

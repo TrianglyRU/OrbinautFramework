@@ -39,6 +39,10 @@ function InputHotkeysRead()
 		{
 			Player.Inertia = 20 * Player.Facing;
 		}
+		if keyboard_check_pressed(ord("C")) 
+		{
+			Player.Inertia += 10 * Player.Facing;
+		}
 		if keyboard_check_pressed(ord("G")) 
 		{
 			Player.HighSpeedBonus = 1500;
