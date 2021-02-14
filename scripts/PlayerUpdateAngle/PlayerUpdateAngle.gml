@@ -60,7 +60,6 @@ function PlayerUpdateAngle()
 			}
 			break;
 		}
-		
 		// Use cardinal floor angle if angle difference is greater than 45
 		/*var angDifference = abs(Angle - fAngle);
 		if  angDifference < 180

@@ -36,7 +36,7 @@ function StageActUpdate()
 	}
 	
 	// Kill player on time limit	
-	if Time = 600 and TimeEnabled
+	if Time = 36000 and TimeEnabled
 	{
 		// Set flags and disable camera
 		Player.Grounded	      = false;

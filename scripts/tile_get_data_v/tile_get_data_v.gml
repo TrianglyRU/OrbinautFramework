@@ -51,18 +51,13 @@ function tile_get_data_v(X, Y, Layer, toPositive, getData)
 	//////////////////////////////////
 	
 	else
-	{
-		if !Tile return 360;
-		
+	{	
 		// Get tile properties
 		var Flip = tile_get_flip(Tile);
 		
-		if Tile > 1
-		{
-			if  toPositive and  Flip return 360;
-			else
-			if !toPositive and !Flip return 180;
-		}
+		if  toPositive and  Flip return 360;
+		else
+		if !toPositive and !Flip return 180;
 		
 		var Mirr = tile_get_mirror(Tile);
 		
