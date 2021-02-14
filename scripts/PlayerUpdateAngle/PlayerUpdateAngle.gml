@@ -62,7 +62,7 @@ function PlayerUpdateAngle()
 		}
 		
 		// Use cardinal floor angle if angle difference is greater than 45
-		var angDifference = abs(Angle - fAngle);
+		/*var angDifference = abs(Angle - fAngle);
 		if  angDifference < 180
 		{
 			Angle = angDifference > 45 ? round(Angle/90) % 4 * 90 : fAngle;
@@ -70,6 +70,7 @@ function PlayerUpdateAngle()
 		else
 		{
 			Angle = angDifference < 315 ? round(Angle/90) % 4 * 90 : fAngle;
-		}
+		}*/
+		Angle = fAngle;
 	}
 }

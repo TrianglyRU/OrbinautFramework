@@ -52,18 +52,21 @@ function tile_get_data_v(X, Y, Layer, toPositive, getData)
 	
 	else
 	{
-		if !Tile return 0;
+		if !Tile return 360;
 		
 		// Get tile properties
 		var Flip = tile_get_flip(Tile);
 		
-		if  toPositive and  Flip return 0;
-		else
-		if !toPositive and !Flip return 180;
+		if Tile > 1
+		{
+			if  toPositive and  Flip return 360;
+			else
+			if !toPositive and !Flip return 180;
+		}
 		
 		var Mirr = tile_get_mirror(Tile);
 		
-		Index  = tile_get_index(Tile) mod 175;
+		Index = tile_get_index(Tile) mod 175;
     
 	    // Get tile angle based on its range
 	    var Ang = Game.AngleValueOf[Index];

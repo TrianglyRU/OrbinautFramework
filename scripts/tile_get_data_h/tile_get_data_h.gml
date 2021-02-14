@@ -52,7 +52,12 @@ function tile_get_data_h(X, Y, Layer, toPositive, getData)
 	
 	else
 	{	
-		if !Tile return 0;
+		if Tile <= 1
+		{
+			if  toPositive return 90;
+			else
+			if !toPositive return 270;
+		}
 		
 		// Get tile properties
 	    var Mirr = tile_get_mirror(Tile);
