@@ -1,5 +1,6 @@
 function PlayerCollideSolidObjects()
 {	
+	// Do not collide if we're not allowed to
 	if !AllowCollision exit;
 	
 	// Player's position variables

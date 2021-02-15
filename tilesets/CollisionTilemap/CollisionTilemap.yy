@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_solids",
-    "path": "sprites/spr_solids/spr_solids.yy",
+    "name": "spr_collision_tilemap",
+    "path": "sprites/spr_collision_tilemap/spr_collision_tilemap.yy",
   },
   "tileWidth": 16,
   "tileHeight": 16,
@@ -344,7 +344,7 @@
     "path": "folders/Stage Data/Collision.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Solids",
+  "name": "CollisionTilemap",
   "tags": [],
   "resourceType": "GMTileSet",
 }

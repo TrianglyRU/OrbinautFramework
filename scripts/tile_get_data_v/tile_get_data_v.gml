@@ -1,26 +1,35 @@
-function tile_get_data_v(X, Y, Layer, toPositive, getData)
+/// @function tile_get_data_v(X, Y, Layer, toPositive, dataToGet, noSolidTop)
+function tile_get_data_v(X, Y, Layer, toPositive, dataToGet, noSolidTop)
 {
-	// Do not perform outside of room boundaries or the game will crash
+	// Report script error
+	if dataToGet != "data_distance" and dataToGet != "data_angle"
+	{
+		show_message("Wrong dataToGet attribute set in function tile_get_data_v. Expected 'data_distance' or 'data_angle', got " + string(dataToGet));
+		game_end();
+	}
 	if X < 0 or Y < 0 or X > room_width or Y > room_height exit;	
 
 	// Get tile and read its height
 	var Tile   = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
 	var Index  = tile_get_index(Tile) mod TileAmount;
-	var Height = tile_get_height(Tile, Index, X);
+	var Height = Game.HeightValueOf[Index][tile_get_mirror(Tile) ? TileSize - 1 - X mod TileSize : X mod TileSize];
 	
 	// Use current tile
 	var Tile2 = 0;
-
+	
 	// Use a tile below if this tile height is 0
 	if !Height
 	{
 		Tile2 = +TileSize;
 	}
 	
-	// Use a tile above if this tile height is 16 and we're checking for the distance
-	else if !getData and Height = TileSize
+	// Use a tile above if this tile height is 16 
+	else if Height = TileSize
 	{
-		Tile2 = -TileSize;
+		if dataToGet = "data_distance" and !noSolidTop
+		{
+			Tile2 = -TileSize;
+		}
 	}
 	
 	// Check if we need to invert our calculations
@@ -31,21 +40,28 @@ function tile_get_data_v(X, Y, Layer, toPositive, getData)
 	{	
 		Tile2 *= Invert;
 		Tile   = tilemap_get(Stage.TileLayer[Layer], X div TileSize, (Y + Tile2) div TileSize);
-		if !getData 
+		if dataToGet = "data_distance"
 		{
 			Index  = tile_get_index(Tile) mod TileAmount;
-			Height = tile_get_height(Tile, Index, X); 
+			Height = Game.HeightValueOf[Index][tile_get_mirror(Tile) ? TileSize - 1 - X mod TileSize : X mod TileSize];
 		}
 	}
 		
 	// Return distance to the edge of our tile
-	if !getData
+	if dataToGet = "data_distance"
 	{
-		return (Tile2 - (Y mod TileSize) + (toPositive ? (TileSize - Height - 1) : Height)) * Invert;
+		if noSolidTop and tile_get_index(Tile) > TileAmount
+		{
+			return TileSize;
+		}
+		else
+		{
+			return (Tile2 - (Y mod TileSize) + (toPositive ? (TileSize - Height - 1) : Height)) * Invert;
+		}
 	}
 
 	// Return angle
-	else
+	if dataToGet = "data_angle"
 	{	
 		// Use default angle for empty tile
 		if (!Tile) return 360;
@@ -62,7 +78,7 @@ function tile_get_data_v(X, Y, Layer, toPositive, getData)
 		}
 		
 		// Get angle of regular tiles
-		Index = tile_get_index(Tile) mod TileAmount;
+		Index   = tile_get_index(Tile) mod TileAmount;
 	    var Ang = Game.AngleValueOf[Index];
     
 		// Adjust the angle and return it

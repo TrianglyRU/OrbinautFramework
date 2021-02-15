@@ -1,5 +1,6 @@
 function PlayerCollideFloor()
 {	
+	// Do not collide if we're not allowed to
 	if !AllowCollision exit;
 	
 	// Do not collide with floor when on object
@@ -11,8 +12,8 @@ function PlayerCollideFloor()
 		case RangeFloor:
 		{	
 			// Get floor distances
-			var dLeft  = tile_get_data_v(floor(PosX - xRadius), floor(PosY + yRadius), Layer, true, 0);
-			var dRight = tile_get_data_v(floor(PosX + xRadius), floor(PosY + yRadius), Layer, true, 0);
+			var dLeft  = tile_get_data_v(floor(PosX - xRadius), floor(PosY + yRadius), Layer, true, "data_distance", false);
+			var dRight = tile_get_data_v(floor(PosX + xRadius), floor(PosY + yRadius), Layer, true, "data_distance", false);
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
@@ -32,8 +33,8 @@ function PlayerCollideFloor()
 		case RangeRWall:
 		{	
 			// Get floor distances
-			var dLeft  = tile_get_data_h(floor(PosX + yRadius), floor(PosY + xRadius), Layer, true, 0);
-			var dRight = tile_get_data_h(floor(PosX + yRadius), floor(PosY - xRadius), Layer, true, 0);
+			var dLeft  = tile_get_data_h(floor(PosX + yRadius), floor(PosY + xRadius), Layer, true, "data_distance", false);
+			var dRight = tile_get_data_h(floor(PosX + yRadius), floor(PosY - xRadius), Layer, true, "data_distance", false);
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
@@ -53,8 +54,8 @@ function PlayerCollideFloor()
 		case RangeRoof:
 		{	
 			// Get floor distances
-			var dLeft  = tile_get_data_v(floor(PosX + xRadius), floor(PosY - yRadius), Layer, false, 0);
-			var dRight = tile_get_data_v(floor(PosX - xRadius), floor(PosY - yRadius), Layer, false, 0);
+			var dLeft  = tile_get_data_v(floor(PosX + xRadius), floor(PosY - yRadius), Layer, false, "data_distance", false);
+			var dRight = tile_get_data_v(floor(PosX - xRadius), floor(PosY - yRadius), Layer, false, "data_distance", false);
 
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
@@ -74,8 +75,8 @@ function PlayerCollideFloor()
 		case RangeLWall:
 		{	
 			// Get floor distances and angles
-			var dLeft  = tile_get_data_h(floor(PosX - yRadius), floor(PosY - xRadius), Layer, false, 0);
-			var dRight = tile_get_data_h(floor(PosX - yRadius), floor(PosY + xRadius), Layer, false, 0);
+			var dLeft  = tile_get_data_h(floor(PosX - yRadius), floor(PosY - xRadius), Layer, false, "data_distance", false);
+			var dRight = tile_get_data_h(floor(PosX - yRadius), floor(PosY + xRadius), Layer, false, "data_distance", false);
 			
 			// Calculate collision tolerance
 			CollisionDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
