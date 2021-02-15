@@ -14,10 +14,13 @@ function DiscordInformationSet()
 	{
 		case GameStart: 
 			DetailsString = "";
-		break
+		break;
 		case MBZ:
 			DetailsString = "Moonlight Base Zone"; 
-		break
+		break;
+		case MBZ2:
+			DetailsString = "Moonlight Base Zone 2"; 
+		break;
 	}
 	discord_set_details(DetailsString);
 	

@@ -1,6 +1,6 @@
 function GameFadeShaderUpdate()
 {	
-	if Game.FadeEnabled = false 
+	if !Game.FadeEnabled 
 	{ 
 		Game.FadeStep = Game.FadeColour == flash ? 1008 : 756;
 	} 

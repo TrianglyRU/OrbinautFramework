@@ -2,7 +2,7 @@ function ScreenTitleCardSetup()
 {
 	// Disable global input
 	Input.IgnoreInput = true;
-	
+
 	// Initialize a timer
 	CardTimer = 0;
 	

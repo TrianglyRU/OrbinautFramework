@@ -17,7 +17,6 @@ function PlayerHitRoof()
 		
 		// Use the closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
-		show_debug_message(Distance);
 		
 		// If the distance is negative, we're touching the roof
 		if Distance < 0

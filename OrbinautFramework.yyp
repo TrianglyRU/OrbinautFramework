@@ -94,6 +94,7 @@
     {"id":{"name":"menu_goto","path":"scripts/menu_goto/menu_goto.yy",},"order":11,},
     {"id":{"name":"sprHUD_Lives","path":"sprites/sprHUD_Lives/sprHUD_Lives.yy",},"order":4,},
     {"id":{"name":"PlayerCheckRoll","path":"scripts/PlayerCheckRoll/PlayerCheckRoll.yy",},"order":12,},
+    {"id":{"name":"MBZ2","path":"rooms/MBZ2/MBZ2.yy",},"order":5,},
     {"id":{"name":"sfxJump","path":"sounds/sfxJump/sfxJump.yy",},"order":1,},
     {"id":{"name":"DevMenu","path":"rooms/DevMenu/DevMenu.yy",},"order":2,},
     {"id":{"name":"string_display","path":"scripts/string_display/string_display.yy",},"order":2,},
@@ -222,6 +223,7 @@
     {"roomId":{"name":"GameStart","path":"rooms/GameStart/GameStart.yy",},},
     {"roomId":{"name":"DevMenu","path":"rooms/DevMenu/DevMenu.yy",},},
     {"roomId":{"name":"MBZ","path":"rooms/MBZ/MBZ.yy",},},
+    {"roomId":{"name":"MBZ2","path":"rooms/MBZ2/MBZ2.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Game Code.yy","order":2,"resourceVersion":"1.0","name":"Game Code","tags":[],"resourceType":"GMFolder",},

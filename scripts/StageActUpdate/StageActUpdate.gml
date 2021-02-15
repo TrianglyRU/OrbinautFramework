@@ -31,8 +31,7 @@ function StageActUpdate()
 	// Perform stage palette cycle
 	switch room
 	{
-		case MBZ:
-		break;
+		case MBZ: break;
 	}
 	
 	// Kill player on time limit	
@@ -60,8 +59,8 @@ function StageActUpdate()
 		State			  = ActStateRestart;	
 	}
 	
+	// Restart the act 
 	// TODO: Correct stateTimer timings
-	// Restart the act
 	if State = ActStateRestart
 	{
 		if floor(Player.PosY) > Screen.RenderY + Screen.Height + 128
@@ -77,5 +76,38 @@ function StageActUpdate()
 				room_restart();
 			}
 		}
-	}		
+	}
+	
+	// Check for act end
+	if State = ActStateFinished
+	{
+		audio_bgm_stop(BackgroundMusic, 2);
+		Game.SavedCheckpoint = 0;
+		
+		if TimeEnabled
+		{
+			StateTimer  = 0;
+			TimeEnabled = false;
+		}
+		StateTimer++
+		switch StateTimer
+		{	
+			case 160: 
+				if ActID != 0
+				{
+					screen_fade_perform(to, black, 1);
+				}
+			break;
+			case 190: 
+				if room = MBZ2
+				{
+					room_goto(DevMenu);
+				}
+				else
+				{
+					room_goto_next(); 
+				}
+			break;
+		}		
+	}
 }

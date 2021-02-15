@@ -5,7 +5,7 @@ function ObjLamppostSetup()
 	Angle  = 180;
 	
 	// Load as activated if its ID number is lower than activated one
-	if Stage.LastCheckpoint != 0 and Stage.LastCheckpoint.LamppostID >= LamppostID
+	if Game.SavedCheckpoint != 0 and Game.SavedCheckpoint.LamppostID >= LamppostID
 	{
 		image_index = 2;
 		Active      = true;

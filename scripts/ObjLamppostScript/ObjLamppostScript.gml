@@ -6,7 +6,7 @@ function ObjLamppostScript()
 		if hitbox_collision(Player, self) 
 		{
 			// Set last used checkpoint ID to our ID
-			Stage.LastCheckpoint = id;
+			Game.SavedCheckpoint = id;
 			
 			// Activate all inactive checkpoints with ID lower than ours
 			var tempValue = LamppostID;

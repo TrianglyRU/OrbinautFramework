@@ -5,15 +5,14 @@ function ObjSignpostScript()
 		// Activate on overlap and change stage state
 		if floor(Player.PosX) > x
 		{
-			Active			  = true;
-			Stage.TimeEnabled = false;
-			Stage.State       = ActStateFinished;
+			Active		= true;
+			Stage.State = ActStateFinished;
 			
 			// Play sound
 			audio_sfx_play(sfxSignpost, false);
 		}
 	}
-	else
+	else if ActiveTimer < 140
 	{	
 		// Start timer
 		ActiveTimer++;
@@ -32,8 +31,6 @@ function ObjSignpostScript()
 			case  98: instance_create_depth(x - 23, y - 14, depth - 1, RingSparkle); break;
 			case 110: instance_create_depth(x + 7,  y + 7,  depth - 1, RingSparkle); break;
 			case 122: instance_create_depth(x - 14, y,      depth - 1, RingSparkle); break;
-			case 160: screen_fade_perform(to, black, 1);							 break;
-			case 200: room_goto(MBZ);												 break;
 		}	
 	}
 }

@@ -7,9 +7,9 @@ function ScreenTitleCardDisplay()
 	++CardTimer;
 	
 	// Check if title card is enabled for this stage
-	if Stage.CardEnabled = false 
+	if !Stage.CardEnabled 
 	{	
-		if CardTimer = 10
+		if CardTimer = 1
 		{	
 			Input.IgnoreInput = false;
 			Stage.TimeEnabled = true;
@@ -25,6 +25,12 @@ function ScreenTitleCardDisplay()
 	
 	// Set a font to use 
 	string_set_font(Game.Font[FontCard], "right");
+	
+	// Fade out from black for act 2
+	if Stage.ActID != 0 and CardTimer = 1
+	{
+		screen_fade_perform(from, black, 5);
+	}
 	
 	// Elements appear
 	if CardTimer < 200 
@@ -54,7 +60,7 @@ function ScreenTitleCardDisplay()
 		}
 		
 		// Fade in
-		if CardTimer = 120 
+		if CardTimer = 120 and Stage.ActID = 0
 		{
 			screen_fade_perform(from, black, 1);
 		}
@@ -84,9 +90,9 @@ function ScreenTitleCardDisplay()
 	}
 	
 	// Display sprites on coordinates
-	draw_sprite(sprHUD_TitleCardRibbon, Player.CharacterID,  CardValue[0],  CardValue[1]);
-	draw_sprite_ext(sprHUD_TitleCardAct, 0,  CardValue[6],  CardValue[7], CardValue[8], 1, 0, c_white, 1);
-	string_display( CardValue[2],  CardValue[3], CardString[0], 1);
-	string_display( CardValue[4],  CardValue[5], CardString[1], 1);
+	draw_sprite(sprHUD_TitleCardRibbon, Player.CharacterID, CardValue[0], CardValue[1]);
+	draw_sprite_ext(sprHUD_TitleCardAct, Stage.ActID, CardValue[6], CardValue[7], CardValue[8], 1, 0, c_white, 1);
+	string_display(CardValue[2], CardValue[3], CardString[0], 1);
+	string_display(CardValue[4], CardValue[5], CardString[1], 1);
 	
 }

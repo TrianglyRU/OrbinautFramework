@@ -12,11 +12,10 @@ function audio_bgm_stop(musicID, fadeTime)
 		else
 		{
 			// Fade to 0 if fade time set
-			audio_sound_gain(musicID, 0, fadeTime * 100);
-		
-			// Stop music if its volume is 0
-			if audio_sound_get_gain(musicID) = 0
-			{
+			if audio_sound_get_gain(musicID) != 0
+			{	
+				// TODO: fix this
+				audio_sound_gain(musicID, 0, fadeTime * 100);
 				audio_stop_sound(musicID);	
 			}
 		}
