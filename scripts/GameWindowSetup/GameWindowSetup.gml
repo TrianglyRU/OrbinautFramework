@@ -4,7 +4,7 @@ function GameWindowSetup()
 	var Width  = Game.ResolutionWidth  * Game.WindowSize;
 	var Height = Game.ResolutionHeight * Game.WindowSize;
 	
-	// Set window size and place it at the center of your screen
+	// Set window size and place it at the centre of our screen
 	window_set_size(Width, Height);
 	window_set_position((display_get_width() - Width) / 2, (display_get_height() - Height) / 2);
 	

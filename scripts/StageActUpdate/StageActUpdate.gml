@@ -2,66 +2,16 @@ function StageActUpdate()
 {	
 	// Proceed time counter
 	if (TimeEnabled) Time++;
-	
-	// Perform super palette cycle
-	if Player.isSuper
-	{
-		if Player.CharacterID = CharSonic
-		{
-			for (var i = 0; i < 4; i++) 
-			{
-				palette_cycle_perform(i, 9, 4);
-				palette_cycle_perform(i, 9, 4);
-				palette_cycle_perform(i, 9, 4);
-				palette_cycle_perform(i, 9, 4);
-			}
-		}
-		if Player.CharacterID = CharTails
-		{
-			for (var i = 0; i < 4; i++) 
-			{
-				palette_cycle_perform(i, 9, 4);
-				palette_cycle_perform(i, 9, 4);
-				palette_cycle_perform(i, 9, 4);
-				palette_cycle_perform(i, 9, 4);
-			}
-		}
-	}	
-	
-	// Perform stage palette cycle
-	switch room
-	{
-		case MBZ: break;
-	}
-	
-	// Kill player on time limit	
-	if Time = 36000 and !Player.Death
-	{
-		// Set flags and disable camera
-		Player.Grounded	      = false;
-		Player.Rolling		  = false;
-		Player.Jumping		  = false;
-		Player.AllowCollision = false;
-			
-		// Perform movement
-		Player.Xsp = -0.5;
-		Player.Ysp = -7;	
-			
-		// Enter death script
-		Player.Death = true;
-	}
-	
-	// Set state flag to ActStateRestart if player died
-	if Player.Death and State != ActStateRestart
-	{
-		Stage.TimeEnabled = false;
-		StateTimer		  = 0;
-		State			  = ActStateRestart;	
-	}
-	
-	// Restart the act 
+
+	// Restart the act upon player death
 	// TODO: Correct stateTimer timings
-	if State = ActStateRestart
+	if Player.Death and State != ActStatePlayerDeath
+	{
+		TimeEnabled = false;
+		StateTimer	= 0;
+		State		= ActStatePlayerDeath;	
+	}
+	if State = ActStatePlayerDeath
 	{
 		if floor(Player.PosY) > Screen.RenderY + Screen.Height + 128
 		{
@@ -80,25 +30,32 @@ function StageActUpdate()
 	
 	// Check for act end
 	if State = ActStateFinished
-	{
+	{	
+		// Stop music
 		audio_bgm_stop(BackgroundMusic, 2);
-		Game.SavedCheckpoint = 0;
 		
+		// Disable time and reset timer and saved checkpoint
 		if TimeEnabled
 		{
-			StateTimer  = 0;
-			TimeEnabled = false;
+			TimeEnabled			 = false;
+			StateTimer			 = 0;
+			Game.SavedCheckpoint = 0;
 		}
+		
+		// Start timer
 		StateTimer++
 		switch StateTimer
 		{	
+			// Perform fade to black if it is not act 1
 			case 160: 
-				if ActID != 0
-				{
-					screen_fade_perform(to, black, 1);
-				}
+			{
+				if (ActID != 0) screen_fade_perform(to, black, 1);
+			}
 			break;
-			case 190: 
+			
+			// Go to the next stage/act
+			case 190:
+			{
 				if room = MBZ2
 				{
 					room_goto(DevMenu);
@@ -107,6 +64,7 @@ function StageActUpdate()
 				{
 					room_goto_next(); 
 				}
+			}
 			break;
 		}		
 	}

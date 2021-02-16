@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Stage Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageHorizontalBoundariesUpdate",
+  "name": "StageActSetup",
   "tags": [],
   "resourceType": "GMScript",
 }

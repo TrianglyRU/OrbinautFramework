@@ -16,8 +16,8 @@ function GameRendererUpdate()
 	var UVs = sprite_get_uvs(Game.PaletteSet, 0);
 	texture_set_stage(Scrn_Texture, tex);
 	
-	var texel_x = texture_get_texel_width(tex);
-	var texel_y = texture_get_texel_height(tex);
+	var texel_x  = texture_get_texel_width(tex);
+	var texel_y  = texture_get_texel_height(tex);
 	var texel_hx = texel_x * 0.5;
 	var texel_hy = texel_y * 0.5;
     
@@ -29,6 +29,6 @@ function GameRendererUpdate()
 	draw_surface(application_surface, 0, 0);
 	application_surface_draw_enable(false);
 	
-	// Reset palette shader
+	// Reset renderer
 	shader_reset();
 }

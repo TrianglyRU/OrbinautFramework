@@ -1,6 +1,6 @@
 function PlayerCharacterDisplay()
 {	
-	// Set visual angle
+	// Update visual angle
 	if Game.SmoothRotation 
 	{
 		if Angle >= 25.5 and Angle <= 334.5 or !Grounded or Angle = 0 
@@ -38,6 +38,36 @@ function PlayerCharacterDisplay()
 	{
 		VisualAngle = 0
 	}
+	
+	// Perform super palette cycle
+	if Player.isSuper
+	{
+		switch Player.CharacterID
+		{
+			case CharSonic:
+			{
+				for (var i = 0; i < 4; i++) 
+				{
+					palette_cycle_perform(i, 9, 4);
+					palette_cycle_perform(i, 9, 4);
+					palette_cycle_perform(i, 9, 4);
+					palette_cycle_perform(i, 9, 4);
+				}
+			}
+			break;
+			case CharTails:
+			{
+				for (var i = 0; i < 4; i++) 
+				{
+					palette_cycle_perform(i, 9, 4);
+					palette_cycle_perform(i, 9, 4);
+					palette_cycle_perform(i, 9, 4);
+					palette_cycle_perform(i, 9, 4);
+				}
+			}
+			break;
+		}
+	}	
 	
 	// Update character
 	x		     = floor(PosX);

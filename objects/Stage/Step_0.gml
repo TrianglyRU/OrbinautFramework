@@ -7,8 +7,8 @@
 	// Handle stage music
 	StageMusicUpdate();
 	
-	// Update horizontal boundaries
-	StageHorizontalBoundariesUpdate();
+	// Update boundaries
+	StageBoundariesUpdate();
 	
 	// Unload objects outside of our view
 	StageObjectsUnload();

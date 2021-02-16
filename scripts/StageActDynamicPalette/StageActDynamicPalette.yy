@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Stage Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageActInitialization",
+  "name": "StageActDynamicPalette",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -12,27 +12,30 @@ function animation_play(objSprite, aniSpeed, doLoopFrom)
 	image_speed = 0;
 	
 	// Set anitimer variable
-	if (!variable_instance_exists(id, "aniTimer")) aniTimer = 0;
+	if !variable_instance_exists(id, "aniTimer")
+	{
+		aniTimer = 0;
+	}
 	
 	// Update sprite
 	if sprite_index != objSprite
-    {
-        sprite_index = objSprite;
-        image_index  = 0;
-		aniTimer = aniSpeed;
-    }
+	{
+	    sprite_index = objSprite;
+	    image_index  = 0;
+		aniTimer	 = aniSpeed;
+	}
 	
 	// Hangle subimage change
-    else
-    {
-        if aniTimer > 1
+	else
+	{
+	    if aniTimer > 1
 		{
 			aniTimer--;
 		}
-        else
-        {	
+	    else
+	    {	
 			image_index = image_index < image_number - 1 ? image_index + 1 : doLoopFrom - 1;
 			aniTimer = aniSpeed;
-        }	
-    }
+	    }	
+	}
 }

@@ -41,11 +41,10 @@ function GameMacroSetup()
 	#macro AnimLookup		   8
 	
 	// Stage macro
-	#macro ActStateDefault   0
-	#macro ActStateFinished  1
-	#macro ActStateBossfight 2
-	#macro ActStateAfterboss 3
-	#macro ActStateRestart   4
+	#macro ActStateDefault     0
+	#macro ActStateFinished    1
+	#macro ActStateBossfight   2
+	#macro ActStatePlayerDeath 3
 	
 	// Object macro
 	#macro SolidAll 0
