@@ -5,7 +5,7 @@ function InputHotkeysRead()
 		// Room restart
 		if keyboard_check_pressed(vk_f1) 
 		{
-			Game.SavedCheckpoint = Stage.LastCheckpoint;
+			Game.SavedCheckpoint = 0;
 			audio_stop_all();
 			room_restart();
 		}
