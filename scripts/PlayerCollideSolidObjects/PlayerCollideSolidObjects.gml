@@ -69,7 +69,7 @@ function PlayerCollideSolidObjects()
 					if Ysp < 0 and ObjectID.Solidity = SolidAll
 					{
 						Ysp   = 0;
-						PosY += ObjectID.bbox_bottom - floor(PosY - yRadius) + 1;
+						PosY += ObjectID.bbox_bottom - PlayerTop + 1;
 					}
 				}
 			}
