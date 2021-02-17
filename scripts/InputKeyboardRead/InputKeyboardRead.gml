@@ -37,6 +37,6 @@ function InputKeyboardRead()
 		ABC      = A or B or C;
 		
 		// Start
-		StartPress = keyboard_check_pressed(Control[8]);
+		StartPress = keyboard_check_pressed(Control[8]);	
 	}
 }

@@ -1,13 +1,11 @@
 /// @description Scripts
 // You can call your scripts in this editor
 	
-	if keyboard_check(vk_space) exit;
-	
 	// Update player's states
 	PlayerStatesUpdate();
 	
 	// Simulate how player behaviours when double input registered
-	PlayerInputSimulation();
+	//PlayerInputSimulation();
 	
 	// Run main code based on current state
 	switch State 

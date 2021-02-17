@@ -10,5 +10,5 @@
 	// Update boundaries
 	StageBoundariesUpdate();
 	
-	// Unload objects outside of our view
-	StageObjectsUnload();
+	// Update objects
+	StageObjectsUpdate();

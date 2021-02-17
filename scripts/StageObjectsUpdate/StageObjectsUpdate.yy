@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Stage Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageObjectsUnload",
+  "name": "StageObjectsUpdate",
   "tags": [],
   "resourceType": "GMScript",
 }

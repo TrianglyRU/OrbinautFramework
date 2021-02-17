@@ -10,6 +10,9 @@
 	// Read input from keyboard
 	InputKeyboardRead();
 	
+	// Disable double input
+	InputDoubleLock();
+	
 	// Hotkeys
 	InputHotkeysRead();
 	
