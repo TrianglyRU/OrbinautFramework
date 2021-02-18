@@ -5,8 +5,9 @@ function PlayerResetOnFloor()
 	{	
 		// Reset flags
 		if (DropdashRev != 20) Rolling = false;
-		Jumping	= false;
-		Pushing = false;
+		Jumping		= false;
+		Pushing		= false;
+		DropdashRev = -2;
 		
 		// Reset radiuses to default values if not rolling
 		if !Rolling

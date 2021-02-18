@@ -72,7 +72,8 @@ function PlayerCheckDropdash()
 		if (Dropspeed >  12) Dropspeed =  12;
 		if (Dropspeed < -12) Dropspeed = -12;
 		
-		// Apply dropspeed to inertia
-		Inertia = Dropspeed;
+		// Apply dropspeed to inertia and set camera lag
+		Inertia			   = Dropspeed;
+		Screen.ScrollDelay = 24 - floor(abs(Dropspeed));
 	}
 }

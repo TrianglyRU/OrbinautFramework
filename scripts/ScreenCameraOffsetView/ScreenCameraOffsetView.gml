@@ -4,7 +4,7 @@ function ScreenCameraOffsetView()
 	if (ScrollDelay > 0) ScrollDelay--;
 	
 	// Update extended camera offset
-	if Game.ExtendedCamera = true 
+	if Game.ExtendedCamera
 	{
 		if abs(Player.Xsp) >= Player.TopAcc 
 		{
@@ -29,13 +29,14 @@ function ScreenCameraOffsetView()
 		SpinOffset = 0;
 	}
 	
-	// Set camera overview delay and offset
-	var CHAR_LOOK_UP   = Player.Inertia = 0 and  Input.Up and Player.SpindashRev < 0 and Player.Grounded;
-	var CHAR_LOOK_DOWN = Player.Inertia = 0 and !Input.Up and Input.Down and Player.SpindashRev < 0 and Player.Grounded;
+	// Set up/down shift varaible
+	var ShiftDown = Player.Inertia = 0 and Input.Down and Player.SpindashRev < 0 and Player.Grounded;
+	var ShiftUp   = Player.Inertia = 0 and Input.Up   and Player.PeeloutRev  < 0 and Player.Grounded;
 	
-	if Game.SpindashEnabled = true 
+	// Delay up/down shift if spindash or peelout is enabled
+	if Game.SpindashEnabled or Game.PeeloutEnabled
 	{
-		if CHAR_LOOK_UP or CHAR_LOOK_DOWN 
+		if ShiftUp or ShiftDown 
 		{
 			if (OverviewDelay > 0) OverviewDelay--;
 		} 
@@ -48,18 +49,22 @@ function ScreenCameraOffsetView()
 	{
 		OverviewDelay = 0;
 	}
-	if OverviewDelay = 0 
+	
+	// Shift up/down
+	if OverviewDelay = 0
 	{
-		if CHAR_LOOK_DOWN and OverviewOffset < 88 
+		if ShiftDown and OverviewOffset < 88 
 		{
 			OverviewOffset += 2;
 		}
-		if CHAR_LOOK_UP and OverviewOffset > -104 
+		if ShiftUp and OverviewOffset > -104 
 		{
 			OverviewOffset -= 2;
 		} 		
 	} 	
-	if !CHAR_LOOK_UP and !CHAR_LOOK_DOWN and OverviewOffset != 0
+	
+	// Shift back to original position
+	if OverviewDelay != 0 and OverviewOffset != 0
 	{
 		OverviewOffset -= 2 * sign(OverviewOffset);
 	}	
