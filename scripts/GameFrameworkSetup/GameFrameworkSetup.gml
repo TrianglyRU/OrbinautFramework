@@ -30,7 +30,7 @@ function GameFrameworkSetup()
 	Game.StrongerSlopeDetach     = false;   // Before S3 you were able to slide down on 45-degree floors. True - Sonic 3 method
 	Game.SpeedFloorClip			 = true;    // In S2+, the max distance you're allowed to clip to a floor is based on your speed (instead of static 14 in S1). True = S2+ method
 	Game.ExtensiveWallCollision	 = true;	// In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
-	Game.ImprovedObjCollision	 = false;   // In original games collision with objects is pretty wacky. If set to true, Orbinaut will apply its fixes to collision
+	Game.ImprovedObjCollision	 = true;    // In original games collision with objects is pretty wacky. If set to true, Orbinaut will apply its fixes to collision
 	Game.ExtendedCamera			 = false;	// In SCD, the camera will shift forward to the direction you're running
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
 	Game.SmoothRotation			 = false;	// Use Mania-like smooth rotation

@@ -22,7 +22,7 @@ function ScreenCameraOffsetView()
 	// Set vertical spin offset
 	if Player.Rolling or (Player.Jumping and Player.Rolling) 
 	{
-		SpinOffset = Player.CharacterID != 1 ? 5 : 2;
+		SpinOffset = Player.yRadiusDefault - Player.yRadiusRoll;
 	} 
 	else 
 	{

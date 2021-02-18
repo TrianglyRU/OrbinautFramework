@@ -42,9 +42,10 @@ function GameMacroSetup()
 	
 	// Stage macro
 	#macro ActStateDefault     0
-	#macro ActStateFinished    1
-	#macro ActStateBossfight   2
-	#macro ActStatePlayerDeath 3
+	#macro ActStateLoading	   1
+	#macro ActStateFinished    2
+	#macro ActStateBossfight   3
+	#macro ActStatePlayerDeath 4
 	
 	// Object macro
 	#macro SolidAll 0

@@ -19,7 +19,7 @@ function StageActSetup()
 			TopBoundary				= 0;							// Top stage limit
 			RightBoundary			= room_width;					// Right stage limit
 			BottomBoundary			= room_height;					// Bottom stage limit
-			State					= ActStateDefault;				// Stage state upon loading
+			State					= ActStateLoading;				// Stage state upon loading
 		break;	
 		
 		// Moonlight Base 2
@@ -39,7 +39,7 @@ function StageActSetup()
 			TopBoundary				= 0;							
 			RightBoundary			= room_width;					
 			BottomBoundary			= room_height;					
-			State					= ActStateDefault;
+			State					= ActStateLoading;
 		break;	
 	}	
 }

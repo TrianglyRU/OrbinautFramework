@@ -5,8 +5,8 @@ function PlayerSetup()
 	
 	// Set spawn properties
 	var Spawn = Game.SavedCheckpoint != 0 ? Game.SavedCheckpoint : Spawnpoint;
-	PosX = Spawn.x;
-	PosY = Spawn.y;
+	PosX	  = Spawn.x
+	PosY	  = Spawn.y;
 	
 	// Set sprite
 	Facing	  = FacingRight;
@@ -23,18 +23,19 @@ function PlayerSetup()
 	
 	// Set default flags
 	AllowCollision = true;
-	Grounded	 = true;
-	OnObject	 = false;
-	Jumping		 = false;
-	Rolling	     = false;
-	Pushing		 = false;
-	Hurt		 = false;
-	Death		 = false;
-	MovementLock = false;
-	isSuper		 = false;
-	isInvincible = false;
-	PeeloutRev   = -2;
-	SpindashRev  = -2;
+	Grounded	   = true;
+	OnObject	   = false;
+	Jumping		   = false;
+	Rolling	       = false;
+	Pushing		   = false;
+	Hurt		   = false;
+	Death		   = false;
+	MovementLock   = false;
+	isSuper		   = false;
+	isInvincible   = false;
+	PeeloutRev     = -2;
+	SpindashRev    = -2;
+	DropdashRev    = -2;
 
 	// Set collision radiuses
 	if CharacterID != CharTails

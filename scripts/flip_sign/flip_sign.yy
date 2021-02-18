@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen Scripts",
-    "path": "folders/Game Code/Screen Scripts.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ScreenCameraEndPosition",
+  "name": "flip_sign",
   "tags": [],
   "resourceType": "GMScript",
 }

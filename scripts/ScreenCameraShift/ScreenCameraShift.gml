@@ -1,11 +1,11 @@
 function ScreenCameraShift() 
 {	
 	// Do not perform if player died
-	if Player.Death exit;
+	if Stage.State = ActStatePlayerDeath exit;
 	
 	// Update player's position on the screen
-	PlayerScreenX = Player.PosX - ViewX;
-	PlayerScreenY = Player.PosY - ViewY;
+	PlayerScreenX = floor(Player.PosX) - floor(ViewX);
+	PlayerScreenY = floor(Player.PosY) - floor(ViewY);
 	
 	// Set horizontal shift speed
 	if PlayerScreenX <= Width / 2 - 16 

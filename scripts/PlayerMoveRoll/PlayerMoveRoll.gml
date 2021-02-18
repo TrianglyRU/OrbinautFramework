@@ -59,9 +59,10 @@ function PlayerMoveRoll()
 	// If our inertia is 0 or we pressed UP, unroll
 	if Inertia = 0 or (Game.AllowUnroll and Input.UpPress and abs(Inertia) > 2.5)
 	{
-		// Reset radiuses (we do not adjust position, tile collision will do this automatically)
+		// Reset radiuses
 		yRadius = yRadiusDefault;
 		xRadius = xRadiusDefault;
+		PosY   -= yRadiusDefault - yRadiusRoll;
 		
 		// Unroll
 		Rolling = false;

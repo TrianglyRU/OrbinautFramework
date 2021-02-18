@@ -8,9 +8,10 @@ function PlayerCheckRoll()
 	{
 		if Input.Down 
 		{	
-			// Update radiuses (we do not adjust position, tile collision will do this automatically)
+			// Update radiuses
 			yRadius   = yRadiusRoll;
 			xRadius	  = xRadiusRoll;
+			PosY     += yRadiusDefault - yRadiusRoll;
 			Rolling   = true;
 			
 			// Set animation

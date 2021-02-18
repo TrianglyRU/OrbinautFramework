@@ -35,6 +35,7 @@
 	
 	PeeloutRev			 = 0;
 	SpindashRev		     = 0;
+	DropdashRev			 = 0;
 	isSuper				 = 0;
 	isInvincible		 = 0;
 	

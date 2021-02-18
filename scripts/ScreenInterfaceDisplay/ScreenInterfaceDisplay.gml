@@ -21,7 +21,7 @@ function ScreenInterfaceDisplay()
 	if InterfaceEnabled
 	{
 		// Red flash timer
-		var RedFlash = Stage.Time mod 16 < 8;
+		var RedFlash = Stage.Time ? Stage.Time mod 16 < 8 : 0;
 		
 		// Draw graphics
 		draw_sprite(sprHUD_Score, 0,							  17 + InterfaceOffsetX, 9  + InterfaceOffsetY);

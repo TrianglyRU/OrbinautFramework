@@ -120,6 +120,9 @@
 			// Collide with solid objects
 			PlayerCollideSolidObjects();
 			
+			// Check for dropdash
+			PlayerCheckDropdash();
+			
 			// Check for being hurt
 			PlayerCheckHurt();
 			

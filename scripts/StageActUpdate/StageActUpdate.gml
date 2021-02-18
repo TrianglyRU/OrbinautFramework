@@ -49,7 +49,7 @@ function StageActUpdate()
 			// Perform fade to black if it is not act 1
 			case 160: 
 			{
-				if (ActID != 0) screen_fade_perform(to, black, 1);
+				screen_fade_perform(to, black, 1);
 			}
 			break;
 			

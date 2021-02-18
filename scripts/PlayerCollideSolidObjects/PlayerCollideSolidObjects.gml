@@ -54,12 +54,16 @@ function PlayerCollideSolidObjects()
 				if PlayerY < ObjectID.y
 				{
 					if Ysp > 0 and ObjectID.bbox_top - PlayerBottom > -16
-					{		
-						Ysp		 = 0;
-						Angle    = 0;
-						Inertia  = Xsp;
-						Grounded = true;	
-						OnObject = ObjectID;
+					{	
+						if  Game.ImprovedObjCollision 
+						or !Game.ImprovedObjCollision and (PlayerX > ObjectID.bbox_left and PlayerX < ObjectID.bbox_right)
+						{
+							Ysp		 = 0;
+							Angle    = 0;
+							Inertia  = Xsp;
+							Grounded = true;	
+							OnObject = ObjectID;
+						}
 					}
 				}
 				
