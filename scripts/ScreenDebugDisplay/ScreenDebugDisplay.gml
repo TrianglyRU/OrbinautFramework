@@ -24,7 +24,6 @@ function ScreenDebugDisplay()
 			+ "\n   X RADIUS: " + string(Player.yRadius)
 			+ "\n   Y RADIUS: " + string(Player.xRadius)
 			+ "\n   WALL OFFSET: " + string((Player.Grounded and !Player.Angle) * 8)
-			+ "\n   MAX DISTANCE: " + string(Player.CollisionDistance)
 			+ "\n"
 			+ "\n          * PLAYER MOTION *"
 			+ "\n"
@@ -56,8 +55,10 @@ function ScreenDebugDisplay()
 			+ "\n"
 			+ "\n         * CHARACTER VISUALS *"
 			+ "\n"
-			+ "\n   ANIMATION ID: " + string(Player.sprite_index)
-			+ "\n   FRAME INDEX: " + string(floor(Player.image_index))
+			+ "\n   ANIMATION: " + string(sprite_get_name(Player.sprite_index))
+			+ "\n   NEXT FRAME IN: " + string(Player.aniTimer)
+			+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
+			+ "\n   FRAMES TOTAL: " + string(Player.image_number)
 			+ "\n   VISUAL ANGLE: " + string(Player.VisualAngle)
 			+ "\n"
 			+ "\n              * CAMERA *"

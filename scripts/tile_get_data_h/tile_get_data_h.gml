@@ -26,7 +26,7 @@ function tile_get_data_h(X, Y, Layer, toPositive, dataToGet, noSolidTop)
 	// Use a tile to the left if this tile width is 16 and we're checking for the distance
 	else if Width = TileSize 
 	{
-		if dataToGet = "data_distance" and !noSolidTop
+		if !noSolidTop
 		{
 			Tile2 = -TileSize;
 		}
@@ -40,11 +40,8 @@ function tile_get_data_h(X, Y, Layer, toPositive, dataToGet, noSolidTop)
 	{	
 		Tile2 *= Invert;
 		Tile   = tilemap_get(Stage.TileLayer[Layer], (X + Tile2) div TileSize, Y div TileSize);
-		if dataToGet = "data_distance" 
-		{
-			Index  = tile_get_index(Tile) mod TileAmount;
-			Width = Game.WidthValueOf[Index][tile_get_flip(Tile) ? TileSize - 1 - Y mod TileSize : Y mod TileSize];
-		}
+		Index  = tile_get_index(Tile) mod TileAmount;
+		Width  = Game.WidthValueOf[Index][tile_get_flip(Tile) ? TileSize - 1 - Y mod TileSize : Y mod TileSize];
 	}
 	
 	// Return distance to the edge of our tile
@@ -64,8 +61,7 @@ function tile_get_data_h(X, Y, Layer, toPositive, dataToGet, noSolidTop)
 	if dataToGet = "data_angle"
 	{	
 		// Return cardinal angles for empty and full tiles
-		if (Tile = 0) return 360;
-		if (Tile = 1) return toPositive ? 90 : 270;
+		if (Tile = 0 or Tile = 1) return toPositive ? 90 : 270;
 		
 		// Return cardinal angle for mirrored tiles
 	    var Mirr = tile_get_mirror(Tile);

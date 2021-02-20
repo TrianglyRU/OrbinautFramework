@@ -3,10 +3,7 @@
 	
 	// Update player's states
 	PlayerStatesUpdate();
-	
-	// Simulate how player behaviours when double input registered
-	//PlayerInputSimulation();
-	
+
 	// Run main code based on current state
 	switch State 
 	{
@@ -38,13 +35,13 @@
 			
 			// Perform roll
 			PlayerCheckRoll();
-
+			
+			// Get floor angle
+			PlayerUpdateAngle();
+			
 			// Collide with floor
 			PlayerCollideFloor();
 			
-			// Update player's angle
-			PlayerUpdateAngle();
-
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
@@ -75,11 +72,11 @@
 			// Update player's position
 			PlayerSpeedToPos();
 			
+			// Get floor angle
+			PlayerUpdateAngle();
+			
 			// Collide with floor
 			PlayerCollideFloor();
-			
-			// Update player's angle
-			PlayerUpdateAngle();
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();

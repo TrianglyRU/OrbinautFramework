@@ -23,10 +23,10 @@ function tile_get_data_v(X, Y, Layer, toPositive, dataToGet, noSolidTop)
 		Tile2 = +TileSize;
 	}
 	
-	// Use a tile above if this tile height is 16 
+	// Use a tile above if this tile height is 16 and we're checking for the distance
 	else if Height = TileSize
 	{
-		if dataToGet = "data_distance" and !noSolidTop
+		if !noSolidTop
 		{
 			Tile2 = -TileSize;
 		}
@@ -40,11 +40,9 @@ function tile_get_data_v(X, Y, Layer, toPositive, dataToGet, noSolidTop)
 	{	
 		Tile2 *= Invert;
 		Tile   = tilemap_get(Stage.TileLayer[Layer], X div TileSize, (Y + Tile2) div TileSize);
-		if dataToGet = "data_distance"
-		{
-			Index  = tile_get_index(Tile) mod TileAmount;
-			Height = Game.HeightValueOf[Index][tile_get_mirror(Tile) ? TileSize - 1 - X mod TileSize : X mod TileSize];
-		}
+		Index  = tile_get_index(Tile) mod TileAmount;
+		Height = Game.HeightValueOf[Index][tile_get_mirror(Tile) ? TileSize - 1 - X mod TileSize : X mod TileSize];
+
 	}
 		
 	// Return distance to the edge of our tile
@@ -63,8 +61,8 @@ function tile_get_data_v(X, Y, Layer, toPositive, dataToGet, noSolidTop)
 	// Return angle
 	if dataToGet = "data_angle"
 	{	
-		// Use default angle for empty tile
-		if (!Tile) return 360;
+		// Return cardinal angle for empty tile
+		if (!Tile) return toPositive ? 360 : 180;
 		
 		// Return cardinal angle for flipped tiles
 		var Flip = tile_get_flip(Tile);
