@@ -14,7 +14,7 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 2;
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.5;
 	
 	// Engine customization

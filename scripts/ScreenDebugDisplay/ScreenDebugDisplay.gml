@@ -43,6 +43,7 @@ function ScreenDebugDisplay()
 			+ "\n"
 			+ "\n   STATE SCRIPT: " + string(Player.State)
 			+ "\n   ON OBJECT: " + string(Player.OnObject)
+			+ "\n   GOT OBJECT: " + string(Player.GotObject)
 			+ "\n   GROUNDED: " + string(Player.Grounded)
 			+ "\n   IS ROLLING: " + string(Player.Rolling)
 			+ "\n   IS JUMPING: " + string(Player.Jumping)

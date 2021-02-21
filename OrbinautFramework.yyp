@@ -48,6 +48,7 @@
     {"id":{"name":"ObjRingSetup","path":"scripts/ObjRingSetup/ObjRingSetup.yy",},"order":3,},
     {"id":{"name":"spr_obj_bridge_stump","path":"sprites/spr_obj_bridge_stump/spr_obj_bridge_stump.yy",},"order":13,},
     {"id":{"name":"PlayerCheckPeelout","path":"scripts/PlayerCheckPeelout/PlayerCheckPeelout.yy",},"order":30,},
+    {"id":{"name":"PlayerCollideObjects","path":"scripts/PlayerCollideObjects/PlayerCollideObjects.yy",},"order":34,},
     {"id":{"name":"loop_value","path":"scripts/loop_value/loop_value.yy",},"order":22,},
     {"id":{"name":"string_set_font","path":"scripts/string_set_font/string_set_font.yy",},"order":4,},
     {"id":{"name":"pal_MoonlightBaseZone","path":"sprites/pal_MoonlightBaseZone/pal_MoonlightBaseZone.yy",},"order":1,},

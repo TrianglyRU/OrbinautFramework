@@ -1,18 +1,22 @@
 /// @function hitbox_collision(collideFrom, collideWith)
 function hitbox_collision(collideFrom, collideWith)
 {	
-	// Ignore collision
+	// Check if player collided with us
 	if collideFrom = Player
 	{
-		if !Player.AllowCollision return false;
+		return Player.GotObject = collideWith.id;
 	}
 	
-	// Define if we need to use player's hitbox or not
-	var x1 = collideFrom == Player ? floor(Player.PosX - 8)				     : collideFrom.bbox_left;
-	var x2 = collideFrom == Player ? floor(Player.PosX + 8)				     : collideFrom.bbox_right;
-	var y1 = collideFrom == Player ? floor(Player.PosY - Player.yRadius + 3) : collideFrom.bbox_top;
-	var y2 = collideFrom == Player ? floor(Player.PosY + Player.yRadius - 3) : collideFrom.bbox_bottom;
-	
-	// Return collision result
-	return collision_rectangle(x1, y1, x2, y2, collideWith, false, false);
+	// Check if another object collided with us
+	else
+	{	
+		// Get objects' hitbox
+		var x1 = collideFrom.bbox_left;
+		var x2 = collideFrom.bbox_right;
+		var y1 = collideFrom.bbox_top;
+		var y2 = collideFrom.bbox_bottom;
+		
+		// Return result
+		return collision_rectangle(x1, y1, x2, y2, collideWith, false, false);
+	}
 }

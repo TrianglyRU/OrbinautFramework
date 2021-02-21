@@ -47,6 +47,7 @@
 			
 			// Collide with the objects
 			PlayerCollideSolidObjects();
+			PlayerCollideObjects();
 			
 			// Check for being hurt
 			PlayerCheckHurt();
@@ -83,6 +84,7 @@
 			
 			// Collide with the objects
 			PlayerCollideSolidObjects();
+			PlayerCollideObjects();
 			
 			// Check for being hurt
 			PlayerCheckHurt();
@@ -116,6 +118,7 @@
 			
 			// Collide with solid objects
 			PlayerCollideSolidObjects();
+			PlayerCollideObjects();
 			
 			// Check for dropdash
 			PlayerCheckDropdash();

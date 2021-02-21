@@ -14,7 +14,7 @@ function PlayerCollideSolidObjects()
 	// ObjectID variables
 	var	ObjectID   = collision_rectangle(PlayerLeft, PlayerTop, PlayerRight, PlayerBottom, Objects, true, true);
 	var ReattachID = instance_position(PlayerX, PlayerBottom + 4, Objects);
-	
+
 	// Check for overlapping an object we're not standing on
 	if variable_instance_exists(ObjectID, "Solidity")
 	{	
