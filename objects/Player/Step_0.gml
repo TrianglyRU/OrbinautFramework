@@ -45,9 +45,8 @@
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
-			// Collide with the objects
-			PlayerCollideSolidObjects();
-			PlayerCollideObjects();
+			// Collide or check for overlap with the objects
+			PlayerObjectsInteraction();
 			
 			// Check for being hurt
 			PlayerCheckHurt();
@@ -82,9 +81,8 @@
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
-			// Collide with the objects
-			PlayerCollideSolidObjects();
-			PlayerCollideObjects();
+			// Collide or check for overlap with the objects
+			PlayerObjectsInteraction();
 			
 			// Check for being hurt
 			PlayerCheckHurt();
@@ -115,13 +113,12 @@
 			
 			// Collide with floor
 			PlayerHitFloor();
-			
-			// Collide with solid objects
-			PlayerCollideSolidObjects();
-			PlayerCollideObjects();
-			
+
 			// Check for dropdash
 			PlayerCheckDropdash();
+			
+			// Collide or check for overlap with the objects
+			PlayerObjectsInteraction();
 			
 			// Check for being hurt
 			PlayerCheckHurt();

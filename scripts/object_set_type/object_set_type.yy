@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Player Scripts",
-    "path": "folders/Game Code/Player Scripts.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerCollideSolidObjects",
+  "name": "object_set_type",
   "tags": [],
   "resourceType": "GMScript",
 }

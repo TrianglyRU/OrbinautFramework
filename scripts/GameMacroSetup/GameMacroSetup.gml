@@ -48,6 +48,7 @@ function GameMacroSetup()
 	#macro ActStatePlayerDeath 4
 	
 	// Object macro
-	#macro SolidAll 0
-	#macro SolidTop 1	
+	#macro SolidAll  0
+	#macro SolidTop  1
+	#macro SolidNone 2
 }

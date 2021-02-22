@@ -1,5 +1,11 @@
 function ObjLamppostSetup()
 {
+	// Set instance as interactive object
+	object_set_type(SolidNone);
+	
+	// Render behind the player
+	object_set_depth(false);
+	
 	// Init lamppost
 	Active = false;
 	Angle  = 180;
@@ -11,7 +17,4 @@ function ObjLamppostSetup()
 		Active      = true;
 		Angle		= 900;
 	}
-	
-	// Render behind the player
-	object_set_depth(false);
 }
