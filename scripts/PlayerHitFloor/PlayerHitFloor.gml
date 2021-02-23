@@ -15,11 +15,9 @@ function PlayerHitFloor()
 		var dLeft  = tile_get_data_v(xLeft, yLeft, Layer, true, "data_distance", false);
 		var dRight = tile_get_data_v(xRight, yRight, Layer, true, "data_distance", false);
 		
-		// Use the closest distance
+		// Collide using closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
-
-		// When distance is negative, we're touching the floor
-		if Distance < 0
+		if  Distance < 0
 		{
 			// Get floor angle
 			var floorAngle = dLeft <= dRight ? tile_get_data_v(xLeft, yLeft, Layer, true, "data_angle", false) 

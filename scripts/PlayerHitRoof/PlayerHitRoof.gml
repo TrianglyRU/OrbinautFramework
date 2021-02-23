@@ -15,11 +15,9 @@ function PlayerHitRoof()
 		var dLeft  = tile_get_data_v(xLeft, yLeft, Layer, false, "data_distance", true);
 		var dRight = tile_get_data_v(xRight, yRight, Layer, false, "data_distance", true);
 		
-		// Use the closest distance
+		// Collide using closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
-		
-		// If the distance is negative, we're touching the roof
-		if Distance < 0
+		if  Distance < 0
 		{		
 			// Collide 
 			PosY -= Distance;

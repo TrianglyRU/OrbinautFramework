@@ -3,7 +3,7 @@ function InputHotkeysRead()
 	if room != DevMenu && room != GameStart
 	{
 		// Room restart
-		if keyboard_check_pressed(vk_f1) 
+		if keyboard_check_pressed(vk_f2) 
 		{
 			Game.SavedCheckpoint = 0;
 			audio_stop_all();
@@ -11,19 +11,19 @@ function InputHotkeysRead()
 		}
 	
 		// Game restart
-		if keyboard_check_pressed(vk_f2) 
+		if keyboard_check_pressed(vk_f3) 
 		{
 			game_restart();
 		}
 	
 		// Low FPS mode
-		if keyboard_check_pressed(vk_f3) 
+		if keyboard_check_pressed(vk_f4) 
 		{
 			game_set_speed(game_get_speed(gamespeed_fps) == 60 ? 3 : 60, gamespeed_fps);
 		}
 	
 		// Debug view
-		if keyboard_check_pressed(vk_f4) 
+		if keyboard_check_pressed(vk_f1) 
 		{
 			Screen.EnableDebug = Screen.EnableDebug ? false : true;
 		}

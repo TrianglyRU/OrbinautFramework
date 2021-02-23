@@ -24,7 +24,7 @@ function ScreenCameraShift()
 	}
 
 	// Set vertical shift speed
-	if Player.Grounded or Player.OnObject 
+	if Player.Grounded
 	{
 		var maxShift = abs(Player.Ysp) < 6 ? 6 : 16;
 		ShiftY       = clamp(PlayerScreenY - (Height / 2 - 16), -maxShift, maxShift);  

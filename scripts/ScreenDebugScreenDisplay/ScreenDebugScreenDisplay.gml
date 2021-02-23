@@ -1,4 +1,4 @@
-function ScreenDebugDisplay()
+function ScreenDebugScreenDisplay()
 {	
 	// Display only if allowed to
 	if EnableDebug = false exit;
@@ -11,9 +11,9 @@ function ScreenDebugDisplay()
 	draw_set_alpha(1);
 	string_set_font(Game.Font[FontDebug], "left");
 	
-	// Display
+	// Display debug screen
 	string_display_list(Width - 93, 8,
-			    "          ORBINAUT  FRAMEWORK"
+				"          ORBINAUT  FRAMEWORK"
 			+ "\n            STANDALONE VER."
 			+ "\n"
 			+ "\n         BY TRIANGLY AND MICG"
@@ -75,11 +75,11 @@ function ScreenDebugDisplay()
 			+ "\n   SPIN OFFSET: " + string(SpinOffset)
 			+ "\n"
 			+ "\n"
-			+ "\n   F1: STAGE RESTART"
-			+ "\n   F2: GAME RESTART"
-			+ "\n   F3: FRAME BY FRAME MODE"
-			+ "\n   F4: SHOW DEBUG VIEW"
-			+ "\n   F5: SHOW COLLISION MASKS"
- 			+ "\n",			
+			+ "\n   F2: STAGE RESTART"
+			+ "\n   F3: GAME RESTART"
+			+ "\n   F4: FRAME BY FRAME MODE"
+			+ "\n   F5: SHOW DEBUG VIEW"
+			+ "\n   F6: SHOW COLLISION"
+	 		+ "\n",			
 	10, 0.3);
 }

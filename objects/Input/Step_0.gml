@@ -10,11 +10,8 @@
 	// Read input from keyboard
 	InputKeyboardRead();
 	
-	// Disable double input
-	InputDoubleLock();
+	// Reset buttons when called
+	InputButtonsReset();
 	
 	// Hotkeys
 	InputHotkeysRead();
-	
-	// Reset buttons when called
-	InputButtonsReset();
