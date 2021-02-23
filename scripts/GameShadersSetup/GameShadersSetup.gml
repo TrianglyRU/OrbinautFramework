@@ -20,5 +20,5 @@ function GameShadersSetup()
 	Prlx_Wid   = shader_get_uniform(ShaderParallax, "wid");
 	Prlx_YHght = shader_get_uniform(ShaderParallax, "y_height");
 	Prlx_YStep = shader_get_uniform(ShaderParallax, "y_step");
-	Prlx_Texel = shader_get_uniform(ShaderParallax, "texel");	
+	Prlx_Texel = shader_get_uniform(ShaderParallax, "texel");
 }

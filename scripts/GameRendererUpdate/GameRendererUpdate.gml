@@ -18,11 +18,9 @@ function GameRendererUpdate()
 	
 	var texel_x  = texture_get_texel_width(tex);
 	var texel_y  = texture_get_texel_height(tex);
-	var texel_hx = texel_x * 0.5;
-	var texel_hy = texel_y * 0.5;
     
 	shader_set_uniform_f(Scrn_Texel_Size, texel_x, texel_y);
-	shader_set_uniform_f(Scrn_UVs, UVs[0] + texel_hx, UVs[1] + texel_hy, UVs[2], UVs[3]);
+	shader_set_uniform_f(Scrn_UVs, UVs[0] + texel_x * 0.5, UVs[1] + texel_y * 0.5, UVs[2], UVs[3]);
 	
 	// Draw our surface
 	application_surface_draw_enable(true);

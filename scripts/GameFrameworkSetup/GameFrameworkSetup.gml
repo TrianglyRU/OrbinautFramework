@@ -45,4 +45,6 @@ function GameFrameworkSetup()
 	
 	// Keyboard control mappings
 	Game.Control = [vk_up, vk_down, vk_left, vk_right, ord("A"), ord("S"), ord("D"), vk_space, vk_enter];
+	
+	Game.SaveSlotX[3][3] = 0;
 }
