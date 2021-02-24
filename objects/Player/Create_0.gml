@@ -39,6 +39,7 @@
 	DropdashRev			 = 0;
 	isSuper				 = 0;
 	isInvincible		 = 0;
+	ShieldType			 = 0;
 	
 	HighSpeedBonus		 = 0;
 	InvincibilityBonus   = 0;

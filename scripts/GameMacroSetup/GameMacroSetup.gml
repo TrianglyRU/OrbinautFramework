@@ -30,6 +30,10 @@ function GameMacroSetup()
 	#macro FacingRight	       1
 	#macro LayerA		       0
 	#macro LayerB		       1
+	#macro BarrierNormal	   0
+	#macro BarrierElec		   1
+	#macro BarrierWater        2
+	#macro BarrierFire		   3
 	#macro AnimIdle		       0
 	#macro AnimWalk		       1
 	#macro AnimRun		       2

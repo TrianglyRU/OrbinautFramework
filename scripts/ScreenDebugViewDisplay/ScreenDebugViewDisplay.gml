@@ -60,7 +60,7 @@ function ScreenDebugViewDisplay()
 				{
 					case RangeFloor:
 					{
-						draw_point(floor(Player.PosX + Player.Xsp - 10), floor(Player.PosY + Player.Ysp + !Player.Angle * 8));
+						draw_point(floor(Player.PosX + Player.Xsp - 10), floor(Player.PosY + Player.Ysp + 8 * (Player.Angle == 360)));
 					}
 					break;
 					case RangeRWall:
@@ -88,7 +88,7 @@ function ScreenDebugViewDisplay()
 				{
 					case RangeFloor:
 					{
-						draw_point(floor(Player.PosX + Player.Xsp + 10), floor(Player.PosY + Player.Ysp + !Player.Angle * 8));
+						draw_point(floor(Player.PosX + Player.Xsp + 10), floor(Player.PosY + Player.Ysp + 8 * (Player.Angle == 360)));
 					}
 					break;
 					case RangeRWall:

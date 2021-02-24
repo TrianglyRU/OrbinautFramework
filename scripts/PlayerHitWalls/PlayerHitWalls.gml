@@ -13,7 +13,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp - 10), floor(PosY + Ysp + !Angle * 8), false, true, Layer);
+					var Distance = tile_get_distance_h(floor(PosX + Xsp - 10), floor(PosY + Ysp + 8 * (Angle == 360)), false, true, Layer);
 					if  Distance < 0
 					{	
 						Xsp    -= Distance;
@@ -76,7 +76,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + !Angle * 8), true, true, Layer);
+					var Distance = tile_get_distance_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + 8 * (Angle == 360)), true, true, Layer);
 					if  Distance < 0
 					{	
 						Xsp    += Distance;

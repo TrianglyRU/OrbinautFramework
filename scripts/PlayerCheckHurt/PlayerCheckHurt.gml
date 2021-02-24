@@ -3,7 +3,7 @@ function PlayerCheckHurt()
 	// Check if our hurt flag equals to object ID we got harmed by
 	if (Hurt > 1 and !Death) or Stage.Time = 36000
 	{	
-		if Rings = 0 or Stage.Time = 36000
+		if (!Rings and !ShieldType) or Stage.Time = 36000
 		{
 			// Set flags and disable camera
 			Grounded	   = false;
@@ -21,7 +21,14 @@ function PlayerCheckHurt()
 		else
 		{	
 			// Lose rings
-			Rings = 0;
+			if !ShieldType
+			{
+				Rings = 0;
+			}
+			else
+			{
+				ShieldType = 0;
+			}
 			
 			// Set flags
 			Grounded	 = false;
