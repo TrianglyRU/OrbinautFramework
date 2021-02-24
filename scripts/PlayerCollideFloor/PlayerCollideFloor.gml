@@ -15,8 +15,8 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY + yRadius);
 				
 			// Get floor distances
-			var dLeft  = tile_get_data_v(xLeft, yLeft, Layer, true, "data_distance", false);
-			var dRight = tile_get_data_v(xRight, yRight, Layer, true, "data_distance", false);
+			var dLeft  = tile_get_distance_v(xLeft, yLeft, true, false, Layer);
+			var dRight = tile_get_distance_v(xRight, yRight, true, false, Layer);
 
 			// Collide using closest distance
 			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
@@ -41,8 +41,8 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY - xRadius);
 				
 			// Get floor distances
-			var dLeft  = tile_get_data_h(xLeft, yLeft, Layer, true, "data_distance", false);
-			var dRight = tile_get_data_h(xRight, yRight, Layer, true, "data_distance", false);
+			var dLeft  = tile_get_distance_h(xLeft, yLeft, true, false, Layer);
+			var dRight = tile_get_distance_h(xRight, yRight, true, false, Layer);
 			
 			// Collide using closest distance
 			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
@@ -67,8 +67,8 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY - yRadius);
 				
 			// Get floor distances
-			var dLeft  = tile_get_data_v(xLeft, yLeft, Layer, false, "data_distance", false);
-			var dRight = tile_get_data_v(xRight, yRight, Layer, false, "data_distance", false);
+			var dLeft  = tile_get_distance_v(xLeft, yLeft, false, false, Layer);
+			var dRight = tile_get_distance_v(xRight, yRight, false, false, Layer);
 
 			// Collide using closest distance
 			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
@@ -93,8 +93,8 @@ function PlayerCollideFloor()
 			var yRight = floor(PosY + xRadius);
 				
 			// Get floor distances
-			var dLeft  = tile_get_data_h(xLeft, yLeft, Layer, false, "data_distance", false);
-			var dRight = tile_get_data_h(xRight, yRight, Layer, false, "data_distance", false);
+			var dLeft  = tile_get_distance_h(xLeft, yLeft, false, false, Layer);
+			var dRight = tile_get_distance_h(xRight, yRight, false, false, Layer);
 			
 			// Collide using closest distance
 			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;

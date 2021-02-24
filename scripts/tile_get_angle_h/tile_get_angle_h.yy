@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/System.yy",
   },
   "resourceVersion": "1.0",
-  "name": "read_file",
+  "name": "tile_get_angle_h",
   "tags": [],
   "resourceType": "GMScript",
 }

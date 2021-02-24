@@ -10,16 +10,14 @@ function PlayerCheckJump()
 		}
 	}
 	
-	// Exit the code if we're performing spindash
-	if SpindashRev >= 0 and Input.Down 
+	// Exit the code if we're performing spindash or peelout
+	if Inertia = 0
 	{
-		exit;
-	}
-	
-	// Exit the code if we're performing peelout
-	if PeeloutRev >= 0 and Input.Up 
-	{
-		exit;
+		if Game.SpindashEnabled and Input.Down 
+		or Game.PeeloutEnabled and Input.Up
+		{
+			exit;
+		}
 	}
 
 	// Jump

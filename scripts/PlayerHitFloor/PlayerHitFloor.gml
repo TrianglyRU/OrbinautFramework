@@ -1,9 +1,7 @@
 function PlayerHitFloor()
 {	
 	// Do not collide if we're not allowed to
-	if !AllowCollision exit;
-	
-	if Ysp > 0 or abs(Xsp) > abs(Ysp)
+	if (Ysp > 0 or abs(Xsp) > abs(Ysp)) and AllowCollision
 	{	
 		// Set coordinates
 		var xLeft  = floor(PosX - xRadius);
@@ -12,16 +10,22 @@ function PlayerHitFloor()
 		var yRight = floor(PosY + yRadius);
 			
 		// Get floor distances
-		var dLeft  = tile_get_data_v(xLeft, yLeft, Layer, true, "data_distance", false);
-		var dRight = tile_get_data_v(xRight, yRight, Layer, true, "data_distance", false);
+		var dLeft  = tile_get_distance_v(xLeft, yLeft, true, false, Layer);
+		var dRight = tile_get_distance_v(xRight, yRight, true, false, Layer);
 		
 		// Collide using closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
 		if  Distance < 0
 		{
 			// Get floor angle
-			var floorAngle = dLeft <= dRight ? tile_get_data_v(xLeft, yLeft, Layer, true, "data_angle", false) 
-											 : tile_get_data_v(xRight, yRight, Layer, true, "data_angle", false);
+			if dLeft <= dRight
+			{
+				var floorAngle = tile_get_angle_v(xLeft, yLeft, true, false, Layer);
+			}
+			else
+			{
+				var floorAngle = tile_get_angle_v(xRight, yRight, true, false, Layer);
+			}
 			
 			// If we're moving downwards, calculate a momentum using floor angle
 			if abs(Xsp) < abs(Ysp)

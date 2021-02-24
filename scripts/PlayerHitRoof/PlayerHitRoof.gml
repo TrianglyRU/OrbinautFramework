@@ -1,9 +1,7 @@
 function PlayerHitRoof()
 {	
 	// Do not collide if we're not allowed to
-	if !AllowCollision exit;
-	
-	if Ysp < 0 or abs(Xsp) > abs(Ysp)
+	if (Ysp < 0 or abs(Xsp) > abs(Ysp)) and AllowCollision
 	{
 		// Set coordinates
 		var xLeft  = floor(PosX - xRadius);
@@ -12,8 +10,8 @@ function PlayerHitRoof()
 		var yRight = floor(PosY - yRadius);
 			
 		// Get roof distances
-		var dLeft  = tile_get_data_v(xLeft, yLeft, Layer, false, "data_distance", true);
-		var dRight = tile_get_data_v(xRight, yRight, Layer, false, "data_distance", true);
+		var dLeft  = tile_get_distance_v(xLeft, yLeft, false, true, Layer);
+		var dRight = tile_get_distance_v(xRight, yRight, false, true, Layer);
 		
 		// Collide using closest distance
 		var Distance = dLeft <= dRight? dLeft : dRight;
@@ -26,8 +24,14 @@ function PlayerHitRoof()
 			if abs(Ysp) > abs(Xsp)
 			{	
 				// Get roof angle
-				var roofAngle = dLeft <= dRight ? tile_get_data_v(xLeft, yLeft, Layer, false, "data_angle", true) 
-											    : tile_get_data_v(xRight, yRight, Layer, false, "data_angle", true);
+				if dLeft <= dRight
+				{
+					var roofAngle = tile_get_angle_v(xLeft, yLeft, false, true, Layer); 
+				}
+				else
+				{
+					var roofAngle = tile_get_angle_v(xRight, yRight, false, true, Layer);
+				}
 
 				// Land on the roof if it is steep enough
 				if roofAngle > 90 and roofAngle < 135 or roofAngle > 225 and roofAngle < 270

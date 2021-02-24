@@ -20,8 +20,8 @@ function PlayerUpdateAngle()
 				var yRight = floor(PosY + yRadius);
 
 				// Get floor distances
-				var dLeft  = tile_get_data_v(xLeft,  yLeft,  Layer, true, "data_distance", false);
-				var dRight = tile_get_data_v(xRight, yRight, Layer, true, "data_distance", false);
+				var dLeft  = tile_get_distance_v(xLeft, yLeft, true, false, Layer);
+				var dRight = tile_get_distance_v(xRight, yRight, true, false, Layer);
 				
 				// Use closest distacne in our calculations
 				if dLeft <= dRight
@@ -36,7 +36,7 @@ function PlayerUpdateAngle()
 				}
 				
 				// Get floor angle
-				var floorAngle = tile_get_data_v(angX, angY, Layer, true, "data_angle", false);
+				var floorAngle = tile_get_angle_v(angX, angY, true, false, Layer);
 			}
 			break;
 			case RangeRWall:
@@ -48,8 +48,8 @@ function PlayerUpdateAngle()
 				var yRight = floor(PosY - xRadius);
 			
 				// Get floor distances
-				var dLeft  = tile_get_data_h(xLeft,  yLeft,  Layer, true, "data_distance", false);
-				var dRight = tile_get_data_h(xRight, yRight, Layer, true, "data_distance", false);
+				var dLeft  = tile_get_distance_h(xLeft, yLeft, true, false, Layer);
+				var dRight = tile_get_distance_h(xRight, yRight, true, false, Layer);
 				
 				// Use closest distacne in our calculations
 				if dLeft <= dRight
@@ -64,7 +64,7 @@ function PlayerUpdateAngle()
 				}
 				
 				// Get floor angle
-				var floorAngle = tile_get_data_h(angX, angY, Layer, true, "data_angle", false);
+				var floorAngle = tile_get_angle_h(angX, angY, true, false, Layer);
 			}
 			break;
 			case RangeRoof:
@@ -76,8 +76,8 @@ function PlayerUpdateAngle()
 				var yRight = floor(PosY - yRadius);
 				
 				// Get floor distances
-				var dLeft  = tile_get_data_v(xLeft,  yLeft,  Layer, false, "data_distance", false);
-				var dRight = tile_get_data_v(xRight, yRight, Layer, false, "data_distance", false);
+				var dLeft  = tile_get_distance_v(xLeft, yLeft, false, false, Layer);
+				var dRight = tile_get_distance_v(xRight, yRight, false, false, Layer);
 				
 				// Use closest distacne in our calculations
 				if dLeft <= dRight
@@ -92,7 +92,7 @@ function PlayerUpdateAngle()
 				}
 				
 				// Get floor angle
-				var floorAngle = tile_get_data_v(angX, angY, Layer, false, "data_angle", false);
+				var floorAngle = tile_get_angle_v(angX, angY, false, false, Layer);
 			}
 			break;
 			case RangeLWall:
@@ -104,8 +104,8 @@ function PlayerUpdateAngle()
 				var yRight = floor(PosY + xRadius);
 				
 				// Get floor distances
-				var dLeft  = tile_get_data_h(xLeft,  yLeft,  Layer, false, "data_distance", false);
-				var dRight = tile_get_data_h(xRight, yRight, Layer, false, "data_distance", false);
+				var dLeft  = tile_get_distance_h(xLeft, yLeft, false, false, Layer);
+				var dRight = tile_get_distance_h(xRight, yRight, false, false, Layer);
 				
 				// Use closest distacne in our calculations
 				if dLeft <= dRight
@@ -120,7 +120,7 @@ function PlayerUpdateAngle()
 				}
 				
 				// Get floor angle
-				var floorAngle = tile_get_data_h(angX, angY, Layer, false, "data_angle", false);
+				var floorAngle = tile_get_angle_h(angX, angY, false, false, Layer);
 			}
 			break;
 		}
@@ -129,11 +129,11 @@ function PlayerUpdateAngle()
 		var angDifference = abs(Angle - floorAngle);
 		if  angDifference < 180
 		{
-			Angle = angDifference > 45  ? round(Angle/90) % 4 * 90 : floorAngle;
+			Angle = angDifference > 45  ? (round(Angle/90) % 4) * 90 : floorAngle;
 		}
 		else
 		{
-			Angle = angDifference < 315 ? round(Angle/90) % 4 * 90 : floorAngle;
+			Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
 		}
 	}
 }
