@@ -142,7 +142,7 @@
     {"id":{"name":"PlayerLevelBound","path":"scripts/PlayerLevelBound/PlayerLevelBound.yy",},"order":28,},
     {"id":{"name":"spr_obj_lamppost_lamp","path":"sprites/spr_obj_lamppost_lamp/spr_obj_lamppost_lamp.yy",},"order":23,},
     {"id":{"name":"spr_obj_signpost","path":"sprites/spr_obj_signpost/spr_obj_signpost.yy",},"order":21,},
-    {"id":{"name":"object_set_type","path":"scripts/object_set_type/object_set_type.yy",},"order":9,},
+    {"id":{"name":"object_initialize","path":"scripts/object_initialize/object_initialize.yy",},"order":9,},
     {"id":{"name":"ObjLamppostScript","path":"scripts/ObjLamppostScript/ObjLamppostScript.yy",},"order":0,},
     {"id":{"name":"GameShaderPaletteSetLoad","path":"scripts/GameShaderPaletteSetLoad/GameShaderPaletteSetLoad.yy",},"order":7,},
     {"id":{"name":"spr_sonic_spindash","path":"sprites/spr_sonic_spindash/spr_sonic_spindash.yy",},"order":12,},

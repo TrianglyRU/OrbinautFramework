@@ -35,12 +35,12 @@
 			
 			// Perform roll
 			PlayerCheckRoll();
+					
+			// Collide with floor
+			PlayerCollideFloor();
 			
 			// Get floor angle
 			PlayerUpdateAngle();
-			
-			// Collide with floor
-			PlayerCollideFloor();
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
@@ -72,11 +72,11 @@
 			// Update player's position
 			PlayerSpeedToPos();
 			
-			// Get floor angle
-			PlayerUpdateAngle();
-			
 			// Collide with floor
 			PlayerCollideFloor();
+			
+			// Get floor angle
+			PlayerUpdateAngle();
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();

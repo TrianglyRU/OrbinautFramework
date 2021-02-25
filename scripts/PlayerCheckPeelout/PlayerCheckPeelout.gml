@@ -30,7 +30,8 @@ function PlayerCheckPeelout()
 	// Release
 	else if PeeloutRev = 30
 	{
-		PeeloutRev = -2;
-		Inertia    = 12 * Facing;
+		Screen.ScrollDelay = 12;
+		PeeloutRev		   = -2;
+		Inertia			   = 12 * Facing;
 	}	
 }

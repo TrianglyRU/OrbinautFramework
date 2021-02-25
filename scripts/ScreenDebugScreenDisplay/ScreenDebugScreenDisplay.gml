@@ -41,7 +41,6 @@ function ScreenDebugScreenDisplay()
 			+ "\n"
 			+ "\n         * STATES AND FLAGS *"
 			+ "\n"
-			+ "\n   STATE SCRIPT: " + string(Player.State)
 			+ "\n   ON OBJECT: " + string(Player.OnObject)
 			+ "\n   GOT OBJECT: " + string(Player.GotObject)
 			+ "\n   GROUNDED: " + string(Player.Grounded)
@@ -50,7 +49,9 @@ function ScreenDebugScreenDisplay()
 			+ "\n   IS PUSHING: " + string(Player.Pushing)
 			+ "\n   ON LAYER: " + string(Player.Layer)
 			+ "\n   SPINDASH REV: " + string(Player.SpindashRev)
-			+ "\n   INVINCIBILITY TIMER: " + string(Player.isInvincible)
+			+ "\n   PEELOUT REV: " + string(Player.PeeloutRev)
+			+ "\n   DROPDASH REV: " + string(Player.DropdashRev)
+			+ "\n   INVINCIBILITY: " + string(Player.isInvincible)
 			+ "\n   HIGHSPEED BONUS: " + string(Player.HighSpeedBonus)
 			+ "\n   INVINCIBILITY BONUS: " + string(Player.InvincibilityBonus)
 			+ "\n"

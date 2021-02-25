@@ -1,7 +1,7 @@
 function ObjLamppostSetup()
 {
 	// Set instance as interactive object
-	object_set_type(SolidNone);
+	object_initialize(SolidNone);
 	
 	// Set object hitbox
 	object_set_hitbox(8, 32);

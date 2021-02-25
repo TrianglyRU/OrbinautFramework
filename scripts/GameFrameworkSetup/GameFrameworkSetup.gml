@@ -9,7 +9,7 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen = false;
-	Game.ResolutionWidth  = 398;
+	Game.ResolutionWidth  = 320;
 	Game.ResolutionHeight = 224;
 	Game.WindowSize		  = 2;
 	

@@ -21,7 +21,7 @@ function PlayerCheckSpindash()
 	// Release 
 	if SpindashRev >= 0 and !Input.Down 
 	{
-		Screen.ScrollDelay = 24 - floor(SpindashRev);
+		Screen.ScrollDelay = 16;
 		Inertia			   = (8 + floor(SpindashRev) / 2) * Facing;
 		SpindashRev        = -2;
 		
