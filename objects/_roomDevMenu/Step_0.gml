@@ -1,30 +1,43 @@
 /// @description Navigation
 // You can write your code in this editor
 	
-	if (TextTimer < 60) TextTimer++;
-	if (TextPrint < 40) TextPrint++;
-	if (MainTimer < 60) MainTimer++;
-	if (MainPrint < 40) MainPrint++;
+	if (TextTimer < 90) TextTimer++;
+	if (TextPrint < 60) TextPrint++;
+	if (MainTimer < 90) MainTimer++;
+	if (MainPrint < 60) MainPrint++;
 	
 	// Disable fade
 	Game.FadeEnabled = false;
 	
-	// Navigate between options
-	if (Input.DownPress) MenuOption++;
-	if (Input.UpPress)   MenuOption--;
-	
-	// Loop through options
-	var LinesCount;
-	switch MenuState
+	if Saving
 	{
-		case 0: LinesCount = 3  break;
-		case 1: LinesCount = 3  break;
-		case 2: LinesCount = 4  break;
-		case 3: LinesCount = 4  break;
-		case 4: LinesCount = 6  break;
-		case 5: LinesCount = 10 break;
+		// Navigate between characters
+		if (Input.RightPress)  CharID++;
+		if (Input.LeftPress)   CharID--;
+		
+		// Loop through characters
+		CharID = loop_value(CharID, 0, 3);
 	}
-	MenuOption = loop_value(MenuOption, 0, LinesCount);
+	else
+	{
+		// Navigate between options
+		if (Input.DownPress) MenuOption++;
+		if (Input.UpPress)   MenuOption--;
+		
+		// Loop through options
+		var LinesCount;
+		switch MenuState
+		{
+			case 0: LinesCount = 3  break;
+			case 1: LinesCount = 7  break;
+			case 2: LinesCount = 4  break;
+			case 3: LinesCount = 4  break;
+			case 4: LinesCount = 6  break;
+			case 5: LinesCount = 10 break;
+			case 6: LinesCount = 2  break;
+		}
+		MenuOption = loop_value(MenuOption, 0, LinesCount);
+	}
 		
 	// React to key A and key start
 	if Input.APress or Input.StartPress
@@ -35,19 +48,53 @@
 			{
 				switch MenuOption
 				{	
-					case 0: MenuGoto(StageSelect, 0); break; // Go to stage select screen
+					case 0: MenuGoto(DataSelect, 0);  break; // Go to data select screen
 					case 1: MenuGoto(Options, 0);     break; // Go to options screen
 					case 2: game_end();				  break; // Exit the game
 				}
 			}
 			break;
-			case StageSelect:
+			case DataSelect:
 			{
 				switch MenuOption
-				{
-					case 0:	room_goto(MBZ);    break; // Load MBZ
-					case 1:	room_goto(HHZ);    break; // Load HHZ
-					case 2: MenuGoto(Main, 0); break; // Return to main menu
+				{	
+					case 0: Delete = false; MenuGoto(StageSelect, 0); break; // Go to stage select screen
+					case 5:	Delete = true;							  break; // Delete save
+					case 6: Delete = false; MenuGoto(Main, 0);		  break; // Return to main menu
+					default:
+					{
+						var slot = MenuOption - 1;
+						if Delete 
+						{
+							if Game.SaveSlot[slot] != 0
+							{
+								Delete = false;
+								Game.SaveSlot[slot] = 0;
+							}
+						}
+						else if Game.SaveSlot[slot] = 0
+						{
+							if Saving
+							{
+								Saving = false;
+								Game.SaveSlot[slot][0] = CharID;
+								Game.SaveSlot[slot][1] = MBZ;
+								Game.SaveSlot[slot][2] = 3;
+								Game.SaveSlot[slot][3] = 0;
+								data_save(slot);
+							}
+							else
+							{
+								Saving = true;
+							}
+						
+						}
+						else
+						{
+							room_goto(Game.SaveSlot[slot][1]);
+						}
+					}
+					break; 
 				}
 			}
 			break;
@@ -88,6 +135,17 @@
 					MenuGoto(Options, 2);
 				}
 			}
+			break;
+			case StageSelect:
+			{
+				switch MenuOption
+				{
+					case 0:	room_goto(MBZ);    break; // Load MBZ
+					case 1:	room_goto(HHZ);    break; // Load HHZ
+					case 2: MenuGoto(DataSelect, 0); break; // Return to main menu
+				}
+			}
+			break;
 		}
 	}
 	
@@ -179,12 +237,11 @@
 		// Exit button assign state
 		if ChngCntrl and keyboard_check_pressed(vk_anykey) 
 		{
-			Game.Control[MenuOption] = keyboard_key;
+			Game.Control[MenuOption] = string(keyboard_key);
 			ChngCntrl = false;
 			keyboard_clear(keyboard_key);
 			Input.IgnoreInput = false;
 		}
-		
 		// Enter button assign state
 		else if (Input.APress or Input.StartPress) and !ChngCntrl
 		{
@@ -194,8 +251,7 @@
 	}
 	
 	// Set Sonic
-	var X = Game.ResolutionWidth / 2;
-	var Y = Game.ResolutionHeight / 2;
-	objLoadingIcon.x = X - 110;
-	objLoadingIcon.y = Y - 21 + MenuOption * 15;
+	objLoadingIcon.x = Game.ResolutionWidth / 2 - 110;
+	objLoadingIcon.y = Game.ResolutionHeight / 2 - 21 + MenuOption * 15;
 	if (MenuState = InputConfig) objLoadingIcon.y -= 30;
+	if (MenuState = DataSelect)  objLoadingIcon.x -= 30;

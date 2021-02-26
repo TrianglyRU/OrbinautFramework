@@ -1,5 +1,5 @@
-/// @function enigma_encode(value, decode)
-function enigma_encode(value, decode) 
+/// @function enigma_encode(value)
+function enigma_encode(value) 
 {
 	value = string(value);
 	var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+|\=-№;:?/";

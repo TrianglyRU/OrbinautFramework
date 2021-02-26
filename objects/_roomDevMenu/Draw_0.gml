@@ -24,20 +24,24 @@
 		{	
 			draw_set_halign(fa_center);
 			
-			string_display(X, Y - 15, string_distort("STAGE SELECT", Print, Timer), 1);
+			string_display(X, Y - 15, string_distort("DATA SELECT", Print, Timer), 1);
 			string_display(X, Y,	  string_distort("OPTIONS", Print, Timer), 1);
 			string_display(X, Y + 15, string_distort("CLOSE GAME", Print, Timer), 1);
 		}
 		break;
 		
-		// Display menu 1 (stage select)
-		case StageSelect:
-		{
-			draw_set_halign(fa_left);
+		// Display menu 1 (data select)
+		case DataSelect:
+		{	
+			draw_set_halign(fa_center);
+			string_display(X, Y - 15, string_distort("NO SAVE: GO TO STAGE SELECT", Print, Timer), 1);
+			string_display(X, Y,	  string_distort(menu_string_savedata(0), Print, Timer), 1);
+			string_display(X, Y + 15, string_distort(menu_string_savedata(1), Print, Timer), 1);
+			string_display(X, Y + 30, string_distort(menu_string_savedata(2), Print, Timer), 1);
+			string_display(X, Y + 45, string_distort(menu_string_savedata(3), Print, Timer), 1);
+			string_display(X, Y + 60, string_distort("DELETE SAVE", Print, Timer), 1);
+			string_display(X, Y + 75, string_distort("BACK", Print, Timer), 1);
 			
-			string_display(X - 80, Y - 15, string_distort("MOONLIGHT BASE ZONE", Print, Timer), 1);
-			string_display(X - 80, Y,	   string_distort("HORIZON HEIGHTS ZONE", Print, Timer), 1);
-			string_display(X - 80, Y + 15, string_distort("BACK", Print, Timer), 1);
 		}
 		break;
 		
@@ -94,21 +98,33 @@
 		{
 			draw_set_halign(fa_right);
 			
-			string_display(X - 50, Y - 45, string_distort("UP",      Print, Timer), 1);
-			string_display(X - 50, Y - 30, string_distort("DOWN",    Print, Timer), 1);
-			string_display(X - 50, Y - 15, string_distort("LEFT",    Print, Timer), 1);
-			string_display(X - 50, Y,	   string_distort("RIGHT",   Print, Timer), 1);
-			string_display(X - 50, Y + 15, string_distort("A",		 Print, Timer), 1);
-			string_display(X - 50, Y + 30, string_distort("B",		 Print, Timer), 1);
-			string_display(X - 50, Y + 45, string_distort("C",		 Print, Timer), 1);
-			string_display(X - 50, Y + 60, string_distort("MODE",    Print, Timer), 1);
-			string_display(X - 50, Y + 75, string_distort("START",   Print, Timer), 1);
-			string_display(X - 50, Y + 90, string_distort("BACK",	 Print, Timer), 1);
+			string_display(X - 16, Y - 45, string_distort("UP:",      Print, Timer), 1);
+			string_display(X - 16, Y - 30, string_distort("DOWN:",    Print, Timer), 1);
+			string_display(X - 16, Y - 15, string_distort("LEFT:",    Print, Timer), 1);
+			string_display(X - 16, Y,	   string_distort("RIGHT:",   Print, Timer), 1);
+			string_display(X - 16, Y + 15, string_distort("A:",		 Print,  Timer), 1);
+			string_display(X - 16, Y + 30, string_distort("B:",		 Print,  Timer), 1);
+			string_display(X - 16, Y + 45, string_distort("C:",		 Print,  Timer), 1);
+			string_display(X - 16, Y + 60, string_distort("MODE:",    Print, Timer), 1);
+			string_display(X - 16, Y + 75, string_distort("START:",   Print, Timer), 1);
+			string_display(X + 16, Y + 90, string_distort("BACK",	 Print,  Timer), 1);
 			
-			draw_set_halign(fa_center);
+			draw_set_halign(fa_left);
 			for (var i = 0; i < 9; i++) {
-				string_display(X, Y - 45 + 15 * i, string_distort(i == MenuOption and ChngCntrl ? ": :" : string(Game.Control[i]), Print, Timer), 1);
+				string_display(X, Y - 45 + 15 * i, string_distort(i == MenuOption and ChngCntrl ? ": :" : string(Game.Control[i]) + ":" + InputKeyname(Game.Control[i]), Print, Timer), 1);
 			}
 		}
+		break;
+		
+		// Display menu 6 (stage select)
+		case StageSelect:
+		{
+			draw_set_halign(fa_left);
+			
+			string_display(X - 80, Y - 15, string_distort("MOONLIGHT BASE ZONE", Print, Timer), 1);
+			string_display(X - 80, Y,	   string_distort("HORIZON HEIGHTS ZONE", Print, Timer), 1);
+			string_display(X - 80, Y + 15, string_distort("BACK", Print, Timer), 1);
+		}
+		
 		break;
 	}
