@@ -9,7 +9,7 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen = false;
-	Game.ResolutionWidth  = 320;
+	Game.ResolutionWidth  = 398;
 	Game.ResolutionHeight = 224;
 	Game.WindowSize		  = 2;
 	
@@ -34,7 +34,7 @@ function GameFrameworkSetup()
 	Game.ExtendedCamera			 = false;	// In SCD, the camera will shift forward to the direction you're running
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
 	Game.SmoothRotation			 = true;	// Use Mania-like smooth rotation
-	Game.OriginalRollLimit		 = true;
+	Game.OriginalRollLimit		 = false;
 	Game.RichPresenceSupport	 = true;	// Enable Rich Presence
 	Game.AllowUnroll			 = true;    // Allows you to unroll with UP button when rolling. Good for more complex momentum gaining!
 		

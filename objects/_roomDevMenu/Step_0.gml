@@ -18,7 +18,7 @@
 	switch MenuState
 	{
 		case 0: LinesCount = 3  break;
-		case 1: LinesCount = 2  break;
+		case 1: LinesCount = 3  break;
 		case 2: LinesCount = 4  break;
 		case 3: LinesCount = 4  break;
 		case 4: LinesCount = 6  break;
@@ -46,7 +46,8 @@
 				switch MenuOption
 				{
 					case 0:	room_goto(MBZ);    break; // Load MBZ
-					case 1: MenuGoto(Main, 0); break; // Return to main menu
+					case 1:	room_goto(HHZ);    break; // Load HHZ
+					case 2: MenuGoto(Main, 0); break; // Return to main menu
 				}
 			}
 			break;

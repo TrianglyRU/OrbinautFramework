@@ -21,6 +21,9 @@ function DiscordInformationSet()
 		case MBZ2:
 			DetailsString = "Moonlight Base Zone 2"; 
 		break;
+		case HHZ:
+			DetailsString = "Horizon Heights Zone"; 
+		break;
 	}
 	discord_set_details(DetailsString);
 	

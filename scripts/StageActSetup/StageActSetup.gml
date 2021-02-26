@@ -41,5 +41,25 @@ function StageActSetup()
 			BottomBoundary			= room_height;					
 			State					= ActStateLoading;
 		break;	
+		
+		// Horizon Heights
+		case HHZ:
+			CardName				= "HORIZON HEIGHTS";				
+			BackgroundMusic			= MoonlightBase;				
+			BackgroundDAC			= noone;						
+			LoopStart				= 69.490;						
+			LoopEnd					= 125.120;							
+			ZoneID					= 10;							
+			ActID					= 1;							
+			CardEnabled				= true;							
+			TimeEnabled				= false;						
+			Time					= 0;							
+			WaterLevel				= 0;							
+			LeftBoundary			= 0;							
+			TopBoundary				= 0;							
+			RightBoundary			= room_width;					
+			BottomBoundary			= room_height;					
+			State					= ActStateLoading;
+		break;	
 	}	
 }

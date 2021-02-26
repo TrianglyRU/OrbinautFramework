@@ -36,7 +36,8 @@
 			draw_set_halign(fa_left);
 			
 			string_display(X - 80, Y - 15, string_distort("MOONLIGHT BASE ZONE", Print, Timer), 1);
-			string_display(X - 80, Y,	   string_distort("BACK", Print, Timer), 1);
+			string_display(X - 80, Y,	   string_distort("HORIZON HEIGHTS ZONE", Print, Timer), 1);
+			string_display(X - 80, Y + 15, string_distort("BACK", Print, Timer), 1);
 		}
 		break;
 		
