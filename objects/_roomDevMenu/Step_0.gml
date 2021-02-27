@@ -71,6 +71,7 @@
 							{
 								Delete = false;
 								Game.SaveSlot[slot] = 0;
+								file_delete("saveslot" + string(slot) + ".txt");
 							}
 						}
 						else if Game.SaveSlot[slot] = 0
