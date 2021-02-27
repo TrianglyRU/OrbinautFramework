@@ -5,8 +5,9 @@
 	background_use_parallax();
 	
 	// Perform parallax
-	background_set_parallax(0, 65, 0.22, 0.95, 0, 0, 159, 0, 0);
-	background_set_parallax(0, 65, 0.2, 0.95, 0, 159, 189, 0, 0);
+	background_set_parallax(0, 200, 0.14, 0.9, 0, 0, 84, 0, 0);
+	background_set_parallax(0, 200, 0.17, 0.9, 0, 84, 51, 0, 0);
+	background_set_parallax(0, 200, 0.175, 0.9, 0, 135, sprite_height, 0, 0);
 	
 	// Apply parallax
 	background_apply_parallax();

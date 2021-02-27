@@ -28,13 +28,13 @@
 		var LinesCount;
 		switch MenuState
 		{
-			case 0: LinesCount = 3  break;
-			case 1: LinesCount = 7  break;
-			case 2: LinesCount = 4  break;
-			case 3: LinesCount = 4  break;
-			case 4: LinesCount = 6  break;
-			case 5: LinesCount = 10 break;
-			case 6: LinesCount = 2  break;
+			case Main:			   LinesCount = 4  break;
+			case DataSelect:	   LinesCount = 7  break;
+			case Options:		   LinesCount = 4  break;
+			case FrameworkConfig:  LinesCount = 4  break;
+			case AudioVideoConfig: LinesCount = 6  break;
+			case InputConfig:	   LinesCount = 10 break;
+			case StageSelect:	   LinesCount = 3  break;
 		}
 		MenuOption = loop_value(MenuOption, 0, LinesCount);
 	}
@@ -48,9 +48,10 @@
 			{
 				switch MenuOption
 				{	
-					case 0: MenuGoto(DataSelect, 0);  break; // Go to data select screen
-					case 1: MenuGoto(Options, 0);     break; // Go to options screen
-					case 2: game_end();				  break; // Exit the game
+					case 0: menu_goto(StageSelect, 0); break; // Go to stage select screen
+					case 1: menu_goto(DataSelect, 0);  break; // Go to data select screen
+					case 2: menu_goto(Options, 0);     break; // Go to options screen
+					case 3: game_end();				   break; // Exit the game
 				}
 			}
 			break;
@@ -58,9 +59,9 @@
 			{
 				switch MenuOption
 				{	
-					case 0: Delete = false; MenuGoto(StageSelect, 0); break; // Go to stage select screen
-					case 5:	Delete = true;							  break; // Delete save
-					case 6: Delete = false; MenuGoto(Main, 0);		  break; // Return to main menu
+					case 0: Delete = false; room_goto(MBZ);	    break; // Go to MBZ on a "no save" slot
+					case 5:	Delete = true;					    break; // Delete save
+					case 6: Delete = false; menu_goto(Main, 0); break; // Return to main menu
 					default:
 					{
 						var slot = MenuOption - 1;
@@ -102,10 +103,10 @@
 			{
 				switch MenuOption
 				{	
-					case 0: MenuGoto(FrameworkConfig, 0);  break; // Go to framework options
-					case 1: MenuGoto(AudioVideoConfig, 0); break; // Go to video and audio options
-					case 2: MenuGoto(InputConfig, 0);	   break; // Go to input options
-					case 3: MenuGoto(Main, 1);             break; // Return to main menu
+					case 0: menu_goto(FrameworkConfig, 0);  break; // Go to framework options
+					case 1: menu_goto(AudioVideoConfig, 0); break; // Go to video and audio options
+					case 2: menu_goto(InputConfig, 0);	    break; // Go to input options
+					case 3: menu_goto(Main, 1);             break; // Return to main menu
 				}
 			}
 			break;
@@ -114,7 +115,7 @@
 				// Go back
 				if MenuOption = 3
 				{
-					MenuGoto(Options, 0)
+					menu_goto(Options, 0)
 				}
 			}
 			break;
@@ -123,7 +124,7 @@
 				// Go back
 				if MenuOption = 5
 				{
-					MenuGoto(Options, 1);
+					menu_goto(Options, 1);
 				}
 			}
 			break;
@@ -132,7 +133,7 @@
 				// Go back
 				if MenuOption = 9 
 				{
-					MenuGoto(Options, 2);
+					menu_goto(Options, 2);
 				}
 			}
 			break;
@@ -140,9 +141,9 @@
 			{
 				switch MenuOption
 				{
-					case 0:	room_goto(MBZ);    break; // Load MBZ
-					case 1:	room_goto(HHZ);    break; // Load HHZ
-					case 2: MenuGoto(DataSelect, 0); break; // Return to main menu
+					case 0:	room_goto(MBZ);     break; // Load MBZ
+					case 1:	room_goto(HHZ);     break; // Load HHZ
+					case 2: menu_goto(Main, 0); break; // Return to main menu
 				}
 			}
 			break;

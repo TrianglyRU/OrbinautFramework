@@ -13,7 +13,7 @@
 	Saving     = 0;
 	Delete     = 0;
 	
-// Menu states macro
+	// Menu states macro
 	#macro Main 	        0
 	#macro DataSelect		1        
 	#macro Options		    2

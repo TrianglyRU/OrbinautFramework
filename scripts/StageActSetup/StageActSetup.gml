@@ -9,7 +9,7 @@ function StageActSetup()
 			BackgroundDAC			= noone;						// DAC channel of bgm
 			LoopStart				= 69.490;						// Music loop start point
 			LoopEnd					= 125.120;						// Music loop end point			
-			ZoneID					= 10;							// Zone ID, used for saving
+			ZoneID					= 0;							// Zone ID, used for saving
 			ActID					= 0;							// Act ID, used for displaying act number and saving
 			CardEnabled				= true;							// Enable title card, else just fade in
 			TimeEnabled				= false;						// Enable time counter right from the start
@@ -29,7 +29,7 @@ function StageActSetup()
 			BackgroundDAC			= noone;						
 			LoopStart				= 69.490;						
 			LoopEnd					= 125.120;							
-			ZoneID					= 10;							
+			ZoneID					= 0;							
 			ActID					= 1;							
 			CardEnabled				= true;							
 			TimeEnabled				= false;						
@@ -45,12 +45,12 @@ function StageActSetup()
 		// Horizon Heights
 		case HHZ:
 			CardName				= "HORIZON HEIGHTS";				
-			BackgroundMusic			= MoonlightBase;				
+			BackgroundMusic			= HorizonHeights;				
 			BackgroundDAC			= noone;						
-			LoopStart				= 69.490;						
-			LoopEnd					= 125.120;							
-			ZoneID					= 10;							
-			ActID					= 1;							
+			LoopStart				= 0;						
+			LoopEnd					= 167.163;							
+			ZoneID					= 1;							
+			ActID					= 3;							
 			CardEnabled				= true;							
 			TimeEnabled				= false;						
 			Time					= 0;							

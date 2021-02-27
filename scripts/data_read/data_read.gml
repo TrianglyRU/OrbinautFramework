@@ -1,8 +1,8 @@
-/// @function read_file(name)
-function read_file(name) 
+/// @function data_read(name)
+function data_read(name) 
 {
 	var File = file_text_open_read(name);				
-	if File 
+	if  File 
 	{														
 		for (var i = 0; i < 248; i++) 
 		{

@@ -1,5 +1,5 @@
-/// @function string_distort(string, length, distStart)
-function string_distort(String, Length, distStart) 
+/// @function menu_string_display(string, length, distStart)
+function menu_string_display(String, Length, distStart) 
 {	
 	var Len = string_length(String);
 	

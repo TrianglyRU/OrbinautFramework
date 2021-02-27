@@ -3,10 +3,10 @@ function PlayerCheckJump()
 	// Do not jump if found the low ceiling
 	if round(Angle/90) % 4 = RangeFloor
 	{
-		if tile_get_data_v(floor(PosX - xRadius), floor(PosY - yRadius), Layer, false, "data_distance", true) < 6
-		or tile_get_data_v(floor(PosX + xRadius), floor(PosY - yRadius), Layer, false, "data_distance", true) < 6
+		//if tile_get_data_v(floor(PosX - xRadius), floor(PosY - yRadius), Layer, false, "data_distance", true) < 6
+		//or tile_get_data_v(floor(PosX + xRadius), floor(PosY - yRadius), Layer, false, "data_distance", true) < 6
 		{
-			exit;
+			//exit;
 		}
 	}
 	

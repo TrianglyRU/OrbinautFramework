@@ -14,8 +14,8 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 2;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
-	Game.SoundVolume = 0.5;
+	Game.MusicVolume = 0.3;
+	Game.SoundVolume = 0.3;
 	
 	// Engine customization
 	Game.SpindashEnabled		 = true;	// S2 Spindash
@@ -34,7 +34,7 @@ function GameFrameworkSetup()
 	Game.ExtendedCamera			 = false;	// In SCD, the camera will shift forward to the direction you're running
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
 	Game.SmoothRotation			 = true;	// Use Mania-like smooth rotation
-	Game.OriginalRollLimit		 = false;
+	Game.OriginalRollLimit		 = true;
 	Game.RichPresenceSupport	 = true;	// Enable Rich Presence
 	Game.AllowUnroll			 = true;    // Allows you to unroll with UP button when rolling. Good for more complex momentum gaining!
 		

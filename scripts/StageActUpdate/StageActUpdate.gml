@@ -56,13 +56,11 @@ function StageActUpdate()
 			// Go to the next stage/act
 			case 190:
 			{
-				if room = MBZ2
+				switch room
 				{
-					room_goto(DevMenu);
-				}
-				else
-				{
-					room_goto_next(); 
+					case MBZ:  room_goto(MBZ2);	   break;
+					case MBZ2: room_goto(HHZ);	   break;
+					case HHZ:  room_goto(DevMenu); break;
 				}
 			}
 			break;
