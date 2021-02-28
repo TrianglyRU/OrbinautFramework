@@ -1,8 +1,5 @@
 function StageActUpdate()
 {	
-	// Proceed time counter
-	if (TimeEnabled) Time++;
-
 	// Restart the act upon player death
 	// TODO: Correct stateTimer timings
 	if Player.Death and State != ActStatePlayerDeath
@@ -50,6 +47,10 @@ function StageActUpdate()
 			case 160: 
 			{
 				screen_fade_perform(to, black, 1);
+				
+				Game.SavedCheckpoint = 0;
+				Game.GlobalLives = Player.Lives;
+				Game.GlobalScore = Player.Score;			
 			}
 			break;
 			
@@ -66,4 +67,7 @@ function StageActUpdate()
 			break;
 		}		
 	}
+	
+	// Proceed time counter
+	if (TimeEnabled) Time++;
 }

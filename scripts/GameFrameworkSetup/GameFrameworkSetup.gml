@@ -2,10 +2,10 @@ function GameFrameworkSetup()
 {
 	// Game state
 	Game.GlobalCharacter = CharSonic;
-	Game.SavedCheckpoint = 0;
-	Game.SavedScore		 = 0;
-	Game.SavedLives		 = 3;
+	Game.GlobalScore	 = 0;
+	Game.GlobalLives	 = 3;
 	Game.GamePaused		 = false;
+	Game.SavedCheckpoint = false;
 	
 	// Window settings
 	Game.WindowFullscreen = false;
@@ -47,5 +47,6 @@ function GameFrameworkSetup()
 	Game.Control = [vk_up, vk_down, vk_left, vk_right, ord("A"), ord("S"), ord("D"), vk_space, vk_enter];
 	
 	// Save slots data
+	Game.SaveslotUsed = 0;
 	Game.SaveSlot[3] = 0;
 }

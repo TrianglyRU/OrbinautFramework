@@ -57,6 +57,7 @@
     {"id":{"name":"spr_obj_bridge_stump","path":"sprites/spr_obj_bridge_stump/spr_obj_bridge_stump.yy",},"order":13,},
     {"id":{"name":"PlayerCheckPeelout","path":"scripts/PlayerCheckPeelout/PlayerCheckPeelout.yy",},"order":30,},
     {"id":{"name":"spr_hhz_fg19","path":"sprites/spr_hhz_fg19/spr_hhz_fg19.yy",},"order":24,},
+    {"id":{"name":"gamedata_save","path":"scripts/gamedata_save/gamedata_save.yy",},"order":20,},
     {"id":{"name":"loop_value","path":"scripts/loop_value/loop_value.yy",},"order":22,},
     {"id":{"name":"string_set_font","path":"scripts/string_set_font/string_set_font.yy",},"order":4,},
     {"id":{"name":"spr_hhz_fg05","path":"sprites/spr_hhz_fg05/spr_hhz_fg05.yy",},"order":5,},

@@ -56,6 +56,6 @@ function PlayerSetup()
 	yRadius = yRadiusDefault;
 	
 	// Stats
-	Score = Game.SavedScore;
-	Lives = Game.SavedLives;
+	Score = Game.GlobalScore;
+	Lives = Game.GlobalLives;
 }
