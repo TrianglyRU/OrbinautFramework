@@ -7,7 +7,16 @@ function PlayerCheckSpindash()
 	if Inertia = 0 and Input.Down and Input.ABCPress 
 	{	
 		Animation = AnimSpindash;
-		if (SpindashRev < 8) SpindashRev += 2;
+		
+		if SpindashRev = -2
+		{
+			SpindashRev = 2;
+		}
+		else
+		{
+			 SpindashRev += 2;
+		}
+		if (SpindashRev > 8) SpindashRev = 8;
 		
 		audio_sfx_play(sfxCharge, false);
 	}

@@ -21,7 +21,7 @@ function hitbox_collision(collideFrom, collideWith)
 		}
 		else
 		{
-			show_message("Instance ID " + string(collideWith.id) + " is not set as an object player can check for collision with using hitbox_collision function. Set instance as object using object_initialize function.");
+			show_message("Instance ID " + string(collideWith.id) + " is not set as an object player can check for collision with using hitbox_collision function. Set instance as object using object_setup function.");
 			game_end();
 		}
 	}

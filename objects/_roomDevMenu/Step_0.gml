@@ -34,7 +34,7 @@
 			case FrameworkConfig:  LinesCount = 4  break;
 			case AudioVideoConfig: LinesCount = 6  break;
 			case InputConfig:	   LinesCount = 10 break;
-			case StageSelect:	   LinesCount = 3  break;
+			case StageSelect:	   LinesCount = 4  break;
 		}
 		MenuOption = loop_value(MenuOption, 0, LinesCount);
 	}
@@ -142,9 +142,10 @@
 			{
 				switch MenuOption
 				{
-					case 0:	room_goto(MBZ);     break; // Load MBZ
-					case 1:	room_goto(HHZ);     break; // Load HHZ
-					case 2: menu_goto(Main, 0); break; // Return to main menu
+					case 0:	room_goto(MBZ);     break; // Load MBZ1
+					case 1:	room_goto(MBZ2);    break; // Load MBZ2
+					case 2:	room_goto(HHZ);     break; // Load HHZ
+					case 3: menu_goto(Main, 0); break; // Return to main menu
 				}
 			}
 			break;

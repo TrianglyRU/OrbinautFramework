@@ -2,4 +2,4 @@
 // You can call your scripts in this editor
 	
 	// Set platform solidity
-	object_initialize(SolidTop);
+	object_setup(SolidTop);

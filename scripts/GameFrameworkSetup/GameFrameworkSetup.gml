@@ -47,6 +47,7 @@ function GameFrameworkSetup()
 	Game.Control = [vk_up, vk_down, vk_left, vk_right, ord("A"), ord("S"), ord("D"), vk_space, vk_enter];
 	
 	// Save slots data
-	Game.SaveslotUsed = 0;
+	Game.SaveslotUsed	 = 0;
+	Game.SaveslotData[3] = 0;
 	Game.SaveSlot[3] = 0;
 }

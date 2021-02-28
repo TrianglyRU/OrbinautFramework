@@ -1,10 +1,10 @@
 function ScreenInterfaceDisplay() 
-{		
-	// Show FPS
-	string_set_font(Game.Font[FontDebug], "left");
-	string_display(Width - 40, Height - 4, "FPS: " + string(floor(fps_real)), 0.5);
+{	
+	// Get camera position
+	var X = RenderX;
+	var Y = RenderY;
 	
-	// Time counter system
+	// Handle timer
 	var TimeValue = Stage.Time div 60;
 	if  TimeValue < 599 
 	{
@@ -24,21 +24,25 @@ function ScreenInterfaceDisplay()
 		var RedFlash = Stage.Time ? Stage.Time mod 16 < 8 : 0;
 		
 		// Draw graphics
-		draw_sprite(sprHUD_Score, 0,							  17 + InterfaceOffsetX, 9  + InterfaceOffsetY);
-		draw_sprite(sprHUD_Time,  TimeValue > 540 ? RedFlash : 0, 17 + InterfaceOffsetX, 25 + InterfaceOffsetY);
-		draw_sprite(sprHUD_Rings, !Player.Rings   ? RedFlash : 0, 17 + InterfaceOffsetX, 41 + InterfaceOffsetY);
-		draw_sprite(sprHUD_Lives, Player.CharacterID,             14 + InterfaceOffsetX, Height - 23 + InterfaceOffsetY);
+		draw_sprite(sprHUD_Score, 0,							  X + 17 + InterfaceOffsetX, Y + 9  + InterfaceOffsetY);
+		draw_sprite(sprHUD_Time,  TimeValue > 540 ? RedFlash : 0, X + 17 + InterfaceOffsetX, Y + 25 + InterfaceOffsetY);
+		draw_sprite(sprHUD_Rings, !Player.Rings   ? RedFlash : 0, X + 17 + InterfaceOffsetX, Y + 41 + InterfaceOffsetY);
+		draw_sprite(sprHUD_Lives, Player.CharacterID,             X + 14 + InterfaceOffsetX, Y + Height - 23 + InterfaceOffsetY);
 	
 		// Display SCORE, TIME, RINGS counters
 		string_set_font(Game.Font[FontDigits1], "right");
 		
-		string_display(113 + InterfaceOffsetX, 9  + InterfaceOffsetY, Player.Score, 1);
-		string_display(89  + InterfaceOffsetX, 25 + InterfaceOffsetY, string(Minutes) + ":" + (Seconds > 9 ? "" : "0") + string(Seconds), 1);
-		string_display(89  + InterfaceOffsetX, 41 + InterfaceOffsetY, Player.Rings, 1);
+		string_display(X + 113 + InterfaceOffsetX, Y + 9  + InterfaceOffsetY, Player.Score, 1);
+		string_display(X + 89  + InterfaceOffsetX, Y + 25 + InterfaceOffsetY, string(Minutes) + ":" + (Seconds > 9 ? "" : "0") + string(Seconds), 1);
+		string_display(X + 89  + InterfaceOffsetX, Y + 41 + InterfaceOffsetY, Player.Rings, 1);
 		
 		// Display lives counter
 		string_set_font(Game.Font[FontDigits2], "right");
 		
-		string_display(65 + InterfaceOffsetX, Height - 15 + InterfaceOffsetY, Player.Lives, 1);
+		string_display(X + 65 + InterfaceOffsetX, Y + Height - 15 + InterfaceOffsetY, Player.Lives, 1);
 	}
+	
+	// Show FPS
+	string_set_font(Game.Font[FontDebug], "left");
+	string_display(X + Width - 40, Y + Height - 4, "FPS: " + string(floor(fps_real)), 0.5);
 }

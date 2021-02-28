@@ -51,7 +51,7 @@ function StageActSetup()
 			LoopStart				= 0;						
 			LoopEnd					= 167.163;							
 			ZoneID					= 1;							
-			ActID					= 3;							
+			ActID					= 0;							
 			CardEnabled				= true;							
 			TimeEnabled				= false;						
 			Time					= 0;							
@@ -63,7 +63,4 @@ function StageActSetup()
 			State					= ActStateLoading;
 		break;	
 	}	
-	
-	// Save our game on stage load
-	gamedata_save(Game.SaveslotUsed, Player.CharacterID, ZoneID, ActID, Player.Score, Player.Lives, 0);
 }

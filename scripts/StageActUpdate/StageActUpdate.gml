@@ -41,30 +41,10 @@ function StageActUpdate()
 		
 		// Start timer
 		StateTimer++
-		switch StateTimer
-		{	
-			// Perform fade to black if it is not act 1
-			case 160: 
-			{
-				screen_fade_perform(to, black, 1);
-				
-				Game.SavedCheckpoint = 0;
-				Game.GlobalLives = Player.Lives;
-				Game.GlobalScore = Player.Score;			
-			}
-			break;
-			
-			// Go to the next stage/act
-			case 190:
-			{
-				switch room
-				{
-					case MBZ:  room_goto(MBZ2);	   break;
-					case MBZ2: room_goto(HHZ);	   break;
-					case HHZ:  room_goto(DevMenu); break;
-				}
-			}
-			break;
+		if StateTimer = 150
+		{
+			State	   = ActStateUnload;
+			StateTimer = 0;
 		}		
 	}
 	

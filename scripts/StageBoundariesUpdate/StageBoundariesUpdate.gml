@@ -27,8 +27,8 @@ function StageBoundariesUpdate()
 		var FinishX = ActEndObject.x;
 	}
 	var PlayerX		= floor(Player.PosX);
-	var HalvedWidth = Screen.Width / 2;
 	var PlayerScrnX = floor(Screen.PlayerScreenX);
+	var HalvedWidth = Screen.Width / 2;
 	
 	// Adjust horizontal boundaries
 	switch State
@@ -40,20 +40,25 @@ function StageBoundariesUpdate()
 			{
 				if PlayerX >= (FinishX - Screen.Width * 1.5 + 64) + HalvedWidth
 				{
-					if PlayerScrnX > HalvedWidth
-					{
-						LeftBoundary = PlayerX - HalvedWidth;
-					}
+					LeftBoundary  = FinishX - Screen.Width * 1.5 + 64;
 					RightBoundary = FinishX + HalvedWidth;
 				}
-				if PlayerX > FinishX
-				{
-					if floor(Screen.ViewX) >= FinishX - HalvedWidth 
-					{
-						LeftBoundary = FinishX - HalvedWidth;
-					}
-				}
 			} 
+		}
+		break;
+		
+		// Set stage boundaries on act finish
+		case ActStateFinished:
+		{
+			if LeftBoundary != FinishX - HalvedWidth
+			{
+				LeftBoundary += 16;
+				if LeftBoundary > FinishX - HalvedWidth
+				{
+					LeftBoundary = FinishX - HalvedWidth;
+				}
+			}
+			RightBoundary = FinishX + HalvedWidth;
 		}
 		break;
 		

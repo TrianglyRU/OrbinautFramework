@@ -122,9 +122,10 @@
 		{
 			draw_set_halign(fa_left);
 			
-			string_display(X - 80, Y - 15, "MOONLIGHT BASE ZONE", 1);
-			string_display(X - 80, Y,	   "HORIZON HEIGHTS ZONE", 1);
-			string_display(X - 80, Y + 15, "BACK", 1);
+			string_display(X - 80, Y - 15, "MOONLIGHT BASE 1", 1);
+			string_display(X - 80, Y,	   "MOONLIGHT BASE 2", 1);
+			string_display(X - 80, Y + 15, "HORIZON HEIGHTS", 1);
+			string_display(X - 80, Y + 30, "BACK", 1);
 		}
 		
 		break;

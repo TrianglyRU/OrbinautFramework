@@ -4,8 +4,5 @@
 	// Display debug screen
 	ScreenDebugScreenDisplay();
 	
-	// Display HUD
-	ScreenInterfaceDisplay();
-	
 	// Display title card
 	ScreenTitleCardDisplay();

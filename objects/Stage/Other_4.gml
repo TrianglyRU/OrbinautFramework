@@ -1,4 +1,4 @@
-/// @description Initialization
+/// @description Setup
 // You can call your scripts in this editor
 	
 	// Set stage properties

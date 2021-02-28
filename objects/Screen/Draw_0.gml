@@ -3,3 +3,6 @@
 	
 	// Display debug view
 	ScreenDebugViewDisplay();
+	
+	// Display HUD
+	ScreenInterfaceDisplay();
