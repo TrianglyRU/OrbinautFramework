@@ -7,5 +7,11 @@
 	data_load(2);
 	data_load(3);
 	
+	gamesettings_load();
+	
+	application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
+	window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
+	window_set_fullscreen(Game.WindowFullscreen);
+	
 	// Set font
 	draw_set_font(Game.Font[FontMenu]);

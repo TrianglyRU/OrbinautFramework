@@ -9,7 +9,7 @@ function InputHotkeysRead()
 			audio_stop_all();
 			room_restart();
 		}
-	
+
 		// Game restart
 		if keyboard_check_pressed(vk_f3) 
 		{

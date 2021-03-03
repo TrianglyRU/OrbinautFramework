@@ -1,11 +1,6 @@
 /// @description Navigation
 // You can write your code in this editor
 	
-	if (TextTimer < 90) TextTimer++;
-	if (TextPrint < 60) TextPrint++;
-	if (MainTimer < 90) MainTimer++;
-	if (MainPrint < 60) MainPrint++;
-	
 	// Disable fade
 	Game.FadeEnabled = false;
 	
@@ -59,9 +54,9 @@
 			{
 				switch MenuOption
 				{	
-					case 0: Delete = false; room_goto(MBZ);	    break; // Go to MBZ on a "no save" slot
-					case 5:	Delete = true;					    break; // Delete save
-					case 6: Delete = false; menu_goto(Main, 0); break; // Return to main menu
+					case 0: Delete = false; room_goto(MBZ);				   break; // Go to MBZ on a "no save" slot
+					case 5:	if (Game.SaveSlot != [0,0,0,0]) Delete = true; break; // Delete save
+					case 6: Delete = false; menu_goto(Main, 0);			   break; // Return to main menu
 					default:
 					{
 						var slot = MenuOption - 1;
@@ -104,10 +99,10 @@
 			{
 				switch MenuOption
 				{	
-					case 0: menu_goto(FrameworkConfig, 0);  break; // Go to framework options
-					case 1: menu_goto(AudioVideoConfig, 0); break; // Go to video and audio options
-					case 2: menu_goto(InputConfig, 0);	    break; // Go to input options
-					case 3: menu_goto(Main, 1);             break; // Return to main menu
+					case 0: menu_goto(FrameworkConfig, 0);			 break; // Go to framework options
+					case 1: menu_goto(AudioVideoConfig, 0);			 break; // Go to video and audio options
+					case 2: menu_goto(InputConfig, 0);				 break; // Go to input options
+					case 3: menu_goto(Main, 1); gamesettings_save(); break; // Return to main menu
 				}
 			}
 			break;

@@ -1,11 +1,6 @@
 /// @description Options
 // You can write your code in this editor
 	
-	var Timer  = TextTimer div 3;
-	var Print  = TextPrint div 2;
-	var MTimer = MainTimer div 3;
-	var MPrint = MainPrint div 2;
-	
 	// Get centre
 	var X = Game.ResolutionWidth  / 2;
 	var Y = Game.ResolutionHeight / 2;
@@ -36,12 +31,12 @@
 		{	
 			draw_set_halign(fa_center);
 			string_display(X, Y - 15, "NO SAVE: NEW GAME", 1);
-			string_display(X, Y,	  menu_string_display(menu_string_savedata(0), Print, Timer), 1);
-			string_display(X, Y + 15, menu_string_display(menu_string_savedata(1), Print, Timer), 1);
-			string_display(X, Y + 30, menu_string_display(menu_string_savedata(2), Print, Timer), 1);
-			string_display(X, Y + 45, menu_string_display(menu_string_savedata(3), Print, Timer), 1);
-			string_display(X, Y + 60, menu_string_display("DELETE SAVE", Print, Timer), 1);
-			string_display(X, Y + 75, menu_string_display("BACK", Print, Timer), 1);
+			string_display(X, Y,	  menu_string_savedata(0), 1);
+			string_display(X, Y + 15, menu_string_savedata(1), 1);
+			string_display(X, Y + 30, menu_string_savedata(2), 1);
+			string_display(X, Y + 45, menu_string_savedata(3), 1);
+			string_display(X, Y + 60, "DELETE SAVE", 1);
+			string_display(X, Y + 75, "BACK", 1);
 			
 		}
 		break;
@@ -98,7 +93,6 @@
 		case InputConfig:
 		{
 			draw_set_halign(fa_right);
-			
 			string_display(X - 16, Y - 45, "UP:", 1);
 			string_display(X - 16, Y - 30, "DOWN:", 1);
 			string_display(X - 16, Y - 15, "LEFT:", 1);
@@ -112,7 +106,7 @@
 			
 			draw_set_halign(fa_left);
 			for (var i = 0; i < 9; i++) {
-				string_display(X, Y - 45 + 15 * i, menu_string_display(i == MenuOption and ChngCntrl ? ": :" : string(Game.Control[i]) + ":" + menu_input_get_keyname(Game.Control[i]), Print, Timer), 1);
+				string_display(X, Y - 45 + 15 * i, i == MenuOption and ChngCntrl ? ": :" : string(Game.Control[i]) + ":" + menu_input_get_keyname(Game.Control[i]), 1);
 			}
 		}
 		break;
