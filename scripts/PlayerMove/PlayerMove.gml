@@ -81,7 +81,7 @@ function PlayerMove()
 	} 
 	else
 	{
-		Animation = abs(Inertia) < TopAcc? AnimWalk : AnimRun;
+		Animation = abs(Inertia) < TopAcc ? AnimWalk : (abs(Inertia) < 12 ? AnimRun : AnimPeelout);
 	}
 
 	// Convert inertia to normal axis speeds
