@@ -4,5 +4,5 @@ function ScreenInterfaceSetup()
 	InterfaceOffsetX = -120;	
 	InterfaceOffsetY = 0;	
 
-	EnableDebug	= false;
+	DebugViewEnabled	= false;
 }

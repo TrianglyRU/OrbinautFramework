@@ -7,8 +7,6 @@
 	CardTimer		 = 0;
 	CardValue	     = 0;
 	CardString	     = 0;
-	EnableHUD		 = 0;
-	EnableDebug		 = 0;
 	Width			 = 0;
 	Height			 = 0;
 	PlayerScreenX	 = 0;
@@ -24,3 +22,7 @@
 	SpinOffset		 = 0;
 	ExtendedOffset	 = 0;
 	OverviewOffset	 = 0;
+	
+	DebugViewEnabled   = 0;
+	DebugShowHitboxes  = 0;
+	DebugShowCollision = 0;

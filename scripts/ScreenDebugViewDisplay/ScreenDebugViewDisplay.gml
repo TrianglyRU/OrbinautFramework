@@ -1,7 +1,7 @@
 function ScreenDebugViewDisplay()
 {
 	// Display only if allowed to
-	if EnableDebug = false exit;
+	if DebugViewEnabled = false exit;
 
 	// Draw floor and ceiling player collision points
 	if Player.Grounded
@@ -121,26 +121,38 @@ function ScreenDebugViewDisplay()
 			draw_point(floor(Player.PosX + 10), floor(Player.PosY));
 		}
 	}
-	
-	draw_set_alpha(0.65);
 		
 	// Draw player's solidbox
-	/*var PlayerLeft   = floor(Player.PosX - 10);
+	var PlayerLeft   = floor(Player.PosX - 10);
 	var PlayerRight  = floor(Player.PosX + 10);
 	var PlayerTop    = floor(Player.PosY - Player.yRadius);
 	var PlayerBottom = floor(Player.PosY + Player.yRadius);
-	draw_rectangle(PlayerLeft, PlayerTop, PlayerRight, PlayerBottom, false);*/
+	draw_set_alpha(0.3);
+	draw_rectangle(PlayerLeft, PlayerTop, PlayerRight, PlayerBottom, false);
 	
 	// Draw player's hitbox
 	var HitboxLeft   = floor(Player.PosX - 8);
 	var HitboxRight  = floor(Player.PosX + 8);			     
 	var HitboxTop	 = floor(Player.PosY - Player.yRadius + 3);
 	var HitboxBottom = floor(Player.PosY + Player.yRadius - 3);
-	draw_rectangle_colour(HitboxLeft, HitboxTop, HitboxRight, HitboxBottom, c_purple, c_purple, c_purple, c_purple, false);
 	
-	// Draw object hitboxes
-	with Objects
+	// Draw hitboxes
+	if DebugShowHitboxes
 	{
-		draw_rectangle_colour(bbox_left, bbox_top, bbox_right, bbox_bottom, c_purple, c_purple, c_purple, c_purple, false);
+		draw_set_alpha(0.6);
+		with Objects
+		{	
+			draw_rectangle_colour(bbox_left, bbox_top, bbox_right, bbox_bottom, c_purple, c_purple, c_purple, c_purple, false);
+		}
+		draw_rectangle_colour(HitboxLeft, HitboxTop, HitboxRight, HitboxBottom, c_purple, c_purple, c_purple, c_purple, false);
 	}
+	
+	// Show collision
+	var layer_id1 = layer_get_id("CollisionTilesA");
+	var layer_id2 = layer_get_id("CollisionTilesB");
+	layer_set_visible(layer_id1, DebugShowCollision && Player.Layer = LayerA);
+	layer_set_visible(layer_id2, DebugShowCollision && Player.Layer = LayerB);
+		
+	// Restore default transparency
+	draw_set_alpha(1);
 }

@@ -27,6 +27,7 @@ function StageBoundariesUpdate()
 		var FinishX = ActEndObject.x;
 	}
 	var PlayerX		= floor(Player.PosX);
+	var CameraX     = floor(Screen.ViewX);
 	var PlayerScrnX = floor(Screen.PlayerScreenX);
 	var HalvedWidth = Screen.Width / 2;
 	
@@ -38,7 +39,7 @@ function StageBoundariesUpdate()
 		{
 			if ActEndObject != noone 
 			{
-				if PlayerX >= (FinishX - Screen.Width * 1.5 + 64) + HalvedWidth
+				if CameraX >= FinishX - Screen.Width * 1.5 + 64
 				{
 					LeftBoundary  = FinishX - Screen.Width * 1.5 + 64;
 					RightBoundary = FinishX + HalvedWidth;
@@ -50,13 +51,13 @@ function StageBoundariesUpdate()
 		// Set stage boundaries on act finish
 		case ActStateFinished:
 		{
-			if LeftBoundary != FinishX - HalvedWidth
+			if CameraX != FinishX - HalvedWidth
 			{
-				LeftBoundary += 16;
-				if LeftBoundary > FinishX - HalvedWidth
-				{
-					LeftBoundary = FinishX - HalvedWidth;
-				}
+				LeftBoundary = CameraX;
+			}
+			else
+			{
+				LeftBoundary = FinishX - HalvedWidth;
 			}
 			RightBoundary = FinishX + HalvedWidth;
 		}

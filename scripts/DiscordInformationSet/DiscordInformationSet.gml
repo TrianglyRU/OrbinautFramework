@@ -12,9 +12,6 @@ function DiscordInformationSet()
 	// Set details strings (current zone)
 	switch room 
 	{
-		case GameStart: 
-			DetailsString = "";
-		break;
 		case MBZ:
 			DetailsString = "Moonlight Base Zone"; 
 		break;

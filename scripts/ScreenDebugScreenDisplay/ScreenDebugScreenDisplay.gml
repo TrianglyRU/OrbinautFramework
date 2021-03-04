@@ -1,7 +1,7 @@
 function ScreenDebugScreenDisplay()
 {	
 	// Display only if allowed to
-	if EnableDebug = false exit;
+	if DebugViewEnabled = false exit;
 	
 	// Draw rectangle
 	draw_set_alpha(0.65);
@@ -42,7 +42,6 @@ function ScreenDebugScreenDisplay()
 			+ "\n         * STATES AND FLAGS *"
 			+ "\n"
 			+ "\n   ON OBJECT: " + string(Player.OnObject)
-			+ "\n   GOT OBJECT: " + string(Player.GotObject)
 			+ "\n   GROUNDED: " + string(Player.Grounded)
 			+ "\n   IS ROLLING: " + string(Player.Rolling)
 			+ "\n   IS JUMPING: " + string(Player.Jumping)
@@ -76,11 +75,11 @@ function ScreenDebugScreenDisplay()
 			+ "\n   SPIN OFFSET: " + string(SpinOffset)
 			+ "\n"
 			+ "\n"
+			+ "\n   F1: DEBUG OVERVIEW"
 			+ "\n   F2: STAGE RESTART"
 			+ "\n   F3: GAME RESTART"
 			+ "\n   F4: FRAME BY FRAME MODE"
-			+ "\n   F5: SHOW DEBUG VIEW"
-			+ "\n   F6: SHOW COLLISION"
-	 		+ "\n",			
+			+ "\n   F5: SHOW HITBOXES"
+			+ "\n   F6: SHOW COLLISION",		
 	10, 0.3);
 }

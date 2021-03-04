@@ -1,8 +1,14 @@
 function InputHotkeysRead()
 {	
-	if room != DevMenu && room != GameStart
+	if room != DevMenu
 	{
-		// Room restart
+		// Debug view
+		if keyboard_check_pressed(vk_f1) 
+		{
+			Screen.DebugViewEnabled = Screen.DebugViewEnabled ? false : true;
+		}
+		
+		// Stage restart
 		if keyboard_check_pressed(vk_f2) 
 		{
 			Game.SavedCheckpoint = 0;
@@ -22,16 +28,16 @@ function InputHotkeysRead()
 			game_set_speed(game_get_speed(gamespeed_fps) == 60 ? 3 : 60, gamespeed_fps);
 		}
 	
-		// Debug view
-		if keyboard_check_pressed(vk_f1) 
-		{
-			Screen.EnableDebug = Screen.EnableDebug ? false : true;
-		}
-	
-		// Set stage timer
+		// Show hitboxes
 		if keyboard_check_pressed(vk_f5) 
 		{
-			Stage.Time = 35900
+			Screen.DebugShowHitboxes = Screen.DebugShowHitboxes ? false : true;
+		}
+		
+		// Show collision
+		if keyboard_check_pressed(vk_f6) 
+		{
+			Screen.DebugShowCollision = Screen.DebugShowCollision ? false : true;
 		}
 	
 		// Player

@@ -157,7 +157,7 @@
 				// Aspect ratio
 				case 0: 
 				{	
-					Game.ResolutionWidth = Game.ResolutionWidth == 398 ? 320 : 398;
+					Game.ResolutionWidth = Game.ResolutionWidth == 398 ? 530 : 398;
 					application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
 					window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
 				}

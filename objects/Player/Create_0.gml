@@ -15,7 +15,6 @@
 	Pushing              = 0;
 	Grounded			 = 0;
 	OnObject			 = 0;
-	GotObject			 = 0;
 	Layer				 = 0;
 	Facing				 = 0;
 	Hurt			     = 0;

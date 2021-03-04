@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Controllers",
-    "path": "folders/Controllers.yy",
+    "path": "folders/Objects/Controllers.yy",
   },
   "resourceVersion": "1.0",
   "name": "Player",
