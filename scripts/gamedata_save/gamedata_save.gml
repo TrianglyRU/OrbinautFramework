@@ -2,6 +2,7 @@ function gamedata_save(slot, charAddress, zoneAddress, actAddress, scoreAddress,
 {
 	// Open the file
 	var filename = "saveslot" + string(slot) + ".txt";
+	
 	if file_exists(filename)
 	{
 		file_delete(filename);
@@ -20,15 +21,15 @@ function gamedata_save(slot, charAddress, zoneAddress, actAddress, scoreAddress,
 	file_text_write_string(file, enigma_encode(actAddress));
 	file_text_writeln(file);
 	
-	// Save character
+	// Save score
 	file_text_write_string(file, enigma_encode(scoreAddress));
 	file_text_writeln(file);
 	
-	// Save character
+	// Save lives
 	file_text_write_string(file, enigma_encode(livesAddress));
 	file_text_writeln(file);
 	
-	// Save character
+	// Save conts
 	file_text_write_string(file, enigma_encode(contsAddress));
 	file_text_writeln(file);
 	

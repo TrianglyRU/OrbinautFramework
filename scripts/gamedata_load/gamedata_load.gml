@@ -1,4 +1,4 @@
-function gamedata_load(slot, charAddress, zoneAddress, actAddress, scoreAddress, livesAddress, contsAddress)
+function gamedata_load(slot)
 {
 	// Open the file
 	var filename = "saveslot" + string(slot) + ".txt";
@@ -6,32 +6,34 @@ function gamedata_load(slot, charAddress, zoneAddress, actAddress, scoreAddress,
 	{
 		file_delete(filename);
 	}
-	var file = file_text_open_read(filename);
-		
+	var file = file_text_open_read(filename), data;
+
 	// Save character
-	file_text_write_string(file, enigma_encode(charAddress));
-	file_text_writeln(file);
+	data[0] = enigma_decode(file_text_read_string(file));
+	file_text_readln(file);
 	
 	// Save zone
-	file_text_write_string(file, enigma_encode(zoneAddress));
-	file_text_writeln(file);
+	data[1] = enigma_decode(file_text_read_string(file));
+	file_text_readln(file);
 	
 	// Save act
-	file_text_write_string(file, enigma_encode(actAddress));
-	file_text_writeln(file);
+	data[2] = enigma_decode(file_text_read_string(file));
+	file_text_readln(file);
 	
 	// Save character
-	file_text_write_string(file, enigma_encode(scoreAddress));
-	file_text_writeln(file);
+	data[3] = enigma_decode(file_text_read_string(file));
+	file_text_readln(file);
 	
 	// Save character
-	file_text_write_string(file, enigma_encode(livesAddress));
-	file_text_writeln(file);
+	data[4] = enigma_decode(file_text_read_string(file));
+	file_text_readln(file);
 	
 	// Save character
-	file_text_write_string(file, enigma_encode(contsAddress));
-	file_text_writeln(file);
+	data[5] = enigma_decode(file_text_read_string(file));
+	file_text_readln(file);
 	
 	// Close the file
 	file_text_close(file);
+	
+	return data;
 }
