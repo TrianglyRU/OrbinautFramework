@@ -10,9 +10,24 @@ function StageActEnd()
 			// Move player's score and lives to global values to keep it between the stages
 			case 1:
 			{
-				// TODO: Save the game here using next act/zone
+				// Buffer score and lives to transfer it to the next zone/act
 				Game.GlobalScore = Player.Score;
 				Game.GlobalLives = Player.Lives;
+				
+				// Define if we need to save the next zone/act
+				if Stage.ActID = 0
+				{
+					var actToSave  = 1;
+					var zoneToSave = Stage.ZoneID;
+				}
+				else
+				{
+					var actToSave  = 0;
+					var zoneToSave = Stage.ZoneID + 1;
+				}
+				
+				// Save game progress
+				gamedata_save(Game.SaveslotUsed, Player.CharacterID, zoneToSave, actToSave, Game.GlobalScore, Game.GlobalLives, 0);
 			}
 			break;
 			

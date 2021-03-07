@@ -147,7 +147,7 @@ function PlayerObjectsInteraction()
 		}
 	}
 	
-	// Delete object lists
+	// Reset object lists
 	ds_list_destroy(objList1);			
 	ds_list_destroy(objList2);
 	ds_list_destroy(objList3);

@@ -1,10 +1,10 @@
 function PlayerCheckPeelout()
 {	
-	// Check if peelout is enabled
-	if Game.PeeloutEnabled = false exit;
-	
 	// Check if we're Sonic
 	if CharacterID != CharSonic exit;
+	
+	// Check if peelout is enabled
+	if Game.PeeloutEnabled = false exit;
 	
 	// Start peelout
 	if Inertia = 0 and PeeloutRev = -2

@@ -1,39 +1,46 @@
+/// @function gamedata_load(slot)
 function gamedata_load(slot)
 {
-	// Open the file
+	// Get out savedata file name
 	var filename = "saveslot" + string(slot) + ".txt";
-	if file_exists(filename)
+	
+	// If datafile does not exists when we're trying to load it, create it and fill with zeros
+	if !file_exists(filename)
 	{
-		file_delete(filename);
+		var file = file_text_open_write(filename);
+		for (var i = 0; i < 6; i++)
+		{
+			file_text_write_string(file, -1);
+			file_text_writeln(file);
+		}
+		file_text_close(file);
 	}
-	var file = file_text_open_read(filename), data;
-
-	// Save character
-	data[0] = enigma_decode(file_text_read_string(file));
-	file_text_readln(file);
 	
-	// Save zone
-	data[1] = enigma_decode(file_text_read_string(file));
-	file_text_readln(file);
-	
-	// Save act
-	data[2] = enigma_decode(file_text_read_string(file));
-	file_text_readln(file);
-	
-	// Save character
-	data[3] = enigma_decode(file_text_read_string(file));
-	file_text_readln(file);
-	
-	// Save character
-	data[4] = enigma_decode(file_text_read_string(file));
-	file_text_readln(file);
-	
-	// Save character
-	data[5] = enigma_decode(file_text_read_string(file));
-	file_text_readln(file);
-	
-	// Close the file
-	file_text_close(file);
-	
-	return data;
+	// Else read the data from it
+	else
+	{	
+		// Open file
+		var file = file_text_open_read(filename);
+		
+		// Read data
+		var data	
+		for(var i = 0; i < 6; i++)
+		{
+		  data[i] = enigma_decode(file_text_read_string(file));
+		  file_text_readln(file);
+		}
+		
+		/* NOTE: it loads the data in next order (as saved):
+		0 - Character;
+		1 - Zone;
+		2 - Act;
+		3 - Score;
+		4 - Lives;
+		5 - Continues;
+		*/
+		
+		// Close the file and return loaded data
+		file_text_close(file);
+		return data;
+	}
 }

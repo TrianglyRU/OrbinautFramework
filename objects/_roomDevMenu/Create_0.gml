@@ -1,13 +1,14 @@
 /// @description Variables and Macro List
 // You can write your code in this editor
 	
-	Timer      = 0;
-	MenuState  = 0;
-	MenuOption = 0;
-	ChngCntrl  = 0;
-	CharID     = 0;
-	Saving     = 0;
-	Delete     = 0;
+	Timer       = 0;
+	MenuState   = 0;
+	MenuOption  = 0;
+	ChngCntrl   = 0;
+	CharID      = 0;
+	Saving      = 0;
+	Delete      = 0;
+	DataSlot[3] = 0;
 	
 	// Menu states macro
 	#macro Main 	        0

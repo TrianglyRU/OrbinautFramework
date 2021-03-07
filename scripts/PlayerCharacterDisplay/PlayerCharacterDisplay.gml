@@ -40,9 +40,9 @@ function PlayerCharacterDisplay()
 	}
 	
 	// Perform super palette cycle
-	if Player.isSuper
+	if isSuper
 	{
-		switch Player.CharacterID
+		switch CharacterID
 		{
 			case CharSonic:
 			{

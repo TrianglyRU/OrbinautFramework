@@ -12,7 +12,7 @@ function ScreenCameraShift()
 	{ 
 		ShiftX = clamp(PlayerScreenX - (Width / 2 - 16), -16, 0);  
 	}
-	if PlayerScreenX >= Width / 2 
+	else if PlayerScreenX >= Width / 2 
 	{ 
 		ShiftX = clamp(PlayerScreenX - (Width / 2), 0, 16);    
 	}

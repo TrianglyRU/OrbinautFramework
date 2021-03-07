@@ -30,13 +30,22 @@
 		case DataSelect:
 		{	
 			draw_set_halign(fa_center);
-			string_display(X, Y - 15, "NO SAVE: NEW GAME", 1);
-			string_display(X, Y,	  menu_string_savedata(0), 1);
-			string_display(X, Y + 15, menu_string_savedata(1), 1);
-			string_display(X, Y + 30, menu_string_savedata(2), 1);
-			string_display(X, Y + 45, menu_string_savedata(3), 1);
+			
+			string_display(X, Y - 15, "NO SAVE", 1);
+			for (var i = 0; i < 4; i++)
+			{
+				if DataSlot[i][0] = -1
+				{
+					string_display(X, Y + i * 15, "SLOT " + string(i) + ": NEW GAME", 1);
+				}
+				else
+				{
+					string_display(X, Y + i * 15, "SLOT " + string(i) + ": ZONE " + string(DataSlot[i][0]) + " ACT " + string(DataSlot[i][1]), 1);
+				}
+			}
 			string_display(X, Y + 60, "DELETE SAVE", 1);
 			string_display(X, Y + 75, "BACK", 1);
+			//string_display(X, Y, "ZONE: " + string(DataSlot1[0]) + " ACT: " + string(DataSlot1[1]), 1);
 			
 		}
 		break;

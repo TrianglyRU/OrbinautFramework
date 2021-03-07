@@ -33,7 +33,7 @@
 		}
 		MenuOption = loop_value(MenuOption, 0, LinesCount);
 	}
-		
+	
 	// React to key A and key start
 	if Input.APress or Input.StartPress
 	{
@@ -52,47 +52,87 @@
 			break;
 			case DataSelect:
 			{
-				switch MenuOption
+				// Go to MBZ if no save slot selected
+				if MenuOption = 0
+				{
+					room_goto(MBZ);
+				}
+				else if MenuOption < 5
 				{	
-					case 0: Delete = false; room_goto(MBZ);				   break; // Go to MBZ on a "no save" slot
-					case 5:	if (Game.SaveSlot != [0,0,0,0]) Delete = true; break; // Delete save
-					case 6: Delete = false; menu_goto(Main, 0);			   break; // Return to main menu
-					default:
-					{
-						var slot = MenuOption - 1;
-						if Delete 
+					// Define the saveslot we selected
+					Game.SaveslotUsed = MenuOption - 1;
+					
+					// Check saved act
+					switch DataSlot[MenuOption - 1][1]
+					{	
+						// If saved act is act 1
+						case 0:
 						{
-							if Game.SaveSlot[slot] != 0
+							switch DataSlot[MenuOption - 1][0]
 							{
-								Delete = false;
-								Game.SaveSlot[slot] = 0;
-								file_delete("saveslot" + string(slot) + ".txt");
+								case 0: room_goto(MBZ); break;
+								case 1: room_goto(HHZ); break;
 							}
+							break;
 						}
-						else if Game.SaveSlot[slot] = 0
-						{
-							if Saving
-							{
-								Saving = false;
-								Game.SaveSlot[slot][0] = CharID;
-								Game.SaveSlot[slot][1] = MBZ;
-								Game.SaveSlot[slot][2] = 3;
-								Game.SaveSlot[slot][3] = 0;
-								data_save(slot);
-							}
-							else
-							{
-								Saving = true;
-							}
 						
+						// If saved act is act 2
+						case 1:
+						{
+							switch DataSlot[MenuOption - 1][0]
+							{
+								case 0: room_goto(MBZ2); break;
+								case 1: room_goto(HHZ); break;
+							}
+							break;
+						}
+					}
+				}
+				else
+				{
+					switch MenuOption
+					{
+						case 5: Delete = true;  break;
+						case 6: Delete = false; menu_goto(Main, 0); break;
+					}
+				}
+				/*case 0: Delete = false; room_goto(MBZ);			   break; // Go to MBZ on a "no save" slot
+				case 5:	if (Game.SaveSlot != [0,0,0,0]) Delete = true; break; // Delete save
+				case 6: Delete = false; menu_goto(Main, 0);			   break; // Return to main menu
+				default:
+				{
+					var slot = MenuOption - 1;
+					if Delete 
+					{
+						if Game.SaveSlot[slot] != 0
+						{
+							Delete = false;
+							Game.SaveSlot[slot] = 0;
+							file_delete("saveslot" + string(slot) + ".txt");
+						}
+					}
+					else if Game.SaveSlot[slot] = 0
+					{
+						if Saving
+						{
+							Saving = false;
+							Game.SaveSlot[slot][0] = CharID;
+							Game.SaveSlot[slot][1] = MBZ;
+							Game.SaveSlot[slot][2] = 3;
+							Game.SaveSlot[slot][3] = 0;
+							data_save(slot);
 						}
 						else
 						{
-							room_goto(Game.SaveSlot[slot][1]);
+							Saving = true;
 						}
+						
 					}
-					break; 
-				}
+					else
+					{
+						room_goto(Game.SaveSlot[slot][1]);
+					}
+				}*/
 			}
 			break;
 			case Options:
