@@ -1,7 +1,7 @@
-function menu_goto(State, Option) 
+function menu_goto(state, option) 
 {
-	MenuState		 = State; 
-	MenuOption		 = Option; 
+	MenuState		 = state; 
+	MenuOption		 = option; 
 	Input.APress	 = false;
 	Input.StartPress = false;
 }

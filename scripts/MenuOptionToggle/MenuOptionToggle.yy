@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "System",
-    "path": "folders/Game Functions/System.yy",
+    "name": "Menu Scripts",
+    "path": "folders/Game Code/Menu Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "menu_get_stage",
+  "name": "MenuOptionToggle",
   "tags": [],
   "resourceType": "GMScript",
 }

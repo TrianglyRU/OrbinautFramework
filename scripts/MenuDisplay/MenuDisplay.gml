@@ -1,9 +1,11 @@
-/// @description Options
-// You can write your code in this editor
-	
-	// Get centre
+function MenuDisplay()
+{
+	// Get screen centre
 	var X = Game.ResolutionWidth  / 2;
 	var Y = Game.ResolutionHeight / 2;
+	
+	// Set font
+	draw_set_font(Game.Font[FontMenu]);
 	
 	// Set font to use in the room
 	draw_set_halign(fa_center);
@@ -34,17 +36,17 @@
 			string_display(X, Y - 15, "NO SAVE", 1);
 			for (var i = 0; i < 4; i++)
 			{	
-				if SaveslotData[i] != 0
+				if Saveslot[i] != 0
 				{	
 					// Get zones
-					switch SaveslotData[i][SavedZone]
+					switch Saveslot[i][SavedZone]
 					{
 						case 0: var DisplayZone = "MBZ";  break;
 						case 1: var DisplayZone = "HHZ"; break;
 					}
 					
 					// Get character
-					switch SaveslotData[i][SavedChar]
+					switch Saveslot[i][SavedChar]
 					{
 						case CharSonic:    var DisplayChar = "SONIC";  break;
 						case CharTails:    var DisplayChar = "TAILS"; break;
@@ -143,7 +145,7 @@
 			draw_set_halign(fa_left);
 			for (var i = 0; i < 9; i++) 
 			{
-				string_display(X, Y - 45 + 15 * i, i == MenuOption and ChngCntrl ? ": :" : string(Game.Control[i]) + ":" + menu_input_get_keyname(Game.Control[i]), 1);
+				string_display(X, Y - 45 + 15 * i, i == MenuOption and ControlEditMode ? ": :" : string(Game.Control[i]) + ":" + menu_input_get_keyname(Game.Control[i]), 1);
 			}
 		}
 		break;
@@ -158,6 +160,6 @@
 			string_display(X - 80, Y + 15, "HORIZON HEIGHTS", 1);
 			string_display(X - 80, Y + 30, "BACK", 1);
 		}
-		
 		break;
 	}
+}

@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Controllers",
-    "path": "folders/Objects/Controllers.yy",
+    "name": "Input Scripts",
+    "path": "folders/Game Code/Input Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "Input",

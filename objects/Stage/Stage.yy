@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Controllers",
-    "path": "folders/Objects/Controllers.yy",
+    "name": "Stage Scripts",
+    "path": "folders/Game Code/Stage Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage",

@@ -5,16 +5,12 @@
 	MenuOption		= 0;	
 	ControlEditMode = 0;
 	DataDeleteMode  = 0;
-	SaveslotData[0] = 0;
-	SaveslotData[1] = 0;
-	SaveslotData[2] = 0;
-	SaveslotData[3] = 0;
+	Saveslot[0]		= 0;
+	Saveslot[1]		= 0;
+	Saveslot[2]		= 0;
+	Saveslot[3]		= 0;
 	SaveNewData     = 0;
 	
-	ChngCntrl   = 0;
-	CharID      = 0;
-	
-	// Menu states macro
 	#macro Main 	        0
 	#macro DataSelect		1        
 	#macro Options		    2

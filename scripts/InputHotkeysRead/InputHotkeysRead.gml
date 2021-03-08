@@ -20,7 +20,7 @@ function InputHotkeysRead()
 		// Game restart
 		if keyboard_check_pressed(vk_f3) 
 		{
-			gamedata_save(Game.SaveslotUsed, Player.CharacterID, Stage.ZoneID, Stage.ActID, Game.GlobalScore, Game.GlobalLives, 0);
+			gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, Stage.ActID, Game.GlobalScore, Game.GlobalLives, 0);
 			game_restart();
 		}
 	
