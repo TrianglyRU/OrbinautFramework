@@ -4,37 +4,25 @@
 	// Disable fade
 	Game.FadeEnabled = false;
 	
-	/*if Saving
-	{
-		// Navigate between characters
-		if (Input.RightPress)  CharID++;
-		if (Input.LeftPress)   CharID--;
+	// Navigate between options
+	if (Input.DownPress) MenuOption++;
+	if (Input.UpPress)   MenuOption--;
 		
-		// Loop through characters
-		CharID = loop_value(CharID, 0, 3);
-	}
-	else*/
+	// Loop through options. This is important when you add new lines to the menus. (If there are 4 lines then value is 4, not 3)
+	var LinesCount;
+	switch MenuState
 	{
-		// Navigate between options
-		if (Input.DownPress) MenuOption++;
-		if (Input.UpPress)   MenuOption--;
-		
-		// Loop through options. This is important when you add new lines to the menus. (If there are 4 lines then value is 4, not 3)
-		var LinesCount;
-		switch MenuState
-		{
-			case Main:			   LinesCount = 4  break;
-			case DataSelect:	   LinesCount = 7  break;
-			case Options:		   LinesCount = 4  break;
-			case FrameworkConfig:  LinesCount = 4  break;
-			case AudioVideoConfig: LinesCount = 6  break;
-			case InputConfig:	   LinesCount = 10 break;
-			case StageSelect:	   LinesCount = 4  break;
-			case CharacterSelect:  LinesCount = 4  break;
-		}
-		MenuOption = loop_value(MenuOption, 0, LinesCount);
+		case Main:			   LinesCount = 4  break;
+		case DataSelect:	   LinesCount = 7  break;
+		case Options:		   LinesCount = 4  break;
+		case FrameworkConfig:  LinesCount = 4  break;
+		case AudioVideoConfig: LinesCount = 6  break;
+		case InputConfig:	   LinesCount = 10 break;
+		case StageSelect:	   LinesCount = 4  break;
+		case CharacterSelect:  LinesCount = 4  break;
 	}
-	
+	MenuOption = loop_value(MenuOption, 0, LinesCount);
+		
 	// React to key A and key start
 	if Input.APress or Input.StartPress
 	{
@@ -53,30 +41,33 @@
 			break;
 			case DataSelect:
 			{
-				// Go to MBZ if no save slot selected
+				// Ignore all savefile manipulations and go straight to character select if
+				// selected "no save" slot
 				if MenuOption = 0
 				{
 					menu_goto(CharacterSelect, 0);
+					SaveNewData = false;
 				}
 				else if MenuOption < 5
 				{	
 					// Define the saveslot we selected
 					Game.SaveslotUsed = MenuOption - 1;
 					
-					if !Delete
+					// Check if we're not trying to delete a save
+					if !DataDeleteMode
 					{
-						// If savefile exists
-						if DataSlot[Game.SaveslotUsed] != 0
+						// Check if savefile exists
+						if SaveslotData[Game.SaveslotUsed] != 0
 						{	
 							// Load the data
-							Game.GlobalCharacter = DataSlot[Game.SaveslotUsed][SavedChar];
-							Game.GlobalScore	 = DataSlot[Game.SaveslotUsed][SavedScore];
-							Game.GlobalLives	 = DataSlot[Game.SaveslotUsed][SavedLives];
-							Game.GlobalEmeralds  = DataSlot[Game.SaveslotUsed][SavedEmeralds];
-							Game.GlobalConts     = DataSlot[Game.SaveslotUsed][SavedConts];
+							Game.GlobalCharacter = SaveslotData[Game.SaveslotUsed][SavedChar];
+							Game.GlobalScore	 = SaveslotData[Game.SaveslotUsed][SavedScore];
+							Game.GlobalLives	 = SaveslotData[Game.SaveslotUsed][SavedLives];
+							Game.GlobalEmeralds  = SaveslotData[Game.SaveslotUsed][SavedEmeralds];
+							Game.GlobalConts     = SaveslotData[Game.SaveslotUsed][SavedConts];
 						
 							// Load the Zone using its ID
-							switch DataSlot[Game.SaveslotUsed][SavedZone]
+							switch SaveslotData[Game.SaveslotUsed][SavedZone]
 							{	
 								case 0: room_goto(MBZ); break;
 								case 1: room_goto(HHZ); break;
@@ -84,25 +75,35 @@
 							break;
 						}
 					
-						// Go to character select screen
+						// Else create new and go to character select
 						else
 						{
 							menu_goto(CharacterSelect, 0);
-							DoSave = true;
+							SaveNewData = true;
 						}
 					}
+					
+					// Else delete the savefile
 					else
 					{
-						DataSlot[Game.SaveslotUsed] = 0;
-						Delete = false;
+						file_delete("saveslot" + string(Game.SaveslotUsed) + ".txt");
+						SaveslotData[Game.SaveslotUsed] = 0;
+						DataDeleteMode = false;
 					}
 				}
 				else
 				{
 					switch MenuOption
-					{
-						case 5: Delete = true;  break;
-						case 6: Delete = false; menu_goto(Main, 0); break;
+					{	
+						// Enable save delete mode
+						case 5: DataDeleteMode = true; break;
+						case 6: 
+						{
+							// Go back to main menu
+							DataDeleteMode = false; 
+							menu_goto(Main, 0);
+						}
+						break;
 					}
 				}
 			}
@@ -111,21 +112,23 @@
 			{
 				if MenuOption < 3
 				{
-					// Get our character and load MBZ
+					// Get our character
 					Game.GlobalCharacter = MenuOption;
-					room_goto(MBZ);
-					
-					// Save the game if selected not "no save" file
-					if (DoSave)
+								
+					// Save the new game if we did not select "no save" slot
+					if SaveNewData
 					{
 						gamedata_save(Game.SaveslotUsed, Game.GlobalCharacter, 0, 0, 0, 3, 0);
 					}
+					
+					// Load MBZ
+					room_goto(MBZ);
 				}
 				else
 				{	
 					// Return to data select
 					menu_goto(DataSelect, 0); 
-					DoSave = false; 
+					SaveNewData = false; 
 				}
 			}
 			break;
@@ -267,61 +270,23 @@
 	if MenuState = InputConfig and MenuOption < 9
 	{	
 		// Exit button assign state
-		if ChngCntrl and keyboard_check_pressed(vk_anykey) 
+		if ControlEditMode and keyboard_check_pressed(vk_anykey) 
 		{
 			Game.Control[MenuOption] = string(keyboard_key);
-			ChngCntrl = false;
+			ControlEditMode			 = false;
+			Input.IgnoreInput	     = false;
 			keyboard_clear(keyboard_key);
-			Input.IgnoreInput = false;
 		}
 		// Enter button assign state
-		else if (Input.APress or Input.StartPress) and !ChngCntrl
+		else if (Input.APress or Input.StartPress) and !ControlEditMode
 		{
-			ChngCntrl		  = true;
+			ControlEditMode	  = true;
 			Input.IgnoreInput = true;
 		}
 	}
 	
 	// Set Sonic
-	objLoadingIcon.x = Game.ResolutionWidth / 2 - 110;
+	objLoadingIcon.x = Game.ResolutionWidth  / 2 - 110;
 	objLoadingIcon.y = Game.ResolutionHeight / 2 - 21 + MenuOption * 15;
 	if (MenuState = InputConfig) objLoadingIcon.y -= 30;
 	if (MenuState = DataSelect)  objLoadingIcon.x -= 30;
-	
-	/*case 0: Delete = false; room_goto(MBZ);			   break; // Go to MBZ on a "no save" slot
-				case 5:	if (Game.SaveSlot != [0,0,0,0]) Delete = true; break; // Delete save
-				case 6: Delete = false; menu_goto(Main, 0);			   break; // Return to main menu
-				default:
-				{
-					var slot = MenuOption - 1;
-					if Delete 
-					{
-						if Game.SaveSlot[slot] != 0
-						{
-							Delete = false;
-							Game.SaveSlot[slot] = 0;
-							file_delete("saveslot" + string(slot) + ".txt");
-						}
-					}
-					else if Game.SaveSlot[slot] = 0
-					{
-						if Saving
-						{
-							Saving = false;
-							Game.SaveSlot[slot][0] = CharID;
-							Game.SaveSlot[slot][1] = MBZ;
-							Game.SaveSlot[slot][2] = 3;
-							Game.SaveSlot[slot][3] = 0;
-							data_save(slot);
-						}
-						else
-						{
-							Saving = true;
-						}
-						
-					}
-					else
-					{
-						room_goto(Game.SaveSlot[slot][1]);
-					}
-				}*/

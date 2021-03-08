@@ -33,13 +33,30 @@
 			
 			string_display(X, Y - 15, "NO SAVE", 1);
 			for (var i = 0; i < 4; i++)
-			{
-				if DataSlot[i] != 0
+			{	
+				if SaveslotData[i] != 0
 				{	
-					string_display(X, Y + i * 15, "SLOT " + string(i) + + ": CHAR " + string(DataSlot[i][SavedChar]) + " ZONE " + string(DataSlot[i][SavedZone]), 1);
+					// Get zones
+					switch SaveslotData[i][SavedZone]
+					{
+						case 0: var DisplayZone = "MBZ";  break;
+						case 1: var DisplayZone = "HHZ"; break;
+					}
+					
+					// Get character
+					switch SaveslotData[i][SavedChar]
+					{
+						case CharSonic:    var DisplayChar = "SONIC";  break;
+						case CharTails:    var DisplayChar = "TAILS"; break;
+						case CharKnuckles: var DisplayChar = "KNUCKLES"; break;
+					}
+					
+					// Display data info
+					string_display(X, Y + i * 15, "SLOT " + string(i) + + ": " + DisplayChar + " " + DisplayZone, 1);
 				}
 				else
 				{
+					// Display "new game" slot
 					string_display(X, Y + i * 15, "SLOT " + string(i) + ": NEW GAME", 1);	
 				}
 			}
