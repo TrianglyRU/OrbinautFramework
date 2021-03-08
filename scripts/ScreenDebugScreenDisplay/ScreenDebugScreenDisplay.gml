@@ -1,5 +1,9 @@
 function ScreenDebugScreenDisplay()
 {	
+	// Show FPS
+	string_set_font(Game.Font[FontDebug], "left");
+	string_display(Width - 40, Height - 4, "FPS: " + string(floor(fps_real)), 0.5);
+	
 	// Display only if allowed to
 	if DebugViewEnabled = false exit;
 	
@@ -9,7 +13,6 @@ function ScreenDebugScreenDisplay()
 	
 	// Set font
 	draw_set_alpha(1);
-	string_set_font(Game.Font[FontDebug], "left");
 	
 	// Display debug screen
 	string_display_list(Width - 93, 8,

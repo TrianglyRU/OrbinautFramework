@@ -6,7 +6,7 @@
 	MenuOption  = 0;
 	ChngCntrl   = 0;
 	CharID      = 0;
-	Saving      = 0;
+	DoSave      = 0;
 	Delete      = 0;
 	DataSlot[3] = 0;
 	
@@ -18,3 +18,4 @@
 	#macro AudioVideoConfig 4
 	#macro InputConfig		5
 	#macro StageSelect      6
+	#macro CharacterSelect  7

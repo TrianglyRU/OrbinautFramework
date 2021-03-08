@@ -48,6 +48,18 @@
 		}
 		break;
 		
+		// Display character select menu
+		case CharacterSelect:
+		{
+			draw_set_halign(fa_center);
+			
+			string_display(X, Y - 15, "SONIC", 1);
+			string_display(X, Y,	  "TAILS", 1);
+			string_display(X, Y + 15, "KNUCKLES", 1);
+			string_display(X, Y + 30, "BACK", 1);
+		}
+		break;
+		
 		// Display menu 2 (options)
 		case Options:
 		{	
