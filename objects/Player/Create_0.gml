@@ -23,8 +23,6 @@
 	
 	PosX				 = 0;
 	PosY				 = 0;
-	PosX				 = 0;
-	PosY				 = 0;
 	Xsp					 = 0;
 	Ysp					 = 0;
 	Inertia				 = 0;
@@ -57,3 +55,5 @@
 	Score				 = 0;
 	Rings				 = 0;
 	Lives				 = 0;
+	Conts				 = 0;
+	Emeralds			 = 0;

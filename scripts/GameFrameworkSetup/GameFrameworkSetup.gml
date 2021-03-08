@@ -1,7 +1,7 @@
 function GameFrameworkSetup()
 {
 	// Game state
-	Game.GlobalCharacter = CharTails;
+	Game.GlobalCharacter = CharSonic;
 	Game.GlobalScore	 = 0;
 	Game.GlobalLives	 = 3;
 	Game.GlobalConts	 = 0;

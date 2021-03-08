@@ -4,7 +4,7 @@ function PlayerSetup()
 	CharacterID	= Game.GlobalCharacter;
 	
 	// Set spawn properties
-	var Spawn = Game.SavedCheckpoint != 0 ? Game.SavedCheckpoint : Spawnpoint;
+	var Spawn = Game.SavedCheckpoint ? Game.SavedCheckpoint : Spawnpoint;
 	PosX	  = Spawn.x
 	PosY	  = Spawn.y;
 	
@@ -56,6 +56,8 @@ function PlayerSetup()
 	yRadius = yRadiusDefault;
 	
 	// Stats
-	Score = Game.GlobalScore;
-	Lives = Game.GlobalLives;
+	Score    = Game.GlobalScore;
+	Lives    = Game.GlobalLives;
+	Emeralds = Game.GlobalEmeralds;
+	Conts    = Game.GlobalConts;
 }

@@ -4,7 +4,7 @@ function animation_play(objSprite, aniSpeed, doLoopFrom)
 	// Report script error
 	if doLoopFrom < 1 or doLoopFrom > image_number
 	{
-		show_message("Wrong doLoopFrom attribute set in function animation_play. doLoopFrom should not be lower than 1 or higher than sprite frames number.");
+		show_message("Wrong doLoopFrom attribute set in function animation_play for animation " + string(sprite_get_name(objSprite)) + ". doLoopFrom should not be lower than 1 or higher than sprite frames number.");
 		game_end();
 	}
 	

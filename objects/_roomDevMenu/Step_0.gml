@@ -19,7 +19,7 @@
 		if (Input.DownPress) MenuOption++;
 		if (Input.UpPress)   MenuOption--;
 		
-		// Loop through options
+		// Loop through options. This is important when you add new lines to the menus. (If there are 4 lines then value is 4, not 3)
 		var LinesCount;
 		switch MenuState
 		{
@@ -62,30 +62,30 @@
 					// Define the saveslot we selected
 					Game.SaveslotUsed = MenuOption - 1;
 					
-					// Check saved act
-					switch DataSlot[MenuOption - 1][1]
+					// If savefile exists
+					if DataSlot[Game.SaveslotUsed] != 0
 					{	
-						// If saved act is act 1
-						case 0:
-						{
-							switch DataSlot[MenuOption - 1][0]
-							{
-								case 0: room_goto(MBZ); break;
-								case 1: room_goto(HHZ); break;
-							}
-							break;
-						}
+						// Load the data
+						Game.GlobalCharacter = DataSlot[Game.SaveslotUsed][SavedChar];
+						Game.GlobalScore	 = DataSlot[Game.SaveslotUsed][SavedScore];
+						Game.GlobalLives	 = DataSlot[Game.SaveslotUsed][SavedLives];
+						Game.GlobalEmeralds  = DataSlot[Game.SaveslotUsed][SavedEmeralds];
+						Game.GlobalConts     = DataSlot[Game.SaveslotUsed][SavedConts];
 						
-						// If saved act is act 2
-						case 1:
-						{
-							switch DataSlot[MenuOption - 1][0]
-							{
-								case 0: room_goto(MBZ2); break;
-								case 1: room_goto(HHZ); break;
-							}
-							break;
+						// Load the Zone
+						switch DataSlot[Game.SaveslotUsed][SavedZone]
+						{	
+							case 0: room_goto(MBZ); break;
+							case 1: room_goto(HHZ); break;
 						}
+						break;
+					}
+					
+					// else create a new game
+					else
+					{
+						gamedata_save(Game.SaveslotUsed, Game.GlobalCharacter, 0, 0, 0, 3, 0);
+						room_goto(MBZ);
 					}
 				}
 				else

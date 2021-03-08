@@ -5,6 +5,7 @@
 	for (var i = 0; i < 4; i++)
 	{
 		DataSlot[i] = gamedata_load(i);
+		show_debug_message("Dataslot " + string(i) + " data is " + string(DataSlot[i]));
 	}
 	
 	// Load gamesettings

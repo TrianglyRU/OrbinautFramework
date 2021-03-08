@@ -14,12 +14,14 @@ function GameMacroSetup()
 	#macro FontDigits2 2
 	#macro FontCard    3
 	#macro FontMenu    4
-	#macro SaveZone    0
-	#macro SaveAct     1
-	#macro SaveChar    2
-	#macro SaveLives   3
-	#macro SaveConts   4
-	#macro SaveScore   5
+	
+	#macro SavedChar     0
+	#macro SavedZone     1
+	#macro SavedEmeralds 2
+	#macro SavedScore    3
+	#macro SavedLives    4
+	#macro SavedConts    5
+	
 
 	// Player macro
 	#macro RangeFloor	       0
