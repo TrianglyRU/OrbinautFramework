@@ -5,13 +5,14 @@ function InputHotkeysRead()
 		// Debug view
 		if keyboard_check_pressed(vk_f1) 
 		{
-			Screen.DebugViewEnabled = Screen.DebugViewEnabled ? false : true;
+			Screen.DebugViewEnabled = !Screen.DebugViewEnabled;
 		}
 		
 		// Stage restart
 		if keyboard_check_pressed(vk_f2) 
 		{
 			Game.SavedCheckpoint = 0;
+			Game.SavedPosition	 = 0;
 			audio_stop_all();
 			room_restart();
 		}
@@ -32,13 +33,18 @@ function InputHotkeysRead()
 		// Show hitboxes
 		if keyboard_check_pressed(vk_f5) 
 		{
-			Screen.DebugShowHitboxes = Screen.DebugShowHitboxes ? false : true;
+			Screen.DebugShowHitboxes = !Screen.DebugShowHitboxes;
 		}
 		
 		// Show collision
 		if keyboard_check_pressed(vk_f6) 
 		{
-			Screen.DebugShowCollision = Screen.DebugShowCollision ? false : true;
+			Screen.DebugShowCollision = !Screen.DebugShowCollision;
+		}
+		
+		if keyboard_check_pressed(vk_f7) 
+		{
+			room_restart();
 		}
 	
 		// Player

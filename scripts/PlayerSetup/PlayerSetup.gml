@@ -4,14 +4,21 @@ function PlayerSetup()
 	CharacterID	= Game.GlobalCharacter;
 	
 	// Set spawn properties
-	var Spawn = Game.SavedCheckpoint ? Game.SavedCheckpoint : Spawnpoint;
-	PosX	  = Spawn.x
-	PosY	  = Spawn.y;
+	if Game.SavedPosition = 0 
+	{
+		PosX = Spawnpoint.x;
+		PosY = Spawnpoint.y;
+	}
+	else
+	{
+		PosX = Game.SavedPosition[0];
+		PosY = Game.SavedPosition[1];
+	}
 	
 	// Set sprite
 	Facing	  = FacingRight;
 	Animation = AnimIdle;
-	DrawOrder = Spawn.depth;
+	DrawOrder = Spawnpoint.depth;
 	
 	// Set basic constants
 	Acc		= 0.046875;

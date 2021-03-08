@@ -8,6 +8,7 @@ function GameFrameworkSetup()
 	Game.GlobalEmeralds  = 0;
 	Game.GamePaused		 = false;
 	Game.SavedCheckpoint = false;
+	Game.SavedPosition   = false;
 	
 	// Window settings
 	Game.WindowFullscreen = false;

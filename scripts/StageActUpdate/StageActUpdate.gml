@@ -37,6 +37,7 @@ function StageActUpdate()
 			TimeEnabled			 = false;
 			StateTimer			 = 0;
 			Game.SavedCheckpoint = 0;
+			Game.SavedPosition   = 0;
 		}
 		
 		// Start timer

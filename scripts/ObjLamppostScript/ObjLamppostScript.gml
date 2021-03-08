@@ -7,6 +7,7 @@ function ObjLamppostScript()
 		{
 			// Set last used checkpoint ID to our ID
 			Game.SavedCheckpoint = id;
+			Game.SavedPosition = [x, y];
 			
 			// Activate all inactive checkpoints with ID lower than ours
 			var tempValue = LamppostID;

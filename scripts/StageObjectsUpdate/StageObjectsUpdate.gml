@@ -1,7 +1,7 @@
 function StageObjectsUpdate() 
 {	
 	// List of objects to deactivate
-	with Objects instance_deactivate_object(self);
+	instance_deactivate_object(Objects);
 
 	// Activate objects in a chuck of camera position rounded down to nearest 128
 	if State != ActStateLoading
