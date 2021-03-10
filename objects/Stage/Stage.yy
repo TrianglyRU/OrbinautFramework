@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage Scripts",
-    "path": "folders/Game Code/Stage Scripts.yy",
+    "name": "OrbinautFramework",
+    "path": "OrbinautFramework.yyp",
   },
   "resourceVersion": "1.0",
   "name": "Stage",

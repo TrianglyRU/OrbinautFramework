@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screen Scripts",
-    "path": "folders/Game Code/Screen Scripts.yy",
+    "name": "OrbinautFramework",
+    "path": "OrbinautFramework.yyp",
   },
   "resourceVersion": "1.0",
   "name": "Screen",

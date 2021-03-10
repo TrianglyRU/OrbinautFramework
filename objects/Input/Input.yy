@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Input Scripts",
-    "path": "folders/Game Code/Input Scripts.yy",
+    "name": "OrbinautFramework",
+    "path": "OrbinautFramework.yyp",
   },
   "resourceVersion": "1.0",
   "name": "Input",

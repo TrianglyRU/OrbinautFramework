@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Scripts",
-    "path": "folders/Game Code/Game Scripts.yy",
+    "name": "OrbinautFramework",
+    "path": "OrbinautFramework.yyp",
   },
   "resourceVersion": "1.0",
   "name": "Game",

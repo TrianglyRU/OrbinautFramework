@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Menu Scripts",
-    "path": "folders/Game Code/Menu Scripts.yy",
+    "name": "OrbinautFramework",
+    "path": "OrbinautFramework.yyp",
   },
   "resourceVersion": "1.0",
   "name": "Menu",
