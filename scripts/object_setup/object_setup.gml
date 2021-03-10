@@ -6,5 +6,5 @@ function object_setup()
 	variable_instance_set(id, "Solidity",		 "noSolidityInfo");
 	variable_instance_set(id, "GotPlayerHitbox", "noCollisionInfo");
 	variable_instance_set(id,  visible,			 "noRenderInfo");
-	variable_instance_set(id,  depth,			 "noDepthInfo");	
+	variable_instance_set(id,  depth,			 "noDepthInfo");
 }

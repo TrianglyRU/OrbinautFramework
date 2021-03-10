@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_capsule",
-    "path": "sprites/spr_capsule/spr_capsule.yy",
+    "name": "spr_capsule_button",
+    "path": "sprites/spr_capsule_button/spr_capsule_button.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,8 +24,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"parent":{"name":"Capsule","path":"objects/Capsule/Capsule.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"Capsule","path":"objects/Capsule/Capsule.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"CapsuleButton","path":"objects/CapsuleButton/CapsuleButton.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -34,7 +33,7 @@
     "path": "folders/Objects/Global.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Capsule",
+  "name": "CapsuleButton",
   "tags": [],
   "resourceType": "GMObject",
 }
