@@ -31,7 +31,7 @@ function PlayerObjectsInteraction()
 		for (var i = 0; i < objNumb1; ++i;)
 		{ 
 			var Obj = objList1[| i];
-			if variable_instance_exists(Obj, "GotPlayerHitbox")
+			if variable_instance_exists(Obj, "IsStageObject")
 			{	
 				// This variable resets in hitbox_collision. So we're basically checking if we touched the object from our side,
 				// and when it is in "touched" state, it checks if we are still overlapping it from its side when using hitbox_collision. 
@@ -48,7 +48,7 @@ function PlayerObjectsInteraction()
 		for (var k = 0; k < objNumb2; ++k;)
 		{
 			var solidObj = objList2[| k];
-			if variable_instance_exists(solidObj, "Solidity")
+			if variable_instance_exists(solidObj, "IsStageObject")
 			{	
 				// Collide horizontally, but only if it is full solid object and we're on horizontal axis
 				if solidObj.Solidity = SolidAll and abs(solidObj.x - PlayerX) > abs(solidObj.y - PlayerY - 4)
@@ -123,7 +123,7 @@ function PlayerObjectsInteraction()
 			for (var j = 0; j < objNumb3; ++j;)
 			{
 				var newSolidObj = objList3[| j];
-				if variable_instance_exists(newSolidObj, "Solidity")
+				if variable_instance_exists(newSolidObj, "IsStageObject")
 				{
 					if newSolidObj.bbox_top - PlayerBottom > -16
 					{

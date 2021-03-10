@@ -31,6 +31,7 @@
     {"id":{"name":"GameMacroSetup","path":"scripts/GameMacroSetup/GameMacroSetup.yy",},"order":9,},
     {"id":{"name":"BreakableWall","path":"objects/BreakableWall/BreakableWall.yy",},"order":7,},
     {"id":{"name":"Objects","path":"objects/Objects/Objects.yy",},"order":16,},
+    {"id":{"name":"object_set_solidity","path":"scripts/object_set_solidity/object_set_solidity.yy",},"order":24,},
     {"id":{"name":"PlayerHitWalls","path":"scripts/PlayerHitWalls/PlayerHitWalls.yy",},"order":20,},
     {"id":{"name":"PlayerSlopeResist","path":"scripts/PlayerSlopeResist/PlayerSlopeResist.yy",},"order":5,},
     {"id":{"name":"ScreenCameraSetup","path":"scripts/ScreenCameraSetup/ScreenCameraSetup.yy",},"order":4,},

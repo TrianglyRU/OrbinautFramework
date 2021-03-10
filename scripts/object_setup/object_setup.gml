@@ -1,14 +1,10 @@
-/// @function object_setup(type)
-function object_setup(type)
+/// @function object_setup()
+function object_setup()
 {	
-	// Report script error
-	if type != SolidAll and type != SolidTop and type != SolidNone
-	{	
-		show_message("Wrong type attribute set for object ID " + string(id) + " in function object_setup. Expected SolidAll (0), SolidTop (1) or SolidNone (2)");
-		game_end();
-	}
-	
-	// Set variables for the object
-	Solidity        = type;
-	GotPlayerHitbox = false;
+	// Initialize as an object and set variables
+	variable_instance_set(id, "IsStageObject",   "Initialized");
+	variable_instance_set(id, "Solidity",		 "noSolidityInfo");
+	variable_instance_set(id, "GotPlayerHitbox", "noCollisionInfo");
+	variable_instance_set(id,  visible,			 "noRenderInfo");
+	variable_instance_set(id,  depth,			 "noDepthInfo");	
 }

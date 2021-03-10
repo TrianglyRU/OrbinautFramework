@@ -1,5 +1,8 @@
 /// @description Scripts Event
 // You can call your scripts in this editor
 	
-	object_setup(SolidNone);
-	object_set_depth(false);
+	// Set instance as an object
+	object_setup();
+	
+	// Set object solidity
+	object_set_solidity(SolidNone);
