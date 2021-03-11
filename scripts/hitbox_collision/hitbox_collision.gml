@@ -4,10 +4,10 @@ function hitbox_collision(collideFrom, collideWith)
 	// Check for collision with player
 	if collideFrom = Player
 	{
-		if variable_instance_exists(collideWith, "GotPlayerHitbox")
+		if variable_instance_exists(collideWith, "CollisionType")
 		{	
 			// If player touched us already...
-			if collideWith.GotPlayerHitbox = true
+			if collideWith.CollisionGotPlayer = true
 			{
 				var x1 = floor(collideFrom.PosX - 8);
 				var x2 = floor(collideFrom.PosX + 8);			     
@@ -15,13 +15,13 @@ function hitbox_collision(collideFrom, collideWith)
 				var y2 = floor(collideFrom.PosY + collideFrom.yRadius - 3);
 				
 				// ...then check if their hitbox still overlapping us
-				GotPlayerHitbox = collision_rectangle(x1, y1, x2, y2, collideWith, false, false);
-				return GotPlayerHitbox;
+				CollisionGotPlayer = collision_rectangle(x1, y1, x2, y2, collideWith, false, false);
+				return CollisionGotPlayer;
 			}
 		}
 		else
 		{
-			show_message("Instance ID " + string(collideWith.id) + " is not set as an object player can check for collision with using hitbox_collision function. Set instance as object using object_setup function.");
+			show_message("Instance ID " + string(collideWith.id) + " is not set as an object player can check for collision with using hitbox_collision function. Set collision type for the instance using 'object_set_collision' function.");
 			game_end();
 		}
 	}

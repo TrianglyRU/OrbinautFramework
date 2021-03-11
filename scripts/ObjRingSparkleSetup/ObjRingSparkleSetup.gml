@@ -1,10 +1,10 @@
 function ObjRingSparkleSetup()
 {
-	// Set instance as an object
-	object_setup();
+	// Set object collision type
+	object_set_collision(SolidNone);
 	
-	// Set object solidity
-	object_set_solidity(SolidNone);
+	// Set object visibility
+	object_set_visibility(true);
 	
 	// Render above the player
 	object_set_depth(true);

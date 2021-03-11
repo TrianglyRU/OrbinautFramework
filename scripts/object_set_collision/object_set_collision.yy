@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_setup",
+  "name": "object_set_collision",
   "tags": [],
   "resourceType": "GMScript",
 }

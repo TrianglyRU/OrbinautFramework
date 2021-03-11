@@ -3,6 +3,9 @@ function PlayerCheckDropdash()
 	// Check if we're Sonic
 	if CharacterID != CharSonic exit;
 	
+	// Check if we're jumping
+	if !Jumping exit;
+	
 	// Check if we're moving forwards or backwards
 	if Xsp >= 0
 	{

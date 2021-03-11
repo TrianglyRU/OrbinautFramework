@@ -4,5 +4,5 @@
 	// Set instance as an object
 	object_setup();
 	
-	// Set object solidity
-	object_set_solidity(SolidAll);
+	// Set object CollisionType
+	object_set_collision(SolidAll);
