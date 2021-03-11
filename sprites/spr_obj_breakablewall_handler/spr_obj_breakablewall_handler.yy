@@ -69,7 +69,7 @@
   ],
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Sprites.yy",
+    "path": "folders/Objects/Global/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_breakablewall_handler",

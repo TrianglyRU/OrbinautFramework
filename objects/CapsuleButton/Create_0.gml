@@ -9,6 +9,5 @@
 	
 	// Set object visibility
 	object_set_visibility(true);
-		
-	// Render behind the player
-	object_set_depth(false);
+	
+	Pressed = false;

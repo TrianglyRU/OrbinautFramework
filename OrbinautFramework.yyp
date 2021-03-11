@@ -300,7 +300,7 @@
     {"folderPath":"folders/Characters.yy","order":5,"resourceVersion":"1.0","name":"Characters","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Palettes.yy","order":6,"resourceVersion":"1.0","name":"Palettes","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/HUD.yy","order":4,"resourceVersion":"1.0","name":"HUD","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Objects/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/Global/Sprites.yy","order":15,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Game Functions/System.yy","order":3,"resourceVersion":"1.0","name":"System","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Game Code/Stage Scripts.yy","order":6,"resourceVersion":"1.0","name":"Stage Scripts","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Stage Data/Moonlight Base Zone.yy","order":1,"resourceVersion":"1.0","name":"Moonlight Base Zone","tags":[],"resourceType":"GMFolder",},
