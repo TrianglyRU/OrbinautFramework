@@ -3,4 +3,3 @@
 	
 	// Call object script
 	ObjRingSetup();
-	

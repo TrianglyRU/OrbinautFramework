@@ -17,8 +17,8 @@
   "width": 128,
   "height": 132,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tHHZ",
+    "path": "texturegroups/tHHZ",
   },
   "swatchColours": null,
   "gridX": 0,

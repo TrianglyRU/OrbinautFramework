@@ -11,7 +11,7 @@
 	object_set_visibility(true);
 		
 	// Render behind the player
-	object_set_depth(false);
+	object_set_depth(Player, false);
 	
 	// Spawn button
-	PartButton = instance_create_depth(x - 1, y - 40, depth + 1, CapsuleButton);
+	PartButton = instance_create_depth(x - 1, y - 38, depth + 1, CapsuleButton);
