@@ -10,6 +10,21 @@ function StageObjectsUpdate()
 		instance_activate_region(Boundary128, 0, Boundary128 + ceil(Screen.Width / 128) * 128, room_height, true);
 	}
 	
+	with Objects
+	{
+		if variable_instance_exists(id, "CollisionHasHitbox")
+		{
+			var CenterX = sprite_width / 2;
+			var CenterY = sprite_height / 2;
+			
+			if sprite_get_xoffset(sprite_index) != CenterX
+			or sprite_get_yoffset(sprite_index) != CenterY
+			{		
+				sprite_set_offset(sprite_index, CenterX, CenterY);
+			}
+		}
+	}
+	
 	// Stop all objects on player death
 	if State = ActStatePlayerDeath
 	{	

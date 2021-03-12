@@ -143,6 +143,7 @@ function ScreenDebugViewDisplay()
 		with Objects
 		{	
 			draw_rectangle_colour(bbox_left, bbox_top, bbox_right, bbox_bottom, c_purple, c_purple, c_purple, c_purple, false);
+			draw_point(x, y);
 		}
 		draw_rectangle_colour(HitboxLeft, HitboxTop, HitboxRight, HitboxBottom, c_purple, c_purple, c_purple, c_purple, false);
 	}
