@@ -10,9 +10,10 @@ function StageObjectsUpdate()
 		instance_activate_region(Boundary128, 0, Boundary128 + ceil(Screen.Width / 128) * 128, room_height, true);
 	}
 	
+	// Adjust object's origin if its hitbox was configured with object_set_hitbox function
 	with Objects
 	{
-		if variable_instance_exists(id, "CollisionHasHitbox")
+		if variable_instance_exists(id, "AutomaticHitbox")
 		{
 			var CenterX = sprite_width / 2;
 			var CenterY = sprite_height / 2;

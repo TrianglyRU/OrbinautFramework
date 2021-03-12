@@ -21,5 +21,5 @@ function object_set_hitbox(xradius, yradius)
 	sprite_set_bbox(sprite_index, xCentre - xradius, yCentre - yradius, xCentre * 2 - (xCentre - xradius + 1), yCentre * 2 - (yCentre - yradius + 1));
 	
 	// Set variable
-	CollisionHasHitbox = true;
+	AutomaticHitbox = true;
 }
