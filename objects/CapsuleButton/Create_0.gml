@@ -1,4 +1,4 @@
-/// @description Set CollisionType
+/// @description Set objCollisionType
 // You can call your scripts in this editor
 	
 	// Set object collision type

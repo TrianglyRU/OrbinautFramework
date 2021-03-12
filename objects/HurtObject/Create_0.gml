@@ -1,5 +1,5 @@
 /// @description Scripts Event
 // You can call your scripts in this editor
 	
-	// Set object CollisionType
+	// Set object objCollisionType
 	object_set_collision(SolidNone);

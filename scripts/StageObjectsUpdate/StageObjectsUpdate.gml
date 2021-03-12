@@ -1,9 +1,7 @@
 function StageObjectsUpdate() 
 {	
-	// List of objects to deactivate
+	// Deactivate and activate object based on camera position rounded back to nearest 128
 	instance_deactivate_object(Objects);
-
-	// Activate objects in a chuck of camera position rounded down to nearest 128
 	if State != ActStateLoading
 	{
 		var Boundary128 = Screen.RenderX div 128 * 128;
@@ -14,10 +12,12 @@ function StageObjectsUpdate()
 	with Objects
 	{
 		if variable_instance_exists(id, "AutomaticHitbox")
-		{
+		{	
+			// Get sprite centre
 			var CenterX = sprite_width / 2;
 			var CenterY = sprite_height / 2;
 			
+			// Set origin to sprite centre if it has not been set already
 			if sprite_get_xoffset(sprite_index) != CenterX
 			or sprite_get_yoffset(sprite_index) != CenterY
 			{		

@@ -1,14 +1,14 @@
 function ObjLayerChangeSetup()
 {
-	// Set object CollisionType
+	// Set object objCollisionType
 	object_set_collision(SolidNone);
 	
 	// Set object hitbox
 	object_set_hitbox(8, 32);
 	
 	// Set object visibility
-	object_set_visibility(true);
+	object_set_visibility(false);
 		
 	// Render behind the player
-	object_set_depth(false);
+	object_set_depth(Player, false);
 }

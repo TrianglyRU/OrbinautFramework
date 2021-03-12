@@ -9,6 +9,6 @@ function object_set_collision(type)
 	}	
 	
 	// Apply collision variables
-	CollisionType      = type;
-	CollisionGotPlayer = false;
+	objCollisionType  = type;
+	objPlayerCollided = false;
 }

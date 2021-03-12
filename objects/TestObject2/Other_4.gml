@@ -1,5 +1,5 @@
-/// @description Set CollisionType
+/// @description Set objCollisionType
 // You can call your scripts in this editor
 	
-	// Set object CollisionType
+	// Set object objCollisionType
 	object_set_collision(SolidTop);

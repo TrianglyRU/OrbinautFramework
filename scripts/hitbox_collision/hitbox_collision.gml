@@ -4,10 +4,10 @@ function hitbox_collision(collideFrom, collideWith)
 	// Check for collision with player
 	if collideFrom = Player
 	{
-		if variable_instance_exists(collideWith, "CollisionType")
+		if variable_instance_exists(collideWith, "objCollisionType")
 		{	
 			// If player touched us already...
-			if collideWith.CollisionGotPlayer = true
+			if collideWith.objPlayerCollided = true
 			{
 				var x1 = floor(collideFrom.PosX - 8);
 				var x2 = floor(collideFrom.PosX + 8);			     
@@ -15,8 +15,8 @@ function hitbox_collision(collideFrom, collideWith)
 				var y2 = floor(collideFrom.PosY + collideFrom.yRadius - 3);
 				
 				// ...then check if their hitbox still overlapping us
-				CollisionGotPlayer = collision_rectangle(x1, y1, x2, y2, collideWith, false, false);
-				return CollisionGotPlayer;
+				objPlayerCollided = collision_rectangle(x1, y1, x2, y2, collideWith, false, false);
+				return objPlayerCollided;
 			}
 		}
 		else
