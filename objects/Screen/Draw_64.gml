@@ -6,3 +6,6 @@
 	
 	// Display title card
 	ScreenTitleCardDisplay();
+	
+	// Display results screen
+	ScreenResultsDisplay()

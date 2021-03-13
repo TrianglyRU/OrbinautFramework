@@ -9,3 +9,6 @@
 	
 	// Setup title card
 	ScreenTitleCardSetup();
+	
+	// Setup results screen
+	ScreenResultsSetup();
