@@ -4,7 +4,7 @@ function data_read(name)
 	var File = file_text_open_read(name);				
 	if  File 
 	{														
-		for (var i = 0; i < 248; i++) 
+		for (var i = 0; i < 147; i++) 
 		{
 			switch name 
 			{

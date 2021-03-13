@@ -10,7 +10,7 @@ function tile_meeting(X, Y, Layer)
 	
 	// Check for its index
 	var Ind = tile_get_index(Tile) mod TileAmount;
-	if (Ind == 174) return true;
+	if (Ind == 1) return true;
 		
 	// Get position within the tile and tile height
 	var TilePosition = Y mod TileSize;

@@ -7,6 +7,7 @@
 		{
 			Pressed = true;
 			Stage.State = ActStateFinished;
+			object_set_collision(SolidNone);
 			y += 8;
 			image_index = 0;
 		}
