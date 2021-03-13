@@ -40,12 +40,10 @@ function StageActUpdate()
 			Game.SavedPosition   = 0;
 		}
 		
-		// Start timer
-		StateTimer++
-		if StateTimer = 150
+		// Count timer until 60, that's when the result screen will appear
+		if StateTimer != 60
 		{
-			State	   = ActStateUnload;
-			StateTimer = 0;
+			StateTimer++;
 		}		
 	}
 	
