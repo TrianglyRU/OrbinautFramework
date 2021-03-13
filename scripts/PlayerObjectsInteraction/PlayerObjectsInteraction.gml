@@ -24,13 +24,15 @@ function PlayerObjectsInteraction()
 	var objList2 = ds_list_create();
 	var objList3 = ds_list_create();
 	
-	// Check for overlapping all objects with our hitbox
+	// Check for overlapping all objects with our HITBOX
 	var objNumb1 = collision_rectangle_list(HitboxLeft, HitboxTop, HitboxRight, HitboxBottom, Objects, false, true, objList1, false);
 	if  objNumb1 > 0
 	{ 
 		for (var i = 0; i < objNumb1; ++i;)
 		{ 
 			var Obj = objList1[| i];
+			
+			// Check if collision has been set for the object we're colliding with
 			if variable_instance_exists(Obj, "objCollisionType")
 			{	
 				// This variable resets in hitbox_collision. So we're basically checking if we touched the object from our side,
@@ -41,13 +43,15 @@ function PlayerObjectsInteraction()
 		} 
 	} 
 	
-	// Check for overlapping solid objects with our solidbox
+	// Check for overlapping solid objects with our COLLISIONBOX
 	var objNumb2 = collision_rectangle_list(PlayerLeft, PlayerTop, PlayerRight, PlayerBottom, Objects, false, true, objList2, false);
 	if  objNumb2 > 0
 	{
 		for (var k = 0; k < objNumb2; ++k;)
 		{
 			var solidObj = objList2[| k];
+			
+			// Check if collision has been set for the object we're colliding with
 			if variable_instance_exists(solidObj, "objCollisionType")
 			{	
 				// Collide horizontally, but only if it is full solid object and we're on horizontal axis
@@ -114,7 +118,7 @@ function PlayerObjectsInteraction()
 		}
 	}
 	
-	// Check for solid objects 4 pixels below us while we're grounded
+	// Check for SolidTop and SolidAll objects 4 pixels below us while we're grounded using COLLISIONBOX
 	if Grounded
 	{
 		var objNumb3 = instance_position_list(PlayerX, PlayerBottom + 4, Objects, objList3, false);
@@ -123,10 +127,13 @@ function PlayerObjectsInteraction()
 			for (var j = 0; j < objNumb3; ++j;)
 			{
 				var newSolidObj = objList3[| j];
+				
+				// Check if collision has been set for the object we're colliding with
 				if variable_instance_exists(newSolidObj, "objCollisionType")
 				{
 					if newSolidObj.objCollisionType != SolidNone
 					{
+						// Attach to the object
 						if newSolidObj.bbox_top - PlayerBottom > -16
 						{
 							OnObject = newSolidObj;
@@ -137,16 +144,28 @@ function PlayerObjectsInteraction()
 		}
 	}
 	
-	// Collide with solid object we're currently standing on
+	// Collide with solid object we're currently standing on using COLLISIONBOX
 	if OnObject
 	{	
-		if PlayerRight < OnObject.bbox_left or PlayerLeft > OnObject.bbox_right
+		if instance_exists(OnObject)
 		{
-			OnObject = false;
+			// If we left its boundaries, lose the object
+			if PlayerRight < OnObject.bbox_left or PlayerLeft > OnObject.bbox_right
+			{
+				OnObject = false;
+			}
+			
+			// Else attach to it
+			else
+			{
+				PosY -= PlayerBottom - OnObject.bbox_top + 1;	
+			}
 		}
+		
+		// Lose the object if it has been deleted or destroyed
 		else
 		{
-			PosY -= PlayerBottom - OnObject.bbox_top + 1;	
+			OnObject = false;
 		}
 	}
 	
