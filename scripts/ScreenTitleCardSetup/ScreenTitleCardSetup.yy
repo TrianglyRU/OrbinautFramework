@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen Scripts",
-    "path": "folders/Game Code/Screen Scripts.yy",
+    "name": "Stage Scripts",
+    "path": "folders/Game Code/Stage Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ScreenTitleCardSetup",

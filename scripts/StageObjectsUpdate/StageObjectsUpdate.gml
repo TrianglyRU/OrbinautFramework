@@ -11,7 +11,7 @@ function StageObjectsUpdate()
 	// Adjust object's origin if its hitbox was configured with object_set_hitbox function
 	with Objects
 	{
-		if variable_instance_exists(id, "AutomaticHitbox")
+		if variable_instance_exists(id, "objCollisionHitbox")
 		{	
 			// Get sprite centre
 			var CenterX = sprite_width / 2;

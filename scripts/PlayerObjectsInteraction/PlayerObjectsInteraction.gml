@@ -149,8 +149,8 @@ function PlayerObjectsInteraction()
 	{	
 		if instance_exists(OnObject)
 		{
-			// If we left its boundaries, lose the object
-			if PlayerRight < OnObject.bbox_left or PlayerLeft > OnObject.bbox_right
+			// If we left its boundaries or it became non-solid, lose the object
+			if PlayerRight < OnObject.bbox_left or PlayerLeft > OnObject.bbox_right or OnObject.objCollisionType = SolidNone
 			{
 				OnObject = false;
 			}

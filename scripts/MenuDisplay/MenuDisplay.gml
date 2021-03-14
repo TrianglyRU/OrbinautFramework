@@ -1,5 +1,8 @@
 function MenuDisplay()
 {
+	// Disable fade
+	Game.FadeEnabled = false;
+	
 	// Get screen centre
 	var X = Game.ResolutionWidth  / 2;
 	var Y = Game.ResolutionHeight / 2;

@@ -1,4 +1,4 @@
-/// @description Display
+/// @description Display below fade
 // You can write your code in this editor
 	
 	// Display debug view
@@ -6,3 +6,6 @@
 	
 	// Display HUD
 	ScreenInterfaceDisplay();
+	
+	// Display results screen
+	ScreenResultsDisplay();

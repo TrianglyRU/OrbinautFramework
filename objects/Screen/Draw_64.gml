@@ -1,4 +1,4 @@
-/// @description Display
+/// @description Display above fade
 // You can call your scripts in this editor
 	
 	// Display debug screen
@@ -6,6 +6,3 @@
 	
 	// Display title card
 	ScreenTitleCardDisplay();
-	
-	// Display results screen
-	ScreenResultsDisplay()

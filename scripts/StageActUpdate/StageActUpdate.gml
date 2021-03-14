@@ -31,7 +31,7 @@ function StageActUpdate()
 		// Stop music
 		audio_bgm_stop(BackgroundMusic, 2);
 		
-		// Disable time and reset timer and saved checkpoint
+		// Disable time, reset state timer and saved checkpoint
 		if TimeEnabled
 		{
 			TimeEnabled			 = false;
@@ -40,13 +40,22 @@ function StageActUpdate()
 			Game.SavedPosition   = 0;
 		}
 		
-		// Count timer until 60, that's when the result screen will appear
-		if StateTimer != 60
+		// Count timer
+		var timeUntilResults = Stage.ActID ? 360 : 160;
+		if StateTimer != timeUntilResults and StateTimer != -1
 		{
 			StateTimer++;
-		}		
+		}
+		
+		// Trigger results when correct time reached
+		else
+		{
+			StateTimer = -1;
+		}
 	}
 	
 	// Proceed time counter
 	if (TimeEnabled) Time++;
+	
+	show_debug_message(StateTimer);
 }
