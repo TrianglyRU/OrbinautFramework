@@ -15,7 +15,7 @@ function StageActUpdate()
 			StateTimer++;
 			if StateTimer = 1
 			{
-				screen_fade_perform(to, black, 1);
+				fade_perform(to, black, 1);
 				audio_bgm_stop(BackgroundMusic, 0.5);
 			}
 			if StateTimer = 30

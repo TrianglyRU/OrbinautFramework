@@ -1,8 +1,8 @@
 /// @description Scripts
 // You can call your scripts in this editor
 	
-	// Update player's states
-	PlayerStatesUpdate();
+	// Update player
+	PlayerGeneralUpdate();
 
 	// Run main code based on current state
 	switch State 

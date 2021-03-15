@@ -14,7 +14,7 @@ function ScreenTitleCardDisplay()
 				Input.IgnoreInput = false;
 				Stage.TimeEnabled = true;
 				InterfaceEnabled  = true;
-				screen_fade_perform(from, black, 1);
+				fade_perform(from, black, 1);
 			}
 			if CardTimer > 10 and InterfaceOffsetX < 0
 			{
@@ -56,7 +56,7 @@ function ScreenTitleCardDisplay()
 			// Fade in, restore input and enable stage timer
 			if CardTimer = 120
 			{
-				screen_fade_perform(from, black, 1);
+				fade_perform(from, black, 1);
 				Input.IgnoreInput = false;
 				Stage.TimeEnabled = true;
 			}		

@@ -7,11 +7,11 @@ function PlayerMoveAirborne()
 		{		
 			if Xsp > 0 
 			{
-				Xsp -= Acc * 2;
+				Xsp -= AirAcc;
 			} 
 			else if Xsp > -TopAcc 
 			{
-				Xsp -= Acc * 2;
+				Xsp -= AirAcc;
 				if (Xsp <= -TopAcc) Xsp = -TopAcc;
 			}
 			Facing = FacingLeft;
@@ -20,11 +20,11 @@ function PlayerMoveAirborne()
 		{	
 			if Xsp < 0 
 			{
-				Xsp += Acc * 2;
+				Xsp += AirAcc;
 			} 
 			else if Xsp < TopAcc 
 			{
-				Xsp += Acc * 2;
+				Xsp += AirAcc;
 				if (Xsp >= TopAcc) Xsp = TopAcc;
 			}
 			Facing = FacingRight;

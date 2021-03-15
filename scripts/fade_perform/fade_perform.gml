@@ -1,5 +1,5 @@
-/// @function screen_fade_perform(mode, colour, power)
-function screen_fade_perform(mode, colour, power) 
+/// @function fade_perform(mode, colour, power)
+function fade_perform(mode, colour, power) 
 {
 	Game.FadeStep   = mode ? 0 : (colour == flash ? 1008 : 756); 
 	Game.FadeMode   = mode; 

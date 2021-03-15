@@ -34,7 +34,7 @@ function ScreenInterfaceDisplay()
 		
 		string_display(ScreenX + 113, ScreenY + 9,  Player.Score, 1);
 		string_display(ScreenX + 89,  ScreenY + 25, string(Minutes) + ":" + (Seconds > 9 ? "" : "0") + string(Seconds), 1);
-		string_display(ScreenX + 89,  ScreenY + 41, Player.Rings, 1);
+		string_display(ScreenX + 89,  ScreenY + 41, round(Player.Rings), 1);
 		
 		// Use dynamic emotions for character
 		if Player.CharacterID = CharSonic

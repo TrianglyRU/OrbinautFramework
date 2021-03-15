@@ -27,7 +27,7 @@ function StageActEnd()
 			// Fade out the screen
 			case 60:
 			{
-				screen_fade_perform(to, black, 1);
+				fade_perform(to, black, 1);
 			}
 			break;
 			

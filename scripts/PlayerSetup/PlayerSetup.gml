@@ -22,6 +22,9 @@ function PlayerSetup()
 	
 	// Set basic constants
 	Acc		= 0.046875;
+	Frc     = 0.046875;
+	AirAcc  = Acc * 2;
+	RollFrc = Frc / 2;
 	Dec		= 0.5;
 	RollDec = 0.125;
 	Jump	= 6.5;

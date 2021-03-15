@@ -105,7 +105,6 @@
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"Spawnpoint","path":"objects/Spawnpoint/Spawnpoint.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":40.0,"y":304.0,"resourceVersion":"1.0","name":"inst_382BCAA1","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"Capsule","path":"objects/Capsule/Capsule.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":968.0,"y":289.0,"resourceVersion":"1.0","name":"inst_11788D43","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"Capsule","path":"objects/Capsule/Capsule.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":847.0,"y":289.0,"resourceVersion":"1.0","name":"inst_AD41CEA","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"ForegroundPlaneA","tags":[],"resourceType":"GMRAssetLayer",},
     {"instances":[
@@ -128,7 +127,6 @@
     {"name":"inst_AF7D403","path":"rooms/MBZ2/MBZ2.yy",},
     {"name":"inst_280A7F4F","path":"rooms/MBZ2/MBZ2.yy",},
     {"name":"inst_11788D43","path":"rooms/MBZ2/MBZ2.yy",},
-    {"name":"inst_AD41CEA","path":"rooms/MBZ2/MBZ2.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
@@ -152,8 +150,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Stages",
-    "path": "folders/Stages.yy",
+    "name": "Rooms",
+    "path": "folders/Rooms.yy",
   },
   "resourceVersion": "1.0",
   "name": "MBZ2",

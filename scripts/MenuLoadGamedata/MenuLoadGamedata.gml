@@ -7,5 +7,5 @@ function MenuLoadGamedata()
 	}
 	
 	// Load game settings
-	gamesettings_load();
+	gamesettings_load("config");
 }

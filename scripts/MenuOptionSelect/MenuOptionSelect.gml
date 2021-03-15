@@ -132,10 +132,15 @@ function MenuOptionSelect()
 			{
 				switch MenuOption
 				{	
-					case 0: menu_goto(FrameworkConfig, 0);			 break; // Go to framework options
-					case 1: menu_goto(AudioVideoConfig, 0);			 break; // Go to video and audio options
-					case 2: menu_goto(InputConfig, 0);				 break; // Go to input options
-					case 3: menu_goto(Main, 1); gamesettings_save(); break; // Return to main menu
+					case 0: menu_goto(FrameworkConfig, 0);	break; // Go to framework options
+					case 1: menu_goto(AudioVideoConfig, 0);	break; // Go to video and audio options
+					case 2: menu_goto(InputConfig, 0);	    break; // Go to input options
+					case 3:										   // Return to main menu and save settings
+					{
+						gamesettings_save("config"); 
+						menu_goto(Main, 1);	
+					}
+					break;
 				}
 			}
 			break;

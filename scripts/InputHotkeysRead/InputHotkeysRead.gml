@@ -65,6 +65,12 @@ function InputHotkeysRead()
 			Player.Grounded = false;
 			Player.Ysp      = -16;
 		}
+		if keyboard_check_pressed(ord("I")) 
+		{
+			Player.isSuper = true;
+			Player.Rings   = 50;
+		}
+		
 	
 		// Ignore input mode
 		if keyboard_check_pressed(ord("L")) 

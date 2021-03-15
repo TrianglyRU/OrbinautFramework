@@ -56,6 +56,7 @@ function ScreenDebugScreenDisplay()
 			+ "\n   INVINCIBILITY: " + string(Player.isInvincible)
 			+ "\n   HIGHSPEED BONUS: " + string(Player.HighSpeedBonus)
 			+ "\n   INVINCIBILITY BONUS: " + string(Player.InvincibilityBonus)
+			+ "\n   SUPER STATE: " + string(Player.isSuper)
 			+ "\n"
 			+ "\n         * CHARACTER VISUALS *"
 			+ "\n"

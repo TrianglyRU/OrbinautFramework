@@ -35,12 +35,12 @@ function PlayerMoveRoll()
 	// Apply friction
 	if Inertia > 0
 	{
-		Inertia -= Acc / 2;
+		Inertia -= RollFrc;
 		if (Inertia < 0) Inertia = 0;
 	}
 	else if Inertia < 0
 	{
-		Inertia += Acc / 2;
+		Inertia += RollFrc;
 		if (Inertia >= 0) Inertia = 0;
 	}
 	

@@ -1,6 +1,59 @@
 /// @description Variables List
 // You can write your code in this editor
 	
+	variable_init("Acc");
+	variable_init("AirAcc");
+	variable_init("Dec");
+	variable_init("Frc");
+	variable_init("RollDec");
+	variable_init("RollFrc");
+	variable_init("Grv");
+	variable_init("Jump");
+	variable_init("TopAcc");
+	variable_init("State");
+	variable_init("MovementLock");
+	variable_init("Jumping");
+	variable_init("Rolling");
+	variable_init("Pushing");
+	variable_init("Grounded");
+	variable_init("OnObject");
+	variable_init("Layer");
+	variable_init("Facing");
+	variable_init("Hurt");
+	variable_init("Death");
+	variable_init("CharacterID");
+	variable_init("PosX");
+	variable_init("PosY");
+	variable_init("Xsp");
+	variable_init("Ysp");
+	variable_init("Inertia");
+	variable_init("SlopeGravity");
+	variable_init("Angle");
+	variable_init("VisualAngle");
+	variable_init("PeeloutRev");
+	variable_init("SpindashRev");
+	variable_init("DropdashRev");
+	variable_init("isSuper");
+	variable_init("isInvincible");
+	variable_init("ShieldType");
+	variable_init("HighSpeedBonus");
+	variable_init("InvincibilityBonus");
+	variable_init("Animation");
+	variable_init("DrawOrder");
+	variable_init("xRadius");
+	variable_init("yRadius");
+	variable_init("xRadiusDefault");
+	variable_init("yRadiusDefault");
+	variable_init("xRadiusRoll");
+	variable_init("yRadiusRoll");
+	variable_init("AllowCollision");
+	variable_init("Score");
+	variable_init("Rings");
+	variable_init("Lives");
+	variable_init("Conts");
+	variable_init("Emeralds");
+	
+	/*
 	Acc					 = 0;
 	Dec					 = 0;
 	RollDec				 = 0;
@@ -56,4 +109,4 @@
 	Rings				 = 0;
 	Lives				 = 0;
 	Conts				 = 0;
-	Emeralds			 = 0;
+	Emeralds			 = 0;*/
