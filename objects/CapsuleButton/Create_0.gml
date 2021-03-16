@@ -1,6 +1,9 @@
 /// @description Set objCollisionType
 // You can call your scripts in this editor
 	
+	// Init variables
+	variable_init("Pressed");
+	
 	// Set object collision type
 	object_set_collision(SolidAll);
 	
@@ -9,5 +12,3 @@
 	
 	// Set object visibility
 	object_set_visibility(true);
-	
-	Pressed = false;

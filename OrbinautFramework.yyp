@@ -3,6 +3,7 @@
     {"id":{"name":"object_perform_damage","path":"scripts/object_perform_damage/object_perform_damage.yy",},"order":19,},
     {"id":{"name":"sprHUD_LivesSonicHurt","path":"sprites/sprHUD_LivesSonicHurt/sprHUD_LivesSonicHurt.yy",},"order":14,},
     {"id":{"name":"ScreenInterfaceDisplay","path":"scripts/ScreenInterfaceDisplay/ScreenInterfaceDisplay.yy",},"order":0,},
+    {"id":{"name":"PlayerCheckFlying","path":"scripts/PlayerCheckFlying/PlayerCheckFlying.yy",},"order":26,},
     {"id":{"name":"object_set_hitbox","path":"scripts/object_set_hitbox/object_set_hitbox.yy",},"order":21,},
     {"id":{"name":"fontTexture_Menu","path":"sprites/fontTexture_Menu/fontTexture_Menu.yy",},"order":12,},
     {"id":{"name":"ScreenCameraPositionUpdate","path":"scripts/ScreenCameraPositionUpdate/ScreenCameraPositionUpdate.yy",},"order":6,},

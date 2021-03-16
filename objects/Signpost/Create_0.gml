@@ -1,5 +1,5 @@
-/// @description Variables List
+/// @description Setup
 // You can call your scripts in this editor
 	
-	Active      = 0;
-	ActiveTimer = 0;
+	// Call object script
+	ObjSignpostSetup();

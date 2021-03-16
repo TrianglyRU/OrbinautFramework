@@ -13,6 +13,8 @@
 	variable_init("State");
 	variable_init("MovementLock");
 	variable_init("Jumping");
+	variable_init("Flying");
+	variable_init("FlyingTimer");
 	variable_init("Rolling");
 	variable_init("Pushing");
 	variable_init("Grounded");

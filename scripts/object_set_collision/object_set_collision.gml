@@ -8,7 +8,9 @@ function object_set_collision(type)
 		game_end();
 	}	
 	
-	// Apply collision variables
-	objCollisionType  = type;
-	objPlayerCollided = false;
+	// Create hitbox collision variable if it does not exist
+	variable_init("objPlayerCollided");
+	
+	// Update collision type
+	objCollisionType = type;
 }

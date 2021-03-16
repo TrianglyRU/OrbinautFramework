@@ -18,7 +18,7 @@ function PlayerSetup()
 	// Set sprite
 	Facing	  = FacingRight;
 	Animation = AnimIdle;
-	DrawOrder = Spawnpoint.depth;
+	DrawOrder = layer_get_depth("Objects")
 	
 	// Set basic constants
 	Acc		= 0.046875;

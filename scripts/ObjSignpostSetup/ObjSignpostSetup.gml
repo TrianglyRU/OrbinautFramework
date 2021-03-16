@@ -1,5 +1,9 @@
 function ObjSignpostSetup()
-{	
+{
+	// Init variables
+	variable_init("Active");
+	variable_init("ActiveTimer");
+
 	// Set object collision type
 	object_set_collision(SolidNone);
 	

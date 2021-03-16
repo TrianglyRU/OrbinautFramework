@@ -4,7 +4,7 @@
     "path": "sprites/spr_explosion_fx/spr_explosion_fx.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

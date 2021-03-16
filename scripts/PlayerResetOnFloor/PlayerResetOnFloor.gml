@@ -9,6 +9,14 @@ function PlayerResetOnFloor()
 		Pushing		= false;
 		DropdashRev = -2;
 		
+		// Reset flying state
+		if Flying
+		{	
+			Flying	    = false;
+			FlyingTimer = 0;
+			Grv		    = 0.21875;
+		}
+		
 		// Reset radiuses to default values if not rolling
 		if !Rolling
 		{

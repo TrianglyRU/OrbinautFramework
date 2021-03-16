@@ -1,5 +1,14 @@
 function ObjLamppostSetup()
 {
+	// Init variables
+	variable_init("Init");
+	variable_init("Active");
+	variable_init("Angle");
+	
+	/* Variable Definitions	
+	1. LamppostID, default = 0		
+	*/
+	
 	// Set object collision type
 	object_set_collision(SolidNone);
 	
@@ -11,16 +20,4 @@ function ObjLamppostSetup()
 		
 	// Render behind the player
 	object_set_depth(Player, false);
-	
-	// Init lamppost
-	Active = false;
-	Angle  = 180;
-	
-	// Load as activated if its ID number is lower than activated one
-	if Game.SavedCheckpoint != 0 and Game.SavedCheckpoint.LamppostID >= LamppostID
-	{
-		image_index = 2;
-		Active      = true;
-		Angle		= 900;
-	}
 }

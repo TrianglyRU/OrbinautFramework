@@ -4,7 +4,7 @@ function object_set_depth(relObject, renderAbove)
 	// Apply depth relative to the player
 	if relObject = Player
 	{
-		depth = relObject.DrawOrder - (renderAbove ? 1 : -1);
+		depth = layer_get_depth("Objects") - (renderAbove ? 1 : -1);
 	}
 	
 	// Apply depth relative to another object

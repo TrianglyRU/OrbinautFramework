@@ -117,6 +117,9 @@
 			// Check for dropdash
 			PlayerCheckDropdash();
 			
+			// Check for Tails helitail
+			PlayerCheckFlying();
+			
 			// Collide or check for overlap with the objects
 			PlayerObjectsInteraction();
 			
