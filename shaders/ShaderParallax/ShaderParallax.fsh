@@ -3,12 +3,10 @@
 	         by MicG            */
 // ================================= //
 	
-	// Use vars
 	varying vec2 v_vTexcoord;
 	varying vec2 v_vPosition;
 	varying vec4 v_vColour;
 	
-	// Use uniforms
 	uniform vec2  o_pos;
 	uniform float x_ofst;
 	uniform float wid;
@@ -17,10 +15,8 @@
 	uniform float y_step;
 	uniform float texel;
 	
-	// Shader process
-	void main() {
-		
-		// Repeat this block of code
+	void main() 
+	{	
 		float CrntX  = v_vPosition.x - o_pos.x;
 		float CrntY  = v_vPosition.y - o_pos.y;
 		float OutX   = mod(x_ofst * (y_height > 0. ? 1. + ceil((CrntY - 1.) / y_height) * y_step : 1.) + CrntX, wid) - CrntX;

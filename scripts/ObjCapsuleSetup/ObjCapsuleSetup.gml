@@ -1,10 +1,10 @@
-function ObjLamppostSetup()
+function ObjCapsuleSetup()
 {
 	// Set object collision type
-	object_set_collision(SolidNone);
+	object_set_collision(SolidAll);
 	
 	// Set object hitbox
-	object_set_hitbox(8, 32);
+	object_set_hitbox(32, 26);
 	
 	// Set object visibility
 	object_set_visibility(true);

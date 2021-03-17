@@ -1,11 +1,8 @@
-/// @description Insert description here
+/// @description Variables & Setup
 // You can write your code in this editor
 	
-	// Init variables
-	variable_init("Init");
+	// Create variables
+	Init = 0;
 	
-	// Set object visibility
-	object_set_visibility(false);
-	
-	// Set object depth
-	object_set_depth(Player, true);
+	// Call object script
+	ObjExplosionSetup();

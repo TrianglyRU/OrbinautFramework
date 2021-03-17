@@ -22,7 +22,6 @@
 	SpinOffset		 = 0;
 	ExtendedOffset	 = 0;
 	OverviewOffset	 = 0;
-	
 	DebugViewEnabled   = 0;
 	DebugShowHitboxes  = 0;
 	DebugShowCollision = 0;

@@ -9,9 +9,14 @@ function GameShaderPaletteSetLoad()
 			Game.PaletteSet = pal_MoonlightBaseZone; 
 		}
 		break;
+		case DevMenu:
+		case HHZ:
+		{
+			Game.PaletteSet = false;
+		}
 		default:
 		{
-			Game.PaletteSet = pal_MoonlightBaseZone; 
+			Game.PaletteSet = false; 
 		}
 		break;
 	}

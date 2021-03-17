@@ -1,6 +1,7 @@
 /// @description Scripts
 // You can call your scripts in this editor
 	
+	show_debug_message(Yoyo);
 	// Update player
 	PlayerGeneralUpdate();
 

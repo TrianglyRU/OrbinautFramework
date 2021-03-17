@@ -1,9 +1,5 @@
-/// @description Animation
+/// @description Script
 // You can write your code in this editor
 	
-	// Make visible
-	if Init
-	{
-		object_set_visibility(true);
-	}
-	Init = true; 
+	// Call object script
+	ObjExplosionScript();

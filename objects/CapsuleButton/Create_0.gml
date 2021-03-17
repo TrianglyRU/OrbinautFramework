@@ -1,14 +1,8 @@
-/// @description Set objCollisionType
+/// @description Varaibles & Setup
 // You can call your scripts in this editor
 	
-	// Init variables
-	variable_init("Pressed");
+	// Create variables
+	Pressed = 0;
 	
-	// Set object collision type
-	object_set_collision(SolidAll);
-	
-	// Set object hitbox
-	object_set_hitbox(12, 8);
-	
-	// Set object visibility
-	object_set_visibility(true);
+	// Call object script
+	ObjCapsuleButtonSetup();
