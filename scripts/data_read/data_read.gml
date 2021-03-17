@@ -1,33 +1,30 @@
 /// @function data_read(name)
 function data_read(name) 
 {
-	var File = file_text_open_read(name);				
+	var File = file_bin_open(name, 0);				
 	if  File 
 	{														
 		for (var i = 0; i < 147; i++) 
 		{
 			switch name 
 			{
-				case "data_angval.txt": 
-					Game.AngleValueOf[i] = (256 - file_text_read_real(File)) * 360 / 256;
-					file_text_readln(File);
+				case "anglemap.bin": 
+					Game.AngleValueOf[i] = (256 - file_bin_read_byte(File)) * 360 / 256;
 				break;
-				case "data_height.txt":
+				case "heightmap.bin":
 					for (var j = 0; j < 16; j++) 
 					{
-						Game.HeightValueOf[i][j] = file_text_read_real(File);
-						file_text_readln(File);
+						Game.HeightValueOf[i][j] = file_bin_read_byte(File);
 					}
 				break;
-				case "data_width.txt":  
+				case "widthmap.bin":  
 					for (var j = 0; j < 16; j++) 
 					{
-						Game.WidthValueOf[i][j] = file_text_read_real(File);	 
-						file_text_readln(File);
+						Game.WidthValueOf[i][j] = file_bin_read_byte(File);	 
 					}
 				break;
 			}
 		}
-		file_text_close(File);									 
+		file_bin_close(File);									 
 	}
 }
