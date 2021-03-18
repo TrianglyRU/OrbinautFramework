@@ -56,6 +56,4 @@ function StageActUpdate()
 	
 	// Proceed time counter
 	if (TimeEnabled) Time++;
-	
-	show_debug_message(StateTimer);
 }

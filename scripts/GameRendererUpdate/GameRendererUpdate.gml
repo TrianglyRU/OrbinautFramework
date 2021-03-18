@@ -12,7 +12,7 @@ function GameRendererUpdate()
 	shader_set_uniform_i(Scrn_Mode,  Game.FadeMode);
 	
 	shader_set_uniform_f_array(Scrn_Index, Game.PalIndex);
-	texture_set_stage(Scrn_Texture, Game.PaletteSet[1]);
+	texture_set_stage(Scrn_TextureDry, Game.PaletteSet[1]);
     
 	shader_set_uniform_f(Scrn_Texel_Size, Game.PaletteSet[2], Game.PaletteSet[3]);
 	shader_set_uniform_f(Scrn_UVs, Game.PaletteSet[4], Game.PaletteSet[5], Game.PaletteSet[6], Game.PaletteSet[7]);

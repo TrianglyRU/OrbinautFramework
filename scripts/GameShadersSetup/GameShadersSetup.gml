@@ -7,12 +7,13 @@ function GameShadersSetup()
 	Scrn_Color = shader_get_uniform(ShaderPalette, "u_color");
 	
 	// Setup palette shader
-	globalvar Scrn_Texel_Size, Scrn_UVs, Scrn_Index, Scrn_Texture, Scrn_Water;
+	globalvar Scrn_Texel_Size, Scrn_UVs, Scrn_Index, Scrn_TextureDry, Scrn_TextureWet, Scrn_Water;
 	Scrn_Texel_Size = shader_get_uniform(ShaderPalette, "u_pixelSize");
 	Scrn_UVs		= shader_get_uniform(ShaderPalette, "u_Uvs");
 	Scrn_Index	    = shader_get_uniform(ShaderPalette, "u_palId");
 	Scrn_Water		= shader_get_uniform(ShaderPalette, "u_water");
-	Scrn_Texture    = shader_get_sampler_index(ShaderPalette, "u_palTexture");
+	Scrn_TextureDry    = shader_get_sampler_index(ShaderPalette, "u_palTextureDry");
+	Scrn_TextureWet    = shader_get_sampler_index(ShaderPalette, "u_palTextureWet");
 	
 	// Setup background parallax shader
 	globalvar Prlx_XOfst, Prlx_Pos, Prlx_Wid, Prlx_YHght, Prlx_YStep, Prlx_Texel;

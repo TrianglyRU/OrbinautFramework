@@ -32,7 +32,7 @@
     "spriteId": {"name":"spr_collision_tilemap","path":"sprites/spr_collision_tilemap/spr_collision_tilemap.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

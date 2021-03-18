@@ -7,7 +7,8 @@
 	varying vec4 v_vColour;
 	varying vec2 v_vPosition;
 
-	uniform sampler2D u_palTexture;
+	uniform sampler2D u_palTextureDry;
+	uniform sampler2D u_palTextureWet;
 	uniform vec4 u_Uvs;
 	uniform float u_palId[64];	// Max colours on the palette list. Increase if needed
 	uniform vec2 u_pixelSize;
@@ -17,17 +18,17 @@
 	uniform bool u_mode;
 	uniform int u_color;
 
-	vec4 findAltColor(vec4 inCol, vec2 corner) 
+	vec4 findAltColor(vec4 inCol, vec2 corner, sampler2D sampler) 
 	{
 	    vec2 testPos;
 	    for (float i = corner.y; i < u_Uvs.w; i += u_pixelSize.y) 
 		{
 			testPos = vec2(corner.x, i);
-			if (distance(texture2D(u_palTexture, testPos), inCol) == 0.) 
+			if (distance(texture2D(sampler, testPos), inCol) == 0.) 
 			{
 				float Index = u_palId[int((i - corner.y) / u_pixelSize.y)];
 				testPos = vec2(corner.x + u_pixelSize.x * floor(Index + 1.), i);
-				return mix(texture2D(u_palTexture, vec2(testPos.x - u_pixelSize.x, testPos.y)), texture2D(u_palTexture, testPos), fract(Index));
+				return mix(texture2D(sampler, vec2(testPos.x - u_pixelSize.x, testPos.y)), texture2D(sampler, testPos), fract(Index));
 			}
 	    }
 	    return inCol;
@@ -58,10 +59,9 @@
 		////////////////////
 		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
 		DoAlphaTest(col);
-		col = findAltColor(col, u_Uvs.xy);
+		col = findAltColor(col, u_Uvs.xy, u_palTextureDry);
 		if ((u_water != 0.) && (u_water >= v_vPosition.y))
 		{
-			//col.rgb = vec4(-0.1, -0.2, 0.5) + col.rgb * vec4(0.5, 0.6, 0.1);
 			col.rgb -= vec3(80. / 255., 64. / 255., 24. / 255.);
 		}
 		#endregion

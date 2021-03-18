@@ -161,6 +161,7 @@
     {"id":{"name":"PlayerUpdateAngle","path":"scripts/PlayerUpdateAngle/PlayerUpdateAngle.yy",},"order":25,},
     {"id":{"name":"spr_hhz_fg22","path":"sprites/spr_hhz_fg22/spr_hhz_fg22.yy",},"order":27,},
     {"id":{"name":"PlayerSlopeRepel","path":"scripts/PlayerSlopeRepel/PlayerSlopeRepel.yy",},"order":6,},
+    {"id":{"name":"AnimationCurve1","path":"animcurves/AnimationCurve1/AnimationCurve1.yy",},"order":19,},
     {"id":{"name":"PlayerGeneralUpdate","path":"scripts/PlayerGeneralUpdate/PlayerGeneralUpdate.yy",},"order":14,},
     {"id":{"name":"Sprite87","path":"sprites/Sprite87/Sprite87.yy",},"order":23,},
     {"id":{"name":"GameShaderFadeReset","path":"scripts/GameShaderFadeReset/GameShaderFadeReset.yy",},"order":4,},
