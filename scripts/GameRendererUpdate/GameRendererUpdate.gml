@@ -4,7 +4,7 @@ function GameRendererUpdate()
 	of the renderer */
 	
 	// Use our palette shader
-	shader_set(ShaderPalette);
+	shader_set(ShaderScreen);
 	
 	// Do shader math
 	shader_set_uniform_f(Scrn_Step,  Game.FadeColour == flash ? Game.FadeStep div 144 * 36 : Game.FadeStep);
