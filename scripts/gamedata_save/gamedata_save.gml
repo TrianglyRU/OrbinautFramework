@@ -1,43 +1,29 @@
-/// @function gamedata_save(slot, character, zone, emeralds, score, lives, continues)
-function gamedata_save(slot, character, zone, emeralds, score, lives, continues)
+/// @function gamedata_save(slot, character, zone, emeralds, lives, continues, score)
+function gamedata_save(slot, character, zone, emeralds, lives, continues, score)
 {
 	// Get out savedata file name
-	var filename = "saveslot" + string(slot) + ".txt";
-	
-	// Rewrite it
-	if file_exists(filename)
-	{
-		file_delete(filename);
-	}
+	var filename = "saveslot" + string(slot) + ".bin";
 	
 	// Open the file and save data
-	var file = file_text_open_write(filename);
+	var file = file_bin_open(filename, 1);
+	if file
 	{
-		// Save character
-		file_text_write_string(file, enigma_encode(character));
-		file_text_writeln(file);
+		// Rewrite it
+		file_bin_rewrite(file);
 	
-		// Save zone
-		file_text_write_string(file, enigma_encode(zone));
-		file_text_writeln(file);
-	
-		// Save emeralds
-		file_text_write_string(file, enigma_encode(emeralds));
-		file_text_writeln(file);
-	
+		file_bin_write_byte(file, character); // Save character
+		file_bin_write_byte(file, zone);	  // Save zone
+		file_bin_write_byte(file, emeralds);  // Save emeralds
+		file_bin_write_byte(file, lives);	  // Save lives
+		file_bin_write_byte(file, continues); // Save cont
+		
 		// Save score
-		file_text_write_string(file, enigma_encode(score));
-		file_text_writeln(file);
-	
-		// Save lives
-		file_text_write_string(file, enigma_encode(lives));
-		file_text_writeln(file);
-	
-		// Save conts
-		file_text_write_string(file, enigma_encode(continues));
-		file_text_writeln(file);
-	
+		file_bin_write_byte(file, score       mod 100);
+		file_bin_write_byte(file, score div 100 mod 100);
+		file_bin_write_byte(file, score div 10000 mod 100);
+		file_bin_write_byte(file, score div 1000000 mod 100);
+		
 		// Close the file
-		file_text_close(file);
+		file_bin_close(file);
 	}
 }

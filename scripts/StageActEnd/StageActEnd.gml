@@ -18,7 +18,7 @@ function StageActEnd()
 				// Save game progress at the end of the zone
 				if Stage.ActID = 1
 				{
-					gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID + 1, 0, Game.GlobalScore, Game.GlobalLives, 0);
+					gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID + 1, 0, Game.GlobalLives, 0, Game.GlobalScore);
 				}	
 			}
 			break;

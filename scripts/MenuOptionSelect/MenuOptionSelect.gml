@@ -82,7 +82,7 @@ function MenuOptionSelect()
 					// Else delete the savefile
 					else
 					{
-						file_delete("saveslot" + string(Game.ActiveSave) + ".txt");
+						file_delete("saveslot" + string(Game.ActiveSave) + ".bin");
 						Saveslot[Game.ActiveSave] = 0;
 						DataDeleteMode = false;
 					}
@@ -114,7 +114,7 @@ function MenuOptionSelect()
 					// Save the new game if we did not select "no save" slot
 					if SaveNewData
 					{
-						gamedata_save(Game.ActiveSave, Game.GlobalCharacter, 0, 0, 0, 3, 0);
+						gamedata_save(Game.ActiveSave, Game.GlobalCharacter, 0, 0, 3, 0, 0);
 					}
 					
 					// Load MBZ or selected stage (if we got here from Stage Select)

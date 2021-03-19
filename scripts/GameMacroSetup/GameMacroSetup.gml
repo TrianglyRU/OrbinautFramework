@@ -19,9 +19,9 @@ function GameMacroSetup()
 	#macro SavedChar     0
 	#macro SavedZone     1
 	#macro SavedEmeralds 2
-	#macro SavedScore    3
-	#macro SavedLives    4
-	#macro SavedConts    5
+	#macro SavedLives    3
+	#macro SavedConts    4
+	#macro SavedScore    5
 	
 
 	// Player macro
