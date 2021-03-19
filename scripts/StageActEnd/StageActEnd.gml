@@ -7,7 +7,6 @@ function StageActEnd()
 		
 		switch StateTimer
 		{
-			// Move player's score and lives to global values to keep it between the stages
 			case 1:
 			{
 				// Buffer score, lives, continues and emeralds to transfer it to the next zone/act

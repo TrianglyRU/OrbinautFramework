@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Screen Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ScreenTitleCardSetup",
+  "name": "_ScreenVariables",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -2,6 +2,11 @@ function PlayerSetup()
 {	
 	// Set character
 	CharacterID	= Game.GlobalCharacter;
+	if CharacterID = CharTails
+	{
+		// Spawn tails for Tails
+		instance_create_depth(PosX, PosY, depth, TailsObject);
+	}
 	
 	// Set spawn properties
 	if Game.SavedPosition = 0 

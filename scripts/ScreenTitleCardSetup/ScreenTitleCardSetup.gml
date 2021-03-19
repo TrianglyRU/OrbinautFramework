@@ -11,13 +11,13 @@ function ScreenTitleCardSetup()
 	CardString[1] = "ZONE";	
 			
 	// Set card values
-	CardValue[0] = 270;
-	CardValue[1] = -230;
-	CardValue[2] = 0
-	CardValue[3] = 80
-	CardValue[4] = 0
-	CardValue[5] = 105
-	CardValue[6] = 302;
-	CardValue[7] = 136;
-	CardValue[8] = 0;
+	CardValue[0] = 270;		// Ribbon X
+	CardValue[1] = -230;	// Ribbon Y
+	CardValue[2] = 0		// Zonename X
+	CardValue[3] = 80		// Zonename Y
+	CardValue[4] = 0		// Zone X
+	CardValue[5] = 105		// Zone Y
+	CardValue[6] = 302;		// Act X
+	CardValue[7] = 136;		// Act Y
+	CardValue[8] = 0;		// Act XSize
 }

@@ -1,5 +1,8 @@
 function ScreenResultsSetup()
 {			
+	// Initialize timer
+	ResultsTimer   = 0;
+	
 	// Set result values
 	ResultValue[0] = 0;
 	ResultValue[1] = 0;
@@ -9,6 +12,7 @@ function ScreenResultsSetup()
 	ResultValue[5] = 440;
 	ResultValue[6] = 480;
 	
+	// Initialize bonuses
 	RingBonus = 0;
 	TimeBonus = 0;
 }

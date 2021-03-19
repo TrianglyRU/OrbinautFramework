@@ -117,14 +117,35 @@ function MenuOptionSelect()
 						gamedata_save(Game.ActiveSave, Game.GlobalCharacter, 0, 0, 0, 3, 0);
 					}
 					
-					// Load MBZ
-					room_goto(MBZ);
+					// Load MBZ or selected stage (if we got here from Stage Select)
+					if StageToLoad
+					{
+						switch StageToLoad - 1
+						{			
+							case 0:	room_goto(MBZ);  break; // Load MBZ1
+							case 1:	room_goto(MBZ2); break; // Load MBZ2
+							case 2:	room_goto(HHZ);  break; // Load HHZ
+						}
+					}
+					else
+					{
+						room_goto(MBZ);
+					}
 				}
 				else
 				{	
-					// Return to data select
-					menu_goto(DataSelect, Game.ActiveSave + 1); 
-					SaveNewData = false; 
+					if StageToLoad != false
+					{
+						// Return to stage select
+						menu_goto(StageSelect, 0);
+						StageToLoad = false;
+					}
+					else
+					{
+						// Return to data select
+						menu_goto(DataSelect, Game.ActiveSave + 1); 
+						SaveNewData = false; 
+					}
 				}
 			}
 			break;
@@ -173,12 +194,15 @@ function MenuOptionSelect()
 			break;
 			case StageSelect:
 			{
-				switch MenuOption
+				if MenuOption < 3
 				{
-					case 0:	room_goto(MBZ);     break; // Load MBZ1
-					case 1:	room_goto(MBZ2);    break; // Load MBZ2
-					case 2:	room_goto(HHZ);     break; // Load HHZ
-					case 3: menu_goto(Main, 0); break; // Return to main menu
+					StageToLoad = MenuOption + 1
+					menu_goto(CharacterSelect, 0);					
+				}
+				else 
+				{
+					menu_goto(Main, 0);
+					StageToLoad = false;
 				}
 			}
 			break;

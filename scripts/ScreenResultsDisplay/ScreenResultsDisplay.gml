@@ -3,8 +3,7 @@ function ScreenResultsDisplay()
 	// Display only when act is finished and one second passed or act unloads
 	if Stage.State = ActStateFinished and Stage.StateTimer = -1
 	or Stage.State = ActStateUnload
-	{
-		
+	{		
 		if !ResultValue[0]
 		{
 			RingBonus = Player.Rings * 100;

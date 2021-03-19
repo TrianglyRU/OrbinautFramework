@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen Scripts",
-    "path": "folders/Game Code/Screen Scripts.yy",
+    "name": "Menu Scripts",
+    "path": "folders/Game Code/Menu Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ScreenTitleCardSetup",
+  "name": "_MenuVariables",
   "tags": [],
   "resourceType": "GMScript",
 }
