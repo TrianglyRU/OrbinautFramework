@@ -63,7 +63,7 @@ function PlayerSetup()
 	Conts    = Game.GlobalConts;
 	
 	// Set spawn properties
-	if !Game.SavedPosition
+	if Game.SavedPosition = 0
 	{
 		PosX = Spawnpoint.x;
 		PosY = Spawnpoint.y;
