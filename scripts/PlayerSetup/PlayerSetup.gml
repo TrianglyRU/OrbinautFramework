@@ -1,15 +1,10 @@
 function PlayerSetup()
 {	
 	// Set character
-	CharacterID	= Game.GlobalCharacter;
-	if CharacterID = CharTails
-	{
-		// Spawn tails for Tails
-		instance_create_depth(PosX, PosY, depth, TailsObject);
-	}
+	CharacterID	   = Game.GlobalCharacter;
 	
 	// Set spawn properties
-	if Game.SavedPosition = 0 
+	if !Game.SavedPosition
 	{
 		PosX = Spawnpoint.x;
 		PosY = Spawnpoint.y;
@@ -24,6 +19,12 @@ function PlayerSetup()
 	Facing	  = FacingRight;
 	Animation = AnimIdle;
 	DrawOrder = layer_get_depth("Objects")
+	
+	// Spawn tails for Tails behind him
+	if CharacterID = CharTails
+	{
+		instance_create_depth(PosX, PosY, DrawOrder + 1, TailsObject);
+	}
 	
 	// Set basic constants
 	Acc		= 0.046875;

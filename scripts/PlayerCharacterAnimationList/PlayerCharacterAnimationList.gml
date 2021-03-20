@@ -64,6 +64,23 @@ function PlayerCharacterAnimationList()
 				case AnimLookup:
 					animation_play(spr_tails_idle, 1, 1);
 				break;
+			}			
+			with TailsObject
+			{
+				switch Player.Animation
+				{
+					case AnimIdle: 
+						animation_play(spr_tails_tail_idle, 1, 1); 
+					break;
+					case AnimWalk: 
+					case AnimRun: 
+						animation_play(spr_tails_tail_run, 1, 1);
+					break;
+					case AnimRoll:
+					case AnimSpindash:
+						animation_play(spr_tails_tail_roll, 1, 1); 
+					break;
+				}
 			}
 		}
 		break;

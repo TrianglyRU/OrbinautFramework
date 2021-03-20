@@ -76,6 +76,14 @@ function PlayerCharacterDisplay()
 	image_angle  = VisualAngle;
 	depth		 = DrawOrder;
 	
+	if CharacterID = CharTails
+	{
+		TailsObject.x = floor(PosX);
+		TailsObject.y = floor(PosY);
+		TailsObject.image_angle = VisualAngle;
+		TailsObject.image_xscale = Facing;
+	}
+	
 	// Draw self
 	draw_self();
 }
