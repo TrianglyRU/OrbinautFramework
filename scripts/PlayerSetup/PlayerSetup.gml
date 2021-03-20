@@ -1,26 +1,14 @@
 function PlayerSetup()
 {	
 	// Set character
-	CharacterID	   = Game.GlobalCharacter;
+	CharacterID	= Game.GlobalCharacter;
 	
-	// Set spawn properties
-	if !Game.SavedPosition
-	{
-		PosX = Spawnpoint.x;
-		PosY = Spawnpoint.y;
-	}
-	else
-	{
-		PosX = Game.SavedPosition[0];
-		PosY = Game.SavedPosition[1];
-	}
-	
-	// Set sprite
+	// Default sprite setup
 	Facing	  = FacingRight;
 	Animation = AnimIdle;
 	DrawOrder = layer_get_depth("Objects")
 	
-	// Spawn tails for Tails behind him
+	// Create Tails' tails
 	if CharacterID = CharTails
 	{
 		instance_create_depth(PosX, PosY, DrawOrder + 1, TailsObject);
@@ -76,4 +64,16 @@ function PlayerSetup()
 	Lives    = Game.GlobalLives;
 	Emeralds = Game.GlobalEmeralds;
 	Conts    = Game.GlobalConts;
+	
+	// Set spawn properties
+	if !Game.SavedPosition
+	{
+		PosX = Spawnpoint.x;
+		PosY = Spawnpoint.y;
+	}
+	else
+	{
+		PosX = Game.SavedPosition[0];
+		PosY = Game.SavedPosition[1];
+	}
 }

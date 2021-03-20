@@ -131,3 +131,9 @@
 		}
 		break;
 	}
+	
+	// Display character
+	PlayerCharacterDisplay();
+	
+	// Use character animation list
+	PlayerCharacterAnimationList();

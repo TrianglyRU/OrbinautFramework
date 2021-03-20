@@ -1,5 +1,8 @@
 function PlayerCharacterDisplay()
 {	
+	// Draw self
+	//draw_self();
+	
 	// Update visual angle
 	if Game.SmoothRotation 
 	{
@@ -69,21 +72,19 @@ function PlayerCharacterDisplay()
 		}
 	}	
 	
-	// Update character
-	x		     = floor(PosX);
-	y			 = floor(PosY);
+	// Update character render
+	x			 = floor(PosX);
+	y		     = floor(PosY);
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
 	depth		 = DrawOrder;
 	
-	if CharacterID = CharTails
+	// Update Tails' tails render
+	/*if CharacterID = CharTails
 	{
-		TailsObject.x = floor(PosX);
-		TailsObject.y = floor(PosY);
-		TailsObject.image_angle = VisualAngle;
+		TailsObject.x			 = floor(PosX);
+		TailsObject.y			 = floor(PosY);
+		TailsObject.image_angle  = VisualAngle;
 		TailsObject.image_xscale = Facing;
-	}
-	
-	// Draw self
-	draw_self();
+	}*/	
 }

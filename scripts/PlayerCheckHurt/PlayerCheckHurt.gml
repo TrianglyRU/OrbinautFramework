@@ -5,15 +5,17 @@ function PlayerCheckHurt()
 	{	
 		if (!Rings and !ShieldType) or Stage.Time = 36000
 		{
-			// Set flags and disable camera
+			// Set flags
 			Grounded	   = false;
 			Rolling		   = false;
 			Jumping		   = false;
+			Flying		   = false;
 			AllowCollision = false;
 			
 			// Perform movement
 			Xsp = 0;
-			Ysp = -7;	
+			Ysp = -7;
+			Grv = 0.21875;
 			
 			// Enter death script
 			Death = true;
@@ -34,6 +36,7 @@ function PlayerCheckHurt()
 			Grounded	 = false;
 			Rolling		 = false;
 			Jumping		 = false;
+			Flying		 = false;
 
 			// Knockback us
 			Ysp = -4;
