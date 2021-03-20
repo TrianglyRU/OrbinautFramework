@@ -30,6 +30,7 @@ function GameFrameworkSetup()
 	Game.AllowUnroll			 = true;    // Allows you to unroll with UP button when rolling
 	Game.ExtendedCamera			 = false;	// Enables camera to shift to the side of your direction movement
 	Game.OriginalRollLimit		 = true;	// Limits inertia instead of x speed when rolling
+	Game.FlyingCancel			 = true;    // Allows you to cancel flying as Tails
 	
 	// Engine
 	Game.StrongerSlopeGravity	 = false;	// In Sonic 3+, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.

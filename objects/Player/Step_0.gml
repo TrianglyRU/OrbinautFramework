@@ -137,5 +137,3 @@
 	
 	// Display character
 	PlayerCharacterDisplay();
-	
-	show_debug_message(Animation);

@@ -3,9 +3,9 @@ function PlayerCheckFlying()
 	// Check if we're Tails
 	if CharacterID != CharTails exit;
 	
+	// Enter flying state
 	if !Flying
 	{	
-		// Enter flying state
 		if Jumping and Input.ABCPress
 		{
 			Grv			= 0.03125;
@@ -28,11 +28,21 @@ function PlayerCheckFlying()
 			if (Input.ABCPress) Grv = -0.125;
 		
 			// Increase gravity when moving slow enough or detected a ceiling
-			if Ysp < -1 or tile_meeting(floor(PosX - xRadius), floor(PosY - yRadius - 1), Layer)
-					    or tile_meeting(floor(PosX + xRadius), floor(PosY - yRadius - 1), Layer)
+			if (Ysp < -1) Grv = 0.03125;
+			
+			// Cancel
+			if Game.FlyingCancel and Input.CPress
 			{
-				Grv = 0.03125;
-			}
+				Flying	    = false;
+				FlyingTimer = 0;
+				Grv		    = 0.21875;
+				Rolling		= true;
+				Animation   = AnimRoll;
+				
+				// Since we're going the into rolling state, rolling offset will be applied to the camera.
+				// So let's correct its position
+				Screen.ViewY += xRadiusDefault - xRadiusRoll;
+			}		
 		}
 		
 		// Else enter "tired" state
@@ -43,6 +53,4 @@ function PlayerCheckFlying()
 			Grv		  = 0.03125;
 		}
 	}
-	
-	show_debug_message(Grv);
 }
