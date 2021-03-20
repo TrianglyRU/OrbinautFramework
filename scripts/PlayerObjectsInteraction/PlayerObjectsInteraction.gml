@@ -108,6 +108,7 @@ function PlayerObjectsInteraction()
 						{
 							if Ysp < 0 and solidObj.objCollisionType = SolidAll
 							{
+								if (Flying) Grv = 0.03125;
 								Ysp   = 0;
 								PosY += solidObj.bbox_bottom - PlayerTop + 1;
 							}

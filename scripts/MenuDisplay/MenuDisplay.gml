@@ -148,7 +148,7 @@ function MenuDisplay()
 			draw_set_halign(fa_left);
 			for (var i = 0; i < 9; i++) 
 			{
-				string_display(X, Y - 45 + 15 * i, i == MenuOption and ControlEditMode ? ": :" : string(Game.Control[i]) + ":" + menu_input_get_keyname(Game.Control[i]), 1);
+				string_display(X, Y - 45 + 15 * i, i == MenuOption and ControlEditMode ? ": :" : string(Game.KeyboardControl[i]) + ":" + menu_input_get_keyname(Game.KeyboardControl[i]), 1);
 			}
 		}
 		break;

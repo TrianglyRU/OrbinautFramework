@@ -1,33 +1,30 @@
 /// @function animation_play(objSprite, aniSpeed, doLoopFrom) 
 function animation_play(objSprite, aniSpeed, doLoopFrom) 
 {	
-	// Report script error
-	/*if doLoopFrom < 1 or doLoopFrom > objSprite.image_number
-	{
-		show_message("Wrong doLoopFrom attribute set in function animation_play for animation " + string(sprite_get_name(objSprite)) + ". doLoopFrom should not be lower than 1 or higher than sprite frames number.");
-		game_end();
-	}*/
-	
 	// Force GMS sprite speed to be 0
 	image_speed = 0;
 	
 	// Set anitimer variable
-	if !variable_instance_exists(id, "aniTimer")
-	{
-		aniTimer = 0;
-	}
+	variable_init("aniTimer");
 	
 	// Update sprite
 	if sprite_index != objSprite
 	{
-	    sprite_index = objSprite;
-	    image_index  = 0;
+		image_index  = 0;
+	    sprite_index = objSprite; 
 		aniTimer	 = aniSpeed;
 	}
 	
 	// Hangle subimage change
 	else
 	{
+		// Report script error
+		if doLoopFrom < 1 or doLoopFrom > image_number
+		{
+			show_message("Wrong doLoopFrom attribute set in function animation_play for animation " + string(sprite_get_name(objSprite)) + ". doLoopFrom should not be lower than 1 or higher than sprite frames number.");
+			game_end();
+		}
+	
 	    if aniTimer > 1
 		{
 			aniTimer--;
@@ -35,7 +32,7 @@ function animation_play(objSprite, aniSpeed, doLoopFrom)
 	    else
 	    {	
 			image_index = image_index < image_number - 1 ? image_index + 1 : doLoopFrom - 1;
-			aniTimer = aniSpeed;
+			aniTimer    = aniSpeed;
 	    }	
 	}
 }

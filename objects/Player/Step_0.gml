@@ -132,8 +132,10 @@
 		break;
 	}
 	
+	// Use character animation list
+	PlayerCharacterAnimationList();
+	
 	// Display character
 	PlayerCharacterDisplay();
 	
-	// Use character animation list
-	PlayerCharacterAnimationList();
+	show_debug_message(Animation);

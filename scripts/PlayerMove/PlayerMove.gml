@@ -81,8 +81,11 @@ function PlayerMove()
 	} 
 	else
 	{
-		Animation = abs(Inertia) < TopAcc ? AnimWalk : (abs(Inertia) < 12 ? AnimRun : AnimPeelout);
+		Animation = abs(Inertia) < TopAcc ? AnimWalk : AnimRun;
 	}
+	
+	// Get our speed ratio
+	AnimReservedSpeed = round(max(1, 8 - abs(Inertia)));
 
 	// Convert inertia to normal axis speeds
 	Xsp = Inertia *  dcos(Angle);

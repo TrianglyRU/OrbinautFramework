@@ -9,10 +9,7 @@ function PlayerSetup()
 	DrawOrder = layer_get_depth("Objects")
 	
 	// Create Tails' tails
-	if CharacterID = CharTails
-	{
-		instance_create_depth(PosX, PosY, DrawOrder + 1, TailsObject);
-	}
+	if (CharacterID = CharTails) instance_create_depth(x, y, depth, TailsObject);
 	
 	// Set basic constants
 	Acc		= 0.046875;

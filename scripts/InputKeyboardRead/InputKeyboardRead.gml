@@ -2,7 +2,7 @@ function InputKeyboardRead()
 {
 	if !IgnoreInput and Type != "Gamepad"
 	{	
-		var Control = Game.Control;
+		var Control = Game.KeyboardControl;
 		
 		// Up
 		UpPress = !Down and keyboard_check_pressed(Control[0]);

@@ -39,6 +39,9 @@ function PlayerCheckJump()
 		// Set animation
 		Animation = AnimRoll;
 		
+		// Get our speed ratio
+		AnimReservedSpeed = round(max(1, 4 - abs(Inertia)));
+		
 		// Play sound
 		audio_sfx_play(sfxJump, false);
 		

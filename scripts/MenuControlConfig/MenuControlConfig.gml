@@ -5,7 +5,7 @@ function MenuControlConfig()
 		// Exit button assign state
 		if ControlEditMode and keyboard_check_pressed(vk_anykey) 
 		{
-			Game.Control[MenuOption] = string(keyboard_key);
+			Game.KeyboardControl[MenuOption] = string(keyboard_key);
 			ControlEditMode			 = false;
 			Input.IgnoreInput	     = false;
 			keyboard_clear(keyboard_key);

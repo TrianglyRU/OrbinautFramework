@@ -52,6 +52,10 @@ function GameMacroSetup()
 	#macro AnimSpindash		   6
 	#macro AnimCrouch		   7
 	#macro AnimLookup		   8
+	#macro AnimFly			   9
+	#macro AnimFlyTired		   10
+	#macro AnimHurt			   11
+	#macro AnimDeath		   12
 	
 	// Stage macro
 	#macro ActStateDefault     0

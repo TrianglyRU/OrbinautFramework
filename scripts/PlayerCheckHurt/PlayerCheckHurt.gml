@@ -5,6 +5,9 @@ function PlayerCheckHurt()
 	{	
 		if (!Rings and !ShieldType) or Stage.Time = 36000
 		{
+			// Set animation
+			Animation = AnimDeath;
+			
 			// Set flags
 			Grounded	   = false;
 			Rolling		   = false;
@@ -22,6 +25,9 @@ function PlayerCheckHurt()
 		}
 		else
 		{	
+			// Set animation
+			Animation = AnimHurt;
+			
 			// Lose rings
 			if !ShieldType
 			{

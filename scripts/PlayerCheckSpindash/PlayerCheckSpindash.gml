@@ -6,7 +6,8 @@ function PlayerCheckSpindash()
 	// Charge spindash
 	if Inertia = 0 and Input.Down and Input.ABCPress 
 	{	
-		Animation = AnimSpindash;
+		Animation   = AnimSpindash;
+		image_index = 0;
 		
 		if SpindashRev = -2
 		{

@@ -21,7 +21,7 @@ function PlayerHitRoof()
 			PosY -= Distance;
 			
 			// If moving upwards, check roof angle
-			if abs(Ysp) > abs(Xsp)
+			if abs(Ysp) > abs(Xsp) and !Flying
 			{	
 				// Get roof angle
 				if dLeft <= dRight
@@ -49,6 +49,7 @@ function PlayerHitRoof()
 			// else just reset our vertical speed
 			else
 			{	
+				if (Flying) Grv = 0.03125;
 				if (Ysp < 0) Ysp = 0;
 			}
 		}
