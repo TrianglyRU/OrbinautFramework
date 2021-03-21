@@ -8,9 +8,15 @@ function object_set_collision(type)
 		game_end();
 	}	
 	
-	// Create hitbox collision variable if it does not exist
-	variable_init("objPlayerCollided");
-	
-	// Update collision type
+	// Set collision type
 	objCollisionType = type;
+	
+	// Initialize variables for collision with player's inner hitbox
+	variable_init("objGotPlayerInHitbox");
+	
+	// Initialize variables for collision with player's outer hitbox
+	variable_init("objGotPlayerOutHitboxLeft");	
+	variable_init("objGotPlayerOutHitboxRight");	
+	variable_init("objGotPlayerOutHitboxTop");	
+	variable_init("objGotPlayerOutHitboxBottom");	
 }

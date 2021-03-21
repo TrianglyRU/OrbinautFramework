@@ -6,7 +6,7 @@ function ObjCapsuleButtonScript()
 		animation_play(spr_capsule_button, 3, 1);
 		
 		// Check if player is standing on the object
-		if Player.OnObject = id
+		if object_got_player(SideTop)
 		{
 			Stage.State = ActStateFinished;
 			object_set_collision(SolidNone);

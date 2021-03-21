@@ -16,9 +16,10 @@ function PlayerCheckHurt()
 			AllowCollision = false;
 			
 			// Perform movement
-			Xsp = 0;
-			Ysp = -7;
-			Grv = 0.21875;
+			Inertia = 0;
+			Xsp		= 0;
+			Ysp		= -7;
+			Grv		= 0.21875;
 			
 			// Enter death script
 			Death = true;

@@ -25,7 +25,6 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},"LayerId":{"name":"b97da53c-d5ea-47fa-9c0f-dc0dd1f628d0","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},"LayerId":{"name":"b2be30ae-e634-403d-9925-95def11aff03","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_tails_crouch","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},"resourceVersion":"1.0","name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"d06a5da8-ffec-44b3-8498-ed8fc5485c37","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[

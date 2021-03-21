@@ -66,7 +66,11 @@ function GameMacroSetup()
 	#macro ActStateUnload      5
 	
 	// Object macro
-	#macro SolidAll  0
-	#macro SolidTop  1
-	#macro SolidNone 2
+	#macro SolidAll   0
+	#macro SolidTop   1
+	#macro SolidNone  2
+	#macro SideTop    0
+	#macro SideLeft   1
+	#macro SideRight  2
+	#macro SideBottom 3
 }

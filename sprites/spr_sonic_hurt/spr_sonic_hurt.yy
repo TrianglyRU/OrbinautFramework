@@ -25,7 +25,6 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"6a0455a1-2d42-4813-b4af-ca68795c4bc8","path":"sprites/spr_sonic_hurt/spr_sonic_hurt.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"6a0455a1-2d42-4813-b4af-ca68795c4bc8","path":"sprites/spr_sonic_hurt/spr_sonic_hurt.yy",},"LayerId":{"name":"9a5c1c3a-7f11-4fd5-8943-5ceedfe58904","path":"sprites/spr_sonic_hurt/spr_sonic_hurt.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"6a0455a1-2d42-4813-b4af-ca68795c4bc8","path":"sprites/spr_sonic_hurt/spr_sonic_hurt.yy",},"LayerId":{"name":"62cd3415-36bd-42ea-92cd-86948dbc723c","path":"sprites/spr_sonic_hurt/spr_sonic_hurt.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_sonic_hurt","path":"sprites/spr_sonic_hurt/spr_sonic_hurt.yy",},"resourceVersion":"1.0","name":"6a0455a1-2d42-4813-b4af-ca68795c4bc8","tags":[],"resourceType":"GMSpriteFrame",},
   ],

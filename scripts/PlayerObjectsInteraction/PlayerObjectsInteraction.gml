@@ -7,13 +7,13 @@ function PlayerObjectsInteraction()
 	var PlayerX      = floor(PosX);
 	var PlayerY		 = floor(PosY);
 	
-	// Define player's solid objects collision mask
+	// Define player's outer hitbox size
 	var PlayerLeft   = floor(PosX - 10);
 	var PlayerRight  = floor(PosX + 10);
 	var PlayerTop    = floor(PosY - yRadius);
 	var PlayerBottom = floor(PosY + yRadius);
 	
-	// Define player's hitbox size
+	// Define player's inner hitbox size
 	var HitboxLeft   = floor(PosX - 8);
 	var HitboxRight  = floor(PosX + 8);			     
 	var HitboxTop	 = floor(PosY - yRadius + 3);
@@ -24,7 +24,7 @@ function PlayerObjectsInteraction()
 	var objList2 = ds_list_create();
 	var objList3 = ds_list_create();
 	
-	// Check for overlapping all objects with our HITBOX
+	// Check for overlapping all objects with our inner hitbox
 	var objNumb1 = collision_rectangle_list(HitboxLeft, HitboxTop, HitboxRight, HitboxBottom, Objects, false, true, objList1, false);
 	if  objNumb1 > 0
 	{ 
@@ -35,15 +35,13 @@ function PlayerObjectsInteraction()
 			// Check if collision has been set for the object we're colliding with
 			if variable_instance_exists(Obj, "objCollisionType")
 			{	
-				// This variable resets in hitbox_collision. So we're basically checking if we touched the object from our side,
-				// and when it is in "touched" state, it checks if we are still overlapping it from its side when using hitbox_collision. 
-				// Optimization stuff ¯\_(ツ)_/¯
-				Obj.objPlayerCollided = true;
+				// Tell the object we've collided with it
+				Obj.objGotPlayerInHitbox = true;
 			}
 		} 
 	} 
 	
-	// Check for overlapping solid objects with our COLLISIONBOX
+	// Check for overlapping solid objects with our outer hitbox
 	var objNumb2 = collision_rectangle_list(PlayerLeft, PlayerTop, PlayerRight, PlayerBottom, Objects, false, true, objList2, false);
 	if  objNumb2 > 0
 	{
@@ -66,8 +64,11 @@ function PlayerObjectsInteraction()
 							Inertia = 0;
 						}
 						PosX -= PlayerRight - solidObj.bbox_left + 1;
+						
+						// Tell object we're touching its left side
+						solidObj.objGotPlayerOutHitboxLeft = true;
 					}
-			
+					
 					// Collide on the right
 					else
 					{
@@ -77,14 +78,17 @@ function PlayerObjectsInteraction()
 							Inertia = 0;
 						}
 						PosX += solidObj.bbox_right - PlayerLeft + 1;
+						
+						// Tell object we're touching its right side
+						solidObj.objGotPlayerOutHitboxRight = true;
 					}
 				}
-
-				// Collide vertically, but check if we're on vertical axis if object is full solid
-				if !Grounded 
+				
+				// Collide vertically, but check if we're on vertical axis if object is full solid		
+				if solidObj.objCollisionType = SolidAll and abs(solidObj.x - PlayerX) <= abs(solidObj.y - PlayerY - 4) 
+				or solidObj.objCollisionType = SolidTop
 				{
-					if solidObj.objCollisionType = SolidAll and abs(solidObj.x - PlayerX) <= abs(solidObj.y - PlayerY - 4) 
-					or solidObj.objCollisionType = SolidTop
+					if !Grounded 
 					{
 						// Try to land on the object
 						if PlayerY < solidObj.y
@@ -94,9 +98,9 @@ function PlayerObjectsInteraction()
 								if  Game.ImprovedObjCollision 
 								or !Game.ImprovedObjCollision and (PlayerX > solidObj.bbox_left and PlayerX < solidObj.bbox_right)
 								{
+									Inertia  = Xsp;
 									Ysp		 = 0;
 									Angle    = 0;
-									Inertia  = Xsp;
 									Grounded = true;	
 									OnObject = solidObj;
 								}
@@ -111,9 +115,44 @@ function PlayerObjectsInteraction()
 								if (Flying) Grv = 0.03125;
 								Ysp   = 0;
 								PosY += solidObj.bbox_bottom - PlayerTop + 1;
+								
+								// Tell object we're touching its bottom side
+								solidObj.objGotPlayerOutHitboxBottom = true;			
+								solidObj.objGotPlayerOutHitboxLeft   = false;			
+								solidObj.objGotPlayerOutHitboxRight  = false;			
 							}
 						}
 					}
+					
+					// Kill player if we collide with object's bottom while grounded
+					else
+					{
+						if solidObj.objCollisionType = SolidAll
+						{
+							if PlayerY > solidObj.y
+							{
+								// Set animation
+								Animation = AnimDeath;
+			
+								// Set flags
+								Grounded	   = false;
+								Rolling		   = false;
+								Jumping		   = false;
+								Flying		   = false;
+								AllowCollision = false;
+			
+								// Perform movement
+								Inertia = 0;
+								Xsp		= 0;
+								Ysp		= -7;
+								Grv		= 0.21875;
+			
+								// Enter death script
+								Death = true;
+							}
+						}
+					}
+						
 				}
 			}
 		}
@@ -160,6 +199,11 @@ function PlayerObjectsInteraction()
 			else
 			{
 				PosY -= PlayerBottom - OnObject.bbox_top + 1;	
+				
+				// Tell object we're touching its top side
+				OnObject.objGotPlayerOutHitboxTop   = true;
+				OnObject.objGotPlayerOutHitboxLeft  = false;
+				OnObject.objGotPlayerOutHitboxRight = false;
 			}
 		}
 		

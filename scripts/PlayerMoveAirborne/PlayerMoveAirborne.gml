@@ -1,7 +1,7 @@
 function PlayerMoveAirborne()
 {	
 	// Accelerate and decelerate
-	if !(Jumping and Rolling) and !Hurt
+	if !(Jumping and Rolling) and !Hurt and !Death
 	{
 		if Input.Left 
 		{		

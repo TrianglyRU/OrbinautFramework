@@ -25,12 +25,10 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"LayerId":{"name":"52b66fee-d0ba-463f-b927-9843b7796cc2","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"LayerId":{"name":"d4350ea5-d2f2-4d31-840e-a605bf3baf8c","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_tails_tail_fly","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"resourceVersion":"1.0","name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"e1e6490f-9da7-46ed-8dac-c2bb68e3569b","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"e1e6490f-9da7-46ed-8dac-c2bb68e3569b","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"LayerId":{"name":"d4350ea5-d2f2-4d31-840e-a605bf3baf8c","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"e1e6490f-9da7-46ed-8dac-c2bb68e3569b","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"LayerId":{"name":"52b66fee-d0ba-463f-b927-9843b7796cc2","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_tails_tail_fly","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"resourceVersion":"1.0","name":"e1e6490f-9da7-46ed-8dac-c2bb68e3569b","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

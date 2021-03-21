@@ -25,7 +25,6 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_hurt/spr_tails_hurt.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_hurt/spr_tails_hurt.yy",},"LayerId":{"name":"3c7249c5-a0d2-4f71-bc36-6a4bacae5e80","path":"sprites/spr_tails_hurt/spr_tails_hurt.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","path":"sprites/spr_tails_hurt/spr_tails_hurt.yy",},"LayerId":{"name":"7cfb207b-c2da-4ee2-93eb-b4d9fa2a767b","path":"sprites/spr_tails_hurt/spr_tails_hurt.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_tails_hurt","path":"sprites/spr_tails_hurt/spr_tails_hurt.yy",},"resourceVersion":"1.0","name":"0ca2da0f-dc69-417b-99fd-ae8705ed1c25","tags":[],"resourceType":"GMSpriteFrame",},
   ],
