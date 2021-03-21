@@ -11,7 +11,7 @@ function MenuOptionSelect()
 		case Main:			   LinesCount = 4  break;
 		case DataSelect:	   LinesCount = 7  break;
 		case Options:		   LinesCount = 4  break;
-		case FrameworkConfig:  LinesCount = 4  break;
+		case FrameworkConfig:  LinesCount = 11 break;
 		case AudioVideoConfig: LinesCount = 6  break;
 		case InputConfig:	   LinesCount = 10 break;
 		case StageSelect:	   LinesCount = 4  break;
@@ -168,7 +168,7 @@ function MenuOptionSelect()
 			case FrameworkConfig: 
 			{	
 				// Go back
-				if MenuOption = 3
+				if MenuOption = 10
 				{
 					menu_goto(Options, 0)
 				}

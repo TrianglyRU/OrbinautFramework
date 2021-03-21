@@ -75,9 +75,16 @@ function MenuOptionToggle()
 		{
 			switch MenuOption
 			{
-				case 0: Game.SpindashEnabled = !Game.SpindashEnabled; break; // Spindash
-				case 1: Game.DropdashEnabled = !Game.DropdashEnabled; break; // Dropdash
-				case 2: Game.PeeloutEnabled  = !Game.PeeloutEnabled;  break; // Peelout
+				case 0: Game.SpindashEnabled   = !Game.SpindashEnabled;   break;
+				case 1: Game.DropdashEnabled   = !Game.DropdashEnabled;   break; 
+				case 2: Game.PeeloutEnabled    = !Game.PeeloutEnabled;    break;
+				case 3: Game.GroundSpeedcap    = !Game.GroundSpeedcap;    break;
+				case 4: Game.AirSpeedcap       = !Game.AirSpeedcap;       break;
+				case 5: Game.RolljumpControl   = !Game.RolljumpControl;   break;
+				case 6: Game.AllowUnroll       = !Game.AllowUnroll;	      break;
+				case 7: Game.ExtendedCamera	   = !Game.ExtendedCamera;    break;
+				case 8: Game.OriginalRollLimit = !Game.OriginalRollLimit; break;
+				case 9: Game.FlyingCancel      = !Game.FlyingCancel;      break;
 			}
 		}
 	}
