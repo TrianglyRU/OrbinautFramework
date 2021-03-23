@@ -17,6 +17,12 @@ function PlayerResetOnFloor()
 			Grv		    = 0.21875;
 		}
 		
+		if Gliding
+		{
+			Gliding = false;
+			Grv		= 0.21875;
+		}
+		
 		// Reset radiuses to default values if not rolling
 		if !Rolling
 		{

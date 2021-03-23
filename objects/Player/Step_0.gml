@@ -96,6 +96,8 @@
 			// Update player's speeds
 			PlayerMoveAirborne();
 			
+			PlayerCheckClimb()
+			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
 			
@@ -119,6 +121,8 @@
 			
 			// Check for Tails helitail
 			PlayerCheckFlying();
+			
+			PlayerCheckGlide();
 			
 			// Collide or check for overlap with the objects
 			PlayerObjectsInteraction();

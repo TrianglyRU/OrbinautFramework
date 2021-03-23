@@ -32,7 +32,7 @@ function PlayerObjectsInteraction()
 		{ 
 			var Obj = objList1[| i];
 			
-			// Check if collision has been set for the object we're colliding with
+			// Check if object has collision
 			if variable_instance_exists(Obj, "objCollisionType")
 			{	
 				// Tell the object we've collided with it
@@ -49,10 +49,10 @@ function PlayerObjectsInteraction()
 		{
 			var solidObj = objList2[| k];
 			
-			// Check if collision has been set for the object we're colliding with
+			// Check if object has collision
 			if variable_instance_exists(solidObj, "objCollisionType")
 			{	
-				// Collide horizontally, but only if it is full solid object and we're on horizontal axis
+				// Collide horizontally with full solid objects
 				if solidObj.objCollisionType = SolidAll and abs(solidObj.x - PlayerX) > abs(solidObj.y - PlayerY - 4)
 				{
 					// Collide on the left
@@ -84,19 +84,34 @@ function PlayerObjectsInteraction()
 					}
 				}
 				
-				// Collide vertically, but check if we're on vertical axis if object is full solid		
-				if solidObj.objCollisionType = SolidAll and abs(solidObj.x - PlayerX) <= abs(solidObj.y - PlayerY - 4) 
-				or solidObj.objCollisionType = SolidTop
+				// Collide vertically
+				if abs(solidObj.x - PlayerX) <= abs(solidObj.y - PlayerY - 4) 	
 				{
+					// Airborne collision
 					if !Grounded 
 					{
 						// Try to land on the object
 						if PlayerY < solidObj.y
 						{
-							if Ysp > 0 and solidObj.bbox_top - OuterBottom > -16
-							{	
-								if  Game.ImprovedObjCollision 
-								or !Game.ImprovedObjCollision and (PlayerX > solidObj.bbox_left and PlayerX < solidObj.bbox_right)
+							if solidObj.objCollisionType = SolidAll or solidObj.objCollisionType = SolidTop
+							{
+								if Ysp > 0 and solidObj.bbox_top - OuterBottom > -16
+								{	
+									if  Game.ImprovedObjCollision 
+									or !Game.ImprovedObjCollision and (PlayerX > solidObj.bbox_left and PlayerX < solidObj.bbox_right)
+									{
+										Inertia  = Xsp;
+										Ysp		 = 0;
+										Angle    = 0;
+										Grounded = true;	
+										OnObject = solidObj;
+									}
+								}
+							}
+							else if solidObj.objCollisionType = SolidSlope
+							{
+								if Ysp > 0 and position_meeting(OuterLeft,  OuterBottom, solidObj) 
+											or position_meeting(OuterRight, OuterBottom, solidObj)
 								{
 									Inertia  = Xsp;
 									Ysp		 = 0;
@@ -104,10 +119,10 @@ function PlayerObjectsInteraction()
 									Grounded = true;	
 									OnObject = solidObj;
 								}
-							}
+							}	
 						}
 				
-						// Collide from the bottom if it is full solid object
+						// Collide from the bottom if object is full solid
 						else
 						{
 							if Ysp < 0 and solidObj.objCollisionType = SolidAll
@@ -124,12 +139,13 @@ function PlayerObjectsInteraction()
 						}
 					}
 					
-					// Kill player if we collide with object's bottom while standing on another object
-					else if OnObject
+					// Ground collision
+					else
 					{
+						// Kill player if we collide with object's bottom
 						if solidObj.objCollisionType = SolidAll
 						{
-							if PlayerY > solidObj.y
+							if OuterTop < solidObj.bbox_bottom
 							{
 								Rings = 0;
 								Hurt  = solidObj;			
@@ -141,7 +157,7 @@ function PlayerObjectsInteraction()
 		}
 	}
 	
-	// Check for SolidTop and SolidAll objects 4 pixels below us while we're grounded using outer hitbox
+	// Check for overlapping solid objects 4 pixels below us while we're grounded with our outer hitbox
 	if Grounded
 	{
 		var objNumb3 = instance_position_list(PlayerX, OuterBottom + 4, Objects, objList3, false);
@@ -151,12 +167,12 @@ function PlayerObjectsInteraction()
 			{
 				var newSolidObj = objList3[| j];
 				
-				// Check if collision has been set for the object we're colliding with
+				// Check if object has collision
 				if variable_instance_exists(newSolidObj, "objCollisionType")
 				{
 					if newSolidObj.objCollisionType != SolidNone
 					{
-						// Attach to the object
+						// Reatttach to the object
 						if newSolidObj.bbox_top - OuterBottom > -16
 						{
 							OnObject = newSolidObj;
@@ -167,33 +183,51 @@ function PlayerObjectsInteraction()
 		}
 	}
 	
-	// Collide with solid object we're currently standing on using COLLISIONBOX
+	// Collide with solid object we're currently standing on
 	if OnObject
 	{	
-		if instance_exists(OnObject)
-		{
-			// If we left its boundaries or it became non-solid, lose the object
-			if OuterRight < OnObject.bbox_left or OuterLeft > OnObject.bbox_right or OnObject.objCollisionType = SolidNone
-			{
-				OnObject = false;
-			}
-			
-			// Else attach to it
-			else
-			{
-				PosY -= OuterBottom - OnObject.bbox_top + 1;	
-				
-				// Tell object we're touching its top side
-				OnObject.objGotPlayerOutHitboxTop   = true;
-				OnObject.objGotPlayerOutHitboxLeft  = false;
-				OnObject.objGotPlayerOutHitboxRight = false;
-			}
-		}
-		
-		// Lose the object if it has been deleted or destroyed
-		else
+		// If we left its boundaries or it became non-solid, lose the object
+		if OuterRight < OnObject.bbox_left or OuterLeft > OnObject.bbox_right or OnObject.objCollisionType = SolidNone
 		{
 			OnObject = false;
+		}
+			
+		else
+		{
+			// Stay on the object
+			if OnObject.objCollisionType != SolidSlope
+			{
+				PosY -= OuterBottom - OnObject.bbox_top + 1;
+			}
+			else
+			{
+				var xl = OuterLeft;
+				var yl = OuterBottom;
+				var xr = OuterRight;
+				var yr = OuterBottom;
+				
+				while (!position_meeting(xl, yl, OnObject) and yl - OuterBottom <= 16) yl++;
+				while (!position_meeting(xr, yr, OnObject) and yr - OuterBottom <= 16) yr++;
+				while (position_meeting(xl, yl, OnObject)) yl--;
+				while (position_meeting(xr, yr, OnObject)) yr--;
+				
+				var distLeft  = yl - OuterBottom;
+				var distRight = yr - OuterBottom;
+				
+				if distLeft < distRight
+				{
+					PosY += distLeft;
+				}
+				else
+				{
+					PosY += distRight;
+				}				
+			}
+				
+			// Tell object we're touching its top side
+			OnObject.objGotPlayerOutHitboxTop   = true;
+			OnObject.objGotPlayerOutHitboxLeft  = false;
+			OnObject.objGotPlayerOutHitboxRight = false;
 		}
 	}
 	

@@ -18,9 +18,9 @@ function PlayerSetup()
 	RollFrc = Frc / 2;
 	Dec		= 0.5;
 	RollDec = 0.125;
-	Jump	= 6.5;
 	Grv		= 0.21875;
 	TopAcc	= 6;
+	Jump    = CharacterID == CharKnuckles ? 6 : 6.5;
 	
 	// Set default flags
 	AllowCollision = true;

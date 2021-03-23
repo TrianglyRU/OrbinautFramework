@@ -1,7 +1,10 @@
 function PlayerApplyGravity() 
 {	
 	// Apply gravity
-	Ysp += Grv;
+	if !Climbing
+	{
+		Ysp += Grv;
+	}
 	
 	// Rotate character back
 	if Angle < 180 

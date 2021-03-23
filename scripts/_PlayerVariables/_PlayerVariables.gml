@@ -34,6 +34,9 @@ function _PlayerVariables()
 	ShieldType			 _init;
 	Flying				 _init;
 	FlyingTimer			 _init;
+	Gliding			     _init;
+	GlidingTurn			 _init;
+	Climbing			 _init;
 	HighSpeedBonus		 _init;
 	InvincibilityBonus   _init;
 	Animation			 _init;

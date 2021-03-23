@@ -56,6 +56,7 @@ function GameMacroSetup()
 	#macro AnimFlyTired		   10
 	#macro AnimHurt			   11
 	#macro AnimDeath		   12
+	#macro AnimGlide		   13
 	
 	// Stage macro
 	#macro ActStateDefault     0
@@ -68,7 +69,8 @@ function GameMacroSetup()
 	// Object macro
 	#macro SolidAll   0
 	#macro SolidTop   1
-	#macro SolidNone  2
+	#macro SolidSlope 2
+	#macro SolidNone  3
 	#macro SideTop    0
 	#macro SideLeft   1
 	#macro SideRight  2

@@ -1,7 +1,7 @@
 function object_set_collision(type)
 {	
 	// Report script error if got wrong argument
-	if type != SolidAll and type != SolidTop and type != SolidNone
+	if type != SolidAll and type != SolidTop and type != SolidNone and type != SolidSlope
 	{	
 		
 		show_message("Wrong argument type set for object ID " + string(id) + " in function 'object_set_collision'. Expected SolidAll (0), SolidTop (1) or SolidNone (2)");

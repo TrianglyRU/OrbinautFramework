@@ -116,5 +116,47 @@ function PlayerCharacterAnimationList()
 			}
 		}
 		break;
+		
+		// Knuckles animations
+		case CharKnuckles:
+		{
+			switch Animation
+			{
+				case AnimIdle: 
+					animation_play(spr_knuckles_idle, 1, 1); 
+				break;
+				case AnimWalk: 
+					animation_play(spr_knuckles_walk, AnimReservedSpeed, 1);
+				break;
+				case AnimRun: 
+					animation_play(spr_knuckles_run, AnimReservedSpeed, 1);
+				break;
+				case AnimPeelout: 
+					animation_play(spr_sonic_peelout, 1, 1);
+				break;
+				case AnimRoll:
+					animation_play(spr_knuckles_roll, AnimReservedSpeed, 1);
+				break;
+				case AnimSpindash:
+					animation_play(spr_sonic_spindash, 1, 1); 
+				break;
+				case AnimCrouch:
+					animation_play(spr_sonic_crouch, 4, 2);
+				break;
+				case AnimLookup:
+					animation_play(spr_sonic_lookup, 4, 2);
+				break;
+				case AnimHurt:
+					animation_play(spr_sonic_hurt, 1, 1);
+				break;
+				case AnimDeath:
+					animation_play(spr_sonic_death, 1, 1);
+				break;
+				case AnimGlide:
+					animation_play(spr_knuckles_glide, 1, 1);
+				break;
+			}
+		}
+		break;
 	}
 }
