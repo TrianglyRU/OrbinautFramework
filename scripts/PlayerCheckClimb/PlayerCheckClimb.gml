@@ -4,6 +4,8 @@ function PlayerCheckClimb()
 	
 	if Climbing
 	{
+		Animation = AnimClimb;
+		
 		if Input.Up
 		{
 			Ysp = -1;
@@ -25,9 +27,11 @@ function PlayerCheckClimb()
 		}
 		if Input.ABCPress
 		{
+			Animation = AnimRoll;
 			Ysp		 = -4;
 			Xsp		 = 4 * Facing * -1;
 			Climbing = false;
+			Gliding  = false;
 			Jumping  = true;
 		}
 	}

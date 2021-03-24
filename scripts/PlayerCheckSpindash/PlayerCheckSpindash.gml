@@ -25,12 +25,14 @@ function PlayerCheckSpindash()
 	// Decrease spindash force
 	if SpindashRev > 0 
 	{
+		MovementLock = -1;
 		SpindashRev -= floor(SpindashRev/0.125) / 256;
 	}
 	
 	// Release 
 	if SpindashRev >= 0 and !Input.Down 
 	{
+		MovementLock	   = false;
 		Screen.ScrollDelay = 16;
 		Inertia			   = (8 + floor(SpindashRev) / 2) * Facing;
 		SpindashRev        = -2;

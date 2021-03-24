@@ -131,29 +131,32 @@ function PlayerCharacterAnimationList()
 				case AnimRun: 
 					animation_play(spr_knuckles_run, AnimReservedSpeed, 1);
 				break;
-				case AnimPeelout: 
-					animation_play(spr_sonic_peelout, 1, 1);
-				break;
 				case AnimRoll:
 					animation_play(spr_knuckles_roll, AnimReservedSpeed, 1);
 				break;
 				case AnimSpindash:
-					animation_play(spr_sonic_spindash, 1, 1); 
+					animation_play(spr_knuckles_spindash, 1, 1); 
 				break;
 				case AnimCrouch:
-					animation_play(spr_sonic_crouch, 4, 2);
+					animation_play(spr_knuckles_crouch, 4, 2);
 				break;
 				case AnimLookup:
-					animation_play(spr_sonic_lookup, 4, 2);
+					animation_play(spr_knuckles_lookup, 4, 2);
 				break;
 				case AnimHurt:
-					animation_play(spr_sonic_hurt, 1, 1);
+					animation_play(spr_knuckles_hurt, 1, 1);
 				break;
 				case AnimDeath:
-					animation_play(spr_sonic_death, 1, 1);
+					animation_play(spr_knuckles_death, 1, 1);
 				break;
 				case AnimGlide:
 					animation_play(spr_knuckles_glide, 1, 1);
+				break;
+				case AnimGlideDrop:
+					animation_play(spr_knuckles_glidedrop, 6, 2);
+				break;
+				case AnimClimb:
+					animation_play(spr_knuckles_climb, -(Ysp * 6), 1);
 				break;
 			}
 		}

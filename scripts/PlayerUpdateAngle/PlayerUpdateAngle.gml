@@ -132,5 +132,6 @@ function PlayerUpdateAngle()
 		{
 			Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
 		}
+		if (Angle = 0) Angle = 360;
 	}
 }

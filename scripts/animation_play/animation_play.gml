@@ -12,7 +12,7 @@ function animation_play(objSprite, aniSpeed, doLoopFrom)
 	{
 		image_index  = 0;
 	    sprite_index = objSprite; 
-		aniTimer	 = aniSpeed;
+		aniTimer	 = abs(aniSpeed);
 	}
 	
 	// Hangle subimage change
@@ -24,15 +24,24 @@ function animation_play(objSprite, aniSpeed, doLoopFrom)
 			show_message("Wrong doLoopFrom attribute set in function animation_play for animation " + string(sprite_get_name(objSprite)) + ". doLoopFrom should not be lower than 1 or higher than sprite frames number.");
 			game_end();
 		}
-	
-	    if aniTimer > 1
+		if aniSpeed != 0
 		{
-			aniTimer--;
+		    if aniTimer > 1
+			{
+				aniTimer--;
+			}
+		    else
+		    {	
+				if aniSpeed > 0
+				{
+					image_index = image_index < image_number - 1 ? image_index + 1 : doLoopFrom - 1;
+				}
+				else
+				{
+					image_index = image_index > 0 ? image_index - 1 : image_number - 1 * doLoopFrom;
+				}
+				aniTimer = abs(aniSpeed);
+		    }	
 		}
-	    else
-	    {	
-			image_index = image_index < image_number - 1 ? image_index + 1 : doLoopFrom - 1;
-			aniTimer    = aniSpeed;
-	    }	
 	}
 }

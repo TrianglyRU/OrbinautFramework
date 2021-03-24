@@ -14,7 +14,7 @@ function GameFrameworkSetup()
 	Game.WindowFullscreen = false;
 	Game.ResolutionWidth  = 398;
 	Game.ResolutionHeight = 224;
-	Game.WindowSize		  = 2;
+	Game.WindowSize		  = 3;
 	
 	// Audio settings
 	Game.MusicVolume = 0;
@@ -23,13 +23,13 @@ function GameFrameworkSetup()
 	// Gameplay
 	Game.SpindashEnabled		 = true;	// Enables S2 Spindash
 	Game.PeeloutEnabled          = true;	// Enables SCD Super Peel Out
-	Game.DropdashEnabled		 = false;	// Enables Mania Dropdash
+	Game.DropdashEnabled		 = true;	// Enables Mania Dropdash
 	Game.GroundSpeedcap			 = false;	// Enables ground speedcap
 	Game.AirSpeedcap			 = false;	// Enables air speedcap
 	Game.RolljumpControl		 = false;	// Unlocks directional contorls if you jump after rolling
 	Game.AllowUnroll			 = true;    // Allows you to unroll with UP button when rolling
 	Game.ExtendedCamera			 = false;	// Enables camera to shift to the side of your direction movement
-	Game.OriginalRollLimit		 = true;	// Limits inertia instead of x speed when rolling
+	Game.OriginalRollLimit		 = false;	// Limits xsp instead of inertia speed when rolling
 	Game.FlyingCancel			 = true;    // Allows you to cancel flying as Tails
 	
 	// Engine

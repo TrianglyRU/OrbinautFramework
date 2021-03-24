@@ -1,10 +1,7 @@
 function PlayerMove()
 {	
-	// Exit if spindashing
-	if SpindashRev >= 0 exit;
-
 	// Accelerate and decelerate
-	if !MovementLock
+	if MovementLock = false
 	{
 		if Input.Left
 		{	
@@ -66,17 +63,20 @@ function PlayerMove()
 	// Set animation
 	if Inertia = 0
 	{
-		if Input.Down
+		if SpindashRev = -2 and PeeloutRev = -2
 		{
-			Animation = AnimCrouch;
-		}
-		else if Input.Up
-		{
-			Animation = AnimLookup;
-		}
-		else
-		{
-			Animation = AnimIdle;
+			if Input.Down
+			{
+				Animation = AnimCrouch;
+			}
+			else if Input.Up
+			{
+				Animation = AnimLookup;
+			}
+			else
+			{
+				Animation = AnimIdle;
+			}
 		}
 	} 
 	else

@@ -3,24 +3,31 @@ function PlayerResetOnFloor()
 	// If grounded flag has been set to true when we've been airborne, we have landed
 	if Grounded
 	{	
-		// Reset flags
-		if (DropdashRev != 20) Rolling = false;
-		Jumping		= false;
-		Pushing		= false;
-		DropdashRev = -2;
-		
-		// Reset flying state
-		if Flying
-		{	
-			Flying	    = false;
-			FlyingTimer = 0;
-			Grv		    = 0.21875;
+		if Gliding = 3
+		{
+			Xsp		= 0;
+			Inertia = 0;
+			Gliding = false;
 		}
 		
-		if Gliding
+		// Reset gravity
+		Grv	= 0.21875;
+		
+		// Reset flags
+		Rolling		= DropdashRev == 20;
+		Gliding		= Gliding == 1;
+		Jumping		= false;
+		Pushing		= false;
+		Flying	    = false;
+		FlyingTimer = 0;
+		DropdashRev = -2;
+		
+		// Reset hurt state
+		if Hurt
 		{
-			Gliding = false;
-			Grv		= 0.21875;
+			Inertia		 = 0;
+			isInvincible = 120;
+			Hurt		 = false;			
 		}
 		
 		// Reset radiuses to default values if not rolling
@@ -28,15 +35,6 @@ function PlayerResetOnFloor()
 		{
 			yRadius = yRadiusDefault; 
 			xRadius	= xRadiusDefault;	
-		}
-		
-		// Reset hurt state
-		if Hurt
-		{
-			Grv			 = 0.21875;
-			Inertia		 = 0;
-			isInvincible = 120;
-			Hurt		 = false;			
-		}
+		}	
 	}
 }

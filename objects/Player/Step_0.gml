@@ -42,6 +42,9 @@
 			// Get floor angle
 			PlayerUpdateAngle();
 			
+			// Check for gliding on the ground as Knuckles
+			PlayerCheckGlide();
+			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
@@ -96,10 +99,20 @@
 			// Update player's speeds
 			PlayerMoveAirborne();
 			
-			PlayerCheckClimb()
-			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
+			
+			// Check for dropdash as Sonic
+			PlayerCheckDropdash();
+			
+			// Check for flying as Tails
+			PlayerCheckFlying();
+			
+			// Check for gliding as Knuckles
+			PlayerCheckGlide();
+			
+			// Check for climbing walls as Knuckles
+			PlayerCheckClimb();
 			
 			// Update player's position
 			PlayerSpeedToPos();
@@ -115,14 +128,6 @@
 			
 			// Collide with floor
 			PlayerHitFloor();
-
-			// Check for dropdash
-			PlayerCheckDropdash();
-			
-			// Check for Tails helitail
-			PlayerCheckFlying();
-			
-			PlayerCheckGlide();
 			
 			// Collide or check for overlap with the objects
 			PlayerObjectsInteraction();
@@ -130,7 +135,7 @@
 			// Check for being hurt
 			PlayerCheckHurt();
 			
-			// Landing events
+			// Reset flags on landing
 			PlayerResetOnFloor();
 		}
 		break;

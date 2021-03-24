@@ -13,6 +13,8 @@ function PlayerCheckHurt()
 			Rolling		   = false;
 			Jumping		   = false;
 			Flying		   = false;
+			Gliding		   = false;
+			Climbing	   = false;
 			AllowCollision = false;
 			
 			// Perform movement
@@ -43,6 +45,8 @@ function PlayerCheckHurt()
 			Grounded	 = false;
 			Rolling		 = false;
 			Jumping		 = false;
+			Gliding		   = false;
+			Climbing	   = false;
 			Flying		 = false;
 
 			// Knockback us

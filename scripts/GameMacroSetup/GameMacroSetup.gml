@@ -57,6 +57,8 @@ function GameMacroSetup()
 	#macro AnimHurt			   11
 	#macro AnimDeath		   12
 	#macro AnimGlide		   13
+	#macro AnimClimb		   14
+	#macro AnimGlideDrop	   15
 	
 	// Stage macro
 	#macro ActStateDefault     0
