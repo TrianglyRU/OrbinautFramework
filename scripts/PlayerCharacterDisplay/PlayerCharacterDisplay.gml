@@ -92,12 +92,29 @@ function PlayerCharacterDisplay()
 		{
 			if Facing = 1
 			{
-				TailsObject.image_angle = point_direction(PosX, PosY, PosX + Xsp, PosY + Ysp);
+				var DirectionAngle = point_direction(PosX, PosY, PosX + Xsp, PosY + Ysp);
 			}
 			else
 			{
-				TailsObject.image_angle = point_direction(PosX + Xsp, PosY + Ysp, PosX, PosY);
+				var DirectionAngle = point_direction(PosX + Xsp, PosY + Ysp, PosX, PosY);
 			}
+			
+			if Game.SmoothRotation
+			{
+				TailsAngle = DirectionAngle;
+			}
+			else
+			{
+				if (DirectionAngle > 334.5 or DirectionAngle < 25.5)  var TailsAngle =   0;
+				if (DirectionAngle > 25.5 and DirectionAngle < 75)	  var TailsAngle =  45; 
+				if (DirectionAngle > 75   and DirectionAngle < 105)	  var TailsAngle =  90; 
+				if (DirectionAngle > 105  and DirectionAngle < 155)   var TailsAngle = 135; 
+				if (DirectionAngle > 155  and DirectionAngle < 205)   var TailsAngle = 180; 
+				if (DirectionAngle > 205  and DirectionAngle < 255)   var TailsAngle = 225; 
+				if (DirectionAngle > 255  and DirectionAngle < 285)   var TailsAngle = 270; 
+				if (DirectionAngle > 285  and DirectionAngle < 334.5) var TailsAngle = 305;
+			}
+			TailsObject.image_angle = TailsAngle;
 		}
 	}
 }

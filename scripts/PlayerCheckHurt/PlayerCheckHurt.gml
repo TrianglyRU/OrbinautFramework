@@ -3,18 +3,20 @@ function PlayerCheckHurt()
 	// Check if our hurt flag equals to object ID we got harmed by
 	if (Hurt > 1 and !Death) or Stage.Time = 36000
 	{	
+		// Set flags
+		Grounded	   = false;
+		Rolling		   = false;
+		Jumping		   = false;
+		FlyingState	   = false;
+		GlidingState   = false;
+		Climbing	   = false;
+			
 		if (!Rings and !ShieldType) or Stage.Time = 36000
 		{
 			// Set animation
 			Animation = AnimDeath;
 			
-			// Set flags
-			Grounded	   = false;
-			Rolling		   = false;
-			Jumping		   = false;
-			Flying		   = false;
-			Gliding		   = false;
-			Climbing	   = false;
+			// Disable collision
 			AllowCollision = false;
 			
 			// Perform movement
@@ -40,14 +42,6 @@ function PlayerCheckHurt()
 			{
 				ShieldType = 0;
 			}
-			
-			// Set flags
-			Grounded	 = false;
-			Rolling		 = false;
-			Jumping		 = false;
-			Gliding		   = false;
-			Climbing	   = false;
-			Flying		 = false;
 
 			// Knockback us
 			Ysp = -4;

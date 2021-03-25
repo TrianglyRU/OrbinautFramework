@@ -38,7 +38,7 @@ function PlayerMove()
 				if (!Game.GroundSpeedcap and Inertia < TopAcc) or Game.GroundSpeedcap
 				{
 					Inertia += Acc;
-					if (Inertia >= TopAcc) Inertia = TopAcc;	
+					if (Inertia >= TopAcc) Inertia = TopAcc;
 				} 
 				Facing = FacingRight;
 			}
@@ -61,29 +61,8 @@ function PlayerMove()
 	}
 	
 	// Set animation
-	if Inertia = 0
-	{
-		if SpindashRev = -2 and PeeloutRev = -2
-		{
-			if Input.Down
-			{
-				Animation = AnimCrouch;
-			}
-			else if Input.Up
-			{
-				Animation = AnimLookup;
-			}
-			else
-			{
-				Animation = AnimIdle;
-			}
-		}
-	} 
-	else
-	{
-		Animation = abs(Inertia) < TopAcc ? AnimWalk : AnimRun;
-	}
-	
+	Animation = Inertia == 0 ? AnimIdle : (abs(Inertia) < TopAcc ? AnimWalk : AnimRun);
+
 	// Get our speed ratio
 	AnimReservedSpeed = round(max(1, 8 - abs(Inertia)));
 

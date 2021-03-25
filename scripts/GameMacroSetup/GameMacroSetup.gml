@@ -28,21 +28,27 @@ function GameMacroSetup()
 	#macro RangeFloor	       0
 	#macro RangeRWall	       1
 	#macro RangeRoof		   2
-	#macro RangeLWall		   3	
+	#macro RangeLWall		   3
+	
 	#macro PlayerStateNormal   0
 	#macro PlayerStateRoll     1
 	#macro PlayerStateAirborne 2
+	
 	#macro CharSonic		   0
 	#macro CharTails	       1
-	#macro CharKnuckles	       2	
+	#macro CharKnuckles	       2
+	
 	#macro FacingLeft	      -1
 	#macro FacingRight	       1
+	
 	#macro LayerA		       0
 	#macro LayerB		       1
+	
 	#macro BarrierNormal	   0
 	#macro BarrierElec		   1
 	#macro BarrierWater        2
 	#macro BarrierFire		   3
+	
 	#macro AnimIdle		       0
 	#macro AnimWalk		       1
 	#macro AnimRun		       2
@@ -59,6 +65,7 @@ function GameMacroSetup()
 	#macro AnimGlide		   13
 	#macro AnimClimb		   14
 	#macro AnimGlideDrop	   15
+	#macro AnimGlideSlide	   16
 	
 	// Stage macro
 	#macro ActStateDefault     0
@@ -73,6 +80,7 @@ function GameMacroSetup()
 	#macro SolidTop   1
 	#macro SolidSlope 2
 	#macro SolidNone  3
+	
 	#macro SideTop    0
 	#macro SideLeft   1
 	#macro SideRight  2

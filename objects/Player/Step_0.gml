@@ -33,6 +33,9 @@
 			// Perform super peel out
 			PlayerCheckPeelout();
 			
+			// Check for gliding on the ground as Knuckles
+			PlayerCheckGlide();
+			
 			// Perform roll
 			PlayerCheckRoll();
 					
@@ -41,9 +44,6 @@
 			
 			// Get floor angle
 			PlayerUpdateAngle();
-			
-			// Check for gliding on the ground as Knuckles
-			PlayerCheckGlide();
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
@@ -99,20 +99,17 @@
 			// Update player's speeds
 			PlayerMoveAirborne();
 			
-			// Check for crossing stage boundaries
-			PlayerLevelBound();
-			
-			// Check for dropdash as Sonic
-			PlayerCheckDropdash();
-			
 			// Check for flying as Tails
-			PlayerCheckFlying();
+			PlayerCheckFly();
 			
 			// Check for gliding as Knuckles
 			PlayerCheckGlide();
 			
 			// Check for climbing walls as Knuckles
 			PlayerCheckClimb();
+			
+			// Check for crossing stage boundaries
+			PlayerLevelBound();
 			
 			// Update player's position
 			PlayerSpeedToPos();
@@ -131,6 +128,9 @@
 			
 			// Collide or check for overlap with the objects
 			PlayerObjectsInteraction();
+			
+			// Check for dropdash as Sonic
+			PlayerCheckDropdash();
 			
 			// Check for being hurt
 			PlayerCheckHurt();

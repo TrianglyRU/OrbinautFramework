@@ -3,38 +3,95 @@ function PlayerResetOnFloor()
 	// If grounded flag has been set to true when we've been airborne, we have landed
 	if Grounded
 	{	
-		if Gliding = 3
-		{
-			Xsp		= 0;
-			Inertia = 0;
-			Gliding = false;
-		}
+		/* Default events */
+		/* ============== */
 		
 		// Reset gravity
 		Grv	= 0.21875;
 		
 		// Reset flags
-		Rolling		= DropdashRev == 20;
-		Gliding		= Gliding == 1;
-		Jumping		= false;
-		Pushing		= false;
-		Flying	    = false;
-		FlyingTimer = 0;
-		DropdashRev = -2;
+		Rolling		 = false;
+		Jumping		 = false;
+		Pushing		 = false;
 		
 		// Reset hurt state
 		if Hurt
 		{
-			Inertia		 = 0;
 			isInvincible = 120;
+			Inertia		 = 0;
 			Hurt		 = false;			
 		}
+		
+		/* Special abilities */
+		/* ================= */
+		
+		// Sonic's dropdash
+		if DropdashRev = 20
+		{	
+			// Go to rolling state
+			Rolling = true;
+		
+			// Set dropspeed
+			if DropdashDirection = 1
+			{
+				var Dropspeed = Inertia / 4 + 8 * Facing;
+			}
+			else
+			{
+				if Angle = 0
+				{
+					var Dropspeed = 8 * Facing;
+				}
+				else
+				{
+					var Dropspeed = Inertia / 2 + 8 * Facing;
+				}
+			}
+			if (Dropspeed >  12) Dropspeed =  12;
+			if (Dropspeed < -12) Dropspeed = -12;
+		
+			// Apply dropspeed to inertia and set camera lag
+			Inertia			   = Dropspeed;
+			DropdashRev		   = -2;
+			Screen.ScrollDelay = 16;
+		}
+		else
+		{
+			DropdashRev = -2;
+		}
+		
+		// Tails' flying
+		FlyingState	= false;
+		FlyingTimer = 0;
+		
+		// Knuckles' gliding
+		switch GlidingState
+		{
+			// Continue gliding
+			case 1:
+			{
+				Frc			 = 0.125;
+				MovementLock = -1;	
+			}
+			break;
+			
+			// Stop movement if we glidedropped
+			case 3:
+			{
+				Xsp			 = 0;
+				Inertia		 = 0;
+				GlidingState = false;
+			}
+		}
+		
+		/* Collision */
+		/* ========= */
 		
 		// Reset radiuses to default values if not rolling
 		if !Rolling
 		{
 			yRadius = yRadiusDefault; 
 			xRadius	= xRadiusDefault;	
-		}	
+		}
 	}
 }

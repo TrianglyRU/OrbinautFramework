@@ -1,30 +1,32 @@
 function PlayerCheckSpindash()
 {	
-	// Check if spindash is enabled
-	if Game.SpindashEnabled = false exit;
-	
 	// Charge spindash
-	if Inertia = 0 and Input.Down and Input.ABCPress 
-	{	
-		Animation   = AnimSpindash;
-		image_index = 0;
+	if Input.Down and Inertia = 0
+	{
+		Animation = AnimCrouch;
 		
-		if SpindashRev = -2
+		if Game.SpindashEnabled and Input.ABCPress
 		{
-			SpindashRev = 2;
-		}
-		else
-		{
-			 SpindashRev += 2;
-		}
-		if (SpindashRev > 8) SpindashRev = 8;
+			image_index = 0;
 		
-		audio_sfx_play(sfxCharge, false);
+			if SpindashRev = -2
+			{
+				SpindashRev = 2;
+			}
+			else
+			{
+				 SpindashRev += 2;
+			}
+			if (SpindashRev > 8) SpindashRev = 8;
+		
+			audio_sfx_play(sfxCharge, false);
+		}
 	}
 	
 	// Decrease spindash force
 	if SpindashRev > 0 
 	{
+		Animation    = AnimSpindash;
 		MovementLock = -1;
 		SpindashRev -= floor(SpindashRev/0.125) / 256;
 	}

@@ -8,7 +8,7 @@ function PlayerCharacterAnimationList()
 			switch Animation
 			{
 				case AnimIdle: 
-					animation_play(spr_sonic_idle, 4, 1); 
+					animation_play(spr_sonic_idle, 32, 11); 
 				break;
 				case AnimWalk: 
 					animation_play(spr_sonic_walk, AnimReservedSpeed, 1);
@@ -26,10 +26,10 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_sonic_spindash, 1, 1); 
 				break;
 				case AnimCrouch:
-					animation_play(spr_sonic_crouch, 4, 2);
+					animation_play(spr_sonic_crouch, 4, 1);
 				break;
 				case AnimLookup:
-					animation_play(spr_sonic_lookup, 4, 2);
+					animation_play(spr_sonic_lookup, 4, 1);
 				break;
 				case AnimHurt:
 					animation_play(spr_sonic_hurt, 1, 1);
@@ -80,7 +80,6 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_tails_death, 1, 1);
 				break;
 			}	
-			
 			with TailsObject
 			{
 				switch Player.Animation
@@ -94,7 +93,7 @@ function PlayerCharacterAnimationList()
 						animation_play(spr_tails_tail_walk, Player.AnimReservedSpeed, 1);
 					break;
 					case AnimRun:
-						animation_play(spr_tails_tail_run, Player.AnimReservedSpeed, 1);
+						animation_play(abs(Player.Inertia) < 10 ? spr_tails_tail_run : spr_tails_tail_run_dash, Player.AnimReservedSpeed, 1);
 					break;
 					case AnimRoll:
 						animation_play(spr_tails_tail_roll, 4, 1);
@@ -154,6 +153,9 @@ function PlayerCharacterAnimationList()
 				break;
 				case AnimGlideDrop:
 					animation_play(spr_knuckles_glidedrop, 6, 2);
+				break;
+				case AnimGlideSlide:
+					animation_play(spr_knuckles_glideslide, 1, 1);
 				break;
 				case AnimClimb:
 					animation_play(spr_knuckles_climb, -(Ysp * 6), 1);

@@ -7,29 +7,29 @@ function PlayerCheckGlide()
 	if !Grounded
 	{
 		// Start gliding
-		if !Gliding
+		if GlidingState = false
 		{
-			if Jumping and Input.ABCPress
+			if Jumping and Ysp > -4 and Input.ABCPress
 			{
-				Jumping = false;
-				Gliding = true;
-				Xsp     = 4 * Facing;
+				Xsp			 = 4 * Facing;
+				Jumping		 = false;
+				GlidingState = 1;
 				if (Ysp < 0) Ysp = 0;
 			
 				// Set default turn value
 				if Facing = FacingRight
 				{
-					GlidingTurn = 0;
+					GlidingDirection = 0;
 				}
 				else
 				{
-					GlidingTurn = -180;
+					GlidingDirection = -180;
 				}
 			}
 		}
 	
 		// Glide
-		else if Gliding < 3
+		else if GlidingState < 3
 		{
 			if Input.ABC
 			{
@@ -40,27 +40,29 @@ function PlayerCheckGlide()
 				if Xsp > 0 and Input.LeftPress 
 				or Xsp < 0 and Input.RightPress
 				{
-					Inertia = Xsp;
-					Gliding = 2;
+					Inertia		 = Xsp;
+					GlidingState = 2;
 				}
-				if Gliding = 2
-				{
-					GlidingTurn += 2.8125 * -sign(Inertia);	
-					Xsp	= Inertia * Facing * dcos(GlidingTurn);
 				
-					if GlidingTurn = -180 or GlidingTurn = 0
-					{
-						Gliding = 1;
-						Facing  *= -1;
-					}
-				}
-			
 				// Accelerate when we're not turning
-				if Gliding = 1
+				if GlidingState = 1
 				{
 					Xsp += Facing * 0.015625;
 				}
-			
+				
+				// Turn
+				if GlidingState = 2
+				{
+					GlidingDirection += 2.8125 * -sign(Inertia);	
+					Xsp	= Inertia * Facing * dcos(GlidingDirection);
+				
+					if GlidingDirection = -180 or GlidingDirection = 0
+					{
+						GlidingState =  1;
+						Facing		*= -1;
+					}
+				}
+
 				// Apply gravity
 				if Ysp < 0.5
 				{
@@ -77,27 +79,25 @@ function PlayerCheckGlide()
 			{
 				Animation = AnimGlideDrop;
 				
-				Xsp	   *= 0.25;
-				Grv		= 0.21875;
-				Gliding = 3;
+				Xsp		    *= 0.25;
+				Grv			 = 0.21875;
+				GlidingState = 3;
 			}
 		}	
 	}
 	
 	// Ground code
-	else if Gliding = 1
+	else if GlidingState = 1
 	{
-		Animation = AnimGlide;
-			
-		Frc			 = 0.125;
-		MovementLock = -1;
-			
+		// Set animation
+		Animation = AnimGlideSlide;
+		
 		// Glide on our belly until we release button or completely stop
 		if (!Input.ABC) or Inertia = 0
 		{
 			Inertia		 = 0;
 			Xsp			 = 0;
-			Gliding		 = false;
+			GlidingState = false;
 			MovementLock = false;
 			Frc			 = 0.046875;
 		}

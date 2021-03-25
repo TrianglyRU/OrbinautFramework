@@ -12,7 +12,7 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen = false;
-	Game.ResolutionWidth  = 398;
+	Game.ResolutionWidth  = 320;
 	Game.ResolutionHeight = 224;
 	Game.WindowSize		  = 3;
 	
@@ -42,7 +42,7 @@ function GameFrameworkSetup()
 	Game.ExtensiveWallCollision	 = true;	// In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.ImprovedObjCollision	 = true;    // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
-	Game.SmoothRotation			 = true;	// Use smooth rotation
+	Game.SmoothRotation			 = false;	// Use smooth rotation
 	Game.RichPresenceSupport	 = true;	// Enable Rich Presence
 		
 	// Default palette status

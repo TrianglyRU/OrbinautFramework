@@ -1,37 +1,39 @@
 function PlayerCheckPeelout()
 {	
-	// Check if we're Sonic
-	if CharacterID != CharSonic exit;
-	
-	// Check if peelout is enabled
-	if Game.PeeloutEnabled = false exit;
-	
-	// Start peelout
-	if Inertia = 0 and PeeloutRev = -2
+	if Input.Up and Inertia = 0
 	{
-		if Input.APress and Input.Up
+		Animation = AnimLookup;
+		
+		if CharacterID = CharSonic and Game.PeeloutEnabled
 		{
-			PeeloutRev = 0;
-		}
-	}
-	
-	// Charge it
-	if Input.Up
-	{
-		if PeeloutRev >= 0
-		{
-			PeeloutRev++;
-			if (PeeloutRev > 30) PeeloutRev = 30;
+			// Start peelout
+			if Input.APress
+			{
+				PeeloutRev = 0;
+			}
 			
-			Animation = AnimPeelout;
+			// Charge peelout
+			if PeeloutRev >= 0
+			{
+				PeeloutRev++;
+				if (PeeloutRev > 30) PeeloutRev = 30;
+				Animation = AnimPeelout;
+			}
 		}
 	}
-	
-	// Release
-	else if PeeloutRev = 30
+			
+	// Release peelout
+	else
 	{
-		Screen.ScrollDelay = 12;
-		PeeloutRev		   = -2;
-		Inertia			   = 12 * Facing;
-	}	
+		if PeeloutRev < 30
+		{
+			PeeloutRev = -2;
+		}
+		else
+		{
+			Screen.ScrollDelay = 12;
+			Inertia			   = 12 * Facing;
+			PeeloutRev		   = -2;
+		}
+	}		
 }

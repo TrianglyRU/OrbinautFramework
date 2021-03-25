@@ -29,13 +29,14 @@ function _PlayerVariables()
 	PeeloutRev			 _init;
 	SpindashRev		     _init;
 	DropdashRev			 _init;
+	DropdashDirection	 _init;
 	isSuper				 _init;
 	isInvincible		 _init;
 	ShieldType			 _init;
-	Flying				 _init;
+	FlyingState			 _init;
 	FlyingTimer			 _init;
-	Gliding			     _init;
-	GlidingTurn			 _init;
+	GlidingState		 _init;
+	GlidingDirection	 _init;
 	Climbing			 _init;
 	HighSpeedBonus		 _init;
 	InvincibilityBonus   _init;
