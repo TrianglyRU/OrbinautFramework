@@ -62,6 +62,15 @@ function PlayerUpdateAngle()
 				
 				// Get floor angle
 				var floorAngle = tile_get_angle_h(angX, angY, true, false, Layer);
+				
+				// Force angle to be 90 if we're on 1/4 loop
+				if Game.ConsiderAngleDifference
+				{
+					if dLeft <= 0 and dRight > TileSize
+					{
+						var floorAngle = 90;
+					}
+				}
 			}
 			break;
 			case RangeRoof:
@@ -118,20 +127,41 @@ function PlayerUpdateAngle()
 				
 				// Get floor angle
 				var floorAngle = tile_get_angle_h(angX, angY, false, false, Layer);
+				
+				// Force angle to be 270 if we're on 1/4 loop
+				if Game.ConsiderAngleDifference
+				{
+					if dLeft > TileSize and dRight <= 0
+					{
+						var floorAngle = 270;
+					}
+				}
 			}
 			break;
 		}
 		
+		show_debug_message(dLeft);
+		show_debug_message(dRight);
+		
 		// Use cardinal floor angle if difference is greater than 45
-		var angDifference = abs(Angle - floorAngle);
-		if  angDifference < 180
+		if Game.ConsiderAngleDifference
 		{
-			Angle = angDifference > 45  ? (round(Angle/90) % 4) * 90 : floorAngle;
+			var angDifference = abs(Angle - floorAngle);
+			if  angDifference < 180
+			{
+				Angle = angDifference > 45  ? (round(Angle/90) % 4) * 90 : floorAngle;
+			}
+			else
+			{
+				Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
+			}
+			if (Angle = 0) Angle = 360;
 		}
+		
+		// Use normal floor angle
 		else
 		{
-			Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
+			Angle = floorAngle;
 		}
-		if (Angle = 0) Angle = 360;
 	}
 }
