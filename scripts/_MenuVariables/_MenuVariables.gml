@@ -6,7 +6,7 @@ function _MenuVariables()
 	Saveslot[3]		_init;
 	
 	MenuState		_init;
-	MenuOption		_init;	
+	MenuOption		_init;
 	ControlEditMode _init;
 	DataDeleteMode  _init;
 	SaveNewData     _init;

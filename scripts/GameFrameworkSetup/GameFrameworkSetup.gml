@@ -22,8 +22,8 @@ function GameFrameworkSetup()
 	
 	// Gameplay
 	Game.SpindashEnabled		 = true;	// Enables S2 Spindash
-	Game.PeeloutEnabled          = false;	// Enables SCD Super Peel Out
 	Game.DropdashEnabled		 = false;	// Enables Mania Dropdash
+	Game.PeeloutEnabled          = false;	// Enables SCD Super Peel Out
 	Game.GroundSpeedcap			 = false;	// Enables ground speedcap
 	Game.AirSpeedcap			 = false;	// Enables air speedcap
 	Game.RolljumpControl		 = false;	// Unlocks directional contorls if you jump after rolling

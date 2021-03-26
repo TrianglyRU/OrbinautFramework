@@ -3,9 +3,16 @@ function gamesettings_load(filename)
 	ini_open(filename + ".ini");
 	{
 		// Gameplay
-		Game.SpindashEnabled = ini_read_real("Gameplay", "Spindash", 1);
-		Game.DropdashEnabled = ini_read_real("Gameplay", "Dropdash", 0);
-		Game.PeeloutEnabled	 = ini_read_real("Gameplay", "Peelout",  1);
+		Game.SpindashEnabled   = ini_read_real("Gameplay", "Spindash",    true);
+		Game.DropdashEnabled   = ini_read_real("Gameplay", "Dropdash",    false);
+		Game.PeeloutEnabled	   = ini_read_real("Gameplay", "Peelout",     false);
+		Game.GroundSpeedcap	   = ini_read_real("Gameplay", "GndSpeedcap", false);
+		Game.AirSpeedcap	   = ini_read_real("Gameplay", "AirSpeedcap", false);
+		Game.RolljumpControl   = ini_read_real("Gameplay", "RlljmpCtrl",  true);	
+		Game.AllowUnroll	   = ini_read_real("Gameplay", "UnrollMove",  false); 
+		Game.ExtendedCamera	   = ini_read_real("Gameplay", "CDCamera",    false);
+		Game.OriginalRollLimit = ini_read_real("Gameplay", "OgRollLimit", true);	
+		Game.FlyingCancel	   = ini_read_real("Gameplay", "FlyCancel",   true); 
 	
 		// Video
 		Game.ResolutionWidth  = ini_read_real("Video", "ResWidth",  398);

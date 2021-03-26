@@ -99,19 +99,35 @@ function MenuDisplay()
 		{
 			draw_set_halign(fa_left);
 			
-			string_display(X - 80, Y - 15, "SPINDASH",		   1);
-			string_display(X - 80, Y,	   "DROPDASH",		   1);
-			string_display(X - 80, Y + 15, "SUPER PEEL OUT",   1);
-			string_display(X - 80, Y + 30, "GROUND SPEEDCAP",  1);
-			string_display(X - 80, Y + 45, "AIR SPEEDCAP",     1);
-			string_display(X - 80, Y + 60, "ROLLJUMP CONTROL", 1);
-			string_display(X - 80, Y + 75, "UNROLL MOVE",	   1);
-			string_display(X - 80, Y + 90, "EXTENDED CAMERA",  1);
-			string_display(X - 80, Y + 105, "BACK",			   1);
-			
-			string_display(X + 65, Y - 15, Game.SpindashEnabled ? "ON" : "OFF", 1);
-			string_display(X + 65, Y,	   Game.DropdashEnabled ? "ON" : "OFF", 1);
-			string_display(X + 65, Y + 15, Game.PeeloutEnabled  ? "ON" : "OFF", 1);
+			if MenuOption <= 6
+			{
+				string_display(X - 80, Y - 15, "SPINDASH",		   1);
+				string_display(X - 80, Y,	   "DROPDASH",		   1);
+				string_display(X - 80, Y + 15, "SUPER PEEL OUT",   1);
+				string_display(X - 80, Y + 30, "GROUND SPEEDCAP",  1);
+				string_display(X - 80, Y + 45, "AIR SPEEDCAP",     1);
+				string_display(X - 80, Y + 60, "ROLLJUMP CONTROL", 1);
+				string_display(X - 80, Y + 75, "UNROLL MOVE",	   1);
+				
+				string_display(X + 65, Y - 15, Game.SpindashEnabled ? "ON" : "OFF", 1);
+				string_display(X + 65, Y,	   Game.DropdashEnabled ? "ON" : "OFF", 1);
+				string_display(X + 65, Y + 15, Game.PeeloutEnabled  ? "ON" : "OFF", 1);
+				string_display(X + 65, Y + 30, Game.GroundSpeedcap  ? "ON" : "OFF", 1);
+				string_display(X + 65, Y + 45, Game.AirSpeedcap     ? "ON" : "OFF", 1);
+				string_display(X + 65, Y + 60, Game.RolljumpControl ? "ON" : "OFF", 1);
+				string_display(X + 65, Y + 75, Game.AllowUnroll     ? "ON" : "OFF", 1);
+			}
+			else
+			{
+				string_display(X - 80, Y - 15, "EXTENDED CAMERA",  1);
+				string_display(X - 80, Y,      "OG ROLL LIMIT",    1);
+				string_display(X - 80, Y + 15, "FLYING CANCEL",    1);
+				string_display(X - 80, Y + 30, "BACK",			   1);
+				
+				string_display(X + 65, Y - 15, Game.ExtendedCamera    ? "ON" : "OFF", 1);
+				string_display(X + 65, Y,	   Game.OriginalRollLimit ? "ON" : "OFF", 1);
+				string_display(X + 65, Y + 15, Game.FlyingCancel      ? "ON" : "OFF", 1);
+			}	
 		}
 		break;
 		
