@@ -7,9 +7,10 @@ function PlayerCheckPeelout()
 		if CharacterID = CharSonic and Game.PeeloutEnabled
 		{
 			// Start peelout
-			if Input.APress
+			if Input.APress and PeeloutRev = -2
 			{
-				PeeloutRev = 0;
+				PeeloutRev   = 0;
+				MovementLock = -1;
 			}
 			
 			// Charge peelout
@@ -23,17 +24,19 @@ function PlayerCheckPeelout()
 	}
 			
 	// Release peelout
-	else
+	else if PeeloutRev
 	{
 		if PeeloutRev < 30
 		{
-			PeeloutRev = -2;
+			PeeloutRev   = -2;
+			MovementLock = false;
 		}
 		else
-		{
+		{	
 			Screen.ScrollDelay = 12;
 			Inertia			   = 12 * Facing;
 			PeeloutRev		   = -2;
+			MovementLock	   = false;
 		}
 	}		
 }

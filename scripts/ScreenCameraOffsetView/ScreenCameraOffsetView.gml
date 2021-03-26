@@ -30,8 +30,8 @@ function ScreenCameraOffsetView()
 	}
 	
 	// Set up/down shift varaible
-	var ShiftDown = Player.Inertia = 0 and Input.Down and Player.SpindashRev < 0 and Player.Grounded;
-	var ShiftUp   = Player.Inertia = 0 and Input.Up   and Player.PeeloutRev  < 0 and Player.Grounded;
+	var ShiftDown = Player.Inertia == 0 and Input.Down and Player.SpindashRev < 0 and Player.Grounded;
+	var ShiftUp   = Player.Inertia == 0 and Input.Up   and Player.PeeloutRev  < 0 and Player.Grounded;
 	
 	// Delay up/down shift if spindash or peelout is enabled
 	if Game.SpindashEnabled or Game.PeeloutEnabled
@@ -40,7 +40,7 @@ function ScreenCameraOffsetView()
 		{
 			if (OverviewDelay > 0) OverviewDelay--;
 		} 
-		else 
+		else if OverviewOffset = 0
 		{
 			OverviewDelay = 120;
 		}
@@ -64,7 +64,7 @@ function ScreenCameraOffsetView()
 	} 	
 	
 	// Shift back to original position
-	if OverviewDelay != 0 and OverviewOffset != 0
+	if !ShiftUp and !ShiftDown and OverviewOffset != 0
 	{
 		OverviewOffset -= 2 * sign(OverviewOffset);
 	}	

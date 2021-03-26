@@ -8,7 +8,7 @@ function PlayerCharacterAnimationList()
 			switch Animation
 			{
 				case AnimIdle: 
-					animation_play(spr_sonic_idle, 32, 11); 
+					animation_play(spr_sonic_idle, 32, 14); 
 				break;
 				case AnimWalk: 
 					animation_play(spr_sonic_walk, AnimReservedSpeed, 1);

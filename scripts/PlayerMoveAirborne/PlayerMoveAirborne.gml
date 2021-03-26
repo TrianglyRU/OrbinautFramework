@@ -9,7 +9,7 @@ function PlayerMoveAirborne()
 			{
 				Xsp -= AirAcc;
 			} 
-			else if Xsp > -TopAcc 
+			else if (!Game.AirSpeedcap and Xsp > -TopAcc) or Game.AirSpeedcap
 			{
 				Xsp -= AirAcc;
 				if (Xsp <= -TopAcc) Xsp = -TopAcc;
@@ -22,7 +22,7 @@ function PlayerMoveAirborne()
 			{
 				Xsp += AirAcc;
 			} 
-			else if Xsp < TopAcc 
+			else if (!Game.AirSpeedcap and Xsp < TopAcc) or Game.AirSpeedcap 
 			{
 				Xsp += AirAcc;
 				if (Xsp >= TopAcc) Xsp = TopAcc;

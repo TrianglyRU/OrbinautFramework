@@ -22,14 +22,14 @@ function GameFrameworkSetup()
 	
 	// Gameplay
 	Game.SpindashEnabled		 = true;	// Enables S2 Spindash
-	Game.PeeloutEnabled          = true;	// Enables SCD Super Peel Out
-	Game.DropdashEnabled		 = true;	// Enables Mania Dropdash
+	Game.PeeloutEnabled          = false;	// Enables SCD Super Peel Out
+	Game.DropdashEnabled		 = false;	// Enables Mania Dropdash
 	Game.GroundSpeedcap			 = false;	// Enables ground speedcap
 	Game.AirSpeedcap			 = false;	// Enables air speedcap
 	Game.RolljumpControl		 = false;	// Unlocks directional contorls if you jump after rolling
-	Game.AllowUnroll			 = true;    // Allows you to unroll with UP button when rolling
+	Game.AllowUnroll			 = false;   // Allows you to unroll with UP button when rolling
 	Game.ExtendedCamera			 = false;	// Enables camera to shift to the side of your direction movement
-	Game.OriginalRollLimit		 = false;	// Limits xsp instead of inertia speed when rolling
+	Game.OriginalRollLimit		 = true;	// Limits xsp instead of inertia speed when rolling
 	Game.FlyingCancel			 = true;    // Allows you to cancel flying as Tails
 	
 	// Engine

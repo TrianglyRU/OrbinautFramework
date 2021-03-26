@@ -3,7 +3,7 @@ function PlayerCheckGlide()
 	// Check if we're Knuckles
 	if CharacterID != CharKnuckles exit;
 	
-	// Airborne code
+	// Check if we're airborne
 	if !Grounded
 	{
 		// Start gliding
@@ -86,7 +86,7 @@ function PlayerCheckGlide()
 		}	
 	}
 	
-	// Ground code
+	// Check if we're gliding on the ground
 	else if GlidingState = 1
 	{
 		// Set animation

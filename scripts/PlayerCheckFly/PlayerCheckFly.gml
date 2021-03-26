@@ -14,24 +14,26 @@ function PlayerCheckFly()
 			Jumping		= false;
 		}
 	}
-	else if FlyingState != 2
+	
+	// Fly time!
+	else
 	{	
-		// Keep flying while timer is greater than 0
 		if FlyingTimer > 0
 		{
-			Animation = AnimFly;
-			
 			// Decrease timer
 			FlyingTimer--;
-			
+				
 			// Temporary decrease gravity
 			if (Input.ABCPress) Grv = -0.125;
 		
-			// Increase gravity when moving slow enough or detected a ceiling
+			// Increase gravity when moving slow enough
 			if (Ysp < -1) Grv = 0.03125;
 			
+			// Set animation
+			Animation = AnimFly;
+			
 			// Cancel
-			if Game.FlyingCancel and Input.CPress
+			if Game.FlyingCancel and Input.Down and Input.ABCPress 
 			{
 				FlyingState	= false;
 				FlyingTimer = 0;
@@ -45,7 +47,7 @@ function PlayerCheckFly()
 			}		
 		}
 		
-		// Else enter "tired" state
+		// Enter "tired" state
 		else
 		{
 			Animation   = AnimFlyTired;
