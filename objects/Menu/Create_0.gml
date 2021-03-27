@@ -6,3 +6,4 @@
 	
 	// Load savedata and settings	
 	MenuLoadGamedata();
+	show_message(Game.SpindashEnabled)

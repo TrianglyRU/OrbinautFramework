@@ -21,6 +21,7 @@ function GameFrameworkSetup()
 	Game.SoundVolume = 0.3;
 	
 	// Gameplay
+	/*
 	Game.SpindashEnabled		 = true;	// Enables S2 Spindash
 	Game.DropdashEnabled		 = false;	// Enables Mania Dropdash
 	Game.PeeloutEnabled          = false;	// Enables SCD Super Peel Out
@@ -31,7 +32,7 @@ function GameFrameworkSetup()
 	Game.ExtendedCamera			 = false;	// Enables camera to shift to the side of your direction movement
 	Game.OriginalRollLimit		 = true;	// Limits xsp instead of inertia speed when rolling
 	Game.FlyingCancel			 = true;    // Allows you to cancel flying as Tails
-	
+	*/
 	// Engine
 	Game.StrongerSlopeGravity	 = false;	// In Sonic 3+, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
 	Game.ConsiderAngleDifference = true;    // In Sonic 2+, your angle will be reset to your cardinal angle if the angle difference is higher than 45. True - Sonic 2+ method
