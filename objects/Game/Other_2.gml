@@ -16,3 +16,6 @@
 	
 	// Initialize application window
 	GameWindowSetup();
+	
+	// Load game settings
+	// gamesettings_load("config");

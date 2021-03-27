@@ -5,7 +5,4 @@ function MenuLoadGamedata()
 	{
 		Saveslot[i] = gamedata_load(i);
 	}
-	
-	// Load game settings
-	gamesettings_load("config");
 }

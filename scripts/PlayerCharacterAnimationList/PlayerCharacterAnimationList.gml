@@ -62,10 +62,10 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_tails_spindash, 1, 1); 
 				break;
 				case AnimCrouch:
-					animation_play(spr_tails_crouch, 4, 2);
+					animation_play(spr_tails_crouch, 4, 1);
 				break;
 				case AnimLookup:
-					animation_play(spr_tails_lookup, 4, 2);
+					animation_play(spr_tails_lookup, 4, 1);
 				break;
 				case AnimFly:
 					animation_play(spr_tails_fly, 1, 1);
@@ -89,12 +89,6 @@ function PlayerCharacterAnimationList()
 					case AnimCrouch:		
 						animation_play(spr_tails_tail_idle, 8, 1);
 					break;
-					case AnimWalk:
-						animation_play(spr_tails_tail_walk, Player.AnimReservedSpeed, 1);
-					break;
-					case AnimRun:
-						animation_play(abs(Player.Inertia) < 10 ? spr_tails_tail_run : spr_tails_tail_run_dash, Player.AnimReservedSpeed, 1);
-					break;
 					case AnimRoll:
 						animation_play(spr_tails_tail_roll, 4, 1);
 					break;
@@ -107,6 +101,8 @@ function PlayerCharacterAnimationList()
 					case AnimFlyTired:
 						animation_play(spr_tails_tail_fly, 2, 1);
 					break;
+					case AnimWalk:
+					case AnimRun:
 					case AnimHurt:
 					case AnimDeath:
 						animation_play(spr_tails_tail_hidden, 1, 1);
