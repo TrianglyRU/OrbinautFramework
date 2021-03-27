@@ -7,8 +7,5 @@
 	// Set camera dynamic offsets
 	ScreenCameraOffsetView();
 	
-	// Keep the camera inside the stage boundaries
-	ScreenCameraBoundariesLock();
-	
 	// Update camera position
 	ScreenCameraPositionUpdate();

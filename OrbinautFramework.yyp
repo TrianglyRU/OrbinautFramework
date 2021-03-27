@@ -255,7 +255,6 @@
     {"id":{"name":"ScreenDebugScreenDisplay","path":"scripts/ScreenDebugScreenDisplay/ScreenDebugScreenDisplay.yy",},"order":8,},
     {"id":{"name":"CollapsingPlatformHandler","path":"objects/CollapsingPlatformHandler/CollapsingPlatformHandler.yy",},"order":2,},
     {"id":{"name":"LayerChange","path":"objects/LayerChange/LayerChange.yy",},"order":10,},
-    {"id":{"name":"ScreenCameraBoundariesLock","path":"scripts/ScreenCameraBoundariesLock/ScreenCameraBoundariesLock.yy",},"order":2,},
     {"id":{"name":"sprHUD_ResultsAct","path":"sprites/sprHUD_ResultsAct/sprHUD_ResultsAct.yy",},"order":17,},
     {"id":{"name":"DiscordInformationUpdate","path":"scripts/DiscordInformationUpdate/DiscordInformationUpdate.yy",},"order":2,},
     {"id":{"name":"spr_tails_walk","path":"sprites/spr_tails_walk/spr_tails_walk.yy",},"order":51,},

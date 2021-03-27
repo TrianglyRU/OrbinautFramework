@@ -1,6 +1,9 @@
 /// @description Scripts
 // You can call your scripts in this editor
 	
+	// Do not run the code until stage loaded
+	if (Stage.State = ActStateLoading) exit;
+	
 	// Update player
 	PlayerGeneralUpdate();
 

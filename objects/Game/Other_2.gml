@@ -18,4 +18,4 @@
 	GameWindowSetup();
 	
 	// Load game settings
-	// gamesettings_load("config");
+	gamesettings_load("config");

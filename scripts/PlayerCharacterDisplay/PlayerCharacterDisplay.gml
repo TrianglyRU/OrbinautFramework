@@ -75,7 +75,7 @@ function PlayerCharacterDisplay()
 	depth		 = DrawOrder;
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
-	
+
 	// Update Tails' tails render
 	if CharacterID = CharTails
 	{

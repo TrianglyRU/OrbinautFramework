@@ -4,30 +4,23 @@ function ScreenCameraOffsetView()
 	if (ScrollDelay > 0) ScrollDelay--;
 	
 	// Update extended camera offset
-	if Player.PeeloutRev >= 0
+	if (Game.ExtendedCamera and abs(Player.Xsp) >= Player.TopAcc) or Player.PeeloutRev = 30
 	{
 		if abs(ExtendedOffset) < 64 
 		{
-			ExtendedOffset += 2 * Player.Facing;
-		}
-	}
-	else if !ScrollDelay
-	{
-		ExtendedOffset -= 2 * sign(ExtendedOffset);
-	}
-	if Game.ExtendedCamera
-	{
-		if abs(Player.Xsp) >= Player.TopAcc
-		{
-			if abs(ExtendedOffset) < 64 
+			if Player.PeeloutRev != 30
 			{
 				ExtendedOffset += 2 * sign(Player.Xsp);
 			}
-		} 
-		else 
-		{
-			ExtendedOffset -= 2 * sign(ExtendedOffset);
+			else
+			{
+				ExtendedOffset += 2 * Player.Facing;
+			}
 		}
+	}
+	else if ScrollDelay = 0
+	{
+		ExtendedOffset -= 2 * sign(ExtendedOffset);
 	}
 		
 	// Set vertical spin offset
