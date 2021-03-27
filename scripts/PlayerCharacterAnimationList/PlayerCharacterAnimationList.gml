@@ -8,7 +8,7 @@ function PlayerCharacterAnimationList()
 			switch Animation
 			{
 				case AnimIdle: 
-					animation_play(spr_sonic_idle, 32, 14); 
+					animation_play(spr_sonic_idle, 32, 1); 
 				break;
 				case AnimWalk: 
 					animation_play(spr_sonic_walk, AnimReservedSpeed, 1);
@@ -26,10 +26,10 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_sonic_spindash, 1, 1); 
 				break;
 				case AnimCrouch:
-					animation_play(spr_sonic_crouch, 4, 1);
+					animation_play(spr_sonic_crouch, 4, 2);
 				break;
 				case AnimLookup:
-					animation_play(spr_sonic_lookup, 4, 1);
+					animation_play(spr_sonic_lookup, 4, 2);
 				break;
 				case AnimHurt:
 					animation_play(spr_sonic_hurt, 1, 1);

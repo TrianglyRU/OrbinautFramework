@@ -140,9 +140,6 @@ function PlayerUpdateAngle()
 			break;
 		}
 		
-		show_debug_message(dLeft);
-		show_debug_message(dRight);
-		
 		// Use cardinal floor angle if difference is greater than 45
 		if Game.ConsiderAngleDifference
 		{

@@ -43,6 +43,7 @@
     {"id":{"name":"spr_hhz_fg21","path":"sprites/spr_hhz_fg21/spr_hhz_fg21.yy",},"order":26,},
     {"id":{"name":"GameMacroSetup","path":"scripts/GameMacroSetup/GameMacroSetup.yy",},"order":8,},
     {"id":{"name":"BreakableWall","path":"objects/BreakableWall/BreakableWall.yy",},"order":7,},
+    {"id":{"name":"fontTexture_TitleCard2","path":"sprites/fontTexture_TitleCard2/fontTexture_TitleCard2.yy",},"order":23,},
     {"id":{"name":"Objects","path":"objects/Objects/Objects.yy",},"order":3,},
     {"id":{"name":"object_set_collision","path":"scripts/object_set_collision/object_set_collision.yy",},"order":24,},
     {"id":{"name":"PlayerHitWalls","path":"scripts/PlayerHitWalls/PlayerHitWalls.yy",},"order":20,},

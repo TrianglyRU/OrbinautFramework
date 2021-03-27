@@ -91,7 +91,7 @@ function PlayerCheckGlide()
 	{
 		// Set animation
 		Animation = AnimGlideSlide;
-		
+
 		// Glide on our belly until we release button or completely stop
 		if (!Input.ABC) or Inertia = 0
 		{

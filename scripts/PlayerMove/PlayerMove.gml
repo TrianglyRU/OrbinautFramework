@@ -61,7 +61,28 @@ function PlayerMove()
 	}
 	
 	// Set animation
-	Animation = Inertia == 0 ? AnimIdle : (abs(Inertia) < TopAcc ? AnimWalk : AnimRun);
+	if Inertia = 0
+	{
+		Animation = AnimIdle;
+	}
+	else
+	{
+		if abs(Inertia) < TopAcc
+		{
+			Animation = AnimWalk;
+		}
+		else
+		{
+			if abs(Inertia) < 10
+			{
+				Animation = AnimRun;
+			}
+			else
+			{
+				Animation = CharacterID == CharSonic ? AnimPeelout : AnimRun;
+			}
+		}
+	}
 
 	// Get our speed ratio
 	AnimReservedSpeed = round(max(1, 8 - abs(Inertia)));
