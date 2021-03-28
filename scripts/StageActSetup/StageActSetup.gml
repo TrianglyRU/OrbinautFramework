@@ -6,10 +6,10 @@ function StageActSetup()
 		// Moonlight Base
 		case MBZ:
 			CardName				= "MOONLIGHT BASE";
-			BackgroundMusic			= MoonlightBase;
-			BackgroundDAC			= noone;
-			LoopStart				= 69.490;
-			LoopEnd					= 125.120;	
+			StageMusic				= ProjectPurple;
+			StageMusicDAC			= noone;
+			LoopStart				= 2;
+			LoopEnd					= 313.4;	
 			ZoneID					= 0;
 			ActID					= 0;
 			CardEnabled				= true;
@@ -26,8 +26,8 @@ function StageActSetup()
 		// Moonlight Base 2
 		case MBZ2:
 			CardName				= "MOONLIGHT BASE";				
-			BackgroundMusic			= MoonlightBase;				
-			BackgroundDAC			= noone;						
+			StageMusic				= MoonlightBase;				
+			StageMusicDAC			= noone;						
 			LoopStart				= 69.490;						
 			LoopEnd					= 125.120;							
 			ZoneID					= 0;							
@@ -46,8 +46,8 @@ function StageActSetup()
 		// Horizon Heights
 		case HHZ:
 			CardName				= "HORIZON HEIGHTS";				
-			BackgroundMusic			= HorizonHeights;				
-			BackgroundDAC			= noone;						
+			StageMusic				= HorizonHeights;				
+			StageMusicDAC			= noone;						
 			LoopStart				= 0;						
 			LoopEnd					= 167.163;							
 			ZoneID					= 1;							

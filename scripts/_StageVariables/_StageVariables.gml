@@ -14,8 +14,8 @@ function _StageVariables()
 	Time            _init;
 	CardEnabled	    _init;
 	CardName	    _init;
-	BackgroundMusic _init;
-	BackgroundDAC   _init;
+	StageMusic _init;
+	BGMDAC   _init;
 	LoopStart       _init;
 	LoopEnd			_init;
 }

@@ -68,7 +68,7 @@ function PlayerUpdateAngle()
 				{
 					if dLeft <= 0 and dRight > TileSize
 					{
-						var floorAngle = 90;
+						//var floorAngle = 90;
 					}
 				}
 			}
@@ -133,7 +133,7 @@ function PlayerUpdateAngle()
 				{
 					if dLeft > TileSize and dRight <= 0
 					{
-						var floorAngle = 270;
+						//var floorAngle = 270;
 					}
 				}
 			}

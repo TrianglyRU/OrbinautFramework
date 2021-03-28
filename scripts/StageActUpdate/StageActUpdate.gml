@@ -16,7 +16,7 @@ function StageActUpdate()
 			if StateTimer = 1
 			{
 				fade_perform(to, black, 1);
-				audio_bgm_stop(BackgroundMusic, 0.5);
+				audio_bgm_stop(StageMusic, 0.5);
 			}
 			if StateTimer = 30
 			{
@@ -29,7 +29,7 @@ function StageActUpdate()
 	if State = ActStateFinished
 	{	
 		// Stop music
-		audio_bgm_stop(BackgroundMusic, 2);
+		audio_bgm_stop(StageMusic, 2);
 		
 		// Disable time, reset state timer and saved checkpoint
 		if TimeEnabled

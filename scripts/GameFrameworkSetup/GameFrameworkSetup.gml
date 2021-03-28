@@ -20,7 +20,9 @@ function GameFrameworkSetup()
 	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.3;
 	
-	// Gameplay
+	// Gameplay	
+	/* This section is overwrited by default on game settings load, so
+	you want to temporary disable that if you want to use this */
 	Game.SpindashEnabled		 = true;	// Enables S2 Spindash
 	Game.DropdashEnabled		 = false;	// Enables Mania Dropdash
 	Game.PeeloutEnabled          = true;	// Enables SCD Super Peel Out

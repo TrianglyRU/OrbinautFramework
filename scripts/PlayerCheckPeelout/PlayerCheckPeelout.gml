@@ -33,11 +33,10 @@ function PlayerCheckPeelout()
 		}
 		else
 		{	
-			Animation		   = AnimPeelout;
-			Screen.ScrollDelay = 12;
-			Inertia			   = 12 * Facing;
-			PeeloutRev		   = -2;
-			MovementLock	   = false;
+			Animation    = AnimPeelout;
+			Inertia		 = 12 * Facing;
+			PeeloutRev	 = -2;
+			MovementLock = false;
 		}
 	}		
 }

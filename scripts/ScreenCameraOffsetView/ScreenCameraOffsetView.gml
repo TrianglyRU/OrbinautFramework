@@ -4,11 +4,11 @@ function ScreenCameraOffsetView()
 	if (ScrollDelay > 0) ScrollDelay--;
 	
 	// Update extended camera offset
-	if (Game.ExtendedCamera and abs(Player.Xsp) >= Player.TopAcc) or Player.PeeloutRev = 30
+	if (Game.ExtendedCamera and abs(Player.Inertia) >= 10) or Player.PeeloutRev >= 16
 	{
-		if abs(ExtendedOffset) < 64 
+		if abs(ExtendedOffset) < 64 and ScrollDelay = 0
 		{
-			if Player.PeeloutRev != 30
+			if Player.PeeloutRev < 16
 			{
 				ExtendedOffset += 2 * sign(Player.Xsp);
 			}
@@ -18,7 +18,7 @@ function ScreenCameraOffsetView()
 			}
 		}
 	}
-	else if ScrollDelay = 0
+	else
 	{
 		ExtendedOffset -= 2 * sign(ExtendedOffset);
 	}
