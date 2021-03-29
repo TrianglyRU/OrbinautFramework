@@ -25,11 +25,9 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"LayerId":{"name":"7d26d78e-5386-47e0-ad91-aeb32f2a8b89","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"LayerId":{"name":"9df64bcc-c55b-40e1-86bb-1901cc28ec3b","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_glidedrop","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"resourceVersion":"1.0","name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"a0aab948-4e9f-4e5c-8eb9-fc99b73c2829","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a0aab948-4e9f-4e5c-8eb9-fc99b73c2829","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"LayerId":{"name":"7d26d78e-5386-47e0-ad91-aeb32f2a8b89","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"a0aab948-4e9f-4e5c-8eb9-fc99b73c2829","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"LayerId":{"name":"9df64bcc-c55b-40e1-86bb-1901cc28ec3b","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_glidedrop","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"resourceVersion":"1.0","name":"a0aab948-4e9f-4e5c-8eb9-fc99b73c2829","tags":[],"resourceType":"GMSpriteFrame",},
   ],

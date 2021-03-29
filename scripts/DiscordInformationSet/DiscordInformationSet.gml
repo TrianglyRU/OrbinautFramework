@@ -1,7 +1,7 @@
 function DiscordInformationSet()
 {
 	// Do not perform if RP is disabled in the framework
-	if Game.RichPresenceSupport = false exit;
+	if (Game.RichPresenceSupport == false) exit;
 	
 	// Set application icon using its ID
 	discord_set_large_image("orbinaut", "");
@@ -28,9 +28,15 @@ function DiscordInformationSet()
 	var Char;
 	switch Player.CharacterID 
 	{
-		case CharSonic:    Char = "SONIC";    break;
-		case CharTails:	   Char = "TAILS";    break;
-		case CharKnuckles: Char = "KNUCKLES"; break;
+		case CharSonic:    
+			Char = "SONIC";   
+		break;
+		case CharTails:	   
+			Char = "TAILS";    
+		break;
+		case CharKnuckles: 
+			Char = "KNUCKLES"; 
+		break;
 	}
 	StateString = "Playing as: " + string(Char);
 	discord_set_state(StateString);	 

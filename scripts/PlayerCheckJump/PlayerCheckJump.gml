@@ -13,8 +13,8 @@ function PlayerCheckJump()
 	// Exit the code if we're trying to perform spindash or peelout
 	if Inertia == 0
 	{
-		if Game.SpindashEnabled && Input.Down 
-		or Game.PeeloutEnabled  && Input.Up
+		if Game.SpindashEnabled and Input.Down 
+		or Game.PeeloutEnabled  and Input.Up
 		{
 			exit;
 		}

@@ -20,14 +20,13 @@ function InputHotkeysRead()
 		// Game restart
 		if keyboard_check_pressed(vk_f3) 
 		{
-			gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, Stage.ActID, Game.GlobalLives, 0, Game.GlobalScore);
 			game_restart();
 		}
 	
 		// Low FPS mode
 		if keyboard_check_pressed(vk_f4) 
 		{
-			game_set_speed(game_get_speed(gamespeed_fps) == 60 ? 3 : 60, gamespeed_fps);
+			game_set_speed(game_get_speed(gamespeed_fps) == 60 ? 1 : 60, gamespeed_fps);
 		}
 	
 		// Show hitboxes

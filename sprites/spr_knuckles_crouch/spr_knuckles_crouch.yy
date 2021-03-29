@@ -25,11 +25,9 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"118a11e8-8ab0-4f8c-8901-5edd0a561495","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"118a11e8-8ab0-4f8c-8901-5edd0a561495","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"LayerId":{"name":"4ef5c1dd-ca9e-43b2-8281-21e76eec03f3","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"118a11e8-8ab0-4f8c-8901-5edd0a561495","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"LayerId":{"name":"c5ac0808-7bac-4b8b-854a-e81ab20732df","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_crouch","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"resourceVersion":"1.0","name":"118a11e8-8ab0-4f8c-8901-5edd0a561495","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"c54d1c2c-be57-4d6c-9ecc-008cf3a81e44","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c54d1c2c-be57-4d6c-9ecc-008cf3a81e44","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"LayerId":{"name":"4ef5c1dd-ca9e-43b2-8281-21e76eec03f3","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"c54d1c2c-be57-4d6c-9ecc-008cf3a81e44","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"LayerId":{"name":"c5ac0808-7bac-4b8b-854a-e81ab20732df","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_crouch","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},"resourceVersion":"1.0","name":"c54d1c2c-be57-4d6c-9ecc-008cf3a81e44","tags":[],"resourceType":"GMSpriteFrame",},
   ],

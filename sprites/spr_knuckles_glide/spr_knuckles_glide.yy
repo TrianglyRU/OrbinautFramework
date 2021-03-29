@@ -25,7 +25,6 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":{"name":"7d26d78e-5386-47e0-ad91-aeb32f2a8b89","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":{"name":"dc865f33-0804-4ff4-827f-8065615ff23e","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_glide","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","tags":[],"resourceType":"GMSpriteFrame",},
   ],

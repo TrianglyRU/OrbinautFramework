@@ -25,11 +25,9 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"877ce1cc-5a10-4a49-b794-61a4b3caeec3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"877ce1cc-5a10-4a49-b794-61a4b3caeec3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":{"name":"4ef5c1dd-ca9e-43b2-8281-21e76eec03f3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"877ce1cc-5a10-4a49-b794-61a4b3caeec3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":{"name":"f0bb7aad-9f3b-40cd-9678-11ac9f8b4c53","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_lookup","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"877ce1cc-5a10-4a49-b794-61a4b3caeec3","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"bf4b3559-1217-46ce-a7a2-40ba361ca7c0","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"bf4b3559-1217-46ce-a7a2-40ba361ca7c0","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":{"name":"4ef5c1dd-ca9e-43b2-8281-21e76eec03f3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"bf4b3559-1217-46ce-a7a2-40ba361ca7c0","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":{"name":"f0bb7aad-9f3b-40cd-9678-11ac9f8b4c53","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_lookup","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"bf4b3559-1217-46ce-a7a2-40ba361ca7c0","tags":[],"resourceType":"GMSpriteFrame",},
   ],

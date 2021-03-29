@@ -12,8 +12,8 @@ function GameShadersSetup()
 	Scrn_UVs		= shader_get_uniform(ShaderScreen, "u_Uvs");
 	Scrn_Index	    = shader_get_uniform(ShaderScreen, "u_palId");
 	Scrn_Water		= shader_get_uniform(ShaderScreen, "u_water");
-	Scrn_TextureDry    = shader_get_sampler_index(ShaderScreen, "u_palTextureDry");
-	Scrn_TextureWet    = shader_get_sampler_index(ShaderScreen, "u_palTextureWet");
+	Scrn_TextureDry = shader_get_sampler_index(ShaderScreen, "u_palTextureDry");
+	Scrn_TextureWet = shader_get_sampler_index(ShaderScreen, "u_palTextureWet");
 	
 	// Setup background parallax shader
 	globalvar Prlx_XOfst, Prlx_Pos, Prlx_Wid, Prlx_YHght, Prlx_YStep, Prlx_Texel;

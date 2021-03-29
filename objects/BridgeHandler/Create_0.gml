@@ -1,18 +1,14 @@
-/// @description Bridge Setup
+/// @description Varaibles & Setup
 // You can write your code in this editor
 
-    // Get definitive variables values and apply them
-	SegmentAmount = BridgeLength;
-
-	for (var i = 0; i < SegmentAmount; i++) {
-		Deflection[i] = (i < SegmentAmount / 2 ? i : SegmentAmount - i - 1) * 2 + 2;
-	}
-    
-    // Set default status variables
-	RecoveryAngle	    = 0;
-	LogY[SegmentAmount] = 0;
-    
-    // Create lists
-    BridgeLogs                 = ds_list_create();
-    BridgeTensions             = ds_list_create();
-    BridgeTensionsInterpolated = ds_list_create();
+	// Create variables
+	RecoveryAngle _init;
+	LogY		  _init;
+	
+	/* Variable Definitions	
+	1. BridgeLength, default = 12
+	2. BridgeSprite, default = spr_obj_bridge_log_template
+	*/
+	
+	// Call object script
+	ObjBridgeHandlerSetup();

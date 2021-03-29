@@ -8,7 +8,7 @@ function PlayerCheckClimb()
 	{
 		if GlidingState = 1 or GlidingState = 2
 		{
-			// Attach to the wall if moving towards it and close to it
+			// Attach to the wall if moving towards it
 			if Xsp > 0 and tile_get_distance_h(floor(PosX + 10), floor(PosY), true,  true, Layer) = 0
 			or Xsp < 0 and tile_get_distance_h(floor(PosX - 10), floor(PosY), false, true, Layer) = 0
 			{

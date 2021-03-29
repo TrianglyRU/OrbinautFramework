@@ -1,7 +1,7 @@
 function InputSetup()
 {	
 	// Use gamepad as input device if it is conneected, else use keyboard
-	if gamepad_is_connected(0) 
+	if gamepad_is_connected(0) == true
 	{
 		Type = "Gamepad";
 		gamepad_set_axis_deadzone(0, 0.3);

@@ -1,9 +1,9 @@
 function PlayerCharacterDisplay()
 {	
 	// Update visual angle
-	if Game.SmoothRotation 
+	if Game.SmoothRotation == true
 	{
-		if Angle >= 25.5 and Angle <= 334.5 or !Grounded or Angle = 0 
+		if Angle >= 25.5 and Angle <= 334.5 or Grounded == false or Angle = 0 
 		{
 			VisualAngle = Angle;
 		} 
@@ -36,14 +36,14 @@ function PlayerCharacterDisplay()
 	}
 	
 	// Force visual angle to be 0
-	if (Inertia = 0 and Grounded) or Animation = AnimRoll or Animation = AnimFly 
-	or Animation = AnimGlide or Animation = AnimSkid
+	if (Inertia == 0 and Grounded == true) or Animation == AnimRoll or Animation == AnimFly 
+	or Animation == AnimGlide or Animation == AnimSkid
 	{
 		VisualAngle = 0
 	}
 	
 	// Perform super palette cycle
-	if isSuper
+	if isSuper == true
 	{
 		switch CharacterID
 		{
@@ -80,7 +80,7 @@ function PlayerCharacterDisplay()
 	image_angle  = VisualAngle;
 
 	// Update Tails' tails render
-	if CharacterID = CharTails
+	if CharacterID == CharTails
 	{
 		TailsObject.x			 = floor(PosX);
 		TailsObject.y			 = floor(PosY);	
@@ -93,7 +93,7 @@ function PlayerCharacterDisplay()
 		}
 		else
 		{
-			if Facing = 1
+			if Facing == FacingRight
 			{
 				var DirectionAngle = point_direction(PosX, PosY, PosX + Xsp, PosY + Ysp);
 			}
@@ -102,7 +102,7 @@ function PlayerCharacterDisplay()
 				var DirectionAngle = point_direction(PosX + Xsp, PosY + Ysp, PosX, PosY);
 			}
 			
-			if Game.SmoothRotation
+			if Game.SmoothRotation == true
 			{
 				TailsAngle = DirectionAngle;
 			}

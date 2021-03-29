@@ -15,7 +15,7 @@ function PlayerMove()
 			// If moving left and left key is pressed, accelerate
 			else
 			{
-				if (Game.GroundSpeedcap == false && Inertia > -TopAcc) || Game.GroundSpeedcap == true
+				if (Game.GroundSpeedcap == false and Inertia > -TopAcc) or Game.GroundSpeedcap == true
 				{
 					Inertia -= Acc;					
 					if (Inertia <= -TopAcc) Inertia = -TopAcc;		
@@ -35,7 +35,7 @@ function PlayerMove()
 			// If moving right and right key is pressed, accelerate
 			else
 			{
-				if (Game.GroundSpeedcap == false && Inertia < TopAcc) || Game.GroundSpeedcap == true
+				if (Game.GroundSpeedcap == false and Inertia < TopAcc) or Game.GroundSpeedcap == true
 				{
 					Inertia += Acc;
 					if (Inertia >= TopAcc) Inertia = TopAcc;
@@ -46,7 +46,7 @@ function PlayerMove()
 	}
 	
 	// Apply friction
-	if (Input.Left == false && Input.Right == false && Inertia != 0) || MovementLock != false
+	if (Input.Left == false and Input.Right == false and Inertia != 0) or MovementLock != false
 	{
 		if Inertia > 0
 		{
@@ -61,20 +61,20 @@ function PlayerMove()
 	}
 	
 	// Check for skidding
-	if Skidding == false && abs(Inertia) > 4 && round(Angle/90) % 4 == RangeFloor
+	if Skidding == false and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor
 	{
-		if Inertia > 0 && Input.LeftPress == true
+		if Inertia > 0 and Input.LeftPress == true
 		{
 			Skidding = FacingRight;
 		}
-		if Inertia < 0 && Input.RightPress == true
+		if Inertia < 0 and Input.RightPress == true
 		{
 			Skidding = FacingLeft;
 		}
 	}
 	else
 	{
-		if (Inertia < 0 && Input.LeftPress == true) || (Inertia > 0 && Input.RightPress == true) || Inertia == 0 || sign(Skidding) != sign(Inertia)
+		if (Inertia < 0 and Input.LeftPress == true) or (Inertia > 0 and Input.RightPress == true) or Inertia == 0 or sign(Skidding) != sign(Inertia)
 		{
 			Skidding = false;
 		}

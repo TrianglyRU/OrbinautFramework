@@ -5,11 +5,8 @@ function StageActSetup()
 	{
 		// Moonlight Base
 		case MBZ:
-			CardName				= "MOONLIGHT BASE";
-			StageMusic				= ProjectPurple;
-			StageMusicDAC			= noone;
-			LoopStart				= 2;
-			LoopEnd					= 313.4;	
+		{
+			CardName				= "MOONLIGHT BASE";	
 			ZoneID					= 0;
 			ActID					= 0;
 			CardEnabled				= true;
@@ -21,15 +18,18 @@ function StageActSetup()
 			RightBoundary			= room_width;
 			BottomBoundary			= room_height;
 			State					= ActStateLoading;
+			
+			StageMusic				= TechnoPower;
+			StageMusicDAC			= noone;
+			LoopStart				= 0;
+			LoopEnd					= 441.520;
+		}
 		break;	
 		
 		// Moonlight Base 2
 		case MBZ2:
-			CardName				= "MOONLIGHT BASE";				
-			StageMusic				= MoonlightBase;				
-			StageMusicDAC			= noone;						
-			LoopStart				= 69.490;						
-			LoopEnd					= 125.120;							
+		{
+			CardName				= "MOONLIGHT BASE";										
 			ZoneID					= 0;							
 			ActID					= 1;							
 			CardEnabled				= true;							
@@ -41,15 +41,18 @@ function StageActSetup()
 			RightBoundary			= room_width;					
 			BottomBoundary			= room_height;					
 			State					= ActStateLoading;
+			
+			StageMusic				= MoonlightBase;				
+			StageMusicDAC			= noone;						
+			LoopStart				= 69.490;						
+			LoopEnd					= 125.120;
+		}
 		break;	
 		
 		// Horizon Heights
 		case HHZ:
-			CardName				= "HORIZON HEIGHTS";				
-			StageMusic				= HorizonHeights;				
-			StageMusicDAC			= noone;						
-			LoopStart				= 0;						
-			LoopEnd					= 167.163;							
+		{
+			CardName				= "HORIZON HEIGHTS";											
 			ZoneID					= 1;							
 			ActID					= 0;							
 			CardEnabled				= true;							
@@ -61,6 +64,12 @@ function StageActSetup()
 			RightBoundary			= room_width;					
 			BottomBoundary			= room_height;					
 			State					= ActStateLoading;
+			
+			StageMusic				= HorizonHeights;				
+			StageMusicDAC			= noone;						
+			LoopStart				= 0;						
+			LoopEnd					= 167.163;
+		}
 		break;	
 	}	
 }

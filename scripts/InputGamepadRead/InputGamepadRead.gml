@@ -1,22 +1,22 @@
 function InputGamepadRead() 
 {
-	if !IgnoreInput and Type != "Keyboard" 
+	if IgnoreInput == false and Type != "Keyboard" 
 	{
 		// Up
-		UpPress = !Down and (gamepad_button_check_pressed(0, gp_padu) or gamepad_check_axis_pressed(0, "gp_axis_lup"));
-		Up	    = !Down and (gamepad_button_check(0, gp_padu) or gamepad_axis_value(0, gp_axislv) < 0);
+		UpPress = gamepad_button_check_pressed(0, gp_padu) or gamepad_check_axis_pressed(0, "gp_axis_lup");
+		Up	    = gamepad_button_check(0, gp_padu) or gamepad_axis_value(0, gp_axislv) < 0;
 	
 		// Down
-		DownPress = !Up and (gamepad_button_check_pressed(0, gp_padd) or gamepad_check_axis_pressed(0, "gp_axis_ldown"));
-		Down      = !Up and (gamepad_button_check(0, gp_padd) or gamepad_axis_value(0, gp_axislv) > 0);
+		DownPress = gamepad_button_check_pressed(0, gp_padd) or gamepad_check_axis_pressed(0, "gp_axis_ldown");
+		Down      = gamepad_button_check(0, gp_padd) or gamepad_axis_value(0, gp_axislv) > 0;
 	
 		// Left
-		LeftPress = !Right and (gamepad_button_check_pressed(0, gp_padl) or gamepad_check_axis_pressed(0, "gp_axis_lleft"));
-		Left      = !Right and (gamepad_button_check(0, gp_padl) or gamepad_axis_value(0, gp_axislh) < 0);
+		LeftPress = gamepad_button_check_pressed(0, gp_padl) or gamepad_check_axis_pressed(0, "gp_axis_lleft");
+		Left      = gamepad_button_check(0, gp_padl) or gamepad_axis_value(0, gp_axislh) < 0;
 	
 		// Right
-		RightPress = !Left and (gamepad_button_check_pressed(0, gp_padr) or gamepad_check_axis_pressed(0, "gp_axis_lright"));
-		Right      = !Left and (gamepad_button_check(0, gp_padr) or gamepad_axis_value(0, gp_axislh) > 0);
+		RightPress = gamepad_button_check_pressed(0, gp_padr) or gamepad_check_axis_pressed(0, "gp_axis_lright");
+		Right      = gamepad_button_check(0, gp_padr) or gamepad_axis_value(0, gp_axislh) > 0;
 	
 		// A
 		APress = gamepad_button_check_pressed(0, gp_face1);

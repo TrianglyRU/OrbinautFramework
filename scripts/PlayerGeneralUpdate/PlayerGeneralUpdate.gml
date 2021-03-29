@@ -38,7 +38,7 @@ function PlayerGeneralUpdate()
 	if isUnderwater == false
 	{
 		// Check for falling into the water
-		if PosY > Stage.WaterLevel && Stage.WaterLevel != 0
+		if PosY > Stage.WaterLevel and Stage.WaterLevel != 0
 		{
 			Xsp	*= 0.5;
 			Ysp	*= 0.25;
@@ -158,5 +158,5 @@ function PlayerGeneralUpdate()
 	if (InvincibilityBonus > 0) InvincibilityBonus--;
 	
 	// Decrease temp invincibility timer
-	if (isInvincible && InvincibilityBonus == false && isSuper == false) isInvincible--;
+	if (isInvincible and InvincibilityBonus == false and isSuper == false) isInvincible--;
 }

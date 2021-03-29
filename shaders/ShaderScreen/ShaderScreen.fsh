@@ -60,7 +60,7 @@
 		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
 		DoAlphaTest(col);
 		col = findAltColor(col, u_Uvs.xy, u_palTextureDry);
-		if ((u_water != 0.) && (u_water >= v_vPosition.y))
+		if ((u_water != 0.) and (u_water >= v_vPosition.y))
 		{
 			col.rgb -= vec3(80. / 255., 64. / 255., 24. / 255.);
 		}

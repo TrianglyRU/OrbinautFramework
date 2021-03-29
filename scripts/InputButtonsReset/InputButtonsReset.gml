@@ -1,6 +1,6 @@
 function InputButtonsReset()
 {	
-	if ResetInput 
+	if ResetInput == true 
 	{
 		Up			= false;
 		Down		= false;

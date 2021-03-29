@@ -1,24 +1,25 @@
 function InputKeyboardRead() 
 {
-	if !IgnoreInput and Type != "Gamepad"
+	if IgnoreInput == false and Type != "Gamepad"
 	{	
+		// Get keyboard mappings
 		var Control = Game.KeyboardControl;
 		
 		// Up
-		UpPress = !Down and keyboard_check_pressed(Control[0]);
-		Up      = !Down and keyboard_check(Control[0]);
+		UpPress = keyboard_check_pressed(Control[0]);
+		Up      = keyboard_check(Control[0]);
 	
 		// Downs
-		DownPress = !Up and keyboard_check_pressed(Control[1]);
-		Down      = !Up and keyboard_check(Control[1]);
+		DownPress = keyboard_check_pressed(Control[1]);
+		Down      = keyboard_check(Control[1]);
 	
 		// Left
-		LeftPress = !Right and keyboard_check_pressed(Control[2]);
-		Left      = !Right and keyboard_check(Control[2]);
+		LeftPress = keyboard_check_pressed(Control[2]);
+		Left      = keyboard_check(Control[2]);
 	
 		// Right
-		RightPress = !Left and keyboard_check_pressed(Control[3]);
-		Right      = !Left and keyboard_check(Control[3]);
+		RightPress = keyboard_check_pressed(Control[3]);
+		Right      = keyboard_check(Control[3]);
 	
 		// A
 		APress = keyboard_check_pressed(Control[4]);

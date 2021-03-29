@@ -1,7 +1,7 @@
 function PlayerApplyGravity() 
 {	
 	// Apply gravity
-	if !Climbing
+	if Climbing == false
 	{
 		Ysp += Grv;
 	}
