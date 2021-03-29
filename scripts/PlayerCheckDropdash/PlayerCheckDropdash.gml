@@ -1,5 +1,8 @@
 function PlayerCheckDropdash()
 {
+	
+	if !Game.DropdashEnabled exit;
+	
 	// Check if we're Sonic
 	if CharacterID != CharSonic exit;
 	

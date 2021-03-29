@@ -3,7 +3,7 @@ function InputHotkeysRead()
 	if room != DevMenu
 	{
 		// Debug view
-		if keyboard_check_pressed(vk_f1) 
+		if keyboard_check_pressed(vk_f1)
 		{
 			Screen.DebugViewEnabled = !Screen.DebugViewEnabled;
 		}

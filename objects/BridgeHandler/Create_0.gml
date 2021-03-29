@@ -3,7 +3,6 @@
 
 	// Create variables
 	RecoveryAngle _init;
-	LogY		  _init;
 	
 	/* Variable Definitions	
 	1. BridgeLength, default = 12

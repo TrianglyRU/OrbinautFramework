@@ -20,18 +20,15 @@ function PlayerObjectsInteraction()
 	var InnerBottom = floor(PosY + yRadius - 3);
 	
 	// Create object lists
-	var objList1 = ds_list_create();
-	var objList2 = ds_list_create();
-	var objList3 = ds_list_create();
-	var objList4 = ds_list_create();
+	var objList = ds_list_create();
 	
 	// Check for overlapping all objects with our inner hitbox
-	var objNumb1 = collision_rectangle_list(InnerLeft, InnerTop, InnerRight, InnerBottom, Objects, false, true, objList1, false);
+	var objNumb1 = collision_rectangle_list(InnerLeft, InnerTop, InnerRight, InnerBottom, Objects, false, true, objList, false);
 	if  objNumb1 > 0
 	{ 
 		for (var i = 0; i < objNumb1; ++i;)
 		{ 
-			var Obj = objList1[| i];
+			var Obj = objList[| i];
 			
 			// Check if object has collision
 			if variable_instance_exists(Obj, "objCollisionType")
@@ -41,14 +38,15 @@ function PlayerObjectsInteraction()
 			}
 		} 
 	} 
+	ds_list_clear(objList);
 	
 	// Check for overlapping all non-slopey objects with our outer hitbox
-	var objNumb2 = collision_rectangle_list(OuterLeft, OuterTop, OuterRight, OuterBottom, Objects, false, true, objList2, false);
+	var objNumb2 = collision_rectangle_list(OuterLeft, OuterTop, OuterRight, OuterBottom, Objects, false, true, objList, false);
 	if  objNumb2 > 0
 	{
 		for (var i = 0; i < objNumb2; ++i;)
 		{
-			var solidObj = objList2[| i];
+			var solidObj = objList[| i];
 			
 			// Check if object has collision
 			if variable_instance_exists(solidObj, "objCollisionType")
@@ -144,14 +142,15 @@ function PlayerObjectsInteraction()
 			}
 		}
 	}
+	ds_list_clear(objList);
 	
 	// Check for overlapping slope-y objects with our bottom middle sensor
-	var objNumb3 = collision_point_list(PlayerX, OuterBottom, Objects, true, true, objList3, false);
+	var objNumb3 = collision_point_list(PlayerX, OuterBottom, Objects, true, true, objList, false);
 	if  objNumb3 > 0
 	{ 
 		for (var i = 0; i < objNumb3; ++i;)
 		{ 
-			var slopeObj = objList3[| i];
+			var slopeObj = objList[| i];
 			
 			// Check if object has collision
 			if variable_instance_exists(slopeObj, "objCollisionType")
@@ -167,16 +166,17 @@ function PlayerObjectsInteraction()
 			}
 		} 
 	} 
+	ds_list_clear(objList);
 	
 	// Check for overlapping all solid objects 4 pixels below us while we're grounded with our outer hitbox
 	if Grounded
 	{
-		var objNumb4 = collision_point_list(PlayerX, OuterBottom + 4, Objects, false, true, objList4, false);
+		var objNumb4 = collision_point_list(PlayerX, OuterBottom + 4, Objects, false, true, objList, false);
 		if  objNumb4 > 0
 		{
 			for (var i = 0; i < objNumb4; ++i;)
 			{
-				var newObj = objList4[| i];
+				var newObj = objList[| i];
 				
 				// Check if object has collision
 				if variable_instance_exists(newObj, "objCollisionType")
@@ -192,6 +192,7 @@ function PlayerObjectsInteraction()
 				}
 			}
 		}
+		ds_list_clear(objList);
 	}
 	
 	// Collide with solid object we're currently standing on
@@ -249,9 +250,6 @@ function PlayerObjectsInteraction()
 		}
 	}
 	
-	// Reset object lists
-	ds_list_destroy(objList1);			
-	ds_list_destroy(objList2);
-	ds_list_destroy(objList3);
-	ds_list_destroy(objList4);
+	// Reset object list
+	ds_list_destroy(objList);			
 }

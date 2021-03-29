@@ -1,14 +1,12 @@
 function ObjBridgeHandlerSetup()
 {
+	LogID = ds_list_create();
 	for (var i = 0; i < BridgeLength; i++) 
 	{
 		// Create log and set a sprite for it
-	    Log              = instance_create_depth(x + 8 + 16 * i, y + 8, depth, BridgeLog);
+	    var Log          = instance_create_depth(x + 8 + 16 * i, y + 8, depth, BridgeLog);
+		ds_list_add(LogID, Log);
 	    Log.sprite_index = BridgeSprite;
-		
-		// Set ID to the log, and assign it to this bridge
-		Log.ParentBridge = id;
-	    Log.LogID        = i;
 		
 		// Calculate log depression value
 		LogDepression[i] = (i < BridgeLength / 2 ? i : BridgeLength - i - 1) * 2 + 2;

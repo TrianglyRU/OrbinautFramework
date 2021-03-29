@@ -5,7 +5,7 @@ function ObjBridgeHandlerScript()
 	var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
 	
 	// Set a recovery angle
-	if PlayerPosition > 0 and PlayerPosition < BridgeLength + 1 and Player.OnObject
+	if ds_list_find_index(LogID, Player.OnObject) >= 0
 	{	
 		if (RecoveryAngle < 90) RecoveryAngle += 5.625;
 	} 
@@ -13,6 +13,7 @@ function ObjBridgeHandlerScript()
 	{
 		RecoveryAngle -= 5.625;
 	}
+	else exit;
 	
 	// Get current maximun depression
 	var MaxDepression = LogDepression[CurrentSegment - 1];
@@ -35,14 +36,8 @@ function ObjBridgeHandlerScript()
 			var Tension = log_difference / (BridgeLength - CurrentSegment + 1);
 		}
 		
-		// Calculate logs position
+		// Calculate and apply logs position for this bridge
 		var BridgeY	= y + 8;
-		LogY[i]		= floor(BridgeY + ((MaxDepression) * dsin(90 * (1 - Tension))) * dsin(RecoveryAngle));
-	}
-	
-	// Apply logs position for this bridge
-	with BridgeLog
-	{
-		y = ParentBridge.LogY[LogID];
+		LogID[| i].y = floor(BridgeY + ((MaxDepression) * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
 	}
 }

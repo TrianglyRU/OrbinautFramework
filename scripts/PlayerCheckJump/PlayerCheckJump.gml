@@ -1,28 +1,28 @@
 function PlayerCheckJump()
 {	
-	// Do not jump if found the low ceiling
-	if round(Angle/90) % 4 == RangeFloor
-	{
-		if tile_get_distance_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer) < 6
-		or tile_get_distance_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer) < 6
-		{
-			exit;
-		}
-	}
-	
-	// Exit the code if we're trying to perform spindash or peelout
-	if Inertia == 0
-	{
-		if Game.SpindashEnabled and Input.Down 
-		or Game.PeeloutEnabled  and Input.Up
-		{
-			exit;
-		}
-	}
-
 	// Jump
-	if Input.ABCPress = true
+	if Input.ABCPress
 	{	
+		// Do not jump if found the low ceiling
+		if round(Angle/90) % 4 == RangeFloor
+		{
+			if tile_get_distance_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer) < 6
+			or tile_get_distance_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer) < 6
+			{
+				exit;
+			}
+		}
+	
+		// Exit the code if we're trying to perform spindash or peelout
+		if Inertia == 0
+		{
+			if Game.SpindashEnabled and Input.Down 
+			or Game.PeeloutEnabled  and Input.Up
+			{
+				exit;
+			}
+		}
+
 		// Set speeds and flags
 		Xsp     -= Jump * dsin(Angle);
 		Ysp	    -= Jump * dcos(Angle);	
