@@ -8,18 +8,16 @@ function PlayerSetup()
 	Animation = AnimIdle;
 	DrawOrder = layer_get_depth("Objects")
 	
-	// Create Tails' tails
-	if (CharacterID = CharTails) instance_create_depth(x, y, depth, TailsObject);
-	
 	// Set basic constants
 	Acc		= 0.046875;
 	Frc     = 0.046875;
-	AirAcc  = Acc * 2;
-	RollFrc = Frc / 2;
+	AirAcc  = 0.09375;
+	RollFrc = 0.0234375;
 	Dec		= 0.5;
 	RollDec = 0.125;
 	Grv		= 0.21875;
 	TopAcc	= 6;
+	JumpMin = -4;
 	Jump    = CharacterID == CharKnuckles ? 6 : 6.5;
 	
 	// Set default flags
@@ -34,6 +32,7 @@ function PlayerSetup()
 	MovementLock   = false;
 	isSuper		   = false;
 	isInvincible   = false;
+	isUnderwater   = false;
 	PeeloutRev     = -2;
 	SpindashRev    = -2;
 	DropdashRev    = -2;
@@ -56,14 +55,14 @@ function PlayerSetup()
 	xRadius = xRadiusDefault;
 	yRadius = yRadiusDefault;
 	
-	// Stats
+	// Load stats
 	Score    = Game.GlobalScore;
 	Lives    = Game.GlobalLives;
 	Emeralds = Game.GlobalEmeralds;
 	Conts    = Game.GlobalConts;
 	
 	// Set spawn properties
-	if Game.SavedPosition = 0
+	if Game.SavedPosition == false
 	{
 		PosX = Spawnpoint.x;
 		PosY = Spawnpoint.y;
@@ -73,4 +72,7 @@ function PlayerSetup()
 		PosX = Game.SavedPosition[0];
 		PosY = Game.SavedPosition[1];
 	}
+	
+	// Create Tails' tails
+	if (CharacterID == CharTails) instance_create_depth(x, y, depth, TailsObject);
 }

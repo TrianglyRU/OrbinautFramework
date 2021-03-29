@@ -4,6 +4,7 @@ function _PlayerVariables()
 	Dec					 _init;
 	RollDec				 _init;
 	Jump				 _init;
+	JumpMin				 _init;
 	Grv					 _init;
 	TopAcc				 _init;
 	State				 _init;
@@ -32,12 +33,14 @@ function _PlayerVariables()
 	DropdashDirection	 _init;
 	isSuper				 _init;
 	isInvincible		 _init;
+	isUnderwater		 _init;
 	ShieldType			 _init;
 	FlyingState			 _init;
 	FlyingTimer			 _init;
 	GlidingState		 _init;
 	GlidingDirection	 _init;
 	Climbing			 _init;
+	Skidding			 _init;
 	HighSpeedBonus		 _init;
 	InvincibilityBonus   _init;
 	Animation			 _init;

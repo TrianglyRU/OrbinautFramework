@@ -1,9 +1,9 @@
 function PlayerMove()
 {	
 	// Accelerate and decelerate
-	if MovementLock = false
+	if MovementLock == false
 	{
-		if Input.Left
+		if Input.Left == true
 		{	
 			// If moving right and left key is pressed, decelerate
 			if Inertia > 0 
@@ -15,7 +15,7 @@ function PlayerMove()
 			// If moving left and left key is pressed, accelerate
 			else
 			{
-				if (!Game.GroundSpeedcap and Inertia > -TopAcc) or Game.GroundSpeedcap
+				if (Game.GroundSpeedcap == false && Inertia > -TopAcc) || Game.GroundSpeedcap == true
 				{
 					Inertia -= Acc;					
 					if (Inertia <= -TopAcc) Inertia = -TopAcc;		
@@ -23,7 +23,7 @@ function PlayerMove()
 				Facing = FacingLeft;
 			}
 		}
-		if Input.Right 
+		if Input.Right == true 
 		{				
 			// If moving left and right key is pressed, decelerate
 			if Inertia < 0 
@@ -35,7 +35,7 @@ function PlayerMove()
 			// If moving right and right key is pressed, accelerate
 			else
 			{
-				if (!Game.GroundSpeedcap and Inertia < TopAcc) or Game.GroundSpeedcap
+				if (Game.GroundSpeedcap == false && Inertia < TopAcc) || Game.GroundSpeedcap == true
 				{
 					Inertia += Acc;
 					if (Inertia >= TopAcc) Inertia = TopAcc;
@@ -46,7 +46,7 @@ function PlayerMove()
 	}
 	
 	// Apply friction
-	if !Input.Left and !Input.Right and Inertia != 0 or MovementLock != 0
+	if (Input.Left == false && Input.Right == false && Inertia != 0) || MovementLock != false
 	{
 		if Inertia > 0
 		{
@@ -60,14 +60,34 @@ function PlayerMove()
 		}
 	}
 	
-	// Set animation
-	if Inertia = 0
+	// Check for skidding
+	if Skidding == false && abs(Inertia) > 4 && round(Angle/90) % 4 == RangeFloor
 	{
-		Animation = AnimIdle;
+		if Inertia > 0 && Input.LeftPress == true
+		{
+			Skidding = FacingRight;
+		}
+		if Inertia < 0 && Input.RightPress == true
+		{
+			Skidding = FacingLeft;
+		}
 	}
 	else
 	{
-		if abs(Inertia) < TopAcc
+		if (Inertia < 0 && Input.LeftPress == true) || (Inertia > 0 && Input.RightPress == true) || Inertia == 0 || sign(Skidding) != sign(Inertia)
+		{
+			Skidding = false;
+		}
+	}
+		
+	// Set animation
+	if Inertia == 0
+	{
+		Animation = AnimIdle;
+	}
+	else if Skidding == false
+	{
+		if abs(Inertia) < 6
 		{
 			Animation = AnimWalk;
 		}
@@ -82,6 +102,10 @@ function PlayerMove()
 				Animation = CharacterID == CharSonic ? AnimPeelout : AnimRun;
 			}
 		}
+	}
+	else
+	{
+		Animation = AnimSkid;
 	}
 
 	// Get our speed ratio

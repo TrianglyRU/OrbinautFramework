@@ -9,8 +9,8 @@
   "swfPrecision": 2.525,
   "bbox_left": 22,
   "bbox_right": 57,
-  "bbox_top": 16,
-  "bbox_bottom": 53,
+  "bbox_top": 18,
+  "bbox_bottom": 46,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -26,6 +26,7 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"6a0455a1-2d42-4813-b4af-ca68795c4bc8","path":"sprites/spr_knuckles_hurt/spr_knuckles_hurt.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"6a0455a1-2d42-4813-b4af-ca68795c4bc8","path":"sprites/spr_knuckles_hurt/spr_knuckles_hurt.yy",},"LayerId":{"name":"0cda4929-b9b1-475a-8db3-930727871a7a","path":"sprites/spr_knuckles_hurt/spr_knuckles_hurt.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"6a0455a1-2d42-4813-b4af-ca68795c4bc8","path":"sprites/spr_knuckles_hurt/spr_knuckles_hurt.yy",},"LayerId":{"name":"7590997a-fc15-4340-81aa-606c77b158da","path":"sprites/spr_knuckles_hurt/spr_knuckles_hurt.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_hurt","path":"sprites/spr_knuckles_hurt/spr_knuckles_hurt.yy",},"resourceVersion":"1.0","name":"6a0455a1-2d42-4813-b4af-ca68795c4bc8","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
@@ -65,7 +66,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0cda4929-b9b1-475a-8db3-930727871a7a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7590997a-fc15-4340-81aa-606c77b158da","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Characters",

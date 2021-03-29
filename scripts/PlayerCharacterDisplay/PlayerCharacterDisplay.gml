@@ -33,8 +33,11 @@ function PlayerCharacterDisplay()
 		if (Angle > 205  and Angle < 255)   VisualAngle = 225; 
 		if (Angle > 255  and Angle < 285)   VisualAngle = 270; 
 		if (Angle > 285  and Angle < 334.5) VisualAngle = 305;
-	}	
-	if (Inertia = 0 and Grounded) or Animation = AnimRoll or Animation = AnimFly or Animation = AnimGlide
+	}
+	
+	// Force visual angle to be 0
+	if (Inertia = 0 and Grounded) or Animation = AnimRoll or Animation = AnimFly 
+	or Animation = AnimGlide or Animation = AnimSkid
 	{
 		VisualAngle = 0
 	}

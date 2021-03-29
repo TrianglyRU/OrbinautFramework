@@ -33,10 +33,10 @@ function StageMusicUpdate()
 	// Mute DAC channel if main stage music doesn't play at its volume
 	if audio_sound_get_gain(StageMusic) != Game.MusicVolume
 	{
-		audio_bgm_fadeout(BGMDAC, 0);
+		audio_bgm_fadeout(StageMusicDAC, 0);
 	}
 	else
 	{
-		audio_bgm_fadein(BGMDAC, 0);
+		audio_bgm_fadein(StageMusicDAC, 0);
 	}
 }

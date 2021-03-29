@@ -31,6 +31,9 @@ function PlayerCharacterAnimationList()
 				case AnimLookup:
 					animation_play(spr_sonic_lookup, 4, 2);
 				break;
+				case AnimSkid:
+					animation_play(spr_sonic_skid, 6, 3);
+				break;
 				case AnimHurt:
 					animation_play(spr_sonic_hurt, 1, 1);
 				break;
@@ -67,6 +70,9 @@ function PlayerCharacterAnimationList()
 				case AnimLookup:
 					animation_play(spr_tails_lookup, 4, 1);
 				break;
+				case AnimSkid:
+					animation_play(spr_tails_hurt, 1, 1);
+				break;
 				case AnimFly:
 					animation_play(spr_tails_fly, 1, 1);
 				break;
@@ -93,6 +99,7 @@ function PlayerCharacterAnimationList()
 						animation_play(spr_tails_tail_roll, 4, 1);
 					break;
 					case AnimSpindash:
+					case AnimSkid:
 						animation_play(spr_tails_tail_spindash, 4, 1); 
 					break;
 					case AnimFly:
@@ -137,6 +144,9 @@ function PlayerCharacterAnimationList()
 				break;
 				case AnimLookup:
 					animation_play(spr_knuckles_lookup, 4, 2);
+				break;
+				case AnimSkid:
+					animation_play(spr_knuckles_hurt, 1, 1);
 				break;
 				case AnimHurt:
 					animation_play(spr_knuckles_hurt, 1, 1);

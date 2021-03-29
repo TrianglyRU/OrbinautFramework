@@ -1,8 +1,8 @@
 /// @function tile_get_angle_v(X, Y, toPositive, noSolidTop, Layer)
 function tile_get_angle_v(X, Y, toPositive, noSolidTop, Layer)
 {
-	// Report script error
-	if X < 0 or Y < 0 or X > room_width or Y > room_height exit;	
+	// Return angle value of 360 if we're out of stage boundaries
+	if (X < 0 or Y < 0 or X > room_width or Y > room_height) return 360;	
 
 	// Get tile and read its height
 	var Tile   = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
@@ -39,7 +39,7 @@ function tile_get_angle_v(X, Y, toPositive, noSolidTop, Layer)
 		Height = Game.HeightValueOf[Index][tile_get_mirror(Tile) ? TileSize - 1 - X mod TileSize : X mod TileSize];
 
 	}
-		
+
 	// Return cardinal angle for empty tile
 	if (!Tile) return toPositive ? 360 : 180;
 		

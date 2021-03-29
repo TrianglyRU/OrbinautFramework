@@ -7,8 +7,8 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 24,
-  "bbox_right": 49,
+  "bbox_left": 23,
+  "bbox_right": 47,
   "bbox_top": 17,
   "bbox_bottom": 55,
   "HTile": false,
@@ -26,9 +26,11 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"877ce1cc-5a10-4a49-b794-61a4b3caeec3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"877ce1cc-5a10-4a49-b794-61a4b3caeec3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":{"name":"4ef5c1dd-ca9e-43b2-8281-21e76eec03f3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"877ce1cc-5a10-4a49-b794-61a4b3caeec3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":{"name":"f0bb7aad-9f3b-40cd-9678-11ac9f8b4c53","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_lookup","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"877ce1cc-5a10-4a49-b794-61a4b3caeec3","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"bf4b3559-1217-46ce-a7a2-40ba361ca7c0","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"bf4b3559-1217-46ce-a7a2-40ba361ca7c0","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":{"name":"4ef5c1dd-ca9e-43b2-8281-21e76eec03f3","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"bf4b3559-1217-46ce-a7a2-40ba361ca7c0","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"LayerId":{"name":"f0bb7aad-9f3b-40cd-9678-11ac9f8b4c53","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_lookup","path":"sprites/spr_knuckles_lookup/spr_knuckles_lookup.yy",},"resourceVersion":"1.0","name":"bf4b3559-1217-46ce-a7a2-40ba361ca7c0","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
@@ -69,7 +71,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4ef5c1dd-ca9e-43b2-8281-21e76eec03f3","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f0bb7aad-9f3b-40cd-9678-11ac9f8b4c53","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Characters",

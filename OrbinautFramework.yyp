@@ -263,6 +263,7 @@
     {"id":{"name":"spr_tails_tail_roll","path":"sprites/spr_tails_tail_roll/spr_tails_tail_roll.yy",},"order":57,},
     {"id":{"name":"audio_bgm_stop","path":"scripts/audio_bgm_stop/audio_bgm_stop.yy",},"order":16,},
     {"id":{"name":"Sprite113","path":"sprites/Sprite113/Sprite113.yy",},"order":29,},
+    {"id":{"name":"spr_sonic_skid","path":"sprites/spr_sonic_skid/spr_sonic_skid.yy",},"order":58,},
     {"id":{"name":"spr_mbz_fg_03","path":"sprites/spr_mbz_fg_03/spr_mbz_fg_03.yy",},"order":6,},
     {"id":{"name":"DiscordInformationSet","path":"scripts/DiscordInformationSet/DiscordInformationSet.yy",},"order":1,},
     {"id":{"name":"spr_hhz_fg03","path":"sprites/spr_hhz_fg03/spr_hhz_fg03.yy",},"order":3,},

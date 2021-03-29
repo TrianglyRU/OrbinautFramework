@@ -1,7 +1,7 @@
 function PlayerCheckJump()
 {	
 	// Do not jump if found the low ceiling
-	if round(Angle/90) % 4 = RangeFloor
+	if round(Angle/90) % 4 == RangeFloor
 	{
 		if tile_get_distance_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer) < 6
 		or tile_get_distance_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer) < 6
@@ -11,17 +11,17 @@ function PlayerCheckJump()
 	}
 	
 	// Exit the code if we're trying to perform spindash or peelout
-	if Inertia = 0
+	if Inertia == 0
 	{
-		if Game.SpindashEnabled and Input.Down 
-		or Game.PeeloutEnabled  and Input.Up
+		if Game.SpindashEnabled && Input.Down 
+		or Game.PeeloutEnabled  && Input.Up
 		{
 			exit;
 		}
 	}
 
 	// Jump
-	if Input.ABCPress
+	if Input.ABCPress = true
 	{	
 		// Set speeds and flags
 		Xsp     -= Jump * dsin(Angle);
@@ -29,12 +29,12 @@ function PlayerCheckJump()
 		Jumping  = true;	
 		Grounded = false;
 		OnObject = false;
-		if (Game.RolljumpControl) Rolling = false;
+		if (Game.RolljumpControl == true) Rolling = false;
 		
 		// Update radiuses
 		yRadius = yRadiusRoll;
 		xRadius	= xRadiusRoll;
-		if (!Rolling) PosY += yRadiusDefault - yRadiusRoll;
+		if (Rolling == false) PosY += yRadiusDefault - yRadiusRoll;
 
 		// Set animation
 		Animation = AnimRoll;

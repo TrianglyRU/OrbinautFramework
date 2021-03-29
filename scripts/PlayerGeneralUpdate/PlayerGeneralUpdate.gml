@@ -1,7 +1,7 @@
 function PlayerGeneralUpdate()
 {
-	// Update main state
-	if Grounded
+	// Update player's state
+	if Grounded == true
 	{
 		State = !Rolling ? PlayerStateNormal : PlayerStateRoll;
 	}
@@ -16,50 +16,123 @@ function PlayerGeneralUpdate()
 		// Decrease timer
 		HighSpeedBonus--;
 		
-		// Apply increased values
+		// Apply highspeed physics
 		Acc     = 0.09375;
 		Frc     = 0.09375;
 		AirAcc  = 0.1875;
 		RollFrc = 0.046875;
 		TopAcc  = 12;
 		
-		// Back to default values when bonus has ended or we became super
-		if HighSpeedBonus = 0 or isSuper
+		// Restore normal physics when bonus has ended 
+		if HighSpeedBonus == 0
 		{
 			Acc	    = 0.046875;
 			Frc     = 0.046875;
-			AirAcc  = Acc * 2;
-			RollFrc = Frc / 2;
+			AirAcc  = 0.09375;
+			RollFrc = 0.0234375;
 			TopAcc  = 6;
 		}
 	}
 	
-	// Handle super state
-	if isSuper
+	// Handle underwater physics
+	if isUnderwater == false
+	{
+		// Check for falling into the water
+		if PosY > Stage.WaterLevel && Stage.WaterLevel != 0
+		{
+			Xsp	*= 0.5;
+			Ysp	*= 0.25;
+			isUnderwater = true;
+		}
+	}
+	else
+	{ 
+		// Apply underwater physics (if not in superform)
+		if isSuper == false
+		{
+			Acc		= 0.0234375;
+			Dec		= 0.25;
+			Frc		= 0.0234375;
+			RollFrc = 0.01171875;
+			TopAcc  = 3;
+			AirAcc  = 0.046875;
+			JumpMin = -2;
+			Jump    = CharacterID == CharKnuckles ? 3 : 3.5;
+		}
+		Grv	= 0.0625;
+		
+		// Check for leaving the water
+		if PosY < Stage.WaterLevel
+		{
+			isUnderwater = false;
+			Ysp			*= 2;
+			
+			// Restore normal physics (if not in superform)
+			if isSuper == false
+			{
+				Acc		= 0.046875;
+				Frc     = 0.046875;
+				AirAcc  = 0.09375;
+				RollFrc = 0.0234375;
+				Dec		= 0.5;			
+				TopAcc	= 6;
+				JumpMin = -4;
+				Jump    = CharacterID == CharKnuckles ? 6 : 6.5;
+			}
+			Grv	= 0.21875;
+		}
+	}
+	
+	// Handle superform physics
+	if isSuper == true
 	{
 		// Make us invincible
 		isInvincible = true;
 		
 		if Rings > 0
 		{
-			// Apply increased values
-			if (CharacterID  = CharSonic)
+			// Apply superform physics for Sonic
+			if CharacterID == CharSonic
 			{
-				Acc	    = 0.1875;
-				AirAcc  = 0.375;
-				Dec     = 1;
-				TopAcc  = 10;
-				Jump    = 8;
-				RollFrc = Game.ConstantRollFrc ? 0.0234375 : 0.09375;
+				if isUnderwater == false
+				{
+					Acc	    = 0.1875;
+					AirAcc  = 0.375;
+					Dec     = 1;
+					TopAcc  = 10;
+					Jump    = 8;
+					RollFrc = Game.ConstantRollFrc ? 0.0234375 : 0.09375;
+				}
+				else
+				{
+					Acc	    = 0.09375;
+					AirAcc  = 0.1875;
+					Dec     = 0.5;
+					TopAcc  = 5;
+					Jump    = 8;
+					RollFrc = Game.ConstantRollFrc ? 0.0234375 : 0.046875;
+				}
 			}
+			
+			// Apply superform physics for Tails and Knuckles
 			else
 			{
-				Acc     = 0.09375;
-				AirAcc  = 0.1875;
-				Dec     = 0.75;
-				TopAcc  = 8;		
-				RollFrc = 0.0234375;
-				Jump    = 8;
+				if isUnderwater == false
+				{
+					Acc     = 0.09375;
+					AirAcc  = 0.1875;
+					Dec     = 0.75;
+					TopAcc  = 8;		
+					RollFrc = 0.0234375;
+				}
+				else
+				{
+					Acc     = 0.046875;
+					AirAcc  = 0.1875;
+					Dec     = 0.375;
+					TopAcc  = 4;		
+					RollFrc = 0.0234375;
+				}
 			}
 			Frc = 0.046875;
 			
@@ -73,11 +146,11 @@ function PlayerGeneralUpdate()
 			isSuper = false;
 			Acc		= 0.046875;
 			Frc     = 0.046875;
-			AirAcc  = Acc * 2;
-			RollFrc = Frc / 2;
-			Dec		= 0.5;
-			Jump	= 6.5;
+			AirAcc  = 0.09375;
+			RollFrc = 0.0234375;
+			Dec		= 0.5;			
 			TopAcc	= 6;
+			Jump    = CharacterID == CharKnuckles ? 6 : 6.5;
 		}
 	}
 	
@@ -85,5 +158,5 @@ function PlayerGeneralUpdate()
 	if (InvincibilityBonus > 0) InvincibilityBonus--;
 	
 	// Decrease temp invincibility timer
-	if (isInvincible and !InvincibilityBonus and !isSuper) isInvincible--;
+	if (isInvincible && InvincibilityBonus == false && isSuper == false) isInvincible--;
 }
