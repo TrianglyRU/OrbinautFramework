@@ -3,7 +3,7 @@ function PlayerGeneralUpdate()
 	// Update player's state
 	if Grounded == true
 	{
-		State = !Rolling ? PlayerStateNormal : PlayerStateRoll;
+		State = Rolling == false ? PlayerStateNormal : PlayerStateRoll;
 	}
 	else
 	{

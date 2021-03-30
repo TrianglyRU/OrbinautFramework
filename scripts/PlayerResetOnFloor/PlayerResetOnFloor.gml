@@ -10,12 +10,12 @@ function PlayerResetOnFloor()
 		Grv	= 0.21875;
 		
 		// Reset flags
-		Rolling		 = false;
-		Jumping		 = false;
-		Pushing		 = false;
+		Rolling	= Input.Down;
+		Jumping	= false;
+		Pushing	= false;
 		
 		// Reset hurt state
-		if Hurt
+		if Hurt == true
 		{
 			isInvincible = 120;
 			Inertia		 = 0;
@@ -26,19 +26,19 @@ function PlayerResetOnFloor()
 		/* ================= */
 		
 		// Sonic's dropdash
-		if DropdashRev = 20
+		if DropdashRev == 20
 		{	
 			// Go to rolling state
 			Rolling = true;
 		
 			// Set dropspeed
-			if DropdashDirection = 1
+			if DropdashDirection == FacingRight
 			{
 				var Dropspeed = Inertia / 4 + 8 * Facing;
 			}
-			else
+			else if DropdashDirection = FacingLeft
 			{
-				if Angle = 0
+				if Angle == 360
 				{
 					var Dropspeed = 8 * Facing;
 				}
@@ -69,9 +69,12 @@ function PlayerResetOnFloor()
 		{
 			// Continue gliding
 			case 1:
+			case 2:
 			{
-				Frc			 = 0.125;
-				MovementLock = -1;	
+				Frc			 =  0.125;
+				GlidingValue =  0;
+				GlidingState =  1
+				MovementLock = -1;				
 			}
 			break;
 			
@@ -80,7 +83,8 @@ function PlayerResetOnFloor()
 			{
 				Xsp			 = 0;
 				Inertia		 = 0;
-				GlidingState = false;
+				GlidingValue = 0;
+				GlidingState = false;	
 			}
 		}
 		
@@ -88,10 +92,16 @@ function PlayerResetOnFloor()
 		/* ========= */
 		
 		// Reset radiuses to default values if not rolling
-		if !Rolling
+		if Rolling == false and GlidingState == false
 		{
 			yRadius = yRadiusDefault; 
-			xRadius	= xRadiusDefault;	
+			xRadius	= xRadiusDefault;
+			PosY   -= yRadiusDefault - yRadiusRoll;
+		}
+		else if GlidingState == 1
+		{
+			xRadius = 10;
+			yRadius = 10;
 		}
 	}
 }

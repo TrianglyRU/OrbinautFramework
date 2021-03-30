@@ -1,12 +1,12 @@
 function PlayerHitWalls()
 {	
 	// Do not collide if we're not allowed to
-	if !AllowCollision exit;
+	if (AllowCollision == false) exit;
 	
 	// Left wall collision
-	if Grounded
+	if Grounded == true
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 = 0) and Inertia < 0
+		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision == true and Angle mod 90 == 0) and Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
 			switch round(Angle/90) % 4
@@ -54,22 +54,21 @@ function PlayerHitWalls()
 			}
 		}
 	}
-	else if !(Xsp > abs(Ysp))
+	else if (Xsp > abs(Ysp)) == false
 	{
 		// Collide airborne at the current frame
 		var Distance = tile_get_distance_h(floor(PosX - 10), floor(PosY), false, true, Layer);
 		if  Distance < 0
 		{
-			PosX   -= Distance;
-			Xsp     = 0;
-			Inertia = 0;
+			PosX -= Distance;
+			Xsp   = 0;
 		}
 	}
 	
 	// Right wall collision
-	if Grounded
+	if Grounded == true
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 = 0) and Inertia > 0
+		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision == true and Angle mod 90 == 0) and Inertia > 0
 		{
 			// Collide with walls based on current angle range, frame ahead
 			switch round(Angle/90) % 4
@@ -117,15 +116,14 @@ function PlayerHitWalls()
 			}
 		}
 	}
-	else if !(-Xsp > abs(Ysp))
+	else if (-Xsp > abs(Ysp)) == false
 	{	
 		// Collide airborne at the current frame
 		var Distance = tile_get_distance_h(floor(PosX + 10), floor(PosY), true, true, Layer);	
 		if  Distance < 0
 		{
-			PosX	+= Distance;
-			Xsp      = 0;
-			Inertia  = 0;
+			PosX += Distance;
+			Xsp   = 0;
 		}
 	}
 }

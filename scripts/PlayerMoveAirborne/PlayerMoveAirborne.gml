@@ -1,7 +1,7 @@
 function PlayerMoveAirborne()
 {	
 	// Accelerate and decelerate
-	if !(Jumping and Rolling) and !GlidingState and !Climbing and !Hurt and !Death 
+	if (Jumping and Rolling) == false and GlidingState == false and ClimbingState == false and Hurt == false and Death == false
 	{
 		if Input.Left 
 		{		
@@ -9,7 +9,7 @@ function PlayerMoveAirborne()
 			{
 				Xsp -= AirAcc;
 			} 
-			else if (!Game.AirSpeedcap and Xsp > -TopAcc) or Game.AirSpeedcap
+			else if (Game.AirSpeedcap == false and Xsp > -TopAcc) or Game.AirSpeedcap == true
 			{
 				Xsp -= AirAcc;
 				if (Xsp <= -TopAcc) Xsp = -TopAcc;
@@ -22,7 +22,7 @@ function PlayerMoveAirborne()
 			{
 				Xsp += AirAcc;
 			} 
-			else if (!Game.AirSpeedcap and Xsp < TopAcc) or Game.AirSpeedcap 
+			else if (Game.AirSpeedcap == false and Xsp < TopAcc) or Game.AirSpeedcap == true
 			{
 				Xsp += AirAcc;
 				if (Xsp >= TopAcc) Xsp = TopAcc;
@@ -32,7 +32,7 @@ function PlayerMoveAirborne()
 	}
 	
 	// Apply air drag
-	if Ysp < 0 and Ysp > -4 and !Hurt and !GlidingState
+	if Ysp < 0 and Ysp > -4 and Hurt == false and GlidingState == false
 	{
 		Xsp -= floor(Xsp/0.125) / 256;
 	}	

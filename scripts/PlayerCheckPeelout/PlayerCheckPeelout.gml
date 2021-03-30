@@ -1,13 +1,13 @@
 function PlayerCheckPeelout()
 {	
-	if Input.Up and Inertia = 0
+	if Input.Up and Inertia == 0
 	{
 		Animation = AnimLookup;
 		
-		if CharacterID = CharSonic and Game.PeeloutEnabled
+		if CharacterID == CharSonic and Game.PeeloutEnabled == true
 		{
 			// Start peelout
-			if Input.APress and PeeloutRev = -2
+			if Input.APress and PeeloutRev == -2
 			{
 				PeeloutRev   = 0;
 				MovementLock = -1;
@@ -24,7 +24,7 @@ function PlayerCheckPeelout()
 	}
 			
 	// Release peelout
-	else if PeeloutRev
+	else if PeeloutRev >= 0
 	{
 		if PeeloutRev < 30
 		{
@@ -37,6 +37,8 @@ function PlayerCheckPeelout()
 			Inertia		 = 12 * Facing;
 			PeeloutRev	 = -2;
 			MovementLock = false;
+			
+			if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 16;
 		}
 	}		
 }

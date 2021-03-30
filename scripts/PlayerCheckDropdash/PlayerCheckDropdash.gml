@@ -1,18 +1,18 @@
 function PlayerCheckDropdash()
 {
-	
-	if !Game.DropdashEnabled exit;
-	
 	// Check if we're Sonic
 	if CharacterID != CharSonic exit;
 	
+	// Check if dropdash is enabled
+	if Game.DropdashEnabled == false exit;
+	
 	// Check if we're jumping
-	if !Jumping exit;
+	if Jumping == false exit;
 	
 	// Check if we're moving forwards or backwards
 	if Xsp >= 0
 	{
-		if Facing = FacingLeft and Input.Left 
+		if Facing == FacingLeft and Input.Left
 		{
 			DropdashDirection = -1;
 		}
@@ -23,7 +23,7 @@ function PlayerCheckDropdash()
 	}
 	else
 	{
-		if Facing = FacingRight and Input.Right
+		if Facing == FacingRight and Input.Right
 		{
 			DropdashDirection = -1;
 		}

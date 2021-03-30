@@ -16,8 +16,8 @@ function PlayerCheckJump()
 		// Exit the code if we're trying to perform spindash or peelout
 		if Inertia == 0
 		{
-			if Game.SpindashEnabled and Input.Down 
-			or Game.PeeloutEnabled  and Input.Up
+			if Game.SpindashEnabled == true and Input.Down
+			or Game.PeeloutEnabled  == true and CharacterID = CharSonic and Input.Up
 			{
 				exit;
 			}
@@ -29,18 +29,22 @@ function PlayerCheckJump()
 		Jumping  = true;	
 		Grounded = false;
 		OnObject = false;
-		if (Game.RolljumpControl == true) Rolling = false;
 		
 		// Update radiuses
 		yRadius = yRadiusRoll;
 		xRadius	= xRadiusRoll;
-		if (Rolling == false) PosY += yRadiusDefault - yRadiusRoll;
-
+		
+		if Game.RolljumpControl == true
+		{
+			Rolling = false;
+		}
+		else
+		{
+			PosY += yRadiusDefault - yRadiusRoll;
+		}
+		
 		// Set animation
 		Animation = AnimRoll;
-		
-		// Get our speed ratio
-		AnimReservedSpeed = round(max(1, 4 - abs(Inertia)));
 		
 		// Play sound
 		audio_sfx_play(sfxJump, false);

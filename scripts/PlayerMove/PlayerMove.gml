@@ -3,7 +3,7 @@ function PlayerMove()
 	// Accelerate and decelerate
 	if MovementLock == false
 	{
-		if Input.Left == true
+		if Input.Left
 		{	
 			// If moving right and left key is pressed, decelerate
 			if Inertia > 0 
@@ -23,7 +23,7 @@ function PlayerMove()
 				Facing = FacingLeft;
 			}
 		}
-		if Input.Right == true 
+		if Input.Right
 		{				
 			// If moving left and right key is pressed, decelerate
 			if Inertia < 0 
@@ -63,18 +63,18 @@ function PlayerMove()
 	// Check for skidding
 	if Skidding == false and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor
 	{
-		if Inertia > 0 and Input.LeftPress == true
+		if Inertia > 0 and Input.LeftPress
 		{
 			Skidding = FacingRight;
 		}
-		if Inertia < 0 and Input.RightPress == true
+		if Inertia < 0 and Input.RightPress
 		{
 			Skidding = FacingLeft;
 		}
 	}
 	else
 	{
-		if (Inertia < 0 and Input.LeftPress == true) or (Inertia > 0 and Input.RightPress == true) or Inertia == 0 or sign(Skidding) != sign(Inertia)
+		if (Inertia < 0 and Input.LeftPress) or (Inertia > 0 and Input.RightPress) or Inertia == 0 or sign(Skidding) != sign(Inertia)
 		{
 			Skidding = false;
 		}

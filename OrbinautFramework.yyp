@@ -252,6 +252,7 @@
     {"id":{"name":"PlayerCharacterAnimationList","path":"scripts/PlayerCharacterAnimationList/PlayerCharacterAnimationList.yy",},"order":1,},
     {"id":{"name":"sprHUD_Time","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"order":9,},
     {"id":{"name":"ScreenResultsDisplay","path":"scripts/ScreenResultsDisplay/ScreenResultsDisplay.yy",},"order":10,},
+    {"id":{"name":"spr_knuckles_glidestand","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"order":59,},
     {"id":{"name":"background_start_parallax","path":"scripts/background_start_parallax/background_start_parallax.yy",},"order":7,},
     {"id":{"name":"spr_hhz_fg00","path":"sprites/spr_hhz_fg00/spr_hhz_fg00.yy",},"order":0,},
     {"id":{"name":"spr_hhz_fg23","path":"sprites/spr_hhz_fg23/spr_hhz_fg23.yy",},"order":28,},

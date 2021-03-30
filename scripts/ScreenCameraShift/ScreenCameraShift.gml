@@ -1,7 +1,7 @@
 function ScreenCameraShift() 
 {	
 	// Do not perform if player died
-	if Stage.State = ActStatePlayerDeath exit;
+	if (Stage.State == ActStatePlayerDeath) exit;
 	
 	// Update player's position on the screen
 	PlayerScreenX = floor(Player.PosX) - floor(ViewX);
@@ -18,13 +18,13 @@ function ScreenCameraShift()
 	}
 	
 	// Horizontal follow
-	if (PlayerScreenX >= (Width / 2) or PlayerScreenX <= (Width / 2 - 16)) and ScrollDelay = 0 
+	if (PlayerScreenX >= (Width / 2) or PlayerScreenX <= (Width / 2 - 16)) and ScrollDelay == 0 
 	{ 
 		ViewX += ShiftX;
 	}
 
 	// Set vertical shift speed
-	if Player.Grounded
+	if Player.Grounded == true and Player.GlidingState == false or Player.GlidingState == 4
 	{
 		var maxShift = abs(Player.Ysp) < 6 ? 6 : 16;
 		ShiftY       = clamp(PlayerScreenY - (Height / 2 - 16), -maxShift, maxShift);  
@@ -42,7 +42,7 @@ function ScreenCameraShift()
 	}	
 	
 	// Vertical follow
-	if Player.Grounded
+	if Player.Grounded == true
 	{
 		if PlayerScreenY != Height / 2 - 16 
 		{

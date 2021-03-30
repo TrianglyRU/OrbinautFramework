@@ -49,7 +49,7 @@ function PlayerSetup()
 	{
 		yRadiusDefault = 15;
 		xRadiusDefault = 9;
-		yRadiusRoll    = 13;
+		yRadiusRoll    = 14;
 		xRadiusRoll    = 7;
 	}
 	xRadius = xRadiusDefault;

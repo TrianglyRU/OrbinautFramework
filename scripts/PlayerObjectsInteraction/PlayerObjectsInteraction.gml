@@ -1,7 +1,7 @@
 function PlayerObjectsInteraction()
 {	
 	// Do not collide if we're not allowed to
-	if !AllowCollision exit;
+	if (AllowCollision == false) exit;
 	
 	// Get player's position
 	var PlayerX = floor(PosX);
@@ -19,32 +19,32 @@ function PlayerObjectsInteraction()
 	var InnerTop	= floor(PosY - yRadius + 3);
 	var InnerBottom = floor(PosY + yRadius - 3);
 	
-	// Create object lists
+	// Create object list
 	var objList = ds_list_create();
 	
 	// Check for overlapping all objects with our inner hitbox
-	var objNumb1 = collision_rectangle_list(InnerLeft, InnerTop, InnerRight, InnerBottom, Objects, false, true, objList, false);
-	if  objNumb1 > 0
+	var allObj_list = collision_rectangle_list(InnerLeft, InnerTop, InnerRight, InnerBottom, Objects, false, true, objList, false);
+	if  allObj_list > 0
 	{ 
-		for (var i = 0; i < objNumb1; ++i;)
+		for (var i = 0; i < allObj_list; ++i;)
 		{ 
-			var Obj = objList[| i];
+			var allObj = objList[| i];
 			
 			// Check if object has collision
-			if variable_instance_exists(Obj, "objCollisionType")
+			if variable_instance_exists(allObj, "objCollisionType")
 			{	
 				// Tell the object we've collided with it
-				Obj.objGotPlayerInHitbox = true;
+				allObj.objGotPlayerInHitbox = true;
 			}
 		} 
 	} 
 	ds_list_clear(objList);
 	
 	// Check for overlapping all non-slopey objects with our outer hitbox
-	var objNumb2 = collision_rectangle_list(OuterLeft, OuterTop, OuterRight, OuterBottom, Objects, false, true, objList, false);
-	if  objNumb2 > 0
+	var solidObj_list = collision_rectangle_list(OuterLeft, OuterTop, OuterRight, OuterBottom, Objects, false, true, objList, false);
+	if  solidObj_list > 0
 	{
-		for (var i = 0; i < objNumb2; ++i;)
+		for (var i = 0; i < solidObj_list; ++i;)
 		{
 			var solidObj = objList[| i];
 			
@@ -52,7 +52,7 @@ function PlayerObjectsInteraction()
 			if variable_instance_exists(solidObj, "objCollisionType")
 			{	
 				// Collide horizontally with full solid objects
-				if solidObj.objCollisionType = SolidAll and abs(solidObj.x - PlayerX) > abs(solidObj.y - PlayerY - 4)
+				if solidObj.objCollisionType == SolidAll and abs(solidObj.x - PlayerX) > abs(solidObj.y - PlayerY - 4)
 				{
 					// Collide on the left
 					if PlayerX < solidObj.x
@@ -84,52 +84,46 @@ function PlayerObjectsInteraction()
 				}
 				
 				// Collide vertically
-				if abs(solidObj.x - PlayerX) <= abs(solidObj.y - PlayerY - 4) 	
+				if solidObj.objCollisionType == SolidAll or solidObj.objCollisionType == SolidTop
 				{
-					// Airborne collision
-					if !Grounded 
-					{
-						// Try to land on the object
-						if PlayerY < solidObj.y
-						{
-							if solidObj.objCollisionType = SolidAll or solidObj.objCollisionType = SolidTop
+					if abs(solidObj.x - PlayerX) <= abs(solidObj.y - PlayerY - 4) 	
+					{	
+						if Grounded == false
+						{	
+							// Try to land on the object
+							if PlayerY < solidObj.y
 							{
 								if Ysp > 0 and solidObj.bbox_top - OuterBottom > -16
 								{	
-									if  Game.ImprovedObjCollision 
-									or !Game.ImprovedObjCollision and (PlayerX > solidObj.bbox_left and PlayerX < solidObj.bbox_right)
+									if Game.ImprovedObjCollision == true
+									or Game.ImprovedObjCollision == false and (PlayerX > solidObj.bbox_left and PlayerX < solidObj.bbox_right)
 									{
 										Inertia  = Xsp;
 										Ysp		 = 0;
-										Angle    = 360;
 										Grounded = true;	
 										OnObject = solidObj;
 									}
 								}
 							}
-						}
-				
-						// Collide from the bottom if object is full solid
-						else
-						{
-							if Ysp < 0 and solidObj.objCollisionType = SolidAll
+							
+							// Collide with its bottom if we're below it
+							else if solidObj.objCollisionType == SolidAll
 							{
-								Ysp   = 0;
-								PosY += solidObj.bbox_bottom - OuterTop + 1;
+								if Ysp < 0
+								{
+									Ysp   = 0;
+									PosY += solidObj.bbox_bottom - OuterTop + 1;
 								
-								// Tell object we're touching its bottom side
-								solidObj.objGotPlayerOutHitboxBottom = true;			
-								solidObj.objGotPlayerOutHitboxLeft   = false;			
-								solidObj.objGotPlayerOutHitboxRight  = false;			
+									// Tell object we're touching its bottom side
+									solidObj.objGotPlayerOutHitboxBottom = true;			
+									solidObj.objGotPlayerOutHitboxLeft   = false;			
+									solidObj.objGotPlayerOutHitboxRight  = false;			
+								}
 							}
 						}
-					}
-					
-					// Ground collision
-					else
-					{
-						// Kill player if we collide with object's bottom
-						if solidObj.objCollisionType = SolidAll
+						
+						// If we're grounded, check for object to crush us
+						else if solidObj.objCollisionType == SolidAll
 						{
 							if OuterTop < solidObj.bbox_bottom
 							{
@@ -137,7 +131,7 @@ function PlayerObjectsInteraction()
 								Hurt  = solidObj;			
 							}
 						}
-					}						
+					}					
 				}
 			}
 		}
@@ -145,10 +139,10 @@ function PlayerObjectsInteraction()
 	ds_list_clear(objList);
 	
 	// Check for overlapping slope-y objects with our bottom middle sensor
-	var objNumb3 = collision_point_list(PlayerX, OuterBottom, Objects, true, true, objList, false);
-	if  objNumb3 > 0
+	var slopeObj_list = collision_point_list(PlayerX, OuterBottom, Objects, true, true, objList, false);
+	if  slopeObj_list > 0
 	{ 
-		for (var i = 0; i < objNumb3; ++i;)
+		for (var i = 0; i < slopeObj_list; ++i;)
 		{ 
 			var slopeObj = objList[| i];
 			
@@ -169,12 +163,12 @@ function PlayerObjectsInteraction()
 	ds_list_clear(objList);
 	
 	// Check for overlapping all solid objects 4 pixels below us while we're grounded with our outer hitbox
-	if Grounded
+	if Grounded == true
 	{
-		var objNumb4 = collision_point_list(PlayerX, OuterBottom + 4, Objects, false, true, objList, false);
-		if  objNumb4 > 0
+		var newObj_list = collision_point_list(PlayerX, OuterBottom + 4, Objects, false, true, objList, false);
+		if  newObj_list > 0
 		{
-			for (var i = 0; i < objNumb4; ++i;)
+			for (var i = 0; i < newObj_list; ++i;)
 			{
 				var newObj = objList[| i];
 				
@@ -191,9 +185,9 @@ function PlayerObjectsInteraction()
 					}
 				}
 			}
-		}
-		ds_list_clear(objList);
+		}	
 	}
+	ds_list_clear(objList);
 	
 	// Collide with solid object we're currently standing on
 	if OnObject
@@ -226,22 +220,22 @@ function PlayerObjectsInteraction()
 		else
 		{
 			// Get default sensor position
-			var slopeObjSensor = OuterBottom;
+			var ySensor = OuterBottom;
 		
 			// Adjust sensor y position using object's mask
-			while !position_meeting(PlayerX, slopeObjSensor, OnObject) and slopeObjSensor < OuterBottom + 16
+			while not position_meeting(PlayerX, ySensor, OnObject) and ySensor < OuterBottom + 16
 			{
-				slopeObjSensor++;
+				ySensor++;
 			}
-			while position_meeting(PlayerX, slopeObjSensor, OnObject)
+			while position_meeting(PlayerX, ySensor, OnObject)
 			{
-				slopeObjSensor--;
+				ySensor--;
 			}
 				
 			// Adjust player's position if we find object below the sensor, else lose it
-			if position_meeting(PlayerX, slopeObjSensor + 1, OnObject)
+			if position_meeting(PlayerX, ySensor + 1, OnObject)
 			{
-				PosY = slopeObjSensor - yRadius;
+				PosY = ySensor - yRadius;
 			}
 			else
 			{
@@ -249,7 +243,5 @@ function PlayerObjectsInteraction()
 			}
 		}
 	}
-	
-	// Reset object list
 	ds_list_destroy(objList);			
 }

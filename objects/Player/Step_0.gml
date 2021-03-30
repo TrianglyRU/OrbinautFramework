@@ -1,7 +1,7 @@
 /// @description Scripts
-// You can call your scripts in this editor
+// You can write your code in this editor
 	
-	// Do not run the code until stage loaded
+	// Do not run this code until stage loaded
 	if (Stage.State = ActStateLoading) exit;
 	
 	// Update player

@@ -1,15 +1,15 @@
 function PlayerCheckSpindash()
 {	
 	// Charge spindash
-	if Input.Down and Inertia = 0
+	if Input.Down and Inertia == 0
 	{
 		Animation = AnimCrouch;
 		
-		if Game.SpindashEnabled and Input.ABCPress
+		if Game.SpindashEnabled == true and Input.ABCPress
 		{
 			image_index = 0;
 		
-			if SpindashRev = -2
+			if SpindashRev == -2
 			{
 				SpindashRev = 2;
 			}
@@ -32,12 +32,13 @@ function PlayerCheckSpindash()
 	}
 	
 	// Release 
-	if SpindashRev >= 0 and !Input.Down 
+	if SpindashRev >= 0 and Input.Down == false
 	{
 		MovementLock	   = false;
-		Screen.ScrollDelay = 16;
 		Inertia			   = (8 + floor(SpindashRev) / 2) * Facing;
 		SpindashRev        = -2;
+		
+		if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 16;
 		
 		// Update radiuses
 		yRadius = yRadiusRoll;

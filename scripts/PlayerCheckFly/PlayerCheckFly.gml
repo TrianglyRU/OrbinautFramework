@@ -4,14 +4,18 @@ function PlayerCheckFly()
 	if CharacterID != CharTails exit;
 	
 	// Enter flying state
-	if FlyingState = false
+	if FlyingState == false
 	{	
-		if Jumping and Ysp > -4 and Input.ABCPress
+		if Jumping == true and Ysp > -4 and Input.ABCPress
 		{
 			Grv			= 0.03125;
 			FlyingState = 1;
 			FlyingTimer = 480;
 			Jumping		= false;
+			
+			// Restore normal radiuses
+			xRadius = xRadiusDefault;
+			yRadius = yRadiusDefault;
 		}
 	}
 	
@@ -33,8 +37,12 @@ function PlayerCheckFly()
 			Animation = AnimFly;
 			
 			// Cancel
-			if Game.FlyingCancel and Input.Down and Input.ABCPress 
+			if Game.FlyingCancel == true and Input.Down and Input.ABCPress
 			{
+				// Decrease radiuses
+				xRadius = xRadiusRoll;
+				yRadius = yRadiusRoll;
+			
 				FlyingState	= false;
 				FlyingTimer = 0;
 				Grv		    = 0.21875;

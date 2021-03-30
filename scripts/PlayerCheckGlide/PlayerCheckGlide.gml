@@ -4,102 +4,134 @@ function PlayerCheckGlide()
 	if CharacterID != CharKnuckles exit;
 	
 	// Check if we're airborne
-	if !Grounded
-	{
+	if Grounded == false
+	{	
 		// Start gliding
-		if GlidingState = false
+		if GlidingState == false
 		{
-			if Jumping and Ysp > -4 and Input.ABCPress
+			if Jumping == true and Ysp > -4 and Input.ABCPress
 			{
-				Xsp			 = 4 * Facing;
-				Jumping		 = false;
-				GlidingState = 1;
+				// Set speeds
 				if (Ysp < 0) Ysp = 0;
+				Xsp	= 4 * Facing;
+
+				// Set unique gliding radiuses
+				xRadius = 10;
+				yRadius = 10;
 			
-				// Set default turn value
-				if Facing = FacingRight
+				// Set gliding angle value
+				if Facing == FacingRight
 				{
-					GlidingDirection = 0;
+					GlidingValue = 0;
 				}
 				else
 				{
-					GlidingDirection = -180;
+					GlidingValue = -180;
 				}
+				
+				// Enter gliding state
+				Jumping		 = false;
+				GlidingState = 1;
 			}
 		}
 	
 		// Glide
-		else if GlidingState < 3
+		else if GlidingState < 3 and Input.ABC == true
 		{
-			if Input.ABC
-			{
-				// Set animation
-				Animation = AnimGlide;
+			// Set animation
+			Animation = AnimGlide;
 			
-				// Check if we want to turn to another direction
-				if Xsp > 0 and Input.LeftPress 
-				or Xsp < 0 and Input.RightPress
-				{
-					Inertia		 = Xsp;
-					GlidingState = 2;
-				}
+			// Check if we want to turn to another direction
+			if Xsp > 0 and Input.LeftPress
+			or Xsp < 0 and Input.RightPress
+			{
+				Inertia		 = Xsp;
+				GlidingState = 2;
+			}
 				
-				// Accelerate when we're not turning
-				if GlidingState = 1
-				{
-					Xsp += Facing * 0.015625;
-				}
+			// Accelerate while we're not turning
+			if GlidingState == 1
+			{
+				Xsp += Facing * 0.015625;
+			}
 				
-				// Turn
-				if GlidingState = 2
-				{
-					GlidingDirection += 2.8125 * -sign(Inertia);	
-					Xsp	= Inertia * Facing * dcos(GlidingDirection);
+			// Perform turn (TODO: Rewrite this code)
+			if GlidingState == 2
+			{
+				GlidingValue += 2.8125 * -sign(Inertia);	
+				Xsp	= Inertia * Facing * dcos(GlidingValue);
 				
-					if GlidingDirection = -180 or GlidingDirection = 0
-					{
-						GlidingState =  1;
-						Facing		*= -1;
-					}
-				}
-
-				// Apply gravity
-				if Ysp < 0.5
+				if GlidingValue == -180 or GlidingValue == 0
 				{
-					Grv = 0.125;
-				}
-				else
-				{
-					Grv = -0.125;
+					GlidingState =  1;
+					Facing		*= -1;
 				}
 			}
-		
-			// Fall on button release
+
+			// Apply gravity
+			if Ysp < 0.5
+			{
+				Grv = 0.125;
+			}
 			else
 			{
-				Animation = AnimGlideDrop;
-				
-				Xsp		    *= 0.25;
-				Grv			 = 0.21875;
-				GlidingState = 3;
-			}
-		}	
+				Grv = -0.125;
+			}	
+		}
+		
+		// Fall on button release
+		else
+		{
+			Animation	 = AnimGlideDrop;
+			Xsp		    *= 0.25;
+			Grv			 = 0.21875;
+			GlidingState = 3;	
+			xRadius		 = xRadiusDefault;
+			yRadius		 = yRadiusDefault;
+		}
 	}
 	
-	// Check if we're gliding on the ground
-	else if GlidingState = 1
+	// Check if we're on the ground
+	else 
 	{
-		// Set animation
-		Animation = AnimGlideSlide;
-
-		// Glide on our belly until we release button or completely stop
-		if (!Input.ABC) or Inertia = 0
+		// Check if we're gliding
+		if GlidingState == 1
 		{
-			Inertia		 = 0;
-			Xsp			 = 0;
-			GlidingState = false;
-			MovementLock = false;
-			Frc			 = 0.046875;
+			// Set animation
+			Animation = AnimGlideSlide;
+		
+			// Glide until we release the button or completely stop
+			if Input.ABC == false or Inertia == 0
+			{	
+				GlidingValue = 20;
+				GlidingState = 4;		
+			}
+		}
+		
+		// Check if we stopped gliding
+		else if GlidingState == 4
+		{
+			// Set animation
+			Animation = AnimGlideStand;
+			
+			// Reset speeds
+			Inertia = 0;
+			Frc		= 0.046875;
+			
+			// Reset radiuses
+			yRadius = yRadiusDefault; 
+			xRadius	= xRadiusDefault;
+			
+			// Leave gliding state when timer runs out
+			if GlidingValue != 0
+			{
+				GlidingValue--;
+			}
+			else
+			{
+				MovementLock = false;
+				GlidingState = false;
+			}
 		}
 	}
 }

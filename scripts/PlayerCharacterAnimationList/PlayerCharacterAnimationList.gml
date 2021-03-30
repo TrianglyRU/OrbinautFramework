@@ -11,16 +11,16 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_sonic_idle, 32, 1); 
 				break;
 				case AnimWalk: 
-					animation_play(spr_sonic_walk, AnimReservedSpeed, 1);
+					animation_play(spr_sonic_walk, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_sonic_run, AnimReservedSpeed, 1);
+					animation_play(spr_sonic_run, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimPeelout: 
 					animation_play(spr_sonic_peelout, 1, 1);
 				break;
 				case AnimRoll:
-					animation_play(spr_sonic_roll, AnimReservedSpeed, 1);
+					animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
 				break;
 				case AnimSpindash:
 					animation_play(spr_sonic_spindash, 1, 1); 
@@ -53,10 +53,10 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_tails_idle, 1, 1); 
 				break;
 				case AnimWalk: 
-					animation_play(spr_tails_walk, AnimReservedSpeed, 1);
+					animation_play(spr_tails_walk, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_tails_run, AnimReservedSpeed, 1);
+					animation_play(spr_tails_run, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRoll:
 					animation_play(spr_tails_roll, 2, 1);
@@ -128,13 +128,13 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_knuckles_idle, 1, 1); 
 				break;
 				case AnimWalk: 
-					animation_play(spr_knuckles_walk, AnimReservedSpeed, 1);
+					animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_knuckles_run, AnimReservedSpeed, 1);
+					animation_play(spr_knuckles_run, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRoll:
-					animation_play(spr_knuckles_roll, AnimReservedSpeed, 1);
+					animation_play(spr_knuckles_roll, round(max(1, 4 - abs(Inertia))), 1);
 				break;
 				case AnimSpindash:
 					animation_play(spr_knuckles_spindash, 1, 1); 
@@ -162,6 +162,9 @@ function PlayerCharacterAnimationList()
 				break;
 				case AnimGlideSlide:
 					animation_play(spr_knuckles_glideslide, 1, 1);
+				break;
+				case AnimGlideStand:
+					animation_play(spr_knuckles_glidestand, 15, 2);
 				break;
 				case AnimClimb:
 					animation_play(spr_knuckles_climb, -(Ysp * 6), 1);

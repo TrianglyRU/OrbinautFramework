@@ -9,8 +9,8 @@
   "swfPrecision": 2.525,
   "bbox_left": 8,
   "bbox_right": 61,
-  "bbox_top": 37,
-  "bbox_bottom": 55,
+  "bbox_top": 28,
+  "bbox_bottom": 46,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -26,6 +26,7 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glideslide/spr_knuckles_glideslide.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glideslide/spr_knuckles_glideslide.yy",},"LayerId":{"name":"4da04e4c-359b-4afe-b5c2-677deeceaf44","path":"sprites/spr_knuckles_glideslide/spr_knuckles_glideslide.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glideslide/spr_knuckles_glideslide.yy",},"LayerId":{"name":"944584cf-4112-46cf-8dbf-42d20880e020","path":"sprites/spr_knuckles_glideslide/spr_knuckles_glideslide.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_glideslide","path":"sprites/spr_knuckles_glideslide/spr_knuckles_glideslide.yy",},"resourceVersion":"1.0","name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

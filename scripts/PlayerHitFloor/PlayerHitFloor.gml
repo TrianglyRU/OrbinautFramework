@@ -1,7 +1,7 @@
 function PlayerHitFloor()
 {	
 	// Do not collide if we're not allowed to
-	if (Ysp > 0 or abs(Xsp) > abs(Ysp)) and AllowCollision
+	if (Ysp > 0 or abs(Xsp) > abs(Ysp)) and AllowCollision == true
 	{	
 		// Set coordinates
 		var xLeft  = floor(PosX - xRadius);
