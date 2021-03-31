@@ -9,7 +9,7 @@ function StageObjectsUpdate()
 	}
 	
 	// Adjust object's origin if its hitbox was configured with object_set_hitbox function
-	with Objects
+	/*with Objects
 	{
 		if variable_instance_exists(id, "objCollisionHitbox")
 		{	
@@ -24,7 +24,7 @@ function StageObjectsUpdate()
 				sprite_set_offset(sprite_index, CenterX, CenterY);
 			}
 		}
-	}
+	}*/
 	
 	// Stop all objects on player death
 	if State = ActStatePlayerDeath

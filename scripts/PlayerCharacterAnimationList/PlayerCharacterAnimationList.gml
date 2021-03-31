@@ -167,7 +167,7 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_knuckles_glidestand, 15, 2);
 				break;
 				case AnimClimb:
-					animation_play(spr_knuckles_climb, -(Ysp * 6), 1);
+					animation_play(spr_knuckles_climb, ClimbingAngle == 0 ? -(Ysp * 6) : (-Xsp * 6), 1);
 				break;
 			}
 		}

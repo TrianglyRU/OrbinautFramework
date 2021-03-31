@@ -18,6 +18,8 @@ function PlayerCheckClimb()
 				ClimbingState = 1;
 				Input.ABC	  = false;
 				
+				ClimbingAngle = 0;
+				
 				// Reset speeds
 				Ysp	= 0;
 				Grv	= 0;
@@ -28,11 +30,11 @@ function PlayerCheckClimb()
 	// Climb
 	else
 	{
-		if ClimbingState == 1
-		{
-			// Set animation
-			Animation = AnimClimb;
+		// Set animation
+		Animation = AnimClimb;
 		
+		if ClimbingAngle == 0
+		{
 			// Move up and down and all around
 			if Input.Up
 			{
@@ -47,9 +49,10 @@ function PlayerCheckClimb()
 				Ysp = 0;
 			}
 		
-			// Check if we do not find the wall anymore in front of us
-			if Facing == FacingRight and tile_get_distance_h(floor(PosX + xRadius), floor(PosY + yRadius), true,  true, Layer) > 0
-			or Facing == FacingLeft  and tile_get_distance_h(floor(PosX - xRadius), floor(PosY + yRadius), false, true, Layer) > 0
+			// Check if we do not find the wall anymore in front of us or we found the ground
+			if tile_get_distance_v(floor(PosX + xRadius * Facing), floor(PosY + yRadiusDefault), true, false, Layer) == 0 
+			or Facing == FacingRight and tile_get_distance_h(floor(PosX + xRadius), floor(PosY + yRadius), true,  true, Layer) > 0
+			or Facing == FacingLeft  and tile_get_distance_h(floor(PosX - xRadius), floor(PosY + yRadius), false, true, Layer) > 0 
 			{
 				// Leave climbing state
 				Ysp			  = 0;
@@ -62,24 +65,11 @@ function PlayerCheckClimb()
 			
 			// Check if we're near the top edge to climb on it
 			else if Facing == FacingRight and tile_get_distance_h(floor(PosX + xRadius), floor(PosY - yRadius), true,  true, Layer) > 0
-				 or Facing == FacingLeft  and tile_get_distance_h(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer) > 0
+			or	    Facing == FacingLeft  and tile_get_distance_h(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer) > 0
 			{
 				// TODO: Edge climbing
 			}
-			
-			// Check if there is a ground below us
-			else if tile_get_distance_v(floor(PosX + xRadius * Facing), floor(PosY + yRadiusDefault), true, false, Layer) = 0
-			{
-				// Leave climbing state
-				Ysp			  = 0;
-				Grv			  = 0.21875;
-				ClimbingState = false;
 				
-				// Restore original radiuses
-				xRadius = xRadiusDefault;
-				yRadius = yRadiusDefault;
-			}
-		
 			// Check if we pressed jump button
 			if Input.ABCPress
 			{

@@ -52,7 +52,7 @@
 			PlayerSlopeRepel();
 			
 			// Collide or check for overlap with the objects
-			PlayerObjectsInteraction();
+			//PlayerObjectsInteraction();
 			
 			// Check for being hurt
 			PlayerCheckHurt();
@@ -88,7 +88,7 @@
 			PlayerSlopeRepel();
 			
 			// Collide or check for overlap with the objects
-			PlayerObjectsInteraction();
+			//PlayerObjectsInteraction();
 			
 			// Check for being hurt
 			PlayerCheckHurt();
@@ -130,7 +130,7 @@
 			PlayerHitFloor();
 			
 			// Collide or check for overlap with the objects
-			PlayerObjectsInteraction();
+			//PlayerObjectsInteraction();
 			
 			// Check for dropdash as Sonic
 			PlayerCheckDropdash();
@@ -144,8 +144,4 @@
 		break;
 	}
 	
-	// Use character animation list
-	PlayerCharacterAnimationList();
 	
-	// Display character
-	PlayerCharacterDisplay();

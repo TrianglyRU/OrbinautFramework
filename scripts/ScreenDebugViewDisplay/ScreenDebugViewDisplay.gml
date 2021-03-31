@@ -162,8 +162,8 @@ function ScreenDebugViewDisplay()
 	}
 	else
 	{
-		layer_set_visible(layer_get_id("CollisionTilesA"), false);
-		layer_set_visible(layer_get_id("CollisionTilesB"), false);
+		//layer_set_visible(layer_get_id("CollisionTilesA"), false);
+		//layer_set_visible(layer_get_id("CollisionTilesB"), false);
 	}
 		
 	// Restore default transparency
