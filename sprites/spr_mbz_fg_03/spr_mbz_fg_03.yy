@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9f3d01f2-f69e-4497-a344-8decc0ec048c","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Textures",
     "path": "folders/Stage Data/Moonlight Base Zone/Textures.yy",

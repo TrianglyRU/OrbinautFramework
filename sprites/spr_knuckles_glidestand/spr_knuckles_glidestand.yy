@@ -26,7 +26,6 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":{"name":"c664571a-1ed5-4d21-adee-1e5053eb7359","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":{"name":"","path":"",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_glidestand","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"d285f503-75df-473e-be43-40c7e11c2f3a","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"d285f503-75df-473e-be43-40c7e11c2f3a","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":{"name":"c664571a-1ed5-4d21-adee-1e5053eb7359","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
@@ -72,6 +71,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c664571a-1ed5-4d21-adee-1e5053eb7359","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Characters",
     "path": "folders/Characters.yy",

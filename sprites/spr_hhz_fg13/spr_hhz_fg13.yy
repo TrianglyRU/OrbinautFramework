@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e8d4a083-e1c1-4cb1-b7fe-52ba7233916c","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Textures",
     "path": "folders/Stage Data/Horizon Heights Zone/Textures.yy",

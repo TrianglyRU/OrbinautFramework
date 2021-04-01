@@ -2,6 +2,8 @@ function ObjCapsuleButtonScript()
 {
 	if !Pressed 
 	{	
+		object_do_collision(SolidTop, false);
+		
 		// Play animation
 		animation_play(spr_capsule_button, 3, 1);
 		
@@ -9,7 +11,6 @@ function ObjCapsuleButtonScript()
 		if object_got_player(SideTop)
 		{
 			Stage.State = ActStateFinished;
-			object_set_collision(SolidNone);
 			y += 8;
 			image_index = 0;
 			Pressed = true;

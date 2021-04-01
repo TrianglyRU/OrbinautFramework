@@ -1,7 +1,7 @@
 function PlayerUpdateAngle()
 {	
 	// Reset angle if we're standing on object
-	if (OnObject) Angle = 0;
+	if (OnObject) exit;
 	
 	// Else update angle using closest floor distance
 	else

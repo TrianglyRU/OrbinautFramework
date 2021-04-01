@@ -3,11 +3,3 @@
 	
 	object_set_solidbox(24, 24);
 	object_set_hitbox(24, 24);
-	
-	var f = 0;
-	
-	for (var i = 0; i < 48; i++)
-	{
-		f += 0.2
-		ColMap[i] = floor(f);
-	}

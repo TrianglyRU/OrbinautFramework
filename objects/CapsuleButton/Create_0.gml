@@ -4,5 +4,7 @@
 	// Create variables
 	Pressed = 0;
 	
+	object_set_solidbox(12, 8);
+	
 	// Call object script
 	ObjCapsuleButtonSetup();

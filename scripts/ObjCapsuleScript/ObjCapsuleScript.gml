@@ -9,6 +9,8 @@ function ObjCapsuleScript()
 	}
 	else
 	{
+		object_do_collision(SolidAll, false);
+		
 		switch State 
 		{
 			case 0:
@@ -42,7 +44,7 @@ function ObjCapsuleScript()
 				}
 				else
 				{
-					object_set_collision(SolidNone);
+					object_do_collision(SolidNone, false);
 					image_index = 1;
 					State = 2;
 					Timer = 180;
@@ -51,6 +53,7 @@ function ObjCapsuleScript()
 			break;
 			case 2:
 			{
+				object_do_collision(SolidNone, false);
 				if Timer 
 				{ 
 					instance_destroy(PartButton);

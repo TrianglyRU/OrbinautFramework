@@ -13,121 +13,105 @@ function object_do_collision(objectType, collisionMap)
 	if (objectType = SolidNone) exit;
 	
 	// Calculate our radiuses and diameters
-	var xRadius   = objXRadiusSolid + 11;
-	var yRadius   = objYRadiusSolid + Player.yRadius;
-	var xDiameter = xRadius * 2;
-	var yDiameter = yRadius * 2;
-		
-	//* ON-OBJECT COLLISION *//
-	// ===================== //
-	
+	var objectTop    = y - objYRadiusSolid;
+	var objectLeft   = x - objXRadiusSolid;
+	var objectRight  = x + objXRadiusSolid - 1;
+	var objectBottom = y + objYRadiusSolid - 1;
+
+	// Check if we're on this object
 	if Player.OnObject == id
-	{
-		// Check if player is inside our boundaries, use smaller boundaries if we're SolidTop object
-		var edgeLeft  = 0;
-		var edgeRight = objectType == SolidAll ? xDiameter : objXRadiusSolid * 2;
-		var edgeDistance = floor(Player.PosX) - x + edgeRight / 2;
+	{	
+		var edgeExtension = objectType != SolidTop ? 10 : 0;
 		
-		// If not, player does not standing on us anymore		
-		if edgeDistance < edgeLeft or edgeDistance >= edgeRight
+		if floor(Player.PosX + edgeExtension) < objectLeft 
+		or floor(Player.PosX - edgeExtension) > objectRight
 		{
 			Player.OnObject = false;
-			Player.Grounded = false;
 		}
-		
-		// else keep them attached to us
 		else
-		{	
-			Player.PosY = y - objYRadiusSolid - Player.yRadius - 1;
-			
+		{
 			if collisionMap != false
 			{
-				Player.PosY += collisionMap[edgeDistance];
-			}	
+				var playerPosition = floor(Player.PosX) - objectLeft;
+				if  playerPosition < 0
+				{
+					var objectTop = y - collisionMap[0];
+				}
+				else if playerPosition > objXRadiusSolid * 2
+				{
+					var objectTop = y - collisionMap[objXRadiusSolid * 2];
+				}
+				else
+				{
+					var objectTop = y - collisionMap[playerPosition];
+				}
+			}
+			Player.PosY  = objectTop - Player.yRadius - 1;
 		}
 	}
+	
+	// Else collide
 	else
 	{
-		//* CHECK FOR OVERLAP *//
-		// =================== //
-		
 		if objectType == SolidAll
 		{
-			// Check for overlapping with player horizontally
-			var leftDifference = floor(Player.PosX) - x + xRadius;
-			if (leftDifference < 0 or leftDifference > xDiameter) exit;
-	
-			// Check for overlapping with player vertically
-			var topDifference = floor(Player.PosY) - y + yRadius + 4;
-			if (topDifference < 0 or topDifference > yDiameter) exit;
-	
-			//* FIND DIRECTION OF COLLISION *//
-			// ============================= //
-	
-			// Get distance to our centre
-			var xDistance = floor(Player.PosX > x) ? leftDifference - xDiameter : leftDifference;
-			var yDistance = floor(Player.PosY > y) ? topDifference - yDiameter - 4 : topDifference;
-	
-			//* COLLIDE *//
-			// ========= //
-	
-			// Collide vertically
-			if abs(xDistance) > abs(yDistance)
+			// Check for overlap
+			if floor(Player.PosX + 10) < objectLeft or floor(Player.PosX - 10) > objectRight
 			{
-				// Check if player below us and if we are full solid object
+				exit;
+			}
+			if floor(Player.PosY + Player.yRadius) < objectTop - 4 or floor(Player.PosY - Player.yRadius) > objectBottom
+			{
+				exit;
+			}
+
+			// Collide
+			if abs(x - floor(Player.PosX)) <= abs(y - floor(Player.PosY) - 4) 	
+			{
 				if floor(Player.PosY) > y
 				{	
-					// If they are grounded, kill them
 					if Player.Grounded == true
 					{
 						Player.Rings = 0;
 						Player.Hurt  = true;
 					}
-				
-					// Else push them out
-					else if Player.Ysp < 0 and yDistance < 0
+					else if Player.Ysp < 0 and floor(Player.PosY - Player.yRadius) < objectBottom
 					{
-						Player.PosY -= yDistance;
-						Player.Ysp   = 0;
+						Player.PosY = objectBottom + Player.yRadius + 1;
+						Player.Ysp  = 0;
 					}
 				}
-			
-				// Check if player above us and not 16 pixels inside
-				else if yDistance < 16
+				else if floor(Player.PosY + Player.yRadius) < objectTop + 16
 				{	
-					// Check if player's X is inside our boundaries
-					var xComparison = (x + objXRadiusSolid) - floor(Player.PosX);
-					if  xComparison >= 0 and xComparison < objXRadiusSolid * 2
+					if floor(Player.PosX) >= objectLeft and floor(Player.PosX) <= objectRight
 					{
-						// If player's y speed is positive, let them land on us
 						if Player.Ysp >= 0
 						{		
-							// Set flags
+							if Player.Grounded == false
+							{
+								Player.Grounded = true;
+								with Player PlayerResetOnFloor();
+							}
 							Player.OnObject = id;
-							Player.Grounded = true;
 					
-							// Call PlayerResetOnFloor script. Normally, we do not call scripts in Orbinaut, we have to do it here
-							with Player PlayerResetOnFloor();
-					
-							// Set player's speeds
 							Player.Inertia = Player.Xsp;
 							Player.Angle   = 360;
 							Player.Ysp     = 0;
-							Player.PosY    = y - objYRadiusSolid - Player.yRadius - 1;
 							
 							if collisionMap != false
 							{
-								Player.PosY += collisionMap[xComparison];
-							}	
+								var playerPosition = floor(Player.PosX) - objectLeft;
+								var objectTop      = y - collisionMap[playerPosition];
+							}
+							Player.PosY = objectTop - Player.yRadius - 1;
 						}
 					}
 				}
 			}
 	
 			// Collide horizontally
-			else if abs(yDistance) > 4 and xDistance != 0
+			else
 			{
-				// Collide on the left
 				if floor(Player.PosX) > x
 				{
 					if Player.Xsp < 0
@@ -135,10 +119,8 @@ function object_do_collision(objectType, collisionMap)
 						Player.Xsp	   = 0;
 						Player.Inertia = 0;
 					}
-					Player.PosX -= xDistance;
+					Player.PosX = objectRight + 11;
 				}
-			
-				// Collide on the right
 				else
 				{
 					if Player.Xsp > 0
@@ -146,51 +128,49 @@ function object_do_collision(objectType, collisionMap)
 						Player.Xsp	   = 0;
 						Player.Inertia = 0;
 					}
-					Player.PosX -= xDistance;
+					Player.PosX = objectLeft - 11;
 				}		
 			}
 		}
 		else if objectType == SolidTop
-		{	
-			// Check if player is standing still or moving downwards
-			if (Player.Ysp < 0) exit;
-				
-			// Check if player is overlapping us horizontally
-			var xComparison = (x + objXRadiusSolid) - floor(Player.PosX);
-			if  xComparison < 0 or xComparison >= objXRadiusSolid * 2
+		{
+			if Player.Ysp < 0
 			{
 				exit;
 			}
-	
-			// Check if player is overlapping us vertically
-			var objectSurface = y - objYRadiusSolid;
-			var playerBottom  = floor(Player.PosY + Player.yRadius + 4);
-			
-			if (objectSurface > playerBottom) exit;
-			
-			var yComparison = objectSurface - playerBottom;
-			if  yComparison < -16 or yComparison >= 0
+			if floor(Player.PosX) < objectLeft or floor(Player.PosX) > objectRight
 			{
 				exit;
 			}
 			
-			// Set flags
+			if objectTop - 4 > floor(Player.PosY + Player.yRadius)
+			{
+				exit;
+			}
+			
+			if objectTop - 4 - floor(Player.PosY + Player.yRadius) < -16
+			or objectTop - 4 - floor(Player.PosY + Player.yRadius) > 0
+			{
+				exit;
+			}
+			
+			if Player.Grounded == false
+			{
+				Player.Grounded = true;
+				with Player PlayerResetOnFloor();
+			}
 			Player.OnObject = id;
-			Player.Grounded = true;
 					
-			// Call PlayerResetOnFloor script. Normally, we do not call scripts in Orbinaut, we have to do it here
-			with Player PlayerResetOnFloor();
-					
-			// Set player's speeds
 			Player.Inertia = Player.Xsp;
 			Player.Angle   = 360;
 			Player.Ysp     = 0;
-			Player.PosY    = y - objYRadiusSolid - Player.yRadius - 1;
-			
+							
 			if collisionMap != false
 			{
-				Player.PosY += collisionMap[xComparison];
-			}	
+				var playerPosition = floor(Player.PosX) - objectLeft;
+				var objectTop      = y - collisionMap[playerPosition];
+			}
+			Player.PosY = objectTop - Player.yRadius - 1;
 		}
 	}
 }

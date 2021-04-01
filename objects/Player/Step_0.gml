@@ -51,9 +51,6 @@
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
-			// Collide or check for overlap with the objects
-			//PlayerObjectsInteraction();
-			
 			// Check for being hurt
 			PlayerCheckHurt();
 		}
@@ -86,9 +83,6 @@
 
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
-			
-			// Collide or check for overlap with the objects
-			//PlayerObjectsInteraction();
 			
 			// Check for being hurt
 			PlayerCheckHurt();
@@ -128,9 +122,6 @@
 			
 			// Collide with floor
 			PlayerHitFloor();
-			
-			// Collide or check for overlap with the objects
-			//PlayerObjectsInteraction();
 			
 			// Check for dropdash as Sonic
 			PlayerCheckDropdash();
