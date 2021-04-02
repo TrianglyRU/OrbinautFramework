@@ -63,6 +63,8 @@ function PlayerHitFloor()
 			Grounded = true;
 			Angle    = floorAngle;
 			PosY	+= Distance;
+			
+			AngleRange = round(Angle/90) % 4;
 		}
 	}
 }

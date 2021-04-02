@@ -2,9 +2,9 @@ function PlayerCollideFloor()
 {	
 	// Do not collide if we're not allowed to, or if we're standing on object
 	if (AllowCollision == false or OnObject) exit;
-
+	
 	// Collide with one of four floor sides based on floor angle range
-	switch round(Angle/90) % 4
+	switch AngleRange
 	{
 		case RangeFloor:
 		{	

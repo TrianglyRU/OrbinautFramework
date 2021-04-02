@@ -39,7 +39,7 @@ function tile_get_distance_v(X, Y, toPositive, noSolidTop, Layer)
 			Height = Game.HeightValueOf[Index][tile_get_mirror(Tile) ? TileSize - 1 - X mod TileSize : X mod TileSize];
 		}
 	}
-		
+	
 	// Return distance
 	if noSolidTop and tile_get_index(Tile) > TileAmount
 	{

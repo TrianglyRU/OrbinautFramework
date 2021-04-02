@@ -6,7 +6,7 @@ function ScreenDebugViewDisplay()
 		// Draw floor and ceiling player collision points
 		if Player.Grounded
 		{
-			switch round(Player.Angle/90) % 4
+			switch Player.AngleRange
 			{
 				case RangeFloor:
 				{
@@ -56,7 +56,7 @@ function ScreenDebugViewDisplay()
 				// Left
 				if Player.Inertia < 0
 				{
-					switch round(Player.Angle/90) % 4
+					switch Player.AngleRange
 					{
 						case RangeFloor:
 						{

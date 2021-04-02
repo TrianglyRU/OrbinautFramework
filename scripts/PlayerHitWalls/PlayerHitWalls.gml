@@ -9,7 +9,7 @@ function PlayerHitWalls()
 		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision == true and Angle mod 90 == 0) and Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch round(Angle/90) % 4
+			switch AngleRange
 			{
 				case RangeFloor:
 				{	
@@ -71,7 +71,7 @@ function PlayerHitWalls()
 		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision == true and Angle mod 90 == 0) and Inertia > 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch round(Angle/90) % 4
+			switch AngleRange
 			{
 				case RangeFloor:
 				{	

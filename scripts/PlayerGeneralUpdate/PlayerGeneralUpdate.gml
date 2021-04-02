@@ -10,6 +10,9 @@ function PlayerGeneralUpdate()
 		State = PlayerStateAirborne;
 	}
 	
+	// Define angle range
+	AngleRange = round(Angle/90) % 4;
+	
 	// Handle highspeed bonus
 	if HighSpeedBonus > 0
 	{	
