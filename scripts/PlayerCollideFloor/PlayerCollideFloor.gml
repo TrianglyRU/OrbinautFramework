@@ -30,7 +30,6 @@ function PlayerCollideFloor()
 			if floorDistance > maxDistance
 			{
 				Grounded = false;
-				exit;
 			}
 			else if floorDistance > -14
 			{
@@ -62,7 +61,6 @@ function PlayerCollideFloor()
 			if floorDistance > maxDistance
 			{
 				Grounded = false;
-				exit;
 			}
 			else if floorDistance > -14
 			{
@@ -94,7 +92,6 @@ function PlayerCollideFloor()
 			if floorDistance > maxDistance
 			{
 				Grounded = false;
-				exit;
 			}
 			else if floorDistance > -14
 			{
@@ -126,7 +123,6 @@ function PlayerCollideFloor()
 			if floorDistance > maxDistance
 			{
 				Grounded = false;
-				exit;
 			}
 			else if floorDistance > -14
 			{
@@ -135,6 +131,11 @@ function PlayerCollideFloor()
 		}
 		break;
 	}
+	
+	Game.Value[0] = floorAngle;
+	Game.Value[1] = dLeft;
+	Game.Value[2] = dRight;
+	Game.Value[3] = dLeft <= dRight ? "LEFT" : "RIGHT";
 	
 	// Use cardinal floor angle if difference is greater than 45
 	if Game.ConsiderAngleDifference
@@ -149,7 +150,6 @@ function PlayerCollideFloor()
 			Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
 		}
 		if (Angle = 0) Angle = 360;
-		Angle = floorAngle;
 	}
 		
 	// Use normal floor angle

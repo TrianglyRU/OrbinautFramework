@@ -84,7 +84,7 @@ function ScreenDebugViewDisplay()
 				// Right
 				if Player.Inertia > 0
 				{
-					switch round(Player.Angle/90) % 4
+					switch Player.AngleRange
 					{
 						case RangeFloor:
 						{

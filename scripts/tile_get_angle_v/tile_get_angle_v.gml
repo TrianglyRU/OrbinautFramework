@@ -5,10 +5,6 @@ function tile_get_angle_v(X, Y, toPositive, noSolidTop, Layer)
 	if (X < 0 or Y < 0 or X > room_width or Y > room_height) return 360;	
 
 	// Get tile and read its height
-	//var Tile  = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
-	//var Index = tile_get_index(Tile) mod TileAmount;
-	
-	// Get tile and read its height
 	var Tile   = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize);
 	var Index  = tile_get_index(Tile) mod TileAmount;
 	var Height = Game.HeightValueOf[Index][tile_get_mirror(Tile) ? TileSize - 1 - X mod TileSize : X mod TileSize];

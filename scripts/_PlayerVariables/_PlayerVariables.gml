@@ -62,4 +62,6 @@ function _PlayerVariables()
 	Emeralds			 _init;
 	
 	ClimbingAngle _init;
+	
+	floorDist _init;
 }

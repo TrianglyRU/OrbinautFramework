@@ -28,6 +28,11 @@ function ScreenDebugScreenDisplay()
 			+ "\n   Y RADIUS: " + string(Player.xRadius)
 			+ "\n   WALL OFFSET: " + string((Player.Grounded and !Player.Angle) * 8)
 			+ "\n"
+			+ "\n   FLOOR ANG: " + string(Game.Value[0])
+			+ "\n   DIST USED: " + Game.Value[3]
+			+ "\n   LEFT DIST: " + string(Game.Value[1])
+			+ "\n   RIGHT DIST: " + string(Game.Value[2])
+			+ "\n"
 			+ "\n          * PLAYER MOTION *"
 			+ "\n"
 			+ "\n   POS X: " + string(floor(Player.PosX)) + " REAL: " + string(Player.PosX)

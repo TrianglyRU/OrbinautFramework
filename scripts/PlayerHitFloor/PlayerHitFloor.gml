@@ -61,6 +61,7 @@ function PlayerHitFloor()
 			// Land and adhere to the floor
 			Grounded = true;
 			PosY	+= floorDistance;
+			floorDist = 0;
 		}
 	}
 }
