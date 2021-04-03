@@ -14,6 +14,9 @@ function PlayerResetOnFloor()
 		Jumping	= false;
 		Pushing	= false;
 		
+		// Set visual angle
+		VisualAngle = Angle;
+		
 		// Reset hurt state
 		if Hurt == true
 		{

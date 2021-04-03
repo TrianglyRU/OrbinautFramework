@@ -13,19 +13,18 @@ function PlayerHitFloor()
 		var dLeft  = tile_get_distance_v(xLeft, yLeft, true, false, Layer);
 		var dRight = tile_get_distance_v(xRight, yRight, true, false, Layer);
 		
+		// Get floor angles
+		var aLeft  = tile_get_angle_v(xLeft, yLeft, true, false, Layer);
+		var aRight = tile_get_angle_v(xRight, yRight, true, false, Layer);
+		
 		// Collide using closest distance
-		var Distance = dLeft <= dRight? dLeft : dRight;
-		if  Distance < 0
+		var floorDistance = dLeft <= dRight ? dLeft : dRight;
+		var floorAngle    = dLeft <= dRight ? aLeft : aRight;
+		
+		if  floorDistance < 0
 		{
-			// Get floor angle
-			if dLeft <= dRight
-			{
-				var floorAngle = tile_get_angle_v(xLeft, yLeft, true, false, Layer);
-			}
-			else
-			{
-				var floorAngle = tile_get_angle_v(xRight, yRight, true, false, Layer);
-			}
+			// Apply angle
+			Angle = floorAngle;
 			
 			// If we're moving downwards, calculate a momentum using floor angle
 			if abs(Xsp) < abs(Ysp)
@@ -61,10 +60,7 @@ function PlayerHitFloor()
 		
 			// Land and adhere to the floor
 			Grounded = true;
-			Angle    = floorAngle;
-			PosY	+= Distance;
-			
-			AngleRange = round(Angle/90) % 4;
+			PosY	+= floorDistance;
 		}
 	}
 }

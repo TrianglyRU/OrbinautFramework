@@ -194,7 +194,6 @@
     {"id":{"name":"sfxRing","path":"sounds/sfxRing/sfxRing.yy",},"order":3,},
     {"id":{"name":"spr_hhz_fg11","path":"sprites/spr_hhz_fg11/spr_hhz_fg11.yy",},"order":16,},
     {"id":{"name":"GameShadersSetup","path":"scripts/GameShadersSetup/GameShadersSetup.yy",},"order":2,},
-    {"id":{"name":"PlayerUpdateAngle","path":"scripts/PlayerUpdateAngle/PlayerUpdateAngle.yy",},"order":25,},
     {"id":{"name":"spr_hhz_fg22","path":"sprites/spr_hhz_fg22/spr_hhz_fg22.yy",},"order":27,},
     {"id":{"name":"PlayerSlopeRepel","path":"scripts/PlayerSlopeRepel/PlayerSlopeRepel.yy",},"order":6,},
     {"id":{"name":"PlayerGeneralUpdate","path":"scripts/PlayerGeneralUpdate/PlayerGeneralUpdate.yy",},"order":14,},

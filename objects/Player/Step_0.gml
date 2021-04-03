@@ -45,9 +45,6 @@
 			// Collide with floor
 			PlayerCollideFloor();
 			
-			// Get floor angle
-			PlayerUpdateAngle();
-			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
@@ -78,9 +75,6 @@
 			// Collide with floor
 			PlayerCollideFloor();
 			
-			// Get floor angle
-			PlayerUpdateAngle();
-
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
