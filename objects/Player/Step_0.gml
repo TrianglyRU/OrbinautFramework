@@ -1,6 +1,8 @@
 /// @description Scripts
 // You can write your code in this editor
 	
+	if keyboard_check(vk_space) exit;
+	
 	// Do not run this code until stage loaded
 	if (Stage.State = ActStateLoading) exit;
 	

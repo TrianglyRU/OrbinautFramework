@@ -4,22 +4,21 @@ function ObjBridgeHandlerScript()
 	var PlayerPosition = (floor(Player.PosX) - x + 16) div 16;
 	var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
 		
+	// Do collision
+	
 	// Set a recovery angle
 	if ds_list_find_index(LogID, Player.OnObject) >= 0
 	{	
 		if (RecoveryAngle < 90) RecoveryAngle += 5.625;
 	} 
+	else if RecoveryAngle > 0
+	{
+		RecoveryAngle -= 5.625;
+	}
 	else 
 	{
-		if (RecoveryAngle > 0) RecoveryAngle -= 5.625;
-		
-		// Do collision
-		with BridgeLog
-		{
-			object_do_collision(SolidTop, false);
-		}
-		
-		exit;
+		with (BridgeLog) object_do_collision(SolidTop, false);
+		exit; 
 	} 
 	
 	// Get current maximun depression
