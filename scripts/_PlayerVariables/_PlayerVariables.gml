@@ -41,6 +41,8 @@ function _PlayerVariables()
 	GlidingState		 _init;
 	GlidingValue		 _init;
 	ClimbingState		 _init;
+	ClimbingValue        _init;
+	ClimbingSpeed		 _init;
 	Skidding			 _init;
 	HighSpeedBonus		 _init;
 	InvincibilityBonus   _init;

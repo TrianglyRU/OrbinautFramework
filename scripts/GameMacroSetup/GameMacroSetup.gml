@@ -68,6 +68,7 @@ function GameMacroSetup()
 	#macro AnimGlideSlide	   16
 	#macro AnimSkid			   17
 	#macro AnimGlideStand	   18
+	#macro AnimClimbering	   19
 	
 	// Stage macro
 	#macro ActStateDefault     0

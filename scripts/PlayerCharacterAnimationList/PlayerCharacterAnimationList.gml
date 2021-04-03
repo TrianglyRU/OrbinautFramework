@@ -169,6 +169,9 @@ function PlayerCharacterAnimationList()
 				case AnimClimb:
 					animation_play(spr_knuckles_climb, ClimbingAngle == 0 ? -(Ysp * 6) : (-Xsp * 6), 1);
 				break;
+				case AnimClimbering:
+					animation_play(spr_knuckles_climbering, 6, 4);
+				break;
 			}
 		}
 		break;

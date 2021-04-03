@@ -88,11 +88,18 @@ function PlayerResetOnFloor()
 			}
 		}
 		
+		// Knuckles' climbing
+		if ClimbingState
+		{
+			ClimbingState  = false;
+			ClimbingValue  = 0;			
+		}
+
 		/* Collision */
 		/* ========= */
 		
 		// Reset radiuses to default values if not rolling
-		if Rolling == false and GlidingState == false
+		if Rolling == false and GlidingState == false and ClimbingState == false
 		{
 			yRadius = yRadiusDefault; 
 			xRadius	= xRadiusDefault;
