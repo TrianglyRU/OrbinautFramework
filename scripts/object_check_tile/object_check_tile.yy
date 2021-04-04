@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_do_collision_legacy",
+  "name": "object_check_tile",
   "tags": [],
   "resourceType": "GMScript",
 }

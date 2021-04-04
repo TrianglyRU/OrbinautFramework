@@ -16,7 +16,7 @@
 		{	
 			// Perform jump and exit the code
 			if PlayerCheckJump() break;
-			
+
 			// Set slope gravity
 			PlayerSlopeResist();
 
@@ -47,6 +47,9 @@
 			// Collide with floor
 			PlayerCollideFloor();
 			
+			// Update player's angle
+			PlayerUpdateAngle();
+			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 			
@@ -76,6 +79,9 @@
 			
 			// Collide with floor
 			PlayerCollideFloor();
+			
+			// Update player's angle
+			PlayerUpdateAngle();
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
@@ -130,5 +136,3 @@
 		}
 		break;
 	}
-	
-	

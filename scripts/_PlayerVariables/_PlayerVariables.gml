@@ -60,8 +60,4 @@ function _PlayerVariables()
 	Lives				 _init;
 	Conts				 _init;
 	Emeralds			 _init;
-	
-	ClimbingAngle _init;
-	
-	floorDist _init;
 }

@@ -1,8 +1,5 @@
 function ObjRingSetup()
 {	
-	// Set object collision type
-	object_set_collision(SolidNone);
-	
 	// Set object hitbox
 	object_set_hitbox(6, 6);
 	

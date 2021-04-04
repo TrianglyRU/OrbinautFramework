@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_perform_damage",
+  "name": "hitbox_collision_legacy",
   "tags": [],
   "resourceType": "GMScript",
 }

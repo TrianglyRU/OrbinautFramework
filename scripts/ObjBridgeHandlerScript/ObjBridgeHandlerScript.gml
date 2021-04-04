@@ -4,9 +4,7 @@ function ObjBridgeHandlerScript()
 	var PlayerPosition = (floor(Player.PosX) - x + 16) div 16;
 	var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
 		
-	// Do collision
-	
-	// Set a recovery angle
+	// Set a recovery angle by checking if player is standing on any log of this bridge
 	if ds_list_find_index(LogID, Player.OnObject) >= 0
 	{	
 		if (RecoveryAngle < 90) RecoveryAngle += 5.625;
@@ -15,6 +13,8 @@ function ObjBridgeHandlerScript()
 	{
 		RecoveryAngle -= 5.625;
 	}
+	
+	// Check for stepping onto the bridge
 	else 
 	{
 		with (BridgeLog) object_do_collision(SolidTop, false);
@@ -47,6 +47,7 @@ function ObjBridgeHandlerScript()
 		LogID[| i].y = floor(BridgeY + ((MaxDepression) * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
 	}
 	
+	// Do collision with the bridge
 	with BridgeLog
 	{
 		object_do_collision(SolidTop, false);

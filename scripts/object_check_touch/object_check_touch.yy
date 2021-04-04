@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_got_player",
+  "name": "object_check_touch",
   "tags": [],
   "resourceType": "GMScript",
 }

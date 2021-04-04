@@ -84,6 +84,9 @@ function GameMacroSetup()
 	#macro SolidSlope 2
 	#macro SolidNone  3
 	
+	#macro CollisionHitbox   0
+	#macro CollisionSolidbox 0
+	
 	#macro SideTop    0
 	#macro SideLeft   1
 	#macro SideRight  2

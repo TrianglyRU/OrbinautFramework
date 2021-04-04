@@ -3,7 +3,7 @@ function ObjSignpostScript()
 	if !Active
 	{
 		// Activate on overlap and change stage state
-		if hitbox_collision(Player, self)
+		if object_check_overlap(CollisionHitbox)
 		{
 			Active		= true;
 			Stage.State = ActStateFinished;

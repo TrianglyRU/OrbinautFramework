@@ -19,10 +19,10 @@ function StageActSetup()
 			BottomBoundary			= room_height;
 			State					= ActStateLoading;
 			
-			StageMusic				= TechnoPower;
+			StageMusic				= ProjectPurple;
 			StageMusicDAC			= noone;
 			LoopStart				= 0;
-			LoopEnd					= 441.520;
+			LoopEnd					= 335.01;
 		}
 		break;	
 		

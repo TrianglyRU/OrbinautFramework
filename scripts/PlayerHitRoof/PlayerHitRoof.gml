@@ -14,11 +14,11 @@ function PlayerHitRoof()
 		var dRight = tile_get_distance_v(xRight, yRight, false, true, Layer);
 		
 		// Collide using closest distance
-		var Distance = dLeft <= dRight? dLeft : dRight;
-		if  Distance < 0
+		var floorDistance = dLeft <= dRight? dLeft : dRight;
+		if  floorDistance < 0
 		{		
 			// Collide 
-			PosY -= Distance;
+			PosY -= floorDistance;
 			
 			// If moving upwards and not flying, check roof angle
 			if abs(Ysp) > abs(Xsp) and FlyingState = false

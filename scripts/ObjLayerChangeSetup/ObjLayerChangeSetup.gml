@@ -1,8 +1,5 @@
 function ObjLayerChangeSetup()
 {
-	// Set object objCollisionType
-	object_set_collision(SolidNone);
-	
 	// Set object hitbox
 	object_set_hitbox(8, 32);
 	

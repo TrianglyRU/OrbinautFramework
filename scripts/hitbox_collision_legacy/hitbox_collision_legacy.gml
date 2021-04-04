@@ -1,5 +1,5 @@
 /// @function hitbox_collision(collideFrom, collideWith)
-function hitbox_collision(collideFrom, collideWith)
+function hitbox_collision_legacy(collideFrom, collideWith)
 {	
 	// Check for collision with player
 	if collideFrom = Player

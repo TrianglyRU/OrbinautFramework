@@ -1,8 +1,5 @@
 function ObjSignpostSetup()
 {
-	// Set object collision type
-	object_set_collision(SolidNone);
-	
 	// Set object hitbox
 	object_set_hitbox(3, 24);
 	

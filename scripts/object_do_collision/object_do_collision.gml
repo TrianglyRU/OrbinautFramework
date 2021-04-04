@@ -4,7 +4,7 @@ function object_do_collision(objectType, collisionMap)
 	// Check if this object radiuses were initialized
 	if variable_instance_exists(id, "objXRadiusSolid") == false
 	{
-		show_message("Object ID " + string(id) + " does not have any radiuses to check for collision with player! Please, call 'object_set_solidbox' function in Create event");
+		show_message("Object ID " + string(id) + " does not have any solidbox radiuses to check for collision with player! Please, call 'object_set_solidbox' function in Create event");
 		game_end();
 		exit;
 	}
@@ -15,12 +15,20 @@ function object_do_collision(objectType, collisionMap)
 	// Calculate this object radiuses and diameters
 	var objectTop    = y - objYRadiusSolid;
 	var objectLeft   = x - objXRadiusSolid;
-	var objectRight  = x + objXRadiusSolid - 1;
-	var objectBottom = y + objYRadiusSolid - 1;
+	var objectRight  = x + objXRadiusSolid;
+	var objectBottom = y + objYRadiusSolid;
+	
+	objTouchedTop = false;
+	objTouchedLeft = false;
+	objTouchedRight = false;
+	objTouchedBottom = false;
 
 	// Check if player is standing on this object
 	if Player.OnObject == id
 	{	
+		// Tell this object player touches its top side
+		objTouchedTop = true;
+		
 		// Extend edges if this is not SolidTop object
 		var edgeExtension = objectType == SolidTop ? 0 : 10;
 		
@@ -64,12 +72,12 @@ function object_do_collision(objectType, collisionMap)
 		if objectType == SolidAll
 		{
 			// Check for overlap with this object horizontally
-			if floor(Player.PosX + 10) < objectLeft or floor(Player.PosX - 10) > objectRight
+			if floor(Player.PosX + 11) < objectLeft or floor(Player.PosX - 11) > objectRight
 			{
 				exit;
 			}
 			
-			// Check for player's position
+			// Check for player's position and adjust objectTop or objectBottom
 			if collisionMap != false
 			{
 				var playerPosition = image_xscale == 1 ? floor(Player.PosX) - objectLeft : objectRight - floor(Player.PosX);
@@ -113,7 +121,7 @@ function object_do_collision(objectType, collisionMap)
 			}
 
 			// Collide with this object vertically
-			if abs(x - floor(Player.PosX)) <= abs(y - floor(Player.PosY) - 4) 	
+			if abs(x - floor(Player.PosX)) <= abs(y - floor(Player.PosY)) 	
 			{
 				// Check if player is below this object
 				if floor(Player.PosY) > y
@@ -132,6 +140,9 @@ function object_do_collision(objectType, collisionMap)
 						{
 							Player.PosY = objectBottom + Player.yRadius + 1;
 							Player.Ysp  = 0;
+							
+							// Tell this object player touched its bottom side
+							objTouchedBottom = true;
 						}
 					}
 				}
@@ -175,23 +186,29 @@ function object_do_collision(objectType, collisionMap)
 				// Collide on the right
 				if floor(Player.PosX) > x
 				{
+					// Tell this object player touched its right side
+					objTouchedRight = true;
+						
 					if Player.Xsp < 0
 					{
 						Player.Xsp	   = 0;
-						Player.Inertia = 0;
+						Player.Inertia = 0;	
 					}
 					Player.PosX = objectRight + 11;
 				}
 				
 				// Collide on the left
 				else
-				{
+				{	
 					if Player.Xsp > 0
 					{
 						Player.Xsp	   = 0;
-						Player.Inertia = 0;
+						Player.Inertia = 0;		
 					}
 					Player.PosX = objectLeft - 11;
+					
+					// Tell this object player touched its left side
+					objTouchedLeft = true;
 				}		
 			}
 		}

@@ -18,15 +18,20 @@ function PlayerCollideFloor()
 			var dLeft  = tile_get_distance_v(xLeft, yLeft, true, false, Layer);
 			var dRight = tile_get_distance_v(xRight, yRight, true, false, Layer);
 			
-			// Get floor angles
-			var aLeft  = tile_get_angle_v(xLeft, yLeft, true, false, Layer);
-			var aRight = tile_get_angle_v(xRight, yRight, true, false, Layer);
-
-			// Collide using closest distance
-			var floorDistance = dLeft <= dRight ? dLeft : dRight;
-			var floorAngle    = dLeft <= dRight ? aLeft : aRight;
-			var maxDistance   = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+			// Use closest distance for our calculations
+			if dLeft <= dRight
+			{
+				var floorDistance = dLeft;
+				var floorAngle	  = tile_get_angle_v(xLeft, yLeft, true, false, Layer);
+			}
+			else
+			{
+				var floorDistance = dRight;
+				var floorAngle	  = tile_get_angle_v(xRight, yRight, true, false, Layer);
+			}
 			
+			// Perform floor collision
+			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 			if floorDistance > maxDistance
 			{
 				Grounded = false;
@@ -49,15 +54,20 @@ function PlayerCollideFloor()
 			var dLeft  = tile_get_distance_h(xLeft, yLeft, true, false, Layer);
 			var dRight = tile_get_distance_h(xRight, yRight, true, false, Layer);
 			
-			// Get floor angles
-			var aLeft  = tile_get_angle_h(xLeft, yLeft, true, false, Layer);
-			var aRight = tile_get_angle_h(xRight, yRight, true, false, Layer);
+			// Use closest distance for our calculations
+			if dLeft <= dRight
+			{
+				var floorDistance = dLeft;
+				var floorAngle	  = tile_get_angle_h(xLeft, yLeft, true, false, Layer);
+			}
+			else
+			{
+				var floorDistance = dRight;
+				var floorAngle	  = tile_get_angle_h(xRight, yRight, true, false, Layer);
+			}
 			
-			// Collide using closest distance
-			var floorDistance = dLeft <= dRight ? dLeft : dRight;
-			var floorAngle    = dLeft <= dRight ? aLeft : aRight;
-			var maxDistance   = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			
+			// Perform floor collision
+			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
 			if floorDistance > maxDistance
 			{
 				Grounded = false;
@@ -80,15 +90,20 @@ function PlayerCollideFloor()
 			var dLeft  = tile_get_distance_v(xLeft, yLeft, false, false, Layer);
 			var dRight = tile_get_distance_v(xRight, yRight, false, false, Layer);
 			
-			// Get floor angles
-			var aLeft  = tile_get_angle_v(xLeft, yLeft, false, false, Layer);
-			var aRight = tile_get_angle_v(xRight, yRight, false, false, Layer);
-
-			// Collide using closest distance
-			var floorDistance = dLeft <= dRight ? dLeft : dRight;
-			var floorAngle    = dLeft <= dRight ? aLeft : aRight;
-			var maxDistance   = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+			// Use closest distance for our calculations
+			if dLeft <= dRight
+			{
+				var floorDistance = dLeft;
+				var floorAngle	  = tile_get_angle_v(xLeft, yLeft, false, false, Layer);
+			}
+			else
+			{
+				var floorDistance = dRight;
+				var floorAngle    = tile_get_angle_v(xRight, yRight, false, false, Layer);
+			}
 			
+			// Perform floor collision
+			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 			if floorDistance > maxDistance
 			{
 				Grounded = false;
@@ -111,15 +126,21 @@ function PlayerCollideFloor()
 			var dLeft  = tile_get_distance_h(xLeft, yLeft, false, false, Layer);
 			var dRight = tile_get_distance_h(xRight, yRight, false, false, Layer);
 			
-			// Get floor angles
-			var aLeft  = tile_get_angle_h(xLeft, yLeft, false, false, Layer);
-			var aRight = tile_get_angle_h(xRight, yRight, false, false, Layer);
+			// Use closest distance for our calculations
+			if dLeft <= dRight
+			{
+				var floorDistance = dLeft;
+				var floorAngle    = tile_get_angle_h(xLeft, yLeft, false, false, Layer);
+			}
+			else
+			{
+				var floorDistance = dRight;
+				var floorAngle    = tile_get_angle_h(xRight, yRight, false, false, Layer);
+			}
 			
-			// Collide using closest distance
-			var floorDistance = dLeft <= dRight ? dLeft : dRight;
-			var floorAngle    = dLeft <= dRight ? aLeft : aRight;
-			var maxDistance   = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			
+
+			// Perform floor collision
+			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
 			if floorDistance > maxDistance
 			{
 				Grounded = false;
@@ -132,24 +153,20 @@ function PlayerCollideFloor()
 		break;
 	}
 	
-	Game.Value[0] = floorAngle;
-	Game.Value[1] = dLeft;
-	Game.Value[2] = dRight;
-	Game.Value[3] = dLeft <= dRight ? "LEFT" : "RIGHT";
-	
 	// Use cardinal floor angle if difference is greater than 45
 	if Game.ConsiderAngleDifference
 	{
 		var angDifference = abs(Angle - floorAngle);
 		if  angDifference < 180
 		{
-			Angle = angDifference > 45  ? (round(Angle/90) % 4) * 90 : floorAngle;
+			Angle = angDifference > 45  ? AngleRange * 90 : floorAngle;
 		}
 		else
 		{
-			Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
+			Angle = angDifference < 315 ? AngleRange * 90 : floorAngle;
 		}
 		if (Angle = 0) Angle = 360;
+		Angle = floorAngle;
 	}
 		
 	// Use normal floor angle
@@ -157,4 +174,9 @@ function PlayerCollideFloor()
 	{
 		Angle = floorAngle;
 	}
+	
+	Game.Value[0] = 0;
+	Game.Value[1] = dLeft;
+	Game.Value[2] = dRight;
+	Game.Value[3] = dLeft <= dRight ? "LEFT" : "RIGHT";
 }

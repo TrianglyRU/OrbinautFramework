@@ -13,40 +13,40 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp - 10), floor(PosY + Ysp + 8 * (Angle == 360)), false, true, Layer);
-					if  Distance < 0
+					var floorDistance = tile_get_distance_h(floor(PosX + Xsp - 10), floor(PosY + Ysp + 8 * (Angle == 360)), false, true, Layer);
+					if  floorDistance < 0
 					{	
-						Xsp    -= Distance;
+						Xsp    -= floorDistance;
 						Inertia = 0;
 					}
 				}
 				break;
 				case RangeRWall:
 				{
-					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
-					if  Distance < 0
+					var floorDistance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
+					if  floorDistance < 0
 					{	
-						Ysp    += Distance;
+						Ysp    += floorDistance;
 						Inertia = 0;
 					}
 				}
 				break;
 				case RangeRoof:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp + 10), floor(PosY + Ysp), true, true, Layer)
-					if  Distance < 0
+					var floorDistance = tile_get_distance_h(floor(PosX + Xsp + 10), floor(PosY + Ysp), true, true, Layer)
+					if  floorDistance < 0
 					{	
-						Xsp    += Distance;
+						Xsp    += floorDistance;
 						Inertia = 0;
 					}
 				}
 				break;
 				case RangeLWall:
 				{
-					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
-					if  Distance < 0
+					var floorDistance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
+					if  floorDistance < 0
 					{	
-						Ysp    -= Distance;
+						Ysp    -= floorDistance;
 						Inertia = 0;
 					}
 				}
@@ -57,10 +57,10 @@ function PlayerHitWalls()
 	else if (Xsp > abs(Ysp)) == false
 	{
 		// Collide airborne at the current frame
-		var Distance = tile_get_distance_h(floor(PosX - 10), floor(PosY), false, true, Layer);
-		if  Distance < 0
+		var floorDistance = tile_get_distance_h(floor(PosX - 10), floor(PosY), false, true, Layer);
+		if  floorDistance < 0
 		{
-			PosX -= Distance;
+			PosX -= floorDistance;
 			Xsp   = 0;
 		}
 	}
@@ -75,40 +75,40 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + 8 * (Angle == 360)), true, true, Layer);
-					if  Distance < 0
+					var floorDistance = tile_get_distance_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + 8 * (Angle == 360)), true, true, Layer);
+					if  floorDistance < 0
 					{	
-						Xsp    += Distance;
+						Xsp    += floorDistance;
 						Inertia = 0;
 					}
 				}
 				break;
 				case RangeRWall:
 				{
-					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
-					if  Distance < 0
+					var floorDistance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
+					if  floorDistance < 0
 					{	
-						Ysp    -= Distance;
+						Ysp    -= floorDistance;
 						Inertia = 0;
 					}
 				}
 				break;
 				case RangeRoof:
 				{	
-					var Distance = tile_get_distance_h(floor(PosX + Xsp - 10), floor(PosY + Ysp), false, true, Layer)
-					if  Distance < 0
+					var floorDistance = tile_get_distance_h(floor(PosX + Xsp - 10), floor(PosY + Ysp), false, true, Layer)
+					if  floorDistance < 0
 					{	
-						Xsp    -= Distance;
+						Xsp    -= floorDistance;
 						Inertia = 0;
 					}
 				}
 				break;
 				case RangeLWall:
 				{
-					var Distance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
-					if  Distance < 0
+					var floorDistance = tile_get_distance_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
+					if  floorDistance < 0
 					{	
-						Ysp    += Distance;
+						Ysp    += floorDistance;
 						Inertia = 0;
 					}
 				}
@@ -119,10 +119,10 @@ function PlayerHitWalls()
 	else if (-Xsp > abs(Ysp)) == false
 	{	
 		// Collide airborne at the current frame
-		var Distance = tile_get_distance_h(floor(PosX + 10), floor(PosY), true, true, Layer);	
-		if  Distance < 0
+		var floorDistance = tile_get_distance_h(floor(PosX + 10), floor(PosY), true, true, Layer);	
+		if  floorDistance < 0
 		{
-			PosX += Distance;
+			PosX += floorDistance;
 			Xsp   = 0;
 		}
 	}

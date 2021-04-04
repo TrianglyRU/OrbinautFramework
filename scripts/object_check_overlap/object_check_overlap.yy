@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "hitbox_collision",
+  "name": "object_check_overlap",
   "tags": [],
   "resourceType": "GMScript",
 }

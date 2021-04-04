@@ -142,8 +142,11 @@ function ScreenDebugViewDisplay()
 			draw_set_alpha(0.6);
 			with Objects
 			{	
-				draw_rectangle_colour(bbox_left, bbox_top, bbox_right, bbox_bottom, c_purple, c_purple, c_purple, c_purple, false);
-				draw_point(x, y);
+				if variable_instance_exists(id, "objXRadiusSolid")
+				{
+					draw_rectangle(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid, y + objYRadiusSolid, false);
+					draw_point(x, y);
+				}
 			}
 			draw_rectangle_colour(HitboxLeft, HitboxTop, HitboxRight, HitboxBottom, c_purple, c_purple, c_purple, c_purple, false);
 		}
