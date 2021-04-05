@@ -20,8 +20,9 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	var Index   = tile_get_index(Tilemap) mod TileAmount;	
 	var Width   = tile_get_width(startX, startY, Tilemap, Index);
 	
-	var TilemapAngle = Tilemap;
-	var IndexAngle = Index;
+	// Reserve tile we read
+	var TilemapReserved = Tilemap;
+	var IndexReserved   = Index;
 
 	// Use a second tile if first tile width is 0 or 16
 	if !Width
@@ -48,10 +49,11 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		Index   = tile_get_index(Tilemap) mod TileAmount;	
 		Width   = tile_get_width(startX, startY, Tilemap, Index);
 		
+		// Rewrite reserved got not empty tile
 		if Tilemap 
 		{
-			TilemapAngle = Tilemap;
-			IndexAngle = Index;
+			TilemapReserved = Tilemap;
+			IndexReserved   = Index;
 		}
 	}
 	
@@ -66,13 +68,13 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 
 	// Get angle
-	if (IndexAngle = 0 or IndexAngle = 1) 
+	if (IndexReserved == 0 or IndexReserved == 1) 
 	{
 		return_array[1] = toPositive ? 90 : 270;
 	}
 	else
 	{
-		var Mirr = tile_get_mirror(TilemapAngle);
+		var Mirr = tile_get_mirror(TilemapReserved);
 		if toPositive and Mirr 
 		{
 			return_array[1] =  90;
@@ -83,8 +85,8 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		}
 		else
 		{
-			var Ang = Game.AngleValueOf[IndexAngle];
-			if tile_get_flip(TilemapAngle)
+			var Ang = Game.AngleValueOf[IndexReserved];
+			if tile_get_flip(TilemapReserved)
 			{
 				Ang = (540 - Ang) mod 360;
 			}
