@@ -4,15 +4,51 @@ function PlayerGeneralUpdate()
 	if Grounded == true
 	{
 		State = Rolling == false ? PlayerStateNormal : PlayerStateRoll;
+		switch AngleRange
+		{
+			case RangeFloor:
+			{
+				if tile_meeting(floor(PosX - xRadius - yRadiusRoll / 2), floor(PosY + 8), Layer)
+				or tile_meeting(floor(PosX + xRadius + yRadiusRoll / 2), floor(PosY + 8), Layer)
+				{
+					AngleRange = round(Angle/90) % 4;
+				}
+			}
+			break;
+			case RangeRWall:
+			{
+				if tile_meeting(floor(PosX + 8), floor(PosY - xRadius - yRadiusRoll / 2), Layer)
+				or tile_meeting(floor(PosX + 8), floor(PosY + xRadius + yRadiusRoll / 2), Layer)
+				{
+					AngleRange = round(Angle/90) % 4;
+				}
+			}
+			break;
+			case RangeRoof:
+			{
+				if tile_meeting(floor(PosX - xRadius - yRadiusRoll / 2), floor(PosY - 8), Layer)
+				or tile_meeting(floor(PosX + xRadius + yRadiusRoll / 2), floor(PosY - 8), Layer)
+				{
+					AngleRange = round(Angle/90) % 4;
+				}
+			}
+			break;
+			case RangeLWall:
+			{
+				if tile_meeting(floor(PosX - 8), floor(PosY - xRadius - yRadiusRoll / 2), Layer)
+				or tile_meeting(floor(PosX - 8), floor(PosY + xRadius + yRadiusRoll / 2), Layer)
+				{
+					AngleRange = round(Angle/90) % 4;
+				}
+			}
+		}
 	}
 	else
 	{
-		State = PlayerStateAirborne;
+		AngleRange = RangeFloor;
+		State      = PlayerStateAirborne;
 	}
-	
-	// Define angle range
-	AngleRange = round(Angle/90) % 4;
-	
+
 	// Handle highspeed bonus
 	if HighSpeedBonus > 0
 	{	

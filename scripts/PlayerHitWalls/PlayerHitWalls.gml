@@ -9,7 +9,7 @@ function PlayerHitWalls()
 		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision == true and Angle mod 90 == 0) and Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch round(Angle/90) % 4
+			switch AngleRange
 			{
 				case RangeFloor:
 				{	
@@ -27,7 +27,10 @@ function PlayerHitWalls()
 					if  tileData[0] < 0
 					{	
 						Ysp  += tileData[0];
-						Angle = tileData[1];
+						
+						// We're colling with floor in this case. Update angle and angle range
+						Angle      = tileData[1];
+						AngleRange = round(Angle/90) % 4;
 					}
 				}
 				break;
@@ -46,8 +49,8 @@ function PlayerHitWalls()
 					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
 					if  tileData[0] < 0
 					{	
-						Ysp  -= tileData[0];
-						Angle = tileData[1];
+						Ysp    -= tileData[0];
+						Inertia = 0;
 					}
 				}
 				break;
@@ -88,8 +91,8 @@ function PlayerHitWalls()
 					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
 					if  tileData[0] < 0
 					{	
-						Ysp  -= tileData[0];
-						Angle = tileData[1];
+						Ysp    -= tileData[0];
+						Inertia = 0;
 					}
 				}
 				break;
@@ -109,7 +112,10 @@ function PlayerHitWalls()
 					if  tileData[0] < 0
 					{	
 						Ysp  += tileData[0];
-						Angle = tileData[1];
+						
+						// We're colling with floor in this case. Update angle and angle range
+						Angle      = tileData[1];
+						AngleRange = round(Angle/90) % 4;
 					}
 				}
 				break;

@@ -4,7 +4,7 @@ function PlayerCollideFloor()
 	if (AllowCollision == false or OnObject) exit;
 	
 	// Collide with one of four floor sides based on floor angle range
-	switch round(Angle/90) % 4
+	switch AngleRange//round(Angle/90) % 4
 	{
 		case RangeFloor:
 		{		
@@ -135,11 +135,11 @@ function PlayerCollideFloor()
 		var angDifference = abs(Angle - floorAngle);
 		if  angDifference < 180
 		{
-			Angle = angDifference > 45  ? AngleRange * 90 : floorAngle;
+			Angle = angDifference > 45  ? (round(Angle/90) % 4) * 90 : floorAngle;
 		}
 		else
 		{
-			Angle = angDifference < 315 ? AngleRange * 90 : floorAngle;
+			Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
 		}
 		if (Angle = 0) Angle = 360;
 	}
