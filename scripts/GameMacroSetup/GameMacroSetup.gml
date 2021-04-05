@@ -23,6 +23,9 @@ function GameMacroSetup()
 	#macro SavedConts    4
 	#macro SavedScore    5
 	
+	#macro DataDistance  0
+	#macro DataAngle	 1
+	
 
 	// Player macro
 	#macro RangeFloor	       0
@@ -85,7 +88,7 @@ function GameMacroSetup()
 	#macro SolidNone  3
 	
 	#macro CollisionHitbox   0
-	#macro CollisionSolidbox 0
+	#macro CollisionSolidbox 1
 	
 	#macro SideTop    0
 	#macro SideLeft   1

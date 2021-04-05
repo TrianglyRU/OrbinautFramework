@@ -4,30 +4,24 @@ function PlayerCollideFloor()
 	if (AllowCollision == false or OnObject) exit;
 	
 	// Collide with one of four floor sides based on floor angle range
-	switch AngleRange
+	switch round(Angle/90) % 4
 	{
 		case RangeFloor:
-		{	
-			// Get player collision points
-			var xLeft  = floor(PosX - xRadius);
-			var yLeft  = floor(PosY + yRadius);
-			var xRight = floor(PosX + xRadius);
-			var yRight = floor(PosY + yRadius);
-				
-			// Get floor distances
-			var dLeft  = tile_get_distance_v(xLeft, yLeft, true, false, Layer);
-			var dRight = tile_get_distance_v(xRight, yRight, true, false, Layer);
+		{		
+			// Get tiles
+			var tileDataLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
+			var tileDataRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
 			
-			// Use closest distance for our calculations
-			if dLeft <= dRight
+			// Use tile with closest distance
+			if tileDataLeft[0] <= tileDataRight[0]
 			{
-				var floorDistance = dLeft;
-				var floorAngle	  = tile_get_angle_v(xLeft, yLeft, true, false, Layer);
+				var floorDistance = tileDataLeft[0];
+				var floorAngle	  = tileDataLeft[1];
 			}
 			else
 			{
-				var floorDistance = dRight;
-				var floorAngle	  = tile_get_angle_v(xRight, yRight, true, false, Layer);
+				var floorDistance = tileDataRight[0];
+				var floorAngle	  = tileDataRight[1];
 			}
 			
 			// Perform floor collision
@@ -36,7 +30,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosY += floorDistance;
 			}
@@ -44,26 +38,20 @@ function PlayerCollideFloor()
 		break;
 		case RangeRWall:
 		{	
-			// Get player collision points
-			var xLeft  = floor(PosX + yRadius);
-			var yLeft  = floor(PosY + xRadius);
-			var xRight = floor(PosX + yRadius);
-			var yRight = floor(PosY - xRadius);
-				
-			// Get floor distances
-			var dLeft  = tile_get_distance_h(xLeft, yLeft, true, false, Layer);
-			var dRight = tile_get_distance_h(xRight, yRight, true, false, Layer);
-			
-			// Use closest distance for our calculations
-			if dLeft <= dRight
+			// Get tiles
+			var tileDataLeft  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true, false, Layer);
+			var tileDataRight = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true, false, Layer);
+
+			// Use tile with closest distance
+			if tileDataLeft[0] <= tileDataRight[0]
 			{
-				var floorDistance = dLeft;
-				var floorAngle	  = tile_get_angle_h(xLeft, yLeft, true, false, Layer);
+				var floorDistance = tileDataLeft[0];
+				var floorAngle	  = tileDataLeft[1];
 			}
 			else
 			{
-				var floorDistance = dRight;
-				var floorAngle	  = tile_get_angle_h(xRight, yRight, true, false, Layer);
+				var floorDistance = tileDataRight[0];
+				var floorAngle	  = tileDataRight[1];
 			}
 			
 			// Perform floor collision
@@ -72,7 +60,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosX += floorDistance;
 			}
@@ -80,26 +68,20 @@ function PlayerCollideFloor()
 		break;
 		case RangeRoof:	
 		{	
-			// Get player collision points
-			var xLeft  = floor(PosX + xRadius);
-			var yLeft  = floor(PosY - yRadius);
-			var xRight = floor(PosX - xRadius);
-			var yRight = floor(PosY - yRadius);
-				
-			// Get floor distances
-			var dLeft  = tile_get_distance_v(xLeft, yLeft, false, false, Layer);
-			var dRight = tile_get_distance_v(xRight, yRight, false, false, Layer);
+			// Get tiles
+			var tileDataLeft  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, false, Layer);
+			var tileDataRight = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, false, Layer);
 			
-			// Use closest distance for our calculations
-			if dLeft <= dRight
+			// Use tile with closest distance
+			if tileDataLeft[0] <= tileDataRight[0]
 			{
-				var floorDistance = dLeft;
-				var floorAngle	  = tile_get_angle_v(xLeft, yLeft, false, false, Layer);
+				var floorDistance = tileDataLeft[0];
+				var floorAngle	  = tileDataLeft[1];
 			}
 			else
 			{
-				var floorDistance = dRight;
-				var floorAngle    = tile_get_angle_v(xRight, yRight, false, false, Layer);
+				var floorDistance = tileDataRight[0];
+				var floorAngle    = tileDataRight[1];
 			}
 			
 			// Perform floor collision
@@ -108,7 +90,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosY -= floorDistance;
 			}
@@ -116,26 +98,20 @@ function PlayerCollideFloor()
 		break;
 		case RangeLWall:
 		{	
-			// Get player collision points
-			var xLeft  = floor(PosX - yRadius);
-			var yLeft  = floor(PosY - xRadius);
-			var xRight = floor(PosX - yRadius);
-			var yRight = floor(PosY + xRadius);
-				
-			// Get floor distances
-			var dLeft  = tile_get_distance_h(xLeft, yLeft, false, false, Layer);
-			var dRight = tile_get_distance_h(xRight, yRight, false, false, Layer);
+			// Get tiles
+			var tileDataLeft  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY - xRadius), false, false, Layer);
+			var tileDataRight = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, false, Layer);
 			
-			// Use closest distance for our calculations
-			if dLeft <= dRight
+			// Use tile with closest distance
+			if tileDataLeft[0] <= tileDataRight[0]
 			{
-				var floorDistance = dLeft;
-				var floorAngle    = tile_get_angle_h(xLeft, yLeft, false, false, Layer);
+				var floorDistance = tileDataLeft[0];
+				var floorAngle    = tileDataLeft[1];
 			}
 			else
 			{
-				var floorDistance = dRight;
-				var floorAngle    = tile_get_angle_h(xRight, yRight, false, false, Layer);
+				var floorDistance = tileDataRight[0];
+				var floorAngle    = tileDataRight[1];
 			}
 			
 
@@ -145,7 +121,7 @@ function PlayerCollideFloor()
 			{
 				Grounded = false;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosX -= floorDistance;
 			}
@@ -153,7 +129,7 @@ function PlayerCollideFloor()
 		break;
 	}
 	
-	// Use cardinal floor angle if difference is greater than 45
+	// Update player's angle
 	if Game.ConsiderAngleDifference
 	{
 		var angDifference = abs(Angle - floorAngle);
@@ -166,17 +142,15 @@ function PlayerCollideFloor()
 			Angle = angDifference < 315 ? AngleRange * 90 : floorAngle;
 		}
 		if (Angle = 0) Angle = 360;
-		Angle = floorAngle;
 	}
-		
-	// Use normal floor angle
 	else
 	{
 		Angle = floorAngle;
 	}
 	
+	// Debug stuff
 	Game.Value[0] = 0;
-	Game.Value[1] = dLeft;
-	Game.Value[2] = dRight;
-	Game.Value[3] = dLeft <= dRight ? "LEFT" : "RIGHT";
+	Game.Value[1] = tileDataLeft[0];
+	Game.Value[2] = tileDataRight[0];
+	Game.Value[3] = tileDataLeft[0] <= tileDataRight[0] ? "LEFT" : "RIGHT";
 }

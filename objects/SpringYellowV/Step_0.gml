@@ -11,10 +11,10 @@
 	if object_check_touch(launchSide)
 	{
 		// Reset flags
-		Player.Grounded = false;
-		Player.OnObject = false;
-		Player.Jumping  = false;
-		Player.Flying   = false;
+		Player.Grounded    = false;
+		Player.OnObject    = false;
+		Player.Jumping     = false;
+		Player.FlyingState = false;
 		
 		// Launch upwards or downwards
 		Player.Ysp = -10 * image_yscale;

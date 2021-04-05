@@ -15,8 +15,8 @@ function object_do_collision(objectType, collisionMap)
 	// Calculate this object radiuses and diameters
 	var objectTop    = y - objYRadiusSolid;
 	var objectLeft   = x - objXRadiusSolid;
-	var objectRight  = x + objXRadiusSolid;
-	var objectBottom = y + objYRadiusSolid;
+	var objectRight  = x + objXRadiusSolid - 1;
+	var objectBottom = y + objYRadiusSolid - 1;
 	
 	objTouchedTop = false;
 	objTouchedLeft = false;
@@ -72,7 +72,7 @@ function object_do_collision(objectType, collisionMap)
 		if objectType == SolidAll
 		{
 			// Check for overlap with this object horizontally
-			if floor(Player.PosX + 11) < objectLeft or floor(Player.PosX - 11) > objectRight
+			if floor(Player.PosX + 11) < objectLeft or floor(Player.PosX - 11) >= objectRight
 			{
 				exit;
 			}
@@ -115,13 +115,13 @@ function object_do_collision(objectType, collisionMap)
 			}
 																   
 			// Check for overlap with this object vertically
-			if floor(Player.PosY + Player.yRadius) < objectTop - 4 or floor(Player.PosY - Player.yRadius) > objectBottom
+			if floor(Player.PosY + Player.yRadius + 4) < objectTop or floor(Player.PosY - Player.yRadius) > objectBottom
 			{
 				exit;
 			}
 
 			// Collide with this object vertically
-			if abs(x - floor(Player.PosX)) <= abs(y - floor(Player.PosY)) 	
+			if abs(x - floor(Player.PosX)) <= abs(y - floor(Player.PosY))	
 			{
 				// Check if player is below this object
 				if floor(Player.PosY) > y
@@ -130,7 +130,7 @@ function object_do_collision(objectType, collisionMap)
 					if Player.Grounded == true
 					{
 						Player.Rings = 0;
-						Player.Hurt  = true;
+						Player.Hurt  = id;
 					}
 
 					// Else push player out from this object

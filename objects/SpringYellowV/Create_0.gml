@@ -2,7 +2,7 @@
 // You can call your scripts in this editor
 
 	// Set object solidbox
-	object_set_solidbox(16, 8);
+	object_set_solidbox(16, 12);
 	
 	// Set object visibility
 	object_set_visibility(true);

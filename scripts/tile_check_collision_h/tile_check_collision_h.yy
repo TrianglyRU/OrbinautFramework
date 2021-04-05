@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "System",
-    "path": "folders/Game Functions/System.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_get_angle_h",
+  "name": "tile_check_collision_h",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -3,30 +3,24 @@ function PlayerHitFloor()
 	// Do not collide if we're not allowed to
 	if (Ysp > 0 or abs(Xsp) > abs(Ysp)) and AllowCollision == true
 	{	
-		// Set coordinates
-		var xLeft  = floor(PosX - xRadius);
-		var yLeft  = floor(PosY + yRadius);
-		var xRight = floor(PosX + xRadius);
-		var yRight = floor(PosY + yRadius);
-			
-		// Get floor distances
-		var dLeft  = tile_get_distance_v(xLeft, yLeft, true, false, Layer);
-		var dRight = tile_get_distance_v(xRight, yRight, true, false, Layer);
+		// Get tiles
+		var tileDataLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
+		var tileDataRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
 		
-		// Use closest distance for our calculations
-		if dLeft <= dRight
+		// Use tile with closest distance
+		if tileDataLeft[0] <= tileDataRight[0]
 		{
-			var floorDistance = dLeft;
-			var floorAngle    = tile_get_angle_v(xLeft, yLeft, true, false, Layer);
+			var floorDistance = tileDataLeft[0];
+			var floorAngle    = tileDataLeft[1];
 		}
 		else
 		{
-			var floorDistance = dRight;
-			var floorAngle    = tile_get_angle_v(xRight, yRight, true, false, Layer);
+			var floorDistance = tileDataRight[0];
+			var floorAngle    = tileDataRight[1];
 		}
 		
 		// Perform floor collision
-		if  floorDistance < 0
+		if floorDistance < 0
 		{
 			// Apply angle
 			Angle = floorAngle;

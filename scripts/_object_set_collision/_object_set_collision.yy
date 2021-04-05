@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Player Scripts",
-    "path": "folders/Game Code/Player Scripts.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerUpdateAngle",
+  "name": "_object_set_collision",
   "tags": [],
   "resourceType": "GMScript",
 }
