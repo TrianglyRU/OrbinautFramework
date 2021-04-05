@@ -8,8 +8,8 @@ function PlayerGeneralUpdate()
 		{
 			case RangeFloor:
 			{
-				if tile_meeting(floor(PosX - xRadius - yRadiusRoll / 2), floor(PosY + 8), Layer)
-				or tile_meeting(floor(PosX + xRadius + yRadiusRoll / 2), floor(PosY + 8), Layer)
+				if tile_meeting(floor(PosX - xRadius * 2), floor(PosY + yRadius / 2), Layer)
+				or tile_meeting(floor(PosX + xRadius * 2), floor(PosY + yRadius / 2), Layer)
 				{
 					AngleRange = round(Angle/90) % 4;
 				}
@@ -17,8 +17,8 @@ function PlayerGeneralUpdate()
 			break;
 			case RangeRWall:
 			{
-				if tile_meeting(floor(PosX + 8), floor(PosY - xRadius - yRadiusRoll / 2), Layer)
-				or tile_meeting(floor(PosX + 8), floor(PosY + xRadius + yRadiusRoll / 2), Layer)
+				if tile_meeting(floor(PosX + yRadius / 2), floor(PosY - xRadius * 2), Layer)
+				or tile_meeting(floor(PosX + yRadius / 2), floor(PosY + xRadius * 2), Layer)
 				{
 					AngleRange = round(Angle/90) % 4;
 				}
@@ -26,8 +26,8 @@ function PlayerGeneralUpdate()
 			break;
 			case RangeRoof:
 			{
-				if tile_meeting(floor(PosX - xRadius - yRadiusRoll / 2), floor(PosY - 8), Layer)
-				or tile_meeting(floor(PosX + xRadius + yRadiusRoll / 2), floor(PosY - 8), Layer)
+				if tile_meeting(floor(PosX - xRadius * 2), floor(PosY - yRadius / 2), Layer)
+				or tile_meeting(floor(PosX + xRadius * 2), floor(PosY - yRadius / 2), Layer)
 				{
 					AngleRange = round(Angle/90) % 4;
 				}
@@ -35,8 +35,8 @@ function PlayerGeneralUpdate()
 			break;
 			case RangeLWall:
 			{
-				if tile_meeting(floor(PosX - 8), floor(PosY - xRadius - yRadiusRoll / 2), Layer)
-				or tile_meeting(floor(PosX - 8), floor(PosY + xRadius + yRadiusRoll / 2), Layer)
+				if tile_meeting(floor(PosX - yRadius / 2), floor(PosY - xRadius * 2), Layer)
+				or tile_meeting(floor(PosX - yRadius / 2), floor(PosY + xRadius * 2), Layer)
 				{
 					AngleRange = round(Angle/90) % 4;
 				}
