@@ -19,6 +19,9 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	var Tilemap = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, startY div TileSize);
 	var Index   = tile_get_index(Tilemap) mod TileAmount;	
 	var Width   = tile_get_width(startX, startY, Tilemap, Index);
+	
+	var TilemapAngle = Tilemap;
+	var IndexAngle = Index;
 
 	// Use a second tile if first tile width is 0 or 16
 	if !Width
@@ -44,6 +47,12 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		Tilemap = tilemap_get(Stage.TileLayer[tileLayer], (startX + Tile2) div TileSize, startY div TileSize);
 		Index   = tile_get_index(Tilemap) mod TileAmount;	
 		Width   = tile_get_width(startX, startY, Tilemap, Index);
+		
+		if Tilemap 
+		{
+			TilemapAngle = Tilemap;
+			IndexAngle = Index;
+		}
 	}
 	
 	// Get distance
@@ -57,13 +66,13 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 
 	// Get angle
-	if (Tilemap == 0 or Tilemap = 1) 
+	if (IndexAngle = 0 or IndexAngle = 1) 
 	{
 		return_array[1] = toPositive ? 90 : 270;
 	}
 	else
 	{
-		var Mirr = tile_get_mirror(Tilemap);
+		var Mirr = tile_get_mirror(TilemapAngle);
 		if toPositive and Mirr 
 		{
 			return_array[1] =  90;
@@ -74,8 +83,8 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		}
 		else
 		{
-			var Ang = Game.AngleValueOf[Index];
-			if tile_get_flip(Tilemap)
+			var Ang = Game.AngleValueOf[IndexAngle];
+			if tile_get_flip(TilemapAngle)
 			{
 				Ang = (540 - Ang) mod 360;
 			}
