@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "palette_cycle_perform",
+  "name": "variable_set_temp",
   "tags": [],
   "resourceType": "GMScript",
 }

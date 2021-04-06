@@ -79,8 +79,15 @@ function PlayerMove()
 			Skidding = false;
 		}
 	}
+	
+	/// Check for stop pushing
+	if Pushing == FacingRight and !Input.Right
+	or Pushing == FacingLeft  and !Input.Left
+	{
+		Pushing = false;
+	}
 		
-	// Set animation
+	// Handle ground animations
 	if Inertia == 0
 	{
 		Animation = AnimIdle;
@@ -106,6 +113,10 @@ function PlayerMove()
 	else
 	{
 		Animation = AnimSkid;
+	}
+	if Pushing == true
+	{
+		Animation = AnimPush;
 	}
 
 	// Get our speed ratio

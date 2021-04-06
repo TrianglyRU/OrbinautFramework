@@ -14,22 +14,22 @@ function PlayerCheckDropdash()
 	{
 		if Facing == FacingLeft and Input.Left
 		{
-			DropdashDirection = -1;
+			DropdashDirection = FacingLeft;
 		}
 		else
 		{
-			DropdashDirection = 1;
+			DropdashDirection = FacingRight;
 		}
 	}
 	else
 	{
 		if Facing == FacingRight and Input.Right
 		{
-			DropdashDirection = -1;
+			DropdashDirection = FacingLeft;
 		}
 		else
 		{
-			DropdashDirection = 1;
+			DropdashDirection = FacingRight;
 		}
 	}
 	

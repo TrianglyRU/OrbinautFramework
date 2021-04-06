@@ -34,12 +34,15 @@ function PlayerCharacterAnimationList()
 				case AnimSkid:
 					animation_play(spr_sonic_skid, 6, 3);
 				break;
+				case AnimPush:
+					animation_play(spr_sonic_push, 32, 1);
+				break;
 				case AnimHurt:
 					animation_play(spr_sonic_hurt, 1, 1);
 				break;
 				case AnimDeath:
 					animation_play(spr_sonic_death, 1, 1);
-				break;
+				break;		
 			}
 		}
 		break;

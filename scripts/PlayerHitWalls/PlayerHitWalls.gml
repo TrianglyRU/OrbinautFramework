@@ -18,6 +18,9 @@ function PlayerHitWalls()
 					{	
 						Xsp    -= tileData[0];
 						Inertia = 0;
+						
+						// Set flag
+						Pushing = FacingLeft;
 					}
 				}
 				break;
@@ -83,6 +86,9 @@ function PlayerHitWalls()
 					{	
 						Xsp    += tileData[0];
 						Inertia = 0;
+						
+						// Set flag
+						Pushing = FacingRight;
 					}
 				}
 				break;

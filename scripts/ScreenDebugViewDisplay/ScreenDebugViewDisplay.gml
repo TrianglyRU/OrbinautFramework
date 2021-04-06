@@ -3,7 +3,45 @@ function ScreenDebugViewDisplay()
 	// Display only if allowed to
 	if DebugViewEnabled = true
 	{
-		// Draw floor and ceiling player collision points
+		// Draw player's solidbox
+		var PlayerLeft   = floor(Player.PosX - 10);
+		var PlayerRight  = floor(Player.PosX + 10);
+		var PlayerTop    = floor(Player.PosY - Player.yRadius);
+		var PlayerBottom = floor(Player.PosY + Player.yRadius);
+		draw_set_alpha(0.5);
+		draw_rectangle_colour(PlayerLeft, PlayerTop, PlayerRight, PlayerBottom, $41d5ff, $41d5ff, $41d5ff, $41d5ff, false);
+	
+		// Draw player's hitbox
+		var HitboxLeft   = floor(Player.PosX - 8);
+		var HitboxRight  = floor(Player.PosX + 8);			     
+		var HitboxTop	 = floor(Player.PosY - Player.yRadius + 3);
+		var HitboxBottom = floor(Player.PosY + Player.yRadius - 3);
+		if DebugShowHitboxes
+		{
+			draw_set_alpha(0.5);
+			draw_rectangle_colour(HitboxLeft, HitboxTop, HitboxRight, HitboxBottom, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
+			draw_set_alpha(1);
+			draw_point(floor(Player.PosX), floor(Player.PosY));
+		}
+	
+		// Draw hitboxes
+		if DebugShowHitboxes
+		{			
+			with Objects
+			{	
+				if variable_instance_exists(id, "objXRadiusHit")
+				{
+					draw_set_alpha(0.5);
+					draw_rectangle_colour(x - objXRadiusHit, y - objYRadiusHit, x + objXRadiusHit, y + objYRadiusHit, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
+					draw_set_alpha(1);
+					draw_point(x, y);
+				}
+			}
+			
+		}
+		
+		// Draw player collision points
+		draw_set_alpha(1);
 		if Player.Grounded
 		{
 			switch Player.AngleRange
@@ -33,27 +71,9 @@ function ScreenDebugViewDisplay()
 				}
 				break;
 			}
-		}
-		else
-		{
-			if Player.Ysp > 0 or abs(Player.Xsp) > abs(Player.Ysp)
-			{
-				draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY + Player.yRadius));
-				draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY + Player.yRadius));
-			}
-			if Player.Ysp < 0 or abs(Player.Xsp) > abs(Player.Ysp)
-			{
-				draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY - Player.yRadius));
-				draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY - Player.yRadius));
-			}
-		}
-	
-		// Draw wall player collision points
-		if Player.Grounded
-		{
+			
 			if (Player.Angle < 90 or Player.Angle > 270 or Game.ExtensiveWallCollision and Player.Angle mod 90 = 0)
 			{	
-				// Left
 				if Player.Inertia < 0
 				{
 					switch Player.AngleRange
@@ -80,9 +100,7 @@ function ScreenDebugViewDisplay()
 						break;
 					}
 				}
-			
-				// Right
-				if Player.Inertia > 0
+				else if Player.Inertia > 0
 				{
 					switch Player.AngleRange
 					{
@@ -112,6 +130,16 @@ function ScreenDebugViewDisplay()
 		}
 		else
 		{
+			if Player.Ysp > 0 or abs(Player.Xsp) > abs(Player.Ysp)
+			{
+				draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY + Player.yRadius));
+				draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY + Player.yRadius));
+			}
+			if Player.Ysp < 0 or abs(Player.Xsp) > abs(Player.Ysp)
+			{
+				draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY - Player.yRadius));
+				draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY - Player.yRadius));
+			}
 			if !(Player.Xsp > abs(Player.Ysp))
 			{
 				draw_point(floor(Player.PosX - 10), floor(Player.PosY));
@@ -122,46 +150,9 @@ function ScreenDebugViewDisplay()
 			}
 		}
 		
-		// Draw player's solidbox
-		var PlayerLeft   = floor(Player.PosX - 10);
-		var PlayerRight  = floor(Player.PosX + 10);
-		var PlayerTop    = floor(Player.PosY - Player.yRadius);
-		var PlayerBottom = floor(Player.PosY + Player.yRadius);
-		draw_set_alpha(0.3);
-		draw_rectangle(PlayerLeft, PlayerTop, PlayerRight, PlayerBottom, false);
-	
-		// Draw player's hitbox
-		var HitboxLeft   = floor(Player.PosX - 8);
-		var HitboxRight  = floor(Player.PosX + 8);			     
-		var HitboxTop	 = floor(Player.PosY - Player.yRadius + 3);
-		var HitboxBottom = floor(Player.PosY + Player.yRadius - 3);
-	
-		// Draw hitboxes
-		if DebugShowHitboxes
-		{
-			draw_set_alpha(0.6);
-			with Objects
-			{	
-				if variable_instance_exists(id, "objXRadiusSolid")
-				{
-					draw_rectangle(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid, y + objYRadiusSolid, false);
-					draw_point(x, y);
-				}
-			}
-			draw_rectangle_colour(HitboxLeft, HitboxTop, HitboxRight, HitboxBottom, c_purple, c_purple, c_purple, c_purple, false);
-		}
-		
 		// Show collision
-		if DebugShowCollision
-		{
-			layer_set_visible(layer_get_id("CollisionTilesA"), Player.Layer = LayerA);
-			layer_set_visible(layer_get_id("CollisionTilesB"), Player.Layer = LayerB);
-		}
-		else
-		{
-			layer_set_visible(layer_get_id("CollisionTilesA"), false);
-			layer_set_visible(layer_get_id("CollisionTilesB"), false);
-		}
+		layer_set_visible(layer_get_id("CollisionTilesA"), DebugShowCollision and Player.Layer == LayerA);
+		layer_set_visible(layer_get_id("CollisionTilesB"), DebugShowCollision and Player.Layer == LayerB);
 	}
 	else
 	{

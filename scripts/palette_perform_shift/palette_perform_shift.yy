@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_meeting",
+  "name": "palette_perform_shift",
   "tags": [],
   "resourceType": "GMScript",
 }

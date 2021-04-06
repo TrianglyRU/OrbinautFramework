@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "_object_set_collision",
+  "name": "tile_check_at_point",
   "tags": [],
   "resourceType": "GMScript",
 }
