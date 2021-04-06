@@ -19,10 +19,6 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	var Tilemap = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, startY div TileSize);
 	var Index   = tile_get_index(Tilemap) mod TileAmount;	
 	var Width   = tile_get_width(startX, startY, Tilemap, Index);
-	
-	// Reserve tile we read
-	var TilemapReserved = Tilemap;
-	var IndexReserved   = Index;
 
 	// Use a second tile if first tile width is 0 or 16
 	if !Width
@@ -45,16 +41,14 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	// Get second tile properties if we're using it
 	if Tile2 != 0
 	{	
-		Tilemap = tilemap_get(Stage.TileLayer[tileLayer], (startX + Tile2) div TileSize, startY div TileSize);
-		Index   = tile_get_index(Tilemap) mod TileAmount;	
-		Width   = tile_get_width(startX, startY, Tilemap, Index);
-		
-		// Rewrite reserved got not empty tile
-		if Tilemap 
+		var Second = tilemap_get(Stage.TileLayer[tileLayer], (startX + Tile2) div TileSize, startY div TileSize);
+		if !Tilemap or Second 
 		{
-			TilemapReserved = Tilemap;
-			IndexReserved   = Index;
+			Tilemap = Second;
+			Index   = tile_get_index(Tilemap) mod TileAmount;
+			Width  = tile_get_width(startX, startY, Tilemap, Index);
 		}
+		else Tile2 = 0;
 	}
 	
 	// Get distance
@@ -68,13 +62,13 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 
 	// Get angle
-	if (IndexReserved == 0 or IndexReserved == 1) 
+	if (Index = 0 or Index = 1) 
 	{
 		return_array[1] = toPositive ? 90 : 270;
 	}
 	else
 	{
-		var Mirr = tile_get_mirror(TilemapReserved);
+		var Mirr = tile_get_mirror(Tilemap);
 		if toPositive and Mirr 
 		{
 			return_array[1] =  90;
@@ -85,8 +79,8 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		}
 		else
 		{
-			var Ang = Game.AngleValueOf[IndexReserved];
-			if tile_get_flip(TilemapReserved)
+			var Ang = Game.AngleValueOf[Index];
+			if tile_get_flip(Tilemap)
 			{
 				Ang = (540 - Ang) mod 360;
 			}

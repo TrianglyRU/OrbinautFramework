@@ -19,9 +19,6 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	var Tilemap = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, startY div TileSize);
 	var Index   = tile_get_index(Tilemap) mod TileAmount;
 	var Height  = tile_get_height(startX, startY, Tilemap, Index);
-	
-	var TilemapAngle = Tilemap;
-	var IndexAngle = Index;
 
 	// Use a second tile if first tile height is 0 or 16
 	if !Height
@@ -44,17 +41,16 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	// Get second tile properties if we're using it
 	if Tile2 != 0
 	{	
-		Tilemap = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + Tile2) div TileSize);
-		Index   = tile_get_index(Tilemap) mod TileAmount;
-		Height  = tile_get_height(startX, startY, Tilemap, Index);
-		
-		if Tilemap 
+		var Second = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + Tile2) div TileSize);
+		if !Tilemap or Second 
 		{
-			TilemapAngle = Tilemap;
-			IndexAngle = Index;
+			Tilemap = Second;
+			Index   = tile_get_index(Tilemap) mod TileAmount;
+			Height  = tile_get_height(startX, startY, Tilemap, Index);
 		}
+		else Tile2 = 0;
 	}
-
+	
 	// Get distance
 	if ignoreSolidTop and tile_get_index(Tilemap) > TileAmount
 	{
@@ -66,13 +62,13 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 	
 	// Get angle
-	if (IndexAngle = 0 or IndexAngle = 1) 
+	if (Index = 0 or Index = 1) 
 	{
 		return_array[1] = toPositive ? 360 : 180;
 	}
 	else
 	{
-		var Flip = tile_get_flip(TilemapAngle);
+		var Flip = tile_get_flip(Tilemap);
 		if toPositive and Flip 
 		{
 			return_array[1] = 360;
@@ -83,15 +79,15 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 		}
 		else
 		{
-			var Ang = Game.AngleValueOf[IndexAngle];
+			var Ang = Game.AngleValueOf[Index];
 			if Flip
 			{
 				Ang = (540 - Ang) mod 360;
 			}
-			return_array[1] = tile_get_mirror(TilemapAngle) ? 360 - Ang : Ang;
+			return_array[1] = tile_get_mirror(Tilemap) ? 360 - Ang : Ang;
 		}
 	}
-	
+	show_debug_message(Index)
 	// Return data
 	return return_array;
 }
