@@ -32,7 +32,7 @@ function ScreenDebugViewDisplay()
 				if variable_instance_exists(id, "objXRadiusHit")
 				{
 					draw_set_alpha(0.5);
-					draw_rectangle_colour(x - objXRadiusHit, y - objYRadiusHit, x + objXRadiusHit, y + objYRadiusHit, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
+					draw_rectangle_colour(x - objXRadiusHit, y - objYRadiusHit, x + objXRadiusHit - 1, y + objYRadiusHit - 1, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
 					draw_set_alpha(1);
 					draw_point(x, y);
 				}
