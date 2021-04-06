@@ -17,7 +17,7 @@ function GameRendererUpdate()
 	shader_set_uniform_f(Scrn_Texel_Size, Game.PaletteSet[2], Game.PaletteSet[3]);
 	shader_set_uniform_f(Scrn_UVs, Game.PaletteSet[4], Game.PaletteSet[5], Game.PaletteSet[6], Game.PaletteSet[7]);
 	
-	shader_set_uniform_f(Scrn_Water, instance_exists(Stage) ? Stage.WaterLevel : 0);
+	shader_set_uniform_f(Scrn_Water, instance_exists(Stage) ? clamp(Screen.RenderY - Stage.WaterLevel + 224, 0, 224) : 0);
 	
 	// Draw our surface
 	application_surface_draw_enable(true);

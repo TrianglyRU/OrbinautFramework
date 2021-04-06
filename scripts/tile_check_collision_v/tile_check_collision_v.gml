@@ -87,7 +87,7 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 			return_array[1] = tile_get_mirror(Tilemap) ? 360 - Ang : Ang;
 		}
 	}
-	show_debug_message(Index)
+
 	// Return data
 	return return_array;
 }
