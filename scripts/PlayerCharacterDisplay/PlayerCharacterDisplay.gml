@@ -50,7 +50,7 @@ function PlayerCharacterDisplay()
 		{
 			case CharSonic:
 			{
-				for (var i = 0; i < 4; i++) 
+				for (var i = 0; i < 8; i++) 
 				{
 					palette_cycle_perform(i, 9, 4);
 					palette_cycle_perform(i, 9, 4);
