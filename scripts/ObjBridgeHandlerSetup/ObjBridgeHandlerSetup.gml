@@ -16,7 +16,7 @@ function ObjBridgeHandlerSetup()
 		with Log 
 		{
 			// Set object hitbox
-			object_set_hitbox(8, 8);
+			object_set_solidbox(8, 8);
 			
 			// Set object depth
 			object_set_depth(Player, false);

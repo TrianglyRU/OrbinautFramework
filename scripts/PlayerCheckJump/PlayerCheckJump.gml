@@ -32,16 +32,14 @@ function PlayerCheckJump()
 		Skidding = false;
 		
 		// Update radiuses
-		yRadius = yRadiusRoll;
-		xRadius	= xRadiusRoll;
-		
-		if Game.RolljumpControl
+		if !Rolling
 		{
-			Rolling = false;
+			yRadius = yRadiusRoll;
+			xRadius	= xRadiusRoll;
 		}
 		else
 		{
-			PosY += yRadiusDefault - yRadiusRoll;
+			PosY -= yRadiusDefault - yRadiusRoll;
 		}
 		
 		// Set animation

@@ -2,20 +2,28 @@ function ScreenDebugScreenDisplay()
 {	
 	// Show FPS
 	string_set_font(Game.Font[FontDebug], "left");
-	string_display(Width - 40, Height - 4, "FPS: " + string(floor(fps_real)), 0.5);
+	string_display(Width - 45, Height - 8, "FPS: " + string(floor(fps)), 0.5);
+	if !DebugViewEnabled
+	{
+		string_display(Width - 65, Height - 4, "TRUE FPS: " + string(floor(fps_real)), 0.5);
+	}
+	else
+	{
+		string_display(Width - 85, Height - 4, "APRX TRUE FPS: " + string(floor(fps_real) + 800), 0.5);
+	}
 	
 	// Display only if allowed to
-	if DebugViewEnabled = false exit;
+	if !DebugViewEnabled exit;
 	
 	// Draw rectangle
 	draw_set_alpha(0.65);
-	draw_rectangle_colour(Width - 90, 4, Width - 4, Height - 8, c_black, c_black, c_black, c_black, false)
+	draw_rectangle_colour(Width - 90, 4, Width - 4, Height - 12, c_black, c_black, c_black, c_black, false)
 	
 	// Set font
 	draw_set_alpha(1);
 	
 	// Display debug screen
-	string_display_list(Width - 93, 8,
+	string_display_list(Width - 86, 8,
 				"          ORBINAUT  FRAMEWORK"
 			+ "\n            STANDALONE VER."
 			+ "\n"
@@ -24,14 +32,18 @@ function ScreenDebugScreenDisplay()
 			+ "\n"
 			+ "\n            * COLLISION *"
 			+ "\n"
-			+ "\n   X RADIUS: " + string(Player.yRadius)
-			+ "\n   Y RADIUS: " + string(Player.xRadius)
-			+ "\n   WALL OFFSET: " + string((Player.Grounded and !Player.Angle) * 8)
+			+ "\n   PLAYER X RADIUS: " + string(Player.yRadius)
+			+ "\n   PLAYER Y RADIUS: " + string(Player.xRadius)
+			+ "\n   WALL OFFSET: " + string((Player.Grounded and Player.Angle == 360) * 8)
 			+ "\n"
-			+ "\n   FLOOR ANG: " + string(Game.Value[0])
-			+ "\n   DIST USED: " + Game.Value[3]
-			+ "\n   LEFT DIST: " + string(Game.Value[1])
-			+ "\n   RIGHT DIST: " + string(Game.Value[2])
+			+ "\n   LFLOOR DIST: " + string(Screen.DebugValue[0])
+			+ "\n   RFLOOR DIST: " + string(Screen.DebugValue[1])
+			+ "\n   LFLOOR ANG: " + string(Screen.DebugValue[2])
+			+ "\n   RFLOOR ANG: " + string(Screen.DebugValue[3])
+			+ "\n   FLOOR COL USED: " + Screen.DebugValue[4]
+			+ "\n"
+			+ "\n   LWALL DIST: " + string(Screen.DebugValue[5])
+			+ "\n   RWALL DIST: " + string(Screen.DebugValue[6])
 			+ "\n"
 			+ "\n          * PLAYER MOTION *"
 			+ "\n"
@@ -85,11 +97,13 @@ function ScreenDebugScreenDisplay()
 			+ "\n   SPIN OFFSET: " + string(SpinOffset)
 			+ "\n"
 			+ "\n"
-			+ "\n   F1: DEBUG OVERVIEW"
-			+ "\n   F2: STAGE RESTART"
+			+ "\n   F1: RESTART COMPLETELY"
+			+ "\n   F2: RESTART WITH CHECKPOINT"
 			+ "\n   F3: GAME RESTART"
-			+ "\n   F4: FRAME BY FRAME MODE"
-			+ "\n   F5: SHOW HITBOXES"
-			+ "\n   F6: SHOW COLLISION",		
-	10, 0.3);
+			+ "\n   F4: SHOW THIS DEBUG VIEW"
+			+ "\n   F5: SHOW SOLIDBOXES"
+			+ "\n   F6: SHOW HITBOXES"
+			+ "\n   F7: SHOW TILE COLLISION"
+			+ "\n   F8: FRAME BY FRAME MODE",		
+	10, 0.25);
 }

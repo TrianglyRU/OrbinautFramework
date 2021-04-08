@@ -109,6 +109,11 @@ function PlayerResetOnFloor()
 				xRadius = 10;
 				yRadius = 10;
 			}
+			else if Rolling
+			{
+				xRadius = xRadiusRoll;
+				yRadius = yRadiusRoll;
+			}
 			else
 			{
 				PosY   -= yRadiusDefault - yRadius;

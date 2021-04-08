@@ -4,7 +4,7 @@ function ScreenResultsDisplay()
 	if Stage.State == ActStateFinished and Stage.StateTimer == -1
 	or Stage.State == ActStateUnload
 	{		
-		/*if !ResultValue[0]
+		if !ResultValue[0]
 		{
 			RingBonus = Player.Rings * 100;
 
@@ -83,9 +83,14 @@ function ScreenResultsDisplay()
 		// Unload the act
 		if TimeBonus == 0 and RingBonus == 0 and Stage.State != ActStateUnload
 		{
-			Stage.StateTimer = 0;
-			Stage.State		 = ActStateUnload;
-		}*/
-		Stage.State = ActStateUnload;
+			ResultsTimer++;
+			
+			if ResultsTimer == 120
+			{
+				ResultsTimer     = 0;
+				Stage.StateTimer = 0;
+				Stage.State		 = ActStateUnload;
+			}
+		}
 	}
 }

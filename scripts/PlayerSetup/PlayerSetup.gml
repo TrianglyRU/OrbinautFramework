@@ -66,7 +66,12 @@ function PlayerSetup()
 	{
 		if Game.StageTransferX != 0
 		{
-		PosX = Spawnpoint.x + (Game.StageTransferX - Spawnpoint.x);
+			PosX = Spawnpoint.x + (Game.StageTransferX - Spawnpoint.x);
+		}
+		else
+		{
+			PosX = Spawnpoint.x;
+		}
 		PosY = Spawnpoint.y;
 	}
 	else

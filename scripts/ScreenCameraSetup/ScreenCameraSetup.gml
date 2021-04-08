@@ -8,7 +8,7 @@ function ScreenCameraSetup()
 	Height = Game.ResolutionHeight;
 
 	// Set default position
-	if Game.StageTransition and Game.StageTransferX != 0 and Game.StageTransferY != 0
+	if Game.StageTransitions and Game.StageTransferX != 0 and Game.StageTransferY != 0
 	{
 		ViewX = floor(Player.PosX) - Game.StageTransferX;
 		ViewY = floor(Player.PosY) - Game.StageTransferY;

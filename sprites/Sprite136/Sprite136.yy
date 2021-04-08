@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Global",
-    "path": "folders/Objects/Global.yy",
+    "name": "Sprites",
+    "path": "folders/Objects/Global/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "Sprite136",

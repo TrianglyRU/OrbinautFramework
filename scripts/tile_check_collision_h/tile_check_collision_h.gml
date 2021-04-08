@@ -7,7 +7,7 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	// Return blank values if outside of the room
 	if startX < 0 or startY < 0 or startX > room_width or startY > room_height 
 	{
-		return_array[0] = 0;
+		return_array[0] = 16;
 		return_array[1] = 360;
 		return return_array;
 	}

@@ -49,7 +49,7 @@ function GameFrameworkSetup()
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
 	Game.SmoothRotation			 = true;	// Use smooth rotation
 	Game.RichPresenceSupport	 = true;	// Enable Rich Presence
-	Game.StageTransition		 = true;
+	Game.StageTransitions		 = true;
 		
 	// Default palette status
 	Game.FadeEnabled = true;

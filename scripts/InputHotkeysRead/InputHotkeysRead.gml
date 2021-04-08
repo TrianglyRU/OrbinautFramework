@@ -2,18 +2,15 @@ function InputHotkeysRead()
 {	
 	if room != DevMenu
 	{
-		// Debug view
-		if keyboard_check_pressed(vk_f1)
-		{
-			Screen.DebugViewEnabled = !Screen.DebugViewEnabled;
-		}
-		
 		// Stage restart
-		if keyboard_check_pressed(vk_f2) 
+		if keyboard_check_pressed(vk_f1) 
 		{
 			Game.SavedCheckpoint = 0;
 			Game.SavedPosition	 = 0;
-			audio_stop_all();
+			room_restart();
+		}
+		if keyboard_check_pressed(vk_f2)
+		{
 			room_restart();
 		}
 
@@ -22,55 +19,50 @@ function InputHotkeysRead()
 		{
 			game_restart();
 		}
-	
-		// Low FPS mode
-		if keyboard_check_pressed(vk_f4) 
+		
+		// Debug view
+		if keyboard_check_pressed(vk_f4)
 		{
-			game_set_speed(game_get_speed(gamespeed_fps) == 60 ? 1 : 60, gamespeed_fps);
+			Screen.DebugViewEnabled = !Screen.DebugViewEnabled;
 		}
-	
-		// Show hitboxes
 		if keyboard_check_pressed(vk_f5) 
+		{
+			Screen.DebugShowSolidboxes = !Screen.DebugShowSolidboxes;
+		}
+		if keyboard_check_pressed(vk_f6) 
 		{
 			Screen.DebugShowHitboxes = !Screen.DebugShowHitboxes;
 		}
-		
-		// Show collision
-		if keyboard_check_pressed(vk_f6) 
+		if keyboard_check_pressed(vk_f7) 
 		{
 			Screen.DebugShowCollision = !Screen.DebugShowCollision;
 		}
 		
-		if keyboard_check_pressed(vk_f7) 
+		// Low FPS mode
+		if keyboard_check_pressed(vk_f8) 
 		{
-			room_restart();
+			game_set_speed(game_get_speed(gamespeed_fps) == 60 ? 1 : 60, gamespeed_fps);
 		}
 	
 		// Player
-		if keyboard_check_pressed(ord("X")) 
+		if keyboard_check_pressed(ord("1")) 
 		{
-			Player.Inertia = 20 * Player.Facing;
+			Player.Inertia += 6 * Player.Facing;	
 		}
-		if keyboard_check_pressed(ord("C")) 
+		if keyboard_check_pressed(ord("2")) 
 		{
-			Player.Inertia += 10 * Player.Facing;
+			Player.Inertia = 16 * Player.Facing;
 		}
-		if keyboard_check_pressed(ord("G")) 
+		if keyboard_check_pressed(ord("3")) 
 		{
 			Player.HighSpeedBonus = 1500;
 		}
-		if keyboard_check_pressed(ord("H")) 
-		{
-			Player.Grounded = false;
-			Player.Ysp      = -16;
-		}
-		if keyboard_check_pressed(ord("I")) 
+		if keyboard_check_pressed(ord("4")) 
 		{
 			Player.isSuper = true;
 			Player.Rings   = 50;
 		}
 		
-	
 		// Ignore input mode
 		if keyboard_check_pressed(ord("L")) 
 		{

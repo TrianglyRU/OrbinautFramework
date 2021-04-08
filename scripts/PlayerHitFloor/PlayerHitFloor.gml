@@ -61,5 +61,10 @@ function PlayerHitFloor()
 			PosY	+= floorDistance;
 			Grounded = true;
 		}
+		
+		// Store values to display in debug
+		Screen.DebugValue[0] = tileDataLeft[0];
+		Screen.DebugValue[1] = tileDataRight[0];
+		Screen.DebugValue[4] = tileDataLeft[0] <= tileDataRight[0] ? "LEFT" : "RIGHT";
 	}
 }

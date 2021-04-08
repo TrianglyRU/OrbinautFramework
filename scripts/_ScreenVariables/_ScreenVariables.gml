@@ -21,8 +21,11 @@ function _ScreenVariables()
 	SpinOffset		   _init;
 	ExtendedOffset	   _init;
 	OverviewOffset	   _init;
-	DebugViewEnabled   _init;
-	DebugShowHitboxes  _init;
-	DebugShowCollision _init;
 	CameraEnabled      _init;
+	
+	DebugViewEnabled    _init;
+	DebugShowHitboxes   _init;
+	DebugShowSolidboxes _init;
+	DebugShowCollision  _init;
+	DebugValue			_init;
 }

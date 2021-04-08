@@ -1,7 +1,7 @@
 function StageActUpdate()
 {	
 	// Reset stage transition data
-	if State = ActStateLoading and Game.StageTransition
+	if State = ActStateDefault and Game.StageTransitions
 	{
 		Game.StageTransferX = 0;
 		Game.StageTransferY = 0;
@@ -45,7 +45,7 @@ function StageActUpdate()
 			TimeEnabled			 = false;
 			StateTimer			 = 0;
 			Game.SavedCheckpoint = 0;
-			Game.SavedPosition   = 0;
+			Game.SavedPosition   = 0;			
 		}
 		
 		// Count timer
@@ -56,12 +56,26 @@ function StageActUpdate()
 		}
 		
 		// Trigger results when correct time reached
-		else
+		else if Player.Grounded
 		{
+			// Stop player and disable input
+			Player.Xsp        = 0;
+			Player.Ysp        = 0;
+			Player.Inertia    = 0;	
+			Input.IgnoreInput = true;
+			Input.ResetInput  = true;
+
+			// Start results
 			StateTimer = -1;
 		}
 	}
 	
 	// Proceed time counter
 	if (TimeEnabled) Time++;
+	
+	// Proceed animation timer
+	if State != ActStateLoading and State != ActStatePlayerDeath and State != ActStateUnload
+	{
+		AnimationTime++;
+	}	
 }

@@ -148,9 +148,10 @@ function PlayerCollideFloor()
 		Angle = floorAngle;
 	}
 	
-	// Debug stuff
-	Game.Value[0] = 0;
-	Game.Value[1] = tileDataLeft[0];
-	Game.Value[2] = tileDataRight[0];
-	Game.Value[3] = tileDataLeft[0] <= tileDataRight[0] ? "LEFT" : "RIGHT";
+	// Store values to display in debug
+	Screen.DebugValue[0] = tileDataLeft[0];
+	Screen.DebugValue[1] = tileDataRight[0];
+	Screen.DebugValue[2] = tileDataLeft[1];
+	Screen.DebugValue[3] = tileDataRight[1];
+	Screen.DebugValue[4] = tileDataLeft[0] <= tileDataRight[0] ? "LEFT" : "RIGHT";
 }

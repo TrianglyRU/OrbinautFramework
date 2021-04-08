@@ -3,10 +3,13 @@ function ScreenTitleCardDisplay()
 	// Exit on CardTimer value of 224
 	if CardTimer == 224 exit;
 	
-	// Do not perfrom fade on acts different from 0 if we loaded from previous act
-	if CardTimer == 0 and Stage.ActID != 0 and Game.StageTransferX != 0
+	// Do not perfrom fade if we loaded from previous act
+	if CardTimer == 0
 	{
-		fade_perform(from, black, 5);
+		if Game.StageTransitions and Game.StageTransferX != 0
+		{
+			fade_perform(from, black, 5);
+		}
 	}
 	
 	// Start timer
@@ -22,7 +25,7 @@ function ScreenTitleCardDisplay()
 			Input.IgnoreInput    = false;
 			Stage.TimeEnabled    = true;
 			Stage.State          = ActStateDefault;
-			fade_perform(from, black, 1);
+			fade_perform(from, black, 0.5);
 		}
 		if CardTimer > 10 and InterfaceOffsetX < 0
 		{
@@ -64,11 +67,15 @@ function ScreenTitleCardDisplay()
 		// Fade in, restore input and enable stage timer
 		if CardTimer == 120
 		{
-			fade_perform(from, black, 1);
 			Input.IgnoreInput    = false;
 			Screen.CameraEnabled = true;
 			Stage.TimeEnabled    = true;
 			Stage.State          = ActStateDefault;
+			
+			if !Game.StageTransitions or (Game.StageTransitions and Game.StageTransferX == 0)
+			{	
+				fade_perform(from, black, 0.5);
+			}
 		}		
 	} 
 	
