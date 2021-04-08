@@ -101,7 +101,6 @@
     {"id":{"name":"object_do_damage","path":"scripts/object_do_damage/object_do_damage.yy",},"order":23,},
     {"id":{"name":"spr_knuckles_hurt","path":"sprites/spr_knuckles_hurt/spr_knuckles_hurt.yy",},"order":37,},
     {"id":{"name":"TestObject","path":"objects/TestObject/TestObject.yy",},"order":5,},
-    {"id":{"name":"PlayerObjectsInteraction","path":"scripts/PlayerObjectsInteraction/PlayerObjectsInteraction.yy",},"order":19,},
     {"id":{"name":"spr_knuckles_climbering","path":"sprites/spr_knuckles_climbering/spr_knuckles_climbering.yy",},"order":60,},
     {"id":{"name":"ProjectPurple","path":"sounds/ProjectPurple/ProjectPurple.yy",},"order":4,},
     {"id":{"name":"spr_hhz_fg17","path":"sprites/spr_hhz_fg17/spr_hhz_fg17.yy",},"order":22,},

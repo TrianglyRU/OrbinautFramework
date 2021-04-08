@@ -79,7 +79,7 @@
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
-			
+
 			// Check for being hurt
 			PlayerCheckHurt();
 		}
@@ -121,7 +121,7 @@
 			
 			// Check for dropdash as Sonic
 			PlayerCheckDropdash();
-			
+
 			// Check for being hurt
 			PlayerCheckHurt();
 			

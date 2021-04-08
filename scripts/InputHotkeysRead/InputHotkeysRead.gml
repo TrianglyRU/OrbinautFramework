@@ -21,21 +21,27 @@ function InputHotkeysRead()
 		}
 		
 		// Debug view
-		if keyboard_check_pressed(vk_f4)
+		if instance_exists(Stage)
 		{
-			Screen.DebugViewEnabled = !Screen.DebugViewEnabled;
-		}
-		if keyboard_check_pressed(vk_f5) 
-		{
-			Screen.DebugShowSolidboxes = !Screen.DebugShowSolidboxes;
-		}
-		if keyboard_check_pressed(vk_f6) 
-		{
-			Screen.DebugShowHitboxes = !Screen.DebugShowHitboxes;
-		}
-		if keyboard_check_pressed(vk_f7) 
-		{
-			Screen.DebugShowCollision = !Screen.DebugShowCollision;
+			if Stage.State != ActStateLoading
+			{
+				if keyboard_check_pressed(vk_f4)
+				{
+					Screen.DebugViewEnabled = !Screen.DebugViewEnabled;
+				}
+				if keyboard_check_pressed(vk_f5) 
+				{
+					Screen.DebugShowSolidboxes = !Screen.DebugShowSolidboxes;
+				}
+				if keyboard_check_pressed(vk_f6) 
+				{
+					Screen.DebugShowHitboxes = !Screen.DebugShowHitboxes;
+				}
+				if keyboard_check_pressed(vk_f7) 
+				{
+					Screen.DebugShowCollision = !Screen.DebugShowCollision;
+				}
+			}
 		}
 		
 		// Low FPS mode

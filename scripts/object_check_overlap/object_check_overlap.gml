@@ -1,5 +1,6 @@
 function object_check_overlap(collisionType)
 {
+	// Hitbox overlap
 	if collisionType == CollisionHitbox
 	{
 		// Check if this object radiuses were initialized
@@ -9,7 +10,7 @@ function object_check_overlap(collisionType)
 			game_end();
 			exit;
 		}
-	
+		
 		// Calculate this object radiuses
 		var objectTop    = y - objYRadiusHit;
 		var objectLeft   = x - objXRadiusHit;
@@ -31,6 +32,8 @@ function object_check_overlap(collisionType)
 		// If player overlaps object on both axis, they collided with it
 		return true;
 	}
+	
+	// Solidbox overlap
 	else if collisionType == CollisionSolidbox
 	{
 		// Check if this object radiuses were initialized
