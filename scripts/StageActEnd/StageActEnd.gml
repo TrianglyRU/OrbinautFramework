@@ -11,7 +11,7 @@ function StageActEnd()
 			Game.GlobalConts    = Player.Conts;
 				
 			// Get stage transition data
-			if Game.StageTransitions
+			if Game.StageTransitions and Stage.ActID != Stage.ZoneActAmount - 1
 			{
 				Game.StageTransferX = floor(Player.PosX) - Screen.RenderX;
 				Game.StageTransferY = floor(Player.PosY) - Screen.RenderY;

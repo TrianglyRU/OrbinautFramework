@@ -1,6 +1,5 @@
 // ================================= //
-	/* Screen Palette Shader
-			by MicG       */
+	 /* Palette Shader by MicG */
 // ================================= //
 
 	attribute vec3 in_Position;                  // (x,y,z)

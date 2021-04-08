@@ -1,6 +1,5 @@
 // ================================= //
-	/* Screen Palette Shader
-			by MicG       */
+	 /* Palette Shader by MicG */
 // ================================= //
 
 	varying vec2 v_vTexcoord;

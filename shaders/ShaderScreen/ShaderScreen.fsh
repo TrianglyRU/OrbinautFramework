@@ -7,13 +7,14 @@
 	varying vec4 v_vColour;
 	varying vec2 v_vPosition;
 
-	uniform sampler2D u_palTextureDry;
-	uniform sampler2D u_palTextureWet;
+	uniform sampler2D u_palTexture;
 	uniform vec4 u_Uvs;
 	uniform float u_palId[64];	// Max colours on the palette list. Increase if needed
 	uniform vec2 u_pixelSize;
 
 	uniform float u_water;
+	uniform vec3 u_waterCol;
+	
 	uniform float u_step;
 	uniform bool u_mode;
 	uniform int u_color;
@@ -59,11 +60,11 @@
 		////////////////////
 		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
 		DoAlphaTest(col);
-		col = findAltColor(col, u_Uvs.xy, u_palTextureDry);
 		if ((u_water != 0.) && (u_water >= 224. - v_vPosition.y))
 		{
-			col.rgb -= vec3(72. / 255., 72. / 255., 36. / 255.);
+			col.rgb += u_waterCol / 255.;
 		}
+		col = findAltColor(col, u_Uvs.xy, u_palTexture);
 		#endregion
 	
 		#region Fade
