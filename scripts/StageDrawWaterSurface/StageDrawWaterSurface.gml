@@ -10,7 +10,7 @@ function StageDrawWaterSurface()
 	waterPos     = sin(waterAngle) * 5;
 	waterPos2    = -cos(waterAngle) * 7;
 	
-	draw_sprite_ext(spr_water_tint, 0, Screen.RenderX, Stage.WaterLevel + floor(waterPos), Screen.RenderX + Screen.Width, Stage.BottomBoundary, false, c_white, 0.5);
+	//draw_sprite_ext(spr_water_tint, 0, Screen.RenderX, Stage.WaterLevel + floor(waterPos), Screen.RenderX + Screen.Width, Stage.BottomBoundary, false, c_white, 0.5);
 	if Stage.WaterLevel > Screen.RenderY - 16 and Stage.WaterLevel < Screen.RenderY + 224 + 16
 	{
 		for(var i = 0; i < ceil(Game.ResolutionWidth / 32) + 1; i++)

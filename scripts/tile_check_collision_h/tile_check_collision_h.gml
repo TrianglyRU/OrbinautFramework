@@ -25,12 +25,9 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	{
 		var Tile2 = +TileSize;
 	}
-	else if Width == TileSize 
+	else if Width == TileSize and tile_get_index(Tilemap) <= TileAmount
 	{
-		if tile_get_index(Tilemap) <= TileAmount
-		{
-			var Tile2 = -TileSize;
-		}
+		var Tile2 = -TileSize;
 	}
 	else
 	{
