@@ -5,7 +5,7 @@ function PlayerCheckSpindash()
 	{
 		Animation = AnimCrouch;
 		
-		if Game.SpindashEnabled == true and Input.ABCPress
+		if Game.SpindashEnabled and Input.ABCPress
 		{
 			image_index = 0;
 		
@@ -32,7 +32,7 @@ function PlayerCheckSpindash()
 	}
 	
 	// Release 
-	if SpindashRev >= 0 and Input.Down == false
+	if SpindashRev >= 0 and !Input.Down
 	{
 		MovementLock	   = false;
 		Inertia			   = (8 + floor(SpindashRev) / 2) * Facing;

@@ -1,7 +1,7 @@
 function PlayerHitRoof()
 {	
 	// Do not collide if we're not allowed to
-	if (Ysp < 0 or abs(Xsp) > abs(Ysp)) and AllowCollision == true
+	if (Ysp < 0 or abs(Xsp) > abs(Ysp)) and AllowCollision
 	{
 		// Get tiles
 		var tileDataLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
@@ -26,7 +26,7 @@ function PlayerHitRoof()
 			PosY -= roofDistance;
 			
 			// If moving upwards and not flying, check roof angle
-			if abs(Ysp) > abs(Xsp) and FlyingState == false
+			if abs(Ysp) > abs(Xsp) and !FlyingState
 			{	
 				// Land on the roof if it is steep enough
 				if roofAngle > 90 and roofAngle < 135 or roofAngle > 225 and roofAngle < 270

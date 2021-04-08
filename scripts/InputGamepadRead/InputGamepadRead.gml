@@ -1,6 +1,6 @@
 function InputGamepadRead() 
 {
-	if IgnoreInput == false and Type != "Keyboard" 
+	if !IgnoreInput and Type != "Keyboard" 
 	{
 		// Up
 		UpPress = gamepad_button_check_pressed(0, gp_padu) or gamepad_check_axis_pressed(0, "gp_axis_lup");

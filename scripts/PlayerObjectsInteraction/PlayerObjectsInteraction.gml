@@ -1,7 +1,7 @@
 function PlayerObjectsInteraction()
 {	
 	// Do not collide if we're not allowed to
-	if (AllowCollision == false) exit;
+	if (!AllowCollision) exit;
 	
 	// Get player's position
 	var PlayerX = floor(PosX);
@@ -95,7 +95,7 @@ function PlayerObjectsInteraction()
 							{
 								if Ysp > 0 and solidObj.bbox_top - OuterBottom > -16
 								{	
-									if Game.ImprovedObjCollision == true
+									if Game.ImprovedObjCollision
 									or Game.ImprovedObjCollision == false and (PlayerX > solidObj.bbox_left and PlayerX < solidObj.bbox_right)
 									{
 										Inertia  = Xsp;

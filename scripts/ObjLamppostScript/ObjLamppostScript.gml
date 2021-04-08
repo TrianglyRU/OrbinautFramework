@@ -23,17 +23,17 @@ function ObjLamppostScript()
 		// If not active, activate
 		if !Active 
 		{
-			if hitbox_collision(Player, self) 
+			if object_check_overlap(CollisionHitbox) 
 			{
 				// Set last used checkpoint ID to our ID
 				Game.SavedCheckpoint = id;
-				Game.SavedPosition = [x, y];
+				Game.SavedPosition   = [x, y];
 			
 				// Activate all inactive checkpoints with ID lower than ours
 				var tempValue = LamppostID;
 				with Lamppost if !Active and LamppostID <= tempValue 
 				{
-					Active      = 1;
+					Active      = true;
 					image_index = 1;
 				}
 			

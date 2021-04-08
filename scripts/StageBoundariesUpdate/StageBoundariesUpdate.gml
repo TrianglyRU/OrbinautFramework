@@ -41,27 +41,22 @@ function StageBoundariesUpdate()
 			{
 				if CameraX >= FinishX - Screen.Width * 1.5 + 64
 				{
-					LeftBoundary  = FinishX - Screen.Width * 1.5 + 64;
-					RightBoundary = FinishX + HalvedWidth;
+					LeftBoundary  = FinishX - Screen.Width * 1.5 + 64;		
+					if FinishX + HalvedWidth <= RightBoundary
+					{
+						RightBoundary = FinishX + HalvedWidth;
+					}
 				}
 			} 
+			break;
 		}
-		break;
 		
 		// Set stage boundaries on act finish
 		case ActStateFinished:
-		{
-			if CameraX != FinishX - HalvedWidth
-			{
-				LeftBoundary = CameraX;
-			}
-			else
-			{
-				LeftBoundary = FinishX - HalvedWidth;
-			}
-			RightBoundary = FinishX + HalvedWidth;
+		{		
+			LeftBoundary = FinishX - HalvedWidth;
+			break;
 		}
-		break;
 		
 		// Set stage boundaries during bossfight
 		case ActStateBossfight:

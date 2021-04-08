@@ -4,7 +4,7 @@ function PlayerSetup()
 	CharacterID	= Game.GlobalCharacter;
 	
 	// Default sprite setup
-	Facing	  = FacingRight;
+	Facing	  = DirRight;
 	Animation = AnimIdle;
 	DrawOrder = layer_get_depth("Objects")
 	
@@ -62,9 +62,11 @@ function PlayerSetup()
 	Conts    = Game.GlobalConts;
 	
 	// Set spawn properties
-	if Game.SavedPosition == false
+	if !Game.SavedPosition
 	{
-		PosX = Spawnpoint.x;
+		if Game.StageTransferX != 0
+		{
+		PosX = Spawnpoint.x + (Game.StageTransferX - Spawnpoint.x);
 		PosY = Spawnpoint.y;
 	}
 	else

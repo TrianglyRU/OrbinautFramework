@@ -4,12 +4,12 @@ function PlayerCheckGlide()
 	if CharacterID != CharKnuckles exit;
 	
 	// Check if we're airborne
-	if Grounded == false
+	if !Grounded
 	{	
 		// Start gliding
-		if GlidingState == false
+		if !GlidingState
 		{
-			if Jumping == true and Ysp > -4 and Input.ABCPress
+			if Jumping and Ysp > -4 and Input.ABCPress
 			{
 				// Set speeds
 				if (Ysp < 0) Ysp = 0;
@@ -20,7 +20,7 @@ function PlayerCheckGlide()
 				yRadius = 10;
 			
 				// Set gliding angle value
-				if Facing == FacingRight
+				if Facing == DirRight
 				{
 					GlidingValue = 0;
 				}
@@ -36,7 +36,7 @@ function PlayerCheckGlide()
 		}
 	
 		// Glide
-		else if GlidingState < 3 and Input.ABC == true
+		else if GlidingState < 3 and Input.ABC
 		{
 			// Set animation
 			Animation = AnimGlide;
@@ -101,7 +101,7 @@ function PlayerCheckGlide()
 			Animation = AnimGlideSlide;
 		
 			// Glide until we release the button or completely stop
-			if Input.ABC == false or Inertia == 0
+			if !Input.ABC or Inertia == 0
 			{	
 				GlidingValue = 20;
 				GlidingState = 4;		

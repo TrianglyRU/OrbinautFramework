@@ -4,9 +4,9 @@ function PlayerCheckFly()
 	if CharacterID != CharTails exit;
 	
 	// Enter flying state
-	if FlyingState == false
+	if !FlyingState
 	{	
-		if Jumping == true and Ysp > -4 and Input.ABCPress
+		if Jumping and Ysp > -4 and Input.ABCPress
 		{
 			Grv			= 0.03125;
 			FlyingState = 1;
@@ -37,7 +37,7 @@ function PlayerCheckFly()
 			Animation = AnimFly;
 			
 			// Cancel
-			if Game.FlyingCancel == true and Input.Down and Input.ABCPress
+			if Game.FlyingCancel and Input.Down and Input.ABCPress
 			{
 				// Decrease radiuses
 				xRadius = xRadiusRoll;

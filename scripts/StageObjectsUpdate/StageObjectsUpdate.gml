@@ -9,7 +9,7 @@ function StageObjectsUpdate()
 	}
 	
 	// Stop all objects on player death
-	if State = ActStatePlayerDeath
+	if State == ActStatePlayerDeath
 	{	
 		with Objects if instance_exists(self)
 		{	

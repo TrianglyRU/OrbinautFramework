@@ -16,8 +16,8 @@ function PlayerCheckJump()
 		// Exit the code if we're trying to perform spindash or peelout
 		if Inertia == 0
 		{
-			if Game.SpindashEnabled == true and Input.Down
-			or Game.PeeloutEnabled  == true and CharacterID = CharSonic and Input.Up
+			if Game.SpindashEnabled and Input.Down
+			or Game.PeeloutEnabled  and CharacterID == CharSonic and Input.Up
 			{
 				exit;
 			}
@@ -29,12 +29,13 @@ function PlayerCheckJump()
 		Jumping  = true;	
 		Grounded = false;
 		OnObject = false;
+		Skidding = false;
 		
 		// Update radiuses
 		yRadius = yRadiusRoll;
 		xRadius	= xRadiusRoll;
 		
-		if Game.RolljumpControl == true
+		if Game.RolljumpControl
 		{
 			Rolling = false;
 		}

@@ -1,7 +1,7 @@
 function DiscordInformationSet()
 {
 	// Do not perform if RP is disabled in the framework
-	if (Game.RichPresenceSupport == false) exit;
+	if (!Game.RichPresenceSupport) exit;
 	
 	// Set application icon using its ID
 	discord_set_large_image("orbinaut", "");

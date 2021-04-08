@@ -9,10 +9,11 @@ function StageActSetup()
 			CardName				= "MOONLIGHT BASE";	
 			ZoneID					= 0;
 			ActID					= 0;
+			ZoneActAmount		    = 2;
 			CardEnabled				= true;
 			TimeEnabled				= false;
 			Time					= 0;
-			WaterLevel				= 400;
+			WaterLevel				= 600;
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= room_width;
@@ -31,11 +32,12 @@ function StageActSetup()
 		{
 			CardName				= "MOONLIGHT BASE";										
 			ZoneID					= 0;							
-			ActID					= 1;							
+			ActID					= 1;	
+			ZoneActAmount		    = 2;
 			CardEnabled				= true;							
 			TimeEnabled				= false;						
 			Time					= 0;							
-			WaterLevel				= 0;							
+			WaterLevel				= 600;							
 			LeftBoundary			= 0;							
 			TopBoundary				= 0;							
 			RightBoundary			= room_width;					
@@ -54,7 +56,8 @@ function StageActSetup()
 		{
 			CardName				= "HORIZON HEIGHTS";											
 			ZoneID					= 1;							
-			ActID					= 0;							
+			ActID					= 0;
+			ZoneActAmount		    = 1;
 			CardEnabled				= true;							
 			TimeEnabled				= false;						
 			Time					= 0;							

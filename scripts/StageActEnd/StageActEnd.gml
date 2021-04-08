@@ -1,6 +1,6 @@
 function StageActEnd()
 {
-	if State = ActStateUnload
+	if State == ActStateUnload
 	{	
 		// Start state timer
 		StateTimer++;
@@ -15,25 +15,34 @@ function StageActEnd()
 				Game.GlobalEmeralds = Player.Emeralds;
 				Game.GlobalConts    = Player.Conts;
 				
+				// Get stage transition data
+				if Game.StageTransition
+				{
+					Game.StageTransferX = floor(Player.PosX) - Screen.RenderX;
+					Game.StageTransferY = floor(Player.PosY) - Screen.RenderY;
+				}
+				
 				// Save game progress at the end of the zone
-				if Stage.ActID = 1
+				if Stage.ActID == Stage.ZoneActAmount - 1
 				{
 					gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID + 1, 0, Game.GlobalLives, 0, Game.GlobalScore);
 				}	
+				break;
 			}
-			break;
-			
+
 			// Fade out the screen
 			case 60:
 			{
-				fade_perform(to, black, 1);
+				if Stage.ActID == Stage.ZoneActAmount - 1
+				{
+					fade_perform(to, black, 1);
+				}
+				break;
 			}
-			break;
-			
 			case 90:
 			{
 				// Move to the next act or zone
-				if ActID = 0
+				if ActID == 0
 				{
 					switch ZoneID
 					{
@@ -41,19 +50,19 @@ function StageActEnd()
 						case 1: room_goto(DevMenu); break;
 					}
 				}
-				if ActID = 1
+				if ActID == 1
 				{
 					switch ZoneID
 					{
 						case 0: room_goto(HHZ); break;
 					}
 				}
-				if ActID = 2
+				if ActID == 2
 				{
 					// Add if needed
 				}
+				break;
 			}
-			break;
 		}
 	}
 }

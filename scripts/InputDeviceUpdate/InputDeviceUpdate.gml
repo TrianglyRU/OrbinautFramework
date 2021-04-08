@@ -9,8 +9,8 @@ function InputDeviceUpdate()
 			{
 				Type = "Gamepad";
 			}
+			break;
 		}
-		break;
 		
 		// Switch from gamepad to keyboard
 		case "Gamepad":
@@ -19,12 +19,14 @@ function InputDeviceUpdate()
 			{
 				Type = "Keyboard";
 			}
+			break;	
 		}
-		break;	
 		
 		// Use keyboard by default
 		default:
+		{
 			Type = "Keyboard";
-		break;
+			break;
+		}
 	}	
 }

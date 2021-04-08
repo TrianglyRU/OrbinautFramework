@@ -23,19 +23,17 @@ function MenuDisplay()
 		case Main:
 		{	
 			draw_set_halign(fa_center);
-			
 			string_display(X, Y - 15, "STAGE SELECT",1);
 			string_display(X, Y,	  "START GAME", 1);
 			string_display(X, Y + 15, "OPTIONS", 1);
 			string_display(X, Y + 30, "CLOSE GAME", 1);
+			break;
 		}
-		break;
 		
 		// Display menu 1 (Start Game)
 		case DataSelect:
 		{	
-			draw_set_halign(fa_center);
-			
+			draw_set_halign(fa_center);	
 			string_display(X, Y - 15, "NO SAVE", 1);
 			for (var i = 0; i < 4; i++)
 			{	
@@ -66,39 +64,36 @@ function MenuDisplay()
 				}
 			}
 			string_display(X, Y + 60, "DELETE SAVE", 1);
-			string_display(X, Y + 75, "BACK", 1);			
+			string_display(X, Y + 75, "BACK", 1);	
+			break;
 		}
-		break;
 		
 		// Display character select menu
 		case CharacterSelect:
 		{
 			draw_set_halign(fa_center);
-			
 			string_display(X, Y - 15, "SONIC", 1);
 			string_display(X, Y,	  "TAILS", 1);
 			string_display(X, Y + 15, "KNUCKLES", 1);
 			string_display(X, Y + 30, "BACK", 1);
+			break;
 		}
-		break;
 		
 		// Display menu 2 (options)
 		case Options:
 		{	
-			draw_set_halign(fa_center);
-			
+			draw_set_halign(fa_center);	
 			string_display(X, Y - 15, "GAMEPLAY", 1);
 			string_display(X, Y,	  "VIDEO AND AUDIO", 1);
 			string_display(X, Y + 15, "INPUT", 1);
 			string_display(X, Y + 30, "BACK", 1);
+			break;
 		}
-		break;
-		
+			
 		// Display menu 3 (framework options)
 		case FrameworkConfig:
 		{
 			draw_set_halign(fa_left);
-			
 			if MenuOption <= 6
 			{
 				string_display(X - 80, Y - 15, "SPINDASH",		   1);
@@ -108,7 +103,6 @@ function MenuDisplay()
 				string_display(X - 80, Y + 45, "AIR SPEEDCAP",     1);
 				string_display(X - 80, Y + 60, "ROLLJUMP CONTROL", 1);
 				string_display(X - 80, Y + 75, "UNROLL MOVE",	   1);
-				
 				string_display(X + 65, Y - 15, Game.SpindashEnabled ? "ON" : "OFF", 1);
 				string_display(X + 65, Y,	   Game.DropdashEnabled ? "ON" : "OFF", 1);
 				string_display(X + 65, Y + 15, Game.PeeloutEnabled  ? "ON" : "OFF", 1);
@@ -123,33 +117,30 @@ function MenuDisplay()
 				string_display(X - 80, Y,      "OG ROLL LIMIT",    1);
 				string_display(X - 80, Y + 15, "FLYING CANCEL",    1);
 				string_display(X - 80, Y + 30, "BACK",			   1);
-				
 				string_display(X + 65, Y - 15, Game.ExtendedCamera    ? "ON" : "OFF", 1);
 				string_display(X + 65, Y,	   Game.OriginalRollLimit ? "ON" : "OFF", 1);
 				string_display(X + 65, Y + 15, Game.FlyingCancel      ? "ON" : "OFF", 1);
 			}	
+			break;
 		}
-		break;
-		
+
 		// Display menu 4 (video and audio options)
 		case AudioVideoConfig:
 		{
 			draw_set_halign(fa_left);
-			
 			string_display(X - 80, Y - 15, "ASPECT RATIO", 1);
 			string_display(X - 80, Y,      "WINDOW SIZE", 1);
 			string_display(X - 80, Y + 15, "FULLSCREEN", 1);
 			string_display(X - 80, Y + 30, "MUSIC VOLUME", 1);
 			string_display(X - 80, Y + 45, "SOUND VOLUME", 1);
 			string_display(X - 80, Y + 60, "BACK", 1);
-			
 			string_display(X + 50, Y - 15, Game.ResolutionWidth == 398 ? "16:9" : "21:9", 1);
 			string_display(X + 50, Y,	   string(Game.WindowSize) + "X", 1);
 			string_display(X + 50, Y + 15, Game.WindowFullscreen ? "ON" : "OFF", 1);
 			string_display(X + 50, Y + 30, string(round(Game.MusicVolume * 100)), 1);
 			string_display(X + 50, Y + 45, string(round(Game.SoundVolume * 100)), 1);
+			break;
 		}
-		break;
 		
 		// Display menu 5 (input options)
 		case InputConfig:
@@ -165,25 +156,23 @@ function MenuDisplay()
 			string_display(X - 16, Y + 60, "MODE:", 1);
 			string_display(X - 16, Y + 75, "START:", 1);
 			string_display(X + 16, Y + 90, "BACK", 1);
-			
 			draw_set_halign(fa_left);
 			for (var i = 0; i < 9; i++) 
 			{
 				string_display(X, Y - 45 + 15 * i, i == MenuOption and ControlEditMode ? ": :" : string(Game.KeyboardControl[i]) + ":" + menu_input_get_keyname(Game.KeyboardControl[i]), 1);
 			}
+			break;
 		}
-		break;
 		
 		// Display menu 6 (stage select)
 		case StageSelect:
 		{
 			draw_set_halign(fa_left);
-			
 			string_display(X - 80, Y - 15, "MOONLIGHT BASE 1", 1);
 			string_display(X - 80, Y,	   "MOONLIGHT BASE 2", 1);
 			string_display(X - 80, Y + 15, "HORIZON HEIGHTS", 1);
 			string_display(X - 80, Y + 30, "BACK", 1);
+			break;
 		}
-		break;
 	}
 }

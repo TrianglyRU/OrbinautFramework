@@ -4,32 +4,32 @@ function PlayerCheckDropdash()
 	if CharacterID != CharSonic exit;
 	
 	// Check if dropdash is enabled
-	if Game.DropdashEnabled == false exit;
+	if !Game.DropdashEnabled exit;
 	
 	// Check if we're jumping
-	if Jumping == false exit;
+	if !Jumping exit;
 	
 	// Check if we're moving forwards or backwards
 	if Xsp >= 0
 	{
-		if Facing == FacingLeft and Input.Left
+		if Facing == DirLeft and Input.Left
 		{
-			DropdashDirection = FacingLeft;
+			DropdashDirection = DirLeft;
 		}
 		else
 		{
-			DropdashDirection = FacingRight;
+			DropdashDirection = DirRight;
 		}
 	}
 	else
 	{
-		if Facing == FacingRight and Input.Right
+		if Facing == DirRight and Input.Right
 		{
-			DropdashDirection = FacingLeft;
+			DropdashDirection = DirLeft;
 		}
 		else
 		{
-			DropdashDirection = FacingRight;
+			DropdashDirection = DirRight;
 		}
 	}
 	

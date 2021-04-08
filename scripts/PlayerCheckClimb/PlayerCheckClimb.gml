@@ -4,7 +4,7 @@ function PlayerCheckClimb()
 	if CharacterID != CharKnuckles exit;
 	
 	// Perform attaching to the wall
-	if ClimbingState == false
+	if !ClimbingState
 	{
 		// Check if we're allowed to attach
 		if GlidingState == 1 or GlidingState == 2
@@ -50,8 +50,8 @@ function PlayerCheckClimb()
 			}
 		
 			// Check if we do not find the wall anymore in front of us
-			if Facing == FacingRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY + yRadius + 1), true,  true, Layer)[0] > 0
-			or Facing == FacingLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY + yRadius + 1), false, true, Layer)[0] > 0 
+			if Facing == DirRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY + yRadius + 1), true,  true, Layer)[0] > 0
+			or Facing == DirLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY + yRadius + 1), false, true, Layer)[0] > 0 
 			{
 				// Leave climbing state
 				Ysp			  = 0;
@@ -60,6 +60,10 @@ function PlayerCheckClimb()
 			
 				// Set animation
 				Animation = AnimGlideDrop;
+				
+				// Return normal radiuses
+				xRadius = xRadiusDefault;
+				yRadius = yRadiusDefault;
 			}
 			
 			// Check if we found ground below us
@@ -70,17 +74,18 @@ function PlayerCheckClimb()
 				Grv			  = 0.21875;
 				ClimbingState = false;
 				Grounded      = true;
-				
-				yRadius       = yRadiusDefault;
-				xRadius		  = xRadiusDefault;
-			
+
 				// Set animation
 				Animation = AnimIdle;
+				
+				// Return normal radiuses
+				xRadius = xRadiusDefault;
+				yRadius = yRadiusDefault;	
 			}
 			
 			// Check if we're near the top edge to climb on it
-			else if Facing == FacingRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY - yRadius - 1), true,  true, Layer)[0] > 0
-			or	    Facing == FacingLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY - yRadius - 1), false, true, Layer)[0] > 0
+			else if Facing == DirRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY - yRadius - 1), true,  true, Layer)[0] > 0
+			or	    Facing == DirLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY - yRadius - 1), false, true, Layer)[0] > 0
 			{
 				// Go to climbering state
 				Ysp			   = 0;
@@ -99,9 +104,9 @@ function PlayerCheckClimb()
 				Jumping		  = true;
 			
 				// Set speeds
-				Grv =  0.21875;
+				Grv = 0.21875;
 				Ysp	= -4;
-				Xsp	=  4 * -Facing;
+				Xsp	= -4 * Facing;
 			
 				// Set animation
 				Animation = AnimRoll;
@@ -112,7 +117,7 @@ function PlayerCheckClimb()
 		}
 		
 		// Climbering on the edge
-		if ClimbingState == 2
+		else if ClimbingState == 2
 		{
 			// Set animation
 			Animation = AnimClimbering;
@@ -123,8 +128,8 @@ function PlayerCheckClimb()
 			// First frame: adjust our position to be at edge of the tile
 			if ClimbingValue < 7
 			{
-				while Facing == FacingRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY - yRadius), true, true, Layer)[0]  > 0
-				or    Facing == FacingLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer)[0] > 0
+				while Facing == DirRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY - yRadius), true, true, Layer)[0]  > 0
+				or    Facing == DirLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer)[0] > 0
 				{
 					PosY += 1;
 				}
@@ -157,6 +162,7 @@ function PlayerCheckClimb()
 				AllowCollision = true;
 				Grounded	   = true;
 				PosX		  += 8 * Facing;
+				PosY		  += yRadiusDefault - yRadius;
 			}
 		}
 	}

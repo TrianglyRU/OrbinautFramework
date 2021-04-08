@@ -1,7 +1,7 @@
 function PlayerHitFloor()
 {	
 	// Do not collide if we're not allowed to
-	if (Ysp > 0 or abs(Xsp) > abs(Ysp)) and AllowCollision == true
+	if (Ysp > 0 or abs(Xsp) > abs(Ysp)) and AllowCollision
 	{	
 		// Get tiles
 		var tileDataLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);

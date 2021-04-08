@@ -10,6 +10,15 @@ function gamedata_load(slot)
 		// Open the file
 		var file = file_bin_open(filename, 0);
 		
+		/* NOTE: it reads the data in next order (as saved):
+		0 - Character;
+		1 - Zone;
+		2 - Emeralds;
+		3 - Lives;
+		4 - Continues;
+		5 - Score;
+		*/
+		
 		// Read the data
 		var data	
 		for(var i = 0; i < 5; i++)
@@ -22,16 +31,7 @@ function gamedata_load(slot)
 		{
 			data[5] += file_bin_read_byte(file) * power(100, i);
 		}
-		
-		/* NOTE: it loads the data in next order (as saved):
-		0 - Character;
-		1 - Zone;
-		2 - Emeralds;
-		3 - Lives;
-		4 - Continues;
-		5 - Score;
-		*/
-		
+	
 		// Close the file and return loaded data
 		file_bin_close(file);
 		return data;

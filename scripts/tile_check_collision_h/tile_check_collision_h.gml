@@ -46,7 +46,7 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		{
 			Tilemap = Second;
 			Index   = tile_get_index(Tilemap) mod TileAmount;
-			Width  = tile_get_width(startX, startY, Tilemap, Index);
+			Width   = tile_get_width(startX, startY, Tilemap, Index);
 		}
 		else Tile2 = 0;
 	}
@@ -62,7 +62,7 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 
 	// Get angle
-	if (Index = 0 or Index = 1) 
+	if (Index == 0 or Index == 1) 
 	{
 		return_array[1] = toPositive ? 90 : 270;
 	}

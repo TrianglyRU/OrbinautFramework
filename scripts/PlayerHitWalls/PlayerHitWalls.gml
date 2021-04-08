@@ -1,12 +1,12 @@
 function PlayerHitWalls()
 {	
 	// Do not collide if we're not allowed to
-	if (AllowCollision == false) exit;
+	if (!AllowCollision) exit;
 	
 	// Left wall collision
-	if Grounded == true
+	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision == true and Angle mod 90 == 0) and Inertia < 0
+		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
 			switch AngleRange
@@ -20,7 +20,7 @@ function PlayerHitWalls()
 						Inertia = 0;
 						
 						// Set flag
-						Pushing = FacingLeft;
+						Pushing = DirLeft;
 					}
 				}
 				break;
@@ -60,7 +60,7 @@ function PlayerHitWalls()
 			}
 		}
 	}
-	else if (Xsp > abs(Ysp)) == false
+	else if !(Xsp > abs(Ysp))
 	{
 		// Collide airborne at the current frame
 		var tileData = tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer);
@@ -72,9 +72,9 @@ function PlayerHitWalls()
 	}
 	
 	// Right wall collision
-	if Grounded == true
+	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision == true and Angle mod 90 == 0) and Inertia > 0
+		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia > 0
 		{
 			// Collide with walls based on current angle range, frame ahead
 			switch AngleRange
@@ -88,7 +88,7 @@ function PlayerHitWalls()
 						Inertia = 0;
 						
 						// Set flag
-						Pushing = FacingRight;
+						Pushing = DirRight;
 					}
 				}
 				break;
@@ -128,7 +128,7 @@ function PlayerHitWalls()
 			}
 		}
 	}
-	else if (-Xsp > abs(Ysp)) == false
+	else if !(-Xsp > abs(Ysp))
 	{	
 		// Collide airborne at the current frame
 		var tileData = tile_check_collision_h(floor(PosX + 10), floor(PosY), true, true, Layer);	

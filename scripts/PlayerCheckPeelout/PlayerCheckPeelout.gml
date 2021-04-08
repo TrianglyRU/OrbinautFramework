@@ -4,7 +4,7 @@ function PlayerCheckPeelout()
 	{
 		Animation = AnimLookup;
 		
-		if CharacterID == CharSonic and Game.PeeloutEnabled == true
+		if CharacterID == CharSonic and Game.PeeloutEnabled
 		{
 			// Start peelout
 			if Input.APress and PeeloutRev == -2

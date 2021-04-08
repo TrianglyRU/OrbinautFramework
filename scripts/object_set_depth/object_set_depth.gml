@@ -5,7 +5,7 @@ function object_set_depth(relObject, renderAbove)
 	like Tails' tails or shields, so we should have some space for them */
 	
 	// Apply depth relative to the player
-	if relObject = Player
+	if relObject == Player
 	{
 		depth = Player.DrawOrder - (renderAbove ? 5 : -5);
 	}

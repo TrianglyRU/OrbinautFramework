@@ -9,6 +9,7 @@ function ObjCapsuleScript()
 	}
 	else
 	{
+		// Do collision
 		object_do_collision(SolidAll, false);
 		
 		switch State 
@@ -17,17 +18,20 @@ function ObjCapsuleScript()
 			{
 				if PartButton.Pressed
 				{
-					Timer = 60;
-					State = 1;
+					Timer     = 60;
+					State     = 1;
 					ExplDelay = irandom(32);
 				}
-			}
-			break;
+				break;
+			}		
 			case 1: 
 			{
 				if Timer
 				{
-					if (ExplDelay) ExplDelay--;
+					if ExplDelay
+					{
+						ExplDelay--;
+					}
 					else
 					{
 						ExplDelay = irandom(32);
@@ -46,11 +50,11 @@ function ObjCapsuleScript()
 				{
 					object_do_collision(SolidNone, false);
 					image_index = 1;
-					State = 2;
-					Timer = 180;
+					State       = 2;
+					Timer       = 180;
 				}
+				break;
 			}
-			break;
 			case 2:
 			{
 				object_do_collision(SolidNone, false);
@@ -58,17 +62,17 @@ function ObjCapsuleScript()
 				{ 
 					instance_destroy(PartButton);
 					Timer--;
-					if Timer mod 8 = 0 
+					if Timer mod 8 == 0 
 					{
 						with instance_create_depth(x - 27 + irandom(7) * 7, y + 8, depth, Animal) 
 						{
 							FromCapsule = true;
-							Delay = 12;
+							Delay       = 12;
 						}
 					}
 				}
+				break;
 			}
-			break;
 		}
 	}
 }

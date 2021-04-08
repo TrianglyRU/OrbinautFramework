@@ -8,7 +8,7 @@ function PlayerApplyGravity()
 	{
 		Angle -= 2.8125;
 	}
-	if Angle >= 180 
+	else if Angle >= 180 
 	{
 		Angle += 2.8125;
 	}

@@ -2,7 +2,7 @@
 function object_do_collision(objectType, collisionMap)
 {
 	// Check if this object radiuses were initialized
-	if variable_instance_exists(id, "objXRadiusSolid") == false
+	if !variable_instance_exists(id, "objXRadiusSolid")
 	{
 		show_message("Object ID " + string(id) + " does not have any solidbox radiuses to check for collision with player! Please, call 'object_set_solidbox' function in Create event");
 		game_end();
@@ -127,7 +127,7 @@ function object_do_collision(objectType, collisionMap)
 				if floor(Player.PosY) > y
 				{	
 					// If player is grounded, kill him
-					if Player.Grounded == true
+					if Player.Grounded
 					{
 						Player.Rings = 0;
 						Player.Hurt  = id;
@@ -163,7 +163,7 @@ function object_do_collision(objectType, collisionMap)
 					}
 
 					// If player is airborne, let him land on this object	
-					if Player.Grounded == false
+					if !Player.Grounded
 					{
 						Player.Grounded = true;
 						with Player PlayerResetOnFloor();	// force call player's script
@@ -240,7 +240,7 @@ function object_do_collision(objectType, collisionMap)
 			}
 			
 			// If player is airborne, let him land on this object	
-			if Player.Grounded == false
+			if !Player.Grounded
 			{
 				Player.Grounded = true;
 				with Player PlayerResetOnFloor();	// force call player's script

@@ -1,10 +1,10 @@
 function ScreenResultsDisplay()
 {
 	// Display only when act is finished and one second passed or act unloads
-	if Stage.State = ActStateFinished and Stage.StateTimer = -1
-	or Stage.State = ActStateUnload
+	if Stage.State == ActStateFinished and Stage.StateTimer == -1
+	or Stage.State == ActStateUnload
 	{		
-		if !ResultValue[0]
+		/*if !ResultValue[0]
 		{
 			RingBonus = Player.Rings * 100;
 
@@ -81,10 +81,11 @@ function ScreenResultsDisplay()
 		draw_text(CenterPos + 80 + ResultValue[6], drawY + 152, RingBonus);
 		
 		// Unload the act
-		if TimeBonus = 0 and RingBonus = 0 and Stage.State != ActStateUnload
+		if TimeBonus == 0 and RingBonus == 0 and Stage.State != ActStateUnload
 		{
 			Stage.StateTimer = 0;
 			Stage.State		 = ActStateUnload;
-		}
+		}*/
+		Stage.State = ActStateUnload;
 	}
 }

@@ -41,8 +41,8 @@ function GameMacroSetup()
 	#macro CharTails	       1
 	#macro CharKnuckles	       2
 	
-	#macro FacingLeft	      -1
-	#macro FacingRight	       1
+	#macro DirLeft	      -1
+	#macro DirRight	       1
 	
 	#macro LayerA		       0
 	#macro LayerB		       1

@@ -1,6 +1,6 @@
 function InputKeyboardRead() 
 {
-	if IgnoreInput == false and Type != "Gamepad"
+	if !IgnoreInput and Type != "Gamepad"
 	{	
 		// Get keyboard mappings
 		var Control = Game.KeyboardControl;

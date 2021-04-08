@@ -18,4 +18,5 @@ function _StageVariables()
 	StageMusicDAC   _init;
 	LoopStart       _init;
 	LoopEnd			_init;
+	isConnected	    _init;
 }

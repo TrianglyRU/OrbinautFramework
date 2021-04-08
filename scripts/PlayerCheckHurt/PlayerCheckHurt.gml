@@ -1,17 +1,17 @@
 function PlayerCheckHurt()
 {
 	// Check if our hurt flag equals to object ID we got harmed by
-	if (Hurt > 1 and Death == false) or Stage.Time == 36000
+	if (Hurt > 1 and !Death) or Stage.Time == 36000
 	{	
 		// Set flags
-		Grounded	   = false;
-		Rolling		   = false;
-		Jumping		   = false;
-		FlyingState	   = false;
-		GlidingState   = false;
-		ClimbingState  = false;
+		Grounded	  = false;
+		Rolling		  = false;
+		Jumping		  = false;
+		FlyingState	  = false;
+		GlidingState  =  false;
+		ClimbingState = false;
 			
-		if (Rings == 0 and ShieldType == false) or Stage.Time == 36000
+		if (Rings == 0 and !ShieldType) or Stage.Time == 36000
 		{
 			// Set animation
 			Animation = AnimDeath;
@@ -34,7 +34,7 @@ function PlayerCheckHurt()
 			Animation = AnimHurt;
 			
 			// Lose rings
-			if ShieldType == false
+			if !ShieldType
 			{
 				Rings = 0;
 			}

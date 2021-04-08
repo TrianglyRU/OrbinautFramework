@@ -1,7 +1,7 @@
 function PlayerMove()
 {	
 	// Accelerate and decelerate
-	if MovementLock == false
+	if !MovementLock
 	{
 		if Input.Left
 		{	
@@ -15,12 +15,12 @@ function PlayerMove()
 			// If moving left and left key is pressed, accelerate
 			else
 			{
-				if (Game.GroundSpeedcap == false and Inertia > -TopAcc) or Game.GroundSpeedcap == true
+				if (!Game.GroundSpeedcap and Inertia > -TopAcc) or Game.GroundSpeedcap
 				{
 					Inertia -= Acc;					
 					if (Inertia <= -TopAcc) Inertia = -TopAcc;		
 				} 
-				Facing = FacingLeft;
+				Facing = DirLeft;
 			}
 		}
 		if Input.Right
@@ -35,18 +35,18 @@ function PlayerMove()
 			// If moving right and right key is pressed, accelerate
 			else
 			{
-				if (Game.GroundSpeedcap == false and Inertia < TopAcc) or Game.GroundSpeedcap == true
+				if (!Game.GroundSpeedcap and Inertia < TopAcc) or Game.GroundSpeedcap
 				{
 					Inertia += Acc;
 					if (Inertia >= TopAcc) Inertia = TopAcc;
 				} 
-				Facing = FacingRight;
+				Facing = DirRight;
 			}
 		}
 	}
 	
 	// Apply friction
-	if (Input.Left == false and Input.Right == false and Inertia != 0) or MovementLock != false
+	if (!Input.Left and !Input.Right and Inertia != 0) or MovementLock != false
 	{
 		if Inertia > 0
 		{
@@ -61,15 +61,15 @@ function PlayerMove()
 	}
 	
 	// Check for skidding
-	if Skidding == false and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor
+	if !Skidding and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor
 	{
 		if Inertia > 0 and Input.LeftPress
 		{
-			Skidding = FacingRight;
+			Skidding = DirRight;
 		}
 		if Inertia < 0 and Input.RightPress
 		{
-			Skidding = FacingLeft;
+			Skidding = DirLeft;
 		}
 	}
 	else
@@ -81,8 +81,8 @@ function PlayerMove()
 	}
 	
 	/// Check for stop pushing
-	if Pushing == FacingRight and !Input.Right
-	or Pushing == FacingLeft  and !Input.Left
+	if Pushing == DirRight and !Input.Right
+	or Pushing == DirLeft  and !Input.Left
 	{
 		Pushing = false;
 	}
@@ -92,7 +92,7 @@ function PlayerMove()
 	{
 		Animation = AnimIdle;
 	}
-	else if Skidding == false
+	else if !Skidding
 	{
 		if abs(Inertia) < 6
 		{
@@ -114,7 +114,7 @@ function PlayerMove()
 	{
 		Animation = AnimSkid;
 	}
-	if Pushing == true
+	if Pushing != false
 	{
 		Animation = AnimPush;
 	}

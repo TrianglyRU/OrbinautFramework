@@ -6,7 +6,7 @@ function PlayerCheckRoll()
 	// Start rolling if we're moving fast enough and are not gliding
 	if Input.Down
 	{
-		if abs(Xsp) >= 0.5 and GlidingState == false
+		if abs(Xsp) >= 0.5 and !GlidingState
 		{
 			// Update radiuses
 			yRadius = yRadiusRoll;

@@ -62,7 +62,7 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 	
 	// Get angle
-	if (Index = 0 or Index = 1) 
+	if (Index == 0 or Index == 1) 
 	{
 		return_array[1] = toPositive ? 360 : 180;
 	}

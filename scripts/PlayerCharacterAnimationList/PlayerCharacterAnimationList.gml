@@ -8,44 +8,68 @@ function PlayerCharacterAnimationList()
 			switch Animation
 			{
 				case AnimIdle: 
+				{
 					animation_play(spr_sonic_idle, 32, 1); 
-				break;
-				case AnimWalk: 
+					break;
+				}
+				case AnimWalk:
+				{
 					animation_play(spr_sonic_walk, round(max(1, 8 - abs(Inertia))), 1);
-				break;
+					break;
+				}
 				case AnimRun: 
+				{
 					animation_play(spr_sonic_run, round(max(1, 8 - abs(Inertia))), 1);
-				break;
+					break;
+				}
 				case AnimPeelout: 
+				{
 					animation_play(spr_sonic_peelout, 1, 1);
-				break;
+					break;
+				}
 				case AnimRoll:
+				{
 					animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
-				break;
+					break;
+				}
 				case AnimSpindash:
+				{
 					animation_play(spr_sonic_spindash, 1, 1); 
-				break;
+					break;
+				}	
 				case AnimCrouch:
+				{
 					animation_play(spr_sonic_crouch, 4, 2);
-				break;
+					break;
+				}
 				case AnimLookup:
+				{
 					animation_play(spr_sonic_lookup, 4, 2);
-				break;
+					break;
+				}
 				case AnimSkid:
+				{
 					animation_play(spr_sonic_skid, 6, 3);
-				break;
+					break;
+				}
 				case AnimPush:
+				{
 					animation_play(spr_sonic_push, 32, 1);
-				break;
+					break;
+				}
 				case AnimHurt:
+				{
 					animation_play(spr_sonic_hurt, 1, 1);
-				break;
+					break;
+				}
 				case AnimDeath:
+				{
 					animation_play(spr_sonic_death, 1, 1);
-				break;		
+					break;	
+				}
 			}
+			break;
 		}
-		break;
 		
 		// Tails animations
 		case CharTails:
@@ -53,41 +77,65 @@ function PlayerCharacterAnimationList()
 			switch Animation
 			{
 				case AnimIdle: 
+				{
 					animation_play(spr_tails_idle, 1, 1); 
-				break;
-				case AnimWalk: 
+					break;
+				}
+				case AnimWalk:
+				{
 					animation_play(spr_tails_walk, round(max(1, 8 - abs(Inertia))), 1);
-				break;
+					break;
+				}
 				case AnimRun: 
+				{
 					animation_play(spr_tails_run, round(max(1, 8 - abs(Inertia))), 1);
-				break;
+					break;
+				}
 				case AnimRoll:
+				{
 					animation_play(spr_tails_roll, 2, 1);
-				break;
+					break;
+				}
 				case AnimSpindash:
+				{
 					animation_play(spr_tails_spindash, 1, 1); 
-				break;
+					break;
+				}
 				case AnimCrouch:
+				{
 					animation_play(spr_tails_crouch, 4, 1);
-				break;
+					break;
+				}
 				case AnimLookup:
+				{
 					animation_play(spr_tails_lookup, 4, 1);
-				break;
+					break;
+				}
 				case AnimSkid:
+				{
 					animation_play(spr_tails_hurt, 1, 1);
-				break;
+					break;
+				}
 				case AnimFly:
+				{
 					animation_play(spr_tails_fly, 1, 1);
-				break;
+					break;
+				}
 				case AnimFlyTired:
+				{
 					animation_play(spr_tails_fly_tired, 8, 1);
-				break;
+					break;
+				}
 				case AnimHurt:
+				{
 					animation_play(spr_tails_hurt, 1, 1);
-				break;
+					break;
+				}
 				case AnimDeath:
+				{
 					animation_play(spr_tails_death, 1, 1);
-				break;
+					break;
+				}
 			}	
 			with TailsObject
 			{
@@ -95,88 +143,129 @@ function PlayerCharacterAnimationList()
 				{
 					case AnimIdle:
 					case AnimLookup:
-					case AnimCrouch:		
+					case AnimCrouch:	
+					{
 						animation_play(spr_tails_tail_idle, 8, 1);
-					break;
+						break;
+					}
 					case AnimRoll:
+					{
 						animation_play(spr_tails_tail_roll, 4, 1);
-					break;
+						break;
+					}
 					case AnimSpindash:
 					case AnimSkid:
+					{
 						animation_play(spr_tails_tail_spindash, 4, 1); 
-					break;
+						break;
+					}
 					case AnimFly:
+					{
 						animation_play(spr_tails_tail_fly, Player.Ysp ? 2 : 1, 1);		
-					break;
+						break;
+					}
 					case AnimFlyTired:
+					{
 						animation_play(spr_tails_tail_fly, 2, 1);
-					break;
-					case AnimWalk:
-					case AnimRun:
-					case AnimHurt:
-					case AnimDeath:
+						break;
+					}
+					default:
+					{
 						animation_play(spr_tails_tail_hidden, 1, 1);
-					break;
+						break;
+					}
 				}
 			}
+			break;
 		}
-		break;
-		
+
 		// Knuckles animations
 		case CharKnuckles:
 		{
 			switch Animation
 			{
 				case AnimIdle: 
+				{
 					animation_play(spr_knuckles_idle, 1, 1); 
-				break;
+					break;
+				}
 				case AnimWalk: 
+				{
 					animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Inertia))), 1);
-				break;
+					break;
+				}
 				case AnimRun: 
+				{
 					animation_play(spr_knuckles_run, round(max(1, 8 - abs(Inertia))), 1);
-				break;
+					break;
+				}
 				case AnimRoll:
+				{
 					animation_play(spr_knuckles_roll, round(max(1, 4 - abs(Inertia))), 1);
-				break;
+					break;
+				}
 				case AnimSpindash:
+				{
 					animation_play(spr_knuckles_spindash, 1, 1); 
-				break;
+					break;
+				}
 				case AnimCrouch:
+				{
 					animation_play(spr_knuckles_crouch, 4, 2);
-				break;
+					break;
+				}
 				case AnimLookup:
+				{
 					animation_play(spr_knuckles_lookup, 4, 2);
-				break;
+					break;
+				}
 				case AnimSkid:
+				{
 					animation_play(spr_knuckles_hurt, 1, 1);
-				break;
+					break;
+				}
 				case AnimHurt:
+				{
 					animation_play(spr_knuckles_hurt, 1, 1);
-				break;
+					break;
+				}
 				case AnimDeath:
+				{
 					animation_play(spr_knuckles_death, 1, 1);
-				break;
+					break;
+				}
 				case AnimGlide:
+				{
 					animation_play(spr_knuckles_glide, 1, 1);
-				break;
+					break;
+				}
 				case AnimGlideDrop:
+				{
 					animation_play(spr_knuckles_glidedrop, 6, 2);
-				break;
+					break;
+				}
 				case AnimGlideSlide:
+				{
 					animation_play(spr_knuckles_glideslide, 1, 1);
-				break;
+					break;
+				}
 				case AnimGlideStand:
+				{
 					animation_play(spr_knuckles_glidestand, 15, 2);
-				break;
+					break;
+				}
 				case AnimClimb:
+				{
 					animation_play(spr_knuckles_climb, -(Ysp * 6), 1);
-				break;
+					break;
+				}
 				case AnimClimbering:
+				{
 					animation_play(spr_knuckles_climbering, 6, 4);
-				break;
+					break;
+				}
 			}
+			break;
 		}
-		break;
 	}
 }

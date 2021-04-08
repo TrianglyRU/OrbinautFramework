@@ -24,4 +24,5 @@ function _ScreenVariables()
 	DebugViewEnabled   _init;
 	DebugShowHitboxes  _init;
 	DebugShowCollision _init;
+	CameraEnabled      _init;
 }

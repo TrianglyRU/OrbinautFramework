@@ -5,11 +5,11 @@ function ObjBreakableWallHandlerSetup()
 		for (var w = 0; w < Width; w++)
 		{	
 			// Create a wall based on width and height variables
-			var Piece          = instance_create_depth(x + 8 + 16 * w, y + 8 + 16 * h, Player.DrawOrder + 1, BreakableWall);
+			var Piece = instance_create_depth(x + 8 + 16 * w, y + 8 + 16 * h, Player.DrawOrder + 1, BreakableWall);
 			Piece.sprite_index = WallSprite
 			
 			// Set a sprite for the piece
-			if w = 0 
+			if w == 0 
 			{
 				var frame_to_use = 0;
 			} 

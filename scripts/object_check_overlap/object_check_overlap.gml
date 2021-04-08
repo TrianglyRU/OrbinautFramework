@@ -3,7 +3,7 @@ function object_check_overlap(collisionType)
 	if collisionType == CollisionHitbox
 	{
 		// Check if this object radiuses were initialized
-		if variable_instance_exists(id, "objXRadiusHit") == false
+		if !variable_instance_exists(id, "objXRadiusHit")
 		{
 			show_message("Object ID " + string(id) + " does not have any hitbox radiuses to check for collision with player! Please, call 'object_set_hitbox' function in Create event");
 			game_end();
@@ -34,7 +34,7 @@ function object_check_overlap(collisionType)
 	else if collisionType == CollisionSolidbox
 	{
 		// Check if this object radiuses were initialized
-		if variable_instance_exists(id, "objXRadiusSolid") == false
+		if !variable_instance_exists(id, "objXRadiusSolid")
 		{
 			show_message("Object ID " + string(id) + " does not have any solidbox radiuses to check for collision with player! Please, call 'object_set_solidbox' function in Create event");
 			game_end();

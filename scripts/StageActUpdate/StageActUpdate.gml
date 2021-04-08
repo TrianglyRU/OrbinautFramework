@@ -1,24 +1,32 @@
 function StageActUpdate()
 {	
+	// Reset stage transition data
+	if State = ActStateLoading and Game.StageTransition
+	{
+		Game.StageTransferX = 0;
+		Game.StageTransferY = 0;
+	}
+	
 	// Restart the act upon player death
 	// TODO: Correct stateTimer timings
 	if Player.Death and State != ActStatePlayerDeath
 	{
-		TimeEnabled = false;
-		StateTimer	= 0;
-		State		= ActStatePlayerDeath;	
+		CameraEnabled = false;
+		TimeEnabled   = false;
+		StateTimer	  = 0;
+		State		  = ActStatePlayerDeath;	
 	}
-	if State = ActStatePlayerDeath
+	if State == ActStatePlayerDeath
 	{
 		if floor(Player.PosY) > Screen.RenderY + Screen.Height + 128
 		{
 			StateTimer++;
-			if StateTimer = 1
+			if StateTimer == 1
 			{
 				fade_perform(to, black, 1);
 				audio_bgm_stop(StageMusic, 0.5);
 			}
-			if StateTimer = 30
+			if StateTimer == 30
 			{
 				room_restart();
 			}
@@ -26,7 +34,7 @@ function StageActUpdate()
 	}
 	
 	// Check for act end
-	if State = ActStateFinished
+	if State == ActStateFinished
 	{	
 		// Stop music
 		audio_bgm_stop(StageMusic, 2);

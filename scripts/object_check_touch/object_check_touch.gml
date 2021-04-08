@@ -1,7 +1,7 @@
 function object_check_touch(collisionSide)
 {
 	// Check if this object radiuses were initialized
-	if variable_instance_exists(id, "objXRadiusSolid") == false
+	if !variable_instance_exists(id, "objXRadiusSolid")
 	{
 		show_message("Object ID " + string(id) + " does not have any solidbox radiuses to check for collision with player! Please, call 'object_set_solidbox' function in Create event");
 		game_end();

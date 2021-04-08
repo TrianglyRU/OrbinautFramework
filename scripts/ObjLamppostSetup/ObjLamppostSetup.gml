@@ -1,8 +1,5 @@
 function ObjLamppostSetup()
 {
-	// Set object collision type
-	object_set_collision(SolidNone);
-	
 	// Set object hitbox
 	object_set_hitbox(8, 32);
 	

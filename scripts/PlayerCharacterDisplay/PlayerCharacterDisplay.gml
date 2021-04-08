@@ -1,9 +1,9 @@
 function PlayerCharacterDisplay()
 {	
 	// Update visual angle
-	if Game.SmoothRotation == true
+	if Game.SmoothRotation
 	{
-		if Angle >= 25.5 and Angle <= 334.5 or Grounded == false or Angle == 0
+		if Angle >= 25.5 and Angle <= 334.5 or !Grounded or Angle == 360
 		{
 			VisualAngle = Angle;
 		} 
@@ -19,14 +19,13 @@ function PlayerCharacterDisplay()
 			}
 			if VisualAngle < 0 or VisualAngle > 360 
 			{
-				VisualAngle = 0;
+				VisualAngle = 360;
 			}
-			if (VisualAngle == 0) VisualAngle = 360;
 		}
 	}
 	else 
 	{
-		if (Angle > 334.5 or Angle < 25.5)  VisualAngle =   0;
+		if (Angle > 334.5 or Angle < 25.5)  VisualAngle = 360;
 		if (Angle > 25.5 and Angle < 75)	VisualAngle =  45; 
 		if (Angle > 75   and Angle < 105)	VisualAngle =  90; 
 		if (Angle > 105  and Angle < 155)   VisualAngle = 135; 
@@ -37,14 +36,14 @@ function PlayerCharacterDisplay()
 	}
 	
 	// Force visual angle to be 0
-	if Inertia == 0 and Grounded == true
+	if Inertia == 0 and !Grounded
 	or Animation == AnimRoll or Animation == AnimFly or Animation == AnimGlide or Animation == AnimSkid or Animation == AnimClimb
 	{
 		VisualAngle = 360;
 	}
 	
 	// Perform super palette cycle
-	if isSuper == true
+	if isSuper
 	{
 		switch CharacterID
 		{
@@ -94,22 +93,22 @@ function PlayerCharacterDisplay()
 		}
 		else
 		{
-			if Facing == FacingRight
+			if Facing == DirRight
 			{
 				var DirectionAngle = point_direction(PosX, PosY, PosX + Xsp, PosY + Ysp);
 			}
-			else
+			else if Facing == DirLeft
 			{
 				var DirectionAngle = point_direction(PosX + Xsp, PosY + Ysp, PosX, PosY);
 			}
 			
-			if Game.SmoothRotation == true
+			if Game.SmoothRotation
 			{
 				TailsAngle = DirectionAngle;
 			}
 			else
 			{
-				if (DirectionAngle > 334.5 or DirectionAngle < 25.5)  var TailsAngle =   0;
+				if (DirectionAngle > 334.5 or DirectionAngle < 25.5)  var TailsAngle = 360;
 				if (DirectionAngle > 25.5 and DirectionAngle < 75)	  var TailsAngle =  45; 
 				if (DirectionAngle > 75   and DirectionAngle < 105)	  var TailsAngle =  90; 
 				if (DirectionAngle > 105  and DirectionAngle < 155)   var TailsAngle = 135; 

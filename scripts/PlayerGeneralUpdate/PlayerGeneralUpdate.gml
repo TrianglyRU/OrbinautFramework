@@ -1,9 +1,9 @@
 function PlayerGeneralUpdate()
 {
 	// Update player's state
-	if Grounded == true
+	if Grounded
 	{
-		State = Rolling == false ? PlayerStateNormal : PlayerStateRoll;
+		State = !Rolling ? PlayerStateNormal : PlayerStateRoll;
 		switch AngleRange
 		{
 			case RangeFloor:
@@ -87,7 +87,7 @@ function PlayerGeneralUpdate()
 	else
 	{ 
 		// Apply underwater physics (if not in superform)
-		if isSuper == false
+		if !isSuper
 		{
 			Acc		= 0.0234375;
 			Dec		= 0.25;
@@ -107,7 +107,7 @@ function PlayerGeneralUpdate()
 			Ysp			*= 2;
 			
 			// Restore normal physics (if not in superform)
-			if isSuper == false
+			if !isSuper
 			{
 				Acc		= 0.046875;
 				Frc     = 0.046875;
@@ -123,7 +123,7 @@ function PlayerGeneralUpdate()
 	}
 	
 	// Handle superform physics
-	if isSuper == true
+	if isSuper
 	{
 		// Make us invincible
 		isInvincible = true;
@@ -133,7 +133,7 @@ function PlayerGeneralUpdate()
 			// Apply superform physics for Sonic
 			if CharacterID == CharSonic
 			{
-				if isUnderwater == false
+				if !isUnderwater
 				{
 					Acc	    = 0.1875;
 					AirAcc  = 0.375;
@@ -156,7 +156,7 @@ function PlayerGeneralUpdate()
 			// Apply superform physics for Tails and Knuckles
 			else
 			{
-				if isUnderwater == false
+				if !isUnderwater
 				{
 					Acc     = 0.09375;
 					AirAcc  = 0.1875;
@@ -197,5 +197,5 @@ function PlayerGeneralUpdate()
 	if (InvincibilityBonus > 0) InvincibilityBonus--;
 	
 	// Decrease temp invincibility timer
-	if (isInvincible and InvincibilityBonus == false and isSuper == false) isInvincible--;
+	if (isInvincible and !InvincibilityBonus and !isSuper) isInvincible--;
 }

@@ -1,6 +1,6 @@
 function PlayerJumpResist()
 {
-	if Input.ABC == false and Jumping == true
+	if !Input.ABC and Jumping
 	{
 		if (Ysp < JumpMin) Ysp = JumpMin;
 	}	

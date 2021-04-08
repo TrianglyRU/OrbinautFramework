@@ -25,7 +25,7 @@ function StageMusicUpdate()
 	}
 		
 	// Stop stage music when act is finished
-	if State = ActStateFinished or State = ActStateUnload
+	if State == ActStateFinished or State == ActStateUnload
 	{
 		audio_bgm_stop(StageMusic, 3);
 	}

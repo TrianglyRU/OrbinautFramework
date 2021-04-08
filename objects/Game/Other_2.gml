@@ -19,3 +19,6 @@
 	
 	// Load game settings
 	gamesettings_load("config");
+	
+	Game.StageTransferX = 0;
+	Game.StageTransferY = 0;

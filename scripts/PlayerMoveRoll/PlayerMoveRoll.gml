@@ -1,7 +1,7 @@
 function PlayerMoveRoll()
 {
 	// Perform only if directional input is allowed
-	if MovementLock == false
+	if !MovementLock
 	{
 		// If pressing left
 		if Input.Left 
@@ -12,7 +12,7 @@ function PlayerMoveRoll()
 				if Inertia <= 0 
 				{
 					Inertia = -0.5;
-					Facing  = FacingLeft;
+					Facing  = DirLeft;
 				}
 			}
 		}
@@ -26,7 +26,7 @@ function PlayerMoveRoll()
 				if Inertia >= 0 
 				{
 					Inertia = 0.5;
-					Facing  = FacingRight;
+					Facing  = DirRight;
 				}
 			}
 		}
@@ -53,7 +53,7 @@ function PlayerMoveRoll()
 	
 	// Limit rolling speed. Original engine limits xsp instead of inertia, resulting
 	// desync on high speeds
-	if Game.OriginalRollLimit == true
+	if Game.OriginalRollLimit
 	{
 		if (Xsp > 16)  Xsp = 16;
 		if (Xsp < -16) Xsp = -16;
@@ -65,7 +65,7 @@ function PlayerMoveRoll()
 	}
 	
 	// If our inertia is 0 or we pressed UP, unroll
-	if Inertia == 0 or (Game.AllowUnroll == true and Input.UpPress and abs(Inertia) > 2.5)
+	if Inertia == 0 or (Game.AllowUnroll and Input.UpPress and abs(Inertia) > 2.5)
 	{
 		// Reset radiuses
 		yRadius = yRadiusDefault;

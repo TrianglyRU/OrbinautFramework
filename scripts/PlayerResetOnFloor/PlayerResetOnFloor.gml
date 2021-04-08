@@ -18,7 +18,7 @@ function PlayerResetOnFloor()
 		VisualAngle = Angle;
 		
 		// Reset hurt state
-		if Hurt == true
+		if Hurt
 		{
 			isInvincible = 120;
 			Inertia		 = 0;
@@ -35,11 +35,11 @@ function PlayerResetOnFloor()
 			Rolling = true;
 		
 			// Set dropspeed
-			if DropdashDirection == FacingRight
+			if DropdashDirection == DirRight
 			{
 				var Dropspeed = Inertia / 4 + 8 * Facing;
 			}
-			else if DropdashDirection = FacingLeft
+			else if DropdashDirection = DirLeft
 			{
 				if Angle == 360
 				{
@@ -111,9 +111,9 @@ function PlayerResetOnFloor()
 			}
 			else
 			{
+				PosY   -= yRadiusDefault - yRadius;
 				yRadius = yRadiusDefault; 
 				xRadius	= xRadiusDefault;
-				PosY   -= yRadiusDefault - yRadiusRoll;
 			}
 		}
 	}

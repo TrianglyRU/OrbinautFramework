@@ -6,7 +6,7 @@
     "path": "folders/Game Functions/System.yy",
   },
   "resourceVersion": "1.0",
-  "name": "data_read",
+  "name": "external_data_load",
   "tags": [],
   "resourceType": "GMScript",
 }

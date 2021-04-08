@@ -8,14 +8,14 @@ function MenuOptionSelect()
 	var LinesCount;
 	switch MenuState
 	{
-		case Main:			   LinesCount = 4  break;
-		case DataSelect:	   LinesCount = 7  break;
-		case Options:		   LinesCount = 4  break;
-		case FrameworkConfig:  LinesCount = 11 break;
-		case AudioVideoConfig: LinesCount = 6  break;
-		case InputConfig:	   LinesCount = 10 break;
-		case StageSelect:	   LinesCount = 4  break;
-		case CharacterSelect:  LinesCount = 4  break;
+		case Main:			   LinesCount = 4;  break;
+		case DataSelect:	   LinesCount = 7;  break;
+		case Options:		   LinesCount = 4;  break;
+		case FrameworkConfig:  LinesCount = 11; break;
+		case AudioVideoConfig: LinesCount = 6;  break;
+		case InputConfig:	   LinesCount = 10; break;
+		case StageSelect:	   LinesCount = 4;  break;
+		case CharacterSelect:  LinesCount = 4;  break;
 	}
 	MenuOption = loop_value(MenuOption, 0, LinesCount);
 	
@@ -33,13 +33,13 @@ function MenuOptionSelect()
 					case 2: menu_goto(Options, 0);     break; // Go to options screen
 					case 3: game_end();				   break; // Exit the game
 				}
+				break;
 			}
-			break;
 			case DataSelect:
 			{
 				// Ignore all savefile manipulations and go straight to character select if
 				// selected "no save" slot
-				if MenuOption = 0
+				if MenuOption == 0
 				{
 					menu_goto(CharacterSelect, 0);
 					SaveNewData = false;
@@ -67,8 +67,7 @@ function MenuOptionSelect()
 							{	
 								case 0: room_goto(MBZ); break;
 								case 1: room_goto(HHZ); break;
-							}
-							break;
+							}							
 						}
 					
 						// Else create new and go to character select
@@ -98,12 +97,12 @@ function MenuOptionSelect()
 							// Go back to main menu
 							DataDeleteMode = false; 
 							menu_goto(Main, 0);
-						}
-						break;
+							break;
+						}	
 					}
 				}
+				break;
 			}
-			break;
 			case CharacterSelect:
 			{
 				if MenuOption < 3
@@ -147,8 +146,8 @@ function MenuOptionSelect()
 						SaveNewData = false; 
 					}
 				}
-			}
-			break;
+				break;
+			}			
 			case Options:
 			{
 				switch MenuOption
@@ -160,38 +159,38 @@ function MenuOptionSelect()
 					{
 						gamesettings_save("config"); 
 						menu_goto(Main, 1);	
-					}
-					break;
+						break;
+					}	
 				}
+				break;
 			}
-			break;
 			case FrameworkConfig: 
 			{	
 				// Go back
-				if MenuOption = 10
+				if MenuOption == 10
 				{
 					menu_goto(Options, 0)
 				}
-			}
-			break;
+				break;
+			}	
 			case AudioVideoConfig:
 			{
 				// Go back
-				if MenuOption = 5
+				if MenuOption == 5
 				{
 					menu_goto(Options, 1);
 				}
+				break;
 			}
-			break;
 			case InputConfig: 
 			{
 				// Go back
-				if MenuOption = 9 
+				if MenuOption == 9 
 				{
 					menu_goto(Options, 2);
 				}
-			}
-			break;
+				break;
+			}			
 			case StageSelect:
 			{
 				if MenuOption < 3
@@ -204,8 +203,8 @@ function MenuOptionSelect()
 					menu_goto(Main, 0);
 					StageToLoad = false;
 				}
+				break;
 			}
-			break;
 		}
 	}
 }

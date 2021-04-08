@@ -3,18 +3,18 @@ function MenuControlConfig()
 	if MenuState == InputConfig and MenuOption < 9
 	{	
 		// Exit button assign state
-		if ControlEditMode == true and keyboard_check_pressed(vk_anykey) 
+		if ControlEditMode and keyboard_check_pressed(vk_anykey) 
 		{
 			Game.KeyboardControl[MenuOption] = string(keyboard_key);
-			ControlEditMode					 = false;
 			Input.IgnoreInput				 = false;
+			ControlEditMode					 = false;
 			keyboard_clear(keyboard_key);
 		}
 		// Enter button assign state
-		else if (Input.APress == true or Input.StartPress == true) and ControlEditMode == false
+		else if (Input.APress or Input.StartPress) and !ControlEditMode
 		{
-			ControlEditMode	  = true;
 			Input.IgnoreInput = true;
+			ControlEditMode	  = true;	
 		}
 	}
 }
