@@ -51,10 +51,10 @@ function PlayerCharacterDisplay()
 			{
 				for (var i = 0; i < 8; i++) 
 				{
-					palette_cycle_perform(i, 9, 4);
-					palette_cycle_perform(i, 9, 4);
-					palette_cycle_perform(i, 9, 4);
-					palette_cycle_perform(i, 9, 4);
+					palette_handle(i, 9, 4);
+					palette_handle(i, 9, 4);
+					palette_handle(i, 9, 4);
+					palette_handle(i, 9, 4);
 				}
 			}
 			break;
@@ -62,10 +62,10 @@ function PlayerCharacterDisplay()
 			{
 				for (var i = 0; i < 4; i++) 
 				{
-					palette_cycle_perform(i, 9, 4);
-					palette_cycle_perform(i, 9, 4);
-					palette_cycle_perform(i, 9, 4);
-					palette_cycle_perform(i, 9, 4);
+					palette_handle(i, 9, 4);
+					palette_handle(i, 9, 4);
+					palette_handle(i, 9, 4);
+					palette_handle(i, 9, 4);
 				}
 			}
 			break;

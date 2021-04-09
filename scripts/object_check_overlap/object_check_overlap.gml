@@ -1,3 +1,4 @@
+/// @function object_check_overlap(collisionType)
 function object_check_overlap(collisionType)
 {
 	// Hitbox overlap

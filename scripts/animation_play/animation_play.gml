@@ -5,7 +5,7 @@ function animation_play(objSprite, aniSpeed, doLoopFrom)
 	image_speed = 0;
 	
 	// Set anitimer variable
-	variable_init("aniTimer");
+	variable_set_temp("aniTimer");
 	
 	// Update sprite
 	if sprite_index != objSprite

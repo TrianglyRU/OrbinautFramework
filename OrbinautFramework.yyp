@@ -298,7 +298,7 @@
     {"id":{"name":"spr_flicky","path":"sprites/spr_flicky/spr_flicky.yy",},"order":25,},
     {"id":{"name":"fontTexture_TitleCard","path":"sprites/fontTexture_TitleCard/fontTexture_TitleCard.yy",},"order":5,},
     {"id":{"name":"GameAudioGroupsLoad","path":"scripts/GameAudioGroupsLoad/GameAudioGroupsLoad.yy",},"order":10,},
-    {"id":{"name":"palette_perform_shift","path":"scripts/palette_perform_shift/palette_perform_shift.yy",},"order":1,},
+    {"id":{"name":"palette_handle","path":"scripts/palette_handle/palette_handle.yy",},"order":1,},
     {"id":{"name":"PlayerCharacterDisplay","path":"scripts/PlayerCharacterDisplay/PlayerCharacterDisplay.yy",},"order":0,},
     {"id":{"name":"audio_bgm_play","path":"scripts/audio_bgm_play/audio_bgm_play.yy",},"order":13,},
     {"id":{"name":"object_check_tile","path":"scripts/object_check_tile/object_check_tile.yy",},"order":17,},

@@ -4,7 +4,7 @@ function PlayerCollideFloor()
 	if (!AllowCollision or OnObject) exit;
 	
 	// Collide with one of four floor sides based on floor angle range
-	switch AngleRange//round(Angle/90) % 4
+	switch AngleRange
 	{
 		case RangeFloor:
 		{		

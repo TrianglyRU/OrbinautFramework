@@ -1,3 +1,4 @@
+/// @function object_set_solidbox(xradius, yradius)
 function object_set_solidbox(xradius, yradius)
 {
 	// Check if object's origin is its centre
