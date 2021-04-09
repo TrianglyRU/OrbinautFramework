@@ -38,7 +38,7 @@ function GameFrameworkSetup()
 	// Engine
 	/* This section is not configurable in-game, i.e it is not saved in a settings configfile */
 	
-	Game.StrongerSlopeGravity	 = true;	// In Sonic 3+, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
+	Game.StrongerSlopeGravity	 = false;	// In Sonic 3+, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
 	Game.ConsiderAngleDifference = false;    // In Sonic 2+, your angle will be reset to your cardinal angle if the angle difference is higher than 45. True - Sonic 2+ method
 	Game.LooseCrouch			 = false;	// In SK, you can start crouching even when you are moving slowly. True - SK method.
 	Game.ConstantRollFrc		 = false;	// In SK, rolling friction is hard-coded to always be half of regular acceleration, even when Super. True - SK method
