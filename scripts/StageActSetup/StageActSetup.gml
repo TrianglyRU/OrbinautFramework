@@ -13,14 +13,14 @@ function StageActSetup()
 			CardEnabled				= true;
 			TimeEnabled				= false;
 			Time					= 0;
-			WaterLevel				= 768;
+			WaterLevel				= 1000;
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= room_width;
 			BottomBoundary			= room_height;
 			State					= ActStateLoading;
 			
-			StageMusic				= ProjectPurple;
+			StageMusic				= TechnoPower;
 			StageMusicDAC			= noone;
 			LoopStart				= 0;
 			LoopEnd					= 335.01;

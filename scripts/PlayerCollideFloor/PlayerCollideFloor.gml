@@ -9,8 +9,8 @@ function PlayerCollideFloor()
 		case RangeFloor:
 		{		
 			// Get tiles
-			var tileDataLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
-			var tileDataRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
+			var tileDataLeft  = tile_check_collision_v2(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
+			var tileDataRight = tile_check_collision_v2(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
 			
 			// Use tile with closest distance
 			if tileDataLeft[0] <= tileDataRight[0]
@@ -39,9 +39,9 @@ function PlayerCollideFloor()
 		case RangeRWall:
 		{	
 			// Get tiles
-			var tileDataLeft  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true, false, Layer);
-			var tileDataRight = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true, false, Layer);
-
+			var tileDataLeft  = tile_check_collision_h2(floor(PosX + yRadius), floor(PosY + xRadius), true, false, Layer);
+			var tileDataRight = tile_check_collision_h2(floor(PosX + yRadius), floor(PosY - xRadius), true, false, Layer);
+			
 			// Use tile with closest distance
 			if tileDataLeft[0] <= tileDataRight[0]
 			{
@@ -69,8 +69,8 @@ function PlayerCollideFloor()
 		case RangeRoof:	
 		{	
 			// Get tiles
-			var tileDataLeft  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, false, Layer);
-			var tileDataRight = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, false, Layer);
+			var tileDataLeft  = tile_check_collision_v2(floor(PosX + xRadius), floor(PosY - yRadius), false, false, Layer);
+			var tileDataRight = tile_check_collision_v2(floor(PosX - xRadius), floor(PosY - yRadius), false, false, Layer);
 			
 			// Use tile with closest distance
 			if tileDataLeft[0] <= tileDataRight[0]
@@ -99,8 +99,8 @@ function PlayerCollideFloor()
 		case RangeLWall:
 		{	
 			// Get tiles
-			var tileDataLeft  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY - xRadius), false, false, Layer);
-			var tileDataRight = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, false, Layer);
+			var tileDataLeft  = tile_check_collision_h2(floor(PosX - yRadius), floor(PosY - xRadius), false, false, Layer);
+			var tileDataRight = tile_check_collision_h2(floor(PosX - yRadius), floor(PosY + xRadius), false, false, Layer);
 			
 			// Use tile with closest distance
 			if tileDataLeft[0] <= tileDataRight[0]

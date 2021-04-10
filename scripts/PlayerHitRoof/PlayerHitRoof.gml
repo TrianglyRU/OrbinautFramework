@@ -4,8 +4,8 @@ function PlayerHitRoof()
 	if (Ysp < 0 or abs(Xsp) > abs(Ysp)) and AllowCollision
 	{
 		// Get tiles
-		var tileDataLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
-		var tileDataRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
+		var tileDataLeft  = tile_check_collision_v2(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
+		var tileDataRight = tile_check_collision_v2(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
 		
 		// Use tile with closest distance
 		if tileDataLeft[0] <= tileDataRight[0]
