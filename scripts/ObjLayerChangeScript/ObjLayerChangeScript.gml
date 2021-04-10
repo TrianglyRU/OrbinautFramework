@@ -1,6 +1,6 @@
 function ObjLayerChangeScript()
 {
-	if object_check_overlap(CollisionHitbox)
+	if object_check_overlap(Player, self)
 	{
 		// Check for GroundOnly flag
 		if GroundOnly and !Player.Grounded exit;

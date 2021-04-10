@@ -7,7 +7,7 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	// Return blank values if outside of the room
 	if startX < 0 or startY < 0 or startX > room_width or startY > room_height 
 	{
-		return_array[0] = 16;
+		return_array[0] = 31;
 		return_array[1] = 360;
 		return return_array;
 	}
@@ -15,10 +15,19 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	// Check if we need to invert our calculations
 	var Invert = toPositive ? 1 : -1;
 	
-	// Read tilemap and index, then get its width
+	// Get tile and read its index
 	var Tilemap = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, startY div TileSize);
-	var Index   = tile_get_index(Tilemap) mod TileAmount;	
-	var Width   = tile_get_width(startX, startY, Tilemap, Index);
+	var Index   = tile_get_index(Tilemap);	
+	
+	// Read tile width
+	if (ignoreSolidTop and Index < TileAmount) or !ignoreSolidTop
+	{
+		var Width = tile_get_width(startX, startY, Tilemap, Index mod TileAmount);
+	}
+	else
+	{
+		var Width = 0;
+	}
 
 	// Use a second tile if first tile width is 0 or 16
 	if !Width
@@ -42,24 +51,25 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		if !Tilemap or Second 
 		{
 			Tilemap = Second;
-			Index   = tile_get_index(Tilemap) mod TileAmount;
-			Width   = tile_get_width(startX, startY, Tilemap, Index);
+			Index   = tile_get_index(Tilemap);
+			
+			if (ignoreSolidTop and Index < TileAmount) or !ignoreSolidTop
+			{
+				var Width = tile_get_width(startX, startY, Tilemap, Index mod TileAmount);
+			}
+			else
+			{
+				var Width = 0;
+			}
 		}
 		else Tile2 = 0;
 	}
 	
 	// Get distance
-	if ignoreSolidTop and tile_get_index(Tilemap) > TileAmount
-	{
-		return_array[0] = TileSize;
-	}
-	else
-	{
-		return_array[0] = (Tile2 - (startX mod TileSize) + (toPositive ? (TileSize - Width - 1) : Width)) * Invert;
-	}
+	return_array[0] = (Tile2 - (startX mod TileSize) + (toPositive ? (TileSize - Width - 1) : Width)) * Invert;
 
 	// Get angle
-	if (Index == 0 or Index == 1) 
+	if (Index mod TileAmount == 0 or Index mod TileAmount == 1) 
 	{
 		return_array[1] = toPositive ? 90 : 270;
 	}
@@ -76,7 +86,7 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		}
 		else
 		{
-			var Ang = Game.AngleValueOf[Index];
+			var Ang = Game.AngleValueOf[Index mod TileAmount];
 			if tile_get_flip(Tilemap)
 			{
 				Ang = (540 - Ang) mod 360;

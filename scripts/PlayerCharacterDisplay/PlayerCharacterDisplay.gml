@@ -49,7 +49,7 @@ function PlayerCharacterDisplay()
 		{
 			case CharSonic:
 			{
-				for (var i = 0; i < 8; i++) 
+				for (var i = 0; i < 4; i++) 
 				{
 					palette_handle(i, 9, 4);
 					palette_handle(i, 9, 4);

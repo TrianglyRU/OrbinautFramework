@@ -1,31 +1,36 @@
-/// @function object_check_overlap(collisionType)
-function object_check_overlap(collisionType)
+function object_check_overlap(checkFor, checkFrom)
 {
-	// Hitbox overlap
-	if collisionType == CollisionHitbox
+	// Check if this object radiuses were initialized
+	if !variable_instance_exists(checkFrom, "objXRadiusHit")
 	{
-		// Check if this object radiuses were initialized
-		if !variable_instance_exists(id, "objXRadiusHit")
-		{
-			show_message("Object ID " + string(id) + " does not have any hitbox radiuses to check for collision with player! Please, call 'object_set_hitbox' function in Create event");
-			game_end();
-			exit;
-		}
-		
-		// Calculate this object radiuses
-		var objectTop    = y - objYRadiusHit;
-		var objectLeft   = x - objXRadiusHit;
-		var objectRight  = x + objXRadiusHit - 1;
-		var objectBottom = y + objYRadiusHit - 1;
+		show_message("Object ID " + string(checkFrom) + " does not have any hitbox radiuses to check for collision with other instances! Please, call 'object_set_hitbox' function in Create event");
+		game_end();
+		exit;
+	}
+	
+	// Get object size
+	var objectTop    = floor(y - objYRadiusHit);
+	var objectLeft   = floor(x - objXRadiusHit);
+	var objectRight  = floor(x + objXRadiusHit - 1);
+	var objectBottom = floor(y + objYRadiusHit - 1);
+	
+	// Check for overlap with player
+	if checkFor == Player
+	{
+		// Get player hitbox size
+		var playerTop    = floor(Player.PosY - Player.yRadius + 3);
+		var playerLeft   = floor(Player.PosX - 8);
+		var playerRight  = floor(Player.PosX + 8);
+		var playerBottom = floor(Player.PosY + Player.yRadius - 3);
 		
 		// Check for overlap horizontally
-		if floor(Player.PosX + 8) < objectLeft or floor(Player.PosX - 8) > objectRight
+		if playerRight < objectLeft or playerLeft > objectRight
 		{
 			return false;
 		}
 		
 		// Check for overlap vertically
-		if floor(Player.PosY + Player.yRadius - 3) < objectTop or floor(Player.PosY - Player.yRadius + 3) > objectBottom
+		if playerBottom < objectTop or playerTop > objectBottom
 		{
 			return false;
 		}
@@ -34,36 +39,35 @@ function object_check_overlap(collisionType)
 		return true;
 	}
 	
-	// Solidbox overlap
-	else if collisionType == CollisionSolidbox
+	// Check for overlap with another object
+	else
 	{
-		// Check if this object radiuses were initialized
-		if !variable_instance_exists(id, "objXRadiusSolid")
+		if !variable_instance_exists(checkFor, "objXRadiusHit")
 		{
-			show_message("Object ID " + string(id) + " does not have any solidbox radiuses to check for collision with player! Please, call 'object_set_solidbox' function in Create event");
+			show_message("Object ID " + string(checkFor) + " does not have any hitbox radiuses to check for collision! Please, call 'object_set_hitbox' function in Create event");
 			game_end();
 			exit;
 		}
 		
-		// Calculate this object radiuses
-		var objectTop    = y - objYRadiusSolid;
-		var objectLeft   = x - objXRadiusSolid;
-		var objectRight  = x + objXRadiusSolid - 1;
-		var objectBottom = y + objYRadiusSolid - 1;
+		// Get target object size
+		var targetTop    = floor(checkFor.y - checkFor.objYRadiusHit);
+		var targetLeft   = floor(checkFor.x - checkFor.objXRadiusHit);
+		var targetRight  = floor(checkFor.x + checkFor.objXRadiusHit - 1);
+		var targetBottom = floor(checkFor.y + checkFor.objYRadiusHit - 1);
 		
 		// Check for overlap horizontally
-		if floor(Player.PosX + Player.xRadius) < objectLeft or floor(Player.PosX - Player.xRadius) > objectRight
+		if targetRight < objectLeft or targetLeft > objectRight
 		{
 			return false;
 		}
 		
 		// Check for overlap vertically
-		if floor(Player.PosY + Player.yRadius) < objectTop or floor(Player.PosY - Player.yRadius) > objectBottom
+		if targetBottom < objectTop or targetTop > objectBottom
 		{
 			return false;
 		}
 		
-		// If player overlaps object on both axis, they collided with it
+		// If another overlaps object on both axis, it collided with this object
 		return true;
-	}
+	}	
 }

@@ -11,7 +11,7 @@
 		if object_check_touch(launchSide)
 		{
 			Player.MovementLock = 10;
-			Player.Inertia		= 10 * image_xscale;
-			Player.Facing		=	   image_xscale;	
+			Player.Inertia		= image_xscale * 10;
+			Player.Facing		= image_xscale;	
 		}
 	}

@@ -76,7 +76,7 @@
 			
 			// Collide with floor
 			PlayerCollideFloor();
-			
+	
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
 

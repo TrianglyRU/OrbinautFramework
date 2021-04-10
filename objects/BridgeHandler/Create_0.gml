@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 	// Create variables
-	RecoveryAngle _init;
+	//RecoveryAngle _init;
 	
 	/* Variable Definitions	
 	1. BridgeLength, default = 12

@@ -12,15 +12,26 @@ function object_do_collision(objectType, collisionMap)
 	// Don't do anything if this object does not have collision
 	if (objectType = SolidNone) exit;
 	
-	// Calculate this object radiuses and diameters
-	var objectTop    = y - objYRadiusSolid;
-	var objectLeft   = x - objXRadiusSolid;
-	var objectRight  = x + objXRadiusSolid - 1;
-	var objectBottom = y + objYRadiusSolid - 1;
+	// Get object position and size
+	var objectX		 = floor(x);
+	var objectY      = floor(y);
+	var objectTop    = floor(y - objYRadiusSolid - 1);
+	var objectLeft   = floor(x - objXRadiusSolid);
+	var objectRight  = floor(x + objXRadiusSolid - 1);
+	var objectBottom = floor(y + objYRadiusSolid);
 	
-	objTouchedTop = false;
-	objTouchedLeft = false;
-	objTouchedRight = false;
+	// Get player position and size
+	var playerX      = floor(Player.PosX);
+	var playerY      = floor(Player.PosY);
+	var playerTop    = floor(Player.PosY - Player.yRadius);
+	var playerLeft   = floor(Player.PosX - 11);
+	var playerRight  = floor(Player.PosX + 11);
+	var playerBottom = floor(Player.PosY + Player.yRadius);
+	
+	// Reset touched flags
+	objTouchedTop    = false;
+	objTouchedLeft   = false;
+	objTouchedRight  = false;
 	objTouchedBottom = false;
 
 	// Check if player is standing on this object
@@ -33,8 +44,8 @@ function object_do_collision(objectType, collisionMap)
 		var edgeExtension = objectType == SolidTop ? 0 : 10;
 		
 		// Check if player is outside of this object boundaries
-		if floor(Player.PosX + edgeExtension) < objectLeft 
-		or floor(Player.PosX - edgeExtension) > objectRight
+		if playerX + edgeExtension < objectLeft 
+		or playerX - edgeExtension > objectRight
 		{
 			Player.OnObject = false;
 		}
@@ -42,26 +53,27 @@ function object_do_collision(objectType, collisionMap)
 		// Else keep player attached
 		else
 		{
+			
 			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
 			if collisionMap != false and image_yscale == 1
 			{
-				var playerPosition = image_xscale == 1 ? floor(Player.PosX) - objectLeft : objectRight - floor(Player.PosX);
+				var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
 				if  playerPosition < 0
 				{
-					var objectTop = y - collisionMap[0];
+					objectTop = objectY - collisionMap[0] - 1;
 				}
 				else if playerPosition > objXRadiusSolid * 2
 				{
-					var objectTop = y - collisionMap[objXRadiusSolid * 2];
+					objectTop = objectY - collisionMap[objXRadiusSolid * 2] - 1;
 				}
 				else
 				{
-					var objectTop = y - collisionMap[playerPosition];
+					objectTop = objectY - collisionMap[playerPosition] - 1;
 				}
 			}
 
 			// Attach player to this object's top boundary
-			Player.PosY = objectTop - Player.yRadius - 1;
+			Player.PosY = objectTop - Player.yRadius;
 		}
 	}
 	
@@ -72,59 +84,63 @@ function object_do_collision(objectType, collisionMap)
 		if objectType == SolidAll
 		{
 			// Check for overlap with this object horizontally
-			if floor(Player.PosX + 11) < objectLeft or floor(Player.PosX - 11) >= objectRight
+			if playerRight < objectLeft or playerLeft > objectRight
 			{
 				exit;
 			}
 			
-			// Check for player's position and adjust objectTop or objectBottom
+			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
 			if collisionMap != false
 			{
-				var playerPosition = image_xscale == 1 ? floor(Player.PosX) - objectLeft : objectRight - floor(Player.PosX);
+				// Get player poisition
+				var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
 				
+				// Check top object boundary
 				if image_yscale == 1
 				{
 					if  playerPosition < 0
 					{
-						var objectTop = y - collisionMap[0];
+						objectTop = objectY - collisionMap[0] - 1;
 					}
 					else if playerPosition > objXRadiusSolid * 2
 					{
-						var objectTop = y - collisionMap[objXRadiusSolid * 2];
+						objectTop = objectY - collisionMap[objXRadiusSolid * 2] - 1;
 					}
 					else
 					{
-						var objectTop = y - collisionMap[playerPosition];
+						objectTop = objectY - collisionMap[playerPosition] - 1;
 					}
 				}
+				
+				// Adjust bottom object boundary
 				else if image_yscale == -1
 				{
 					if  playerPosition < 0
 					{
-						var objectBottom = y + collisionMap[0];
+						objectBottom = objectY + collisionMap[0];
 					}
 					else if playerPosition > objXRadiusSolid * 2
 					{
-						var objectBottom = y + collisionMap[objXRadiusSolid * 2];
+						objectBottom = objectY + collisionMap[objXRadiusSolid * 2];
 					}
 					else
 					{
-						var objectBottom = y + collisionMap[playerPosition];
+						objectBottom = objectY + collisionMap[playerPosition];
 					}
 				}
 			}
-																   
+			
 			// Check for overlap with this object vertically
-			if floor(Player.PosY + Player.yRadius + 4) < objectTop or floor(Player.PosY - Player.yRadius) > objectBottom
+			if playerBottom < objectTop - 4 or playerTop > objectBottom
 			{
 				exit;
 			}
-
+			
 			// Collide with this object vertically
-			if abs(x - floor(Player.PosX)) <= abs(y - floor(Player.PosY))	
+			if abs(objectX - playerX) <= abs(objectY - playerY)	
 			{
 				// Check if player is below this object
-				if floor(Player.PosY) > y
+				if playerY > objectY and playerTop < objectBottom
 				{	
 					// If player is grounded, kill him
 					if Player.Grounded
@@ -134,24 +150,21 @@ function object_do_collision(objectType, collisionMap)
 					}
 
 					// Else push player out from this object
-					else
+					else if Player.Ysp < 0
 					{
-						if Player.Ysp < 0 and floor(Player.PosY - Player.yRadius) < objectBottom
-						{
-							Player.PosY = objectBottom + Player.yRadius + 1;
-							Player.Ysp  = 0;
+						Player.PosY += objectBottom - playerTop;
+						Player.Ysp  = 0;
 							
-							// Tell this object player touched its bottom side
-							objTouchedBottom = true;
-						}
+						// Tell this object player touched its bottom side
+						objTouchedBottom = true;
 					}
 				}
 
 				// Check if player is above this object and not 16 pixels into it
-				else if floor(Player.PosY + Player.yRadius) < objectTop + 16
+				else if playerBottom < objectTop + 16
 				{	
 					// Check if player's position is within this object boundaries
-					if floor(Player.PosX) < objectLeft or floor(Player.PosX) > objectRight
+					if playerX < objectLeft or playerX > objectRight
 					{
 						exit;
 					}
@@ -176,7 +189,7 @@ function object_do_collision(objectType, collisionMap)
 					Player.Ysp      = 0;
 					
 					// Attach player to the object's top boundary
-					Player.PosY = objectTop - Player.yRadius - 1;
+					Player.PosY = objectTop - Player.yRadius;
 				}
 			}
 	
@@ -186,26 +199,26 @@ function object_do_collision(objectType, collisionMap)
 				// Collide on the right
 				if floor(Player.PosX) > x
 				{
-					// Tell this object player touched its right side
-					objTouchedRight = true;
-						
 					if Player.Xsp < 0
 					{
-						Player.Xsp	   = 0;
-						Player.Inertia = 0;	
+						Player.Xsp = 0;
+						if (Player.Grounded) Player.Inertia = 0;	
 					}
-					Player.PosX = objectRight + 11;
+					Player.PosX += objectRight - playerLeft;
+					
+					// Tell this object player touched its right side
+					objTouchedRight = true;		
 				}
 				
 				// Collide on the left
-				else
+				if floor(Player.PosX) < x
 				{	
 					if Player.Xsp > 0
 					{
-						Player.Xsp	   = 0;
-						Player.Inertia = 0;		
+						Player.Xsp = 0;
+						if (Player.Grounded) Player.Inertia = 0;		
 					}
-					Player.PosX = objectLeft - 11;
+					Player.PosX -= playerRight - objectLeft;
 					
 					// Tell this object player touched its left side
 					objTouchedLeft = true;
@@ -221,20 +234,37 @@ function object_do_collision(objectType, collisionMap)
 			}
 			
 			// Check if player's position is within this object boundaries
-			if floor(Player.PosX) < objectLeft or floor(Player.PosX) > objectRight
+			if playerX < objectLeft or playerX > objectRight
 			{
 				exit;
+			}
+			
+			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
+			if collisionMap != false
+			{
+				// Get player poisition
+				var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
+				
+				// Check top object boundary
+				if image_yscale == 1
+				{
+					if  playerPosition < 0
+					{
+						objectTop = objectY - collisionMap[0] - 1;
+					}
+					else if playerPosition > objXRadiusSolid * 2
+					{
+						objectTop = objectY - collisionMap[objXRadiusSolid * 2] - 1;
+					}
+					else
+					{
+						objectTop = objectY - collisionMap[playerPosition] - 1;
+					}
+				}
 			}
 			
 			// Check if player's bottom has overlapped this object's top boundary
-			if objectTop - 4 > floor(Player.PosY + Player.yRadius)
-			{
-				exit;
-			}
-			
-			// Check if player's bottom is maximum 16 pixels into this object
-			if objectTop - 4 - floor(Player.PosY + Player.yRadius) < -16
-			or objectTop - 4 - floor(Player.PosY + Player.yRadius) > 0
+			if playerBottom < objectTop - 4 or playerBottom >= objectTop + 16
 			{
 				exit;
 			}
@@ -255,12 +285,15 @@ function object_do_collision(objectType, collisionMap)
 			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
 			if collisionMap != false and image_yscale == 1
 			{
-				var playerPosition = image_xscale == 1 ? floor(Player.PosX) - objectLeft : objectRight - floor(Player.PosX);
+				var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
 				var objectTop      = y - collisionMap[playerPosition];
 			}
 			
 			// Attach player to the object's top boundary
-			Player.PosY = objectTop - Player.yRadius - 1;
+			Player.PosY = objectTop - Player.yRadius;
+			
+			// Tell this object player touched its top side
+			objTouchedTop = true;
 		}
 	}
 }

@@ -23,7 +23,7 @@ function ObjLamppostScript()
 		// If not active, activate
 		if !Active 
 		{
-			if object_check_overlap(CollisionHitbox) 
+			if object_check_overlap(Player, self) 
 			{
 				// Set last used checkpoint ID to our ID
 				Game.SavedCheckpoint = id;
