@@ -1,16 +1,14 @@
 /// @function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tileLayer)
 function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tileLayer)
-{
-	// Initialize return array
-	var return_array;
-	
+{	
 	// Return blank values if outside of the room
 	if startX < 0 or startY < 0 or startX > room_width or startY > room_height 
 	{
-		return_array[0] = 31;
-		return_array[1] = 360;
-		return return_array;
+		return [32, 360];
 	}
+	
+	// Initialize return array
+	var return_array;
 	
 	// Check if we need to invert our calculations
 	var Invert = toPositive ? 1 : -1;
@@ -20,27 +18,22 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	var Index   = tile_get_index(Tilemap);
 	
 	// Read tile height
-	if (ignoreSolidTop and Index < TileAmount) or !ignoreSolidTop
-	{
-		var Height = tile_get_height(startX, startY, Tilemap, Index mod TileAmount);
-	}
-	else
+	if ignoreSolidTop and Index >= TileAmount
 	{
 		var Height = 0;
 	}
-
-	// Use a second tile if first tile height is 0 or 16
-	if !Height
-	{
-		var Tile2 = +TileSize;
-	}
-	else if Height == TileSize
-	{
-		var Tile2 = -TileSize;
-	}
 	else
 	{
-		var Tile2 = 0;
+		var Height = tile_get_height(startX, startY, Tilemap, Index mod TileAmount);
+	}
+
+	// Use a second tile if first tile height is 0 or 16
+	var Tile2;
+	switch Height
+	{
+		case 0:		   Tile2 = +TileSize; break;
+		case TileSize: Tile2 = -TileSize; break;
+		default:	   Tile2 = 0;         break;
 	}
 	Tile2 *= Invert;
 
@@ -69,7 +62,8 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	return_array[0] = (Tile2 - (startY mod TileSize) + (toPositive ? (TileSize - Height - 1) : Height)) * Invert;
 	
 	// Get angle
-	if (Index mod TileAmount == 0 or Index mod TileAmount == 1) 
+	Index = Index mod TileAmount;
+	if (Index == 0 or Index == 1) 
 	{
 		return_array[1] = toPositive ? 360 : 180;
 	}
@@ -86,7 +80,7 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 		}
 		else
 		{
-			var Ang = Game.AngleValueOf[Index mod TileAmount];
+			var Ang = Game.AngleValueOf[Index];
 			if Flip
 			{
 				Ang = (540 - Ang) mod 360;
