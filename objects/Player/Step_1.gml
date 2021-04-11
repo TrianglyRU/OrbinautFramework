@@ -121,7 +121,7 @@
 			
 			// Check for dropdash as Sonic
 			PlayerCheckDropdash();
-
+			
 			// Check for being hurt
 			PlayerCheckHurt();
 			

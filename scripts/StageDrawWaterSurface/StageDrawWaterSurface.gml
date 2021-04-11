@@ -10,8 +10,8 @@ function StageDrawWaterSurface()
 	waterAngle  += 0.025;
 	waterAngle2 += 0.05;
 	waterPos     = sin(waterAngle) * 5;
-	waterPos2    = -cos(waterAngle) * 7;
-	
+	waterPos2    = -cos(waterAngle2) * 7;
+
 	// Render waves
 	if Stage.WaterLevel > Screen.RenderY - 16 and Stage.WaterLevel < Screen.RenderY + 224 + 16
 	{
