@@ -42,36 +42,6 @@ function PlayerCharacterDisplay()
 		VisualAngle = 360;
 	}
 	
-	// Perform super palette cycle
-	if isSuper
-	{
-		switch CharacterID
-		{
-			case CharSonic:
-			{
-				for (var i = 0; i < 4; i++) 
-				{
-					palette_handle(i, 9, 4);
-					palette_handle(i, 9, 4);
-					palette_handle(i, 9, 4);
-					palette_handle(i, 9, 4);
-				}
-			}
-			break;
-			case CharTails:
-			{
-				for (var i = 0; i < 4; i++) 
-				{
-					palette_handle(i, 9, 4);
-					palette_handle(i, 9, 4);
-					palette_handle(i, 9, 4);
-					palette_handle(i, 9, 4);
-				}
-			}
-			break;
-		}
-	}	
-	
 	// Update character render
 	x			 = floor(PosX);
 	y		     = floor(PosY);

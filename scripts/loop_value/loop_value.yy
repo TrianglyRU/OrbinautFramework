@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage Scripts",
-    "path": "folders/Game Code/Stage Scripts.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageActDynamicPalette",
+  "name": "loop_value",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -17,7 +17,7 @@ function MenuOptionSelect()
 		case StageSelect:	   LinesCount = 4;  break;
 		case CharacterSelect:  LinesCount = 4;  break;
 	}
-	MenuOption = loop_value(MenuOption, 0, LinesCount);
+	MenuOption = loop_value(MenuOption, LinesCount);
 	
 	// React to key A and key start
 	if Input.APress or Input.StartPress
