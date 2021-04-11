@@ -9,13 +9,13 @@ function ObjCapsuleScript()
 	}
 	else
 	{
-		// Do collision
-		object_do_collision(SolidAll, false);
-		
 		switch State 
 		{
 			case 0:
 			{
+				// Do collision
+				object_do_collision(SolidAll, false);
+		
 				if PartButton.Pressed
 				{
 					Timer     = 60;

@@ -10,7 +10,11 @@ function object_do_collision(objectType, collisionMap)
 	}
 	
 	// Don't do anything if this object does not have collision
-	if (objectType = SolidNone) exit;
+	if objectType = SolidNone
+	{
+		if (Player.OnObject == id) Player.OnObject = false;
+		exit;
+	}
 	
 	// Get object position and size
 	var objectX		 = floor(x);

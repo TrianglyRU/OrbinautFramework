@@ -17,4 +17,8 @@ function ObjCapsuleButtonScript()
 			Pressed     = true;
 		}
 	}
+	else
+	{
+		object_do_collision(SolidNone);
+	}
 }
