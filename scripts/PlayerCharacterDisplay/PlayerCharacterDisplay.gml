@@ -36,7 +36,7 @@ function PlayerCharacterDisplay()
 	}
 	
 	// Force visual angle to be 0
-	if Inertia == 0 and !Grounded
+	if Inertia == 0 and Grounded
 	or Animation == AnimRoll or Animation == AnimFly or Animation == AnimGlide or Animation == AnimSkid or Animation == AnimClimb
 	{
 		VisualAngle = 360;

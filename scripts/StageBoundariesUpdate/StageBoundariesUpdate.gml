@@ -48,15 +48,15 @@ function StageBoundariesUpdate()
 					}
 				}
 			} 
-			break;
 		}
+		break;
 		
 		// Set stage boundaries on act finish
 		case ActStateFinished:
 		{		
 			LeftBoundary = FinishX - HalvedWidth;
-			break;
 		}
+		break;
 		
 		// Set stage boundaries during bossfight
 		case ActStateBossfight:

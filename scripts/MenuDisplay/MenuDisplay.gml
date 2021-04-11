@@ -27,8 +27,8 @@ function MenuDisplay()
 			string_display(X, Y,	  "START GAME", 1);
 			string_display(X, Y + 15, "OPTIONS", 1);
 			string_display(X, Y + 30, "CLOSE GAME", 1);
-			break;
 		}
+		break;
 		
 		// Display menu 1 (Start Game)
 		case DataSelect:
@@ -49,8 +49,8 @@ function MenuDisplay()
 					// Get character
 					switch Saveslot[i][SavedChar]
 					{
-						case CharSonic:    var DisplayChar = "SONIC";  break;
-						case CharTails:    var DisplayChar = "TAILS"; break;
+						case CharSonic:    var DisplayChar = "SONIC";    break;
+						case CharTails:    var DisplayChar = "TAILS";    break;
 						case CharKnuckles: var DisplayChar = "KNUCKLES"; break;
 					}
 					
@@ -65,8 +65,8 @@ function MenuDisplay()
 			}
 			string_display(X, Y + 60, "DELETE SAVE", 1);
 			string_display(X, Y + 75, "BACK", 1);	
-			break;
 		}
+		break;
 		
 		// Display character select menu
 		case CharacterSelect:
@@ -75,9 +75,9 @@ function MenuDisplay()
 			string_display(X, Y - 15, "SONIC", 1);
 			string_display(X, Y,	  "TAILS", 1);
 			string_display(X, Y + 15, "KNUCKLES", 1);
-			string_display(X, Y + 30, "BACK", 1);
-			break;
+			string_display(X, Y + 30, "BACK", 1);		
 		}
+		break;
 		
 		// Display menu 2 (options)
 		case Options:
@@ -87,8 +87,8 @@ function MenuDisplay()
 			string_display(X, Y,	  "VIDEO AND AUDIO", 1);
 			string_display(X, Y + 15, "INPUT", 1);
 			string_display(X, Y + 30, "BACK", 1);
-			break;
 		}
+		break;
 			
 		// Display menu 3 (framework options)
 		case FrameworkConfig:
@@ -121,8 +121,8 @@ function MenuDisplay()
 				string_display(X + 65, Y,	   Game.OriginalRollLimit ? "ON" : "OFF", 1);
 				string_display(X + 65, Y + 15, Game.FlyingCancel      ? "ON" : "OFF", 1);
 			}	
-			break;
 		}
+		break;
 
 		// Display menu 4 (video and audio options)
 		case AudioVideoConfig:
@@ -139,8 +139,8 @@ function MenuDisplay()
 			string_display(X + 50, Y + 15, Game.WindowFullscreen ? "ON" : "OFF", 1);
 			string_display(X + 50, Y + 30, string(round(Game.MusicVolume * 100)), 1);
 			string_display(X + 50, Y + 45, string(round(Game.SoundVolume * 100)), 1);
-			break;
 		}
+		break;
 		
 		// Display menu 5 (input options)
 		case InputConfig:
@@ -160,9 +160,9 @@ function MenuDisplay()
 			for (var i = 0; i < 9; i++) 
 			{
 				string_display(X, Y - 45 + 15 * i, i == MenuOption and ControlEditMode ? ": :" : string(Game.KeyboardControl[i]) + ":" + menu_input_get_keyname(Game.KeyboardControl[i]), 1);
-			}
-			break;
+			}			
 		}
+		break;
 		
 		// Display menu 6 (stage select)
 		case StageSelect:
@@ -171,8 +171,8 @@ function MenuDisplay()
 			string_display(X - 80, Y - 15, "MOONLIGHT BASE 1", 1);
 			string_display(X - 80, Y,	   "MOONLIGHT BASE 2", 1);
 			string_display(X - 80, Y + 15, "HORIZON HEIGHTS", 1);
-			string_display(X - 80, Y + 30, "BACK", 1);
-			break;
+			string_display(X - 80, Y + 30, "BACK", 1);			
 		}
+		break;
 	}
 }

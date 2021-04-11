@@ -2,7 +2,7 @@
 // You can call your scripts in this editor
 	
 	// Create variables
-	Pressed = 0;
+	Pressed _init;
 
 	// Call object script
 	ObjCapsuleButtonSetup();

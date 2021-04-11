@@ -6,24 +6,18 @@ function GameShaderPaletteSetLoad()
 		// Load palette set for Moonlight Base
 		case MBZ:
 		case MBZ2:
-		{
 			Game.PaletteSet = pal_MoonlightBaseZone; 
-			break;
-		}
+		break;
 		
 		// Load palette set for Hilltop Heights
 		case HHZ:
-		{
 			Game.PaletteSet = false;
-			break;
-		}
+		break;
 		
 		// Disable palettes for other rooms
 		default:
-		{
 			Game.PaletteSet = false; 
-			break;
-		}
+		break;
 	}
 	
 	// Do shader initialization math

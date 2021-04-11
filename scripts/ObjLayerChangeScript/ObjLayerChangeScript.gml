@@ -10,15 +10,11 @@ function ObjLayerChangeScript()
 		switch PlayerDirection
 		{
 			case "To LayerA":
-			{
 				Player.Layer = LayerA;
-				break;
-			}
+			break;
 			case "To LayerB":
-			{
 				Player.Layer = LayerB;
-				break;
-			}
+			break;
 		}
 	}
 }

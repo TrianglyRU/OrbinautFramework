@@ -25,10 +25,9 @@ function PlayerHitWalls()
 						
 						// Set flag
 						Pushing = DirLeft;
-					}
-					break;				
+					}			
 				}
-				
+				break;
 				case RangeRWall:
 				{
 					var tileData = tile_check_collision_v2(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
@@ -41,8 +40,8 @@ function PlayerHitWalls()
 						Angle      = tileData[1];
 						AngleRange = round(Angle/90) % 4;
 					}
-					break;
 				}
+				break;
 				case RangeRoof:
 				{	
 					var tileData = tile_check_collision_h2(floor(PosX + Xsp + 10), floor(PosY + Ysp), true, true, Layer)
@@ -52,8 +51,8 @@ function PlayerHitWalls()
 						Xsp    += tileData[0];
 						Inertia = 0;
 					}
-					break;
 				}
+				break;
 				case RangeLWall:
 				{
 					var tileData = tile_check_collision_v2(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
@@ -62,8 +61,8 @@ function PlayerHitWalls()
 						Ysp    -= tileData[0];
 						Inertia = 0;
 					}
-					break;
-				}	
+				}
+				break;
 			}
 			
 			// Store distance to display in debug

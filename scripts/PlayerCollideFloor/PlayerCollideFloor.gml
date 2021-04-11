@@ -26,9 +26,10 @@ function PlayerCollideFloor()
 			
 			// Perform floor collision
 			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			if floorDistance > maxDistance
+			if  maxDistance <= floorDistance
 			{
 				Grounded = false;
+				exit;
 			}
 			else if floorDistance > -14
 			{
@@ -56,9 +57,10 @@ function PlayerCollideFloor()
 			
 			// Perform floor collision
 			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			if floorDistance > maxDistance
+			if  maxDistance <= floorDistance
 			{
 				Grounded = false;
+				exit;
 			}
 			else if floorDistance > -14
 			{
@@ -86,9 +88,10 @@ function PlayerCollideFloor()
 			
 			// Perform floor collision
 			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			if floorDistance > maxDistance
+			if  maxDistance <= floorDistance
 			{
 				Grounded = false;
+				exit;
 			}
 			else if floorDistance > -14
 			{
@@ -114,12 +117,12 @@ function PlayerCollideFloor()
 				var floorAngle    = tileDataRight[1];
 			}
 			
-
 			// Perform floor collision
 			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			if floorDistance > maxDistance
+			if  maxDistance <= floorDistance
 			{
 				Grounded = false;
+				exit;
 			}
 			else if floorDistance > -14
 			{

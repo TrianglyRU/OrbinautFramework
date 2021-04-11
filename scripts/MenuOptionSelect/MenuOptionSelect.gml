@@ -35,6 +35,7 @@ function MenuOptionSelect()
 				}
 				break;
 			}
+			break;
 			case DataSelect:
 			{
 				// Ignore all savefile manipulations and go straight to character select if
@@ -91,18 +92,22 @@ function MenuOptionSelect()
 					switch MenuOption
 					{	
 						// Enable save delete mode
-						case 5: DataDeleteMode = true; break;
+						case 5: 
+						{
+							DataDeleteMode = true; 
+						}
+						break;
 						case 6: 
 						{
 							// Go back to main menu
 							DataDeleteMode = false; 
 							menu_goto(Main, 0);
-							break;
 						}	
+						break;
 					}
 				}
-				break;
 			}
+			break;
 			case CharacterSelect:
 			{
 				if MenuOption < 3
@@ -146,8 +151,8 @@ function MenuOptionSelect()
 						SaveNewData = false; 
 					}
 				}
-				break;
-			}			
+			}
+			break;
 			case Options:
 			{
 				switch MenuOption
@@ -159,11 +164,11 @@ function MenuOptionSelect()
 					{
 						gamesettings_save("config"); 
 						menu_goto(Main, 1);	
-						break;
-					}	
+					}
+					break;
 				}
-				break;
 			}
+			break;
 			case FrameworkConfig: 
 			{	
 				// Go back
@@ -171,8 +176,8 @@ function MenuOptionSelect()
 				{
 					menu_goto(Options, 0)
 				}
-				break;
-			}	
+			}
+			break;
 			case AudioVideoConfig:
 			{
 				// Go back
@@ -180,8 +185,8 @@ function MenuOptionSelect()
 				{
 					menu_goto(Options, 1);
 				}
-				break;
 			}
+			break;
 			case InputConfig: 
 			{
 				// Go back
@@ -189,8 +194,8 @@ function MenuOptionSelect()
 				{
 					menu_goto(Options, 2);
 				}
-				break;
-			}			
+			}
+			break;
 			case StageSelect:
 			{
 				if MenuOption < 3
@@ -203,8 +208,8 @@ function MenuOptionSelect()
 					menu_goto(Main, 0);
 					StageToLoad = false;
 				}
-				break;
 			}
+			break;
 		}
 	}
 }

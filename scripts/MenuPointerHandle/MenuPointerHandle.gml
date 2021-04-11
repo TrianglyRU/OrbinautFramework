@@ -10,20 +10,20 @@ function MenuPointerHandle()
 		case InputConfig:
 		{
 			objLoadingIcon.y -= 30;
-			break;
 		}
+		break;
 		case DataSelect:
 		{	
 			objLoadingIcon.x -= 30;
-			break;
 		}
+		break;
 		case FrameworkConfig:
 		{
 			if MenuOption > 6
 			{
 				objLoadingIcon.y -= 7 * 15;
 			}
-			break;
 		}	
+		break;
 	}
 }

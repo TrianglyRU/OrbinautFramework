@@ -9,19 +9,25 @@ function data_read(name)
 			switch name 
 			{
 				case "anglemap.bin": 
+				{
 					Game.AngleValueOf[i] = (256 - file_bin_read_byte(File)) * 360 / 256;
+				}
 				break;
 				case "heightmap.bin":
+				{
 					for (var j = 0; j < 16; j++) 
 					{
 						Game.HeightValueOf[i][j] = file_bin_read_byte(File);
 					}
+				}
 				break;
 				case "widthmap.bin":  
+				{
 					for (var j = 0; j < 16; j++) 
 					{
 						Game.WidthValueOf[i][j] = file_bin_read_byte(File);	 
 					}
+				}
 				break;
 			}
 		}

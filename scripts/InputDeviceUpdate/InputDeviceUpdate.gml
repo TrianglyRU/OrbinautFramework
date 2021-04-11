@@ -9,8 +9,8 @@ function InputDeviceUpdate()
 			{
 				Type = "Gamepad";
 			}
-			break;
 		}
+		break;
 		
 		// Switch from gamepad to keyboard
 		case "Gamepad":
@@ -18,15 +18,15 @@ function InputDeviceUpdate()
 			if keyboard_check_pressed(vk_anykey) 
 			{
 				Type = "Keyboard";
-			}
-			break;	
+			}				
 		}
+		break;
 		
 		// Use keyboard by default
 		default:
 		{
-			Type = "Keyboard";
-			break;
+			Type = "Keyboard";	
 		}
+		break;
 	}	
 }

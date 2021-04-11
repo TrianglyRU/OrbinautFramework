@@ -5,7 +5,7 @@ function GameAudioGroupsLoad()
 	audio_group_load(BGM);
 	
 	// Init system looptrack variable
-	variable_instance_set(self, "Game.loopTrack", 0);
+	variable_set_temp("Game.loopTrack");
 
 	// Set volume
 	audio_group_set_gain(GlobalSFX, Game.SoundVolume, 0);

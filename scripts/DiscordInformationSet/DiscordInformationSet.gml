@@ -28,15 +28,9 @@ function DiscordInformationSet()
 	var Char;
 	switch Player.CharacterID 
 	{
-		case CharSonic:    
-			Char = "SONIC";   
-		break;
-		case CharTails:	   
-			Char = "TAILS";    
-		break;
-		case CharKnuckles: 
-			Char = "KNUCKLES"; 
-		break;
+		case CharSonic:    Char = "SONIC";    break;
+		case CharTails:	   Char = "TAILS";    break;
+		case CharKnuckles: Char = "KNUCKLES"; break;
 	}
 	StateString = "Playing as: " + string(Char);
 	discord_set_state(StateString);	 

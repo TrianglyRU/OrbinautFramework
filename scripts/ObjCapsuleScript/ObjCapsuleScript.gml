@@ -7,25 +7,35 @@ function ObjCapsuleScript()
 		PartButton = instance_create_depth(x - 1, y - 38, depth + 1, CapsuleButton);
 		Init	   = true;
 	}
+	
+	// Main code
 	else
 	{
 		switch State 
 		{
+			// Waiting for player to press the button
 			case 0:
 			{
 				// Do collision
 				object_do_collision(SolidAll, false);
-		
+				
+				// Check if button has been pressed
 				if PartButton.Pressed
 				{
 					Timer     = 60;
 					State     = 1;
 					ExplDelay = irandom(32);
 				}
-				break;
-			}		
+			}	
+			break;
+			
+			// Explode
 			case 1: 
 			{
+				// Do collision
+				object_do_collision(SolidAll, false);
+				
+				// Spawn explosions for 60 frames
 				if Timer
 				{
 					if ExplDelay
@@ -46,21 +56,27 @@ function ObjCapsuleScript()
 					*/
 					Timer--;
 				}
+				
+				// Check if explode event has ended
 				else
 				{
-					object_do_collision(SolidNone, false);
+					instance_destroy(PartButton);
 					image_index = 1;
 					State       = 2;
 					Timer       = 180;
 				}
-				break;
 			}
+			break;
+			
+			// Destroyed
 			case 2:
 			{
+				// Disable collisions
 				object_do_collision(SolidNone, false);
+				
+				// Spawn animals for 180 frames
 				if Timer 
 				{ 
-					instance_destroy(PartButton);
 					Timer--;
 					if Timer mod 8 == 0 
 					{
@@ -71,8 +87,8 @@ function ObjCapsuleScript()
 						}
 					}
 				}
-				break;
 			}
+			break;
 		}
 	}
 }

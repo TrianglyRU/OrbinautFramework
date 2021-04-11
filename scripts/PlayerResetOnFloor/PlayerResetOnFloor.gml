@@ -89,6 +89,7 @@ function PlayerResetOnFloor()
 				GlidingValue = 0;
 				GlidingState = false;	
 			}
+			break;
 		}
 		
 		// Knuckles' climbing

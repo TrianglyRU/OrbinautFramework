@@ -1,7 +1,7 @@
 function ObjCapsuleSetup()
 {
 	// Set object hitbox
-	object_set_solidbox(32, 31);
+	object_set_solidbox(32, 25);
 	
 	// Set object visibility
 	object_set_visibility(true);
