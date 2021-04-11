@@ -63,7 +63,8 @@
 		if ((u_water != 0.) && (u_water >= 224. - v_vPosition.y))
 		{
 			//col.rgb += u_waterCol / 255.;
-			col.rgb = 1. - col.rgb;
+			//col.rgb = 1. - col.rgb;
+			col.rgb = mix(col.rgb, u_waterCol / 255., 0.5);
 		}
 		col = findAltColor(col, u_Uvs.xy, u_palTexture);
 		#endregion
