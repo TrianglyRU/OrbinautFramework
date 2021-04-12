@@ -31,7 +31,7 @@ function PlayerCollideFloor()
 				Grounded = false;
 				exit;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosY += floorDistance;
 			}
@@ -62,7 +62,7 @@ function PlayerCollideFloor()
 				Grounded = false;
 				exit;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosX += floorDistance;
 			}
@@ -93,7 +93,7 @@ function PlayerCollideFloor()
 				Grounded = false;
 				exit;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosY -= floorDistance;
 			}
@@ -124,7 +124,7 @@ function PlayerCollideFloor()
 				Grounded = false;
 				exit;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosX -= floorDistance;
 			}

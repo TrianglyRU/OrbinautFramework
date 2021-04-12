@@ -1,7 +1,7 @@
 function ScreenCameraPositionUpdate() 
 {	
 	// Set render positions
-	RenderX = floor(ViewX) + ExtendedOffset;
+	RenderX = floor(ViewX) + ExtendedOffset + ATSShift;
 	RenderY = floor(ViewY) - SpinOffset + OverviewOffset;
 	
 	// Keep the camera inside stage boundaries

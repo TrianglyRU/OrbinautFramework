@@ -182,8 +182,8 @@ function ScreenDebugViewDisplay()
 	}
 	
 	// Show tile collision
-	layer_set_visible(layer_get_id("CollisionTilesA"), DebugViewEnabled and DebugShowCollision and Player.Layer == LayerA);
-	layer_set_visible(layer_get_id("CollisionTilesB"), DebugViewEnabled and DebugShowCollision and Player.Layer == LayerB);
+	//layer_set_visible(layer_get_id("CollisionTilesA"), DebugViewEnabled and DebugShowCollision and Player.Layer == LayerA);
+	//layer_set_visible(layer_get_id("CollisionTilesB"), DebugViewEnabled and DebugShowCollision and Player.Layer == LayerB);
 		
 	// Restore default transparency
 	draw_set_alpha(1);

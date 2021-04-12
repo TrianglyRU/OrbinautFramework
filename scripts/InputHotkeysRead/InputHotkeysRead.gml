@@ -68,6 +68,14 @@ function InputHotkeysRead()
 			Player.isSuper = true;
 			Player.Rings   = 50;
 		}
+		if keyboard_check_pressed(ord("8")) 
+		{
+			Player.Rings += 10;	
+		}
+		if keyboard_check_pressed(ord("9")) 
+		{
+			Player.Hurt = id;	
+		}
 		
 		// Ignore input mode
 		if keyboard_check_pressed(ord("L")) 

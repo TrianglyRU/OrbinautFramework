@@ -8,7 +8,7 @@ function PlayerCheckHurt()
 		Rolling		  = false;
 		Jumping		  = false;
 		FlyingState	  = false;
-		GlidingState  =  false;
+		GlidingState  = false;
 		ClimbingState = false;
 			
 		if (Rings == 0 and !ShieldType) or Stage.Time == 36000
@@ -36,6 +36,29 @@ function PlayerCheckHurt()
 			// Lose rings
 			if !ShieldType
 			{
+				var Dir = -1
+				var Ang = 168.75
+				var Spd = 4
+				for (var i = 0; i < min(Rings, 32); i++) 
+				{
+					var Created = instance_create_depth(0, 0, 0, Ring);
+					if  i == 16 
+					{ 
+						Ang = 168.75; 
+						Spd = 2;
+					}
+					Created.Physical = true;
+					Created.PickupTimeout = 64;
+					Created.PosX	 = floor(PosX);
+					Created.PosY	 = floor(PosY);
+					Created.Xsp	     = Spd * dsin(Ang) * Dir;
+					Created.Ysp		 = Spd * dcos(Ang)
+					if Dir 
+					{ 
+						Ang -= 22.5;
+					}
+					Dir *= -1
+				}
 				Rings = 0;
 			}
 			else

@@ -17,58 +17,16 @@ function object_do_tile_collision(xLeft, yLeft, xRight, yRight, angRange)
 		case RangeFloor:
 		{	
 			// Get floor distances
-			var dLeft  = tile_get_distance_v(xLeft, yLeft, colLayer, true, false);
-			var dRight = tile_get_distance_v(xRight, yRight, colLayer, true, false);
+			var dLeft  = tile_check_collision_v(xLeft, yLeft, true, false, colLayer);
+			var dRight = tile_check_collision_v(xRight, yRight, true, false, colLayer);
 			
 			// Collide using closest one
-			var floorDistance = dLeft <= dRight ? dLeft : dRight;
+			var floorDistance = dLeft[0] <= dRight[0] ? dLeft[0] : dRight[0];
 			if  floorDistance < 14 and floorDistance > -14
 			{
 				y += floorDistance;	
 			}
 		}
 		break;
-		case RangeRWall:
-		{
-			// Get floor distances
-			var dLeft  = tile_get_distance_h(xLeft, yLeft, colLayer, true, false);
-			var dRight = tile_get_distance_h(xRight, yRight, colLayer, true, false);
-			
-			// Collide using closest one
-			var floorDistance = dLeft <= dRight ? dLeft : dRight;
-			if  floorDistance < 14 and floorDistance > -14
-			{
-				x += floorDistance;
-			}
-		}
-		break;
-		case RangeRoof:
-		{	
-			// Get floor distances
-			var dLeft  = tile_get_distance_v(xLeft, yLeft, colLayer, false, false);
-			var dRight = tile_get_distance_v(xRight, yRight, colLayer, false, false);
-			
-			// Collide using closest one
-			var floorDistance = dLeft <= dRight ? dLeft : dRight;
-			if  floorDistance < 14 and floorDistance > -14
-			{
-				y -= floorDistance;
-			}
-		}
-		break;
-		case RangeLWall:
-		{
-			// Get floor distances
-			var dLeft  = tile_get_distance_h(xLeft, yLeft, colLayer, false, false);
-			var dRight = tile_get_distance_h(xRight, yRight, colLayer, false, false);
-			
-			// Collide using closest one
-			var floorDistance = dLeft <= dRight ? dLeft : dRight;
-			if  floorDistance < 14 and floorDistance > -14
-			{
-				x -= floorDistance;
-			}
-		}
-		break;		
 	}	
 }
