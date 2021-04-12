@@ -7,6 +7,7 @@
 	// Set stage properties
 	StageActSetup();
 	
+	// Set default static stage palette
 	StageActStaticPaletteHandle();
 	
 	// Load tiledata

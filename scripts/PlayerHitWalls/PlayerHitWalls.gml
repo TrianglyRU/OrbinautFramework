@@ -16,7 +16,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var tileData = tile_check_collision_h2(floor(PosX + Xsp - 10), floor(PosY + Ysp + 8 * (Angle == 360)), false, true, Layer);
+					var tileData = tile_check_collision_h(floor(PosX + Xsp - 10), floor(PosY + Ysp + 8 * (Angle == 360)), false, true, Layer);
 					if  tileData[0] < 0 
 					{	
 						// Affect player speeds
@@ -30,7 +30,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRWall:
 				{
-					var tileData = tile_check_collision_v2(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
+					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
 					if  tileData[0] < 0
 					{
 						// Affect player speeds
@@ -44,7 +44,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRoof:
 				{	
-					var tileData = tile_check_collision_h2(floor(PosX + Xsp + 10), floor(PosY + Ysp), true, true, Layer)
+					var tileData = tile_check_collision_h(floor(PosX + Xsp + 10), floor(PosY + Ysp), true, true, Layer)
 					if  tileData[0] < 0
 					{	
 						// Affect player speeds
@@ -55,7 +55,7 @@ function PlayerHitWalls()
 				break;
 				case RangeLWall:
 				{
-					var tileData = tile_check_collision_v2(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
+					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
 					if  tileData[0] < 0
 					{	
 						Ysp    -= tileData[0];
@@ -72,7 +72,7 @@ function PlayerHitWalls()
 	else if !(Xsp > abs(Ysp))
 	{		
 		// Collide airborne at the current frame
-		var tileData = tile_check_collision_h2(floor(PosX - 10), floor(PosY), false, true, Layer);
+		var tileData = tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer);
 		if  tileData[0] < 0
 		{
 			PosX -= tileData[0];
@@ -93,7 +93,7 @@ function PlayerHitWalls()
 			{
 				case RangeFloor:
 				{	
-					var tileData = tile_check_collision_h2(floor(PosX + Xsp + 10), floor(PosY + Ysp + 8 * (Angle == 360)), true, true, Layer);
+					var tileData = tile_check_collision_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + 8 * (Angle == 360)), true, true, Layer);
 					if  tileData[0] < 0
 					{	
 						Xsp    += tileData[0];
@@ -106,7 +106,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRWall:
 				{
-					var tileData = tile_check_collision_v2(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
+					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
 					if  tileData[0] < 0
 					{	
 						Ysp    -= tileData[0];
@@ -116,7 +116,7 @@ function PlayerHitWalls()
 				break;
 				case RangeRoof:
 				{	
-					var tileData = tile_check_collision_h2(floor(PosX + Xsp - 10), floor(PosY + Ysp), false, true, Layer)
+					var tileData = tile_check_collision_h(floor(PosX + Xsp - 10), floor(PosY + Ysp), false, true, Layer)
 					if  tileData[0] < 0
 					{	
 						Xsp    -= tileData[0];
@@ -126,7 +126,7 @@ function PlayerHitWalls()
 				break;
 				case RangeLWall:
 				{
-					var tileData = tile_check_collision_v2(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
+					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
 					if  tileData[0] < 0
 					{	
 						Ysp  += tileData[0];
@@ -146,7 +146,7 @@ function PlayerHitWalls()
 	else if !(-Xsp > abs(Ysp))
 	{	
 		// Collide airborne at the current frame
-		var tileData = tile_check_collision_h2(floor(PosX + 10), floor(PosY), true, true, Layer);	
+		var tileData = tile_check_collision_h(floor(PosX + 10), floor(PosY), true, true, Layer);	
 		if  tileData[0] < 0
 		{
 			PosX += tileData[0];

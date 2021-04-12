@@ -1,5 +1,5 @@
-/// @function object_check_tile(xLeft, yLeft, xRight, yRight, angRange)
-function object_check_tile(xLeft, yLeft, xRight, yRight, angRange)
+/// @function object_do_tile_collision(xLeft, yLeft, xRight, yRight, angRange)
+function object_do_tile_collision(xLeft, yLeft, xRight, yRight, angRange)
 {	
 	// Report script error if wrong argument set
 	if angRange > 3

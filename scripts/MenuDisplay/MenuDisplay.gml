@@ -43,7 +43,7 @@ function MenuDisplay()
 					switch Saveslot[i][SavedZone]
 					{
 						case 0: var DisplayZone = "MBZ";  break;
-						case 1: var DisplayZone = "HHZ"; break;
+						case 1: var DisplayZone = "HHZ";  break;
 					}
 					
 					// Get character
@@ -55,7 +55,7 @@ function MenuDisplay()
 					}
 					
 					// Display data info
-					string_display(X, Y + i * 15, "SLOT " + string(i) + + ": " + DisplayChar + " " + DisplayZone, 1);
+					string_display(X, Y + i * 15, "SLOT " + string(i) + ": " + DisplayChar + " " + DisplayZone, 1);
 				}
 				else
 				{

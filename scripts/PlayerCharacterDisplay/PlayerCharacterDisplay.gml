@@ -48,18 +48,17 @@ function PlayerCharacterDisplay()
 	depth		 = DrawOrder;
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
+	
+	// Draw player
+	draw_self();
 
 	// Update Tails' tails render
 	if CharacterID == CharTails
 	{
-		TailsObject.x			 = x;
-		TailsObject.y			 = y;	
-		TailsObject.depth		 = DrawOrder + 1;
-		TailsObject.image_xscale = Facing;
-		
+		// Update tails visual angle
 		if Animation != AnimRoll
 		{
-			TailsObject.image_angle = VisualAngle;
+			var TailsAngle = VisualAngle;
 		}
 		else
 		{
@@ -74,7 +73,7 @@ function PlayerCharacterDisplay()
 			
 			if Game.SmoothRotation
 			{
-				TailsAngle = DirectionAngle;
+				var TailsAngle = DirectionAngle;
 			}
 			else
 			{
@@ -87,9 +86,17 @@ function PlayerCharacterDisplay()
 				if (DirectionAngle > 255  and DirectionAngle < 285)   var TailsAngle = 270; 
 				if (DirectionAngle > 285  and DirectionAngle < 334.5) var TailsAngle = 305;
 			}
-			TailsObject.image_angle = TailsAngle;
+			
 		}
+		
+		// Update tails render
+		TailsObject.x			 = x;
+		TailsObject.y			 = y;	
+		TailsObject.depth		 = DrawOrder + 5;
+		TailsObject.image_xscale = Facing;
+		TailsObject.image_angle  = TailsAngle;
+
+		// Draw tails
+		with TailsObject draw_self();
 	}
-	
-	draw_self();
 }

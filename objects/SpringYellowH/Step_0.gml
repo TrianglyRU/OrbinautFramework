@@ -2,7 +2,7 @@
 // You can call your scripts in this editor
 	
 	// Do collision
-	object_do_collision(SolidAll, false);
+	object_do_player_collision(SolidAll, false);
 
 	// Check if we're touching launch side
 	if Player.Grounded

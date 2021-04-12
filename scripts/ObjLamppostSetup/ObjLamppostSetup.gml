@@ -1,7 +1,7 @@
 function ObjLamppostSetup()
 {
-	// Set object hitbox
-	object_set_hitbox(8, 32);
+	// Set object triggerbox
+	object_set_triggerbox(-8, 8, -52, 52);
 	
 	// Set object visibility
 	object_set_visibility(true);

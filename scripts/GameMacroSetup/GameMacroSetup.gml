@@ -75,12 +75,12 @@ function GameMacroSetup()
 	#macro SideLeft			 1
 	#macro SideRight		 2
 	#macro SideBottom		 3
+	#macro CollisionHitbox     0
+	#macro CollisionTriggerbox 1
 	#macro RangeFloor	     0
 	#macro RangeRWall	     1
 	#macro RangeRoof		 2
 	#macro RangeLWall		 3
-	#macro DataDistance      0
-	#macro DataAngle	     1
 	#macro TileSize          16
 	#macro TileAmount        154
 }

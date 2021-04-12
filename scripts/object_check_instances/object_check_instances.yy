@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_check_collision_v2",
+  "name": "object_check_instances",
   "tags": [],
   "resourceType": "GMScript",
 }

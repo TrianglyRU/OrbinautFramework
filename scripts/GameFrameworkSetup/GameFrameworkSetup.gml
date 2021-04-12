@@ -43,7 +43,7 @@ function GameFrameworkSetup()
 	Game.LooseCrouch			 = false;	// In SK, you can start crouching even when you are moving slowly. True - SK method.
 	Game.ConstantRollFrc		 = false;	// In SK, rolling friction is hard-coded to always be half of regular acceleration, even when Super. True - SK method
 	Game.StrongerSlopeDetach     = false;   // Before S3 you were able to slide down on 45-degree floors. True - Sonic 3 method
-	Game.SpeedFloorClip			 = false;    // In S2+, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
+	Game.SpeedFloorClip			 = false;   // In S2+, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
 	Game.ExtensiveWallCollision	 = true;	// In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.ImprovedObjCollision	 = true;    // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
 	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles

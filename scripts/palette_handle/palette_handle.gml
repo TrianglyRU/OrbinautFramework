@@ -1,12 +1,9 @@
 /// @function palette_handle(index, colours, duration)
 function palette_handle(index, colours, duration)
 {
-	if colours > 1
-	{
-		Game.PalIndex[index] = loop_value(Stage.Time / duration, colours) + 1;
-	}
-	else
-	{
-		Game.PalIndex[index] = 1;
-	}
+	// Smooth palette cycle if framework settings says so
+	var current_colour = Game.SmoothPaletteCycle ? Stage.AnimationTime / duration : floor(Stage.AnimationTime / duration);
+	
+	// Perform colour shift
+	Game.PalIndex[index] = colours > 0 ? loop_value(current_colour, colours) + 1 : 1;
 }

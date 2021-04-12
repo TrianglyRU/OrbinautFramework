@@ -12,7 +12,7 @@ function ScreenDebugViewDisplay()
 			var pTop    = floor(Player.PosY - Player.yRadius);
 			var pBottom = floor(Player.PosY + Player.yRadius);
 			draw_set_alpha(0.5);
-			draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $41d5ff, $41d5ff, $41d5ff, $41d5ff, false);
+			draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $00ffff, $00ffff, $00ffff, $00ffff, false);
 			draw_set_alpha(1.0);
 			
 			// Draw object solidboxes
@@ -21,7 +21,7 @@ function ScreenDebugViewDisplay()
 				if variable_instance_exists(id, "objXRadiusSolid")
 				{
 					draw_set_alpha(0.5);
-					draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - 1, y + objYRadiusSolid - 1, $41d5ff, $41d5ff, $41d5ff, $41d5ff, false);
+					draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - 1, y + objYRadiusSolid - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);
 					draw_set_alpha(1.0);
 					draw_point(x, y);
 				}
@@ -47,9 +47,15 @@ function ScreenDebugViewDisplay()
 				{
 					draw_set_alpha(0.5);
 					draw_rectangle_colour(x - objXRadiusHit, y - objYRadiusHit, x + objXRadiusHit - 1, y + objYRadiusHit - 1, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
-					draw_set_alpha(1.0);
-					draw_point(x, y);
+					
 				}
+				if variable_instance_exists(id, "objXRadiusTriggerLeft")
+				{
+					draw_set_alpha(0.5);
+					draw_rectangle_colour(x + objXRadiusTriggerLeft, y + objYRadiusTriggerTop, x + objXRadiusTriggerRight - 1, y + objYRadiusTriggerBottom - 1, $ffff00, $ffff00, $ffff00, $ffff00, false);
+				}
+				draw_set_alpha(1.0);
+				draw_point(x, y);
 			}
 		}
 		

@@ -1,7 +1,7 @@
 function ObjLayerChangeSetup()
 {
 	// Set object hitbox
-	object_set_hitbox(8, 32);
+	object_set_triggerbox(-8, 8, -32, 32);
 	
 	// Set object visibility
 	object_set_visibility(false);

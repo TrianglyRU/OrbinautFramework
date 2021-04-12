@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_check_collision_v",
+  "name": "object_set_triggerbox",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -12,8 +12,4 @@ function object_set_hitbox(xradius, yradius)
 	// Set hitbox radiusess
 	objXRadiusHit = xradius;
 	objYRadiusHit = yradius;
-	
-	// Set variables for checking if player overlapped this object
-	objGotPlayerHitbox   = false;
-	objGotPlayerSolidbox = false;
 }

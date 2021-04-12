@@ -20,7 +20,14 @@ function PlayerCharacterAnimationList()
 					animation_play(spr_sonic_peelout, 1, 1);
 				break;
 				case AnimRoll:
-					animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
+					if abs(Inertia) < 6
+					{
+						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
+					}
+					else
+					{
+						animation_play(spr_sonic_roll_fast, round(max(1, 4 - abs(Inertia))), 1);
+					}
 				break;
 				case AnimSpindash:
 					animation_play(spr_sonic_spindash, 1, 1); 

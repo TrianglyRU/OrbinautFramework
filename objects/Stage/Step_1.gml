@@ -4,7 +4,7 @@
 	// Update stage
 	StageActUpdate();
 	
-	// Update palette cycles
+	// Update dynamic stage palette
 	StageActDynamicPaletteHandle();
 	
 	// Handle stage music

@@ -11,8 +11,8 @@ function GameRendererUpdate()
 	shader_set_uniform_i(Scrn_Color, Game.FadeColour);
 	shader_set_uniform_i(Scrn_Mode,  Game.FadeMode);
 	
-	shader_set_uniform_f(Scrn_Water, instance_exists(Stage) ? clamp(Screen.RenderY - Stage.WaterLevel + 224, 0, 224) : 0);
-	shader_set_uniform_f(Scrn_WaterCol, 0, 84, 166);
+	shader_set_uniform_f(Scrn_Water, instance_exists(Stage) ? clamp(Screen.RenderY - Stage.WaterLevel + Game.ResolutionHeight, 0, Game.ResolutionHeight) : 0);
+	shader_set_uniform_f(Scrn_WaterCol, 0, 72, 144);
 	
 	shader_set_uniform_f_array(Scrn_Index, Game.PalIndex);
 	texture_set_stage(Scrn_Texture, Game.PaletteSet[1]);

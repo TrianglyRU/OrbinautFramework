@@ -1,5 +1,5 @@
-/// @function object_do_collision(objectType, collisionMap)
-function object_do_collision(objectType, collisionMap)
+/// @function object_do_player_collision(objectType, collisionMap)
+function object_do_player_collision(objectType, collisionMap)
 {
 	// Check if this object radiuses were initialized
 	if !variable_instance_exists(id, "objXRadiusSolid")
@@ -141,7 +141,7 @@ function object_do_collision(objectType, collisionMap)
 			}
 			
 			// Collide with this object vertically
-			if abs(objectX - playerX) <= abs(objectY - playerY)	
+			if abs(objectX - playerX) + 5 <= abs(objectY - playerY) - 4	
 			{
 				// Check if player is below this object
 				if playerY > objectY and playerTop < objectBottom

@@ -7,88 +7,114 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 		return [32, 360];
 	}
 	
-	// Initialize return array
-	var return_array;
+	// Set search direction sign
+	var SearchDirection = toPositive ? 1 : -1;
 	
-	// Check if we need to invert our calculations
-	var Invert = toPositive ? 1 : -1;
+	// Get first tile
+	var FirstTile       = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, startY div TileSize);
+	var FirstTileIndex  = tile_get_index(FirstTile);
+	var FirstTileHeight = tile_get_height(startX, startY, FirstTile, FirstTileIndex mod TileAmount);
 	
-	// Get tile and read its index
-	var Tilemap = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, startY div TileSize);
-	var Index   = tile_get_index(Tilemap);
-	
-	// Read tile height
-	if ignoreSolidTop and Index >= TileAmount
-	{
-		var Height = 0;
-	}
-	else
-	{
-		var Height = tile_get_height(startX, startY, Tilemap, Index mod TileAmount);
-	}
-
-	// Use a second tile if first tile height is 0 or 16
-	var Tile2;
-	switch Height
-	{
-		case 0:		   Tile2 = +TileSize; break;
-		case TileSize: Tile2 = -TileSize; break;
-		default:	   Tile2 = 0;         break;
-	}
-	Tile2 *= Invert;
-
-	// Get second tile properties if we're using it
-	if Tile2 != 0
+	// If we do not ignore solidtop tiles or ignore and did not find it, continue calculations
+	if ignoreSolidTop and FirstTileIndex <= TileAmount or !ignoreSolidTop
 	{	
-		var Second = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + Tile2) div TileSize);
-		if !Tilemap or Second 
+		// If first tile height is in range of [1, 15], use this tile
+		if FirstTileHeight != 0 and FirstTileHeight != TileSize
 		{
-			Tilemap = Second;
-			Index   = tile_get_index(Tilemap);
-			
-			if (ignoreSolidTop and Index < TileAmount) or !ignoreSolidTop
+			var SearchShift     = 0;
+			var ResultTile      = FirstTile;
+			var ResultTileIndex = FirstTileIndex;
+		}
+	
+		// If first tile height is 0, use a tile below
+		else if FirstTileHeight == 0
+		{
+			var SearchShift     = TileSize;
+			var ResultTile      = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + SearchShift * SearchDirection) div TileSize);
+			var ResultTileIndex = tile_get_index(ResultTile);
+		}
+	
+		// If first tile height is 16, get a tile above
+		else
+		{
+			var SearchShift      = -TileSize;
+			var SecondTile       = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + SearchShift * SearchDirection) div TileSize);
+			var SecondTileIndex  = tile_get_index(SecondTile);
+		
+			// Test if second tile height is 0
+			var SecondTileHeight = tile_get_height(startX, startY, SecondTile, SecondTileIndex mod TileAmount);
+			if  SecondTileHeight == 0
 			{
-				var Height = tile_get_height(startX, startY, Tilemap, Index mod TileAmount);
+				// If it is, use first tile
+				var SearchShift     = 0
+				var ResultTile      = FirstTile;
+				var ResultTileIndex = FirstTileIndex;
 			}
 			else
 			{
-				var Height = 0;
+				// If it is not, use second tile
+				var ResultTile      = SecondTile;
+				var ResultTileIndex = SecondTileIndex;
 			}
 		}
-		else Tile2 = 0;
+		
+		// Get result tile height
+		var ResultHeight = tile_get_height(startX, startY, ResultTile, ResultTileIndex mod TileAmount);
 	}
 	
-	// Get distance
-	return_array[0] = (Tile2 - (startY mod TileSize) + (toPositive ? (TileSize - Height - 1) : Height)) * Invert;
-	
-	// Get angle
-	Index = Index mod TileAmount;
-	if (Index == 0 or Index == 1) 
+	// If we ignore solidtop tiles and did find it, ignore its height
+	else
 	{
-		return_array[1] = toPositive ? 360 : 180;
+		var SearchShift     = TileSize;
+		var ResultTile      = FirstTile;
+		var ResultTileIndex = FirstTileIndex;
+		var ResultHeight    = 0;
+	}
+	
+	// Calculate distance to edge of the result tile
+	if toPositive
+	{
+		var TileDistance = (startY + SearchShift * SearchDirection) div TileSize * TileSize + (TileSize - ResultHeight - 1) - startY;
 	}
 	else
 	{
-		var Flip = tile_get_flip(Tilemap);
-		if toPositive and Flip 
+		var TileDistance = startY - ((startY + SearchShift * SearchDirection) div TileSize * TileSize + ResultHeight);
+	}
+	
+	// Return cardinal angle for empty or full solid tiles or solidtop tiles if we ignoring them
+	if ResultTileIndex mod TileAmount < 2 or ignoreSolidTop and ResultTileIndex > TileAmount
+	{
+		var TileAngle = toPositive ? 360 : 180;
+	}
+	else
+	{
+		// Force cardinal angles for flipped tiles based on check direction
+		if toPositive and tile_get_flip(ResultTile)
 		{
-			return_array[1] = 360;
+			var TileAngle = 360;
 		}
-		else if !toPositive and !Flip 
+		else if !toPositive and !tile_get_flip(ResultTile)
 		{
-			return_array[1] = 180;
+			var TileAngle = 180;
 		}
+		
+		// Get angle normally
 		else
 		{
-			var Ang = Game.AngleValueOf[Index];
-			if Flip
+			// Get regular angle value
+			var TileAngle = Game.AngleValueOf[ResultTileIndex mod TileAmount];
+			
+			// Check if tile is flipped
+			if tile_get_flip(ResultTile)
 			{
-				Ang = (540 - Ang) mod 360;
+				TileAngle = (540 - TileAngle) mod 360;
 			}
-			return_array[1] = tile_get_mirror(Tilemap) ? 360 - Ang : Ang;
+			
+			// Check if tile is mirrored and finally return its angle
+			TileAngle = tile_get_mirror(ResultTile) ? 360 - TileAngle : TileAngle;
 		}
 	}
 	
 	// Return data
-	return return_array;
+	return [TileDistance, TileAngle];
 }
