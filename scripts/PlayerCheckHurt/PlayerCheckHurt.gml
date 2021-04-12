@@ -16,8 +16,9 @@ function PlayerCheckHurt()
 			// Set animation
 			Animation = AnimDeath;
 			
-			// Disable collision
-			AllowCollision = false;
+			// Disable collision and camera
+			Screen.CameraEnabled = false;
+			AllowCollision       = false;
 			
 			// Perform movement
 			Inertia = 0;
