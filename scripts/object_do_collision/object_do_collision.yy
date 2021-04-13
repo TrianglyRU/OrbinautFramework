@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_do_player_collision",
+  "name": "object_do_collision",
   "tags": [],
   "resourceType": "GMScript",
 }

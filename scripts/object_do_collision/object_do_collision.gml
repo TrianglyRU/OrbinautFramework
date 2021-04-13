@@ -1,5 +1,5 @@
-/// @function object_do_player_collision(objectType, collisionMap)
-function object_do_player_collision(objectType, collisionMap)
+/// @function object_do_collision(objectType, collisionMap)
+function object_do_collision(objectType, collisionMap)
 {
 	// Check if this object radiuses were initialized
 	if !variable_instance_exists(id, "objXRadiusSolid")
@@ -56,8 +56,7 @@ function object_do_player_collision(objectType, collisionMap)
 
 		// Else keep player attached
 		else
-		{
-			
+		{	
 			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
 			if collisionMap != false and image_yscale == 1
 			{
@@ -75,8 +74,11 @@ function object_do_player_collision(objectType, collisionMap)
 					objectTop = objectY - collisionMap[playerPosition] - 1;
 				}
 			}
-
-			// Attach player to this object's top boundary
+			
+			// Move player alongside the object horizontal movement
+			Player.PosX += floor(x - xprevious);
+				
+			// Make player to always stay on the object level
 			Player.PosY = objectTop - Player.yRadius;
 		}
 	}
@@ -135,7 +137,7 @@ function object_do_player_collision(objectType, collisionMap)
 			}
 			
 			// Check for overlap with this object vertically
-			if playerBottom < objectTop - 4 or playerTop > objectBottom
+			if playerBottom < objectTop or playerTop > objectBottom
 			{
 				exit;
 			}

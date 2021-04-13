@@ -17,7 +17,7 @@ function ObjBridgeHandlerScript()
 	// Check for stepping onto the bridge
 	else 
 	{
-		with (BridgeLog) object_do_player_collision(SolidTop, false);
+		with (BridgeLog) object_do_collision(SolidTop, false);
 		exit; 
 	} 
 	
@@ -50,6 +50,6 @@ function ObjBridgeHandlerScript()
 	// Do collision with the bridge
 	with BridgeLog
 	{
-		object_do_player_collision(SolidTop, false);
+		object_do_collision(SolidTop, false);
 	}
 }
