@@ -42,11 +42,11 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Spawners",
-    "path": "folders/Objects/Spawners.yy",
+    "name": "Global",
+    "path": "folders/Objects/Global.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlatformHandler",
+  "name": "FloatingPlatform",
   "tags": [],
   "resourceType": "GMObject",
 }

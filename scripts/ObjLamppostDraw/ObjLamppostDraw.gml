@@ -1,4 +1,4 @@
-function ObjLamppostSpin()
+function ObjLamppostDraw()
 {	
 	// Draw us
 	draw_self();

@@ -24,7 +24,15 @@ function ObjBreakableWallHandlerSetup()
 					var frame_to_use = Piece.image_number - 1;
 				}
 			}
-			Piece.image_index = frame_to_use;		
+			Piece.image_index = frame_to_use;	
+			
+			// Set piece properties
+			with Piece
+			{
+				object_set_solidbox(8, 8);
+				object_set_depth(Player, false);
+				object_set_visibility(false);
+			}
 		}
 	}
 }

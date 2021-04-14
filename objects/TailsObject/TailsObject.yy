@@ -23,8 +23,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Global",
-    "path": "folders/Objects/Global.yy",
+    "name": "Call-only",
+    "path": "folders/Objects/Global/Call-only.yy",
   },
   "resourceVersion": "1.0",
   "name": "TailsObject",

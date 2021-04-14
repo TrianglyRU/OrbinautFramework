@@ -51,9 +51,9 @@
 			y = floor(PosY);
 		
 			// Check for landing
-			if tile_meeting(floor(x), floor(y + 15), LayerA)
+			if object_check_tiles(SideLeft, SideBottom, LayerA)
 			{
-				object_collide_tiles(floor(x), floor(y + 15), RangeFloor, LayerA);
+				object_collide_tiles(SideLeft, SideBottom, LayerA);
 				Airborne = false;
 			}
 		}	

@@ -1,4 +1,4 @@
-function ObjPlatformSetup()
+function ObjFloatingPlatformSetup()
 {
 	// Set depth
 	object_set_depth(Player, false);

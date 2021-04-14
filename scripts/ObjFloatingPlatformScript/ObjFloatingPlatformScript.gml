@@ -1,4 +1,4 @@
-function ObjPlatformScript()
+function ObjFloatingPlatformScript()
 {
 	// Update rotation angle
 	Angle += PlatformSpeed;

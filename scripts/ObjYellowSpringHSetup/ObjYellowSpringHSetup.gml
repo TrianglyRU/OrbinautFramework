@@ -1,7 +1,7 @@
-function ObjSignpostSetup()
+function ObjYellowSpringHSetup()
 {
-	// Set object triggerbox
-	object_set_triggerbox(0, 32, -256, 256);
+	// Set object solidbox
+	object_set_solidbox(8, 16);
 	
 	// Set object visibility
 	object_set_visibility(true);

@@ -1,10 +1,10 @@
-/// @function object_collide_tiles(xSide, ySide, tileLayer)
-function object_collide_tiles(xSide, ySide, tileLayer)
+/// @function object_check_tiles(xSide, ySide, tileLayer)
+function object_check_tiles(xSide, ySide, tileLayer)
 {	
 	// Check if this object radiuses were initialized
-	if !variable_instance_exists(id, "objYRadiusSolid")
+	if !variable_instance_exists(id, "objXRadiusSolid")
 	{
-		show_message("Object ID " + string(id) + " does not have any solidbox radiuses to collide with tiles! Please, call 'object_set_solidbox' function in Create event");
+		show_message("Object ID " + string(id) + " does not have any solidbox radiuses to check for tiles! Please, call 'object_set_solidbox' function in Create event");
 		game_end();
 		exit;
 	}
@@ -32,9 +32,6 @@ function object_collide_tiles(xSide, ySide, tileLayer)
 	// Get tile distance
 	var floorDistance = tile_check_collision_v(checkX, checkY, ySide = SolidTop ? false : true, ySide = SolidTop ? true : false, tileLayer)[0];
 			
-	// Update object position
-	if floorDistance < 14 and floorDistance > -14
-	{
-		y += floorDistance + 1;
-	}	
+	// Return check result
+	return floorDistance <= 0;
 }

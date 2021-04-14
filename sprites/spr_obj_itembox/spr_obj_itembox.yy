@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Sprites",
+    "path": "folders/Objects/Global/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_itembox",

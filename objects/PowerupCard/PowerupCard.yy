@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "Sprite142",
-    "path": "sprites/Sprite142/Sprite142.yy",
+    "name": "spr_obj_powerupcard",
+    "path": "sprites/spr_obj_powerupcard/spr_obj_powerupcard.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Call-only",
+    "path": "folders/Objects/Global/Call-only.yy",
   },
   "resourceVersion": "1.0",
   "name": "PowerupCard",

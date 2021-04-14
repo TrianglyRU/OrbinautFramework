@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Object Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjPlatformSetup",
+  "name": "ObjYellowSpringHScript",
   "tags": [],
   "resourceType": "GMScript",
 }

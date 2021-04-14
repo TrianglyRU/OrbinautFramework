@@ -16,4 +16,4 @@
 	*/
 	
 	// Call object script
-	ObjPlatformSetup();	
+	ObjFloatingPlatformSetup();	
