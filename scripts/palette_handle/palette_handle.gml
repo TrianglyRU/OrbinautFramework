@@ -5,5 +5,5 @@ function palette_handle(index, colours, duration)
 	var current_colour = Game.SmoothPaletteCycle ? Stage.AnimationTime / duration : floor(Stage.AnimationTime / duration);
 	
 	// Perform colour shift
-	Game.PalIndex[index] = colours > 0 ? loop_value(current_colour, colours) + 1 : 1;
+	Palette.PalIndex[index] = colours > 0 ? loop_value(current_colour, colours) + 1 : 1;
 }

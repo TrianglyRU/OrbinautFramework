@@ -9,7 +9,7 @@ function PlayerHitWalls()
 	// Left wall collision
 	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia < 0
+		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia < 0 and Angle mod 45 != 0
 		{
 			// Collide with walls based on current angle range, frame ahead
 			switch AngleRange
@@ -58,6 +58,7 @@ function PlayerHitWalls()
 					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
 					if  tileData[0] < 0
 					{	
+						// Affect player speeds
 						Ysp    -= tileData[0];
 						Inertia = 0;
 					}
@@ -86,7 +87,7 @@ function PlayerHitWalls()
 	// Right wall collision
 	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia > 0
+		if (Angle < 90 or Angle > 270 or Angle == 45 or Angle == 315 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia > 0 and Angle mod 45 != 0
 		{
 			// Collide with walls based on current angle range, frame ahead
 			switch AngleRange
@@ -96,6 +97,7 @@ function PlayerHitWalls()
 					var tileData = tile_check_collision_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + 8 * (Angle == 360)), true, true, Layer);
 					if  tileData[0] < 0
 					{	
+						// Affect player speeds
 						Xsp    += tileData[0];
 						Inertia = 0;
 						
@@ -109,6 +111,7 @@ function PlayerHitWalls()
 					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
 					if  tileData[0] < 0
 					{	
+						// Affect player speeds
 						Ysp    -= tileData[0];
 						Inertia = 0;
 					}
@@ -119,6 +122,7 @@ function PlayerHitWalls()
 					var tileData = tile_check_collision_h(floor(PosX + Xsp - 10), floor(PosY + Ysp), false, true, Layer)
 					if  tileData[0] < 0
 					{	
+						// Affect player speeds
 						Xsp    -= tileData[0];
 						Inertia = 0;
 					}
@@ -129,7 +133,8 @@ function PlayerHitWalls()
 					var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
 					if  tileData[0] < 0
 					{	
-						Ysp  += tileData[0];
+						// Affect player speeds
+						Ysp += tileData[0];
 						
 						// We're colling with floor in this case. Update angle and angle range
 						Angle      = tileData[1];

@@ -27,10 +27,14 @@ function ScreenDebugViewDisplay()
 		}
 	}
 	#endregion
-	
-	
+		
 	if DebugToggle
 	{
+		// Darken the screen
+		draw_set_alpha(0.35);
+		draw_rectangle_colour(Screen.RenderX, Screen.RenderY, Screen.RenderX + Screen.Width, Screen.RenderY + Screen.Height, c_black, c_black, c_black, c_black, false);
+		draw_set_alpha(1);
+		
 		// Draw solidboxes
 		if DebugSolids
 		{
@@ -82,36 +86,46 @@ function ScreenDebugViewDisplay()
 		{
 			if DebugSensors
 			{
+				draw_set_colour($00ff00);
 				if Player.Grounded
 				{
-					switch Player.AngleRange
+					if !Player.OnObject
 					{
-						case RangeFloor:
+						switch Player.AngleRange
 						{
-							draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY + Player.yRadius));
-							draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY + Player.yRadius));
+							case RangeFloor:
+							{
+								draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY + Player.yRadius));							
+								draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY + Player.yRadius));
+								if Player.Inertia == 0
+								{
+									draw_point(floor(Player.PosX), floor(Player.PosY + Player.yRadius));
+								}
+							}
+							break;
+							case RangeRWall:
+							{
+								draw_point(floor(Player.PosX + Player.yRadius), floor(Player.PosY + Player.xRadius));
+								draw_point(floor(Player.PosX + Player.yRadius), floor(Player.PosY - Player.xRadius));
+							}
+							break;
+							case RangeRoof:
+							{
+								draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY - Player.yRadius));
+								draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY - Player.yRadius));
+							}
+							break;
+							case RangeLWall:
+							{
+								draw_point(floor(Player.PosX - Player.yRadius), floor(Player.PosY + Player.xRadius));
+								draw_point(floor(Player.PosX - Player.yRadius), floor(Player.PosY - Player.xRadius));
+							}
+							break;
 						}
-						break;
-						case RangeRWall:
-						{
-							draw_point(floor(Player.PosX + Player.yRadius), floor(Player.PosY + Player.xRadius));
-							draw_point(floor(Player.PosX + Player.yRadius), floor(Player.PosY - Player.xRadius));
-						}
-						break;
-						case RangeRoof:
-						{
-							draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY - Player.yRadius));
-							draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY - Player.yRadius));
-						}
-						break;
-						case RangeLWall:
-						{
-							draw_point(floor(Player.PosX - Player.yRadius), floor(Player.PosY + Player.xRadius));
-							draw_point(floor(Player.PosX - Player.yRadius), floor(Player.PosY - Player.xRadius));
-						}
-						break;
-					}			
-					if (Player.Angle < 90 or Player.Angle > 270 or Game.ExtensiveWallCollision and Player.Angle mod 90 = 0)
+					}
+					
+					draw_set_colour($ff00ff);
+					if (Player.Angle < 90 or Player.Angle > 270 or Game.ExtensiveWallCollision and Player.Angle mod 90 == 0) and Player.Angle mod 45 != 0
 					{	
 						if Player.Inertia < 0
 						{
@@ -169,16 +183,19 @@ function ScreenDebugViewDisplay()
 				}
 				else
 				{
+					draw_set_colour($00ff00);
 					if Player.Ysp > 0 or abs(Player.Xsp) > abs(Player.Ysp)
 					{
 						draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY + Player.yRadius));
 						draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY + Player.yRadius));
 					}
+					draw_set_colour($ffff00);
 					if Player.Ysp < 0 or abs(Player.Xsp) > abs(Player.Ysp)
 					{
 						draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY - Player.yRadius));
 						draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY - Player.yRadius));
 					}
+					draw_set_colour($ff00ff);
 					if !(Player.Xsp > abs(Player.Ysp))
 					{
 						draw_point(floor(Player.PosX - 10), floor(Player.PosY));
@@ -191,9 +208,24 @@ function ScreenDebugViewDisplay()
 			}
 		}
 		#endregion
+		draw_set_colour($ffffff);
 		
 		// Draw centre point
-		with Objects draw_point(floor(x), floor(y));
-		draw_point(floor(Player.PosX), floor(Player.PosY));
+		with Objects 
+		{
+			draw_point_colour(floor(x),     floor(y),     c_black);
+			draw_point_colour(floor(x + 1), floor(y),     c_white);
+			draw_point_colour(floor(x - 1), floor(y),	  c_white);
+			draw_point_colour(floor(x),     floor(y + 1), c_white);
+			draw_point_colour(floor(x),     floor(y - 1), c_white);
+		}
+		with Player
+		{
+			draw_point_colour(floor(PosX),     floor(PosY),     c_black);
+			draw_point_colour(floor(PosX + 1), floor(PosY),     c_white);
+			draw_point_colour(floor(PosX - 1), floor(PosY),	    c_white);
+			draw_point_colour(floor(PosX),     floor(PosY + 1), c_white);
+			draw_point_colour(floor(PosX),     floor(PosY - 1), c_white);
+		}
 	}
 }

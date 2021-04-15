@@ -50,6 +50,12 @@ function PlayerCharacterAnimationList()
 				case AnimDeath:
 					animation_play(spr_sonic_death, 1, 1);
 				break;	
+				case AnimBalanceFront:
+					animation_play(spr_sonic_balance_front, 12, 1);
+				break;
+				case AnimBalanceBack:
+					animation_play(spr_sonic_balance_back, 12, 1);
+				break;
 			}
 		}
 		break;

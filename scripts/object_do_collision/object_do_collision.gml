@@ -44,6 +44,21 @@ function object_do_collision(objectType, collisionMap)
 		// Tell this object player touches its top side
 		objTouchedTop = true;
 		
+		// Check if player should enter their balancing animation
+		if Player.Inertia == 0
+		{
+			if playerX < objectLeft  and Player.Facing == DirLeft
+			or playerX > objectRight and Player.Facing == DirRight
+			{
+				Player.Animation = AnimBalanceFront;
+			}
+			else if playerX < objectLeft  and Player.Facing == DirRight
+			     or playerX > objectRight and Player.Facing == DirLeft
+				 {
+					 Player.Animation = AnimBalanceBack;
+				 }
+		}
+		
 		// Extend edges if this is not SolidTop object
 		var edgeExtension = objectType == SolidTop ? 0 : 10;
 		

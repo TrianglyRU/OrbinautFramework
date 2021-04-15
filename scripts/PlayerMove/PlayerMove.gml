@@ -90,9 +90,41 @@ function PlayerMove()
 	// Handle ground animations
 	if Inertia == 0
 	{
-		Animation = AnimIdle;
+		if tile_check_collision_v(floor(PosX), floor(PosY + yRadius), true, false, Layer)[0] > 14 and !OnObject
+		{
+			if tile_meeting(floor(PosX - xRadius), floor(PosY + yRadius + 1), Layer)
+			{
+				if Facing == DirRight
+				{
+					Animation = AnimBalanceFront;
+				}
+				else
+				{
+					Animation = AnimBalanceBack;
+				}
+			}
+			else if tile_meeting(floor(PosX + xRadius), floor(PosY + yRadius + 1), Layer)
+			{
+				if Facing == DirLeft
+				{
+					Animation = AnimBalanceFront;
+				}
+				else
+				{
+					Animation = AnimBalanceBack;
+				}
+			}
+		}
+		else
+		{
+			Animation = AnimIdle;
+		}
 	}
-	else if !Skidding
+	else if Skidding != false
+	{
+		Animation = AnimSkid;
+	}
+	else
 	{
 		if abs(Inertia) < 6
 		{
@@ -109,10 +141,6 @@ function PlayerMove()
 				Animation = CharacterID == CharSonic ? AnimPeelout : AnimRun;
 			}
 		}
-	}
-	else
-	{
-		Animation = AnimSkid;
 	}
 	if Pushing != false
 	{

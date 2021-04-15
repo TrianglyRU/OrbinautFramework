@@ -5,8 +5,7 @@ function GameMacroSetup()
 	
 	// Game macro
 	#macro _init	     = 0
-	#macro Game		     global
-	#macro Palette		 global
+	#macro Game		     global	
 	#macro FontDebug     0
 	#macro FontDigits1   1
 	#macro FontDigits2   2
@@ -20,6 +19,7 @@ function GameMacroSetup()
 	#macro SavedScore    5
 	
 	// Palette macro
+	#macro Palette		     global
 	#macro PaletteSurface    0
 	#macro PaletteUnderwater 1
 	#macro to		         0
@@ -63,6 +63,8 @@ function GameMacroSetup()
 	#macro AnimSkid			   17
 	#macro AnimGlideStand	   18
 	#macro AnimClimbering	   19
+	#macro AnimBalanceFront    20
+	#macro AnimBalanceBack	   21
 
 	// Stage macro
 	#macro ActStateDefault     0
