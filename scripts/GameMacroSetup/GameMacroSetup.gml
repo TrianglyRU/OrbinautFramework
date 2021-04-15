@@ -6,11 +6,7 @@ function GameMacroSetup()
 	// Game macro
 	#macro _init	     = 0
 	#macro Game		     global
-	#macro to		     0
-	#macro from		     1
-	#macro black	     0
-	#macro white	     1
-	#macro flash	     2
+	#macro Palette		 global
 	#macro FontDebug     0
 	#macro FontDigits1   1
 	#macro FontDigits2   2
@@ -22,6 +18,15 @@ function GameMacroSetup()
 	#macro SavedLives    3
 	#macro SavedConts    4
 	#macro SavedScore    5
+	
+	// Palette macro
+	#macro PaletteSurface    0
+	#macro PaletteUnderwater 1
+	#macro to		         0
+	#macro from		         1
+	#macro black	         0
+	#macro white	         1
+	#macro flash	         2
 	
 	// Player macro
 	#macro PlayerStateNormal   0

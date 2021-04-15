@@ -6,4 +6,7 @@ function application_set_size(appWidth, appHeight)
 	
 	// Set surface/viewport size
 	surface_resize(application_surface,  appWidth, appHeight);
+	
+	// Enable surface rendering in case it was disabled
+	application_surface_draw_enable(true);
 }

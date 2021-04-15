@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage Scripts",
-    "path": "folders/Game Code/Stage Scripts.yy",
+    "name": "Palette Scripts",
+    "path": "folders/Game Code/Palette Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageActStaticPaletteHandle",
+  "name": "PaletteFadeUpdate",
   "tags": [],
   "resourceType": "GMScript",
 }

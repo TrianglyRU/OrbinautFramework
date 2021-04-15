@@ -74,7 +74,7 @@ function ScreenTitleCardDisplay()
 			
 			if !Game.StageTransitions or (Game.StageTransitions and Game.StageTransferX == 0)
 			{	
-				fade_perform(from, black, 0.5);
+				fade_perform(from, black, 1);
 			}
 		}		
 	} 

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Scripts",
-    "path": "folders/Game Code/Game Scripts.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameShaderFadeReset",
+  "name": "palette_load",
   "tags": [],
   "resourceType": "GMScript",
 }

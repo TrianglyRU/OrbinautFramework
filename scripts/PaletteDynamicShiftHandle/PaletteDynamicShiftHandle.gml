@@ -1,4 +1,4 @@
-function StageActDynamicPaletteHandle()
+function PaletteDynamicShiftHandle()
 {	
 	// Perform super palette cycle
 	if Player.isSuper
@@ -7,7 +7,7 @@ function StageActDynamicPaletteHandle()
 		{
 			case CharSonic:
 			{
-				for (var i = 0; i < 8; i++) 
+				for (var i = 0; i < 4; i++) 
 				{
 					palette_handle(i, 9, 4);
 				}
@@ -15,7 +15,7 @@ function StageActDynamicPaletteHandle()
 			break;
 			case CharTails:
 			{
-				for (var i = 8; i < 14; i++) 
+				for (var i = 4; i < 7; i++) 
 				{
 					palette_handle(i, 3, 4);
 				}
@@ -23,7 +23,7 @@ function StageActDynamicPaletteHandle()
 			break;
 			case CharKnuckles:
 			{
-				for (var i = 14; i < 20; i++) 
+				for (var i = 7; i < 10; i++) 
 				{
 					palette_handle(i, 10, 4);
 				}
@@ -31,4 +31,14 @@ function StageActDynamicPaletteHandle()
 			break;
 		}
 	}	
+	
+	// Stage palette shift
+	switch room
+	{
+		case MBZ:
+		case MBZ2:
+		{
+			palette_handle(10, 6, 8);
+		}
+	}
 }

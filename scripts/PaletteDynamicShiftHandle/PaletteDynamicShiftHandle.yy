@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+    "name": "Palette Scripts",
+    "path": "folders/Game Code/Palette Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "palette_data",
+  "name": "PaletteDynamicShiftHandle",
   "tags": [],
   "resourceType": "GMScript",
 }
