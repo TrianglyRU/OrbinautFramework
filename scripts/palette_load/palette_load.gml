@@ -1,6 +1,12 @@
 /// @function palette_load(paletteType, paletteList)
 function palette_load(paletteType, paletteList)
 {
+	if !paletteList
+	{
+		Palette.PaletteSet[paletteType] = false;
+		exit;
+	}
+	
 	// Do texture and texel initialization
 	var tex		= sprite_get_texture(paletteList, 0);
 	var UVs		= sprite_get_uvs(paletteList, 0);

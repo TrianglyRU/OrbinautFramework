@@ -17,8 +17,8 @@
   "width": 512,
   "height": 301,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tMBZ",
+    "path": "texturegroups/tMBZ",
   },
   "swatchColours": null,
   "gridX": 0,

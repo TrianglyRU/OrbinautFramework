@@ -12,13 +12,13 @@ function PaletteDataLoad()
 		
 		// Load palette set for Hilltop Heights
 		case HHZ:
-			palette_load(PaletteSurface, false);
+			palette_load(PaletteSurface, pal_MMZ_Dynamic);
 			palette_load(PaletteUnderwater, false);
 		break;
 		
 		// Disable palettes for other rooms
 		default:
-			palette_load(PaletteSurface, false);
+			palette_load(PaletteSurface, pal_MMZ_Dynamic);
 			palette_load(PaletteUnderwater, false);
 		break;
 	}

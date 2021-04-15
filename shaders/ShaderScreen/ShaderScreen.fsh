@@ -32,7 +32,6 @@
 			{
 				float Index = (isWater == true ? 1. : u_palId[int((i - corner.y) / pixelSize.y)]);
 				testPos = vec2(corner.x + pixelSize.x * floor(Index + 1.), i);
-				//if (isWater == true) { return vec4(0., 0., 0., 1.); }
 				return mix(texture2D(sampler, vec2(testPos.x - pixelSize.x, testPos.y)), texture2D(sampler, testPos), fract(Index));
 			}
 	    }
@@ -76,8 +75,8 @@
 	
 		#region Fade
 		////////////
+		col.rgb = min(col.rgb * 255., 252.);
 		vec3 OutCol;
-		col = min(col * 255., 252.);
 	
 		if (u_color == 2) 
 		{
@@ -98,5 +97,5 @@
 		#endregion
 	
 		// Output
-		gl_FragColor = vec4(OutCol, col.a) / 255. * v_vColour;
+		gl_FragColor = vec4(OutCol / 255., col.a) * v_vColour;
 	}
