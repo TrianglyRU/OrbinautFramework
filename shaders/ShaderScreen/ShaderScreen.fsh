@@ -7,11 +7,14 @@
 	varying vec4 v_vColour;
 	varying vec2 v_vPosition;
 
-	uniform sampler2D u_palTexture;
-	uniform vec4 u_Uvs;
-	uniform float u_palId[64];	// Max colours on the palette list. Increase if needed
-	uniform vec2 u_pixelSize;
+	uniform sampler2D u_dynPalTex;
+	uniform vec3 u_dynUvs;
+	uniform vec2 u_dynPixelSize;
+	uniform float u_palId[16];	// Max colours on the dynamic palette list. Increase if needed
 
+	uniform sampler2D u_wetPalTex;
+	uniform vec3 u_wetUvs;
+	uniform vec2 u_wetPixelSize;
 	uniform float u_water;
 	uniform vec3 u_waterCol;
 	
@@ -19,17 +22,18 @@
 	uniform bool u_mode;
 	uniform int u_color;
 
-	vec4 findAltColor(vec4 inCol, vec2 corner, sampler2D sampler) 
+	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, bool isWater) 
 	{
 	    vec2 testPos;
-	    for (float i = corner.y; i < u_Uvs.w; i += u_pixelSize.y) 
+	    for (float i = corner.y; i < corner.z; i += pixelSize.y) 
 		{
 			testPos = vec2(corner.x, i);
 			if (distance(texture2D(sampler, testPos), inCol) == 0.) 
 			{
-				float Index = u_palId[int((i - corner.y) / u_pixelSize.y)];
-				testPos = vec2(corner.x + u_pixelSize.x * floor(Index + 1.), i);
-				return mix(texture2D(sampler, vec2(testPos.x - u_pixelSize.x, testPos.y)), texture2D(sampler, testPos), fract(Index));
+				float Index = (isWater == true ? 1. : u_palId[int((i - corner.y) / pixelSize.y)]);
+				testPos = vec2(corner.x + pixelSize.x * floor(Index + 1.), i);
+				//if (isWater == true) { return vec4(0., 0., 0., 1.); }
+				return mix(texture2D(sampler, vec2(testPos.x - pixelSize.x, testPos.y)), texture2D(sampler, testPos), fract(Index));
 			}
 	    }
 	    return inCol;
@@ -60,13 +64,14 @@
 		////////////////////
 		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
 		DoAlphaTest(col);
+		col = findAltColor(col, u_dynUvs, u_dynPixelSize, u_dynPalTex, false);
 		if ((u_water != 0.) && (u_water >= 224. - v_vPosition.y))
 		{
 			//col.rgb += u_waterCol / 255.;
 			//col.rgb = 1. - col.rgb;
-			col.rgb = mix(col.rgb, u_waterCol / 255., 0.5);
+			//col.rgb = mix(col.rgb, u_waterCol / 255., 0.5);
+			col = findAltColor(col, u_wetUvs, u_wetPixelSize, u_wetPalTex, true);
 		}
-		col = findAltColor(col, u_Uvs.xy, u_palTexture);
 		#endregion
 	
 		#region Fade
