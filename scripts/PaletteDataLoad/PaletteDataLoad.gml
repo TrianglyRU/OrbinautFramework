@@ -12,8 +12,8 @@ function PaletteDataLoad()
 		
 		// Load palette set for Hilltop Heights
 		case HHZ:
-			//Game.PaletteSet[0] = palette_load(pal_MMZ_Dynamic);
-			//Game.PaletteSet[1] = false;
+			palette_load(PaletteSurface, false);
+			palette_load(PaletteUnderwater, false);
 		break;
 		
 		// Disable palettes for other rooms
