@@ -8,7 +8,7 @@
 		animation_play(spr_obj_itembox, 3, 1);
 		
 		// Do not solid collision if player is rolling or jumping 
-		if Player.Rolling or Player.Jumping
+		if (Player.Rolling or Player.Jumping) and Player.OnObject != id
 		{			
 			// Check for hitbox overlap
 			if object_check_overlap(CollisionHitbox)

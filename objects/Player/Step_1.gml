@@ -32,11 +32,11 @@
 			// Update player's position
 			PlayerSpeedToPos();
 			
-			// Perform spindash
-			PlayerCheckSpindash();
+			// Perform crouch actions, such as Spindash
+			PlayerCheckCrouch();
 			
-			// Perform super peel out
-			PlayerCheckPeelout();
+			// Perform look up actions, such as Super Peel Out
+			PlayerCheckLookup();
 			
 			// Check for gliding on the ground as Knuckles
 			PlayerCheckGlide();

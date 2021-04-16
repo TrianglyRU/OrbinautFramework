@@ -51,5 +51,8 @@ function ObjBridgeHandlerScript()
 	with BridgeLog
 	{
 		object_do_collision(SolidTop, false);
+		
+		// Force-disable balancing
+		Player.Balancing = false;
 	}
 }

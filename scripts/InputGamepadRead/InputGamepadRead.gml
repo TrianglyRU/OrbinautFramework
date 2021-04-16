@@ -1,5 +1,6 @@
 function InputGamepadRead() 
 {
+	// Check if input is not ignored and we do not use keyboard
 	if !IgnoreInput and Type != "Keyboard" 
 	{
 		// Up

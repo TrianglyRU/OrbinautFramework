@@ -1,14 +1,15 @@
 function PaletteFadeUpdate()
 {	
-	// Turn off fade if disabled
+	// Turn off palette fade if it is disabled
 	if !Palette.FadeEnabled
 	{ 
 		Palette.FadeStep = Palette.FadeColour == flash ? 1008 : 756;
 	} 
 	
-	// Update fade state every tick
+	// If palette fade is enabled
 	else 
 	{
+		// Update every step when active
 		if Palette.FadeTimer > 0 
 		{
 			var Pow = 36 * Palette.FadePower;

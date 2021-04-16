@@ -1,15 +1,15 @@
 function PlayerCheckDropdash()
 {
-	// Check if we're Sonic
+	// Exit if we're not Sonic
 	if CharacterID != CharSonic exit;
 	
-	// Check if dropdash is enabled
+	// Exit if Dropdash is disabled
 	if !Game.DropdashEnabled exit;
 	
-	// Check if we're jumping
+	// Exit if we're not jumping
 	if !Jumping exit;
 	
-	// Check if we're moving forwards or backwards
+	// Define our Dropdash direction by checking towards witch side we're moving and facing
 	if Xsp >= 0
 	{
 		if Facing == DirLeft and Input.Left
@@ -33,10 +33,11 @@ function PlayerCheckDropdash()
 		}
 	}
 	
-	// Charge dropdash
+	// Check if A, B or C button is being on hold
 	if Input.ABC
 	{
-		if DropdashRev = -2
+		// Charge Dropdash
+		if DropdashRev == -1
 		{
 			DropdashRev = 1;
 		}
@@ -46,7 +47,7 @@ function PlayerCheckDropdash()
 		}
 	}
 	
-	// Reset it if we released button
+	// Reset Dropdash charge value if we've released the button
 	else
 	{
 		DropdashRev = 0;

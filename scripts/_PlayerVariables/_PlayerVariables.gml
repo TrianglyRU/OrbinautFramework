@@ -44,6 +44,7 @@ function _PlayerVariables()
 	ClimbingValue        _init;
 	ClimbingSpeed		 _init;
 	Skidding			 _init;
+	Balancing			 _init;
 	HighSpeedBonus		 _init;
 	InvincibilityBonus   _init;
 	Animation			 _init;

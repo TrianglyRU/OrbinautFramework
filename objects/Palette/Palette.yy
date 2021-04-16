@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_engine_palette",
+    "path": "sprites/spr_engine_palette/spr_engine_palette.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

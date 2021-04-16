@@ -1,9 +1,9 @@
 function DiscordInformationUpdate()
 {
-	// Do not perform if RP is disabled in the framework
+	// Exit if Rich Presence is disabled in the framework
 	if (!Game.RichPresenceSupport) exit;
 	
-	// Update
+	// Update Rich Presence
 	discord_run_callbacks();
 	discord_update_presence();
 }

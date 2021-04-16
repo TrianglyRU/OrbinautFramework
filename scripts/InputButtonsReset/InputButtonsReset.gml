@@ -1,5 +1,6 @@
 function InputButtonsReset()
 {	
+	// Reset all buttons
 	if ResetInput 
 	{
 		Up			= false;

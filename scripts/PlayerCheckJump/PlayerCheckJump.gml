@@ -29,7 +29,6 @@ function PlayerCheckJump()
 		Jumping  = true;	
 		Grounded = false;
 		OnObject = false;
-		Skidding = false;
 		
 		// Update radiuses
 		if !Rolling

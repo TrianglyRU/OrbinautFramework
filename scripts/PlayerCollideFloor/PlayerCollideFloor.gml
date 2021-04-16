@@ -3,6 +3,46 @@ function PlayerCollideFloor()
 	// Do not collide if we're not allowed to, or if we're standing on object
 	if (!AllowCollision or OnObject) exit;
 	
+	// Define angle range
+	switch AngleRange
+	{
+		case RangeFloor:
+		{
+			if tile_meeting(floor(PosX - xRadius * 2), floor(PosY + yRadius / 2), Layer)
+			or tile_meeting(floor(PosX + xRadius * 2), floor(PosY + yRadius / 2), Layer)
+			{
+				AngleRange = round(Angle/90) % 4;
+			}
+		}
+		break;
+		case RangeRWall:
+		{
+			if tile_meeting(floor(PosX + yRadius / 2), floor(PosY - xRadius * 2), Layer)
+			or tile_meeting(floor(PosX + yRadius / 2), floor(PosY + xRadius * 2), Layer)
+			{
+				AngleRange = round(Angle/90) % 4;
+			}
+		}
+		break;
+		case RangeRoof:
+		{
+			if tile_meeting(floor(PosX - xRadius * 2), floor(PosY - yRadius / 2), Layer)
+			or tile_meeting(floor(PosX + xRadius * 2), floor(PosY - yRadius / 2), Layer)
+			{
+				AngleRange = round(Angle/90) % 4;
+			}
+		}
+		break;
+		case RangeLWall:
+		{
+			if tile_meeting(floor(PosX - yRadius / 2), floor(PosY - xRadius * 2), Layer)
+			or tile_meeting(floor(PosX - yRadius / 2), floor(PosY + xRadius * 2), Layer)
+			{
+				AngleRange = round(Angle/90) % 4;
+			}
+		}
+	}
+	
 	// Collide with one of four floor sides based on floor angle range
 	switch AngleRange
 	{

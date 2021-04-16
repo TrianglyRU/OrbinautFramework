@@ -86,33 +86,39 @@ function PlayerMove()
 	{
 		Pushing = false;
 	}
-		
-	// Handle ground animations
-	if Inertia == 0
+	
+	// Check for balancing
+	if Inertia != 0
+	{
+		Balancing = false;
+	}
+	else
 	{
 		if tile_check_collision_v(floor(PosX), floor(PosY + yRadius), true, false, Layer)[0] > 14 and !OnObject
 		{
 			if tile_meeting(floor(PosX - xRadius), floor(PosY + yRadius + 1), Layer)
 			{
-				if Facing == DirRight
-				{
-					Animation = AnimBalanceFront;
-				}
-				else
-				{
-					Animation = AnimBalanceBack;
-				}
+				Balancing = Facing;
 			}
 			else if tile_meeting(floor(PosX + xRadius), floor(PosY + yRadius + 1), Layer)
 			{
-				if Facing == DirLeft
-				{
-					Animation = AnimBalanceFront;
-				}
-				else
-				{
-					Animation = AnimBalanceBack;
-				}
+				Balancing = -Facing;
+			}
+		}
+	}
+	
+	// Handle ground animations
+	if Inertia == 0
+	{
+		if Balancing != false
+		{
+			if Balancing == DirRight
+			{
+				Animation = AnimBalanceFront;
+			}
+			else if Balancing == DirLeft
+			{
+				Animation = AnimBalanceBack;
 			}
 		}
 		else

@@ -3,22 +3,22 @@ function PlayerCheckClimb()
 	// Check if we're Knuckles
 	if CharacterID != CharKnuckles exit;
 	
-	// Perform attaching to the wall
+	// Attach to the wall if we're not climbing it yet
 	if !ClimbingState
 	{
-		// Check if we're allowed to attach
+		// Check if we're gliding normally, or turning
 		if GlidingState == 1 or GlidingState == 2
 		{
-			// Attach to the wall if moving towards it
-			if Xsp > 0 and tile_check_collision_h(floor(PosX + 10), floor(PosY), true,  true, Layer)[0] == 0
-			or Xsp < 0 and tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0] == 0
+			// If found the wall and we were moving towards it
+			if Xsp > 0 and tile_meeting(floor(PosX + 11), floor(PosY), Layer)
+			or Xsp < 0 and tile_meeting(floor(PosX - 11), floor(PosY), Layer)
 			{
-				// Enter climbing state
-				ClimbingState = 1;
+				// Stop gliding and start climbing
+				ClimbingState = true;
 				GlidingState  = false;
 				Input.ABC	  = false;
 
-				// Reset speeds
+				// Reset our speeds
 				Ysp	    = 0;
 				Grv	    = 0;
 				Inertia = 0;
@@ -26,10 +26,10 @@ function PlayerCheckClimb()
 		}
 	}
 	
-	// Main action
+	// Climb action
 	else
 	{
-		// Set animation
+		// Set 'climb' animation
 		Animation = AnimClimb;
 		
 		// Climb on walls
@@ -49,25 +49,24 @@ function PlayerCheckClimb()
 				Ysp = 0;
 			}
 		
-			// Check if we do not find the wall anymore in front of us
-			if Facing == DirRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY + yRadius + 1), true,  true, Layer)[0] > 0
-			or Facing == DirLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY + yRadius + 1), false, true, Layer)[0] > 0 
+			// Check if we do not find the wall in front of us
+			if !tile_meeting(floor(PosX + 11 * Facing), floor(PosY + yRadius + 1), Layer)
 			{
 				// Leave climbing state
 				Ysp			  = 0;
 				Grv			  = 0.21875;
 				ClimbingState = false;
 			
-				// Set animation
+				// Set 'drop' animation
 				Animation = AnimGlideDrop;
 				
-				// Return normal radiuses
+				// Use normal collision radiuses
 				xRadius = xRadiusDefault;
 				yRadius = yRadiusDefault;
 			}
 			
-			// Check if we found ground below us
-			else if tile_check_collision_v(floor(PosX + xRadius * Facing), floor(PosY + yRadiusDefault), true, false, Layer)[0] <= 0
+			// Check if we found the ground below us
+			else if tile_meeting(floor(PosX + xRadius * Facing), floor(PosY + yRadiusDefault + 1), Layer)
 			{
 				// Leave climbing state
 				Ysp			  = 0;
@@ -75,31 +74,30 @@ function PlayerCheckClimb()
 				ClimbingState = false;
 				Grounded      = true;
 
-				// Set animation
+				// Set 'idle' animation
 				Animation = AnimIdle;
 				
-				// Return normal radiuses
+				// Use normal collision radiuses
 				xRadius = xRadiusDefault;
 				yRadius = yRadiusDefault;	
 			}
 			
-			// Check if we're near the top edge to climb on it
-			else if Facing == DirRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY - yRadius - 1), true,  true, Layer)[0] > 0
-			or	    Facing == DirLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY - yRadius - 1), false, true, Layer)[0] > 0
+			// Check if we're near the edge to climb on it
+			if !tile_meeting(floor(PosX + xRadius * Facing + 1), floor(PosY - yRadius - 1), Layer)
 			{
 				// Go to climbering state
 				Ysp			   = 0;
 				ClimbingValue  = 0;
 				ClimbingState  = 2;
 				
-				// Disable collisions
+				// Disable all collisions
 				AllowCollision = false;
 			}
 				
-			// Check if we pressed jump button
+			// Check if we pressed A, B or C button
 			else if Input.ABCPress
 			{
-				// Enter jump state
+				// Leave climbing state
 				ClimbingState = false;
 				Jumping		  = true;
 			
@@ -108,7 +106,7 @@ function PlayerCheckClimb()
 				Ysp	= -4;
 				Xsp	= -4 * Facing;
 			
-				// Set animation
+				// Set 'roll' animation
 				Animation = AnimRoll;
 				
 				// Play sound
@@ -116,20 +114,19 @@ function PlayerCheckClimb()
 			}
 		}
 		
-		// Climbering on the edge
+		// Check if we're climbering on the edge
 		else if ClimbingState == 2
 		{
-			// Set animation
+			// Set 'climbering' animation
 			Animation = AnimClimbering;
 			
-			// Start timer
+			// Start climbering timer
 			ClimbingValue++;
 			
 			// First frame: adjust our position to be at edge of the tile
 			if ClimbingValue < 7
 			{
-				while Facing == DirRight and tile_check_collision_h(floor(PosX + xRadius), floor(PosY - yRadius), true, true, Layer)[0]  > 0
-				or    Facing == DirLeft  and tile_check_collision_h(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer)[0] > 0
+				while !tile_meeting(floor(PosX + xRadius * Facing + 1), floor(PosY - yRadius), Layer)
 				{
 					PosY += 1;
 				}
@@ -156,7 +153,7 @@ function PlayerCheckClimb()
 				PosY -= 12;
 			}
 			
-			// Frame 5, enable collision
+			// Frame 5, enable collision and land
 			else if ClimbingValue == 25
 			{
 				AllowCollision = true;

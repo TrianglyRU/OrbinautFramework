@@ -63,17 +63,20 @@ function ScreenDebugScreenDisplay()
 				+ "\n"
 				+ "\n          * SLOPE PHYSICS *"
 				+ "\n"
-				+ "\n   ANGLE: " + string(Player.Angle)
-				+ "\n   ANGLE RANGE: " + string(Player.AngleRange)
+				+ "\n   MOVEMENT ANGLE: " + string(Player.Angle)
 				+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 				+ "\n"
 				+ "\n         * STATES AND FLAGS *"
 				+ "\n"
 				+ "\n   ON OBJECT: " + string(Player.OnObject)
 				+ "\n   GROUNDED: " + string(Player.Grounded)
-				+ "\n   IS ROLLING: " + string(Player.Rolling)
-				+ "\n   IS JUMPING: " + string(Player.Jumping)
-				+ "\n   IS PUSHING: " + string(Player.Pushing)
+				+ "\n   ROLLING: " + string(Player.Rolling)
+				+ "\n   JUMPING: " + string(Player.Jumping)
+				+ "\n   PUSHING: " + string(Player.Pushing)
+				+ "\n   BALANCING: " + string(Player.Balancing)
+				+ "\n   GLIDING: " + string(Player.GlidingState)
+				+ "\n   CLIMBING: " + string(Player.ClimbingState)
+				+ "\n   FLYING: " + string(Player.FlyingState)
 				+ "\n   ON LAYER: " + string(Player.Layer)
 				+ "\n   SPINDASH REV: " + string(Player.SpindashRev)
 				+ "\n   PEELOUT REV: " + string(Player.PeeloutRev)

@@ -1,10 +1,11 @@
 function PaletteDynamicShiftHandle()
 {	
-	// Perform super palette cycle
+	// Check if player is in their super form
 	if Player.isSuper
 	{
 		switch Player.CharacterID
 		{
+			// Perform Super Sonic palette shift
 			case CharSonic:
 			{
 				for (var i = 0; i < 4; i++) 
@@ -13,6 +14,8 @@ function PaletteDynamicShiftHandle()
 				}
 			}
 			break;
+			
+			// Perform Super Tails palette shift
 			case CharTails:
 			{
 				for (var i = 4; i < 7; i++) 
@@ -21,6 +24,8 @@ function PaletteDynamicShiftHandle()
 				}
 			}
 			break;
+			
+			// Perform Super Knuckles palette shift
 			case CharKnuckles:
 			{
 				for (var i = 7; i < 10; i++) 
@@ -32,9 +37,10 @@ function PaletteDynamicShiftHandle()
 		}
 	}	
 	
-	// Stage palette shift
+	// Check current room/scene
 	switch room
 	{
+		// Perform palette shift for Moonlight Base
 		case MBZ:
 		case MBZ2:
 		{

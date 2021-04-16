@@ -44,19 +44,52 @@ function object_do_collision(objectType, collisionMap)
 		// Tell this object player touches its top side
 		objTouchedTop = true;
 		
-		// Check if player should enter their balancing animation
+		// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
+		if collisionMap != false and image_yscale == 1
+		{
+			var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
+			if  playerPosition < 0
+			{
+				objectTop = objectY - collisionMap[0] - 1;
+			}
+			else if playerPosition > objXRadiusSolid * 2
+			{
+				objectTop = objectY - collisionMap[objXRadiusSolid * 2] - 1;
+			}
+			else
+			{
+				objectTop = objectY - collisionMap[playerPosition] - 1;
+			}
+		}
+			
+		// Move player alongside the object horizontal movement
+		Player.PosX += floor(x - xprevious);
+		playerX		 = floor(Player.PosX);
+				
+		// Make player to always stay on the object level
+		Player.PosY = objectTop - Player.yRadius;
+			
+		// Check if player should enter their balancing action
 		if Player.Inertia == 0
 		{
-			if playerX < objectLeft  and Player.Facing == DirLeft
-			or playerX > objectRight and Player.Facing == DirRight
+			if playerX <= objectLeft  + 4 and Player.Facing == DirLeft
+			or playerX >= objectRight - 4 and Player.Facing == DirRight
 			{
-				Player.Animation = AnimBalanceFront;
+				Player.Balancing = DirRight;
 			}
-			else if playerX < objectLeft  and Player.Facing == DirRight
-			     or playerX > objectRight and Player.Facing == DirLeft
+			else if playerX <= objectLeft  + 4 and Player.Facing == DirRight
+				 or playerX >= objectRight - 4 and Player.Facing == DirLeft
 				 {
-					 Player.Animation = AnimBalanceBack;
+				     Player.Balancing = DirLeft;
 				 }
+			else
+			{
+				Player.Balancing = false;
+			}
+		}
+		else
+		{
+			Player.Balancing = false;
 		}
 		
 		// Extend edges if this is not SolidTop object
@@ -67,34 +100,6 @@ function object_do_collision(objectType, collisionMap)
 		or playerX - edgeExtension > objectRight
 		{
 			Player.OnObject = false;
-		}
-
-		// Else keep player attached
-		else
-		{	
-			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
-			if collisionMap != false and image_yscale == 1
-			{
-				var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
-				if  playerPosition < 0
-				{
-					objectTop = objectY - collisionMap[0] - 1;
-				}
-				else if playerPosition > objXRadiusSolid * 2
-				{
-					objectTop = objectY - collisionMap[objXRadiusSolid * 2] - 1;
-				}
-				else
-				{
-					objectTop = objectY - collisionMap[playerPosition] - 1;
-				}
-			}
-			
-			// Move player alongside the object horizontal movement
-			Player.PosX += floor(x - xprevious);
-				
-			// Make player to always stay on the object level
-			Player.PosY = objectTop - Player.yRadius;
 		}
 	}
 	
@@ -158,7 +163,7 @@ function object_do_collision(objectType, collisionMap)
 			}
 			
 			// Collide with this object vertically
-			if abs(objectX - playerX) + 5 <= abs(objectY - playerY) - 4	
+			if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
 			{
 				// Check if player is below this object
 				if playerY > objectY and playerTop < objectBottom
@@ -228,7 +233,8 @@ function object_do_collision(objectType, collisionMap)
 					Player.PosX += objectRight - playerLeft;
 					
 					// Tell this object player touched its right side
-					objTouchedRight = true;		
+					objTouchedRight = true;	
+					Player.Pushing  = DirLeft;
 				}
 				
 				// Collide on the left
@@ -243,6 +249,7 @@ function object_do_collision(objectType, collisionMap)
 					
 					// Tell this object player touched its left side
 					objTouchedLeft = true;
+					Player.Pushing  = DirRight;
 				}		
 			}
 		}
@@ -311,7 +318,7 @@ function object_do_collision(objectType, collisionMap)
 			}
 			
 			// Attach player to the object's top boundary
-			Player.PosY = objectTop - Player.yRadius;
+			Player.PosY = objectTop - Player.yRadius - 1;
 			
 			// Tell this object player touched its top side
 			objTouchedTop = true;

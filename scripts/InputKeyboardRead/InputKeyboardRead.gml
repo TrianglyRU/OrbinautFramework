@@ -1,5 +1,6 @@
 function InputKeyboardRead() 
 {
+	// Check if input is not ignored and we do not use gamepad
 	if !IgnoreInput and Type != "Gamepad"
 	{	
 		// Get keyboard mappings

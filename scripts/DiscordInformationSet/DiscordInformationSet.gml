@@ -1,15 +1,15 @@
 function DiscordInformationSet()
 {
-	// Do not perform if RP is disabled in the framework
+	// Exit if Rich Presence is disabled in the framework
 	if (!Game.RichPresenceSupport) exit;
 	
-	// Set application icon using its ID
+	// Set main image to show in Discord
 	discord_set_large_image("orbinaut", "");
 	
-	// Set small icon using its ID. Uncomment if needed
+	// Set additional image to show in Discord
 	// discord_set_small_image("sonic", "");
 	
-	// Set details strings (current zone)
+	// Set details information block
 	switch room 
 	{
 		case MBZ:
@@ -24,13 +24,12 @@ function DiscordInformationSet()
 	}
 	discord_set_details(DetailsString);
 	
-	// Set state strings (currect character)
-	var Char;
+	// Set state information block
 	switch Player.CharacterID 
 	{
-		case CharSonic:    Char = "SONIC";    break;
-		case CharTails:	   Char = "TAILS";    break;
-		case CharKnuckles: Char = "KNUCKLES"; break;
+		case CharSonic:    var Char = "SONIC";    break;
+		case CharTails:	   var Char = "TAILS";    break;
+		case CharKnuckles: var Char = "KNUCKLES"; break;
 	}
 	StateString = "Playing as: " + string(Char);
 	discord_set_state(StateString);	 

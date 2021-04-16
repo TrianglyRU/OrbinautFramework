@@ -3,7 +3,7 @@ function PlayerApplyGravity()
 	// Apply gravity to our vertical speed
 	Ysp += Grv;
 	
-	// Rotate character back
+	// Rotate movement angle value back to 360
 	if Angle < 180 
 	{
 		Angle -= 2.8125;

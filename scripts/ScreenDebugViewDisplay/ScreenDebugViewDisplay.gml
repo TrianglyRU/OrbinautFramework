@@ -125,7 +125,7 @@ function ScreenDebugViewDisplay()
 					}
 					
 					draw_set_colour($ff00ff);
-					if (Player.Angle < 90 or Player.Angle > 270 or Game.ExtensiveWallCollision and Player.Angle mod 90 == 0) and Player.Angle mod 45 != 0
+					if (Player.Angle < 90 or Player.Angle > 270 or Game.ExtensiveWallCollision and Player.Angle mod 90 == 0)
 					{	
 						if Player.Inertia < 0
 						{

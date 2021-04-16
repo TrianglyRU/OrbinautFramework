@@ -1,16 +1,16 @@
 function PaletteDataLoad()
 {	
-	// Set palette sprite to load
+	// Check current room/scene
 	switch room 
 	{	
-		// Load palette set for Moonlight Base
+		// Load palettes for Moonlight Base
 		case MBZ:
 		case MBZ2:
 			palette_load(PaletteSurface, pal_MMZ_Dynamic);
 			palette_load(PaletteUnderwater, pal_MMZ_Wet);
 		break;
 		
-		// Load palette set for Hilltop Heights
+		// Load palettes for Hilltop Heights
 		case HHZ:
 			palette_load(PaletteSurface, pal_MMZ_Dynamic);
 			palette_load(PaletteUnderwater, false);

@@ -6,13 +6,31 @@ function PlayerHitWalls()
 	Screen.DebugValue[5] = 0;
 	Screen.DebugValue[6] = 0;
 	
+	// Define wall range
+	if Angle >= 0 and Angle <= 44 or Angle >= 314 and Angle <= 360
+	{
+		 var WallRange = RangeFloor;
+	}
+	if Angle >= 45 and Angle <= 134
+	{
+		var WallRange = RangeRWall;
+	}
+	if Angle >= 135 and Angle <= 224
+	{
+		var WallRange = RangeRoof;
+	}
+	if Angle >= 225 and Angle <= 313
+	{
+		var WallRange = RangeLWall;
+	}
+	
 	// Left wall collision
 	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia < 0 and Angle mod 45 != 0
+		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch AngleRange
+			switch WallRange
 			{
 				case RangeFloor:
 				{	
@@ -87,10 +105,10 @@ function PlayerHitWalls()
 	// Right wall collision
 	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Angle == 45 or Angle == 315 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia > 0 and Angle mod 45 != 0
+		if (Angle < 90 or Angle > 270 or Angle == 45 or Angle == 315 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia > 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch AngleRange
+			switch WallRange
 			{
 				case RangeFloor:
 				{	

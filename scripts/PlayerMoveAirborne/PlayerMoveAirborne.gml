@@ -1,5 +1,10 @@
 function PlayerMoveAirborne()
 {	
+	// Reset flags
+	Skidding  = false;
+	Balancing = false;
+	Pushing	  = false;
+	
 	// Accelerate and decelerate
 	if !(Jumping and Rolling) and !GlidingState and !ClimbingState and !Hurt and !Death
 	{

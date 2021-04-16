@@ -1,12 +1,15 @@
 function PlayerCharacterDisplay()
 {	
-	// Update visual angle
+	// Check if smooth rotation is enabled
 	if Game.SmoothRotation
 	{
-		if Angle >= 25.5 and Angle <= 334.5 or !Grounded or Angle == 360
+		// Apply floor angle to visual angle
+		if Angle >= 25.5 and Angle <= 334.5 or !Grounded
 		{
 			VisualAngle = Angle;
-		} 
+		}
+		
+		// Rotate visual angle back to 360
 		else
 		{
 			if VisualAngle > 0 and VisualAngle < 90 
@@ -23,8 +26,10 @@ function PlayerCharacterDisplay()
 			}
 		}
 	}
+	
+	// If smooth rotation is disabled, use this table for visual angle
 	else 
-	{
+	{	
 		if (Angle > 334.5 or Angle < 25.5)  VisualAngle = 360;
 		if (Angle > 25.5 and Angle < 75)	VisualAngle =  45; 
 		if (Angle > 75   and Angle < 105)	VisualAngle =  90; 
@@ -35,33 +40,31 @@ function PlayerCharacterDisplay()
 		if (Angle > 285  and Angle < 334.5) VisualAngle = 305;
 	}
 	
-	// Force visual angle to be 0
-	if Inertia == 0 and Grounded
-	or Animation == AnimRoll or Animation == AnimFly or Animation == AnimGlide or Animation == AnimSkid or Animation == AnimClimb
+	// Force reset visual angle for specific animations
+	if Grounded and Inertia == 0
+	or ClimbingState != false
+	or GlidingState  != false 
+	or FlyingState   != false 
+	or Skidding      != false 
+	or Rolling 
+	or Jumping
 	{
 		VisualAngle = 360;
 	}
 	
-	// Update character render
-	x			 = floor(PosX);
-	y		     = floor(PosY);
-	depth		 = DrawOrder;
-	image_xscale = Facing;
-	image_angle  = VisualAngle;
-	
-	// Draw player
-	draw_self();
-
-	// Update Tails' tails render
+	// Handle Tails' tails if we're playing as him
 	if CharacterID == CharTails
 	{
-		// Update tails visual angle
+		// If we're not rolling or jumping, use current visual angle
 		if Animation != AnimRoll
 		{
 			var TailsAngle = VisualAngle;
 		}
+		
+		// In case we're rolling or jumping
 		else
 		{
+			// Get movement angle based on current and next frame position
 			if Facing == DirRight
 			{
 				var DirectionAngle = point_direction(PosX, PosY, PosX + Xsp, PosY + Ysp);
@@ -71,10 +74,13 @@ function PlayerCharacterDisplay()
 				var DirectionAngle = point_direction(PosX + Xsp, PosY + Ysp, PosX, PosY);
 			}
 			
+			// If smooth rotation is enabled, use raw movement angle for tails visual angle
 			if Game.SmoothRotation
 			{
 				var TailsAngle = DirectionAngle;
 			}
+			
+			// If smooth rotation is disabled, use this table for tails visual angle
 			else
 			{
 				if (DirectionAngle > 334.5 or DirectionAngle < 25.5)  var TailsAngle = 360;
@@ -89,14 +95,24 @@ function PlayerCharacterDisplay()
 			
 		}
 		
-		// Update tails render
-		TailsObject.x			 = x;
-		TailsObject.y			 = y;	
-		TailsObject.depth		 = DrawOrder + 5;
+		// Update tails display information
+		TailsObject.x			 = floor(PosX);
+		TailsObject.y			 = floor(PosY);	
+		TailsObject.depth		 = DrawOrder;
 		TailsObject.image_xscale = Facing;
 		TailsObject.image_angle  = TailsAngle;
 
-		// Draw tails
+		// Draw tails on the screen
 		with TailsObject draw_self();
 	}
+	
+	// Update character display information
+	x			 = floor(PosX);
+	y		     = floor(PosY);
+	depth		 = DrawOrder;
+	image_xscale = Facing;
+	image_angle  = VisualAngle;
+	
+	// Draw player on the screen
+	draw_self();
 }

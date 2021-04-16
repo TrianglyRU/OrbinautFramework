@@ -60,8 +60,8 @@ function PlayerMoveRoll()
 	}
 	else
 	{
-		if (Inertia > 16)  Inertia = 16;
-		if (Inertia < -16) Inertia = -16;
+		if (Inertia > 32)  Inertia = 32;
+		if (Inertia < -32) Inertia = -32;
 	}
 	
 	// If our inertia is 0 or we pressed UP, unroll

@@ -1,7 +1,9 @@
 function PaletteFadeReset()
 {	
-	// Enable fade and turn our screen into the black colour
+	// Enabled palette fade
 	Palette.FadeEnabled = true;
+	
+	// Turn the screen into black colour
 	Palette.FadeMode	= 0;
 	Palette.FadeColour	= 0;
 	Palette.FadeStep	= 0;
