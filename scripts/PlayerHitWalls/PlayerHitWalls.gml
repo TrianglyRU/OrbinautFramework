@@ -3,9 +3,6 @@ function PlayerHitWalls()
 	// Do not collide if we're not allowed to
 	if (!AllowCollision) exit;
 	
-	Screen.DebugValue[5] = 0;
-	Screen.DebugValue[6] = 0;
-	
 	// Define wall range
 	if Angle >= 0 and Angle <= 44 or Angle >= 314 and Angle <= 360
 	{
@@ -43,7 +40,10 @@ function PlayerHitWalls()
 						
 						// Set flag
 						Pushing = DirLeft;
-					}			
+					}		
+					
+					DebugValue[80] = floor(PosX + Xsp - 10);
+					DebugValue[81] = floor(PosY + Ysp + 8 * (Angle == 360));
 				}
 				break;
 				case RangeRWall:

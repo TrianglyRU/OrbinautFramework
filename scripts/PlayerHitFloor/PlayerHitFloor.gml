@@ -58,8 +58,9 @@ function PlayerHitFloor()
 			}
 		
 			// Land and adhere to the floor
-			PosY	+= floorDistance;
-			Grounded = true;
+			PosY	  += floorDistance;
+			AngleRange = round(Angle/90) % 4;
+			Grounded   = true;
 		}
 		
 		// Store values to display in debug

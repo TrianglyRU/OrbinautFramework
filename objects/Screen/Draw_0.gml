@@ -1,4 +1,4 @@
-/// @description Display below fade
+/// @description Display Interface
 // You can write your code in this editor
 	
 	// Display debug view

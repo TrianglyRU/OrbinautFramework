@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "spr_engine_screen",
-    "path": "sprites/spr_engine_screen/spr_engine_screen.yy",
+    "name": "spr_obj_testobject",
+    "path": "sprites/spr_obj_testobject/spr_obj_testobject.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Objects",
+    "path": "objects/Objects/Objects.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -22,18 +25,17 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":75,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":76,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Global",
+    "path": "folders/Objects/Global.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Screen",
+  "name": "TestObject",
   "tags": [],
   "resourceType": "GMObject",
 }
