@@ -1,11 +1,12 @@
 function ObjBridgeHandlerScript()
 {
 	// Get a log number player is standing on
-	var PlayerPosition = (floor(Player.PosX) - x + 16) div 16;
-	var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
-		
+	//var PlayerPosition = (floor(Player.PosX) - x + 16) div 16;
+	//var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
+	var CurrentSegment = ds_list_find_index(LogID, Player.OnObject) + 1;
+	
 	// Set a recovery angle by checking if player is standing on any log of this bridge
-	if ds_list_find_index(LogID, Player.OnObject) >= 0
+	if CurrentSegment
 	{	
 		if (RecoveryAngle < 90) RecoveryAngle += 5.625;
 	} 
@@ -20,6 +21,8 @@ function ObjBridgeHandlerScript()
 		with (BridgeLog) object_do_collision(SolidTop, false);
 		exit; 
 	} 
+	
+	CurrentSegment = clamp(CurrentSegment, 1, BridgeLength);
 	
 	// Get current maximun depression
 	var MaxDepression = LogDepression[CurrentSegment - 1];
