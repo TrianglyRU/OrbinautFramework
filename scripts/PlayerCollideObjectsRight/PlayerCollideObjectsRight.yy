@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Player Scripts",
+    "path": "folders/Game Code/Player Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "PlayerCollideObjectsRight",

@@ -25,12 +25,12 @@ function ObjRingScript()
 		PosX += Xsp;
 		PosY += Ysp;
 	
-		// Do collision every four frames
+		// Do tile collision every four frames
 		if CollisionCheck mod 4 == 0
 		{
 			// Check if ring found the tile
-			if tile_meeting(floor(PosX), floor(PosY + 8), LayerA)
-			or tile_meeting(floor(PosX), floor(PosY + 8), LayerB)
+			if object_check_tiles(false, SideBottom, LayerA)
+			or object_check_tiles(false, SideBottom, LayerB)
 			{
 				// Invert its speed
 				Ysp = min(Ysp * -0.75, -2);
@@ -42,20 +42,21 @@ function ObjRingScript()
 		y = floor(PosY);
 		
 		// Check if ring is outside the camera
-		if x < Screen.RenderX or x > Screen.RenderX + Screen.Width
+		if x < Screen.RenderX - 8 or x > Screen.RenderX + Screen.Width + 8
 		{
 			instance_destroy(self);
 			exit;
 		}
 	}
 	
+	// If ring is static, just play its animation
 	else
 	{
 		// Play animation
 		animation_play(sprite_index, 4, 1);
 	}
 	
-	// Check for collision
+	// Check for hitbox collision
 	if !Physical or (Physical and PickupTimeout == 0)
 	{
 		if object_check_overlap(CollisionHitbox)

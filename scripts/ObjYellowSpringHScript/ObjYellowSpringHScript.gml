@@ -1,9 +1,14 @@
 function ObjYellowSpringHScript()
 {
+	// Do collision
+	object_do_collision(SolidAll, false);
+	
+	// Define launch side
+	var launchSide = image_xscale ? SideRight : SideLeft;
+	
 	// Check if we're touching launch side
 	if Player.Grounded
 	{
-		var launchSide = image_xscale ? SideRight : SideLeft;
 		if object_check_touch(launchSide)
 		{
 			Player.MovementLock = 10;
@@ -11,7 +16,4 @@ function ObjYellowSpringHScript()
 			Player.Facing		= image_xscale;	
 		}
 	}
-	
-	// Do collision
-	//object_do_collision(SolidAll, false);
 }

@@ -1,4 +1,4 @@
-/// @description Scripts (Physics & Tile Collision)
+/// @description Scripts
 // You can write your code in this editor
 	
 	if keyboard_check(vk_space) exit;
