@@ -295,15 +295,17 @@ function object_do_collision(objectType, collisionMap)
 			Player.Angle    = 360;
 			Player.Ysp      = 0;
 			
-			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
+			// Attach player to the object's top boundary
 			if collisionMap != false and image_yscale == 1
 			{
 				var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
 				var objectTop      = y - collisionMap[playerPosition];
+				Player.PosY        = objectTop - Player.yRadius - 1;
 			}
-			
-			// Attach player to the object's top boundary
-			Player.PosY = objectTop - Player.yRadius - 1;
+			else
+			{
+				Player.PosY = objectTop - Player.yRadius;
+			}
 		}
 	}
 }

@@ -28,7 +28,6 @@ function ScreenCameraOffsetView()
 	
 	// Set ATS Shift
 	ATSShift = ATSShift + (Player.Inertia * 4 - ATSShift) * 0.1;
-	ATSShift = 0;
 		
 	// Set vertical spin offset
 	if Player.Rolling or (Player.Jumping and Player.Rolling)

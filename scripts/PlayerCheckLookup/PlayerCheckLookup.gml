@@ -58,7 +58,7 @@ function PlayerCheckLookup()
 			PeeloutRev = -1;
 			
 			// Freeze the screen for 16 frames
-			if (!Screen.ExtendedOffset) Screen.ScrollDelay = 16;
+			if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 16;
 		}
 	}		
 }

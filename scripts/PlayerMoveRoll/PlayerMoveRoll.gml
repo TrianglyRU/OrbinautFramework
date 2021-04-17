@@ -1,7 +1,7 @@
 function PlayerMoveRoll()
 {
 	// Perform only if directional input is allowed
-	if !MovementLock
+	if MovementLock == false
 	{
 		// If pressing left
 		if Input.Left 

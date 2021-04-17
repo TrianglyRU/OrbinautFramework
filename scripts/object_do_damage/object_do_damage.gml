@@ -2,7 +2,7 @@
 function object_do_damage(instantKill)
 {
 	// Exit if player is invincible
-	if (Player.isInvincible) exit;
+	if (Player.isInvincible or Player.Hurt) exit;
 	
 	// Set flags
 	Player.Grounded	     = false;
@@ -33,6 +33,10 @@ function object_do_damage(instantKill)
 			
 		// Enter death script
 		Player.Death = true;
+		
+		// Play sound
+		var deathSound = object_index == TripleSpikesV ? sfxDeathSpike : sfxDeath;
+		audio_sfx_play(deathSound, false, true);
 	}
 		
 	// If we have rings

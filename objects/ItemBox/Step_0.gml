@@ -21,6 +21,11 @@
 					// Spawn explosion and enter destoryed state
 					instance_create_depth(floor(x), floor(y), depth, ExplosionFX);
 					Destroyed = true;
+					
+					// Play sound
+					audio_sfx_play(sfxDestroy, false, false);
+					
+					// Exit further code
 					exit;
 				}
 					

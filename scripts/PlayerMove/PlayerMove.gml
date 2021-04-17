@@ -61,13 +61,13 @@ function PlayerMove()
 	}
 	
 	// Check for skidding
-	if !Skidding and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor
+	if !Skidding and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor and MovementLock == false
 	{
-		if Inertia > 0 and Input.LeftPress
+		if Inertia > 0 and Input.Left
 		{
 			Skidding = DirRight;
 		}
-		if Inertia < 0 and Input.RightPress
+		if Inertia < 0 and Input.Right
 		{
 			Skidding = DirLeft;
 		}
@@ -80,9 +80,9 @@ function PlayerMove()
 		}
 	}
 	
-	/// Check for stop pushing
-	if Pushing == DirRight and !Input.Right
-	or Pushing == DirLeft  and !Input.Left
+	// Check for stop pushing
+	if Pushing == DirRight and (!Input.Right or Player.Xsp < 0)
+	or Pushing == DirLeft  and (!Input.Left  or Player.Xsp > 0)
 	{
 		Pushing = false;
 	}

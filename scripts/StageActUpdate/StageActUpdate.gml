@@ -24,9 +24,8 @@ function StageActUpdate()
 			if StateTimer == 1
 			{
 				fade_perform(to, black, 1);
-				audio_bgm_stop(StageMusic, 0.5);
 			}
-			if StateTimer == 30
+			if StateTimer == 60
 			{
 				room_restart();
 			}
