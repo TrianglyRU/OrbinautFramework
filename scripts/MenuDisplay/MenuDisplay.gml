@@ -24,7 +24,7 @@ function MenuDisplay()
 		{	
 			draw_set_halign(fa_center);
 			string_display(X, Y - 15, "STAGE SELECT",1);
-			string_display(X, Y,	  "START GAME", 1);
+			string_display(X, Y,	  "", 1);
 			string_display(X, Y + 15, "OPTIONS", 1);
 			string_display(X, Y + 30, "CLOSE GAME", 1);
 		}
@@ -43,7 +43,6 @@ function MenuDisplay()
 					switch Saveslot[i][SavedZone]
 					{
 						case 0: var DisplayZone = "GVZ";  break;
-						case 1: var DisplayZone = "MBZ";  break;
 					}
 					
 					// Get character
@@ -169,8 +168,7 @@ function MenuDisplay()
 		{
 			draw_set_halign(fa_left);
 			string_display(X - 80, Y - 15, "GEMSTONE VALLEY", 1);
-			string_display(X - 80, Y,	   "MOONLIGHT BASE", 1);
-			string_display(X - 80, Y + 15, "BACK", 1);			
+			string_display(X - 80, Y, "BACK", 1);			
 		}
 		break;
 	}

@@ -36,14 +36,4 @@ function PaletteDynamicShiftHandle()
 			break;
 		}
 	}	
-	
-	// Check current room/scene
-	switch room
-	{
-		// Perform palette shift for Moonlight Base
-		case MBZ:
-		{
-			palette_handle(10, 6, 8);
-		}
-	}
 }

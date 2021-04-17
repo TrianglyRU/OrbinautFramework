@@ -14,7 +14,7 @@ function MenuOptionSelect()
 		case FrameworkConfig:  LinesCount = 11; break;
 		case AudioVideoConfig: LinesCount = 6;  break;
 		case InputConfig:	   LinesCount = 10; break;
-		case StageSelect:	   LinesCount = 3;  break;
+		case StageSelect:	   LinesCount = 2;  break;
 		case CharacterSelect:  LinesCount = 4;  break;
 	}
 	MenuOption = loop_value(MenuOption, LinesCount);
@@ -67,7 +67,6 @@ function MenuOptionSelect()
 							switch Saveslot[Game.ActiveSave][SavedZone]
 							{	
 								case 0: room_goto(GVZ); break;
-								case 1: room_goto(MBZ); break;
 							}							
 						}
 					
@@ -110,7 +109,7 @@ function MenuOptionSelect()
 			break;
 			case CharacterSelect:
 			{
-				if MenuOption < 2
+				if MenuOption < 1
 				{
 					// Get our character
 					Game.GlobalCharacter = MenuOption;
@@ -127,7 +126,6 @@ function MenuOptionSelect()
 						switch StageToLoad - 1
 						{			
 							case 0:	room_goto(GVZ);  break; // Load GVZ
-							case 1:	room_goto(MBZ); break;  // Load MBZ
 						}
 					}
 					else
@@ -197,7 +195,7 @@ function MenuOptionSelect()
 			break;
 			case StageSelect:
 			{
-				if MenuOption < 2
+				if MenuOption < 1
 				{
 					StageToLoad = MenuOption + 1
 					menu_goto(CharacterSelect, 0);					

@@ -12,11 +12,10 @@ function DiscordInformationSet()
 	// Set details information block
 	switch room 
 	{
-		case MBZ:
-			DetailsString = "Moonlight Base Zone"; 
-		break;
+		case GVZ:
+			DetailsString = "GEMSTONE VALLEY ACT 1"
 		default:
-			DetailsString = "Unknown Zone";
+			DetailsString = "UNKNOWN ZONE";
 		break;
 	}
 	discord_set_details(DetailsString);

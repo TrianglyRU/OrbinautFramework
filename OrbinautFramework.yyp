@@ -41,7 +41,6 @@
     {"id":{"name":"PlayerCheckCrouch","path":"scripts/PlayerCheckCrouch/PlayerCheckCrouch.yy",},"order":11,},
     {"id":{"name":"spr_sonic_idle","path":"sprites/spr_sonic_idle/spr_sonic_idle.yy",},"order":1,},
     {"id":{"name":"object_do_collision","path":"scripts/object_do_collision/object_do_collision.yy",},"order":36,},
-    {"id":{"name":"MBZ","path":"rooms/MBZ/MBZ.yy",},"order":0,},
     {"id":{"name":"fontTexture_Debug","path":"sprites/fontTexture_Debug/fontTexture_Debug.yy",},"order":1,},
     {"id":{"name":"_StageVariables","path":"scripts/_StageVariables/_StageVariables.yy",},"order":8,},
     {"id":{"name":"spr_sonic_walk","path":"sprites/spr_sonic_walk/spr_sonic_walk.yy",},"order":43,},
@@ -417,7 +416,6 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"DevMenu","path":"rooms/DevMenu/DevMenu.yy",},},
-    {"roomId":{"name":"MBZ","path":"rooms/MBZ/MBZ.yy",},},
     {"roomId":{"name":"GVZ","path":"rooms/GVZ/GVZ.yy",},},
   ],
   "Folders": [
