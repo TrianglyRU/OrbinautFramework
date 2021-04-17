@@ -68,7 +68,7 @@ function ObjRingScript()
 			instance_create_depth(x, y, depth, RingSparkle);	
 		
 			// Play sound
-			audio_sfx_play(sfxRing, false);
+			audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false, false);
 		
 			// Destroy ring
 			instance_destroy(self);		

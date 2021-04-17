@@ -9,7 +9,7 @@ function ObjSignpostScript()
 			Stage.State = ActStateFinished;
 			
 			// Play sound
-			audio_sfx_play(sfxSignpost, false);
+			audio_sfx_play(sfxSignpost, false, true);
 		}
 	}
 	else if ActiveTimer < 140

@@ -48,9 +48,29 @@ function ScreenDebugViewDisplay()
 			
 			// Draw object solidboxes
 			with Objects if variable_instance_exists(id, "objXRadiusSolid")
-			{
+			{		
 				draw_set_alpha(0.5);
-				draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - 1, y + objYRadiusSolid - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);
+				if !variable_instance_exists(id, "arrayMap") or variable_instance_exists(id, "arrayMap") and arrayMap == false
+				{
+					draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - 1, y + objYRadiusSolid - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);
+				}
+				else
+				{
+					for (var i = 0; i < objXRadiusSolid * 2; i++)
+					{
+						var arrayX = floor(x - objXRadiusSolid + i);
+						var basicY = image_yscale == 1 ? floor(y + objYRadiusSolid) : floor(y - objYRadiusSolid);
+						if image_xscale == 1
+						{
+							var arrayY = image_yscale == 1 ? floor(y - arrayMap[i]) : floor(y + arrayMap[i]);
+						}
+						else if image_xscale == -1
+						{
+							var arrayY = image_yscale == 1 ? floor(y - arrayMap[objXRadiusSolid * 2 - i]) : floor(y + arrayMap[objXRadiusSolid * 2 - i]);
+						}
+						draw_line_colour(arrayX, arrayY, arrayX, basicY, $00ffff, $00ffff);
+					}
+				}
 			}
 		}
 		

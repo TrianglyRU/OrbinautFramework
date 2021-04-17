@@ -3,15 +3,21 @@ function PaletteRendererUpdate()
 	// Use our screen shader
 	shader_set(ShaderScreen);
 	
-	// Do palette math
+	// Render fade
 	shader_set_uniform_f(Scrn_Step, Palette.FadeColour == flash ? Palette.FadeStep div 144 * 36 : Palette.FadeStep);
 	shader_set_uniform_i(Scrn_Color, Palette.FadeColour);
 	shader_set_uniform_i(Scrn_Mode, Palette.FadeMode);
-	shader_set_uniform_f_array(Scrn_Index, Palette.PalIndex);
-	texture_set_stage(Scrn_DynTex, Palette.PaletteSet[0][0]);
-	shader_set_uniform_f(Scrn_DynTexelSize, Palette.PaletteSet[0][1], Palette.PaletteSet[0][2]);
-	shader_set_uniform_f(Scrn_DynUVs, Palette.PaletteSet[0][3], Palette.PaletteSet[0][4], Palette.PaletteSet[0][5]);
 	
+	// Render surface palette
+	if Palette.PaletteSet[PaletteSurface] != false
+	{
+		shader_set_uniform_f_array(Scrn_Index, Palette.PalIndex);
+		texture_set_stage(Scrn_DynTex, Palette.PaletteSet[0][0]);
+		shader_set_uniform_f(Scrn_DynTexelSize, Palette.PaletteSet[0][1], Palette.PaletteSet[0][2]);
+		shader_set_uniform_f(Scrn_DynUVs, Palette.PaletteSet[0][3], Palette.PaletteSet[0][4], Palette.PaletteSet[0][5]);
+	}
+	
+	// Render underwater palette
 	if Palette.PaletteSet[PaletteUnderwater] != false
 	{
 		texture_set_stage(Scrn_WetTex, Palette.PaletteSet[1][0]);

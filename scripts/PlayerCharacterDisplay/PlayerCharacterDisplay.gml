@@ -6,7 +6,14 @@ function PlayerCharacterDisplay()
 		// Apply floor angle to visual angle
 		if Angle >= 25.5 and Angle <= 334.5 or !Grounded
 		{
-			VisualAngle = Angle;
+			if Grounded
+			{
+				VisualAngle = min(VisualAngle + Inertia, Angle);
+			}
+			else
+			{
+				VisualAngle = Angle;
+			}
 		}
 		
 		// Rotate visual angle back to 360

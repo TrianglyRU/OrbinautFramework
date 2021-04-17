@@ -42,7 +42,6 @@ function PaletteDynamicShiftHandle()
 	{
 		// Perform palette shift for Moonlight Base
 		case MBZ:
-		case MBZ2:
 		{
 			palette_handle(10, 6, 8);
 		}

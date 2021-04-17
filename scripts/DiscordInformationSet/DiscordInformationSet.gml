@@ -15,11 +15,8 @@ function DiscordInformationSet()
 		case MBZ:
 			DetailsString = "Moonlight Base Zone"; 
 		break;
-		case MBZ2:
-			DetailsString = "Moonlight Base Zone 2"; 
-		break;
-		case HHZ:
-			DetailsString = "Horizon Heights Zone"; 
+		default:
+			DetailsString = "Unknown Zone";
 		break;
 	}
 	discord_set_details(DetailsString);
@@ -30,6 +27,7 @@ function DiscordInformationSet()
 		case CharSonic:    var Char = "SONIC";    break;
 		case CharTails:	   var Char = "TAILS";    break;
 		case CharKnuckles: var Char = "KNUCKLES"; break;
+		default:		   var Char = "UNKNOWN";  break;
 	}
 	StateString = "Playing as: " + string(Char);
 	discord_set_state(StateString);	 

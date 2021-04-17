@@ -1,7 +1,7 @@
 function PlayerMove()
 {	
 	// Accelerate and decelerate
-	if !MovementLock
+	if MovementLock == false
 	{
 		if Input.Left
 		{	

@@ -1,7 +1,10 @@
 function StageMusicUpdate()
 {	
 	// Play stage music
-	audio_bgm_play(StageMusic, LoopEnd, LoopStart);
+	if StageMusic != noone
+	{
+		audio_bgm_play(StageMusic, LoopEnd, LoopStart);
+	}
 	
 	// Music behaviour when got powerup
 	if Player.InvincibilityBonus > 0 or Player.HighSpeedBonus > 0

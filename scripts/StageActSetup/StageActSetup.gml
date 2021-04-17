@@ -2,12 +2,60 @@ function StageActSetup()
 {	
 	// Setup stage properties
 	switch room 
-	{
+	{	
+		// Undentified Zone
+		default:
+		{
+			CardName				= "UNDENFITIED ZONE";	
+			ZoneID					= 0;
+			ActID					= 0;
+			ZoneActAmount		    = 2;
+			CardEnabled				= true;
+			TimeEnabled				= false;
+			Time					= 0;
+			WaterLevel				= room_height;
+			LeftBoundary			= 0;
+			TopBoundary				= 0;
+			RightBoundary			= room_width;
+			BottomBoundary			= room_height;
+			State					= ActStateLoading;
+			
+			StageMusic				= noone;
+			StageMusicDAC			= noone;
+			LoopStart				= 0;
+			LoopEnd					= 0;
+		}
+		break;
+		
+		// Gemstone Valley Zone
+		case GVZ:
+		{
+			CardName				= "GEMSTONE VALLEY";	
+			ZoneID					= 0;
+			ActID					= 0;
+			ZoneActAmount		    = 2;
+			CardEnabled				= true;
+			TimeEnabled				= false;
+			Time					= 0;
+			WaterLevel				= room_height;
+			LeftBoundary			= 0;
+			TopBoundary				= 0;
+			RightBoundary			= 3488;
+			BottomBoundary			= 848;
+			State					= ActStateLoading;
+			
+			StageMusic				= GemstoneValley;
+			StageMusicDAC			= noone;
+			LoopStart				= 0;
+			LoopEnd					= 138.17;
+		}
+		break;
+		
 		// Moonlight Base
 		case MBZ:
 		{
 			CardName				= "MOONLIGHT BASE";	
-			ZoneID					= 0;
+			ZoneID					= 1;
 			ActID					= 0;
 			ZoneActAmount		    = 2;
 			CardEnabled				= true;
@@ -24,30 +72,6 @@ function StageActSetup()
 			StageMusicDAC			= noone;
 			LoopStart				= 0;
 			LoopEnd					= 335.01;
-		}
-		break;	
-		
-		// Moonlight Base 2
-		case MBZ2:
-		{
-			CardName				= "MOONLIGHT BASE";										
-			ZoneID					= 0;							
-			ActID					= 1;	
-			ZoneActAmount		    = 2;
-			CardEnabled				= true;							
-			TimeEnabled				= false;						
-			Time					= 0;							
-			WaterLevel				= 336;							
-			LeftBoundary			= 0;							
-			TopBoundary				= 0;							
-			RightBoundary			= room_width;					
-			BottomBoundary			= room_height;					
-			State					= ActStateLoading;
-			
-			StageMusic				= MoonlightBase;				
-			StageMusicDAC			= noone;						
-			LoopStart				= 69.490;						
-			LoopEnd					= 125.120;
 		}
 		break;	
 		

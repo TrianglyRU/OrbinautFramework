@@ -45,7 +45,7 @@ function PlayerCheckJump()
 		Animation = AnimRoll;
 		
 		// Play sound
-		audio_sfx_play(sfxJump, false);
+		audio_sfx_play(sfxJump, false, true);
 		
 		// Return true if we jumped
 		return Jumping

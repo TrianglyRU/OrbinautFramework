@@ -49,9 +49,6 @@
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
-			
-			// Check for being hurt
-			PlayerCheckHurt();
 		}
 		break;
 		case PlayerStateRoll:
@@ -79,9 +76,6 @@
 	
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
-
-			// Check for being hurt
-			PlayerCheckHurt();
 		}
 		break;
 		case PlayerStateAirborne:
@@ -121,9 +115,6 @@
 			
 			// Check for dropdash as Sonic
 			PlayerCheckDropdash();
-			
-			// Check for being hurt
-			PlayerCheckHurt();
 			
 			// Reset flags on landing
 			PlayerResetOnFloor();

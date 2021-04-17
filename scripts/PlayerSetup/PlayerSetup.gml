@@ -33,9 +33,9 @@ function PlayerSetup()
 	isSuper		   = false;
 	isInvincible   = false;
 	isUnderwater   = false;
-	PeeloutRev     = -2;
-	SpindashRev    = -2;
-	DropdashRev    = -2;
+	PeeloutRev     = -1;
+	SpindashRev    = -1;
+	DropdashRev    = -1;
 
 	// Set collision radiuses
 	if CharacterID != CharTails

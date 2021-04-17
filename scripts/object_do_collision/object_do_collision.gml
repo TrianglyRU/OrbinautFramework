@@ -16,6 +16,8 @@ function object_do_collision(objectType, collisionMap)
 		exit;
 	}
 	
+	arrayMap = collisionMap;
+	
 	// Get object position and size
 	var objectX		 = floor(x);
 	var objectY      = floor(y);
@@ -32,18 +34,9 @@ function object_do_collision(objectType, collisionMap)
 	var playerRight  = floor(Player.PosX + 11);
 	var playerBottom = floor(Player.PosY + Player.yRadius);
 	
-	// Reset touched flags
-	objTouchedTop    = false;
-	objTouchedLeft   = false;
-	objTouchedRight  = false;
-	objTouchedBottom = false;
-
 	// Check if player is standing on this object
 	if Player.OnObject == id
 	{	
-		// Tell this object player touches its top side
-		objTouchedTop = true;
-		
 		// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
 		if collisionMap != false and image_yscale == 1
 		{
@@ -168,11 +161,10 @@ function object_do_collision(objectType, collisionMap)
 				// Check if player is below this object
 				if playerY > objectY and playerTop < objectBottom
 				{	
-					// If player is grounded, kill him
+					// If player is grounded, kill them
 					if Player.Grounded
 					{
-						Player.Rings = 0;
-						Player.Hurt  = id;
+						object_do_damage(true);
 					}
 
 					// Else push player out from this object
@@ -180,9 +172,6 @@ function object_do_collision(objectType, collisionMap)
 					{
 						Player.PosY += objectBottom - playerTop;
 						Player.Ysp  = 0;
-							
-						// Tell this object player touched its bottom side
-						objTouchedBottom = true;
 					}
 				}
 
@@ -232,8 +221,6 @@ function object_do_collision(objectType, collisionMap)
 					}
 					Player.PosX += objectRight - playerLeft;
 					
-					// Tell this object player touched its right side
-					objTouchedRight = true;	
 					Player.Pushing  = DirLeft;
 				}
 				
@@ -247,8 +234,6 @@ function object_do_collision(objectType, collisionMap)
 					}
 					Player.PosX -= playerRight - objectLeft;
 					
-					// Tell this object player touched its left side
-					objTouchedLeft = true;
 					Player.Pushing  = DirRight;
 				}		
 			}
@@ -319,9 +304,6 @@ function object_do_collision(objectType, collisionMap)
 			
 			// Attach player to the object's top boundary
 			Player.PosY = objectTop - Player.yRadius - 1;
-			
-			// Tell this object player touched its top side
-			objTouchedTop = true;
 		}
 	}
 }

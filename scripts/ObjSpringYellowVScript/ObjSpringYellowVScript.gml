@@ -1,8 +1,5 @@
 function ObjSpringYellowVScript()
 {
-	// Do collision
-	object_do_collision(SolidAll, false);
-	
 	// Define launch side
 	var launchSide = image_yscale ? SideTop : SideBottom;
 	
@@ -17,5 +14,14 @@ function ObjSpringYellowVScript()
 		
 		// Launch upwards or downwards
 		Player.Ysp = -10 * image_yscale;
+		
+		// Play sound
+		audio_sfx_play(sfxSpring, false, true);
+		
+		// Do not perform collision function below
+		exit;
 	}
+	
+	// Do collision
+	object_do_collision(SolidAll, false);
 }

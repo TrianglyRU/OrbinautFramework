@@ -50,7 +50,7 @@ function PlayerCheckClimb()
 			}
 		
 			// Check if we do not find the wall in front of us
-			if !tile_meeting(floor(PosX + 11 * Facing), floor(PosY + yRadius + 1), Layer)
+			if !tile_meeting(floor(PosX + (xRadius + 1) * Facing), floor(PosY + yRadius + 1), Layer)
 			{
 				// Leave climbing state
 				Ysp			  = 0;
@@ -60,7 +60,7 @@ function PlayerCheckClimb()
 				// Set 'drop' animation
 				Animation = AnimGlideDrop;
 				
-				// Use normal collision radiuses
+				// Use normal collision radius
 				xRadius = xRadiusDefault;
 				yRadius = yRadiusDefault;
 			}
@@ -83,7 +83,7 @@ function PlayerCheckClimb()
 			}
 			
 			// Check if we're near the edge to climb on it
-			if !tile_meeting(floor(PosX + xRadius * Facing + 1), floor(PosY - yRadius - 1), Layer)
+			else if !tile_meeting(floor(PosX + (xRadius + 1) * Facing), floor(PosY - yRadius - 1), Layer)
 			{
 				// Go to climbering state
 				Ysp			   = 0;
@@ -110,7 +110,7 @@ function PlayerCheckClimb()
 				Animation = AnimRoll;
 				
 				// Play sound
-				audio_sfx_play(sfxJump, false);
+				audio_sfx_play(sfxJump, false, true);
 			}
 		}
 		
@@ -126,7 +126,7 @@ function PlayerCheckClimb()
 			// First frame: adjust our position to be at edge of the tile
 			if ClimbingValue < 7
 			{
-				while !tile_meeting(floor(PosX + xRadius * Facing + 1), floor(PosY - yRadius), Layer)
+				while !tile_meeting(floor(PosX + (xRadius + 1) * Facing), floor(PosY - yRadius), Layer)
 				{
 					PosY += 1;
 				}

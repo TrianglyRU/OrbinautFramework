@@ -1,7 +1,7 @@
 function ObjRingSetup()
 {	
-	PosX  = 0;
-	PosY  = 0;
+	PosX  = x;
+	PosY  = y;
 	Xsp   = 0;
 	Ysp   = 0;
 	Grv   = 0.09375;
