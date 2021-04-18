@@ -2,10 +2,13 @@
 // You can call your scripts in this editor
 
 	// Follow the character
-	ScreenCameraShift();
+	ScreenCameraFollowPlayer();
 	
 	// Set camera dynamic offsets
-	ScreenCameraOffsetView();
+	ScreenCameraHandleOffsets();
+	
+	// Update camera limits
+	ScreenCameraBoundsUpdate();
 	
 	// Update camera position
 	ScreenCameraPositionUpdate();

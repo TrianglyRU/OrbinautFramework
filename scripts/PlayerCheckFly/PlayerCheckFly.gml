@@ -57,7 +57,7 @@ function PlayerCheckFly()
 				
 				// Since we're going the into rolling state, rolling offset will be applied to the camera.
 				// So let's correct its position
-				Screen.ViewY += xRadiusDefault - xRadiusRoll;
+				Screen.CameraY += xRadiusDefault - xRadiusRoll;
 			}		
 		}
 		

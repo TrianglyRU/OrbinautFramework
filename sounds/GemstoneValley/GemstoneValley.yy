@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "GemstoneValley.ogg",
-  "duration": 138.172455,
+  "duration": 277.005,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

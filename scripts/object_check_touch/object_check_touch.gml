@@ -32,48 +32,55 @@ function object_check_touch(collisionSide)
 	var objTouchedLeft   = false;
 	var objTouchedRight  = false;
 	var objTouchedBottom = false;
-
-	if playerRight < objectLeft or playerLeft > objectRight
-	{
-		exit;
-	}
-	if playerBottom < objectTop or playerTop > objectBottom
-	{
-		exit;
-	}
 	
-	if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
+	if collisionSide == SideTop and Player.OnObject == id
 	{
-		if playerY > objectY and playerTop < objectBottom
-		{	
-			objTouchedBottom = true;
-		}
-		else if playerBottom < objectTop + 16
-		{
-			objTouchedTop = true;
-		}
+		return true;
 	}
 	else
 	{
-		// Collide on the right
-		if playerX > x
+		if playerRight < objectLeft or playerLeft > objectRight
 		{
-			objTouchedRight = true;	
+			exit;
 		}
-				
-		// Collide on the left
-		if playerX < x
-		{	
-			objTouchedLeft = true;
-		}		
-	}
+		if playerBottom < objectTop or playerTop > objectBottom
+		{
+			exit;
+		}
 	
-	// Return collision result
-	switch collisionSide
-	{
-		case SideTop:    return objTouchedTop;    break;
-		case SideLeft:   return objTouchedLeft;   break;
-		case SideRight:  return objTouchedRight;  break;
-		case SideBottom: return objTouchedBottom; break;
+		if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
+		{
+			if playerY > objectY and playerTop < objectBottom
+			{	
+				objTouchedBottom = true;
+			}
+			else if playerBottom < objectTop + 16
+			{
+				objTouchedTop = true;
+			}
+		}
+		else
+		{
+			// Collide on the right
+			if playerX > x
+			{
+				objTouchedRight = true;	
+			}
+				
+			// Collide on the left
+			if playerX < x
+			{	
+				objTouchedLeft = true;
+			}		
+		}
+	
+		// Return collision result
+		switch collisionSide
+		{
+			case SideTop:    return objTouchedTop;    break;
+			case SideLeft:   return objTouchedLeft;   break;
+			case SideRight:  return objTouchedRight;  break;
+			case SideBottom: return objTouchedBottom; break;
+		}
 	}
 }

@@ -8,16 +8,24 @@ function _ScreenVariables()
 	CardString	       _init;
 	Width			   _init;
 	Height			   _init;
+	
 	PlayerScreenX	   _init;
 	PlayerScreenY	   _init;
-	ViewX			   _init;
-	ViewY			   _init;
+	CameraX			   _init;
+	CameraY			   _init;
 	RenderX			   _init;
 	RenderY			   _init;
-	ShiftX			   _init;
-	ShiftY			   _init;
+	ScrollX			   _init;
+	ScrollY			   _init;
 	ScrollDelay		   _init;
 	OverviewDelay	   _init;
+	
+	MinRenderX		   _init;
+	MaxRenderX         _init;
+	MinRenderY         _init;
+	MaxRenderY		   _init;
+	MinMaxSpeed		   _init;
+	
 	SpinOffset		   _init;
 	ExtendedOffset	   _init;
 	OverviewOffset	   _init;

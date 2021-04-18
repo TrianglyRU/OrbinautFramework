@@ -94,10 +94,10 @@ function ScreenDebugScreenDisplay()
 				+ "\n"
 				+ "\n              * CAMERA *"
 				+ "\n"
-				+ "\n   ACTUAL X: " + string(ViewX) + " RENDER: " + string(RenderX)
-				+ "\n   ACTUAL Y: " + string(ViewY) + " RENDER: " + string(RenderY)
-				+ "\n   SHIFT X: " + string(ShiftX)
-				+ "\n   SHIFT Y: " + string(ShiftY)
+				+ "\n   ACTUAL X: " + string(CameraX) + " RENDER: " + string(RenderX)
+				+ "\n   ACTUAL Y: " + string(CameraY) + " RENDER: " + string(RenderY)
+				+ "\n   SHIFT X: " + string(ScrollX)
+				+ "\n   SHIFT Y: " + string(ScrollY)
 				+ "\n   SCROLL DELAY TIMER: " + string(ScrollDelay)
 				+ "\n   OVERVIEW DELAY TIMER: " + string(OverviewDelay)
 				+ "\n   OVERVIEW SHIFT: " + string(OverviewOffset)

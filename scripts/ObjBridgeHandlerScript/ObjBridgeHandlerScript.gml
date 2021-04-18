@@ -1,8 +1,20 @@
 function ObjBridgeHandlerScript()
 {
+	object_do_collision(SolidTop, false);
+	
 	// Get a log number player is standing on
-	var PlayerPosition = (floor(Player.PosX) - x + 16) div 16;
+	var BridgeLeft	   = x - floor(BridgeLength / 2) * 16 - 16;
+	var PlayerPosition = (floor(Player.PosX) - BridgeLeft) div 16;
 	var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
+	
+	if Player.OnObject == id
+	{	
+		var MaxDepression = LogDepression[CurrentSegment - 1];
+		Player.PosY      = y - 8 + MaxDepression - Player.yRadius - 1;
+		Player.Balancing = false;
+	}
+	
+	/*
 	
 	// Set a recovery angle by checking if player is standing on any log of this bridge
 	if ds_list_find_index(LogID, Player.OnObject) >= 0
@@ -17,12 +29,8 @@ function ObjBridgeHandlerScript()
 	// Check for stepping onto the bridge
 	else 
 	{
-		with (BridgeLog) object_do_collision(SolidTop, false);
 		exit; 
-	} 
-
-	// Get current maximun depression
-	var MaxDepression = LogDepression[CurrentSegment - 1];
+	}
 	
 	// Bridge physics
 	for (var i = 0; i < BridgeLength; i++)
@@ -43,10 +51,10 @@ function ObjBridgeHandlerScript()
 		}
 		
 		// Calculate and apply logs position for this bridge
-		var BridgeY	 = y + 8;
+		var BridgeY	 = y;
 		LogID[| i].y = floor(BridgeY + ((MaxDepression) * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
 	}
-	
+
 	// Do collision with the bridge
 	with BridgeLog
 	{
@@ -55,4 +63,6 @@ function ObjBridgeHandlerScript()
 		// Force-disable balancing
 		Player.Balancing = false;
 	}
+	
+	*/ 
 }

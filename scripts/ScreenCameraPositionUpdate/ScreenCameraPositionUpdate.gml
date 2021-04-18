@@ -1,13 +1,13 @@
 function ScreenCameraPositionUpdate() 
 {	
-	// Set render positions
-	RenderX = floor(ViewX) + ExtendedOffset + ATSShift;
-	RenderY = floor(ViewY) - SpinOffset + OverviewOffset;
+	// Define final camera positions
+	RenderX = floor(CameraX) + ExtendedOffset + ATSShift;
+	RenderY = floor(CameraY) - SpinOffset + OverviewOffset;
 	
-	// Keep the camera inside stage boundaries
-	RenderX = clamp(RenderX, Stage.LeftBoundary, Stage.RightBoundary - Width);
-	RenderY = clamp(RenderY, Stage.TopBoundary, Stage.BottomBoundary - Height);
+	// Keep the camera inside its limits
+	RenderX = clamp(RenderX, MinRenderX, MaxRenderX - Width);
+	RenderY = clamp(RenderY, MinRenderY, MaxRenderY - Height);
 	
-	// Set camera on render coordinates
+	// Display camera on calculated positions
 	camera_set_view_pos(view_camera[0], RenderX, RenderY)
 }

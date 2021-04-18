@@ -41,13 +41,13 @@ function StageActSetup()
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= 3488;
-			BottomBoundary			= 848;
+			BottomBoundary			= 800;
 			State					= ActStateLoading;
 			
 			StageMusic				= GemstoneValley;
 			StageMusicDAC			= noone;
 			LoopStart				= 0;
-			LoopEnd					= 138.17;
+			LoopEnd					= 277.01;
 		}
 		break;
 	}	

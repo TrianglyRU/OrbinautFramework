@@ -27,7 +27,7 @@ function StageBoundariesUpdate()
 		var FinishX = ActEndObject.x;
 	}
 	var PlayerX		= floor(Player.PosX);
-	var CameraX     = floor(Screen.ViewX);
+	var CameraX     = floor(Screen.CameraX);
 	var PlayerScrnX = floor(Screen.PlayerScreenX);
 	var HalvedWidth = Screen.Width / 2;
 	

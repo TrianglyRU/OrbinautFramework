@@ -9,5 +9,7 @@
 	2. BridgeSprite, default = spr_obj_bridge_log_template
 	*/
 	
+	FinalPos = y;
+	
 	// Call object script
 	ObjBridgeHandlerSetup();
