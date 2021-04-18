@@ -9,6 +9,10 @@ function object_do_collision(objectType, collisionMap)
 		exit;
 	}
 	
+	// Set debug flags
+	hasArrayMap  = collisionMap;
+	isCollidable = false;
+	
 	// Don't do anything if this object does not have collision
 	if objectType = SolidNone
 	{
@@ -16,7 +20,8 @@ function object_do_collision(objectType, collisionMap)
 		exit;
 	}
 	
-	arrayMap = collisionMap;
+	// Update debug flag
+	isCollidable = true;
 	
 	// Get object position and size
 	var objectX		 = floor(x);

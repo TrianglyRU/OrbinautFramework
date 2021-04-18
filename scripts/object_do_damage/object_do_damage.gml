@@ -54,7 +54,7 @@ function object_do_damage(instantKill)
 			var Spd = 4
 			for (var i = 0; i < min(Player.Rings, 32); i++) 
 			{
-				var Created = instance_create_depth(floor(Player.PosX), floor(Player.PosY), 0, Ring);
+				var Created = object_spawn(floor(Player.PosX), floor(Player.PosY), Ring);
 				if  i == 16 
 				{ 
 					Ang = 168.75; 

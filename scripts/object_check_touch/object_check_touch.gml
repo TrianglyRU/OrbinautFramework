@@ -1,5 +1,9 @@
+/// @function object_check_touch(collisionSide)
 function object_check_touch(collisionSide)
 {
+	// Exit if collision is disabled
+	if (!Player.AllowCollision) exit;
+	
 	// Check if this object radiuses were initialized
 	if !variable_instance_exists(id, "objXRadiusSolid")
 	{
@@ -24,10 +28,10 @@ function object_check_touch(collisionSide)
 	var playerRight  = floor(Player.PosX + 11);
 	var playerBottom = floor(Player.PosY + Player.yRadius);
 	
-	objTouchedTop    = false;
-	objTouchedLeft   = false;
-	objTouchedRight  = false;
-	objTouchedBottom = false;
+	var objTouchedTop    = false;
+	var objTouchedLeft   = false;
+	var objTouchedRight  = false;
+	var objTouchedBottom = false;
 
 	if playerRight < objectLeft or playerLeft > objectRight
 	{

@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_collapse_platform",
-    "path": "sprites/spr_collapse_platform/spr_collapse_platform.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

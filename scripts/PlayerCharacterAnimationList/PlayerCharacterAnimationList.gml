@@ -56,6 +56,12 @@ function PlayerCharacterAnimationList()
 				case AnimBalanceBack:
 					animation_play(spr_sonic_balance_back, 12, 1);
 				break;
+				case AnimSpringUp:
+					animation_play(spr_sonic_spring, 4, 1);
+				break;
+				case AnimAirFall:
+					animation_play(spr_sonic_airfall, 2, 1);
+				break;
 			}
 		}
 		break;

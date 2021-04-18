@@ -9,7 +9,10 @@
 		
 		// Do not solid collision if player is rolling or jumping 
 		if (Player.Rolling or Player.Jumping) and Player.OnObject != id
-		{			
+		{		
+			// Do not do collision
+			object_do_collision(SolidNone, false);
+			
 			// Check for hitbox overlap
 			if object_check_overlap(CollisionHitbox)
 			{
@@ -56,9 +59,9 @@
 			y = floor(PosY);
 		
 			// Check for landing
-			if object_check_tiles(SideLeft, SideBottom, LayerA)
+			if object_check_tiles_v(SideLeft, SideBottom, 0, LayerA)
 			{
-				object_collide_tiles(SideLeft, SideBottom, LayerA);
+				object_collide_tiles_v(SideLeft, SideBottom, LayerA);
 				Airborne = false;
 			}
 		}	

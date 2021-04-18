@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_other",
-    "path": "sprites/spr_obj_other/spr_obj_other.yy",
+    "name": "spr_obj_platform_template",
+    "path": "sprites/spr_obj_platform_template/spr_obj_platform_template.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,12 +33,14 @@
     {"varType":0,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PlatformSpeed","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PlatformDistance","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"spr_obj_platform_template","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PlatformSprite","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":6,"value":"\"Horizontal\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+    {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"None\"",
         "\"Horizontal\"",
         "\"Vertical\"",
         "\"Diagonal\"",
         "\"Circular\"",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PlatformMovement","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PlatformDoFall","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

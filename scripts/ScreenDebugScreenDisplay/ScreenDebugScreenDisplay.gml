@@ -1,22 +1,20 @@
 function ScreenDebugScreenDisplay()
 {	
+	// Toggle debug help
+	if keyboard_check_pressed(ord("H"))
+	{
+		DebugHelp = !DebugHelp;
+	}
+	
 	// Hotkeys:
-	if Stage.State != ActStateLoading
+	if Stage.State != ActStateLoading and DebugHelp
 	{
 		string_set_font(Game.Font[FontDebug], "centre");
 		string_display(Width / 2, Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  SENSORS: R  VARIABLES: T", 0.5);
-	}
 		
-	// FPS:
-	string_set_font(Game.Font[FontDebug], "left");
-	string_display(Width - 45, Height - 8, "FPS: " + string(floor(fps)), 0.5);
-	if !DebugVariables
-	{
+		string_set_font(Game.Font[FontDebug], "left");
+		string_display(Width - 45, Height - 8, "FPS: " + string(floor(fps)), 0.5);
 		string_display(Width - 65, Height - 4, "TRUE FPS: " + string(floor(fps_real)), 0.5);
-	}
-	else
-	{
-		string_display(Width - 85, Height - 4, "APRX TRUE FPS: " + string(floor(fps_real) + 800), 0.5);
 	}
 	
 	// Show variables information

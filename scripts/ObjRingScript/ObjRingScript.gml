@@ -26,16 +26,16 @@ function ObjRingScript()
 		PosY += Ysp;
 	
 		// Do tile collision every four frames
-		if CollisionCheck mod 4 == 0
-		{
+		//if CollisionCheck mod 4 == 0
+		//{
 			// Check if ring found the tile
-			if object_check_tiles(false, SideBottom, LayerA)
-			or object_check_tiles(false, SideBottom, LayerB)
+			if object_check_tiles_v(false, SideBottom, 0, LayerA)
+			or object_check_tiles_v(false, SideBottom, 0, LayerB)
 			{
 				// Invert its speed
 				Ysp = min(Ysp * -0.75, -2);
 			}	
-		}
+		//}
 		
 		// Render on position
 		x = floor(PosX);

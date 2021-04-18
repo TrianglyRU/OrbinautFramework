@@ -50,9 +50,10 @@ function ScreenDebugViewDisplay()
 			with Objects if variable_instance_exists(id, "objXRadiusSolid")
 			{		
 				draw_set_alpha(0.5);
-				if !variable_instance_exists(id, "arrayMap") or variable_instance_exists(id, "arrayMap") and arrayMap == false
+				draw_set_colour(variable_instance_exists(id, "isCollidable") and isCollidable == true ? $00ff00 : $00ffff);
+				if !variable_instance_exists(id, "hasArrayMap") or variable_instance_exists(id, "hasArrayMap") and hasArrayMap == false
 				{
-					draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - 1, y + objYRadiusSolid - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);
+					draw_rectangle(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - 1, y + objYRadiusSolid - 1, false);
 				}
 				else
 				{
@@ -62,16 +63,17 @@ function ScreenDebugViewDisplay()
 						var basicY = image_yscale == 1 ? floor(y + objYRadiusSolid) : floor(y - objYRadiusSolid);
 						if image_xscale == 1
 						{
-							var arrayY = image_yscale == 1 ? floor(y - arrayMap[i]) : floor(y + arrayMap[i]);
+							var arrayY = image_yscale == 1 ? floor(y - hasArrayMap[i]) : floor(y + hasArrayMap[i]);
 						}
 						else if image_xscale == -1
 						{
-							var arrayY = image_yscale == 1 ? floor(y - arrayMap[objXRadiusSolid * 2 - i]) : floor(y + arrayMap[objXRadiusSolid * 2 - i]);
+							var arrayY = image_yscale == 1 ? floor(y - hasArrayMap[objXRadiusSolid * 2 - i]) : floor(y + hasArrayMap[objXRadiusSolid * 2 - i]);
 						}
-						draw_line_colour(arrayX, arrayY, arrayX, basicY, $00ffff, $00ffff);
+						draw_line(arrayX, arrayY, arrayX, basicY);
 					}
 				}
 			}
+			draw_set_colour($ffffff);
 		}
 		
 		// Draw hitboxes

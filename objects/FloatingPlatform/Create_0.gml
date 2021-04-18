@@ -4,6 +4,7 @@
 	// Create variables
 	OriginX = x;
 	OriginY = y;
+	Weight  = 0;
 	Angle	= 360;
 	
 	/* Variable Definitions	

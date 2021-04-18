@@ -65,6 +65,8 @@ function GameMacroSetup()
 	#macro AnimClimbering	   19
 	#macro AnimBalanceFront    20
 	#macro AnimBalanceBack	   21
+	#macro AnimSpringUp		   22
+	#macro AnimAirFall		   23
 
 	// Stage macro
 	#macro ActStateDefault     0

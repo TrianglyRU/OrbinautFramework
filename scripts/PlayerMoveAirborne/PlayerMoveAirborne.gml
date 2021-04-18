@@ -41,4 +41,10 @@ function PlayerMoveAirborne()
 	{
 		Xsp -= floor(Xsp/0.125) / 256;
 	}	
+	
+	// Set 'air fall' animation
+	if Ysp > 0 and Animation = AnimSpringUp
+	{
+		Animation = AnimAirFall;
+	}
 }

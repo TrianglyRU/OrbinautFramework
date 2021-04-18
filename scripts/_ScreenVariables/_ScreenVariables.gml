@@ -30,4 +30,5 @@ function _ScreenVariables()
 	DebugHitboxes  _init;
 	DebugSensors   _init;
 	DebugValue	   _init;
+	DebugHelp	   _init;
 }
