@@ -29,8 +29,8 @@ function ObjRingScript()
 		//if CollisionCheck mod 4 == 0
 		//{
 			// Check if ring found the tile
-			if object_check_tiles_v(false, SideBottom, 0, LayerA)
-			or object_check_tiles_v(false, SideBottom, 0, LayerB)
+			if tile_meeting(floor(PosX), floor(PosY + 8), LayerA)
+			or tile_meeting(floor(PosX), floor(PosY + 8), LayerB)
 			{
 				// Invert its speed
 				Ysp = min(Ysp * -0.75, -2);

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "Sprite146",
-    "path": "sprites/Sprite146/Sprite146.yy",
+    "name": "Sprite145",
+    "path": "sprites/Sprite145/Sprite145.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,7 +30,7 @@
     "path": "folders/Stage Data/Gemstone Valley Zone.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Object48",
+  "name": "Object46",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -1,5 +1,5 @@
-/// @function object_collide_tiles_v(xSide, ySide, tileLayer)
-function object_collide_tiles_v(xSide, ySide, tileLayer)
+/// @function object_collide_tiles_v(xSide, ySide, minDistsance, tileLayer)
+function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 {	
 	// Check if this object radiuses were initialized
 	if !variable_instance_exists(id, "objYRadiusSolid")
@@ -33,5 +33,11 @@ function object_collide_tiles_v(xSide, ySide, tileLayer)
 	var floorDistance = tile_check_collision_v(checkX, checkY, ySide = SideTop ? false : true, ySide = SideTop ? true : false, tileLayer)[0];
 			
 	// Update object position
-	y += floorDistance;	
+	if floorDistance <= minDistance
+	{
+		y += floorDistance;
+		return true;
+	}
+	
+	return false;
 }

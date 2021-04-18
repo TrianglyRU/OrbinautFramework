@@ -12,8 +12,8 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen = false;
-	Game.ResolutionWidth  = 426;
-	Game.ResolutionHeight = 240;
+	Game.ResolutionWidth  = 398;
+	Game.ResolutionHeight = 224;
 	Game.WindowSize		  = 3;
 	
 	// Audio settings
@@ -46,7 +46,7 @@ function GameFrameworkSetup()
 	Game.SpeedFloorClip			 = false;   // In S2+, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
 	Game.ExtensiveWallCollision	 = true;	// In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.ImprovedObjCollision	 = true;    // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
-	Game.SmoothPaletteCycle		 = false;	// Apply interpolation to palette cycles
+	Game.SmoothPaletteCycle		 = true;	// Apply interpolation to palette cycles
 	Game.SmoothRotation			 = true;	// Use smooth rotation
 	Game.RichPresenceSupport	 = true;	// Enable Rich Presence
 	Game.StageTransitions		 = true;

@@ -24,17 +24,9 @@
 		}
 		if Xsp != 0
 		{
-			if object_check_tiles_v(false, SideBottom, 2, LayerA)
-			{
-				object_collide_tiles_v(false, SideBottom, LayerA);
-			}
-			else
-			{
-				StopTimer = 60;
-				Xsp       = 0;
-			}
-			if object_check_tiles_h(SideLeft,  false, 0, LayerA)
-			or object_check_tiles_h(SideRight, false, 0, LayerA)
+			if Dir == -1 and object_collide_tiles_h(SideLeft,  false, 0, LayerA)
+			or Dir ==  1 and object_collide_tiles_h(SideRight, false, 0, LayerA)
+			or !object_collide_tiles_v(false, SideBottom, 2, LayerA)
 			{
 				StopTimer = 60;
 				Xsp       = 0;
@@ -46,7 +38,7 @@
 	// Check for hitbox overlap
 	if object_check_overlap(CollisionHitbox)
 	{
-		if !Player.Rolling and !Player.Jumping
+		if !Player.Rolling and !Player.Jumping and !Player.SpindashRev and !Player.GlidingState
 		{
 			object_do_damage(false);
 		}

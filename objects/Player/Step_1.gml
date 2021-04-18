@@ -24,7 +24,7 @@
 			PlayerMove();
 			
 			// Collide with walls
-			PlayerHitWalls();
+			//PlayerHitWalls();
 			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();

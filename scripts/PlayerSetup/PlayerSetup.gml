@@ -36,7 +36,12 @@ function PlayerSetup()
 	PeeloutRev     = -1;
 	SpindashRev    = -1;
 	DropdashRev    = -1;
-
+	
+	// Set default speeds
+	Xsp     = 0;
+	Ysp     = 0;
+	Inertia = 8;
+	
 	// Set collision radiuses
 	if CharacterID != CharTails
 	{

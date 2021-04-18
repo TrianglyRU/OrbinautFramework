@@ -1,5 +1,5 @@
-/// @function object_collide_tiles_h(xSide, ySide, tileLayer)
-function object_collide_tiles_h(xSide, ySide, tileLayer)
+/// @function object_collide_tiles_h(xSide, ySide, minDistance, tileLayer)
+function object_collide_tiles_h(xSide, ySide, minDistance, tileLayer)
 {	
 	// Check if this object radiuses were initialized
 	if !variable_instance_exists(id, "objYRadiusSolid")
@@ -31,7 +31,13 @@ function object_collide_tiles_h(xSide, ySide, tileLayer)
 	
 	// Get tile distance
 	var wallDistance = tile_check_collision_h(checkX, checkY, xSide = SideLeft ? false : true, true, tileLayer)[0];
-			
+
 	// Update object position
-	x += wallDistance + 1;	
+	if wallDistance <= minDistance
+	{
+		x += wallDistance;
+		return true;
+	}
+	
+	return false;
 }

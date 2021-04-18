@@ -71,7 +71,7 @@ function ScreenTitleCardDisplay()
 			Screen.CameraEnabled = true;
 			Stage.TimeEnabled    = true;
 			Stage.State          = ActStateDefault;
-			
+
 			if !Game.StageTransitions or (Game.StageTransitions and Game.StageTransferX == 0)
 			{	
 				fade_perform(from, black, 1);

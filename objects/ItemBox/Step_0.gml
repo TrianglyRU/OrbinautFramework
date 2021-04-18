@@ -58,10 +58,9 @@
 			// Update object position
 			y = floor(PosY);
 		
-			// Check for landing
-			if object_check_tiles_v(SideLeft, SideBottom, 0, LayerA)
+			// Do collision with tiles & check if we collided
+			if object_collide_tiles_v(SideLeft, SideBottom, 0, LayerA)
 			{
-				object_collide_tiles_v(SideLeft, SideBottom, LayerA);
 				Airborne = false;
 			}
 		}	

@@ -184,7 +184,10 @@ function PlayerCollideFloor()
 		{
 			Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
 		}
-		if (Angle = 0) Angle = 360;
+		if (Angle == 0) Angle = 360;
+		
+		// Force disable balance
+		Balancing = false;
 	}
 	else
 	{

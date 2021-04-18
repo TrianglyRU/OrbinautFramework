@@ -35,5 +35,16 @@ function PaletteDynamicShiftHandle()
 			}
 			break;
 		}
-	}	
+	}
+	
+	switch room
+	{
+		case GVZ:
+		{
+			for (var i = 10; i < 15; i++)
+			{
+				palette_handle(i, 4, 8);
+			}
+		}
+	}
 }

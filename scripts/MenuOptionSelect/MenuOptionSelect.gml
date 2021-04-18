@@ -109,7 +109,7 @@ function MenuOptionSelect()
 			break;
 			case CharacterSelect:
 			{
-				if MenuOption < 1
+				if MenuOption < 3
 				{
 					// Get our character
 					Game.GlobalCharacter = MenuOption;
