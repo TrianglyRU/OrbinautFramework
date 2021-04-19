@@ -3,27 +3,30 @@ function PlayerCharacterDisplay()
 	// Check if smooth rotation is enabled
 	if Game.SmoothRotation
 	{
-		// Apply floor angle to visual angle
-		if Angle >= 25.5 and Angle <= 334.5 or !Grounded
+		// Check if we grounded
+		if Grounded
 		{
-			VisualAngle = Angle;
+			// If in correct floor angle range, apply it to visual angle
+			if Angle >= 25.5 and Angle <= 334.5
+			{
+				VisualAngle = Angle <= 180 ? min(VisualAngle mod 360 + 5.625, Angle) 
+										   : max(VisualAngle - 5.625, Angle);
+			}
+			
+			// Rotate visual angle back to 360 if out of the range
+			else 
+			{
+				VisualAngle = VisualAngle > 180 ? VisualAngle + 5.625 : VisualAngle - 5.625;
+			}
+			
+			// Limit visual angle
+			VisualAngle = clamp(VisualAngle, 0, 360);
 		}
 		
-		// Rotate visual angle back to 360
+		// Simply apply regular angle to visual angle while in-air
 		else
 		{
-			if VisualAngle > 0 and VisualAngle < 90 
-			{
-				VisualAngle -= 5.625;
-			}
-			if VisualAngle > 270 and VisualAngle < 360 
-			{
-				VisualAngle += 5.625;
-			}
-			if VisualAngle < 0 or VisualAngle > 360 
-			{
-				VisualAngle = 360;
-			}
+			VisualAngle = Angle;
 		}
 	}
 	
@@ -41,7 +44,7 @@ function PlayerCharacterDisplay()
 	}
 	
 	// Force reset visual angle for specific animations
-	if Grounded and Inertia == 0
+	if Grounded and Inertia == 0 and (Angle < 45 or Angle > 315)
 	or ClimbingState != false
 	or GlidingState  != false 
 	or FlyingState   != false 

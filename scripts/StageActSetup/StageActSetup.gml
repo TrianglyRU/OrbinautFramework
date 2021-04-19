@@ -40,8 +40,8 @@ function StageActSetup()
 			WaterLevel				= room_height;
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
-			RightBoundary			= 3488;
-			BottomBoundary			= 800;
+			RightBoundary			= 10000;
+			BottomBoundary			= 2272;
 			State					= ActStateLoading;
 			
 			StageMusic				= GemstoneValley;

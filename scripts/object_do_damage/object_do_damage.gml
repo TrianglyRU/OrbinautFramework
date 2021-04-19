@@ -4,7 +4,7 @@ function object_do_damage(instantKill)
 	// Exit if player is invincible
 	if (Player.isInvincible or Player.Hurt) exit;
 	
-	// Set flags
+	// Reset flags
 	Player.Grounded	     = false;
 	Player.OnObject	     = false;
 	Player.Rolling		 = false;
@@ -23,7 +23,7 @@ function object_do_damage(instantKill)
 		Player.AllowCollision = false;
 		
 		// Draw player above everything
-		Player.DrawOrder -= 5;
+		Player.DrawOrder = 0;
 			
 		// Perform movement
 		Player.Inertia = 0;

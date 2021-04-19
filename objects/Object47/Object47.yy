@@ -1,16 +1,10 @@
 {
-  "spriteId": {
-    "name": "spr_obj_other",
-    "path": "sprites/spr_obj_other/spr_obj_other.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "Objects",
-    "path": "objects/Objects/Objects.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -25,15 +19,16 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Call-only",
-    "path": "folders/Objects/Global/Call-only.yy",
+    "name": "Global",
+    "path": "folders/Objects/Global.yy",
   },
   "resourceVersion": "1.0",
-  "name": "BridgeLog",
+  "name": "Object47",
   "tags": [],
   "resourceType": "GMObject",
 }
