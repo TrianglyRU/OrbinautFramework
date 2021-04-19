@@ -81,8 +81,8 @@ function PlayerMove()
 	}
 	
 	// Check for stop pushing
-	if Pushing == DirRight and (!Input.Right or Player.Xsp < 0)
-	or Pushing == DirLeft  and (!Input.Left  or Player.Xsp > 0)
+	if Pushing == DirRight and (!Input.Right or Player.Xsp < -1)
+	or Pushing == DirLeft  and (!Input.Left  or Player.Xsp >  1)
 	{
 		Pushing = false;
 	}

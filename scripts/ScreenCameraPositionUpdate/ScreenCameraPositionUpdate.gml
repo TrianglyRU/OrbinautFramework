@@ -1,8 +1,8 @@
 function ScreenCameraPositionUpdate() 
 {	
 	// Define final camera positions
-	RenderX = floor(CameraX) + ExtendedOffset + ATSShift;
-	RenderY = floor(CameraY) - SpinOffset + OverviewOffset;
+	RenderX = floor(CameraX + ExtendedOffset);
+	RenderY = floor(CameraY - SpinOffset + OverviewOffset);
 	
 	// Keep the camera inside its limits
 	RenderX = clamp(RenderX, MinRenderX, MaxRenderX - Width);

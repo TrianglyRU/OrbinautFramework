@@ -27,7 +27,7 @@ function ScreenCameraFollowPlayer()
 	if Player.Grounded and !Player.GlidingState or Player.GlidingState == 4
 	{
 		var maxShift = abs(Player.Ysp) < 6 ? 6 : 16;
-		ScrollY       = clamp(PlayerScreenY - (Height / 2 - 16), -maxShift, maxShift);  
+		ScrollY      = clamp(PlayerScreenY - (Height / 2 - 16), -maxShift, maxShift);  
 	} 
 	else 
 	{

@@ -41,7 +41,7 @@ function StageActSetup()
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= 10000;
-			BottomBoundary			= 2272;
+			BottomBoundary			= 2288;
 			State					= ActStateLoading;
 			
 			StageMusic				= GemstoneValley;
