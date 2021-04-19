@@ -40,6 +40,7 @@
 
 	float SubA(float Val1, float Val2) // Appear
 	{
+		if (u_step == 756.) return Val1;
 		return (u_color == 1 ? 
 			Val1 + max(Val2 - Val1 - u_step + 252., 0.): 
 			Val1 - max(Val2 + Val1 - u_step, 0.));
@@ -47,12 +48,15 @@
 
 	float SubD(float Val1, float Val2) // Disappear
 	{ 
+		if (u_step == 0.) return u_color == 1 ? 255. : 0.;
 		float Diff = max(756. - u_step - Val2, 0.);
 		return Val1 + Diff * (u_color == 1 ? 1. : -1.);
 	}
 
 	float Flsh(float Val1) // Appear
 	{
+		if (u_step == 0.) return 255.;
+		if (u_step == 1008.) return Val1;
 		return max(252. - u_step, Val1);
 	}
 
@@ -75,7 +79,8 @@
 	
 		#region Fade
 		////////////
-		col.rgb = min(col.rgb * 255., 252.);
+		//col.rgb = min(col.rgb * 255., 252.);
+		col.rgb *= 255.;
 		vec3 OutCol;
 	
 		if (u_color == 2) 
