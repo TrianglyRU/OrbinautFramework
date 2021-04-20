@@ -41,9 +41,9 @@
 	float SubA(float Val1, float Val2) // Appear
 	{
 		if (u_step == 756.) return Val1;
-		return (u_color == 1 ? 
-			Val1 + max(Val2 - Val1 - u_step + 252., 0.): 
-			Val1 - max(Val2 + Val1 - u_step, 0.));
+		return Val1 + (u_color == 1 ? 
+			 max(Val2 - Val1 - u_step + 252., 0.): 
+			-max(Val2 + Val1 - u_step, 0.));
 	}
 
 	float SubD(float Val1, float Val2) // Disappear
@@ -70,9 +70,6 @@
 		col = findAltColor(col, u_dynUvs, u_dynPixelSize, u_dynPalTex, false);
 		if ((u_water != 0.) && (u_water >= 224. - v_vPosition.y))
 		{
-			//col.rgb += u_waterCol / 255.;
-			//col.rgb = 1. - col.rgb;
-			//col.rgb = mix(col.rgb, u_waterCol / 255., 0.5);
 			col = findAltColor(col, u_wetUvs, u_wetPixelSize, u_wetPalTex, true);
 		}
 		#endregion

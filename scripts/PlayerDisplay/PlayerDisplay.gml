@@ -114,7 +114,7 @@ function PlayerDisplay()
 	// Blink sprite
 	if isInvincible and (isInvincible mod 4 == 0)
 	{
-		visible = !visible;
+		image_alpha = !image_alpha;
 	}
 	
 	// Update character display information
