@@ -14,9 +14,9 @@ function object_do_collision(objectType, collisionMap)
 	isCollidable = false;
 	
 	// Don't do anything if this object does not have collision
-	if objectType = SolidNone
+	if (objectType = SolidNone)
 	{
-		if (Player.OnObject == id) Player.OnObject = false;
+		if (Player.OnObject) Player.OnObject = false;
 		exit;
 	}
 	
@@ -30,7 +30,7 @@ function object_do_collision(objectType, collisionMap)
 	var objectLeft   = floor(x - objXRadiusSolid);
 	var objectRight  = floor(x + objXRadiusSolid - 1);
 	var objectBottom = floor(y + objYRadiusSolid);
-	
+
 	// Get player position and size
 	var playerX      = floor(Player.PosX);
 	var playerY      = floor(Player.PosY);
@@ -38,7 +38,7 @@ function object_do_collision(objectType, collisionMap)
 	var playerLeft   = floor(Player.PosX - 11);
 	var playerRight  = floor(Player.PosX + 11);
 	var playerBottom = floor(Player.PosY + Player.yRadius);
-	
+			
 	// Check if player is standing on this object
 	if Player.OnObject == id
 	{	
@@ -59,14 +59,14 @@ function object_do_collision(objectType, collisionMap)
 				objectTop = objectY - collisionMap[playerPosition] - 1;
 			}
 		}
-			
+					
 		// Move player alongside the object horizontal movement
 		Player.PosX += floor(x - xprevious);
 		playerX		 = floor(Player.PosX);
-				
+						
 		// Make player to always stay on the object level
 		Player.PosY = objectTop - Player.yRadius;
-			
+					
 		// Check if player should enter their balancing action
 		if Player.Inertia == 0
 		{
@@ -76,10 +76,10 @@ function object_do_collision(objectType, collisionMap)
 				Player.Balancing = DirRight;
 			}
 			else if playerX <= objectLeft  + 4 and Player.Facing == DirRight
-				 or playerX >= objectRight - 4 and Player.Facing == DirLeft
-				 {
-				     Player.Balancing = DirLeft;
-				 }
+				or playerX >= objectRight - 4 and Player.Facing == DirLeft
+				{
+					Player.Balancing = DirLeft;
+				}
 			else
 			{
 				Player.Balancing = false;
@@ -89,10 +89,10 @@ function object_do_collision(objectType, collisionMap)
 		{
 			Player.Balancing = false;
 		}
-		
+				
 		// Extend edges if this is not SolidTop object
 		var edgeExtension = objectType == SolidTop ? 0 : 10;
-		
+				
 		// Check if player is outside of this object boundaries
 		if playerX + edgeExtension < objectLeft 
 		or playerX - edgeExtension > objectRight
@@ -100,7 +100,7 @@ function object_do_collision(objectType, collisionMap)
 			Player.OnObject = false;
 		}
 	}
-	
+			
 	// If player is not standing on this object, collide with it
 	else
 	{
@@ -112,13 +112,13 @@ function object_do_collision(objectType, collisionMap)
 			{
 				exit;
 			}
-			
+					
 			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
 			if collisionMap != false
 			{
 				// Get player poisition
 				var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
-				
+						
 				// Check top object boundary
 				if image_yscale == 1
 				{
@@ -135,7 +135,7 @@ function object_do_collision(objectType, collisionMap)
 						objectTop = objectY - collisionMap[playerPosition] - 1;
 					}
 				}
-				
+						
 				// Adjust bottom object boundary
 				else if image_yscale == -1
 				{
@@ -153,13 +153,13 @@ function object_do_collision(objectType, collisionMap)
 					}
 				}
 			}
-			
+					
 			// Check for overlap with this object vertically
 			if playerBottom < objectTop or playerTop > objectBottom
 			{
 				exit;
 			}
-			
+					
 			// Collide with this object vertically
 			if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
 			{
@@ -207,12 +207,12 @@ function object_do_collision(objectType, collisionMap)
 					Player.Inertia  = Player.Xsp;
 					Player.Angle    = 360;
 					Player.Ysp      = 0;
-					
+							
 					// Attach player to the object's top boundary
 					Player.PosY = objectTop - Player.yRadius;
 				}
 			}
-	
+			
 			// Collide with this object horizontally
 			else
 			{
@@ -225,10 +225,10 @@ function object_do_collision(objectType, collisionMap)
 						if (Player.Grounded) Player.Inertia = 0;	
 					}
 					Player.PosX += objectRight - playerLeft;
-					
+							
 					Player.Pushing  = DirLeft;
 				}
-				
+						
 				// Collide on the left
 				if floor(Player.PosX) < x
 				{	
@@ -238,7 +238,7 @@ function object_do_collision(objectType, collisionMap)
 						if (Player.Grounded) Player.Inertia = 0;		
 					}
 					Player.PosX -= playerRight - objectLeft;
-					
+							
 					Player.Pushing  = DirRight;
 				}		
 			}
@@ -250,19 +250,19 @@ function object_do_collision(objectType, collisionMap)
 			{
 				exit;
 			}
-			
+					
 			// Check if player's position is within this object boundaries
 			if playerX < objectLeft or playerX > objectRight
 			{
 				exit;
 			}
-			
+					
 			// If collisionMap is assigned, define new top boundary of this object, based on current player position within it
 			if collisionMap != false
 			{
 				// Get player poisition
 				var playerPosition = image_xscale == 1 ? playerX - objectLeft : objectRight - playerX;
-				
+						
 				// Check top object boundary
 				if image_yscale == 1
 				{
@@ -280,26 +280,26 @@ function object_do_collision(objectType, collisionMap)
 					}
 				}
 			}
-			
+					
 			// Check if player's bottom has overlapped this object's top boundary
 			if playerBottom < objectTop - 4 or playerBottom >= objectTop + 16
 			{
 				exit;
 			}
-			
+					
 			// If player is airborne, let him land on this object	
 			if !Player.Grounded
 			{
 				Player.Grounded = true;
 				with Player PlayerResetOnFloor();	// force call player's script
 			}
-			
+					
 			// Set flags and speeds for player
 			Player.OnObject = id;
 			Player.Inertia  = Player.Xsp;
 			Player.Angle    = 360;
 			Player.Ysp      = 0;
-			
+					
 			// Attach player to the object's top boundary
 			if collisionMap != false and image_yscale == 1
 			{

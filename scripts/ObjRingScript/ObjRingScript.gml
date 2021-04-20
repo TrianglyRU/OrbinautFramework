@@ -21,13 +21,13 @@ function ObjRingScript()
 		// Apply gravity
 		Ysp += Grv;
 	
-		// Update position
+		// Update code position
 		PosX += Xsp;
 		PosY += Ysp;
 	
 		// Do tile collision every four frames
-		//if CollisionCheck mod 4 == 0
-		//{
+		if CollisionCheck mod 4 == 0
+		{
 			// Check if ring found the tile
 			if tile_meeting(floor(PosX), floor(PosY + 8), LayerA)
 			or tile_meeting(floor(PosX), floor(PosY + 8), LayerB)
@@ -35,15 +35,16 @@ function ObjRingScript()
 				// Invert its speed
 				Ysp = min(Ysp * -0.75, -2);
 			}	
-		//}
+		}
 		
-		// Render on position
+		// Update real position
 		x = floor(PosX);
 		y = floor(PosY);
 		
-		// Check if ring is outside the camera
+		// Check if ring is outside the camera X view
 		if x < Screen.RenderX - 8 or x > Screen.RenderX + Screen.Width + 8
 		{
+			// Delete it
 			instance_destroy(self);
 			exit;
 		}
@@ -57,21 +58,18 @@ function ObjRingScript()
 	}
 	
 	// Check for hitbox collision
-	if !Physical or (Physical and PickupTimeout == 0)
-	{
-		if object_check_overlap(CollisionHitbox)
-		{	
-			// Add 1 to ring counter
-			Player.Rings++;
-		
-			// Create shine object (depth will be set on RingSparkle creation)
-			instance_create_depth(x, y, depth, RingSparkle);	
-		
-			// Play sound
-			audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false, false);
-		
-			// Destroy ring
-			instance_destroy(self);		
-		}
+	if !PickupTimeout and object_check_overlap(CollisionHitbox)
+	{	
+		// Add 1 to ring counter
+		Player.Rings++;
+	
+		// Create shine object (depth will be set on RingSparkle creation)
+		instance_create_depth(x, y, depth, RingSparkle);	
+	
+		// Play sound, switch left and right channels every ring
+		audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false, false);
+	
+		// Delete ring
+		instance_destroy(self);		
 	}
 }

@@ -1,9 +1,10 @@
 function PlayerMoveAirborne()
 {	
-	// Reset flags
-	Skidding  = false;
-	Balancing = false;
-	Pushing	  = false;
+	// Reset flags and angle range
+	Skidding   = false;
+	Balancing  = false;
+	Pushing	   = false;
+	AngleRange = RangeFloor;
 	
 	// Accelerate and decelerate
 	if !(Jumping and Rolling) and !GlidingState and !ClimbingState and !Hurt and !Death
@@ -41,10 +42,4 @@ function PlayerMoveAirborne()
 	{
 		Xsp -= floor(Xsp/0.125) / 256;
 	}	
-	
-	// Set 'air fall' animation
-	if Ysp > 0 and Animation = AnimSpringUp
-	{
-		Animation = AnimAirFall;
-	}
 }

@@ -14,9 +14,10 @@ function PlayerLevelBound()
 		Inertia  = 0;
 	}
 	
-	// Kill player
+	// Check if player is not in death state
 	if !Death
 	{
+		// Check if player is below bottom boundary
 		if Screen.MaxRenderY > Stage.BottomBoundary  and floor(PosY) > Screen.MaxRenderY
 		or Screen.MaxRenderY <= Stage.BottomBoundary and floor(PosY) > Stage.BottomBoundary
 		{
@@ -48,7 +49,7 @@ function PlayerLevelBound()
 			// Set animation
 			Animation = AnimDeath;
 			
-			// Enter death script
+			// Enter death state
 			Death = true;
 		}
 	}

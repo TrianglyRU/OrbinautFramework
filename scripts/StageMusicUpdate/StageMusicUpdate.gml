@@ -1,5 +1,8 @@
 function StageMusicUpdate()
 {	
+	/* StageMusic, StageMusicDAC, LoopEnd and LoopStart 
+	variables are set in StageActSetup */
+
 	// Play stage music
 	if StageMusic != noone
 	{
@@ -9,9 +12,9 @@ function StageMusicUpdate()
 	// Music behaviour when got powerup
 	if Player.InvincibilityBonus > 0 or Player.HighSpeedBonus > 0
 	{	
-		// Mute stage music and its DAC channel
-		audio_bgm_fadeout(StageMusic, 0);
-		
+		// Mute stage music 
+		audio_bgm_fadeout(StageMusic, 1);
+
 		// Play highspeed bonus music
 		if Player.HighSpeedBonus > 0
 		{
@@ -34,12 +37,15 @@ function StageMusicUpdate()
 	}
 	
 	// Mute DAC channel if main stage music doesn't play at its volume
-	if audio_sound_get_gain(StageMusic) != Game.MusicVolume
+	if StageMusicDAC != noone 
 	{
-		audio_bgm_fadeout(StageMusicDAC, 0);
-	}
-	else
-	{
-		audio_bgm_fadein(StageMusicDAC, 0);
-	}
+		if audio_sound_get_gain(StageMusic) != Game.MusicVolume
+		{
+			audio_bgm_fadeout(StageMusicDAC, 0);
+		}
+		else
+		{
+			audio_bgm_fadein(StageMusicDAC, 0);
+		}
+	}	
 }

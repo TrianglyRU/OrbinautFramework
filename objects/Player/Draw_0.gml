@@ -1,8 +1,8 @@
 /// @description Render
 // You can write your code in this editor
 	
-	// Use character animation list
-	PlayerCharacterAnimationList();
+	// Animate character
+	PlayerAnimate();
 	
 	// Display character
-	PlayerCharacterDisplay();
+	PlayerDisplay();

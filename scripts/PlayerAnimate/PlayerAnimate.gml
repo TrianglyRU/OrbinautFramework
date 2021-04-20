@@ -1,4 +1,4 @@
-function PlayerCharacterAnimationList()
+function PlayerAnimate()
 {	
 	switch CharacterID
 	{	

@@ -1,4 +1,4 @@
-function PlayerCharacterDisplay()
+function PlayerDisplay()
 {	
 	// Check if smooth rotation is enabled
 	if Game.SmoothRotation
@@ -51,6 +51,8 @@ function PlayerCharacterDisplay()
 	or Skidding      != false 
 	or Rolling 
 	or Jumping
+	or Hurt
+	or Death
 	{
 		VisualAngle = 360;
 	}
@@ -107,6 +109,12 @@ function PlayerCharacterDisplay()
 
 		// Draw tails on the screen
 		with TailsObject draw_self();
+	}
+	
+	// Blink sprite
+	if isInvincible and (isInvincible mod 4 == 0)
+	{
+		visible = !visible;
 	}
 	
 	// Update character display information

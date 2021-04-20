@@ -107,56 +107,59 @@ function PlayerMove()
 		}
 	}
 	
-	// Handle ground animations
-	if Inertia == 0
-	{
-		if Balancing != false
-		{
-			if Balancing == DirRight
-			{
-				Animation = AnimBalanceFront;
-			}
-			else if Balancing == DirLeft
-			{
-				Animation = AnimBalanceBack;
-			}
-		}
-		else
-		{
-			Animation = AnimIdle;
-		}
-	}
-	else if Skidding != false
-	{
-		Animation = AnimSkid;
-	}
-	else
-	{
-		if abs(Inertia) < 6
-		{
-			Animation = AnimWalk;
-		}
-		else
-		{
-			if abs(Inertia) < 10
-			{
-				Animation = AnimRun;
-			}
-			else
-			{
-				Animation = CharacterID == CharSonic ? AnimPeelout : AnimRun;
-			}
-		}
-	}
-	if Pushing != false
-	{
-		Animation = AnimPush;
-	}
-
 	// Get our speed ratio
 	AnimReservedSpeed = round(max(1, 8 - abs(Inertia)));
 
 	// Convert inertia to normal axis speeds
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
+	
+	// Our default animation if AnimIdle
+	Animation = AnimIdle;
+		
+	// Check if we're balancing to the right
+	if Balancing == DirRight
+	{
+		Animation = AnimBalanceFront;
+	}
+	
+	// Check if we're balancing to the left
+	else if Balancing == DirLeft
+	{
+		Animation = AnimBalanceBack;
+	}
+		
+	// Check if we're moving
+	if Inertia != 0
+	{
+		// Check for walk
+		if abs(Inertia) < 6
+		{
+			Animation = AnimWalk;
+		}
+		
+		// Check for run
+		else if abs(Inertia) < 10
+		{
+			Animation = AnimRun;
+		}
+		
+		// Check for very fast run
+		else
+		{
+			Animation = CharacterID == CharSonic ? AnimPeelout : AnimRun;
+		}
+	}
+		
+	// Check if we're skidding
+	if Skidding != false
+	{
+		Animation = AnimSkid;
+	}
+	
+	// Check if we're pushing
+	if Pushing != false
+	{
+		Animation = AnimPush;
+	}
 }
