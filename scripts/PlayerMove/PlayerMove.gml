@@ -87,24 +87,10 @@ function PlayerMove()
 		Pushing = false;
 	}
 	
-	// Check for balancing
-	if Inertia != 0
+	// Check for stop balancing (balancing flag is set in floor collision)
+	if Balancing != false and Inertia != 0
 	{
 		Balancing = false;
-	}
-	else
-	{
-		if tile_check_collision_v(floor(PosX), floor(PosY + yRadius), true, false, Layer)[0] > 14 and !OnObject
-		{
-			if tile_meeting(floor(PosX - xRadius), floor(PosY + yRadius + 1), Layer)
-			{
-				Balancing = Facing;
-			}
-			else if tile_meeting(floor(PosX + xRadius), floor(PosY + yRadius + 1), Layer)
-			{
-				Balancing = -Facing;
-			}
-		}
 	}
 	
 	// Get our speed ratio

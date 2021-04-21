@@ -12,6 +12,7 @@ function object_do_collision(objectType, collisionMap)
 	// Set debug flags
 	hasArrayMap  = collisionMap;
 	isCollidable = false;
+	objType      = objectType;
 	
 	// Don't do anything if this object does not have collision
 	if (objectType = SolidNone)

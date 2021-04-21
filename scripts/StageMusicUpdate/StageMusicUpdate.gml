@@ -3,11 +3,14 @@ function StageMusicUpdate()
 	/* StageMusic, StageMusicDAC, LoopEnd and LoopStart 
 	variables are set in StageActSetup */
 
-	// Play stage music
-	if StageMusic != noone
+	// Start playing stage music
+	if StageMusic != noone and State == ActStateLoading
 	{
-		audio_bgm_play(StageMusic, LoopEnd, LoopStart);
+		audio_bgm_play(StageMusic);
 	}
+	
+	// Loop stage music
+	audio_bgm_loop(StageMusic, LoopEnd, LoopStart);
 	
 	// Music behaviour when got powerup
 	if Player.InvincibilityBonus > 0 or Player.HighSpeedBonus > 0
@@ -18,7 +21,7 @@ function StageMusicUpdate()
 		// Play highspeed bonus music
 		if Player.HighSpeedBonus > 0
 		{
-			audio_bgm_play(HighSpeedPowerup, -1, -1);
+			audio_bgm_play(HighSpeedPowerup);
 		}	
 	}
 	else

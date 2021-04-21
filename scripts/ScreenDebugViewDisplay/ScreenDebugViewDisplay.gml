@@ -72,6 +72,20 @@ function ScreenDebugViewDisplay()
 						draw_line(arrayX, arrayY, arrayX, basicY);
 					}
 				}
+				
+				// Display line to show actual x radius
+				if variable_instance_exists(id, "isCollidable") and isCollidable == true
+				{
+					draw_set_alpha(0.8);
+					if objType == SolidAll
+					{
+						draw_line_colour(x - objXRadiusSolid - 10, y - objYRadiusSolid - 19, x + objXRadiusSolid + 10, y - objYRadiusSolid - 19, $00ff00, $00ff00);
+					}
+					else if objType = SolidTop
+					{
+						draw_line_colour(x - objXRadiusSolid, y - objYRadiusSolid - 19, x + objXRadiusSolid, y - objYRadiusSolid - 19, $00ff00, $00ff00);
+					}
+				}
 			}
 			draw_set_colour($ffffff);
 		}
