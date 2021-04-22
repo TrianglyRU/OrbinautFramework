@@ -6,7 +6,7 @@ function PlayerSetup()
 	// Default sprite setup
 	Facing	  = DirRight;
 	Animation = AnimIdle;
-	DrawOrder = layer_get_depth("Objects")
+	DrawOrder = layer_get_depth("Objects");
 	
 	// Set basic constants
 	Acc		= 0.046875;
@@ -60,6 +60,7 @@ function PlayerSetup()
 	Lives    = Game.GlobalLives;
 	Emeralds = Game.GlobalEmeralds;
 	Conts    = Game.GlobalConts;
+	Rings    = 0;
 	
 	// Set spawn properties
 	if Game.SavedPosition == 0

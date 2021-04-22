@@ -35,6 +35,10 @@ function GameFrameworkSetup()
 	Game.OriginalRollLimit		 = true;	// Limits xsp instead of inertia speed when rolling
 	Game.FlyingCancel			 = true;    // Allows you to cancel flying as Tails
 	
+	Game.RingsPreciseCollision   = true;
+	Game.RingsBoundDespawn		 = true;
+	Game.RingsAllSideCollision   = false;
+	
 	// Engine
 	/* This section is not configurable in-game, i.e it is not saved in a settings configfile */
 	

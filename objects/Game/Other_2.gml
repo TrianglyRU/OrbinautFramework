@@ -1,8 +1,11 @@
 /// @description Game Startup
 // You can call your scripts in this editor. One-time initial
 	
-	// Initialize the framework
-	GameMacroSetup();
+	// Initialize macros and global variables
+	_GameMacros();
+	_GameVariables();
+	
+	// Initialize framework settings
 	GameFrameworkSetup();
 	
 	// Initialize audio
@@ -19,6 +22,3 @@
 	
 	// Load game settings
 	gamesettings_load("config");
-	
-	Game.StageTransferX = 0;
-	Game.StageTransferY = 0;

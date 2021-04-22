@@ -9,27 +9,29 @@ function StageActUpdate()
 	
 	// Restart the act upon player death
 	// TODO: Correct stateTimer timings
-	if Player.Death and State != ActStatePlayerDeath
+	if Player.Death and State != ActStateRestart
 	{
 		CameraEnabled = false;
 		TimeEnabled   = false;
-		StateTimer	  = 0;
-		State		  = ActStatePlayerDeath;	
-	}
-	if State == ActStatePlayerDeath
-	{
+		
 		if floor(Player.PosY) > Screen.RenderY + Screen.Height + 128
 		{
-			StateTimer++;
-			if StateTimer == 1
-			{
-				fade_perform(to, black, 1);
-			}
-			if StateTimer == 60
-			{
-				room_restart();
-			}
+			State	   = ActStateRestart;
+			StateTimer = 0;
 		}
+	}
+	else if State == ActStateRestart	
+	{
+		if !StateTimer
+		{
+			fade_perform(to, black, 1);
+		}
+		else if StateTimer == 60
+		{
+			room_restart();
+			audio_stop_all();
+		}	
+		StateTimer++;
 	}
 	
 	// Check for act end
@@ -73,7 +75,7 @@ function StageActUpdate()
 	if (TimeEnabled) Time++;
 	
 	// Proceed animation timer
-	if State != ActStateLoading and State != ActStatePlayerDeath and State != ActStateUnload
+	if !Player.Death and State != ActStateLoading and State != ActStateUnload
 	{
 		AnimationTime++;
 	}	

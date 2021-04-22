@@ -1,60 +1,61 @@
 function PlayerDisplay()
 {	
-	// Check if smooth rotation is enabled
-	if Game.SmoothRotation
+	// Use visual angle only for some animations, 
+	switch Animation
 	{
-		// Check if we grounded
-		if Grounded
+		case AnimWalk:
+		case AnimRun:
+		case AnimPeelout:
 		{
-			// If in correct floor angle range, apply it to visual angle
-			if Angle >= 25.5 and Angle <= 334.5
+			// Check if smooth rotation is enabled
+			if Game.SmoothRotation
 			{
-				VisualAngle = Angle <= 180 ? min(VisualAngle mod 360 + 5.625, Angle) 
-										   : max(VisualAngle - 5.625, Angle);
-			}
+				// Check if we grounded
+				if Grounded
+				{
+					// If in correct floor angle range, apply it to visual angle
+					if Angle >= 25.5 and Angle <= 334.5
+					{
+						VisualAngle = Angle; //<= 180 ? min(VisualAngle mod 360 + Angle / 2, Angle) 
+												   //: max(VisualAngle + Inertia,		    Angle);
+					}
 			
-			// Rotate visual angle back to 360 if out of the range
-			else 
-			{
-				VisualAngle = VisualAngle > 180 ? VisualAngle + 5.625 : VisualAngle - 5.625;
-			}
+					// Rotate visual angle back to 360 if out of the range
+					else 
+					{
+						VisualAngle = VisualAngle > 180 ? VisualAngle + 5.625 : VisualAngle - 5.625;
+					}
 			
-			// Limit visual angle
-			VisualAngle = clamp(VisualAngle, 0, 360);
-		}
+					// Limit visual angle
+					VisualAngle = clamp(VisualAngle, 0, 360);
+				}
 		
-		// Simply apply regular angle to visual angle while in-air
-		else
-		{
-			VisualAngle = Angle;
+				// Simply apply regular angle to visual angle while in-air
+				else
+				{
+					VisualAngle = Angle;
+				}
+			}
+	
+			// If smooth rotation is disabled, use this table for visual angle
+			else 
+			{	
+				if (Angle > 334.5 or Angle < 25.5)  VisualAngle = 360;
+				if (Angle > 25.5 and Angle < 75)	VisualAngle =  45; 
+				if (Angle > 75   and Angle < 105)	VisualAngle =  90; 
+				if (Angle > 105  and Angle < 155)   VisualAngle = 135; 
+				if (Angle > 155  and Angle < 205)   VisualAngle = 180; 
+				if (Angle > 205  and Angle < 255)   VisualAngle = 225; 
+				if (Angle > 255  and Angle < 285)   VisualAngle = 270; 
+				if (Angle > 285  and Angle < 334.5) VisualAngle = 305;
+			}
 		}
-	}
-	
-	// If smooth rotation is disabled, use this table for visual angle
-	else 
-	{	
-		if (Angle > 334.5 or Angle < 25.5)  VisualAngle = 360;
-		if (Angle > 25.5 and Angle < 75)	VisualAngle =  45; 
-		if (Angle > 75   and Angle < 105)	VisualAngle =  90; 
-		if (Angle > 105  and Angle < 155)   VisualAngle = 135; 
-		if (Angle > 155  and Angle < 205)   VisualAngle = 180; 
-		if (Angle > 205  and Angle < 255)   VisualAngle = 225; 
-		if (Angle > 255  and Angle < 285)   VisualAngle = 270; 
-		if (Angle > 285  and Angle < 334.5) VisualAngle = 305;
-	}
-	
-	// Force reset visual angle for specific animations
-	if Grounded and Inertia == 0 and (Angle < 45 or Angle > 315)
-	or ClimbingState != false
-	or GlidingState  != false 
-	or FlyingState   != false 
-	or Skidding      != false 
-	or Rolling 
-	or Jumping
-	or Hurt
-	or Death
-	{
-		VisualAngle = 360;
+		break;
+		default:
+		{
+			VisualAngle = 360;
+		}
+		break;
 	}
 	
 	// Handle Tails' tails if we're playing as him

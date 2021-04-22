@@ -4,7 +4,7 @@ function PlayerCheckLookup()
 	if Inertia != 0 exit;
 	
 	// Exit if we're balancing
-	if Balancing exit;
+	if Balancing != false exit;
 	
 	// Check if we're holding UP button
 	if Input.Up

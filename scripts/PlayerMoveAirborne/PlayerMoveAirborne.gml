@@ -41,5 +41,10 @@ function PlayerMoveAirborne()
 	if Ysp < 0 and Ysp > -4 and !Hurt and !GlidingState
 	{
 		Xsp -= floor(Xsp/0.125) / 256;
-	}	
+	}
+	
+	if Animation == AnimSpringUp and Ysp > 0
+	{
+		Animation = AnimAirFall;
+	}
 }

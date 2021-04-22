@@ -3,40 +3,69 @@ function StageMusicUpdate()
 	/* StageMusic, StageMusicDAC, LoopEnd and LoopStart 
 	variables are set in StageActSetup */
 
-	// Start playing stage music
-	if StageMusic != noone and State == ActStateLoading
+	// Play stage music
+	if StageMusic != noone
 	{
-		audio_bgm_play(StageMusic);
+		audio_bgm_play(StageMusic, LoopEnd, LoopStart);
 	}
 	
-	// Loop stage music
-	audio_bgm_loop(StageMusic, LoopEnd, LoopStart);
-	
-	// Music behaviour when got powerup
-	if Player.InvincibilityBonus > 0 or Player.HighSpeedBonus > 0
-	{	
-		// Mute stage music 
-		audio_bgm_fadeout(StageMusic, 1);
-
-		// Play highspeed bonus music
+	// Check if act is in its normal state
+	if State != ActStateFinished and State != ActStateUnload and State != ActStateRestart
+	{
+		// Music behaviour when got speedup powerup
 		if Player.HighSpeedBonus > 0
 		{
-			audio_bgm_play(HighSpeedPowerup);
-		}	
+			// Mute stage music 
+			audio_bgm_fadeout(StageMusic, 0);
+			
+			// Play speedup powerup
+			audio_bgm_play(SpeedupPowerup, -1, -1);
+		}
+		else
+		{	
+			// Stop highspeed powerup music
+			audio_bgm_stop(SpeedupPowerup, 0.5);
+		
+			// Return stage music
+			audio_bgm_fadein(StageMusic, 0.5);
+		}
+		
+		// Music behaviour when got invincible powerup
+		if Player.InvincibilityBonus > 0
+		{
+			// Mute stage music 
+			audio_bgm_fadeout(StageMusic, 0);
+			
+			// Mute highspeed music
+			audio_bgm_fadeout(SpeedupPowerup, 0.5);
+			
+			// Play invincible powerup
+			audio_bgm_fadein(InvinciblePowerup, 0);
+			audio_bgm_play(InvinciblePowerup, -1, -1);
+		}
+		else
+		{	
+			// Stop invincible powerup music
+			audio_bgm_stop(InvinciblePowerup, 0.5);
+		
+			// Return stage music
+			if Player.HighSpeedBonus
+			{
+				audio_bgm_fadein(SpeedupPowerup, 0.5);
+			}
+			else
+			{
+				audio_bgm_fadein(StageMusic, 0.5);
+			}
+		}
 	}
+	
+	// Stop music after 1-second fade
 	else
-	{	
-		// Stop powerup music
-		audio_bgm_stop(HighSpeedPowerup, 0);
-		
-		// Return stage music
-		audio_bgm_fadein(StageMusic, 3);
-	}
-		
-	// Stop stage music when act is finished
-	if State == ActStateFinished or State == ActStateUnload
 	{
-		audio_bgm_stop(StageMusic, 3);
+		audio_bgm_stop(StageMusic,	      1);
+		audio_bgm_stop(SpeedupPowerup,    1);
+		audio_bgm_stop(InvinciblePowerup, 1);
 	}
 	
 	// Mute DAC channel if main stage music doesn't play at its volume

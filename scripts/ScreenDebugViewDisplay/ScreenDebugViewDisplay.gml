@@ -77,13 +77,13 @@ function ScreenDebugViewDisplay()
 				if variable_instance_exists(id, "isCollidable") and isCollidable == true
 				{
 					draw_set_alpha(0.8);
-					if objType == SolidAll
+					if objType == SolidAll and Player.OnObject == id
 					{
-						draw_line_colour(x - objXRadiusSolid - 10, y - objYRadiusSolid - 19, x + objXRadiusSolid + 10, y - objYRadiusSolid - 19, $00ff00, $00ff00);
+						draw_line_colour(x - objXRadiusSolid - 10, y - objYRadiusSolid - 20, x + objXRadiusSolid + 10, y - objYRadiusSolid - 20, $00ff00, $00ff00);
 					}
-					else if objType = SolidTop
+					else
 					{
-						draw_line_colour(x - objXRadiusSolid, y - objYRadiusSolid - 19, x + objXRadiusSolid, y - objYRadiusSolid - 19, $00ff00, $00ff00);
+						draw_line_colour(x - objXRadiusSolid, y - objYRadiusSolid - 20, x + objXRadiusSolid, y - objYRadiusSolid - 20, $00ff00, $00ff00);
 					}
 				}
 			}

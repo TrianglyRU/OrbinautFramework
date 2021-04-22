@@ -4,7 +4,7 @@ function ObjRingScript()
 	if Physical
 	{
 		// Play animation
-		animation_play(sprite_index, 2 + floor(128 / Timer), 1);
+		animation_play(sprite_index, floor((256 * 2) / Timer), 1);
 		
 		// Do timer stuff
 		if (PickupTimeout > 0) PickupTimeout--;
@@ -24,29 +24,48 @@ function ObjRingScript()
 		// Update code position
 		PosX += Xsp;
 		PosY += Ysp;
-	
-		// Do tile collision every four frames
-		if CollisionCheck mod 4 == 0
-		{
-			// Check if ring found the tile
-			if tile_meeting(floor(PosX), floor(PosY + 8), LayerA)
-			or tile_meeting(floor(PosX), floor(PosY + 8), LayerB)
-			{
-				// Invert its speed
-				Ysp = min(Ysp * -0.75, -2);
-			}	
-		}
 		
 		// Update real position
 		x = floor(PosX);
 		y = floor(PosY);
 		
-		// Check if ring is outside the camera X view
-		if x < Screen.RenderX - 8 or x > Screen.RenderX + Screen.Width + 8
+		// Do tile collision every four frames when falling down
+		if (CollisionCheck mod 4 == 0 and Ysp > 0 or Game.RingsPreciseCollision) 
 		{
-			// Delete it
-			instance_destroy(self);
-			exit;
+			// Check if ring found the tile
+			if object_collide_tiles_v(false, SideBottom, 0, Player.Layer)
+			{
+				// Invert its speed
+				Ysp = min(Ysp * -0.75, -2);
+			}
+			
+			// TODO: Optimzie
+			if Game.RingsAllSideCollision
+			{
+				if Ysp < 0 and object_collide_tiles_v(false, SideTop, 0, Player.Layer)
+				{
+					Ysp *= -0.75;
+				}
+				if Xsp < 0 and object_collide_tiles_h(SideLeft, false, 0, Player.Layer)
+				{
+					Xsp *= -0.75;
+				}
+				if Xsp > 0 and object_collide_tiles_h(SideRight, false, 0, Player.Layer)
+				{
+					Xsp *= -0.75;
+				}
+			}
+		}
+		
+		// Check if ring is outside the camera X view
+		if Game.RingsBoundDespawn
+		{
+			if x < Screen.RenderX - 8 or x > Screen.RenderX + Screen.Width + 8
+			{
+				// Delete it
+				instance_destroy(self);
+				exit;
+			}
 		}
 	}
 	

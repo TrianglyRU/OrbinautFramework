@@ -42,12 +42,11 @@ function InputHotkeysRead()
 		}
 		if keyboard_check_pressed(ord("3")) 
 		{
-			Player.HighSpeedBonus = 1500;
+			Player.HighSpeedBonus = 1180;
 		}
 		if keyboard_check_pressed(ord("4")) 
 		{
-			Player.isSuper = true;
-			Player.Rings   = 50;
+			Player.InvincibilityBonus = 1050;
 		}
 		
 		// Ignore input mode

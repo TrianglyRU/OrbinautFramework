@@ -10,13 +10,13 @@ function StageObjectsUpdate()
 		instance_activate_region(Boundary128, 0, Boundary128 + ceil(Screen.Width / 128) * 128, room_height, true);
 	}
 	
-	// Check if stage is in 'player death' state or unloads
-	if State == ActStatePlayerDeath or State == ActStateUnload
+	// Check if player died or stage unloads
+	if Player.Death or State == ActStateUnload
 	{	
 		// Create layer to store object sprites on
 		if !layer_exists("ObjectSprites")
 		{		
-			layer_create(Player.DrawOrder - 1, "ObjectSprites");
+			layer_create(Player.DrawOrder + 1, "ObjectSprites");
 		}
 			
 		// Do code from object side

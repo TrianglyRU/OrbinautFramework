@@ -4,7 +4,7 @@ function PlayerCheckCrouch()
 	if (Input.Left or Input.Right) exit;
 	
 	// Exit if we're balancing
-	if Balancing exit;
+	if Balancing != false exit;
 	
 	// Check if we're holding DOWN button
 	if Input.Down

@@ -18,8 +18,7 @@ function PlayerLevelBound()
 	if !Death
 	{
 		// Check if player is below bottom boundary
-		if Screen.MaxRenderY > Stage.BottomBoundary  and floor(PosY) > Screen.MaxRenderY
-		or Screen.MaxRenderY <= Stage.BottomBoundary and floor(PosY) > Stage.BottomBoundary
+		if floor(PosY) > Stage.BottomBoundary and floor(PosY) > Screen.MaxRenderY
 		{
 			// Reset flags
 			Grounded	  = false;
