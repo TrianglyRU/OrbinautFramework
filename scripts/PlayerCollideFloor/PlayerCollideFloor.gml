@@ -192,13 +192,14 @@ function PlayerCollideFloor()
 	if Game.ConsiderAngleDifference
 	{
 		var angDifference = abs(Angle - floorAngle);
-		if  angDifference < 180
+		if (angDifference < 180 and angDifference > 45) or (angDifference >= 180 and angDifference < 315)
 		{
-			Angle = angDifference > 45  ? (round(Angle/90) % 4) * 90 : floorAngle;
+			Angle     = (round(Angle/90) % 4) * 90;
+			Balancing = false;
 		}
 		else
 		{
-			Angle = angDifference < 315 ? (round(Angle/90) % 4) * 90 : floorAngle;
+			Angle = floorAngle;
 		}
 		if (Angle == 0) Angle = 360;
 	}

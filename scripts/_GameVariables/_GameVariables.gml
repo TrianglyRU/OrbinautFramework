@@ -44,6 +44,4 @@ function _GameVariables()
 	Game.KeyboardControl		 _init;
 	Game.ActiveSave				 _init;
 	Game.Saveslot			     _init;
-	
-	Game.FixedRingCollision _init;
 }

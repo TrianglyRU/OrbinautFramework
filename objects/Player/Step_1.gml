@@ -1,10 +1,8 @@
 /// @description Scripts
 // You can write your code in this editor
 
-	if keyboard_check(vk_space) exit;
-	
-	// Do not run this code until stage loaded
-	if (Stage.State = ActStateLoading) exit;
+	// Do not run this code if stage is loading, unloading or restarting
+	if (Stage.State == ActStateLoading or Stage.State == ActStateUnload or Stage.State == ActStateRestart) exit;
 	
 	// Update player
 	PlayerGeneralUpdate();

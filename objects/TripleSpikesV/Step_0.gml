@@ -8,7 +8,7 @@
 	if object_check_touch(hurtSide)
 	{
 		// Damage them
-		object_do_damage(false);
+		object_do_damage(false, false, false);
 	}
 	
 	// Do solid collision

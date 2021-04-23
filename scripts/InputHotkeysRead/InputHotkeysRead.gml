@@ -1,6 +1,6 @@
 function InputHotkeysRead()
 {	
-	if room != DevMenu
+	if room != GameStart and room != DevMenu
 	{
 		// Stage restart
 		if keyboard_check_pressed(vk_f1) 

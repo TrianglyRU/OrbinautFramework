@@ -1,39 +1,42 @@
 function PaletteDynamicShiftHandle()
 {	
 	// Check if player is in their super form
-	if Player.isSuper
+	if instance_exists(Player)
 	{
-		switch Player.CharacterID
+		if Player.isSuper
 		{
-			// Perform Super Sonic palette shift
-			case CharSonic:
+			switch Player.CharacterID
 			{
-				for (var i = 0; i < 4; i++) 
+				// Perform Super Sonic palette shift
+				case CharSonic:
 				{
-					palette_handle(i, 9, 4);
+					for (var i = 0; i < 4; i++) 
+					{
+						palette_handle(i, 9, 4);
+					}
 				}
-			}
-			break;
+				break;
 			
-			// Perform Super Tails palette shift
-			case CharTails:
-			{
-				for (var i = 4; i < 7; i++) 
+				// Perform Super Tails palette shift
+				case CharTails:
 				{
-					palette_handle(i, 3, 4);
+					for (var i = 4; i < 7; i++) 
+					{
+						palette_handle(i, 3, 4);
+					}
 				}
-			}
-			break;
+				break;
 			
-			// Perform Super Knuckles palette shift
-			case CharKnuckles:
-			{
-				for (var i = 7; i < 10; i++) 
+				// Perform Super Knuckles palette shift
+				case CharKnuckles:
 				{
-					palette_handle(i, 10, 4);
+					for (var i = 7; i < 10; i++) 
+					{
+						palette_handle(i, 10, 4);
+					}
 				}
+				break;
 			}
-			break;
 		}
 	}
 	
