@@ -60,8 +60,8 @@ function PlayerMove()
 		}
 	}
 	
-	// Check for skidding
-	if !Skidding and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor and MovementLock == false
+	// Check for start or stop skidding
+	if Skidding == false and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor and MovementLock == false
 	{
 		if Inertia > 0 and Input.Left
 		{
@@ -75,8 +75,10 @@ function PlayerMove()
 	else
 	{
 		if (Inertia < 0 and Input.LeftPress) or (Inertia > 0 and Input.RightPress) or Inertia == 0 or sign(Skidding) != sign(Inertia)
+		or round(Angle/90) % 4 != RangeFloor
 		{
-			Skidding = false;
+			SkiddingTimer = 0;
+			Skidding	  = false;
 		}
 	}
 	
@@ -99,6 +101,10 @@ function PlayerMove()
 	// Convert inertia to normal axis speeds
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
+	
+	
+	// * Animations * //
+	// *            * //
 	
 	// Our default animation if AnimIdle
 	Animation = AnimIdle;
@@ -140,6 +146,15 @@ function PlayerMove()
 	// Check if we're skidding
 	if Skidding != false
 	{
+		// Spawn dust puff every 4 frames
+		SkiddingTimer = SkiddingTimer mod 4
+		if !SkiddingTimer
+		{
+			object_spawn(floor(PosX), floor(PosY + yRadius), DustPuff);
+		}
+		SkiddingTimer++;
+		
+		// Play 'skid' animation
 		Animation = AnimSkid;
 	}
 	

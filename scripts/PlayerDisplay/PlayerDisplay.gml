@@ -16,8 +16,19 @@ function PlayerDisplay()
 					// If in correct floor angle range, apply it to visual angle
 					if Angle >= 25.5 and Angle <= 334.5
 					{
-						VisualAngle = Angle; //<= 180 ? min(VisualAngle mod 360 + Angle / 2, Angle) 
-												   //: max(VisualAngle + Inertia,		    Angle);
+						if Angle < 90
+						{
+							VisualAngle = min(VisualAngle mod 360 + 5.625, Angle);
+						}
+						else if Angle > 270
+						{
+							VisualAngle = max(VisualAngle - 5.625, Angle)
+						}
+						else
+						{
+							VisualAngle = Angle <= 180 ? min(VisualAngle + Inertia + 2, Angle)
+													   : max(VisualAngle + Inertia - 2, Angle);
+						}
 					}
 			
 					// Rotate visual angle back to 360 if out of the range
@@ -70,14 +81,33 @@ function PlayerDisplay()
 		// In case we're rolling or jumping
 		else
 		{
-			// Get movement angle based on current and next frame position
-			if Facing == DirRight
+			if !Grounded
 			{
-				var DirectionAngle = point_direction(PosX, PosY, PosX + Xsp, PosY + Ysp);
+				// Get movement angle based on current and next frame position
+				if Facing == DirRight
+				{
+					DirectionAngle = point_direction(PosX, PosY, PosX + Xsp, PosY + Ysp);
+				}
+				else if Facing == DirLeft
+				{
+					DirectionAngle = point_direction(PosX + Xsp, PosY + Ysp, PosX, PosY);
+				}
 			}
-			else if Facing == DirLeft
+			else
 			{
-				var DirectionAngle = point_direction(PosX + Xsp, PosY + Ysp, PosX, PosY);
+				if Angle < 90
+				{
+					DirectionAngle = min(DirectionAngle mod 360 + 5.625, Angle);
+				}
+				else if Angle > 270
+				{
+					DirectionAngle = max(DirectionAngle - 5.625, Angle)
+				}
+				else
+				{
+					DirectionAngle = Angle <= 180 ? min(DirectionAngle + Inertia + 2, Angle)
+												  : max(DirectionAngle + Inertia - 2, Angle);
+				}
 			}
 			
 			// If smooth rotation is enabled, use raw movement angle for tails visual angle

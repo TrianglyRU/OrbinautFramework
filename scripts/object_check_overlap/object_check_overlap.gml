@@ -19,10 +19,20 @@ function object_check_overlap(collisionType)
 		var objectBottom = floor(y + objYRadiusHit - 1);
 		
 		// Get player hitbox size
-		var playerTop    = floor(Player.PosY - Player.yRadius + 3);
-		var playerLeft   = floor(Player.PosX - 8);
-		var playerRight  = floor(Player.PosX + 8);
-		var playerBottom = floor(Player.PosY + Player.yRadius - 3);
+		if Player.Animation == AnimCrouch or Player.Animation == AnimSpindash
+		{
+			var playerTop    = floor(Player.PosY + 2);
+			var playerLeft   = floor(Player.PosX - 8);
+			var playerRight  = floor(Player.PosX + 8);
+			var playerBottom = floor(Player.PosY + 22);		
+		}
+		else
+		{
+			var playerTop    = floor(Player.PosY - Player.yRadius + 3);
+			var playerLeft   = floor(Player.PosX - 8);
+			var playerRight  = floor(Player.PosX + 8);
+			var playerBottom = floor(Player.PosY + Player.yRadius - 3);	
+		}
 		
 		// Check for overlap horizontally
 		if playerRight < objectLeft or playerLeft > objectRight

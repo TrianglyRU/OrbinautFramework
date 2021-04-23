@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Game Scripts",
-    "path": "folders/Game Code/Game Scripts.yy",
+    "path": "folders/Game Scripts/Game Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "GameWindowSetup",

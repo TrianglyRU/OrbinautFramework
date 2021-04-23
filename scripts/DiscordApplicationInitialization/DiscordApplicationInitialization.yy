@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Discord Scripts",
-    "path": "folders/Game Code/Discord Scripts.yy",
+    "path": "folders/Game Scripts/Discord Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "DiscordApplicationInitialization",

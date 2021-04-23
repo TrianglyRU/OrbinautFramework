@@ -14,6 +14,9 @@ function ObjYellowSpringHScript()
 			
 			// Play sound
 			audio_sfx_play(sfxSpring, false, true);
+			
+			// Exit the script
+			exit;
 		}
 	}
 	

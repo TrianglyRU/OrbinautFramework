@@ -20,8 +20,12 @@ function PlayerCheckCrouch()
 			
 			// Charge Spindash
 			if SpindashRev == -1
-			{
+			{		
 				SpindashRev = 2;
+				
+				// Spawn dust effect
+				object_spawn(floor(PosX - 2 * Facing), floor(PosY + yRadius), SpindashDust);
+				SpindashDust.image_xscale = Player.Facing;
 			}
 			else
 			{
@@ -49,6 +53,9 @@ function PlayerCheckCrouch()
 		// Release Spindash if we're not holding DOWN button anymore
 		if !Input.Down
 		{
+			// Delete dust effect
+			instance_destroy(SpindashDust);
+			
 			// Launch Sonic forwards
 			Inertia		 = (8 + floor(SpindashRev) / 2) * Facing;
 			MovementLock = false;
@@ -56,7 +63,7 @@ function PlayerCheckCrouch()
 			
 			// Reset Spindash charge value
 			SpindashRev = -1;
-		
+
 			// Freeze the screen for 16 frames
 			if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 16;
 		

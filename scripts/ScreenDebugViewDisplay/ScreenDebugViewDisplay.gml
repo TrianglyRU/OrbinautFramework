@@ -94,10 +94,20 @@ function ScreenDebugViewDisplay()
 		if DebugHitboxes
 		{
 			// Draw player's hitbox
-			var pLeft   = floor(Player.PosX - 8);
-			var pRight  = floor(Player.PosX + 8);			     
-			var pTop	= floor(Player.PosY - Player.yRadius + 3);
-			var pBottom = floor(Player.PosY + Player.yRadius - 3);
+			if Player.Animation == AnimCrouch or Player.Animation == AnimSpindash
+			{
+				var pTop    = floor(Player.PosY + 2);
+				var pLeft   = floor(Player.PosX - 8);
+				var pRight  = floor(Player.PosX + 8);
+				var pBottom = floor(Player.PosY + 22);	
+			}
+			else
+			{
+				var pLeft   = floor(Player.PosX - 8);
+				var pRight  = floor(Player.PosX + 8);			     
+				var pTop	= floor(Player.PosY - Player.yRadius + 3);
+				var pBottom = floor(Player.PosY + Player.yRadius - 3);
+			}
 			draw_set_alpha(0.5);
 			draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
 			
