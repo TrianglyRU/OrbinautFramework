@@ -8,7 +8,8 @@ function ObjYellowSpringHScript()
 	{
 		if object_check_touch(launchSide)
 		{
-			Player.MovementLock = 10;
+			// Launch player
+			Player.MovementLock = 16;
 			Player.Inertia		= image_xscale * 10;
 			Player.Facing		= image_xscale;	
 			
