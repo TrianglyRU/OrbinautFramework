@@ -42,15 +42,6 @@ function ScreenDebugScreenDisplay()
 				+ "\n   PLAYER Y RADIUS: " + string(Player.xRadius)
 				+ "\n   WALL OFFSET: " + string((Player.Grounded and Player.Angle == 360) * 8)
 				+ "\n"
-				+ "\n   LFLOOR DIST: " + string(Screen.DebugValue[0])
-				+ "\n   RFLOOR DIST: " + string(Screen.DebugValue[1])
-				+ "\n   LFLOOR ANG: " + string(Screen.DebugValue[2])
-				+ "\n   RFLOOR ANG: " + string(Screen.DebugValue[3])
-				+ "\n   FLOOR COL USED: " + Screen.DebugValue[4]
-				+ "\n"
-				+ "\n   LWALL DIST: " + string(Screen.DebugValue[5])
-				+ "\n   RWALL DIST: " + string(Screen.DebugValue[6])
-				+ "\n"
 				+ "\n          * PLAYER MOTION *"
 				+ "\n"
 				+ "\n   POS X: " + string(floor(Player.PosX)) + " REAL: " + string(Player.PosX)
@@ -63,6 +54,7 @@ function ScreenDebugScreenDisplay()
 				+ "\n          * SLOPE PHYSICS *"
 				+ "\n"
 				+ "\n   MOVEMENT ANGLE: " + string(Player.Angle)
+				+ "\n   ANGLE RANGE: " + string(Player.AngleRange)
 				+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 				+ "\n"
 				+ "\n         * STATES AND FLAGS *"

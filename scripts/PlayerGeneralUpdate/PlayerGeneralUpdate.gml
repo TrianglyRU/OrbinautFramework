@@ -9,6 +9,126 @@ function PlayerGeneralUpdate()
 	{
 		State = PlayerStateAirborne;
 	}
+	
+	// Update our floor angle range (collision mode)
+	if Grounded
+	{
+		switch AngleRange
+		{
+			case RangeFloor:
+			{
+				var CheckLeft  = [PosX - xRadius * 2, PosY + yRadius / 2];
+				var CheckRight = [PosX + xRadius * 2, PosY + yRadius / 2];
+			
+				if tile_meeting(floor(CheckLeft[0]),  floor(CheckLeft[1]),  Layer)
+				or tile_meeting(floor(CheckRight[0]), floor(CheckRight[1]), Layer)
+				{
+					if Angle >= 45 and Angle < 90
+					{
+						if Xsp > 0 and Ysp < 0
+						or Xsp < 0 and Ysp > 0
+						{
+							AngleRange = RangeRWall;
+						}
+					}
+					if Angle <= 315 and Angle > 270
+					{
+						if Xsp < 0 and Ysp < 0
+						or Xsp > 0 and Ysp > 0
+						{
+							AngleRange = RangeLWall;
+						}
+					}
+				}
+			}
+			break;
+			case RangeRWall:
+			{
+				var CheckLeft  = [PosX + yRadius / 2, PosY - xRadius * 2];
+				var CheckRight = [PosX + yRadius / 2, PosY + xRadius * 2];
+			
+				if tile_meeting(floor(CheckLeft[0]),  floor(CheckLeft[1]),  Layer)
+				or tile_meeting(floor(CheckRight[0]), floor(CheckRight[1]), Layer)
+				{
+					if Angle <= 45
+					{
+						if Xsp > 0 and Ysp < 0
+						or Xsp < 0 and Ysp > 0
+						{
+							AngleRange = RangeFloor;
+						}
+					}
+					if Angle >= 135
+					{
+						if Xsp < 0 and Ysp < 0
+						or Xsp > 0 and Ysp > 0
+						{
+							AngleRange = RangeRoof;
+						}
+					}
+				}
+			}
+			break;
+			case RangeRoof:
+			{
+				var CheckLeft  = [PosX - xRadius * 2, PosY - yRadius / 2];
+				var CheckRight = [PosX + xRadius * 2, PosY - yRadius / 2];
+			
+				if tile_meeting(floor(CheckLeft[0]),  floor(CheckLeft[1]),  Layer)
+				or tile_meeting(floor(CheckRight[0]), floor(CheckRight[1]), Layer)
+				{
+					if Angle <= 135
+					{
+						if Xsp > 0 and Ysp > 0
+						or Xsp < 0 and Ysp < 0
+						{
+							AngleRange = RangeRWall;
+						}
+					}
+					if Angle >= 225
+					{
+						if Xsp < 0 and Ysp > 0
+						or Xsp > 0 and Ysp < 0
+						{
+							AngleRange = RangeLWall;
+						}
+					}
+				}
+			}
+			break;
+			case RangeLWall:
+			{
+				var CheckLeft  = [PosX - yRadius / 2, PosY - xRadius * 2];
+				var CheckRight = [PosX - yRadius / 2, PosY + xRadius * 2];
+			
+				if tile_meeting(floor(CheckLeft[0]),  floor(CheckLeft[1]),  Layer)
+				or tile_meeting(floor(CheckRight[0]), floor(CheckRight[1]), Layer)
+				{
+					if Angle <= 225
+					{
+						if Xsp > 0 and Ysp < 0
+						or Xsp < 0 and Ysp > 0
+						{
+							AngleRange = RangeRoof;
+						}
+					}
+					if Angle >= 315
+					{
+						if Xsp > 0 and Ysp > 0
+						or Xsp < 0 and Ysp < 0
+						{
+							AngleRange = RangeFloor;
+						}
+					}
+				}
+			}
+			break;
+		}
+	}
+	else
+	{
+		AngleRange = RangeFloor;
+	}
 
 	// Handle highspeed bonus
 	if HighSpeedBonus > 0

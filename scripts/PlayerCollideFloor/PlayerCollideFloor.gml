@@ -2,41 +2,7 @@ function PlayerCollideFloor()
 {	
 	// Do not collide if we're not allowed to, or if we're standing on object
 	if (!AllowCollision or OnObject) exit;
-	
-	// Check if we find tiles at given positions before trying to change our angle range
-	/* This is not a thing in the originals, we do this to make collision more stable */
-	switch AngleRange
-	{
-		case RangeFloor:
-		{
-			var CheckLeft  = [PosX - xRadius * 2, PosY + yRadius / 2];
-			var CheckRight = [PosX + xRadius * 2, PosY + yRadius / 2];
-		}
-		break;
-		case RangeRWall:
-		{
-			var CheckLeft  = [PosX + yRadius / 2, PosY - xRadius * 2];
-			var CheckRight = [PosX + yRadius / 2, PosY + xRadius * 2];
-		}
-		break;
-		case RangeRoof:
-		{
-			var CheckLeft  = [PosX - xRadius * 2, PosY - yRadius / 2];
-			var CheckRight = [PosX + xRadius * 2, PosY - yRadius / 2];
-		}
-		break;
-		case RangeLWall:
-		{
-			var CheckLeft  = [PosX - yRadius / 2, PosY - xRadius * 2];
-			var CheckRight = [PosX - yRadius / 2, PosY + xRadius * 2];
-		}
-	}
-	if tile_meeting(floor(CheckLeft[0]),  floor(CheckLeft[1]),  Layer)
-	or tile_meeting(floor(CheckRight[0]), floor(CheckRight[1]), Layer)
-	{
-		AngleRange = round(Angle/90) % 4;
-	}
-	
+
 	// Collide with one of four floor sides based on floor angle range
 	switch AngleRange
 	{
@@ -81,7 +47,7 @@ function PlayerCollideFloor()
 				Grounded = false;
 				exit;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosY += floorDistance;
 			}
@@ -114,7 +80,7 @@ function PlayerCollideFloor()
 				Grounded = false;
 				exit;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosX += floorDistance;
 			}
@@ -147,7 +113,7 @@ function PlayerCollideFloor()
 				Grounded = false;
 				exit;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosY -= floorDistance;
 			}
@@ -180,7 +146,7 @@ function PlayerCollideFloor()
 				Grounded = false;
 				exit;
 			}
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				PosX -= floorDistance;
 			}

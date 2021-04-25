@@ -23,7 +23,8 @@ function PlayerHitFloor()
 		if floorDistance < 0
 		{
 			// Apply angle
-			Angle = floorAngle;
+			Angle      = floorAngle;
+			AngleRange = round(floorAngle/90) mod 4;
 			
 			// If we're moving downwards, calculate a momentum using floor angle
 			if abs(Xsp) < abs(Ysp)
@@ -59,13 +60,7 @@ function PlayerHitFloor()
 		
 			// Land and adhere to the floor
 			PosY	  += floorDistance;
-			AngleRange = round(Angle/90) % 4;
 			Grounded   = true;
 		}
-		
-		// Store values to display in debug
-		Screen.DebugValue[0] = tileDataLeft[0];
-		Screen.DebugValue[1] = tileDataRight[0];
-		Screen.DebugValue[4] = tileDataLeft[0] <= tileDataRight[0] ? "LEFT" : "RIGHT";
 	}
 }

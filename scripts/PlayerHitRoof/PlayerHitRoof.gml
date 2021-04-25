@@ -21,7 +21,7 @@ function PlayerHitRoof()
 			
 		// Perform roof collision
 		if roofDistance < 0
-		{		
+		{	
 			// Push out of roof
 			PosY -= roofDistance;
 			
@@ -33,8 +33,8 @@ function PlayerHitRoof()
 				{	
 					Grounded   = true;
 					Angle      = roofAngle;
-					Inertia    = roofAngle < 180 ? -Ysp : Ysp;	
-					AngleRange = round(Angle/90) % 4;
+					Inertia    = roofAngle < 180 ? -Ysp : Ysp;
+					AngleRange = roofAngle < 180 ? RangeRWall : RangeLWall;
 				} 
 				else 
 				{

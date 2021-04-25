@@ -3,31 +3,16 @@ function PlayerHitWalls()
 	// Do not collide if we're not allowed to
 	if (!AllowCollision) exit;
 	
-	// Define wall range
-	if Angle >= 0 and Angle <= 44 or Angle >= 314 and Angle <= 360
-	{
-		 var WallRange = RangeFloor;
-	}
-	if Angle >= 45 and Angle <= 134
-	{
-		var WallRange = RangeRWall;
-	}
-	if Angle >= 135 and Angle <= 224
-	{
-		var WallRange = RangeRoof;
-	}
-	if Angle >= 225 and Angle <= 313
-	{
-		var WallRange = RangeLWall;
-	}
+	// Exit if we're on a flat wall or ceiling
+	if (Angle > 90 and Angle < 270) exit;
 	
 	// Left wall collision
 	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia < 0
+		if Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch WallRange
+			switch AngleRange
 			{
 				case RangeFloor:
 				{	
@@ -56,7 +41,7 @@ function PlayerHitWalls()
 						
 						// We're colling with floor in this case. Update angle and angle range
 						Angle      = tileData[1];
-						AngleRange = round(Angle/90) % 4;
+						AngleRange = RangeFloor;
 					}
 				}
 				break;
@@ -83,9 +68,6 @@ function PlayerHitWalls()
 				}
 				break;
 			}
-			
-			// Store distance to display in debug
-			Screen.DebugValue[5] = tileData[0];
 		}
 	}
 	else if !(Xsp > abs(Ysp))
@@ -97,18 +79,15 @@ function PlayerHitWalls()
 			PosX -= tileData[0];
 			Xsp   = 0;
 		}
-		
-		// Store distance to display in debug
-		Screen.DebugValue[5] = tileData[0];
 	}
 	
 	// Right wall collision
 	if Grounded
 	{
-		if (Angle < 90 or Angle > 270 or Angle == 45 or Angle == 315 or Game.ExtensiveWallCollision and Angle mod 90 == 0) and Inertia > 0
+		if Inertia > 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch WallRange
+			switch AngleRange
 			{
 				case RangeFloor:
 				{	
@@ -156,14 +135,11 @@ function PlayerHitWalls()
 						
 						// We're colling with floor in this case. Update angle and angle range
 						Angle      = tileData[1];
-						AngleRange = round(Angle/90) % 4;
+						AngleRange = RangeFloor;
 					}
 				}
 				break;
 			}
-			
-			// Store distance to display in debug
-			Screen.DebugValue[6] = tileData[0];
 		}
 	}
 	else if !(-Xsp > abs(Ysp))
@@ -175,8 +151,5 @@ function PlayerHitWalls()
 			PosX += tileData[0];
 			Xsp   = 0;
 		}
-		
-		// Store distance to display in debug
-		Screen.DebugValue[6] = tileData[0];
 	}
 }
