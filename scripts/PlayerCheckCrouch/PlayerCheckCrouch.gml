@@ -24,7 +24,7 @@ function PlayerCheckCrouch()
 				SpindashRev = 2;
 				
 				// Spawn dust effect
-				object_spawn(floor(PosX * Facing), floor(PosY + yRadius), SpindashDust);
+				object_spawn(floor(PosX), floor(PosY + yRadius), SpindashDust);
 				SpindashDust.image_xscale = Player.Facing;
 			}
 			else

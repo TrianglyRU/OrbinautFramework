@@ -1,5 +1,8 @@
 function ObjSpringYellowVScript()
 {
+	// Do collision
+	object_do_collision(SolidAll, false);
+	
 	// Define launch side
 	var launchSide = image_yscale ? SideTop : SideBottom;
 	
@@ -33,8 +36,5 @@ function ObjSpringYellowVScript()
 		
 		// Play sound
 		audio_sfx_play(sfxSpring, false, true);
-	}
-	
-	// Do collision
-	object_do_collision(SolidAll, false);
+	}	
 }

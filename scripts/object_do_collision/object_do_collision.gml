@@ -156,7 +156,7 @@ function object_do_collision(objectType, collisionMap)
 			}
 					
 			// Check for overlap with this object vertically
-			if playerBottom < objectTop or playerTop > objectBottom
+			if playerBottom < objectTop - 4 or playerTop > objectBottom
 			{
 				exit;
 			}
@@ -170,7 +170,7 @@ function object_do_collision(objectType, collisionMap)
 					// If player is grounded, kill them
 					if Player.Grounded
 					{
-						object_do_damage(true);
+						object_do_damage(false, false, true);
 					}
 
 					// Else push player out from this object

@@ -63,17 +63,25 @@ function PlayerMove()
 	// Check for start or stop skidding
 	if Skidding == false and abs(Inertia) > 4 and round(Angle/90) % 4 == RangeFloor and MovementLock == false
 	{
+		// Define skidding direction
 		if Inertia > 0 and Input.Left
 		{
 			Skidding = DirRight;
+			
+			// Play sound
+			audio_sfx_play(sfxSkid, false, true);
 		}
 		if Inertia < 0 and Input.Right
 		{
 			Skidding = DirLeft;
-		}
+			
+			// Play sound
+			audio_sfx_play(sfxSkid, false, true);
+		}	
 	}
 	else
 	{
+		// Stop skidding
 		if (Inertia < 0 and Input.LeftPress) or (Inertia > 0 and Input.RightPress) or Inertia == 0 or sign(Skidding) != sign(Inertia)
 		or round(Angle/90) % 4 != RangeFloor
 		{

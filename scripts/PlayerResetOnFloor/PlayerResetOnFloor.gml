@@ -6,13 +6,35 @@ function PlayerResetOnFloor()
 		/* Default events */
 		/* ============== */
 		
+		// Set 'idle' animation by default
+		Animation = AnimIdle;
+		
+		// Set 'run' or 'walk' animation
+		if abs(Inertia) > 6
+		{
+			Animation = AnimRun;
+		}
+		else if Inertia != 0
+		{
+			Animation = AnimWalk;
+		}
+		
 		// Reset gravity
 		Grv	= 0.21875;
 		
 		// Reset flags
-		Rolling	= Input.Down;
 		Jumping	= false;
 		Pushing	= false;
+		Rolling = false;
+		
+		// Keep rolling if DOWN is held
+		/*if Input.Down
+		{
+			Rolling = true;
+			
+			// Play sound
+			audio_sfx_play(sfxRoll, false, true);
+		}*/
 		
 		// Set visual angle
 		VisualAngle = Angle;
@@ -57,6 +79,9 @@ function PlayerResetOnFloor()
 			Inertia			   = Dropspeed;
 			DropdashRev		   = -2;
 			Screen.ScrollDelay = 16;
+			
+			// Set 'roll' animation
+			Animation = AnimRoll;
 		}
 		else
 		{

@@ -10,14 +10,14 @@
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxSpring.wav",
-  "duration": 0.949218,
+  "soundFile": "sfxSkid.wav",
+  "duration": 0.375522,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxSpring",
+  "name": "sfxSkid",
   "tags": [],
   "resourceType": "GMSound",
 }

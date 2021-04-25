@@ -2,6 +2,9 @@ function StageMusicUpdate()
 {	
 	/* StageMusic, StageMusicDAC, LoopEnd and LoopStart 
 	variables are set in StageActSetup */
+	
+	// Don't bother do anything if volume is zero
+	if (Game.MusicVolume == 0) exit;
 
 	// Play stage music
 	if StageMusic != noone

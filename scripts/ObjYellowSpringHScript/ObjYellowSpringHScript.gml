@@ -1,5 +1,8 @@
 function ObjYellowSpringHScript()
 {
+	// Do collision
+	object_do_collision(SolidAll, false);
+	
 	// Define launch side
 	var launchSide = image_xscale ? SideRight : SideLeft;
 	
@@ -10,8 +13,9 @@ function ObjYellowSpringHScript()
 		{
 			// Launch player
 			Player.MovementLock = 16;
-			Player.Inertia		= image_xscale * 10;
 			Player.Facing		= image_xscale;	
+			Player.Xsp			= image_xscale * 10;
+			Player.Inertia		= Player.Xsp;
 			
 			// Play sound
 			audio_sfx_play(sfxSpring, false, true);
@@ -20,7 +24,4 @@ function ObjYellowSpringHScript()
 			exit;
 		}
 	}
-	
-	// Do collision
-	object_do_collision(SolidAll, false);
 }

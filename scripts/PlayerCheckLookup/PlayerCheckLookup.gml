@@ -20,6 +20,9 @@ function PlayerCheckLookup()
 			{
 				PeeloutRev   = 1;
 				MovementLock = -1;
+				
+				// Play sound
+				audio_sfx_play(sfxPeeloutCharge, false, true);
 			}
 			
 			// Charge Super Peel Out
@@ -47,6 +50,9 @@ function PlayerCheckLookup()
 		// Else release correctly
 		else
 		{	
+			// Play sound
+			audio_sfx_play(sfxPeeloutRelease, false, true);
+				
 			// Set 'peelout' animation
 			Animation    = AnimPeelout;
 			

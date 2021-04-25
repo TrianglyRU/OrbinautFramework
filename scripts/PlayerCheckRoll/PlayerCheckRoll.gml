@@ -11,7 +11,10 @@ function PlayerCheckRoll()
 			// Update radiuses
 			yRadius = yRadiusRoll;
 			xRadius	= xRadiusRoll;
+			
+			// Set flags
 			Rolling = true;
+			Pushing = false;
 			
 			// Set animation
 			Animation = AnimRoll;

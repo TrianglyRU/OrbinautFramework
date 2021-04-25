@@ -16,19 +16,7 @@ function PlayerDisplay()
 					// If in correct floor angle range, apply it to visual angle
 					if Angle >= 25.5 and Angle <= 334.5
 					{
-						if Angle < 90
-						{
-							VisualAngle = min(VisualAngle mod 360 + 5.625, Angle);
-						}
-						else if Angle > 270
-						{
-							VisualAngle = max(VisualAngle - 5.625, Angle)
-						}
-						else
-						{
-							VisualAngle = Angle <= 180 ? min(VisualAngle + Inertia + 2, Angle)
-													   : max(VisualAngle + Inertia - 2, Angle);
-						}
+						VisualAngle = Angle;
 					}
 			
 					// Rotate visual angle back to 360 if out of the range

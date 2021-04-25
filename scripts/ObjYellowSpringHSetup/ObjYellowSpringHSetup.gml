@@ -1,7 +1,7 @@
 function ObjYellowSpringHSetup()
 {
 	// Set object solidbox
-	object_set_solidbox(8, 16);
+	object_set_solidbox(8, 14);
 	
 	// Set object visibility
 	object_set_visibility(true);

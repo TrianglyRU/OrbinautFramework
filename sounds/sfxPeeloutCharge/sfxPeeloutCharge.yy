@@ -10,14 +10,14 @@
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxSpring.wav",
-  "duration": 0.949218,
+  "soundFile": "sfxPeeloutCharge.wav",
+  "duration": 2.042891,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxSpring",
+  "name": "sfxPeeloutCharge",
   "tags": [],
   "resourceType": "GMSound",
 }
