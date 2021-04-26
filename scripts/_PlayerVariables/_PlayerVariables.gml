@@ -26,7 +26,8 @@ function _PlayerVariables()
 	Inertia				 _init;
 	SlopeGravity		 _init;
 	Angle				 _init;
-	AngleRange			 _init;
+	FloorRange			 _init;
+	WallRange			 _init;
 	VisualAngle			 _init;
 	PeeloutRev			 _init;
 	SpindashRev		     _init;

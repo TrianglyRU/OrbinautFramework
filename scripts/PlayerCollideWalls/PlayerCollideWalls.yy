@@ -6,7 +6,7 @@
     "path": "folders/Game Scripts/Player Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerHitWalls",
+  "name": "PlayerCollideWalls",
   "tags": [],
   "resourceType": "GMScript",
 }

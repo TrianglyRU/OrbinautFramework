@@ -16,7 +16,21 @@ function PlayerDisplay()
 					// If in correct floor angle range, apply it to visual angle
 					if Angle >= 25.5 and Angle <= 334.5
 					{
-						VisualAngle = Angle;
+						// Start rotate on the right side
+						var StartRotationRight = min(VisualAngle mod 360 + 5.625, Angle)
+						
+						// Rotation on the right side
+						var RotationRight = min(VisualAngle mod 360 + Inertia, Angle);
+						
+						// Start rotate on the left side
+						var StartRotationLeft = max(Angle, VisualAngle - 5.625);
+						
+						// Rotation on the left side
+						var RotationLeft = max(Angle, VisualAngle + Inertia);
+						
+						// Do rotation
+						VisualAngle = Angle <= 180 ? clamp(max(StartRotationRight, RotationRight), 0,   180)
+												   : clamp(min(StartRotationLeft,  RotationLeft),  180, 360);
 					}
 			
 					// Rotate visual angle back to 360 if out of the range
@@ -24,16 +38,17 @@ function PlayerDisplay()
 					{
 						VisualAngle = VisualAngle > 180 ? VisualAngle + 5.625 : VisualAngle - 5.625;
 					}
-			
-					// Limit visual angle
-					VisualAngle = clamp(VisualAngle, 0, 360);
 				}
 		
 				// Simply apply regular angle to visual angle while in-air
 				else
 				{
 					VisualAngle = Angle;
+					
 				}
+				
+				// Limit visual angle
+				VisualAngle = clamp(VisualAngle, 0, 360);
 			}
 	
 			// If smooth rotation is disabled, use this table for visual angle

@@ -11,7 +11,7 @@ function PlayerGeneralUpdate()
 	}
 	
 	// Update our floor angle range (collision mode)
-	if Grounded
+	/*if Grounded
 	{
 		switch AngleRange
 		{
@@ -128,7 +128,7 @@ function PlayerGeneralUpdate()
 	else
 	{
 		AngleRange = RangeFloor;
-	}
+	}*/
 
 	// Handle highspeed bonus
 	if HighSpeedBonus > 0

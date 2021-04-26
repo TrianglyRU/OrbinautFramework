@@ -1,4 +1,4 @@
-function PlayerHitWalls()
+function PlayerCollideWalls()
 {	
 	// Do not collide if we're not allowed to
 	if (!AllowCollision) exit;
@@ -6,13 +6,31 @@ function PlayerHitWalls()
 	// Exit if we're on a flat wall or ceiling
 	if (Angle > 90 and Angle < 270) exit;
 	
+	// Update wall collision mode
+	if Angle >= 0 and Angle <= 44 or Angle >= 316 and Angle <= 360
+	{
+		WallRange = RangeFloor;
+	}
+	else if Angle >= 45 and Angle <= 135
+	{
+		WallRange = RangeRWall;
+	}
+	else if Angle >= 136 and Angle <= 224
+	{
+		WallRange = RangeRoof;
+	}
+	else if Angle >= 225 and Angle <= 315
+	{
+		WallRange = RangeLWall;
+	}
+	
 	// Left wall collision
 	if Grounded
 	{
 		if Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch AngleRange
+			switch WallRange
 			{
 				case RangeFloor:
 				{	
@@ -26,9 +44,6 @@ function PlayerHitWalls()
 						// Set flag
 						Pushing = DirLeft;
 					}		
-					
-					DebugValue[80] = floor(PosX + Xsp - 10);
-					DebugValue[81] = floor(PosY + Ysp + 8 * (Angle == 360));
 				}
 				break;
 				case RangeRWall:
@@ -39,9 +54,8 @@ function PlayerHitWalls()
 						// Affect player speeds
 						Ysp  += tileData[0];
 						
-						// We're colling with floor in this case. Update angle and angle range
-						Angle      = tileData[1];
-						AngleRange = RangeFloor;
+						// We're colling with floor in this case. Update angle
+						Angle = tileData[1];
 					}
 				}
 				break;
@@ -87,7 +101,7 @@ function PlayerHitWalls()
 		if Inertia > 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch AngleRange
+			switch WallRange
 			{
 				case RangeFloor:
 				{	
@@ -133,9 +147,8 @@ function PlayerHitWalls()
 						// Affect player speeds
 						Ysp += tileData[0];
 						
-						// We're colling with floor in this case. Update angle and angle range
-						Angle      = tileData[1];
-						AngleRange = RangeFloor;
+						// We're colling with floor in this case. Update angle
+						Angle = tileData[1];
 					}
 				}
 				break;

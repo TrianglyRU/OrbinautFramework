@@ -137,7 +137,7 @@ function ScreenDebugViewDisplay()
 				{
 					if !Player.OnObject
 					{
-						switch Player.AngleRange
+						switch Player.FloorRange
 						{
 							case RangeFloor:
 							{
@@ -170,57 +170,58 @@ function ScreenDebugViewDisplay()
 						}
 					}
 					
+					// We do not shift wall sensors for debug because there is no reason to do this, since player has moved already
 					draw_set_colour($ff00ff);
 					if (Player.Angle < 90 or Player.Angle > 270 or Game.ExtensiveWallCollision and Player.Angle mod 90 == 0)
 					{	
 						if Player.Inertia < 0
 						{
-							switch Player.AngleRange
+							switch Player.WallRange
 							{
 								case RangeFloor:
 								{
-									draw_point(floor(Player.PosX + Player.Xsp - 10), floor(Player.PosY + Player.Ysp + 8 * (Player.Angle == 360)));
+									draw_point(floor(Player.PosX - 10), floor(Player.PosY + 8 * (Player.Angle == 360)));
 								}
 								break;
 								case RangeRWall:
 								{
-									draw_point(floor(Player.PosX + Player.Xsp), floor(Player.PosY + Player.Ysp + 10));
+									draw_point(floor(Player.PosX), floor(Player.PosY + 10));
 								}
 								break;
 								case RangeRoof:
 								{
-									draw_point(floor(Player.PosX + Player.Xsp + 10), floor(Player.PosY + Player.Ysp));
+									draw_point(floor(Player.PosX + 10), floor(Player.PosY));
 								}
 								break;
 								case RangeLWall:
 								{
-									draw_point(floor(Player.PosX + Player.Xsp), floor(Player.PosY + Player.Ysp - 10));
+									draw_point(floor(Player.PosX), floor(Player.PosY - 10));
 								}
 								break;
 							}
 						}
 						else if Player.Inertia > 0
 						{
-							switch Player.AngleRange
+							switch Player.WallRange
 							{
 								case RangeFloor:
 								{
-									draw_point(floor(Player.PosX + Player.Xsp + 10), floor(Player.PosY + Player.Ysp + 8 * (Player.Angle == 360)));
+									draw_point(floor(Player.PosX + 10), floor(Player.PosY + 8 * (Player.Angle == 360)));
 								}
 								break;
 								case RangeRWall:
 								{
-									draw_point(floor(Player.PosX + Player.Xsp), floor(Player.PosY + Player.Ysp - 10));
+									draw_point(floor(Player.PosX), floor(Player.PosY - 10));
 								}
 								break;
 								case RangeRoof:
 								{
-									draw_point(floor(Player.PosX + Player.Xsp - 10), floor(Player.PosY + Player.Ysp));
+									draw_point(floor(Player.PosX - 10), floor(Player.PosY));
 								}
 								break;
 								case RangeLWall:
 								{
-									draw_point(floor(Player.PosX + Player.Xsp), floor(Player.PosY + Player.Ysp + 10));
+									draw_point(floor(Player.PosX), floor(Player.PosY + 10));
 								}
 								break;
 							}

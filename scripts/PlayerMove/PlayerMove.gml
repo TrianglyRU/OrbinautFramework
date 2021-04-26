@@ -109,13 +109,9 @@ function PlayerMove()
 	// Convert inertia to normal axis speeds
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
-	
-	
-	// * Animations * //
-	// *            * //
-	
+
 	// Our default animation if AnimIdle
-	Animation = AnimIdle;
+	if (Angle < 45 or Angle > 315) Animation = AnimIdle;
 		
 	// Check if we're balancing to the right
 	if Balancing == DirRight

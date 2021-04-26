@@ -22,7 +22,7 @@
 			PlayerMove();
 			
 			// Collide with walls
-			PlayerHitWalls();
+			PlayerCollideWalls();
 			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
@@ -61,7 +61,7 @@
 			PlayerMoveRoll();
 
 			// Collide with walls
-			PlayerHitWalls();
+			PlayerCollideWalls();
 			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
@@ -103,13 +103,13 @@
 			PlayerApplyGravity();
 			
 			// Collide with walls
-			PlayerHitWalls();
+			PlayerCollideWalls();
 		
 			// Collide with roof
-			PlayerHitRoof();
+			PlayerCollideRoof();
 			
 			// Collide with floor
-			PlayerHitFloor();
+			PlayerCollideFloor();
 			
 			// Check for dropdash as Sonic
 			PlayerCheckDropdash();

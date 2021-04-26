@@ -1,4 +1,4 @@
-function PlayerHitRoof()
+function PlayerCollideRoof()
 {	
 	// Do not collide if we're not allowed to
 	if (Ysp < 0 or abs(Xsp) > abs(Ysp)) and AllowCollision
@@ -34,7 +34,6 @@ function PlayerHitRoof()
 					Grounded   = true;
 					Angle      = roofAngle;
 					Inertia    = roofAngle < 180 ? -Ysp : Ysp;
-					AngleRange = roofAngle < 180 ? RangeRWall : RangeLWall;
 				} 
 				else 
 				{
