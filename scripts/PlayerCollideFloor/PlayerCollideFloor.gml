@@ -4,7 +4,7 @@ function PlayerCollideFloor()
 	if (!AllowCollision or OnObject) exit;
 	
 	// Update floor collision mode
-	if Grounded
+	/*if Grounded
 	{
 		if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
 		{
@@ -26,8 +26,8 @@ function PlayerCollideFloor()
 	else
 	{
 		var FloorRange = RangeFloor;
-	}
-	/*if Grounded
+	}*/
+	if Grounded
 	{
 		switch FloorRange
 		{
@@ -144,7 +144,7 @@ function PlayerCollideFloor()
 	else
 	{
 		FloorRange = RangeFloor;
-	}*/
+	}
 	
 	// Ground collision
 	if Grounded
@@ -188,7 +188,8 @@ function PlayerCollideFloor()
 
 				// Perform floor collision
 				var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-				if  maxDistance <= floorDistance
+				if (floorAngle <= 45 or floorAngle >= 315) and maxDistance <= floorDistance
+				or (floorAngle > 45 and floorAngle < 315) and maxDistance <= TileMiddle[0]
 				{
 					Grounded = false;
 					exit;

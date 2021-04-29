@@ -2,10 +2,10 @@
 // You can write your code in this editor
 	
 	// Create variables
-	OriginX = x;
-	OriginY = y;
-	Weight  = 0;
-	Angle	= 360;
+	OriginX _init;
+	OriginY _init;
+	Weight  _init;
+	Angle	_init;
 	
 	/* Variable Definitions	
 	1. PlatformXRadius,  default = 30

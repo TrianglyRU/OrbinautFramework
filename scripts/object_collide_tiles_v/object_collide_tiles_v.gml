@@ -1,14 +1,9 @@
 /// @function object_collide_tiles_v(xSide, ySide, minDistsance, tileLayer)
 function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 {	
-	// Check if this object radiuses were initialized
-	if !variable_instance_exists(id, "objYRadiusSolid")
-	{
-		show_message("Object ID " + string(id) + " does not have any solidbox radiuses to collide with tiles! Please, call 'object_set_solidbox' function in Create event");
-		game_end();
-		exit;
-	}
-	
+	// Exit the code if this object solidbox wasn't initialized
+	if (!variable_instance_exists(id, "objYRadiusSolid")) exit;
+
 	// Define xside
 	switch xSide
 	{

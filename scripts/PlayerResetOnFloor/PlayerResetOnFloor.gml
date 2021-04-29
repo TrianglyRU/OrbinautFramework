@@ -26,16 +26,7 @@ function PlayerResetOnFloor()
 		Jumping	= false;
 		Pushing	= false;
 		Rolling = false;
-		
-		// Keep rolling if DOWN is held
-		/*if Input.Down
-		{
-			Rolling = true;
-			
-			// Play sound
-			audio_sfx_play(sfxRoll, false, true);
-		}*/
-		
+
 		// Set visual angle
 		VisualAngle = Angle;
 		

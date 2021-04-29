@@ -75,4 +75,11 @@ function ScreenCameraHandleOffsets()
 	{
 		OverviewOffset -= 2 * sign(OverviewOffset);
 	}	
+	
+	// Perform shaking
+	if ShakeTime > 0 and ShakeStrength != 0
+	{
+		ShakeTime--;
+		ShakeOffset = ShakeTime == 0 ? 0 : random_range(-ShakeStrength, ShakeStrength);
+	}
 }

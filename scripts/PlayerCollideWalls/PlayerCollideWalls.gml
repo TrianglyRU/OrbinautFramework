@@ -7,7 +7,7 @@ function PlayerCollideWalls()
 	if (Angle > 90 and Angle < 270) exit;
 	
 	// Update wall collision mode
-	if Angle >= 0 and Angle <= 44 or Angle >= 316 and Angle <= 360
+	if Angle >= 0 and Angle <= 44 or Angle >= 316 and Angle <= 360 or !Grounded
 	{
 		WallRange = RangeFloor;
 	}
@@ -23,7 +23,7 @@ function PlayerCollideWalls()
 	{
 		WallRange = RangeLWall;
 	}
-	
+
 	// Left wall collision
 	if Grounded
 	{

@@ -10,7 +10,7 @@ function ObjCapsuleButtonScript()
 		animation_play(spr_capsule_button, 3, 1);
 		
 		// Check if player is standing on the object
-		if object_check_touch(SideTop)
+		if object_player_touch(SideTop)
 		{
 			// Finish the act and tell the button it has been pressed
 			y          += 8;

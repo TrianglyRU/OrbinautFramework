@@ -3,8 +3,11 @@ function PlayerCheckCrouch()
 	// Exit if LEFT or RIGHT button is held
 	if (Input.Left or Input.Right) exit;
 	
+	// Exit if we're moving
+	if (Inertia != 0) exit;
+	
 	// Exit if we're balancing
-	if Balancing != false exit;
+	if (Balancing != false) exit;
 	
 	// Check if we're holding DOWN button
 	if Input.Down

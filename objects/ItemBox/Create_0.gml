@@ -1,11 +1,22 @@
-/// @description Insert description here
+/// @description Variables & Setup
 // You can write your code in this editor
 	
-	Airborne  = false;
-	Destroyed = false;
-	Ysp		  = 0;
-	PosY	  = y;
+	// Create variables
+	Airborne	  _init;
+	Destroyed	  _init;
+	Ysp			  _init;
+	PosY		  _init;
 	
-	object_set_hitbox(16, 16);
-	object_set_solidbox(15, 15);
-	object_set_depth(Player, false);
+	ItemCard	  _init;
+	ItemCardRel   _init;
+	ItemCardTimer _init;
+	ItemCardYsp	  _init;
+	ItemCardPosY  _init;
+	
+	/* Variable Definitions	
+	1. BoxType, default = "Empty"
+	*/
+	
+	// Call object scripts
+	ObjMonitorSetup();
+	ObjMonitorSetupCard();

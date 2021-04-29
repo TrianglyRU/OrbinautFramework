@@ -20,6 +20,10 @@ function _ScreenVariables()
 	ScrollDelay		   _init;
 	OverviewDelay	   _init;
 	
+	ShakeTime		   _init;
+	ShakeStrength	   _init;
+	ShakeOffset		   _init;
+	
 	MinRenderX		   _init;
 	MaxRenderX         _init;
 	MinRenderY         _init;

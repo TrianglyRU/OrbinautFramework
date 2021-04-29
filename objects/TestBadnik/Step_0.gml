@@ -47,8 +47,8 @@
 	image_xscale = Dir;
 	
 	// Check for hitbox overlap
-	if object_check_overlap(CollisionHitbox)
+	if object_player_overlap(CollisionHitbox)
 	{
 		// Do damage or be destroyed
-		object_do_damage(true, false, false);
+		object_damage(true, false, false);
 	}

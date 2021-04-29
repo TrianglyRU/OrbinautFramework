@@ -1,5 +1,6 @@
 function _GameVariables()
 {
+	Game.DevMode				 _init;
 	Game.GlobalCharacter		 _init;
 	Game.GlobalScore			 _init;
 	Game.GlobalLives			 _init;

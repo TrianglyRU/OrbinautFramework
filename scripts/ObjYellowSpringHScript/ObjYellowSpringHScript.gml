@@ -9,7 +9,7 @@ function ObjYellowSpringHScript()
 	// Check if we're touching launch side
 	if Player.Grounded
 	{
-		if object_check_touch(launchSide)
+		if object_player_touch(launchSide)
 		{
 			// Launch player
 			Player.MovementLock = 16;

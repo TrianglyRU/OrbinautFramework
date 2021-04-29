@@ -77,7 +77,7 @@ function ObjRingScript()
 	}
 	
 	// Check for hitbox collision
-	if !PickupTimeout and object_check_overlap(CollisionHitbox)
+	if !PickupTimeout and object_player_overlap(CollisionHitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;
