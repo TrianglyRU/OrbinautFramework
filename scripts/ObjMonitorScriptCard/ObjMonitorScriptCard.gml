@@ -82,6 +82,8 @@ function ObjMonitorScriptCard()
 					break;
 					case "Invincibility":
 					{
+						// Give invincibility bonus for 20 seconds
+						Player.InvincibilityBonus = 1200;
 					}
 					break;
 					case "Extra Life":

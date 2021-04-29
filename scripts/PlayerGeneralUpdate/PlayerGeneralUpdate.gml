@@ -129,9 +129,9 @@ function PlayerGeneralUpdate()
 	{
 		AngleRange = RangeFloor;
 	}*/
-
+	
 	// Handle highspeed bonus
-	if HighSpeedBonus > 0
+	if HighSpeedBonus
 	{	
 		// Decrease timer
 		HighSpeedBonus--;
