@@ -81,6 +81,15 @@ function PlayerSetup()
 		PosY = Game.SavedPosition[1];
 	}
 	
+	PlayerPositionX = ds_list_create();
+	PlayerPositionY = ds_list_create();
+	var ind = 0;
+	repeat (32) 
+    {
+		PlayerPositionX[| ind++] = PosX;
+		PlayerPositionY[| ind]   = PosY;
+	}
+	
 	// Create Tails' tails
 	if (CharacterID == CharTails) instance_create_depth(x, y, depth, TailsObject);
 }

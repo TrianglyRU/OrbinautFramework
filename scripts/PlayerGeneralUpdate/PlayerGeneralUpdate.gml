@@ -155,7 +155,25 @@ function PlayerGeneralUpdate()
 	}
 	
 	// Handle invincibility bonus
-	if (InvincibilityBonus) InvincibilityBonus--;
+	if InvincibilityBonus 
+	{
+		if !instance_exists(Star) 
+		{
+			for(var i = 0; i < 9; i++)
+			{
+				instance_create_depth(PosX, PosY, depth - 1, Star).Number = i;
+			}
+			with Star
+			{
+				Spin _init;
+				sprite_index = Number mod 3 == 0 ? spr_star2 : spr_star1;
+				image_index = irandom(8) * 2 - 1;
+			}
+		}
+		
+		InvincibilityBonus--;
+		if (!InvincibilityBonus) instance_destroy(Star);
+	}
 	
 	// Decrease temp invincibility timer
 	if (isInvincible and !InvincibilityBonus and !isSuper) isInvincible--;

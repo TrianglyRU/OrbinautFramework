@@ -616,6 +616,9 @@
                 {"propertyId":{"name":"BoxType","path":"objects/ItemBox/ItemBox.yy",},"objectId":{"name":"ItemBox","path":"objects/ItemBox/ItemBox.yy",},"value":"\"Extra Life\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
               ],"isDnd":false,"objectId":{"name":"ItemBox","path":"objects/ItemBox/ItemBox.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":328.0,"y":1792.0,"resourceVersion":"1.0","name":"inst_1EC18DD7","tags":[],"resourceType":"GMRInstance",},
             {"properties":[],"isDnd":false,"objectId":{"name":"Spawnpoint","path":"objects/Spawnpoint/Spawnpoint.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":4968.0,"y":2192.0,"resourceVersion":"1.0","name":"inst_13E0132","tags":[],"resourceType":"GMRInstance",},
+            {"properties":[
+                {"propertyId":{"name":"BoxType","path":"objects/ItemBox/ItemBox.yy",},"objectId":{"name":"ItemBox","path":"objects/ItemBox/ItemBox.yy",},"value":"\"Invincibility\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+              ],"isDnd":false,"objectId":{"name":"ItemBox","path":"objects/ItemBox/ItemBox.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":5024.0,"y":2184.0,"resourceVersion":"1.0","name":"inst_155D7BD3","tags":[],"resourceType":"GMRInstance",},
           ],"visible":true,"depth":700,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
         {"assets":[],"visible":true,"depth":800,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":true,"resourceVersion":"1.0","name":"SpritesPlaneA","tags":[],"resourceType":"GMRAssetLayer",},
         {"tilesetId":{"name":"GVZTileset","path":"tilesets/GVZTileset/GVZTileset.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":40,"SerialiseHeight":16,"TileSerialiseData":[
@@ -704,6 +707,7 @@
     {"name":"inst_7AD5F422","path":"rooms/GVZ/GVZ.yy",},
     {"name":"inst_1EC18DD7","path":"rooms/GVZ/GVZ.yy",},
     {"name":"inst_13E0132","path":"rooms/GVZ/GVZ.yy",},
+    {"name":"inst_155D7BD3","path":"rooms/GVZ/GVZ.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

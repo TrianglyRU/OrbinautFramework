@@ -34,7 +34,7 @@ function ObjRingScript()
 		// Update code position
 		PosX += Xsp;
 		PosY += Ysp;
-		
+
 		// Update real position
 		x = floor(PosX);
 		y = floor(PosY);

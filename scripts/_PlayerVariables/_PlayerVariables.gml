@@ -21,6 +21,8 @@ function _PlayerVariables()
 	CharacterID			 _init;
 	PosX				 _init;
 	PosY				 _init;
+	PlayerPositionX      _init;
+	PlayerPositionY      _init;
 	Xsp					 _init;
 	Ysp					 _init;
 	Inertia				 _init;
