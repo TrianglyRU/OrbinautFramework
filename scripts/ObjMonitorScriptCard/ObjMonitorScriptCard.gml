@@ -37,7 +37,7 @@ function ObjMonitorScriptCard()
 		// Set card speed
 		ItemCardYsp	= -3;
 		
-		// Make it visible
+		// Make card visible
 		ItemCard.image_alpha = 1.0;
 		
 		// Set release flag
@@ -78,7 +78,10 @@ function ObjMonitorScriptCard()
 					}
 					break;
 					case "Regular Barrier":
-						
+					{
+						// Give regular shield
+						Player.ShieldType = BarrierNormal;
+					}
 					break;
 					case "Invincibility":
 					{

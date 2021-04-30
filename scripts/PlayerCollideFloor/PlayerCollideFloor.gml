@@ -27,40 +27,59 @@ function PlayerCollideFloor()
 	{
 		FloorRange = RangeFloor;
 	}*/
+	
+	
 	if Grounded
 	{
 		switch FloorRange
 		{
 			case RangeFloor:
 			{
-				var CheckLeft  = [PosX - xRadius * 2, PosY + yRadius / 2];
-				var CheckRight = [PosX + xRadius * 2, PosY + yRadius / 2];
+				if tile_meeting(floor(PosX - yRadius), floor(PosY + xRadius), Layer)
+				{
+					FloorRange = RangeLWall;
+				}
+				else if tile_meeting(floor(PosX + yRadius), floor(PosY + xRadius), Layer)
+				{
+					FloorRange = RangeRWall;
+				}
 			}
 			break;
 			case RangeRWall:
 			{
-				var CheckLeft  = [PosX + yRadius / 2, PosY - xRadius * 2];
-				var CheckRight = [PosX + yRadius / 2, PosY + xRadius * 2];
+				if tile_meeting(floor(PosX + xRadius), floor(PosY + yRadius), Layer)
+				{
+					FloorRange = RangeFloor;
+				}
+				else if tile_meeting(floor(PosX + xRadius), floor(PosY - yRadius), Layer)
+				{
+					FloorRange = RangeRoof;
+				}
 			}
-			break;
 			case RangeRoof:
 			{
-				var CheckLeft  = [PosX - xRadius * 2, PosY - yRadius / 2];
-				var CheckRight = [PosX + xRadius * 2, PosY - yRadius / 2];
+				if tile_meeting(floor(PosX + yRadius), floor(PosY - xRadius), Layer)
+				{
+					FloorRange = RangeRWall;
+				}
+				else if tile_meeting(floor(PosX - yRadius), floor(PosY - xRadius), Layer)
+				{
+					FloorRange = RangeLWall;
+				}
 			}
 			break;
 			case RangeLWall:
 			{
-				var CheckLeft  = [PosX - yRadius / 2, PosY - xRadius * 2];
-				var CheckRight = [PosX - yRadius / 2, PosY + xRadius * 2];
+				if tile_meeting(floor(PosX - xRadius), floor(PosY - yRadius), Layer)
+				{
+					FloorRange = RangeRoof;
+				}
+				else if tile_meeting(floor(PosX - xRadius), floor(PosY + yRadius), Layer)
+				{
+					FloorRange = RangeFloor;
+				}
 			}
 			break;
-		}
-		
-		if tile_meeting(floor(CheckLeft[0]),  floor(CheckLeft[1]),  Layer)
-		or tile_meeting(floor(CheckRight[0]), floor(CheckRight[1]), Layer)
-		{
-			FloorRange = round(Angle/90) mod 4;
 		}
 	}
 	else
@@ -116,7 +135,7 @@ function PlayerCollideFloor()
 					Grounded = false;
 					exit;
 				}
-				else if floorDistance > -14
+				else //if floorDistance > -14
 				{
 					PosY += floorDistance;
 				}
@@ -149,7 +168,7 @@ function PlayerCollideFloor()
 					Grounded = false;
 					exit;
 				}
-				else if floorDistance > -14
+				else //if floorDistance > -14
 				{
 					PosX += floorDistance;
 				}
@@ -182,7 +201,7 @@ function PlayerCollideFloor()
 					Grounded = false;
 					exit;
 				}
-				else if floorDistance > -14
+				else //if floorDistance > -14
 				{
 					PosY -= floorDistance;
 				}
@@ -215,7 +234,7 @@ function PlayerCollideFloor()
 					Grounded = false;
 					exit;
 				}
-				else if floorDistance > -14
+				else //if floorDistance > -14
 				{
 					PosX -= floorDistance;
 				}
@@ -320,6 +339,7 @@ function PlayerCollideFloor()
 		
 				// Land and adhere to the floor
 				PosY	  += floorDistance;
+				FloorRange = RangeFloor;
 				Angle	   = floorAngle;
 				Grounded   = true;
 			}

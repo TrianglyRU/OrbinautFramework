@@ -11,7 +11,7 @@ function PlayerMoveRoll()
 				Inertia -= RollDec;
 				if Inertia <= 0 
 				{
-					Inertia = -0.5;
+					Inertia = 0;
 					Facing  = DirLeft;
 				}
 			}
@@ -20,12 +20,12 @@ function PlayerMoveRoll()
 		// If pressing right
 		if Input.Right 
 		{
-			if Inertia < 0 
+			if Inertia < 0
 			{
 				Inertia += RollDec;
 				if Inertia >= 0 
 				{
-					Inertia = 0.5;
+					Inertia = 0;
 					Facing  = DirRight;
 				}
 			}

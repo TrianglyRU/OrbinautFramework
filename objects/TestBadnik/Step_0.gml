@@ -32,10 +32,9 @@
 	// Check if Motobug's speed is 0
 	if Xsp != 0
 	{
-		// Check if Motobug touches the wall or more than 2 pixels away from the floor
-		if Dir == DirLeft  and object_collide_tiles_h(SideLeft,  false, 0, LayerA)
-		or Dir == DirRight and object_collide_tiles_h(SideRight, false, 0, LayerA)
-		or !object_collide_tiles_v(false, SideBottom, 2, LayerA)
+		// Collide tiles & check for if Motobug is 2 pixels away from the surface
+		var collideFloor = object_collide_tiles_v(false, SideBottom, 2, LayerA);
+		if !collideFloor
 		{
 			// Stop Motobug
 			StopTimer = 60;

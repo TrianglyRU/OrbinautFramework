@@ -6,16 +6,26 @@ function ObjRingScript()
 		// Play animation
 		animation_play(sprite_index, floor((256 * 2) / Timer), 1);
 		
+		// Decrease 'can't collect' timer
+		if (PickupTimeout) PickupTimeout--;
+		
 		// Do timer stuff
-		if (PickupTimeout > 0) PickupTimeout--;
-		CollisionCheck++;
+		CollisionCheck++;		
 		Timer--;
 		
-		// Check for timeout
+		// Check if it is time for ring to disappear
 		if !Timer
 		{
-			instance_destroy(self);
-			exit;
+			// Make ring unable to collect
+			PickupTimeout = true;
+			
+			// Slowly make it invisible and destroy
+			image_alpha -= 0.2;
+			if !image_alpha
+			{
+				instance_destroy(self);
+				exit;
+			}
 		}
 	
 		// Apply gravity
@@ -32,27 +42,45 @@ function ObjRingScript()
 		// Do tile collision every four frames when falling down
 		if (CollisionCheck mod 4 == 0 and Ysp > 0 or Game.RingsPreciseCollision) 
 		{
-			// Check if ring found the tile
-			if object_collide_tiles_v(false, SideBottom, 0, Player.Layer)
+			// Check if ring found the tile & collide
+			var findFloor = object_collide_tiles_v(false, SideBottom, 0, Player.Layer);
+			if  findFloor
 			{
 				// Invert its speed
 				Ysp = min(Ysp * -0.75, -2);
 			}
 			
-			// TODO: Optimzie
+			// Do additional collisions if all-side collision is enabled
 			if Game.RingsAllSideCollision
 			{
-				if Ysp < 0 and object_collide_tiles_v(false, SideTop, 0, Player.Layer)
+				// Collide ceiling
+				if Ysp < 0 
 				{
-					Ysp *= -0.75;
+					var findCeiling = object_collide_tiles_v(false, SideTop, 0, Player.Layer);
+					if  findCeiling
+					{
+						Ysp *= -0.75;
+					}
 				}
-				if Xsp < 0 and object_collide_tiles_h(SideLeft, false, 0, Player.Layer)
+				
+				// Collide left wall
+				if Xsp < 0
 				{
-					Xsp *= -0.75;
+					var findLWall = object_collide_tiles_h(SideLeft, false, 0, Player.Layer);
+					if  findLWall
+					{
+						Xsp *= -0.75;
+					}
 				}
-				if Xsp > 0 and object_collide_tiles_h(SideRight, false, 0, Player.Layer)
+				
+				// Collide right wall
+				if Xsp > 0
 				{
-					Xsp *= -0.75;
+					var findRWall = object_collide_tiles_h(SideRight, false, 0, Player.Layer);
+					if  findRWall
+					{
+						Xsp *= -0.75;
+					}
 				}
 			}
 		}
@@ -76,8 +104,11 @@ function ObjRingScript()
 		animation_play(sprite_index, 4, 1);
 	}
 	
+	// Exit the code if ring can't be collected
+	if (PickupTimeout) exit;
+	
 	// Check for hitbox collision
-	if !PickupTimeout and object_player_overlap(CollisionHitbox)
+	if object_player_overlap(CollisionHitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;
