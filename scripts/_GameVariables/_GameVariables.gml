@@ -27,6 +27,7 @@ function _GameVariables()
 	Game.FlyingCancel			 _init;
 	Game.StrongerSlopeGravity	 _init;
 	Game.ConsiderAngleDifference _init;
+	Game.SmoothModeUpdate        _init;
 	Game.LooseCrouch			 _init;
 	Game.ConstantRollFrc		 _init;
 	Game.StrongerSlopeDetach	 _init;

@@ -3,87 +3,128 @@ function PlayerCollideFloor()
 	// Do not collide if we're not allowed to, or if we're standing on object
 	if (!AllowCollision or OnObject) exit;
 	
-	// Update floor collision mode
-	/*if Grounded
-	{
-		if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
-		{
-			FloorRange = RangeFloor;
-		}
-		else if Angle >= 46 and Angle <= 134
-		{
-			FloorRange = RangeRWall;
-		}
-		else if Angle >= 135 and Angle <= 225
-		{
-			FloorRange = RangeRoof;
-		}
-		else if Angle >= 226 and Angle <= 314
-		{
-			FloorRange = RangeLWall;
-		}
-	}
-	else
-	{
-		FloorRange = RangeFloor;
-	}*/
-	
-	
+	// Update collision mode
 	if Grounded
 	{
-		switch FloorRange
+		// Use original mode change method based on current angle
+		if !Game.SmoothModeUpdate
 		{
-			case RangeFloor:
+			if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
 			{
-				if tile_meeting(floor(PosX - yRadius), floor(PosY + xRadius), Layer)
-				{
-					FloorRange = RangeLWall;
-				}
-				else if tile_meeting(floor(PosX + yRadius), floor(PosY + xRadius), Layer)
-				{
-					FloorRange = RangeRWall;
-				}
+				FloorRange = RangeFloor;
 			}
-			break;
-			case RangeRWall:
+			else if Angle >= 46 and Angle <= 134
 			{
-				if tile_meeting(floor(PosX + xRadius), floor(PosY + yRadius), Layer)
-				{
-					FloorRange = RangeFloor;
-				}
-				else if tile_meeting(floor(PosX + xRadius), floor(PosY - yRadius), Layer)
-				{
-					FloorRange = RangeRoof;
-				}
+				FloorRange = RangeRWall;
 			}
-			case RangeRoof:
+			else if Angle >= 135 and Angle <= 225
 			{
-				if tile_meeting(floor(PosX + yRadius), floor(PosY - xRadius), Layer)
-				{
-					FloorRange = RangeRWall;
-				}
-				else if tile_meeting(floor(PosX - yRadius), floor(PosY - xRadius), Layer)
-				{
-					FloorRange = RangeLWall;
-				}
+				FloorRange = RangeRoof;
 			}
-			break;
-			case RangeLWall:
+			else if Angle >= 226 and Angle <= 314
 			{
-				if tile_meeting(floor(PosX - xRadius), floor(PosY - yRadius), Layer)
-				{
-					FloorRange = RangeRoof;
-				}
-				else if tile_meeting(floor(PosX - xRadius), floor(PosY + yRadius), Layer)
-				{
-					FloorRange = RangeFloor;
-				}
+				FloorRange = RangeLWall;
 			}
-			break;
+		}
+		
+		// Use custom advanced method using tile detection (inaccurate to originals)
+		else
+		{
+			// Set maximum angle difference. If difference exceeds this value, mode won't change
+			var angleTolerance = 45;
+		
+			switch FloorRange
+			{
+				case RangeFloor:
+				{
+					// Get tiles
+					var leftTile  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, true, Layer)
+					var rightTile = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true, true, Layer)
+				
+					// Check if we move left and collide with left tile
+					if Xsp < 0 and leftTile[0] < 0 and Angle - leftTile[1] <= angleTolerance
+					{
+						// Enter left wall collision mode
+						FloorRange = RangeLWall;
+					}
+				
+					// Check if move right and collide with right tile
+					else if Xsp > 0 and rightTile[0] < 0 and rightTile[1] - Angle mod 360 <= angleTolerance
+					{
+						// Enter right wall collision mode
+						FloorRange = RangeRWall;
+					}
+				}
+				break;
+				case RangeRWall:
+				{
+					// Get tiles
+					var leftTile  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, true, Layer);
+					var rightTile = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
+				
+				
+					// Check if we collide left tile and angle difference isn't greater than 45
+					if Ysp > 0 and leftTile[0] < 0 and Angle - leftTile[1] <= angleTolerance
+					{
+						// Enter floor collision mode
+						FloorRange = RangeFloor;
+					}
+				
+					// Check if we collide right tile and angle difference isn't greater than 45
+					else if Ysp < 0 and rightTile[0] < 0 and rightTile[1] - Angle mod 360 <= angleTolerance
+					{
+						// Enter roof collision mode
+						FloorRange = RangeRoof;
+					}
+				}
+				case RangeRoof:
+				{
+					// Get tiles
+					var leftTile  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true, true, Layer)
+					var rightTile = tile_check_collision_h(floor(PosX - yRadius), floor(PosY - xRadius), false, true, Layer)
+				
+					// Check if we collide left tile and angle difference isn't greater than 45
+					if Xsp > 0 and leftTile[0] < 0 and Angle - leftTile[1] <= angleTolerance
+					{
+						// Enter right wall collision mode
+						FloorRange = RangeRWall;
+					}
+				
+					// Check if we collide right tile and angle difference isn't greater than 45
+					else if Xsp < 0 and rightTile[0] < 0 and rightTile[1] - Angle mod 360 <= angleTolerance
+					{
+						// Enter left wall collision mode
+						FloorRange = RangeLWall;
+					}
+				}
+				break;
+				case RangeLWall:
+				{
+					// Get tiles
+					var leftTile  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
+					var rightTile = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true,  true, Layer);				
+				
+					// Check if we collide left tile and angle difference isn't greater than 45
+					if Ysp < 0 and leftTile[0] < 0 and Angle - leftTile[1] <= angleTolerance
+					{
+						// Enter roof collision mode
+						FloorRange = RangeRoof;
+					}
+				
+					// Check if we collide right tile and angle difference isn't greater than 45
+					else if Ysp > 0 and rightTile[0] < 0 and rightTile[1] - Angle mod 360 <= angleTolerance
+					{
+						// Enter floor collision mode
+						FloorRange = RangeFloor;
+					}
+				}
+				break;
+			}
 		}
 	}
 	else
 	{
+		// Mode is always RangeFloor when airborne
 		FloorRange = RangeFloor;
 	}
 	
@@ -120,8 +161,11 @@ function PlayerCollideFloor()
 					if (TileMiddle[0] > 14 and Inertia == 0) Balancing = -Facing;
 				}
 				
-				// Use middle tile 
-				/* Originals don't use middle floor sensor for floor collision, but we do to make collision work better */
+				
+				/* Originals don't use middle floor sensor to collide with surface, but we do to fix certain flaws.
+				   This is forced from our side and there is no flag to turn if off quicky - edit if needed!       */
+				   
+				// Use middle tile if both left and right distances are the same
 				else
 				{
 					var floorDistance = TileMiddle[0];
@@ -135,7 +179,7 @@ function PlayerCollideFloor()
 					Grounded = false;
 					exit;
 				}
-				else //if floorDistance > -14
+				else if floorDistance > -14
 				{
 					PosY += floorDistance;
 				}
@@ -168,7 +212,7 @@ function PlayerCollideFloor()
 					Grounded = false;
 					exit;
 				}
-				else //if floorDistance > -14
+				else if floorDistance > -14
 				{
 					PosX += floorDistance;
 				}
@@ -201,7 +245,7 @@ function PlayerCollideFloor()
 					Grounded = false;
 					exit;
 				}
-				else //if floorDistance > -14
+				else if floorDistance > -14
 				{
 					PosY -= floorDistance;
 				}
@@ -234,7 +278,7 @@ function PlayerCollideFloor()
 					Grounded = false;
 					exit;
 				}
-				else //if floorDistance > -14
+				else if floorDistance > -14
 				{
 					PosX -= floorDistance;
 				}
@@ -272,43 +316,28 @@ function PlayerCollideFloor()
 			// Get tiles
 			var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
 			var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
-			var TileMiddle = tile_check_collision_v(floor(PosX),		   floor(PosY + yRadius), true, false, Layer);
 			
 			// Use left tile
-			if TileLeft[0] < TileRight[0]
+			if TileLeft[0] <= TileRight[0]
 			{
 				var floorDistance = TileLeft[0];
 				var floorAngle	  = TileLeft[1];
-				
-				// Check for balancing
-				if (TileMiddle[0] > 14 and Inertia == 0) Balancing = Facing;
 			}
 			
 			// Use right tile
-			else if TileLeft[0] > TileRight[0]
+			else
 			{
 				var floorDistance = TileRight[0];
 				var floorAngle	  = TileRight[1];
-				
-				// Check for balancing
-				if (TileMiddle[0] > 14 and Inertia == 0) Balancing = -Facing;
-			}
-				
-			// Use middle tile
-			/* Originals don't use middle floor sensor for floor collision, but we do to make collision work better */
-			else
-			{
-				var floorDistance = TileMiddle[0];
-				var floorAngle	  = TileMiddle[1];
 			}
 		
-			// Perform floor collision
+			// Check if we're inside the floor
 			if floorDistance < 0
 			{
 				// If we're moving downwards, calculate a momentum using floor angle
 				if abs(Xsp) < abs(Ysp)
 				{
-					// If angle is >= 45 degrees, use vertical speed
+					// Use vertical speed on steep angles
 					if floorAngle >= 45 and floorAngle <= 315
 					{
 						if (Ysp > 16) Ysp = 16;
@@ -316,13 +345,13 @@ function PlayerCollideFloor()
 						Inertia = floorAngle < 180 ? -Ysp : Ysp;
 					}
 		
-					// If angle is >= 22.5 degrees, use halved vertical speed
+					// Use halved vertical speed on shallow angles
 					else if floorAngle >= 22.5 and floorAngle <= 337.5
 					{
 						Inertia = floorAngle <= 180 ? -Ysp / 2 : Ysp / 2;
 					}
 		
-					// If angle is < 22.5 degrees, use horizontal speed
+					// Use horizontal speed if angle is almost flat
 					else 
 					{	
 						Ysp     = 0;
@@ -330,17 +359,18 @@ function PlayerCollideFloor()
 					}
 				}
 		
-				// If we're moving to the left or right, use xsp
+				// If we're moving to the left or right, just use horizontal speed
 				else 
 				{	
 					Ysp     = 0;
 					Inertia = Xsp;
 				}
 		
-				// Land and adhere to the floor
+				// Adhere to the floor and apply angle to player
 				PosY	  += floorDistance;
-				FloorRange = RangeFloor;
 				Angle	   = floorAngle;
+				
+				// Set flag
 				Grounded   = true;
 			}
 		}

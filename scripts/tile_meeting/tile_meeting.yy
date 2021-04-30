@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_check_at_point",
+  "name": "tile_meeting",
   "tags": [],
   "resourceType": "GMScript",
 }
