@@ -167,11 +167,11 @@ function PlayerGeneralUpdate()
 				spawnedStar.Number = i;
 			}
 			
-			// Set sprite and start frame for particles
-			with Star
+			// Start frame for particles
+			with Star 
 			{
-				sprite_index = Number mod 3 == 0 ? spr_star2 : spr_star1;
-				image_index = irandom(8) * 2 - 1;
+				sprite_index = Number mod 2 ? spr_star1 : spr_star2;
+				image_index = Number;
 			}
 		}
 		
