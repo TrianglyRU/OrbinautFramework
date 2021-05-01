@@ -6,8 +6,9 @@ function StageObjectsUpdate()
 	// Load objects in a given region
 	if State != ActStateLoading
 	{
-		var Boundary128 = Screen.RenderX div 128 * 128;
-		instance_activate_region(Boundary128, 0, Boundary128 + ceil(Screen.Width / 128) * 128, room_height, true);
+		//var Boundary128 = Screen.RenderX div 128 * 128;
+		//instance_activate_region(Boundary128, 0, Boundary128 + ceil(Screen.Width / 128) * 128, room_height, true);
+		instance_activate_region(Screen.RenderX - 480, Screen.RenderY - 144, Screen.Width + 960, Screen.Height + 288, true);
 	}
 	
 	// Check if player died or stage unloads

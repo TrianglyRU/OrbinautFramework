@@ -8,7 +8,7 @@ function ObjMonitorSetupCard()
 	ItemCardPosY = ItemCard.y;
 	
 	// Render object behind player
-	with ItemCard object_set_depth(Player, false);
+	with ItemCard object_set_depth(id, false);
 	
 	// Define card to display
 	switch BoxType

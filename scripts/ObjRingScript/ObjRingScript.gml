@@ -101,7 +101,8 @@ function ObjRingScript()
 	else
 	{
 		// Play animation
-		animation_play(sprite_index, 4, 1);
+		//animation_play(sprite_index, 4, 1);
+		image_index = Stage.AnimationTime div 4 mod 8;
 	}
 	
 	// Exit the code if ring can't be collected
