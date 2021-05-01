@@ -3,7 +3,7 @@
 	
 	Spin += Player.Facing * 4;
 	var Ang = 45 * Number - Spin;
-	var Delay = Number mod 3 * 4;
+	var Delay = Number mod 3 * 5;
 	x = Player.PlayerPositionX[| Delay] + dsin(Ang) * 16;
 	y = Player.PlayerPositionY[| Delay] + dcos(Ang) * 16;
 	if ( image_speed and  image_index = 7)

@@ -37,7 +37,7 @@ function _ScreenVariables()
 	ATSShift		   _init;
 	
 	DebugToggle	   _init;
-	DebugVariables _init;
+	DebugVariables = true;
 	DebugSolids    _init;
 	DebugHitboxes  _init;
 	DebugSensors   _init;

@@ -1,8 +1,5 @@
 function PlayerCheckCrouch()
 {	
-	// Exit if LEFT or RIGHT button is held
-	if (Input.Left or Input.Right) exit;
-	
 	// Exit if we're moving
 	if (Inertia != 0) exit;
 	
@@ -10,7 +7,7 @@ function PlayerCheckCrouch()
 	if (Balancing != false) exit;
 	
 	// Check if we're holding DOWN button
-	if Input.Down
+	if Input.Down and !Input.Left and !Input.Right
 	{
 		// Set 'crouch' animation
 		Animation = AnimCrouch;

@@ -13,7 +13,7 @@ function PlayerCheckRoll()
 			xRadius	= xRadiusRoll;
 			PosY   += yRadiusDefault - yRadiusRoll;
 			
-			// Set flags
+			// Set rolling flag
 			Rolling = true;
 			
 			// Set animation

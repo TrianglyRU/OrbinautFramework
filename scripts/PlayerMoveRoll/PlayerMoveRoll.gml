@@ -1,5 +1,8 @@
 function PlayerMoveRoll()
 {
+	// Stop pushing
+	Pushing = false;
+	
 	// Perform only if directional input is allowed
 	if MovementLock == false
 	{

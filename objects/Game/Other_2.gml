@@ -21,4 +21,7 @@
 	GameWindowSetup();
 	
 	// Load game settings
-	gamesettings_load("config");
+	if !Game.DevMode
+	{
+		gamesettings_load("config");
+	}

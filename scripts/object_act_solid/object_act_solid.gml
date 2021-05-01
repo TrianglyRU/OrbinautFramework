@@ -208,11 +208,14 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 					{
 						if Player.Xsp < 0
 						{
-							if (Player.Grounded) Player.Inertia = 0;
+							if Player.Grounded
+							{
+								Player.Inertia = 0;
+								if (!Player.Rolling) Player.Pushing = DirLeft;
+							}
 							Player.Xsp = 0;
 						}
-						Player.PosX   += objectRight - playerLeft;
-						Player.Pushing = DirLeft;
+						Player.PosX += objectRight - playerLeft;
 					}
 						
 					// Collide on the left
@@ -220,11 +223,14 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 					{	
 						if Player.Xsp > 0
 						{
-							if (Player.Grounded) Player.Inertia = 0;	
+							if Player.Grounded
+							{
+								Player.Inertia = 0;	
+								if (!Player.Rolling) Player.Pushing = DirRight;
+							}
 							Player.Xsp = 0;
 						}
 						Player.PosX   -= playerRight - objectLeft;
-						Player.Pushing = DirRight;
 					}
 				}
 			}

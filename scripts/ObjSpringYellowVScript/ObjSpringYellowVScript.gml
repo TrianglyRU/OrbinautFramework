@@ -28,6 +28,15 @@ function ObjSpringYellowVScript()
 		Player.yRadius = Player.yRadiusDefault;
 		
 		// Play sound
-		audio_sfx_play(sfxSpring, false, true);
+		audio_sfx_play(sfxSpring, false, true);	
+		
+		// Start animation
+		animation_set_frame(id, 2);
 	}	
+	
+	// Play spring animation
+	if animation_get_frame(id) > 1
+	{
+		animation_play(sprite_index, 3, 1);
+	}
 }

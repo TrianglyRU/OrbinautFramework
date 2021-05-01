@@ -20,8 +20,14 @@ function ObjYellowSpringHScript()
 			// Play sound
 			audio_sfx_play(sfxSpring, false, true);
 			
-			// Exit the script
-			exit;
+			// Start animation
+			animation_set_frame(id, 2);
 		}
+	}
+	
+	// Play animation
+	if animation_get_frame(id) > 1
+	{
+		animation_play(sprite_index, 3, 1);
 	}
 }

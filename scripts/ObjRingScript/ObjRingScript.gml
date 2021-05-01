@@ -20,8 +20,8 @@ function ObjRingScript()
 			PickupTimeout = true;
 			
 			// Slowly make it invisible and destroy
-			image_alpha -= 0.2;
-			if !image_alpha
+			image_alpha -= 0.1;
+			if image_alpha == 0
 			{
 				instance_destroy(self);
 				exit;
@@ -114,7 +114,7 @@ function ObjRingScript()
 		Player.Rings++;
 	
 		// Create shine object (depth will be set on RingSparkle creation)
-		instance_create_depth(x, y, depth, RingSparkle);	
+		object_spawn(x, y, RingSparkle);	
 	
 		// Play sound, switch left and right channels every ring
 		audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false, false);

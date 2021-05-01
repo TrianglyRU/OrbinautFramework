@@ -104,12 +104,12 @@
 			
 			// Collide with walls
 			PlayerCollideWalls();
-		
-			// Collide with roof
-			PlayerCollideRoof();
 			
 			// Collide with floor
 			PlayerCollideFloor();
+			
+			// Collide with roof
+			PlayerCollideRoof();
 			
 			// Check for dropdash as Sonic
 			PlayerCheckDropdash();

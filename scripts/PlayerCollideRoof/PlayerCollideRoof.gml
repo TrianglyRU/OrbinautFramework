@@ -22,7 +22,7 @@ function PlayerCollideRoof()
 		// Perform roof collision
 		if roofDistance < 0
 		{	
-			// Push out of roof
+			// Push out off the roof
 			PosY -= roofDistance;
 			
 			// If moving upwards and not flying, check roof angle
@@ -30,10 +30,12 @@ function PlayerCollideRoof()
 			{	
 				// Land on the roof if it is steep enough
 				if roofAngle > 90 and roofAngle <= 135 or roofAngle >= 225 and roofAngle < 270
-				{	
+				{						
 					Grounded   = true;
+					FloorRange = RangeRoof;
 					Angle      = roofAngle;
 					Inertia    = roofAngle < 180 ? -Ysp : Ysp;
+					PosY      -= Ysp;
 				} 
 				else 
 				{

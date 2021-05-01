@@ -68,7 +68,7 @@ function ObjMonitorScriptCard()
 						Player.Rings += 10;
 						
 						// Play sound, switch left and right channels every ring
-						audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false, false);
+						audio_sfx_play(sfx10Rings, false, true);
 					}
 					break;
 					case "High Speed":
@@ -103,9 +103,13 @@ function ObjMonitorScriptCard()
 			
 			// Destroy card after 32 frames
 			ItemCardTimer++;
-			if ItemCardTimer == 32
+			if ItemCardTimer > 32
 			{
-				instance_destroy(ItemCard);
+				ItemCard.image_alpha -= 0.1;
+				if ItemCard.image_alpha == 0
+				{
+					instance_destroy(ItemCard);
+				}
 			}
 		}
 	}

@@ -13,6 +13,9 @@ function GameFrameworkSetup()
 	Game.SavedCheckpoint = false;
 	Game.SavedPosition   = false;
 	
+	/* From here and until 'engine' section values and flags are overwritten by default on game load
+	   if devmode is disabled, so you want to temporary enable it if you want to edit values here!   */
+	
 	// Window settings
 	Game.WindowFullscreen = false;
 	Game.ResolutionWidth  = 398;
@@ -20,54 +23,44 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
+	Game.MusicVolume = 0.0;
 	Game.SoundVolume = 0.3;
 	
-	// Gameplay	
-	/* This section (gameplay) is overwritten by default on game settings load, so
-	you want to temporary disable that if you want to use this */
-	
-	Game.SpindashEnabled		 = true;	// Enables S2 Spindash
-	Game.DropdashEnabled		 = false;	// Enables Mania Dropdash
-	Game.PeeloutEnabled          = true;	// Enables SCD Super Peel Out
-	Game.GroundSpeedcap			 = false;	// Enables ground speedcap
-	Game.AirSpeedcap			 = false;	// Enables air speedcap
-	Game.RolljumpControl		 = false;	// Unlocks directional contorls if you jump after rolling
-	Game.AllowUnroll			 = false;   // Allows you to unroll with UP button when rolling
-	Game.ExtendedCamera			 = false;	// Enables camera to shift to the side of your direction movement
-	Game.OriginalRollLimit		 = true;	// Limits xsp instead of inertia speed when rolling
-	Game.FlyingCancel			 = true;    // Allows you to cancel flying as Tails
-	
-	Game.RingsPreciseCollision   = true;
-	Game.RingsBoundDespawn		 = true;
-	Game.RingsAllSideCollision   = false;
-	
-	// Engine
-	/* This section is not configurable in-game, i.e it is not saved in a settings configfile */
-	
-	Game.SmoothModeUpdate        = true;    // If set to true, custom advanced method to change collision mode will be used. More smoother, but inaccurate to origianls.
-	Game.StrongerSlopeGravity	 = false;	// In Sonic 3+, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
-	Game.ConsiderAngleDifference = false;   // In Sonic 2+, your angle will be reset to your cardinal angle if the angle difference is higher than 45. True - Sonic 2+ method
-	Game.LooseCrouch			 = false;	// In SK, you can start crouching even when you are moving slowly. True - SK method.
-	Game.ConstantRollFrc		 = false;	// In SK, rolling friction is hard-coded to always be half of regular acceleration, even when Super. True - SK method
-	Game.StrongerSlopeDetach     = false;   // Before S3 you were able to slide down on 45-degree floors. True - Sonic 3 method
-	Game.SpeedFloorClip			 = true;    // In S2+, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
-	Game.ExtensiveWallCollision	 = true;	// In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
-	Game.ImprovedObjCollision	 = true;    // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
-	Game.SmoothPaletteCycle		 = true;	// Apply interpolation to palette cycles
-	Game.SmoothRotation			 = true;	// Use smooth rotation
-	Game.RichPresenceSupport	 = true;	// Enable Rich Presence
-	Game.StageTransitions		 = true;
-		
-	// Default palette status
-	Game.FadeEnabled = true;
-	Game.PaletteSet	 = 0;
-	Game.PalIndex = [0];
-	
-	// Default keyboard control mappings
+	// Control settings (keyboard)
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("A"), ord("S"), ord("D"), vk_space, vk_enter];
 	
-	// Save slots data
-	Game.ActiveSave	= 0;
-	Game.Saveslot   = 0;
+	// Gameplay	
+	Game.SpindashEnabled   = true;  // Enables S2 Spindash
+	Game.DropdashEnabled   = false; // Enables Mania Dropdash
+	Game.PeeloutEnabled    = true;  // Enables SCD Super Peel Out
+	Game.GroundSpeedcap	   = false; // Enables ground speedcap
+	Game.AirSpeedcap	   = false; // Enables air speedcap
+	Game.RolljumpControl   = false; // Unlocks directional contorls if you jump after rolling
+	Game.AllowUnroll	   = false; // Allows you to unroll with UP button when rolling
+	Game.ExtendedCamera	   = false; // Enables camera to shift to the side of your direction movement
+	Game.OriginalRollLimit = true;  // Limits xsp instead of inertia speed when rolling
+	Game.FlyingCancel	   = true;  // Allows you to cancel flying as Tails
+	
+	// Engine
+	/* These flags are not affected by game settings and set only here */
+	
+	// Originals differences
+	Game.StrongerSlopeGravity   = false; // In S3 and later, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
+	Game.LooseCrouch		    = false; // In S&K, you can start crouching even when you are moving slowly. True - SK method.
+	Game.ConstantRollFrc        = false; // In SK, rolling friction is hard-coded to always be half of regular acceleration, even when Super. True - SK method
+	Game.StrongerSlopeDetach    = false; // Before S3, you were able to slide down on 45-degree floors. True - Sonic 3+ method
+	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
+	Game.ExtensiveWallCollision	= true;	 // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
+	Game.StageTransitions		= true;	 // In S3 and later stage transitions are used. True = S3+.
+	
+	// Orbinaut improvements
+	Game.SmoothModeUpdate        = true;  // Use custom advanced method to update collision mode
+	Game.ConsiderAngleDifference = true;  // If set to true, the game will send player airborne if floor angle difference is too high. False - S2+ method, where angle is reset to 360 instead.
+	Game.ImprovedObjCollision	 = true;  // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
+	Game.SmoothPaletteCycle		 = true;  // Apply interpolation to palette cycles
+	Game.SmoothRotation			 = true;  // Use smooth rotation
+	Game.RichPresenceSupport	 = true;  // Enable Rich Presence
+	Game.RingsPreciseCollision   = true;  // Make rings check for collision every frame instead of every 4
+	Game.RingsBoundDespawn		 = false; // Make rings despawn as soon as they leave the screen
+	Game.RingsAllSideCollision   = true;  // Make rings collide with walls and ceiling instead of just floor
 }
