@@ -14,7 +14,7 @@ function MenuOptionSelect()
 		case FrameworkConfig:  LinesCount = 11; break;
 		case AudioVideoConfig: LinesCount = 6;  break;
 		case InputConfig:	   LinesCount = 10; break;
-		case StageSelect:	   LinesCount = 2;  break;
+		case StageSelect:	   LinesCount = 3;  break;
 		case CharacterSelect:  LinesCount = 4;  break;
 	}
 	MenuOption = loop_value(MenuOption, LinesCount);
@@ -126,6 +126,7 @@ function MenuOptionSelect()
 						switch StageToLoad - 1
 						{			
 							case 0:	room_goto(GVZ);  break; // Load GVZ
+							case 1: room_goto(GVZ2); break; // Load GVZ2
 						}
 					}
 					else
@@ -195,7 +196,7 @@ function MenuOptionSelect()
 			break;
 			case StageSelect:
 			{
-				if MenuOption < 1
+				if MenuOption < 2
 				{
 					StageToLoad = MenuOption + 1
 					menu_goto(CharacterSelect, 0);					

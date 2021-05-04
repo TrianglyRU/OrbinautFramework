@@ -33,7 +33,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 	}
 	
 	// Exit if player can't be damaged
-	if (Player.isInvincible or Player.Hurt) exit;
+	if (Player.InvincibilityBonus or Player.isInvincible or Player.Hurt) exit;
 	
 	/* If we managed to get at this point, damage player */
 	

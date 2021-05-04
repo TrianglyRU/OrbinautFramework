@@ -14,7 +14,7 @@ function ScreenResultsDisplay()
 			{
 				switch Stage.Time div 1800
 				{
-					case 0:			TimeBonus = 50000; break;
+					case 0:			TimeBonus = 100; break;
 					case 1:			TimeBonus = 5000;  break;
 					case 2:			TimeBonus = 4000;  break;
 					case 3:			TimeBonus = 3000;  break;
@@ -26,7 +26,7 @@ function ScreenResultsDisplay()
 			}
 		}
 		
-		if (ResultValue[0] <= 80) ResultValue[0]++;
+		if (ResultValue[0] <= 300) ResultValue[0]++;
 		else
 		{
 			if Input.StartPress
@@ -60,8 +60,8 @@ function ScreenResultsDisplay()
 		}
 		
 		var CardFrm   = ResultValue[1] / 90;
-		var CenterPos = Screen.RenderX + Game.ResolutionWidth / 2
-		var drawY     = Screen.RenderY;
+		var CenterPos = Screen.CameraX + Game.ResolutionWidth / 2
+		var drawY     = Screen.CameraY;
 		
 		draw_set_font(Game.Font[FontDigits1]);
 		draw_set_halign(fa_right);

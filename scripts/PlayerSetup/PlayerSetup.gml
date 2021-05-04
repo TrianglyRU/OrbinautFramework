@@ -65,15 +65,16 @@ function PlayerSetup()
 	// Set spawn properties
 	if Game.SavedPosition == 0
 	{
-		if Game.StageTransferX != 0
+		if Game.TransitionShiftPlayer[0] != 0
 		{
-			PosX = Spawnpoint.x + (Game.StageTransferX - Spawnpoint.x);
+			PosX = Spawnpoint.x + Game.TransitionShiftPlayer[0];
+			PosY = Spawnpoint.y + Game.TransitionShiftPlayer[1] - yRadius;
 		}
 		else
 		{
 			PosX = Spawnpoint.x;
-		}
-		PosY = Spawnpoint.y;
+			PosY = Spawnpoint.y - yRadius;
+		}		
 	}
 	else
 	{

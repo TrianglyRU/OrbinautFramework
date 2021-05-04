@@ -1,5 +1,11 @@
 function StageBoundariesUpdate()
 {	
+	// Limit left boundary if we've loaded from the previous act
+	if Game.StageTransitions and Stage.ActID != 0
+	{
+		LeftBoundary = Spawnpoint.x - Screen.Width / 2;
+	}
+	
 	// Check for act end object
 	if instance_exists(Signpost) 
 	{
@@ -41,7 +47,10 @@ function StageBoundariesUpdate()
 			{
 				if CameraX >= FinishX - Screen.Width * 1.5 + 64
 				{
-					LeftBoundary  = FinishX - Screen.Width * 1.5 + 64;		
+					if PlayerX >= CameraX + HalvedWidth
+					{				
+						LeftBoundary = CameraX;	
+					}
 					if FinishX + HalvedWidth <= RightBoundary
 					{
 						RightBoundary = FinishX + HalvedWidth;

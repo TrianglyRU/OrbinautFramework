@@ -1,11 +1,11 @@
 /// @description Stage Scripts
 // You can call your scripts in this editor	
 
-	// Update stage
-	StageActUpdate();
-	
 	// Handle stage music
 	StageMusicUpdate();
+	
+	// Update stage
+	StageActUpdate();
 	
 	// Update boundaries
 	StageBoundariesUpdate();

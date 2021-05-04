@@ -4,8 +4,8 @@ function ScreenCameraFollowPlayer()
 	if (!CameraEnabled) exit;
 	
 	// Update player's position on the screen
-	PlayerScreenX = floor(Player.PosX) - floor(CameraX);
-	PlayerScreenY = floor(Player.PosY) - floor(CameraY);
+	PlayerScreenX = floor(Player.PosX) - floor(RawX);
+	PlayerScreenY = floor(Player.PosY) - floor(RawY);
 	
 	// Set horizontal shift speed
 	if PlayerScreenX <= Width / 2 - 16 
@@ -20,7 +20,7 @@ function ScreenCameraFollowPlayer()
 	// Horizontal follow
 	if (PlayerScreenX >= (Width / 2) or PlayerScreenX <= (Width / 2 - 16)) and ScrollDelay == 0 
 	{ 
-		CameraX += ScrollX;
+		RawX += ScrollX;
 	}
 
 	// Set vertical shift speed
@@ -46,7 +46,7 @@ function ScreenCameraFollowPlayer()
 	{
 		if PlayerScreenY != Height / 2 - 16 
 		{
-			CameraY += ScrollY
+			RawY += ScrollY
 		}
 	} 
 	else 
@@ -54,7 +54,7 @@ function ScreenCameraFollowPlayer()
 		if PlayerScreenY < Height / 2 - 48 and Player.Ysp < 0
 		or PlayerScreenY > Height / 2 + 16 and Player.Ysp > 0 
 		{
-			CameraY += ScrollY
+			RawY += ScrollY
 		}
 	}
 }

@@ -23,7 +23,7 @@ function PaletteRendererUpdate()
 		texture_set_stage(Scrn_WetTex, Palette.PaletteSet[1][0]);
 		shader_set_uniform_f(Scrn_WetTexelSize, Palette.PaletteSet[1][1], Palette.PaletteSet[1][2]);
 		shader_set_uniform_f(Scrn_WetUVs, Palette.PaletteSet[1][3], Palette.PaletteSet[1][4], Palette.PaletteSet[1][5]);
-		shader_set_uniform_f(Scrn_Water, instance_exists(Stage) ? clamp(Screen.RenderY - Stage.WaterLevel + Game.ResolutionHeight, 0, Game.ResolutionHeight) : 0);
+		shader_set_uniform_f(Scrn_Water, instance_exists(Stage) ? clamp(Screen.CameraY - Stage.WaterLevel + Game.ResolutionHeight, 0, Game.ResolutionHeight) : 0);
 		shader_set_uniform_f(Scrn_WaterCol, 0, 72, 144);
 	}
 		

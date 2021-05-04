@@ -4,7 +4,7 @@ function ObjMonitorScript()
 	if !Destroyed
 	{
 		// Play normal animation
-		animation_play(spr_obj_itembox, 3, 1);
+		animation_play(spr_obj_itembox, 4, 1);
 		
 		// Check if player is rolling or jumping, and does not standing on the monitor
 		if (Player.Rolling or Player.Jumping) and Player.OnObject != id
@@ -67,6 +67,9 @@ function ObjMonitorScript()
 				Airborne = false;
 			}
 		}	
+		
+		// Keep card on the same y as itembox
+		ItemCardPosY = y - 3;
 	}
 	
 	// Check if monitor is destroyed

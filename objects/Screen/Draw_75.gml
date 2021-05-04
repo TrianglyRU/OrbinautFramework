@@ -3,6 +3,3 @@
 	
 	// Display debug screen
 	ScreenDebugScreenDisplay();
-	
-	// Display title card
-	ScreenTitleCardDisplay();

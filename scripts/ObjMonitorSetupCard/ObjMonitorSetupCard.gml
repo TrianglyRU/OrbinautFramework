@@ -1,5 +1,12 @@
 function ObjMonitorSetupCard()
 {
+	// Create variables
+	ItemCard	  _init;
+	ItemCardRel   _init;
+	ItemCardTimer _init;
+	ItemCardYsp	  _init;
+	ItemCardPosY  _init;
+	
 	// Exit the code if monitor type is "empty"
 	if (BoxType == "Empty") exit;
 	
@@ -7,7 +14,7 @@ function ObjMonitorSetupCard()
 	ItemCard	 = object_spawn(x, y - 3, PowerupCard);
 	ItemCardPosY = ItemCard.y;
 	
-	// Render object behind player
+	// Render object behind itembox
 	with ItemCard object_set_depth(id, false);
 	
 	// Define card to display

@@ -13,7 +13,8 @@ function _StageVariables()
 	TimeEnabled     _init;
 	Time            _init;
 	CardEnabled	    _init;
-	CardName	    _init;
+	CardNameTop	    _init;
+	CardNameBottom  _init;
 	StageMusic		_init;
 	StageMusicDAC   _init;
 	LoopStart       _init;

@@ -1,8 +1,8 @@
 function ScreenInterfaceDisplay() 
 {	
 	// Get position for our HUD
-	var ScreenX = RenderX + InterfaceOffsetX;
-	var ScreenY = RenderY + InterfaceOffsetY;
+	var ScreenX = CameraX + InterfaceOffsetX;
+	var ScreenY = CameraY + InterfaceOffsetY;
 	
 	if keyboard_check_pressed(vk_space) Stage.Time += 300
 	// Handle timer

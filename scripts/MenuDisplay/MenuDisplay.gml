@@ -168,7 +168,8 @@ function MenuDisplay()
 		{
 			draw_set_halign(fa_left);
 			string_display(X - 80, Y - 15, "GEMSTONE VALLEY", 1);
-			string_display(X - 80, Y, "BACK", 1);			
+			string_display(X - 80, Y,	   "GEMSTONE VALLEY 2", 1);
+			string_display(X - 80, Y + 15, "BACK", 1);			
 		}
 		break;
 	}

@@ -3,8 +3,9 @@ function StageActUpdate()
 	// Reset stage transition data
 	if Game.StageTransitions and State == ActStateDefault
 	{
-		Game.StageTransferX = 0;
-		Game.StageTransferY = 0;
+		Game.TransitionShiftPlayer[0] = 0;
+		Game.TransitionShiftPlayer[1] = 0;
+		Game.TransitionShiftCamera    = 0;
 	}
 	
 	// Restart the act upon player death
@@ -14,7 +15,7 @@ function StageActUpdate()
 		CameraEnabled = false;
 		TimeEnabled   = false;
 		
-		if floor(Player.PosY) > Screen.RenderY + Screen.Height + 128
+		if floor(Player.PosY) > Screen.CameraY + Screen.Height + 128
 		{
 			State	   = ActStateRestart;
 			StateTimer = 0;
@@ -57,7 +58,7 @@ function StageActUpdate()
 		}
 		
 		// If timer reached its limit, check if player is grounded
-		else if Player.Grounded
+		else if Player.Grounded and StateTimer != -1
 		{
 			// Stop player and disable input
 			Player.Xsp        = 0;
@@ -65,9 +66,27 @@ function StageActUpdate()
 			Player.Inertia    = 0;	
 			Input.IgnoreInput = true;
 			Input.ResetInput  = true;
+			
+			// Play results music
+			audio_bgm_play(ActClear, -1, -1);
 
 			// Trigger results
 			StateTimer = -1;
+		}
+		
+		// Get stage transition data
+		if Game.StageTransitions and Stage.ActID != Stage.FinalActID
+		{
+			Game.TransitionShiftPlayer[0] = floor(Player.PosX) - (Screen.CameraX + Screen.Width / 2);
+			Game.TransitionShiftPlayer[1] = floor(Player.PosY + Player.yRadius) - (Signpost.y + 24);
+			Game.TransitionShiftCamera    = floor(Player.PosY) - Screen.CameraY;
+			
+			// Shift player 1 pixel forwars if they are standing directly at sign's x coordnate
+			// That might sound kinda /*FIX ME*/ but whatever
+			if Game.TransitionShiftPlayer[0] == 0
+			{
+				Game.TransitionShiftPlayer[0] = 1
+			}
 		}
 	}
 	

@@ -36,7 +36,7 @@ function ScreenDebugActivate()
 		draw_set_colour(c_black);
 
 		// Darken the screen
-		draw_rectangle(Screen.RenderX, Screen.RenderY, Screen.RenderX + Screen.Width, Screen.RenderY + Screen.Height, false);
+		draw_rectangle(Screen.CameraX, Screen.CameraY, Screen.CameraX + Screen.Width, Screen.CameraY + Screen.Height, false);
 	
 		// Set new draw alpha
 		draw_set_alpha(1.0);

@@ -70,7 +70,7 @@ function StageMusicUpdate()
 		audio_bgm_stop(SpeedupPowerup,    1);
 		audio_bgm_stop(InvinciblePowerup, 1);
 	}
-	
+
 	// Mute DAC channel if main stage music doesn't play at its volume
 	if StageMusicDAC != noone 
 	{
@@ -82,5 +82,5 @@ function StageMusicUpdate()
 		{
 			audio_bgm_fadein(StageMusicDAC, 0);
 		}
-	}	
+	}
 }

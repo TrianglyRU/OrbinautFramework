@@ -4,7 +4,7 @@ function _GameMacros()
 	make it more practical. We could use emums in that case, but macros are easier */
 	
 	// Game macro
-	#macro _init	     = 0
+	#macro _init	     =0
 	#macro Game		     global	
 	#macro FontDebug     0
 	#macro FontDigits1   1

@@ -12,4 +12,4 @@
 	}
 	
 	// Do solid collision
-	object_do_collision(SolidAll, false);
+	object_act_solid(true, true, true, false);

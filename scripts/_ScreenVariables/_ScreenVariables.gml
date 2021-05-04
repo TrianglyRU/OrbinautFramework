@@ -11,10 +11,10 @@ function _ScreenVariables()
 	
 	PlayerScreenX	   _init;
 	PlayerScreenY	   _init;
+	RawX			   _init;
+	RawY			   _init;
 	CameraX			   _init;
 	CameraY			   _init;
-	RenderX			   _init;
-	RenderY			   _init;
 	ScrollX			   _init;
 	ScrollY			   _init;
 	ScrollDelay		   _init;

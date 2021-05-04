@@ -2,8 +2,8 @@
 function background_set_parallax(ofstX, ofstY, scrlX, scrlY, scrlAuto, top, height, incHeight, incForce)
 {		
 	// Set variables
-	var DrawX = Screen.RenderX;
-	var DrawY = floor(Screen.RenderY * scrlY) + top + ofstY;
+	var DrawX = Screen.CameraX;
+	var DrawY = floor(Screen.CameraY * scrlY) + top + ofstY;
 
 	// Set shader uniforms
 	shader_set_uniform_f(Prlx_XOfst, (DrawX * scrlX) - scrlAuto);

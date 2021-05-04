@@ -38,8 +38,9 @@ function _GameVariables()
 	Game.SmoothRotation			 _init;
 	Game.RichPresenceSupport	 _init;
 	Game.StageTransitions		 _init;
-	Game.StageTransferX			 _init;
-	Game.StageTransferY			 _init;
+	Game.TransitionShiftPlayer[0]_init;
+	Game.TransitionShiftPlayer[1]_init;
+	Game.TransitionShiftCamera   _init;
 	Game.FadeEnabled			 _init;
 	Game.PaletteSet				 _init;
 	Game.PalIndex				 _init;

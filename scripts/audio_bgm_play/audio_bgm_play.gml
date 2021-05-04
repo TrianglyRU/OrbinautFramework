@@ -8,7 +8,7 @@ function audio_bgm_play(musicID, endAt, returnTo)
 	}
 	else if returnTo != -1
 	{
-		if audio_sound_get_track_position(Game.loopTrack[musicID]) > endAt
+		if audio_sound_get_track_position(Game.loopTrack[musicID]) >= endAt
 		{
 			audio_sound_set_track_position(Game.loopTrack[musicID], returnTo);
 		}

@@ -1,6 +1,6 @@
 function ScreenCameraSetup() 
 {
-	// Disable camera movement
+	// Enable camera movement
 	CameraEnabled = false;
 	
 	// Set width and height values
@@ -8,15 +8,19 @@ function ScreenCameraSetup()
 	Height = Game.ResolutionHeight;
 
 	// Set default position
-	if Game.StageTransitions and Game.StageTransferX != 0 and Game.StageTransferY != 0
+	if Game.StageTransitions and Game.TransitionShiftCamera != 0
 	{
-		CameraX = floor(Player.PosX) - Game.StageTransferX;
-		CameraY = floor(Player.PosY) - Game.StageTransferY;
+		RawX    = floor(Player.PosX) - Game.TransitionShiftPlayer[0] - Screen.Width / 2;
+		RawY    = floor(Player.PosY) - Game.TransitionShiftCamera;
+		CameraX = RawX;
+		CameraY = RawY;
 	}
 	else
 	{
-		CameraX = floor(Player.PosX) - Width  / 2;
-		CameraY = floor(Player.PosY) - Height / 2 + 12;
+		RawX    = floor(Player.PosX) - Width  / 2;
+		RawY    = floor(Player.PosY) - Height / 2 + 12;
+		CameraX = RawX;
+		CameraY = RawY;
 	}
 	
 	// Set maximum and minimum limits

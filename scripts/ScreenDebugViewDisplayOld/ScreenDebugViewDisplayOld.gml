@@ -32,7 +32,7 @@ function ScreenDebugViewDisplayOld()
 	{
 		// Darken the screen
 		draw_set_alpha(0.35);
-		draw_rectangle_colour(Screen.RenderX, Screen.RenderY, Screen.RenderX + Screen.Width, Screen.RenderY + Screen.Height, c_black, c_black, c_black, c_black, false);
+		draw_rectangle_colour(Screen.CameraX, Screen.CameraY, Screen.CameraX + Screen.Width, Screen.CameraY + Screen.Height, c_black, c_black, c_black, c_black, false);
 		draw_set_alpha(1);
 		
 		// Draw solidboxes

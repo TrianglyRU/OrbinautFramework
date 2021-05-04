@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Call-only",
+    "path": "folders/Objects/Global/Call-only.yy",
   },
   "resourceVersion": "1.0",
   "name": "Star",

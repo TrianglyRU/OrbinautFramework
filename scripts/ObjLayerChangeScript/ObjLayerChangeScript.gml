@@ -1,10 +1,7 @@
 function ObjLayerChangeScript()
 {
-	// Adjust triggerbox based on player's speed
-	object_set_triggerbox(-8 - abs(Player.Xsp / 2), 8 + abs(Player.Xsp / 2), -32, 32)
-
 	// Check if player is inside the triggerbox
-	if object_player_overlap(CollisionTriggerbox)
+	if object_player_overlap(CollisionHitbox)
 	{
 		// Check for GroundOnly flag
 		if GroundOnly and !Player.Grounded exit;

@@ -333,8 +333,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "HUD",
-    "path": "folders/HUD.yy",
+    "name": "_HUD",
+    "path": "folders/_HUD.yy",
   },
   "resourceVersion": "1.0",
   "name": "fontTexture_Debug",

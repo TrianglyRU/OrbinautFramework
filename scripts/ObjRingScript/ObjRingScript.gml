@@ -88,7 +88,7 @@ function ObjRingScript()
 		// Check if ring is outside the camera X view
 		if Game.RingsBoundDespawn
 		{
-			if x < Screen.RenderX - 8 or x > Screen.RenderX + Screen.Width + 8
+			if x < Screen.CameraX - 8 or x > Screen.CameraX + Screen.Width + 8
 			{
 				// Delete it
 				instance_destroy(self);

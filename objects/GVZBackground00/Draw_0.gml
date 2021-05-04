@@ -4,8 +4,15 @@
 	// Initialize shader for this object
 	background_use_parallax();
 	
-	variable_set_temp("scroll");
-	scroll -= 0.02;
+	if Stage.State == ActStateLoading
+	{
+		scroll = 0;
+	}
+	//variable_set_temp("scroll");
+	if Stage.State != ActStateLoading and Stage.State != ActStateRestart and Stage.State != ActStateUnload
+	{
+		scroll -= 0.02;
+	}
 	
 	// Perform parallax
 	background_set_parallax(0, 0, 0.01, 1, 0, 0, 117, 0, 0);
