@@ -1,6 +1,9 @@
 /// @function object_player_overlap(collisionType)
 function object_player_overlap(collisionType)
-{
+{	
+	// Exit the code if collision is disabled
+	if (!Player.AllowCollision) exit;
+	
 	// Check for hitbox overlap
 	if collisionType == CollisionHitbox
 	{

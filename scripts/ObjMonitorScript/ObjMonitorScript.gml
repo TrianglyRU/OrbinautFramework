@@ -44,6 +44,39 @@ function ObjMonitorScript()
 					Player.Ysp = -Player.Ysp;
 				}
 			}
+			
+			// Check for hitbox overlap
+			if object_player_overlap_ai(CollisionHitbox)
+			{
+				// Check if player is moving downwards
+				if AI.Ysp >= 0
+				{
+					// Inverse player's yspeed if not grounded
+					if (!AI.Grounded) AI.Ysp = -AI.Ysp;
+					
+					// Spawn explosion and play its sound
+					object_spawn(floor(x), floor(y), ExplosionFX);
+					audio_sfx_play(sfxDestroy, false, false);
+					
+					// Update 'destroyed' flag
+					Destroyed = true;
+					
+					// Shake the camera
+					Screen.ShakeTime     = 6;
+					Screen.ShakeStrength = 3;
+					
+					// Exit further code
+					exit;
+				}
+					
+				// Bounce monitor up if player is moving upwards
+				else if floor(AI.PosY - 16) >= floor(y)
+				{
+					Airborne   = true;
+					Ysp        = -1.5;
+					AI.Ysp     = -AI.Ysp;
+				}
+			}
 		}
 		
 		// Do solid collision

@@ -1,6 +1,9 @@
 /// @function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 {
+	// Act as solid for AI as well
+	object_act_solid_ai(collideSides, collideTop, collideBottom, collisionMap);
+	
 	// Exit the code if no solid radiuses were initialized for this object
 	if (!variable_instance_exists(id, "objXRadiusSolid")) exit;
 
@@ -230,7 +233,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							}
 							Player.Xsp = 0;
 						}
-						Player.PosX   -= playerRight - objectLeft;
+						Player.PosX -= playerRight - objectLeft;
 					}
 				}
 			}

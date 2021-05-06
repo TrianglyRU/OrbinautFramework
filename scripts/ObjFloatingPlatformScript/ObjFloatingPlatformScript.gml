@@ -61,5 +61,5 @@ function ObjFloatingPlatformScript()
 	y = floor(PosY + Weight);
 	
 	// Do collision
-	object_do_collision(SolidTop, false);
+	object_act_solid(false, true, false, false);
 }

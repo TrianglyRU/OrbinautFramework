@@ -78,7 +78,7 @@ function StageActUpdate()
 		if Game.StageTransitions and Stage.ActID != Stage.FinalActID
 		{
 			Game.TransitionShiftPlayer[0] = floor(Player.PosX) - (Screen.CameraX + Screen.Width / 2);
-			Game.TransitionShiftPlayer[1] = floor(Player.PosY + Player.yRadius) - (Signpost.y + 24);
+			Game.TransitionShiftPlayer[1] = floor(Player.PosY  + Player.yRadius) - (Signpost.y + 24);
 			Game.TransitionShiftCamera    = floor(Player.PosY) - Screen.CameraY;
 			
 			// Shift player 1 pixel forwars if they are standing directly at sign's x coordnate

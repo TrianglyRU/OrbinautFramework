@@ -39,10 +39,10 @@ function ScreenDebugViewDisplayOld()
 		if DebugSolids
 		{
 			// Draw player's solidbox
-			var pLeft   = floor(Player.PosX - 10);
-			var pRight  = floor(Player.PosX + 10);
-			var pTop    = floor(Player.PosY - Player.yRadius);
-			var pBottom = floor(Player.PosY + Player.yRadius);
+			var pLeft   = floor(PosX - 10);
+			var pRight  = floor(PosX + 10);
+			var pTop    = floor(PosY - yRadius);
+			var pBottom = floor(PosY + yRadius);
 			draw_set_alpha(0.5);
 			draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $00ffff, $00ffff, $00ffff, $00ffff, false);
 			
@@ -77,7 +77,7 @@ function ScreenDebugViewDisplayOld()
 				if variable_instance_exists(id, "isCollidable") and isCollidable == true
 				{
 					draw_set_alpha(0.8);
-					if objType == SolidAll and Player.OnObject == id
+					if objType == SolidAll and OnObject == id
 					{
 						draw_line_colour(x - objXRadiusSolid - 11, y - objYRadiusSolid - 20, x + objXRadiusSolid + 9, y - objYRadiusSolid - 20, $00ff00, $00ff00);
 					}
@@ -94,19 +94,19 @@ function ScreenDebugViewDisplayOld()
 		if DebugHitboxes
 		{
 			// Draw player's hitbox
-			if Player.Animation == AnimCrouch or Player.Animation == AnimSpindash
+			if Animation == AnimCrouch or Animation == AnimSpindash
 			{
-				var pTop    = floor(Player.PosY + 2);
-				var pLeft   = floor(Player.PosX - 8);
-				var pRight  = floor(Player.PosX + 8);
-				var pBottom = floor(Player.PosY + 22);	
+				var pTop    = floor(PosY + 2);
+				var pLeft   = floor(PosX - 8);
+				var pRight  = floor(PosX + 8);
+				var pBottom = floor(PosY + 22);	
 			}
 			else
 			{
-				var pLeft   = floor(Player.PosX - 8);
-				var pRight  = floor(Player.PosX + 8);			     
-				var pTop	= floor(Player.PosY - Player.yRadius + 3);
-				var pBottom = floor(Player.PosY + Player.yRadius - 3);
+				var pLeft   = floor(PosX - 8);
+				var pRight  = floor(PosX + 8);			     
+				var pTop	= floor(PosY - yRadius + 3);
+				var pBottom = floor(PosY + yRadius - 3);
 			}
 			draw_set_alpha(0.5);
 			draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
@@ -133,38 +133,38 @@ function ScreenDebugViewDisplayOld()
 			if DebugSensors
 			{
 				draw_set_colour($00ff00);
-				if Player.Grounded
+				if Grounded
 				{
-					if !Player.OnObject
+					if !OnObject
 					{
-						switch Player.FloorRange
+						switch FloorRange
 						{
 							case RangeFloor:
 							{
-								draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY + Player.yRadius));							
-								draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY + Player.yRadius));
-								if Player.Inertia == 0
+								draw_point(floor(PosX - xRadius), floor(PosY + yRadius));							
+								draw_point(floor(PosX + xRadius), floor(PosY + yRadius));
+								if Inertia == 0
 								{
-									draw_point(floor(Player.PosX), floor(Player.PosY + Player.yRadius));
+									draw_point(floor(PosX), floor(PosY + yRadius));
 								}
 							}
 							break;
 							case RangeRWall:
 							{
-								draw_point(floor(Player.PosX + Player.yRadius), floor(Player.PosY + Player.xRadius));
-								draw_point(floor(Player.PosX + Player.yRadius), floor(Player.PosY - Player.xRadius));
+								draw_point(floor(PosX + yRadius), floor(PosY + xRadius));
+								draw_point(floor(PosX + yRadius), floor(PosY - xRadius));
 							}
 							break;
 							case RangeRoof:
 							{
-								draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY - Player.yRadius));
-								draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY - Player.yRadius));
+								draw_point(floor(PosX - xRadius), floor(PosY - yRadius));
+								draw_point(floor(PosX + xRadius), floor(PosY - yRadius));
 							}
 							break;
 							case RangeLWall:
 							{
-								draw_point(floor(Player.PosX - Player.yRadius), floor(Player.PosY + Player.xRadius));
-								draw_point(floor(Player.PosX - Player.yRadius), floor(Player.PosY - Player.xRadius));
+								draw_point(floor(PosX - yRadius), floor(PosY + xRadius));
+								draw_point(floor(PosX - yRadius), floor(PosY - xRadius));
 							}
 							break;
 						}
@@ -172,56 +172,56 @@ function ScreenDebugViewDisplayOld()
 					
 					// We do not shift wall sensors for debug because there is no reason to do this, since player has moved already
 					draw_set_colour($ff00ff);
-					if (Player.Angle < 90 or Player.Angle > 270 or Game.ExtensiveWallCollision and Player.Angle mod 90 == 0)
+					if (Angle < 90 or Angle > 270 or Game.ExtensiveWallCollision and Angle mod 90 == 0)
 					{	
-						if Player.Inertia < 0
+						if Inertia < 0
 						{
-							switch Player.WallRange
+							switch WallRange
 							{
 								case RangeFloor:
 								{
-									draw_point(floor(Player.PosX - 10), floor(Player.PosY + 8 * (Player.Angle == 360)));
+									draw_point(floor(PosX - 10), floor(PosY + 8 * (Angle == 360)));
 								}
 								break;
 								case RangeRWall:
 								{
-									draw_point(floor(Player.PosX), floor(Player.PosY + 10));
+									draw_point(floor(PosX), floor(PosY + 10));
 								}
 								break;
 								case RangeRoof:
 								{
-									draw_point(floor(Player.PosX + 10), floor(Player.PosY));
+									draw_point(floor(PosX + 10), floor(PosY));
 								}
 								break;
 								case RangeLWall:
 								{
-									draw_point(floor(Player.PosX), floor(Player.PosY - 10));
+									draw_point(floor(PosX), floor(PosY - 10));
 								}
 								break;
 							}
 						}
-						else if Player.Inertia > 0
+						else if Inertia > 0
 						{
-							switch Player.WallRange
+							switch WallRange
 							{
 								case RangeFloor:
 								{
-									draw_point(floor(Player.PosX + 10), floor(Player.PosY + 8 * (Player.Angle == 360)));
+									draw_point(floor(PosX + 10), floor(PosY + 8 * (Angle == 360)));
 								}
 								break;
 								case RangeRWall:
 								{
-									draw_point(floor(Player.PosX), floor(Player.PosY - 10));
+									draw_point(floor(PosX), floor(PosY - 10));
 								}
 								break;
 								case RangeRoof:
 								{
-									draw_point(floor(Player.PosX - 10), floor(Player.PosY));
+									draw_point(floor(PosX - 10), floor(PosY));
 								}
 								break;
 								case RangeLWall:
 								{
-									draw_point(floor(Player.PosX), floor(Player.PosY + 10));
+									draw_point(floor(PosX), floor(PosY + 10));
 								}
 								break;
 							}
@@ -231,25 +231,25 @@ function ScreenDebugViewDisplayOld()
 				else
 				{
 					draw_set_colour($00ff00);
-					if Player.Ysp > 0 or abs(Player.Xsp) > abs(Player.Ysp)
+					if Ysp > 0 or abs(Xsp) > abs(Ysp)
 					{
-						draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY + Player.yRadius));
-						draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY + Player.yRadius));
+						draw_point(floor(PosX - xRadius), floor(PosY + yRadius));
+						draw_point(floor(PosX + xRadius), floor(PosY + yRadius));
 					}
 					draw_set_colour($ffff00);
-					if Player.Ysp < 0 or abs(Player.Xsp) > abs(Player.Ysp)
+					if Ysp < 0 or abs(Xsp) > abs(Ysp)
 					{
-						draw_point(floor(Player.PosX - Player.xRadius), floor(Player.PosY - Player.yRadius));
-						draw_point(floor(Player.PosX + Player.xRadius), floor(Player.PosY - Player.yRadius));
+						draw_point(floor(PosX - xRadius), floor(PosY - yRadius));
+						draw_point(floor(PosX + xRadius), floor(PosY - yRadius));
 					}
 					draw_set_colour($ff00ff);
-					if !(Player.Xsp > abs(Player.Ysp))
+					if !(Xsp > abs(Ysp))
 					{
-						draw_point(floor(Player.PosX - 10), floor(Player.PosY));
+						draw_point(floor(PosX - 10), floor(PosY));
 					}
-					if !(-Player.Xsp > abs(Player.Ysp))
+					if !(-Xsp > abs(Ysp))
 					{
-						draw_point(floor(Player.PosX + 10), floor(Player.PosY));
+						draw_point(floor(PosX + 10), floor(PosY));
 					}
 				}
 			}

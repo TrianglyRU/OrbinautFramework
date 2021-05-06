@@ -1,6 +1,6 @@
 /// @function object_damage(isBadnik, isProjectile, instantKill)
 function object_damage(isBadnik, isProjectile, instantKill)
-{
+{	
 	// Check if this object is Badnik
 	if isBadnik
 	{

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+    "name": "Player Scripts",
+    "path": "folders/Game Scripts/Player Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "_OLD_object_do_collision",
+  "name": "PlayerCheckFly",
   "tags": [],
   "resourceType": "GMScript",
 }

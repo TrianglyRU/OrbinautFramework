@@ -17,7 +17,7 @@ function ObjCapsuleScript()
 			case 0:
 			{
 				// Do collision
-				object_do_collision(SolidAll, false);
+				object_act_solid(true, true, true, false);
 				
 				// Check if button has been pressed
 				if PartButton.Pressed
@@ -33,7 +33,7 @@ function ObjCapsuleScript()
 			case 1: 
 			{
 				// Do collision
-				object_do_collision(SolidAll, false);
+				object_act_solid(true, true, true, false);
 				
 				// Spawn explosions for 60 frames
 				if Timer
@@ -72,7 +72,7 @@ function ObjCapsuleScript()
 			case 2:
 			{
 				// Disable collisions
-				object_do_collision(SolidNone, false);
+				object_act_solid(false, false, false, false);
 				
 				// Spawn animals for 180 frames
 				if Timer 

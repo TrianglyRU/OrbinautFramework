@@ -1,15 +1,15 @@
 function ObjRingSetup()
 {	
-	PosX  = x;
-	PosY  = y;
-	Xsp   = 0;
-	Ysp   = 0;
-	Grv   = 0.09375;
-	Timer = 256
-	
-	Physical = false;
-	CollisionCheck = 0;
-	PickupTimeout = 0;
+	// Create variables
+	PosX		   _init;
+	PosY		   _init;
+	Xsp			   _init;
+	Ysp			   _init;
+	Grv			   _init;
+	Timer		   _init;
+	Physical       _init;
+	CollisionCheck _init;
+	PickupTimeout  _init;
 	
 	// Set object hitbox
 	object_set_hitbox(6, 6);
@@ -19,4 +19,11 @@ function ObjRingSetup()
 	
 	// Render behind the player
 	object_set_depth(Player, false);
+	
+	// Set default values
+	PosX     = x;
+	PosY     = y;
+	Timer    = 256;
+	Grv      = 0.09375;
+	Physical = false;
 }

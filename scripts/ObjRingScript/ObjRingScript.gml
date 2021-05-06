@@ -9,7 +9,7 @@ function ObjRingScript()
 		// Decrease 'can't collect' timer
 		if (PickupTimeout) PickupTimeout--;
 		
-		// Do timer stuff
+		// Do other timer stuff
 		CollisionCheck++;		
 		Timer--;
 		
@@ -40,7 +40,7 @@ function ObjRingScript()
 		y = floor(PosY);
 		
 		// Do tile collision every four frames when falling down
-		if (CollisionCheck mod 4 == 0 and Ysp > 0 or Game.RingsPreciseCollision) 
+		if CollisionCheck mod 4 == 0 and Ysp > 0 or Game.RingsPreciseCollision 
 		{
 			// Check if ring found the tile & collide
 			var findFloor = object_collide_tiles_v(false, SideBottom, 0, Player.Layer);
@@ -110,6 +110,7 @@ function ObjRingScript()
 	
 	// Check for hitbox collision
 	if object_player_overlap(CollisionHitbox)
+	or object_player_overlap_ai(CollisionHitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;

@@ -1,7 +1,7 @@
 function ObjYellowSpringHScript()
 {
 	// Do collision
-	object_do_collision(SolidAll, false);
+	object_act_solid(true, true, true, false);
 	
 	// Define launch side
 	var launchSide = image_xscale ? SideRight : SideLeft;
@@ -16,6 +16,25 @@ function ObjYellowSpringHScript()
 			Player.Facing		= image_xscale;	
 			Player.Xsp			= image_xscale * 10;
 			Player.Inertia		= Player.Xsp;
+			
+			// Play sound
+			audio_sfx_play(sfxSpring, false, true);
+			
+			// Start animation
+			animation_set_frame(id, 2);
+		}
+	}
+	
+	// Check if AI is touching launch side
+	if AI.Grounded
+	{
+		if object_player_touch_ai(launchSide)
+		{
+			// Launch player
+			AI.MovementLock = 16;
+			AI.Facing		= image_xscale;	
+			AI.Xsp			= image_xscale * 10;
+			AI.Inertia		= AI.Xsp;
 			
 			// Play sound
 			audio_sfx_play(sfxSpring, false, true);

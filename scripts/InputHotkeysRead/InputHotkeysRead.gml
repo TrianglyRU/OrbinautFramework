@@ -78,4 +78,43 @@ function InputHotkeysRead()
 			window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
 		}	
 	}
+	
+	if keyboard_check_pressed(vk_f7)
+	{
+		Game.ResolutionWidth  = 320;
+		Game.ResolutionHeight = 224;
+		
+		Screen.Width = Game.ResolutionWidth;
+		Screen.Height = Game.ResolutionHeight;
+		
+		show_debug_message("Change?");
+		
+		// Adjust room viewport to our resolution
+		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
+		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
+	}
+	if keyboard_check_pressed(vk_f8)
+	{
+		Game.ResolutionWidth  = 398;
+		Game.ResolutionHeight = 224;
+		
+		Screen.Width = Game.ResolutionWidth;
+		Screen.Height = Game.ResolutionHeight;
+		
+		// Adjust room viewport to our resolution
+		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
+		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
+	}
+	if keyboard_check_pressed(vk_f9)
+	{
+		Game.ResolutionWidth  = 426;
+		Game.ResolutionHeight = 240;
+		
+		Screen.Width = Game.ResolutionWidth;
+		Screen.Height = Game.ResolutionHeight;
+		
+		// Adjust room viewport to our resolution
+		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
+		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
+	}
 }

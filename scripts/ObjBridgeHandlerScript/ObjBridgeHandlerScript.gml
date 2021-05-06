@@ -1,11 +1,24 @@
 function ObjBridgeHandlerScript()
 {
-    // Get a log number player is standing on
-    var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
-    var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
-    
-    // Set a recovery angle by checking if player is standing on any log of this bridge
+	// Get player's and AI position withtin the bridge
+	var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
+	var AIPosition     = (floor(AI.PosX) - (x - 8) + 16) div 16;
+	
+    // Check who is closer to the centre of the bridge
+	if abs(floor(BridgeLength / 2) - PlayerPosition) < abs(floor(BridgeLength / 2) - AIPosition)
+	{
+		// Use segment player is standing on
+		var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
+	}
+	else
+	{
+		// Use segment AI is standing on
+		var CurrentSegment = clamp(AIPosition, 1, BridgeLength);
+	}
+	
+    // Set a recovery angle by checking if player or AI is standing on any log of this bridge
     if ds_list_find_index(LogID, Player.OnObject) >= 0
+    or ds_list_find_index(LogID, AI.OnObject) >= 0
     {    
         if (RecoveryAngle < 90) RecoveryAngle += 5.625;
     } 
@@ -17,7 +30,10 @@ function ObjBridgeHandlerScript()
     // Check for stepping onto the bridge
     else 
     {
-        with (BridgeLog) object_do_collision(SolidTop, false);
+        with BridgeLog
+		{
+			object_act_solid(false, true, false, false);
+		}
         exit; 
     } 
 
@@ -47,8 +63,12 @@ function ObjBridgeHandlerScript()
     }
     
     // Do collision with the bridge
-    with (BridgeLog) object_do_collision(SolidTop, false);
+    with BridgeLog 
+	{
+		object_act_solid(false, true, false, false);
+	}
         
     // Force-disable balancing
     Player.Balancing = false;
+    AI.Balancing = false;
 }

@@ -48,6 +48,13 @@
 	// Check for hitbox overlap
 	if object_player_overlap(CollisionHitbox)
 	{
-		// Do damage or be destroyed
+		// Damage player or be destroyed
 		object_damage(true, false, false);
+	}
+	
+	// Check for hitbox overlap
+	if object_player_overlap_ai(CollisionHitbox)
+	{
+		// Damage player or be destroyed
+		object_damage_ai(true, false, false);
 	}
