@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen Scripts",
-    "path": "folders/Game Scripts/Screen Scripts.yy",
+    "name": "Screen",
+    "path": "folders/Game Controllers/Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "ScreenDebugScreenDisplay",

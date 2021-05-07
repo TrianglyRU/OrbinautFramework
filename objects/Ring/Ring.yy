@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_ring",
-    "path": "sprites/spr_ring/spr_ring.yy",
+    "name": "spr_obj_ring",
+    "path": "sprites/spr_obj_ring/spr_obj_ring.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Global",
-    "path": "folders/Objects/Global.yy",
+    "name": "Ring",
+    "path": "folders/Game Objects/Ring.yy",
   },
   "resourceVersion": "1.0",
   "name": "Ring",

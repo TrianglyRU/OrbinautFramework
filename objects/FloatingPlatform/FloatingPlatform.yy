@@ -44,8 +44,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Global",
-    "path": "folders/Objects/Global.yy",
+    "name": "Floating Platform",
+    "path": "folders/Game Objects/Floating Platform.yy",
   },
   "resourceVersion": "1.0",
   "name": "FloatingPlatform",

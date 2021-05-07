@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "spr_flicky",
-    "path": "sprites/spr_flicky/spr_flicky.yy",
+    "name": "spr_obj_animal_flicky",
+    "path": "sprites/spr_obj_animal_flicky/spr_obj_animal_flicky.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Objects",
+    "path": "objects/Objects/Objects.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,16 +24,14 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":40,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":7,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Call-only",
-    "path": "folders/Objects/Global/Call-only.yy",
+    "name": "Animal",
+    "path": "folders/Game Objects/Animal.yy",
   },
   "resourceVersion": "1.0",
   "name": "Animal",

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Object Scripts",
-    "path": "folders/Object Scripts.yy",
+    "name": "Explosion",
+    "path": "folders/Game Objects/Explosion.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjExplosionScript",

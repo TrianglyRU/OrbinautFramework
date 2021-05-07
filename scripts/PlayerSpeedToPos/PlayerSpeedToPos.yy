@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Player Scripts",
-    "path": "folders/Game Scripts/Player Scripts.yy",
+    "name": "Player",
+    "path": "folders/Game Controllers/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "PlayerSpeedToPos",

@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Player",
+    "path": "folders/Game Controllers/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "Player",

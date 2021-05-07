@@ -23,7 +23,7 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.3;
+	Game.MusicVolume = 0.1;
 	Game.SoundVolume = 0.3;
 	
 	// Control settings (keyboard)

@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Global/Sprites.yy",
+    "path": "folders/Game Objects/Lamppost/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_lamppost",

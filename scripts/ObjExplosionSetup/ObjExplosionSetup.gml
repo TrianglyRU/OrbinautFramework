@@ -1,8 +1,5 @@
 function ObjExplosionSetup()
 {
-	// Set object visibility
-	object_set_visibility(false);
-	
-	// Set object depth
+	// Render above the player
 	object_set_depth(Player, true);
 }

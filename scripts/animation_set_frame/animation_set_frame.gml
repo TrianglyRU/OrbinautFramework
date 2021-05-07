@@ -1,4 +1,6 @@
-function animation_set_frame(objectID, frameNumber)
+/// @function animation_set_frame(spriteID, frameNumber)
+function animation_set_frame(spriteID, frameNumber)
 {
-	objectID.image_index = frameNumber - 1;
+	id.sprite_index = spriteID;
+	id.image_index  = frameNumber - 1;
 }

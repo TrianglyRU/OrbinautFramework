@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Menu Scripts",
-    "path": "folders/Game Scripts/Menu Scripts.yy",
+    "name": "Menu",
+    "path": "folders/Game Controllers/Menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "_MenuVariables",

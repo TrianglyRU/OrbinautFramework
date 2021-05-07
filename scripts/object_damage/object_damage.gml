@@ -10,8 +10,9 @@ function object_damage(isBadnik, isProjectile, instantKill)
 			// Delete Badnik
 			instance_destroy(self);
 			
-			// Spawn explosion and play sound
-			object_spawn(floor(x), floor(y), ExplosionFX);
+			// Spawn explosion, animal and play sound
+			object_spawn(floor(x), floor(y), Animal);
+			object_spawn(floor(x), floor(y), DustExplosion);
 			audio_sfx_play(sfxDestroy, false, false);
 			
 			// Make player bounce if they are airborne

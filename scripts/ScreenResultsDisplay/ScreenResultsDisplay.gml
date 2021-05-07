@@ -14,7 +14,7 @@ function ScreenResultsDisplay()
 			{
 				switch Stage.Time div 1800
 				{
-					case 0:			TimeBonus = 100; break;
+					case 0:			TimeBonus = 50000; break;
 					case 1:			TimeBonus = 5000;  break;
 					case 2:			TimeBonus = 4000;  break;
 					case 3:			TimeBonus = 3000;  break;

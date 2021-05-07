@@ -14,7 +14,7 @@ function object_damage_ai(isBadnik, isProjectile, instantKill)
 			instance_destroy(self);
 			
 			// Spawn explosion and play sound
-			object_spawn(floor(x), floor(y), ExplosionFX);
+			object_spawn(floor(x), floor(y), FireExplosion);
 			audio_sfx_play(sfxDestroy, false, false);
 			
 			// Make player bounce if they are airborne

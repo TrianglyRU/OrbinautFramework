@@ -1,14 +1,17 @@
 function ObjExplosionScript()
 {
-	// Make visible
-	if Init
+	// Play animation
+	if animation_get_frame(id) == 1
 	{
-		object_set_visibility(true);
+		animation_play(sprite_index, 6, 6);
 	}
-	Init = true; 
+	else if animation_get_frame(id) < 6
+	{
+		animation_play(sprite_index, 8, 6);
+	}
 	
-	// Destroy
-	if image_index == image_number - 1
+	// Destroy on the very last frame
+	else
 	{
 		instance_destroy();
 	}

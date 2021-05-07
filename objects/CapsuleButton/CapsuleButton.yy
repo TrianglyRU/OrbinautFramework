@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Call-only",
-    "path": "folders/Objects/Global/Call-only.yy",
+    "name": "Game Objects",
+    "path": "folders/Game Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "CapsuleButton",

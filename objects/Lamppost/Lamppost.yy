@@ -33,8 +33,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Global",
-    "path": "folders/Objects/Global.yy",
+    "name": "Lamppost",
+    "path": "folders/Game Objects/Lamppost.yy",
   },
   "resourceVersion": "1.0",
   "name": "Lamppost",

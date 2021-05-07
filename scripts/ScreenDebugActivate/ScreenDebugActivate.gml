@@ -31,19 +31,14 @@ function ScreenDebugActivate()
 	// Check if general debugging is enabled
 	if DebugToggle
 	{
-		// Set draw colour and alpha
-		draw_set_alpha(0.35);
-		draw_set_colour(c_black);
-
 		// Darken the screen
-		draw_rectangle(Screen.CameraX, Screen.CameraY, Screen.CameraX + Screen.Width, Screen.CameraY + Screen.Height, false);
-	
-		// Set new draw alpha
+		draw_set_alpha(0.35);
+		draw_rectangle_colour(Screen.CameraX, Screen.CameraY, Screen.CameraX + Screen.Width, Screen.CameraY + Screen.Height, c_black, c_black, c_black, c_black, false);
 		draw_set_alpha(1.0);
 		
 		// Draw player position point
 		with Player
-		{
+		{	
 			draw_point_colour(floor(PosX),	   floor(PosY),     c_black);
 			draw_point_colour(floor(PosX + 1), floor(PosY),	    c_white);
 			draw_point_colour(floor(PosX - 1), floor(PosY),	    c_white);
@@ -61,8 +56,4 @@ function ScreenDebugActivate()
 			draw_point_colour(floor(x),     floor(y - 1), c_white);
 		}
 	}
-	
-	// Restore draw colour and alpha
-	draw_set_alpha(1.0);
-	draw_set_colour(c_white);
 }

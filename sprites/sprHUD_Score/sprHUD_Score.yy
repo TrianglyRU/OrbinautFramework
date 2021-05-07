@@ -14,7 +14,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 39,
+  "width": 44,
   "height": 11,
   "textureGroupId": {
     "name": "Global",
@@ -26,6 +26,7 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"67e54195-fbec-49e1-aec1-d031635e1314","path":"sprites/sprHUD_Score/sprHUD_Score.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"67e54195-fbec-49e1-aec1-d031635e1314","path":"sprites/sprHUD_Score/sprHUD_Score.yy",},"LayerId":{"name":"90321569-2b11-4097-960c-b852c0a25f14","path":"sprites/sprHUD_Score/sprHUD_Score.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"67e54195-fbec-49e1-aec1-d031635e1314","path":"sprites/sprHUD_Score/sprHUD_Score.yy",},"LayerId":{"name":"a153a654-8de7-4060-86b6-77d532782795","path":"sprites/sprHUD_Score/sprHUD_Score.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sprHUD_Score","path":"sprites/sprHUD_Score/sprHUD_Score.yy",},"resourceVersion":"1.0","name":"67e54195-fbec-49e1-aec1-d031635e1314","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

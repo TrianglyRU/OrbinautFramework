@@ -11,8 +11,16 @@ function ScreenTitleCardDisplay()
 	{
 		if Game.TransitionShiftPlayer[0] != 0 and Stage.ActID != 0
 		{
+			// Start gameplay early
 			fade_perform(from, black, 0);
+
 			BGVisible = false;
+			
+			Stage.State       = ActStateDefault;
+			Stage.TimeEnabled = true;
+			Input.IgnoreInput = false;
+			InterfaceEnabled  = true;
+			CameraEnabled     = true;
 		}
 		else
 		{
@@ -27,12 +35,12 @@ function ScreenTitleCardDisplay()
 	Angle -= 2;
 	
 	// Move right line
-	LineRightX += (Angle > 90 ? ResX / 36 : 0.5) * dcos(Angle);
-	LineRightY += (Angle > 0  ? ResY / 36 : 0.5) * dsin(Angle);
+	LineRightX += (Angle > 90 ? ResX / 35 : 0.5) * dcos(Angle);
+	LineRightY += (Angle > 0  ? ResY / 35 : 0.5) * dsin(Angle);
 	
 	// Move left line
-	LineLeftX  -= (Angle > 90 ? ResX / 36 : 0.5) * dcos(Angle);
-	LineLeftY  -= (Angle > 0  ? ResY / 36 : 0.5) * dsin(Angle);
+	LineLeftX  -= (Angle > 90 ? ResX / 35 : 0.5) * dcos(Angle);
+	LineLeftY  -= (Angle > 0  ? ResY / 35 : 0.5) * dsin(Angle);
 		
 	// Scale lines
 	if CardTimer < 265
@@ -120,26 +128,21 @@ function ScreenTitleCardDisplay()
 		EdgeRightY += CardTimer - 252;
 	}
 	
-	// Stop drawing card background
-	if CardTimer == 50
+	// Start gameplay
+	if CardTimer == 45
 	{
+		Stage.State       = ActStateDefault;
+		Stage.TimeEnabled = true;
+		Input.IgnoreInput = false;
+		InterfaceEnabled  = true;
+		CameraEnabled     = true;
+		
 		BGVisible = false;
 	}
-
 	// Shift HUD
 	if CardTimer >= 260 and InterfaceOffsetX < 0
 	{
 		InterfaceOffsetX += 5;
-	}
-	
-	// Start gameplay if background does not display
-	if !BGVisible
-	{
-		Stage.State		   = ActStateDefault;
-		Input.IgnoreInput  = false;
-		Stage.TimeEnabled  = true;
-		InterfaceEnabled   = true;
-		CameraEnabled      = true;
 	}
 	
 	// Sync positions with camera movement
@@ -176,8 +179,8 @@ function ScreenTitleCardDisplay()
 	draw_sprite(hudCardUndertext, 2, scrZoneX - 22 + string_length(Stage.CardNameBottom) * 16 + ZoneBottomShift, scrZoneY + 38);
 	
 	// Draw strings
-	string_display(scrZoneX + ZoneTopShift,		    scrZoneY,      Stage.CardNameTop,    1);
-	string_display(scrZoneX + ZoneBottomShift - 20, scrZoneY + 24, Stage.CardNameBottom, 1);
+	string_display(scrZoneX + ZoneTopShift + 4,		    scrZoneY + 4,      Stage.CardNameTop,    1);
+	string_display(scrZoneX + ZoneBottomShift - 16, scrZoneY + 28, Stage.CardNameBottom, 1);
 	
 	// Draw act number
 	draw_sprite(hudCardAct, Stage.ActID, scrZoneX - 83 + string_length(Stage.CardNameBottom) * 16 + ActShift, scrZoneY + 34);

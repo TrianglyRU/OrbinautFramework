@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_shinefx",
-    "path": "sprites/spr_obj_shinefx/spr_obj_shinefx.yy",
+    "name": "spr_obj_ringsparkle",
+    "path": "sprites/spr_obj_ringsparkle/spr_obj_ringsparkle.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Call-only",
-    "path": "folders/Objects/Global/Call-only.yy",
+    "name": "Ring",
+    "path": "folders/Game Objects/Ring.yy",
   },
   "resourceVersion": "1.0",
   "name": "RingSparkle",

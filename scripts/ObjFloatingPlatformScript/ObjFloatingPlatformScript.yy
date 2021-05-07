@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Object Scripts",
-    "path": "folders/Object Scripts.yy",
+    "name": "Floating Platform",
+    "path": "folders/Game Objects/Floating Platform.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjFloatingPlatformScript",

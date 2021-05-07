@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "AI",
+    "path": "folders/Game Controllers/AI.yy",
   },
   "resourceVersion": "1.0",
   "name": "AI",

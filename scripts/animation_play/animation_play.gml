@@ -1,5 +1,5 @@
-/// @function animation_play(objSprite, aniSpeed, doLoopFrom) 
-function animation_play(objSprite, aniSpeed, doLoopFrom) 
+/// @function animation_play(spriteID, aniSpeed, doLoopFrom) 
+function animation_play(spriteID, aniSpeed, doLoopFrom) 
 {	
 	// Force GMS sprite speed to be 0
 	image_speed = 0;
@@ -8,10 +8,10 @@ function animation_play(objSprite, aniSpeed, doLoopFrom)
 	variable_set_temp("aniTimer");
 	
 	// Update sprite
-	if sprite_index != objSprite
+	if sprite_index != spriteID
 	{
 		image_index  = 0;
-	    sprite_index = objSprite; 
+	    sprite_index = spriteID; 
 		aniTimer	 = abs(aniSpeed);
 	}
 	
@@ -21,7 +21,7 @@ function animation_play(objSprite, aniSpeed, doLoopFrom)
 		// Report script error
 		if doLoopFrom < 1 or doLoopFrom > image_number
 		{
-			show_message("Wrong doLoopFrom attribute set in function animation_play for animation " + string(sprite_get_name(objSprite)) + ". doLoopFrom should not be lower than 1 or higher than sprite frames number.");
+			show_message("Wrong doLoopFrom attribute set in function animation_play for animation " + string(sprite_get_name(spriteID)) + ". doLoopFrom should not be lower than 1 or higher than sprite frames number.");
 			game_end();
 		}
 		if aniSpeed != 0

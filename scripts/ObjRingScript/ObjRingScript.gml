@@ -115,7 +115,7 @@ function ObjRingScript()
 		// Add 1 to ring counter
 		Player.Rings++;
 	
-		// Create shine object (depth will be set on RingSparkle creation)
+		// Create shine object
 		object_spawn(x, y, RingSparkle);	
 	
 		// Play sound, switch left and right channels every ring

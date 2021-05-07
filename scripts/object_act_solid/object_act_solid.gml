@@ -1,14 +1,22 @@
 /// @function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 {
-	// Act as solid for AI as well
-	object_act_solid_ai(collideSides, collideTop, collideBottom, collisionMap);
-	
 	// Exit the code if no solid radiuses were initialized for this object
 	if (!variable_instance_exists(id, "objXRadiusSolid")) exit;
-
+	
+	// Exit the code if solidbox is 0, 0
+	if (!objXRadiusSolid and !objYRadiusSolid) exit;
+	
 	// Exit the code if there is no side to collide with 
 	if (!collideSides and !collideTop and !collideBottom) exit;
+	
+	// Create temporary debug flags
+	if Game.DevMode
+	{
+		variable_instance_set(id, "isCollideable", true);
+		variable_instance_set(id, "isSlopeObj",    collisionMap);
+		variable_instance_set(id, "isPlatformObj", collideTop and !collideSides and !collideBottom);
+	}
 	
 	// Get object properties
 	var objectX		   = floor(x);

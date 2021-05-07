@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Stage",
+    "path": "folders/Game Controllers/Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage",

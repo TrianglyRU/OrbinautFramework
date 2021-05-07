@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Object Scripts",
-    "path": "folders/Object Scripts.yy",
+    "name": "Lamppost",
+    "path": "folders/Game Objects/Lamppost.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjLamppostScript",

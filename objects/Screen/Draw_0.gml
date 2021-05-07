@@ -13,3 +13,4 @@
 	// Display debug
 	ScreenDebugActivate();
 	ScreenDebugHitboxDisplay();
+	ScreenDebugSolidboxDisplay();

@@ -26,9 +26,11 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"67e54195-fbec-49e1-aec1-d031635e1314","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"67e54195-fbec-49e1-aec1-d031635e1314","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"LayerId":{"name":"90321569-2b11-4097-960c-b852c0a25f14","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"67e54195-fbec-49e1-aec1-d031635e1314","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"LayerId":{"name":"7f5ea664-1403-48e9-8824-bd89efc06b1c","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sprHUD_Time","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"resourceVersion":"1.0","name":"67e54195-fbec-49e1-aec1-d031635e1314","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"c787865c-df4b-4acc-b250-6da0fda016a0","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"c787865c-df4b-4acc-b250-6da0fda016a0","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"LayerId":{"name":"90321569-2b11-4097-960c-b852c0a25f14","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"c787865c-df4b-4acc-b250-6da0fda016a0","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"LayerId":{"name":"7f5ea664-1403-48e9-8824-bd89efc06b1c","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sprHUD_Time","path":"sprites/sprHUD_Time/sprHUD_Time.yy",},"resourceVersion":"1.0","name":"c787865c-df4b-4acc-b250-6da0fda016a0","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

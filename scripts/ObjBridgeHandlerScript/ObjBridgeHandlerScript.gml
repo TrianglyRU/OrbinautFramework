@@ -2,23 +2,23 @@ function ObjBridgeHandlerScript()
 {
 	// Get player's and AI position withtin the bridge
 	var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
-	var AIPosition     = (floor(AI.PosX) - (x - 8) + 16) div 16;
+	//var AIPosition     = (floor(AI.PosX) - (x - 8) + 16) div 16;
 	
     // Check who is closer to the centre of the bridge
-	if abs(floor(BridgeLength / 2) - PlayerPosition) < abs(floor(BridgeLength / 2) - AIPosition)
+	//if abs(floor(BridgeLength / 2) - PlayerPosition) < abs(floor(BridgeLength / 2) - AIPosition)
 	{
 		// Use segment player is standing on
 		var CurrentSegment = clamp(PlayerPosition, 1, BridgeLength);
 	}
-	else
+	//else
 	{
 		// Use segment AI is standing on
-		var CurrentSegment = clamp(AIPosition, 1, BridgeLength);
+		//var CurrentSegment = clamp(AIPosition, 1, BridgeLength);
 	}
 	
     // Set a recovery angle by checking if player or AI is standing on any log of this bridge
     if ds_list_find_index(LogID, Player.OnObject) >= 0
-    or ds_list_find_index(LogID, AI.OnObject) >= 0
+   // or ds_list_find_index(LogID, AI.OnObject) >= 0
     {    
         if (RecoveryAngle < 90) RecoveryAngle += 5.625;
     } 

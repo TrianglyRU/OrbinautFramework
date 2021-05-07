@@ -110,7 +110,7 @@ function PlayerAnimate()
 			}	
 			with TailsObject
 			{
-				switch Animation
+				switch Player.Animation
 				{
 					case AnimIdle:
 					case AnimLookup:

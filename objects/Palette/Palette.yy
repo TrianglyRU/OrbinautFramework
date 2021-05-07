@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Plaette",
+    "path": "folders/Game Controllers/Plaette.yy",
   },
   "resourceVersion": "1.0",
   "name": "Palette",

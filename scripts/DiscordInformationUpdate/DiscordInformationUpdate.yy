@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Discord Scripts",
-    "path": "folders/Game Scripts/Discord Scripts.yy",
+    "name": "Discord",
+    "path": "folders/Game Controllers/Discord.yy",
   },
   "resourceVersion": "1.0",
   "name": "DiscordInformationUpdate",

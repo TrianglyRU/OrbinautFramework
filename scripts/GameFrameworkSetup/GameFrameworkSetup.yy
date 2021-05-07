@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Scripts",
-    "path": "folders/Game Scripts/Game Scripts.yy",
+    "name": "Game",
+    "path": "folders/Game Controllers/Game.yy",
   },
   "resourceVersion": "1.0",
   "name": "GameFrameworkSetup",

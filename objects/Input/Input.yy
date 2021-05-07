@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Input",
+    "path": "folders/Game Controllers/Input.yy",
   },
   "resourceVersion": "1.0",
   "name": "Input",

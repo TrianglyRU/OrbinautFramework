@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Palette Scripts",
-    "path": "folders/Game Scripts/Palette Scripts.yy",
+    "name": "Plaette",
+    "path": "folders/Game Controllers/Plaette.yy",
   },
   "resourceVersion": "1.0",
   "name": "PaletteRendererUpdate",

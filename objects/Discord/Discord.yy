@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Discord",
+    "path": "folders/Game Controllers/Discord.yy",
   },
   "resourceVersion": "1.0",
   "name": "Discord",

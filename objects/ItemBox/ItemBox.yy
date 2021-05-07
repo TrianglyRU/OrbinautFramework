@@ -39,8 +39,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Global",
-    "path": "folders/Objects/Global.yy",
+    "name": "Item Box",
+    "path": "folders/Game Objects/Item Box.yy",
   },
   "resourceVersion": "1.0",
   "name": "ItemBox",

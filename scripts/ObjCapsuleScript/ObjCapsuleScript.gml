@@ -45,7 +45,7 @@ function ObjCapsuleScript()
 					else
 					{
 						ExplDelay = irandom(32);
-						instance_create_depth(x + irandom(64) - 32, y + irandom(64) - 32, depth - 1, ExplosionFX);
+						instance_create_depth(x + irandom(64) - 32, y + irandom(64) - 32, depth - 1, FireExplosion);
 					}
 					// TODO: explosion sound
 					/*

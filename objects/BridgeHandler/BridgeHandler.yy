@@ -32,7 +32,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Spawners",
-    "path": "folders/Objects/Spawners.yy",
+    "path": "folders/Game Objects/Spawners.yy",
   },
   "resourceVersion": "1.0",
   "name": "BridgeHandler",

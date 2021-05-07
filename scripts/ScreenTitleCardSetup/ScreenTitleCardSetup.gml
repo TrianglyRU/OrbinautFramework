@@ -3,12 +3,12 @@ function ScreenTitleCardSetup()
 	// Disable global input
 	Input.IgnoreInput = true;
 	
+	// Background flag
+	BGVisible = true;
+	
 	// Get resolution
 	ResX = Game.ResolutionWidth;
 	ResY = Game.ResolutionHeight;
-	
-	// Backgroun flag
-	BGVisible = true;
 	
 	// Set default lines position
 	LineLeftX  = -144;

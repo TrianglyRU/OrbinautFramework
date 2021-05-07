@@ -9,7 +9,7 @@ function PlayerGeneralUpdate()
 	{
 		State = PlayerStateAirborne;
 	}
-
+	
 	// Handle highspeed bonus
 	if HighSpeedBonus
 	{	
