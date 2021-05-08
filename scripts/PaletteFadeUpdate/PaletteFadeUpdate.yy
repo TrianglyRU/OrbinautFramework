@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Plaette",
-    "path": "folders/Game Controllers/Plaette.yy",
+    "name": "Palette",
+    "path": "folders/Game Controllers/Palette.yy",
   },
   "resourceVersion": "1.0",
   "name": "PaletteFadeUpdate",

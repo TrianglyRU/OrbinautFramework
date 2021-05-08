@@ -25,7 +25,6 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"6bec1dca-40b7-4099-a27a-e5e6bb32cb9f","path":"sprites/hudCardRibbon/hudCardRibbon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"6bec1dca-40b7-4099-a27a-e5e6bb32cb9f","path":"sprites/hudCardRibbon/hudCardRibbon.yy",},"LayerId":{"name":"ccc716bf-77cf-46fc-81a3-3736d1472c9c","path":"sprites/hudCardRibbon/hudCardRibbon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"6bec1dca-40b7-4099-a27a-e5e6bb32cb9f","path":"sprites/hudCardRibbon/hudCardRibbon.yy",},"LayerId":{"name":"25288a83-a351-4df9-8cda-b3fea4145fed","path":"sprites/hudCardRibbon/hudCardRibbon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"hudCardRibbon","path":"sprites/hudCardRibbon/hudCardRibbon.yy",},"resourceVersion":"1.0","name":"6bec1dca-40b7-4099-a27a-e5e6bb32cb9f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
@@ -70,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "_HUD",
-    "path": "folders/_HUD.yy",
+    "name": "HUD",
+    "path": "folders/HUD.yy",
   },
   "resourceVersion": "1.0",
   "name": "hudCardRibbon",

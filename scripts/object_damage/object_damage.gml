@@ -70,7 +70,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 		Player.Death = true;
 		
 		// Play death sound (depending on what object is this)
-		var deathSound = object_index == TripleSpikesV ? sfxDeathSpike : sfxDeath;
+		var deathSound = object_index == SpikesVertical ? sfxDeathSpike : sfxDeath;
 		audio_sfx_play(deathSound, false, true);
 	}
 		

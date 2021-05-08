@@ -15,7 +15,7 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	var FirstTileIndex  = tile_get_index(FirstTile);
 	var FirstTileHeight = tile_get_height(startX, startY, FirstTile, FirstTileIndex mod TileAmount);
 	
-	// If we do not ignore solidtop tiles or ignore and did not find it, continue calculations
+	// If we do not ignore solidtop tiles or ignore and do not find it, continue calculations
 	if ignoreSolidTop and FirstTileIndex <= TileAmount or !ignoreSolidTop
 	{	
 		// If first tile height is in range of [1, 15], use this tile
@@ -62,7 +62,7 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 		var ResultHeight = tile_get_height(startX, startY, ResultTile, ResultTileIndex mod TileAmount);
 	}
 	
-	// If we ignore solidtop tiles and did find it, ignore its height
+	// If we ignore solidtop tiles and do find it, ignore its height
 	else
 	{
 		var SearchShift     = TileSize;

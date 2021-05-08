@@ -157,7 +157,7 @@ function PlayerDisplay()
 	depth		 = DrawOrder;
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
-
+	
 	// Draw player on the screen
 	draw_self();
 }

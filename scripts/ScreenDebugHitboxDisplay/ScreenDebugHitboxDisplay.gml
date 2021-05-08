@@ -18,7 +18,7 @@ function ScreenDebugHitboxDisplay()
 		// Draw player hitbox
 		with Player
 		{
-			if Animation == AnimCrouch or Animation == AnimSpindash
+			if Animation == AnimCrouch
 			{
 				var pTop    = floor(PosY - 4);
 				var pLeft   = floor(PosX - 8);

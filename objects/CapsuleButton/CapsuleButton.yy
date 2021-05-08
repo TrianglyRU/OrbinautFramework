@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_capsule_button",
-    "path": "sprites/spr_capsule_button/spr_capsule_button.yy",
+    "name": "spr_obj_other",
+    "path": "sprites/spr_obj_other/spr_obj_other.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Capsule",
+    "path": "folders/Game Objects/Capsule.yy",
   },
   "resourceVersion": "1.0",
   "name": "CapsuleButton",

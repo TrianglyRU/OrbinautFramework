@@ -50,7 +50,11 @@ function ObjAnimalScript()
 		
 		if Ysp > 0
 		{
-			object_collide_tiles_v(false, SideBottom, 0, LayerA)
+			var findFloor = object_collide_tiles_v(false, SideBottom, 0, LayerA)
+			if  findFloor
+			{
+				Ysp = -4;
+			}
 		}
 	}
 	

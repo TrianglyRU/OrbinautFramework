@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_itembox_powerup",
-    "path": "sprites/spr_obj_itembox_powerup/spr_obj_itembox_powerup.yy",
+    "name": "spr_obj_other",
+    "path": "sprites/spr_obj_other/spr_obj_other.yy",
   },
   "solid": false,
   "visible": true,

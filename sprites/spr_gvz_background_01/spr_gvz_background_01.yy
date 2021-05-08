@@ -9,7 +9,7 @@
   "swfPrecision": 2.525,
   "bbox_left": 0,
   "bbox_right": 511,
-  "bbox_top": 24,
+  "bbox_top": 88,
   "bbox_bottom": 127,
   "HTile": false,
   "VTile": false,
@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Stage Data/Gemstone Valley Zone/Textures.yy",
+    "path": "folders/Shaders/Stage Data/Gemstone Valley Zone/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_gvz_background_01",

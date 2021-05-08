@@ -14,10 +14,19 @@
 		scroll -= 0.02;
 	}
 	
+	// Set offsets for act 2
+	var offsetX1 = 0;
+	var offsetX2 = 0;
+	if Stage.ActID == 1
+	{
+		offsetX1 = -92;
+		offsetX2 = -27;
+	}
+
 	// Perform parallax
-	background_set_parallax(0, 0, 0.01, 1, 0, 0, 117, 0, 0);
-	background_set_parallax(0, 0, 0.015, 1, 0, 117, 11, 0, 0);
-	background_set_parallax(0, 0, 0.022, 1, scroll, 128, sprite_height, 1, 1);
+	background_set_parallax(0, 0, 0.01,   1, offsetX1, 0, 0,   117,			  0, 0);
+	background_set_parallax(0, 0, 0.015,  1, offsetX2, 0, 117, 11,		      0, 0);
+	background_set_parallax(0, 0, 0.022,  1, scroll,   0, 128, sprite_height, 1, 1);
 	
 	// Apply parallax
 	background_apply_parallax();

@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Bridge",
+    "path": "folders/Game Objects/Bridge.yy",
   },
   "resourceVersion": "1.0",
   "name": "BridgeLog",

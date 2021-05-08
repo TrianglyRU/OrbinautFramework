@@ -127,6 +127,7 @@ function PlayerCollideFloor()
 		// Mode is always RangeFloor when airborne
 		FloorRange = RangeFloor;
 	}
+	
 	// Ground collision
 	if Grounded
 	{
@@ -161,31 +162,29 @@ function PlayerCollideFloor()
 				}
 				
 				
-				/* Originals don't use middle floor sensor to collide with surface, but we do to fix certain flaw.
-				   This is forced from our side and there is no flag to turn if off quicky, you can simply delete it! */
-				   
-				// Use middle tile if both left and right distances are the same
-				if TileLeft[0] == TileRight[0]
-				{
-					var floorDistance = TileMiddle[0];
-					var floorAngle	  = TileMiddle[1];
+				/* Originals don't use middle floor sensor to collide with surface, but we do to fix certain flaws.
+				   This is forced from our side and there is no flag to turn if off, you can just delete it instead */
+				{   
+					// Use middle tile if both left and right distances are the same and we're on the flat floor
+					if TileLeft[0] == TileRight[0] and TileMiddle[0] <= 0
+					{
+						var floorDistance = TileMiddle[0];
+						var floorAngle	  = TileMiddle[1];
+					}
 				}
-
-				// Calculate maximum collision distance and angle difference
-				var maxDistance   = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-				var angDifference = abs(Angle mod 180 - floorAngle mod 180);
 				
-				// Check if angle difference is too high
-				if angDifference > 45 and angDifference < 135
+				// Check if floor angle difference is too high
+				var angDifference = abs(Angle mod 180 - floorAngle mod 180);
+				if  angDifference > 45 and angDifference < 135
 				{
-					// Lose the ground if game flag is set to true
+					// Lose the ground...
 					if Game.ConsiderAngleDifference
 					{
 						Grounded = false;
 						exit;
 					}
 					
-					// Else just reset floor angle
+					// ...or just force reset floor angle
 					else
 					{
 						Balancing  = false;
@@ -194,14 +193,15 @@ function PlayerCollideFloor()
 				}
 				
 				// Lose the ground if distance is too high
-				if floorDistance > maxDistance
+				var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+				if  maxDistance <= floorDistance
 				{
 					Grounded = false;
 					exit;
 				}
 				
 				// Collide with floor
-				if floorDistance > -14
+				else if floorDistance > -14
 				{
 					Angle = floorAngle;
 					PosY += floorDistance;
@@ -228,8 +228,8 @@ function PlayerCollideFloor()
 					var floorAngle	  = TileRight[1];
 				}
 			
-				// Perform floor collision
-				var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+				// Lose the ground if distance is too high
+				var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
 				if  maxDistance <= floorDistance
 				{
 					Grounded = false;
@@ -237,7 +237,7 @@ function PlayerCollideFloor()
 				}
 				
 				// Collide with floor
-				if floorDistance > -14
+				else if floorDistance > -14
 				{
 					Angle = floorAngle;
 					PosX += floorDistance;
@@ -264,8 +264,8 @@ function PlayerCollideFloor()
 					var floorAngle    = TileRight[1];
 				}
 			
-				// Perform floor collision
-				var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+				// Lose the ground if distance is too high
+				var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 				if  maxDistance <= floorDistance
 				{
 					Grounded = false;
@@ -273,7 +273,7 @@ function PlayerCollideFloor()
 				}
 				
 				// Collide with floor
-				if floorDistance > -14
+				else if floorDistance > -14
 				{
 					Angle = floorAngle;
 					PosY -= floorDistance;
@@ -300,8 +300,8 @@ function PlayerCollideFloor()
 					var floorAngle    = TileRight[1];
 				}
 			
-				// Perform floor collision
-				var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+				// Lose the ground if distance is too high
+				var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
 				if  maxDistance <= floorDistance
 				{
 					Grounded = false;
@@ -309,7 +309,7 @@ function PlayerCollideFloor()
 				}
 				
 				// Collide with floor
-				if floorDistance > -14
+				else if floorDistance > -14
 				{
 					Angle = floorAngle;
 					PosX -= floorDistance;

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Collision",
-    "path": "folders/Stage Data/Collision.yy",
+    "path": "folders/Shaders/Stage Data/Collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_collision_tilemap",

@@ -26,7 +26,7 @@
   "option_windows_license": "${base_options_dir}/windows/installer/license.txt",
   "option_windows_nsis_file": "${base_options_dir}/windows/installer/nsis_script.nsi",
   "option_windows_enable_steam": false,
-  "option_windows_disable_sandbox": false,
+  "option_windows_disable_sandbox": true,
   "option_windows_steam_use_alternative_launcher": false,
   "option_windows_use_x64": true,
   "resourceVersion": "1.1",

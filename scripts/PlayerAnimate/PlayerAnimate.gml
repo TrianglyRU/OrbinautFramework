@@ -62,6 +62,9 @@ function PlayerAnimate()
 				case AnimAirFall:
 					animation_play(spr_sonic_airfall, 2, 1);
 				break;
+				case AnimActEnd:
+					animation_play(spr_sonic_actend, 3, 21);
+				break;
 			}
 		}
 		break;

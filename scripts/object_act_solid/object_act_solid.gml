@@ -63,25 +63,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 			// Correct it
 			objectTop -= 1;
 		}
-			
-		// Reset balancing flag
-		Player.Balancing = false;
-		
-		// Check if player should start balancing
-		if Player.Inertia == 0
-		{
-			if playerX <= objectLeft  + 4 and Player.Facing == DirLeft
-			or playerX >= objectRight - 4 and Player.Facing == DirRight
-			{
-				Player.Balancing = DirRight;
-			}
-			if playerX <= objectLeft  + 4 and Player.Facing == DirRight
-			or playerX >= objectRight - 4 and Player.Facing == DirLeft
-			{
-				Player.Balancing = DirLeft;
-			}
-		}
-					
+						
 		// Extend object collision diameter if left and right sides are solid
 		var edgeExtension = collideSides ? 10 : 0;
 					
@@ -97,6 +79,21 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							
 		// Make player to always stay on top of the object
 		Player.PosY = objectTop - Player.yRadius;
+		
+		// Check if player should start balancing
+		if Player.Inertia == 0
+		{
+			if floor(Player.PosX) <= objectLeft  + 4 and Player.Facing == DirLeft
+			or floor(Player.PosX) >= objectRight - 4 and Player.Facing == DirRight
+			{
+				Player.Balancing = DirRight;
+			}
+			if floor(Player.PosX) <= objectLeft  + 4 and Player.Facing == DirRight
+			or floor(Player.PosX) >= objectRight - 4 and Player.Facing == DirLeft
+			{
+				Player.Balancing = DirLeft;
+			}
+		}
 	}
 			
 	// If player is not standing on this object, collide with it

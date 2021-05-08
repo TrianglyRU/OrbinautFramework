@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Moonlight Base Zone",
-    "path": "folders/Stage Data/Moonlight Base Zone.yy",
+    "path": "folders/Shaders/Stage Data/Moonlight Base Zone.yy",
   },
   "resourceVersion": "1.0",
   "name": "MBZBackgroundFront",

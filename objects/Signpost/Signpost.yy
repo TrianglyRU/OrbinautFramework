@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Signpost",
+    "path": "folders/Game Objects/Signpost.yy",
   },
   "resourceVersion": "1.0",
   "name": "Signpost",

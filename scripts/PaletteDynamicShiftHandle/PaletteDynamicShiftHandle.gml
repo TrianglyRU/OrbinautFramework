@@ -43,6 +43,7 @@ function PaletteDynamicShiftHandle()
 	switch room
 	{
 		case GVZ:
+		case GVZ2:
 		{
 			for (var i = 10; i < 15; i++)
 			{

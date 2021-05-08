@@ -20,10 +20,10 @@ function GameFrameworkSetup()
 	Game.WindowFullscreen = false;
 	Game.ResolutionWidth  = 398;
 	Game.ResolutionHeight = 224;
-	Game.WindowSize		  = 3;
+	Game.WindowSize		  = 4;
 	
 	// Audio settings
-	Game.MusicVolume = 0.1;
+	Game.MusicVolume = 0.2
 	Game.SoundVolume = 0.3;
 	
 	// Control settings (keyboard)

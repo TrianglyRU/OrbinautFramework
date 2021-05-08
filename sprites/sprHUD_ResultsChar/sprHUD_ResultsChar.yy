@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "_HUD",
-    "path": "folders/_HUD.yy",
+    "name": "HUD",
+    "path": "folders/HUD.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprHUD_ResultsChar",

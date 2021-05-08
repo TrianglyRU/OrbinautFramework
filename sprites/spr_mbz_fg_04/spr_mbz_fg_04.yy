@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Stage Data/Moonlight Base Zone/Textures.yy",
+    "path": "folders/Shaders/Stage Data/Moonlight Base Zone/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_mbz_fg_04",

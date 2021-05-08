@@ -7,6 +7,9 @@ function ObjItemcardSetup()
 	ItemCard	 = object_spawn(x, y - 3, ItemboxCard);
 	ItemCardPosY = ItemCard.y;
 	
+	// Load sprite
+	ItemCard.sprite_index = spr_obj_itembox_powerup;
+	
 	// Render object above itembox
 	with ItemCard object_set_depth(id, false);
 	

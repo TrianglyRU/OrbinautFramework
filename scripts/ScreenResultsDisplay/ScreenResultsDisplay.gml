@@ -3,18 +3,19 @@ function ScreenResultsDisplay()
 	// Display only when act is finished and one second passed or act unloads
 	if Stage.State == ActStateFinished and Stage.StateTimer == -1
 	or Stage.State == ActStateUnload
-	{		
+	{	
 		if !ResultValue[0]
 		{
+			// Calculate ring bonus
 			RingBonus = Player.Rings * 100;
 
-			// Time Bonus
+			// Calculate time bonus
 			if (Stage.Time >= 1800 and Stage.Time < 2700) TimeBonus = 10000;
 			else
 			{
 				switch Stage.Time div 1800
 				{
-					case 0:			TimeBonus = 50000; break;
+					case 0:			TimeBonus = 5000; break;
 					case 1:			TimeBonus = 5000;  break;
 					case 2:			TimeBonus = 4000;  break;
 					case 3:			TimeBonus = 3000;  break;
@@ -26,16 +27,20 @@ function ScreenResultsDisplay()
 			}
 		}
 		
-		if (ResultValue[0] <= 300) ResultValue[0]++;
+		if (ResultValue[0] < 300) ResultValue[0]++;
 		else
 		{
+			if ResultValue[0] == 300
+			{
+				audio_sfx_play(sfxScoreCount, true, false);
+				ResultValue[0]++;
+			}
 			if Input.StartPress
 			{
 				Player.Score += TimeBonus + RingBonus;
 				TimeBonus = 0; 
 				RingBonus = 0;
 			}
-
 			if TimeBonus
 			{ 
 				TimeBonus -= 100;
@@ -45,6 +50,12 @@ function ScreenResultsDisplay()
 			{
 				RingBonus -= 100;
 				Player.Score += 100;
+			}
+			if TimeBonus == 0 and RingBonus == 0 and ResultValue[0] == 301
+			{
+				audio_sfx_play(sfxScoreTally, false, false);
+				audio_sfx_stop(sfxScoreCount);
+				ResultValue[0]++;
 			}
 		}
 		
