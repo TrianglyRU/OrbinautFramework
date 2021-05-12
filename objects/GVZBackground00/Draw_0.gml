@@ -2,7 +2,7 @@
 // You can write your code in this editor
 	
 	// Initialize shader for this object
-	background_use_parallax();
+	bg_object_initialize();
 	
 	if Stage.State == ActStateLoading
 	{
@@ -24,9 +24,9 @@
 	}
 
 	// Perform parallax
-	background_set_parallax(0, 0, 0.01,   1, offsetX1, 0, 0,   117,			  0, 0);
-	background_set_parallax(0, 0, 0.015,  1, offsetX2, 0, 117, 11,		      0, 0);
-	background_set_parallax(0, 0, 0.022,  1, scroll,   0, 128, sprite_height, 1, 1);
+	bg_object_parallax(0, 0, 0.01,   1, offsetX1, 0, 0,   117,			  0, 0);
+	bg_object_parallax(0, 0, 0.015,  1, offsetX2, 0, 117, 11,		      0, 0);
+	bg_object_parallax(0, 0, 0.022,  1, scroll,   0, 128, sprite_height, 1, 1);
 	
 	// Apply parallax
-	background_apply_parallax();
+	bg_object_update();

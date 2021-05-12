@@ -12,4 +12,8 @@ function ObjFloatingPlatformSetup()
 	// Set positions
 	OriginX = x;
 	OriginY = y;
+	
+	// Set fall state
+	FallTimer = 0;
+	FallState = false;
 }

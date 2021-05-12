@@ -99,10 +99,11 @@ function object_damage(isBadnik, isProjectile, instantKill)
 					Spd = 2;
 				}
 				
-				// Set solidbox for the ring
+				// Set solidbox for the ring and force render above the player
 				with Created
 				{
 					object_set_solidbox(8, 8);
+					object_set_depth(Player, true);
 				}
 				
 				// Set ring flags and speed

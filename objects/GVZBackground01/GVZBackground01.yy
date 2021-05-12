@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Gemstone Valley Zone",
-    "path": "folders/Shaders/Stage Data/Gemstone Valley Zone.yy",
+    "path": "folders/Stage Data/Gemstone Valley Zone.yy",
   },
   "resourceVersion": "1.0",
   "name": "GVZBackground01",

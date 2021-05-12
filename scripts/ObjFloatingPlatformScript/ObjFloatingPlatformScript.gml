@@ -49,6 +49,23 @@ function ObjFloatingPlatformScript()
 	if Player.OnObject == id
 	{
 		Weight += 0.25;
+		
+		// TODO: Finish this
+		if PlatformDoFall
+		{
+			if FallState = false
+			{
+				FallTimer++
+				if FallTimer == 32
+				{	
+					FallState = true;
+				}
+			}
+			else
+			{
+				Player.OnObject = false;
+			}	
+		}
 	}
 	else
 	{

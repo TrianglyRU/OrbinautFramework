@@ -51,6 +51,30 @@ function StageActSetup()
 		}
 		break;
 		
+		// Final Fall Zone
+		case FFZ:
+		{
+			CardNameTop				= "FINAL";	
+			CardNameBottom			= "FALL";
+			ZoneID					= -1;
+			ActID					= 0;
+			FinalActID				= 1;
+			CardEnabled				= true;
+			TimeEnabled				= false;
+			Time					= 0;
+			WaterLevel				= room_height;
+			LeftBoundary			= 24;
+			TopBoundary				= 0;
+			RightBoundary			= room_width;
+			BottomBoundary			= 1500;
+			State					= ActStateLoading;
+			StageMusic				= FinalFall;
+			StageMusicDAC			= noone;
+			LoopStart				= 0;
+			LoopEnd					= 150;
+		}
+		break;
+		
 		
 		// Undentified Zone
 		default:

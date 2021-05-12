@@ -18,13 +18,15 @@ function StageActUpdate()
 		if floor(Player.PosY) > Screen.CameraY + Screen.Height + 128
 		{
 			State	   = ActStateRestart;
-			StateTimer = 0;
+			StateTimer = 0; 
 		}
 	}
 	else if State == ActStateRestart	
 	{
 		if !StateTimer
 		{
+			Player.Lives	-= 1;
+			Game.GlobalLives = Player.Lives;
 			fade_perform(to, black, 1);
 		}
 		else if StateTimer == 60
