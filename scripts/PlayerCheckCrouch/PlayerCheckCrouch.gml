@@ -1,10 +1,16 @@
 function PlayerCheckCrouch()
 {	
 	// Exit if we're moving
-	if (Inertia != 0) exit;
+	if !Game.LooseCrouch and Inertia != 0
+	{
+		exit;
+	}
 	
 	// Exit if we're balancing
-	if (Balancing != false) exit;
+	if !Game.BalancingCrouch and Balancing != false
+	{
+		exit;
+	}
 	
 	// Check if we're holding DOWN button
 	if Input.Down and !Input.Left and !Input.Right

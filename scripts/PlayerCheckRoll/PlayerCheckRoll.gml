@@ -1,12 +1,16 @@
 function PlayerCheckRoll()
 {
 	// You are not able to roll if side direction button is pressed
-	if (Input.Left or Input.Right) exit
+	if (Input.Left or Input.Right) exit;
+	
+	// Exit if we're ground-gliding
+	if (GlidingState) exit;
 	
 	// Start rolling if we're moving fast enough and are not gliding
 	if Input.Down
 	{
-		if abs(Inertia) >= 0.5 and !GlidingState
+		if !Game.LooseCrouch and abs(Inertia) >= 0.5 
+		or  Game.LooseCrouch and abs(Inertia) >= 1
 		{
 			// Update radiuses
 			yRadius = yRadiusRoll;

@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Palette",
-    "path": "folders/Game Controllers/Palette.yy",
+    "path": "folders/Game GlobalCode/Palette.yy",
   },
   "resourceVersion": "1.0",
   "name": "Palette",

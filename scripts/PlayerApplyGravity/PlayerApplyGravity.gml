@@ -4,16 +4,5 @@ function PlayerApplyGravity()
 	Ysp += Grv;
 	
 	// Rotate movement angle value back to 360
-	if Angle < 180 
-	{
-		Angle -= 2.8125;
-	}
-	else if Angle >= 180 
-	{
-		Angle += 2.8125;
-	}
-	if Angle < 0 or Angle > 360 
-	{
-		Angle = 360;
-	}
+	Angle = Angle < 180 ? max(Angle - 2.8125, 0) : min(Angle + 2.8125, 360);
 }

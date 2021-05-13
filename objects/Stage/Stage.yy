@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Stage",
-    "path": "folders/Game Controllers/Stage.yy",
+    "path": "folders/Game GlobalCode/Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage",

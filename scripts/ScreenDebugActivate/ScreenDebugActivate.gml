@@ -10,22 +10,6 @@ function ScreenDebugActivate()
 		{
 			DebugToggle = !DebugToggle;
 		}
-		/*if keyboard_check_pressed(ord("W"))
-		{
-			DebugSolids = !DebugSolids;
-		}
-		if keyboard_check_pressed(ord("E"))
-		{
-			DebugHitboxes = !DebugHitboxes;
-		}
-		if keyboard_check_pressed(ord("R"))
-		{
-			DebugSensors = !DebugSensors;
-		}
-		if keyboard_check_pressed(ord("T"))
-		{
-			DebugVariables = !DebugVariables;
-		}*/
 	}
 	
 	// Check if general debugging is enabled

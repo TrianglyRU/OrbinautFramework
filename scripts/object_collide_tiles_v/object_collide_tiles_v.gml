@@ -9,6 +9,7 @@ function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 	{
 		case SideLeft:   var checkX = floor(x - objXRadiusSolid);     break;
 		case SideRight:  var checkX = floor(x + objXRadiusSolid - 1); break;
+		case SideCentre: var checkX = floor(x);				          break;
 		
 		// Use object centre if no side set
 		default: var checkX = floor(x);	break;
@@ -17,8 +18,9 @@ function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 	// Define yside
 	switch ySide
 	{
-		case SideTop :    var checkY = floor(y - objYRadiusSolid);     break;
-		case SideBottom : var checkY = floor(y + objYRadiusSolid - 1); break;
+		case SideTop:    var checkY = floor(y - objYRadiusSolid);     break;
+		case SideBottom: var checkY = floor(y + objYRadiusSolid - 1); break;
+		case SideCentre: var checkY = floor(y);						  break;
 		
 		// Use object centre if no side set
 		default: var checkY = floor(y); break;

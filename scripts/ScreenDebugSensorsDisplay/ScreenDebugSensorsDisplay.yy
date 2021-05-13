@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game",
-    "path": "folders/Game Controllers/Game.yy",
+    "name": "Screen",
+    "path": "folders/Game GlobalCode/Screen.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameMacros",
+  "name": "ScreenDebugSensorsDisplay",
   "tags": [],
   "resourceType": "GMScript",
 }

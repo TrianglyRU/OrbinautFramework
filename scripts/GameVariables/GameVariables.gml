@@ -34,6 +34,7 @@ function _GameVariables()
 	Game.SpeedFloorClip			 _init;
 	Game.ExtensiveWallCollision  _init;
 	Game.ImprovedObjCollision	 _init;
+	Game.BalancingCrouch		 _init;
 	Game.SmoothPaletteCycle		 _init;
 	Game.SmoothRotation			 _init;
 	Game.RichPresenceSupport	 _init;

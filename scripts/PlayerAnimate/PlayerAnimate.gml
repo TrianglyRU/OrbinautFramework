@@ -20,14 +20,7 @@ function PlayerAnimate()
 					animation_play(spr_sonic_peelout, 1, 1);
 				break;
 				case AnimRoll:
-					if abs(Inertia) < 6
-					{
-						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
-					}
-					else
-					{
-						animation_play(spr_sonic_roll_fast, round(max(1, 4 - abs(Inertia))), 1);
-					}
+					animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
 				break;
 				case AnimSpindash:
 					animation_play(spr_sonic_spindash, 1, 1); 
@@ -78,10 +71,10 @@ function PlayerAnimate()
 					animation_play(spr_tails_idle, 1, 1); 
 				break;
 				case AnimWalk:
-					animation_play(spr_tails_walk, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_tails_walk, AnimReservedSpeed, 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_tails_run, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_tails_run, AnimReservedSpeed, 1);
 				break;
 				case AnimRoll:
 					animation_play(spr_tails_roll, 2, 1);
@@ -150,13 +143,13 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_idle, 1, 1); 
 				break;
 				case AnimWalk: 
-					animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_knuckles_walk, AnimReservedSpeed, 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_knuckles_run, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_knuckles_run, AnimReservedSpeed, 1);
 				break;
 				case AnimRoll:
-					animation_play(spr_knuckles_roll, round(max(1, 4 - abs(Inertia))), 1);
+					animation_play(spr_knuckles_roll, AnimReservedSpeed, 1);
 				break;
 				case AnimSpindash:
 					animation_play(spr_knuckles_spindash, 1, 1); 

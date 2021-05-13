@@ -12,9 +12,9 @@ function PlayerMoveRoll()
 			if Inertia > 0 
 			{
 				Inertia -= RollDec;
-				if Inertia <= 0 
+				if Inertia <= 0
 				{
-					Inertia = 0;
+					Inertia = -0.5;
 					Facing  = DirLeft;
 				}
 			}
@@ -26,9 +26,9 @@ function PlayerMoveRoll()
 			if Inertia < 0
 			{
 				Inertia += RollDec;
-				if Inertia >= 0 
+				if Inertia >= 0
 				{
-					Inertia = 0;
+					Inertia = 0.5;
 					Facing  = DirRight;
 				}
 			}
@@ -38,13 +38,11 @@ function PlayerMoveRoll()
 	// Apply friction
 	if Inertia > 0
 	{
-		Inertia -= RollFrc;
-		if (Inertia < 0) Inertia = 0;
+		Inertia = max(Inertia - RollFrc, 0);
 	}
 	else if Inertia < 0
 	{
-		Inertia += RollFrc;
-		if (Inertia >= 0) Inertia = 0;
+		Inertia = min(Inertia + RollFrc, 0);
 	}
 	
 	// Convert inertia to normal axis speeds
@@ -54,21 +52,15 @@ function PlayerMoveRoll()
 	// Get our speed ratio
 	AnimReservedSpeed = round(max(1, 4 - abs(Inertia)));
 	
-	// Limit rolling speed. Original engine limits xsp instead of inertia, resulting
-	// desync on high speeds
+	// Limit rolling speed. Original engine limits xsp instead of inertia, resulting in desync on high speeds
 	if Game.OriginalRollLimit
 	{
-		if (Xsp > 16)  Xsp = 16;
-		if (Xsp < -16) Xsp = -16;
+		Xsp = clamp(Xsp, -16, 16);
 	}
-	else
-	{
-		if (Inertia > 32)  Inertia = 32;
-		if (Inertia < -32) Inertia = -32;
-	}
-	
-	// If our inertia is 0 or we pressed UP, unroll
-	if Inertia == 0 or (Game.AllowUnroll and Input.UpPress and abs(Inertia) > 2.5)
+
+	// Unroll
+	if !Game.LooseCrouch and Inertia == 0
+	or  Game.LooseCrouch and abs(Inertia) < 0.5
 	{
 		// Reset radiuses
 		yRadius = yRadiusDefault;

@@ -17,8 +17,7 @@ function PlayerMove()
 			{
 				if (!Game.GroundSpeedcap and Inertia > -TopAcc) or Game.GroundSpeedcap
 				{
-					Inertia -= Acc;					
-					if (Inertia <= -TopAcc) Inertia = -TopAcc;		
+					Inertia = max(Inertia - Acc, -TopAcc);
 				} 
 				Facing = DirLeft;
 			}
@@ -37,8 +36,7 @@ function PlayerMove()
 			{
 				if (!Game.GroundSpeedcap and Inertia < TopAcc) or Game.GroundSpeedcap
 				{
-					Inertia += Acc;
-					if (Inertia >= TopAcc) Inertia = TopAcc;
+					Inertia = min(Inertia + Acc, TopAcc);
 				} 
 				Facing = DirRight;
 			}
@@ -50,13 +48,11 @@ function PlayerMove()
 	{
 		if Inertia > 0
 		{
-			Inertia -= Acc;
-			if (Inertia < 0) Inertia = 0;
+			Inertia = max(Inertia - Acc, 0);
 		}
 		else
 		{
-			Inertia += Acc;
-			if (Inertia >= 0) Inertia = 0;
+			Inertia = min(Inertia + Acc, 0);
 		}
 	}
 	

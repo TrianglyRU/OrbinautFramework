@@ -4,7 +4,7 @@ function _GameMacros()
 	make it more practical. We could use emums in that case, but macros are easier */
 	
 	// Game macro
-	#macro _init	     =0
+	#macro _init	     = 0
 	#macro Game		     global	
 	#macro FontDebug     0
 	#macro FontDigits1   1
@@ -78,19 +78,18 @@ function _GameMacros()
 	#macro ActStateRestart     5
 	
 	// Collision macro
-	#macro SolidAll          0
-	#macro SolidTop          1
-	#macro SolidNone	     2
-	#macro SideTop			 0
-	#macro SideLeft			 1
-	#macro SideRight		 2
-	#macro SideBottom		 3
+	#macro SideTop			   0
+	#macro SideLeft			   1
+	#macro SideRight		   2
+	#macro SideBottom		   3
+	#macro SideCentre		   4
+	#macro SideCenter		   4	// >:(
 	#macro CollisionHitbox     0
 	#macro CollisionTriggerbox 1
-	#macro RangeFloor	     0
-	#macro RangeRWall	     1
-	#macro RangeRoof		 2
-	#macro RangeLWall		 3
-	#macro TileSize          16
-	#macro TileAmount        154
+	#macro RangeFloor	       0
+	#macro RangeRWall	       1
+	#macro RangeRoof		   2
+	#macro RangeLWall		   3
+	#macro TileSize            16
+	#macro TileAmount          154
 }

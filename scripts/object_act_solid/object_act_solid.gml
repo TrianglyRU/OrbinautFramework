@@ -10,14 +10,6 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 	// Exit the code if there is no side to collide with 
 	if (!collideSides and !collideTop and !collideBottom) exit;
 	
-	// Create temporary debug flags
-	if Game.DevMode
-	{
-		variable_instance_set(id, "isCollideable", true);
-		variable_instance_set(id, "isSlopeObj",    collisionMap);
-		variable_instance_set(id, "isPlatformObj", collideTop and !collideSides and !collideBottom);
-	}
-	
 	// Get object properties
 	var objectX		   = floor(x);
 	var objectY        = floor(y);
@@ -184,7 +176,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							// Check if player is moving downwards or standing still
 							if (Ysp < 0) exit;
 						
-							// If player is airborne, let him land on this object	
+							// If player is airborne, let them land on this object	
 							if !Grounded
 							{
 								Grounded = true;

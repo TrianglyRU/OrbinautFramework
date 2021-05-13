@@ -14,3 +14,4 @@
 	ScreenDebugActivate();
 	ScreenDebugHitboxDisplay();
 	ScreenDebugSolidboxDisplay();
+	ScreenDebugSensorsDisplay();
