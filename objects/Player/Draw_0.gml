@@ -9,3 +9,6 @@
 	
 	// Display character
 	PlayerDisplay();
+	
+	// Display objects when in debug mode
+	PlayerDebugModeDisplay();

@@ -1,6 +1,9 @@
 /// @function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 {
+	// Exit the code if collisions are disabled
+	if (!Player.AllowCollision) exit;
+	
 	// Exit the code if no solid radiuses were initialized for this object
 	if (!variable_instance_exists(id, "objXRadiusSolid")) exit;
 	

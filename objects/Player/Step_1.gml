@@ -119,3 +119,6 @@
 		}
 		break;
 	}
+	
+	// Run debug mode
+	PlayerDebugModeControl();

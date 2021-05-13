@@ -6,3 +6,6 @@
 	
 	// Setup player
 	PlayerSetup();
+	
+	// Setup debug mode
+	PlayerDebugModeSetup();

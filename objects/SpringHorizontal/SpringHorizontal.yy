@@ -39,7 +39,7 @@
     "path": "folders/Game Objects/Spring.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpringHorziontal",
+  "name": "SpringHorizontal",
   "tags": [],
   "resourceType": "GMObject",
 }
