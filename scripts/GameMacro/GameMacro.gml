@@ -32,6 +32,7 @@ function _GameMacros()
 	#macro PlayerStateNormal   0
 	#macro PlayerStateRoll     1
 	#macro PlayerStateAirborne 2
+	#macro PlayerStateDebug    3
 	#macro CharSonic		   0
 	#macro CharTails	       1
 	#macro CharKnuckles	       2

@@ -1,13 +1,16 @@
 /// @description Scripts
 // You can write your code in this editor
 
-	// Do not run this code if stage is loading, unloading or restarting
+	// Exit the code if stage is loading, unloading or restarting
 	if (Stage.State == ActStateLoading or Stage.State == ActStateUnload or Stage.State == ActStateRestart) exit;
 	
-	// Update player
+	// Update player's state
+	PlayerStateUpdate();
+	
+	// Update general player stuff
 	PlayerGeneralUpdate();
 
-	// Run main code based on current state
+	// Execute code based on current state
 	switch State 
 	{
 		case PlayerStateNormal:
@@ -50,7 +53,7 @@
 		}
 		break;
 		case PlayerStateRoll:
-		{		
+		{	
 			// Perform jump and exit the code
 			if PlayerCheckJump() break;
 			
@@ -118,7 +121,11 @@
 			PlayerResetOnFloor();
 		}
 		break;
+		case PlayerStateDebug:
+		{
+			// Run debug mode
+			PlayerDebugModeControl();
+		}
 	}
 	
-	// Run debug mode
-	PlayerDebugModeControl();
+	

@@ -49,9 +49,6 @@ function PlayerMoveRoll()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	// Get our speed ratio
-	AnimReservedSpeed = round(max(1, 4 - abs(Inertia)));
-	
 	// Limit rolling speed. Original engine limits xsp instead of inertia, resulting in desync on high speeds
 	if Game.OriginalRollLimit
 	{

@@ -15,62 +15,67 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	var FirstTileIndex  = tile_get_index(FirstTile);
 	var FirstTileHeight = tile_get_height(startX, startY, FirstTile, FirstTileIndex mod TileAmount);
 	
-	// If we do not ignore solidtop tiles or ignore and do not find it, continue calculations
-	if ignoreSolidTop and FirstTileIndex <= TileAmount or !ignoreSolidTop
-	{	
-		// If first tile height is in range of [1, 15], use this tile
-		if FirstTileHeight != 0 and FirstTileHeight != TileSize
+	// Ignore first tile if it is solidtop and we're ignoring them
+	if ignoreSolidTop and FirstTileIndex > TileAmount
+	{
+		FirstTileHeight = 0;
+	}
+	
+	// If first tile height is in range of [1, 15], use this tile
+	if FirstTileHeight != 0 and FirstTileHeight != TileSize
+	{
+		var SearchShift     = 0;
+		var ResultTile      = FirstTile;
+		var ResultTileIndex = FirstTileIndex;
+	}
+	
+	// If first tile height is 0, use a tile below
+	else if FirstTileHeight == 0
+	{
+		var SearchShift     = TileSize;
+		var ResultTile      = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + SearchShift * SearchDirection) div TileSize);
+		var ResultTileIndex = tile_get_index(ResultTile);
+	}
+	
+	// If first tile height is 16, get a tile above
+	else
+	{
+		var SearchShift      = -TileSize;
+		var SecondTile       = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + SearchShift * SearchDirection) div TileSize);
+		var SecondTileIndex  = tile_get_index(SecondTile);
+		var SecondTileHeight = tile_get_height(startX, startY, SecondTile, SecondTileIndex mod TileAmount);
+		
+		// Ignore second tile if it is solidtop and we're ignoring them
+		if ignoreSolidTop and SecondTileIndex > TileAmount
 		{
-			var SearchShift     = 0;
+			SecondTileHeight = 0;
+		}
+		
+		// Test if second tile height is 0		
+		if SecondTileHeight == 0
+		{
+			// If it is, use first tile
+			var SearchShift     = 0
 			var ResultTile      = FirstTile;
 			var ResultTileIndex = FirstTileIndex;
 		}
-	
-		// If first tile height is 0, use a tile below
-		else if FirstTileHeight == 0
-		{
-			var SearchShift     = TileSize;
-			var ResultTile      = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + SearchShift * SearchDirection) div TileSize);
-			var ResultTileIndex = tile_get_index(ResultTile);
-		}
-	
-		// If first tile height is 16, get a tile above
 		else
 		{
-			var SearchShift      = -TileSize;
-			var SecondTile       = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, (startY + SearchShift * SearchDirection) div TileSize);
-			var SecondTileIndex  = tile_get_index(SecondTile);
-		
-			// Test if second tile height is 0
-			var SecondTileHeight = tile_get_height(startX, startY, SecondTile, SecondTileIndex mod TileAmount);
-			if  SecondTileHeight == 0
-			{
-				// If it is, use first tile
-				var SearchShift     = 0
-				var ResultTile      = FirstTile;
-				var ResultTileIndex = FirstTileIndex;
-			}
-			else
-			{
-				// If it is not, use second tile
-				var ResultTile      = SecondTile;
-				var ResultTileIndex = SecondTileIndex;
-			}
+			// If it is not, use second tile
+			var ResultTile      = SecondTile;
+			var ResultTileIndex = SecondTileIndex;
 		}
+	}
 		
-		// Get result tile height
-		var ResultHeight = tile_get_height(startX, startY, ResultTile, ResultTileIndex mod TileAmount);
-	}
+	// Get result tile height
+	var ResultHeight = tile_get_height(startX, startY, ResultTile, ResultTileIndex mod TileAmount);
 	
-	// If we ignore solidtop tiles and do find it, ignore its height
-	else
+	// Ignore result tile if it is solidtop and we're ignoring them
+	if ignoreSolidTop and ResultTileIndex > TileAmount
 	{
-		var SearchShift     = TileSize;
-		var ResultTile      = FirstTile;
-		var ResultTileIndex = FirstTileIndex;
-		var ResultHeight    = 0;
+		ResultHeight = 0;
 	}
-	
+		
 	// Calculate distance to edge of the result tile
 	if toPositive
 	{

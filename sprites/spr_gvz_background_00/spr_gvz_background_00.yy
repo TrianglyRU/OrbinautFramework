@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Stage Data/Gemstone Valley Zone/Textures.yy",
+    "path": "folders/Stages/Gemstone Valley Zone/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_gvz_background_00",

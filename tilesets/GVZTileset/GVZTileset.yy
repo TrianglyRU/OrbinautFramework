@@ -161,7 +161,7 @@
   },
   "parent": {
     "name": "Gemstone Valley Zone",
-    "path": "folders/Stage Data/Gemstone Valley Zone.yy",
+    "path": "folders/Stages/Gemstone Valley Zone.yy",
   },
   "resourceVersion": "1.0",
   "name": "GVZTileset",

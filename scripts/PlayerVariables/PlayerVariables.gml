@@ -51,7 +51,6 @@ function _PlayerVariables()
 	HighSpeedBonus		 _init;
 	InvincibilityBonus   _init;
 	Animation			 _init;
-	AnimReservedSpeed	 _init;
 	yRadius				 _init;
 	xRadius				 _init;
 	yRadiusDefault       _init;

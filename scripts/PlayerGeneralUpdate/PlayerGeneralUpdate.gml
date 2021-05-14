@@ -1,15 +1,5 @@
 function PlayerGeneralUpdate()
-{
-	// Update player's state
-	if Grounded
-	{
-		State = !Rolling ? PlayerStateNormal : PlayerStateRoll;
-	}
-	else
-	{
-		State = PlayerStateAirborne;
-	}
-	
+{	
 	// Handle highspeed bonus
 	if HighSpeedBonus
 	{	
@@ -38,7 +28,7 @@ function PlayerGeneralUpdate()
 	if !isUnderwater
 	{
 		// Check for falling into the water
-		if PosY > Stage.WaterLevel and Stage.WaterLevel != 0
+		if !Death and PosY > Stage.WaterLevel and Stage.WaterLevel != 0
 		{
 			Xsp	*= 0.5;
 			Ysp	*= 0.25;
@@ -62,7 +52,7 @@ function PlayerGeneralUpdate()
 		Grv	= 0.0625;
 		
 		// Check for leaving the water
-		if PosY < Stage.WaterLevel
+		if !Death and PosY < Stage.WaterLevel
 		{
 			isUnderwater = false;
 			Ysp			*= 2;
@@ -154,6 +144,12 @@ function PlayerGeneralUpdate()
 		}
 	}
 	
+	// Apply regular gravity if player has died
+	if Player.Death
+	{
+		Grv	= 0.21875;
+	}
+	
 	// Handle invincibility bonus
 	if InvincibilityBonus 
 	{
@@ -163,15 +159,14 @@ function PlayerGeneralUpdate()
 			// Create star particles
 			for (var i = 0; i < 9; i++)
 			{
-				var spawnedStar	   = object_spawn(PosX, PosY, Star);
-				spawnedStar.Number = i;
+				var spawnedStar	= object_spawn(PosX, PosY, Star);
+					spawnedStar.Number = i;
 			}
 			
 			// Start frame for particles
 			with Star 
 			{
-				sprite_index = Number mod 2 ? spr_star1 : spr_star2;
-				image_index = Number;
+				animation_set_frame(Number mod 2 ? spr_star1 : spr_star2, Number);
 			}
 		}
 		

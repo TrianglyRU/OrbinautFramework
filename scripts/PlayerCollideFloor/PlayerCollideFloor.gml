@@ -27,7 +27,7 @@ function PlayerCollideFloor()
 			}
 		}
 		
-		// Use custom advanced method using tile detection (inaccurate to originals)
+		// Use custom advanced method using tile detection (smoother, but inaccurate to originals)
 		else
 		{
 			// Set maximum angle difference. If difference exceeds this value, mode won't change
@@ -148,7 +148,7 @@ function PlayerCollideFloor()
 					var floorAngle	  = TileLeft[1];
 					
 					// Check for balancing
-					if (TileMiddle[0] > 14 and Inertia == 0) Balancing = Facing;
+					if (Inertia == 0 and TileMiddle[0] > 14) Balancing = Facing;
 				}
 			
 				// Use right tile (secondary)
@@ -158,7 +158,7 @@ function PlayerCollideFloor()
 					var floorAngle	  = TileRight[1];
 
 					// Check for balancing
-					if (TileMiddle[0] > 14 and Inertia == 0) Balancing = -Facing;
+					if (Inertia == 0 and TileMiddle[0] > 14) Balancing = -Facing;
 				}
 				
 				
@@ -237,7 +237,7 @@ function PlayerCollideFloor()
 				}
 				
 				// Collide with floor
-				else if floorDistance > -14
+				else //if floorDistance > -14
 				{
 					Angle = floorAngle;
 					PosX += floorDistance;
@@ -273,7 +273,7 @@ function PlayerCollideFloor()
 				}
 				
 				// Collide with floor
-				else if floorDistance > -14
+				else //if floorDistance > -14
 				{
 					Angle = floorAngle;
 					PosY -= floorDistance;
@@ -309,7 +309,7 @@ function PlayerCollideFloor()
 				}
 				
 				// Collide with floor
-				else if floorDistance > -14
+				else//if floorDistance > -14
 				{
 					Angle = floorAngle;
 					PosX -= floorDistance;
@@ -379,8 +379,8 @@ function PlayerCollideFloor()
 				}
 		
 				// Adhere to the floor and apply angle to player
-				PosY	  += floorDistance;
-				Angle	   = floorAngle;
+				PosY += floorDistance;
+				Angle = floorAngle;
 				
 				// Set flag
 				Grounded   = true;

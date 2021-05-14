@@ -766,8 +766,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "name": "Gemstone Valley Zone",
+    "path": "folders/Stages/Gemstone Valley Zone.yy",
   },
   "resourceVersion": "1.0",
   "name": "GVZ",

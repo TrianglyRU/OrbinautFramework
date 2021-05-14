@@ -17,7 +17,7 @@ function PlayerLevelBound()
 	// Check if player is not in death state
 	if !Death
 	{
-		// Check if player is below bottom boundary
+		// Check if player is below bottom stage boundary
 		if floor(PosY) > Stage.BottomBoundary and floor(PosY) > Screen.MaxRenderY
 		{
 			// Reset flags

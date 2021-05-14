@@ -15,60 +15,65 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	var FirstTileIndex = tile_get_index(FirstTile);
 	var FirstTileWidth = tile_get_width(startX, startY, FirstTile, FirstTileIndex mod TileAmount);
 	
-	// If we do not ignore solidtop tiles or ignore and did not find it, continue calculations
-	if ignoreSolidTop and FirstTileIndex <= TileAmount or !ignoreSolidTop
-	{	
-		// If first tile width is in range of [1, 15], use this tile
-		if FirstTileWidth != 0 and FirstTileWidth != TileSize
+	// Ignore first tile if it is solidtop and we're ignoring them
+	if ignoreSolidTop and FirstTileIndex > TileAmount
+	{
+		FirstTileWidth = 0;
+	}
+	
+	// If first tile width is in range of [1, 15], use this tile
+	if FirstTileWidth != 0 and FirstTileWidth != TileSize
+	{
+		var SearchShift     = 0;
+		var ResultTile      = FirstTile;
+		var ResultTileIndex = FirstTileIndex;
+	}
+	
+	// If first tile width is 0, use a tile below
+	else if FirstTileWidth == 0
+	{
+		var SearchShift     = TileSize;
+		var ResultTile      = tilemap_get(Stage.TileLayer[tileLayer], (startX + SearchShift * SearchDirection) div TileSize, startY div TileSize);
+		var ResultTileIndex = tile_get_index(ResultTile);
+	}
+	
+	// If first tile width is 16, get a tile above
+	else
+	{
+		var SearchShift     = -TileSize;
+		var SecondTile      = tilemap_get(Stage.TileLayer[tileLayer], (startX + SearchShift * SearchDirection) div TileSize, startY div TileSize);
+		var SecondTileIndex = tile_get_index(SecondTile);
+		var SecondTileWidth = tile_get_width(startX, startY, SecondTile, SecondTileIndex mod TileAmount);
+		
+		// Ignore second tile if it is solidtop and we're ignoring them
+		if ignoreSolidTop and SecondTileIndex > TileAmount
 		{
-			var SearchShift     = 0;
+			SecondTileWidth = 0;
+		}
+		
+		// Test if second tile height is 0
+		if SecondTileWidth == 0
+		{
+			// If it is, use first tile
+			var SearchShift     = 0
 			var ResultTile      = FirstTile;
 			var ResultTileIndex = FirstTileIndex;
 		}
-	
-		// If first tile width is 0, use a tile below
-		else if FirstTileWidth == 0
-		{
-			var SearchShift     = TileSize;
-			var ResultTile      = tilemap_get(Stage.TileLayer[tileLayer], (startX + SearchShift * SearchDirection) div TileSize, startY div TileSize);
-			var ResultTileIndex = tile_get_index(ResultTile);
-		}
-	
-		// If first tile width is 16, get a tile above
 		else
 		{
-			var SearchShift      = -TileSize;
-			var SecondTile       = tilemap_get(Stage.TileLayer[tileLayer], (startX + SearchShift * SearchDirection) div TileSize, startY div TileSize);
-			var SecondTileIndex  = tile_get_index(SecondTile);
-		
-			// Test if second tile height is 0
-			var SecondTileWidth = tile_get_width(startX, startY, SecondTile, SecondTileIndex mod TileAmount);
-			if  SecondTileWidth == 0
-			{
-				// If it is, use first tile
-				var SearchShift     = 0
-				var ResultTile      = FirstTile;
-				var ResultTileIndex = FirstTileIndex;
-			}
-			else
-			{
-				// If it is not, use second tile
-				var ResultTile      = SecondTile;
-				var ResultTileIndex = SecondTileIndex;
-			}
+			// If it is not, use second tile
+			var ResultTile      = SecondTile;
+			var ResultTileIndex = SecondTileIndex;
 		}
-	
-		// Get result tile width
-		var ResultWidth = tile_get_width(startX, startY, ResultTile, ResultTileIndex mod TileAmount);
 	}
 	
-	// If we ignore solidtop tiles and did find it, ignore it
-	else
+	// Get result tile width
+	var ResultWidth = tile_get_width(startX, startY, ResultTile, ResultTileIndex mod TileAmount);
+	
+	// Ignore result tile if it is solidtop and we're ignoring them
+	if ignoreSolidTop and ResultTileIndex > TileAmount
 	{
-		var SearchShift     = TileSize;
-		var ResultTile      = FirstTile;
-		var ResultTileIndex = FirstTileIndex;
-		var ResultWidth     = 0;
+		ResultWidth = 0;
 	}
 	
 	// Calculate distance to edge of the result tile

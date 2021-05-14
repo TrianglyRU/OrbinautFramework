@@ -84,6 +84,7 @@ function PlayerSetup()
 	
 	PlayerPositionX = ds_list_create();
 	PlayerPositionY = ds_list_create();
+	
 	var ind = 0;
 	repeat (32) 
     {
@@ -92,5 +93,5 @@ function PlayerSetup()
 	}
 	
 	// Create Tails' tails
-	if (CharacterID == CharTails) instance_create_depth(x, y, depth, TailsObject);
+	if (CharacterID == CharTails) object_spawn(x, y, TailsObject);
 }

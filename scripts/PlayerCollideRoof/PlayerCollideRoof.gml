@@ -4,19 +4,19 @@ function PlayerCollideRoof()
 	if (Ysp < 0 or abs(Xsp) > abs(Ysp)) and AllowCollision
 	{
 		// Get tiles
-		var tileDataLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
-		var tileDataRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
+		var leftTile  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
+		var rightTile = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
 		
 		// Use tile with closest distance
-		if tileDataLeft[0] <= tileDataRight[0]
+		if leftTile[0] <= rightTile[0]
 		{
-			var roofDistance = tileDataLeft[0];
-			var roofAngle    = tileDataLeft[1];
+			var roofDistance = leftTile[0];
+			var roofAngle    = leftTile[1];
 		}
 		else
 		{
-			var roofDistance = tileDataRight[0];
-			var roofAngle    = tileDataRight[1];
+			var roofDistance = rightTile[0];
+			var roofAngle    = rightTile[1];
 		}
 			
 		// Perform roof collision

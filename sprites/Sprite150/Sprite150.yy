@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Final Fall Zone",
-    "path": "folders/Stage Data/Final Fall Zone.yy",
+    "path": "folders/Stages/Final Fall Zone.yy",
   },
   "resourceVersion": "1.0",
   "name": "Sprite150",

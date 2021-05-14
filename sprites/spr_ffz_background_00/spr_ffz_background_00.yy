@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Stage Data/Final Fall Zone/Sprites.yy",
+    "path": "folders/Stages/Final Fall Zone/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ffz_background_00",

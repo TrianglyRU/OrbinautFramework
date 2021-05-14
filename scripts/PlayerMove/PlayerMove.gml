@@ -99,9 +99,6 @@ function PlayerMove()
 		Balancing = false;
 	}
 	
-	// Get our speed ratio
-	AnimReservedSpeed = round(max(1, 8 - abs(Inertia)));
-
 	// Convert inertia to normal axis speeds
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
