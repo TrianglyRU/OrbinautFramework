@@ -1,8 +1,8 @@
 function ScreenInterfaceDisplay() 
 {	
 	// Get position for our HUD
-	var ScreenX = CameraX + InterfaceOffsetX;
-	var ScreenY = CameraY + InterfaceOffsetY;
+	var ScreenX = InterfaceOffsetX;
+	var ScreenY = InterfaceOffsetY;
 	
 	// Handle timer
 	var TimeValue = Stage.Time;
@@ -28,14 +28,14 @@ function ScreenInterfaceDisplay()
 		// Draw graphics
 		draw_sprite(sprHUD_Score, 0,							    ScreenX + 17, ScreenY + 9);
 		draw_sprite(sprHUD_Time,  TimeValue > 32400 ? RedFlash : 0, ScreenX + 17, ScreenY + 25);
-		draw_sprite(sprHUD_Rings, !Player.Rings   ? RedFlash : 0,   ScreenX + 17, ScreenY + 41);
+		draw_sprite(sprHUD_Rings, !Player.Rings     ? RedFlash : 0, ScreenX + 17, ScreenY + 41);
 		draw_sprite(sprHUD_Lives, Player.CharacterID,               ScreenX + 14, ScreenY + Height - 23);
 		
 		// Display SCORE, TIME, RINGS counters
 		string_set_font(Game.Font[FontDigits1], "right");
 		
 		string_display(ScreenX + 113, ScreenY + 9,  Player.Score, 1);
-		string_display(ScreenX + 113,  ScreenY + 25, string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds) + ";" + (mSeconds > 9 ? "" : "0") + string(mSeconds), 1);
+		string_display(ScreenX + 113, ScreenY + 25, string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds) + ";" + (mSeconds > 9 ? "" : "0") + string(mSeconds), 1);
 		string_display(ScreenX + 89,  ScreenY + 41, round(Player.Rings), 1);
 		
 		// Display lives counter
@@ -45,14 +45,14 @@ function ScreenInterfaceDisplay()
 	
 	if Game.DevMode
 	{
-		string_display(CameraX + Width - 57, CameraY + 9, floor(Player.PosX), 1);
-		string_display(CameraX + Width - 17, CameraY + 9, floor(CameraX),	   1);
+		string_display(Width - 57, 9,  floor(Player.PosX), 1);
+		string_display(Width - 17, 9,  floor(CameraX),	   1);
 		
-		string_display(CameraX + Width - 57, CameraY + 17, floor(Player.PosY), 1);
-		string_display(CameraX + Width - 17, CameraY + 17, floor(CameraY),	   1);
+		string_display(Width - 57, 17, floor(Player.PosY), 1);
+		string_display(Width - 17, 17, floor(CameraY),	   1);
 		
 		string_set_font(FontDebug, "right");
-		string_display(CameraX + Width - 97, CameraY + 9,  "X:", 1);
-		string_display(CameraX + Width - 97, CameraY + 17, "Y:", 1);
+		string_display(Width - 97, 9,  "X:", 1);
+		string_display(Width - 97, 17, "Y:", 1);
 	}
 }

@@ -1,4 +1,4 @@
-function PaletteFadeReset()
+function ScreenPaletteFadeReset()
 {	
 	// Enabled palette fade
 	Palette.FadeEnabled = true;

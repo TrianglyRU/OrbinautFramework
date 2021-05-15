@@ -71,25 +71,24 @@ function ScreenResultsDisplay()
 		}
 		
 		var CardFrm   = ResultValue[1] / 90;
-		var CenterPos = Screen.CameraX + Game.ResolutionWidth / 2
-		var drawY     = Screen.CameraY;
+		var CenterPos = Game.ResolutionWidth / 2
 		
 		draw_set_font(Game.Font[FontDigits1]);
 		draw_set_halign(fa_right);
 
-		draw_sprite_ext(sprHUD_ResultsCard, 0, CenterPos + 60, drawY + 96, CardFrm, CardFrm, 90 - ResultValue[1], c_white, CardFrm);
-		draw_sprite_ext(sprHUD_ResultsAct, Stage.ActID, CenterPos + 68, drawY + 96, CardFrm, 1, 0, c_white, 1);
-		draw_sprite(sprHUD_ResultsChar, Player.CharacterID, CenterPos - ResultValue[2], drawY + 62);
-		draw_sprite(sprHUD_ResultsThrought, 0, CenterPos   - ResultValue[3], drawY +  96);
-		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 44 + ResultValue[4], drawY + 118);
-		draw_sprite(sprHUD_Score,		 0, CenterPos - 80 + ResultValue[4], drawY + 120);
-		draw_text(CenterPos + 80 + ResultValue[4], drawY + 120, Player.Score);
-		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 6  + ResultValue[5], drawY + 134);
-		draw_sprite(sprHUD_TimeBonus,	 0, CenterPos - 80 + ResultValue[5], drawY + 136);
-		draw_text(CenterPos + 80 + ResultValue[5], drawY + 136, TimeBonus);
-		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 6  + ResultValue[6], drawY + 150);
-		draw_sprite(sprHUD_RingBonus,	 0, CenterPos - 80 + ResultValue[6], drawY + 152);
-		draw_text(CenterPos + 80 + ResultValue[6], drawY + 152, RingBonus);
+		draw_sprite_ext(sprHUD_ResultsCard, 0, CenterPos + 60, 96, CardFrm, CardFrm, 90 - ResultValue[1], c_white, CardFrm);
+		draw_sprite_ext(sprHUD_ResultsAct, Stage.ActID, CenterPos + 68, 96, CardFrm, 1, 0, c_white, 1);
+		draw_sprite(sprHUD_ResultsChar, Player.CharacterID, CenterPos - ResultValue[2], 62);
+		draw_sprite(sprHUD_ResultsThrought, 0, CenterPos   - ResultValue[3], 96);
+		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 44 + ResultValue[4], 118);
+		draw_sprite(sprHUD_Score,		 0, CenterPos - 80 + ResultValue[4], 120);
+		draw_text(CenterPos + 80 + ResultValue[4], 120, Player.Score);
+		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 6  + ResultValue[5], 134);
+		draw_sprite(sprHUD_TimeBonus,	 0, CenterPos - 80 + ResultValue[5], 136);
+		draw_text(CenterPos + 80 + ResultValue[5], 136, TimeBonus);
+		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 6  + ResultValue[6], 150);
+		draw_sprite(sprHUD_RingBonus,	 0, CenterPos - 80 + ResultValue[6], 152);
+		draw_text(CenterPos + 80 + ResultValue[6], 152, RingBonus);
 		
 		// Unload the act
 		if TimeBonus == 0 and RingBonus == 0 and Stage.State != ActStateUnload

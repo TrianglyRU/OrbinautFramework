@@ -1,4 +1,4 @@
-function PaletteDataLoad()
+function ScreenPaletteDataLoad()
 {	
 	// Check current room/scene
 	switch room 

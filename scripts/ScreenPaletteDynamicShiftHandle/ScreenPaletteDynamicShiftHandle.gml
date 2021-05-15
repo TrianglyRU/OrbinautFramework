@@ -1,4 +1,4 @@
-function PaletteDynamicShiftHandle()
+function ScreenPaletteDynamicShiftHandle()
 {	
 	// Check if player is in their super form
 	if instance_exists(Player)

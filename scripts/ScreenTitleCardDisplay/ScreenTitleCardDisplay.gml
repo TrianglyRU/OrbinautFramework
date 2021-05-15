@@ -35,12 +35,15 @@ function ScreenTitleCardDisplay()
 	Angle -= 2;
 	
 	// Move right line
-	LineRightX += (Angle > 90 ? ResX / 35 : 0.5) * dcos(Angle);
-	LineRightY += (Angle > 0  ? ResY / 35 : 0.5) * dsin(Angle);
+	var LineX = (Angle > 90 ? ResX / 35 : 0.5) * dcos(Angle);
+	var LineY = (Angle > 0  ? ResY / 35 : 0.5) * dsin(Angle);
+	
+	LineRightX += LineX;
+	LineRightY += LineY;
 	
 	// Move left line
-	LineLeftX  -= (Angle > 90 ? ResX / 35 : 0.5) * dcos(Angle);
-	LineLeftY  -= (Angle > 0  ? ResY / 35 : 0.5) * dsin(Angle);
+	LineLeftX  -= LineX;
+	LineLeftY  -= LineY;
 		
 	// Scale lines
 	if CardTimer < 265
@@ -145,54 +148,42 @@ function ScreenTitleCardDisplay()
 		InterfaceOffsetX += 5;
 	}
 	
-	// Sync positions with camera movement
-	var scrZoneX      = CameraX + ZonenameX;
-	var scrZoneY      = CameraY + ZonenameY;
-	var scrLineRightX = CameraX + LineRightX;
-	var scrLineRightY = CameraY + LineRightY;
-	var scrLineLeftX  = CameraX + LineLeftX;
-	var scrLineLeftY  = CameraY + LineLeftY;
-	var scrRibbonX    = CameraX + RibbonX;
-	var scrRibbonY    = CameraY + RibbonY;
-	var scrEdgeRightX = CameraX + EdgeRightX;
-	var scrEdgeRightY = CameraY + EdgeRightY;
-	var scrEdgeLeftX  = CameraX + EdgeLeftX;
-	var scrEdgeLeftY  = CameraY + EdgeLeftY;
-	
 	// Draw background
-	if (BGVisible) draw_sprite_ext(hudCardBackground, 0, CameraX, CameraY, 100, 50, 0, c_white, 1);
+	if (BGVisible) draw_sprite_ext(hudCardBackground, 0, 0, 0, 100, 50, 0, c_white, 1);
 
 	// Draw top string undertext
-	for (var i = 1; i <= string_length(Stage.CardNameTop) * 2; i++)
+	var NameTop = string_length(Stage.CardNameTop) * 2;
+	for (var i = 1; i <= NameTop; i++)
 	{
-		draw_sprite(hudCardUndertext, 1, scrZoneX - 10 + (8 * i) + ZoneTopShift, scrZoneY + 14);
+		draw_sprite(hudCardUndertext, 1, ZonenameX - 10 + (8 * i) + ZoneTopShift, ZonenameY + 14);
 	}
-	draw_sprite(hudCardUndertext, 0, scrZoneX - 10 + ZoneTopShift,										   scrZoneY + 14);
-	draw_sprite(hudCardUndertext, 2, scrZoneX - 2  + string_length(Stage.CardNameTop) * 16 + ZoneTopShift, scrZoneY + 14);
+	draw_sprite(hudCardUndertext, 0, ZonenameX - 10 + ZoneTopShift,										   ZonenameY + 14);
+	draw_sprite(hudCardUndertext, 2, ZonenameX - 2  + string_length(Stage.CardNameTop) * 16 + ZoneTopShift, ZonenameY + 14);
 	
 	// Draw bottom string undertext
-	for (var i = 1; i <= string_length(Stage.CardNameBottom) * 2; i++)
+	var NameBottom = string_length(Stage.CardNameTop) * 2;
+	for (var i = 1; i <= NameBottom; i++)
 	{
-		draw_sprite(hudCardUndertext, 1, scrZoneX - 30 + (8 * i) + ZoneBottomShift, scrZoneY + 38);
+		draw_sprite(hudCardUndertext, 1, ZonenameX - 30 + (8 * i) + ZoneBottomShift, ZonenameY + 38);
 	}
-	draw_sprite(hudCardUndertext, 0, scrZoneX - 30 + ZoneBottomShift,											 scrZoneY + 38);
-	draw_sprite(hudCardUndertext, 2, scrZoneX - 22 + string_length(Stage.CardNameBottom) * 16 + ZoneBottomShift, scrZoneY + 38);
+	draw_sprite(hudCardUndertext, 0, ZonenameX - 30 + ZoneBottomShift,											 ZonenameY + 38);
+	draw_sprite(hudCardUndertext, 2, ZonenameX - 22 + string_length(Stage.CardNameBottom) * 16 + ZoneBottomShift, ZonenameY + 38);
 	
 	// Draw strings
-	string_display(scrZoneX + ZoneTopShift + 4,		    scrZoneY + 4,      Stage.CardNameTop,    1);
-	string_display(scrZoneX + ZoneBottomShift - 16, scrZoneY + 28, Stage.CardNameBottom, 1);
+	string_display(ZonenameX + ZoneTopShift + 4,		    ZonenameY + 4,      Stage.CardNameTop,    1);
+	string_display(ZonenameX + ZoneBottomShift - 16, ZonenameY + 28, Stage.CardNameBottom, 1);
 	
 	// Draw act number
-	draw_sprite(hudCardAct, Stage.ActID, scrZoneX - 83 + string_length(Stage.CardNameBottom) * 16 + ActShift, scrZoneY + 34);
+	draw_sprite(hudCardAct, Stage.ActID, ZonenameX - 83 + string_length(Stage.CardNameBottom) * 16 + ActShift, ZonenameY + 34);
 
 	// Draw lines
-	draw_sprite_ext(hudCardLine, 0, scrLineRightX, scrLineRightY, 2, LineScale, 315, c_white, 1);
-	draw_sprite_ext(hudCardLine, 0, scrLineLeftX,  scrLineLeftY,  2, LineScale, 315, c_white, 1);
+	draw_sprite_ext(hudCardLine, 0, LineRightX, LineRightY, 2, LineScale, 315, c_white, 1);
+	draw_sprite_ext(hudCardLine, 0, LineLeftX,  LineLeftY,  2, LineScale, 315, c_white, 1);
 	
 	// Draw ribbon
-	draw_sprite(hudCardRibbon, 0, scrRibbonX, scrRibbonY + RibbonShift);
+	draw_sprite(hudCardRibbon, 0, RibbonX, RibbonY + RibbonShift);
 	
 	// Draw edges
-	draw_sprite(hudCardEdge, 0, scrEdgeLeftX,  scrEdgeLeftY);
-	draw_sprite(hudCardEdge, 0, scrEdgeRightX, scrEdgeRightY);
+	draw_sprite(hudCardEdge, 0, EdgeLeftX,  EdgeLeftY);
+	draw_sprite(hudCardEdge, 0, EdgeRightX, EdgeRightY);
 }

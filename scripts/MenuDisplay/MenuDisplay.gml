@@ -108,7 +108,7 @@ function MenuDisplay()
 				string_display(X + 65, Y + 30, Game.GroundSpeedcap  ? "ON" : "OFF", 1);
 				string_display(X + 65, Y + 45, Game.AirSpeedcap     ? "ON" : "OFF", 1);
 				string_display(X + 65, Y + 60, Game.RolljumpControl ? "ON" : "OFF", 1);
-				string_display(X + 65, Y + 75, Game.AllowUnroll     ? "ON" : "OFF", 1);
+				//string_display(X + 65, Y + 75, Game.AllowUnroll     ? "ON" : "OFF", 1);
 			}
 			else
 			{

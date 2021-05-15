@@ -1,4 +1,4 @@
-function PaletteFadeUpdate()
+function ScreenPaletteFadeUpdate()
 {	
 	// Turn off palette fade if it is disabled
 	if !Palette.FadeEnabled

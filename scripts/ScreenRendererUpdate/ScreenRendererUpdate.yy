@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Palette",
-    "path": "folders/Game GlobalCode/Palette.yy",
+    "name": "Screen",
+    "path": "folders/Game GlobalCode/Screen.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PaletteRendererUpdate",
+  "name": "ScreenRendererUpdate",
   "tags": [],
   "resourceType": "GMScript",
 }

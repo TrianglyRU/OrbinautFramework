@@ -20,7 +20,7 @@ function gamesettings_save(filename)
 	ini_write_real("Gameplay", "FlyCancel",       Game.FlyingCancel);
 	ini_write_real("Gameplay", "OgRollLimit",Game.OriginalRollLimit);
 	ini_write_real("Gameplay", "CDCamera",      Game.ExtendedCamera);
-	ini_write_real("Gameplay", "UnrollMove",       Game.AllowUnroll); 
+	//ini_write_real("Gameplay", "UnrollMove",       Game.AllowUnroll); 
 	ini_write_real("Gameplay", "RlljmpCtrl",   Game.RolljumpControl);
 	ini_write_real("Gameplay", "AirSpeedcap",      Game.AirSpeedcap);
 	ini_write_real("Gameplay", "GndSpeedcap",	Game.GroundSpeedcap);
