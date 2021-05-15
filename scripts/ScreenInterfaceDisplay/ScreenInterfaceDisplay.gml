@@ -4,7 +4,6 @@ function ScreenInterfaceDisplay()
 	var ScreenX = CameraX + InterfaceOffsetX;
 	var ScreenY = CameraY + InterfaceOffsetY;
 	
-	if keyboard_check_pressed(vk_space) Stage.Time += 300
 	// Handle timer
 	var TimeValue = Stage.Time;
 	if  TimeValue < 35999
@@ -42,5 +41,18 @@ function ScreenInterfaceDisplay()
 		// Display lives counter
 		string_set_font(Game.Font[FontDigits2], "right");
 		string_display(ScreenX + 65, ScreenY + Height - 15, Player.Lives, 1);
+	}
+	
+	if Game.DevMode
+	{
+		string_display(CameraX + Width - 57, CameraY + 9, floor(Player.PosX), 1);
+		string_display(CameraX + Width - 17, CameraY + 9, floor(CameraX),	   1);
+		
+		string_display(CameraX + Width - 57, CameraY + 17, floor(Player.PosY), 1);
+		string_display(CameraX + Width - 17, CameraY + 17, floor(CameraY),	   1);
+		
+		string_set_font(FontDebug, "right");
+		string_display(CameraX + Width - 97, CameraY + 9,  "X:", 1);
+		string_display(CameraX + Width - 97, CameraY + 17, "Y:", 1);
 	}
 }

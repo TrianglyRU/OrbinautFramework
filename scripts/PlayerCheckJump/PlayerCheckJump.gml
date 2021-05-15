@@ -35,10 +35,11 @@ function PlayerCheckJump()
 		{
 			yRadius = yRadiusRoll;
 			xRadius	= xRadiusRoll;
+			PosY   += yRadiusDefault - yRadiusRoll;
 		}
 		else
 		{
-			PosY -= yRadiusDefault - yRadiusRoll;
+			//PosY += yRadiusDefault - yRadiusRoll;
 		}
 		
 		// Set animation

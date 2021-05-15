@@ -19,8 +19,8 @@ function GameFrameworkSetup()
 	// Window settings
 	Game.WindowFullscreen = false;
 	Game.ResolutionWidth  = 400;
-	Game.ResolutionHeight = 240;
-	Game.WindowSize		  = 4;
+	Game.ResolutionHeight = 224;
+	Game.WindowSize		  = 1;
 	
 	// Audio settings
 	Game.MusicVolume = 0.2;
@@ -36,7 +36,6 @@ function GameFrameworkSetup()
 	Game.GroundSpeedcap	   = false; // Enables ground speedcap
 	Game.AirSpeedcap	   = false; // Enables air speedcap
 	Game.RolljumpControl   = false; // Unlocks directional contorls if you jump after rolling
-	Game.AllowUnroll	   = false; // Allows you to unroll with UP button when rolling
 	Game.ExtendedCamera	   = false; // Enables camera to shift to the side of your direction movement
 	Game.OriginalRollLimit = true;  // Limits xsp instead of inertia speed when rolling
 	Game.FlyingCancel	   = true;  // Allows you to cancel flying as Tails
@@ -45,12 +44,12 @@ function GameFrameworkSetup()
 	/* These flags are not affected by game settings and set only here */
 	
 	// Originals differences
-	Game.StrongerSlopeGravity   = true;  // In S3 and later, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
+	Game.StrongerSlopeGravity   = false; // In S3 and later, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
 	Game.LooseCrouch		    = false; // In S&K, you can start crouching even when you are moving slowly. True - SK method.
 	Game.ConstantRollFrc        = false; // In SK, rolling friction is hard-coded to always be half of regular acceleration, even when Super. True - SK method
-	Game.StrongerSlopeDetach    = true;  // Before S3, you were able to slide down on 45-degree floors. True - Sonic 3+ method
+	Game.StrongerSlopeDetach    = false; // Before S3, you were able to slide down on 45-degree floors. True - Sonic 3+ method
 	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
-	Game.ExtensiveWallCollision	= true;	 // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
+	Game.ExtensiveWallCollision	= false; // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.StageTransitions		= true;	 // In S3 and later stage transitions are used. True = S3+.
 	Game.BalancingCrouch		= false;
 	
@@ -59,9 +58,9 @@ function GameFrameworkSetup()
 	Game.ConsiderAngleDifference = true;  // If set to true, the game will send player airborne if floor angle difference is too high. False - S2+ method, where angle is reset to 360 instead.
 	Game.ImprovedObjCollision	 = true;  // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
 	Game.SmoothPaletteCycle		 = true;  // Apply interpolation to palette cycles
-	Game.SmoothRotation			 = true;  // Use smooth rotation
+	Game.SmoothRotation			 = false; // Use smooth rotation
 	Game.RichPresenceSupport	 = true;  // Enable Rich Presence
-	Game.RingsPreciseCollision   = true;  // Make rings check for collision every frame instead of every 4
-	Game.RingsBoundDespawn		 = false; // Make rings despawn as soon as they leave the screen
-	Game.RingsAllSideCollision   = true;  // Make rings collide with walls and ceiling instead of just floor
+	Game.RingsPreciseCollision   = false; // Make rings check for collision every frame instead of every 4
+	Game.RingsBoundDespawn		 = true;  // Make rings despawn as soon as they leave the screen
+	Game.RingsAllSideCollision   = false; // Make rings collide with walls and ceiling instead of just floor
 }

@@ -5,7 +5,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 	if isBadnik
 	{
 		// Check if player can destroy Badnik
-		if Player.InvincibilityBonus or Player.Jumping or Player.Rolling or Player.SpindashRev
+		if Player.InvincibilityBonus or Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
 		{
 			// Delete Badnik
 			instance_destroy(self);

@@ -20,8 +20,7 @@ function _GameVariables()
 	Game.PeeloutEnabled			 _init;
 	Game.GroundSpeedcap			 _init;
 	Game.AirSpeedcap			 _init;	
-	Game.RolljumpControl		 _init;
-	Game.AllowUnroll			 _init;		
+	Game.RolljumpControl		 _init;		
 	Game.ExtendedCamera			 _init;	
 	Game.OriginalRollLimit		 _init;
 	Game.FlyingCancel			 _init;
