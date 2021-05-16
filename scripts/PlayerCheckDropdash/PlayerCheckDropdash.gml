@@ -39,7 +39,7 @@ function PlayerCheckDropdash()
 		// Charge Dropdash
 		if DropdashRev == -1
 		{
-			DropdashRev = 1;
+			DropdashRev = 0;
 		}
 		else
 		{

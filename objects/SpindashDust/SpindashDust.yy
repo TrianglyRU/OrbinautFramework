@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "Sprite149",
-    "path": "sprites/Sprite149/Sprite149.yy",
+    "name": "spr_obj_spindashdust",
+    "path": "sprites/spr_obj_spindashdust/spr_obj_spindashdust.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Objects",
+    "path": "objects/Objects/Objects.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Spindash Dust",
+    "path": "folders/Game Objects/Spindash Dust.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpindashDust",

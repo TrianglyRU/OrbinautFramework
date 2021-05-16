@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_star1",
-    "path": "sprites/spr_star1/spr_star1.yy",
+    "name": "spr_obj_motobug",
+    "path": "sprites/spr_obj_motobug/spr_obj_motobug.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,17 +21,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "_Unsorted",
-    "path": "folders/Game Objects/_Unsorted.yy",
+    "name": "Motobug",
+    "path": "folders/Game Objects/Motobug.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Star",
+  "name": "Motobug",
   "tags": [],
   "resourceType": "GMObject",
 }

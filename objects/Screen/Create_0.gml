@@ -21,4 +21,3 @@
 	
 	// Reset fade state
 	ScreenPaletteFadeReset();
-	

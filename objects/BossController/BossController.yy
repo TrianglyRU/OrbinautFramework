@@ -21,8 +21,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Boss ",
+    "path": "folders/Game Objects/Boss .yy",
   },
   "resourceVersion": "1.0",
   "name": "BossController",

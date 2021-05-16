@@ -76,7 +76,7 @@ function PlayerResetOnFloor()
 		}
 		else
 		{
-			DropdashRev = -2;
+			DropdashRev = -1;
 		}
 		
 		// Tails' flying

@@ -19,7 +19,7 @@ function StageMusicUpdate()
 		if Player.HighSpeedBonus > 0
 		{
 			// Mute stage music 
-			audio_bgm_fadeout(StageMusic, 0);
+			audio_bgm_mute(StageMusic, 0);
 			
 			// Play speedup powerup
 			audio_bgm_play(SpeedupPowerup, -1, -1);
@@ -37,10 +37,10 @@ function StageMusicUpdate()
 		if Player.InvincibilityBonus > 0
 		{
 			// Mute stage music 
-			audio_bgm_fadeout(StageMusic, 0);
+			audio_bgm_mute(StageMusic, 0);
 			
 			// Mute highspeed music
-			audio_bgm_fadeout(SpeedupPowerup, 0.5);
+			audio_bgm_mute(SpeedupPowerup, 0.5);
 			
 			// Play invincible powerup
 			audio_bgm_fadein(InvinciblePowerup, 0);
@@ -76,7 +76,7 @@ function StageMusicUpdate()
 	{
 		if audio_sound_get_gain(StageMusic) != Game.MusicVolume
 		{
-			audio_bgm_fadeout(StageMusicDAC, 0);
+			audio_bgm_mute(StageMusicDAC, 0);
 		}
 		else
 		{

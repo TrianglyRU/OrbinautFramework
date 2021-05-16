@@ -26,6 +26,7 @@ function gamedata_load(slot)
 			data[i] = file_bin_read_byte(file);
 		}
 		
+		// Read score
 		data[5] = 0;
 		for(i = 0; i < 4; i++) 
 		{

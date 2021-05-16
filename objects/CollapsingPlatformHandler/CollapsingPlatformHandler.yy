@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Spawners",
-    "path": "folders/Game Objects/Spawners.yy",
+    "name": "_Unsorted",
+    "path": "folders/Game Objects/_Unsorted.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollapsingPlatformHandler",

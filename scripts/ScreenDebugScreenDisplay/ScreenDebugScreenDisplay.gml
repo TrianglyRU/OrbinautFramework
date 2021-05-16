@@ -1,13 +1,7 @@
 function ScreenDebugScreenDisplay()
 {	
-	// Toggle debug help
-	if keyboard_check_pressed(ord("H"))
-	{
-		DebugHelp = !DebugHelp;
-	}
-	
 	// Hotkeys:
-	if Stage.State != ActStateLoading and DebugHelp
+	if Stage.State != ActStateLoading and DebugToggle
 	{
 		string_set_font(Game.Font[FontDebug], "centre");
 		string_display(Width / 2, Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  SENSORS: R  VARIABLES: T", 0.5);
@@ -15,6 +9,12 @@ function ScreenDebugScreenDisplay()
 		string_set_font(Game.Font[FontDebug], "left");
 		string_display(Width - 45, Height - 8, "FPS: " + string(floor(fps)), 0.5);
 		string_display(Width - 65, Height - 4, "TRUE FPS: " + string(floor(fps_real)), 0.5);
+	}
+	
+	// Toggle debug help
+	if keyboard_check_pressed(ord("T"))
+	{
+		DebugVariables = !DebugVariables;
 	}
 	
 	// Show variables information
@@ -82,7 +82,7 @@ function ScreenDebugScreenDisplay()
 				+ "\n         * CHARACTER VISUALS *"
 				+ "\n"
 				+ "\n   ANIMATION: " + string(sprite_get_name(Player.sprite_index))
-				+ "\n   NEXT FRAME IN: " + string(Player.aniTimer)
+				//+ "\n   NEXT FRAME IN: " + string(Player.aniTimer)
 				+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
 				+ "\n   FRAMES TOTAL: " + string(Player.image_number)
 				+ "\n   VISUAL ANGLE: " + string(Player.VisualAngle)

@@ -36,7 +36,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 	// Exit if player can't be damaged
 	if (Player.InvincibilityBonus or Player.isInvincible or Player.Hurt) exit;
 	
-	/* If we managed to get at this point, damage player */
+	/* If we managed to get to this point, damage player */
 	
 	// Reset player flags
 	Player.Grounded	     = false;
@@ -135,7 +135,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 
 		// Perform movement
 		Player.Ysp = -4;
-		Player.Xsp =  2 * sign(Player.PosX - id.x);
+		Player.Xsp = 2 * sign(Player.PosX - id.x);
 		Player.Grv = 0.1875;
 		
 		// Enter hurt state

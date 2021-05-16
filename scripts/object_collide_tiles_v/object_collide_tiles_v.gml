@@ -1,7 +1,7 @@
 /// @function object_collide_tiles_v(xSide, ySide, minDistsance, tileLayer)
 function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 {	
-	// Exit the code if this object solidbox wasn't initialized
+	// Exit the code if solidbox is not specified
 	if (!variable_instance_exists(id, "objYRadiusSolid")) exit;
 
 	// Define xside
@@ -11,7 +11,7 @@ function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 		case SideRight:  var checkX = floor(x + objXRadiusSolid - 1); break;
 		case SideCentre: var checkX = floor(x);				          break;
 		
-		// Use object centre if no side set
+		// Use object X centre if no specific side is specified
 		default: var checkX = floor(x);	break;
 	}
 	
@@ -22,19 +22,26 @@ function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 		case SideBottom: var checkY = floor(y + objYRadiusSolid - 1); break;
 		case SideCentre: var checkY = floor(y);						  break;
 		
-		// Use object centre if no side set
+		// Use object Y centre if no specific side is specified
 		default: var checkY = floor(y); break;
 	}
 	
-	// Get tile distance
+	// Get distance to surface
 	var floorDistance = tile_check_collision_v(checkX, checkY, ySide = SideTop ? false : true, ySide = SideTop ? true : false, tileLayer)[0];
-			
-	// Update object position
+	
+	// Check if the distance to the surface is less than the minimum distance
 	if floorDistance <= minDistance
 	{
-		y += floorDistance;
+		// Push the object to the surface if it is not too far in tiles
+		if floorDistance >= -14 and floorDistance <= 14
+		{
+			y += floorDistance;
+		}
+		
+		// Confirm collision
 		return true;
 	}
 	
+	// If the distance to the surface is greater than the minimum distance, object does not collide
 	return false;
 }

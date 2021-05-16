@@ -31,8 +31,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Stage Boundary",
+    "path": "folders/Game Objects/Stage Boundary.yy",
   },
   "resourceVersion": "1.0",
   "name": "StageBoundary",

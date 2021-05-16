@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "Sprite148",
-    "path": "sprites/Sprite148/Sprite148.yy",
+    "name": "spr_obj_dustpuff",
+    "path": "sprites/spr_obj_dustpuff/spr_obj_dustpuff.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Objects",
+    "path": "objects/Objects/Objects.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Dust Puff",
+    "path": "folders/Game Objects/Dust Puff.yy",
   },
   "resourceVersion": "1.0",
   "name": "DustPuff",

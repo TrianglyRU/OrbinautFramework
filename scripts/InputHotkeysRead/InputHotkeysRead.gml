@@ -48,6 +48,10 @@ function InputHotkeysRead()
 		{
 			Player.InvincibilityBonus = 1050;
 		}
+		if keyboard_check_pressed(ord("5")) 
+		{
+			object_damage(false, false, true);
+		}
 		
 		// Ignore input mode
 		if keyboard_check_pressed(ord("L")) 
@@ -86,8 +90,8 @@ function InputHotkeysRead()
 		
 		Screen.Width = Game.ResolutionWidth;
 		Screen.Height = Game.ResolutionHeight;
-		
-		show_debug_message("Change?");
+
+		fade_perform(from, black, 0.5);
 		
 		// Adjust room viewport to our resolution
 		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
@@ -101,6 +105,8 @@ function InputHotkeysRead()
 		Screen.Width = Game.ResolutionWidth;
 		Screen.Height = Game.ResolutionHeight;
 		
+		fade_perform(from, black, 0.5);
+		
 		// Adjust room viewport to our resolution
 		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
 		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
@@ -112,6 +118,8 @@ function InputHotkeysRead()
 		
 		Screen.Width = Game.ResolutionWidth;
 		Screen.Height = Game.ResolutionHeight;
+		
+		fade_perform(from, black, 0.5);
 		
 		// Adjust room viewport to our resolution
 		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);

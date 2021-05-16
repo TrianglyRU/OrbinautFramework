@@ -1,13 +1,16 @@
 function PlayerStateUpdate()
 {
 	// Check for entering for exiting debug mode
-	if Game.DevMode and Input.CPress
+	if Game.DevMode and Input.CPress and !Death
 	{
 		DebugMode      = !DebugMode;	
 		DebugSpeed     = 0;
 		Hurt		   = false;
-		Death		   = false;
-		Grounded	   = DebugMode;
+		MovementLock   = false;
+		SpindashRev    = -1;
+		PeeloutRev     = -1;
+		DropdashRev    = -1;
+		Grounded	   =  DebugMode;
 		AllowCollision = !DebugMode;	
 	}
 	

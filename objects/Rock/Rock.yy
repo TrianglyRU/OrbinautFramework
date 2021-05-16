@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "_Unsorted",
+    "path": "folders/Game Objects/_Unsorted.yy",
   },
   "resourceVersion": "1.0",
   "name": "Rock",

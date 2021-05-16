@@ -16,6 +16,9 @@ function ScreenInterfaceSetup()
 		InterfaceOffsetY = 0;
 	}
 	
-	// Disabled debug
-	DebugViewEnabled = false;
+	DebugToggle    = false;
+	DebugHitboxes  = false;
+	DebugSensors   = false;
+	DebugSolids    = false;
+	DebugVariables = false;
 }

@@ -1,7 +1,8 @@
-/// @description Renderer Screen
+/// @description Renderer & Interface
 // You can write your code in this editor
 	
-	ScreenRendererInitialize();
+	// Start rendering our application
+	ScreenRendererPerform();
 	
 	// Display HUD
 	ScreenInterfaceDisplay();
@@ -12,5 +13,11 @@
 	// Display title card
 	ScreenTitleCardDisplay();
 	
-	// Display application surface
+	// Update our application renderer
 	ScreenRendererUpdate();
+	
+	/* Everything after this line will render ABOVE the fade and 
+	   will use current window resolution instead of game one    */
+	
+	// Display debug screen
+	ScreenDebugScreenDisplay();

@@ -110,7 +110,6 @@ function ObjRingScript()
 	
 	// Check for hitbox collision
 	if object_player_overlap(CollisionHitbox)
-	or object_player_overlap_ai(CollisionHitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;

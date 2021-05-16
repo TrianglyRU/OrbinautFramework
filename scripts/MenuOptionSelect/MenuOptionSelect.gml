@@ -125,8 +125,8 @@ function MenuOptionSelect()
 					{
 						switch StageToLoad - 1
 						{			
-							case 0:	room_goto(FFZ);  break; // Load GVZ
-							case 1: room_goto(GVZ2); break; // Load GVZ2
+							case 0:	room_goto(GVZ);  break; // Load GVZ
+							case 1: room_goto(FFZ); break; // Load GVZ2
 						}
 					}
 					else

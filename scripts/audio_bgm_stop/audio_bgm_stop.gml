@@ -14,7 +14,7 @@ function audio_bgm_stop(musicID, fadeTime)
 			// Fade to 0 if fade time set
 			if audio_sound_get_gain(musicID) != 0
 			{	
-				audio_bgm_fadeout(musicID, fadeTime);
+				audio_bgm_mute(musicID, fadeTime);
 			}
 			
 			// Stop music

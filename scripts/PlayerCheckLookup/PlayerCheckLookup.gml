@@ -18,7 +18,7 @@ function PlayerCheckLookup()
 			// Start Super Peel Out on A button press
 			if Input.APress and PeeloutRev == -1
 			{
-				PeeloutRev   = 1;
+				PeeloutRev   = 0;
 				MovementLock = -1;
 				
 				// Play sound
@@ -26,7 +26,7 @@ function PlayerCheckLookup()
 			}
 			
 			// Charge Super Peel Out
-			if PeeloutRev > 0
+			if PeeloutRev >= 0
 			{
 				// Set 'peelout' animation
 				Animation = AnimPeelout;

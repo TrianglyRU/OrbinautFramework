@@ -23,8 +23,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Characters",
+    "path": "folders/Characters.yy",
   },
   "resourceVersion": "1.0",
   "name": "TailsObject",
