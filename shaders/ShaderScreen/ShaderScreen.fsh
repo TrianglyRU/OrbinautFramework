@@ -10,7 +10,7 @@
 	uniform sampler2D u_dynPalTex;
 	uniform vec3 u_dynUvs;
 	uniform vec2 u_dynPixelSize;
-	uniform float u_palId[16];	// Max colours on the dynamic palette list. Increase if needed
+	uniform float u_palId[64];	// Max colours on the dynamic palette list. Increase if needed
 
 	uniform sampler2D u_wetPalTex;
 	uniform vec3 u_wetUvs;
