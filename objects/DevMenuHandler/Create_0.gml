@@ -1,9 +1,4 @@
-/// @description Variables & Load
+/// @description Insert description here
 // You can write your code in this editor
-	
-	// Initialize variables
-	_MenuVariables();
-	
-	// Load savedata and settings	
-	MenuLoadGamedata();
-	show_message(Game.SpindashEnabled)
+
+	GameSurf = -1;

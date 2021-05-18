@@ -99,7 +99,7 @@ function InputHotkeysRead()
 	}
 	if keyboard_check_pressed(vk_f8)
 	{
-		Game.ResolutionWidth  = 398;
+		Game.ResolutionWidth  = 400;
 		Game.ResolutionHeight = 224;
 		
 		Screen.Width = Game.ResolutionWidth;

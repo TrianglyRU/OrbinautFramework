@@ -43,4 +43,6 @@ function _ScreenVariables()
 	DebugSensors   _init;
 	DebugValue	   _init;
 	DebugHelp	   _init;
+	
+	GameSurf _init;
 }

@@ -14,7 +14,7 @@ function gamesettings_load(filename)
 	Game.FlyingCancel	   = ini_read_real("Gameplay", "FlyCancel",   true); 
 	
 	// Video
-	Game.ResolutionWidth  = ini_read_real("Video", "ResWidth",  398);
+	Game.ResolutionWidth  = ini_read_real("Video", "ResWidth",  400);
 	Game.ResolutionHeight = ini_read_real("Video", "ResHeight", 224);
 	Game.WindowSize		  = ini_read_real("Video", "WindowSize",  2);
 	Game.WindowFullscreen = ini_read_real("Video", "Fullscreen",  0);

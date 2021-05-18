@@ -10,7 +10,7 @@ function MenuOptionToggle()
 				// Aspect ratio
 				case 0: 
 				{	
-					Game.ResolutionWidth = Game.ResolutionWidth == 398 ? 530 : 398;
+					Game.ResolutionWidth = Game.ResolutionWidth == 400 ? 530 : 400;
 					application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
 					window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
 				}

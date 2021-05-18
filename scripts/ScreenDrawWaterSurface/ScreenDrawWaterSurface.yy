@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage",
-    "path": "folders/Game GlobalCode/Stage.yy",
+    "name": "Screen",
+    "path": "folders/Game GlobalCode/Screen.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageDrawWaterSurface",
+  "name": "ScreenDrawWaterSurface",
   "tags": [],
   "resourceType": "GMScript",
 }

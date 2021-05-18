@@ -34,7 +34,7 @@
   "sequenceId": null,
   "roomSettings": {
     "inheritRoomSettings": false,
-    "Width": 398,
+    "Width": 400,
     "Height": 224,
     "persistent": false,
   },

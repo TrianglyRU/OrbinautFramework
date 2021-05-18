@@ -1,5 +1,4 @@
 /// @description Insert description here
 // You can write your code in this editor
-	
-	// Draw water surface
-	StageDrawWaterSurface();
+
+	if (surface_exists(GameSurf)) surface_free(GameSurf);

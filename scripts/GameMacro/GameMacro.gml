@@ -20,6 +20,7 @@ function _GameMacros()
 	
 	// Palette macro
 	#macro Palette		     global
+	#macro Uniform		     global
 	#macro PaletteSurface    0
 	#macro PaletteUnderwater 1
 	#macro to		         0
