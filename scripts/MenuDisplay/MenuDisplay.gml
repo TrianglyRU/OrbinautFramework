@@ -42,7 +42,7 @@ function MenuDisplay()
 					// Get zones
 					switch Saveslot[i][SavedZone]
 					{
-						case 0: var DisplayZone = "GVZ";  break;
+						case 0: var DisplayZone = "MQZ";  break;
 					}
 					
 					// Get character
@@ -167,8 +167,8 @@ function MenuDisplay()
 		case StageSelect:
 		{
 			draw_set_halign(fa_left);
-			string_display(X - 80, Y - 15, "GEMSTONE VALLEY", 1);
-			string_display(X - 80, Y,	   "GEMSTONE VALLEY 2", 1);
+			string_display(X - 80, Y - 15, "MOONLIGHT QUADRANT 1", 1);
+			string_display(X - 80, Y,	   "MOONLIGHT QUADRANT 2", 1);
 			string_display(X - 80, Y + 15, "BACK", 1);			
 		}
 		break;

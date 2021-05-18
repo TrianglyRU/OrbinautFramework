@@ -42,13 +42,14 @@ function ScreenPaletteDynamicShiftHandle()
 	
 	switch room
 	{
-		case GVZ:
-		case GVZ2:
+		case MQZ1:
+		case MQZ2:
 		{
-			for (var i = 10; i < 15; i++)
+			for (var i = 10; i < 18; i++)
 			{
-				palette_handle(i, 4, 8);
+				palette_handle(i, 8, 3);
 			}
 		}
+		break;
 	}
 }

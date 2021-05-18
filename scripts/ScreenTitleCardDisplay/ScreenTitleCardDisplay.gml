@@ -161,7 +161,7 @@ function ScreenTitleCardDisplay()
 	draw_sprite(hudCardUndertext, 2, ZonenameX - 2  + string_length(Stage.CardNameTop) * 16 + ZoneTopShift, ZonenameY + 14);
 	
 	// Draw bottom string undertext
-	var NameBottom = string_length(Stage.CardNameTop) * 2;
+	var NameBottom = string_length(Stage.CardNameBottom) * 2;
 	for (var i = 1; i <= NameBottom; i++)
 	{
 		draw_sprite(hudCardUndertext, 1, ZonenameX - 30 + (8 * i) + ZoneBottomShift, ZonenameY + 38);

@@ -6,8 +6,8 @@ function ScreenCameraHandleOffsets()
 	// Update extended camera offset
 	if Game.ExtendedCamera
 	{
-		var screenShift = 64//Screen.Width / 2 - 96;
-		var screenSpeed = 2//floor(screenShift / 32);
+		var screenShift = Screen.Width / 2 - 96;
+		var screenSpeed = floor(screenShift / 32);
 		
 		if abs(Player.Inertia) >= 6 or Player.PeeloutRev >= 16 or Player.SpindashRev >= 0
 		{

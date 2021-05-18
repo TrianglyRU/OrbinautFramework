@@ -17,13 +17,13 @@ function GameFrameworkSetup()
 	   if devmode is disabled, so you want to temporary enable it if you want to edit values here!   */
 	
 	// Window settings
-	Game.WindowFullscreen = true;
+	Game.WindowFullscreen = false;
 	Game.ResolutionWidth  = 400;
 	Game.ResolutionHeight = 224;
-	Game.WindowSize		  = 1;
+	Game.WindowSize		  = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
+	Game.MusicVolume = 0.1;
 	Game.SoundVolume = 0.3;
 	
 	// Control settings (keyboard)
@@ -58,9 +58,9 @@ function GameFrameworkSetup()
 	Game.ConsiderAngleDifference = true;  // If set to true, the game will send player airborne if floor angle difference is too high. False - S2+ method, where angle is reset to 360 instead.
 	Game.ImprovedObjCollision	 = true;  // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
 	Game.SmoothPaletteCycle		 = true;  // Apply interpolation to palette cycles
-	Game.SmoothRotation			 = false; // Use smooth rotation
+	Game.SmoothRotation			 = true;  // Use smooth rotation
 	Game.RichPresenceSupport	 = true;  // Enable Rich Presence
-	Game.RingsPreciseCollision   = false; // Make rings check for collision every frame instead of every 4
+	Game.RingsPreciseCollision   = true;  // Make rings check for collision every frame instead of every 4
 	Game.RingsBoundDespawn		 = true;  // Make rings despawn as soon as they leave the screen
 	Game.RingsAllSideCollision   = false; // Make rings collide with walls and ceiling instead of just floor
 }

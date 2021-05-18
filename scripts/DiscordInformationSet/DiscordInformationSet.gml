@@ -12,8 +12,8 @@ function DiscordInformationSet()
 	// Set details information block
 	switch room 
 	{
-		case GVZ:
-			DetailsString = "GEMSTONE VALLEY ACT 1"
+		case MQZ1:
+			DetailsString = "MOONLIGHT QUADRANT 1"
 		default:
 			DetailsString = "UNKNOWN ZONE";
 		break;

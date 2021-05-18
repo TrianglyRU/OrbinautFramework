@@ -66,7 +66,7 @@ function MenuOptionSelect()
 							// Load the Zone using its ID
 							switch Saveslot[Game.ActiveSave][SavedZone]
 							{	
-								case 0: room_goto(GVZ); break;
+								case 0: room_goto(MQZ1); break;
 							}							
 						}
 					
@@ -125,13 +125,13 @@ function MenuOptionSelect()
 					{
 						switch StageToLoad - 1
 						{			
-							case 0:	room_goto(GVZ);  break; // Load GVZ
-							case 1: room_goto(FFZ); break; // Load GVZ2
+							case 0:	room_goto(MQZ1); break; // Load MQZ1
+							case 1: room_goto(MQZ2); break; // Load MQZ2
 						}
 					}
 					else
 					{
-						room_goto(GVZ);
+						room_goto(MQZ1);
 					}
 				}
 				else
