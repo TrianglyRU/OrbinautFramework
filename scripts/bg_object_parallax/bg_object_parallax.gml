@@ -2,8 +2,10 @@
 function bg_object_parallax(posX, posY, scrlX, scrlY, scrlOfstX, scrlOfstY, top, bottom, incHeight, incForce)
 {		
 	// Set variables
-	var drawX = Screen.CameraX;
-	var drawY = floor(Screen.CameraY * (1 - scrlY)) + top + posY;
+	//var drawX = Screen.CameraX;
+	var drawX = 0;
+	//var drawY = floor(Screen.CameraY * (1 - scrlY)) + top + posY;
+	var drawY = floor(0 * (1 - scrlY)) + top + posY;
 
 	// Set shader uniforms
 	shader_set_uniform_f(Palette.Prlx_XOfst, drawX * scrlX - scrlOfstX);

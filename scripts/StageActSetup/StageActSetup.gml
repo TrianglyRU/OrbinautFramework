@@ -14,7 +14,7 @@ function StageActSetup()
 			CardEnabled				= true;
 			TimeEnabled				= false;
 			Time					= 0;
-			WaterLevel				= 1500;
+			WaterLevel				= 1550;
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= room_width;

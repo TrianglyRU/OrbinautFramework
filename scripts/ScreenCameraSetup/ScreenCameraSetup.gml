@@ -30,4 +30,5 @@ function ScreenCameraSetup()
 	MaxRenderY = Stage.BottomBoundary;
 	
 	GameSurf = -1;
+	BGSurf   = -1;
 }

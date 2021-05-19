@@ -45,4 +45,5 @@ function _ScreenVariables()
 	DebugHelp	   _init;
 	
 	GameSurf _init;
+	BGSurf   _init;
 }
