@@ -40,8 +40,8 @@ function ObjItemcardScript()
 		// Make card visible
 		ItemCard.image_alpha = 1.0;
 		
-		// Render behind itembox
-		with ItemCard object_set_depth(id, false);
+		// Render above everything
+		ItemCard.depth = 0;
 		
 		// Set release flag
 		ItemCardRel = true;

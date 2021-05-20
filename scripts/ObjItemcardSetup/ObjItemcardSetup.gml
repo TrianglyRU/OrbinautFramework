@@ -11,7 +11,8 @@ function ObjItemcardSetup()
 	ItemCard.sprite_index = spr_obj_itembox_powerup;
 	
 	// Render object above itembox
-	with ItemCard object_set_depth(id, false);
+	var thisItembox = id;
+	with ItemCard object_set_depth(thisItembox, true);
 	
 	// Define card to display
 	switch BoxType

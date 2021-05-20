@@ -14,11 +14,11 @@ function StageActSetup()
 			CardEnabled				= true;
 			TimeEnabled				= false;
 			Time					= 0;
-			WaterLevel				= 1550;
+			WaterLevel				= 1666;
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= room_width;
-			BottomBoundary			= room_height;
+			BottomBoundary			= 1728;
 			State					= ActStateLoading;
 			StageMusic				= MoonlightQuadrant;
 			StageMusicDAC			= noone;

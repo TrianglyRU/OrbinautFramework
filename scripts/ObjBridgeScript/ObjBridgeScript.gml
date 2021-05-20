@@ -59,16 +59,7 @@ function ObjBridgeScript()
         }
         
         // Calculate and apply logs position for this bridge		
-		LogID[| i].NewPos = floor(y + (MaxDepression * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
-		
-		if LogID[| i].y < LogID[| i].NewPos
-		{
-			LogID[| i].y = min( LogID[| i].y + 1,  LogID[| i].NewPos   );
-		}
-		else
-		{
-			LogID[| i].y = max( LogID[| i].y - 1,  LogID[| i].NewPos   );
-		}	
+		LogID[| i].y = floor(y + (MaxDepression * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
     }
     
     // Do collision with the bridge
