@@ -100,7 +100,7 @@ function PlayerDisplay()
 			}
 			else
 			{
-				if Angle < 90
+				/*if Angle < 90
 				{
 					DirectionAngle = min(DirectionAngle mod 360 + 5.625, Angle);
 				}
@@ -108,10 +108,9 @@ function PlayerDisplay()
 				{
 					DirectionAngle = max(DirectionAngle - 5.625, Angle)
 				}
-				else
+				else*/
 				{
-					DirectionAngle = Angle <= 180 ? min(DirectionAngle + Inertia + 2, Angle)
-												  : max(DirectionAngle + Inertia - 2, Angle);
+					DirectionAngle = Angle;
 				}
 			}
 			

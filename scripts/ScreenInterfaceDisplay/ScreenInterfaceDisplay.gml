@@ -1,5 +1,8 @@
 function ScreenInterfaceDisplay() 
 {	
+	// Exit the code if interface is disabled
+	if (!InterfaceEnabled) exit;
+	
 	// Get position for our HUD
 	var ScreenX = InterfaceOffsetX;
 	var ScreenY = InterfaceOffsetY;
@@ -19,29 +22,25 @@ function ScreenInterfaceDisplay()
 		var mSeconds = 99;
 	}
 	
-	// Draw HUD
-	if InterfaceEnabled
-	{
-		// Red flash timer
-		var RedFlash = Stage.AnimationTime ? Stage.AnimationTime mod 16 < 8 : 0;
+	// Red flash timer
+	var RedFlash = Stage.AnimationTime ? Stage.AnimationTime mod 16 < 8 : 0;
 		
-		// Draw graphics
-		draw_sprite(sprHUD_Score, 0,							    ScreenX + 17, ScreenY + 9);
-		draw_sprite(sprHUD_Time,  TimeValue > 32400 ? RedFlash : 0, ScreenX + 17, ScreenY + 25);
-		draw_sprite(sprHUD_Rings, !Player.Rings     ? RedFlash : 0, ScreenX + 17, ScreenY + 41);
-		draw_sprite(sprHUD_Lives, Player.CharacterID,               ScreenX + 14, ScreenY + Height - 23);
+	// Draw graphics
+	draw_sprite(sprHUD_Score, 0,							    ScreenX + 17, ScreenY + 9);
+	draw_sprite(sprHUD_Time,  TimeValue > 32400 ? RedFlash : 0, ScreenX + 17, ScreenY + 25);
+	draw_sprite(sprHUD_Rings, !Player.Rings     ? RedFlash : 0, ScreenX + 17, ScreenY + 41);
+	draw_sprite(sprHUD_Lives, Player.CharacterID,               ScreenX + 14, ScreenY + Height - 23);
 		
-		// Display SCORE, TIME, RINGS counters
-		string_set_font(Game.Font[FontDigits1], "right");
+	// Display SCORE, TIME, RINGS counters
+	string_set_font(Game.Font[FontDigits1], "right");
 		
-		string_display(ScreenX + 113, ScreenY + 9,  Player.Score, 1);
-		string_display(ScreenX + 113, ScreenY + 25, string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds) + ";" + (mSeconds > 9 ? "" : "0") + string(mSeconds), 1);
-		string_display(ScreenX + 89,  ScreenY + 41, round(Player.Rings), 1);
+	string_display(ScreenX + 113, ScreenY + 9,  Player.Score, 1);
+	string_display(ScreenX + 113, ScreenY + 25, string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds) + ";" + (mSeconds > 9 ? "" : "0") + string(mSeconds), 1);
+	string_display(ScreenX + 89,  ScreenY + 41, round(Player.Rings), 1);
 		
-		// Display lives counter
-		string_set_font(Game.Font[FontDigits2], "right");
-		string_display(ScreenX + 65, ScreenY + Height - 15, Player.Lives, 1);
-	}
+	// Display lives counter
+	string_set_font(Game.Font[FontDigits2], "right");
+	string_display(ScreenX + 65, ScreenY + Height - 15, Player.Lives, 1);
 	
 	if Game.DevMode
 	{

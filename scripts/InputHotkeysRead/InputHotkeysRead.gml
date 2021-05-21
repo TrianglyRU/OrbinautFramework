@@ -2,6 +2,12 @@ function InputHotkeysRead()
 {	
 	if room != GameStart and room != DevMenu
 	{
+		// Hide interface
+		if keyboard_check_pressed(ord("I"))
+		{
+			Screen.InterfaceEnabled = !Screen.InterfaceEnabled;
+		}
+		
 		// Stage restart
 		if keyboard_check_pressed(vk_f1) 
 		{

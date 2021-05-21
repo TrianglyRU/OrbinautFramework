@@ -7,7 +7,7 @@ function PlayerCollideFloor()
 	if Grounded
 	{
 		// Use original mode change method based on current angle
-		if !Game.SmoothModeUpdate
+		if !Game.SmoothModeUpdate or Rolling
 		{
 			if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
 			{
@@ -28,7 +28,7 @@ function PlayerCollideFloor()
 		}
 		
 		// Use custom advanced method using tile detection (smoother, but inaccurate to originals)
-		else
+		else if !Rolling
 		{
 			// Set maximum angle difference. If difference exceeds this value, mode won't change
 			var angleTolerance = 45;

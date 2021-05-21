@@ -45,10 +45,11 @@ function ScreenPaletteDynamicShiftHandle()
 		case MQZ1:
 		case MQZ2:
 		{
-			for (var i = 10; i < 26; i++)
+			for (var i = 10; i <= 25; i++)
 			{
 				palette_handle(i, 8, 3);
 			}
+			palette_handle(26, 8, 6);
 		}
 		break;
 	}
