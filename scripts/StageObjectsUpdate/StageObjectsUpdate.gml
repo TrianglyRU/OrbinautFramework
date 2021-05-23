@@ -23,9 +23,6 @@ function StageObjectsUpdate()
 		// Stop player
 		if State == ActStateRestart
 		{
-			Input.ResetInput  = true;
-			Input.IgnoreInput = true;	
-			
 			with Player
 			{
 				var ObjectSprite = layer_sprite_create("ObjectSprites", x + Xsp, y + Ysp, sprite_index);

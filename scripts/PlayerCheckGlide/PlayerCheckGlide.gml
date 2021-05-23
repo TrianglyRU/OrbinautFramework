@@ -99,6 +99,9 @@ function PlayerCheckGlide()
 		{
 			// Set animation
 			Animation = AnimGlideSlide;
+			
+			// Ignore slope physics
+			SlopeGravity = 0;
 		
 			// Glide until we release the button or completely stop
 			if !Input.ABC or Inertia == 0

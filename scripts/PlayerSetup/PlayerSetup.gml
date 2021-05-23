@@ -9,16 +9,17 @@ function PlayerSetup()
 	DrawOrder = layer_get_depth("Objects");
 	
 	// Set basic constants
-	Acc		= 0.046875;
-	Frc     = 0.046875;
-	AirAcc  = 0.09375;
-	RollFrc = 0.0234375;
-	Dec		= 0.5;
-	RollDec = 0.125;
-	Grv		= 0.21875;
-	TopAcc	= 6;
-	JumpMin = -4;
-	Jump    = CharacterID == CharKnuckles ? 6 : 6.5;
+	Acc			  = 0.046875;
+	Frc			  = 0.046875;
+	AirAcc		  = 0.09375;
+	RollFrc		  = 0.0234375;
+	Dec			  = 0.5;
+	RollDec		  = 0.125;
+	Grv			  = 0.21875;
+	TopAcc		  = 6;
+	JumpMin		  = -4;
+	Jump		  = CharacterID == CharKnuckles ? 6 : 6.5;
+	ClimbingSpeed = 1;
 	
 	// Set default flags
 	AllowCollision = true;

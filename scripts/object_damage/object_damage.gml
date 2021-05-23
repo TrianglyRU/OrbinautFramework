@@ -5,7 +5,8 @@ function object_damage(isBadnik, isProjectile, instantKill)
 	if isBadnik
 	{
 		// Check if player can destroy Badnik
-		if Player.InvincibilityBonus or Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
+		if Player.InvincibilityBonus or Player.Jumping 
+		or Player.Rolling or Player.SpindashRev >= 0 or Player.GlidingState
 		{
 			// Delete Badnik
 			instance_destroy(self);
@@ -56,6 +57,10 @@ function object_damage(isBadnik, isProjectile, instantKill)
 		// Disable collisions and camera
 		Screen.CameraEnabled  = false;
 		Player.AllowCollision = false;
+		
+		// Ignore all input
+		Input.IgnoreInput = true;
+		Input.ResetInput  = true;
 		
 		// Draw player above everything
 		Player.DrawOrder = 0;

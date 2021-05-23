@@ -380,10 +380,10 @@ function PlayerCollideFloor()
 		
 				// Adhere to the floor and apply angle to player
 				PosY += floorDistance;
-				Angle = floorAngle;
+				Angle = GlidingState ? 360 : floorAngle;	
 				
 				// Set flag
-				Grounded   = true;
+				Grounded = true;
 			}
 		}
 	}

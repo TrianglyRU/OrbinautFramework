@@ -30,7 +30,7 @@ function PlayerCollideRoof()
 			{	
 				// Land on the roof if it is steep enough
 				if roofAngle > 90 and roofAngle <= 135 or roofAngle >= 225 and roofAngle < 270
-				{						
+				{
 					Grounded   = true;
 					FloorRange = RangeRoof;
 					Angle      = roofAngle;
@@ -46,7 +46,8 @@ function PlayerCollideRoof()
 			// else just reset our vertical speed
 			else
 			{	
-				if (Ysp < 0) Ysp = 0;
+				if (Ysp < 0)     Ysp = 0;
+				if (FlyingState) Grv = 0.03125;
 			}
 		}
 	}

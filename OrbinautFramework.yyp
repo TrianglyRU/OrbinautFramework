@@ -66,6 +66,7 @@
     {"id":{"name":"ScreenRendererUpdate","path":"scripts/ScreenRendererUpdate/ScreenRendererUpdate.yy",},"order":23,},
     {"id":{"name":"spr_obj_spring_editor_h","path":"sprites/spr_obj_spring_editor_h/spr_obj_spring_editor_h.yy",},"order":2,},
     {"id":{"name":"loop_value","path":"scripts/loop_value/loop_value.yy",},"order":26,},
+    {"id":{"name":"spr_knuckles_glidestand2","path":"sprites/spr_knuckles_glidestand2/spr_knuckles_glidestand2.yy",},"order":50,},
     {"id":{"name":"spr_obj_spring_red_h","path":"sprites/spr_obj_spring_red_h/spr_obj_spring_red_h.yy",},"order":1,},
     {"id":{"name":"ScreenCameraSetup","path":"scripts/ScreenCameraSetup/ScreenCameraSetup.yy",},"order":1,},
     {"id":{"name":"PlayerSetup","path":"scripts/PlayerSetup/PlayerSetup.yy",},"order":12,},

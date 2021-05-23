@@ -1,5 +1,8 @@
 function PlayerCheckJump()
 {	
+	// Exit the code if we're gliding on the ground
+	if (GlidingState) exit;
+	
 	// Jump
 	if Input.ABCPress
 	{	

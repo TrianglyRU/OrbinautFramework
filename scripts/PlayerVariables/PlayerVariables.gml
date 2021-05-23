@@ -64,6 +64,5 @@ function _PlayerVariables()
 	Conts				 _init;
 	Emeralds			 _init;
 	SkiddingTimer		 _init;
-	
-	DirectionAngle     _init;
+	DirectionAngle       _init;
 }

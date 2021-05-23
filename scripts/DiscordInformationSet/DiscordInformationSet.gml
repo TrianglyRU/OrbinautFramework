@@ -13,7 +13,8 @@ function DiscordInformationSet()
 	switch room 
 	{
 		case MQZ1:
-			DetailsString = "MOONLIGHT QUADRANT 1"
+			DetailsString = "MOONLIGHT QUADRANT 1";
+		break;
 		default:
 			DetailsString = "UNKNOWN ZONE";
 		break;

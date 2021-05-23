@@ -38,11 +38,11 @@ function PlayerCheckClimb()
 			// Move up and down and all around
 			if Input.Up
 			{
-				Ysp = -1;
+				Ysp = -ClimbingSpeed;
 			}
 			else if Input.Down
 			{
-				Ysp = 1;
+				Ysp = ClimbingSpeed;
 			}
 			else
 			{

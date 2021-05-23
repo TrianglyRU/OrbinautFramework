@@ -97,13 +97,17 @@ function PlayerResetOnFloor()
 			}
 			break;
 			
-			// Stop movement if we glidedropped
+			// Stop movement for 20 frames if we glidedropped
 			case 3:
 			{
 				Xsp			 = 0;
 				Inertia		 = 0;
-				GlidingValue = 0;
-				GlidingState = false;	
+				GlidingValue = 20;
+				GlidingState = 4;	
+				MovementLock = -1;
+				
+				// Set 'glide stand' animation
+				Animation = AnimGlideStand;
 			}
 			break;
 		}

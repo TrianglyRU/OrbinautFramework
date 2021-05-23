@@ -54,13 +54,13 @@ function GameFrameworkSetup()
 	Game.BalancingCrouch		= false;
 	
 	// Orbinaut improvements
-	Game.SmoothModeUpdate        = true;  // Use custom advanced method to update collision mode
-	Game.ConsiderAngleDifference = true;  // If set to true, the game will send player airborne if floor angle difference is too high. False - S2+ method, where angle is reset to 360 instead.
-	Game.ImprovedObjCollision	 = true;  // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
+	Game.SmoothModeUpdate        = false; // Use custom advanced method to update collision mode
+	Game.ConsiderAngleDifference = false; // If set to true, the game will send player airborne if floor angle difference is too high. False - S2+ method, where angle is reset to 360 instead.
+	Game.ImprovedObjCollision	 = false; // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
 	Game.SmoothPaletteCycle		 = false; // Apply interpolation to palette cycles
 	Game.SmoothRotation			 = true;  // Use smooth rotation
 	Game.RichPresenceSupport	 = true;  // Enable Rich Presence
-	Game.RingsPreciseCollision   = true;  // Make rings check for collision every frame instead of every 4
+	Game.RingsPreciseCollision   = false; // Make rings check for collision every frame instead of every 4
 	Game.RingsBoundDespawn		 = true;  // Make rings despawn as soon as they leave the screen
 	Game.RingsAllSideCollision   = false; // Make rings collide with walls and ceiling instead of just floor
 }
