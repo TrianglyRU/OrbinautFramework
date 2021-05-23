@@ -15,5 +15,3 @@
 	
 	// Hotkeys
 	InputHotkeysRead();
-	
-	show_debug_message(IgnoreInput);
