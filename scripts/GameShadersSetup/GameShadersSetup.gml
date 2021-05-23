@@ -40,4 +40,5 @@ function GameShadersSetup()
 	Uniform.Wave_Texel = shader_get_uniform(ShaderWave, "u_texel");
 	Uniform.Wave_Time  = shader_get_uniform(ShaderWave, "u_time");
 	Uniform.Wave_Water = shader_get_uniform(ShaderWave, "u_water");
+	Uniform.Wave_CamY  = shader_get_uniform(ShaderWave, "u_camY");
 }
