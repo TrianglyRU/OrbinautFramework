@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_orbstatue",
-    "path": "sprites/spr_obj_orbstatue/spr_obj_orbstatue.yy",
+    "name": "spr_obj_orboss",
+    "path": "sprites/spr_obj_orboss/spr_obj_orboss.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,19 +21,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [
-    {"varType":3,"value":"False","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"BossTrigger","tags":[],"resourceType":"GMObjectProperty",},
-  ],
+  "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Statue",
-    "path": "folders/Game Objects/Statue.yy",
+    "name": "Orboss",
+    "path": "folders/Game Objects/Orboss.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Orbstatue",
+  "name": "Orboss",
   "tags": [],
   "resourceType": "GMObject",
 }

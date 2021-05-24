@@ -2,15 +2,14 @@ function ObjOrbstatueScript()
 {
 	if object_player_overlap(CollisionHitbox)
 	{
-		// Check if player can destroy Badnik
-		if Player.InvincibilityBonus or Player.Jumping 
-		or Player.Rolling or Player.SpindashRev >= 0 or Player.GlidingState
+		// Check if player can destroy Object
+		if Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
+		or Player.InvincibilityBonus or Player.GlidingState
 		{
-			// Delete Badnik
-			instance_destroy(self);
+			// Delete Object
+			instance_destroy();
 			
 			// Spawn explosion, animal and play sound
-			object_spawn(floor(x), floor(y), Animal);
 			object_spawn(floor(x), floor(y), DustExplosion);
 			audio_sfx_play(sfxDestroy, false, false);
 			
@@ -26,6 +25,8 @@ function ObjOrbstatueScript()
 					Player.Ysp -= 1 * sign(Player.Ysp);
 				}
 			}
+			
+			if (BossTrigger) object_spawn(x, y - 128, Orboss);
 		}
 	}
 }
