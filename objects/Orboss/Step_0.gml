@@ -39,3 +39,6 @@
 			object_damage(false, false, false);
 		}
 	}
+	
+	Angle -= 0.1;
+	Spin  = (Spin + 1) mod 180;
