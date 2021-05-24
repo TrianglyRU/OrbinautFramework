@@ -17,7 +17,7 @@ function GameFrameworkSetup()
 	   if devmode is disabled, so you want to temporary enable it if you want to edit values here!   */
 	
 	// Window settings
-	Game.WindowFullscreen = false;
+	Game.WindowFullscreen = true;
 	Game.ResolutionWidth  = 400;
 	Game.ResolutionHeight = 224;
 	Game.WindowSize		  = 3;

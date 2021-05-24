@@ -24,7 +24,7 @@ function ScreenCameraFollowPlayer()
 	}
 
 	// Set vertical shift speed
-	if (Player.Grounded and !Player.GlidingState or Player.GlidingState == 4)
+	if Player.Grounded or Player.GlidingState == 4
 	{
 		var maxShift = abs(Player.Ysp) < 6 ? 6 : 16;
 		ScrollY      = clamp(PlayerScreenY - (Height / 2 - 16), -maxShift, maxShift);  
@@ -42,7 +42,7 @@ function ScreenCameraFollowPlayer()
 	}	
 	
 	// Vertical follow
-	if Player.Grounded or Player.DebugMode
+	if Player.Grounded or Player.GlidingState == 4
 	{
 		if PlayerScreenY != Height / 2 - 16 
 		{
@@ -51,8 +51,8 @@ function ScreenCameraFollowPlayer()
 	} 
 	else 
 	{
-		if PlayerScreenY < Height / 2 - 48 and Player.Ysp < 0
-		or PlayerScreenY > Height / 2 + 16 and Player.Ysp > 0 
+		if PlayerScreenY < Height / 2 - 48 and Player.Ysp <= 0
+		or PlayerScreenY > Height / 2 + 16 and Player.Ysp >= 0 
 		{
 			RawY += ScrollY
 		}

@@ -1,7 +1,7 @@
 function PlayerCollideFloor()
 {	
 	// Do not collide if we're not allowed to, or if we're standing on object
-	if (!AllowCollision or OnObject) exit;
+	if (!AllowCollision or GlidingState or OnObject) exit;
 	
 	// Update collision mode
 	if Grounded
@@ -343,11 +343,11 @@ function PlayerCollideFloor()
 				var floorAngle	  = TileRight[1];
 			}
 		
-			// Check if we're inside the floor
+			// Check if we've touched the floor
 			if floorDistance < 0
 			{
-				// If we're moving downwards, calculate a momentum using floor angle
-				if abs(Xsp) < abs(Ysp)
+				// If we're moving downwards and not gliding, calculate a momentum using floor angle
+				if abs(Xsp) < abs(Ysp) and !GlidingState
 				{
 					// Use vertical speed on steep angles
 					if floorAngle >= 45 and floorAngle <= 315
@@ -380,9 +380,9 @@ function PlayerCollideFloor()
 		
 				// Adhere to the floor and apply angle to player
 				PosY += floorDistance;
-				Angle = GlidingState ? 360 : floorAngle;	
+				Angle = floorAngle;	
 				
-				// Set flag
+				// Go grounded if not gliding
 				Grounded = true;
 			}
 		}

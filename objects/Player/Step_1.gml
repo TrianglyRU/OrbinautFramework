@@ -39,9 +39,6 @@
 			// Perform look up actions, such as Super Peel Out
 			PlayerCheckLookup();
 			
-			// Check for gliding on the ground as Knuckles
-			PlayerCheckGlide();
-			
 			// Perform roll
 			PlayerCheckRoll();
 			

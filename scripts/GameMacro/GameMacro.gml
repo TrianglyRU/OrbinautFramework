@@ -70,6 +70,7 @@ function _GameMacros()
 	#macro AnimSpringUp		   22
 	#macro AnimAirFall		   23
 	#macro AnimActEnd		   24
+	#macro AnimDropStand	   25
 
 	// Stage macro
 	#macro ActStateDefault     0

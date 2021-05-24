@@ -1,140 +1,206 @@
 function PlayerCheckGlide()
 {
 	// Check if we're Knuckles
-	if CharacterID != CharKnuckles exit;
+	if (CharacterID != CharKnuckles) exit;
 	
-	// Check if we're airborne
-	if !Grounded
-	{	
-		// Start gliding
-		if !GlidingState
+	// Start gliding
+	if !GlidingState
+	{
+		// Check if we're jumping and A, B or C button is pressed
+		if Jumping and Ysp > -4 and Input.ABCPress
 		{
-			if Jumping and Ysp > -4 and Input.ABCPress
-			{
-				// Set speeds
-				if (Ysp < 0) Ysp = 0;
-				Xsp	= 4 * Facing;
+			// Set speeds
+			if (Ysp < 0) Ysp = 0;
+			Xsp	    = 4 * Facing;
+			Inertia = 0;
 
-				// Set unique gliding radiuses
-				xRadius = 10;
-				yRadius = 10;
+			// Set unique gliding radiuses
+			xRadius = 10;
+			yRadius = 10;
 			
-				// Set gliding angle value
-				if Facing == DirRight
-				{
-					GlidingValue = 0;
-				}
-				else
-				{
-					GlidingValue = -180;
-				}
-				
-				// Enter gliding state
-				Jumping		 = false;
-				GlidingState = 1;
-			}
-		}
-	
-		// Glide
-		else if GlidingState < 3 and Input.ABC
-		{
-			// Set animation
-			Animation = AnimGlide;
-			
-			// Check if we want to turn to another direction
-			if Xsp > 0 and Input.LeftPress
-			or Xsp < 0 and Input.RightPress
+			// Set gliding angle value
+			if Facing == DirRight
 			{
-				Inertia		 = Xsp;
-				GlidingState = 2;
-			}
-				
-			// Accelerate while we're not turning
-			if GlidingState == 1
-			{
-				Xsp += Facing * 0.015625;
-			}
-				
-			// Perform turn (TODO: Rewrite this code)
-			if GlidingState == 2
-			{
-				GlidingValue += 2.8125 * -sign(Inertia);	
-				Xsp	= Inertia * Facing * dcos(GlidingValue);
-				
-				if GlidingValue == -180 or GlidingValue == 0
-				{
-					GlidingState =  1;
-					Facing		*= -1;
-				}
-			}
-
-			// Apply gravity
-			if Ysp < 0.5
-			{
-				Grv = 0.125;
+				GlidingValue = 0;
 			}
 			else
 			{
-				Grv = -0.125;
-			}	
-		}
-		
-		// Fall on button release
-		else
-		{
-			Animation	 = AnimGlideDrop;
-			Xsp		    *= 0.25;
-			Grv			 = 0.21875;
-			GlidingState = 3;	
-			xRadius		 = xRadiusDefault;
-			yRadius		 = yRadiusDefault;
+				GlidingValue = -180;
+			}
+				
+			// Enter gliding state
+			Jumping		 = false;
+			GlidingState = 1;
 		}
 	}
 	
-	// Check if we're on the ground
-	else 
+	// Check if we're in any of the gliding state
+	else
 	{
-		// Check if we're gliding
-		if GlidingState == 1
-		{
-			// Set animation
-			Animation = AnimGlideSlide;
-			
-			// Ignore slope physics
-			SlopeGravity = 0;
+		// Override regular floor collision, get tiles
+		var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
+		var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
 		
-			// Glide until we release the button or completely stop
-			if !Input.ABC or Inertia == 0
-			{	
-				GlidingValue = 20;
-				GlidingState = 4;		
-			}
+		// Use left tile (primary)
+		if TileLeft[0] <= TileRight[0]
+		{
+			var floorDistance = TileLeft[0];
+			var floorAngle    = TileLeft[1];
 		}
 		
-		// Check if we stopped gliding
-		else if GlidingState == 4
+		// Use right tile (secondary)
+		else
 		{
-			// Set animation
-			Animation = AnimGlideStand;
-			
-			// Reset speeds
-			Inertia = 0;
-			Frc		= 0.046875;
-			
-			// Reset radiuses
-			yRadius = yRadiusDefault; 
-			xRadius	= xRadiusDefault;
-			
-			// Leave gliding state when timer runs out
-			if GlidingValue != 0
-			{
-				GlidingValue--;
-			}
-			else
-			{
-				MovementLock = false;
-				GlidingState = false;
-			}
+			var floorDistance = TileRight[0];
+			var floorAngle    = TileRight[1];
 		}
+		
+		// Get current gliding state
+		switch GlidingState
+		{
+			// Check if we're gliding airborne
+			case 1:
+			{
+				// Set 'glide' animation
+				Animation = AnimGlide;
+		
+				// Accelerate
+				Xsp += Facing * 0.015625;		
+		
+				// Apply gravity
+				if Ysp < 0.5
+				{
+					Grv = 0.125;
+				}
+				else
+				{
+					Grv = -0.125;
+				}
+				
+				// Enter sliding state if we collided the ground
+				if floorDistance <= 0
+				{
+					GlidingState = 3;
+					exit;
+				}
+		
+				// Drop down if no jump button is currently held
+				if !Input.ABC
+				{
+					Xsp		    *= 0.25;
+					GlidingState = 2;		
+				}
+			}
+			break;
+			
+			// Check if we glide dropped
+			case 2:
+			{
+				// Set 'glide drop' animation
+				Animation = AnimGlideDrop;
+				
+				// Use regular gravity
+				Grv = 0.21875;
+				
+				// Use default radiuses
+				xRadius	= xRadiusDefault;
+				yRadius	= yRadiusDefault;
+				
+				// Check if we collide with the ground
+				if floorDistance <= Ysp
+				{				
+					// Adhere to the ground
+					PosY += floorDistance;
+					
+					// Reset speeds
+					Xsp          = 0;
+					Inertia		 = 0;
+					
+					// Set flags
+					Grounded     = true;
+					GlidingState = false;
+					MovementLock = 20;
+				}
+			}
+			break;
+			
+			// Check if we're sliding
+			case 3:
+			{
+				// Set 'glide slide' animation
+				Animation = AnimGlideSlide;
+				
+				// Spawn dust puff every 4 frames
+				SkiddingTimer = SkiddingTimer mod 4
+				if !SkiddingTimer
+				{
+					object_spawn(floor(PosX), floor(PosY + yRadius), DustPuff);
+				}
+				SkiddingTimer++;
+			
+				// Decelerate
+				if Xsp > 0
+				{
+					Xsp = max(0, Xsp - AirAcc);
+				}
+				else
+				{
+					Xsp = min(0, Xsp + AirAcc);
+				}
+				
+				// Get maximum collision distance
+				var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+				
+				// Adhere to the floor
+				if floorDistance <= maxDistance and floorDistance >= -14
+				{
+					PosY += floorDistance;
+					Ysp   = 0;
+					Grv   = 0;
+				}
+				
+				// Continue gliding if we lost the ground
+				else
+				{
+					GlidingState = 1;
+					exit;
+				}
+				
+				// Slide until we stop or release jump button
+				if Xsp == 0 or !Input.ABC
+				{
+					GlidingState = 4
+					GlidingValue = 20;
+				}
+			}
+			break;
+			
+			// Check if we stopped sliding
+			case 4:
+			{
+				// Use 'glide stand' animation
+				Animation = AnimGlideStand;
+				
+				// Reset speed
+				Xsp = 0;
+				
+				// Use default radiuses
+				PosY   -= yRadiusDefault - yRadius;
+				xRadius = xRadiusDefault;
+				yRadius = yRadiusDefault;
+				
+				// Adhere to the floor
+				PosY += floorDistance;
+				
+				// Leave gliding state after 20 frames
+				GlidingValue--
+				if !GlidingValue
+				{
+					GlidingState = false;
+					Grounded     = true;
+				}
+			}
+			break;
+		}		
 	}
 }

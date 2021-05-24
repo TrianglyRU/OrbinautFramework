@@ -182,7 +182,8 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							// If player is airborne, let them land on this object	
 							if !Grounded
 							{
-								Grounded = true;
+								Grounded     = true;
+								GlidingState = false;
 								PlayerResetOnFloor();
 							}
 
@@ -282,7 +283,8 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				// If player is airborne, let him land on this object	
 				if !Grounded
 				{
-					Grounded = true;
+					Grounded     = true;
+					GlidingState = false;
 					PlayerResetOnFloor();
 				}
 					

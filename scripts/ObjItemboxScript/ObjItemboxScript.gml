@@ -6,13 +6,8 @@ function ObjItemboxScript()
 		// Play normal animation
 		animation_play(spr_obj_itembox, 4, 1);
 		
-		// Check if player is rolling or jumping, and does not standing on the monitor
-		if (Player.Rolling or Player.Jumping) and Player.OnObject != id
-		{		
-			// Do not act as solid
-			object_act_solid(false, false, false, false);
-			
-			// Check for hitbox overlap
+		if Player.Rolling or Player.Jumping or Player.GlidingState == 1
+		{
 			if object_player_overlap(CollisionHitbox)
 			{
 				// Check if player is moving downwards
@@ -31,9 +26,6 @@ function ObjItemboxScript()
 					// Shake the camera
 					Screen.ShakeTime     = 6;
 					Screen.ShakeStrength = 3;
-					
-					// Exit further code
-					exit;
 				}
 					
 				// Bounce monitor up if player is moving upwards
@@ -51,7 +43,7 @@ function ObjItemboxScript()
 		{
 			object_act_solid(true, true, false, false);
 		}
-		
+
 		// Check if monitor is airborne
 		if Airborne
 		{

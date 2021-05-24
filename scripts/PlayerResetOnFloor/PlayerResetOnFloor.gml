@@ -83,40 +83,11 @@ function PlayerResetOnFloor()
 		FlyingState	= false;
 		FlyingTimer = 0;
 		
-		// Knuckles' gliding
-		switch GlidingState
-		{
-			// Continue gliding
-			case 1:
-			case 2:
-			{
-				Frc			 =  0.125;
-				GlidingValue =  0;
-				GlidingState =  1
-				MovementLock = -1;				
-			}
-			break;
-			
-			// Stop movement for 20 frames if we glidedropped
-			case 3:
-			{
-				Xsp			 = 0;
-				Inertia		 = 0;
-				GlidingValue = 20;
-				GlidingState = 4;	
-				MovementLock = -1;
-				
-				// Set 'glide stand' animation
-				Animation = AnimGlideStand;
-			}
-			break;
-		}
-		
 		// Knuckles' climbing
 		if ClimbingState
 		{	
-			ClimbingState  = false;
-			ClimbingValue  = 0;			
+			ClimbingState = false;
+			ClimbingValue = 0;			
 		}
 
 		/* Collision */

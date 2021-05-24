@@ -1,13 +1,13 @@
 function PlayerCheckClimb()
 {
 	// Check if we're Knuckles
-	if CharacterID != CharKnuckles exit;
+	if (CharacterID != CharKnuckles) exit;
 	
 	// Attach to the wall if we're not climbing it yet
 	if !ClimbingState
 	{
-		// Check if we're gliding normally, or turning
-		if GlidingState == 1 or GlidingState == 2
+		// Check if we're gliding
+		if GlidingState == 1
 		{
 			// If found the wall and we were moving towards it
 			if Xsp > 0 and tile_meeting(floor(PosX + 11), floor(PosY), Layer)
