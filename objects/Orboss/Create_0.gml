@@ -3,8 +3,9 @@
 	
 	HP = 10;
 	Timer = 0;
-	Angle = 0;
-	Spin = 0;
+	AngleX = 0;
+	AngleY = 0;
+	Spin = 90;
 	Active = false;
 	
 	image_index = instance_exists(Orbstatue) + 1;

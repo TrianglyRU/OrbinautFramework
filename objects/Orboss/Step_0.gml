@@ -40,5 +40,6 @@
 		}
 	}
 	
-	Angle -= 0.1;
-	Spin  = (Spin + 1) mod 180;
+	AngleX = (AngleX + 0.05)  mod 360;
+	AngleY = (AngleY + 0.1) mod 360;
+	Spin   = (Spin   + 0)    mod 360;
