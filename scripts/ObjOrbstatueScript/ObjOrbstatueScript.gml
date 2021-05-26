@@ -26,7 +26,7 @@ function ObjOrbstatueScript()
 				}
 			}
 			
-			if (BossTrigger) object_spawn(x, y - 128, Orboss);
+			if (BossTrigger) object_spawn(x, y - 64, Orboss);
 		}
 	}
 }
