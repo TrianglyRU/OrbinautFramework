@@ -16,24 +16,14 @@ function PlayerSetup()
 	Dec			  = 0.5;
 	RollDec		  = 0.125;
 	Grv			  = 0.21875;
-	TopAcc		  = 6;
+	TopAcc		  = 6;	
+	ClimbingSpeed = 1;
 	JumpMin		  = -4;
 	Jump		  = CharacterID == CharKnuckles ? 6 : 6.5;
-	ClimbingSpeed = 1;
 	
 	// Set default flags
 	AllowCollision = true;
 	Grounded	   = true;
-	OnObject	   = false;
-	Jumping		   = false;
-	Rolling	       = false;
-	Pushing		   = false;
-	Hurt		   = false;
-	Death		   = false;
-	MovementLock   = false;
-	isSuper		   = false;
-	isInvincible   = false;
-	isUnderwater   = false;
 	PeeloutRev     = -1;
 	SpindashRev    = -1;
 	DropdashRev    = -1;
@@ -61,9 +51,8 @@ function PlayerSetup()
 	Lives    = Game.GlobalLives;
 	Emeralds = Game.GlobalEmeralds;
 	Conts    = Game.GlobalConts;
-	Rings    = 0;
 	
-	// Set spawn properties
+	// Define spawn position
 	if Game.SavedPosition == 0
 	{
 		if Game.TransitionShiftPlayer[0] != 0
@@ -83,14 +72,13 @@ function PlayerSetup()
 		PosY = Game.SavedPosition[1];
 	}
 	
-	PlayerPositionX = ds_list_create();
-	PlayerPositionY = ds_list_create();
-	
-	var ind = 0;
-	repeat (32) 
-    {
-		PlayerPositionX[| ind++] = PosX;
-		PlayerPositionY[| ind]   = PosY;
+	// Initialize recorded position datalist array
+	RecordedPosX = ds_list_create();
+	RecordedPosY = ds_list_create();
+	for (var ind = 0; ind < 32; ind++) 
+	{
+		RecordedPosX[| ind] = PosX;
+		RecordedPosY[| ind] = PosY;
 	}
 	
 	// Create Tails' tails

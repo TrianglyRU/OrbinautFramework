@@ -10,8 +10,8 @@ function PlayerCheckClimb()
 		if GlidingState == 1
 		{
 			// If found the wall and we were moving towards it
-			if Xsp > 0 and tile_meeting(floor(PosX + 11), floor(PosY), Layer)
-			or Xsp < 0 and tile_meeting(floor(PosX - 11), floor(PosY), Layer)
+			if Xsp > 0 and tile_check_collision_h(floor(PosX + 10), floor(PosY), true,  true, Layer)[0] <= 0
+			or Xsp < 0 and tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0] <= 0
 			{
 				// Stop gliding and start climbing
 				ClimbingState = true;
@@ -48,9 +48,12 @@ function PlayerCheckClimb()
 			{
 				Ysp = 0;
 			}
+			
+			// Define direction
+			var tileDir = Facing == DirRight ? true : false;
 		
 			// Check if we do not find the wall in front of us
-			if !tile_meeting(floor(PosX + (xRadius + 1) * Facing), floor(PosY + yRadius + 1), Layer)
+			if tile_check_collision_h(floor(PosX + xRadius * Facing), floor(PosY + yRadius), tileDir, true, Layer)[0] > 0
 			{
 				// Leave climbing state
 				Ysp			  = 0;
@@ -66,7 +69,7 @@ function PlayerCheckClimb()
 			}
 			
 			// Check if we found the ground below us
-			else if tile_meeting(floor(PosX + xRadius * Facing), floor(PosY + yRadiusDefault + 1), Layer)
+			else if Ysp > 0 and tile_check_collision_v(floor(PosX + xRadius * Facing), floor(PosY + yRadiusDefault), true, false, Layer)[0] <= 0
 			{
 				// Leave climbing state
 				Ysp			  = 0;
@@ -83,7 +86,7 @@ function PlayerCheckClimb()
 			}
 			
 			// Check if we're near the edge to climb on it
-			else if !tile_meeting(floor(PosX + (xRadius + 1) * Facing), floor(PosY - yRadius - 1), Layer)
+			else if tile_check_collision_h(floor(PosX + xRadius * Facing), floor(PosY - yRadius - 1), tileDir, true, Layer)[0] > 0
 			{
 				// Go to climbering state
 				Ysp			   = 0;
@@ -126,7 +129,8 @@ function PlayerCheckClimb()
 			// First frame: adjust our position to be at edge of the tile
 			if ClimbingValue < 7
 			{
-				while !tile_meeting(floor(PosX + (xRadius + 1) * Facing), floor(PosY - yRadius), Layer)
+				var tileDir = Facing == DirRight ? true : false;
+				while tile_check_collision_h(floor(PosX + xRadius * Facing), floor(PosY - yRadius), tileDir, true, Layer)[0] > 0
 				{
 					PosY += 1;
 				}

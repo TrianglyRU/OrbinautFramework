@@ -1,4 +1,4 @@
-function PlayerCollideWalls()
+function PlayerHitWalls()
 {	
 	// Do not collide if we're not allowed to
 	if (!AllowCollision) exit;

@@ -13,6 +13,7 @@ function _PlayerVariables()
 	Jumping				 _init;
 	Pushing              _init;
 	Grounded			 _init;
+	Landed				 _init;
 	OnObject			 _init;
 	Layer				 _init;
 	Facing				 _init;
@@ -21,8 +22,8 @@ function _PlayerVariables()
 	CharacterID			 _init;
 	PosX				 _init;
 	PosY				 _init;
-	PlayerPositionX      _init;
-	PlayerPositionY      _init;
+	RecordedPosX		 _init;
+	RecordedPosY         _init;
 	Xsp					 _init;
 	Ysp					 _init;
 	Inertia				 _init;

@@ -1,5 +1,19 @@
 function PlayerGeneralUpdate()
 {	
+	// Check for entering for exiting debug mode
+	if Game.DevMode and Input.CPress and !Death
+	{
+		DebugMode      = !DebugMode;	
+		DebugSpeed     = 0;
+		Hurt		   = false;
+		MovementLock   = false;
+		SpindashRev    = -1;
+		PeeloutRev     = -1;
+		DropdashRev    = -1;
+		Grounded	   =  DebugMode;
+		AllowCollision = !DebugMode;	
+	}
+	
 	// Handle highspeed bonus
 	if HighSpeedBonus
 	{	

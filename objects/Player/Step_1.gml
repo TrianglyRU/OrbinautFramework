@@ -3,80 +3,14 @@
 
 	// Exit the code if stage is loading, unloading or restarting
 	if (Stage.State == ActStateLoading or Stage.State == ActStateUnload or Stage.State == ActStateRestart) exit;
-	
-	// Update player's state
-	PlayerStateUpdate();
-	
+
 	// Update general player stuff
 	PlayerGeneralUpdate();
 
-	// Execute code based on current state
-	switch State 
+	if !DebugMode
 	{
-		case PlayerStateNormal:
-		{	
-			// Perform jump and exit the code
-			if PlayerCheckJump() break;
-
-			// Set slope gravity
-			PlayerSlopeResist();
-
-			// Update player's speeds
-			PlayerMove();
-			
-			// Collide with walls
-			PlayerCollideWalls();
-			
-			// Check for crossing stage boundaries
-			PlayerLevelBound();
-			
-			// Update player's position
-			PlayerSpeedToPos();
-			
-			// Perform crouch actions, such as Spindash
-			PlayerCheckCrouch();
-			
-			// Perform look up actions, such as Super Peel Out
-			PlayerCheckLookup();
-			
-			// Perform roll
-			PlayerCheckRoll();
-			
-			// Collide with floor
-			PlayerCollideFloor();
-			
-			// Fall off the ceiling and walls
-			PlayerSlopeRepel();
-		}
-		break;
-		case PlayerStateRoll:
-		{	
-			// Perform jump and exit the code
-			if PlayerCheckJump() break;
-			
-			// Set slope gravity
-			PlayerSlopeResist();	
-			
-			// Update player's speeds
-			PlayerMoveRoll();
-
-			// Collide with walls
-			PlayerCollideWalls();
-			
-			// Check for crossing stage boundaries
-			PlayerLevelBound();
-			
-			// Update player's position
-			PlayerSpeedToPos();
-			
-			// Collide with floor
-			PlayerCollideFloor();
-	
-			// Fall off the ceiling and walls
-			PlayerSlopeRepel();
-		}
-		break;
-		case PlayerStateAirborne:
+		// Airborne script
+		if !Grounded
 		{
 			// Limit jump height
 			PlayerJumpResist();
@@ -103,26 +37,88 @@
 			PlayerApplyGravity();
 			
 			// Collide with walls
-			PlayerCollideWalls();
+			PlayerHitWalls();
+			
+			// Collide with floor
+			PlayerHitFloor();
+			
+			// Collide with roof
+			PlayerHitRoof();
+			
+			// Reset flags on landing
+			PlayerResetOnFloor();
+
+			// Check for dropdash as Sonic
+			PlayerCheckDropdash();
+		}
+	
+		// Grounded script
+		else if !Rolling
+		{
+			// Perform jump and exit the code
+			if PlayerCheckJump() exit;
+
+			// Set slope gravity
+			PlayerSlopeResist();
+
+			// Update player's speeds
+			PlayerMove();
+			
+			// Collide with walls
+			PlayerHitWalls();
+			
+			// Check for crossing stage boundaries
+			PlayerLevelBound();
+			
+			// Update player's position
+			PlayerSpeedToPos();
+			
+			// Perform crouch actions, such as Spindash
+			PlayerCheckCrouch();
+			
+			// Perform look up actions, such as Super Peel Out
+			PlayerCheckLookup();
+			
+			// Perform roll
+			PlayerCheckRoll();
 			
 			// Collide with floor
 			PlayerCollideFloor();
 			
-			// Collide with roof
-			PlayerCollideRoof();
-			
-			// Check for dropdash as Sonic
-			PlayerCheckDropdash();
-			
-			// Reset flags on landing
-			PlayerResetOnFloor();
+			// Fall off the ceiling and walls
+			PlayerSlopeRepel();
 		}
-		break;
-		case PlayerStateDebug:
+	
+		// Rolling script
+		else
 		{
-			// Run debug mode
-			PlayerDebugModeControl();
+			// Perform jump and exit the code
+			if PlayerCheckJump() exit;
+			
+			// Set slope gravity
+			PlayerSlopeResist();	
+			
+			// Update player's speeds
+			PlayerMoveRoll();
+
+			// Collide with walls
+			PlayerHitWalls();
+			
+			// Check for crossing stage boundaries
+			PlayerLevelBound();
+			
+			// Update player's position
+			PlayerSpeedToPos();
+			
+			// Collide with floor
+			PlayerCollideFloor();
+	
+			// Fall off the ceiling and walls
+			PlayerSlopeRepel();
 		}
 	}
-	
-	
+	else
+	{
+		// Run debug mode
+		PlayerDebugModeControl();
+	}

@@ -3,21 +3,8 @@ function PlayerResetOnFloor()
 	// If grounded flag has been set to true when we've been airborne, we have landed
 	if Grounded
 	{	
-		/* Default events */
-		/* ============== */
-		
-		// Set 'idle' animation by default
-		Animation = AnimIdle;
-		
-		// Set 'run' or 'walk' animation
-		if abs(Inertia) > 6
-		{
-			Animation = AnimRun;
-		}
-		else if Inertia != 0
-		{
-			Animation = AnimWalk;
-		}
+		// Set 'walk' animation
+		Animation = AnimWalk;
 		
 		// Reset gravity
 		Grv	= 0.21875;
@@ -28,7 +15,10 @@ function PlayerResetOnFloor()
 		Rolling = false;
 
 		// Set visual angle
-		VisualAngle = Angle;
+		if Angle >= 25.5 and Angle <= 334.5
+		{
+			VisualAngle = Angle;
+		}
 		
 		// Reset hurt state
 		if Hurt
@@ -37,9 +27,6 @@ function PlayerResetOnFloor()
 			Inertia		 = 0;
 			Hurt		 = false;			
 		}
-		
-		/* Special abilities */
-		/* ================= */
 		
 		// Sonic's dropdash
 		if DropdashRev == 20
@@ -90,28 +77,9 @@ function PlayerResetOnFloor()
 			ClimbingValue = 0;			
 		}
 
-		/* Collision */
-		/* ========= */
-		
-		// Reset radiuses to default values if its not
-		if xRadius != xRadiusDefault and yRadius != yRadiusDefault
-		{
-			if GlidingState == 1
-			{
-				xRadius = 10;
-				yRadius = 10;
-			}
-			else if Rolling
-			{
-				xRadius = xRadiusRoll;
-				yRadius = yRadiusRoll;
-			}
-			else
-			{
-				PosY   -= yRadiusDefault - yRadius;
-				yRadius = yRadiusDefault; 
-				xRadius	= xRadiusDefault;
-			}
-		}
+		// Reset radiuses to default values
+		PosY   -= yRadiusDefault - yRadius;
+		yRadius = yRadiusDefault; 
+		xRadius	= xRadiusDefault;
 	}
 }

@@ -6,7 +6,7 @@
     "path": "folders/Game GlobalCode/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerStateUpdate",
+  "name": "PlayerHitRoof",
   "tags": [],
   "resourceType": "GMScript",
 }

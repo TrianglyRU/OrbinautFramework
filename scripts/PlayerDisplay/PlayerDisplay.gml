@@ -1,7 +1,5 @@
 function PlayerDisplay()
 {	
-	if (DebugMode) exit;
-	
 	// Use visual angle only for some animations, 
 	switch Animation
 	{
