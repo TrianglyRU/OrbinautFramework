@@ -3,4 +3,4 @@
 
 	object_set_hitbox(6, 6);
 	
-	Destroy = false;
+	State = 1;
