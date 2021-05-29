@@ -44,6 +44,7 @@ function _PlayerVariables()
 	FlyingTimer			 _init;
 	GlidingState		 _init;
 	GlidingValue		 _init;
+	GlidingDirection     _init;
 	ClimbingState		 _init;
 	ClimbingValue        _init;
 	ClimbingSpeed		 _init;
@@ -66,4 +67,7 @@ function _PlayerVariables()
 	Emeralds			 _init;
 	SkiddingTimer		 _init;
 	DirectionAngle       _init;
+	DebugMode            _init;
+	DebugItem			 _init;
+	DebugSpeed			 _init;
 }

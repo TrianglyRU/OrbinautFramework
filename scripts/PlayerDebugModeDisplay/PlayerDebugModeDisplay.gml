@@ -10,7 +10,7 @@ function PlayerDebugModeDisplay()
 		case SpringHorizontal: animation_set_frame(spr_obj_spring_yellow_h, 1); break;
 		case Lamppost:		   animation_set_frame(spr_obj_lamppost, 1);		break;
 		case Animal:		   animation_set_frame(spr_obj_animal_flicky, 1);   break;
-		case Bridge:		   animation_set_frame(spr_obj_bridgelog_ffz, 1);   break;
+		case Bridge:		   animation_set_frame(spr_obj_bridgelog_mqz, 1);   break;
 		case FloatingPlatform: animation_set_frame(spr_obj_platform_ffz, 1);    break;
 	}
 	

@@ -6,42 +6,41 @@ function ObjItemboxScript()
 		// Play normal animation
 		animation_play(spr_obj_itembox, 4, 1);
 		
-		if Player.Rolling or Player.Jumping or Player.GlidingState == 1
+		if (Player.Rolling or Player.Jumping or Player.GlidingState == 1) and Player.Ysp >= 0
 		{
 			if object_player_overlap(CollisionHitbox)
 			{
-				// Check if player is moving downwards
-				if Player.Ysp >= 0
-				{
-					// Inverse player's yspeed if not grounded
-					if (!Player.Grounded) Player.Ysp = -Player.Ysp;
+				// Inverse player's yspeed if not grounded
+				if (!Player.Grounded) Player.Ysp = -Player.Ysp;
 					
-					// Spawn explosion and play its sound
-					object_spawn(floor(x), floor(y), DustExplosion);
-					audio_sfx_play(sfxDestroy, false, false);
+				// Spawn explosion and play its sound
+				object_spawn(floor(x), floor(y), DustExplosion);
+				audio_sfx_play(sfxDestroy, false, false);
 					
-					// Update 'destroyed' flag
-					Destroyed = true;
-					
-					// Shake the camera
-					Screen.ShakeTime     = 6;
-					Screen.ShakeStrength = 3;
-				}
+				// Update 'destroyed' flag
+				Destroyed = true;
 					
 				// Bounce monitor up if player is moving upwards
-				else if floor(Player.PosY - 16) >= floor(y)
+				//else if floor(Player.PosY - 16) >= floor(y)
 				{
-					Airborne   = true;
-					Ysp        = -1.5;
-					Player.Ysp = -Player.Ysp;
+					//Airborne   = true;
+					//Ysp        = -1.5;
+					//Player.Ysp = -Player.Ysp;
 				}
 			}
-		}
-		
-		// Do solid collision
+		}		
 		else
 		{
+			// Do solid collision
 			object_act_solid(true, true, false, false);
+			
+			// Bounce monitor up if player is moving upwards
+			if floor(Player.PosY - 16) >= floor(y) and object_player_overlap(CollisionHitbox)
+			{
+				Airborne   = true;
+				Ysp        = -1.5;
+				Player.Ysp = -Player.Ysp;
+			}
 		}
 
 		// Check if monitor is airborne

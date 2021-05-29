@@ -1,7 +1,7 @@
 function PlayerGeneralUpdate()
 {	
 	// Check for entering for exiting debug mode
-	if Game.DevMode and Input.CPress and !Death
+	if Game.DevMode and Input.BPress and !Death
 	{
 		DebugMode      = !DebugMode;	
 		DebugSpeed     = 0;

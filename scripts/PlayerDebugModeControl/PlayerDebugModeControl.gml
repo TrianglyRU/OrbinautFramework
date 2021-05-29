@@ -21,14 +21,14 @@ function PlayerDebugModeControl()
 	if (Input.Down)  PosY += DebugSpeed;
 	
 	// Update current object
-	if Input.APress
+	if Input.CPress
 	{
 		DebugItem++;
 		DebugItem = loop_value_range(DebugItem, 0, array_length(DebugList));
 	}
 	
 	// Spawn current object
-	if Input.BPress
+	if Input.APress
 	{
 		object_spawn(floor(PosX), floor(PosY), DebugList[DebugItem]);
 	}

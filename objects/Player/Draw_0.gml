@@ -5,23 +5,18 @@
 	if (Stage.State == ActStateLoading or Stage.State == ActStateUnload or Stage.State == ActStateRestart) exit;
 	
 	// Execute code based on current state
-	switch State
+	if !DebugMode
 	{
-		case PlayerStateDebug:
-		{
-			// Display objects when in debug mode
-			PlayerDebugModeDisplay();
-		}
-		break;
-		default:
-		{
-			// Animate character
-			PlayerAnimate();
+		// Animate character
+		PlayerAnimate();
 	
-			// Display character
-			PlayerDisplay();
-		}
-		break;
+		// Display character
+		PlayerDisplay();
+	}
+	else
+	{
+		// Display objects when in debug mode
+		PlayerDebugModeDisplay();
 	}
 	
 	
