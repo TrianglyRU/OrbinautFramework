@@ -18,9 +18,9 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen = false;
-	Game.ResolutionWidth  = 400;
-	Game.ResolutionHeight = 224;
-	Game.WindowSize		  = 4;
+	Game.ResolutionWidth  = 424;
+	Game.ResolutionHeight = 240;
+	Game.WindowSize		  = 3;
 	
 	// Audio settings
 	Game.MusicVolume = 0;
@@ -31,7 +31,7 @@ function GameFrameworkSetup()
 	
 	// Gameplay	
 	Game.SpindashEnabled   = true;  // Enables S2 Spindash
-	Game.DropdashEnabled   = false; // Enables Mania Dropdash
+	Game.DropdashEnabled   = true;  // Enables Mania Dropdash
 	Game.PeeloutEnabled    = true;  // Enables SCD Super Peel Out
 	Game.GroundSpeedcap	   = false; // Enables ground speedcap
 	Game.AirSpeedcap	   = false; // Enables air speedcap
@@ -48,17 +48,17 @@ function GameFrameworkSetup()
 	Game.LooseCrouch		    = false; // In S&K, you can start crouching even when you are moving slowly. True - SK method.
 	Game.ConstantRollFrc        = false; // In SK, rolling friction is hard-coded to always be half of regular acceleration, even when Super. True - SK method
 	Game.StrongerSlopeDetach    = false; // Before S3, you were able to slide down on 45-degree floors. True - Sonic 3+ method
-	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
+	Game.SpeedFloorClip	        = false; // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
 	Game.ExtensiveWallCollision	= false; // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.StageTransitions		= true;	 // In S3 and later stage transitions are used. True = S3+.
-	Game.BalancingCrouch		= false;
+	Game.BalancingCrouch		= false; // In S3 and later you're allowed to crouch when balancing. True = S3+ method
 	
 	// Orbinaut improvements
 	Game.SmoothModeUpdate        = false; // Use custom advanced method to update collision mode
 	Game.ConsiderAngleDifference = false; // If set to true, the game will send player airborne if floor angle difference is too high. False - S2+ method, where angle is reset to 360 instead.
 	Game.ImprovedObjCollision	 = false; // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
 	Game.SmoothPaletteCycle		 = false; // Apply interpolation to palette cycles
-	Game.SmoothRotation			 = true;  // Use smooth rotation
+	Game.SmoothRotation			 = false; // Use smooth rotation
 	Game.RichPresenceSupport	 = true;  // Enable Rich Presence
 	Game.RingsPreciseCollision   = false; // Make rings check for collision every frame instead of every 4
 	Game.RingsBoundDespawn		 = true;  // Make rings despawn as soon as they leave the screen

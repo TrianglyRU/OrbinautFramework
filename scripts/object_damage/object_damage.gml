@@ -5,12 +5,8 @@ function object_damage(isBadnik, isProjectile, instantKill)
 	if isBadnik
 	{
 		// Check if player can destroy Badnik
-		if Player.InvincibilityBonus 
-		or Player.SpindashRev >= 0 
-		or Player.Jumping 
-		or Player.Rolling 
-		or Player.GlidingState
-		or (Player.FlyingState and Player.Ysp < 0)
+		if Player.InvincibilityBonus or Player.SpindashRev or Player.Jumping 
+		or Player.Rolling  or Player.GlidingState or (Player.FlyingState and Player.Ysp < 0)
 		{
 			// Delete Badnik
 			instance_destroy(self);
@@ -38,10 +34,14 @@ function object_damage(isBadnik, isProjectile, instantKill)
 		}
 	}
 	
-	// Exit if player can't be damaged
-	if (Player.InvincibilityBonus or Player.isInvincible or Player.Hurt) exit;
+	// Check if this object is a projectile
+	if isProjectile
+	{
+		exit;
+	}
 	
-	/* If we managed to get to this point, damage player */
+	// Exit the code if player can't be damaged
+	if (Player.InvincibilityBonus or Player.isInvincible or Player.Hurt) exit;
 	
 	// Reset player flags
 	Player.Grounded	     = false;
@@ -53,7 +53,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 	Player.ClimbingState = false;
 	
 	// Check if player has no rings and barrier or should die instantly
-	if !Player.Rings and !Player.ShieldType or instantKill
+	if (!Player.Rings and !Player.ShieldType) or instantKill
 	{
 		// Set 'death' animation
 		Player.Animation = AnimDeath;
@@ -139,7 +139,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 		// Else just lose barrier if player has rings
 		else
 		{
-			Player.ShieldType = 0;
+			Player.ShieldType = false;
 		}
 
 		// Perform movement

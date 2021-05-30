@@ -7,31 +7,15 @@ function PlayerMoveRoll()
 	if MovementLock == false
 	{
 		// If pressing left
-		if Input.Left 
+		if Input.Left and Inertia > 0
 		{
-			if Inertia > 0 
-			{
-				Inertia -= RollDec;
-				if Inertia <= 0
-				{
-					Inertia = -0.5;
-					Facing  = DirLeft;
-				}
-			}
+			Inertia -= RollDec;
 		}
 	
 		// If pressing right
-		if Input.Right 
+		if Input.Right and Inertia < 0
 		{
-			if Inertia < 0
-			{
-				Inertia += RollDec;
-				if Inertia >= 0
-				{
-					Inertia = 0.5;
-					Facing  = DirRight;
-				}
-			}
+			Inertia += RollDec;
 		}
 	}
 

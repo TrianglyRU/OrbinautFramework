@@ -189,7 +189,7 @@ function PlayerCollideFloor()
 			}
 				
 			// Collide with floor
-			else if floorDistance > -14
+			else //if floorDistance > -14
 			{
 				Angle = floorAngle;
 				PosY += floorDistance;

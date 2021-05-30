@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_obj_motobug",
-    "path": "sprites/spr_obj_motobug/spr_obj_motobug.yy",
+    "name": "Sprite150",
+    "path": "sprites/Sprite150/Sprite150.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "Objects",
-    "path": "objects/Objects/Objects.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -30,11 +27,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Motobug",
-    "path": "folders/Game Objects/Motobug.yy",
+    "name": "Game Objects",
+    "path": "folders/Game Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Motobug",
+  "name": "Object49",
   "tags": [],
   "resourceType": "GMObject",
 }

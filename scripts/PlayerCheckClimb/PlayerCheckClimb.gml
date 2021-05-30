@@ -10,8 +10,8 @@ function PlayerCheckClimb()
 		if GlidingState == 1
 		{
 			// If found the wall and we were moving towards it
-			if Xsp > 0 and tile_check_collision_h(floor(PosX + 10), floor(PosY), true,  true, Layer)[0] <= 0
-			or Xsp < 0 and tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0] <= 0
+			if Xsp > 0 and tile_check_collision_h(floor(PosX + 10), floor(PosY), true,  true, Layer)[0] < 0
+			or Xsp < 0 and tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0] < 0
 			{
 				// Stop gliding and start climbing
 				ClimbingState = true;
@@ -69,7 +69,7 @@ function PlayerCheckClimb()
 			}
 			
 			// Check if we found the ground below us
-			else if Ysp > 0 and tile_check_collision_v(floor(PosX + xRadius * Facing), floor(PosY + yRadiusDefault), true, false, Layer)[0] <= 0
+			else if Ysp > 0 and tile_check_collision_v(floor(PosX + xRadius * Facing), floor(PosY + yRadiusDefault), true, false, Layer)[0] < 0
 			{
 				// Leave climbing state
 				Ysp			  = 0;

@@ -23,6 +23,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 	var objectMirrored = !image_xscale;
 	var objectFlipped  = !image_yscale;
 	var objectType	   = !collideSides and !collideBottom ? "isPlatform" : "isRegular";
+	var objectID	   = id;
 
 	// Get player properties
 	var playerX      = floor(Player.PosX);
@@ -44,19 +45,16 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 			// Define new object top position based on current player position
 			if playerPosition < 0
 			{
-				objectTop = objectY - collisionMap[0];
+				objectTop = objectY - collisionMap[0] - 1;
 			}
 			else if playerPosition > objXRadiusSolid * 2
 			{
-				objectTop = objectY - collisionMap[objXRadiusSolid * 2];
+				objectTop = objectY - collisionMap[objXRadiusSolid * 2] - 1;
 			}
 			else
 			{
-				objectTop = objectY - collisionMap[playerPosition];
+				objectTop = objectY - collisionMap[playerPosition] - 1;
 			}
-			
-			// Correct it
-			objectTop -= 1;
 		}
 						
 		// Extend object collision diameter if left and right sides are solid
@@ -140,7 +138,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 			}
 					
 			// Collide with this object vertically
-			if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
+			if abs(objectX - playerX) /*+ 4*/ <= abs(objectY - playerY) /*- 4*/
 			{
 				// Check if bottom side is solid
 				if collideBottom
@@ -157,6 +155,8 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						// Else push player out from this object
 						else if Player.Ysp < 0
 						{
+							if (Player.FlyingState) Player.Grv = 0.03125;
+							
 							Player.PosY = objectBottom + Player.yRadius;
 							Player.Ysp  = 0;
 						}	
@@ -179,25 +179,88 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							// Check if player is moving downwards or standing still
 							if (Ysp < 0) exit;
 						
-							// If player is airborne, let them land on this object	
-							if !Grounded
+							// Reset gravity
+							Grv	= 0.21875;
+		
+							// Reset flags
+							Rolling  = Ysp > 0 and !Grounded ? Input.Down : Rolling;
+							Jumping	 = false;
+							Pushing	 = false;
+							Grounded = true;
+							OnObject = objectID;
+							
+							// Set visual angle
+							VisualAngle = 360;
+		
+							// Reset hurt state
+							if Hurt
 							{
-								Grounded     = true;
-								GlidingState = false;
-								PlayerResetOnFloor();
+								isInvincible = 120;
+								Inertia		 = 0;
+								Hurt		 = false;			
 							}
-
+							
 							// Set speed and angle
 							Inertia  = Xsp;
 							Angle    = 360;		
 							Ysp      = 0;
-									
+		
+							// Sonic's dropdash
+							if DropdashRev == 20
+							{	
+								// Go to rolling state
+								Rolling = true;
+								
+								// Set dropspeed
+								if DropdashDirection == DirRight
+								{
+									var Dropspeed = Inertia / 4 + 8 * Facing;
+								}
+								else if DropdashDirection = DirLeft
+								{
+									if Angle == 360
+									{
+										var Dropspeed = 8 * Facing;
+									}
+									else
+									{
+										var Dropspeed = Inertia / 2 + 8 * Facing;
+									}
+								}
+								if (Dropspeed >  12) Dropspeed =  12;
+								if (Dropspeed < -12) Dropspeed = -12;
+		
+								// Apply dropspeed to inertia and set camera lag
+								Inertia			   = Dropspeed;
+								DropdashRev		   = -2;
+								Screen.ScrollDelay = 16;
+			
+								// Set 'roll' animation
+								Animation = AnimRoll;
+							}
+							else
+							{
+								DropdashRev = -1;
+							}
+		
+							// Tails' flying
+							FlyingState	= false;
+							FlyingTimer = 0;
+							
+							// Knuckles gliding
+							GlidingState = false;
+							
+							// Reset radiuses to default values
+							if !Rolling
+							{
+								PosY   -= yRadiusDefault - yRadius;
+								yRadius = yRadiusDefault; 
+								xRadius	= xRadiusDefault;
+							}
+								
 							// Attach player to the object's top boundary
 							PosY = objectTop - yRadius;
 						}
-						
-						// Tell player we're standing on this object
-						Player.OnObject = id;
 					}	
 				}
 			}
@@ -280,25 +343,88 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 			}
 			else with Player
 			{
-				// If player is airborne, let him land on this object	
-				if !Grounded
+				// Reset gravity
+				Grv	= 0.21875;
+		
+				// Reset flags
+				Rolling  = Ysp > 0 and !Grounded ? Input.Down : Rolling;
+				Jumping	 = false;
+				Pushing	 = false;
+				Grounded = true;
+				OnObject = objectID;
+							
+				// Set visual angle
+				VisualAngle = 360;
+		
+				// Reset hurt state
+				if Hurt
 				{
-					Grounded     = true;
-					GlidingState = false;
-					PlayerResetOnFloor();
+					isInvincible = 120;
+					Inertia		 = 0;
+					Hurt		 = false;			
 				}
-					
+				
 				// Set speed and angle
 				Inertia  = Xsp;
 				Angle    = 360;		
 				Ysp      = 0;
-					
+				
+				// Sonic's dropdash
+				if DropdashRev == 20
+				{	
+					// Go to rolling state
+					Rolling = true;
+		
+					// Set dropspeed
+					if DropdashDirection == DirRight
+					{
+						var Dropspeed = Inertia / 4 + 8 * Facing;
+					}
+					else if DropdashDirection = DirLeft
+					{
+						if Angle == 360
+						{
+							var Dropspeed = 8 * Facing;
+						}
+						else
+						{
+							var Dropspeed = Inertia / 2 + 8 * Facing;
+						}
+					}
+					if (Dropspeed >  12) Dropspeed =  12;
+					if (Dropspeed < -12) Dropspeed = -12;
+		
+					// Apply dropspeed to inertia and set camera lag
+					Inertia			   = Dropspeed;
+					DropdashRev		   = -2;
+					Screen.ScrollDelay = 16;
+			
+					// Set 'roll' animation
+					Animation = AnimRoll;
+				}
+				else
+				{
+					DropdashRev = -1;
+				}
+		
+				// Tails' flying
+				FlyingState	= false;
+				FlyingTimer = 0;
+							
+				// Knuckles gliding
+				GlidingState = false;
+							
+				// Reset radiuses to default values
+				if !Rolling
+				{
+					PosY   -= yRadiusDefault - yRadius;
+					yRadius = yRadiusDefault; 
+					xRadius	= xRadiusDefault;
+				}
+								
 				// Attach player to the object's top boundary
 				PosY = objectTop - yRadius;
 			}
-			
-			// Tell player we're standing on this object
-			Player.OnObject = id;
 		}
 	}
 }

@@ -150,7 +150,7 @@ function PlayerDisplay()
 		image_alpha = !image_alpha;
 	}
 	
-	// Update character display information
+	// Update character display
 	x			 = floor(PosX);
 	y		     = floor(PosY);
 	depth		 = DrawOrder;

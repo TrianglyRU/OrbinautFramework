@@ -55,7 +55,7 @@ function PlayerResetOnFloor()
 		
 			// Apply dropspeed to inertia and set camera lag
 			Inertia			   = Dropspeed;
-			DropdashRev		   = -2;
+			DropdashRev		   = -1;
 			Screen.ScrollDelay = 16;
 			
 			// Set 'roll' animation
@@ -78,8 +78,11 @@ function PlayerResetOnFloor()
 		}
 
 		// Reset radiuses to default values
-		PosY   -= yRadiusDefault - yRadius;
-		yRadius = yRadiusDefault; 
-		xRadius	= xRadiusDefault;
+		if !Rolling
+		{
+			PosY   -= yRadiusDefault - yRadius;
+			yRadius = yRadiusDefault; 
+			xRadius	= xRadiusDefault;
+		}
 	}
 }

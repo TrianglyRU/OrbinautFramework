@@ -29,12 +29,11 @@ function PlayerHitRoof()
 			if abs(Ysp) > abs(Xsp) and !FlyingState
 			{	
 				// Land on the roof if it is steep enough
-				if roofAngle > 90 and roofAngle <= 135 or roofAngle >= 225 and roofAngle < 270
+				if roofAngle >= 91 and roofAngle <= 135 or roofAngle >= 225 and roofAngle <= 269
 				{
-					Grounded   = true;
-					FloorRange = RangeRoof;
-					Angle      = roofAngle;
-					Inertia    = roofAngle < 180 ? -Ysp : Ysp;
+					Grounded = true;
+					Angle    = roofAngle;
+					Inertia  = roofAngle < 180 ? -Ysp : Ysp;
 				} 
 				else 
 				{

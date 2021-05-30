@@ -42,16 +42,16 @@ function PlayerGeneralUpdate()
 	if !isUnderwater
 	{
 		// Check for falling into the water
-		if !Death and PosY > Stage.WaterLevel and Stage.WaterLevel != 0
+		if !Death and PosY > Stage.WaterLevel
 		{
-			Xsp	*= 0.5;
-			Ysp	*= 0.25;
+			Xsp			*= 0.5;
+			Ysp			*= 0.25;
 			isUnderwater = true;
 		}
 	}
 	else
 	{ 
-		// Apply underwater physics (if not in superform)
+		// Apply underwater physics if not in superform
 		if !isSuper
 		{
 			Acc		= 0.0234375;
@@ -71,7 +71,7 @@ function PlayerGeneralUpdate()
 			isUnderwater = false;
 			Ysp			*= 2;
 			
-			// Restore normal physics (if not in superform)
+			// Restore normal physics if not in superform
 			if !isSuper
 			{
 				Acc		= 0.046875;
@@ -105,7 +105,7 @@ function PlayerGeneralUpdate()
 					Dec     = 1;
 					TopAcc  = 10;
 					Jump    = 8;
-					RollFrc = Game.ConstantRollFrc ? 0.0234375 : 0.09375;
+					RollFrc = 0.09375;
 				}
 				else
 				{
@@ -114,8 +114,9 @@ function PlayerGeneralUpdate()
 					Dec     = 0.5;
 					TopAcc  = 5;
 					Jump    = 8;
-					RollFrc = Game.ConstantRollFrc ? 0.0234375 : 0.046875;
+					RollFrc = 046875;
 				}
+				if (Game.ConstantRollFrc) RollFrc = 0.0234375;
 			}
 			
 			// Apply superform physics for Tails and Knuckles

@@ -165,7 +165,7 @@ function PlayerCheckGlide()
 				var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
 				
 				// Adhere to the floor
-				if floorDistance <= maxDistance and floorDistance >= -14
+				if floorDistance <= maxDistance
 				{
 					PosY += floorDistance;
 					Ysp   = 0;
