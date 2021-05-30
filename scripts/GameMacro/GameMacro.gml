@@ -67,10 +67,9 @@ function _GameMacros()
 	#macro AnimClimbering	   19
 	#macro AnimBalanceFront    20
 	#macro AnimBalanceBack	   21
-	#macro AnimSpringUp		   22
-	#macro AnimAirFall		   23
-	#macro AnimActEnd		   24
-	#macro AnimDropStand	   25
+	#macro AnimSpring		   22
+	#macro AnimActEnd		   23
+	#macro AnimDropStand	   24
 
 	// Stage macro
 	#macro ActStateDefault     0

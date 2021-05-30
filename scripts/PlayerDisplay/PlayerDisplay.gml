@@ -157,6 +157,12 @@ function PlayerDisplay()
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
 	
+	// Fix one-pixel offset when facing left
+	if Facing = DirLeft
+	{
+		x = floor(PosX + 1);
+	}
+	
 	// Draw player on the screen
 	draw_self();
 }

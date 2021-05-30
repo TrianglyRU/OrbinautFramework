@@ -15,7 +15,7 @@ function ObjSpringVerticalScript()
 		Player.ClimbingState = false;
 		
 		// Set 'spring up' or 'walk' animation
-		Player.Animation = LaunchSide == SideTop ? AnimSpringUp : AnimWalk;
+		Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;
 
 		// Launch upwards or downwards
 		Player.Ysp = -LaunchForce * image_yscale;

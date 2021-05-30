@@ -45,4 +45,10 @@ function PlayerMoveAirborne()
 	{
 		Xsp -= floor(Xsp/0.125) / 256;
 	}
+	
+	// Handle spring animation
+	if Animation = AnimSpring and Ysp > 0
+	{
+		Animation = AnimWalk;
+	}
 }
