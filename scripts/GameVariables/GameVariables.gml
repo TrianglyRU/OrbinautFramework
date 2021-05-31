@@ -25,14 +25,13 @@ function _GameVariables()
 	Game.OriginalRollLimit		 _init;
 	Game.FlyingCancel			 _init;
 	Game.StrongerSlopeGravity	 _init;
-	Game.ConsiderAngleDifference _init;
-	Game.SmoothModeUpdate        _init;
 	Game.LooseCrouch			 _init;
 	Game.ConstantRollFrc		 _init;
 	Game.StrongerSlopeDetach	 _init;
 	Game.SpeedFloorClip			 _init;
 	Game.ExtensiveWallCollision  _init;
 	Game.ImprovedObjCollision	 _init;
+	Game.ImprovedTileCollision   _init;
 	Game.BalancingCrouch		 _init;
 	Game.SmoothPaletteCycle		 _init;
 	Game.SmoothRotation			 _init;
@@ -47,4 +46,7 @@ function _GameVariables()
 	Game.KeyboardControl		 _init;
 	Game.ActiveSave				 _init;
 	Game.Saveslot			     _init;
+	Game.RingsPreciseCollision   _init;
+	Game.RingsNoBoundDespawn	 _init;
+	Game.RingsAllSideCollision   _init;
 }

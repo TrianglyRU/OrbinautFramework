@@ -5,8 +5,8 @@ function object_damage(isBadnik, isProjectile, instantKill)
 	if isBadnik
 	{
 		// Check if player can destroy Badnik
-		if Player.InvincibilityBonus or Player.SpindashRev or Player.Jumping 
-		or Player.Rolling  or Player.GlidingState or (Player.FlyingState and Player.Ysp < 0)
+		if Player.Animation == AnimRoll or Player.InvincibilityBonus or Player.SpindashRev or Player.GlidingState 
+		or (Player.FlyingState and Player.Ysp < 0)
 		{
 			// Delete Badnik
 			instance_destroy(self);
@@ -53,7 +53,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 	Player.ClimbingState = false;
 	
 	// Check if player has no rings and barrier or should die instantly
-	if (!Player.Rings and !Player.ShieldType) or instantKill
+	if (!Player.Rings and !Player.BarrierType) or instantKill
 	{
 		// Set 'death' animation
 		Player.Animation = AnimDeath;
@@ -90,7 +90,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 		Player.Animation = AnimHurt;
 			
 		// Lose rings if we do not have active barrier
-		if !Player.ShieldType
+		if !Player.BarrierType
 		{
 			// Set default values we will use to spread rings
 			var Dir = -1
@@ -139,7 +139,7 @@ function object_damage(isBadnik, isProjectile, instantKill)
 		// Else just lose barrier if player has rings
 		else
 		{
-			Player.ShieldType = false;
+			Player.BarrierType = false;
 		}
 
 		// Perform movement

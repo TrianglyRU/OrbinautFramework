@@ -1,10 +1,10 @@
-function PlayerCollideFloor()
+function PlayerAnglePos()
 {	
 	// Do not collide if we're not allowed to, or if we're standing on object
 	if (!AllowCollision or OnObject) exit;
 	
 	// Use original mode change method based on current angle
-	if !Game.SmoothModeUpdate or Rolling
+	if !Game.ImprovedTileCollision or Rolling
 	{
 		if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
 		{
@@ -25,7 +25,7 @@ function PlayerCollideFloor()
 	}
 		
 	// Use custom advanced method using tile detection (smoother, but inaccurate to originals)
-	else if !Rolling
+	else
 	{
 		// Set maximum angle difference. If difference exceeds this value, mode won't change
 		var angleTolerance = 45;
@@ -38,7 +38,7 @@ function PlayerCollideFloor()
 				var leftTile  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, true, Layer)
 				var rightTile = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true, true, Layer)
 				
-				// Check if we move left and collide with left tile
+				
 				if leftTile[0] < 0 and Angle - leftTile[1] < angleTolerance
 				{
 					// Enter left wall collision mode
@@ -149,11 +149,9 @@ function PlayerCollideFloor()
 				if (Inertia == 0 and TileMiddle[0] > 14) Balancing = -Facing;
 			}
 				
-				
-			/* Originals don't use middle floor sensor to collide with surface, but we do to fix certain flaws.
-				This is forced from our side and there is no flag to turn if off, you can just delete it instead */
+			// Use middle tile if both left and right distances are the same and we're on the flat floor
+			if Game.ImprovedTileCollision
 			{   
-				// Use middle tile if both left and right distances are the same and we're on the flat floor
 				if TileLeft[0] == TileRight[0] and TileMiddle[0] <= 0
 				{
 					var floorDistance = TileMiddle[0];
@@ -166,7 +164,7 @@ function PlayerCollideFloor()
 			if  angDifference > 45 and angDifference < 135
 			{
 				// Lose the ground...
-				if Game.ConsiderAngleDifference
+				if Game.ImprovedTileCollision
 				{
 					Grounded = false;
 					exit;
@@ -181,15 +179,15 @@ function PlayerCollideFloor()
 			}
 				
 			// Lose the ground if distance is too high
-			var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			if  maxDistance <= floorDistance
+			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+			if floorDistance > maxDistance
 			{
 				Grounded = false;
 				exit;
 			}
 				
 			// Collide with floor
-			else //if floorDistance > -14
+			else if floorDistance >= -14
 			{
 				Angle = floorAngle;
 				PosY += floorDistance;
@@ -218,14 +216,14 @@ function PlayerCollideFloor()
 			
 			// Lose the ground if distance is too high
 			var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			if  maxDistance <= floorDistance
+			if  floorDistance > maxDistance
 			{
 				Grounded = false;
 				exit;
 			}
 				
 			// Collide with floor
-			else //if floorDistance > -14
+			else if floorDistance >= -14
 			{
 				Angle = floorAngle;
 				PosX += floorDistance;
@@ -254,14 +252,14 @@ function PlayerCollideFloor()
 			
 			// Lose the ground if distance is too high
 			var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			if  maxDistance <= floorDistance
+			if floorDistance > maxDistance
 			{
 				Grounded = false;
 				exit;
 			}
 				
 			// Collide with floor
-			else //if floorDistance > -14
+			else if floorDistance >= -14
 			{
 				Angle = floorAngle;
 				PosY -= floorDistance;
@@ -290,14 +288,14 @@ function PlayerCollideFloor()
 			
 			// Lose the ground if distance is too high
 			var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			if  maxDistance <= floorDistance
+			if floorDistance > maxDistance
 			{
 				Grounded = false;
 				exit;
 			}
 				
 			// Collide with floor
-			else//if floorDistance > -14
+			else if floorDistance >= -14
 			{
 				Angle = floorAngle;
 				PosX -= floorDistance;

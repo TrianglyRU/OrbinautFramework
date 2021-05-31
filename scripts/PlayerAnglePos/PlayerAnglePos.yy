@@ -6,7 +6,7 @@
     "path": "folders/Game GlobalCode/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerCollideFloor",
+  "name": "PlayerAnglePos",
   "tags": [],
   "resourceType": "GMScript",
 }

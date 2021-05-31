@@ -21,17 +21,17 @@ function ScreenDebugActivate()
 		draw_set_alpha(1.0);
 		
 		// Draw player position point
-		with Player
+		/*with Player
 		{	
 			draw_point_colour(floor(PosX),	   floor(PosY),     c_black);
 			draw_point_colour(floor(PosX + 1), floor(PosY),	    c_white);
 			draw_point_colour(floor(PosX - 1), floor(PosY),	    c_white);
 			draw_point_colour(floor(PosX),     floor(PosY + 1), c_white);
 			draw_point_colour(floor(PosX),     floor(PosY - 1), c_white);
-		}
+		}*/
 	
 		// Draw objects position points
-		with Objects 
+		with all
 		{
 			draw_point_colour(floor(x),	    floor(y),     c_black);
 			draw_point_colour(floor(x + 1), floor(y),	  c_white);

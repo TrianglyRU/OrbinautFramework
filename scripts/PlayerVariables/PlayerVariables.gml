@@ -39,7 +39,8 @@ function _PlayerVariables()
 	isSuper				 _init;
 	isInvincible		 _init;
 	isUnderwater		 _init;
-	ShieldType			 _init;
+	BarrierType			 _init;
+	BarrierIsActive	     _init;
 	FlyingState			 _init;
 	FlyingTimer			 _init;
 	GlidingState		 _init;

@@ -1,13 +1,13 @@
 function PlayerCheckDropdash()
 {
 	// Exit if we're not Sonic
-	if CharacterID != CharSonic exit;
+	if (CharacterID != CharSonic) exit;
 	
 	// Exit if Dropdash is disabled
-	if !Game.DropdashEnabled exit;
+	if (!Game.DropdashEnabled) exit;
 	
 	// Exit if we're not jumping
-	if !Jumping exit;
+	if (!Jumping) exit;
 	
 	// Define our Dropdash direction by checking towards witch side we're moving and facing
 	if Xsp >= 0

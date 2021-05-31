@@ -11,7 +11,7 @@ function PlayerAnimate()
 					animation_play(spr_sonic_idle, 32, 1); 
 				break;
 				case AnimWalk:
-					animation_play(spr_sonic_walk_old, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_sonic_walk, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRun: 
 					animation_play(spr_sonic_run, round(max(1, 8 - abs(Inertia))), 1);

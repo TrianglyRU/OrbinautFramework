@@ -6,7 +6,7 @@ function ObjItemboxScript()
 		// Play normal animation
 		animation_play(spr_obj_itembox, 4, 1);
 		
-		if (Player.Rolling or Player.Jumping or Player.GlidingState == 1) and Player.Ysp >= 0
+		if (Player.Animation == AnimRoll or Player.GlidingState == 1) and Player.Ysp >= 0
 		{
 			if object_player_overlap(CollisionHitbox)
 			{
@@ -19,14 +19,6 @@ function ObjItemboxScript()
 					
 				// Update 'destroyed' flag
 				Destroyed = true;
-					
-				// Bounce monitor up if player is moving upwards
-				//else if floor(Player.PosY - 16) >= floor(y)
-				{
-					//Airborne   = true;
-					//Ysp        = -1.5;
-					//Player.Ysp = -Player.Ysp;
-				}
 			}
 		}		
 		else

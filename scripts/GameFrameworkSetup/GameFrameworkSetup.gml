@@ -18,8 +18,8 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen = false;
-	Game.ResolutionWidth  = 424;
-	Game.ResolutionHeight = 240;
+	Game.ResolutionWidth  = 320;
+	Game.ResolutionHeight = 224;
 	Game.WindowSize		  = 3;
 	
 	// Audio settings
@@ -54,13 +54,12 @@ function GameFrameworkSetup()
 	Game.BalancingCrouch		= false; // In S3 and later you're allowed to crouch when balancing. True = S3+ method
 	
 	// Orbinaut improvements
-	Game.SmoothModeUpdate        = false; // Use custom advanced method to update collision mode
-	Game.ConsiderAngleDifference = false; // If set to true, the game will send player airborne if floor angle difference is too high. False - S2+ method, where angle is reset to 360 instead.
+	Game.ImprovedTileCollision   = false; // Uses custom advanced method to update collision mode, fixes several collision flaws and resets floor angle better
 	Game.ImprovedObjCollision	 = false; // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
 	Game.SmoothPaletteCycle		 = false; // Apply interpolation to palette cycles
 	Game.SmoothRotation			 = false; // Use smooth rotation
-	Game.RichPresenceSupport	 = true;  // Enable Rich Presence
+	Game.RichPresenceSupport	 = false; // Enable Rich Presence
 	Game.RingsPreciseCollision   = false; // Make rings check for collision every frame instead of every 4
-	Game.RingsBoundDespawn		 = true;  // Make rings despawn as soon as they leave the screen
+	Game.RingsNoBoundDespawn	 = false;  // Make rings despawn as soon as they leave the screen
 	Game.RingsAllSideCollision   = false; // Make rings collide with walls and ceiling instead of just floor
 }

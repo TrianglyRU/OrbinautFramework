@@ -18,20 +18,23 @@
 			// Update player's speeds
 			PlayerMoveAirborne();
 			
-			// Check for flying as Tails
-			PlayerCheckFly();
-			
-			// Check for gliding as Knuckles
-			PlayerCheckGlide();
-			
-			// Check for climbing walls as Knuckles
-			PlayerCheckClimb();
-			
 			// Check for crossing stage boundaries
 			PlayerLevelBound();
 			
 			// Update player's position
 			PlayerSpeedToPos();
+						
+			// Check for climbing walls as Knuckles
+			PlayerCheckClimb();
+			
+			// Check for gliding as Knuckles
+			PlayerCheckGlide();
+			
+			// Check for dropdash as Sonic
+			PlayerCheckDropdash();
+			
+			// Check for flying as Tails
+			PlayerCheckFly();
 			
 			// Apply gravity and rotation
 			PlayerApplyGravity();
@@ -45,11 +48,11 @@
 			// Collide with roof
 			PlayerHitRoof();
 			
+			// Use barriers abilities
+			PlayerBarriersUsage();
+			
 			// Reset flags on landing
 			PlayerResetOnFloor();
-
-			// Check for dropdash as Sonic
-			PlayerCheckDropdash();
 		}
 	
 		// Grounded script
@@ -83,7 +86,7 @@
 			PlayerCheckRoll();
 			
 			// Collide with floor
-			PlayerCollideFloor();
+			PlayerAnglePos();
 			
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();
@@ -111,7 +114,7 @@
 			PlayerSpeedToPos();
 			
 			// Collide with floor
-			PlayerCollideFloor();
+			PlayerAnglePos();
 	
 			// Fall off the ceiling and walls
 			PlayerSlopeRepel();

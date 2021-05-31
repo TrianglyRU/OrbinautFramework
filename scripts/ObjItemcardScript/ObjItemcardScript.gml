@@ -83,7 +83,7 @@ function ObjItemcardScript()
 					case "Regular Barrier":
 					{
 						// Give regular shield
-						Player.ShieldType = BarrierNormal;
+						Player.BarrierType = BarrierNormal;
 					}
 					break;
 					case "Invincibility":

@@ -61,12 +61,10 @@ function PlayerHitFloor()
 				Ysp     = 0;
 				Inertia = Xsp;
 			}
-		
-			// Adhere to the floor and get floor angle
-			PosY += floorDistance;
-			Angle = floorAngle;
-				
+
 			// Land
+			PosY	+= floorDistance;
+			Angle    = floorAngle;
 			Grounded = true;
 		}
 	}

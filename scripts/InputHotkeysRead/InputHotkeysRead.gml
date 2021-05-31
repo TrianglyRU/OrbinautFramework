@@ -58,6 +58,22 @@ function InputHotkeysRead()
 		{
 			object_damage(false, false, true);
 		}
+		if keyboard_check_pressed(ord("6")) 
+		{
+			Player.BarrierType = BarrierNormal;
+		}
+		if keyboard_check_pressed(ord("7")) 
+		{
+			Player.BarrierType = BarrierFire;
+		}
+		if keyboard_check_pressed(ord("8")) 
+		{
+			Player.BarrierType = BarrierElec;
+		}
+		if keyboard_check_pressed(ord("9")) 
+		{
+			Player.BarrierType = BarrierWater;
+		}
 		
 		// Ignore input mode
 		if keyboard_check_pressed(ord("L")) 

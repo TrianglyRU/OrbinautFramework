@@ -56,15 +56,26 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				objectTop = objectY - collisionMap[playerPosition] - 1;
 			}
 		}
-						
-		// Extend object collision diameter if left and right sides are solid
-		var edgeExtension = collideSides ? 10 : 0;
-					
-		// Check if player is outside of this object collision diameter
-		if playerX + edgeExtension < objectLeft or playerX - edgeExtension > objectRight or !collideTop
+		
+		if !Game.ImprovedObjCollision
 		{
-			Player.OnObject = false;
-			exit;
+			// Extend object collision diameter if left and right sides are solid
+			var edgeExtension = collideSides ? 10 : 0;
+					
+			// Check if player is outside of this object collision diameter
+			if playerX + edgeExtension < objectLeft or playerX - edgeExtension > objectRight or !collideTop
+			{
+				Player.OnObject = false;
+				exit;
+			}
+		}
+		else
+		{
+			if playerRight <= objectLeft or playerLeft >= objectRight or !collideTop
+			{
+				Player.OnObject = false;
+				exit;
+			}
 		}
 		
 		// Make player to follow horizonatal movement of the object
@@ -137,8 +148,8 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				exit;
 			}
 					
-			// Collide with this object vertically
-			if abs(objectX - playerX) /*+ 4*/ <= abs(objectY - playerY) /*- 4*/
+			// Collide with this object vertically		
+			if  abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
 			{
 				// Check if bottom side is solid
 				if collideBottom
@@ -170,7 +181,8 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 					if playerBottom < objectTop + 16
 					{
 						// Check if player's position is within this object boundaries
-						if playerX < objectLeft or playerX > objectRight
+						if !Game.ImprovedObjCollision and (playerX     <  objectLeft or playerX    > objectRight)
+						or  Game.ImprovedObjCollision and (playerRight <= objectLeft or playerLeft >= objectRight)
 						{
 							exit;
 						}
@@ -178,16 +190,29 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						{
 							// Check if player is moving downwards or standing still
 							if (Ysp < 0) exit;
-						
+							
+							// Check for landing with water barrier
+							if BarrierType == BarrierWater and BarrierIsActive
+							{
+								// Set flags and speed
+								BarrierIsActive = false;
+								Jumping			= false;
+								Ysp				= -7.5;
+								
+								// Exit the further code
+								exit;
+							}
+							
 							// Reset gravity
 							Grv	= 0.21875;
 		
 							// Reset flags
-							Rolling  = Ysp > 0 and !Grounded ? Input.Down : Rolling;
-							Jumping	 = false;
-							Pushing	 = false;
-							Grounded = true;
-							OnObject = objectID;
+							Rolling			= Ysp > 0 and !Grounded ? Input.Down : Rolling;
+							BarrierIsActive = false;
+							Jumping			= false;
+							Pushing			= false;
+							Grounded		= true;
+							OnObject		= objectID;
 							
 							// Set visual angle
 							VisualAngle = 360;
@@ -196,7 +221,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							if Hurt
 							{
 								isInvincible = 120;
-								Inertia		 = 0;
+								Xsp			 = 0;
 								Hurt		 = false;			
 							}
 							
@@ -346,12 +371,28 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				// Reset gravity
 				Grv	= 0.21875;
 		
+				// Check for landing with water barrier
+				if BarrierType == BarrierWater and BarrierIsActive
+				{
+					// Set flags and speed
+					BarrierIsActive = false;
+					Jumping			= false;
+					Ysp				= -7.5;
+								
+					// Exit the further code
+					exit;
+				}
+							
+				// Reset gravity
+				Grv	= 0.21875;
+		
 				// Reset flags
-				Rolling  = Ysp > 0 and !Grounded ? Input.Down : Rolling;
-				Jumping	 = false;
-				Pushing	 = false;
-				Grounded = true;
-				OnObject = objectID;
+				Rolling			= Ysp > 0 and !Grounded ? Input.Down : Rolling;
+				BarrierIsActive = false;
+				Jumping			= false;
+				Pushing			= false;
+				Grounded		= true;
+				OnObject		= objectID;
 							
 				// Set visual angle
 				VisualAngle = 360;
@@ -360,7 +401,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				if Hurt
 				{
 					isInvincible = 120;
-					Inertia		 = 0;
+					Xsp			 = 0;
 					Hurt		 = false;			
 				}
 				

@@ -4,7 +4,10 @@ function PlayerResetOnFloor()
 	if Grounded
 	{	
 		// Set 'walk' animation
-		Animation = AnimWalk;
+		if !GlidingState
+		{
+			Animation = AnimWalk;
+		}
 		
 		// Reset gravity
 		Grv	= 0.21875;
@@ -12,8 +15,8 @@ function PlayerResetOnFloor()
 		// Reset flags
 		Jumping	= false;
 		Pushing	= false;
-		Rolling = false;
-
+		Rolling	= false;
+		
 		// Set visual angle
 		if Angle >= 25.5 and Angle <= 334.5
 		{
@@ -70,12 +73,13 @@ function PlayerResetOnFloor()
 		FlyingState	= false;
 		FlyingTimer = 0;
 		
-		// Knuckles' climbing
+		// Knuckles' climbing and gliding
 		if ClimbingState
 		{	
 			ClimbingState = false;
 			ClimbingValue = 0;			
 		}
+		GlidingState = false;
 
 		// Reset radiuses to default values
 		if !Rolling

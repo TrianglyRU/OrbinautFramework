@@ -9,9 +9,11 @@ function PlayerCheckClimb()
 		// Check if we're gliding
 		if GlidingState == 1
 		{
-			// If found the wall and we were moving towards it
-			if Xsp > 0 and tile_check_collision_h(floor(PosX + 10), floor(PosY), true,  true, Layer)[0] < 0
-			or Xsp < 0 and tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0] < 0
+			// Get tile in the direction we're moving to
+			var tileData = tile_check_collision_h(floor(PosX + 10 * sign(Xsp)), floor(PosY), sign(Xsp), true, Layer);
+			
+			// Check if we're touching the wall and it is flat
+			if tileData[0] <= 0 and (tileData[1] == 90 or tileData[1] == 270)
 			{
 				// Stop gliding and start climbing
 				ClimbingState = true;

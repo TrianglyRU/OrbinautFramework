@@ -120,10 +120,11 @@ function PlayerCheckGlide()
 				yRadius	= yRadiusDefault;
 				
 				// Check if we collide with the ground
-				if floorDistance < Ysp
+				if floorDistance < 0
 				{				
 					// Adhere to the ground
 					PosY += floorDistance;
+					Angle = floorAngle;
 					
 					// Reset speeds
 					Xsp     = 0;
@@ -131,7 +132,6 @@ function PlayerCheckGlide()
 					
 					// Set flags
 					Grounded     = true;
-					GlidingState = false;
 					MovementLock = 20;
 				}
 			}
@@ -209,8 +209,8 @@ function PlayerCheckGlide()
 				GlidingValue--
 				if !GlidingValue
 				{
-					GlidingState = false;
-					Grounded     = true;
+					Grounded = true;
+					Angle    = floorAngle;
 				}
 			}
 			break;
