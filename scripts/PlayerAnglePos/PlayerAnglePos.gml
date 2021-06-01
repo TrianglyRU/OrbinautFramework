@@ -163,18 +163,27 @@ function PlayerAnglePos()
 			var angDifference = abs(Angle mod 180 - floorAngle mod 180);
 			if  angDifference > 45 and angDifference < 135
 			{
-				// Lose the ground...
+				// Force reset floor angle
+				floorAngle = 360;
+				
+				// Walk off of the edge naturally
 				if Game.ImprovedTileCollision
 				{
-					Grounded = false;
-					exit;
+					// Extra check for balancing
+					if (Inertia == 0 and TileMiddle[0] > 0) Balancing = -Facing;
+
+					// Go airborne if there is no ground right below us
+					if floorDistance > 0
+					{
+						Grounded = false;
+						exit;
+					}
 				}
 					
-				// ...or just force reset floor angle
+				// or just disable balancing
 				else
 				{
-					Balancing  = false;
-					floorAngle = 360;
+					Balancing = false;
 				}
 			}
 				

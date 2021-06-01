@@ -10,8 +10,9 @@ function PlayerHitFloor()
 	if (Ysp > 0 or abs(Xsp) > abs(Ysp))
 	{	
 		// Get tiles
-		var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
-		var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
+		var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
+		var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
+		var TileMiddle = tile_check_collision_v(floor(PosX),		   floor(PosY + yRadius), true, false, Layer);
 			
 		// Use left tile
 		if TileLeft[0] <= TileRight[0]
@@ -25,6 +26,16 @@ function PlayerHitFloor()
 		{
 			var floorDistance = TileRight[0];
 			var floorAngle    = TileRight[1];
+		}
+		
+		// Use middle tile if both left and right distances are the same and we're on the flat floor
+		if Game.ImprovedTileCollision
+		{   
+			if TileLeft[0] == TileRight[0] and TileMiddle[0] <= 0
+			{
+				var floorDistance = TileMiddle[0];
+				var floorAngle	  = TileMiddle[1];
+			}
 		}
 		
 		// Check if we collide with the floor

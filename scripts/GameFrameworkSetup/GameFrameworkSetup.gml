@@ -60,6 +60,6 @@ function GameFrameworkSetup()
 	Game.SmoothRotation			 = false; // Use smooth rotation
 	Game.RichPresenceSupport	 = false; // Enable Rich Presence
 	Game.RingsPreciseCollision   = false; // Make rings check for collision every frame instead of every 4
-	Game.RingsNoBoundDespawn	 = false;  // Make rings despawn as soon as they leave the screen
+	Game.RingsNoBoundDespawn	 = false; // Make rings despawn as soon as they leave the screen
 	Game.RingsAllSideCollision   = false; // Make rings collide with walls and ceiling instead of just floor
 }

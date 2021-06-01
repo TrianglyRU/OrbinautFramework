@@ -24,12 +24,6 @@
 			// Update player's position
 			PlayerSpeedToPos();
 						
-			// Check for climbing walls as Knuckles
-			PlayerCheckClimb();
-			
-			// Check for gliding as Knuckles
-			PlayerCheckGlide();
-			
 			// Check for dropdash as Sonic
 			PlayerCheckDropdash();
 			
@@ -42,12 +36,18 @@
 			// Collide with walls
 			PlayerHitWalls();
 			
-			// Collide with floor
-			PlayerHitFloor();
-			
 			// Collide with roof
 			PlayerHitRoof();
 			
+			// Check for gliding as Knuckles
+			PlayerCheckGlide();
+			
+			// Check for climbing walls as Knuckles
+			PlayerCheckClimb();
+			
+			// Collide with floor
+			PlayerHitFloor();
+
 			// Use barriers abilities
 			PlayerBarriersUsage();
 			
