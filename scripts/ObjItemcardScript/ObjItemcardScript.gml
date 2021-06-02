@@ -108,11 +108,7 @@ function ObjItemcardScript()
 			ItemCardTimer++;
 			if ItemCardTimer > 32
 			{
-				ItemCard.image_alpha -= 0.1;
-				if ItemCard.image_alpha == 0
-				{
-					instance_destroy(ItemCard);
-				}
+				instance_destroy(ItemCard);
 			}
 		}
 	}

@@ -18,9 +18,9 @@ function GameFrameworkSetup()
 	
 	// Window settings
 	Game.WindowFullscreen = false;
-	Game.ResolutionWidth  = 320;
+	Game.ResolutionWidth  = 400;
 	Game.ResolutionHeight = 224;
-	Game.WindowSize		  = 3;
+	Game.WindowSize		  = 4;
 	
 	// Audio settings
 	Game.MusicVolume = 0;
@@ -31,7 +31,7 @@ function GameFrameworkSetup()
 	
 	// Gameplay	
 	Game.SpindashEnabled   = true;  // Enables S2 Spindash
-	Game.DropdashEnabled   = true;  // Enables Mania Dropdash
+	Game.DropdashEnabled   = false; // Enables Mania Dropdash
 	Game.PeeloutEnabled    = true;  // Enables SCD Super Peel Out
 	Game.GroundSpeedcap	   = false; // Enables ground speedcap
 	Game.AirSpeedcap	   = false; // Enables air speedcap
@@ -48,18 +48,18 @@ function GameFrameworkSetup()
 	Game.LooseCrouch		    = false; // In S&K, you can start crouching even when you are moving slowly. True - SK method.
 	Game.ConstantRollFrc        = false; // In SK, rolling friction is hard-coded to always be half of regular acceleration, even when Super. True - SK method
 	Game.StrongerSlopeDetach    = false; // Before S3, you were able to slide down on 45-degree floors. True - Sonic 3+ method
-	Game.SpeedFloorClip	        = false; // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
-	Game.ExtensiveWallCollision	= false; // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
+	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
+	Game.ExtensiveWallCollision	= true;  // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.StageTransitions		= true;	 // In S3 and later stage transitions are used. True = S3+.
-	Game.BalancingCrouch		= false; // In S3 and later you're allowed to crouch when balancing. True = S3+ method
+	Game.BalancingCrouch		= true;  // In S3 and later you're allowed to crouch when balancing. True = S3+ method
 	
 	// Orbinaut improvements
-	Game.ImprovedTileCollision = false; // Uses custom advanced method to update collision mode, fixes several collision flaws and resets floor angle better
-	Game.ImprovedObjCollision  = false; // In originals, objects are pretty wacky in terms of collision and hitboxes. True - apply Orbinaut's fixes
-	Game.SmoothPaletteCycle	   = false; // Apply interpolation to palette cycles
-	Game.SmoothRotation	       = false; // Use smooth rotation
-	Game.RichPresenceSupport   = false; // Enable Rich Presence
-	Game.RingsPreciseCollision = false; // Make rings check for collision every frame instead of every 4
-	Game.RingsNoBoundDespawn   = false; // Make rings despawn as soon as they leave the screen
+	Game.ImprovedTileCollision = true;  // Uses custom advanced method to update collision mode, fixes several collision flaws and resets floor angle better
+	Game.ImprovedObjCollision  = true;  // In originals, objects are pretty wacky in terms of collision and hitboxes. True - apply Orbinaut's fixes
+	Game.SmoothPaletteCycle	   = true;  // Apply interpolation to palette cycles
+	Game.SmoothRotation	       = true;  // Use smooth rotation
+	Game.RichPresenceSupport   = true;  // Enable Rich Presence
+	Game.RingsPreciseCollision = true;  // Make rings check for collision every frame instead of every 4
+	Game.RingsNoBoundDespawn   = true;  // Make rings despawn as soon as they leave the screen
 	Game.RingsAllSideCollision = false; // Make rings collide with walls and ceiling instead of just floor
 }

@@ -33,6 +33,12 @@ function ScreenDebugActivate()
 			}
 			else
 			{
+				if variable_instance_exists(id, "objXRadiusTriggerLeft")
+				{
+					draw_set_alpha(0.35);
+					draw_rectangle_colour(x - objXRadiusTriggerLeft, y - objYRadiusTriggerTop, x + objXRadiusTriggerRight - 1, y + objYRadiusTriggerBottom - 1, $ffff00, $ffff00, $ffff00, $ffff00, false);
+					draw_set_alpha(1.0);
+				}
 				draw_point_colour(floor(x),	    floor(y),     c_black);
 				draw_point_colour(floor(x + 1), floor(y),	  c_white);
 				draw_point_colour(floor(x - 1), floor(y),	  c_white);

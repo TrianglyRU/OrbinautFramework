@@ -16,16 +16,8 @@ function ObjRingScript()
 		// Check if it is time for ring to disappear
 		if !Timer
 		{
-			// Make ring unable to collect
-			PickupTimeout = true;
-			
-			// Slowly make it invisible and destroy
-			image_alpha -= 0.1;
-			if image_alpha == 0
-			{
-				instance_destroy(self);
-				exit;
-			}
+			instance_destroy(self);
+			exit;
 		}
 	
 		// Apply gravity
