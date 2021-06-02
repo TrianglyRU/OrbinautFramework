@@ -13,8 +13,15 @@ function object_player_overlap(collisionType)
 		// Get object size
 		var objectTop    = floor(y - objYRadiusHit);
 		var objectLeft   = floor(x - objXRadiusHit);
-		var objectRight  = floor(x + objXRadiusHit - 1);
-		var objectBottom = floor(y + objYRadiusHit - 1);
+		var objectRight  = floor(x + objXRadiusHit);
+		var objectBottom = floor(y + objYRadiusHit);
+		
+		// Check if we should adjust it
+		if Game.ImprovedObjCollision
+		{
+			objectRight -= 1;
+			objectLeft  -= 1;
+		}
 		
 		// Get player hitbox size
 		if Player.Animation == AnimCrouch

@@ -1,8 +1,9 @@
 function ObjBridgeScript()
 {
 	// Get player's and AI position withtin the bridge
-	var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
+	//var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
 	//var AIPosition     = (floor(AI.PosX) - (x - 8) + 16) div 16;
+	var PlayerPosition = ds_list_find_index(LogID, Player.OnObject) + 1;
 	
     // Check who is closer to the centre of the bridge
 	//if abs(floor(BridgeLength / 2) - PlayerPosition) < abs(floor(BridgeLength / 2) - AIPosition)

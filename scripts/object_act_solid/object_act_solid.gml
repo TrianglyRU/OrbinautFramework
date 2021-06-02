@@ -16,9 +16,9 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 	// Get object properties
 	var objectX		   = floor(x);
 	var objectY        = floor(y);
-	var objectTop      = floor(y - objYRadiusSolid - 1);
+	var objectTop      = floor(y - objYRadiusSolid);
 	var objectLeft     = floor(x - objXRadiusSolid);
-	var objectRight    = floor(x + objXRadiusSolid - 1);
+	var objectRight    = floor(x + objXRadiusSolid);
 	var objectBottom   = floor(y + objYRadiusSolid);	
 	var objectMirrored = !image_xscale;
 	var objectFlipped  = !image_yscale;
@@ -32,6 +32,16 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 	var playerLeft   = floor(Player.PosX - 11);
 	var playerRight  = floor(Player.PosX + 11);
 	var playerBottom = floor(Player.PosY + Player.yRadius);
+	
+	// Adjust solidbox
+	if !Game.ImprovedObjCollision
+	{
+		objectBottom += 1;
+	}	
+	else
+	{
+		objectRight -= 1;
+	}
 	
 	// Check if player is standing on this object, and collide only with its top side
 	if Player.OnObject == id
@@ -57,32 +67,21 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 			}
 		}
 		
-		if !Game.ImprovedObjCollision
-		{
-			// Extend object collision diameter if left and right sides are solid
-			var edgeExtension = collideSides ? 10 : 0;
+		// Extend object collision diameter if left and right sides are solid
+		var edgeExtension = collideSides ? 10 : 0;
 					
-			// Check if player is outside of this object collision diameter
-			if playerX + edgeExtension < objectLeft or playerX - edgeExtension > objectRight or !collideTop
-			{
-				Player.OnObject = false;
-				exit;
-			}
-		}
-		else
+		// Check if player is outside of this object collision diameter
+		if playerX + edgeExtension < objectLeft or playerX - edgeExtension > objectRight or !collideTop
 		{
-			if playerRight <= objectLeft or playerLeft >= objectRight or !collideTop
-			{
-				Player.OnObject = false;
-				exit;
-			}
+			Player.OnObject = false;
+			exit;
 		}
 		
 		// Make player to follow horizonatal movement of the object
 		Player.PosX += floor(x - xprevious);
 							
 		// Make player to always stay on top of the object
-		Player.PosY = objectTop - Player.yRadius;
+		Player.PosY += objectTop - playerBottom - 1;
 		
 		// Check if player should start balancing
 		if Player.Inertia == 0
@@ -138,18 +137,19 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				// Set new object top boundary
 				else
 				{
-					objectTop = objectY - objYRadiusSolid - 1;
+					objectTop = objectY - objYRadiusSolid;
 				}
 			}
-					
+			
 			// Check for overlap with this object vertically
-			if playerBottom < objectTop - 4 or playerTop > objectBottom
+			var bottomGrip   = Game.ImprovedObjCollision ? 0 : 4;
+			if  playerBottom < objectTop - 4 or playerTop > objectBottom - bottomGrip
 			{
 				exit;
 			}
 					
 			// Collide with this object vertically		
-			if  abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
+			if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
 			{
 				// Check if bottom side is solid
 				if collideBottom
@@ -168,8 +168,8 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						{
 							if (Player.FlyingState) Player.Grv = 0.03125;
 							
-							Player.PosY = objectBottom + Player.yRadius;
-							Player.Ysp  = 0;
+							Player.PosY += objectBottom - playerTop;
+							Player.Ysp   = 0;
 						}	
 					}
 				}
@@ -181,7 +181,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 					if playerBottom < objectTop + 16
 					{
 						// Check if player's position is within this object boundaries
-						if !Game.ImprovedObjCollision and (playerX     <  objectLeft or playerX    > objectRight)
+						if !Game.ImprovedObjCollision and (playerX     <  objectLeft or playerX    >  objectRight)
 						or  Game.ImprovedObjCollision and (playerRight <= objectLeft or playerLeft >= objectRight)
 						{
 							exit;
@@ -284,7 +284,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							}
 								
 							// Attach player to the object's top boundary
-							PosY = objectTop - yRadius;
+							PosY += objectTop - playerBottom - 1;
 						}
 					}	
 				}
@@ -322,7 +322,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							}
 							Player.Xsp = 0;
 						}
-						Player.PosX -= playerRight - objectLeft;
+						Player.PosX += objectLeft - playerRight;
 					}
 				}
 			}
@@ -356,9 +356,6 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				{
 					objectTop = objectY - collisionMap[playerPosition];
 				}
-			
-				// Correct it
-				objectTop -= 1;
 			}
 					
 			// Check if player's bottom has overlapped this object's top boundary
@@ -464,7 +461,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				}
 								
 				// Attach player to the object's top boundary
-				PosY = objectTop - yRadius;
+				PosY += objectTop - playerBottom - 1;
 			}
 		}
 	}

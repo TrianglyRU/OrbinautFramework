@@ -16,28 +16,29 @@ function ScreenDebugActivate()
 	if DebugToggle
 	{
 		// Darken the screen
-		draw_set_alpha(0.35);
-		draw_rectangle_colour(Screen.CameraX, Screen.CameraY, Screen.CameraX + Screen.Width, Screen.CameraY + Screen.Height, c_black, c_black, c_black, c_black, false);
-		draw_set_alpha(1.0);
+		//draw_set_alpha(0.35);
+		//(Screen.CameraX, Screen.CameraY, Screen.CameraX + Screen.Width, Screen.CameraY + Screen.Height, c_black, c_black, c_black, c_black, false);
+		//draw_set_alpha(1.0);
 		
-		// Draw player position point
-		/*with Player
-		{	
-			draw_point_colour(floor(PosX),	   floor(PosY),     c_black);
-			draw_point_colour(floor(PosX + 1), floor(PosY),	    c_white);
-			draw_point_colour(floor(PosX - 1), floor(PosY),	    c_white);
-			draw_point_colour(floor(PosX),     floor(PosY + 1), c_white);
-			draw_point_colour(floor(PosX),     floor(PosY - 1), c_white);
-		}*/
-	
-		// Draw objects position points
+		// Draw position points
 		with all
 		{
-			draw_point_colour(floor(x),	    floor(y),     c_black);
-			draw_point_colour(floor(x + 1), floor(y),	  c_white);
-			draw_point_colour(floor(x - 1), floor(y),	  c_white);
-			draw_point_colour(floor(x),     floor(y + 1), c_white);
-			draw_point_colour(floor(x),     floor(y - 1), c_white);
+			if object_index == Player
+			{
+				draw_point_colour(floor(PosX),	   floor(PosY),     c_black);
+				draw_point_colour(floor(PosX + 1), floor(PosY),	    c_white);
+				draw_point_colour(floor(PosX - 1), floor(PosY),	    c_white);
+				draw_point_colour(floor(PosX),     floor(PosY + 1), c_white);
+				draw_point_colour(floor(PosX),     floor(PosY - 1), c_white);
+			}
+			else
+			{
+				draw_point_colour(floor(x),	    floor(y),     c_black);
+				draw_point_colour(floor(x + 1), floor(y),	  c_white);
+				draw_point_colour(floor(x - 1), floor(y),	  c_white);
+				draw_point_colour(floor(x),     floor(y + 1), c_white);
+				draw_point_colour(floor(x),     floor(y - 1), c_white);
+			}
 		}
 	}
 }

@@ -54,12 +54,12 @@ function GameFrameworkSetup()
 	Game.BalancingCrouch		= false; // In S3 and later you're allowed to crouch when balancing. True = S3+ method
 	
 	// Orbinaut improvements
-	Game.ImprovedTileCollision   = false; // Uses custom advanced method to update collision mode, fixes several collision flaws and resets floor angle better
-	Game.ImprovedObjCollision	 = false; // In originals, objects are pretty wacky in terms of collision. True - apply Orbinaut's fixes
-	Game.SmoothPaletteCycle		 = false; // Apply interpolation to palette cycles
-	Game.SmoothRotation			 = false; // Use smooth rotation
-	Game.RichPresenceSupport	 = false; // Enable Rich Presence
-	Game.RingsPreciseCollision   = false; // Make rings check for collision every frame instead of every 4
-	Game.RingsNoBoundDespawn	 = false; // Make rings despawn as soon as they leave the screen
-	Game.RingsAllSideCollision   = false; // Make rings collide with walls and ceiling instead of just floor
+	Game.ImprovedTileCollision = false; // Uses custom advanced method to update collision mode, fixes several collision flaws and resets floor angle better
+	Game.ImprovedObjCollision  = false; // In originals, objects are pretty wacky in terms of collision and hitboxes. True - apply Orbinaut's fixes
+	Game.SmoothPaletteCycle	   = false; // Apply interpolation to palette cycles
+	Game.SmoothRotation	       = false; // Use smooth rotation
+	Game.RichPresenceSupport   = false; // Enable Rich Presence
+	Game.RingsPreciseCollision = false; // Make rings check for collision every frame instead of every 4
+	Game.RingsNoBoundDespawn   = false; // Make rings despawn as soon as they leave the screen
+	Game.RingsAllSideCollision = false; // Make rings collide with walls and ceiling instead of just floor
 }
