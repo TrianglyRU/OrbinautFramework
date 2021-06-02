@@ -37,20 +37,24 @@ function StageObjectsUpdate()
 		}
 		
 		// Do code from object side
-		with Objects if instance_exists(self)
-		{	
-			// Create this object current sprite on its position
-			var ObjectSprite = layer_sprite_create("ObjectSprites", x, y, sprite_index);
+		with all
+		{
+			if  object_index != Game   and object_index != Player and object_index != Input
+			and object_index != Screen and object_index != Stage  and object_index != Discord
+			{
+				// Create this object current sprite on its position
+				var ObjectSprite = layer_sprite_create("ObjectSprites", x, y, sprite_index);
 			
-			// Set sprite properties
-			layer_sprite_speed(ObjectSprite,  0);
-			layer_sprite_alpha(ObjectSprite,  image_alpha);
-			layer_sprite_index(ObjectSprite,  image_index);
-			layer_sprite_xscale(ObjectSprite, image_xscale);
-			layer_sprite_yscale(ObjectSprite, image_yscale);
+				// Set sprite properties
+				layer_sprite_speed(ObjectSprite,  0);
+				layer_sprite_alpha(ObjectSprite,  visible ? image_alpha : 0);
+				layer_sprite_index(ObjectSprite,  image_index);
+				layer_sprite_xscale(ObjectSprite, image_xscale);
+				layer_sprite_yscale(ObjectSprite, image_yscale);
 
-			// Destroy object
-			instance_destroy(self);
+				// Destroy object
+				instance_destroy(self);
+			}
 		}
 	}
 }

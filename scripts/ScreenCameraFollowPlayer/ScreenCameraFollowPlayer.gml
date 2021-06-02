@@ -4,7 +4,10 @@ function ScreenCameraFollowPlayer()
 	if (!CameraEnabled) exit;
 	
 	// Update player's position on the screen
-	PlayerScreenX = floor(Player.PosX) - floor(RawX);
+	if !ScrollDelay
+	{
+		PlayerScreenX = floor(Player.PosX) - floor(RawX);	
+	}
 	PlayerScreenY = floor(Player.PosY) - floor(RawY);
 	
 	// Set horizontal shift speed
@@ -18,9 +21,15 @@ function ScreenCameraFollowPlayer()
 	}
 	
 	// Horizontal follow
-	if (PlayerScreenX >= (Width / 2) or PlayerScreenX <= (Width / 2 - 16)) and ScrollDelay == 0 
+	if (PlayerScreenX >= (Width / 2) or PlayerScreenX <= (Width / 2 - 16)) //and ScrollDelay == 0 
 	{ 
 		RawX += ScrollX;
+	}
+	
+	// Use previous player positions when we delay the x scrolling
+	if ScrollDelay
+	{			
+		RawX = Player.RecordedPosX[| ScrollDelay - 1] - PlayerScreenX;
 	}
 
 	// Set vertical shift speed

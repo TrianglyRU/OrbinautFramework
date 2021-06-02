@@ -134,14 +134,17 @@ function PlayerDisplay()
 		}
 		
 		// Update tails display information
-		TailsObject.x			 = floor(PosX);
-		TailsObject.y			 = floor(PosY);	
-		TailsObject.depth		 = DrawOrder;
-		TailsObject.image_xscale = Facing;
-		TailsObject.image_angle  = TailsAngle;
+		if instance_exists(TailsObject)
+		{
+			TailsObject.x			 = floor(PosX);
+			TailsObject.y			 = floor(PosY);	
+			TailsObject.depth		 = DrawOrder;
+			TailsObject.image_xscale = Facing;
+			TailsObject.image_angle  = TailsAngle;
 
-		// Draw tails on the screen
-		with TailsObject draw_self();
+			// Draw tails on the screen
+			with TailsObject draw_self();
+		}
 	}
 	
 	// Blink sprite

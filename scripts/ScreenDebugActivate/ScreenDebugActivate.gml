@@ -15,11 +15,6 @@ function ScreenDebugActivate()
 	// Check if general debugging is enabled
 	if DebugToggle
 	{
-		// Darken the screen
-		//draw_set_alpha(0.35);
-		//(Screen.CameraX, Screen.CameraY, Screen.CameraX + Screen.Width, Screen.CameraY + Screen.Height, c_black, c_black, c_black, c_black, false);
-		//draw_set_alpha(1.0);
-		
 		// Draw position points
 		with all
 		{

@@ -60,18 +60,34 @@ function InputHotkeysRead()
 		}
 		if keyboard_check_pressed(ord("6")) 
 		{
+			if !instance_exists(Barrier)
+			{
+				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+			}
 			Player.BarrierType = BarrierNormal;
 		}
 		if keyboard_check_pressed(ord("7")) 
 		{
+			if !instance_exists(Barrier)
+			{
+				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+			}
 			Player.BarrierType = BarrierFire;
 		}
 		if keyboard_check_pressed(ord("8")) 
 		{
+			if !instance_exists(Barrier)
+			{
+				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+			}
 			Player.BarrierType = BarrierElec;
 		}
 		if keyboard_check_pressed(ord("9")) 
 		{
+			if !instance_exists(Barrier)
+			{
+				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+			}
 			Player.BarrierType = BarrierWater;
 		}
 		

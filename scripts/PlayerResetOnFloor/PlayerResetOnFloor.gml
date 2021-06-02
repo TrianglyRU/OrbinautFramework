@@ -13,9 +13,10 @@ function PlayerResetOnFloor()
 		Grv	= 0.21875;
 		
 		// Reset flags
-		Jumping	= false;
-		Pushing	= false;
-		Rolling	= false;
+		Jumping			= false;
+		Pushing			= false;
+		Rolling			= false;
+		BarrierIsActive = false;
 		
 		// Set visual angle
 		if Angle >= 25.5 and Angle <= 334.5
