@@ -1,23 +1,23 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-	var add = 45 * Numb;
+	var add = 60 * Numb;
 		
-	var modeX = sin(Parent.AngleX + add);
+	var modeX = dsin(Parent.AngleX + add);
 	
-	var modeY = cos(Parent.AngleY + add);
-	//var mode = abs(cos(Parent.AngleY + add));
-	//var mode = sin(Parent.AngleY + add);
-	//var mode = abs(sin(Parent.AngleY + add));
+	var modeY = dcos(Parent.AngleY + add);
+	//var mode = abs(dcos(Parent.AngleY + add));
+	//var mode = dsin(Parent.AngleY + add);
+	//var mode = abs(dsin(Parent.AngleY + add));
 	
 	switch State
 	{
 		case 1:
 			x = floor(Parent.x + modeX * 35);
 			y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
-			var visualDepth = sin(Parent.AngleX + add + 90);
+			var visualDepth = dsin(Parent.AngleX + add + 90);
 			depth = Parent.depth + (Numb + 1) * (visualDepth >= 0 ? 1 : -1);
-			image_index = visualDepth <= 0.8 ? 0 : 1;
+			image_index = visualDepth <= 0 ? 0 : 1;
 			if visualDepth <= 0.8 and object_player_overlap(CollisionHitbox)
 			{
 				object_damage(false, false, false);
@@ -43,8 +43,9 @@
 			visible = false;
 			x = floor(Parent.x + modeX * 35);
 			y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
-			var visualDepth = sin(Parent.AngleX + add + 90);
+			var visualDepth = dsin(Parent.AngleX + add + 90);
 			depth = Parent.depth + (Numb + 1) * (visualDepth >= 0 ? 1 : -1);
+			image_index = visualDepth <= 0 ? 0 : 1;
 			State = 0;
 		break;
 		case 3:

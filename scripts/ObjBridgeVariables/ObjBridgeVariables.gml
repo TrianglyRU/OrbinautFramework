@@ -1,9 +1,10 @@
 function ObjBridgeVariables()
 {
 	// Create variables
-	RecoveryAngle _init;
-	LogID		  _init;
-	LogDepression _init;
+	PlayerPosition _init;
+	RecoveryAngle  _init;
+	LogID		   _init;
+	LogDepression  _init;
 	
 	/* Variable Definitions	
 	1. BridgeLength, default = 12

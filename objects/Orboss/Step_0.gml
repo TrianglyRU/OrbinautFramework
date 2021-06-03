@@ -1,17 +1,31 @@
 /// @description Insert description here
 // You can write your code in this editor
-	
-	if Timer 
-	{	
-		Timer--;
-		if (Timer = 50) Orb.State = 3;
-	}
-	else
+	switch State
 	{
-		AngleX += 0.1;
-		AngleY += 0.1;
-		Spin = (Spin + 1) mod 360;
+		case 0:
+			StateTimer--;
+			PosY++;
+			if (!StateTimer) State = 1;
+			if (StateTimer = 50) Orb.State = 3;
+		break;
+		case 1:
+			if HurtTimer 
+			{	
+				HurtTimer--;
+				if (HurtTimer = 50) Orb.State = 3;
+			}
+			else
+			{	
+				AngleX += 3;
+				AngleY += 6;
+				Spin = (Spin + 1) mod 360;
+			}
+		break;
+	
 	}
+	
+	x = floor(PosX);
+	y = floor(PosY);
 	
 	if object_player_overlap(CollisionHitbox)
 	{
@@ -19,22 +33,22 @@
 		if Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
 		or Player.InvincibilityBonus or Player.GlidingState
 		{	
-			if !Timer
+			if !HurtTimer
 			{
 				audio_sfx_play(sfxDestroy, false, false);
 				
 				HP--;
-				Timer = 180;
+				HurtTimer  = 180;
 				AngleX = 0;
 				AngleY = 0;
-				Spin = 0;
+				Spin   = 0;
 				
 				Orb.State = 2;
 			
 				// Make player bounce if they are airborne
 				if !Player.Grounded
 				{
-					if floor(Player.PosY) < floor(y)
+					if floor(Player.PosY) < y
 					{
 						Player.Ysp = -Player.Ysp;
 					}
@@ -47,7 +61,7 @@
 				if !HP
 				{
 					// Spawn explosion and play sound
-					object_spawn(floor(x), floor(y), DustExplosion);
+					object_spawn(x, y, DustExplosion);
 					audio_sfx_play(sfxDestroy, false, false);
 					instance_destroy(Orb);
 					instance_destroy();

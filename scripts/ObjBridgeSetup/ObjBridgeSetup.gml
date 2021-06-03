@@ -2,6 +2,7 @@ function ObjBridgeSetup()
 {
 	// Create log list
 	LogID = ds_list_create();
+	PlayerPosition = 0;
 	
 	for (var i = 0; i < BridgeLength; i++) 
 	{

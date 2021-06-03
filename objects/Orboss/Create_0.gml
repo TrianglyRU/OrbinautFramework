@@ -1,12 +1,16 @@
 /// @description Insert description here
 // You can write your code in this editor
 	
-	HP = 10;
-	Timer = 0;
+	HP     = 10;
+	HurtTimer  = 0;
 	AngleX = 0;
 	AngleY = 0;
-	Spin = 90;
+	Spin   = 90;
 	Active = false;
+	StateTimer = 128;
+	State  = 0;
+	PosX = x;
+	PosY = y;
 	
 	image_index = instance_exists(Orbstatue) + 1;
 	
