@@ -12,23 +12,23 @@ function PlayerBarriersUsage()
 		// Get current barrier type
 		switch BarrierType
 		{
-			case BarrierFire:
+			case BarrierFlame:
 			{
 				// Set speeds
 				Xsp = 8 * Facing;
 				Ysp = 0;
 				
 				// Freeze the screen for 16 frames
-				if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 32 - SpindashRev;
+				if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 32;
 			
 				// Reset previous positions table to avoid camera going backwards
 				for (var i = 0; i < 32; i++)
 				{
-					Player.RecordedPosX[| i] = floor(Player.PosX);
+					RecordedPosX[| i] = floor(PosX);
 				}
 			}
 			break;
-			case BarrierElec:
+			case BarrierThunder:
 			{
 				// Set speed
 				Ysp = -5.5;

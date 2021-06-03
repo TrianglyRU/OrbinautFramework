@@ -126,7 +126,7 @@ function MenuOptionSelect()
 						switch StageToLoad - 1
 						{			
 							case 0:	room_goto(MQZ1); break; // Load MQZ1
-							case 1: room_goto(MQZ2); break; // Load MQZ2
+							case 1: room_goto(PPZ1); break; // Load MQZ2
 						}
 					}
 					else

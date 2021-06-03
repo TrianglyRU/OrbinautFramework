@@ -41,10 +41,10 @@ function _GameMacros()
 	#macro DirRight	           1
 	#macro LayerA		       0
 	#macro LayerB		       1
-	#macro BarrierNormal	   0
-	#macro BarrierElec		   1
-	#macro BarrierWater        2
-	#macro BarrierFire		   3
+	#macro BarrierNormal	   1
+	#macro BarrierThunder	   2
+	#macro BarrierWater        3
+	#macro BarrierFlame		   4
 	#macro AnimIdle		       0
 	#macro AnimWalk		       1
 	#macro AnimRun		       2

@@ -72,7 +72,7 @@ function InputHotkeysRead()
 			{
 				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
 			}
-			Player.BarrierType = BarrierFire;
+			Player.BarrierType = BarrierFlame;
 		}
 		if keyboard_check_pressed(ord("8")) 
 		{
@@ -80,7 +80,7 @@ function InputHotkeysRead()
 			{
 				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
 			}
-			Player.BarrierType = BarrierElec;
+			Player.BarrierType = BarrierThunder;
 		}
 		if keyboard_check_pressed(ord("9")) 
 		{
