@@ -1,10 +1,16 @@
 function ObjItemcardScript()
 {
 	// Exit if no item card assigned
-	if (BoxType == "Empty") exit;
+	if BoxType == "Empty"
+	{
+		exit;
+	}
 	
 	// Exit the code if item card does not exist
-	if (!instance_exists(ItemCard)) exit;
+	if !instance_exists(ItemCard)
+	{
+		exit;
+	}
 	
 	// Check if monitor is not destroyed
 	if !Destroyed

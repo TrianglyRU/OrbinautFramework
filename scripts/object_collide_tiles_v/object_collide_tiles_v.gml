@@ -2,7 +2,10 @@
 function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 {	
 	// Exit the code if solidbox is not specified
-	if (!variable_instance_exists(id, "objYRadiusSolid")) exit;
+	if !variable_instance_exists(id, "objYRadiusSolid")
+	{
+		exit;
+	}
 
 	// Define xside
 	switch xSide

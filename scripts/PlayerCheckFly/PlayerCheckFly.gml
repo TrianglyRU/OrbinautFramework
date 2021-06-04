@@ -1,10 +1,10 @@
 function PlayerCheckFly()
 {
 	// Exit if we're not Tails
-	if (CharacterID != CharTails) exit;
-	
-	// Exit the code if elemental barrier is active
-	if (BarrierType > BarrierNormal) exit;
+	if CharacterID != CharTails or BarrierType > BarrierNormal
+	{
+		exit;
+	}
 	
 	// Check if we're not flying yet
 	if !FlyingState

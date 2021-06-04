@@ -1,7 +1,10 @@
 function PlayerBarriersUsage()
 {
 	// Exit the code if we do not have any active barrier, or current barrier is regular one
-	if (!BarrierType or BarrierType == BarrierNormal) exit;
+	if !BarrierType or BarrierType == BarrierNormal
+	{
+		exit;
+	}
 	
 	// Check for barrier ability usage
 	if Input.ABCPress and !BarrierIsActive

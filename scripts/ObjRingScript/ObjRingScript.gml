@@ -98,7 +98,10 @@ function ObjRingScript()
 	}
 	
 	// Exit the code if ring can't be collected
-	if (PickupTimeout) exit;
+	if PickupTimeout
+	{
+		exit;
+	}
 	
 	// Check for hitbox collision
 	if object_player_overlap(CollisionHitbox)

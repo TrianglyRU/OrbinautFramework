@@ -1,7 +1,10 @@
 function PlayerHitFloor()
 {
 	// Exit the code if we're gliding or dead
-	if (!AllowCollision or GlidingState) exit;
+	if !AllowCollision or GlidingState
+	{
+		exit;
+	}
 	
 	// Mode is always RangeFloor when airborne
 	FloorRange = RangeFloor;

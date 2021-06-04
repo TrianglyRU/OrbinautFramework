@@ -1,7 +1,10 @@
 function PlayerCheckClimb()
 {
 	// Check if we're Knuckles
-	if (CharacterID != CharKnuckles) exit;
+	if CharacterID != CharKnuckles
+	{
+		exit;
+	}
 	
 	// Attach to the wall if we're not climbing it yet
 	if !ClimbingState

@@ -2,7 +2,10 @@
 function tile_meeting(X, Y, Layer) 
 {	
 	// Do not perform outside of room boundaries or the game will crash
-	if X < 0 or Y < 0 or X > room_width or Y > room_height exit;
+	if X < 0 or Y < 0 or X > room_width or Y > room_height 
+	{
+		exit;
+	}
 	
 	// Check for the tile
 	var Tile = tilemap_get(Stage.TileLayer[Layer], X div TileSize, Y div TileSize)

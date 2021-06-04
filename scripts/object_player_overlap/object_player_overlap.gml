@@ -2,13 +2,19 @@
 function object_player_overlap(collisionType)
 {	
 	// Exit the code if collision is disabled
-	if (!Player.AllowCollision) exit;
+	if !Player.AllowCollision
+	{
+		exit;
+	}
 	
 	// Check for hitbox overlap
 	if collisionType == CollisionHitbox
 	{
 		// Exit the code if this object hitbox wasn't initialized
-		if (!variable_instance_exists(id, "objXRadiusHit")) exit;
+		if !variable_instance_exists(id, "objXRadiusHit")
+		{
+			exit;
+		}
 	
 		// Get object size
 		var objectTop    = floor(y - objYRadiusHit);
@@ -46,22 +52,22 @@ function object_player_overlap(collisionType)
 		}
 		
 		// Check for overlap vertically
-		if playerBottom < objectTop or playerTop > objectBottom
+		else if playerBottom < objectTop or playerTop > objectBottom
 		{
 			return false;
 		}
 		
 		// If player overlaps object on both axis, they collided with it
-		return true;
+		else return true;
 	}
 	
 	// Check for triggerbox overlap
 	else if collisionType == CollisionTriggerbox
 	{
-		// Exit if this object triggerbox wasn't initialized
-		if (!variable_instance_exists(id, "objXRadiusTriggerLeft")) exit;
-		
 		// Return collision result
-		return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + objXRadiusTriggerLeft), floor(y + objYRadiusTriggerTop), floor(x + objXRadiusTriggerRight - 1), floor(y + objYRadiusTriggerBottom - 1));
+		if variable_instance_exists(id, "objXRadiusTriggerLeft")
+		{
+			return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + objXRadiusTriggerLeft), floor(y + objYRadiusTriggerTop), floor(x + objXRadiusTriggerRight - 1), floor(y + objYRadiusTriggerBottom - 1));
+		}	
 	}
 }

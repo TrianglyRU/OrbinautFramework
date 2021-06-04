@@ -1,7 +1,10 @@
 function ScreenInterfaceDisplay() 
 {	
 	// Exit the code if interface is disabled
-	if (!InterfaceEnabled) exit;
+	if !InterfaceEnabled
+	{
+		exit;
+	}
 	
 	// Get position for our HUD
 	var ScreenX = InterfaceOffsetX;

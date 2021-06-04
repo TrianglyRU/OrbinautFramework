@@ -2,7 +2,10 @@
 // You can write your code in this editor
 	
 	// Exit the code if stage is loading, unloading or restarting
-	if (Stage.State == ActStateLoading or Stage.State == ActStateUnload or Stage.State == ActStateRestart) exit;
+	if Stage.State == ActStateLoading or Stage.State == ActStateUnload or Stage.State == ActStateRestart
+	{
+		exit;
+	}
 	
 	// Execute code based on current state
 	if !DebugMode

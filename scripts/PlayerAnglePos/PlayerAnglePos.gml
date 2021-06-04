@@ -1,7 +1,10 @@
 function PlayerAnglePos()
 {	
 	// Do not collide if we're not allowed to, or if we're standing on object
-	if (!AllowCollision or OnObject) exit;
+	if !AllowCollision or OnObject
+	{
+		exit;
+	}
 	
 	// Use original mode change method based on current angle
 	if !Game.ImprovedTileCollision or Rolling

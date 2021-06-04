@@ -2,9 +2,6 @@ function StageMusicUpdate()
 {	
 	/* StageMusic, StageMusicDAC, LoopEnd and LoopStart 
 	variables are set in StageActSetup */
-	
-	// Don't bother do anything if volume is zero
-	if (Game.MusicVolume == 0) exit;
 
 	// Play stage music
 	if StageMusic != noone
@@ -30,7 +27,7 @@ function StageMusicUpdate()
 			audio_bgm_stop(SpeedupPowerup, 0.5);
 		
 			// Return stage music
-			audio_bgm_fadein(StageMusic, 0.5);
+			audio_bgm_unmute(StageMusic, 0.5);
 		}
 		
 		// Music behaviour when got invincible powerup
@@ -43,7 +40,7 @@ function StageMusicUpdate()
 			audio_bgm_mute(SpeedupPowerup, 0.5);
 			
 			// Play invincible powerup
-			audio_bgm_fadein(InvinciblePowerup, 0);
+			audio_bgm_unmute(InvinciblePowerup, 0);
 			audio_bgm_play(InvinciblePowerup, -1, -1);
 		}
 		else
@@ -54,11 +51,11 @@ function StageMusicUpdate()
 			// Return stage music
 			if Player.HighSpeedBonus
 			{
-				audio_bgm_fadein(SpeedupPowerup, 0.5);
+				audio_bgm_unmute(SpeedupPowerup, 0.5);
 			}
 			else
 			{
-				audio_bgm_fadein(StageMusic, 0.5);
+				audio_bgm_unmute(StageMusic, 0.5);
 			}
 		}
 	}
@@ -80,7 +77,7 @@ function StageMusicUpdate()
 		}
 		else
 		{
-			audio_bgm_fadein(StageMusicDAC, 0);
+			audio_bgm_unmute(StageMusicDAC, 0);
 		}
 	}
 }

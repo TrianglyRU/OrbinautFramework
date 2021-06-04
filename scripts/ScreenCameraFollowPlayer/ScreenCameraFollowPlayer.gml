@@ -1,7 +1,10 @@
 function ScreenCameraFollowPlayer() 
 {	
-	// Do not perform if camers is disabled
-	if (!CameraEnabled) exit;
+	// Do not perform if camera is disabled
+	if !CameraEnabled
+	{
+		exit;
+	}
 	
 	// Update player's position on the screen
 	if !ScrollDelay

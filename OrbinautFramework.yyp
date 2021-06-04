@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"ActClear","path":"sounds/ActClear/ActClear.yy",},"order":4,},
+    {"id":{"name":"object_player_stand","path":"scripts/object_player_stand/object_player_stand.yy",},"order":38,},
     {"id":{"name":"spr_sonic_roll_fast","path":"sprites/spr_sonic_roll_fast/spr_sonic_roll_fast.yy",},"order":43,},
     {"id":{"name":"ScreenInterfaceDisplay","path":"scripts/ScreenInterfaceDisplay/ScreenInterfaceDisplay.yy",},"order":0,},
     {"id":{"name":"tex_mqz_dec00","path":"sprites/tex_mqz_dec00/tex_mqz_dec00.yy",},"order":4,},
@@ -373,7 +374,7 @@
     {"id":{"name":"PlayerDisplay","path":"scripts/PlayerDisplay/PlayerDisplay.yy",},"order":0,},
     {"id":{"name":"audio_bgm_play","path":"scripts/audio_bgm_play/audio_bgm_play.yy",},"order":12,},
     {"id":{"name":"ScreenRendererPerform","path":"scripts/ScreenRendererPerform/ScreenRendererPerform.yy",},"order":22,},
-    {"id":{"name":"variable_set_temp","path":"scripts/variable_set_temp/variable_set_temp.yy",},"order":19,},
+    {"id":{"name":"variable_create","path":"scripts/variable_create/variable_create.yy",},"order":19,},
     {"id":{"name":"ShaderPalette","path":"shaders/ShaderPalette/ShaderPalette.yy",},"order":2,},
     {"id":{"name":"sfxRingRight","path":"sounds/sfxRingRight/sfxRingRight.yy",},"order":9,},
     {"id":{"name":"Input","path":"objects/Input/Input.yy",},"order":7,},

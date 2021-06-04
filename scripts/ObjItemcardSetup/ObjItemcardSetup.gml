@@ -1,7 +1,10 @@
 function ObjItemcardSetup()
 {
 	// Exit the code if monitor type is "empty"
-	if (BoxType == "Empty") exit;
+	if BoxType == "Empty"
+	{
+		exit;
+	}
 	
 	// Create item card
 	ItemCard	 = object_spawn(x, y - 3, ItemboxCard);

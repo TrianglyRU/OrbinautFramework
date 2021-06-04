@@ -1,11 +1,11 @@
 function PlayerCheckGlide()
 {
 	// Check if we're Knuckles
-	if (CharacterID != CharKnuckles) exit;
-	
-	// Exit the code if elemental barrier is active
-	if (BarrierType > BarrierNormal) exit;
-	
+	if CharacterID != CharKnuckles or BarrierType > BarrierNormal
+	{
+		exit;
+	}
+
 	// Start gliding
 	if !GlidingState
 	{

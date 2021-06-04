@@ -1,10 +1,10 @@
 function PlayerHitWalls()
 {	
 	// Do not collide if we're not allowed to
-	if (!AllowCollision) exit;
-	
-	// Exit if we're on a flat wall or ceiling
-	if (Grounded and Angle > 90 and Angle < 270) exit;
+	if !AllowCollision or (Grounded and Angle > 90 and Angle < 270)
+	{
+		exit;
+	}
 	
 	// Update wall collision mode
 	if Angle >= 0 and Angle <= 44 or Angle >= 316 and Angle <= 360

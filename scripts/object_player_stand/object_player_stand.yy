@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "variable_set_temp",
+  "name": "object_player_stand",
   "tags": [],
   "resourceType": "GMScript",
 }

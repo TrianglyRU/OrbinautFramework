@@ -1,23 +1,23 @@
 /// @function audio_bgm_stop(musicID, fadeTime)
 function audio_bgm_stop(musicID, fadeTime)
 {	
-	// Check if music is playing
+	// Check if the BGM is playing
 	if audio_is_playing(musicID)
 	{
+		// Stop the BGM if no fade time is specified
 		if fadeTime == 0
 		{
-			// Stop music if no fade time set
 			audio_stop_sound(musicID);
-		}
+		}		
 		else
 		{
-			// Fade to 0 if fade time set
+			// Fade out the BGM if the fade time is set and its volume is not 0
 			if audio_sound_get_gain(musicID) != 0
 			{	
 				audio_bgm_mute(musicID, fadeTime);
 			}
 			
-			// Stop music
+			// If BGM volume equals zero, stop it
 			else
 			{
 				audio_stop_sound(musicID);	

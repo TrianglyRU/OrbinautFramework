@@ -1,7 +1,10 @@
 function DiscordApplicationInitialization()
 {	
 	// Exit if Rich Presence is disabled in the framework
-	if (!Game.RichPresenceSupport) exit;
+	if !Game.RichPresenceSupport
+	{
+		exit;
+	}
 	
 	// Get application ID. Use yours!
 	var DiscordAppId = "795659000645287996";

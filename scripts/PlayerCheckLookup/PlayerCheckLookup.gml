@@ -1,10 +1,10 @@
 function PlayerCheckLookup()
 {	
 	// Exit if we're moving
-	if Inertia != 0 exit;
-	
-	// Exit if we're balancing
-	if Balancing != false exit;
+	if Inertia != 0 or Balancing != false
+	{
+		exit;
+	}
 	
 	// Check if we're holding UP button
 	if Input.Up
@@ -32,7 +32,10 @@ function PlayerCheckLookup()
 				Animation = AnimPeelout;
 				
 				PeeloutRev++;
-				if (PeeloutRev > 30) PeeloutRev = 30;
+				if PeeloutRev > 30
+				{
+					PeeloutRev = 30;
+				}
 			}
 		}
 	}
@@ -64,7 +67,10 @@ function PlayerCheckLookup()
 			PeeloutRev = -1;
 			
 			// Freeze the screen for 16 frames
-			if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 16;
+			if Screen.ExtendedOffset == 0
+			{
+				Screen.ScrollDelay = 16;
+			}
 		}
 	}		
 }

@@ -7,8 +7,8 @@ function PlayerAnimate()
 		{
 			switch Animation
 			{
-				case AnimIdle: 
-					animation_play(spr_sonic_idle, 32, 1); 
+				case AnimIdle:
+					animation_play(spr_sonic_idle, 24, 15);
 				break;
 				case AnimWalk:
 					animation_play(spr_sonic_walk, round(max(1, 8 - abs(Inertia))), 1);
@@ -44,10 +44,10 @@ function PlayerAnimate()
 					animation_play(spr_sonic_death, 1, 1);
 				break;	
 				case AnimBalanceFront:
-					animation_play(spr_sonic_balance_front, 12, 1);
+					animation_play(spr_sonic_balance_front, 16, 1);
 				break;
 				case AnimBalanceBack:
-					animation_play(spr_sonic_balance_back, 12, 1);
+					animation_play(spr_sonic_balance_back, 16, 1);
 				break;
 				case AnimSpring:
 					animation_play(spr_sonic_spring, 1, 1);

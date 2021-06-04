@@ -1,15 +1,15 @@
 function ScreenDebugHitboxDisplay()
 {
 	// Exit the code if devmode is disabled
-	if (!Game.DevMode) exit;
+	if !Game.DevMode
+	{
+		exit;
+	}
 	
 	// Activate hitbox debugging
-	if Stage.State != ActStateLoading
+	if Stage.State != ActStateLoading and keyboard_check_pressed(ord("E"))
 	{
-		if keyboard_check_pressed(ord("E"))
-		{
-			DebugHitboxes = !DebugHitboxes;
-		}
+		DebugHitboxes = !DebugHitboxes;
 	}
 
 	// Check if general and hitbox debugging is enabled

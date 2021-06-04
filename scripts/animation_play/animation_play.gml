@@ -1,13 +1,16 @@
 /// @function animation_play(spriteID, aniSpeed, doLoopFrom) 
 function animation_play(spriteID, aniSpeed, doLoopFrom) 
 {	
-	// Ignore the IDE method
+	// Ignore the animation method built into the IDE 
 	image_speed = 0;
 	
-	// Create a timer variable for the instance
-	variable_set_temp("aniTimer");
+	// Create a special timer variable for the object
+	if !variable_instance_exists(id, "aniTimer")
+	{
+		aniTimer _init;
+	}
 	
-	// Update sprite if it's not target one
+	// Update the sprite if the current sprite is not the target one
 	if sprite_index != spriteID
 	{
 		image_index  = 0;
@@ -23,25 +26,25 @@ function animation_play(spriteID, aniSpeed, doLoopFrom)
 		// Clamp doLoopFrom argument
 		doLoopFrom = clamp(doLoopFrom, 1, image_number);
 		
-		// Check if animation speed does not equal to 0
+		// Check if the animation speed is not zero
 		if aniSpeed != 0
 		{
-			// Decrease animaton timer
+			// Decrease the value of the animation timer
 		    if aniTimer > 1
 			{
 				aniTimer--;
 			}
 			
-			// Check if animation timer equals to 0
+			// Check if it equals zero
 		    else
 		    {	
-				// Switch to the next subimage
+				// Switch to the next subimage if the animation speed is positive
 				if aniSpeed > 0
 				{
 					image_index = image_index < image_number - 1 ? image_index + 1 : doLoopFrom - 1;
 				}
 				
-				// Switch to the previous subimage
+				// Switch to the previous subimage if the animation speed is negative
 				else
 				{
 					image_index = image_index > 0 ? image_index - 1 : image_number - 1 * doLoopFrom;

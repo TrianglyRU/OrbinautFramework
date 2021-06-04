@@ -1,16 +1,22 @@
 /// @function audio_bgm_play(musicID, endAt, returnTo)
 function audio_bgm_play(musicID, endAt, returnTo)
 {	
-	// Play audio and assign it to loopTrack variable, so we can loop it
+	// Create a special BGM loop variable
+	if !variable_instance_exists(id, "Game.PlayingTrackID[musicID]")
+	{
+		Game.PlayingTrackID[musicID] = 0;
+	}
+	
+	// Play the BGM and assign its ID to a variable to loop it
 	if !audio_is_playing(musicID)
 	{
-		Game.loopTrack[musicID] = audio_play_sound(musicID, 0, false);
+		Game.PlayingTrackID[musicID] = audio_play_sound(musicID, 0, false);
 	}
 	else if returnTo != -1
 	{
-		if audio_sound_get_track_position(Game.loopTrack[musicID]) >= endAt
+		if audio_sound_get_track_position(Game.PlayingTrackID[musicID]) >= endAt
 		{
-			audio_sound_set_track_position(Game.loopTrack[musicID], returnTo);
+			audio_sound_set_track_position(Game.PlayingTrackID[musicID], returnTo);
 		}
 	}
 }

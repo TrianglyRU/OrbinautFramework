@@ -1,15 +1,15 @@
 function ScreenDebugSolidboxDisplay()
 {
 	// Exit the code if devmode is disabled
-	if (!Game.DevMode) exit;
+	if !Game.DevMode
+	{
+		exit;
+	}
 	
 	// Activate solidbox debugging
-	if Stage.State != ActStateLoading
+	if Stage.State != ActStateLoading and keyboard_check_pressed(ord("W"))
 	{
-		if keyboard_check_pressed(ord("W"))
-		{
-			DebugSolids = !DebugSolids;
-		}
+		DebugSolids = !DebugSolids;
 	}
 
 	// Check if general and solidbox debugging is enabled

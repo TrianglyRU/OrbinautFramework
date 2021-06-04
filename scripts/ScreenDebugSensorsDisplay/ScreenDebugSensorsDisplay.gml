@@ -1,7 +1,10 @@
 function ScreenDebugSensorsDisplay()
 {
 	// Exit the code if devmode is disabled
-	if (!Game.DevMode) exit;
+	if !Game.DevMode
+	{
+		exit;
+	}
 	
 	// Activate solidbox debugging
 	if Stage.State != ActStateLoading

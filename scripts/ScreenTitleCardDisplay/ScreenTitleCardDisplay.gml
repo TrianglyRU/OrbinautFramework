@@ -1,7 +1,10 @@
 function ScreenTitleCardDisplay()
 {
 	// Exit the code after 6 seconds
-	if (CardTimer == 360) exit;
+	if CardTimer == 360
+	{
+		exit;
+	}
 	
 	// Use title card font
 	string_set_font(Game.Font[FontCard], "left");

@@ -1,10 +1,10 @@
 /// @function fade_perform(mode, colour, power)
 function fade_perform(mode, colour, power) 
 {
-	// Limit power value in range of [0, 1]
+	// Clamp the power value
 	power = clamp(power, 0, 1);
 	
-	// Perform fade if power is greater than 0
+	// Perform a fade if the power is not zero
 	if power != 0
 	{
 		Game.FadeEnabled = true;
@@ -15,7 +15,7 @@ function fade_perform(mode, colour, power)
 		Game.FadeTimer   = ceil((colour == flash ? 28 : 21) / power);
 	}
 	
-	// Perform instant fade if power is 0 (basically just disable it)
+	// Perform instant fade if power is zero (disable it)
 	else
 	{
 		Game.FadeEnabled = false;

@@ -1,10 +1,7 @@
 function PlayerCheckJump()
 {	
-	// Exit the code if we're gliding on the ground
-	if (GlidingState) exit;
-	
 	// Jump
-	if Input.ABCPress
+	if Input.ABCPress and !GlidingState
 	{	
 		// Do not jump if found the low ceiling
 		if round(Angle/90) % 4 == RangeFloor

@@ -1,7 +1,10 @@
 function DiscordInformationSet()
 {
 	// Exit if Rich Presence is disabled in the framework
-	if (!Game.RichPresenceSupport) exit;
+	if !Game.RichPresenceSupport
+	{
+		exit;
+	}
 	
 	// Set main image to show in Discord
 	discord_set_large_image("orbinaut", "");

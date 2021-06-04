@@ -2,10 +2,16 @@
 function object_player_touch(collisionSide)
 {
 	// Exit the code if collision is disabled
-	if (!Player.AllowCollision) exit;
+	if !Player.AllowCollision 
+	{
+		exit;
+	}
 	
 	// Exit the code if this object hitbox wasn't initialized
-	if (!variable_instance_exists(id, "objXRadiusSolid")) exit;
+	if !variable_instance_exists(id, "objXRadiusSolid")
+	{
+		exit;
+	}
 	
 	// Get object position and size
 	var objectX		 = floor(x);
