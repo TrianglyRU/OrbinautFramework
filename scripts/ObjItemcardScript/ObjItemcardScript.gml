@@ -90,6 +90,37 @@ function ObjItemcardScript()
 					{
 						// Give regular shield
 						Player.BarrierType = BarrierNormal;
+						audio_sfx_play(sfxBarrier, false, false);
+						
+						// Spawn barrier object
+						if !instance_exists(Barrier)
+						{
+							object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+						}
+					}
+					break;
+					case "Flame Barrier":
+					{
+						// Give regular shield
+						Player.BarrierType = BarrierFlame;
+						
+						// Spawn barrier object
+						if !instance_exists(Barrier)
+						{
+							object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+						}
+					}
+					break;
+					case "Thunder Barrier":
+					{
+						// Give regular shield
+						Player.BarrierType = BarrierThunder;
+						
+						// Spawn barrier object
+						if !instance_exists(Barrier)
+						{
+							object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+						}
 					}
 					break;
 					case "Invincibility":
@@ -105,6 +136,11 @@ function ObjItemcardScript()
 						
 						// Play sound
 						audio_sfx_play(sfxSonic1UP, false, true);
+					}
+					break;
+					case "Eggman":
+					{
+						object_damage(false, false, false, false);
 					}
 					break;
 				}

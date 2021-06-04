@@ -10,14 +10,14 @@
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxDeath.wav",
-  "duration": 1.037585,
+  "soundFile": "sfxWaterSplash.wav",
+  "duration": 1.044206,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxDeath",
+  "name": "sfxWaterSplash",
   "tags": [],
   "resourceType": "GMSound",
 }

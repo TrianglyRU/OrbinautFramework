@@ -56,7 +56,7 @@ function InputHotkeysRead()
 		}
 		if keyboard_check_pressed(ord("5")) 
 		{
-			object_damage(false, false, true);
+			object_damage(false, false, false, true);
 		}
 		if keyboard_check_pressed(ord("6")) 
 		{

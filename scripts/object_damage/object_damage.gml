@@ -39,7 +39,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 	{
 		exit;
 	}
-	if isFlameType and Player.BarrierType == BarrierFlame or isThunderType and Player.BarrierType == BarrierThunder
+	if (isFlameType and Player.BarrierType == BarrierFlame) or (isThunderType and Player.BarrierType == BarrierThunder)
 	{
 		exit;
 	}
@@ -75,16 +75,16 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 		Player.DrawOrder = 0;
 			
 		// Perform movement
+		Player.Grv     = 0.1875;
 		Player.Inertia = 0;
 		Player.Xsp	   = 0;
 		Player.Ysp	   = -7;
-		Player.Grv	   = 0.21875;
 			
 		// Enter death state
 		Player.Death = true;
 		
 		// Play death sound (depending on what object is this)
-		var deathSound = object_index == SpikesVertical ? sfxDeathSpike : sfxDeath;
+		var deathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
 		audio_sfx_play(deathSound, false, true);
 	}
 		
@@ -145,7 +145,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 		else
 		{
 			// Play death sound (depending on what object is this)
-			var deathSound = object_index == SpikesVertical ? sfxDeathSpike : sfxDeath;
+			var deathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
 			audio_sfx_play(deathSound, false, true);
 			
 			instance_destroy(Barrier);

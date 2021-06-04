@@ -39,16 +39,16 @@ function PlayerAnglePos()
 			{
 				// Get tiles
 				var leftTile  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, true, Layer)
-				var rightTile = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true, true, Layer)
+				var rightTile = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true,  true, Layer)
 				
-				
+				// Check if we collide left tile and angle difference isn't greater than 45
 				if leftTile[0] < 0 and Angle - leftTile[1] < angleTolerance
 				{
 					// Enter left wall collision mode
 					FloorRange = RangeLWall;
 				}
 				
-				// Check if move right and collide with right tile
+				// Check if we collide right tile and angle difference isn't greater than 45
 				if rightTile[0] < 0 and rightTile[1] - Angle mod 360 < angleTolerance
 				{
 					// Enter right wall collision mode
@@ -59,10 +59,9 @@ function PlayerAnglePos()
 			case RangeRWall:
 			{
 				// Get tiles
-				var leftTile  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, true, Layer);
+				var leftTile  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true,  true, Layer);
 				var rightTile = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
-				
-				
+
 				// Check if we collide left tile and angle difference isn't greater than 45
 				if leftTile[0] < 0 and Angle - leftTile[1] < angleTolerance
 				{
@@ -80,7 +79,7 @@ function PlayerAnglePos()
 			case RangeRoof:
 			{
 				// Get tiles
-				var leftTile  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true, true, Layer)
+				var leftTile  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true,  true, Layer)
 				var rightTile = tile_check_collision_h(floor(PosX - yRadius), floor(PosY - xRadius), false, true, Layer)
 				
 				// Check if we collide left tile and angle difference isn't greater than 45
@@ -112,7 +111,7 @@ function PlayerAnglePos()
 				}
 				
 				// Check if we collide right tile and angle difference isn't greater than 45
-				if rightTile[0] < 0 and rightTile[1] - Angle mod 360 <= 90
+				if rightTile[0] < 0 and rightTile[1] - Angle mod 360 < angleTolerance
 				{
 					// Enter floor collision mode
 					FloorRange = RangeFloor;

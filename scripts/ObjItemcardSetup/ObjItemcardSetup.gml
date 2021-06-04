@@ -29,11 +29,20 @@ function ObjItemcardSetup()
 		case "Regular Barrier":
 			ItemCard.image_index = 2;
 		break;
-		case "Invincibility":
+		case "Thunder Barrier":
 			ItemCard.image_index = 3;
 		break;
-		case "Extra Life":
+		case "Flame Barrier":
 			ItemCard.image_index = 4;
+		break;
+		case "Invincibility":
+			ItemCard.image_index = 5;
+		break;
+		case "Extra Life":
+			ItemCard.image_index = Player.CharacterID == CharSonic ? 6 : 7;
+		break;
+		case "Eggman":
+			ItemCard.image_index = 8;
 		break;
 	}
 }

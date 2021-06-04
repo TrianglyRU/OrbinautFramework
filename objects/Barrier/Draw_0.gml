@@ -39,6 +39,9 @@
 		}
 	}
 	
+	// Hide when player is under invincibility bonus
+	image_alpha = Player.InvincibilityBonus ? false : true;
+	
 	// Use player's render position
 	x = floor(Player.PosX);
 	y = floor(Player.PosY);

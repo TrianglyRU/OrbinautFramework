@@ -1,6 +1,12 @@
 /// @function audio_bgm_play(musicID, endAt, returnTo)
 function audio_bgm_play(musicID, endAt, returnTo)
 {	
+	// Exit the code if BGM volume is 0
+	if !Game.MusicVolume
+	{
+		exit;
+	}
+	
 	// Create a special BGM loop variable
 	if !variable_instance_exists(id, "Game.PlayingTrackID[musicID]")
 	{

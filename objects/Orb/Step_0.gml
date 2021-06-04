@@ -20,7 +20,7 @@
 			image_index = visualDepth <= 0 ? 0 : 1;
 			if visualDepth <= 0.8 and object_player_overlap(CollisionHitbox)
 			{
-				object_damage(false, false, false);
+				object_damage(false, false, false, false);
 			}
 		break;
 		case 2:

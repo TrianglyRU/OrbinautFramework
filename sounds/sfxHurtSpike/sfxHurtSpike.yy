@@ -10,14 +10,14 @@
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxDeathSpike.wav",
+  "soundFile": "sfxHurtSpike.wav",
   "duration": 0.848923,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxDeathSpike",
+  "name": "sfxHurtSpike",
   "tags": [],
   "resourceType": "GMSound",
 }

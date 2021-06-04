@@ -150,7 +150,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 		}
 					
 		// Collide with this object vertically		
-		if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
+		if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4 or !collideSides
 		{
 			// Check if bottom side is solid
 			if collideBottom

@@ -41,7 +41,7 @@ function StageActEnd()
 			{
 				switch ZoneID
 				{
-					case 0: room_goto(GVZ2);    break;
+					case 0: room_goto(MQZ2);    break;
 				}
 			}	
 			break;

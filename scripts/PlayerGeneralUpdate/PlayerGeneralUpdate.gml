@@ -68,8 +68,11 @@ function PlayerGeneralUpdate()
 		// Check for leaving the water
 		if !Death and PosY < Stage.WaterLevel
 		{
+			if !Hurt
+			{
+				Ysp	*= 2;
+			}
 			isUnderwater = false;
-			Ysp			*= 2;
 			
 			// Restore normal physics if not in superform
 			if !isSuper
@@ -160,11 +163,11 @@ function PlayerGeneralUpdate()
 	}
 	
 	// Apply regular gravity if player has died
-	if Player.Death
+	if Death
 	{
 		Grv	= 0.21875;
 	}
-	
+
 	// Handle invincibility bonus
 	if InvincibilityBonus 
 	{

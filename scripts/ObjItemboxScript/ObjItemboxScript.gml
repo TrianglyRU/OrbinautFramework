@@ -27,11 +27,14 @@ function ObjItemboxScript()
 			object_act_solid(true, true, false, false);
 			
 			// Bounce monitor up if player is moving upwards
-			if floor(Player.PosY - 16) >= floor(y) and object_player_overlap(CollisionHitbox)
+			if !Airborne
 			{
-				Airborne   = true;
-				Ysp        = -1.5;
-				Player.Ysp = -Player.Ysp;
+				if floor(Player.PosY - 16) >= floor(y) and object_player_overlap(CollisionHitbox)
+				{
+					Airborne   = true;
+					Ysp        = -1.5;
+					Player.Ysp = -Player.Ysp;
+				}
 			}
 		}
 

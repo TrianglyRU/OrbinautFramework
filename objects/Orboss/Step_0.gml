@@ -70,6 +70,6 @@
 		}
 		else
 		{
-			object_damage(false, false, false);
+			object_damage(false, false, false, false);
 		}
 	}
