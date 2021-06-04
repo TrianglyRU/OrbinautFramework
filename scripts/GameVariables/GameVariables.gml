@@ -42,7 +42,8 @@ function _GameVariables()
 	Game.TransitionShiftCamera   _init;
 	Game.FadeEnabled			 _init;
 	Game.PaletteSet				 _init;
-	Game.PalIndex				 _init;
+	Game.PalIndexDry[0]		     _init;
+	Game.PalIndexWet[0]		     _init;
 	Game.KeyboardControl		 _init;
 	Game.ActiveSave				 _init;
 	Game.Saveslot			     _init;

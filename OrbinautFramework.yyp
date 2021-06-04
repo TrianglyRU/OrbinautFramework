@@ -154,6 +154,7 @@
     {"id":{"name":"PlayerHitFloor","path":"scripts/PlayerHitFloor/PlayerHitFloor.yy",},"order":32,},
     {"id":{"name":"BridgeLog","path":"objects/BridgeLog/BridgeLog.yy",},"order":3,},
     {"id":{"name":"gamesettings_load","path":"scripts/gamesettings_load/gamesettings_load.yy",},"order":9,},
+    {"id":{"name":"ShaderNegative","path":"shaders/ShaderNegative/ShaderNegative.yy",},"order":4,},
     {"id":{"name":"ItemboxCard","path":"objects/ItemboxCard/ItemboxCard.yy",},"order":2,},
     {"id":{"name":"sfxDash","path":"sounds/sfxDash/sfxDash.yy",},"order":6,},
     {"id":{"name":"string_display_list","path":"scripts/string_display_list/string_display_list.yy",},"order":35,},

@@ -12,14 +12,14 @@ function GameShadersSetup()
 	// ================== //
 	
 	// Setup palette shader
-	Uniform.Scrn_DynTexelSize = shader_get_uniform(ShaderScreen, "u_dynPixelSize");
-	Uniform.Scrn_DynUVs		  = shader_get_uniform(ShaderScreen, "u_dynUvs");
-	Uniform.Scrn_Index	      = shader_get_uniform(ShaderScreen, "u_palId");
-	Uniform.Scrn_DynTex		  = shader_get_sampler_index(ShaderScreen, "u_dynPalTex");
+	Uniform.Scrn_DryTexelSize = shader_get_uniform(ShaderScreen, "u_dryPixelSize");
+	Uniform.Scrn_DryUVs		  = shader_get_uniform(ShaderScreen, "u_dryUvs");
+	Uniform.Scrn_DryIndex	  = shader_get_uniform(ShaderScreen, "u_dryPalId");
+	Uniform.Scrn_DryTex		  = shader_get_sampler_index(ShaderScreen, "u_dryPalTex");
 	Uniform.Scrn_WetTexelSize = shader_get_uniform(ShaderScreen, "u_wetPixelSize");
 	Uniform.Scrn_WetUVs       = shader_get_uniform(ShaderScreen, "u_wetUvs");
+	Uniform.Scrn_WetIndex	  = shader_get_uniform(ShaderScreen, "u_wetPalId");
 	Uniform.Scrn_Water        = shader_get_uniform(ShaderScreen, "u_water");
-	Uniform.Scrn_WaterCol     = shader_get_uniform(ShaderScreen, "u_waterCol");
 	Uniform.Scrn_WetTex       = shader_get_sampler_index(ShaderScreen, "u_wetPalTex");
 	
 	/* = Parallax shader = */

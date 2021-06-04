@@ -10,14 +10,15 @@
 	//var mode = dsin(Parent.AngleY + add);
 	//var mode = abs(dsin(Parent.AngleY + add));
 	
+	x = floor(Parent.x + modeX * 35);
+	y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
+	var visualDepth = dsin(Parent.AngleX + add + 90);
+	depth = Parent.depth + (Numb + 1) * (visualDepth >= 0 ? 1 : -1);
+	image_index = visualDepth <= 0 ? 0 : 1;
+	
 	switch State
 	{
 		case 1:
-			x = floor(Parent.x + modeX * 35);
-			y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
-			var visualDepth = dsin(Parent.AngleX + add + 90);
-			depth = Parent.depth + (Numb + 1) * (visualDepth >= 0 ? 1 : -1);
-			image_index = visualDepth <= 0 ? 0 : 1;
 			if visualDepth <= 0.8 and object_player_overlap(CollisionHitbox)
 			{
 				object_damage(false, false, false, false);
@@ -41,11 +42,6 @@
 			image_xscale = 0;
 			image_yscale = 0;
 			visible = false;
-			x = floor(Parent.x + modeX * 35);
-			y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
-			var visualDepth = dsin(Parent.AngleX + add + 90);
-			depth = Parent.depth + (Numb + 1) * (visualDepth >= 0 ? 1 : -1);
-			image_index = visualDepth <= 0 ? 0 : 1;
 			State = 0;
 		break;
 		case 3:
@@ -59,3 +55,4 @@
 			State = 1;
 		break;
 	}
+	show_debug_message(image_xscale);

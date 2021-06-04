@@ -13,7 +13,7 @@ function InputHotkeysRead()
 		{
 			Game.SavedCheckpoint = 0;
 			Game.SavedPosition	 = 0;
-			Game.PalIndex[0]     = 0;
+			Game.PalIndexDry[0]  = 0;
 			room_restart();
 		}
 		if keyboard_check_pressed(vk_f2)

@@ -12,7 +12,7 @@ function ScreenPaletteDynamicShiftHandle()
 				{
 					for (var i = 0; i < 4; i++) 
 					{
-						palette_handle(i, 9, 4);
+						palette_handle(false, i, 9, 4);
 					}
 				}
 				break;
@@ -22,7 +22,7 @@ function ScreenPaletteDynamicShiftHandle()
 				{
 					for (var i = 4; i < 7; i++) 
 					{
-						palette_handle(i, 3, 4);
+						palette_handle(false, i, 3, 4);
 					}
 				}
 				break;
@@ -32,7 +32,7 @@ function ScreenPaletteDynamicShiftHandle()
 				{
 					for (var i = 7; i < 10; i++) 
 					{
-						palette_handle(i, 10, 4);
+						palette_handle(false, i, 10, 4);
 					}
 				}
 				break;
@@ -47,9 +47,9 @@ function ScreenPaletteDynamicShiftHandle()
 		{
 			for (var i = 10; i <= 25; i++)
 			{
-				palette_handle(i, 8, 3);
+				palette_handle(false, i, 8, 3);
 			}
-			palette_handle(26, 8, 6);
+			palette_handle(false, 26, 8, 6);
 		}
 		break;
 	}
