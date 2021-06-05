@@ -7,6 +7,7 @@ function ScreenRendererPerform()
 	shader_set_uniform_f(Uniform.Scrn_Step,  Palette.FadeColour == flash ? Palette.FadeStep div 144 * 36 : Palette.FadeStep);
 	shader_set_uniform_i(Uniform.Scrn_Color, Palette.FadeColour);
 	shader_set_uniform_i(Uniform.Scrn_Mode,  Palette.FadeMode);
+	shader_set_uniform_f(Uniform.Scrn_ScrnHeight, Height);
 	
 	// Render surface palette
 	if Palette.PaletteSet[PaletteSurface] != false
@@ -24,6 +25,6 @@ function ScreenRendererPerform()
 		shader_set_uniform_f_array(Uniform.Scrn_WetIndex, Palette.PalIndexWet);
 		shader_set_uniform_f(Uniform.Scrn_WetTexelSize, Palette.PaletteSet[1][1], Palette.PaletteSet[1][2]);
 		shader_set_uniform_f(Uniform.Scrn_WetUVs, Palette.PaletteSet[1][3], Palette.PaletteSet[1][4], Palette.PaletteSet[1][5]);
-		shader_set_uniform_f(Uniform.Scrn_Water, instance_exists(Stage) ? clamp(Screen.CameraY - Stage.WaterLevel + Game.ResolutionHeight, 0, Game.ResolutionHeight) : 0);
+		shader_set_uniform_f(Uniform.Scrn_Water, instance_exists(Stage) ? clamp(Screen.CameraY - Stage.WaterLevel + Height, 0, Height) : 0);
 	}
 }

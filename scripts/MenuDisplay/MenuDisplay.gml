@@ -133,7 +133,7 @@ function MenuDisplay()
 			string_display(X - 80, Y + 30, "MUSIC VOLUME", 1);
 			string_display(X - 80, Y + 45, "SOUND VOLUME", 1);
 			string_display(X - 80, Y + 60, "BACK", 1);
-			string_display(X + 50, Y - 15, Game.ResolutionWidth == 398 ? "16:9" : "21:9", 1);
+			string_display(X + 50, Y - 15, Game.ResolutionWidth == 400 ? "16:9" : "21:9", 1);
 			string_display(X + 50, Y,	   string(Game.WindowSize) + "X", 1);
 			string_display(X + 50, Y + 15, Game.WindowFullscreen ? "ON" : "OFF", 1);
 			string_display(X + 50, Y + 30, string(round(Game.MusicVolume * 100)), 1);

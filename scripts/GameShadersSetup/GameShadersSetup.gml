@@ -12,6 +12,7 @@ function GameShadersSetup()
 	// ================== //
 	
 	// Setup palette shader
+	Uniform.Scrn_ScrnHeight	  = shader_get_uniform(ShaderScreen, "u_scrnHeight");
 	Uniform.Scrn_DryTexelSize = shader_get_uniform(ShaderScreen, "u_dryPixelSize");
 	Uniform.Scrn_DryUVs		  = shader_get_uniform(ShaderScreen, "u_dryUvs");
 	Uniform.Scrn_DryIndex	  = shader_get_uniform(ShaderScreen, "u_dryPalId");
@@ -37,8 +38,9 @@ function GameShadersSetup()
 	// =================== //
 	
 	// Setup background parallax shader
-	Uniform.Wave_Texel = shader_get_uniform(ShaderWave, "u_texel");
-	Uniform.Wave_Time  = shader_get_uniform(ShaderWave, "u_time");
-	Uniform.Wave_Water = shader_get_uniform(ShaderWave, "u_water");
-	Uniform.Wave_CamY  = shader_get_uniform(ShaderWave, "u_camY");
+	Uniform.Wave_ScrnHeight = shader_get_uniform(ShaderWave, "u_scrnHeight");
+	Uniform.Wave_Texel		= shader_get_uniform(ShaderWave, "u_texel");
+	Uniform.Wave_Time		= shader_get_uniform(ShaderWave, "u_time");
+	Uniform.Wave_Water		= shader_get_uniform(ShaderWave, "u_water");
+	Uniform.Wave_CamY		= shader_get_uniform(ShaderWave, "u_camY");
 }

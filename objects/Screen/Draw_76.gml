@@ -10,5 +10,5 @@
 
 	if !surface_exists(BGSurf)
 	{
-		BGSurf = surface_create(Width + 16, Height);
+		BGSurf = surface_create(Width, Height);
 	}

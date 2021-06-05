@@ -6,7 +6,9 @@
 	varying vec2 v_vTexcoord;
 	varying vec4 v_vColour;
 	varying vec2 v_vPosition;
-
+	
+	uniform float u_scrnHeight;
+	
 	uniform sampler2D u_dryPalTex;
 	uniform vec3 u_dryUvs;
 	uniform vec2 u_dryPixelSize;
@@ -68,7 +70,7 @@
 		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
 		DoAlphaTest(col);
 		
-		if ((u_water != 0.) && (u_water >= 224. - v_vPosition.y))
+		if ((u_water != 0.) && (u_water >= u_scrnHeight - v_vPosition.y))
 		{
 			col = findAltColor(col, u_wetUvs, u_wetPixelSize, u_wetPalTex, u_wetPalId);
 		}
