@@ -1,8 +1,5 @@
 function ObjSpringVerticalScript()
 {
-	// Do collision
-	object_act_solid(true, true, true, false);
-	
 	// Check if we're touching launch side
 	if object_player_touch(LaunchSide)
 	{
@@ -35,5 +32,9 @@ function ObjSpringVerticalScript()
 	if animation_get_frame(id) > 1
 	{
 		animation_play(sprite_index, 3, 1);
+		exit;
 	}
+	
+	// Do collision
+	object_act_solid(true, true, true, false);
 }

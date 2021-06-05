@@ -2,7 +2,7 @@
 function fade_perform(mode, colour, power) 
 {
 	// Clamp the power value
-	power = clamp(power, 0, 1);
+	power = clamp(power, 0, 255);
 	
 	// Perform a fade if the power is not zero
 	if power != 0

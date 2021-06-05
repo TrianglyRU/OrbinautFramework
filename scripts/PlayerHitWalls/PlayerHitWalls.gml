@@ -56,6 +56,9 @@ function PlayerHitWalls()
 						
 						// We're colling with floor in this case. Update angle
 						Angle   = tileData[1];
+						FloorRange = RangeFloor;
+						
+						// Reset speed
 						Inertia = 0;
 					}
 				}
@@ -149,8 +152,12 @@ function PlayerHitWalls()
 						Ysp += tileData[0];
 						
 						// We're colling with floor in this case. Update angle
-						Angle	= tileData[1];
+						Angle	   = tileData[1];
+						FloorRange = RangeFloor;
+						
+						// Reset speed
 						Inertia = 0;
+						
 					}
 				}
 				break;

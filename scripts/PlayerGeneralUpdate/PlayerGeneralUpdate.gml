@@ -47,10 +47,24 @@ function PlayerGeneralUpdate()
 			Xsp			*= 0.5;
 			Ysp			*= 0.25;
 			isUnderwater = true;
+			
+			object_spawn(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+			audio_sfx_play(sfxWaterSplash, false, true);
 		}
 	}
 	else
 	{ 
+		// Disable barrier
+		if BarrierType == BarrierFlame or BarrierType == BarrierThunder
+		{	
+			if BarrierType == BarrierThunder
+			{
+				fade_perform(from, flash, 255);
+			}
+			BarrierType = false;
+			instance_destroy(Barrier);				
+		}
+			
 		// Apply underwater physics if not in superform
 		if !isSuper
 		{
@@ -73,6 +87,9 @@ function PlayerGeneralUpdate()
 				Ysp	*= 2;
 			}
 			isUnderwater = false;
+			
+			object_spawn(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+			audio_sfx_play(sfxWaterSplash, false, true);
 			
 			// Restore normal physics if not in superform
 			if !isSuper

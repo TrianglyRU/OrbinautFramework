@@ -7,7 +7,7 @@ function PlayerAnglePos()
 	}
 	
 	// Use original mode change method based on current angle
-	if !Game.ImprovedTileCollision or Rolling
+	if !Game.ImprovedTileCollision
 	{
 		if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
 		{
@@ -118,6 +118,24 @@ function PlayerAnglePos()
 				}
 			}
 			break;
+		}
+		
+		// Update collision mode normally in case advanced method will fail
+		if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
+		{
+			FloorRange = RangeFloor;
+		}
+		if Angle >= 46 and Angle <= 134
+		{
+			FloorRange = RangeRWall;
+		}
+		if Angle >= 135 and Angle <= 225
+		{
+			FloorRange = RangeRoof;
+		}
+		if Angle >= 226 and Angle <= 314
+		{
+			FloorRange = RangeLWall;
 		}
 	}
 	

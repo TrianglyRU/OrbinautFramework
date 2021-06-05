@@ -71,9 +71,10 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				objectTop = objectY - collisionMap[playerPosition] - 1;
 			}
 		}
-
+		
 		// Check if player is outside of this object collision diameter
-		if playerX + collideSides * 10 < objectLeft or playerX - collideSides * 10 > objectRight or !collideTop
+		var edgeExtension = (collideSides or Game.ImprovedObjCollision) * 10	
+		if  playerX + edgeExtension < objectLeft or playerX - edgeExtension > objectRight or !collideTop
 		{
 			Player.OnObject = false;
 			exit;
@@ -86,15 +87,17 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 		Player.PosY += objectTop - playerBottom - 1;
 		
 		// Check if player should start balancing
+		var edgeExtension = (!collideSides and !Game.ImprovedObjCollision) * 5
+		
 		if Player.Inertia == 0
 		{
-			if floor(Player.PosX) <= objectLeft  + 4 and Player.Facing == DirLeft
-			or floor(Player.PosX) >= objectRight - 4 and Player.Facing == DirRight
+			if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirLeft
+			or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirRight
 			{
 				Player.Balancing = DirRight;
 			}
-			if floor(Player.PosX) <= objectLeft  + 4 and Player.Facing == DirRight
-			or floor(Player.PosX) >= objectRight - 4 and Player.Facing == DirLeft
+			if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirRight
+			or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirLeft
 			{
 				Player.Balancing = DirLeft;
 			}
@@ -182,10 +185,10 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				if playerBottom < objectTop + 16
 				{
 					// Check if player's position is within this object boundaries
-					if !collideSides and (playerX < objectLeft or playerX > objectRight)
+					/*if !collideSides and (playerX < objectLeft or playerX > objectRight)
 					{
 						exit;
-					}
+					}*/
 					if !Game.ImprovedObjCollision and (playerX < objectLeft or playerX > objectRight)
 					{
 						exit;
