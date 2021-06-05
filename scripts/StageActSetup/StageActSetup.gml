@@ -23,7 +23,7 @@ function StageActSetup()
 			StageMusic				= MoonlightQuadrant;
 			StageMusicDAC			= noone;
 			LoopStart				= 0;
-			LoopEnd					= 277.01;
+			LoopEnd					= 227.01;
 		}
 		break;
 		

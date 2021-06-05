@@ -2,34 +2,36 @@
 function audio_bgm_play(musicID, endAt, returnTo)
 {	
 	// Exit the code if BGM volume is 0
-	if !Game.MusicVolume
+	if Game.MusicVolume == 0
 	{
 		exit;
 	}
-	
-	// Create a special BGM loop variable
-	if !variable_instance_exists(id, "Game.PlayingTrackID[musicID]")
-	{
-		Game.PlayingTrackID[musicID] = 0;
-	}
-	
 	// Play the BGM and assign its ID to a variable to loop it
 	if !audio_is_playing(musicID)
 	{
-		Game.PlayingTrackID[musicID] = audio_play_sound(musicID, 0, false);
-	}
-	else if returnTo != -1 and endAt != -1
-	{
-		if audio_sound_get_track_position(Game.PlayingTrackID[musicID]) >= endAt
-		{
-			audio_sound_set_track_position(Game.PlayingTrackID[musicID], returnTo);
-		}
+		id.CurrentBGM = audio_play_sound(musicID, 0, false);
+		exit;
 	}
 	else
 	{
-		if audio_sound_get_track_position(Game.PlayingTrackID[musicID]) >= audio_sound_length(Game.PlayingTrackID[musicID])
+		var MusicLength = audio_sound_length(musicID);
+		if endAt != -1
 		{
-			audio_sound_set_track_position(Game.PlayingTrackID[musicID], audio_sound_length(Game.PlayingTrackID[musicID]));
+			if audio_sound_get_track_position(id.CurrentBGM) >= endAt
+			{
+				if returnTo != -1
+				{
+					audio_sound_set_track_position(id.CurrentBGM, returnTo);
+				}
+				else
+				{
+					audio_pause_sound(musicID);
+				}
+			}
+		}
+		else if audio_sound_get_track_position(id.CurrentBGM) >= MusicLength
+		{
+			audio_pause_sound(musicID);;
 		}
 	}
 }

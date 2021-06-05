@@ -5,7 +5,7 @@ function _GameMacros()
 	
 	// Game macro
 	#macro _init	     = 0
-	#macro Game		     global	
+	#macro Game		     global
 	#macro FontDebug     0
 	#macro FontDigits1   1
 	#macro FontDigits2   2

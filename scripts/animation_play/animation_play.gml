@@ -5,9 +5,9 @@ function animation_play(spriteID, aniSpeed, doLoopFrom)
 	image_speed = 0;
 	
 	// Create a special timer variable for the object
-	if !variable_instance_exists(id, "aniTimer")
+	if !variable_instance_exists(id, "AnimationTimer")
 	{
-		aniTimer _init;
+		id.AnimationTimer = 0;
 	}
 	
 	// Update the sprite if the current sprite is not the target one
@@ -17,7 +17,7 @@ function animation_play(spriteID, aniSpeed, doLoopFrom)
 	    sprite_index = spriteID; 
 		
 		// Set animation timer to current animation speed
-		aniTimer = abs(aniSpeed);
+		id.AnimationTimer = abs(aniSpeed);
 	}
 	
 	// Hangle subimage change
@@ -30,9 +30,9 @@ function animation_play(spriteID, aniSpeed, doLoopFrom)
 		if aniSpeed != 0
 		{
 			// Decrease the value of the animation timer
-		    if aniTimer > 1
+		    if id.AnimationTimer > 1
 			{
-				aniTimer--;
+				id.AnimationTimer--;
 			}
 			
 			// Check if it equals zero
@@ -51,7 +51,7 @@ function animation_play(spriteID, aniSpeed, doLoopFrom)
 				}
 				
 				// Reset animation timer to current animation speed
-				aniTimer = abs(aniSpeed);
+				id.AnimationTimer = abs(aniSpeed);
 		    }	
 		}
 	}
