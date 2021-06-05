@@ -257,6 +257,7 @@
     {"id":{"name":"ObjItemboxVariables","path":"scripts/ObjItemboxVariables/ObjItemboxVariables.yy",},"order":7,},
     {"id":{"name":"spr_sonic_hurt","path":"sprites/spr_sonic_hurt/spr_sonic_hurt.yy",},"order":16,},
     {"id":{"name":"MenuOptionSelect","path":"scripts/MenuOptionSelect/MenuOptionSelect.yy",},"order":3,},
+    {"id":{"name":"tile_get_angle","path":"scripts/tile_get_angle/tile_get_angle.yy",},"order":13,},
     {"id":{"name":"sfxHurt","path":"sounds/sfxHurt/sfxHurt.yy",},"order":10,},
     {"id":{"name":"PlayerCheckDropdash","path":"scripts/PlayerCheckDropdash/PlayerCheckDropdash.yy",},"order":21,},
     {"id":{"name":"tile_get_height","path":"scripts/tile_get_height/tile_get_height.yy",},"order":12,},

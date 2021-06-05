@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_obj_watersplash",
+    "path": "sprites/spr_obj_watersplash/spr_obj_watersplash.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

@@ -39,22 +39,28 @@ function StageObjectsUpdate()
 		// Do code from object side
 		with all
 		{
-			if  object_index != Game   and object_index != Player and object_index != Input
-			and object_index != Screen and object_index != Stage  and object_index != Discord
+			// Exit the code if object is the one to ignore
+			var objectsToIgnore = [Game, Player, Input, Screen, Stage, Discord, Spawnpoint];
+			for (var i = 0; i < array_length(objectsToIgnore); i++)
 			{
-				// Create this object current sprite on its position
-				var ObjectSprite = layer_sprite_create("ObjectSprites", x, y, sprite_index);
-			
-				// Set sprite properties
-				layer_sprite_speed(ObjectSprite,  0);
-				layer_sprite_alpha(ObjectSprite,  visible ? image_alpha : 0);
-				layer_sprite_index(ObjectSprite,  image_index);
-				layer_sprite_xscale(ObjectSprite, image_xscale);
-				layer_sprite_yscale(ObjectSprite, image_yscale);
-
-				// Destroy object
-				instance_destroy(self);
+				if object_index == objectsToIgnore[i]
+				{
+					exit;
+				}
 			}
+			
+			// Create this object current sprite on its position
+			var ObjectSprite = layer_sprite_create("ObjectSprites", x, y, sprite_index);
+			
+			// Set sprite properties
+			layer_sprite_speed(ObjectSprite,  0);
+			layer_sprite_alpha(ObjectSprite,  visible ? image_alpha : 0);
+			layer_sprite_index(ObjectSprite,  image_index);
+			layer_sprite_xscale(ObjectSprite, image_xscale);
+			layer_sprite_yscale(ObjectSprite, image_yscale);
+
+			// Destroy object
+			instance_destroy(self);
 		}
 	}
 }

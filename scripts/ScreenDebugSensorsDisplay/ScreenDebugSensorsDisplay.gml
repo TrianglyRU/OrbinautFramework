@@ -154,12 +154,7 @@ function ScreenDebugSensorsDisplay()
 				}
 			}
 		}
-		
-		// Display object sensors
-		with Objects
-		{
-		}
-		
+
 		// Restore draw colour
 		draw_set_colour($ffffff);
 	}

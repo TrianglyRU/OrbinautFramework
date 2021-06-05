@@ -93,5 +93,5 @@ function _GameMacros()
 	#macro RangeRoof		   2
 	#macro RangeLWall		   3
 	#macro TileSize            16
-	#macro TileAmount          154
+	#macro TileAmount          147
 }

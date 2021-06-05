@@ -9,5 +9,10 @@ function tile_get_height(X, Y, tilemap, index)
 	{
 		var heightToUse = X mod TileSize;
 	}
-	return Game.HeightValueOf[index][heightToUse];
+	
+	if index >= TileAmount
+	{
+		index += 1;
+	}
+	return Game.HeightValueOf[index mod TileAmount][heightToUse];
 }

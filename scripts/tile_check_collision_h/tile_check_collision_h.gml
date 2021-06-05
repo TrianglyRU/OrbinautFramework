@@ -13,10 +13,10 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	// Get first tile
 	var FirstTile      = tilemap_get(Stage.TileLayer[tileLayer], startX div TileSize, startY div TileSize);
 	var FirstTileIndex = tile_get_index(FirstTile);
-	var FirstTileWidth = tile_get_width(startX, startY, FirstTile, FirstTileIndex mod TileAmount);
+	var FirstTileWidth = tile_get_width(startX, startY, FirstTile, FirstTileIndex);
 	
 	// Ignore first tile if it is solidtop and we're ignoring them
-	if ignoreSolidTop and FirstTileIndex > TileAmount
+	if ignoreSolidTop and FirstTileIndex >= TileAmount
 	{
 		FirstTileWidth = 0;
 	}
@@ -43,10 +43,10 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		var SearchShift     = -TileSize;
 		var SecondTile      = tilemap_get(Stage.TileLayer[tileLayer], (startX + SearchShift * SearchDirection) div TileSize, startY div TileSize);
 		var SecondTileIndex = tile_get_index(SecondTile);
-		var SecondTileWidth = tile_get_width(startX, startY, SecondTile, SecondTileIndex mod TileAmount);
+		var SecondTileWidth = tile_get_width(startX, startY, SecondTile, SecondTileIndex);
 		
 		// Ignore second tile if it is solidtop and we're ignoring them
-		if ignoreSolidTop and SecondTileIndex > TileAmount
+		if ignoreSolidTop and SecondTileIndex >= TileAmount
 		{
 			SecondTileWidth = 0;
 		}
@@ -68,10 +68,10 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 	
 	// Get result tile width
-	var ResultWidth = tile_get_width(startX, startY, ResultTile, ResultTileIndex mod TileAmount);
+	var ResultWidth = tile_get_width(startX, startY, ResultTile, ResultTileIndex);
 	
 	// Ignore result tile if it is solidtop and we're ignoring them
-	if ignoreSolidTop and ResultTileIndex > TileAmount
+	if ignoreSolidTop and ResultTileIndex >= TileAmount
 	{
 		ResultWidth = 0;
 	}
@@ -87,11 +87,11 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 	
 	// Return cardinal angle for empty or full solid tiles or solidtop tiles if we ignoring them
-	if ResultTileIndex mod TileAmount < 2 or ignoreSolidTop and ResultTileIndex > TileAmount
+	/*if ResultTileIndex mod TileAmount < 2 or ignoreSolidTop and ResultTileIndex >= TileAmount
 	{
 		var TileAngle = toPositive ? 90 : 270;
 	}
-	else
+	else*/
 	{	
 		// Force cardinal angles for mirrored tiles based on check direction
 		if toPositive and tile_get_mirror(ResultTile)
@@ -107,7 +107,7 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 		else
 		{
 			// Get regular angle value
-			var TileAngle = Game.AngleValueOf[ResultTileIndex mod TileAmount];
+			var TileAngle = tile_get_angle(ResultTileIndex);
 			
 			// Check if tile is flipped
 			if tile_get_flip(ResultTile)

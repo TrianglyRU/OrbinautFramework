@@ -9,5 +9,11 @@ function tile_get_width(X, Y, tilemap, index)
 	{
 		var tileWidth = Y mod TileSize;
 	}
-	return Game.WidthValueOf[index][tileWidth];
+	
+	if index >= TileAmount
+	{
+		index += 1;
+	}
+	
+	return Game.WidthValueOf[index mod TileAmount][tileWidth];
 }

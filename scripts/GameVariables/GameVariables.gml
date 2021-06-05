@@ -50,5 +50,4 @@ function _GameVariables()
 	Game.RingsPreciseCollision   _init;
 	Game.RingsNoBoundDespawn	 _init;
 	Game.RingsAllSideCollision   _init;
-	Game.FullTileAmount		     _init;
 }
