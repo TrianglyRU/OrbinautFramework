@@ -27,7 +27,7 @@ function GameFrameworkSetup()
 	Game.SoundVolume = 0.3;
 	
 	// Control settings (keyboard)
-	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("A"), ord("S"), ord("D"), vk_space, vk_enter];
+	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
 	// Gameplay	
 	Game.SpindashEnabled   = true;  // Enables S2 Spindash

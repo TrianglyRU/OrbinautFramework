@@ -18,7 +18,7 @@ function PlayerDisplay()
 					{
 						// Start rotate on the right side
 						var StartRotationRight = min(VisualAngle mod 360 + 5.625, Angle)
-						
+																							 
 						// Rotation on the right side
 						var RotationRight = min(VisualAngle mod 360 + Inertia, Angle);
 						
