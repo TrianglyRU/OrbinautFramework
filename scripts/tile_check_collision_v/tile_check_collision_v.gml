@@ -86,38 +86,30 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 		var TileDistance = startY - ((startY + SearchShift * SearchDirection) div TileSize * TileSize + ResultHeight);
 	}
 	
-	// Return cardinal angle for empty or full solid tiles or solidtop tiles if we ignoring them
-	/*if ResultTileIndex mod TileAmount <= 1 or ignoreSolidTop and ResultTileIndex >= TileAmount
+	// Force cardinal angles for flipped tiles based on check direction
+	if toPositive and tile_get_flip(ResultTile)
 	{
-		var TileAngle = toPositive ? 360 : 180;
+		var TileAngle = 360;
 	}
-	else*/
+	else if !toPositive and !tile_get_flip(ResultTile)
 	{
-		// Force cardinal angles for flipped tiles based on check direction
-		if toPositive and tile_get_flip(ResultTile)
-		{
-			var TileAngle = 360;
-		}
-		else if !toPositive and !tile_get_flip(ResultTile)
-		{
-			var TileAngle = 180;
-		}
+		var TileAngle = 180;
+	}
 		
-		// Get angle normally
-		else
+	// Get angle normally
+	else
+	{
+		// Get regular angle value
+		var TileAngle = tile_get_angle(ResultTileIndex);
+			
+		// Check if tile is flipped
+		if tile_get_flip(ResultTile)
 		{
-			// Get regular angle value
-			var TileAngle = tile_get_angle(ResultTileIndex);
-			
-			// Check if tile is flipped
-			if tile_get_flip(ResultTile)
-			{
-				TileAngle = (540 - TileAngle) mod 360;
-			}
-			
-			// Check if tile is mirrored and finally return its angle
-			TileAngle = tile_get_mirror(ResultTile) ? 360 - TileAngle : TileAngle;
+			TileAngle = (540 - TileAngle) mod 360;
 		}
+			
+		// Check if tile is mirrored and finally return its angle
+		TileAngle = tile_get_mirror(ResultTile) ? 360 - TileAngle : TileAngle;
 	}
 	
 	// Return data

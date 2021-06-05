@@ -2,7 +2,7 @@
 // You can write your code in this editor
 	
 	// Update dynamic shift
-	ScreenPaletteDynamicShiftHandle();
+	ScreenPaletteHandleDynamic();
 	
 	// Update fade shader
 	ScreenPaletteFadeUpdate();

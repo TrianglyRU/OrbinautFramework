@@ -22,12 +22,9 @@ function PlayerBarriersUsage()
 				Ysp = 0;
 				
 				// Freeze the screen for 16 frames
-				if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 32;
-			
-				// Reset previous positions table to avoid camera going backwards
-				for (var i = 0; i < 32; i++)
+				if Screen.ExtendedOffset == 0 
 				{
-					RecordedPosX[| i] = floor(PosX);
+					Screen.ScrollDelay = 16;
 				}
 			}
 			break;

@@ -1,4 +1,4 @@
-function ScreenPaletteDynamicShiftHandle()
+function ScreenPaletteHandleDynamic()
 {	
 	// Check if player is in their super form
 	if instance_exists(Player)
@@ -53,10 +53,6 @@ function ScreenPaletteDynamicShiftHandle()
 			palette_handle(false, 26, 8, 6);
 			
 			// Wet palette
-			for (var i = 0; i <= 35; i++)
-			{
-				palette_handle(true, i, 1, 1);
-			}
 		}
 		break;
 	}

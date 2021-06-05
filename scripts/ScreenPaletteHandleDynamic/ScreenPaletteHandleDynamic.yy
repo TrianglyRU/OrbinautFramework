@@ -6,7 +6,7 @@
     "path": "folders/Game GlobalCode/Screen.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ScreenPaletteDynamicShiftHandle",
+  "name": "ScreenPaletteHandleDynamic",
   "tags": [],
   "resourceType": "GMScript",
 }

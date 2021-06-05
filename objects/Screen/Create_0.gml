@@ -21,3 +21,6 @@
 	
 	// Reset fade state
 	ScreenPaletteFadeReset();
+	
+	// Handle static palette
+	ScreenPaletteHandleStatic();

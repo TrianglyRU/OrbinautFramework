@@ -1,5 +1,6 @@
-/// @description Insert description here
+/// @description Clear
 // You can write your code in this editor
 
-	if (surface_exists(GameSurf)) surface_free(GameSurf);
-	if (surface_exists(BGSurf))	  surface_free(BGSurf);
+	// Clear surfaces
+	ScreenRendererClear();
+	

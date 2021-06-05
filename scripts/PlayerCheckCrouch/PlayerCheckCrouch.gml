@@ -68,12 +68,9 @@ function PlayerCheckCrouch()
 			Rolling	     = true;
 			
 			// Freeze the screen for 16 frames
-			if (Screen.ExtendedOffset == 0) Screen.ScrollDelay = 32 - SpindashRev;
-			
-			// Reset previous positions table to avoid camera going backwards
-			for (var i = 0; i < 32; i++)
+			if Screen.ExtendedOffset == 0 
 			{
-				Player.RecordedPosX[| i] = floor(Player.PosX);
+				Screen.ScrollDelay = 16;
 			}
 			
 			// Reset Spindash charge value
