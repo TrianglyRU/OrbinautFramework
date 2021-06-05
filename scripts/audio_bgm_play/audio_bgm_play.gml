@@ -18,11 +18,18 @@ function audio_bgm_play(musicID, endAt, returnTo)
 	{
 		Game.PlayingTrackID[musicID] = audio_play_sound(musicID, 0, false);
 	}
-	else if returnTo != -1
+	else if returnTo != -1 and endAt != -1
 	{
 		if audio_sound_get_track_position(Game.PlayingTrackID[musicID]) >= endAt
 		{
 			audio_sound_set_track_position(Game.PlayingTrackID[musicID], returnTo);
+		}
+	}
+	else
+	{
+		if audio_sound_get_track_position(Game.PlayingTrackID[musicID]) >= audio_sound_length(Game.PlayingTrackID[musicID])
+		{
+			audio_sound_set_track_position(Game.PlayingTrackID[musicID], audio_sound_length(Game.PlayingTrackID[musicID]));
 		}
 	}
 }
