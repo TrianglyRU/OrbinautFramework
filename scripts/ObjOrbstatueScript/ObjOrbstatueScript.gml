@@ -22,11 +22,15 @@ function ObjOrbstatueScript()
 				}
 				else
 				{
-					Player.Ysp -= 1 * sign(Player.Ysp);
+					Player.Ysp -= sign(Player.Ysp);
 				}
 			}
 			
-			if (BossTrigger) instance_create(x, y - 176, Orboss);
+			if BossTrigger 
+			{
+				instance_create(x, y - 176, Orboss);
+				Stage.State = ActStateBossfight;
+			}
 		}
 	}
 }

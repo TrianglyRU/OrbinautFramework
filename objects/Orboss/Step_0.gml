@@ -5,7 +5,11 @@
 		case 0:
 			StateTimer--;
 			PosY++;
-			if (!StateTimer) State = 1;
+			if !StateTimer
+			{
+				State = 1;
+				image_index = 0;
+			}
 			if (StateTimer = 50) Orb.State = 3;
 		break;
 		case 1:

@@ -46,11 +46,11 @@ function ScreenPaletteHandleDynamic()
 		case MQZ2:
 		{
 			// Dry palette
-			for (var i = 10; i <= 25; i++)
+			for (var i = 10; i <= 17; i++)
 			{
 				palette_handle(false, i, 8, 3);
 			}
-			palette_handle(false, 26, 8, 6);
+			palette_handle(false, 18, 8, 6);
 			
 			// Wet palette
 		}
