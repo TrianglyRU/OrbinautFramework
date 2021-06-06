@@ -1,7 +1,7 @@
 function PlayerCheckFly()
 {
 	// Exit if we're not Tails
-	if CharacterID != CharTails or BarrierType > BarrierNormal
+	if CharacterID != CharTails
 	{
 		exit;
 	}

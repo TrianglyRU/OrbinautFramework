@@ -59,7 +59,7 @@ function PlayerGeneralUpdate()
 		{	
 			if BarrierType == BarrierThunder
 			{
-				fade_perform(from, flash, 255);
+				fade_perform(from, flash, 12);
 			}
 			BarrierType = false;
 			instance_destroy(Barrier);				
@@ -192,7 +192,7 @@ function PlayerGeneralUpdate()
 		if !instance_exists(Star) 
 		{
 			// Create star particles
-			for (var i = 0; i < 9; i++)
+			for (var i = 1; i < 9; i++)
 			{
 				var spawnedStar	= object_spawn(PosX, PosY, Star);
 					spawnedStar.Number = i;

@@ -1,7 +1,7 @@
 function PlayerCheckGlide()
 {
 	// Check if we're Knuckles
-	if CharacterID != CharKnuckles or BarrierType > BarrierNormal
+	if CharacterID != CharKnuckles
 	{
 		exit;
 	}

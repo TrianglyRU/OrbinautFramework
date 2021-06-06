@@ -12,12 +12,22 @@ function StageMusicUpdate()
 	// Check if act is in its normal state
 	if State != ActStateFinished and State != ActStateUnload and State != ActStateRestart
 	{
+		// Mute if got extralife
+		if audio_is_playing(Jingle1UP)
+		{
+			audio_bgm_mute(StageMusic, 0);
+		}
+		else
+		{
+			audio_bgm_unmute(StageMusic, 0.5);
+		}
+		
 		// Music behaviour when got speedup powerup
 		if Player.HighSpeedBonus > 0
 		{
 			// Mute stage music 
 			audio_bgm_mute(StageMusic, 0);
-			
+				
 			// Play speedup powerup
 			audio_bgm_play(SpeedupPowerup, -1, -1);
 		}
@@ -36,11 +46,8 @@ function StageMusicUpdate()
 			// Mute stage music 
 			audio_bgm_mute(StageMusic, 0);
 			
-			// Mute highspeed music
-			audio_bgm_mute(SpeedupPowerup, 0.5);
-			
 			// Play invincible powerup
-			audio_bgm_unmute(InvinciblePowerup, 0);
+			audio_bgm_mute(SpeedupPowerup, 0);
 			audio_bgm_play(InvinciblePowerup, -1, -1);
 		}
 		else
@@ -49,13 +56,13 @@ function StageMusicUpdate()
 			audio_bgm_stop(InvinciblePowerup, 0.5);
 		
 			// Return stage music
-			if Player.HighSpeedBonus
+			if !Player.HighSpeedBonus
 			{
-				audio_bgm_unmute(SpeedupPowerup, 0.5);
+				audio_bgm_unmute(StageMusic, 0.5);
 			}
 			else
 			{
-				audio_bgm_unmute(StageMusic, 0.5);
+				audio_bgm_unmute(SpeedupPowerup, 0.5);
 			}
 		}
 	}

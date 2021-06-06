@@ -1,13 +1,13 @@
 function PlayerBarriersUsage()
 {
 	// Exit the code if we do not have any active barrier, or current barrier is regular one
-	if !BarrierType or BarrierType == BarrierNormal
+	if !BarrierType or BarrierType == BarrierNormal or CharacterID != CharSonic or InvincibilityBonus
 	{
 		exit;
 	}
 	
 	// Check for barrier ability usage
-	if Input.ABCPress and !BarrierIsActive
+	if Jumping and Input.ABCPress and !BarrierIsActive
 	{
 		// Activate barrier ability
 		BarrierIsActive = true;
@@ -26,12 +26,18 @@ function PlayerBarriersUsage()
 				{
 					Screen.ScrollDelay = 16;
 				}
+				
+				// Play sound
+				audio_sfx_play(sfxFlameBarrierDash, false, true);
 			}
 			break;
 			case BarrierThunder:
 			{
 				// Set speed
 				Ysp = -5.5;
+				
+				// Play sound
+				audio_sfx_play(sfxThunderBarrierSpark, false, true);
 				
 				/* Ring magnetization is performed from the ring side */
 			}
@@ -51,7 +57,10 @@ function PlayerBarriersUsage()
 	{
 		BarrierIsActive = false;
 		Grounded		= false;
-		Jumping			= false;
+		Jumping			= true;
 		Ysp				= -7.5;
+		
+		// Play sound
+		audio_sfx_play(sfxWaterBarrierBounce, false, true);
 	}
 }

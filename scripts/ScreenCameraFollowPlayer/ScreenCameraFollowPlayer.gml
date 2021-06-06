@@ -54,8 +54,8 @@ function ScreenCameraFollowPlayer()
 	} 
 	else 
 	{
-		if PlayerScreenY < Height / 2 - 48 and Player.Ysp <= 0
-		or PlayerScreenY > Height / 2 + 16 and Player.Ysp >= 0 
+		if PlayerScreenY <= Height / 2 - 48 and Player.Ysp < 0
+		or PlayerScreenY >= Height / 2 + 16 and Player.Ysp > 0 
 		{
 			RawY += ScrollY
 		}

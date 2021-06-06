@@ -9,7 +9,7 @@ function audio_bgm_play(musicID, endAt, returnTo)
 	// Play the BGM and assign its ID to a variable to loop it
 	if !audio_is_playing(musicID)
 	{
-		id.CurrentBGM = audio_play_sound(musicID, 0, false);
+		id.CurrentBGM[musicID] = audio_play_sound(musicID, 0, false);
 		exit;
 	}
 	else
@@ -17,11 +17,11 @@ function audio_bgm_play(musicID, endAt, returnTo)
 		var MusicLength = audio_sound_length(musicID);
 		if endAt != -1
 		{
-			if audio_sound_get_track_position(id.CurrentBGM) >= endAt
+			if audio_sound_get_track_position(id.CurrentBGM[musicID]) >= endAt
 			{
 				if returnTo != -1
 				{
-					audio_sound_set_track_position(id.CurrentBGM, returnTo);
+					audio_sound_set_track_position(id.CurrentBGM[musicID], returnTo);
 				}
 				else
 				{
@@ -29,9 +29,9 @@ function audio_bgm_play(musicID, endAt, returnTo)
 				}
 			}
 		}
-		else if audio_sound_get_track_position(id.CurrentBGM) >= MusicLength
+		else if audio_sound_get_track_position(id.CurrentBGM[musicID]) >= MusicLength
 		{
-			audio_pause_sound(musicID);;
+			audio_pause_sound(musicID);
 		}
 	}
 }

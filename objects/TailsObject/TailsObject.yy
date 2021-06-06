@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_obj_other",
+    "path": "sprites/spr_obj_other/spr_obj_other.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -19,12 +22,13 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Characters",
-    "path": "folders/Characters.yy",
+    "name": "_Unsorted",
+    "path": "folders/Game Objects/_Unsorted.yy",
   },
   "resourceVersion": "1.0",
   "name": "TailsObject",

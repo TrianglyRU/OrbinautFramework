@@ -14,10 +14,12 @@ function InputHotkeysRead()
 			Game.SavedCheckpoint = 0;
 			Game.SavedPosition	 = 0;
 			Game.PalIndexDry[0]  = 0;
+			audio_stop_all();
 			room_restart();
 		}
 		if keyboard_check_pressed(vk_f2)
 		{
+			audio_stop_all();
 			room_restart();
 		}
 
@@ -89,6 +91,11 @@ function InputHotkeysRead()
 				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
 			}
 			Player.BarrierType = BarrierWater;
+		}
+		
+		if keyboard_check_pressed(ord("G")) 
+		{
+			audio_bgm_play(Jingle1UP, -1, -1);
 		}
 		
 		// Ignore input mode

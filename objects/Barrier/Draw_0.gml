@@ -1,6 +1,6 @@
-/// @description Insert description here
+/// @description Display
 // You can write your code in this editor
-	
+
 	// Choose barrier to display
 	switch Player.BarrierType
 	{
@@ -12,13 +12,13 @@
 		break;
 		case BarrierThunder:
 		{
-			animation_play(spr_barrier_thunder, 3, 1);	
+			animation_play(spr_barrier_thunder, 2, 1);	
 			
-			if animation_get_frame(id) == 13
+			if animation_get_frame(id) == 19
 			{
 				object_set_depth(Player, false);
 			}
-			if animation_get_frame(id) == 22
+			if animation_get_frame(id) == 40
 			{
 				object_set_depth(Player, true);
 			}
@@ -26,17 +26,39 @@
 		break;
 		case BarrierFlame:
 		{
-			animation_play(spr_barrier_flame, 2, 1);
-			
-			if animation_get_frame(id) mod 2 != 0
+			if !Player.BarrierIsActive
 			{
-				object_set_depth(Player, false);
+				// Play animation
+				animation_play(spr_barrier_flame, 2, 1);
+				
+				image_xscale = 1;
+			
+				// Switch depth every second frame
+				if animation_get_frame(id) mod 2 != 0
+				{
+					object_set_depth(Player, false);
+				}
+				else
+				{
+					object_set_depth(Player, true);
+				}
 			}
 			else
 			{
+				animation_play(spr_barrier_flame_dash, 2, 1);
+				
 				object_set_depth(Player, true);
+				
+				image_xscale = Player.Facing;
 			}
 		}
+		break;
+		case BarrierWater:
+		{
+			animation_play(spr_barrier_water, 2, 1);
+			object_set_depth(Player, true);
+		}
+		break;
 	}
 	
 	// Hide when player is under invincibility bonus
@@ -46,5 +68,4 @@
 	x = floor(Player.PosX);
 	y = floor(Player.PosY);
 	
-	// Draw self
 	draw_self();
