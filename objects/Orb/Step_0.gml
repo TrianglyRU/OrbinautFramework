@@ -25,8 +25,8 @@
 			}
 		break;
 		case 2:
-			object_spawn(x, y, DustExplosion);
-			var Created = object_spawn(x, y, Ring);
+			instance_create(x, y, DustExplosion);
+			var Created = instance_create(x, y, Ring);
 			with Created
 			{
 				object_set_solidbox(8, 8);

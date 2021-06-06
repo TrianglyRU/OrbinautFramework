@@ -98,7 +98,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/_Unsorted/Sprites.yy",
+    "path": "folders/Game Objects/Water Splash/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_watersplash",

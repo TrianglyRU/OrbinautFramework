@@ -1,12 +1,13 @@
 function ObjBridgeScript()
 {
 	//var PlayerPosition = floor(Player.PosX;
-	var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
+	//var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
 	var ActiveLog      = ds_list_find_index(LogID, Player.OnObject);
 	
 	// Set a recovery angle by checking if player or AI is standing on any log of this bridge
-    if ds_list_find_index(LogID, Player.OnObject) >= 0
+    if ActiveLog >= 0
     {    
+		PlayerPosition = ActiveLog + 1
         if RecoveryAngle < 90
 		{
 			RecoveryAngle += 5.625;

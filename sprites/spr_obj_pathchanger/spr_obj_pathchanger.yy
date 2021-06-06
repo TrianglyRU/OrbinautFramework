@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Path Changer/Sprites.yy",
+    "path": "folders/Game Objects/Collision Change/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_pathchanger",

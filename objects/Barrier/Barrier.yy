@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "_Unsorted",
-    "path": "folders/Game Objects/_Unsorted.yy",
+    "name": "Barrier",
+    "path": "folders/Game Objects/Barrier.yy",
   },
   "resourceVersion": "1.0",
   "name": "Barrier",

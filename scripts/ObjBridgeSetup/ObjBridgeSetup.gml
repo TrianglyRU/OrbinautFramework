@@ -1,16 +1,27 @@
 function ObjBridgeSetup()
 {
+	// Initialize variables
+	PlayerPosition isVar;
+	RecoveryAngle  isVar;
+	LogDepression  isArr;
+	LogID		   isArr;
+	
+	/* Variable Definitions	
+	1. BridgeLength, default = 12
+	2. BridgeSprite, default = spr_obj_bridgelog_template
+	*/
+	
 	// Create log list
 	LogID = ds_list_create();
-	PlayerPosition = 0;
 	
+	// Cycle through bridge length
 	for (var i = 0; i < BridgeLength; i++) 
 	{
 		// Create log and set a sprite for it
-	    var Log          = instance_create_depth(x + 16 * i, y, depth, BridgeLog);
+	    var Log = instance_create_depth(x + 16 * i, y, depth, BridgeLog);
 	    Log.sprite_index = BridgeSprite;
 		
-		// Add log to the list
+		// Add log to the log list
 		ds_list_add(LogID, Log);
 		
 		// Setup the log

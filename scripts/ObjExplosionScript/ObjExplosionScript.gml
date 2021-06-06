@@ -10,7 +10,7 @@ function ObjExplosionScript()
 		animation_play(sprite_index, 8, 6);
 	}
 	
-	// Destroy on the very last frame
+	// Destroy on animation end
 	else
 	{
 		instance_destroy();

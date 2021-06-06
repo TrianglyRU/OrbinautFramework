@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "_Unsorted",
-    "path": "folders/Game Objects/_Unsorted.yy",
+    "name": "Spindash Dust",
+    "path": "folders/Game Objects/Spindash Dust.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpindashDust",

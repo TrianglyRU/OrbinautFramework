@@ -82,5 +82,5 @@ function PlayerSetup()
 	}
 	
 	// Create Tails' tails
-	if (CharacterID == CharTails) object_spawn(x, y, TailsObject);
+	if (CharacterID == CharTails) instance_create(x, y, TailsObject);
 }

@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Input",
-    "path": "folders/Game GlobalCode/Input.yy",
+    "path": "folders/Game Code/Input.yy",
   },
   "resourceVersion": "1.0",
   "name": "Input",

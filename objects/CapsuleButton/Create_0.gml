@@ -2,7 +2,7 @@
 // You can call your scripts in this editor
 	
 	// Create variables
-	Pressed _init;
+	Pressed isVar;
 	
 	// Load sprite
 	sprite_index = spr_obj_capsule_button;

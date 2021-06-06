@@ -213,6 +213,9 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							BarrierIsActive = false;
 							Jumping			= false;
 							Ysp				= -7.5;
+							
+							// Play sound
+							audio_sfx_play(sfxWaterBarrierBounce, false, true);
 								
 							// Exit the further code
 							exit;

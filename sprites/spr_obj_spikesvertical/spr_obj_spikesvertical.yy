@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Spikes",
-    "path": "folders/Game Objects/Spikes.yy",
+    "name": "Sprites",
+    "path": "folders/Game Objects/Spikes/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_spikesvertical",

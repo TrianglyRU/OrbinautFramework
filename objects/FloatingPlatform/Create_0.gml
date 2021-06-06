@@ -1,6 +1,5 @@
-/// @description Setup & Variables
+/// @description Setup
 // You can write your code in this editor
 	
-	// Call object scripts
-	ObjFloatingPlatformVariables();
+	// Call object setup script
 	ObjFloatingPlatformSetup();	

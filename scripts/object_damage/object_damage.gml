@@ -12,8 +12,8 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 			instance_destroy(self);
 			
 			// Spawn explosion, animal and play sound
-			object_spawn(floor(x), floor(y), Animal);
-			object_spawn(floor(x), floor(y), DustExplosion);
+			instance_create(floor(x), floor(y), Animal);
+			instance_create(floor(x), floor(y), DustExplosion);
 			audio_sfx_play(sfxDestroy, false, false);
 			
 			// Make player bounce if they are airborne
@@ -106,7 +106,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 			for (var i = 0; i < min(Player.Rings, 32); i++) 
 			{
 				// Spawn ring
-				var Created = object_spawn(floor(Player.PosX), floor(Player.PosY), Ring);
+				var Created = instance_create(floor(Player.PosX), floor(Player.PosY), Ring);
 				if  i == 16 
 				{ 
 					Ang = 168.75; 

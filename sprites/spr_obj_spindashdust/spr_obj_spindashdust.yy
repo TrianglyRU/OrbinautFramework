@@ -94,7 +94,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/_Unsorted/Sprites.yy",
+    "path": "folders/Game Objects/Spindash Dust/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_spindashdust",

@@ -1,6 +1,6 @@
 function ObjSpawnpointSetup()
 {
-	// Make spawnpoint invisible
+	// Set object visibility
 	visible = false;
 	
 	// Check if player has loaded straight from the previous act

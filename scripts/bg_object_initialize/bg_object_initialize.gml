@@ -1,5 +1,5 @@
-/// @function bg_object_initialize() 
-function bg_object_initialize() 
+/// @function bg_objectisVariableialize() 
+function bg_objectisVariableialize() 
 {	
 	// Apply a parallax shader to the object
 	surface_set_target(Screen.BGSurf);

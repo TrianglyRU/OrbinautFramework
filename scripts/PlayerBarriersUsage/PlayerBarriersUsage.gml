@@ -58,7 +58,27 @@ function PlayerBarriersUsage()
 		BarrierIsActive = false;
 		Grounded		= false;
 		Jumping			= true;
-		Ysp				= -7.5;
+		
+		// Set vertical speed
+		Ysp	= -7.5 * dcos(Angle);
+		
+		// Set horizontal speed to vertical speed on steep angles
+		if Angle >= 45 and Angle <= 315
+		{
+			Xsp = Angle <= 180 ? Ysp : -Ysp;
+		}
+		
+		// Set horizontal speed to halved vertical speed on shallow angles
+		else if Angle >= 22.5 and Angle <= 337.5
+		{
+			Xsp = Angle <= 180 ? Ysp / 2 : -Ysp / 2;
+		}
+		
+		// Reset horizontal speed if angle is almost flat
+		else 
+		{	
+			Xsp = 0;	
+		}	
 		
 		// Play sound
 		audio_sfx_play(sfxWaterBarrierBounce, false, true);

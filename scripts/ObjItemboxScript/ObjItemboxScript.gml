@@ -14,7 +14,7 @@ function ObjItemboxScript()
 				if (!Player.Grounded) Player.Ysp = -Player.Ysp;
 					
 				// Spawn explosion and play its sound
-				object_spawn(floor(x), floor(y), DustExplosion);
+				instance_create(floor(x), floor(y), DustExplosion);
 				audio_sfx_play(sfxDestroy, false, false);
 					
 				// Update 'destroyed' flag

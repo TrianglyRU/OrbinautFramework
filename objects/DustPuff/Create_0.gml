@@ -1,4 +1,5 @@
-/// @description Scripts Event
+/// @description Setup
 // You can call your scripts in this editor
 	
-	object_set_depth(Player, true);
+	// Call object setup script
+	ObjDustPuffSetup();

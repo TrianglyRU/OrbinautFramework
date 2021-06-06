@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Stage",
-    "path": "folders/Game GlobalCode/Stage.yy",
+    "path": "folders/Game Code/Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "StageActEnd",

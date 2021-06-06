@@ -1,8 +1,8 @@
 function ObjSpikesVerticalSetup()
 {
-	// Set solidbox
+	// Set object solidbox
 	object_set_solidbox(16, 16);
 	
-	// Render behind the player
+	// Set object depth
 	object_set_depth(Player, false);
 }

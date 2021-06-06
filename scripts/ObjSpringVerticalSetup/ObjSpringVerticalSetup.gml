@@ -1,12 +1,17 @@
 function ObjSpringVerticalSetup()
 {
+	// Initialize variables
+	LaunchSide  isVar;
+	LaunchForce isVar;
+	
+	/* Variable Definitions	
+	1. SpringType, default = "Yellow"
+	*/
+	
 	// Set object solidbox
 	object_set_solidbox(14, 8);
 	
-	// Set object visibility
-	object_set_visibility(true);
-		
-	// Render behind the player
+	// Set object depth
 	object_set_depth(Player, false);
 	
 	// Define launch side

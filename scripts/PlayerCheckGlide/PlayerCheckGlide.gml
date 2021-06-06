@@ -150,7 +150,7 @@ function PlayerCheckGlide()
 				SkiddingTimer = SkiddingTimer mod 4
 				if !SkiddingTimer
 				{
-					object_spawn(floor(PosX), floor(PosY + yRadius), DustPuff);
+					instance_create(floor(PosX), floor(PosY + yRadius), DustPuff);
 				}
 				SkiddingTimer++;
 			

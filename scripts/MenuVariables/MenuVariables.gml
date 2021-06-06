@@ -1,16 +1,16 @@
 function _MenuVariables()
 {	
-	Saveslot[0]		_init;
-	Saveslot[1]		_init;
-	Saveslot[2]		_init;
-	Saveslot[3]		_init;
+	Saveslot[0]		isVar;
+	Saveslot[1]		isVar;
+	Saveslot[2]		isVar;
+	Saveslot[3]		isVar;
 	
-	MenuState		_init;
-	MenuOption		_init;
-	ControlEditMode _init;
-	DataDeleteMode  _init;
-	SaveNewData     _init;
-	StageToLoad     _init;
+	MenuState		isVar;
+	MenuOption		isVar;
+	ControlEditMode isVar;
+	DataDeleteMode  isVar;
+	SaveNewData     isVar;
+	StageToLoad     isVar;
 
 	// Menu state macro
 	#macro Main 	        0

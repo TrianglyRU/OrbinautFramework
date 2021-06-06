@@ -30,7 +30,7 @@ function PlayerCheckCrouch()
 				SpindashRev = 2;
 				
 				// Spawn dust effect
-				object_spawn(floor(PosX), floor(PosY + yRadius), SpindashDust);
+				instance_create(floor(PosX), floor(PosY + yRadius), SpindashDust);
 				SpindashDust.image_xscale = Facing;
 			}
 			else

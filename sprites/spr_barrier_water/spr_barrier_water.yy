@@ -281,8 +281,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Sprites",
+    "path": "folders/Game Objects/Barrier/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_barrier_water",

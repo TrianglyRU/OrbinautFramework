@@ -34,7 +34,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Screen",
-    "path": "folders/Game GlobalCode/Screen.yy",
+    "path": "folders/Game Code/Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen",

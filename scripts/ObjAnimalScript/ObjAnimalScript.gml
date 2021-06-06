@@ -17,6 +17,7 @@ function ObjAnimalScript()
 		}
 	}*/
 	
+	// Update vertical position
 	Ysp  += Grv;
 	PosY += Ysp;	
 	y = floor(PosY);

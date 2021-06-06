@@ -1,5 +1,5 @@
 function PlayerGeneralUpdate()
-{	
+{
 	// Check for entering for exiting debug mode
 	if Game.DevMode and Input.BPress and !Death
 	{
@@ -48,7 +48,7 @@ function PlayerGeneralUpdate()
 			Ysp			*= 0.25;
 			isUnderwater = true;
 			
-			object_spawn(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+			instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
 			audio_sfx_play(sfxWaterSplash, false, true);
 		}
 	}
@@ -88,7 +88,7 @@ function PlayerGeneralUpdate()
 			}
 			isUnderwater = false;
 			
-			object_spawn(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+			instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
 			audio_sfx_play(sfxWaterSplash, false, true);
 			
 			// Restore normal physics if not in superform
@@ -189,24 +189,24 @@ function PlayerGeneralUpdate()
 	if InvincibilityBonus 
 	{
 		// Check if star particles exist
-		if !instance_exists(Star) 
+		if !instance_exists(InvincibilityStar) 
 		{
 			// Create star particles
 			for (var i = 1; i < 9; i++)
 			{
-				var spawnedStar	= object_spawn(PosX, PosY, Star);
+				var spawnedStar	= instance_create(PosX, PosY, InvincibilityStar);
 					spawnedStar.Number = i;
 			}
 			
 			// Start frame for particles
-			with Star 
+			with InvincibilityStar 
 			{
-				animation_set_frame(Number mod 2 ? spr_star1 : spr_star2, Number);
+				animation_set_frame(Number mod 2 ? spr_obj_inv_star_type1 : spr_obj_inv_star_type2, Number);
 			}
 		}
 		
 		InvincibilityBonus--;
-		if (!InvincibilityBonus) instance_destroy(Star);
+		if (!InvincibilityBonus) instance_destroy(InvincibilityStar);
 	}
 	
 	// Decrease temp invincibility timer

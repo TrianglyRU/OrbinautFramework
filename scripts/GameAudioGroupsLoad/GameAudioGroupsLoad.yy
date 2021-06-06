@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Game",
-    "path": "folders/Game GlobalCode/Game.yy",
+    "path": "folders/Game Code/Game.yy",
   },
   "resourceVersion": "1.0",
   "name": "GameAudioGroupsLoad",

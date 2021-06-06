@@ -1,9 +1,6 @@
-/// @description Variables & Setup
+/// @description Setup
 // You can write your code in this editor
 	
-	// Call object scripts
-	ObjItemboxVariables();
+	// Call object setup scripts
 	ObjItemboxSetup();
-	
-	ObjItemcardVariables();
 	ObjItemcardSetup();

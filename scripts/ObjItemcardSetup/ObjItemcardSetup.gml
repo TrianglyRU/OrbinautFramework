@@ -1,5 +1,12 @@
 function ObjItemcardSetup()
 {
+	// Initialize variables
+	ItemCard	  isVar;
+	ItemCardRel   isVar;
+	ItemCardTimer isVar;
+	ItemCardYsp	  isVar;
+	ItemCardPosY  isVar;
+	
 	// Exit the code if monitor type is "empty"
 	if BoxType == "Empty"
 	{
@@ -7,7 +14,7 @@ function ObjItemcardSetup()
 	}
 	
 	// Create item card
-	ItemCard	 = object_spawn(x, y - 3, ItemboxCard);
+	ItemCard	 = instance_create(x, y - 3, ItemboxCard);
 	ItemCardPosY = ItemCard.y;
 	
 	// Load sprite

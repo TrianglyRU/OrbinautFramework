@@ -30,6 +30,6 @@ function PlayerDebugModeControl()
 	// Spawn current object
 	if Input.APress
 	{
-		object_spawn(floor(PosX), floor(PosY), DebugList[DebugItem]);
+		instance_create(floor(PosX), floor(PosY), DebugList[DebugItem]);
 	}
 }

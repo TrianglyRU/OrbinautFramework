@@ -1,5 +1,5 @@
-/// @description Scripts Event
+/// @description Variables
 // You can call your scripts in this editor
 	
-	MotionAngle _init;
-	ResultAngle _init;
+	// Call object script
+	ObjTailsObjectVariables();

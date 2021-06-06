@@ -61,7 +61,7 @@
 				if !HP
 				{
 					// Spawn explosion and play sound
-					object_spawn(x, y, DustExplosion);
+					instance_create(x, y, DustExplosion);
 					audio_sfx_play(sfxDestroy, false, false);
 					instance_destroy(Orb);
 					instance_destroy();

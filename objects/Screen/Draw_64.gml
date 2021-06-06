@@ -34,7 +34,7 @@
 	
 	// Display results screen
 	ScreenResultsDisplay();
-	
+		
 	// Display title card
 	ScreenTitleCardDisplay();
 	

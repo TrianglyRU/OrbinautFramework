@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Player",
-    "path": "folders/Game GlobalCode/Player.yy",
+    "path": "folders/Game Code/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "PlayerCheckGlide",

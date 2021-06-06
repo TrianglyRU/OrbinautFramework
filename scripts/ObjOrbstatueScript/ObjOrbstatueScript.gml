@@ -10,7 +10,7 @@ function ObjOrbstatueScript()
 			instance_destroy();
 			
 			// Spawn explosion, animal and play sound
-			object_spawn(floor(x), floor(y), DustExplosion);
+			instance_create(floor(x), floor(y), DustExplosion);
 			audio_sfx_play(sfxDestroy, false, false);
 			
 			// Make player bounce if they are airborne
@@ -26,7 +26,7 @@ function ObjOrbstatueScript()
 				}
 			}
 			
-			if (BossTrigger) object_spawn(x, y - 176, Orboss);
+			if (BossTrigger) instance_create(x, y - 176, Orboss);
 		}
 	}
 }

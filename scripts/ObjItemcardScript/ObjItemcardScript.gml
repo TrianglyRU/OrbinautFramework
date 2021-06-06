@@ -95,7 +95,7 @@ function ObjItemcardScript()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+							instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
 						}
 					}
 					break;
@@ -107,7 +107,7 @@ function ObjItemcardScript()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+							instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
 						}
 					}
 					break;
@@ -119,7 +119,7 @@ function ObjItemcardScript()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+							instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
 						}
 					}
 					break;

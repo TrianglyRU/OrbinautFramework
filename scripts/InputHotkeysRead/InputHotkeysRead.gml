@@ -64,7 +64,7 @@ function InputHotkeysRead()
 		{
 			if !instance_exists(Barrier)
 			{
-				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+				instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
 			}
 			Player.BarrierType = BarrierNormal;
 		}
@@ -72,7 +72,7 @@ function InputHotkeysRead()
 		{
 			if !instance_exists(Barrier)
 			{
-				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+				instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
 			}
 			Player.BarrierType = BarrierFlame;
 		}
@@ -80,7 +80,7 @@ function InputHotkeysRead()
 		{
 			if !instance_exists(Barrier)
 			{
-				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+				instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
 			}
 			Player.BarrierType = BarrierThunder;
 		}
@@ -88,7 +88,7 @@ function InputHotkeysRead()
 		{
 			if !instance_exists(Barrier)
 			{
-				object_spawn(floor(Player.PosX), floor(Player.PosY), Barrier);
+				instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
 			}
 			Player.BarrierType = BarrierWater;
 		}

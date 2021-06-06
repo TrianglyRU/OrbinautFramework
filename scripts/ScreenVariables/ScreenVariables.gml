@@ -1,44 +1,44 @@
 function _ScreenVariables()
 {
-	InterfaceEnabled   _init;
-	InterfaceOffsetX   _init;
-	InterfaceOffsetY   _init;
-	CardTimer		   _init;
-	Width			   _init;
-	Height			   _init;
+	InterfaceEnabled   isVar;
+	InterfaceOffsetX   isVar;
+	InterfaceOffsetY   isVar;
+	CardTimer		   isVar;
+	Width			   isVar;
+	Height			   isVar;
 	
-	PlayerScreenX	   _init;
-	PlayerScreenY	   _init;
-	RawX			   _init;
-	RawY			   _init;
-	CameraX			   _init;
-	CameraY			   _init;
-	ScrollX			   _init;
-	ScrollY			   _init;
-	ScrollDelay		   _init;
-	OverviewDelay	   _init;
+	PlayerScreenX	   isVar;
+	PlayerScreenY	   isVar;
+	RawX			   isVar;
+	RawY			   isVar;
+	CameraX			   isVar;
+	CameraY			   isVar;
+	ScrollX			   isVar;
+	ScrollY			   isVar;
+	ScrollDelay		   isVar;
+	OverviewDelay	   isVar;
 	
-	ShakeTime		   _init;
-	ShakeStrength	   _init;
-	ShakeOffset		   _init;
+	ShakeTime		   isVar;
+	ShakeStrength	   isVar;
+	ShakeOffset		   isVar;
 	
-	MinRenderX		   _init;
-	MaxRenderX         _init;
-	MinRenderY         _init;
-	MaxRenderY		   _init;
-	MinMaxSpeed		   _init;
+	MinRenderX		   isVar;
+	MaxRenderX         isVar;
+	MinRenderY         isVar;
+	MaxRenderY		   isVar;
+	MinMaxSpeed		   isVar;
 	
-	SpinOffset		   _init;
-	ExtendedOffset	   _init;
-	OverviewOffset	   _init;
-	CameraEnabled      _init;
+	SpinOffset		   isVar;
+	ExtendedOffset	   isVar;
+	OverviewOffset	   isVar;
+	CameraEnabled      isVar;
 	
-	DebugToggle	   _init;
-	DebugVariables _init;
-	DebugSolids    _init;
-	DebugHitboxes  _init;
-	DebugSensors   _init;
+	DebugToggle	   isVar;
+	DebugVariables isVar;
+	DebugSolids    isVar;
+	DebugHitboxes  isVar;
+	DebugSensors   isVar;
 	
-	GameSurf _init;
-	BGSurf   _init;
+	GameSurf isVar;
+	BGSurf   isVar;
 }
