@@ -7,7 +7,7 @@ function PlayerCheckRoll()
 	}
 
 	// Start rolling if we're moving fast enough and are not gliding
-	if Input.Down
+	if Input.Down or ForcedRoll
 	{
 		if !Game.LooseCrouch and abs(Inertia) >= 0.5 
 		or  Game.LooseCrouch and abs(Inertia) >= 1

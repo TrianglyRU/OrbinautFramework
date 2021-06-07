@@ -40,18 +40,30 @@ function PlayerMoveRoll()
 	}
 
 	// Unroll
-	if !Game.LooseCrouch and Inertia == 0
-	or  Game.LooseCrouch and abs(Inertia) < 0.5
+	if !ForcedRoll
 	{
-		// Reset radiuses
-		yRadius = yRadiusDefault;
-		xRadius = xRadiusDefault;
-		PosY   -= yRadiusDefault - yRadiusRoll;
+		if !Game.LooseCrouch and Inertia == 0
+		or  Game.LooseCrouch and abs(Inertia) < 0.5
+		{
+			// Reset radiuses
+			yRadius = yRadiusDefault;
+			xRadius = xRadiusDefault;
+			PosY   -= yRadiusDefault - yRadiusRoll;
 		
-		// Unroll
-		Rolling = false;
+			// Unroll
+			Rolling = false;
 		
-		// Set animation
-		Animation = AnimIdle;
+			// Set animation
+			Animation = AnimIdle;
+		}
+	}
+	
+	// Keep rolling if forced to
+	else
+	{
+		if Inertia == 0
+		{
+			Inertia = 2 * Facing;
+		}
 	}
 }

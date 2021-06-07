@@ -28,7 +28,7 @@ function InputHotkeysRead()
 		{
 			game_restart();
 		}
-		
+
 		// Low FPS mode
 		if keyboard_check(vk_f4) 
 		{

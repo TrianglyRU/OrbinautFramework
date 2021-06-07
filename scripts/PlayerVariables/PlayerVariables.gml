@@ -66,6 +66,7 @@ function _PlayerVariables()
 	DebugMode            isVar;
 	DebugItem			 isVar;
 	DebugSpeed			 isVar;
+	ForcedRoll			 isVar;
 	
 	RecordedPosX		 isArr;
 	RecordedPosY         isArr;

@@ -184,7 +184,13 @@ function PlayerGeneralUpdate()
 	{
 		Grv	= 0.21875;
 	}
-
+	
+	// Stop forced roll if we unrolled
+	if !Rolling
+	{
+		ForcedRoll = false;
+	}
+	
 	// Handle invincibility bonus
 	if InvincibilityBonus 
 	{
