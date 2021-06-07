@@ -27,11 +27,17 @@ function PlayerCheckLookup()
 			
 			// Charge Super Peel Out
 			if PeeloutRev >= 0
-			{
-				// Set 'peelout' animation
-				Animation = AnimPeelout;
-				
+			{	
 				PeeloutRev++;
+				
+				// Set 'peelout' animation
+				switch PeeloutRev div 15
+				{
+					case 0: Animation = AnimWalk	break;
+					case 1: Animation = AnimRun		break;
+					case 2: Animation = AnimPeelout break;
+				}
+				
 				if PeeloutRev > 30
 				{
 					PeeloutRev = 30;
