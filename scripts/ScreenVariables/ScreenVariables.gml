@@ -13,8 +13,8 @@ function _ScreenVariables()
 	RawY			   isVar;
 	CameraX			   isVar;
 	CameraY			   isVar;
-	ScrollX			   isVar;
-	ScrollY			   isVar;
+	SpeedX			   isVar;
+	SpeedY			   isVar;
 	ScrollDelay		   isVar;
 	OverviewDelay	   isVar;
 	
@@ -26,8 +26,9 @@ function _ScreenVariables()
 	MaxRenderX         isVar;
 	MinRenderY         isVar;
 	MaxRenderY		   isVar;
-	MinMaxSpeed		   isVar;
-	
+	LimitScrollX       isVar;
+	LimitScrollY	   isVar;
+
 	SpinOffset		   isVar;
 	ExtendedOffset	   isVar;
 	OverviewOffset	   isVar;

@@ -31,6 +31,22 @@
 	x = floor(PosX);
 	y = floor(PosY);
 	
+	if keyboard_check_pressed(ord("V"))
+	{
+		HP = 0;
+	}
+	if !HP
+	{
+		// Spawn explosion and play sound
+		instance_create(x, y, DustExplosion);
+		audio_sfx_play(sfxDestroy, false, false);
+		instance_destroy(Orb);
+		instance_destroy();
+					
+		// Tell the controller boss was defeated
+		BossController.BossDefeated = true;
+	}
+	
 	if object_player_overlap(CollisionHitbox)
 	{
 		// Check if player can destroy Badnik
@@ -69,6 +85,9 @@
 					audio_sfx_play(sfxDestroy, false, false);
 					instance_destroy(Orb);
 					instance_destroy();
+					
+					// Tell the controller boss was defeated
+					BossController.BossDefeated = true;
 				}
 			}
 		}

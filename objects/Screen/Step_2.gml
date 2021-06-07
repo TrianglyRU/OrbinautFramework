@@ -9,6 +9,6 @@
 	
 	// Update camera limits
 	ScreenCameraBoundsUpdate();
-	
+
 	// Update camera position
 	ScreenCameraPositionUpdate();

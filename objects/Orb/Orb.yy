@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Orboss",
-    "path": "folders/Game Objects/Orboss.yy",
+    "name": "Boss Controller",
+    "path": "folders/Game Objects/Boss Controller.yy",
   },
   "resourceVersion": "1.0",
   "name": "Orb",

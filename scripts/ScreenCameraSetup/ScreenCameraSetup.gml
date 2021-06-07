@@ -24,10 +24,12 @@ function ScreenCameraSetup()
 	}
 	
 	// Set maximum and minimum limits
-	MinRenderX = Stage.LeftBoundary;
-	MinRenderY = Stage.TopBoundary;
-	MaxRenderX = Stage.RightBoundary;
-	MaxRenderY = Stage.BottomBoundary;
+	MinRenderX    = Stage.LeftBoundary;
+	MinRenderY    = Stage.TopBoundary;
+	MaxRenderX    = Stage.RightBoundary;
+	MaxRenderY    = Stage.BottomBoundary;
+	LimitScrollX  = 4;
+	LimitScrollY  = 4;
 	
 	GameSurf = -1;
 	BGSurf   = -1;

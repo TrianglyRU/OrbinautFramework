@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 	
-	HP     = 10;
+	HP     = 1;
 	HurtTimer  = 0;
 	AngleX = 0;
 	AngleY = 0;

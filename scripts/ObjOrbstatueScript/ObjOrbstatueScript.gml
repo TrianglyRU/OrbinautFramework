@@ -1,6 +1,6 @@
 function ObjOrbstatueScript()
 {
-	if object_player_overlap(CollisionHitbox)
+	/*if object_player_overlap(CollisionHitbox)
 	{
 		// Check if player can destroy Object
 		if Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
@@ -28,9 +28,7 @@ function ObjOrbstatueScript()
 			
 			if BossTrigger 
 			{
-				instance_create(x, y - 176, Orboss);
-				Stage.State = ActStateBossfight;
 			}
 		}
-	}
+	}*/
 }

@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Orboss/Sprites.yy",
+    "path": "folders/Game Objects/Boss Controller/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_orb",

@@ -1,4 +1,4 @@
-/// @description Shift Palette & Fade Update
+/// @description Palette & Fade
 // You can write your code in this editor
 	
 	// Update dynamic shift

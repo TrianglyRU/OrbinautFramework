@@ -19,23 +19,16 @@ function StageBoundariesUpdate()
 	{
 		var ActEndObject = noone;
 	}
-	
-	// If we placed Signpost AND Capsule in the stage, show error message and close the game
-	if instance_exists(Signpost) and instance_exists(Capsule)
-	{	
-		show_message("Both act end objects found in the room. Only one act end object is expected to be found.");
-		game_end();
-	}	
-	
+
 	// Variables list
 	if ActEndObject != noone
 	{
 		var FinishX = ActEndObject.x;
 	}
-	var PlayerX		= floor(Player.PosX);
-	var CameraX     = floor(Screen.CameraX);
-	var PlayerScrnX = floor(Screen.PlayerScreenX);
-	var HalvedWidth = Screen.Width / 2;
+	var PlayerX		  = floor(Player.PosX);
+	var CameraX       = floor(Screen.CameraX);
+	var CameraCentreX = floor(Screen.CameraX + Screen.Width / 2);
+	var HalvedWidth   = Screen.Width / 2;
 	
 	// Adjust horizontal boundaries
 	switch State
@@ -63,7 +56,8 @@ function StageBoundariesUpdate()
 		// Set stage boundaries on act finish
 		case ActStateFinished:
 		{		
-			LeftBoundary = FinishX - HalvedWidth;
+			LeftBoundary  = FinishX - HalvedWidth;
+			RightBoundary = FinishX + HalvedWidth;
 		}
 		break;
 		
@@ -72,32 +66,33 @@ function StageBoundariesUpdate()
 		{
 			if instance_exists(BossController)
 			{
-				LeftBoundary  = BossController.x - HalvedWidth;
-				RightBoundary = BossController.x + HalvedWidth;
+				LeftBoundary   = BossController.x - BossController.ArenaWidth  / 2 + BossController.ArenaXShift;
+				RightBoundary  = BossController.x + BossController.ArenaWidth  / 2 + BossController.ArenaXShift;
+				TopBoundary    = BossController.y - BossController.ArenaHeight / 2 + BossController.ArenaYShift;
+				BottomBoundary = BossController.y + BossController.ArenaHeight / 2 + BossController.ArenaYShift;
 			}
 			else
 			{
 				if ActEndObject != noone
 				{
-					if PlayerScrnX > HalvedWidth 
+					if floor(Player.PosX) == Screen.CameraX + Screen.Width / 2
 					{
-						LeftBoundary = PlayerX - HalvedWidth;
+						LeftBoundary = Screen.CameraX;
 					}
-					if RightBoundary < FinishX + HalvedWidth 
+					else if floor(Player.PosX) > Screen.CameraX + Screen.Width / 2
 					{
-						RightBoundary += 2;			
-						if RightBoundary > FinishX + HalvedWidth
-						{
-							RightBoundary = FinishX + HalvedWidth;
-						}
+						LeftBoundary = min(LeftBoundary + 4, floor(Player.PosX) - Screen.Width / 2);
 					}
+					RightBoundary = min(RightBoundary + 4, FinishX + HalvedWidth)
 				}
 				else
 				{
-					State = ActStateDefault;
+					RightBoundary = room_width;
+					State		  = ActStateDefault;
 				}
 			}
 		}
 		break;
 	}
+	show_debug_message(BottomBoundary);
 }

@@ -55,4 +55,4 @@
 			State = 1;
 		break;
 	}
-	show_debug_message(image_xscale);
+	//show_debug_message(image_xscale);
