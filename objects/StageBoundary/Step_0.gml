@@ -3,12 +3,6 @@
 	
 	if object_player_overlap(CollisionTriggerbox)
 	{
-		Stage.BottomBoundary = BottomBoundary;
-		Screen.LimitScrollY  = CameraSpeed;
-	}
-	
-	// Restore default value when the camera catch up
-	if Screen.MaxRenderY == Stage.BottomBoundary
-	{
-		Screen.LimitScrollY = BaseSpeed;
+		Stage.TargetBottomBoundary = BottomBoundary;
+		Stage.TargetTopBoundary    = TopBoundary;
 	}

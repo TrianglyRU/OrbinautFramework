@@ -4,8 +4,6 @@ function _ScreenVariables()
 	InterfaceOffsetX   isVar;
 	InterfaceOffsetY   isVar;
 	CardTimer		   isVar;
-	Width			   isVar;
-	Height			   isVar;
 	
 	PlayerScreenX	   isVar;
 	PlayerScreenY	   isVar;
@@ -13,6 +11,8 @@ function _ScreenVariables()
 	RawY			   isVar;
 	CameraX			   isVar;
 	CameraY			   isVar;
+	Width			   isVar;
+	Height			   isVar;
 	SpeedX			   isVar;
 	SpeedY			   isVar;
 	ScrollDelay		   isVar;
@@ -21,13 +21,6 @@ function _ScreenVariables()
 	ShakeTime		   isVar;
 	ShakeStrength	   isVar;
 	ShakeOffset		   isVar;
-	
-	MinRenderX		   isVar;
-	MaxRenderX         isVar;
-	MinRenderY         isVar;
-	MaxRenderY		   isVar;
-	LimitScrollX       isVar;
-	LimitScrollY	   isVar;
 
 	SpinOffset		   isVar;
 	ExtendedOffset	   isVar;

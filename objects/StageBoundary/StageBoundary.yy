@@ -26,7 +26,7 @@
   ],
   "properties": [
     {"varType":4,"value":"room_height","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"BottomBoundary","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":16.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"CameraSpeed","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":4,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"TopBoundary","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

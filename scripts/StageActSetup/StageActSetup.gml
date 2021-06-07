@@ -15,15 +15,15 @@ function StageActSetup()
 			TimeEnabled				= false;
 			Time					= 0;
 			WaterLevel				= 1700;
-			LeftBoundary			= 0;
-			TopBoundary				= 0;
-			RightBoundary			= room_width;
-			BottomBoundary			= 1728;
 			State					= ActStateLoading;
 			StageMusic				= MoonlightQuadrant;
 			StageMusicDAC			= noone;
 			LoopStart				= 0;
 			LoopEnd					= 227.01;
+			LeftBoundary			= 0;
+			TopBoundary				= 0;
+			RightBoundary			= room_width;
+			BottomBoundary			= room_height;
 		}
 		break;
 		

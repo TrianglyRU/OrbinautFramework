@@ -93,17 +93,24 @@ function InputHotkeysRead()
 			Player.BarrierType = BarrierWater;
 		}
 		
-		if keyboard_check_pressed(ord("G")) 
+		if keyboard_check_pressed(ord("K")) 
 		{
-			audio_bgm_play(Jingle1UP, -1, -1);
+			Stage.TargetLeftBoundary  = Screen.CameraX - 100;
+			Stage.TargetRightBoundary = Screen.CameraX + Screen.Width - 100;
+		}
+		
+		if keyboard_check_pressed(ord("L")) 
+		{
+			Stage.TargetLeftBoundary  = Screen.CameraX + 100;
+			Stage.TargetRightBoundary = Screen.CameraX + Screen.Width + 100;
 		}
 		
 		// Ignore input mode
-		if keyboard_check_pressed(ord("L")) 
+		/*if keyboard_check_pressed(ord("L")) 
 		{
 			IgnoreInput = true;
 			ResetInput  = true;
-		}
+		}*/
 	
 		// Window resize
 		if keyboard_check_pressed(vk_numpad1) 

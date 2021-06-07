@@ -8,6 +8,12 @@ function ObjBossControllerScript()
 			// Activate bossfight
 			BossTriggered = true;
 			Stage.State   = ActStateBossfight;
+			
+			// Set boundaries
+			Stage.TargetLeftBoundary   = x - max(Screen.Width  / 2, ArenaWidth  / 2);
+			Stage.TargetRightBoundary  = x + max(Screen.Width  / 2, ArenaWidth  / 2);
+			Stage.TargetTopBoundary    = y - max(Screen.Height / 2, ArenaHeight / 2);
+			Stage.TargetBottomBoundary = y + max(Screen.Height / 2, ArenaHeight / 2);
 		
 			// Spawn boss
 			switch room
@@ -23,6 +29,11 @@ function ObjBossControllerScript()
 	// Check if the boss was defeated
 	else if BossDefeated
 	{
+		// Reset right and top boundaries
+		Stage.TargetRightBoundary = room_width;
+		Stage.TargetTopBoundary	  = 0;
+		
+		// Destroy object
 		instance_destroy();
 	}
 }

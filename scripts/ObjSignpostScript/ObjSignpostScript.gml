@@ -1,8 +1,8 @@
 function ObjSignpostScript()
 {
+	// Activate on overlap and change stage state
 	if !Active
 	{
-		// Activate on overlap and change stage state
 		if object_player_overlap(CollisionTriggerbox)
 		{
 			Active		= true;
@@ -33,4 +33,22 @@ function ObjSignpostScript()
 			case 122: instance_create_depth(x - 14, y,      depth - 1, RingSparkle); break;
 		}	
 	}
+	
+	// Set boundaries
+	if Screen.PlayerScreenX >= Screen.Width / 2
+	{
+		Stage.TargetLeftBoundary  = Screen.CameraX;
+		Stage.TargetRightBoundary = x + Screen.Width / 2;
+		
+		if floor(Player.PosX) > x - Screen.Width / 2
+		{
+			Stage.TargetLeftBoundary = x - Screen.Width;
+			
+			if Active
+			{
+				Stage.TargetLeftBoundary = x - Screen.Width / 2;
+			}
+		}
+	}
+	
 }

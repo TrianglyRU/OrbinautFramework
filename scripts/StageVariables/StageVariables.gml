@@ -4,6 +4,14 @@ function _StageVariables()
 	RightBoundary   isVar;
 	TopBoundary     isVar;
 	BottomBoundary  isVar;
+	
+	TargetLeftBoundary    isVar;
+	TargetRightBoundary   isVar;
+	TargetTopBoundary     isVar;
+	TargetBottomBoundary  isVar;
+	
+	DeathBoundary	isVar;
+	
 	WaterLevel      isVar;
 	State		    isVar;
 	StateTimer      isVar;
@@ -20,4 +28,6 @@ function _StageVariables()
 	LoopStart       isVar;
 	LoopEnd			isVar;
 	AnimationTime   isVar;
+	
+	
 }

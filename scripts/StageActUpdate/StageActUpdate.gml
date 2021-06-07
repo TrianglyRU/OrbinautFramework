@@ -1,5 +1,15 @@
 function StageActUpdate()
 {	
+	// Initialize boundaries
+	if State == ActStateLoading
+	{
+		TargetLeftBoundary   = LeftBoundary;
+		TargetRightBoundary  = RightBoundary;
+		TargetTopBoundary    = TopBoundary;
+		TargetBottomBoundary = BottomBoundary;
+		DeathBoundary        = BottomBoundary;
+	}
+	
 	// Reset stage transition data
 	if Game.StageTransitions and State == ActStateDefault
 	{

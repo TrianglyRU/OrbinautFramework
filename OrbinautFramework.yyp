@@ -270,7 +270,6 @@
     {"id":{"name":"ObjBreakableWallSetup","path":"scripts/ObjBreakableWallSetup/ObjBreakableWallSetup.yy",},"order":2,},
     {"id":{"name":"FloatingPlatform","path":"objects/FloatingPlatform/FloatingPlatform.yy",},"order":0,},
     {"id":{"name":"InvinciblePowerup","path":"sounds/InvinciblePowerup/InvinciblePowerup.yy",},"order":3,},
-    {"id":{"name":"ScreenCameraBoundsUpdate","path":"scripts/ScreenCameraBoundsUpdate/ScreenCameraBoundsUpdate.yy",},"order":11,},
     {"id":{"name":"external_data_load","path":"scripts/external_data_load/external_data_load.yy",},"order":1,},
     {"id":{"name":"object_set_solidbox","path":"scripts/object_set_solidbox/object_set_solidbox.yy",},"order":20,},
     {"id":{"name":"sprHUD_Rings","path":"sprites/sprHUD_Rings/sprHUD_Rings.yy",},"order":9,},

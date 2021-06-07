@@ -1,6 +1,6 @@
-/// @function animation_get_frame(objectID)
-function animation_get_frame(objectID)
+/// @function animation_get_frame(obj)
+function animation_get_frame(obj)
 {
 	// Return actual frame index
-	return objectID.image_index + 1;
+	return obj.image_index + 1;
 }

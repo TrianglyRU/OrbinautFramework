@@ -8,7 +8,7 @@ function StageObjectsUpdate()
 	{
 		//var Boundary128 = Screen.CameraX div 128 * 128;
 		//instance_activate_region(Boundary128, 0, Boundary128 + ceil(Screen.Width / 128) * 128, room_height, true);
-		instance_activate_region(Screen.CameraX - 480, Screen.CameraY - 144, Screen.Width + 960, Screen.Height + 288, true);
+		instance_activate_region(Screen.CameraX - 96, Screen.CameraY, Screen.Width + 192, Screen.Height, true);
 	}
 	
 	// Check if player died or stage unloads
