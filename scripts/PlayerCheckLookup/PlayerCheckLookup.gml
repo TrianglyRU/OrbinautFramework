@@ -1,7 +1,7 @@
 function PlayerCheckLookup()
 {	
 	// Exit if we're moving
-	if Inertia != 0 or Balancing != false
+	if Inertia != 0 or Balancing != false or Pushing != false
 	{
 		exit;
 	}

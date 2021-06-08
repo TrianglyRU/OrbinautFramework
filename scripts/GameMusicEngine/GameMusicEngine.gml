@@ -63,7 +63,8 @@ function GameMusicEngine()
 				else
 				{
 					audio_stop_sound(Track);
-					Game.NormalTrack[TrackID] = 0;
+					Game.NormalTrack[TrackID]		 = 0;
+					Game.NormalTrack[TrackEventTime] = 0;
 				}		
 			}
 			break;
@@ -137,7 +138,8 @@ function GameMusicEngine()
 				else
 				{
 					audio_stop_sound(Track);
-					Game.PriorityTrack[TrackID] = 0;
+					Game.PriorityTrack[TrackID]		   = 0;
+					Game.PriorityTrack[TrackEventTime] = 0;
 				}
 			}
 			break;
@@ -215,7 +217,8 @@ function GameMusicEngine()
 				else
 				{
 					audio_stop_sound(Track);
-					Game.JingleTrack[TrackID] = 0;
+					Game.JingleTrack[TrackID]		 = 0;
+					Game.JingleTrack[TrackEventTime] = 0;
 				}		
 			}
 			break;

@@ -10,12 +10,12 @@
   "bbox_left": 0,
   "bbox_right": 28,
   "bbox_top": 0,
-  "bbox_bottom": 14,
+  "bbox_bottom": 15,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "width": 29,
-  "height": 15,
+  "height": 16,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"7abcb8e1-3927-4ba0-b154-af3ead3537ca","path":"sprites/spr_obj_bridgestump_gvz/spr_obj_bridgestump_gvz.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"7abcb8e1-3927-4ba0-b154-af3ead3537ca","path":"sprites/spr_obj_bridgestump_gvz/spr_obj_bridgestump_gvz.yy",},"LayerId":{"name":"1c671117-6778-4125-9567-49d89043c751","path":"sprites/spr_obj_bridgestump_gvz/spr_obj_bridgestump_gvz.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_bridgestump_gvz","path":"sprites/spr_obj_bridgestump_gvz/spr_obj_bridgestump_gvz.yy",},"resourceVersion":"1.0","name":"7abcb8e1-3927-4ba0-b154-af3ead3537ca","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"7abcb8e1-3927-4ba0-b154-af3ead3537ca","path":"sprites/spr_obj_bridgestump_mqz/spr_obj_bridgestump_mqz.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"7abcb8e1-3927-4ba0-b154-af3ead3537ca","path":"sprites/spr_obj_bridgestump_mqz/spr_obj_bridgestump_mqz.yy",},"LayerId":{"name":"1c671117-6778-4125-9567-49d89043c751","path":"sprites/spr_obj_bridgestump_mqz/spr_obj_bridgestump_mqz.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_obj_bridgestump_mqz","path":"sprites/spr_obj_bridgestump_mqz/spr_obj_bridgestump_mqz.yy",},"resourceVersion":"1.0","name":"7abcb8e1-3927-4ba0-b154-af3ead3537ca","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_obj_bridgestump_gvz","path":"sprites/spr_obj_bridgestump_gvz/spr_obj_bridgestump_gvz.yy",},
+    "spriteId": {"name":"spr_obj_bridgestump_mqz","path":"sprites/spr_obj_bridgestump_mqz/spr_obj_bridgestump_mqz.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"7068964a-2590-4035-a36a-bda633e3ee70","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7abcb8e1-3927-4ba0-b154-af3ead3537ca","path":"sprites/spr_obj_bridgestump_gvz/spr_obj_bridgestump_gvz.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"7068964a-2590-4035-a36a-bda633e3ee70","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7abcb8e1-3927-4ba0-b154-af3ead3537ca","path":"sprites/spr_obj_bridgestump_mqz/spr_obj_bridgestump_mqz.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_obj_bridgestump_gvz","path":"sprites/spr_obj_bridgestump_gvz/spr_obj_bridgestump_gvz.yy",},
+    "parent": {"name":"spr_obj_bridgestump_mqz","path":"sprites/spr_obj_bridgestump_mqz/spr_obj_bridgestump_mqz.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_obj_bridgestump_gvz",
+    "name": "spr_obj_bridgestump_mqz",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Game Objects/Bridge/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_obj_bridgestump_gvz",
+  "name": "spr_obj_bridgestump_mqz",
   "tags": [],
   "resourceType": "GMSprite",
 }

@@ -223,15 +223,28 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							
 						// Reset gravity
 						Grv	= 0.21875;
+						
+						// Rolling
+						if Ysp > 0 and !Grounded
+						{
+							if Input.Down
+							{
+								Rolling = true;
+								audio_sfx_play(sfxRoll, false, false);
+							}
+							else
+							{
+								Rolling = false;
+							}
+						}
 		
 						// Reset flags
-						Rolling			= Ysp > 0 and !Grounded ? Input.Down : Rolling;
 						BarrierIsActive = false;
 						Jumping			= false;
 						Pushing			= false;
 						Grounded		= true;
 						OnObject		= objectID;
-							
+						
 						// Set visual angle
 						VisualAngle = 360;
 		

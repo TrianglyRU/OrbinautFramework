@@ -3,7 +3,6 @@ function ObjBridgeSetup()
 	// Initialize variables
 	RecoveryAngle  isVar;
 	LogID		   isArr;
-	LogTension     isArr;
 	LogDepression  isArr;	
 	
 	/* Variable Definitions	
@@ -36,6 +35,5 @@ function ObjBridgeSetup()
 		
 		// Calculate log depression value
 		LogDepression[i] = (i < BridgeLength / 2 ? i : BridgeLength - i - 1) * 2 + 2;
-		LogTension[i]    = 0;
 	}
 }

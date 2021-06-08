@@ -51,20 +51,9 @@ function ObjBridgeScript()
         {
             var Tension = log_difference / (BridgeLength - CurrentSegment + 1);
         }
-        
-		// Calculate log tension
-		var NewTension = 1 - Tension;
-		if  NewTension > LogTension[i]
-		{
-			LogTension[i] = min(LogTension[i] + 0.03, NewTension);
-		}
-		else
-		{
-			LogTension[i] = max(LogTension[i] - 0.03, NewTension);
-		}
 
 		// Calculate final log position
-		LogID[| i].y = floor(y + (MaxDepression * dsin(floor(90 * (LogTension[i])))) * dsin(RecoveryAngle));
+		LogID[| i].y = floor(y + (MaxDepression * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
     }
 	
     // Do collision with the bridge
