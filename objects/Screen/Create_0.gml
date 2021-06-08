@@ -2,7 +2,7 @@
 // You can call your scripts in this editor
 	
 	// Initialize variables
-	_ScreenVariables();
+	ScreenVariables();
 	
 	// Setup camera
 	ScreenCameraSetup();

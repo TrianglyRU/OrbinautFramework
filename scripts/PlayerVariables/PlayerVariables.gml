@@ -1,4 +1,4 @@
-function _PlayerVariables()
+function PlayerVariables()
 {
 	Acc					 isVar;
 	Dec					 isVar;

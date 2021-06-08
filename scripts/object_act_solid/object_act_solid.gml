@@ -147,7 +147,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 		}
 			
 		// Check for overlap with this object vertically
-		if  playerBottom < objectTop - 4 or playerTop > objectBottom - !Game.ImprovedObjCollision * 4
+		if  playerBottom < objectTop - !(Game.ImprovedObjCollision and collideSides) * 4 or playerTop > objectBottom - !Game.ImprovedObjCollision * 4
 		{
 			exit;
 		}
@@ -185,10 +185,10 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				if playerBottom < objectTop + 16
 				{
 					// Check if player's position is within this object boundaries
-					/*if !collideSides and (playerX < objectLeft or playerX > objectRight)
+					if !collideSides and (playerX < objectLeft or playerX > objectRight)
 					{
 						exit;
-					}*/
+					}
 					if !Game.ImprovedObjCollision and (playerX < objectLeft or playerX > objectRight)
 					{
 						exit;
@@ -316,8 +316,13 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				with Player
 				{
 					// Collide on the right
-					if floor(PosX) > objectX
+					if playerX > objectX
 					{
+						if Game.ImprovedObjCollision and playerX < objectRight
+						{
+							exit;
+						}
+						
 						if Xsp < 0
 						{
 							if Grounded
@@ -331,8 +336,13 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 					}
 						
 					// Collide on the left
-					else if floor(PosX) < objectX
+					else if playerX < objectX
 					{	
+						if Game.ImprovedObjCollision and playerX > objectLeft
+						{
+							exit;
+						}
+						
 						if Xsp > 0
 						{
 							if Grounded

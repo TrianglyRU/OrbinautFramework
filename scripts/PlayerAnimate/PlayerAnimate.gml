@@ -71,7 +71,7 @@ function PlayerAnimate()
 					animation_play(spr_tails_walk, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_tails_run, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_tails_run,  round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRoll:
 					animation_play(spr_tails_roll, 2, 1);
@@ -122,7 +122,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_knuckles_run, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_knuckles_run,  round(max(1, 8 - abs(Inertia))), 1);
 				break;
 				case AnimRoll:
 					animation_play(spr_knuckles_roll, round(max(1, 4 - abs(Inertia))), 1);

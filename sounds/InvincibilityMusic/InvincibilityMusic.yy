@@ -10,14 +10,14 @@
     "name": "BGM",
     "path": "audiogroups/BGM",
   },
-  "soundFile": "SpeedupPowerup.ogg",
-  "duration": 20.75906,
+  "soundFile": "InvincibilityMusic.ogg",
+  "duration": 18.5730057,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpeedupPowerup",
+  "name": "InvincibilityMusic",
   "tags": [],
   "resourceType": "GMSound",
 }

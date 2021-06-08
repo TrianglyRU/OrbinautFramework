@@ -2,8 +2,8 @@
 // You can call your scripts in this editor. One-time initial
 	
 	// Initialize macros and global variables
-	_GameMacros();
-	_GameVariables();
+	GameMacro();
+	GameVariables();
 	
 	// Initialize framework settings
 	GameFrameworkSetup();

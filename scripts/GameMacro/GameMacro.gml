@@ -1,11 +1,11 @@
-function _GameMacros()
+function GameMacro()
 {	
 	/* Macros are basically replacement for using digits and numbers in your code to
 	make it more practical. We could use emums in that case, but macros are easier */
 	
 	// Game macro
 	#macro isVar		 = 0
-	#macro isArr		 [0] = 0
+	#macro isArr		[0] = 0
 	#macro Game		     global
 	#macro FontDebug     0
 	#macro FontDigits1   1
@@ -18,6 +18,21 @@ function _GameMacros()
 	#macro SavedLives    3
 	#macro SavedConts    4
 	#macro SavedScore    5
+	
+	// Audio macro
+	#macro TypeNormal	   0
+	#macro TypePriority    1
+	#macro TypeJingle	   2
+	#macro TypeAll		   3
+	#macro TrackIndex	   0
+	#macro TrackID		   1
+	#macro TrackLoop	   2
+	#macro TrackEvent	   3
+	#macro TrackEventTime  4
+	#macro EventPlay	   0
+	#macro EventMute	   1
+	#macro EventUnmute     2
+	#macro EventStop	   3
 	
 	// Palette macro
 	#macro Palette		     global
@@ -72,13 +87,11 @@ function _GameMacros()
 	#macro AnimActEnd		   23
 	#macro AnimDropStand	   24
 
-	// Stage macro
-	#macro ActStateDefault     0
-	#macro ActStateLoading	   1
-	#macro ActStateFinished    2
-	#macro ActStateBossfight   3
-	#macro ActStateUnload      4
-	#macro ActStateRestart     5
+	// Stage macro	
+	#macro ActStateLoading	   0
+	#macro ActStateDefault     1
+	#macro ActStateFinished    2	
+	#macro ActStateUnload      3
 	
 	// Collision macro
 	#macro SideTop			   0

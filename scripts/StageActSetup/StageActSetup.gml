@@ -8,18 +8,21 @@ function StageActSetup()
 		{
 			CardNameTop				= "MOONLIGHT";	
 			CardNameBottom			= "QUADRANT";	
+			
 			ZoneID					= 0;
 			ActID					= 0;
 			FinalActID			    = 1;
+			
 			CardEnabled				= true;
 			TimeEnabled				= false;
-			Time					= 0;
-			WaterLevel				= 1700;
-			State					= ActStateLoading;
+			
+			WaterEnabled            = false;
+			WaterLevel				= 0;
+
 			StageMusic				= MoonlightQuadrant;
 			StageMusicDAC			= noone;
-			LoopStart				= 0;
-			LoopEnd					= 227.01;
+			StageMusicLooppoint		= 0;
+			
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= room_width;

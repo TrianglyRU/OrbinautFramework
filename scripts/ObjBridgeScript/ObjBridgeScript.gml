@@ -1,13 +1,13 @@
 function ObjBridgeScript()
 {
 	//var PlayerPosition = floor(Player.PosX;
-	//var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
+	var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
 	var ActiveLog      = ds_list_find_index(LogID, Player.OnObject);
 	
 	// Set a recovery angle by checking if player or AI is standing on any log of this bridge
     if ActiveLog >= 0
     {    
-		PlayerPosition = ActiveLog + 1
+		//PlayerPosition = ActiveLog + 1
         if RecoveryAngle < 90
 		{
 			RecoveryAngle += 5.625;
@@ -36,7 +36,7 @@ function ObjBridgeScript()
     
     // Bridge physics
     for (var i = 0; i < BridgeLength; i++)
-    {    
+    {   
         // Check for current log
         var log_difference = abs((i + 1) - CurrentSegment);
         
@@ -52,8 +52,19 @@ function ObjBridgeScript()
             var Tension = log_difference / (BridgeLength - CurrentSegment + 1);
         }
         
-        // Calculate and apply logs position for this bridge		
-		LogID[| i].y = floor(y + (MaxDepression * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
+		// Calculate log tension
+		var NewTension = 1 - Tension;
+		if  NewTension > LogTension[i]
+		{
+			LogTension[i] = min(LogTension[i] + 0.03, NewTension);
+		}
+		else
+		{
+			LogTension[i] = max(LogTension[i] - 0.03, NewTension);
+		}
+
+		// Calculate final log position
+		LogID[| i].y = floor(y + (MaxDepression * dsin(floor(90 * (LogTension[i])))) * dsin(RecoveryAngle));
     }
 	
     // Do collision with the bridge

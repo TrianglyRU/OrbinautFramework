@@ -2,7 +2,7 @@
 // You can write your code in this editor
 	
 	// Initialize variables
-	_InputVariables();
+	InputVariables();
 	
 	// Setup input system
 	InputSetup();

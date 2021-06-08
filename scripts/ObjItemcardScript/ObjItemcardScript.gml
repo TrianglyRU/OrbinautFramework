@@ -84,6 +84,9 @@ function ObjItemcardScript()
 					{
 						// Give highspeed bonus for 20 seconds
 						Player.HighSpeedBonus = 1200;
+						
+						// Play music
+						audio_bgm_play(HighspeedMusic, noone, 0, TypePriority);
 					}
 					break;
 					case "Regular Barrier":
@@ -127,6 +130,9 @@ function ObjItemcardScript()
 					{
 						// Give invincibility bonus for 20 seconds
 						Player.InvincibilityBonus = 1200;
+						
+						// Play music
+						audio_bgm_play(InvincibilityMusic, noone, 0, TypePriority);
 					}
 					break;
 					case "Extra Life":

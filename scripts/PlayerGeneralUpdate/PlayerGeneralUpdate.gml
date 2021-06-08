@@ -30,6 +30,11 @@ function PlayerGeneralUpdate()
 		// Restore normal physics when bonus has ended 
 		if !HighSpeedBonus
 		{
+			if !InvincibilityBonus
+			{
+				audio_bgm_stop(TypePriority, 1);
+			}
+			
 			Acc	    = 0.046875;
 			Frc     = 0.046875;
 			AirAcc  = 0.09375;
@@ -42,7 +47,7 @@ function PlayerGeneralUpdate()
 	if !isUnderwater
 	{
 		// Check for falling into the water
-		if !Death and PosY > Stage.WaterLevel
+		if Stage.WaterEnabled and PosY > Stage.WaterLevel and !Death
 		{
 			Xsp			*= 0.5;
 			Ysp			*= 0.25;
@@ -212,7 +217,14 @@ function PlayerGeneralUpdate()
 		}
 		
 		InvincibilityBonus--;
-		if (!InvincibilityBonus) instance_destroy(InvincibilityStar);
+		if !InvincibilityBonus
+		{
+			if !HighSpeedBonus
+			{
+				audio_bgm_stop(TypePriority, 1);
+			}
+			instance_destroy(InvincibilityStar);
+		}
 	}
 	
 	// Decrease temp invincibility timer

@@ -1,4 +1,4 @@
-function _ScreenVariables()
+function ScreenVariables()
 {
 	InterfaceEnabled   isVar;
 	InterfaceOffsetX   isVar;

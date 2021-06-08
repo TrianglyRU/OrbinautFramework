@@ -5,10 +5,6 @@ function ObjBossControllerScript()
 	{
 		if floor(Player.PosX) > x
 		{
-			// Activate bossfight
-			BossTriggered = true;
-			Stage.State   = ActStateBossfight;
-			
 			// Set boundaries
 			Stage.TargetLeftBoundary   = x - max(Screen.Width  / 2, ArenaWidth  / 2);
 			Stage.TargetRightBoundary  = x + max(Screen.Width  / 2, ArenaWidth  / 2);
@@ -23,6 +19,8 @@ function ObjBossControllerScript()
 				break;
 				default: break;
 			}
+			
+			BossTriggered = true;
 		}
 	}
 	

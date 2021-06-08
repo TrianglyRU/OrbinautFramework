@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Stage.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageActEnd",
+  "name": "StageActStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

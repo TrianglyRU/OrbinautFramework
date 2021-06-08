@@ -1,10 +1,10 @@
 function ObjBridgeSetup()
 {
 	// Initialize variables
-	PlayerPosition isVar;
 	RecoveryAngle  isVar;
-	LogDepression  isArr;
 	LogID		   isArr;
+	LogTension     isArr;
+	LogDepression  isArr;	
 	
 	/* Variable Definitions	
 	1. BridgeLength, default = 12
@@ -36,5 +36,6 @@ function ObjBridgeSetup()
 		
 		// Calculate log depression value
 		LogDepression[i] = (i < BridgeLength / 2 ? i : BridgeLength - i - 1) * 2 + 2;
+		LogTension[i]    = 0;
 	}
 }

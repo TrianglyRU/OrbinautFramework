@@ -1,27 +1,29 @@
-/// @function audio_bgm_stop(musicID, fadeTime)
-function audio_bgm_stop(musicID, fadeTime)
+/// @function audio_bgm_stop(type,time)
+function audio_bgm_stop(type, time)
 {	
-	// Check if the BGM is playing
-	if audio_is_playing(musicID)
+	switch type
 	{
-		// Stop the BGM if no fade time is specified
-		if fadeTime == 0
+		case TypeNormal:
+			Game.NormalTrack[TrackEvent]	   = EventStop;
+			Game.NormalTrack[TrackEventTime]   = time;
+		break;
+		case TypePriority:
+			Game.PriorityTrack[TrackEvent]	   = EventStop;
+			Game.PriorityTrack[TrackEventTime] = time;
+		break;
+		case TypeJingle:
+			Game.JingleTrack[TrackEvent]	   = EventStop;
+			Game.JingleTrack[TrackEventTime]   = time;
+		break;
+		case TypeAll:
 		{
-			audio_stop_sound(musicID);
-		}		
-		else
-		{
-			// Fade out the BGM if the fade time is set and its volume is not 0
-			if audio_sound_get_gain(musicID) != 0
-			{	
-				audio_bgm_mute(musicID, fadeTime);
-			}
-			
-			// If BGM volume equals zero, stop it
-			else
-			{
-				audio_stop_sound(musicID);	
-			}
+			Game.NormalTrack[TrackEvent]	   = EventStop;
+			Game.PriorityTrack[TrackEvent]	   = EventStop;
+			Game.JingleTrack[TrackEvent]	   = EventStop;
+			Game.NormalTrack[TrackEventTime]   = time;
+			Game.PriorityTrack[TrackEventTime] = time;
+			Game.JingleTrack[TrackEventTime]   = time;
 		}
+		break;
 	}
 }

@@ -1,37 +1,39 @@
-/// @function audio_bgm_play(musicID, endAt, returnTo)
-function audio_bgm_play(musicID, endAt, returnTo)
+/// @function audio_bgm_play(soundid,dacid,looppoint,type)
+function audio_bgm_play(soundid, dacid, looppoint, type)
 {	
-	// Exit the code if BGM volume is 0
-	if Game.MusicVolume == 0
+	switch type
 	{
-		exit;
-	}
-	// Play the BGM and assign its ID to a variable to loop it
-	if !audio_is_playing(musicID)
-	{
-		id.CurrentBGM[musicID] = audio_play_sound(musicID, 0, false);
-		exit;
-	}
-	else
-	{
-		var MusicLength = audio_sound_length(musicID);
-		if endAt != -1
+		case TypeNormal:
 		{
-			if audio_sound_get_track_position(id.CurrentBGM[musicID]) >= endAt
-			{
-				if returnTo != -1
-				{
-					audio_sound_set_track_position(id.CurrentBGM[musicID], returnTo);
-				}
-				else
-				{
-					audio_pause_sound(musicID);
-				}
-			}
+			audio_stop_sound(Game.NormalTrack[TrackID]);
+		
+			Game.NormalTrack[TrackEvent] = EventPlay;
+			Game.NormalTrack[TrackID]    = soundid;
+			Game.NormalTrack[TrackLoop]  = looppoint;
+			Game.NormalTrack[TrackIndex] = audio_play_sound(soundid, 0, false);
 		}
-		else if audio_sound_get_track_position(id.CurrentBGM[musicID]) >= MusicLength
+		break;
+		case TypePriority:
 		{
-			audio_pause_sound(musicID);
+			audio_stop_sound(Game.PriorityTrack[TrackID]);
+		
+			Game.PriorityTrack[TrackEvent] = EventPlay;
+			Game.PriorityTrack[TrackID]    = soundid;
+			Game.PriorityTrack[TrackLoop]  = looppoint;
+			Game.PriorityTrack[TrackIndex] = audio_play_sound(soundid, 0, false);
 		}
+		break;
+		case TypeJingle:
+		{
+			audio_stop_sound(Game.JingleTrack[TrackID]);
+		
+			Game.JingleTrack[TrackEvent] = EventPlay;
+			Game.JingleTrack[TrackID]    = soundid;
+			Game.JingleTrack[TrackIndex] = audio_play_sound(soundid, 0, false);
+		}
+		break;
 	}
+	
+	// Reset sound volume
+	audio_sound_gain(soundid, Game.MusicVolume, 0);
 }

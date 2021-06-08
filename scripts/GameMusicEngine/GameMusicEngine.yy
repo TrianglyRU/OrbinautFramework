@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage",
-    "path": "folders/Game Code/Stage.yy",
+    "name": "Game",
+    "path": "folders/Game Code/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageTiledataLoad",
+  "name": "GameMusicEngine",
   "tags": [],
   "resourceType": "GMScript",
 }

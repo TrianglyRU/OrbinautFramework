@@ -13,7 +13,7 @@
 	if surface_exists(GameSurf) 
 	{
 		shader_set(ShaderWave);
-		var stg = instance_exists(Stage);
+		var stg = instance_exists(Stage) and Stage.WaterEnabled;
 		shader_set_uniform_f(Uniform.Wave_Texel, GSTexel);
 		shader_set_uniform_f(Uniform.Wave_Time,  stg ? Stage.Time div 2 : 0);
 		shader_set_uniform_f(Uniform.Wave_Water, stg ? clamp(CameraY - Stage.WaterLevel + Height, 0, Height) : 0);

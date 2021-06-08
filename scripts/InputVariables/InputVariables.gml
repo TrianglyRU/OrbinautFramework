@@ -1,4 +1,4 @@
-function _InputVariables()
+function InputVariables()
 {
 	Type		isVar;
 	IgnoreInput	isVar;
