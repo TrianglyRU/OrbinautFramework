@@ -1,5 +1,5 @@
 /// @description Game Startup
-// You can call your scripts in this editor. One-time initial
+// You can call your scripts in this editor
 	
 	// Initialize macros and global variables
 	GameMacro();
@@ -21,7 +21,4 @@
 	GameWindowSetup();
 	
 	// Load game settings
-	if !Game.DevMode
-	{
-		gamesettings_load("config");
-	}
+	GameLoadSettings();
