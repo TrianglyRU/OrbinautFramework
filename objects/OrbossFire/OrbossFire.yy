@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_orb",
-    "path": "sprites/spr_obj_orb/spr_obj_orb.yy",
+    "name": "spr_obj_orboss_fire",
+    "path": "sprites/spr_obj_orboss_fire/spr_obj_orboss_fire.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
     "path": "folders/Game Objects/Boss Controller.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Orb",
+  "name": "OrbossFire",
   "tags": [],
   "resourceType": "GMObject",
 }

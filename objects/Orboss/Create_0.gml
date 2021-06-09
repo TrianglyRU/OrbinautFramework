@@ -11,8 +11,7 @@
 	State  = 0;
 	PosX = x;
 	PosY = y;
-	
-	image_index = instance_exists(Orbstatue) + 1;
+	if (!instance_exists(Orbstatue)) image_index = 2;
 	
 	object_set_solidbox(15, 15);
 	object_set_hitbox(16, 16);
@@ -20,7 +19,7 @@
 	
 	for (var i = 0; i < 6; i++) 
 	{
-		var obj = instance_create_depth(x, y, depth, Orb);
+		var obj = instance_create_depth(x, y, depth, OrbossOrb);
 		obj.Numb = i;
 		obj.Parent = id;
 	}

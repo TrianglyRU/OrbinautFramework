@@ -33,7 +33,7 @@
     "path": "folders/Game Code/Discord.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Discord2",
+  "name": "Discord",
   "tags": [],
   "resourceType": "GMObject",
 }

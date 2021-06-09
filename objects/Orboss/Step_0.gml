@@ -10,19 +10,28 @@
 				State = 1;
 				image_index = 0;
 			}
-			if (StateTimer = 50) Orb.State = 3;
+			if (StateTimer = 50) OrbossOrb.State = 3;
 		break;
 		case 1:
-			if HurtTimer 
-			{	
-				HurtTimer--;
-				if (HurtTimer = 50) Orb.State = 3;
+			AngleX += 3;
+			AngleY += 6;
+			Spin = (Spin + 1) mod 360;
+		break;
+		case 2:
+			if StateTimer
+			{
+				StateTimer--;
+				if (StateTimer = 455) image_index = 1;
+				if StateTimer <= 410 and StateTimer div 8 mod 2
+				{	
+					instance_create_depth(x + irandom(50) - 25, y + irandom(50) - 25, depth - 1, OrbossFire);
+				}
+				if (StateTimer = 50) OrbossOrb.State = 3;
 			}
 			else
-			{	
-				AngleX += 3;
-				AngleY += 6;
-				Spin = (Spin + 1) mod 360;
+			{
+				 image_index = 0;
+				 State = 1;
 			}
 		break;
 	
@@ -40,30 +49,32 @@
 		// Spawn explosion and play sound
 		instance_create(x, y, DustExplosion);
 		audio_sfx_play(sfxDestroy, false, false);
-		instance_destroy(Orb);
+		instance_destroy(OrbossOrb);
 		instance_destroy();
 					
 		// Tell the controller boss was defeated
 		BossController.BossDefeated = true;
 	}
 	
+	
 	if object_player_overlap(CollisionHitbox)
 	{
 		// Check if player can destroy Badnik
-		if Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
-		or Player.InvincibilityBonus or Player.GlidingState
+		if (State != 2 or StateTimer > 455) and (Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
+		or Player.InvincibilityBonus or Player.GlidingState)
 		{	
-			if !HurtTimer
+			if State = 1 and !StateTimer
 			{
 				audio_sfx_play(sfxDestroy, false, false);
 				
 				HP--;
-				HurtTimer  = 180;
+				State = 2;
+				StateTimer = 500;
 				AngleX = 0;
 				AngleY = 0;
 				Spin   = 0;
 				
-				Orb.State = 2;
+				OrbossOrb.State = 2;
 			
 				// Make player bounce if they are airborne
 				if !Player.Grounded
@@ -83,7 +94,7 @@
 					// Spawn explosion and play sound
 					instance_create(x, y, DustExplosion);
 					audio_sfx_play(sfxDestroy, false, false);
-					instance_destroy(Orb);
+					instance_destroy(OrbossOrb);
 					instance_destroy();
 					
 					// Tell the controller boss was defeated
