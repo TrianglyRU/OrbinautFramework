@@ -16,10 +16,10 @@
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"Game","path":"objects/Game/Game.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":true,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":-48.0,"resourceVersion":"1.0","name":"inst_201EA1CB","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"Player","path":"objects/Player/Player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":true,"ignore":false,"inheritItemSettings":false,"x":112.0,"y":-32.0,"resourceVersion":"1.0","name":"inst_72038CFD","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"Input","path":"objects/Input/Input.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":true,"ignore":false,"inheritItemSettings":false,"x":48.0,"y":-48.0,"resourceVersion":"1.0","name":"inst_5A7813CE","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"Input","path":"objects/Input/Input.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":true,"ignore":false,"inheritItemSettings":false,"x":64.0,"y":-32.0,"resourceVersion":"1.0","name":"inst_5A7813CE","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"Stage","path":"objects/Stage/Stage.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":true,"ignore":false,"inheritItemSettings":false,"x":144.0,"y":-48.0,"resourceVersion":"1.0","name":"inst_5F3E9230","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"Screen","path":"objects/Screen/Screen.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":true,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":-48.0,"resourceVersion":"1.0","name":"inst_463C0FA","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"Discord","path":"objects/Discord/Discord.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":true,"ignore":false,"inheritItemSettings":false,"x":240.0,"y":-48.0,"resourceVersion":"1.0","name":"inst_4FE82B3E","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"Discord2","path":"objects/Discord2/Discord2.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":true,"ignore":false,"inheritItemSettings":false,"x":240.0,"y":-48.0,"resourceVersion":"1.0","name":"inst_2BFFCAE3","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":true,"resourceVersion":"1.0","name":"GameControllers","tags":[],"resourceType":"GMRInstanceLayer",},
     {"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[
         {"tilesetId":{"name":"CollisionTilemap","path":"tilesets/CollisionTilemap/CollisionTilemap.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":438,"SerialiseHeight":157,"TileSerialiseData":[
@@ -449,11 +449,11 @@
     {"name":"inst_5A7813CE","path":"rooms/MQZ2/MQZ2.yy",},
     {"name":"inst_5F3E9230","path":"rooms/MQZ2/MQZ2.yy",},
     {"name":"inst_463C0FA","path":"rooms/MQZ2/MQZ2.yy",},
-    {"name":"inst_4FE82B3E","path":"rooms/MQZ2/MQZ2.yy",},
     {"name":"inst_155C050E","path":"rooms/MQZ2/MQZ2.yy",},
     {"name":"inst_20E8F2E6","path":"rooms/MQZ2/MQZ2.yy",},
     {"name":"inst_687CAAB2","path":"rooms/MQZ2/MQZ2.yy",},
     {"name":"inst_1F4DC791","path":"rooms/MQZ2/MQZ2.yy",},
+    {"name":"inst_2BFFCAE3","path":"rooms/MQZ2/MQZ2.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

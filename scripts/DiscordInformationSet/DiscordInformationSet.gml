@@ -1,37 +1,35 @@
 function DiscordInformationSet()
 {
 	// Exit if Rich Presence is disabled in the framework
-	if !Game.RichPresenceSupport
-	{
-		exit;
-	}
+	if (!Game.RichPresenceSupport) exit;
 	
-	// Set main image to show in Discord
-	discord_set_large_image("orbinaut", "");
-	
-	// Set additional image to show in Discord
-	// discord_set_small_image("sonic", "");
+	Ready = false;
 	
 	// Set details information block
 	switch room 
 	{
-		case MQZ1:
-			DetailsString = "MOONLIGHT QUADRANT 1";
-		break;
-		default:
-			DetailsString = "UNKNOWN ZONE";
-		break;
+		case MQZ1: DetailsString = "MOONLIGHT QUADRANT 1" break;
+		case MQZ2: DetailsString = "MOONLIGHT QUADRANT 2" break;
+		default:   DetailsString = "UNKNOWN ZONE"		  break;
 	}
-	discord_set_details(DetailsString);
 	
 	// Set state information block
-	switch Player.CharacterID 
+	var ID = instance_exists(Player) ? Player.CharacterID : -1;
+	switch ID
 	{
-		case CharSonic:    var Char = "SONIC";    break;
-		case CharTails:	   var Char = "TAILS";    break;
-		case CharKnuckles: var Char = "KNUCKLES"; break;
-		default:		   var Char = "UNKNOWN";  break;
+		case CharSonic:    Char = "sonic"    break;
+		case CharTails:	   Char = "tails"    break;
+		case CharKnuckles: Char = "knuckles" break;
+		default:		   Char = "unknown"  break;
 	}
-	StateString = "Playing as: " + string(Char);
-	discord_set_state(StateString);	 
+	
+	// Set main image to show in Discord
+	MainImg = "orbinaut";
+	MainImgDesc = "";
+	
+	// Set additional image to show in Discord
+	SmallImg = Char;
+	SmallImgDesc = "";
+	
+	StateString = "Playing as: " + string_upper(Char);
 }
