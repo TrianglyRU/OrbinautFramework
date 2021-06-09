@@ -85,4 +85,8 @@ function GameVariables()
 	Game.PaletteSet				 isVar;
 	Game.PalIndexDry			 isArr;
 	Game.PalIndexWet		     isArr;
+	
+	// Surfaces
+	Game.MainSurf				 isVar;
+	Game.BGSurf					 isVar;
 }

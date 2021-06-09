@@ -9,4 +9,8 @@ function GameRoomSetup()
 	
 	// Adjust room viewport to our resolution
 	application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
+	
+	// Reset surfaces
+	Game.BGSurf	  = -1;
+	Game.MainSurf = -1;
 }

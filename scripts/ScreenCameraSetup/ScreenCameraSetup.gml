@@ -22,7 +22,4 @@ function ScreenCameraSetup()
 		CameraX = RawX;
 		CameraY = RawY;
 	}
-	
-	GameSurf = -1;
-	BGSurf   = -1;
 }

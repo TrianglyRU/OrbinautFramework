@@ -5,12 +5,12 @@
 	
 	surface_set_target(application_surface);
 	
-	if surface_exists(BGSurf)
+	if surface_exists(Game.BGSurf)
 	{
-		draw_surface(BGSurf, 0, 0);
+		draw_surface(Game.BGSurf, 0, 0);
 	}
 	
-	if surface_exists(GameSurf) 
+	if surface_exists(Game.MainSurf) 
 	{
 		shader_set(ShaderWave);
 		var stg = instance_exists(Stage) and Stage.WaterEnabled;
@@ -19,7 +19,7 @@
 		shader_set_uniform_f(Uniform.Wave_Water, stg ? clamp(CameraY - Stage.WaterLevel + Height, 0, Height) : 0);
 		shader_set_uniform_f(Uniform.Wave_CamY, CameraY);
 		shader_set_uniform_f(Uniform.Wave_ScrnHeight, Height);
-		draw_surface(GameSurf, -8, 0);
+		draw_surface(Game.MainSurf, -8, 0);
 		shader_reset();
 	}
 

@@ -32,7 +32,4 @@ function ScreenVariables()
 	DebugSolids    isVar;
 	DebugHitboxes  isVar;
 	DebugSensors   isVar;
-	
-	GameSurf isVar;
-	BGSurf   isVar;
 }

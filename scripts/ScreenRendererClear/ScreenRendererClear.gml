@@ -1,14 +1,16 @@
 function ScreenRendererClear()
 {
 	// Clear main surface
-	if surface_exists(GameSurf) 
+	if surface_exists(Game.MainSurf) 
 	{
-		surface_free(GameSurf);
+		surface_free(Game.MainSurf);
+		Game.MainSurf = -1;
 	}
 	
 	// Clear BG surface
-	if surface_exists(BGSurf)
+	if surface_exists(Game.BGSurf)
 	{
-		surface_free(BGSurf);
+		surface_free(Game.BGSurf);
+		Game.BGSurf = -1;
 	}
 }

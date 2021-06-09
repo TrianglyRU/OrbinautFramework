@@ -2,7 +2,7 @@
 function bg_objectisVariableialize() 
 {	
 	// Apply a parallax shader to the object
-	surface_set_target(Screen.BGSurf);
+	surface_set_target(Game.BGSurf);
 	
 	shader_set(ShaderParallax);
 	

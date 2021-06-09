@@ -7,17 +7,14 @@ function application_set_size(appWidth, appHeight)
 	// Set application surface/viewport size
 	surface_resize(application_surface,  appWidth, appHeight);
 	
-	// Resize game and background surfaces 
-	if instance_exists(Screen)
+	// Resize main and background surfaces 
+	if surface_exists(Game.MainSurf)
 	{
-		if surface_exists(Screen.GameSurf)
-		{
-			surface_resize(Screen.GameSurf, appWidth + 16, appHeight);
-		}
-		if surface_exists(Screen.BGSurf)
-		{
-			surface_resize(Screen.BGSurf, appWidth, appHeight);
-		}
+		surface_resize(Game.MainSurf, appWidth + 16, appHeight);
+	}
+	if surface_exists(Game.BGSurf)
+	{
+		surface_resize(Game.BGSurf, appWidth, appHeight);
 	}
 	
 	// Enable surface rendering in case it was disabled
