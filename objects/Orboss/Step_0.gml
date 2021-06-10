@@ -19,10 +19,36 @@
 		break;
 		case 2:
 			if StateTimer
+			{zz
+				StateTimer--;
+				if (StateTimer = 45) image_index = 1;
+			}
+			else
+			{
+				 State = 3;
+				 StateTimer = 300;
+			}
+		break;
+		case 3:
+			if StateTimer
 			{
 				StateTimer--;
-				if (StateTimer = 455) image_index = 1;
-				if StateTimer <= 410 and StateTimer div 8 mod 2
+				var FireTime = StateTimer mod 200;
+				if FireTime >= 100 and FireTime div 20 mod 2
+				{
+					var ID = id;
+					var Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
+					with Fire
+					{
+						Parent = ID;
+						image_xscale = 0;
+						image_yscale = 0;
+						Angle = FireTime;
+						Timer = 100;
+					}
+				}
+				
+				if StateTimer div 8 mod 2
 				{	
 					instance_create_depth(x + irandom(50) - 25, y + irandom(50) - 25, depth - 1, OrbossFire);
 				}
@@ -30,8 +56,8 @@
 			}
 			else
 			{
-				 image_index = 0;
-				 State = 1;
+				image_index = 0;
+				State = 1;
 			}
 		break;
 	
@@ -60,7 +86,7 @@
 	if object_player_overlap(CollisionHitbox)
 	{
 		// Check if player can destroy Badnik
-		if (State != 2 or StateTimer > 455) and (Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
+		if State != 3 and (Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
 		or Player.InvincibilityBonus or Player.GlidingState)
 		{	
 			if State = 1 and !StateTimer
@@ -69,7 +95,7 @@
 				
 				HP--;
 				State = 2;
-				StateTimer = 500;
+				StateTimer = 90;
 				AngleX = 0;
 				AngleY = 0;
 				Spin   = 0;
