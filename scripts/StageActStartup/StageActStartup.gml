@@ -1,12 +1,15 @@
 function StageActStartup()
 {
+	// Play stage music
+	audio_bgm_play(StageMusic, StageMusicDAC, StageMusicLooppoint, TypeNormal);
+	
 	// Set target boundaries
 	TargetLeftBoundary   = LeftBoundary;
 	TargetRightBoundary  = RightBoundary;
 	TargetTopBoundary    = TopBoundary;
 	TargetBottomBoundary = BottomBoundary;
 	DeathBoundary        = BottomBoundary;
-	
+
 	// Load tile angle data
 	data_read("anglemap.bin");
 	
@@ -18,7 +21,4 @@ function StageActStartup()
 	
 	// Set tile layers IDs
 	TileLayer = [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];
-	
-	// Play stage music
-	audio_bgm_play(StageMusic, StageMusicDAC, StageMusicLooppoint, TypeNormal);
 }

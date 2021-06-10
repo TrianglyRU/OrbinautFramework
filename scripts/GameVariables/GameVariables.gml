@@ -19,6 +19,7 @@ function GameVariables()
 	Game.SavedCheckpoint		 isVar;
 	Game.SavedPosition			 isVar;
 	Game.StageTransitionData     isArr;
+	Game.StageTransitionData[10] = 0;
 	
 	Game.TransitionShiftPlayer[0]isVar;
 	Game.TransitionShiftPlayer[1]isVar;
@@ -37,14 +38,9 @@ function GameVariables()
 	Game.NormalTrack			 isArr;
 	Game.PriorityTrack			 isArr;
 	Game.JingleTrack			 isArr;
-	//Game.CurrentTrack			 isArr;
-	
-	for (var i = 0; i < 10; i++)
-	{
-		Game.NormalTrack[i] = 0;
-		Game.PriorityTrack[i] = 0;
-		Game.JingleTrack[i] = 0;
-	}
+	Game.NormalTrack[5] = 0;
+	Game.PriorityTrack[5] = 0;
+	Game.JingleTrack[5] = 0;
 	
 	// Control
 	Game.KeyboardControl		 isVar;

@@ -12,7 +12,7 @@ function ScreenTitleCardDisplay()
 	// Disable background render if we're loading from previous act
 	if CardTimer == 0
 	{
-		if Game.TransitionShiftPlayer[0] != 0 and Stage.ActID != 0
+		if Game.StageTransitionData[0] != 0 and Stage.ActID != 0
 		{
 			// Start gameplay early
 			fade_perform(from, black, 0);

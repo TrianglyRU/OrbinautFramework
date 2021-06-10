@@ -35,46 +35,52 @@ function StageActSetup()
 		{
 			CardNameTop				= "MOONLIGHT";	
 			CardNameBottom			= "QUADRANT";	
+			
 			ZoneID					= 0;
 			ActID					= 1;
 			FinalActID			    = 1;
+			
 			CardEnabled				= true;
 			TimeEnabled				= false;
-			Time					= 0;
-			WaterLevel				= 2000;
-			LeftBoundary			= 0;
-			TopBoundary				= 0;
-			RightBoundary			= room_width;
-			BottomBoundary			= 1152;
-			State					= ActStateLoading;
+			
+			WaterEnabled            = false;
+			WaterLevel				= 0;
+
 			StageMusic				= MoonlightQuadrant;
 			StageMusicDAC			= noone;
-			LoopStart				= 0;
-			LoopEnd					= 277.01;
+			StageMusicLooppoint		= 0;
+			
+			LeftBoundary			= 0;
+			TopBoundary				= 0;
+			RightBoundary			= 1024;
+			BottomBoundary			= 1120;
 		}
 		break;
 		
 		// Undentified Zone
 		default:
 		{
-			CardNameTop				= "UNDENFITIED";	
-			CardNameBottom			= "";
+			CardNameTop				= "UNKNOWN";	
+			CardNameBottom			= "LEVEL";	
+			
 			ZoneID					= -1;
 			ActID					= 0;
-			FinalActID				= 1;
+			FinalActID			    = 1;
+			
 			CardEnabled				= true;
 			TimeEnabled				= false;
-			Time					= 0;
-			WaterLevel				= room_height;
+			
+			WaterEnabled            = false;
+			WaterLevel				= 0;
+
+			StageMusic				= MoonlightQuadrant;
+			StageMusicDAC			= noone;
+			StageMusicLooppoint		= 0;
+			
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= room_width;
 			BottomBoundary			= room_height;
-			State					= ActStateLoading;
-			StageMusic				= noone;
-			StageMusicDAC			= noone;
-			LoopStart				= 0;
-			LoopEnd					= 0;
 		}
 		break;
 	}	

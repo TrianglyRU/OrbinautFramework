@@ -106,7 +106,7 @@ function PlayerMove()
 	// Our default animation if AnimIdle
 	if (Angle < 45 or Angle > 315) Animation = AnimIdle;
 	
-	if Stage.State = ActStateFinished and Stage.StateTimer == -1
+	if Stage.IsFinished and Stage.StateTimer == -1
 	{
 		Animation = AnimActEnd;
 	}

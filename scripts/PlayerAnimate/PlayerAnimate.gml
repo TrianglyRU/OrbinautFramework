@@ -106,6 +106,9 @@ function PlayerAnimate()
 				case AnimPush:
 					animation_play(spr_tails_push, 32, 1);
 				break;
+				case AnimActEnd:
+					animation_play(spr_tails_actend, 4, 2);
+				break;
 			}	
 		}
 		break;

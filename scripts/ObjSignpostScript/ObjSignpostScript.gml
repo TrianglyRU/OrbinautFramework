@@ -5,8 +5,8 @@ function ObjSignpostScript()
 	{
 		if object_player_overlap(CollisionTriggerbox)
 		{
-			Active		= true;
-			Stage.State = ActStateFinished;
+			Active		     = true;
+			Stage.IsFinished = true;
 			
 			// Play sound
 			audio_sfx_play(sfxSignpost, false, true);
