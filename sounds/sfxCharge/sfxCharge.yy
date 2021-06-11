@@ -10,7 +10,7 @@
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxCharge.wav",
+  "soundFile": "sfxCharge.ogg",
   "duration": 1.838379,
   "parent": {
     "name": "SFX",

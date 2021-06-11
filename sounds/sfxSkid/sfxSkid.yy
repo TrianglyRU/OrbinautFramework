@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxSkid.wav",
-  "duration": 0.375522,
+  "duration": 0.472891,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxScoreTally.wav",
-  "duration": 1.72828794,
+  "duration": 1.71679091,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

@@ -1,5 +1,5 @@
 {
-  "compression": 0,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -10,14 +10,14 @@
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxSignpost.wav",
+  "soundFile": "sfxSignPost.wav",
   "duration": 1.809422,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxSignpost",
+  "name": "sfxSignPost",
   "tags": [],
   "resourceType": "GMSound",
 }

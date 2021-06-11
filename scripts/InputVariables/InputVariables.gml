@@ -1,6 +1,7 @@
 function InputVariables()
 {
 	Type		isVar;
+	GamepadType isVar;
 	IgnoreInput	isVar;
 	ResetInput	isVar;
 	Up			isVar;

@@ -38,7 +38,7 @@ function ObjLamppostScript()
 				}
 			
 				// Play sound
-				audio_sfx_play(sfxLamppost, false, true);
+				audio_sfx_play(sfxStarPost, false, true);
 			}
 		}
 	

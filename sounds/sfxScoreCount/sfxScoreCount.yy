@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxScoreCount.wav",
-  "duration": 1.178605,
+  "duration": 0.038311,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

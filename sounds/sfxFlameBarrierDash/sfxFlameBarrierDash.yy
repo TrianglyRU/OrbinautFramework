@@ -4,13 +4,13 @@
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
-  "type": 1,
+  "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxFlameBarrierDash.wav",
+  "soundFile": "sfxFlameBarrierDash.ogg",
   "duration": 0.835363,
   "parent": {
     "name": "SFX",

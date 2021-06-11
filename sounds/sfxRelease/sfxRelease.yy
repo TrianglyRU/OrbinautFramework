@@ -10,7 +10,7 @@
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxRelease.wav",
+  "soundFile": "sfxRelease.ogg",
   "duration": 1.435136,
   "parent": {
     "name": "SFX",

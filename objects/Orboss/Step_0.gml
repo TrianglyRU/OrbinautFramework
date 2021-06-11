@@ -19,7 +19,7 @@
 		break;
 		case 2:
 			if StateTimer
-			{zz
+			{
 				StateTimer--;
 				if (StateTimer = 45) image_index = 1;
 			}

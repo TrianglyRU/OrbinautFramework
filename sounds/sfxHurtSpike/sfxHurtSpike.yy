@@ -10,8 +10,8 @@
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxHurtSpike.wav",
-  "duration": 0.705023,
+  "soundFile": "sfxHurtSpike.ogg",
+  "duration": 0.706655,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

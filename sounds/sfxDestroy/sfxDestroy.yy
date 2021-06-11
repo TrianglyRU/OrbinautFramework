@@ -4,14 +4,14 @@
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
-  "type": 1,
+  "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
     "name": "GlobalSFX",
     "path": "audiogroups/GlobalSFX",
   },
-  "soundFile": "sfxDestroy.wav",
-  "duration": 0.371689,
+  "soundFile": "sfxDestroy.ogg",
+  "duration": 0.454637,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

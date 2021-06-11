@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "Jingle1UP.ogg",
-  "duration": 3.412075,
+  "duration": 3.921848,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",
