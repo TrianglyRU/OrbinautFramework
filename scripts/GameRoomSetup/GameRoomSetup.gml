@@ -4,8 +4,9 @@ function GameRoomSetup()
 	you don't have to change viewport settings, for example */
 	
 	// Reset surfaces
-	Game.BGSurf	  = -1;
-	Game.MainSurf = -1;
+	Game.BGSurf		  = -1;
+	Game.MainSurf	  = -1;
+	Game.CompleteSurf = -1;
 	
 	// Enable room viewport 0 and make it visible
 	view_enabled[0] = true;

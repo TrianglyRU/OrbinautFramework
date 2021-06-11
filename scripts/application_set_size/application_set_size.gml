@@ -16,6 +16,10 @@ function application_set_size(appWidth, appHeight)
 	{
 		surface_resize(Game.BGSurf, appWidth, appHeight);
 	}
+	if surface_exists(Game.CompleteSurf)
+	{
+		surface_resize(Game.CompleteSurf, appWidth, appHeight);
+	}
 	
 	// Enable surface rendering in case it was disabled
 	application_surface_draw_enable(true);

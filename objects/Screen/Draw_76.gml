@@ -12,3 +12,8 @@
 	{
 		Game.BGSurf = surface_create(Width, Height);
 	}
+	
+	if !surface_exists(Game.CompleteSurf)
+	{
+		Game.CompleteSurf = surface_create(Width, Height);
+	}

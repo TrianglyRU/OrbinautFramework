@@ -2,47 +2,57 @@
 // You can write your code in this editor
 	
 	// TODO: all
-	
-	surface_set_target(application_surface);
-	
-	if surface_exists(Game.BGSurf)
+	if surface_exists(Game.CompleteSurf)
 	{
-		draw_surface(Game.BGSurf, 0, 0);
-	}
+		surface_set_target(Game.CompleteSurf);
 	
-	if surface_exists(Game.MainSurf) 
-	{
-		shader_set(ShaderWave);
-		var stg = instance_exists(Stage) and Stage.WaterEnabled;
-		shader_set_uniform_f(Uniform.Wave_Texel, GSTexel);
-		shader_set_uniform_f(Uniform.Wave_Time,  stg ? Stage.Time div 2 : 0);
-		shader_set_uniform_f(Uniform.Wave_Water, stg ? clamp(CameraY - Stage.WaterLevel + Height, 0, Height) : 0);
-		shader_set_uniform_f(Uniform.Wave_CamY, CameraY);
-		shader_set_uniform_f(Uniform.Wave_ScrnHeight, Height);
-		draw_surface(Game.MainSurf, -8, 0);
-		shader_reset();
-	}
+		if surface_exists(Game.BGSurf)
+		{
+			draw_surface(Game.BGSurf, 0, 0);
+		}
+	
+		if surface_exists(Game.MainSurf) 
+		{
+			shader_set(ShaderWave);
+			var stg = instance_exists(Stage) and Stage.WaterEnabled;
+			shader_set_uniform_f(Uniform.Wave_Texel, GSTexel);
+			shader_set_uniform_f(Uniform.Wave_Time,  stg ? Stage.Time div 2 : 0);
+			shader_set_uniform_f(Uniform.Wave_Water, stg ? clamp(CameraY - Stage.WaterLevel + Height, 0, Height) : 0);
+			shader_set_uniform_f(Uniform.Wave_CamY, CameraY);
+			shader_set_uniform_f(Uniform.Wave_ScrnHeight, Height);
+			draw_surface(Game.MainSurf, -8, 0);
+			shader_reset();
+		}
 
-	// Draw water surface
-	ScreenDrawWaterSurface();
+		// Draw water surface
+		ScreenDrawWaterSurface();
 	
-	// Start rendering our application
-	ScreenRendererPerform();
+		// Start rendering our application
+		ScreenRendererPerform();
 	
-	// Display HUD
-	ScreenInterfaceDisplay();
+		// Display HUD
+		ScreenInterfaceDisplay();
 	
-	// Display results screen
-	ScreenResultsDisplay();
+		// Display results screen
+		ScreenResultsDisplay();
 		
-	// Display title card
-	ScreenTitleCardDisplay();
+		surface_reset_target();
+		
+		surface_set_target(application_surface);
+		draw_surface(Game.CompleteSurf, 0, 0);
+		shader_reset();
 	
-	// Update our application renderer
-	ScreenRendererUpdate();
+		/* Everything after this line will render ABOVE the fade */
 	
-	/* Everything after this line will render ABOVE the fade and 
-	   will use current window resolution instead of game one    */
+		// Display title card
+		ScreenTitleCardDisplay();
+	
+		// Update our application renderer
+		ScreenRendererUpdate();
+	}
+	
+	/* Everything after this line will use current 
+		  window resolution instead of game one    */
 	
 	// Display debug screen
 	ScreenDebugScreenDisplay();

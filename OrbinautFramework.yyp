@@ -356,6 +356,7 @@
     {"id":{"name":"ObjInvStarScript","path":"scripts/ObjInvStarScript/ObjInvStarScript.yy",},"order":2,},
     {"id":{"name":"ScreenDebugScreenDisplay","path":"scripts/ScreenDebugScreenDisplay/ScreenDebugScreenDisplay.yy",},"order":6,},
     {"id":{"name":"object_collide_tiles_v","path":"scripts/object_collide_tiles_v/object_collide_tiles_v.yy",},"order":31,},
+    {"id":{"name":"ShaderPostProcessing","path":"shaders/ShaderPostProcessing/ShaderPostProcessing.yy",},"order":5,},
     {"id":{"name":"CollapsingPlatformHandler","path":"objects/CollapsingPlatformHandler/CollapsingPlatformHandler.yy",},"order":0,},
     {"id":{"name":"CollisionChange","path":"objects/CollisionChange/CollisionChange.yy",},"order":0,},
     {"id":{"name":"sprHUD_ResultsAct","path":"sprites/sprHUD_ResultsAct/sprHUD_ResultsAct.yy",},"order":12,},

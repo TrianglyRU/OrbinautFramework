@@ -83,6 +83,7 @@ function GameVariables()
 	Game.PalIndexWet		     isArr;
 	
 	// Surfaces
+	Game.CompleteSurf			 isVar;
 	Game.MainSurf				 isVar;
 	Game.BGSurf					 isVar;
 }
