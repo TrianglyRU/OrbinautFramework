@@ -2,7 +2,6 @@
 // You can write your code in this editor
 	
 	HP     = 10;
-	HurtTimer  = 0;
 	AngleX = 0;
 	AngleY = 0;
 	Spin   = 90;

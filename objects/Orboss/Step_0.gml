@@ -34,7 +34,7 @@
 			{
 				StateTimer--;
 				var FireTime = StateTimer mod 200;
-				if FireTime >= 100 and FireTime div 20 mod 2
+				if FireTime >= 150 and !(FireTime mod 10)
 				{
 					var ID = id;
 					var Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
@@ -43,12 +43,21 @@
 						Parent = ID;
 						image_xscale = 0;
 						image_yscale = 0;
-						Angle = FireTime;
-						Timer = 100;
+						Angle = (200 - FireTime) * 2;
+						Timer = 60;
+					}
+					Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
+					with Fire
+					{
+						Parent = ID;
+						image_xscale = 0;
+						image_yscale = 0;
+						Angle = -(200 - FireTime) * 2;
+						Timer = 60;
 					}
 				}
 				
-				if StateTimer div 8 mod 2
+				if StateTimer mod 8 == 1
 				{	
 					instance_create_depth(x + irandom(50) - 25, y + irandom(50) - 25, depth - 1, OrbossFire);
 				}
