@@ -161,7 +161,7 @@ function PlayerAnglePos()
 			
 			// Use right tile (secondary)
 			else
-			{
+			{	
 				var floorDistance = TileRight[0];
 				var floorAngle	  = TileRight[1];
 

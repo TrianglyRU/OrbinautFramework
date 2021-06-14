@@ -53,9 +53,6 @@ function ObjItemboxScript()
 				Airborne = false;
 			}
 		}	
-		
-		// Keep card on the same y as itembox
-		ItemCardPosY = y - 3;
 	}
 	
 	// Check if monitor is destroyed

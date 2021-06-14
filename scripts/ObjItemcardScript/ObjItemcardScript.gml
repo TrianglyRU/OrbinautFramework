@@ -32,6 +32,9 @@ function ObjItemcardScript()
 		
 		// Limit timer
 		ItemCardTimer = ItemCardTimer mod 6;
+		
+		// Keep card on the same y as itembox
+		ItemCardPosY = y - 4;
 	}
 	
 	// Check if monitor is destroyed but card is not released yet
