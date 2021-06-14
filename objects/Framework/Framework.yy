@@ -32,7 +32,7 @@
     "path": "folders/Game Code/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Game",
+  "name": "Framework",
   "tags": [],
   "resourceType": "GMObject",
 }

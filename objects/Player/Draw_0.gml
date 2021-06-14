@@ -2,7 +2,7 @@
 // You can write your code in this editor
 	
 	// Exit the code if stage is loading or unloading
-	if Stage.State == ActStateLoading or Stage.State == ActStateUnload
+	if Stage.GamePaused or Stage.State == ActStateLoading or Stage.State == ActStateUnload
 	{
 		exit;
 	}

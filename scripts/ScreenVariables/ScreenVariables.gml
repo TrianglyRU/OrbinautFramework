@@ -27,9 +27,11 @@ function ScreenVariables()
 	OverviewOffset	   isVar;
 	CameraEnabled      isVar;
 	
-	DebugToggle	   isVar;
-	DebugVariables isVar;
-	DebugSolids    isVar;
-	DebugHitboxes  isVar;
-	DebugSensors   isVar;
+	DebugToggle		   isVar;
+	DebugVariables	   isVar;
+	DebugSolids		   isVar;
+	DebugHitboxes	   isVar;
+	DebugSensors	   isVar;
+	
+	PauseScreen		   isVar;
 }

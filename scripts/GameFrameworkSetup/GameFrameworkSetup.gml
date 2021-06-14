@@ -9,7 +9,6 @@ function GameFrameworkSetup()
 	Game.GlobalLives	 = 3;
 	Game.GlobalConts	 = 0;
 	Game.GlobalEmeralds  = 0;
-	Game.GamePaused		 = false;
 	Game.SavedCheckpoint = false;
 	Game.SavedPosition   = false;
 	

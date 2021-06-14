@@ -1,5 +1,5 @@
 function StageObjectsUpdate() 
-{	
+{		
 	// Unload all objects
 	instance_deactivate_object(Objects);
 	
@@ -33,7 +33,8 @@ function StageObjectsUpdate()
 		with all
 		{
 			// Exit the code if object is the one to ignore
-			var IgnoreList = [Game, Player, Input, Screen, Stage, Discord, Spawnpoint];
+			//var IgnoreList = [Game, Player, Input, Screen, Stage, Discord, Spawnpoint];
+			var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint];
 			for (var i = 0; i < array_length(IgnoreList); i++)
 			{
 				if object_index == IgnoreList[i]

@@ -1,5 +1,5 @@
 function GameVariables()
-{
+{	
 	// Dev mode
 	Game.DevMode				 isVar;
 	
@@ -13,7 +13,6 @@ function GameVariables()
 	Game.GlobalLives			 isVar;
 	Game.GlobalConts			 isVar;
 	Game.GlobalEmeralds			 isVar;
-	Game.GamePaused				 isVar;
 	
 	// Saved positions
 	Game.SavedCheckpoint		 isVar;

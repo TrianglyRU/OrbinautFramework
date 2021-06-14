@@ -8,7 +8,7 @@
 	ScreenCameraSetup();
 	
 	// Setup HUD
-	ScreenInterfaceSetup()
+	ScreenInterfaceSetup();
 	
 	// Setup title card
 	ScreenTitleCardSetup();

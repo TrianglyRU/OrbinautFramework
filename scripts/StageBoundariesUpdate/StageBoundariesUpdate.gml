@@ -1,7 +1,7 @@
 function StageBoundariesUpdate()
 {	
 	// Limit left boundary if we've loaded from the previous act
-	if Game.StageTransitions and Stage.ActID != 0
+	if Game.StageTransitions and ActID != 0
 	{
 		TargetLeftBoundary = Spawnpoint.x - Screen.Width / 2;
 		LeftBoundary       = TargetLeftBoundary;

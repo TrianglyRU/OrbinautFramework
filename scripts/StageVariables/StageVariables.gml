@@ -21,7 +21,6 @@ function StageVariables()
 	ZoneID	        isVar;
 	ActID	        isVar;
 	
-	GamePaused      isVar;
 	IsFinished      isVar;
 	
 	TimeEnabled     isVar;
@@ -36,4 +35,8 @@ function StageVariables()
 	StageMusicDAC   isVar;
 	LoopStart       isVar;
 	LoopEnd			isVar;	
+	
+	GamePaused      isVar;
+	PauseButton     isVar;
+	PauseMode       isVar;
 }
