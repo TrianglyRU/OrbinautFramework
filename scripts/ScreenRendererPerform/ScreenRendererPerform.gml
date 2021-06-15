@@ -1,5 +1,26 @@
 function ScreenRendererPerform()
 {
+
+	surface_set_target(Game.CompleteSurf);
+	
+	if surface_exists(Game.BGSurf)
+	{
+		draw_surface(Game.BGSurf, 0, 0);
+	}
+	
+	if surface_exists(Game.MainSurf) 
+	{
+		shader_set(ShaderWave);
+		var stg = instance_exists(Stage) and Stage.WaterEnabled;
+		shader_set_uniform_f(Uniform.Wave_Texel, GSTexel);
+		shader_set_uniform_f(Uniform.Wave_Time,  stg ? Stage.Time div 2 : 0);
+		shader_set_uniform_f(Uniform.Wave_Water, stg ? clamp(CameraY - Stage.WaterLevel + Height, 0, Height) : 0);
+		shader_set_uniform_f(Uniform.Wave_CamY, CameraY);
+		shader_set_uniform_f(Uniform.Wave_ScrnHeight, Height);
+		draw_surface(Game.MainSurf, -8, 0);
+		shader_reset();
+	}
+		
 	// Use our screen shader
 	shader_set(ShaderScreen);
 	

@@ -71,11 +71,15 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				objectTop = objectY - collisionMap[playerPosition] - 1;
 			}
 		}
-		
+
 		// Check if player is outside of this object collision diameter
 		var edgeExtension = (collideSides or Game.ImprovedObjCollision) * 10	
 		if  playerX + edgeExtension < objectLeft or playerX - edgeExtension > objectRight or !collideTop
 		{
+			if Player.GlidingState
+			{
+				Player.GlidingState = GlidingDrop;
+			}
 			Player.OnObject = false;
 			exit;
 		}
@@ -304,10 +308,15 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						FlyingTimer = 0;
 							
 						// Knuckles gliding
-						GlidingState = false;
+						if GlidingState == GlidingAir or GlidingState == GlidingTurn
+						{
+							GlidingState = GlidingGround;
+							OnObject     = false;
+							Grounded     = false;
+						}
 							
 						// Reset radiuses to default values
-						if !Rolling
+						if Grounded and !Rolling
 						{
 							PosY   -= yRadiusDefault - yRadius;
 							yRadius = yRadiusDefault; 

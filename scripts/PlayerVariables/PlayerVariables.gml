@@ -41,6 +41,7 @@ function PlayerVariables()
 	FlyingState			 isVar;
 	FlyingTimer			 isVar;
 	GlidingState		 isVar;
+	GlidingDirection     isVar;
 	GlidingValue		 isVar;
 	ClimbingState		 isVar;
 	ClimbingValue        isVar;

@@ -53,6 +53,11 @@ function GameMacro()
 	#macro CharSonic		   0
 	#macro CharTails	       1
 	#macro CharKnuckles	       2
+	#macro GlidingAir		   1
+	#macro GlidingDrop	       2
+	#macro GlidingGround	   3
+	#macro GlidingStop		   4
+	#macro GlidingTurn		   5
 	#macro DirLeft	          -1
 	#macro DirRight	           1
 	#macro LayerA		       0

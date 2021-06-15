@@ -149,7 +149,28 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_death, 1, 1);
 				break;
 				case AnimGlide:
-					animation_play(spr_knuckles_glide, 1, 1);
+				{
+					if GlidingState != 5
+					{
+						animation_set_frame(spr_knuckles_glide, 1);
+					}
+					else
+					{
+						if abs(GlidingValue) > 66
+						{
+							var AnimFrame = 1;
+						}
+						else if abs(GlidingValue) > 33
+						{
+							var AnimFrame = 2;
+						}
+						else
+						{
+							var AnimFrame = 3;
+						}
+						animation_set_frame(spr_knuckles_glide, AnimFrame);
+					}	
+				}
 				break;
 				case AnimGlideDrop:
 					animation_play(spr_knuckles_glidedrop, 6, 2);
@@ -164,7 +185,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_dropstand, 3, 3);
 				break;
 				case AnimClimb:
-					animation_play(spr_knuckles_climb, -(Ysp * 6), 1);
+					animation_play(spr_knuckles_climb, -(Ysp * 4), 1);
 				break;
 				case AnimClimbering:
 					animation_play(spr_knuckles_climbering, 6, 4);

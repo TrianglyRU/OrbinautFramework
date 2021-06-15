@@ -12,7 +12,7 @@
 	{
 		// Animate character
 		PlayerAnimate();
-	
+		
 		// Display character
 		PlayerDisplay();
 	}

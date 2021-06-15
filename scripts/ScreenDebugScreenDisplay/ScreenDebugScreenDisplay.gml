@@ -82,7 +82,7 @@ function ScreenDebugScreenDisplay()
 				+ "\n         * CHARACTER VISUALS *"
 				+ "\n"
 				+ "\n   ANIMATION: " + string(sprite_get_name(Player.sprite_index))
-				//+ "\n   NEXT FRAME IN: " + string(Player.aniTimer)
+				+ "\n   NEXT FRAME IN: " + string(Player.AnimationTimer)
 				+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
 				+ "\n   FRAMES TOTAL: " + string(Player.image_number)
 				+ "\n   VISUAL ANGLE: " + string(Player.VisualAngle)

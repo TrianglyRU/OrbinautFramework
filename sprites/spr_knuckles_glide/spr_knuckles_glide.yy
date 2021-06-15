@@ -27,6 +27,12 @@
     {"compositeImage":{"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":{"name":"dc865f33-0804-4ff4-827f-8065615ff23e","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_glide","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"771f93b3-4172-4952-bc40-aec2a748bf70","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"771f93b3-4172-4952-bc40-aec2a748bf70","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":{"name":"dc865f33-0804-4ff4-827f-8065615ff23e","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_knuckles_glide","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"771f93b3-4172-4952-bc40-aec2a748bf70","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"a67c176d-9851-40da-aa7c-34f5a47d1b0d","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"a67c176d-9851-40da-aa7c-34f5a47d1b0d","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"LayerId":{"name":"dc865f33-0804-4ff4-827f-8065615ff23e","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_knuckles_glide","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","name":"a67c176d-9851-40da-aa7c-34f5a47d1b0d","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_knuckles_glide","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},
@@ -36,12 +42,14 @@
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 3.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"dca6abc2-6836-4d68-9fde-5946635b3268","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1c834011-fc35-48e0-a573-ce081e259cdd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c055a406-c38e-4f07-831b-84aaae1721e2","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"771f93b3-4172-4952-bc40-aec2a748bf70","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1943ed58-4cb2-4c98-9945-c4203c5e4275","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a67c176d-9851-40da-aa7c-34f5a47d1b0d","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,

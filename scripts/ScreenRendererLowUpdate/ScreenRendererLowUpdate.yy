@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Screen.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ScreenRendererUpdate",
+  "name": "ScreenRendererLowUpdate",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -41,10 +41,9 @@ function PlayerDisplay()
 				}
 		
 				// Simply apply regular angle to visual angle while in-air
-				else
+				else if VisualAngle != 360
 				{
-					VisualAngle = Angle;
-					
+					VisualAngle = Angle;		
 				}
 				
 				// Limit visual angle

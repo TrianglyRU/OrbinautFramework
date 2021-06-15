@@ -1,7 +1,7 @@
-function ScreenRendererUpdate()
+function ScreenRendererHighUpdate()
 {	
 	surface_reset_target();
-	if keyboard_check(ord("A"))
+	/*if keyboard_check(ord("A"))
 	{
 		shader_set(ShaderPostProcessing);
 		application_surface_draw_enable(true);
@@ -9,7 +9,7 @@ function ScreenRendererUpdate()
 		application_surface_draw_enable(false);
 		shader_reset();
 	}
-	else
+	else*/
 	{
 		application_surface_draw_enable(true);
 		draw_surface(application_surface, 0, 0);
