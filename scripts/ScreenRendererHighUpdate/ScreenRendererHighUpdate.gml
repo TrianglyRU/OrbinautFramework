@@ -9,7 +9,8 @@ function ScreenRendererHighUpdate()
 		application_surface_draw_enable(false);
 		shader_reset();
 	}
-	else*/
+	else
+	*/
 	{
 		application_surface_draw_enable(true);
 		draw_surface(application_surface, 0, 0);

@@ -4,7 +4,7 @@
 	varying vec4 v_vColour;
 	
 	#region Blur&Bloom (Options)
-
+	/*
 	const float	bloomThreshold = .1;
 	const float	bloomRange = .4;
 	const vec3  bloomColour = vec3(.7);
@@ -13,7 +13,7 @@
 	const float blurIntensity = .2;
 	
 	const float brightness = .65;
-	/*	
+	*/
 	const float	bloomThreshold = .1;
 	const float	bloomRange = .4;
 	const vec3  bloomColour = vec3(.7);
@@ -22,7 +22,7 @@
 	const float blurIntensity = .15;
 	
 	const float brightness = .75;
-	*/
+
 	#endregion
 	
 	void main()
@@ -75,8 +75,8 @@
 	   
 		float lum		= dot(outTex.rgb, bloomColour);
 		float weight	= smoothstep(bloomThreshold, bloomThreshold + bloomRange, lum);
-		outTex.rgb	= mix(vec3(0.), outTex.rgb, weight) * brightness;
-		gl_FragColor = sumTex * blurIntensity + v_vColour * outTex;
+		outTex.rgb	= mix(vec3(0.), outTex.rgb, weight);
+		gl_FragColor = (sumTex * blurIntensity + v_vColour * outTex)  * brightness;
 		
 		#endregion
 		

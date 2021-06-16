@@ -1,9 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+	if (StateTimer) StateTimer--;
 	switch State
 	{
 		case 0:
-			StateTimer--;
 			PosY++;
 			if !StateTimer
 			{
@@ -13,14 +14,13 @@
 			if (StateTimer = 50) OrbossOrb.State = 3;
 		break;
 		case 1:
-			AngleX += 3;
-			AngleY += 6;
-			Spin = (Spin + 1) mod 360;
+			AngleX = (AngleX + 3) mod 360;
+			AngleY = (AngleY + 6) mod 360;
+			Spin   = (Spin   + 1) mod 360;
 		break;
 		case 2:
 			if StateTimer
 			{
-				StateTimer--;
 				if (StateTimer = 45) image_index = 1;
 			}
 			else
@@ -32,7 +32,6 @@
 		case 3:
 			if StateTimer
 			{
-				StateTimer--;
 				var FireTime = StateTimer mod 200;
 				if FireTime >= 150 and !(FireTime mod 10)
 				{
@@ -59,9 +58,15 @@
 				
 				if StateTimer mod 8 == 1
 				{	
-					instance_create_depth(x + irandom(50) - 25, y + irandom(50) - 25, depth - 1, OrbossFire);
+					instance_create_depth(x + irandom(50) - 25, y + irandom(50) - 25, depth - 1, StateTimer > 50 ? OrbossFire : OrbossSmoke);
 				}
-				if (StateTimer = 50) OrbossOrb.State = 3;
+				if StateTimer = 50
+				{
+					OrbossOrb.State = 3;
+					Spin   = 0;
+					AngleX = 0;
+					AngleY = 0;
+				}
 			}
 			else
 			{
@@ -69,28 +74,28 @@
 				State = 1;
 			}
 		break;
-	
+		case 4:
+			if StateTimer mod 8 == 1
+			{	
+				// Spawn explosion and play sound
+				instance_create(x + irandom(50) - 25, y + irandom(50) - 25, DustExplosion);
+				audio_sfx_play(sfxDestroy, false, false);
+			}
+			
+			if !StateTimer
+			{
+				// Tell the controller boss was defeated
+				BossController.BossDefeated = true;
+				instance_destroy(OrbossOrb);
+				instance_destroy();
+			}
+		break;
 	}
 	
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if keyboard_check_pressed(ord("V"))
-	{
-		HP = 0;
-	}
-	if !HP
-	{
-		// Spawn explosion and play sound
-		instance_create(x, y, DustExplosion);
-		audio_sfx_play(sfxDestroy, false, false);
-		instance_destroy(OrbossOrb);
-		instance_destroy();
-					
-		// Tell the controller boss was defeated
-		BossController.BossDefeated = true;
-	}
-	
+	if (keyboard_check_pressed(ord("V"))) HP = 0;
 	
 	if object_player_overlap(CollisionHitbox)
 	{
@@ -105,9 +110,6 @@
 				HP--;
 				State = 2;
 				StateTimer = 90;
-				AngleX = 0;
-				AngleY = 0;
-				Spin   = 0;
 				
 				OrbossOrb.State = 2;
 			
@@ -126,14 +128,9 @@
 			
 				if !HP
 				{
-					// Spawn explosion and play sound
-					instance_create(x, y, DustExplosion);
-					audio_sfx_play(sfxDestroy, false, false);
-					instance_destroy(OrbossOrb);
-					instance_destroy();
-					
-					// Tell the controller boss was defeated
-					BossController.BossDefeated = true;
+					State = 4;
+					StateTimer = 300;
+					image_index = 2;
 				}
 			}
 		}

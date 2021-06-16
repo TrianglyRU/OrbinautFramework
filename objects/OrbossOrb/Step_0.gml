@@ -34,9 +34,9 @@
 			
 				// Set ring flags and speed
 				Physical      = true;
-				PickupTimeout = 64;
-				Xsp			  = 3 * modeX;
-				Ysp			  = 3 * modeY;
+				PickupTimeout = 16;
+				Xsp			  = 2 * modeX;
+				Ysp			  = 2 * modeY;
 			}
 				
 			image_xscale = 0;
