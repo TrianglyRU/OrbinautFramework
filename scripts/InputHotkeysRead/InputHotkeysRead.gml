@@ -162,4 +162,10 @@ function InputHotkeysRead()
 		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
 		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
 	}
+	
+	if keyboard_check_pressed(ord("P"))
+	{
+		Game.ImprovedObjCollision = !Game.ImprovedObjCollision;
+		show_debug_message("Object Collision Type: " + string(Game.ImprovedObjCollision));
+	}
 }

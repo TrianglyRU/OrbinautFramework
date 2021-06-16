@@ -2,8 +2,9 @@ function ObjBridgeSetup()
 {
 	// Initialize variables
 	RecoveryAngle  isVar;
+	NativeY		   isVar;
 	LogID		   isArr;
-	LogDepression  isArr;	
+	LogDepression  isArr;
 	
 	/* Variable Definitions	
 	1. BridgeLength, default = 12
@@ -13,27 +14,30 @@ function ObjBridgeSetup()
 	// Create log list
 	LogID = ds_list_create();
 	
+	// Set OddOffset
+	var OddOffset = BridgeLength mod 2 == 0 ? 0 : 8;
+	
 	// Cycle through bridge length
 	for (var i = 0; i < BridgeLength; i++) 
 	{
 		// Create log and set a sprite for it
-	    var Log = instance_create_depth(x + 16 * i, y, depth, BridgeLog);
+	    var Log = instance_create((x - BridgeLength / 2 * 16 + 8 - OddOffset) + 16 * i, y, BridgeLog);
 	    Log.sprite_index = BridgeSprite;
 		
 		// Add log to the log list
 		ds_list_add(LogID, Log);
 		
-		// Setup the log
-		with Log 
-		{
-			// Set object hitbox
-			object_set_solidbox(8, 8);
-			
-			// Set object depth
-			object_set_depth(Player, false);
-		}
+		// Set object depth
+		with Log object_set_depth(Player, false);
 		
 		// Calculate log depression value
 		LogDepression[i] = (i < BridgeLength / 2 ? i : BridgeLength - i - 1) * 2 + 2;
 	}
+	
+	// Set bridge solidbox
+	object_set_solidbox(BridgeLength / 2 * 16, 8);
+	
+	// Set positions
+	x -= OddOffset
+	NativeY = y;
 }

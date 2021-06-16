@@ -105,6 +105,10 @@ function PlayerCheckGlide()
 				// Enter sliding state if we collided the ground
 				if floorDistance < 0
 				{
+					// Adhere to the ground
+					PosY += floorDistance;
+					
+					// Enter GlidingGround state
 					GlidingState = GlidingGround;
 				}
 			}

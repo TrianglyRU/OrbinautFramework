@@ -1,13 +1,12 @@
 function ObjBridgeScript()
 {
 	//var PlayerPosition = floor(Player.PosX;
-	var PlayerPosition = (floor(Player.PosX) - (x - 8) + 16) div 16;
+	var PlayerPosition = (floor(Player.PosX) - (x - BridgeLength / 2 * 16 - 16)) div 16;
 	var ActiveLog      = ds_list_find_index(LogID, Player.OnObject);
 	
 	// Set a recovery angle by checking if player or AI is standing on any log of this bridge
-    if ActiveLog >= 0
+    if object_player_stand(id)
     {    
-		//PlayerPosition = ActiveLog + 1
         if RecoveryAngle < 90
 		{
 			RecoveryAngle += 5.625;
@@ -21,10 +20,7 @@ function ObjBridgeScript()
 	// Check for stepping onto the bridge
     else 
     {
-        with BridgeLog
-		{
-			object_act_solid(false, true, false, false);
-		}
+        object_act_solid(false, true, false, false);
         exit; 
     } 
 
@@ -53,15 +49,10 @@ function ObjBridgeScript()
         }
 
 		// Calculate final log position
-		LogID[| i].y = floor(y + (MaxDepression * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
+		LogID[| i].y = floor(NativeY + (MaxDepression * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
     }
 	
-    // Do collision with the bridge
-    with BridgeLog 
-	{
-		object_act_solid(false, true, false, false);
-	}
-        
-    // Force-disable balancing
-    Player.Balancing = false;
+	y = NativeY + floor(MaxDepression * dsin(RecoveryAngle));
+	
+	object_act_solid(false, true, false, false);
 }

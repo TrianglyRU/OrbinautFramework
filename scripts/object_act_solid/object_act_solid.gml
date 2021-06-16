@@ -71,15 +71,80 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				objectTop = objectY - collisionMap[playerPosition] - 1;
 			}
 		}
+		
+		with Player
+		{
+			if GlidingState == GlidingGround
+			{
+				// We're not grounded yet
+				Grounded = false;
+							
+				// Set 'glide slide' animation
+				Animation = AnimGlideSlide;
+				
+				// Spawn dust puff every 4 frames
+				SkiddingTimer = SkiddingTimer mod 4
+				if !SkiddingTimer
+				{
+					instance_create(floor(PosX), floor(PosY + yRadius), DustPuff);
+				}
+				SkiddingTimer++;
+			
+				// Decelerate
+				if Xsp > 0
+				{
+					Xsp = max(0, Xsp - AirAcc);
+				}
+				else
+				{
+					Xsp = min(0, Xsp + AirAcc);
+				}
+				
+				// Slide until we stop or release jump button
+				if Xsp == 0 or !Input.ABC
+				{
+					GlidingState = GlidingStop;
+					GlidingValue = 20;
+				}
+				
+				// Reset ysp
+				Ysp = 0;
+			}
+			
+			if GlidingState == GlidingStop
+			{
+				// We're not grounded yet
+				Grounded = false;
+							
+				// Use 'glide stand' animation
+				Animation = AnimGlideStand;
+				
+				// Reset speed
+				Xsp     = 0;
+				Ysp     = 0;
+				Inertia = 0;
+				
+				// Use default radiuses
+				PosY   -= yRadiusDefault - yRadius;
+				xRadius = xRadiusDefault;
+				yRadius = yRadiusDefault;
+							
+				// Leave gliding state after 20 frames
+				GlidingValue--
+				if !GlidingValue
+				{
+					GlidingState = false;
+					Grounded     = true;
+				}
+			}
+			
+			/* Player will automatically join GlidingDrop state using the code in Player Object */
+		}
 
 		// Check if player is outside of this object collision diameter
 		var edgeExtension = (collideSides or Game.ImprovedObjCollision) * 10	
 		if  playerX + edgeExtension < objectLeft or playerX - edgeExtension > objectRight or !collideTop
 		{
-			if Player.GlidingState
-			{
-				Player.GlidingState = GlidingDrop;
-			}
 			Player.OnObject = false;
 			exit;
 		}
@@ -91,10 +156,10 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 		Player.PosY += objectTop - playerBottom - 1;
 		
 		// Check if player should start balancing
-		var edgeExtension = (!collideSides and !Game.ImprovedObjCollision) * 5
-		
 		if Player.Inertia == 0
 		{
+			var edgeExtension = (!collideSides and !Game.ImprovedObjCollision) * 5
+			
 			if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirLeft
 			or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirRight
 			{
@@ -189,10 +254,10 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				if playerBottom < objectTop + 16
 				{
 					// Check if player's position is within this object boundaries
-					if !collideSides and (playerX < objectLeft or playerX > objectRight)
+					/*if !collideSides and (playerX < objectLeft or playerX > objectRight)
 					{
 						exit;
-					}
+					}*/
 					if !Game.ImprovedObjCollision and (playerX < objectLeft or playerX > objectRight)
 					{
 						exit;
@@ -308,15 +373,17 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						FlyingTimer = 0;
 							
 						// Knuckles gliding
-						if GlidingState == GlidingAir or GlidingState == GlidingTurn
+						if GlidingState != GlidingAir and GlidingState != GlidingTurn and GlidingState != GlidingGround
+						{
+							GlidingState = false;
+						}
+						else
 						{
 							GlidingState = GlidingGround;
-							OnObject     = false;
-							Grounded     = false;
 						}
-							
+						
 						// Reset radiuses to default values
-						if Grounded and !Rolling
+						if !Rolling and !GlidingState
 						{
 							PosY   -= yRadiusDefault - yRadius;
 							yRadius = yRadiusDefault; 
