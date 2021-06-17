@@ -6,7 +6,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 	{
 		// Check if player can destroy Badnik
 		if Player.Animation == AnimRoll or Player.InvincibilityBonus or Player.SpindashRev or Player.GlidingState 
-		or (Player.FlyingState and Player.Ysp < 0)
+		or Player.isSuper or (Player.FlyingState and Player.Ysp < 0)
 		{
 			// Delete Badnik
 			instance_destroy(self);

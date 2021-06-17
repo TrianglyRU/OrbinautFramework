@@ -6,7 +6,7 @@ function StageActSetup()
 		// Moonlight Quadrant 1
 		case MQZ1:
 		{
-			CardNameTop				= "MOONLIGHT";	
+			CardNameTop				= "MOONLIGHT QUADRANT";	
 			CardNameBottom			= "QUADRANT";	
 			
 			ZoneID					= 0;

@@ -15,11 +15,11 @@
 		// Display results screen
 		ScreenResultsDisplay();
 		
-		// Display title card
-		ScreenTitleCardDisplay();
-		
 		// Update lower layer of renderer
 		ScreenRendererLowUpdate();
+		
+		// Display title card
+		ScreenTitleCardDisplay2();
 	
 		// Update our application renderer
 		ScreenRendererHighUpdate();

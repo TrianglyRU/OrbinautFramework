@@ -165,7 +165,7 @@ function InputHotkeysRead()
 	
 	if keyboard_check_pressed(ord("P"))
 	{
-		Game.ImprovedObjCollision = !Game.ImprovedObjCollision;
-		show_debug_message("Object Collision Type: " + string(Game.ImprovedObjCollision));
+		Player.isSuper = true;
+		Player.Rings   = 50;
 	}
 }

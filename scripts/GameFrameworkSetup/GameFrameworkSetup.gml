@@ -55,7 +55,7 @@ function GameFrameworkSetup()
 	// Orbinaut improvements
 	Game.ImprovedTileCollision = true;  // Uses custom advanced method to update collision mode, fixes several collision flaws and resets floor angle better
 	Game.ImprovedObjCollision  = true;  // In originals, objects are pretty wacky in terms of collision and hitboxes. True - apply Orbinaut's fixes
-	Game.SmoothPaletteCycle	   = true;  // Apply interpolation to palette cycles
+	Game.SmoothPaletteCycle	   = false; // Apply interpolation to palette cycles
 	Game.SmoothRotation	       = true;  // Use smooth rotation
 	Game.RichPresenceSupport   = true;  // Enable Rich Presence
 	Game.RingsPreciseCollision = true;  // Make rings check for collision every frame instead of every 4

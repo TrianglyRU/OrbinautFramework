@@ -163,6 +163,7 @@ function PlayerGeneralUpdate()
 					TopAcc  = 4;		
 					RollFrc = 0.0234375;
 				}
+				ClimbingSpeed = 2;
 			}
 			Frc = 0.046875;
 			
@@ -173,14 +174,15 @@ function PlayerGeneralUpdate()
 		// Leave super state if no rings left
 		else
 		{
-			isSuper = false;
-			Acc		= 0.046875;
-			Frc     = 0.046875;
-			AirAcc  = 0.09375;
-			RollFrc = 0.0234375;
-			Dec		= 0.5;			
-			TopAcc	= 6;
-			Jump    = CharacterID == CharKnuckles ? 6 : 6.5;
+			isSuper		  = false;
+			ClimbingSpeed = 1;
+			Acc			  = 0.046875;
+			Frc		      = 0.046875;
+			AirAcc		  = 0.09375;
+			RollFrc       = 0.0234375;
+			Dec		      = 0.5;			
+			TopAcc	      = 6;
+			Jump          = CharacterID == CharKnuckles ? 6 : 6.5;
 		}
 	}
 	

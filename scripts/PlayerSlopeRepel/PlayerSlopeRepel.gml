@@ -30,7 +30,7 @@ function PlayerSlopeRepel()
 		else
 		{	
 			// If we're on steep enough slope and going slowly
-			if (round(Angle/90) % 4) != RangeFloor and abs(Inertia) < 2.5
+			if FloorRange != RangeFloor and abs(Inertia) < 2.5
 			{	
 				// Reset inertia, lock controls for 30 frames and go airborne
 				Inertia      = 0;

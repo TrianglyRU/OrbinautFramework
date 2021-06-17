@@ -5,56 +5,113 @@ function PlayerAnimate()
 		// Sonic animations
 		case CharSonic:
 		{
-			switch Animation
+			if !isSuper
 			{
-				case AnimIdle:
-					animation_play(spr_sonic_idle, 24, 15);
-				break;
-				case AnimWalk:
-					animation_play(spr_sonic_walk, round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
-				break;
-				case AnimRun: 
-					animation_play(spr_sonic_run,  round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
-				break;
-				case AnimPeelout: 
-					animation_play(spr_sonic_peelout, 1, 1);
-				break;
-				case AnimRoll:
-					animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
-				break;
-				case AnimSpindash:
-					animation_play(spr_sonic_spindash, 1, 1); 
-				break;
-				case AnimCrouch:
-					animation_play(spr_sonic_crouch, 4, 2);
-				break;
-				case AnimLookup:
-					animation_play(spr_sonic_lookup, 4, 2);
-				break;
-				case AnimSkid:
-					animation_play(spr_sonic_skid, 6, 3);
-				break;
-				case AnimPush:
-					animation_play(spr_sonic_push, 32, 1);
-				break;
-				case AnimHurt:
-					animation_play(spr_sonic_hurt, 1, 1);
-				break;
-				case AnimDeath:
-					animation_play(spr_sonic_death, 1, 1);
-				break;	
-				case AnimBalanceFront:
-					animation_play(spr_sonic_balance_front, 16, 1);
-				break;
-				case AnimBalanceBack:
-					animation_play(spr_sonic_balance_back, 16, 1);
-				break;
-				case AnimSpring:
-					animation_play(spr_sonic_spring, 1, 1);
-				break;
-				case AnimActEnd:
-					animation_play(spr_sonic_actend, 3, 21);
-				break;
+				switch Animation
+				{
+					case AnimIdle:
+						animation_play(spr_sonic_idle, 24, 15);
+					break;
+					case AnimWalk:
+						animation_play(spr_sonic_walk, round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+					break;
+					case AnimRun: 
+						animation_play(spr_sonic_run,  round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+					break;
+					case AnimPeelout: 
+						animation_play(spr_sonic_peelout, 1, 1);
+					break;
+					case AnimRoll:
+						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
+					break;
+					case AnimSpindash:
+						animation_play(spr_sonic_spindash, 1, 1); 
+					break;
+					case AnimCrouch:
+						animation_play(spr_sonic_crouch, 4, 2);
+					break;
+					case AnimLookup:
+						animation_play(spr_sonic_lookup, 4, 2);
+					break;
+					case AnimSkid:
+						animation_play(spr_sonic_skid, 6, 3);
+					break;
+					case AnimPush:
+						animation_play(spr_sonic_push, 32, 1);
+					break;
+					case AnimHurt:
+						animation_play(spr_sonic_hurt, 1, 1);
+					break;
+					case AnimDeath:
+						animation_play(spr_sonic_death, 1, 1);
+					break;	
+					case AnimBalanceFront:
+						animation_play(spr_sonic_balance_front, 16, 1);
+					break;
+					case AnimBalanceBack:
+						animation_play(spr_sonic_balance_back, 16, 1);
+					break;
+					case AnimSpring:
+						animation_play(spr_sonic_spring, 1, 1);
+					break;
+					case AnimActEnd:
+						animation_play(spr_sonic_actend, 3, 21);
+					break;
+				}
+			}
+			else
+			{
+				switch Animation
+				{
+					case AnimIdle:
+						animation_play(spr_supersonic_idle, 6, 1);
+					break;
+					case AnimWalk:
+						animation_play(spr_sonic_walk, round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+					break;
+					case AnimRun: 
+						animation_play(spr_sonic_run,  round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+					break;
+					case AnimPeelout: 
+						animation_play(spr_sonic_peelout, 1, 1);
+					break;
+					case AnimRoll:
+						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
+					break;
+					case AnimSpindash:
+						animation_play(spr_sonic_spindash, 1, 1); 
+					break;
+					case AnimCrouch:
+						animation_play(spr_supersonic_crouch, 4, 2);
+					break;
+					case AnimLookup:
+						animation_play(spr_supersonic_lookup, 4, 2);
+					break;
+					case AnimSkid:
+						animation_play(spr_sonic_skid, 6, 3);
+					break;
+					case AnimPush:
+						animation_play(spr_sonic_push, 32, 1);
+					break;
+					case AnimHurt:
+						animation_play(spr_sonic_hurt, 1, 1);
+					break;
+					case AnimDeath:
+						animation_play(spr_sonic_death, 1, 1);
+					break;	
+					case AnimBalanceFront:
+						animation_play(spr_sonic_balance_front, 16, 1);
+					break;
+					case AnimBalanceBack:
+						animation_play(spr_sonic_balance_back, 16, 1);
+					break;
+					case AnimSpring:
+						animation_play(spr_sonic_spring, 1, 1);
+					break;
+					case AnimActEnd:
+						animation_play(spr_sonic_actend, 3, 21);
+					break;
+				}
 			}
 		}
 		break;
@@ -185,7 +242,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_dropstand, 3, 3);
 				break;
 				case AnimClimb:
-					animation_play(spr_knuckles_climb, -(Ysp * 4), 1);
+					animation_play(spr_knuckles_climb, isSuper ? -(Ysp * 4) : -(Ysp * 2), 1);
 				break;
 				case AnimClimbering:
 					animation_play(spr_knuckles_climbering, 6, 4);
