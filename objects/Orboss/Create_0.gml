@@ -8,6 +8,7 @@
 	Active = false;
 	StateTimer = 128;
 	State  = 0;
+	SinMove = 0;
 	PosX = x;
 	PosY = y;
 	if (!instance_exists(Orbstatue)) image_index = 2;

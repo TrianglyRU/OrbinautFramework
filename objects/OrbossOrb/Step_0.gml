@@ -35,7 +35,7 @@
 				// Set ring flags and speed
 				Physical      = true;
 				PickupTimeout = 16;
-				Xsp			  = 2 * modeX;
+				Xsp			  = modeX;
 				Ysp			  = 2 * modeY;
 			}
 				

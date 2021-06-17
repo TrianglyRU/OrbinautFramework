@@ -19,6 +19,10 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 			AngleX = (AngleX + 3) mod 360;
 			AngleY = (AngleY + 6) mod 360;
 			Spin   = (Spin   + 1) mod 360;
+			var PPosX = floor(Player.PosX);
+			var Dest = PPosX + 32 * (PPosX > BossController.x ? -1 : 1);
+			if (Dest > PosX) PosX++;
+			else if (Dest < PosX) PosX--;
 		break;
 		case 2:
 			if StateTimer
@@ -94,8 +98,9 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 		break;
 	}
 	
+	if (State) SinMove = (SinMove + 2) mod 360;
 	x = floor(PosX);
-	y = floor(PosY);
+	y = floor(PosY + dsin(SinMove) * 8);
 	
 	if object_player_overlap(CollisionHitbox)
 	{

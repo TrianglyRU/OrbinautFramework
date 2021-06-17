@@ -23,11 +23,12 @@
 		}
 		else
 		{
-			x += 4 * dsin(Direction);
-			y += 4 * dcos(Direction);
+			Accel += 0.2;
+			x += round(Accel * dsin(Direction));
+			y += round(Accel * dcos(Direction));
 			var CamY = Screen.CameraY;
 			var CamX = Screen.CameraX;
-			if x < CamX - 8 or y < CamY - 8 or x > CamX + Screen.Width + 8 or y > CamY + Screen.Height + 8
+			if x < CamX - 32 or y < CamY - 32 or x > CamX + Screen.Width + 32 or y > CamY + Screen.Height + 32
 			{
 				instance_destroy();
 			}

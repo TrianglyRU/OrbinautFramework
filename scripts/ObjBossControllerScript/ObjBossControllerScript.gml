@@ -15,7 +15,7 @@ function ObjBossControllerScript()
 			switch room
 			{
 				case MQZ1:
-					instance_create(x, y - 176, Orboss);
+					instance_create(x, y - 184, Orboss);
 				break;
 				default: break;
 			}

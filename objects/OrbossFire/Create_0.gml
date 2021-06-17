@@ -5,3 +5,4 @@
 	ImgTimer = 0;
 	Parent = 0;
 	Direction = 0;
+	Accel = 0;
