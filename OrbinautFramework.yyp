@@ -17,6 +17,7 @@
     {"id":{"name":"object_set_triggerbox","path":"scripts/object_set_triggerbox/object_set_triggerbox.yy",},"order":26,},
     {"id":{"name":"ObjExplosionScript","path":"scripts/ObjExplosionScript/ObjExplosionScript.yy",},"order":1,},
     {"id":{"name":"tile_check_collision_h","path":"scripts/tile_check_collision_h/tile_check_collision_h.yy",},"order":24,},
+    {"id":{"name":"string_display_new","path":"scripts/string_display_new/string_display_new.yy",},"order":38,},
     {"id":{"name":"spr_engine_gamedata","path":"sprites/spr_engine_gamedata/spr_engine_gamedata.yy",},"order":0,},
     {"id":{"name":"spr_obj_animal_pocky","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"order":0,},
     {"id":{"name":"StageBoundary","path":"objects/StageBoundary/StageBoundary.yy",},"order":0,},

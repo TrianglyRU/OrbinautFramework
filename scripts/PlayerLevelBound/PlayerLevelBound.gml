@@ -43,7 +43,7 @@ function PlayerLevelBound()
 			Grv	    = 0.21875;
 			
 			// Play sound
-			audio_sfx_play(sfxHurt, false, true);
+			audio_sfx_play(sfxHurt, false);
 			
 			// Set animation
 			Animation = AnimDeath;

@@ -56,6 +56,10 @@ function PlayerMove()
 		}
 	}
 	
+	// Convert inertia to normal axis speeds
+	Xsp = Inertia *  dcos(Angle);
+	Ysp = Inertia * -dsin(Angle);
+	
 	// Check for start or stop skidding
 	if Skidding == false and abs(Inertia) > 4 and FloorRange == RangeFloor and MovementLock == false
 	{
@@ -65,21 +69,20 @@ function PlayerMove()
 			Skidding = DirRight;
 			
 			// Play sound
-			audio_sfx_play(sfxSkid, false, true);
+			audio_sfx_play(sfxSkid, false);
 		}
 		if Inertia < 0 and Input.Right
 		{
 			Skidding = DirLeft;
 			
 			// Play sound
-			audio_sfx_play(sfxSkid, false, true);
+			audio_sfx_play(sfxSkid, false);
 		}	
 	}
 	else
 	{
 		// Stop skidding
 		if (Inertia < 0 and Input.LeftPress) or (Inertia > 0 and Input.RightPress) or Inertia == 0 or sign(Skidding) != sign(Inertia)
-		or round(Angle/90) % 4 != RangeFloor
 		{
 			SkiddingTimer = 0;
 			Skidding	  = false;
@@ -87,8 +90,8 @@ function PlayerMove()
 	}
 	
 	// Check for stop pushing
-	if Pushing == DirRight and (!Input.Right or Xsp < -1)
-	or Pushing == DirLeft  and (!Input.Left  or Xsp >  1)
+	if Pushing == DirRight and !Input.Right
+	or Pushing == DirLeft  and !Input.Left
 	{
 		Pushing = false;
 	}
@@ -98,14 +101,11 @@ function PlayerMove()
 	{
 		Balancing = false;
 	}
-	
-	// Convert inertia to normal axis speeds
-	Xsp = Inertia *  dcos(Angle);
-	Ysp = Inertia * -dsin(Angle);
 
 	// Our default animation if AnimIdle
 	if (Angle < 45 or Angle > 315) Animation = AnimIdle;
 	
+	// Act end animation
 	if Stage.IsFinished and Stage.StateTimer == -1
 	{
 		Animation = AnimActEnd;

@@ -22,7 +22,7 @@ function PlayerCheckLookup()
 				MovementLock = -1;
 				
 				// Play sound
-				audio_sfx_play(sfxPeeloutCharge, false, true);
+				audio_sfx_play(sfxPeeloutCharge, false);
 			}
 			
 			// Charge Super Peel Out
@@ -60,7 +60,7 @@ function PlayerCheckLookup()
 		else
 		{	
 			// Play sound
-			audio_sfx_play(sfxPeeloutRelease, false, true);
+			audio_sfx_play(sfxPeeloutRelease, false);
 				
 			// Set 'peelout' animation
 			Animation    = AnimPeelout;

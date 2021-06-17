@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (keyboard_check_pressed(ord("V"))) HP = 0;
+
 	if (StateTimer) StateTimer--;
 	switch State
 	{
@@ -79,7 +81,7 @@
 			{	
 				// Spawn explosion and play sound
 				instance_create(x + irandom(50) - 25, y + irandom(50) - 25, DustExplosion);
-				audio_sfx_play(sfxDestroy, false, false);
+				audio_sfx_play(sfxDestroy, false);
 			}
 			
 			if !StateTimer
@@ -95,8 +97,6 @@
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if (keyboard_check_pressed(ord("V"))) HP = 0;
-	
 	if object_player_overlap(CollisionHitbox)
 	{
 		// Check if player can destroy Badnik
@@ -105,7 +105,7 @@
 		{	
 			if State = 1 and !StateTimer
 			{
-				audio_sfx_play(sfxDestroy, false, false);
+				audio_sfx_play(sfxDestroy, false);
 				
 				HP--;
 				State = 2;

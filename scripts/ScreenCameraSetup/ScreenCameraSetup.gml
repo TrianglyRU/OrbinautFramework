@@ -8,9 +8,9 @@ function ScreenCameraSetup()
 	Height = Game.ResolutionHeight;
 
 	// Set default position
-	if Game.StageTransitions and Game.StageTransitionData[2] != 0
+	if Game.StageTransitions and Stage.ActID != 0
 	{
-		RawX    = floor(Player.PosX) - Game.StageTransitionData[0] - Screen.Width / 2;
+		RawX    = floor(Player.PosX) - Game.StageTransitionData[0] - Width / 2;
 		RawY    = floor(Player.PosY) - Game.StageTransitionData[2];
 		CameraX = RawX;
 		CameraY = RawY;
@@ -18,7 +18,7 @@ function ScreenCameraSetup()
 	else
 	{
 		RawX    = floor(Player.PosX) - Width  / 2;
-		RawY    = floor(Player.PosY) - Height / 2 + 12;
+		RawY    = floor(Player.PosY) - Height / 2;
 		CameraX = RawX;
 		CameraY = RawY;
 	}

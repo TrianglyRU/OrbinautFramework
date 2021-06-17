@@ -54,7 +54,7 @@ function PlayerGeneralUpdate()
 			isUnderwater = true;
 			
 			instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
-			audio_sfx_play(sfxWaterSplash, false, true);
+			audio_sfx_play(sfxWaterSplash, false);
 		}
 	}
 	else
@@ -94,7 +94,7 @@ function PlayerGeneralUpdate()
 			isUnderwater = false;
 			
 			instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
-			audio_sfx_play(sfxWaterSplash, false, true);
+			audio_sfx_play(sfxWaterSplash, false);
 			
 			// Restore normal physics if not in superform
 			if !isSuper

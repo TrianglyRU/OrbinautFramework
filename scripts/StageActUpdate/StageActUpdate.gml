@@ -110,11 +110,5 @@ function StageActUpdate()
 				
 		// Get player's barrier
 		Game.StageTransitionData[3] = Player.BarrierType;
-
-		// Shift player 1 pixel forwars if they are standing directly at sign's x coordnate
-		if Game.StageTransitionData[0] == 0
-		{
-			Game.StageTransitionData[0] = 1
-		}
 	}
 }		

@@ -21,7 +21,7 @@ function StageActUnload()
 		}
 				
 		// Fade out the screen only if this is last act of the zone if stage transition is enabled
-		if !Game.StageTransitions or (Game.StageTransitions and Stage.ActID == Stage.FinalActID)
+		if !Game.StageTransitions or Game.StageTransitions and Stage.ActID == Stage.FinalActID
 		{
 			fade_perform(to, black, 1);
 		}

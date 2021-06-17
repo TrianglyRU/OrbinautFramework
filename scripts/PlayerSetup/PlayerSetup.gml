@@ -55,7 +55,7 @@ function PlayerSetup()
 	// Define spawn position
 	if Game.SavedPosition == 0
 	{
-		if Game.StageTransitionData[0] != 0
+		if Game.StageTransitions
 		{
 			PosX = Spawnpoint.x + Game.StageTransitionData[0];
 			PosY = Spawnpoint.y + Game.StageTransitionData[1] - yRadius;

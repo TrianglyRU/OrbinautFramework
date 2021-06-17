@@ -118,7 +118,7 @@ function PlayerCheckClimb()
 				Animation = AnimRoll;
 				
 				// Play sound
-				audio_sfx_play(sfxJump, false, true);
+				audio_sfx_play(sfxJump, false);
 			}
 		}
 		

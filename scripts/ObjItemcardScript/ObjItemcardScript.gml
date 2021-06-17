@@ -80,7 +80,7 @@ function ObjItemcardScript()
 						Player.Rings += 10;
 						
 						// Play sound, switch left and right channels every ring
-						audio_sfx_play(sfx10Rings, false, true);
+						audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
 					}
 					break;
 					case "High Speed":
@@ -96,7 +96,7 @@ function ObjItemcardScript()
 					{
 						// Give regular shield
 						Player.BarrierType = BarrierNormal;
-						audio_sfx_play(sfxBarrier, false, false);
+						audio_sfx_play(sfxBarrier, false);
 						
 						// Spawn barrier object
 						if !instance_exists(Barrier)
@@ -143,8 +143,8 @@ function ObjItemcardScript()
 						// Give player 1 extra life
 						Player.Lives += 1;
 						
-						// Play sound
-						audio_sfx_play(sfxSonic1UP, false, true);
+						// Play jingle
+						audio_bgm_play(Jingle1UP, noone, 3.92, TypeJingle);
 					}
 					break;
 					case "Eggman":

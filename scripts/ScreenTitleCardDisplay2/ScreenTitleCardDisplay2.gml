@@ -1,6 +1,7 @@
 function ScreenTitleCardDisplay2()
 {
-	if State == 2
+	// Exit the code if CardState is 2
+	if CardState == 2
 	{
 		exit;
 	}
@@ -8,17 +9,34 @@ function ScreenTitleCardDisplay2()
 	// Use title card font
 	string_set_font(Game.Font[FontCard], "right");
 	
-	draw_sprite(spr_hud_line,      0, LineX,									   LineY);
-	draw_sprite(spr_hud_ribbon,	   0, RibbonX,									   RibbonY);
-	draw_sprite(spr_hud_zoneline,  0, ZonelineX,								   ZonelineY);
-	draw_sprite(spr_hud_act,  0, ActX,								   ActY);
-	string_display(ZoneX, ZoneY + 4, Stage.CardNameTop, 1);
-	//draw_sprite(spr_hud_zone,  0, ZoneX,								   ZoneY);
+	// Draw card elements
+	draw_sprite(spr_hud_line,      0, LineX,	 LineY);
+	draw_sprite(spr_hud_ribbon,	   0, RibbonX,	 RibbonY);
+	draw_sprite(spr_hud_zoneline,  0, ZonelineX, ZonelineY);
+	draw_sprite(spr_hud_act,       0, ActX,		 ActY);
+	
+	// Draw zone name
+	string_display(ZoneX, ZoneY, Stage.ZoneName, 1);
+	
+	// Start gameplay early if we're loading from previous act
+	if CardTimer == 0
+	{
+		if Game.StageTransitions and Stage.ActID != 0
+		{
+			fade_perform(from, black, 0);
+			
+			Stage.State       = ActStateDefault;
+			Stage.TimeEnabled = true;
+			Input.IgnoreInput = false;
+			InterfaceEnabled  = true;
+			CameraEnabled     = true;
+		}
+	}
 	
 	// Count card
-	Timer++;
+	CardTimer++;
 
-	if State == 0
+	if CardState == 0
 	{
 		// Update ribbon speed
 		RibbonXSpeed = max(RibbonXSpeed - 0.05, 0.15);
@@ -27,27 +45,14 @@ function ScreenTitleCardDisplay2()
 		RibbonX += RibbonXSpeed;
 		RibbonY += 2;
 		
-		// Update ribbon position
-		//Ribbon2X -= RibbonXSpeed;
-		
 		// Loop ribbon vertically
 		if RibbonY == 32
 		{
 			RibbonY -= 32;	
 		}
 		
-		// Loop ribbon vertically
-		if RibbonY == -32
-		{
-			RibbonY += 32;	
-		}
-	
 		// Update line speed
-		if LineX < Game.ResolutionWidth
-		{
-			LineXSpeed -= (Timer / Game.ResolutionWidth) * 5
-		}
-		else
+		if LineX > Width
 		{
 			LineXSpeed = 0;
 		}
@@ -58,15 +63,13 @@ function ScreenTitleCardDisplay2()
 		LineX += LineXSpeed;
 		LineY += LineYSpeed;
 	
-		// Update char position
-		CharX += 4;
-		
 		// Continue after 30 frames
-		if Timer < 30 
+		if CardTimer < 30 
 		{
 			exit;
 		}
 		
+		// Update Zoneline position
 		if ZonelineX > 60
 		{
 			ZonelineX = max(60, ZonelineX - 32);
@@ -75,65 +78,81 @@ function ScreenTitleCardDisplay2()
 		{
 			ZonelineX -= 0.2;
 		}
-		
 		ZonelineY -= 0.05;
+		
+		// Update act vertical position
 		ActY -= 0.05;
+		
+		// Update text vertical position
 		ZoneY -= 0.05;
 	
 		// Continue after 50 frames
-		if Timer < 50
+		if CardTimer < 50
 		{
 			exit;
 		}
-	
-		ActX  = ActX  > Game.ResolutionWidth - 120 ? ActX - 16  : ActX - 0.1;
-		ZoneX = ZoneX < Game.ResolutionWidth - 86  ? ZoneX + 24 : ZoneX + 0.1;
 		
-		if Timer == 180
-		{
-			
-			Stage.State       = ActStateDefault;
-			Stage.TimeEnabled = true;
-			Input.IgnoreInput = false;
-			InterfaceEnabled  = true;
-			CameraEnabled     = true;
-			
-			State = 1;
-			fade_perform(from, black, 1);
+		// Update act x position
+		ActX  = ActX  > Width - 120 ? ActX - 16  : ActX - 0.1;
+		
+		// Update text x position
+		ZoneX = ZoneX < Width - 86  ? ZoneX + 24 : ZoneX + 0.1;
+		
+		// Fade in after 3 seconds
+		if CardTimer == 180
+		{	
+			if !Game.StageTransitions or Game.StageTransitions and Stage.ActID == 0
+			{
+				fade_perform(from, black, 1);
+					
+				Stage.State       = ActStateDefault;
+				Stage.TimeEnabled = true;
+				Input.IgnoreInput = false;
+				InterfaceEnabled  = true;
+				CameraEnabled     = true;
+			}			
+			CardState = 1;	
 		}
 	}
-	else if State == 1
+	else if CardState == 1
 	{
-		Acceleration += 0.2;
-
+		// Update elements positions
 		ZonelineX -= 0.2;
 		ZonelineY -= 0.05;
-		ActY -= 0.05;
-		ZoneY -= 0.05;
+		ActX      -= 0.1;
+		ActY      -= 0.05;
+		ZoneX     += 0.1;
+		ZoneY     -= 0.05;
+		RibbonX   += 0.15;
+		RibbonY   += 2;
 		
-		CharX   += 4 + Acceleration * 5;
-		LineY     += Acceleration;
+		// Update disappear speed
+		Acceleration += 0.2;
 		
-		RibbonX += 0.15;
-		RibbonY += 2;
-		ZoneX += 0.1;
-		ActX  -= 0.1;
+		// Disappear
+		LineY += Acceleration;
 		
-		if Timer > 205
+		if CardTimer > 205
 		{
 			RibbonX -= Acceleration;
-		}
-		
-		if Timer > 220
+		}	
+		if CardTimer > 220
 		{	
 			ZonelineX += Acceleration * 6;
 			ZoneX	  += Acceleration * 6;
 			ActX      -= Acceleration * 6;
 		}
 		
-		if Timer == 260
+		// Shift HUD
+		if CardTimer >= 235 and InterfaceOffsetX < 0
 		{
-			State = 2;
+			InterfaceOffsetX += 5;
+		}
+		
+		// Stop card
+		if CardTimer == 300
+		{
+			CardState = 2;
 		}
 	}
 }

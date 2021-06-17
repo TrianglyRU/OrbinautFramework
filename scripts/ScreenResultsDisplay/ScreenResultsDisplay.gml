@@ -31,7 +31,7 @@ function ScreenResultsDisplay()
 		{
 			if ResultValue[0] == 300
 			{
-				audio_sfx_play(sfxScoreCount, true, false);
+				audio_sfx_play(sfxScoreCount, true);
 				ResultValue[0]++;
 			}
 			if Input.StartPress
@@ -52,7 +52,7 @@ function ScreenResultsDisplay()
 			}
 			if TimeBonus == 0 and RingBonus == 0 and ResultValue[0] == 301
 			{
-				audio_sfx_play(sfxScoreTally, false, false);
+				audio_sfx_play(sfxScoreTally, false);
 				audio_sfx_stop(sfxScoreCount);
 				ResultValue[0]++;
 			}

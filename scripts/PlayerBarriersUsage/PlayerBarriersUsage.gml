@@ -28,7 +28,7 @@ function PlayerBarriersUsage()
 				}
 				
 				// Play sound
-				audio_sfx_play(sfxFlameBarrierDash, false, true);
+				audio_sfx_play(sfxFlameBarrierDash, false);
 			}
 			break;
 			case BarrierThunder:
@@ -37,7 +37,7 @@ function PlayerBarriersUsage()
 				Ysp = -5.5;
 				
 				// Play sound
-				audio_sfx_play(sfxThunderBarrierSpark, false, true);
+				audio_sfx_play(sfxThunderBarrierSpark, false);
 				
 				/* Ring magnetization is performed from the ring side */
 			}
@@ -81,6 +81,6 @@ function PlayerBarriersUsage()
 		}	
 		
 		// Play sound
-		audio_sfx_play(sfxWaterBarrierBounce, false, true);
+		audio_sfx_play(sfxWaterBarrierBounce, false);
 	}
 }

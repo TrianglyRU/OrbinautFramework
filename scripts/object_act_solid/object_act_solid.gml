@@ -157,18 +157,32 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 		
 		// Check if player should start balancing
 		if Player.Inertia == 0
-		{
-			var edgeExtension = (!collideSides and !Game.ImprovedObjCollision) * 5
-			
-			if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirLeft
-			or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirRight
+		{	
+			// Check if there is no surface below us
+			if playerX > objectX
 			{
-				Player.Balancing = DirRight;
+				var tileCheck = tile_check_collision_v(floor(Player.PosX + Player.xRadius), playerBottom, true, false, Player.Layer)[0];
 			}
-			if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirRight
-			or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirLeft
+			else
 			{
-				Player.Balancing = DirLeft;
+				var tileCheck = tile_check_collision_v(floor(Player.PosX - Player.xRadius), playerBottom, true, false, Player.Layer)[0];
+			}
+			if tileCheck > 14
+			{
+				// Expand edge distance
+				var edgeExtension = (!collideSides and !Game.ImprovedObjCollision) * 5
+				
+				// Balance
+				if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirLeft
+				or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirRight
+				{
+					Player.Balancing = DirRight;
+				}
+				if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirRight
+				or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirLeft
+				{
+					Player.Balancing = DirLeft;
+				}
 			}
 		}
 	}
@@ -284,7 +298,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							Ysp				= -7.5;
 							
 							// Play sound
-							audio_sfx_play(sfxWaterBarrierBounce, false, true);
+							audio_sfx_play(sfxWaterBarrierBounce, false);
 								
 							// Exit the further code
 							exit;
@@ -299,7 +313,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							if Input.Down
 							{
 								Rolling = true;
-								audio_sfx_play(sfxRoll, false, false);
+								audio_sfx_play(sfxRoll, false);
 							}
 							else
 							{

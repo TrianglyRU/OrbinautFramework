@@ -24,7 +24,7 @@ function PlayerCheckRoll()
 			Animation = AnimRoll;
 			
 			// Play sound
-			audio_sfx_play(sfxRoll, false, true);
+			audio_sfx_play(sfxRoll, false);
 		}
 	}	
 }

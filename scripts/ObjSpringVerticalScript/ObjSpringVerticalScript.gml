@@ -22,7 +22,7 @@ function ObjSpringVerticalScript()
 		Player.yRadius = Player.yRadiusDefault;
 		
 		// Play sound
-		audio_sfx_play(sfxSpring, false, true);	
+		audio_sfx_play(sfxSpring, false);	
 		
 		// Start animation
 		animation_set_frame(sprite_index, 2);

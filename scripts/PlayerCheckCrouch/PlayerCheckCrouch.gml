@@ -42,7 +42,7 @@ function PlayerCheckCrouch()
 			if (SpindashRev > 8) SpindashRev = 8;
 			
 			// Play sound
-			audio_sfx_play(sfxCharge, false, true);
+			audio_sfx_play(sfxCharge, false);
 		}
 	}
 	
@@ -86,7 +86,7 @@ function PlayerCheckCrouch()
 		
 			// Play sound
 			audio_sfx_stop(sfxCharge);
-			audio_sfx_play(sfxRelease, false, true);
+			audio_sfx_play(sfxRelease, false);
 		}
 	}
 }

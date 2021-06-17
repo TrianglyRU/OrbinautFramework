@@ -20,6 +20,7 @@ function StageVariables()
 	
 	ZoneID	        isVar;
 	ActID	        isVar;
+	ZoneName		isVar;
 	
 	IsFinished      isVar;
 	
@@ -28,13 +29,10 @@ function StageVariables()
 	AnimationTime   isVar;
 	
 	CardEnabled	    isVar;
-	CardNameTop	    isVar;
-	CardNameBottom  isVar;
 	
-	StageMusic		isVar;
-	StageMusicDAC   isVar;
-	LoopStart       isVar;
-	LoopEnd			isVar;	
+	StageMusic		    isVar;
+	StageMusicDAC       isVar;
+	StageMusicLooppoint isVar;
 	
 	GamePaused      isVar;
 	PauseButton     isVar;

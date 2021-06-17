@@ -6,9 +6,7 @@ function StageActSetup()
 		// Moonlight Quadrant 1
 		case MQZ1:
 		{
-			CardNameTop				= "MOONLIGHT QUADRANT";	
-			CardNameBottom			= "QUADRANT";	
-			
+			ZoneName			    = "MOONLIGHT QUADRANT";		
 			ZoneID					= 0;
 			ActID					= 0;
 			FinalActID			    = 1;
@@ -33,9 +31,7 @@ function StageActSetup()
 		// Moonlight Quadrant 1
 		case MQZ2:
 		{
-			CardNameTop				= "MOONLIGHT";	
-			CardNameBottom			= "QUADRANT";	
-			
+			ZoneName			    = "MOONLIGHT QUADRANT";
 			ZoneID					= 0;
 			ActID					= 1;
 			FinalActID			    = 1;
@@ -60,9 +56,7 @@ function StageActSetup()
 		// Undentified Zone
 		default:
 		{
-			CardNameTop				= "UNKNOWN";	
-			CardNameBottom			= "LEVEL";	
-			
+			ZoneName			    = "UNKNOWN LEVEL";
 			ZoneID					= -1;
 			ActID					= 0;
 			FinalActID			    = 1;
@@ -73,7 +67,7 @@ function StageActSetup()
 			WaterEnabled            = false;
 			WaterLevel				= 0;
 
-			StageMusic				= MoonlightQuadrant;
+			StageMusic				= noone;
 			StageMusicDAC			= noone;
 			StageMusicLooppoint		= 0;
 			

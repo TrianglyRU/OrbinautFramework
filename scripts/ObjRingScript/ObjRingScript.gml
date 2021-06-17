@@ -150,7 +150,7 @@ function ObjRingScript()
 		instance_create(x, y, RingSparkle);	
 	
 		// Play sound, switch left and right channels every ring
-		audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false, false);
+		audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
 	
 		// Delete ring
 		instance_destroy();		

@@ -15,7 +15,7 @@ function ObjItemboxScript()
 					
 				// Spawn explosion and play its sound
 				instance_create(floor(x), floor(y), DustExplosion);
-				audio_sfx_play(sfxDestroy, false, false);
+				audio_sfx_play(sfxDestroy, false);
 					
 				// Update 'destroyed' flag
 				Destroyed = true;

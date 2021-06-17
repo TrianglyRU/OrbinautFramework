@@ -3,7 +3,25 @@ function ScreenVariables()
 	InterfaceEnabled   isVar;
 	InterfaceOffsetX   isVar;
 	InterfaceOffsetY   isVar;
+	
 	CardTimer		   isVar;
+	CardTimer          isVar;
+	CardState          isVar;
+	RibbonX		       isVar;
+	RibbonY		       isVar;
+	RibbonXSpeed       isVar;
+	LineX		       isVar;
+	LineY		       isVar;
+	LineXSpeed         isVar;
+	LineYSpeed         isVar;
+	LineAngle          isVar;
+	ZonelineX          isVar;
+	ZonelineY	       isVar;
+	ActX		       isVar;
+	ActY		       isVar;
+	ZoneX		       isVar;
+	ZoneY              isVar;
+	Acceleration	   isVar;
 	
 	PlayerScreenX	   isVar;
 	PlayerScreenY	   isVar;

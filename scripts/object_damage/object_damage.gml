@@ -14,7 +14,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 			// Spawn explosion, animal and play sound
 			instance_create(floor(x), floor(y), Animal);
 			instance_create(floor(x), floor(y), DustExplosion);
-			audio_sfx_play(sfxDestroy, false, false);
+			audio_sfx_play(sfxDestroy, false);
 			
 			// Make player bounce if they are airborne
 			if !Player.Grounded
@@ -85,7 +85,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 		
 		// Play death sound (depending on what object is this)
 		var deathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
-		audio_sfx_play(deathSound, false, true);
+		audio_sfx_play(deathSound, false);
 	}
 		
 	// Check if player has rings or barrier
@@ -138,7 +138,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 			Player.Rings = 0;
 			
 			// Play sound
-			audio_sfx_play(sfxRingLoss, false, true);
+			audio_sfx_play(sfxRingLoss, false);
 		}
 			
 		// Else just lose barrier if player has rings
@@ -146,7 +146,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 		{
 			// Play death sound (depending on what object is this)
 			var deathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
-			audio_sfx_play(deathSound, false, true);
+			audio_sfx_play(deathSound, false);
 			
 			instance_destroy(Barrier);
 			Player.BarrierType = false;
@@ -154,7 +154,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 
 		// Perform movement
 		Player.Ysp = -4;
-		Player.Xsp = 2 * sign(Player.PosX - id.x);
+		Player.Xsp = 2 * (sign(Player.PosX - id.x) == 0 ? 1 : sign(Player.PosX - id.x));
 		Player.Grv = 0.1875;
 		
 		// Enter hurt state
