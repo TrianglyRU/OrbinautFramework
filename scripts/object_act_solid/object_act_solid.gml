@@ -155,17 +155,23 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 		// Make player to always stay on top of the object
 		Player.PosY += objectTop - playerBottom - 1;
 		
+		// Update
+		var playerX     = floor(Player.PosX);
+		var playerY     = floor(Player.PosY);
+		var playerRight = floor(Player.PosX + Player.xRadius);
+		var playerLeft  = floor(Player.PosX - Player.xRadius);
+		
 		// Check if player should start balancing
 		if Player.Inertia == 0
 		{	
 			// Check if there is no surface below us
 			if playerX > objectX
 			{
-				var tileCheck = tile_check_collision_v(floor(Player.PosX + Player.xRadius), playerBottom, true, false, Player.Layer)[0];
+				var tileCheck = tile_check_collision_v(playerRight, playerBottom, true, false, Player.Layer)[0];
 			}
 			else
 			{
-				var tileCheck = tile_check_collision_v(floor(Player.PosX - Player.xRadius), playerBottom, true, false, Player.Layer)[0];
+				var tileCheck = tile_check_collision_v(playerLeft, playerBottom, true, false, Player.Layer)[0];
 			}
 			if tileCheck > 14
 			{
@@ -173,13 +179,13 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				var edgeExtension = (!collideSides and !Game.ImprovedObjCollision) * 5
 				
 				// Balance
-				if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirLeft
-				or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirRight
+				if playerX < objectLeft  + edgeExtension and Player.Facing == DirLeft
+				or playerX > objectRight - edgeExtension and Player.Facing == DirRight
 				{
 					Player.Balancing = DirRight;
 				}
-				if floor(Player.PosX) < objectLeft  + edgeExtension and Player.Facing == DirRight
-				or floor(Player.PosX) > objectRight - edgeExtension and Player.Facing == DirLeft
+				if playerX < objectLeft  + edgeExtension and Player.Facing == DirRight
+				or playerX > objectRight - edgeExtension and Player.Facing == DirLeft
 				{
 					Player.Balancing = DirLeft;
 				}
@@ -268,10 +274,6 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				if playerBottom < objectTop + 16
 				{
 					// Check if player's position is within this object boundaries
-					/*if !collideSides and (playerX < objectLeft or playerX > objectRight)
-					{
-						exit;
-					}*/
 					if !Game.ImprovedObjCollision and (playerX < objectLeft or playerX > objectRight)
 					{
 						exit;
@@ -421,11 +423,6 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 					// Collide on the right
 					if playerX > objectX
 					{
-						if Game.ImprovedObjCollision and playerX < objectRight
-						{
-							exit;
-						}
-						
 						if Xsp < 0
 						{
 							if Grounded
@@ -441,11 +438,6 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 					// Collide on the left
 					else if playerX < objectX
 					{	
-						if Game.ImprovedObjCollision and playerX > objectLeft
-						{
-							exit;
-						}
-						
 						if Xsp > 0
 						{
 							if Grounded

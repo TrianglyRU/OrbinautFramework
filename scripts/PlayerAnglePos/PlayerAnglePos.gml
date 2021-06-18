@@ -1,5 +1,15 @@
 function PlayerAnglePos()
 {	
+	// Lost obj
+	if OnObject and !instance_exists(OnObject)
+	{
+		OnObject = false;
+		Grounded = false;
+		
+		// Delete dust effect
+		instance_destroy(SpindashDust);
+	}
+	
 	// Do not collide if we're not allowed to, or if we're standing on object
 	if !AllowCollision or OnObject
 	{

@@ -45,6 +45,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 	}
 	
 	// Reset player flags
+	Player.MovementLock  = false;
 	Player.Grounded	     = false;
 	Player.OnObject	     = false;
 	Player.Rolling		 = false;
@@ -52,7 +53,10 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 	Player.FlyingState	 = false;
 	Player.GlidingState  = false;
 	Player.ClimbingState = false;
-	
+	Player.PeeloutRev	 = -1;
+	Player.SpindashRev   = -1;
+	Player.DropdashRev   = -1;
+
 	// Check if player has no rings and barrier or should die instantly
 	if (!Player.Rings and !Player.BarrierType) or instantKill
 	{
@@ -93,7 +97,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 	{	
 		// Set 'hurt' animation
 		Player.Animation = AnimHurt;
-			
+				
 		// Lose rings if we do not have active barrier
 		if !Player.BarrierType
 		{

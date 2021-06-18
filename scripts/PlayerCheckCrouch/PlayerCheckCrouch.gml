@@ -28,10 +28,6 @@ function PlayerCheckCrouch()
 			if SpindashRev == -1
 			{		
 				SpindashRev = 2;
-				
-				// Spawn dust effect
-				instance_create(floor(PosX), floor(PosY + yRadius), SpindashDust);
-				SpindashDust.image_xscale = Facing;
 			}
 			else
 			{
@@ -45,10 +41,16 @@ function PlayerCheckCrouch()
 			audio_sfx_play(sfxCharge, false);
 		}
 	}
-	
+
 	// Check if Spindash is being charged
 	if SpindashRev > 0 
 	{
+		// Handle dust effect
+		if !instance_exists(SpindashDust)
+		{
+			instance_create(floor(PosX), floor(PosY + yRadius), SpindashDust);			
+		}
+		
 		// Set 'spindash' animation
 		Animation    = AnimSpindash;
 		MovementLock = -1;
@@ -59,9 +61,6 @@ function PlayerCheckCrouch()
 		// Release Spindash if we're not holding DOWN button anymore
 		if !Input.Down
 		{
-			// Delete dust effect
-			instance_destroy(SpindashDust);
-			
 			// Launch Sonic forwards
 			Inertia		 = (8 + floor(SpindashRev) / 2) * Facing;
 			MovementLock = false;

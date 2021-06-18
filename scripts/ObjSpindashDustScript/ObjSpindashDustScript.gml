@@ -10,6 +10,12 @@ function ObjSpindashDustScript()
 	x			 = floor(Player.PosX);
 	y			 = floor(Player.PosY + Player.yRadius);	
 	image_xscale = Player.Facing;
+	
+	// Destroy if player is airborne
+	if !Player.Grounded or Player.SpindashRev == -1
+	{
+		instance_destroy();
+	}
 		
 	// Draw self
 	draw_self();

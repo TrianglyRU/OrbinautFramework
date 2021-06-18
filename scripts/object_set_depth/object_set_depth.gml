@@ -1,15 +1,15 @@
-/// @function object_set_depth(relObject, renderAbove)
-function object_set_depth(relObject, renderAbove)
+/// @function object_set_depth(target,above|behind)
+function object_set_depth(target, renderdepth)
 {
 	// Apply depth relative to the player
-	if relObject == Player
+	if target == Player
 	{
-		depth = Player.DrawOrder - (renderAbove ? 2 : -2);
+		depth = Player.DrawOrder - (renderdepth ? 2 : -2);
 	}
 	
 	// Apply depth relative to another object
 	else
 	{
-		depth = relObject.depth - (renderAbove ? 1 : -1);
+		depth = target.depth - (renderdepth ? 1 : -1);
 	}
 }
