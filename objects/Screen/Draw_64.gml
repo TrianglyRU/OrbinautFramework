@@ -2,7 +2,7 @@
 // You can write your code in this editor
 	
 	// Render pause and exit the futher code if it is active
-	if ScreenStagePauseRender() exit;
+	if ScreenPauseRender() exit;
 
 	// Start rendering our application, exit if not
 	if !ScreenRendererPerform() exit;

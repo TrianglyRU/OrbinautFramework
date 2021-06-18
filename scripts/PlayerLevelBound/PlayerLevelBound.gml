@@ -29,6 +29,10 @@ function PlayerLevelBound()
 			GlidingState  = false;
 			ClimbingState = false;
 			
+			// Destroy barrier
+			instance_destroy(Barrier);
+			instance_destroy(InvincibilityStar);
+			
 			// Disable collision and camera
 			Screen.CameraEnabled = false;
 			AllowCollision		 = false;

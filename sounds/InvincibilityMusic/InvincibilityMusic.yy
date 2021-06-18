@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "InvincibilityMusic.ogg",
-  "duration": 18.5730057,
+  "duration": 20.005,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

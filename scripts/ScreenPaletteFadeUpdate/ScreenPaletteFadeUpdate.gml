@@ -1,5 +1,11 @@
 function ScreenPaletteFadeUpdate()
 {	
+	// Exit if paused
+	if Stage.GamePaused
+	{
+		exit;
+	}
+	
 	// Turn off palette fade if it is disabled
 	if !Palette.FadeEnabled
 	{ 

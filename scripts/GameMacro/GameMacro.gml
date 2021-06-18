@@ -29,6 +29,7 @@ function GameMacro()
 	#macro TrackLoop	   2
 	#macro TrackEvent	   3
 	#macro TrackEventTime  4
+	#macro TrackDAC		   5
 	#macro EventPlay	   0
 	#macro EventMute	   1
 	#macro EventUnmute     2

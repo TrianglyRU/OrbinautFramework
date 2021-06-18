@@ -1,5 +1,11 @@
 function ScreenPaletteHandleDynamic()
 {	
+	// Exit if paused
+	if Stage.GamePaused
+	{
+		exit;
+	}
+	
 	// Check if player is in their super form
 	if instance_exists(Player)
 	{

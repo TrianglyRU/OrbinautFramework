@@ -1,7 +1,7 @@
 function ScreenCameraFollowPlayer() 
 {	
 	// Do not perform if camera is disabled
-	if !CameraEnabled
+	if Stage.GamePaused or !CameraEnabled
 	{
 		exit;
 	}

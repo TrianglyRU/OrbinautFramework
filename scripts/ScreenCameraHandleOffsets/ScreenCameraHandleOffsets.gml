@@ -1,5 +1,11 @@
 function ScreenCameraHandleOffsets()
 {	
+	// Exit if paused
+	if Stage.GamePaused
+	{
+		exit;
+	}
+	
 	// Update camera lag delay timer
 	if (ScrollDelay > 0) ScrollDelay--;
 	

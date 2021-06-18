@@ -1,7 +1,5 @@
 /// @description Stage Camera
 // You can call your scripts in this editor
-	
-	if (Stage.GamePaused) exit;
 
 	// Follow the character
 	ScreenCameraFollowPlayer();

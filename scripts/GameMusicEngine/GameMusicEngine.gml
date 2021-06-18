@@ -6,7 +6,7 @@ function GameMusicEngine()
 	var Loop      = Game.NormalTrack[TrackLoop];
 	var Event     = Game.NormalTrack[TrackEvent];
 	var EventTime = Game.NormalTrack[TrackEventTime];
-		
+	
 	if Track
 	{
 		var Position = audio_sound_get_track_position(Index);
@@ -56,7 +56,7 @@ function GameMusicEngine()
 					var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 	
 					// Update BGM volume
-					audio_sound_gain(Track, VolumeLevel, 0);		
+					audio_sound_gain(Track, VolumeLevel, 0);
 				}
 					
 				// Stop the BGM

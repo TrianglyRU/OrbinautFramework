@@ -109,6 +109,7 @@ function ObjItemcardScript()
 					{
 						// Give regular shield
 						Player.BarrierType = BarrierFlame;
+						audio_sfx_play(sfxFlameBarrier, false);
 						
 						// Spawn barrier object
 						if !instance_exists(Barrier)
@@ -121,6 +122,7 @@ function ObjItemcardScript()
 					{
 						// Give regular shield
 						Player.BarrierType = BarrierThunder;
+						audio_sfx_play(sfxThunderBarrier, false);
 						
 						// Spawn barrier object
 						if !instance_exists(Barrier)
@@ -135,7 +137,7 @@ function ObjItemcardScript()
 						Player.InvincibilityBonus = 1200;
 						
 						// Play music
-						audio_bgm_play(InvincibilityMusic, noone, 0, TypePriority);
+						audio_bgm_play(InvincibilityMusic, noone, 20.0, TypePriority);
 					}
 					break;
 					case "Extra Life":

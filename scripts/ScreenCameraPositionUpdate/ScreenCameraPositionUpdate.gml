@@ -1,5 +1,11 @@
 function ScreenCameraPositionUpdate() 
 {	
+	// Exit if paused
+	if Stage.GamePaused
+	{
+		exit;
+	}
+	
 	// Define final camera positions
 	CameraX = floor(RawX + ExtendedOffset);
 	CameraY = floor(RawY - SpinOffset + OverviewOffset + ShakeOffset);
