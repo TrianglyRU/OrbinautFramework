@@ -13,7 +13,6 @@
 	PosY = y;
 	if (!instance_exists(Orbstatue)) image_index = 2;
 	
-	object_set_solidbox(15, 15);
 	object_set_hitbox(16, 16);
 	object_set_depth(Player, false);
 	

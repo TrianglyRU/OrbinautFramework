@@ -6,11 +6,12 @@
 	var modeX = dsin(Parent.AngleX + add);
 	
 	var modeY = dcos(Parent.AngleY + add);
-	//var mode = abs(dcos(Parent.AngleY + add));
-	//var mode = dsin(Parent.AngleY + add);
-	//var mode = abs(dsin(Parent.AngleY + add));
+	//var modeY = abs(dcos(Parent.AngleY + add));
+	//var modeY = dsin(Parent.AngleY + add);
+	//var modeY = abs(dsin(Parent.AngleY + add));
 	
 	x = floor(Parent.x + modeX * 35);
+	//y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
 	y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
 	var visualDepth = dsin(Parent.AngleX + add + 90);
 	depth = Parent.depth + (Numb + 1) * (visualDepth >= 0 ? 1 : -1);

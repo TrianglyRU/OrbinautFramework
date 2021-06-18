@@ -1,10 +1,5 @@
 function ObjFloatingPlatformScript()
-{
-	if keyboard_check_pressed(ord("H"))
-	{
-		instance_destroy();
-	}
-	
+{	
 	// Check if platform has any movement pattern
 	if PlatformMovement != "None"
 	{
