@@ -1,6 +1,7 @@
 function ScreenRendererPerform()
 {
-
+	if !surface_exists(Game.CompleteSurf) return false;
+	
 	surface_set_target(Game.CompleteSurf);
 	
 	if surface_exists(Game.BGSurf)

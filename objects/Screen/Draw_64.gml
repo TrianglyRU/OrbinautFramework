@@ -4,24 +4,21 @@
 	// Render pause and exit the futher code if it is active
 	if ScreenStagePauseRender() exit;
 
-	if surface_exists(Game.CompleteSurf)
-	{
-		// Start rendering our application, exit if not
-		ScreenRendererPerform()
+	// Start rendering our application, exit if not
+	if !ScreenRendererPerform() exit;
 	
-		// Display HUD
-		ScreenInterfaceDisplay();
+	// Display HUD
+	ScreenInterfaceDisplay();
 	
-		// Display results screen
-		ScreenResultsDisplay();
+	// Display results screen
+	ScreenResultsDisplay();
 		
-		// Update lower layer of renderer
-		ScreenRendererLowUpdate();
+	// Update lower layer of renderer
+	ScreenRendererLowUpdate();
 		
-		// Display title card
-		ScreenTitleCardDisplay2();
+	// Display title card
+	ScreenTitleCardDisplay2();
 	
-		// Update our application renderer
-		ScreenRendererHighUpdate();
-	}
+	// Update our application renderer
+	ScreenRendererHighUpdate();
 	
