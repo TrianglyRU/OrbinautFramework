@@ -102,6 +102,7 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 	x = floor(PosX);
 	y = floor(PosY + dsin(SinMove) * 8);
 	
+	if (!HP) exit;
 	if object_player_overlap(CollisionHitbox)
 	{
 		// Check if player can destroy Badnik

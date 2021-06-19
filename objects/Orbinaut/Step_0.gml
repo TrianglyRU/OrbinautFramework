@@ -4,7 +4,7 @@
 	// Check for hitbox overlap
 	if object_player_overlap(CollisionHitbox)
 	{
-		for(var i = 0; i < 4; i++)
+		for(var i = 0; i < OrbNumb; i++)
 		{
 			instance_destroy(Orb[i]);
 		}
@@ -20,10 +20,10 @@
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	for(var i = 0; i < 4; i++)
+	for(var i = 0; i < OrbNumb; i++)
 	{
 		var Parent = id;
-		var Ang = Angle + 90 * i;
+		var Ang = Angle + OrbAng * i;
 		with Orb[i]
 		{
 			x = Parent.x + 16 * dsin(Ang);

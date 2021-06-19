@@ -6,9 +6,9 @@
 	
 	var ThisBadnik = id;
 	
-	for(var i = 0; i < 4; i++)
+	for(var i = 0; i < OrbNumb; i++)
 	{
-		var Ang = 90 * i;
+		var Ang = OrbAng * i;
 		Orb[i] = instance_create(x + dsin(Ang), y + dcos(Ang), OrbinautOrb);
 		with Orb[i] object_set_depth(ThisBadnik, true);
 	}
