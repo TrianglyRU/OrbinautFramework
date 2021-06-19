@@ -2,7 +2,7 @@
 function animation_play(sprite_id, speed, loop) 
 {	
 	// Ignore the animation method built into the IDE 
-	image_speed = 0;
+	image_speed  = 0;
 	
 	// Create a special timer variable for the object
 	if !variable_instance_exists(id, "AnimationTimer")
@@ -38,6 +38,9 @@ function animation_play(sprite_id, speed, loop)
 			// Check if it equals zero
 		    else
 		    {	
+				// Reset animation timer to current animation speed
+				id.AnimationTimer = abs(speed);
+				
 				// Switch to the next subimage if the animation speed is positive
 				if speed > 0
 				{
@@ -48,10 +51,7 @@ function animation_play(sprite_id, speed, loop)
 				else
 				{
 					image_index = image_index > 0 ? image_index - 1 : image_number - 1 * loop;
-				}
-				
-				// Reset animation timer to current animation speed
-				id.AnimationTimer = abs(speed);
+				}		
 		    }	
 		}
 	}

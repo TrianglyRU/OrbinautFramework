@@ -37,8 +37,28 @@ function StageActUpdate()
 			StateTimer++
 			if StateTimer == 60
 			{
-				room_restart();
-				audio_stop_all();
+				if Player.Lives != 0
+				{
+					room_restart();
+					audio_stop_all();
+				}
+				else
+				{
+					// Override save
+					gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, Player.Emeralds, 3, 0, 0);
+					
+					// Reset game state
+					Game.GlobalCharacter = CharSonic;
+					Game.GlobalScore	 = 0;
+					Game.GlobalLives	 = 3;
+					Game.GlobalConts	 = 0;
+					Game.GlobalEmeralds  = 0;
+					Game.SavedCheckpoint = false;
+					Game.SavedPosition   = false;
+				
+					audio_stop_all();
+					room_goto(DevMenu);
+				}
 			}	
 		}
 	}
