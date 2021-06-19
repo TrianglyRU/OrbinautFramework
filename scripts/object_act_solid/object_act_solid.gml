@@ -60,15 +60,15 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 			// Define new object top position based on current player position
 			if playerPosition < 0
 			{
-				objectTop = objectY - collisionMap[0] - 1;
+				objectTop = objectY - collisionMap[0];
 			}
-			else if playerPosition > objXRadiusSolid * 2
+			else if playerPosition >= objXRadiusSolid * 2
 			{
-				objectTop = objectY - collisionMap[objXRadiusSolid * 2] - 1;
+				objectTop = objectY - collisionMap[objXRadiusSolid * 2 - 1];
 			}
 			else
 			{
-				objectTop = objectY - collisionMap[playerPosition] - 1;
+				objectTop = objectY - collisionMap[playerPosition];
 			}
 		}
 		
@@ -202,36 +202,24 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 			exit;
 		}
 		
-		// If collisionMap is assigned, define new top or bottom boundary
-		if collisionMap != false
+		// Check if collision map array is assigned and object is not flipped
+		if collisionMap != false and !objectFlipped
 		{
 			// Get player position within the object
 			var playerPosition = objectMirrored ? objectRight - playerX : playerX - objectLeft;
-				
-			// Define new object actual height based on current player position
+
+			// Define new object top position based on current player position
 			if playerPosition < 0
 			{
-				objYRadiusSolid = collisionMap[0];
+				objectTop = objectY - collisionMap[0];
 			}
-			else if playerPosition > objXRadiusSolid * 2
+			else if playerPosition >= objXRadiusSolid * 2
 			{
-				objYRadiusSolid = collisionMap[objXRadiusSolid * 2];
+				objectTop = objectY - collisionMap[objXRadiusSolid * 2 - 1];
 			}
 			else
 			{
-				objYRadiusSolid = collisionMap[playerPosition];
-			}
-				
-			// Set new object bottom boundary
-			if objectFlipped
-			{
-				objectBottom = objectY + objYRadiusSolid;
-			}
-				
-			// Set new object top boundary
-			else
-			{
-				objectTop = objectY - objYRadiusSolid;
+				objectTop = objectY - collisionMap[playerPosition];
 			}
 		}
 			

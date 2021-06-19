@@ -15,7 +15,7 @@
   "VTile": false,
   "For3D": false,
   "width": 48,
-  "height": 48,
+  "height": 56,
   "textureGroupId": {
     "name": "Global",
     "path": "texturegroups/Global",
@@ -55,7 +55,7 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 24,
-    "yorigin": 24,
+    "yorigin": 28,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_signpost","path":"sprites/spr_obj_signpost/spr_obj_signpost.yy",},

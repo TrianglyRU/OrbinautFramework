@@ -18,7 +18,7 @@ function StageActSetup()
 			WaterLevel				= 0;
 
 			StageMusic				= MoonlightQuadrant;
-			StageMusicDAC			= TestDAC;
+			StageMusicDAC			= noone;
 			StageMusicLooppoint		= 0;
 			
 			LeftBoundary			= 0;

@@ -61,6 +61,7 @@ function PlayerVariables()
 	Score				 isVar;
 	Rings				 isVar;
 	Lives				 isVar;
+	LivesRewards		 isVar;
 	Conts				 isVar;
 	Emeralds			 isVar;
 	SkiddingTimer		 isVar;

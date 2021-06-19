@@ -139,7 +139,8 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 			}
 				
 			// Update player's ring counter
-			Player.Rings = 0;
+			Player.Rings		= 0;
+			Player.LivesRewards = 0;
 			
 			// Play sound
 			audio_sfx_play(sfxRingLoss, false);

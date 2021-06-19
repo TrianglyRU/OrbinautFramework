@@ -79,6 +79,15 @@ function ObjItemcardScript()
 						// Give 10 rings
 						Player.Rings += 10;
 						
+						// Give extra life
+						if Player.Rings >= 100 and Player.LivesRewards == 0
+						or Player.Rings >= 200 and Player.LivesRewards == 1
+						{
+							Player.Lives++;
+							Player.LivesRewards++;
+							audio_bgm_play(Jingle1UP, noone, 0, TypeJingle);
+						}
+						
 						// Play sound, switch left and right channels every ring
 						audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
 					}
@@ -94,7 +103,6 @@ function ObjItemcardScript()
 					break;
 					case "Regular Barrier":
 					{
-						// Give regular shield
 						Player.BarrierType = BarrierNormal;
 						audio_sfx_play(sfxBarrier, false);
 						
@@ -107,7 +115,6 @@ function ObjItemcardScript()
 					break;
 					case "Flame Barrier":
 					{
-						// Give regular shield
 						Player.BarrierType = BarrierFlame;
 						audio_sfx_play(sfxFlameBarrier, false);
 						
@@ -120,9 +127,20 @@ function ObjItemcardScript()
 					break;
 					case "Thunder Barrier":
 					{
-						// Give regular shield
 						Player.BarrierType = BarrierThunder;
 						audio_sfx_play(sfxThunderBarrier, false);
+						
+						// Spawn barrier object
+						if !instance_exists(Barrier)
+						{
+							instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+						}
+					}
+					break;
+					case "Water Barrier":
+					{
+						Player.BarrierType = BarrierWater;
+						audio_sfx_play(sfxWaterBarrier, false);
 						
 						// Spawn barrier object
 						if !instance_exists(Barrier)

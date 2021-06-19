@@ -3,10 +3,14 @@
 
 	object_set_hitbox(8, 8);
 	object_set_depth(Player, false);
+	
+	var ThisBadnik = id;
+	
 	for(var i = 0; i < 4; i++)
 	{
 		var Ang = 90 * i;
-		Orb[i] = instance_create_depth(x + dsin(Ang), y + dcos(Ang), depth + 1, OrbinautOrb);
+		Orb[i] = instance_create(x + dsin(Ang), y + dcos(Ang), OrbinautOrb);
+		with Orb[i] object_set_depth(ThisBadnik, true);
 	}
 	
 	Angle = 0;

@@ -21,7 +21,7 @@ function ScreenTitleCardDisplay2()
 	// Start gameplay early if we're loading from previous act
 	if CardTimer == 0
 	{
-		if Game.StageTransitions and Stage.ActID != 0
+		if Game.StageTransitionData[4] == true
 		{
 			fade_perform(from, black, 0);
 			
@@ -101,7 +101,7 @@ function ScreenTitleCardDisplay2()
 		// Fade in after 3 seconds
 		if CardTimer == 180
 		{	
-			if !Game.StageTransitions or Game.StageTransitions and Stage.ActID == 0
+			if Stage.State != ActStateDefault
 			{
 				fade_perform(from, black, 1);
 					

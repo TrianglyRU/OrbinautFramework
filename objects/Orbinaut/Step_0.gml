@@ -4,6 +4,11 @@
 	// Check for hitbox overlap
 	if object_player_overlap(CollisionHitbox)
 	{
+		for(var i = 0; i < 4; i++)
+		{
+			instance_destroy(Orb[i]);
+		}
+	
 		// Damage player or be destroyed
 		object_damage(true, false, false, false);
 	}

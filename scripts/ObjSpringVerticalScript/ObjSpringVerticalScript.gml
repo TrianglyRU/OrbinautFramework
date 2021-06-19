@@ -10,6 +10,7 @@ function ObjSpringVerticalScript()
 		Player.FlyingState   = false;
 		Player.GlidingState  = false;
 		Player.ClimbingState = false;
+		Player.DropdashRev   = -1;
 		
 		// Set 'spring up' or 'walk' animation
 		Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;

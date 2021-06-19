@@ -11,6 +11,7 @@ function StageActUpdate()
 	Game.StageTransitionData[1] = 0;
 	Game.StageTransitionData[2] = 0;
 	Game.StageTransitionData[3] = 0;
+	Game.StageTransitionData[4] = false;
 			
 	// Player death
 	if Player.Death
@@ -110,5 +111,8 @@ function StageActUpdate()
 				
 		// Get player's barrier
 		Game.StageTransitionData[3] = Player.BarrierType;
+		
+		// Enable transition
+		Game.StageTransitionData[4] = true;
 	}
 }		

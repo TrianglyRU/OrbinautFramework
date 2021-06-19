@@ -21,8 +21,8 @@ function ObjItemcardSetup()
 	ItemCard.sprite_index = spr_obj_itembox_powerup;
 	
 	// Render object above itembox
-	var thisItembox = id;
-	with ItemCard object_set_depth(thisItembox, true);
+	var  ThisItembox = id;
+	with ItemCard object_set_depth(ThisItembox, true);
 	
 	// Define card to display
 	switch BoxType
@@ -42,14 +42,17 @@ function ObjItemcardSetup()
 		case "Flame Barrier":
 			ItemCard.image_index = 4;
 		break;
-		case "Invincibility":
+		case "Water Barrier":
 			ItemCard.image_index = 5;
 		break;
+		case "Invincibility":
+			ItemCard.image_index = 6;
+		break;
 		case "Extra Life":
-			ItemCard.image_index = Player.CharacterID == CharSonic ? 6 : 7;
+			ItemCard.image_index = 7 + Player.CharacterID;
 		break;
 		case "Eggman":
-			ItemCard.image_index = 8;
+			ItemCard.image_index = 10;
 		break;
 	}
 }

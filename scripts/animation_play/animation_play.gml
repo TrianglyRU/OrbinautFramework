@@ -7,7 +7,7 @@ function animation_play(sprite_id, speed, loop)
 	// Create a special timer variable for the object
 	if !variable_instance_exists(id, "AnimationTimer")
 	{
-		id.AnimationTimer = 0;
+		id.AnimationTimer = abs(speed);
 	}
 	
 	// Update the sprite if the current sprite is not the target one
