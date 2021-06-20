@@ -10,12 +10,11 @@ function PlayerCheckGlide()
 	if !GlidingState
 	{
 		// Check if we're jumping and A, B or C button is pressed
-		if Jumping and Ysp > JumpMin and Input.ABCPress
+		if Jumping and Input.ABCPress
 		{
 			// Set speeds
 			if (Ysp < 0) Ysp = 0;
 			Xsp	    = 4 * Facing;
-			Inertia = 0;
 
 			// Set unique gliding radiuses
 			xRadius = 10;
@@ -214,7 +213,8 @@ function PlayerCheckGlide()
 				Animation = AnimGlideStand;
 				
 				// Reset speed
-				Xsp = 0;
+				Xsp		= 0;
+				Inertia = 0;
 				
 				// Use default radiuses
 				PosY   -= yRadiusDefault - yRadius;

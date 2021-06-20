@@ -14,8 +14,8 @@ function StageActSetup()
 			CardEnabled				= true;
 			TimeEnabled				= false;
 			
-			WaterEnabled            = false;
-			WaterLevel				= 0;
+			WaterEnabled            = true;
+			WaterLevel				= 1680;
 
 			StageMusic				= MoonlightQuadrant;
 			StageMusicDAC			= noone;

@@ -4,6 +4,7 @@ function ObjTailsObjectDisplay()
 	if Player.Animation != AnimRoll
 	{
 		ResultAngle = Player.VisualAngle;
+		MotionAngle = Player.VisualAngle;
 	}
 		
 	// In case we're rolling or jumping
@@ -22,8 +23,35 @@ function ObjTailsObjectDisplay()
 			}
 		}
 		else
-		{																 
-			MotionAngle = Player.Angle;
+		{	
+			// If in correct floor angle range, apply it to visual angle
+			if Player.Angle >= 25.5 and Player.Angle <= 334.5
+			{
+				// Start rotate on the right side
+				var StartRotationRight = min(MotionAngle mod 360 + 5.625, Player.Angle)
+																							 
+				// Rotation on the right side
+				var RotationRight = min(MotionAngle mod 360 + Player.Inertia, Player.Angle);
+						
+				// Start rotate on the left side
+				var StartRotationLeft = max(Player.Angle, MotionAngle - 5.625);
+						
+				// Rotation on the left side
+				var RotationLeft = max(Player.Angle, MotionAngle + Player.Inertia);
+						
+				// Do rotation
+				MotionAngle = Player.Angle <= 180 ? clamp(max(StartRotationRight, RotationRight), 0,   180)
+												  : clamp(min(StartRotationLeft,  RotationLeft),  180, 360);
+			}
+			
+			// Rotate visual angle back to 360 if out of the range
+			else 
+			{
+				MotionAngle = MotionAngle > 180 ? MotionAngle + 5.625 : MotionAngle - 5.625;
+			}
+				
+			// Limit visual angle
+			MotionAngle = clamp(MotionAngle, 0, 360);
 		}
 			
 		// If smooth rotation is enabled, use raw movement angle for tails visual angle
