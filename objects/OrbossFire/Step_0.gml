@@ -12,14 +12,14 @@
 		if Timer
 		{
 			Timer--;
-			x = Parent.x + 40 * dsin(Angle + 180);
-			y = Parent.y + 40 * dcos(Angle + 180);
+			x = Parent.x + round(40 * dsin(Angle + 180) * ((Parent.MaxHP - Parent.HP - 1) / 4 + 1));
+			y = Parent.y + round(40 * dcos(Angle + 180));
 			if abs(image_xscale) < 1
 			{
 				image_xscale += 0.1 * (image_xscale >= 0 ? 1 : -1);
 				image_yscale += 0.1;
 			}
-			if (!Timer) Direction = point_direction(x, y, Player.PosX, Player.PosY) + 90;
+			if (!Timer) Direction = point_direction(x, y, Player.PosX + Player.Xsp * 8, Player.PosY + Player.Ysp * 8) + 90;
 		}
 		else
 		{
@@ -28,7 +28,7 @@
 			y += round(Accel * dcos(Direction));
 			var CamY = Screen.CameraY;
 			var CamX = Screen.CameraX;
-			if x < CamX - 32 or y < CamY - 32 or x > CamX + Screen.Width + 32 or y > CamY + Screen.Height + 32
+			if x < CamX - 128 or y < CamY - 32 or x > CamX + Screen.Width + 128 or y > CamY + Screen.Height + 32
 			{
 				instance_destroy();
 			}

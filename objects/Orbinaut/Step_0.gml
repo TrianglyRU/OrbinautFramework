@@ -10,7 +10,7 @@
 		}
 	
 		// Damage player or be destroyed
-		object_damage(true, false, false, false);
+		object_act_badnik(true, false);
 	}
 	
 	Angle = (Angle + 4 * Dir) mod 360;

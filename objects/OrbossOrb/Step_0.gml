@@ -11,7 +11,6 @@
 	//var modeY = abs(dsin(Parent.AngleY + add));
 	
 	x = floor(Parent.x + modeX * 35);
-	//y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
 	y = floor(Parent.y + modeY * 35 * dsin(Parent.Spin));
 	var visualDepth = dsin(Parent.AngleX + add + 90);
 	depth = Parent.depth + (Numb + 1) * (visualDepth >= 0 ? 1 : -1);
