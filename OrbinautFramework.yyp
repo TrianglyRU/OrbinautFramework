@@ -205,6 +205,7 @@
     {"id":{"name":"ObjCapsuleScript","path":"scripts/ObjCapsuleScript/ObjCapsuleScript.yy",},"order":3,},
     {"id":{"name":"tex_mqz_dec05","path":"sprites/tex_mqz_dec05/tex_mqz_dec05.yy",},"order":9,},
     {"id":{"name":"enigma_decode","path":"scripts/enigma_decode/enigma_decode.yy",},"order":5,},
+    {"id":{"name":"object_act_badnik","path":"scripts/object_act_badnik/object_act_badnik.yy",},"order":39,},
     {"id":{"name":"Orboss","path":"objects/Orboss/Orboss.yy",},"order":7,},
     {"id":{"name":"PlayerResetOnFloor","path":"scripts/PlayerResetOnFloor/PlayerResetOnFloor.yy",},"order":15,},
     {"id":{"name":"pal_Wet_template","path":"sprites/pal_Wet_template/pal_Wet_template.yy",},"order":1,},

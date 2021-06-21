@@ -69,6 +69,7 @@ function PlayerVariables()
 	DebugItem			 isVar;
 	DebugSpeed			 isVar;
 	ForcedRoll			 isVar;
+	ScoreCombo			 isVar;
 	
 	RecordedPosX		 isArr;
 	RecordedPosY         isArr;

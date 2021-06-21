@@ -315,6 +315,9 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						BarrierIsActive = false;
 						Jumping			= false;
 						Pushing			= false;
+						ScoreCombo		= false;
+						
+						// Land
 						Grounded		= true;
 						OnObject		= objectID;
 						

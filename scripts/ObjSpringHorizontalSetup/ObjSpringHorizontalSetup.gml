@@ -9,7 +9,7 @@ function ObjSpringHorizontalSetup()
 	*/
 	
 	// Set object solidbox
-	object_set_solidbox(8, 14);
+	object_set_solidbox(8, 16);
 	
 	// Set object depth
 	object_set_depth(Player, false);

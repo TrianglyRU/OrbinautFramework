@@ -17,6 +17,7 @@ function PlayerResetOnFloor()
 		Pushing			= false;
 		Rolling			= false;
 		BarrierIsActive = false;
+		ScoreCombo		= false;
 		
 		// Set visual angle
 		if Angle >= 25.5 and Angle <= 334.5
