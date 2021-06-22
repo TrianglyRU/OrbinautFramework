@@ -2,14 +2,14 @@
 function object_act_badnik(is_destroyable, instant_kill)
 {
 	// Check if player can destroy Badnik
-	if (Player.Animation    == AnimRoll 
-	or  Player.GlidingState == GlidingAir 
-	or  Player.GlidingState == GlidingGround
-	or  Player.GlidingState == GlidingTurn
-	or  Player.SpindashRev  >= 0
-	or  Player.InvincibilityBonus 
-	or  Player.isSuper
-	or (Player.FlyingState and Player.Ysp < 0)) and is_destroyable
+	if is_destroyable and (Player.Animation == AnimRoll 
+					   or  Player.GlidingState == GlidingAir 
+				       or  Player.GlidingState == GlidingGround
+					   or  Player.GlidingState == GlidingTurn
+					   or  Player.SpindashRev  >= 0
+					   or  Player.InvincibilityBonus 
+					   or  Player.isSuper
+					   or (Player.FlyingState and Player.Ysp < 0))
 	{
 		// Delete Badnik
 		instance_destroy();

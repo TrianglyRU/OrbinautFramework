@@ -49,5 +49,5 @@
 	if object_player_overlap(CollisionHitbox)
 	{
 		// Damage player or be destroyed
-		object_damage(true, false, false, false);
+		object_act_badnik(true, false);
 	}

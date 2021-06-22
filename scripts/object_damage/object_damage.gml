@@ -1,45 +1,12 @@
-/// @function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
-function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
+/// @function object_damage(flame_type,thunder_type,instant_kill)
+function object_damage(flame_type, thunder_type, instant_kill)
 {	
-	// Check if this object is Badnik
-	if isBadnik
-	{
-		// Check if player can destroy Badnik
-		if Player.Animation == AnimRoll or Player.InvincibilityBonus or Player.SpindashRev or Player.GlidingState 
-		or Player.isSuper or (Player.FlyingState and Player.Ysp < 0)
-		{
-			// Delete Badnik
-			instance_destroy(self);
-			
-			// Spawn explosion, animal and play sound
-			instance_create(floor(x), floor(y), Animal);
-			instance_create(floor(x), floor(y), DustExplosion);
-			audio_sfx_play(sfxDestroy, false);
-			
-			// Make player bounce if they are airborne
-			if !Player.Grounded
-			{
-				if floor(Player.PosY) < floor(y)
-				{
-					Player.Ysp = -Player.Ysp;
-				}
-				else
-				{
-					Player.Ysp -= 1 * sign(Player.Ysp);
-				}
-			}
-			
-			// Exit the script
-			exit;
-		}
-	}
-
 	// Exit the code if player can't be damaged
 	if Player.InvincibilityBonus or Player.isInvincible or Player.Hurt
 	{
 		exit;
 	}
-	if (isFlameType and Player.BarrierType == BarrierFlame) or (isThunderType and Player.BarrierType == BarrierThunder)
+	if (flame_type and Player.BarrierType == BarrierFlame) or (thunder_type and Player.BarrierType == BarrierThunder)
 	{
 		exit;
 	}
@@ -58,7 +25,7 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 	Player.DropdashRev   = -1;
 
 	// Check if player has no rings and barrier or should die instantly
-	if (!Player.Rings and !Player.BarrierType) or instantKill
+	if (!Player.Rings and !Player.BarrierType) or instant_kill
 	{
 		// Remove barrier if we died by instantKill function
 		Player.BarrierType = false;
@@ -88,8 +55,8 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 		Player.Death = true;
 		
 		// Play death sound (depending on what object is this)
-		var deathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
-		audio_sfx_play(deathSound, false);
+		var DeathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
+		audio_sfx_play(DeathSound, false);
 	}
 		
 	// Check if player has rings or barrier
@@ -150,8 +117,8 @@ function object_damage(isBadnik, isFlameType, isThunderType, instantKill)
 		else
 		{
 			// Play death sound (depending on what object is this)
-			var deathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
-			audio_sfx_play(deathSound, false);
+			var DeathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
+			audio_sfx_play(DeathSound, false);
 			
 			instance_destroy(Barrier);
 			Player.BarrierType = false;

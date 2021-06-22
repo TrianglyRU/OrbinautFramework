@@ -7,7 +7,7 @@ function ObjSpikesVerticalScript()
 	if object_player_touch(hurtSide)
 	{
 		// Damage them
-		object_damage(false, false, false, false);
+		object_damage(false, false, false);
 	}
 	
 	// Do solid collision
