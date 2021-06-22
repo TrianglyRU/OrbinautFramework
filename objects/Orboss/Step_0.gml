@@ -32,33 +32,56 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 			else
 			{
 				 State = 3;
-				 StateTimer = 300;
+				 StateTimer = 700;
 			}
 		break;
 		case 3:
 			if StateTimer
 			{
-				var FireTime = StateTimer mod 200;
-				if FireTime >= 150 and !(FireTime mod 10)
+				if StateTimer < 600 and StateTimer >= 550 and !(StateTimer mod (Difficulty == 1 ? 10 : 15))
 				{
 					var ID = id;
 					var Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
 					with Fire
 					{
+						Type = 1;
 						Parent = ID;
 						image_xscale = 0;
 						image_yscale = 0;
-						Angle = (200 - FireTime) * 2;
+						Angle = (600 - ID.StateTimer) * 2;
 						Timer = 60;
 					}
 					Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
 					with Fire
 					{
+						Type = 1;
 						Parent = ID;
 						image_xscale = 0;
 						image_yscale = 0;
-						Angle = -(200 - FireTime) * 2;
+						Angle = -(600 - ID.StateTimer) * 2;
 						Timer = 60;
+					}
+				}
+				else if StateTimer == 425 or StateTimer == 325 or StateTimer == 225
+				{
+					var ID = id;
+					for (var i = 0; i < 10; i++)
+					{
+						var Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
+						with Fire
+						{
+							Type = 2;
+							Parent = ID;
+							image_xscale = 0;
+							image_yscale = 0;
+							Angle = i * 36;
+							switch ID.StateTimer
+							{
+								case 425: Spin =  0 break;
+								case 325: Spin =  1 break;
+								case 225: Spin = -1 break;
+							}
+						}
 					}
 				}
 				

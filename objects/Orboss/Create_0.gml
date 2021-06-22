@@ -12,14 +12,31 @@
 	SinMove = 0;
 	PosX = x;
 	PosY = y;
-	if (!instance_exists(Orbstatue)) image_index = 2;
+	/*
+	if !instance_exists(Orbstatue)
+	{
+		image_index = 2;
+		Difficulty = 2;
+	}
+	else
+	*/
+	{
+		Difficulty = 1;
+	}
 	
 	object_set_hitbox(16, 16);
 	object_set_depth(Player, false);
 	
-	for (var i = 0; i < 6; i++) 
+	var cnt = Difficulty == 1 ? 6 : 4;
+	var ID = id;
+	var ofst = 360 / cnt;
+	for (var i = 0; i < cnt; i++) 
 	{
-		var obj = instance_create_depth(x, y, depth, OrbossOrb);
-		obj.Numb = i;
-		obj.Parent = id;
+		var OrbObj = instance_create_depth(x, y, depth, OrbossOrb);
+		with OrbObj
+		{
+			Numb = i;
+			Parent = ID;
+			AngOfst = ofst;
+		}
 	}

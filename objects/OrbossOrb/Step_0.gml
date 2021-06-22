@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-	var add = 60 * Numb;
+	var add = AngOfst * Numb;
 		
 	var modeX = dsin(Parent.AngleX + add);
 	
