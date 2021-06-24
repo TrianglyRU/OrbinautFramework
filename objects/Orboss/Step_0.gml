@@ -87,7 +87,8 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 				
 				if StateTimer mod 8 == 1
 				{	
-					instance_create_depth(x + irandom(50) - 25, y + irandom(50) - 25, depth - 1, StateTimer > 50 ? OrbossFire : OrbossSmoke);
+					var RandAng = irandom(360);
+					instance_create_depth(x + 25 * dsin(RandAng), y + 25 * dcos(RandAng), depth - 1, StateTimer > 50 ? OrbossFire : OrbossSmoke);
 				}
 				if StateTimer = 50
 				{
