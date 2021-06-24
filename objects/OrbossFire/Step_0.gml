@@ -47,12 +47,16 @@
 				image_xscale += 0.1 * (image_xscale >= 0 ? 1 : -1);
 				image_yscale += 0.1;
 			}
-			
+			if !Timer
+			{
+				ParX = Parent.x;
+				ParY = Parent.y;
+			}
 			Timer++;
 			Dist += max(Timer - 10, 0) / 20;
 			Angle += Spin * ((Parent.MaxHP - Parent.HP - 1) / 8 + 1) / Parent.Difficulty;
-			x = Parent.x + round((40 + Dist) * dsin(Angle + 180));
-			y = Parent.y + round((40 + Dist) * dcos(Angle + 180));
+			x = ParX + round((40 + Dist) * dsin(Angle + 180));
+			y = ParY + round((40 + Dist) * dcos(Angle + 180));
 			var CamY = Screen.CameraY;
 			var CamX = Screen.CameraX;
 			if x < CamX - 128 or y < CamY - 32 or x > CamX + Screen.Width + 128 or y > CamY + Screen.Height + 32
@@ -64,5 +68,5 @@
 	
 	if object_player_overlap(CollisionHitbox)
 	{
-		object_damage(false, false, false, false);
+		object_damage(true, false, false);
 	}

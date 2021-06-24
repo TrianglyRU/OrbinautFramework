@@ -96,6 +96,9 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 					AngleX = 0;
 					AngleY = 0;
 				}
+				var PPosX = floor(Player.PosX);
+				if (PPosX > PosX) PosX++;
+				else if (PPosX < PosX) PosX--;
 			}
 			else
 			{
