@@ -88,7 +88,21 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 				if StateTimer mod 8 == 1
 				{	
 					var RandAng = irandom(360);
-					instance_create_depth(x + 25 * dsin(RandAng), y + 25 * dcos(RandAng), depth - 1, StateTimer > 50 ? OrbossFire : OrbossSmoke);
+					if StateTimer > 50
+					{
+						var ID = id;
+						var Fire = instance_create_depth(x + 25 * dsin(RandAng), y + 25 * dcos(RandAng), depth - 1, OrbossFire);
+						with Fire
+						{
+							DistX = 25 * dsin(RandAng);
+							DistY = 25 * dcos(RandAng);
+							Parent = ID;
+						}
+					}
+					else
+					{
+						instance_create_depth(x + 25 * dsin(RandAng), y + 25 * dcos(RandAng), depth - 1, OrbossSmoke);
+					}
 				}
 				if StateTimer = 50
 				{
@@ -169,6 +183,6 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 		}
 		else
 		{
-			object_damage(false, false, false, false);
+			object_damage(false, false, false);
 		}
 	}

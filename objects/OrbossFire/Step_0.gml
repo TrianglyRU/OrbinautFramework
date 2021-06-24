@@ -10,6 +10,8 @@
 	switch Type
 	{
 		case 0:
+			x = Parent.x + DistX;
+			y = Parent.y + DistY;
 			image_xscale -= 0.1 * sign(image_xscale);
 			image_yscale -= 0.1;
 	
