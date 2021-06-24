@@ -1,7 +1,7 @@
 function GameFrameworkSetup()
 {
 	// Dev mode. Enables some debug shortcuts and features, disable it on your game release
-	Game.DevMode = true;
+	Game.DevMode = false;
 	
 	// Game state
 	Game.GlobalCharacter = CharSonic;
@@ -22,7 +22,7 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.3;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.3;
 	
 	// Control settings (keyboard)

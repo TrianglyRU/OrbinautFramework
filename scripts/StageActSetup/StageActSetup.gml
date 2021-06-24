@@ -24,7 +24,7 @@ function StageActSetup()
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= room_width;
-			BottomBoundary			= 1792;
+			BottomBoundary			= 1728;
 		}
 		break;
 		

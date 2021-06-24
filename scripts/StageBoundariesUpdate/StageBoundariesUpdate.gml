@@ -20,7 +20,7 @@ function StageBoundariesUpdate()
 			{
 				LeftBoundary = Screen.CameraX
 			}
-			LeftBoundary = min(LeftBoundary + max(1, Player.Xsp), TargetLeftBoundary);
+			LeftBoundary = min(LeftBoundary + max(1, 0), TargetLeftBoundary);
 		}
 	}
 	else if LeftBoundary > TargetLeftBoundary
@@ -31,7 +31,7 @@ function StageBoundariesUpdate()
 	// Update right boundary
 	if RightBoundary < TargetRightBoundary
 	{
-		RightBoundary = min(RightBoundary + max(1, Player.Xsp), TargetRightBoundary);
+		RightBoundary = min(RightBoundary + max(1, 0), TargetRightBoundary);
 	}
 	else if RightBoundary > TargetRightBoundary
 	{
@@ -55,7 +55,7 @@ function StageBoundariesUpdate()
 			{
 				TopBoundary = Screen.CameraY;
 			}
-			TopBoundary = min(TopBoundary + max(1, Player.Ysp), TargetTopBoundary);
+			TopBoundary = min(TopBoundary + max(1, 0), TargetTopBoundary);
 		}
 	}
 	else if TopBoundary > TargetTopBoundary
@@ -66,7 +66,7 @@ function StageBoundariesUpdate()
 	// Update bottom boundary
 	if BottomBoundary < TargetBottomBoundary
 	{
-		BottomBoundary = min(BottomBoundary + max(1, Player.Ysp), TargetBottomBoundary);
+		BottomBoundary = min(BottomBoundary + max(1, 0), TargetBottomBoundary);
 		DeathBoundary  = TargetBottomBoundary;
 	}
 	else if BottomBoundary > TargetBottomBoundary
