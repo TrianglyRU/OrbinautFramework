@@ -19,10 +19,14 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 			AngleX = (AngleX + 3) mod 360;
 			AngleY = (AngleY + 6) mod 360;
 			Spin   = (Spin   + 1) mod 360;
-			var PPosX = floor(Player.PosX);
-			var Dest = PPosX + 32 * (PPosX > BossController.x ? -1 : 1);
-			if (Dest > PosX) PosX++;
-			else if (Dest < PosX) PosX--;
+			if (Delay) Delay--; 
+			else
+			{
+				var PPosX = floor(Player.PosX);
+				var Dest = PPosX + 32 * (PPosX > BossController.x ? -1 : 1);
+				if (Dest > PosX) PosX++;
+				else if (Dest < PosX) PosX--;
+			}
 		break;
 		case 2:
 			if StateTimer
@@ -32,54 +36,62 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 			else
 			{
 				 State = 3;
-				 StateTimer = 700;
+				 StateTimer = 450;
 			}
 		break;
 		case 3:
 			if StateTimer
-			{
-				if StateTimer < 600 and StateTimer >= 550 and !(StateTimer mod (Difficulty == 1 ? 10 : 15))
+			{	
+				if HP mod 2
 				{
-					var ID = id;
-					var Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
-					with Fire
+					if (StateTimer == 350 or StateTimer == 200) Delay = 50;
+					if ((StateTimer < 350 and StateTimer >= 300) or (StateTimer < 200 and StateTimer >= 150)) and !(StateTimer mod (Difficulty == 1 ? 10 : 15))
 					{
-						Type = 1;
-						Parent = ID;
-						image_xscale = 0;
-						image_yscale = 0;
-						Angle = (600 - ID.StateTimer) * 2;
-						Timer = 60;
-					}
-					Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
-					with Fire
-					{
-						Type = 1;
-						Parent = ID;
-						image_xscale = 0;
-						image_yscale = 0;
-						Angle = -(600 - ID.StateTimer) * 2;
-						Timer = 60;
-					}
-				}
-				else if StateTimer == 425 or StateTimer == 325 or StateTimer == 225
-				{
-					var ID = id;
-					for (var i = 0; i < 10; i++)
-					{
+						var ID = id;
 						var Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
 						with Fire
 						{
-							Type = 2;
+							Type = 1;
 							Parent = ID;
 							image_xscale = 0;
 							image_yscale = 0;
-							Angle = i * 36;
-							switch ID.StateTimer
+							Angle = (ID.StateTimer mod 50 + 10) * 2;
+							Timer = 60; 
+						}
+						Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
+						with Fire
+						{
+							Type = 1;
+							Parent = ID;
+							image_xscale = 0;
+							image_yscale = 0;
+							Angle = -(ID.StateTimer mod 50 + 10) * 2;
+							Timer = 60;
+						}
+					}
+				}
+				else
+				{
+					if (StateTimer == 365 or StateTimer == 265 or StateTimer == 165) Delay = 30;
+					if StateTimer == 350 or StateTimer == 250 or StateTimer == 150
+					{
+						var ID = id;
+						for (var i = 0; i < 10; i++)
+						{
+							var Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
+							with Fire
 							{
-								case 425: Spin =  0 break;
-								case 325: Spin =  1 break;
-								case 225: Spin = -1 break;
+								Type = 2;
+								Parent = ID;
+								image_xscale = 0;
+								image_yscale = 0;
+								Angle = i * 36;
+								switch ID.StateTimer
+								{
+									case 350: Spin =  0 break;
+									case 250: Spin =  1 break;
+									case 150: Spin = -1 break;
+								}
 							}
 						}
 					}
@@ -111,9 +123,13 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 					AngleX = 0;
 					AngleY = 0;
 				}
-				var PPosX = floor(Player.PosX);
-				if (PPosX > PosX) PosX++;
-				else if (PPosX < PosX) PosX--;
+				if (Delay) Delay--; 
+				else
+				{
+					var PPosX = floor(Player.PosX);
+					if (PPosX > PosX) PosX++;
+					else if (PPosX < PosX) PosX--;
+				}
 			}
 			else
 			{

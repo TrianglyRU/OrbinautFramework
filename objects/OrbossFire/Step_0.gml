@@ -21,8 +21,9 @@
 			if Timer
 			{
 				Timer--;
-				x = Parent.x + round(40 * dsin(Angle + 180) * ((Parent.MaxHP - Parent.HP - 1) / 4 + 1));
-				y = Parent.y + round(40 * dcos(Angle + 180));
+				var Ofst = 2 * dsin(Timer * 16);
+				x = Parent.x + round(40 * dsin(Angle + Ofst + 180) * ((Parent.MaxHP - Parent.HP - 1) / 4 + 1));
+				y = Parent.y + round(40 * dcos(Angle + Ofst + 180));
 				if abs(image_xscale) < 1
 				{
 					image_xscale += 0.1 * (image_xscale >= 0 ? 1 : -1);

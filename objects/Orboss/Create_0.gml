@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 	
-	MaxHP  = 1;
+	MaxHP  = 8;
 	HP     = MaxHP;
 	AngleX = 0;
 	AngleY = 0;
@@ -12,6 +12,7 @@
 	SinMove = 0;
 	PosX = x;
 	PosY = y;
+	Delay = 0;
 	/*
 	if !instance_exists(Orbstatue)
 	{
