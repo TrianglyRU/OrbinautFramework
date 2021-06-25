@@ -1,9 +1,7 @@
 /// @function bg_objectisVariableialize() 
 function bg_objectisVariableialize() 
 {	
-	// Apply a parallax shader to the object
-	surface_set_target(Game.BGSurf);
-	
+	// Apply a parallax shader to the object	
 	shader_set(ShaderParallax);
 	
 	shader_set_uniform_f(Palette.Prlx_Wid,   sprite_width);

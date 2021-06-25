@@ -3,7 +3,7 @@ function bg_object_parallax(posX, posY, scrlX, scrlY, scrlOfstX, scrlOfstY, top,
 {		
 	// Set variables
 	var DrawX = Screen.CameraX;
-	var DrawY = floor(Screen.CameraY * (1 - scrlY)) + top + posY - Screen.CameraY;
+	var DrawY = floor(Screen.CameraY * (1 - scrlY)) + top + posY;
 
 	// Set shader uniforms
 	shader_set_uniform_f(Palette.Prlx_XOfst, DrawX * scrlX - scrlOfstX);
@@ -17,7 +17,7 @@ function bg_object_parallax(posX, posY, scrlX, scrlY, scrlOfstX, scrlOfstY, top,
 	}
 	
 	// Render sprite
-	draw_sprite_part(sprite_index, image_index, 0, top, sprite_width, bottom - top + 1, posX, DrawY);
+	draw_sprite_part(sprite_index, image_index, 0, top, sprite_width, bottom - top + 1, DrawX + posX, DrawY);
 	
 	// Reset incline height
 	if incHeight != 0 

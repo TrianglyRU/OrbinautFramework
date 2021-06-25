@@ -15,5 +15,5 @@ function ScreenCameraPositionUpdate()
 	CameraY = clamp(CameraY, Stage.TopBoundary,  Stage.BottomBoundary - Height);
 	
 	// Display camera on calculated positions
-	camera_set_view_pos(view_camera[0], CameraX - 8, CameraY)
+	camera_set_view_pos(view_camera[0], CameraX, CameraY)
 }

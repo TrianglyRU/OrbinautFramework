@@ -33,14 +33,4 @@ function GameShadersSetup()
 	Uniform.Prlx_YHght = shader_get_uniform(ShaderParallax, "y_height");
 	Uniform.Prlx_YStep = shader_get_uniform(ShaderParallax, "y_step");
 	Uniform.Prlx_Texel = shader_get_uniform(ShaderParallax, "texel");
-	
-	/* = Wave shader = */
-	// =================== //
-	
-	// Setup background parallax shader
-	Uniform.Wave_ScrnHeight = shader_get_uniform(ShaderWave, "u_scrnHeight");
-	Uniform.Wave_Texel		= shader_get_uniform(ShaderWave, "u_texel");
-	Uniform.Wave_Time		= shader_get_uniform(ShaderWave, "u_time");
-	Uniform.Wave_Water		= shader_get_uniform(ShaderWave, "u_water");
-	Uniform.Wave_CamY		= shader_get_uniform(ShaderWave, "u_camY");
 }

@@ -274,7 +274,6 @@
     {"id":{"name":"tex_mqz_dec19","path":"sprites/tex_mqz_dec19/tex_mqz_dec19.yy",},"order":25,},
     {"id":{"name":"ObjCollisionChangeScript","path":"scripts/ObjCollisionChangeScript/ObjCollisionChangeScript.yy",},"order":1,},
     {"id":{"name":"spr_obj_breakablewall_editor","path":"sprites/spr_obj_breakablewall_editor/spr_obj_breakablewall_editor.yy",},"order":0,},
-    {"id":{"name":"ShaderWave","path":"shaders/ShaderWave/ShaderWave.yy",},"order":3,},
     {"id":{"name":"StarryNight","path":"sounds/StarryNight/StarryNight.yy",},"order":6,},
     {"id":{"name":"ObjSpringHorizontalScript","path":"scripts/ObjSpringHorizontalScript/ObjSpringHorizontalScript.yy",},"order":4,},
     {"id":{"name":"bg_object_parallax","path":"scripts/bg_object_parallax/bg_object_parallax.yy",},"order":5,},
