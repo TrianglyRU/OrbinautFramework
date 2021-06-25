@@ -28,17 +28,27 @@ function ObjBossControllerScript()
 		}
 	}
 	
-	// Check if the boss was defeated
-	else if BossDefeated
+	// Check if boss is active
+	else 
 	{
-		// Reset right and top boundaries
-		Stage.TargetRightBoundary = room_width;
-		Stage.TargetTopBoundary	  = 0;
+		instance_deactivate_object(Signpost);
+		instance_deactivate_object(Capsule);
 		
-		// Play stage music
-		audio_bgm_play(Stage.StageMusic, noone, Stage.StageMusicLooppoint, TypeNormal); 
+		// Check if the boss was defeated
+		if BossDefeated
+		{
+			// Reset right and top boundaries
+			Stage.TargetRightBoundary = room_width;
+			Stage.TargetTopBoundary	  = 0;
 		
-		// Destroy object
-		instance_destroy();
+			// Play stage music
+			audio_bgm_play(Stage.StageMusic, noone, Stage.StageMusicLooppoint, TypeNormal);
+			
+			instance_activate_object(Signpost);
+			instance_activate_object(Capsule);
+		
+			// Destroy object
+			instance_destroy();
+		}
 	}
 }

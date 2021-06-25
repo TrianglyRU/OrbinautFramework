@@ -36,8 +36,24 @@
 				{
 					case 0:
 						GamePaused = false;
-						instance_activate_object(UnloadFar);
-						instance_activate_object(UnloadClose);
+						//instance_activate_object(UnloadFar);
+						//instance_activate_object(UnloadClose);
+						
+						// Do code from object side
+						with all
+						{
+							// Exit the code if object is the one to ignore
+							var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint];
+							for (var i = 0; i < array_length(IgnoreList); i++)
+							{
+								if object_index == IgnoreList[i]
+								{
+									exit;
+								}
+							}	
+							instance_activate_object(self);
+						}
+						
 						sprite_delete(Screen.PauseScreen);
 						Screen.PauseScreen = -1;
 					break;
