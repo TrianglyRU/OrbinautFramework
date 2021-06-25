@@ -26,14 +26,10 @@
 		break;
 		case 2:
 			instance_create(x, y, DustExplosion);
-			var Created = instance_create(x, y, Ring);
+			var Created = instance_create(x, y, ShatteredRing);
 			with Created
-			{
-				object_set_solidbox(8, 8);
-				object_set_depth(Player, true);
-			
+			{		
 				// Set ring flags and speed
-				Physical      = true;
 				PickupTimeout = 16;
 				Xsp			  = modeX;
 				Ysp			  = 2 * modeY;

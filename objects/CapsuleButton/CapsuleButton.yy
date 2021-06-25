@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "Objects",
-    "path": "objects/Objects/Objects.yy",
+    "name": "UnloadFar",
+    "path": "objects/UnloadFar/UnloadFar.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

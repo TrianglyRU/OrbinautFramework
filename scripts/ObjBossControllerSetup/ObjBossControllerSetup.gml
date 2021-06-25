@@ -10,4 +10,7 @@ function ObjBossControllerSetup()
 	
 	// Make invisible
 	visible = false;
+	
+	// Set triggerbox
+	object_set_triggerbox(0, 32, -512, 512);
 }

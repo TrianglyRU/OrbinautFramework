@@ -77,25 +77,16 @@ function object_damage(flame_type, thunder_type, instant_kill)
 			for (var i = 0; i < min(Player.Rings, 32); i++) 
 			{
 				// Spawn ring
-				var Created = instance_create(floor(Player.PosX), floor(Player.PosY), Ring);
+				var Created = instance_create(floor(Player.PosX), floor(Player.PosY), ShatteredRing);
 				if  i == 16 
 				{ 
 					Ang = 168.75; 
 					Spd = 2;
 				}
-				
-				// Set solidbox for the ring and force render above the player
-				with Created
-				{
-					object_set_solidbox(8, 8);
-					object_set_depth(Player, true);
-				}
-				
+
 				// Set ring flags and speed
-				Created.Physical      = true;
-				Created.PickupTimeout = 64;
-				Created.Xsp			  = Spd * dsin(Ang) * Dir;
-				Created.Ysp			  = Spd * dcos(Ang);
+				Created.Xsp = Spd * dsin(Ang) * Dir;
+				Created.Ysp	= Spd * dcos(Ang);
 				
 				// Update direction and movement angle
 				if Dir 

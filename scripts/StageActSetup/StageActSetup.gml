@@ -17,7 +17,7 @@ function StageActSetup()
 			WaterEnabled            = false;
 			WaterLevel				= 0;
 
-			StageMusic				= MoonlightQuadrant;
+			StageMusic				= StarryNight;
 			StageMusicDAC			= noone;
 			StageMusicLooppoint		= 0;
 			

@@ -1,143 +1,41 @@
 function ObjRingScript()
 {
-	// Check if ring is physical (being lost by player)
-	if Physical
+	// Play animation
+	image_index = Stage.AnimationTime div 4 mod 8;
+		
+	// Check for being magnetized
+	if !Magnetized
 	{
-		// Play animation
-		animation_play(sprite_index, floor((256 * 2) / Timer), 1);
-		
-		// Decrease 'can't collect' timer
-		if PickupTimeout
+		if Player.BarrierType == BarrierThunder and distance_to_object(Player) <= 64
 		{
-			PickupTimeout--;
+			Magnetized = true;
 		}
-		
-		// Do other timer stuff
-		CollisionCheck++;		
-		Timer--;
-		
-		// Check if it is time for ring to disappear
-		if !Timer
-		{
-			instance_destroy();
-			exit;
-		}
+	}
+	else
+	{
+		var ringacc;
+		ringacc[0] = 0.75;
+		ringacc[1] = 0.1875;
+			
+		//relative positions
+		var sx = sign(floor(Player.PosX) - floor(PosX));
+		var sy = sign(floor(Player.PosY) - floor(PosY));
 	
-		// Apply gravity
-		Ysp += Grv;
+		//check relative movement
+		var tx = (sign(Xsp) == sx);
+		var ty = (sign(Ysp) == sy);
 	
-		// Update code position
+		//add to speed
+		Xsp += (ringacc[tx] * sx);
+		Ysp += (ringacc[ty] * sy);
+	
+		//move
 		PosX += Xsp;
 		PosY += Ysp;
-
+			
 		// Update real position
 		x = floor(PosX);
 		y = floor(PosY);
-		
-		// Do tile collision every four frames when falling down
-		if CollisionCheck mod 4 == 0 and Ysp > 0 or Game.RingsPreciseCollision 
-		{
-			// Check if ring found the tile & collide
-			var findFloor = object_collide_tiles_v(false, SideBottom, 0, Player.Layer);
-			if  findFloor
-			{
-				// Invert its speed
-				Ysp = min(Ysp * -0.75, -2);
-			}
-			
-			// Do additional collisions if all-side collision is enabled
-			if Game.RingsAllSideCollision
-			{
-				// Collide ceiling
-				if Ysp < 0 
-				{
-					var findCeiling = object_collide_tiles_v(false, SideTop, 0, Player.Layer);
-					if  findCeiling
-					{
-						Ysp *= -0.75;
-					}
-				}
-				
-				// Collide left wall
-				if Xsp < 0
-				{
-					var findLWall = object_collide_tiles_h(SideLeft, false, 0, Player.Layer);
-					if  findLWall
-					{
-						Xsp *= -0.75;
-					}
-				}
-				
-				// Collide right wall
-				if Xsp > 0
-				{
-					var findRWall = object_collide_tiles_h(SideRight, false, 0, Player.Layer);
-					if  findRWall
-					{
-						Xsp *= -0.75;
-					}
-				}
-			}
-		}
-		
-		// Check if ring is outside the camera X view
-		if !Game.RingsNoBoundDespawn
-		{
-			if x < Screen.CameraX - 8 or x > Screen.CameraX + Screen.Width + 8
-			{
-				// Delete it
-				instance_destroy();
-				exit;
-			}
-		}
-	}
-	
-	// If ring is static, just play its animation
-	else
-	{
-		// Play animation
-		image_index = Stage.AnimationTime div 4 mod 8;
-		
-		// Check for being magnetized
-		if !Magnetized
-		{
-			if Player.BarrierType == BarrierThunder and distance_to_object(Player) <= 64
-			{
-				Magnetized = true;
-			}
-		}
-		else
-		{
-			var ringacc;
-			ringacc[0] = 0.75;
-			ringacc[1] = 0.1875;
-			
-			//relative positions
-			var sx = sign(floor(Player.PosX) - floor(PosX));
-			var sy = sign(floor(Player.PosY) - floor(PosY));
-	
-			//check relative movement
-			var tx = (sign(Xsp) == sx);
-			var ty = (sign(Ysp) == sy);
-	
-			//add to speed
-			Xsp += (ringacc[tx] * sx);
-			Ysp += (ringacc[ty] * sy);
-	
-			//move
-			PosX += Xsp;
-			PosY += Ysp;
-			
-			// Update real position
-			x = floor(PosX);
-			y = floor(PosY);
-		}
-	}
-	
-	// Exit the code if ring can't be collected
-	if PickupTimeout
-	{
-		exit;
 	}
 	
 	// Check for hitbox collision

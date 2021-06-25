@@ -1,7 +1,13 @@
 function StageBoundariesUpdate()
 {	
+	// Exit
+	if Player.Death
+	{
+		exit;
+	}
+	
 	// Limit left boundary if we've loaded from the previous act
-	if Game.StageTransitionData[4] == true
+	if Game.StageTransitionData[4] == true and !IsFinished
 	{
 		TargetLeftBoundary = Spawnpoint.x - Screen.Width / 2;
 		LeftBoundary       = TargetLeftBoundary;
@@ -10,17 +16,17 @@ function StageBoundariesUpdate()
 	// Update left boundary
 	if LeftBoundary < TargetLeftBoundary
 	{
-		if Screen.CameraX > TargetLeftBoundary
+		if Screen.CameraX >= TargetLeftBoundary
 		{
 			LeftBoundary = TargetLeftBoundary
 		}
 		else
 		{
-			if Screen.CameraX > LeftBoundary
+			if Screen.CameraX >= LeftBoundary
 			{
 				LeftBoundary = Screen.CameraX
 			}
-			LeftBoundary = min(LeftBoundary + max(1, 0), TargetLeftBoundary);
+			LeftBoundary++;
 		}
 	}
 	else if LeftBoundary > TargetLeftBoundary
@@ -31,21 +37,25 @@ function StageBoundariesUpdate()
 	// Update right boundary
 	if RightBoundary < TargetRightBoundary
 	{
-		RightBoundary = min(RightBoundary + max(1, 0), TargetRightBoundary);
+		RightBoundary++;
 	}
 	else if RightBoundary > TargetRightBoundary
 	{
-		if Screen.CameraX + Screen.Width < RightBoundary
+		if Screen.CameraX + Screen.Width >= TargetRightBoundary
 		{
 			RightBoundary = Screen.CameraX + Screen.Width;
+			RightBoundary--;
 		}
-		RightBoundary--;
+		else if Screen.CameraX + Screen.Width <= TargetRightBoundary
+		{
+			RightBoundary = TargetRightBoundary
+		}
 	}
 	
 	// Update top boundary
 	if TopBoundary < TargetTopBoundary
 	{
-		if Screen.CameraY > TargetTopBoundary
+		if Screen.CameraY >= TargetTopBoundary
 		{
 			TopBoundary = TargetTopBoundary
 		}
@@ -55,7 +65,7 @@ function StageBoundariesUpdate()
 			{
 				TopBoundary = Screen.CameraY;
 			}
-			TopBoundary = min(TopBoundary + max(1, 0), TargetTopBoundary);
+			TopBoundary++;
 		}
 	}
 	else if TopBoundary > TargetTopBoundary
@@ -66,16 +76,20 @@ function StageBoundariesUpdate()
 	// Update bottom boundary
 	if BottomBoundary < TargetBottomBoundary
 	{
-		BottomBoundary = min(BottomBoundary + max(1, 0), TargetBottomBoundary);
-		DeathBoundary  = TargetBottomBoundary;
+		BottomBoundary++;
+		DeathBoundary = TargetBottomBoundary;
 	}
 	else if BottomBoundary > TargetBottomBoundary
 	{
-		if Screen.CameraY + Screen.Height < BottomBoundary
+		if Screen.CameraY + Screen.Height >= TargetBottomBoundary
 		{
 			BottomBoundary = Screen.CameraY + Screen.Height
+			BottomBoundary--;
 		}
-		BottomBoundary--;
+		else if Screen.CameraY + Screen.Height <= TargetBottomBoundary
+		{
+			BottomBoundary = TargetBottomBoundary;
+		}
 		DeathBoundary = BottomBoundary;
 	}
 }

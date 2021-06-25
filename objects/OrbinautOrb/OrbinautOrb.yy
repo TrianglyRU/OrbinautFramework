@@ -7,7 +7,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "UnloadFar",
+    "path": "objects/UnloadFar/UnloadFar.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

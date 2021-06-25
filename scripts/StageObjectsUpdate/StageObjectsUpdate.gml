@@ -1,12 +1,21 @@
 function StageObjectsUpdate() 
 {		
-	// Unload all objects
-	instance_deactivate_object(Objects);
+	// Unload far objects
+	instance_deactivate_object(UnloadFar);
 	
-	// Load objects in a given region
+	// Load far objects in a given region
 	if State != ActStateLoading
 	{
-		instance_activate_region(Screen.CameraX - 96, Screen.CameraY, Screen.Width + 192, Screen.Height, true);
+		instance_activate_region(Screen.CameraX - 128, Screen.CameraY - 256, Screen.Width + 256, Screen.Height + 512, true);
+	}
+	
+	// Unload close objects
+	instance_deactivate_object(UnloadClose);
+	
+	// Load close objects in a given region
+	if State != ActStateLoading
+	{
+		instance_activate_region(Screen.CameraX - 32, Screen.CameraY, Screen.Width + 64, Screen.Height, true);
 	}
 	
 	// Check if player died or stage unloads

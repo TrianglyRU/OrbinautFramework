@@ -43,12 +43,10 @@ function ObjSignpostScript()
 		if floor(Player.PosX) > x - Screen.Width / 2
 		{
 			Stage.TargetLeftBoundary = x - Screen.Width;
-			
-			if Active
-			{
-				Stage.TargetLeftBoundary = x - Screen.Width / 2;
-			}
 		}
 	}
-	
+	if Active
+	{
+		Stage.TargetLeftBoundary = x - (Screen.Width / 2);
+	}
 }

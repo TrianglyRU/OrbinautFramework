@@ -36,7 +36,8 @@
 				{
 					case 0:
 						GamePaused = false;
-						instance_activate_object(Objects);
+						instance_activate_object(UnloadFar);
+						instance_activate_object(UnloadClose);
 						sprite_delete(Screen.PauseScreen);
 						Screen.PauseScreen = -1;
 					break;

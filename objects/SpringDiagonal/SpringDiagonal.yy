@@ -7,7 +7,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "UnloadClose",
+    "path": "objects/UnloadClose/UnloadClose.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

@@ -6,16 +6,30 @@ function ScreenTitleCardDisplay2()
 		exit;
 	}
 	
-	// Use title card font
-	string_set_font(Game.Font[FontCard], "right");
-	
 	// Draw card elements
-	draw_sprite(spr_hud_line,      0, LineX,	 LineY);
-	draw_sprite(spr_hud_ribbon,	   0, RibbonX,	 RibbonY);
-	draw_sprite(spr_hud_zoneline,  0, ZonelineX, ZonelineY);
-	draw_sprite(spr_hud_act,       0, ActX,		 ActY);
+	draw_sprite(spr_hud_line,      0, LineX,	  LineY);
+	draw_sprite(spr_hud_note,      0, LineX - 46, LineY + 34);
+	
+	// Draw composition name
+	switch Game.NormalTrack[TrackID]
+	{
+		case StarryNight:
+			var CompositionName = "WOOFER - STARRY NIGHT ZONE ACT 1";
+		break;
+		default:
+			var CompositionName = "UNKNOWN TRACK";
+		break;
+	}
+	string_set_font(Game.Font[FontDebug], "right");
+	string_display(LineX - 52, LineY + 40, CompositionName, 1);
+	
+	// Draw card elements 2
+	draw_sprite(spr_hud_ribbon,	   0, RibbonX,	  RibbonY);
+	draw_sprite(spr_hud_zoneline,  0, ZonelineX,  ZonelineY);
+	draw_sprite(spr_hud_act,       0, ActX,		  ActY);
 	
 	// Draw zone name
+	string_set_font(Game.Font[FontCard], "right");
 	string_display(ZoneX, ZoneY, Stage.ZoneName, 1);
 	
 	// Start gameplay early if we're loading from previous act
