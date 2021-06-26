@@ -7,7 +7,7 @@ function bg_object_parallax(spriteid, posX, posY, scrlX, scrlY, scrlOfstX, scrlO
 
 	// Set shader uniforms
 	shader_set_uniform_f(Palette.Prlx_XOfst, DrawX * scrlX - scrlOfstX);
-	shader_set_uniform_f(Palette.Prlx_Pos, posX, DrawY - scrlOfstY);
+	shader_set_uniform_f(Palette.Prlx_Pos, DrawX + posX, DrawY - scrlOfstY);
 	
 	// Skip incline parallax if incline height is 0
 	if incHeight != 0 

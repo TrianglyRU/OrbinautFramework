@@ -1,9 +1,9 @@
 /// @description Renderer & Interface
 // You can write your code in this editor
-	
+
 	// Render pause and exit the futher code if it is active
 	if ScreenPauseRender() exit;
-
+	
 	// Start rendering our application, exit if not
 	if !ScreenRendererPerform() exit;
 	
@@ -21,4 +21,3 @@
 	
 	// Update our application renderer
 	ScreenRendererHighUpdate();
-	

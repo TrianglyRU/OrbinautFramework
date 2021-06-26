@@ -14,8 +14,8 @@ function BackgroundSetup()
 		case MQZ2:
 		{
 			// Background sprites
-			//BackgroundSprites = [tex_mqz_bg00, tex_mqz_bg00, tex_mqz_bg01, tex_mqz_bg02, tex_mqz_bg02, tex_mqz_bg02];
-			BackgroundSprites = [noone];
+			BackgroundSprites = [tex_mqz_bg00, tex_mqz_bg00, tex_mqz_bg01, tex_mqz_bg02, tex_mqz_bg02, tex_mqz_bg02];
+			//BackgroundSprites = [noone];
 			
 			// tex_mqz_bg00
 			BackgroundValues[0] = [0, 0, 0,    0,    0, 0, 0,   167, 0, 0];

@@ -1,7 +1,9 @@
 function ScreenRendererPerform()
 {	
-	var surfExists = surface_exists(Game.AppSurface);
-	if (surfExists) draw_surface(Game.AppSurface, 0, 0);
-	surface_set_target(Game.AppSurface);
-	return surfExists;
+	if surface_exists(Game.AppSurface)
+	{
+		surface_set_target(Game.AppSurface);
+		return true;
+	}
+	return false;
 }
