@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Code",
-    "path": "folders/Game Code.yy",
+    "name": "Background",
+    "path": "folders/Game Code/Background.yy",
   },
   "resourceVersion": "1.0",
   "name": "BackgroundVariables",

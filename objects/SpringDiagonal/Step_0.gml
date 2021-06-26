@@ -1,10 +1,7 @@
 /// @description Scripts Event
 // You can call your scripts in this editor
 	
-	// Act solid
-	object_act_solid(false, true, false, CollisionMap);
-	
-	if object_player_stand(id)
+	if object_player_touch(SideTop)
 	{
 		if image_xscale == 1  and floor(Player.PosX + 4) >= floor(x)
 		or image_xscale == -1 and floor(Player.PosX - 4) <= floor(x)
@@ -42,3 +39,6 @@
 	{
 		animation_play(sprite_index, 3, 1);
 	}
+	
+	// Act solid
+	object_act_solid(true, true, true, CollisionMap);

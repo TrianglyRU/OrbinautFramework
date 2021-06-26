@@ -75,18 +75,18 @@ function ScreenResultsDisplay()
 		draw_set_font(Game.Font[FontDigits1]);
 		draw_set_halign(fa_right);
 
-		draw_sprite_ext(sprHUD_ResultsCard, 0, CenterPos + 60, 96, CardFrm, CardFrm, 90 - ResultValue[1], c_white, CardFrm);
-		draw_sprite_ext(sprHUD_ResultsAct, Stage.ActID, CenterPos + 68, 96, CardFrm, 1, 0, c_white, 1);
-		draw_sprite(sprHUD_ResultsChar, Player.CharacterID, CenterPos - ResultValue[2], 62);
-		draw_sprite(sprHUD_ResultsThrought, 0, CenterPos   - ResultValue[3], 96);
-		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 44 + ResultValue[4], 118);
-		draw_sprite(sprHUD_Score,		 0, CenterPos - 80 + ResultValue[4], 120);
+		draw_sprite_ext(spr_results_head, 0, CenterPos + 60, 96, CardFrm, CardFrm, 90 - ResultValue[1], c_white, CardFrm);
+		draw_sprite_ext(spr_results_act, Stage.ActID, CenterPos + 68, 96, CardFrm, 1, 0, c_white, 1);
+		draw_sprite(spr_results_char, Player.CharacterID, CenterPos - ResultValue[2], 62);
+		draw_sprite(spr_results_through, 0, CenterPos   - ResultValue[3], 96);
+		draw_sprite(spr_results_head_small, 0, CenterPos - 44 + ResultValue[4], 118);
+		draw_sprite(spr_hud_score,		 0, CenterPos - 80 + ResultValue[4], 120);
 		draw_text(CenterPos + 80 + ResultValue[4], 120, Player.Score);
-		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 6  + ResultValue[5], 134);
-		draw_sprite(sprHUD_TimeBonus,	 0, CenterPos - 80 + ResultValue[5], 136);
+		draw_sprite(spr_results_head_small, 0, CenterPos - 6  + ResultValue[5], 134);
+		draw_sprite(spr_results_timebonus,	 0, CenterPos - 80 + ResultValue[5], 136);
 		draw_text(CenterPos + 80 + ResultValue[5], 136, TimeBonus);
-		draw_sprite(sprHUD_ResultsSCard, 0, CenterPos - 6  + ResultValue[6], 150);
-		draw_sprite(sprHUD_RingBonus,	 0, CenterPos - 80 + ResultValue[6], 152);
+		draw_sprite(spr_results_head_small, 0, CenterPos - 6  + ResultValue[6], 150);
+		draw_sprite(spr_results_ringbonus,	 0, CenterPos - 80 + ResultValue[6], 152);
 		draw_text(CenterPos + 80 + ResultValue[6], 152, RingBonus);
 		
 		// Unload the act

@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "UnloadClose",
-    "path": "objects/UnloadClose/UnloadClose.yy",
+    "name": "UnloadFar",
+    "path": "objects/UnloadFar/UnloadFar.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

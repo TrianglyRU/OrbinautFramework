@@ -28,7 +28,7 @@ function StageActUpdate()
 			if StateTimer == 0
 			{
 				Player.Lives	-= 1;
-				Game.GlobalLives = Player.Lives;
+				Game.Lives = Player.Lives;
 					
 				fade_perform(to, black, 1);
 				audio_bgm_stop(TypeAll, 2);
@@ -48,13 +48,15 @@ function StageActUpdate()
 					gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, Player.Emeralds, 3, 0, 0);
 					
 					// Reset game state
-					Game.GlobalCharacter = CharSonic;
-					Game.GlobalScore	 = 0;
-					Game.GlobalLives	 = 3;
-					Game.GlobalConts	 = 0;
-					Game.GlobalEmeralds  = 0;
-					Game.SavedCheckpoint = false;
-					Game.SavedPosition   = false;
+					Game.Character      = CharSonic;
+					Game.Score	        = 0;
+					Game.Lives	        = 3;
+					Game.Continues      = 0;
+					Game.Emeralds       = 0;
+					Game.Time	        = 0;
+					Game.StageBoundary  = 0;
+					Game.CheckpointID   = false;
+					Game.PlayerPosition = false;
 				
 					audio_stop_all();
 					room_goto(DevMenu);
@@ -87,10 +89,8 @@ function StageActUpdate()
 	// Disable stage time and reset saved positions
 	if TimeEnabled
 	{
-		TimeEnabled			 = false;
-		StateTimer			 = 0;
-		Game.SavedCheckpoint = 0;
-		Game.SavedPosition   = 0;
+		TimeEnabled	= false;
+		StateTimer	= 0;
 	}
 		
 	// Count timer

@@ -3,6 +3,8 @@ function ObjRingSetup()
 	// Initialize variables
 	PosX		   isVar;
 	PosY		   isVar;
+	Xsp			   isVar;
+	Ysp			   isVar;
 	Magnetized     isVar;
 	
 	// Set object hitbox

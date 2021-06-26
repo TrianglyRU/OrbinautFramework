@@ -30,7 +30,7 @@ function ScreenRendererLowUpdate()
 		shader_set_uniform_f(Uniform.Scrn_WetUVs, Palette.PaletteSet[1][3], Palette.PaletteSet[1][4], Palette.PaletteSet[1][5]);
 		shader_set_uniform_f(Uniform.Scrn_Water, instance_exists(Stage) and Stage.WaterEnabled ? clamp(Screen.CameraY - Stage.WaterLevel + Height, 0, Height) : 0);
 	}
-	draw_surface(Game.MainSurf, 0, 0);
+	draw_surface(Game.AppSurface, 0, 0);
 	
 	shader_reset();
 }

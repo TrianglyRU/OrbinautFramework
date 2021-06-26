@@ -29,10 +29,10 @@ function ScreenInterfaceDisplay()
 	var RedFlash = Stage.AnimationTime ? Stage.AnimationTime mod 16 < 8 : 0;
 		
 	// Draw graphics
-	draw_sprite(sprHUD_Score, 0,							    ScreenX + 17, ScreenY + 9);
-	draw_sprite(sprHUD_Time,  TimeValue > 32400 ? RedFlash : 0, ScreenX + 17, ScreenY + 25);
-	draw_sprite(sprHUD_Rings, !Player.Rings     ? RedFlash : 0, ScreenX + 17, ScreenY + 41);
-	draw_sprite(sprHUD_Lives, Player.CharacterID,               ScreenX + 14, ScreenY + Height - 23);
+	draw_sprite(spr_hud_score, 0,							     ScreenX + 17, ScreenY + 9);
+	draw_sprite(spr_hud_time,  TimeValue > 32400 ? RedFlash : 0, ScreenX + 17, ScreenY + 25);
+	draw_sprite(spr_hud_rings, !Player.Rings     ? RedFlash : 0, ScreenX + 17, ScreenY + 41);
+	draw_sprite(spr_hud_lives, Player.CharacterID,               ScreenX + 14, ScreenY + Height - 23);
 		
 	// Display SCORE, TIME, RINGS counters
 	string_set_font(Game.Font[FontDigits1], "right");

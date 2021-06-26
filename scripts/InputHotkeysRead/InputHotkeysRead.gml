@@ -11,8 +11,11 @@ function InputHotkeysRead()
 		// Stage restart
 		if keyboard_check_pressed(vk_f1) 
 		{
-			Game.SavedCheckpoint = 0;
-			Game.SavedPosition	 = 0;
+			Game.CheckpointID = false;
+			Game.PlayerPosition	 = false;
+			Game.Time		 = 0;
+			Game.StageBoundary	 = 0;
+			Game.Score     = 0;
 			Game.PalIndexDry[0]  = 0;
 			audio_stop_all();
 			room_restart();

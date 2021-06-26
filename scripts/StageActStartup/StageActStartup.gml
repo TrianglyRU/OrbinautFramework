@@ -3,6 +3,16 @@ function StageActStartup()
 	// Play stage music
 	audio_bgm_play(StageMusic, StageMusicDAC, StageMusicLooppoint, TypeNormal);
 	
+	// Load saved data
+	if Game.Time
+	{
+		Time = Game.Time;
+	}
+	if Game.StageBoundary
+	{
+		BottomBoundary = Game.StageBoundary;
+	}
+	
 	// Set target boundaries
 	TargetLeftBoundary   = LeftBoundary;
 	TargetRightBoundary  = RightBoundary;

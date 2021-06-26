@@ -35,15 +35,10 @@ function ObjSignpostScript()
 	}
 	
 	// Set boundaries
-	if Screen.PlayerScreenX >= Screen.Width / 2
+	if floor(Player.PosX) > (x - Screen.Width * 1.5 + 64) + Screen.Width / 2
 	{
-		Stage.TargetLeftBoundary  = Screen.CameraX;
+		Stage.TargetLeftBoundary  = x - Screen.Width * 1.5 + 64;
 		Stage.TargetRightBoundary = x + Screen.Width / 2;
-		
-		if floor(Player.PosX) > x - Screen.Width / 2
-		{
-			Stage.TargetLeftBoundary = x - Screen.Width;
-		}
 	}
 	if Active
 	{

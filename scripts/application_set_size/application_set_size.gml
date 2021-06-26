@@ -8,9 +8,9 @@ function application_set_size(appWidth, appHeight)
 	surface_resize(application_surface,  appWidth, appHeight);
 	
 	// Resize main and background surfaces 
-	if surface_exists(Game.MainSurf)
+	if surface_exists(Game.AppSurface)
 	{
-		surface_resize(Game.MainSurf, appWidth, appHeight);
+		surface_resize(Game.AppSurface, appWidth, appHeight);
 	}
 	
 	// Enable surface rendering in case it was disabled

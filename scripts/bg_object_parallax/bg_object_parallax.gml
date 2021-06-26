@@ -1,5 +1,5 @@
-/// @function bg_object_parallax(posX, posY, scrlX, scrlY, scrlOfstX, scrlOfstY, top, bottom, [incHeight], [incForce])
-function bg_object_parallax(posX, posY, scrlX, scrlY, scrlOfstX, scrlOfstY, top, bottom, incHeight, incForce)
+/// @function bg_object_parallax(spriteid, posX, posY, scrlX, scrlY, scrlOfstX, scrlOfstY, top, bottom, [incHeight], [incForce])
+function bg_object_parallax(spriteid, posX, posY, scrlX, scrlY, scrlOfstX, scrlOfstY, top, bottom, incHeight, incForce)
 {		
 	// Set variables
 	var DrawX = Screen.CameraX;
@@ -17,7 +17,7 @@ function bg_object_parallax(posX, posY, scrlX, scrlY, scrlOfstX, scrlOfstY, top,
 	}
 	
 	// Render sprite
-	draw_sprite_part(sprite_index, image_index, 0, top, sprite_width, bottom - top + 1, DrawX + posX, DrawY);
+	draw_sprite_part(spriteid, 0, 0, top, sprite_get_width(spriteid), bottom - top + 1, DrawX + posX, DrawY);
 	
 	// Reset incline height
 	if incHeight != 0 

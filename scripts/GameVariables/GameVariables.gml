@@ -8,21 +8,17 @@ function GameVariables()
 	Game.Saveslot			     isVar;
 	
 	// Global data to transfer between stages
-	Game.GlobalCharacter		 isVar;
-	Game.GlobalScore			 isVar;
-	Game.GlobalLives			 isVar;
-	Game.GlobalConts			 isVar;
-	Game.GlobalEmeralds			 isVar;
-	
-	// Saved positions
-	Game.SavedCheckpoint		 isVar;
-	Game.SavedPosition			 isVar;
+	Game.Character		         isVar;
+	Game.Score				     isVar;
+	Game.Lives					 isVar;
+	Game.Continues			     isVar;
+	Game.Emeralds				 isVar;
+	Game.CheckpointID		     isVar;
+	Game.PlayerPosition		     isVar;
+	Game.Time				     isVar;
+	Game.StageBoundary			 isVar;
 	Game.StageTransitionData     isArr;
 	Game.StageTransitionData[10] = 0;
-	
-	Game.TransitionShiftPlayer[0]isVar;
-	Game.TransitionShiftPlayer[1]isVar;
-	Game.TransitionShiftCamera   isVar;
 	
 	// Graphics
 	Game.WindowFullscreen		 isVar;
@@ -83,6 +79,6 @@ function GameVariables()
 	
 	// Surfaces
 	Game.CompleteSurf			 isVar;
-	Game.MainSurf				 isVar;
+	Game.AppSurface				 isVar;
 	Game.BGSurf					 isVar;
 }

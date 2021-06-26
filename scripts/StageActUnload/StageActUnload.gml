@@ -9,15 +9,21 @@ function StageActUnload()
 	if StateTimer == 0
 	{
 		// Buffer score, lives, continues and emeralds to transfer it to the next zone/act
-		Game.GlobalScore    = Player.Score;
-		Game.GlobalLives    = Player.Lives;
-		Game.GlobalEmeralds = Player.Emeralds;
-		Game.GlobalConts    = Player.Conts;
+		Game.Score     = Player.Score;
+		Game.Lives     = Player.Lives;
+		Game.Emeralds  = Player.Emeralds;
+		Game.Continues = Player.Conts;
+		
+		// Clear data
+		Game.CheckpointID   = false;
+		Game.PlayerPosition = false;
+		Game.Time	        = 0;
+		Game.StageBoundary  = 0;
 		
 		// Save game progress at the end of the zone
 		if Stage.ActID == Stage.FinalActID
 		{
-			gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID + 1, Game.GlobalEmeralds, Game.GlobalLives, Game.GlobalConts, Game.GlobalScore);
+			gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID + 1, Game.Emeralds, Game.Lives, Game.Continues, Game.Score);
 		}
 				
 		// Fade out the screen only if this is last act of the zone if stage transition is enabled

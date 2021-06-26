@@ -1,7 +1,7 @@
 function PlayerSetup()
 {	
 	// Set character
-	CharacterID	= Game.GlobalCharacter;
+	CharacterID	= Game.Character;
 	
 	// Default sprite setup
 	Facing	  = DirRight;
@@ -47,13 +47,13 @@ function PlayerSetup()
 	yRadius = yRadiusDefault;
 	
 	// Load stats
-	Score    = Game.GlobalScore;
-	Lives    = Game.GlobalLives;
-	Emeralds = Game.GlobalEmeralds;
-	Conts    = Game.GlobalConts;
+	Score    = Game.Score;
+	Lives    = Game.Lives;
+	Emeralds = Game.Emeralds;
+	Conts    = Game.Continues;
 	
 	// Define spawn position
-	if Game.SavedPosition == 0
+	if Game.PlayerPosition == 0
 	{
 		if Game.StageTransitionData[4] == true
 		{
@@ -68,8 +68,8 @@ function PlayerSetup()
 	}
 	else
 	{
-		PosX = Game.SavedPosition[0];
-		PosY = Game.SavedPosition[1];
+		PosX = Game.PlayerPosition[0];
+		PosY = Game.PlayerPosition[1];
 	}
 	
 	// Initialize recorded position datalist array

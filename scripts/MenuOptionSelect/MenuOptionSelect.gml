@@ -57,11 +57,11 @@ function MenuOptionSelect()
 						if Saveslot[Game.ActiveSave] != 0
 						{	
 							// Load the data
-							Game.GlobalCharacter = Saveslot[Game.ActiveSave][SavedChar];
-							Game.GlobalScore	 = Saveslot[Game.ActiveSave][SavedScore];
-							Game.GlobalLives	 = Saveslot[Game.ActiveSave][SavedLives];
-							Game.GlobalEmeralds  = Saveslot[Game.ActiveSave][SavedEmeralds];
-							Game.GlobalConts     = Saveslot[Game.ActiveSave][SavedConts];
+							Game.Character = Saveslot[Game.ActiveSave][SavedChar];
+							Game.Score	 = Saveslot[Game.ActiveSave][SavedScore];
+							Game.Lives	 = Saveslot[Game.ActiveSave][SavedLives];
+							Game.Emeralds  = Saveslot[Game.ActiveSave][SavedEmeralds];
+							Game.Continues     = Saveslot[Game.ActiveSave][SavedConts];
 						
 							// Load the Zone using its ID
 							switch Saveslot[Game.ActiveSave][SavedZone]
@@ -112,12 +112,12 @@ function MenuOptionSelect()
 				if MenuOption < 3
 				{
 					// Get our character
-					Game.GlobalCharacter = MenuOption;
+					Game.Character = MenuOption;
 								
 					// Save the new game if we did not select "no save" slot
 					if SaveNewData
 					{
-						gamedata_save(Game.ActiveSave, Game.GlobalCharacter, 0, 0, 3, 0, 0);
+						gamedata_save(Game.ActiveSave, Game.Character, 0, 0, 3, 0, 0);
 					}
 					
 					// Load MBZ or selected stage (if we got here from Stage Select)

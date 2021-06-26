@@ -1,16 +1,14 @@
 function GameFrameworkSetup()
 {
 	// Dev mode. Enables some debug shortcuts and features, disable it on your game release
-	Game.DevMode = false;
+	Game.DevMode = true;
 	
 	// Game state
-	Game.GlobalCharacter = CharSonic;
-	Game.GlobalScore	 = 0;
-	Game.GlobalLives	 = 3;
-	Game.GlobalConts	 = 0;
-	Game.GlobalEmeralds  = 0;
-	Game.SavedCheckpoint = false;
-	Game.SavedPosition   = false;
+	Game.Character = CharSonic;
+	Game.Score	 = 0;
+	Game.Lives	 = 3;
+	Game.Continues	 = 0;
+	Game.Emeralds  = 0;
 	
 	/* From here and until 'engine' section values and flags are overwritten by default on game load
 	   if devmode is disabled, so you want to temporary enable it if you want to edit values here!   */

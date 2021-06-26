@@ -5,7 +5,7 @@ function GameRoomSetup()
 	
 	// Reset surfaces
 	Game.BGSurf		  = -1;
-	Game.MainSurf	  = -1;
+	Game.AppSurface	  = -1;
 	Game.CompleteSurf = -1;
 	
 	// Enable room viewport 0 and make it visible

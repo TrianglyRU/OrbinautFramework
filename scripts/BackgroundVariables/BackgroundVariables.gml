@@ -1,4 +1,6 @@
 function BackgroundVariables()
 {
-	BackgroundObject isArr;
+	// Initialize variables
+	BackgroundSprites isArr;
+	BackgroundValues  isArr;
 }

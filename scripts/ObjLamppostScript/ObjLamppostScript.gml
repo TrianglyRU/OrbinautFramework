@@ -8,7 +8,7 @@ function ObjLamppostScript()
 		Angle  = 180;
 	
 		// Load as activated if its ID number is lower than activated one
-		if Game.SavedCheckpoint != 0 and Game.SavedCheckpoint.LamppostID >= LamppostID
+		if Game.CheckpointID != 0 and Game.CheckpointID.LamppostID >= LamppostID
 		{
 			image_index = 2;
 			Active      = true;
@@ -26,8 +26,11 @@ function ObjLamppostScript()
 			if object_player_overlap(CollisionTriggerbox) 
 			{
 				// Set last used checkpoint ID to our ID
-				Game.SavedCheckpoint = id;
-				Game.SavedPosition   = [x, y];
+				Game.CheckpointID   = id;
+				Game.PlayerPosition = [x, y + sprite_get_height(sprite_index) / 2 - Player.yRadius];
+				Game.Time		    = Stage.Time;
+				Game.StageBoundary  = Stage.BottomBoundary;
+				Game.Score          = Player.Score;
 			
 				// Activate all inactive checkpoints with ID lower than ours
 				var tempValue = LamppostID;

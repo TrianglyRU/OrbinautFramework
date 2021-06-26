@@ -17,7 +17,7 @@
 	ScreenRendererLowUpdate();
 		
 	// Display title card
-	ScreenTitleCardDisplay2();
+	ScreenTitleCardDisplay();
 	
 	// Update our application renderer
 	ScreenRendererHighUpdate();
