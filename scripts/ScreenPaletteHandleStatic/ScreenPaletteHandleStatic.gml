@@ -8,7 +8,7 @@ function ScreenPaletteHandleStatic()
 			// MQZ underwater palette swap
 			for (var i = 0; i < 20; i++)
 			{
-				palette_handle(PaletteUnderwater, i, 1, 1);
+				palette_handle(PaletteUnderwater, i, 0, 1, 1);
 			}
 		}
 		break;
@@ -17,7 +17,7 @@ function ScreenPaletteHandleStatic()
 			// Default underwater palette swap
 			for (var i = 0; i < 20; i++)
 			{
-				palette_handle(PaletteUnderwater, i, 1, 1);
+				palette_handle(PaletteUnderwater, i, 0, 1, 1);
 			}
 		}
 		break;

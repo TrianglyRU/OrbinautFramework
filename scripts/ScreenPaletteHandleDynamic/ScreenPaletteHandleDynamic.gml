@@ -19,13 +19,13 @@ function ScreenPaletteHandleDynamic()
 					// Surface
 					for (var i = 0; i < 4; i++) 
 					{
-						palette_handle(PaletteSurface, i, 8, 3);
+						palette_handle(PaletteSurface, i, 0, 8, 3);
 					}
 						
 					// Underwater
 					for (var i = 13; i < 17; i++) 
 					{
-						palette_handle(PaletteUnderwater, i, 3, 3);
+						palette_handle(PaletteUnderwater, i, 0, 3, 3);
 					}
 				}
 				break;
@@ -36,7 +36,7 @@ function ScreenPaletteHandleDynamic()
 					// Surface
 					for (var i = 4; i < 7; i++) 
 					{
-						palette_handle(PaletteSurface, i, 4, 3);
+						palette_handle(PaletteSurface, i, 0, 4, 3);
 					}
 				}
 				break;
@@ -47,7 +47,7 @@ function ScreenPaletteHandleDynamic()
 					// Surface
 					for (var i = 7; i < 10; i++) 
 					{
-						palette_handle(PaletteSurface, i, 10, 3);
+						palette_handle(PaletteSurface, i, 0, 10, 3);
 					}
 				}
 				break;
@@ -64,16 +64,16 @@ function ScreenPaletteHandleDynamic()
 			// Surface
 			for (var i = 10; i < 18; i++)
 			{
-				palette_handle(PaletteSurface, i, 8, 3);
+				palette_handle(PaletteSurface, i, 0, 8, 3);
 			}
-			palette_handle(PaletteSurface, 18, 8, 6);
+			palette_handle(PaletteSurface, 18, 0, 8, 6);
 			
 			// Underwater
 			for (var i = 24; i < 31; i++)
 			{
-				palette_handle(PaletteUnderwater, i, 8, 3);
+				palette_handle(PaletteUnderwater, i, 0, 8, 3);
 			}
-			palette_handle(PaletteUnderwater, 32, 8, 6);
+			palette_handle(PaletteUnderwater, 32, 0, 8, 6);
 		}
 		break;
 	}
