@@ -6,7 +6,7 @@ function ScreenPaletteHandleStatic()
 		case MQZ2:
 		{		
 			// MQZ underwater palette swap
-			for (var i = 0; i < 20; i++)
+			for (var i = 0; i < 9; i++)
 			{
 				palette_handle(PaletteUnderwater, i, 0, 1, 1);
 			}
@@ -15,7 +15,7 @@ function ScreenPaletteHandleStatic()
 		default:
 		{
 			// Default underwater palette swap
-			for (var i = 0; i < 20; i++)
+			for (var i = 0; i < 9; i++)
 			{
 				palette_handle(PaletteUnderwater, i, 0, 1, 1);
 			}

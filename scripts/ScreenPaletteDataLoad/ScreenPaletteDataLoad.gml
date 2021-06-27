@@ -8,7 +8,7 @@ function ScreenPaletteDataLoad()
 		case MQZ2:
 		{
 			palette_load(PaletteSurface,    pal_surface_mqz);
-			palette_load(PaletteUnderwater, pal_underwater_mqz);
+			palette_load(PaletteUnderwater, pal_underwater_template);
 		}
 		break;
 		

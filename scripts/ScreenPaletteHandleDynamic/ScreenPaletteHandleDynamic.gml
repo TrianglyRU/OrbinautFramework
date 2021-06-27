@@ -5,52 +5,36 @@ function ScreenPaletteHandleDynamic()
 	{
 		exit;
 	}
-
+	
 	// Player palette shift
-	if instance_exists(Player)
-	{
+	if instance_exists(Player) and Player.CharacterID == CharSonic
+	{			
 		if Player.isSuper
 		{
-			switch Player.CharacterID
+			// Surface superform
+			for (var i = 0; i < 4; i++) 
 			{
-				// Super Sonic palette shift
-				case CharSonic:
-				{
-					// Surface
-					for (var i = 0; i < 4; i++) 
-					{
-						palette_handle(PaletteSurface, i, 0, 8, 3);
-					}
-						
-					// Underwater
-					for (var i = 13; i < 17; i++) 
-					{
-						palette_handle(PaletteUnderwater, i, 0, 3, 3);
-					}
-				}
-				break;
+				palette_handle(PaletteSurface, i, 1, 8, 3);
+			}
+				
+			// Underwater superform
+			for (var i = 9; i < 13; i++) 
+			{
+				palette_handle(PaletteUnderwater, i, 1, 8, 3);
+			}
+		}
+		else
+		{
+			// Surface regular
+			for (var i = 0; i < 4; i++) 
+			{
+				palette_handle(PaletteSurface, i, 0, 1, 1);
+			}
 			
-				// Super Tails palette shift
-				case CharTails:
-				{
-					// Surface
-					for (var i = 4; i < 7; i++) 
-					{
-						palette_handle(PaletteSurface, i, 0, 4, 3);
-					}
-				}
-				break;
-			
-				// Super Knuckles palette shift
-				case CharKnuckles:
-				{
-					// Surface
-					for (var i = 7; i < 10; i++) 
-					{
-						palette_handle(PaletteSurface, i, 0, 10, 3);
-					}
-				}
-				break;
+			// Underwater regular
+			for (var i = 9; i < 13; i++) 
+			{
+				palette_handle(PaletteUnderwater, i, 0, 1, 1);
 			}
 		}
 	}
