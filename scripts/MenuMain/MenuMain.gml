@@ -19,7 +19,7 @@ function MenuMain()
 	{
 		MainList[MenuPointer]--;
 	}
-	MainList[MenuPointer] = loop_value_range(MainList[MenuPointer], 0, MenuOptions + 1);
+	MainList[MenuPointer] = loop_value(MainList[MenuPointer], 0, MenuOptions + 1);
 	
 	show_debug_message(MainList[MainList[MenuPointer]][0]);
 	//show_debug_message(MainList[MainList[MenuPointer]][1]);

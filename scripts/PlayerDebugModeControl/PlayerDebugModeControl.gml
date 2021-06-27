@@ -24,7 +24,7 @@ function PlayerDebugModeControl()
 	if Input.CPress
 	{
 		DebugItem++;
-		DebugItem = loop_value_range(DebugItem, 0, array_length(DebugList));
+		DebugItem = loop_value(DebugItem, 0, array_length(DebugList));
 	}
 	
 	// Spawn current object

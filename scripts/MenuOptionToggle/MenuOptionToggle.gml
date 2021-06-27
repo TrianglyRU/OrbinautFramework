@@ -27,7 +27,7 @@ function MenuOptionToggle()
 					{
 						Game.WindowSize--;
 					}
-					Game.WindowSize = loop_value_range(Game.WindowSize, 1, 5);
+					Game.WindowSize = loop_value(Game.WindowSize, 1, 5);
 					window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
 				}
 				break;
@@ -51,7 +51,7 @@ function MenuOptionToggle()
 					{
 						Game.MusicVolume -= 0.1;
 					}
-					Game.MusicVolume = loop_value(round(Game.MusicVolume * 10), 11) / 10;
+					Game.MusicVolume = loop_value(round(Game.MusicVolume * 10), 0, 11) / 10;
 				}
 				break;
 				
@@ -66,7 +66,7 @@ function MenuOptionToggle()
 					{
 						Game.SoundVolume -= 0.1;
 					}
-					Game.SoundVolume = loop_value(round(Game.SoundVolume * 10), 11) / 10;
+					Game.SoundVolume = loop_value(round(Game.SoundVolume * 10), 0, 11) / 10;
 				}	
 				break;
 			}

@@ -14,13 +14,13 @@ function ScreenPaletteHandleDynamic()
 			// Surface superform
 			for (var i = 0; i < 4; i++) 
 			{
-				palette_handle(PaletteSurface, i, 1, 8, 3);
+				palette_handle(PaletteSurface, i, 2, 8, 3);
 			}
 				
 			// Underwater superform
 			for (var i = 9; i < 13; i++) 
 			{
-				palette_handle(PaletteUnderwater, i, 1, 8, 3);
+				palette_handle(PaletteUnderwater, i, 2, 8, 3);
 			}
 		}
 		else
@@ -28,13 +28,13 @@ function ScreenPaletteHandleDynamic()
 			// Surface regular
 			for (var i = 0; i < 4; i++) 
 			{
-				palette_handle(PaletteSurface, i, 0, 1, 1);
+				palette_handle(PaletteSurface, i, 1, 1, 1);
 			}
 			
 			// Underwater regular
 			for (var i = 9; i < 13; i++) 
 			{
-				palette_handle(PaletteUnderwater, i, 0, 1, 1);
+				palette_handle(PaletteUnderwater, i, 1, 1, 1);
 			}
 		}
 	}

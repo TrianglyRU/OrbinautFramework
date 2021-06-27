@@ -19,7 +19,7 @@ function MenuSettings()
 	{
 		SettingsList[MenuPointer]--;
 	}
-	SettingsList[MenuPointer] = loop_value_range(SettingsList[MenuPointer], 0, MenuOptions + 1);
+	SettingsList[MenuPointer] = loop_value(SettingsList[MenuPointer], 0, MenuOptions + 1);
 	
 	show_debug_message(SettingsList[SettingsList[MenuPointer]][0]);
 	

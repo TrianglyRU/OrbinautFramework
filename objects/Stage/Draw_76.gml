@@ -5,11 +5,11 @@
 	{	
 		if Input.DownPress
 		{
-			PauseButton = loop_value(PauseButton + 1, PauseMode ? 2 : 3);
+			PauseButton = loop_value(PauseButton + 1, 0, PauseMode ? 2 : 3);
 		}
 		else if Input.UpPress
 		{
-			PauseButton = loop_value(PauseButton - 1, PauseMode ? 2 : 3);
+			PauseButton = loop_value(PauseButton - 1, 0, PauseMode ? 2 : 3);
 		}
 	
 		if Input.StartPress or Input.ABCPress

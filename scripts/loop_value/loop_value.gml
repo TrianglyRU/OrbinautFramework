@@ -1,5 +1,13 @@
-/// @function loop_value(x, max)
-function loop_value(X, Max) 
+/// @function loop_value(x, min, max)
+function loop_value(X, Min, Max)
 {
-	return (X % Max + Max) % Max;
+	if Min != 0
+	{
+		X = (X - Min) % (Max - Min) + Min;
+		return X >= 0 ? X : Max + X;
+		//var Dif = Max - Min;
+		//return (((X - Min) % Dif) + Dif) % Dif + Min;
+	}
+	X = X % Max;
+	return X >= 0 ? X : Max + X;
 }
