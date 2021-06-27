@@ -7,16 +7,16 @@ function ScreenPaletteDataLoad()
 		case MQZ1:
 		case MQZ2:
 		{
-			palette_load(PaletteSurface,    pal_Dry_MQZ);
-			palette_load(PaletteUnderwater, pal_Wet_MQZ);
+			palette_load(PaletteSurface,    pal_surface_mqz);
+			palette_load(PaletteUnderwater, pal_underwater_mqz);
 		}
 		break;
 		
 		// Disable palettes for other rooms
 		default:
 		{
-			palette_load(PaletteSurface,    false);
-			palette_load(PaletteUnderwater, false);
+			palette_load(PaletteSurface,    pal_surface_template);
+			palette_load(PaletteUnderwater, pal_underwater_template);
 		}
 		break;
 	}

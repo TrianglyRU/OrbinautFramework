@@ -7,6 +7,7 @@ function ObjSignpostScript()
 		{
 			Active		     = true;
 			Stage.IsFinished = true;
+			Player.isSuper   = false;
 			
 			// Play sound
 			audio_sfx_play(sfxSignPost, false);

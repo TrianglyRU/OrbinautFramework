@@ -2,7 +2,7 @@
 function object_damage(flame_type, thunder_type, instant_kill)
 {	
 	// Exit the code if player can't be damaged
-	if Player.InvincibilityBonus or Player.isInvincible or Player.Hurt
+	if Player.IsInvincible
 	{
 		exit;
 	}
@@ -117,10 +117,11 @@ function object_damage(flame_type, thunder_type, instant_kill)
 
 		// Perform movement
 		Player.Ysp = -4;
-		Player.Xsp = 2 * (sign(Player.PosX - id.x) == 0 ? 1 : sign(Player.PosX - id.x));
+		Player.Xsp = floor(Player.PosX) > floor(x) ? 2 : -2;
 		Player.Grv = 0.1875;
 		
 		// Enter hurt state
-		Player.Hurt = true;
+		Player.Hurt			= true;
+		Player.IsInvincible = true;
 	}
 }

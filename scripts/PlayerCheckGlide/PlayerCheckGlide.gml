@@ -59,7 +59,7 @@ function PlayerCheckGlide()
 				Animation = AnimGlide;
 		
 				// Accelerate
-				Xsp += Facing * 0.015625;
+				Xsp += Facing * GlidingAcc;
 				
 				// Check for turning bacl
 				if Input.LeftPress  and Facing == DirRight

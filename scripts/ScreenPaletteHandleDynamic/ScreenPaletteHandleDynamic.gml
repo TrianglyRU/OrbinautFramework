@@ -5,40 +5,49 @@ function ScreenPaletteHandleDynamic()
 	{
 		exit;
 	}
-	
-	// Check if player is in their super form
+
+	// Player palette shift
 	if instance_exists(Player)
 	{
 		if Player.isSuper
 		{
 			switch Player.CharacterID
 			{
-				// Perform Super Sonic palette shift
+				// Super Sonic palette shift
 				case CharSonic:
 				{
+					// Surface
 					for (var i = 0; i < 4; i++) 
 					{
-						palette_handle(false, i, 9, 4);
+						palette_handle(PaletteSurface, i, 8, 3);
+					}
+						
+					// Underwater
+					for (var i = 13; i < 17; i++) 
+					{
+						palette_handle(PaletteUnderwater, i, 3, 3);
 					}
 				}
 				break;
 			
-				// Perform Super Tails palette shift
+				// Super Tails palette shift
 				case CharTails:
 				{
+					// Surface
 					for (var i = 4; i < 7; i++) 
 					{
-						palette_handle(false, i, 3, 4);
+						palette_handle(PaletteSurface, i, 4, 3);
 					}
 				}
 				break;
 			
-				// Perform Super Knuckles palette shift
+				// Super Knuckles palette shift
 				case CharKnuckles:
 				{
+					// Surface
 					for (var i = 7; i < 10; i++) 
 					{
-						palette_handle(false, i, 10, 4);
+						palette_handle(PaletteSurface, i, 10, 3);
 					}
 				}
 				break;
@@ -46,19 +55,25 @@ function ScreenPaletteHandleDynamic()
 		}
 	}
 	
+	// Stage palette shift
 	switch room
 	{
 		case MQZ1:
 		case MQZ2:
 		{
-			// Dry palette
-			for (var i = 10; i <= 17; i++)
+			// Surface
+			for (var i = 10; i < 18; i++)
 			{
-				palette_handle(false, i, 8, 3);
+				palette_handle(PaletteSurface, i, 8, 3);
 			}
-			palette_handle(false, 18, 8, 6);
+			palette_handle(PaletteSurface, 18, 8, 6);
 			
-			// Wet palette
+			// Underwater
+			for (var i = 24; i < 31; i++)
+			{
+				palette_handle(PaletteUnderwater, i, 8, 3);
+			}
+			palette_handle(PaletteUnderwater, 32, 8, 6);
 		}
 		break;
 	}

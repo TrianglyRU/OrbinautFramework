@@ -76,7 +76,8 @@ function ScreenDebugScreenDisplay()
 				+ "\n   DROPDASH: " + string(Player.DropdashRev)
 				+ "\n   HIGHSPEED BONUS: " + string(Player.HighSpeedBonus)
 				+ "\n   INVINCIBILITY BONUS: " + string(Player.InvincibilityBonus)
-				+ "\n   INVINCIBILITY FRAMES: " + string(Player.isInvincible)
+				+ "\n   IS HURT: " + string(Player.Hurt)
+				+ "\n   IS INVINCIBLE: " + string(Player.IsInvincible)
 				+ "\n   SUPER STATE: " + string(Player.isSuper)
 				+ "\n"
 				+ "\n         * CHARACTER VISUALS *"

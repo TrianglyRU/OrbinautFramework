@@ -4,7 +4,7 @@ function PlayerCheckJump()
 	if Input.ABCPress and !GlidingState
 	{	
 		// Do not jump if found the low ceiling
-		if round(Angle/90) % 4 == RangeFloor
+		if FloorRange == RangeFloor
 		{
 			if tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer)[0] < 6
 			or tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer)[0] < 6
@@ -24,8 +24,8 @@ function PlayerCheckJump()
 		}
 
 		// Set speeds and flags
-		Xsp     -= Jump * dsin(Angle);
-		Ysp	    -= Jump * dcos(Angle);	
+		Xsp     += Jump * dsin(Angle);
+		Ysp	    += Jump * dcos(Angle);	
 		Jumping  = true;	
 		Grounded = false;
 		OnObject = false;
@@ -36,10 +36,6 @@ function PlayerCheckJump()
 			yRadius = yRadiusRoll;
 			xRadius	= xRadiusRoll;
 			PosY   += yRadiusDefault - yRadiusRoll;
-		}
-		else
-		{
-			//PosY += yRadiusDefault - yRadiusRoll;
 		}
 		
 		// Set animation

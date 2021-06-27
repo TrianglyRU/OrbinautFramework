@@ -35,9 +35,12 @@ function GameMacro()
 	#macro EventUnmute     2
 	#macro EventStop	   3
 	
-	// Palette macro
+	// Shader macro
 	#macro Palette		     global
 	#macro Uniform		     global
+	#macro Parallax			 global
+	
+	// Palette macro
 	#macro PaletteSurface    0
 	#macro PaletteUnderwater 1
 	#macro to		         0
@@ -92,6 +95,8 @@ function GameMacro()
 	#macro AnimSpring		   22
 	#macro AnimActEnd		   23
 	#macro AnimDropStand	   24
+	#macro AnimSwim			   25
+	#macro AnimSwimTired	   26
 
 	// Stage macro	
 	#macro ActStateLoading	   0

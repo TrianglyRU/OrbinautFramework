@@ -1,174 +1,171 @@
 function InputHotkeysRead()
 {	
-	if room != GameStart and room != DevMenu
+	if !Game.DevMode
 	{
-		// Hide interface
-		if keyboard_check_pressed(ord("I"))
-		{
-			Screen.InterfaceEnabled = !Screen.InterfaceEnabled;
-		}
+		exit;
+	}
+	if room == GameStart or room == DevMenu
+	{
+		exit;
+	}
+	if Stage.State != ActStateDefault
+	{
+		exit;
+	}
 		
-		// Stage restart
-		if keyboard_check_pressed(vk_f1) 
-		{
-			Game.CheckpointID = false;
-			Game.PlayerPosition	 = false;
-			Game.Time		 = 0;
-			Game.StageBoundary	 = 0;
-			Game.Score     = 0;
-			Game.PalIndexDry[0]  = 0;
-			audio_stop_all();
-			room_restart();
-		}
-		if keyboard_check_pressed(vk_f2)
-		{
-			audio_stop_all();
-			room_restart();
-		}
+	// Stage fresh load (F1)
+	if keyboard_check_pressed(vk_f1) 
+	{
+		Game.CheckpointID   = false;
+		Game.PlayerPosition	= false;
+		Game.Time		    = 0;
+		Game.StageBoundary	= 0;
+		Game.Score          = 0;
+		Game.PalIndexDry[0] = 0;
+		
+		audio_stop_all();
+		room_restart();
+	}
+	
+	// Stage checkpoint restart (F2)
+	if keyboard_check_pressed(vk_f2)
+	{
+		audio_stop_all();
+		room_restart();
+	}
 
-		// Game restart
-		if keyboard_check_pressed(vk_f3) 
-		{
-			game_restart();
-		}
+	// Game restart (F3)
+	if keyboard_check_pressed(vk_f3) 
+	{
+		game_restart();
+	}
 
-		// Low FPS mode
-		if keyboard_check(vk_f4) 
+	// Low FPS mode (F4 hold)
+	if keyboard_check(vk_f4) 
+	{
+		game_set_speed(2, gamespeed_fps);
+	}
+	else
+	{
+		game_set_speed(60, gamespeed_fps);
+	}
+	
+	// Update resolution (F5)
+	if keyboard_check_pressed(vk_f5)
+	{
+		// Switch between
+		if Game.ResolutionWidth == 320
 		{
-			game_set_speed(2, gamespeed_fps);
+			Game.ResolutionWidth  = 400;
+			Game.ResolutionHeight = 224;
+		}
+		else if Game.ResolutionWidth == 400
+		{
+			Game.ResolutionWidth  = 426;
+			Game.ResolutionHeight = 240;
+		}
+		else if Game.ResolutionWidth == 426
+		{
+			Game.ResolutionWidth  = 320;
+			Game.ResolutionHeight = 224;
+		}
+		Screen.Width  = Game.ResolutionWidth;
+		Screen.Height = Game.ResolutionHeight;
+		
+		// Adjust room viewport to our resolution
+		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
+		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
+	}
+	
+	// Give highspeed bonus (F6)
+	if keyboard_check_pressed(vk_f6)
+	{
+		Player.HighSpeedBonus = 1200;
+		audio_bgm_play(HighspeedMusic, noone, 0, TypePriority);
+	}
+	
+	// Give invincibility (F7)
+	if keyboard_check_pressed(vk_f7)
+	{
+		Player.InvincibilityBonus = 1200;
+		audio_bgm_play(InvincibilityMusic, noone, 20.0, TypePriority);
+	}
+	
+	// Give barrier (F8)
+	if keyboard_check_pressed(vk_f8)
+	{
+		if !instance_exists(Barrier)
+		{
+			instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+			
+			Player.BarrierType = BarrierNormal;	
+			audio_sfx_play(sfxBarrier, false);			
 		}
 		else
 		{
-			game_set_speed(60, gamespeed_fps);
-		}
-	
-		// Player
-		if keyboard_check_pressed(ord("1")) 
-		{
-			Player.Inertia += 6 * Player.Facing;	
-		}
-		if keyboard_check_pressed(ord("2")) 
-		{
-			Player.Inertia = 16 * Player.Facing;
-		}
-		if keyboard_check_pressed(ord("3")) 
-		{
-			Player.HighSpeedBonus = 1180;
-		}
-		if keyboard_check_pressed(ord("4")) 
-		{
-			Player.InvincibilityBonus = 1050;
-		}
-		if keyboard_check_pressed(ord("5")) 
-		{
-			object_damage(false, false, false, true);
-		}
-		if keyboard_check_pressed(ord("6")) 
-		{
-			if !instance_exists(Barrier)
+			switch Player.BarrierType
 			{
-				instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+				case BarrierNormal:
+				{
+					Player.BarrierType = BarrierFlame;
+					audio_sfx_play(sfxFlameBarrier, false);
+				}
+				break;
+				case BarrierFlame:
+				{
+					Player.BarrierType = BarrierThunder;
+					audio_sfx_play(sfxThunderBarrier, false);
+				}
+				break;
+				case BarrierThunder:
+				{
+					Player.BarrierType = BarrierWater;
+					audio_sfx_play(sfxWaterBarrier, false);
+				}
+				break;
+				case BarrierWater:
+				{
+					Player.BarrierType = BarrierNormal;
+					audio_sfx_play(sfxBarrier, false);
+				}
+				break;
 			}
-			Player.BarrierType = BarrierNormal;
-		}
-		if keyboard_check_pressed(ord("7")) 
-		{
-			if !instance_exists(Barrier)
-			{
-				instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-			}
-			Player.BarrierType = BarrierFlame;
-		}
-		if keyboard_check_pressed(ord("8")) 
-		{
-			if !instance_exists(Barrier)
-			{
-				instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-			}
-			Player.BarrierType = BarrierThunder;
-		}
-		if keyboard_check_pressed(ord("9")) 
-		{
-			if !instance_exists(Barrier)
-			{
-				instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-			}
-			Player.BarrierType = BarrierWater;
-		}
-		if keyboard_check_pressed(ord("H")) 
-		{
-			audio_bgm_play(Jingle1UP, noone, 0, TypeJingle);
-		}
-	
-		// Window resize
-		if keyboard_check_pressed(vk_numpad1) 
-		{
-			Game.WindowSize = 1; 
-			window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
-		}
-		if keyboard_check_pressed(vk_numpad2) 
-		{
-			Game.WindowSize = 2; 
-			window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
-		}
-		if keyboard_check_pressed(vk_numpad3) 
-		{
-			Game.WindowSize = 3; 
-			window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
-		}
-		if keyboard_check_pressed(vk_numpad4) 
-		{
-			Game.WindowSize = 4; 
-			window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
 		}	
 	}
 	
-	if keyboard_check_pressed(vk_f7)
-	{
-		Game.ResolutionWidth  = 320;
-		Game.ResolutionHeight = 224;
-		
-		Screen.Width = Game.ResolutionWidth;
-		Screen.Height = Game.ResolutionHeight;
-
-		fade_perform(from, black, 0.5);
-		
-		// Adjust room viewport to our resolution
-		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
-		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
-	}
-	if keyboard_check_pressed(vk_f8)
-	{
-		Game.ResolutionWidth  = 400;
-		Game.ResolutionHeight = 224;
-		
-		Screen.Width = Game.ResolutionWidth;
-		Screen.Height = Game.ResolutionHeight;
-		
-		fade_perform(from, black, 0.5);
-		
-		// Adjust room viewport to our resolution
-		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
-		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
-	}
+	// Grant extra life (F9)
 	if keyboard_check_pressed(vk_f9)
 	{
-		Game.ResolutionWidth  = 426;
-		Game.ResolutionHeight = 240;
-		
-		Screen.Width = Game.ResolutionWidth;
-		Screen.Height = Game.ResolutionHeight;
-		
-		fade_perform(from, black, 0.5);
-		
-		// Adjust room viewport to our resolution
-		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
-		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
+		Player.Lives++;
+		audio_bgm_play(Jingle1UP, noone, 0, TypeJingle);
 	}
 	
-	if keyboard_check_pressed(ord("P"))
+	// Hurt player (F10)
+	if keyboard_check_pressed(vk_f10) 
 	{
-		Player.isSuper = true;
-		Player.Rings   = 50;
+		object_damage(false, false, false);
+	}
+	
+	// Switch Superform (F11)
+	if keyboard_check_pressed(vk_f11) 
+	{
+		if !Player.isSuper
+		{
+			Player.isSuper = true;
+			Player.Rings   = 50;
+		}
+		else
+		{
+			Player.isSuper = false;
+		}
+	}
+	
+	// Perform random type of fade (F12)
+	if keyboard_check_pressed(vk_f12)
+	{
+		var FadeMode   = choose(to, from);
+		var FadeColour = choose(black, white, flash);
+		
+		fade_perform(FadeMode, FadeColour, 1);
 	}
 }

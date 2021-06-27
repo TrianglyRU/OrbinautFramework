@@ -1,15 +1,15 @@
-/// @function palette_load(paletteType, paletteList)
-function palette_load(paletteType, paletteList)
+/// @function palette_load(type,list)
+function palette_load(type, list)
 {
-	if !paletteList
+	if !list
 	{
-		Palette.PaletteSet[paletteType] = false;
+		Palette.PaletteSet[type] = false;
 		exit;
 	}
 	
 	// Do texture and texel initialization
-	var tex		= sprite_get_texture(paletteList, 0);
-	var UVs		= sprite_get_uvs(paletteList, 0);
+	var tex		= sprite_get_texture(list, 0);
+	var UVs		= sprite_get_uvs(list, 0);
 	var texel_x	= texture_get_texel_width(tex);
 	var texel_y = texture_get_texel_height(tex);
 	

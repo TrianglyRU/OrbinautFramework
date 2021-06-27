@@ -9,6 +9,9 @@
 
 	// Update general player stuff
 	PlayerGeneralUpdate();
+	
+	// Handle player physics values
+	PlayerPhysicsHandle();
 
 	if !DebugMode
 	{

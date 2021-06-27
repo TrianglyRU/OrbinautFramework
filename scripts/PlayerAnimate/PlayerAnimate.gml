@@ -67,13 +67,13 @@ function PlayerAnimate()
 						animation_play(spr_supersonic_idle, 6, 1);
 					break;
 					case AnimWalk:
-						animation_play(spr_sonic_walk, round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+						animation_play(spr_supersonic_walk, round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
 					break;
 					case AnimRun: 
-						animation_play(spr_sonic_run,  round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+						animation_play(spr_supersonic_fly,  round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
 					break;
 					case AnimPeelout: 
-						animation_play(spr_sonic_peelout, 1, 1);
+						animation_play(spr_supersonic_fly, 1, 1);
 					break;
 					case AnimRoll:
 						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
@@ -93,12 +93,6 @@ function PlayerAnimate()
 					case AnimPush:
 						animation_play(spr_sonic_push, 32, 1);
 					break;
-					case AnimHurt:
-						animation_play(spr_sonic_hurt, 1, 1);
-					break;
-					case AnimDeath:
-						animation_play(spr_sonic_death, 1, 1);
-					break;	
 					case AnimBalanceFront:
 						animation_play(spr_sonic_balance_front, 16, 1);
 					break;
@@ -107,9 +101,6 @@ function PlayerAnimate()
 					break;
 					case AnimSpring:
 						animation_play(spr_sonic_spring, 1, 1);
-					break;
-					case AnimActEnd:
-						animation_play(spr_sonic_actend, 3, 21);
 					break;
 				}
 			}
@@ -150,6 +141,12 @@ function PlayerAnimate()
 				break;
 				case AnimFlyTired:
 					animation_play(spr_tails_fly_tired, 8, 1);
+				break;
+				case AnimSwim:
+					animation_play(spr_tails_swim, Ysp < 0 ? 4 : 8, 1);
+				break;
+				case AnimSwimTired:
+					animation_play(spr_tails_swim_tired, 8, 1)
 				break;
 				case AnimHurt:
 					animation_play(spr_tails_hurt, 1, 1);
@@ -242,13 +239,13 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_dropstand, 3, 3);
 				break;
 				case AnimClimb:
-					animation_play(spr_knuckles_climb, isSuper ? -(Ysp * 4) : -(Ysp * 2), 1);
+					animation_play(spr_knuckles_climb, -sign(Ysp) * 4, 1);
 				break;
 				case AnimClimbering:
 					animation_play(spr_knuckles_climbering, 6, 4);
 				break;
 				case AnimPush:
-					animation_play(spr_knuckles_push, 32, 1);
+					animation_play(spr_knuckles_push, 6, 1);
 				break;
 				case AnimSpring:
 					animation_play(spr_knuckles_spring, 1, 1);

@@ -15,12 +15,15 @@ function BackgroundSetup()
 		{
 			// Background sprites
 			BackgroundSprites = [tex_mqz_bg00, tex_mqz_bg00, tex_mqz_bg01, tex_mqz_bg02, tex_mqz_bg02, tex_mqz_bg02];
-			//BackgroundSprites = [noone];
 			
 			// tex_mqz_bg00
 			BackgroundValues[0] = [0, 0, 0,    0,    0, 0, 0,   167, 0, 0];
 			BackgroundValues[1] = [0, 0, 0.15, 0.01, 0, 0, 168, 301, 2, 0.3];
+			
+			// tex_mqz_bg01
 			BackgroundValues[2] = [0, 0, 0.1,  0.01, 0, 0, 0,   301, 0, 0];
+			
+			// tex_mqz_bg02
 			BackgroundValues[3] = [0, 0, 0.01, 0.01, 0, 0, 0,   71,	 0, 0];
 			BackgroundValues[4] = [0, 0, 0.2,  0.01, 0, 0, 72,  175, 0, 0];
 			BackgroundValues[5] = [0, 0, 0.5,  0.01, 0, 0, 176, 301, 0, 0];
@@ -28,7 +31,7 @@ function BackgroundSetup()
 		break;
 		default: 
 		{
-			// Background objects
+			// Background sprites
 			BackgroundSprites = [noone];
 			
 			// background_sprite_1

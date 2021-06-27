@@ -44,8 +44,14 @@ function PlayerHitRoof()
 			// else just reset our vertical speed
 			else
 			{	
-				if (Ysp < 0)     Ysp = 0;
-				if (FlyingState) Grv = 0.03125;
+				if Ysp < 0
+				{
+					Ysp = 0;
+				}
+				if FlyingState
+				{
+					Grv = 0.03125;
+				}
 			}
 		}
 	}

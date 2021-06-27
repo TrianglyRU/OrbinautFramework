@@ -2,6 +2,10 @@ function PlayerVariables()
 {
 	Acc					 isVar;
 	Dec					 isVar;
+	Frc					 isVar;
+	RollFrc				 isVar;
+	AirAcc				 isVar;
+	GlidingAcc			 isVar;
 	RollDec				 isVar;
 	Jump				 isVar;
 	JumpMin				 isVar;
@@ -34,7 +38,7 @@ function PlayerVariables()
 	DropdashRev			 isVar;
 	DropdashDirection	 isVar;
 	isSuper				 isVar;
-	isInvincible		 isVar;
+	IsInvincible		 isVar;
 	isUnderwater		 isVar;
 	BarrierType			 isVar;
 	BarrierIsActive	     isVar;

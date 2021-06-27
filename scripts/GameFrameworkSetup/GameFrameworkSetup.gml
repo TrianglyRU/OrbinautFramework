@@ -43,7 +43,7 @@ function GameFrameworkSetup()
 	// Originals differences
 	Game.StrongerSlopeGravity   = false; // In S3 and later, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
 	Game.LooseCrouch		    = false; // In S&K, you can start crouching even when you are moving slowly. True - SK method.
-	Game.ConstantRollFrc        = false; // In SK, rolling friction is hard-coded to always be half of regular acceleration, even when Super. True - SK method
+	Game.ConstantRollFrc        = true;  // In SK, rolling friction is hard-coded to always be half of regular acceleration when Super. True - SK method
 	Game.StrongerSlopeDetach    = false; // Before S3, you were able to slide down on 45-degree floors. True - Sonic 3+ method
 	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
 	Game.ExtensiveWallCollision	= true;  // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90

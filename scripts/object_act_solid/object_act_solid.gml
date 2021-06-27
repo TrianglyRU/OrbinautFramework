@@ -327,7 +327,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						// Reset hurt state
 						if Hurt
 						{
-							isInvincible = 120;
+							IsInvincible = 120;
 							Xsp			 = 0;
 							Hurt		 = false;			
 						}

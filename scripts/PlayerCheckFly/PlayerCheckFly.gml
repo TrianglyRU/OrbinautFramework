@@ -18,6 +18,12 @@ function PlayerCheckFly()
 			FlyingTimer = 480;
 			Jumping		= false;
 			
+			// Limit ysp
+			if Ysp < -4
+			{
+				Ysp = -4;
+			}
+			
 			// Use normal collision radiuses
 			xRadius = xRadiusDefault;
 			yRadius = yRadiusDefault;
@@ -39,8 +45,8 @@ function PlayerCheckFly()
 			// Increase gravity when moving slow enough
 			if (Ysp < -1) Grv = 0.03125;
 			
-			// Set 'fly' animation
-			Animation = AnimFly;
+			// Set 'fly' or 'swim' animation
+			Animation = isUnderwater ? AnimSwim : AnimFly;
 			
 			// Check fly cancel is enabled, and we pressed A, B or C while holding DOWN
 			if Game.FlyingCancel and Input.Down and Input.ABCPress
@@ -68,7 +74,7 @@ function PlayerCheckFly()
 		else
 		{
 			// Set 'tired' animation
-			Animation   = AnimFlyTired;
+			Animation = isUnderwater ? AnimSwimTired : AnimFlyTired;
 			
 			// Enter tired state
 			FlyingState = 2;

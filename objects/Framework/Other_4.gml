@@ -5,4 +5,4 @@
 	GameRoomSetup();
 	
 	// Reset audio volume
-	GameAudioGroupsVolumeReset();	
+	GameAudioGroupsVolumeReset();
