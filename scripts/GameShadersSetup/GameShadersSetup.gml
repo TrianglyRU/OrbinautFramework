@@ -18,10 +18,10 @@ function GameShadersSetup()
 	Shader.Scrn_WetTex       = shader_get_sampler_index(ShaderScreen, "u_wetPalTex");
 
 	// Setup background parallax shader
-	Shader.Prlx_XOfst = shader_get_uniform(ShaderParallax, "x_ofst");
+	Shader.Prlx_Ofst  = shader_get_uniform(ShaderParallax, "ofst");
 	Shader.Prlx_Pos   = shader_get_uniform(ShaderParallax, "o_pos");
-	Shader.Prlx_Wid   = shader_get_uniform(ShaderParallax, "wid");
-	Shader.Prlx_YHght = shader_get_uniform(ShaderParallax, "y_height");
-	Shader.Prlx_YStep = shader_get_uniform(ShaderParallax, "y_step");
+	Shader.Prlx_Scale = shader_get_uniform(ShaderParallax, "width");
+	Shader.Prlx_Hght  = shader_get_uniform(ShaderParallax, "y_height");
+	Shader.Prlx_Step  = shader_get_uniform(ShaderParallax, "y_step");
 	Shader.Prlx_Texel = shader_get_uniform(ShaderParallax, "texel");
 }

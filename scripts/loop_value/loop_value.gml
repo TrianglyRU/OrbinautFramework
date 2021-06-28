@@ -1,6 +1,6 @@
 /// @function loop_value(x,min,max)
-function loop_value(x, min, max)
+function loop_value(X, Min, Max)
 {
-	x = (x - min) % (max - min);
-	return (x >= 0 ? x : max + x) + min;
+	X = (X - Min) % (Max - Min);
+	return (X >= 0 ? X : Max + X) + Min;
 }
