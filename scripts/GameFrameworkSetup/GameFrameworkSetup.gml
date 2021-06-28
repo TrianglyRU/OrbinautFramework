@@ -47,11 +47,11 @@ function GameFrameworkSetup()
 	// Orbinaut improvements
 	Game.ImprovedTileCollision = true;  // Uses custom advanced method to update collision mode, fixes several collision flaws and resets floor angle better
 	Game.ImprovedObjCollision  = true;  // In originals, objects are pretty wacky in terms of collision and hitboxes. True - apply Orbinaut's fixes
-	Game.SmoothRotation	       = false; // Use smooth rotation
+	Game.SmoothRotation	       = true;  // Use smooth rotation
 	Game.RichPresenceSupport   = true;  // Enable Rich Presence
 	Game.RingsPreciseCollision = true;  // Make rings check for collision every frame instead of every 4
 	Game.RingsNoBoundDespawn   = true;  // Make rings despawn as soon as they leave the screen
 	Game.RingsAllSideCollision = false; // Make rings collide with walls and ceiling instead of just floor
-	Game.NoRollSpeedLimit	   = false;  // Limits xsp instead of inertia speed when rolling
+	Game.NoRollSpeedLimit	   = false; // Disables xsp limitation when rolling. May cause collision glitches on higher speeds
 	Game.FlyingCancel	       = true;  // Allows you to cancel flying as Tails
 }

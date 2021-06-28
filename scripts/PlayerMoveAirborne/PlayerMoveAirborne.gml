@@ -51,4 +51,11 @@ function PlayerMoveAirborne()
 	{
 		Animation = abs(Inertia) < 6 ? AnimWalk : AnimRun;
 	}
+	
+	// Freeze when transforming
+	if SuperState == SuperStart
+	{
+		Xsp = 0;
+		Ysp = 0;
+	}
 }

@@ -78,7 +78,8 @@ function ScreenDebugScreenDisplay()
 				+ "\n   INVINCIBILITY BONUS: " + string(Player.InvincibilityBonus)
 				+ "\n   IS HURT: " + string(Player.Hurt)
 				+ "\n   IS INVINCIBLE: " + string(Player.IsInvincible)
-				+ "\n   SUPER STATE: " + string(Player.isSuper)
+				+ "\n   SUPER STATE: " + string(Player.SuperState)
+				+ "\n   TRANSFORMATION TIMER: " + string(Player.SuperStateValue)
 				+ "\n"
 				+ "\n         * CHARACTER VISUALS *"
 				+ "\n"

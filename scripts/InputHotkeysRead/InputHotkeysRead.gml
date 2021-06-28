@@ -149,14 +149,14 @@ function InputHotkeysRead()
 	// Switch Superform (F11)
 	if keyboard_check_pressed(vk_f11) 
 	{
-		if !Player.isSuper
+		if !Player.SuperState
 		{
-			Player.isSuper = true;
-			Player.Rings   = 50;
+			Player.SuperState = SuperStart;
+			Player.Rings      = 50;
 		}
 		else
 		{
-			Player.isSuper = false;
+			Player.SuperState = SuperEnd;
 		}
 	}
 	

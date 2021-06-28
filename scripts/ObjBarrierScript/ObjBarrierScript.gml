@@ -83,7 +83,7 @@ function ObjBarrierScript()
 	}
 	
 	// Hide the barrier when the player is under invincibility bonus
-	image_alpha = Player.InvincibilityBonus or Player.isSuper ? false : true;
+	image_alpha = Player.InvincibilityBonus or Player.SuperState ? false : true;
 	
 	// Render at player's position
 	x = floor(Player.PosX);

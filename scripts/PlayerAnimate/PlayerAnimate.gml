@@ -5,7 +5,7 @@ function PlayerAnimate()
 		// Sonic animations
 		case CharSonic:
 		{
-			if !isSuper
+			if SuperState != SuperActive
 			{
 				switch Animation
 				{

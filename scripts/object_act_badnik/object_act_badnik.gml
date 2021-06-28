@@ -6,9 +6,9 @@ function object_act_badnik(is_destroyable, instant_kill)
 					   or  Player.GlidingState == GlidingAir 
 				       or  Player.GlidingState == GlidingGround
 					   or  Player.GlidingState == GlidingTurn
+					   or  Player.SuperState   == SuperActive
 					   or  Player.SpindashRev  >= 0
 					   or  Player.InvincibilityBonus 
-					   or  Player.isSuper
 					   or (Player.FlyingState and Player.Ysp < 0))
 	{
 		// Delete Badnik

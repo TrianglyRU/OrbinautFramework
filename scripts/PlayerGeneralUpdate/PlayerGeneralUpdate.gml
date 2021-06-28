@@ -72,20 +72,59 @@ function PlayerGeneralUpdate()
 	}
 	
 	// Handle superform
-	if isSuper
-	{
-		// Make us invincible
-		IsInvincible = true;
-		
-		// Decrease rings
-		if Rings
+	switch SuperState
+	{	
+		// Transformation start
+		case SuperStart:
 		{
-			Rings -= 1/60;
+			// Start timer
+			SuperStateValue++
+				
+			// Make us invincible
+			IsInvincible = true;
+				
+			// Become super after 18 frames
+			if SuperStateValue == 18
+			{
+				SuperState		= SuperActive;
+				SuperStateValue = 0;
+			}
 		}
-		else
+		break;
+		case SuperActive:
 		{
-			isSuper = false;
+			// Make us invincible
+			IsInvincible = true;
+			
+			// Decrease rings
+			if Rings
+			{
+				Rings -= 1/60;
+			}
+			
+			// Exit superform
+			else
+			{
+				SuperState = SuperEnd;
+			}
 		}
+		break;
+		case SuperEnd:
+		{
+			// Start timer
+			SuperStateValue++
+			
+			// Make us invincible
+			IsInvincible = true;
+				
+			// Become regylar after 18 frames
+			if SuperStateValue == 18
+			{
+				SuperState		= false;
+				SuperStateValue = 0;
+			}
+		}
+		break;		
 	}
 	
 	// Check for joining and exiting water
@@ -136,7 +175,7 @@ function PlayerGeneralUpdate()
 	}
 	
 	// Decrease invincibility timer
-	if IsInvincible and !InvincibilityBonus and !isSuper and !Hurt
+	if IsInvincible and !InvincibilityBonus and !SuperState and !Hurt
 	{
 		IsInvincible--;
 	}

@@ -30,14 +30,15 @@ function PlayerVariables()
 	Inertia				 isVar;
 	SlopeGravity		 isVar;
 	Angle				 isVar;
-	AngleQuadEven			 isVar;
-	AngleQuadOdd			 isVar;
+	AngleQuadEven		 isVar;
+	AngleQuadOdd		 isVar;
 	VisualAngle			 isVar;
 	PeeloutRev			 isVar;
 	SpindashRev		     isVar;
 	DropdashRev			 isVar;
 	DropdashDirection	 isVar;
-	isSuper				 isVar;
+	SuperState			 isVar;
+	SuperStateValue		 isVar;
 	IsInvincible		 isVar;
 	isUnderwater		 isVar;
 	BarrierType			 isVar;
@@ -45,8 +46,8 @@ function PlayerVariables()
 	FlyingState			 isVar;
 	FlyingTimer			 isVar;
 	GlidingState		 isVar;
-	GlidingDirection     isVar;
 	GlidingValue		 isVar;
+	GlidingDirection     isVar;
 	ClimbingState		 isVar;
 	ClimbingValue        isVar;
 	ClimbingSpeed		 isVar;

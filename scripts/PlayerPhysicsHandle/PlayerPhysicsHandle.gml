@@ -4,7 +4,7 @@ function PlayerPhysicsHandle()
 	if !isUnderwater
 	{	
 		// Normal physics
-		if !isSuper
+		if !SuperState
 		{
 			Acc			  = 0.046875;
 			GlidingAcc    = 0.015625;
@@ -68,7 +68,7 @@ function PlayerPhysicsHandle()
 	else
 	{
 		// Normal physics
-		if !isSuper
+		if !SuperState
 		{
 			Acc			  = 0.0234375;
 			AirAcc		  = 0.046875;
@@ -119,7 +119,7 @@ function PlayerPhysicsHandle()
 	}
 			
 	// Keep rolling friction constant
-	if Game.ConstantRollFrc and isSuper
+	if Game.ConstantRollFrc and SuperState
 	{
 		RollFrc = 0.0234375;
 	}
