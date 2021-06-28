@@ -4,7 +4,7 @@ function PlayerCheckJump()
 	if Input.ABCPress and !GlidingState
 	{	
 		// Do not jump if found the low ceiling
-		if FloorRange == RangeFloor
+		if AngleQuadEven == RangeFloor
 		{
 			if tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer)[0] < 6
 			or tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer)[0] < 6

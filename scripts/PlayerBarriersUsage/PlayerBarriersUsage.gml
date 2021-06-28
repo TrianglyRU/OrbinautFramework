@@ -45,7 +45,7 @@ function PlayerBarriersUsage()
 			case BarrierWater:
 			{
 				// Set speeds
-				Xsp = 0;
+				Xsp = Game.BuffedWaterBarrier ? Xsp / 2 : 0;
 				Ysp = 8;
 			}
 			break;

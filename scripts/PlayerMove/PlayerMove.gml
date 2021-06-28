@@ -48,11 +48,11 @@ function PlayerMove()
 	{
 		if Inertia > 0
 		{
-			Inertia = max(Inertia - Acc, 0);
+			Inertia = max(Inertia - Frc, 0);
 		}
 		else
 		{
-			Inertia = min(Inertia + Acc, 0);
+			Inertia = min(Inertia + Frc, 0);
 		}
 	}
 	
@@ -61,23 +61,26 @@ function PlayerMove()
 	Ysp = Inertia * -dsin(Angle);
 	
 	// Check for start or stop skidding
-	if Skidding == false and abs(Inertia) > 4 and FloorRange == RangeFloor and MovementLock == false
+	if Skidding == false 
 	{
-		// Define skidding direction
-		if Inertia > 0 and Input.Left
+		if AngleQuadOdd == RangeFloor and MovementLock == false and abs(Inertia) > 4
 		{
-			Skidding = DirRight;
+			// Define skidding direction
+			if Inertia > 0 and Input.Left
+			{
+				Skidding = DirRight;
 			
-			// Play sound
-			audio_sfx_play(sfxSkid, false);
+				// Play sound
+				audio_sfx_play(sfxSkid, false);
+			}
+			if Inertia < 0 and Input.Right
+			{
+				Skidding = DirLeft;
+			
+				// Play sound
+				audio_sfx_play(sfxSkid, false);
+			}
 		}
-		if Inertia < 0 and Input.Right
-		{
-			Skidding = DirLeft;
-			
-			// Play sound
-			audio_sfx_play(sfxSkid, false);
-		}	
 	}
 	else
 	{
@@ -103,7 +106,10 @@ function PlayerMove()
 	}
 
 	// Our default animation if AnimIdle
-	if (Angle < 45 or Angle > 315) Animation = AnimIdle;
+	if AngleQuadOdd == RangeFloor
+	{
+		Animation = AnimIdle;
+	}
 	
 	// Act end animation
 	if Stage.IsFinished and Stage.StateTimer == -1
@@ -141,7 +147,7 @@ function PlayerMove()
 		// Check for very fast run
 		else
 		{
-			Animation = CharacterID == CharSonic ? AnimPeelout : AnimRun;
+			Animation = CharacterID == CharSonic and Game.PeeloutEnabled ? AnimPeelout : AnimRun;
 		}
 	}
 		
@@ -150,6 +156,7 @@ function PlayerMove()
 	{
 		// Spawn dust puff every 4 frames
 		SkiddingTimer = SkiddingTimer mod 4
+		
 		if !SkiddingTimer
 		{
 			instance_create(floor(PosX), floor(PosY + yRadius), DustPuff);

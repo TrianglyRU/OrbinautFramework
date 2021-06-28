@@ -40,7 +40,7 @@ function GameVariables()
 	// Control
 	Game.KeyboardControl		 isVar;
 	
-	// Gameplay
+	// Original differences
 	Game.SpindashEnabled		 isVar;
 	Game.DropdashEnabled		 isVar;
 	Game.PeeloutEnabled			 isVar;
@@ -48,17 +48,14 @@ function GameVariables()
 	Game.AirSpeedcap			 isVar;	
 	Game.RolljumpControl		 isVar;		
 	Game.ExtendedCamera			 isVar;	
-	Game.OriginalRollLimit		 isVar;
-	Game.FlyingCancel			 isVar;
-	
-	// Original differences
 	Game.StrongerSlopeGravity	 isVar;
 	Game.LooseCrouch			 isVar;
 	Game.ConstantRollFrc		 isVar;
-	Game.StrongerSlopeDetach	 isVar;
+	Game.StrongerSlopeRepel	     isVar;
 	Game.SpeedFloorClip			 isVar;
 	Game.ExtensiveWallCollision  isVar;
 	Game.BalancingCrouch		 isVar;
+	Game.BuffedWaterBarrier      isVar;
 	Game.StageTransitions		 isVar;
 	
 	// Orbinaut improvements
@@ -70,6 +67,8 @@ function GameVariables()
 	Game.RingsPreciseCollision   isVar;
 	Game.RingsNoBoundDespawn	 isVar;
 	Game.RingsAllSideCollision   isVar;
+	Game.NoRollSpeedLimit		 isVar;
+	Game.FlyingCancel			 isVar;
 	
 	// Palette
 	Game.FadeEnabled			 isVar;
@@ -78,7 +77,5 @@ function GameVariables()
 	Game.PalIndexWet		     isArr;
 	
 	// Surfaces
-	Game.CompleteSurf			 isVar;
 	Game.AppSurface				 isVar;
-	Game.BGSurf					 isVar;
 }

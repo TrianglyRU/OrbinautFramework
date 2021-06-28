@@ -30,8 +30,8 @@ function PlayerVariables()
 	Inertia				 isVar;
 	SlopeGravity		 isVar;
 	Angle				 isVar;
-	FloorRange			 isVar;
-	WallRange			 isVar;
+	AngleQuadEven			 isVar;
+	AngleQuadOdd			 isVar;
 	VisualAngle			 isVar;
 	PeeloutRev			 isVar;
 	SpindashRev		     isVar;

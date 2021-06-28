@@ -33,8 +33,8 @@ function PlayerMoveRoll()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	// Limit rolling speed. Original engine limits xsp instead of inertia, resulting in desync on high speeds
-	if Game.OriginalRollLimit
+	// Limit rolling speed
+	if !Game.NoRollSpeedLimit
 	{
 		Xsp = clamp(Xsp, -16, 16);
 	}

@@ -48,16 +48,16 @@ function ScreenPaletteHandleDynamic()
 			// Surface
 			for (var i = 10; i < 18; i++)
 			{
-				palette_handle(PaletteSurface, i, 0, 8, 3);
+				palette_handle(PaletteSurface, i, 1, 8, 3);
 			}
-			palette_handle(PaletteSurface, 18, 0, 8, 6);
+			palette_handle(PaletteSurface, 18, 1, 8, 6);
 			
 			// Underwater
 			for (var i = 24; i < 31; i++)
 			{
-				palette_handle(PaletteUnderwater, i, 0, 8, 3);
+				palette_handle(PaletteUnderwater, i, 1, 8, 3);
 			}
-			palette_handle(PaletteUnderwater, 32, 0, 8, 6);
+			palette_handle(PaletteUnderwater, 32, 1, 8, 6);
 		}
 		break;
 	}

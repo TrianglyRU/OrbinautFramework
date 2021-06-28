@@ -7,7 +7,7 @@ function PlayerHitFloor()
 	}
 	
 	// Mode is always RangeFloor when airborne
-	FloorRange = RangeFloor;
+	AngleQuadEven = RangeFloor;
 		
 	// Check if we're moving horizontally faster than vertically, or moving downwards
 	if (Ysp > 0 or abs(Xsp) > abs(Ysp))
