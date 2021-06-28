@@ -7,20 +7,20 @@ function ScreenPaletteFadeUpdate()
 	}
 	
 	// Turn off palette fade if it is disabled
-	if !Palette.FadeEnabled
+	if !FadeEnabled
 	{ 
-		Palette.FadeStep = Palette.FadeColour == flash ? 1008 : 756;
+		FadeStep = FadeColour == flash ? 1008 : 756;
 	} 
 	
 	// If palette fade is enabled
 	else 
 	{
 		// Update every step when active
-		if Palette.FadeTimer > 0 
+		if FadeTimer > 0 
 		{
-			var Pow = 36 * Palette.FadePower;
-			Palette.FadeTimer--; 
-			Palette.FadeStep = clamp(Palette.FadeStep + (Palette.FadeMode ? Pow : -Pow), 0, (Palette.FadeColour == flash ? 1008 : 756));
+			var Pow = 36 * FadePower;
+			FadeTimer--; 
+			FadeStep = clamp(FadeStep + (FadeMode ? Pow : -Pow), 0, (FadeColour == flash ? 1008 : 756));
 		}
 	}	
 }

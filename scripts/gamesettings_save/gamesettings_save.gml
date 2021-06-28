@@ -17,15 +17,15 @@ function gamesettings_save(filename)
 	ini_write_real("Video", "WindowSize", 	        Game.WindowSize);
 	ini_write_real("Video", "ResHeight",	  Game.ResolutionHeight);
 	ini_write_real("Video", "ResWidth",		   Game.ResolutionWidth);
-	ini_write_real("Gameplay", "FlyCancel",       Game.FlyingCancel);
-	ini_write_real("Gameplay", "OgRollLimit",Game.OriginalRollLimit);
+	
+	ini_close();
+	/*ini_write_real("Gameplay", "FlyCancel",       Game.FlyingCancel);
+	ini_write_real("Gameplay", "OgRollLimit", Game.NoRollSpeedLimit);
 	ini_write_real("Gameplay", "CDCamera",      Game.ExtendedCamera);
 	ini_write_real("Gameplay", "RlljmpCtrl",   Game.RolljumpControl);
 	ini_write_real("Gameplay", "AirSpeedcap",      Game.AirSpeedcap);
 	ini_write_real("Gameplay", "GndSpeedcap",	Game.GroundSpeedcap);
 	ini_write_real("Gameplay", "Peelout",		Game.PeeloutEnabled);
 	ini_write_real("Gameplay", "Dropdash",	   Game.DropdashEnabled);
-	ini_write_real("Gameplay", "Spindash",     Game.SpindashEnabled);
-		
-	ini_close();	
+	ini_write_real("Gameplay", "Spindash",     Game.SpindashEnabled);*/			
 }

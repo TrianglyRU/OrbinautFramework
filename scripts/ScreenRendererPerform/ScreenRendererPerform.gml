@@ -1,8 +1,8 @@
 function ScreenRendererPerform()
 {	
-	if surface_exists(Game.AppSurface)
+	if surface_exists(AppSurface)
 	{
-		surface_set_target(Game.AppSurface);
+		surface_set_target(AppSurface);
 		return true;
 	}
 	return false;

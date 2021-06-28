@@ -1,17 +1,61 @@
 /// @function palette_handle(type,index,startid,colours,duration)
 function palette_handle(type, index, startid, colours, duration)
 {
-	// Smooth palette cycle if framework settings says so
-	var current_colour = Game.SmoothPaletteCycle ? Stage.AnimationTime / duration : floor(Stage.AnimationTime / duration);
-	
-	// Perform colour shift
-	var shift = colours ? loop_value(current_colour, startid, startid + colours) : 1;
-	if  type == PaletteUnderwater
+	// Initialize palette animation
+	if PaletteAnimation[type,index] == noone
 	{
-		Palette.PalIndexWet[index] = shift;
+		PaletteTimer[type,index]     = duration;
+		PaletteColour[type,index]    = startid;
+		PaletteAnimation[type,index] = startid;
+		exit;
+	}
+	
+	// Exit if screen is fading
+	if FadeTimer
+	{
+		exit;
+	}
+	
+	// Check if palette animation has changed
+	if startid != PaletteAnimation[type,index]
+	{
+		PaletteTimer[type,index]     = duration;
+		PaletteColour[type,index]    = startid;
+		PaletteAnimation[type,index] = startid;
+	}
+	
+	// Decrease the value of animation timer
+	if PaletteTimer[type,index] > 0
+	{
+		PaletteTimer[type,index]--;
+	}
+	else
+	{
+		// Reset duration
+		PaletteTimer[type,index] = duration;
+		
+		// Shift colour
+		if PaletteColour[type,index] < startid + colours - 1
+		{
+			PaletteColour[type,index]++;
+		}
+		else
+		{
+			PaletteColour[type,index] = startid;
+		}
+	}
+	
+	// Apply colour
+	if type == PaletteUnderwater
+	{
+		PalIndexWet[index] = PaletteColour[type,index];
 	}
 	else if type == PaletteSurface
 	{
-		Palette.PalIndexDry[index] = shift;
+		PalIndexDry[index] = PaletteColour[type,index];
 	}
+	
+	// Perform colour shift
+	//var current_colour = Game.SmoothPaletteCycle ? Stage.AnimationTime / duration : floor(Stage.AnimationTime / duration);
+	//var shift = colours ? loop_value(current_colour, startid, startid + colours) : 1;
 }

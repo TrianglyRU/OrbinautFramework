@@ -1,36 +1,27 @@
 function GameShadersSetup()
 {
-	/* = Fade shader = */
-	// =============== //
-
 	// Setup fade shader
-	Uniform.Scrn_Step  = shader_get_uniform(ShaderScreen, "u_step");
-	Uniform.Scrn_Mode  = shader_get_uniform(ShaderScreen, "u_mode");
-	Uniform.Scrn_Color = shader_get_uniform(ShaderScreen, "u_color");
-	
-	/* = Palette shader = */
-	// ================== //
+	Shader.Scrn_Step  = shader_get_uniform(ShaderScreen, "u_step");
+	Shader.Scrn_Mode  = shader_get_uniform(ShaderScreen, "u_mode");
+	Shader.Scrn_Color = shader_get_uniform(ShaderScreen, "u_color");
 	
 	// Setup palette shader
-	Uniform.Scrn_ScrnHeight	  = shader_get_uniform(ShaderScreen, "u_scrnHeight");
-	Uniform.Scrn_DryTexelSize = shader_get_uniform(ShaderScreen, "u_dryPixelSize");
-	Uniform.Scrn_DryUVs		  = shader_get_uniform(ShaderScreen, "u_dryUvs");
-	Uniform.Scrn_DryIndex	  = shader_get_uniform(ShaderScreen, "u_dryPalId");
-	Uniform.Scrn_DryTex		  = shader_get_sampler_index(ShaderScreen, "u_dryPalTex");
-	Uniform.Scrn_WetTexelSize = shader_get_uniform(ShaderScreen, "u_wetPixelSize");
-	Uniform.Scrn_WetUVs       = shader_get_uniform(ShaderScreen, "u_wetUvs");
-	Uniform.Scrn_WetIndex	  = shader_get_uniform(ShaderScreen, "u_wetPalId");
-	Uniform.Scrn_Water        = shader_get_uniform(ShaderScreen, "u_water");
-	Uniform.Scrn_WetTex       = shader_get_sampler_index(ShaderScreen, "u_wetPalTex");
-	
-	/* = Parallax shader = */
-	// =================== //
+	Shader.Scrn_ScrnHeight	 = shader_get_uniform(ShaderScreen, "u_scrnHeight");
+	Shader.Scrn_DryTexelSize = shader_get_uniform(ShaderScreen, "u_dryPixelSize");
+	Shader.Scrn_DryUVs		 = shader_get_uniform(ShaderScreen, "u_dryUvs");
+	Shader.Scrn_DryIndex	 = shader_get_uniform(ShaderScreen, "u_dryPalId");
+	Shader.Scrn_DryTex		 = shader_get_sampler_index(ShaderScreen, "u_dryPalTex");
+	Shader.Scrn_WetTexelSize = shader_get_uniform(ShaderScreen, "u_wetPixelSize");
+	Shader.Scrn_WetUVs       = shader_get_uniform(ShaderScreen, "u_wetUvs");
+	Shader.Scrn_WetIndex	 = shader_get_uniform(ShaderScreen, "u_wetPalId");
+	Shader.Scrn_Water        = shader_get_uniform(ShaderScreen, "u_water");
+	Shader.Scrn_WetTex       = shader_get_sampler_index(ShaderScreen, "u_wetPalTex");
 
 	// Setup background parallax shader
-	Uniform.Prlx_XOfst = shader_get_uniform(ShaderParallax, "x_ofst");
-	Uniform.Prlx_Pos   = shader_get_uniform(ShaderParallax, "o_pos");
-	Uniform.Prlx_Wid   = shader_get_uniform(ShaderParallax, "wid");
-	Uniform.Prlx_YHght = shader_get_uniform(ShaderParallax, "y_height");
-	Uniform.Prlx_YStep = shader_get_uniform(ShaderParallax, "y_step");
-	Uniform.Prlx_Texel = shader_get_uniform(ShaderParallax, "texel");
+	Shader.Prlx_XOfst = shader_get_uniform(ShaderParallax, "x_ofst");
+	Shader.Prlx_Pos   = shader_get_uniform(ShaderParallax, "o_pos");
+	Shader.Prlx_Wid   = shader_get_uniform(ShaderParallax, "wid");
+	Shader.Prlx_YHght = shader_get_uniform(ShaderParallax, "y_height");
+	Shader.Prlx_YStep = shader_get_uniform(ShaderParallax, "y_step");
+	Shader.Prlx_Texel = shader_get_uniform(ShaderParallax, "texel");
 }

@@ -21,7 +21,7 @@ function ObjBridgeSetup()
 	for (var i = 0; i < BridgeLength; i++) 
 	{
 		// Create log and set a sprite for it
-	    var Log = instance_create((x - BridgeLength / 2 * 16 + 8 - OddOffset) + 16 * i, y, BridgeLog);
+	    var Log = instance_create((x - 6 * 16 + 8 - OddOffset) + 16 * i, y, BridgeLog);
 	    Log.sprite_index = BridgeSprite;
 		
 		// Add log to the log list
@@ -34,10 +34,10 @@ function ObjBridgeSetup()
 		LogDepression[i] = (i < BridgeLength / 2 ? i : BridgeLength - i - 1) * 2 + 2;
 	}
 	
+	// Set positions
+	x += (BridgeLength / 2 - 6) * 16;
+	NativeY = y;
+	
 	// Set bridge solidbox
 	object_set_solidbox(BridgeLength / 2 * 16, 8);
-	
-	// Set positions
-	x -= OddOffset
-	NativeY = y;
 }

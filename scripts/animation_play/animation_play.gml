@@ -2,14 +2,18 @@
 function animation_play(sprite_id, speed, loop) 
 {	
 	// Ignore the animation method built into the IDE 
-	image_speed  = 0;
+	image_speed = 0;
 	
 	// Create a special timer variable for the object
 	if !variable_instance_exists(id, "AnimationTimer")
 	{
 		id.AnimationTimer = abs(speed);
+		image_index		  = 0;
+	    sprite_index      = sprite_id;
+		
+		exit;
 	}
-	
+
 	// Update the sprite if the current sprite is not the target one
 	if sprite_index != sprite_id
 	{
@@ -55,4 +59,7 @@ function animation_play(sprite_id, speed, loop)
 		    }	
 		}
 	}
+	
+	if object_index == SpringVertical
+		show_debug_message(AnimationTimer);
 }

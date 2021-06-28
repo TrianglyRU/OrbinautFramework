@@ -1,9 +1,10 @@
 /// @function palette_load(type,list)
 function palette_load(type, list)
 {
+	// Do not load palette list if not given
 	if !list
 	{
-		Palette.PaletteSet[type] = false;
+		PaletteSet[type] = false;
 		exit;
 	}
 	
@@ -14,5 +15,5 @@ function palette_load(type, list)
 	var texel_y = texture_get_texel_height(tex);
 	
 	// Load the data into palette slot
-	Palette.PaletteSet[type] = [tex, texel_x, texel_y, UVs[0] + texel_x / 2, UVs[1] + texel_y / 2, UVs[3]];
+	PaletteSet[type] = [tex, texel_x, texel_y, UVs[0] + texel_x / 2, UVs[1] + texel_y / 2, UVs[3]];
 }

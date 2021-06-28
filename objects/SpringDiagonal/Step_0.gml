@@ -1,6 +1,13 @@
 /// @description Scripts Event
 // You can call your scripts in this editor
 	
+	// Play spring animation
+	if animation_get_frame(id) > 1
+	{
+		animation_play(sprite_index, 3, 1);
+		exit;
+	}
+	
 	if object_player_touch(SideTop)
 	{
 		if image_xscale == 1  and floor(Player.PosX + 4) >= floor(x)
@@ -14,6 +21,7 @@
 			Player.GlidingState  = false;
 			Player.ClimbingState = false;
 			Player.DropdashRev   = -1;
+			Player.Inertia		 = 0;
 		
 			// Set 'spring up' or 'walk' animation
 			Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;
@@ -33,12 +41,6 @@
 			animation_set_frame(sprite_index, 2);
 		}
 	}
-	
-	// Play spring animation
-	if animation_get_frame(id) > 1
-	{
-		animation_play(sprite_index, 3, 1);
-	}
-	
+
 	// Act solid
-	object_act_solid(true, true, true, CollisionMap);
+	object_act_solid(false, true, false, CollisionMap);

@@ -1,9 +1,9 @@
 function ScreenRendererClear()
 {
 	// Clear main surface
-	if surface_exists(Game.AppSurface) 
+	if surface_exists(AppSurface) 
 	{
-		surface_free(Game.AppSurface);
-		Game.AppSurface = -1;
+		surface_free(AppSurface);
+		AppSurface = -1;
 	}
 }

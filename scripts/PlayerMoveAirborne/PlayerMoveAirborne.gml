@@ -49,7 +49,7 @@ function PlayerMoveAirborne()
 	// Handle spring animation
 	if Animation = AnimSpring and Ysp > 0
 	{
-		Animation = abs(Inertia) < 6 ? AnimWalk : AnimRun;
+		Animation = AnimWalk;
 	}
 	
 	// Freeze when transforming

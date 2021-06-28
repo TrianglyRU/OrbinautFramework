@@ -22,5 +22,5 @@ function ScreenInterfaceSetup()
 	DebugSolids    = false;
 	DebugVariables = false;
 	
-	PauseScreen = -1;
+	PauseSurface = -1;
 }

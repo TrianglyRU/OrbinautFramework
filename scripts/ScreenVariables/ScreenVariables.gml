@@ -51,5 +51,19 @@ function ScreenVariables()
 	DebugHitboxes	   isVar;
 	DebugSensors	   isVar;
 	
-	PauseScreen		   isVar;
+	PauseSurface	   isVar;
+	AppSurface		   isVar;
+	
+	FadeEnabled      isVar;
+	FadeMode	     isVar;
+	FadeColour	     isVar;
+	FadeStep	     isVar;
+	FadeTimer	     isVar;
+	FadePower	     isVar;
+	PaletteSet	     isVar;
+	PaletteTimer     isArr;
+	PaletteColour    isArr;
+	PaletteAnimation isArr;
+	PalIndexDry	     isArr;
+	PalIndexWet	     isArr;
 }

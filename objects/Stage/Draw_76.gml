@@ -54,8 +54,8 @@
 							instance_activate_object(self);
 						}
 						
-						sprite_delete(Screen.PauseScreen);
-						Screen.PauseScreen = -1;
+						sprite_delete(Screen.PauseSurface);
+						Screen.PauseSurface = -1;
 					break;
 					case 1: 
 						PauseMode = 1;

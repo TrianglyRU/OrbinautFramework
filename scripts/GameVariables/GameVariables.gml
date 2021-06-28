@@ -69,13 +69,4 @@ function GameVariables()
 	Game.RingsAllSideCollision   isVar;
 	Game.NoRollSpeedLimit		 isVar;
 	Game.FlyingCancel			 isVar;
-	
-	// Palette
-	Game.FadeEnabled			 isVar;
-	Game.PaletteSet				 isVar;
-	Game.PalIndexDry			 isArr;
-	Game.PalIndexWet		     isArr;
-	
-	// Surfaces
-	Game.AppSurface				 isVar;
 }

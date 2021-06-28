@@ -30,10 +30,10 @@ function GameFrameworkSetup()
 	Game.SpindashEnabled        = true;  // Enables S2 Spindash
 	Game.DropdashEnabled        = false; // Enables Mania Dropdash
 	Game.PeeloutEnabled         = false; // Enables SCD Super Peel Out
-	Game.GroundSpeedcap	        = false; // Enables ground speedcap
+	Game.GroundSpeedcap	        = true;  // Enables ground speedcap
 	Game.AirSpeedcap	        = false; // Enables air speedcap
 	Game.RolljumpControl        = false; // Unlocks directional contorls if you jump after rolling
-	Game.ExtendedCamera			= true;  // Enables camera to shift to the side of your direction movement
+	Game.ExtendedCamera			= false; // Enables camera to shift to the side of your direction movement
 	Game.StrongerSlopeGravity   = false; // In S3 and later, you always affected by slope gravity on non-shallow floors. True - Sonic 3+ method.
 	Game.LooseCrouch		    = false; // In S&K, you can start crouching when you are moving slowly. True - SK method.
 	Game.ConstantRollFrc        = false; // In SK, rolling friction is hard-coded to always be half of regular acceleration when Super. True - SK method
@@ -41,8 +41,8 @@ function GameFrameworkSetup()
 	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
 	Game.ExtensiveWallCollision	= true;  // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.StageTransitions		= false; // In S3 stage transitions were introduced. True = S3+-like transitions (not a direct copy).
-	Game.BalancingCrouch		= true;  // In S3 and later you're allowed to crouch when balancing. True = S3+ method
-	Game.BuffedWaterBarrier     = true;  // In Sonic Mania, water barrier halves your xsp instead of setting it to 0
+	Game.BalancingCrouch		= false; // In S3 and later you're allowed to crouch when balancing. True = S3+ method
+	Game.BuffedWaterBarrier     = false; // In Sonic Mania, water barrier halves your xsp instead of setting it to 0
 	
 	// Orbinaut improvements
 	Game.ImprovedTileCollision = true;  // Uses custom advanced method to update collision mode, fixes several collision flaws and resets floor angle better

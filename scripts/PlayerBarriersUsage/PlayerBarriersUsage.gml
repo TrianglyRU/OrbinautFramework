@@ -1,7 +1,7 @@
 function PlayerBarriersUsage()
 {
 	// Exit the code if we do not have any active barrier, or current barrier is regular one
-	if !BarrierType or BarrierType == BarrierNormal or CharacterID != CharSonic or InvincibilityBonus
+	if BarrierType <= BarrierNormal or CharacterID != CharSonic or !Barrier.image_alpha
 	{
 		exit;
 	}

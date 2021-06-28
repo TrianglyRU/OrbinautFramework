@@ -39,6 +39,7 @@ function GameMacro()
 	#macro Palette		     global
 	#macro Uniform		     global
 	#macro Parallax			 global
+	#macro Shader			 global
 	
 	// Palette macro
 	#macro PaletteSurface    0

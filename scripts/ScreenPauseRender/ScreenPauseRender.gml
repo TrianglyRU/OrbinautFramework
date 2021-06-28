@@ -7,7 +7,7 @@ function ScreenPauseRender()
 	else
 	{
 		surface_set_target(application_surface);
-		draw_sprite(PauseScreen, 0, 0, 0);
+		draw_sprite(PauseSurface, 0, 0, 0);
 		var MenuX = Width / 2;
 		var MenuY = Height / 2;
 		draw_sprite(spr_pause_menu, sign(Stage.PauseMode), MenuX, MenuY);
