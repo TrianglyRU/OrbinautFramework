@@ -10,12 +10,6 @@ function BackgroundParallaxPerform()
 	var BackgroundParts = array_length(BackgroundSprites);
 	for (var i = 0; i < BackgroundParts; i++)
 	{
-		// Exit the loop if no sprite assigned
-		if BackgroundSprites[i] == noone 
-		{
-			break;
-		}
-
 		// Get values
 		var PosX		  = BackgroundValues[i][0];
 		var PosY		  = BackgroundValues[i][1];

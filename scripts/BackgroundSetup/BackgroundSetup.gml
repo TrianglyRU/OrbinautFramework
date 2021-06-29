@@ -31,10 +31,7 @@ function BackgroundSetup()
 		default: 
 		{
 			// Background sprites
-			BackgroundSprites = [noone];
-			
-			// background_sprite_1
-			BackgroundValues[0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+			BackgroundSprites = [];
 		}
 		break;
 	}
