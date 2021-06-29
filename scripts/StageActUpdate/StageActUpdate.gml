@@ -99,7 +99,7 @@ function StageActUpdate()
 	}
 		
 	// Count timer
-	if StateTimer != -1
+	if IsFinished != 2
 	{
 		if StateTimer != 160
 		{
@@ -116,40 +116,41 @@ function StageActUpdate()
 			Input.IgnoreInput = true;
 			Input.ResetInput  = true;
 			
+			// Get stage transition data
+			if Game.StageTransitions and Stage.ActID != Stage.FinalActID
+			{
+				// Get target object
+				var TargetObject = Game.StageTransitionData[5];
+		
+				// Exit if no target object has been set
+				if TargetObject == noone
+				{
+					exit;
+				}
+		
+				// Get player's X and Y
+				Game.StageTransitionData[0] = floor(Player.PosX) - (Screen.CameraX + Screen.Width / 2);
+				Game.StageTransitionData[1] = floor(Player.PosY + Player.yRadius) - (TargetObject.y + 24);
+				
+				// Get camera position
+				Game.StageTransitionData[2] = floor(Player.PosY) - Screen.CameraY;
+				
+				// Get player's barrier
+				Game.StageTransitionData[3] = Player.BarrierType;
+		
+				// Get bottom boundary
+				Game.StageTransitionData[6] = (Screen.CameraY + Screen.Height) - floor(Player.PosY + Player.yRadius);
+		
+				// Enable transition
+				Game.StageTransitionData[4] = true;
+			}
+			
 			// Play results music
 			audio_bgm_play(ActClear, noone, -1, TypeJingle);
 
 			// Trigger results
-			StateTimer = -1;
+			IsFinished = 2;
+			StateTimer = 0;
 		}
-	}
-		
-	// Get stage transition data
-	if Game.StageTransitions and Stage.ActID != Stage.FinalActID
-	{
-		// Get target object
-		var TargetObject = Game.StageTransitionData[5];
-		
-		// Exit if no target object has been set
-		if TargetObject == noone
-		{
-			exit;
-		}
-		
-		// Get player's X and Y
-		Game.StageTransitionData[0] = floor(Player.PosX) - (Screen.CameraX + Screen.Width / 2);
-		Game.StageTransitionData[1] = floor(Player.PosY + Player.yRadius) - (TargetObject.y + 24);
-				
-		// Get camera position
-		Game.StageTransitionData[2] = floor(Player.PosY) - Screen.CameraY;
-				
-		// Get player's barrier
-		Game.StageTransitionData[3] = Player.BarrierType;
-		
-		// Get bottom boundary
-		Game.StageTransitionData[6] = (Screen.CameraY + Screen.Height) - floor(Player.PosY + Player.yRadius);
-		
-		// Enable transition
-		Game.StageTransitionData[4] = true;
 	}
 }		

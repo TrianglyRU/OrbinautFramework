@@ -40,7 +40,7 @@ function GameFrameworkSetup()
 	Game.StrongerSlopeRepel     = false; // Before S3, you were able to slide down on 45-degree floors. True - Sonic 3+ method
 	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
 	Game.ExtensiveWallCollision	= true;  // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
-	Game.StageTransitions		= false; // In S3 stage transitions were introduced. True = S3+-like transitions (not a direct copy).
+	Game.StageTransitions		= true;  // In S3 stage transitions were introduced. True = S3+-like transitions (not a direct copy).
 	Game.BalancingCrouch		= false; // In S3 and later you're allowed to crouch when balancing. True = S3+ method
 	Game.BuffedWaterBarrier     = false; // In Sonic Mania, water barrier halves your xsp instead of setting it to 0
 	

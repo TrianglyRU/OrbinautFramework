@@ -112,7 +112,7 @@ function PlayerMove()
 	}
 	
 	// Act end animation
-	if Stage.IsFinished and Stage.StateTimer == -1
+	if Stage.IsFinished == 2
 	{
 		Animation = AnimActEnd;
 	}

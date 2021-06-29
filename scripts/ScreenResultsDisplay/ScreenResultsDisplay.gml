@@ -1,7 +1,7 @@
 function ScreenResultsDisplay()
 {
 	// Display only when act is finished and one second passed or act unloads
-	if Stage.IsFinished and Stage.StateTimer == -1
+	if Stage.IsFinished == 2
 	{	
 		if !ResultValue[0]
 		{
@@ -100,12 +100,9 @@ function ScreenResultsDisplay()
 			{
 				
 			}
-			
 			if ResultsTimer == 120
 			{
-				ResultsTimer     = 0;
-				Stage.StateTimer = 0;
-				Stage.State		 = ActStateUnload;
+				Stage.State = ActStateUnload;
 			}
 		}
 	}
