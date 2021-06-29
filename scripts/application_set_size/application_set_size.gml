@@ -8,12 +8,13 @@ function application_set_size(appWidth, appHeight)
 	surface_resize(application_surface,  appWidth, appHeight);
 	
 	// Resize main and background surfaces
-	if instance_exists(Screen)
+	if surface_exists(Palette.SurfaceLow)
 	{
-		if surface_exists(Screen.AppSurface)
-		{
-			surface_resize(Screen.AppSurface, appWidth, appHeight);
-		}
+		surface_resize(Palette.SurfaceLow, appWidth, appHeight);
+	}
+	if surface_exists(Palette.SurfaceHigh)
+	{
+		surface_resize(Palette.SurfaceHigh, appWidth, appHeight);
 	}
 	
 	// Enable surface rendering in case it was disabled

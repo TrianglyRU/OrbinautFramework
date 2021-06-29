@@ -15,12 +15,3 @@
 	
 	// Setup results screen
 	ScreenResultsSetup();
-
-	// Load a palette set to use in the room
-	ScreenPaletteDataLoad();
-	
-	// Reset fade state
-	ScreenPaletteFadeReset();
-	
-	// Handle static palette
-	ScreenPaletteHandleStatic();

@@ -36,7 +36,6 @@ function GameMacro()
 	#macro EventStop	   3
 	
 	// Shader macro
-	#macro Palette		     global
 	#macro Uniform		     global
 	#macro Parallax			 global
 	#macro Shader			 global
