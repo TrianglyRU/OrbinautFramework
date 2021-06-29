@@ -3,23 +3,37 @@ function StageActStartup()
 	// Play stage music
 	audio_bgm_play(StageMusic, StageMusicDAC, StageMusicLooppoint, TypeNormal);
 	
-	// Load saved data
-	if Game.Time
+	// Set top, left and right boundaries
+	TargetLeftBoundary  = LeftBoundary;
+	TargetRightBoundary = RightBoundary;
+	TargetTopBoundary   = TopBoundary;
+	
+	// Check if it is act transition
+	if Game.StageTransitionData[4] == true
 	{
-		Time = Game.Time;
-	}
-	if Game.StageBoundary
-	{
-		BottomBoundary = Game.StageBoundary;
+		// Set target bottom boundary
+		TargetBottomBoundary = BottomBoundary;
+		DeathBoundary		 = TargetBottomBoundary;
 	}
 	
-	// Set target boundaries
-	TargetLeftBoundary   = LeftBoundary;
-	TargetRightBoundary  = RightBoundary;
-	TargetTopBoundary    = TopBoundary;
-	TargetBottomBoundary = BottomBoundary;
-	DeathBoundary        = BottomBoundary;
-
+	// Check if it is not act transition
+	else
+	{
+		// Load saved time and stage boundary (loading on checkpoint)
+		if Game.Time
+		{
+			Time = Game.Time;
+		}
+		if Game.StageBoundary
+		{
+			BottomBoundary = Game.StageBoundary;
+		}
+		
+		// Set target bottom boundary
+		TargetBottomBoundary = BottomBoundary;
+		DeathBoundary        = BottomBoundary;
+	}
+	
 	// Load tile angle data
 	data_read("anglemap.bin");
 	

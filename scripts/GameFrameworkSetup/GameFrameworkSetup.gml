@@ -5,9 +5,9 @@ function GameFrameworkSetup()
 	
 	// Game state
 	Game.Character = CharSonic;
-	Game.Score	 = 0;
-	Game.Lives	 = 3;
-	Game.Continues	 = 0;
+	Game.Score	   = 0;
+	Game.Lives	   = 3;
+	Game.Continues = 0;
 	Game.Emeralds  = 0;
 	
 	/* From here and until 'engine' section values and flags are overwritten by default on game load
@@ -30,7 +30,7 @@ function GameFrameworkSetup()
 	Game.SpindashEnabled        = true;  // Enables S2 Spindash
 	Game.DropdashEnabled        = false; // Enables Mania Dropdash
 	Game.PeeloutEnabled         = false; // Enables SCD Super Peel Out
-	Game.GroundSpeedcap	        = true;  // Enables ground speedcap
+	Game.GroundSpeedcap	        = false; // Enables ground speedcap
 	Game.AirSpeedcap	        = false; // Enables air speedcap
 	Game.RolljumpControl        = false; // Unlocks directional contorls if you jump after rolling
 	Game.ExtendedCamera			= false; // Enables camera to shift to the side of your direction movement

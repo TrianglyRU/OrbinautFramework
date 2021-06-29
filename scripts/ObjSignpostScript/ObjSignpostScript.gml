@@ -1,5 +1,16 @@
 function ObjSignpostScript()
 {
+	// Check for correct player
+	if id.PlayerType == "Sonic & Tails" and Player.CharacterID == CharKnuckles
+	or id.PlayerType == "Knuckles"		and Player.CharacterID != CharKnuckles
+	{
+		// Make invisible
+		visible = false;
+		
+		// Exit the code
+		exit;
+	}
+	
 	// Activate on overlap and change stage state
 	if !Active
 	{
@@ -13,10 +24,16 @@ function ObjSignpostScript()
 			audio_sfx_play(sfxSignPost, false);
 		}
 	}
-	else if ActiveTimer < 140
+	else
 	{	
-		// Start timer
-		ActiveTimer++;
+		// Use as transition object
+		Game.StageTransitionData[5] = id;
+			
+		// Count timer
+		if ActiveTimer < 140
+		{
+			ActiveTimer++;
+		}
 		
 		// Spawn stars
 		switch ActiveTimer 
@@ -32,7 +49,7 @@ function ObjSignpostScript()
 			case  98: instance_create_depth(x - 23, y - 14, depth - 1, RingSparkle); break;
 			case 110: instance_create_depth(x + 7,  y + 7,  depth - 1, RingSparkle); break;
 			case 122: instance_create_depth(x - 14, y,      depth - 1, RingSparkle); break;
-		}	
+		}		
 	}
 	
 	// Set boundaries

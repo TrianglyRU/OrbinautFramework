@@ -7,19 +7,13 @@ function ScreenCameraSetup()
 	Width  = Game.ResolutionWidth;
 	Height = Game.ResolutionHeight;
 
-	// Set default position
-	if Game.StageTransitionData[4] == true
+	// If player uses saved global spawn position, spawn camera on it
+	if Game.PlayerPosition != 0
 	{
-		RawX    = floor(Player.PosX) - Game.StageTransitionData[0] - Width / 2;
-		RawY    = floor(Player.PosY) - Game.StageTransitionData[2];
+		RawX    = Game.PlayerPosition[0] - Width  / 2;
+		RawY    = Game.PlayerPosition[1] - Height / 2 + 16;
 		CameraX = RawX;
-		CameraY = RawY;
+		CameraY = RawY
 	}
-	else
-	{
-		RawX    = floor(Player.PosX) - Width  / 2;
-		RawY    = floor(Player.PosY) - Height / 2;
-		CameraX = RawX;
-		CameraY = RawY;
-	}
+	/* Regular camera position code is stored in Spawnpoint object! */
 }

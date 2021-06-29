@@ -21,9 +21,9 @@ function ObjAnimalSetup()
 	AnimalType = choose
 	(
 		spr_obj_animal_flicky,
+		spr_obj_animal_pocky,
 		spr_obj_animal_flicky,
-		spr_obj_animal_flicky,
-		spr_obj_animal_flicky,
+		spr_obj_animal_pocky,
 	);
 	
 	// Set default speeds based on animal type
@@ -33,6 +33,12 @@ function ObjAnimalSetup()
 		{
 			Xsp = 3; 
 			Ysp = -4; 
+		}
+		break;
+		case spr_obj_animal_pocky:
+		{
+			Xsp = 2;
+			Ysp = 4;
 		}
 		break;
     }

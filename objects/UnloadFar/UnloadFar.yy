@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_other",
-    "path": "sprites/spr_obj_other/spr_obj_other.yy",
+    "name": "spr_obj_trigger_bosscontroller",
+    "path": "sprites/spr_obj_trigger_bosscontroller/spr_obj_trigger_bosscontroller.yy",
   },
   "solid": false,
   "visible": true,

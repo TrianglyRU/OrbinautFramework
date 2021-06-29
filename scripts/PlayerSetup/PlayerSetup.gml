@@ -39,33 +39,23 @@ function PlayerSetup()
 	Emeralds = Game.Emeralds;
 	Conts    = Game.Continues;
 	
-	// Define spawn position
-	if Game.PlayerPosition == 0
-	{
-		if Game.StageTransitionData[4] == true
-		{
-			PosX = Spawnpoint.x + Game.StageTransitionData[0];
-			PosY = Spawnpoint.y + Game.StageTransitionData[1] - yRadius;
-		}
-		else
-		{
-			PosX = Spawnpoint.x;
-			PosY = Spawnpoint.y - yRadius;
-		}		
-	}
-	else
+	// If player uses saved global spawn position, use it
+	if Game.PlayerPosition != 0
 	{
 		PosX = Game.PlayerPosition[0];
 		PosY = Game.PlayerPosition[1];
 	}
+	/* Regular spawn code is stored in Spawnpoint object! */
 	
 	// Initialize recorded position datalist array
 	RecordedPosX = ds_list_create();
 	RecordedPosY = ds_list_create();
-	for (var ind = 0; ind < 32; ind++) 
+		
+	// Fill recorded position datalist array
+	for (var Index = 0; Index < 32; Index++) 
 	{
-		RecordedPosX[| ind] = PosX;
-		RecordedPosY[| ind] = PosY;
+		RecordedPosX[| Index] = x;
+		RecordedPosY[| Index] = y;
 	}
 	
 	// Create Tails' tails

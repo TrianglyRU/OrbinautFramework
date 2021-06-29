@@ -92,7 +92,14 @@ function ScreenResultsDisplay()
 		// Unload the act
 		if TimeBonus == 0 and RingBonus == 0 and Stage.State != ActStateUnload
 		{
+			// Count timer
 			ResultsTimer++;
+			
+			// If stage transition is about to happen, remove hud
+			if Game.StageTransitionData[4] == true
+			{
+				
+			}
 			
 			if ResultsTimer == 120
 			{

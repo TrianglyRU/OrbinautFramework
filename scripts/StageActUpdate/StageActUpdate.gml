@@ -7,11 +7,16 @@ function StageActUpdate()
 	}
 	
 	// Reset transition data
-	Game.StageTransitionData[0] = 0;
-	Game.StageTransitionData[1] = 0;
-	Game.StageTransitionData[2] = 0;
-	Game.StageTransitionData[3] = 0;
-	Game.StageTransitionData[4] = false;
+	if !IsFinished
+	{
+		Game.StageTransitionData[0] = 0;
+		Game.StageTransitionData[1] = 0;
+		Game.StageTransitionData[2] = 0;
+		Game.StageTransitionData[3] = 0;
+		Game.StageTransitionData[4] = false;
+		Game.StageTransitionData[5] = noone;
+		Game.StageTransitionData[6] = 0;
+	}
 			
 	// Player death
 	if Player.Death
@@ -122,15 +127,27 @@ function StageActUpdate()
 	// Get stage transition data
 	if Game.StageTransitions and Stage.ActID != Stage.FinalActID
 	{
+		// Get target object
+		var TargetObject = Game.StageTransitionData[5];
+		
+		// Exit if no target object has been set
+		if TargetObject == noone
+		{
+			exit;
+		}
+		
 		// Get player's X and Y
 		Game.StageTransitionData[0] = floor(Player.PosX) - (Screen.CameraX + Screen.Width / 2);
-		Game.StageTransitionData[1] = floor(Player.PosY + Player.yRadius) - (Signpost.y + 24);
+		Game.StageTransitionData[1] = floor(Player.PosY + Player.yRadius) - (TargetObject.y + 24);
 				
 		// Get camera position
 		Game.StageTransitionData[2] = floor(Player.PosY) - Screen.CameraY;
 				
 		// Get player's barrier
 		Game.StageTransitionData[3] = Player.BarrierType;
+		
+		// Get bottom boundary
+		Game.StageTransitionData[6] = (Screen.CameraY + Screen.Height) - floor(Player.PosY + Player.yRadius);
 		
 		// Enable transition
 		Game.StageTransitionData[4] = true;

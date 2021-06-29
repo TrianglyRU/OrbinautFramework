@@ -23,7 +23,7 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 			else
 			{
 				var PPosX = floor(Player.PosX);
-				var Dest = PPosX + 32 * (PPosX > BossController.x ? -1 : 1);
+				var Dest = PPosX + 32 * (PPosX > BossTrigger.x ? -1 : 1);
 				if (Dest > PosX) PosX++;
 				else if (Dest < PosX) PosX--;
 			}
@@ -148,7 +148,7 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 			if !StateTimer
 			{
 				// Tell the controller boss was defeated
-				BossController.BossDefeated = true;
+				BossTrigger.BossDefeated = true;
 				instance_destroy(OrbossOrb);
 				instance_destroy();
 			}

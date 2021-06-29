@@ -39,26 +39,29 @@ function object_act_badnik(is_destroyable, instant_kill)
 		}
 		
 		// Add score
-		if Player.ScoreCombo < 2		// First hit
+		if Player.ScoreCombo < 2
 		{
 			Player.Score += 100;
 		}
-		else if Player.ScoreCombo < 3	// Second hit
+		else if Player.ScoreCombo < 3
 		{
 			Player.Score += 200;
 		}
-		else if Player.ScoreCombo < 4	// Third hit
+		else if Player.ScoreCombo < 4
 		{
 			Player.Score += 300;
 		}
-		else if Player.ScoreCombo < 16	// 4-15 hits
+		else if Player.ScoreCombo < 16
 		{
 			Player.Score += 1000;
 		}
-		else							// 16 and more hits
+		else
 		{
 			Player.Score += 10000;
 		}
+		
+		// Create score object
+		instance_create(x, y, ComboScore);
 	}
 	else
 	{
