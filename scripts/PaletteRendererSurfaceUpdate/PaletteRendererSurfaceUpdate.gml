@@ -1,4 +1,4 @@
-function RendererSurfacesUpdate()
+function PaletteRendererSurfaceUpdate()
 {		
 	surface_set_target(application_surface);
 	
