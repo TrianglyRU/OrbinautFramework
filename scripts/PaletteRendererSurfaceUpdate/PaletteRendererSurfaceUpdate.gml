@@ -1,5 +1,7 @@
 function PaletteRendererSurfaceUpdate()
 {		
+	if instance_exists(Stage) and Stage.GamePaused exit;
+	
 	surface_set_target(application_surface);
 	
 	if surface_exists(SurfaceLow) 
