@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_engine_screen",
+    "path": "sprites/spr_engine_screen/spr_engine_screen.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

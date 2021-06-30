@@ -1,4 +1,4 @@
-function RendererLowUpdate()
+function RendererSurfacesUpdate()
 {		
 	surface_set_target(application_surface);
 	
@@ -36,4 +36,11 @@ function RendererLowUpdate()
 		draw_surface(SurfaceLow, 0, 0);
 		shader_reset();
 	}
+	
+	if surface_exists(SurfaceHigh)
+	{
+		draw_surface(SurfaceHigh, 0, 0);
+	}
+	
+	surface_reset_target();
 }

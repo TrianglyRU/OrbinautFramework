@@ -1,11 +1,5 @@
-function RendererHighUpdate()
+function RendererAppSurfUpdate()
 {	
-	if surface_exists(SurfaceHigh)
-	{
-		draw_surface(SurfaceHigh, 0, 0);
-	}
-	
-	surface_reset_target();
 	/*if keyboard_check(ord("A"))
 	{
 		shader_set(ShaderPostProcessing);
@@ -15,10 +9,13 @@ function RendererHighUpdate()
 		shader_reset();
 	}
 	else
-	*/
 	{
 		application_surface_draw_enable(true);
 		draw_surface(application_surface, 0, 0);
 		application_surface_draw_enable(false);
 	}
+	*/
+	application_surface_draw_enable(true);
+	draw_surface(application_surface, 0, 0);
+	application_surface_draw_enable(false);
 }
