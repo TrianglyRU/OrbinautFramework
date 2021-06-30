@@ -1,5 +1,5 @@
-/// @description Startup
+/// @description Draw
 // You can write your code in this editor
-
+	
 	// Call object script
-	ObjAnimalStartup();
+	ObjAnimalDraw();

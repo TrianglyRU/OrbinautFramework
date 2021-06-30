@@ -1,4 +1,4 @@
-function ObjAnimalSetup()
+function ObjAnimalStartup()
 {
 	// Initialize variables
 	AnimalType   isVar;

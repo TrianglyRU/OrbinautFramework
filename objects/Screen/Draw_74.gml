@@ -1,27 +1,26 @@
-/// @description Renderer & Interface
+/// @description GUI
 // You can write your code in this editor
 	
 	// Render pause and exit the futher code if it is active
-	if ScreenPauseDisplay() exit;
+	ScreenPauseDisplay();
 	
-	// Start rendering our application
-	if surface_perform(Palette.SurfaceLow)
-	{
-		// Display HUD
-		ScreenInterfaceDisplay();
+	// Start render below the fade
+	ScreenRendererLowStart();
 	
-		// Display results screen
-		ScreenResultsDisplay();
-		
-		surface_reset_target();
-	}
+	// Display HUD
+	ScreenInterfaceDisplay();
 	
-	if surface_perform(Palette.SurfaceHigh)
-	{	
-		draw_clear_alpha(c_white, 0);
+	// Display results screen
+	ScreenResultsDisplay();
+	
+	// Update renderer
+	ScreenRendererUpdate();
+	
+	// Start render above the fade
+	ScreenRendererHighStart();
+	
+	// Display title card
+	ScreenTitleCardDisplay();
 		
-		// Display title card
-		ScreenTitleCardDisplay();
-		
-		surface_reset_target();
-	}
+	// Update renderer
+	ScreenRendererUpdate();

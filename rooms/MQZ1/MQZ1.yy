@@ -607,6 +607,21 @@
             {"propertyId":{"name":"ArenaWidth","path":"objects/BossTrigger/BossTrigger.yy",},"objectId":{"name":"BossTrigger","path":"objects/BossTrigger/BossTrigger.yy",},"value":"440","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"BossTrigger","path":"objects/BossTrigger/BossTrigger.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":6272.0,"y":1816.0,"resourceVersion":"1.0","name":"inst_6CF146B","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"GiantRing","path":"objects/GiantRing/GiantRing.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":600.0,"y":1488.0,"resourceVersion":"1.0","name":"inst_1FBDEF40","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"BridgeSprite","path":"objects/Bridge/Bridge.yy",},"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"value":"spr_obj_bridgelog_mqz","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":424.0,"y":1472.0,"resourceVersion":"1.0","name":"inst_1F72E8AD","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"BridgeSprite","path":"objects/Bridge/Bridge.yy",},"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"value":"spr_obj_bridgelog_mqz","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"BridgeLength","path":"objects/Bridge/Bridge.yy",},"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"value":"2","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":424.0,"y":1440.0,"resourceVersion":"1.0","name":"inst_7318AA76","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"BridgeSprite","path":"objects/Bridge/Bridge.yy",},"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"value":"spr_obj_bridgelog_mqz","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"BridgeLength","path":"objects/Bridge/Bridge.yy",},"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"value":"3","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":424.0,"y":1408.0,"resourceVersion":"1.0","name":"inst_6A6120DA","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"BridgeSprite","path":"objects/Bridge/Bridge.yy",},"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"value":"spr_obj_bridgelog_mqz","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"BridgeLength","path":"objects/Bridge/Bridge.yy",},"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":424.0,"y":1376.0,"resourceVersion":"1.0","name":"inst_FA4E47F","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"tex_mqz_dec02","path":"sprites/tex_mqz_dec02/tex_mqz_dec02.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":480.0,"y":1484.0,"resourceVersion":"1.0","name":"graphic_299C824D","tags":[],"resourceType":"GMRSpriteGraphic",},
@@ -814,6 +829,10 @@
     {"name":"inst_6CF146B","path":"rooms/MQZ1/MQZ1.yy",},
     {"name":"inst_1FBDEF40","path":"rooms/MQZ1/MQZ1.yy",},
     {"name":"inst_410D6320","path":"rooms/MQZ1/MQZ1.yy",},
+    {"name":"inst_1F72E8AD","path":"rooms/MQZ1/MQZ1.yy",},
+    {"name":"inst_7318AA76","path":"rooms/MQZ1/MQZ1.yy",},
+    {"name":"inst_6A6120DA","path":"rooms/MQZ1/MQZ1.yy",},
+    {"name":"inst_FA4E47F","path":"rooms/MQZ1/MQZ1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

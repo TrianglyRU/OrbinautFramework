@@ -6,7 +6,7 @@
     "path": "folders/Game Objects/Bridge.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjBridgeSetup",
+  "name": "ObjBridgeDraw",
   "tags": [],
   "resourceType": "GMScript",
 }

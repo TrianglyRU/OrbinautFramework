@@ -6,27 +6,31 @@ function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 	{
 		exit;
 	}
-
+	
+	// Check if custom position variables are defined
+	var XPos = variable_instance_exists(id, "PosX") ? PosX : x;
+	var YPos = variable_instance_exists(id, "PosY") ? PosY : y;
+	
 	// Define xside
 	switch xSide
 	{
-		case SideLeft:   var checkX = floor(x - objXRadiusSolid);     break;
-		case SideRight:  var checkX = floor(x + objXRadiusSolid - 1); break;
-		case SideCentre: var checkX = floor(x);				          break;
+		case SideLeft:   var checkX = floor(XPos - objXRadiusSolid);     break;
+		case SideRight:  var checkX = floor(XPos + objXRadiusSolid - 1); break;
+		case SideCentre: var checkX = floor(XPos);				         break;
 		
 		// Use object X centre if no specific side is specified
-		default: var checkX = floor(x);	break;
+		default: var checkX = floor(XPos); break;
 	}
 	
 	// Define yside
 	switch ySide
 	{
-		case SideTop:    var checkY = floor(y - objYRadiusSolid);     break;
-		case SideBottom: var checkY = floor(y + objYRadiusSolid - 1); break;
-		case SideCentre: var checkY = floor(y);						  break;
+		case SideTop:    var checkY = floor(YPos - objYRadiusSolid);     break;
+		case SideBottom: var checkY = floor(YPos + objYRadiusSolid - 1); break;
+		case SideCentre: var checkY = floor(YPos);						 break;
 		
 		// Use object Y centre if no specific side is specified
-		default: var checkY = floor(y); break;
+		default: var checkY = floor(YPos); break;
 	}
 	
 	// Get distance to surface
@@ -38,7 +42,14 @@ function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 		// Push the object to the surface if it is not too far in tiles
 		if floorDistance >= -14 and floorDistance <= 14
 		{
-			y += floorDistance;
+			if variable_instance_exists(id, "PosY")
+			{
+				PosY += floorDistance;
+			}
+			else
+			{
+				y += floorDistance;
+			}
 		}
 		
 		// Confirm collision

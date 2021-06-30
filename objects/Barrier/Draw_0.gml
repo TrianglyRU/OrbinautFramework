@@ -1,5 +1,5 @@
-/// @description Script
+/// @description Draw
 // You can write your code in this editor
 	
-	// Call object main script
-	ObjBarrierScript();
+	// Call object script
+	ObjBarrierDraw();

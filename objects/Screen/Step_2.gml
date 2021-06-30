@@ -1,4 +1,4 @@
-/// @description Stage Camera
+/// @description Camera
 // You can call your scripts in this editor
 
 	// Follow the character

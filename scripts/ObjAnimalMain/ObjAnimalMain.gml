@@ -1,4 +1,4 @@
-function ObjAnimalScript()
+function ObjAnimalMain()
 {
 	/*if FromCapsule
 	{ 
@@ -20,9 +20,6 @@ function ObjAnimalScript()
 	// Update vertical speed
 	Ysp  += Grv;
 	PosY += Ysp;
-	
-	// Update y position
-	y = floor(PosY);
 	
 	// Appear state
 	if State == 0
@@ -89,11 +86,8 @@ function ObjAnimalScript()
 		}
 	}
 	
-	// Update x position
-	x = floor(PosX);
-	
 	// Delete animal when outside the camera
-	if x + 8 < Screen.CameraX or x - 8 > Screen.CameraX + Screen.Width
+	if floor(PosX) + 8 < Screen.CameraX or floor(PosX) - 8 > Screen.CameraX + Screen.Width
 	{
 		instance_destroy();
 	}

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Animal",
-    "path": "folders/Game Objects/Animal.yy",
+    "name": "Screen",
+    "path": "folders/Game Code/Screen.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjAnimalSetup",
+  "name": "ScreenRendererHighStart",
   "tags": [],
   "resourceType": "GMScript",
 }

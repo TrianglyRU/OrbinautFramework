@@ -1,4 +1,4 @@
-function ObjBarrierScript()
+function ObjBarrierMain()
 {
 	// Get current player barrier
 	switch Player.BarrierType
@@ -91,9 +91,4 @@ function ObjBarrierScript()
 	{
 		image_alpha = 1;
 	}
-	
-	// Render at player's position
-	x = floor(Player.PosX);
-	y = floor(Player.PosY);
-	draw_self();
 }

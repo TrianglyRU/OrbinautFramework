@@ -1,5 +1,5 @@
-/// @description Varaibles & Setup
+/// @description Startup
 // You can write your code in this editor
 
-	// Call object setup script
-	ObjBridgeSetup();
+	// Call object script
+	ObjBridgeStartup();

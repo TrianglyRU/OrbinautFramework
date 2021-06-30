@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Barrier",
-    "path": "folders/Game Objects/Barrier.yy",
+    "name": "Animal",
+    "path": "folders/Game Objects/Animal.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjBarrierScript",
+  "name": "ObjAnimalStartup",
   "tags": [],
   "resourceType": "GMScript",
 }
