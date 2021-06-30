@@ -7,7 +7,6 @@
 	// Start rendering our application
 	if surface_perform(Palette.SurfaceLow)
 	{
-		
 		// Display HUD
 		ScreenInterfaceDisplay();
 	
@@ -20,6 +19,7 @@
 	if surface_perform(Palette.SurfaceHigh)
 	{	
 		draw_clear_alpha(c_white, 0);
+		
 		// Display title card
 		ScreenTitleCardDisplay();
 		

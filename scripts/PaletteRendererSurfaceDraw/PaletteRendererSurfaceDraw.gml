@@ -1,4 +1,4 @@
-function RendererAppSurfUpdate()
+function PaletteRendererSurfaceDraw()
 {	
 	/*if keyboard_check(ord("A"))
 	{

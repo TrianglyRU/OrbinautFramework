@@ -1,7 +1,7 @@
 function InputButtonsReset()
 {	
 	// Reset all buttons
-	if ResetInput
+	if IgnoreInput
 	{
 		Up			= false;
 		Down		= false;

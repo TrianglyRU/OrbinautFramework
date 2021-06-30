@@ -1,14 +1,6 @@
 function InputHotkeysRead()
 {	
-	if !Game.DevMode
-	{
-		exit;
-	}
-	if room == GameStart or room == DevMenu
-	{
-		exit;
-	}
-	if Stage.State != ActStateDefault
+	if !Game.DevMode or !instance_exists(Stage) or Stage.State != ActStateDefault
 	{
 		exit;
 	}

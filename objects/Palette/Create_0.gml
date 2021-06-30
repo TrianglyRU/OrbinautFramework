@@ -1,10 +1,8 @@
-/// @description Insert description here
+/// @description Variables & Setup
 // You can write your code in this editor
 	
 	// Initialize variables
 	PaletteVariables();
-	
-	RendererSetup();
 	
 	// Load a palette set to use in the room
 	PaletteDataLoad();
@@ -14,3 +12,6 @@
 	
 	// Handle static palette
 	PaletteHandleStatic();
+	
+	// Reset surfaces
+	PaletteRendererSurfaceReset();

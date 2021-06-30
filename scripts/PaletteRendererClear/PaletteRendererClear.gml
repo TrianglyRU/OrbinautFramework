@@ -1,4 +1,4 @@
-function RendererClear()
+function PaletteRendererClear()
 {
 	// Clear main surface
 	if surface_exists(SurfaceLow) 

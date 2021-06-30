@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Palette.yy",
   },
   "resourceVersion": "1.0",
-  "name": "RendererSurfacesUpdate",
+  "name": "PaletteRendererSurfaceReset",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -1,7 +1,8 @@
-/// @description Insert description here
+/// @description Surface Draw
 // You can write your code in this editor
 	
-	RendererSurfacesUpdate();
+	// Draw surface
+	PaletteRendererSurfaceDraw();
 		
-	// Update our application renderer
-	RendererAppSurfUpdate();
+	// Update renderer
+	PaletteRendererSurfaceUpdate();

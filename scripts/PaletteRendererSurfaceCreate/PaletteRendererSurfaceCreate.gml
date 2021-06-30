@@ -1,4 +1,4 @@
-function RendererSurfaceCreate()
+function PaletteRendererSurfaceCreate()
 {
 	if !surface_exists(SurfaceLow)
 	{
