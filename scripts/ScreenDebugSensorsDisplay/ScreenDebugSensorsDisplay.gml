@@ -30,7 +30,7 @@ function ScreenDebugSensorsDisplay()
 				// Display floor sensors (if not on object)
 				if !OnObject
 				{
-					switch AngleQuadEven
+					switch AngleQuadFloor
 					{
 						case RangeFloor:
 						{
@@ -71,7 +71,7 @@ function ScreenDebugSensorsDisplay()
 					// Display left wall sensor
 					if Inertia < 0
 					{
-						switch AngleQuadOdd
+						switch AngleQuadWall
 						{
 							case RangeFloor:
 							{
@@ -99,7 +99,7 @@ function ScreenDebugSensorsDisplay()
 					// Display right wall sensor
 					else if Inertia > 0
 					{
-						switch AngleQuadOdd
+						switch AngleQuadWall
 						{
 							case RangeFloor:
 							{

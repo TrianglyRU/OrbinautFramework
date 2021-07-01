@@ -1,5 +1,7 @@
 function PlayerVariables()
 {
+	ForceAngle isVar;
+	
 	Acc					 isVar;
 	Dec					 isVar;
 	Frc					 isVar;
@@ -30,8 +32,8 @@ function PlayerVariables()
 	Inertia				 isVar;
 	SlopeGravity		 isVar;
 	Angle				 isVar;
-	AngleQuadEven		 isVar;
-	AngleQuadOdd		 isVar;
+	AngleQuadFloor		 isVar;
+	AngleQuadWall		 isVar;
 	VisualAngle			 isVar;
 	PeeloutRev			 isVar;
 	SpindashRev		     isVar;

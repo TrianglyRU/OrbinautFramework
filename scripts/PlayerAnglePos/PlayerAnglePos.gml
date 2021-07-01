@@ -6,44 +6,30 @@ function PlayerAnglePos()
 		exit;
 	}
 	
-	// Update even angle quadrant
-	if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
+	// Update floor angle quadrant
+	if Angle >= 0 and Angle < 46 or Angle > 314 and Angle <= 360	
 	{
-		AngleQuadEven = RangeFloor;
+		// 0.0 ~ 45.9 | 360.0 ~ 315.9
+		AngleQuadFloor = RangeFloor;
 	}
-	if Angle >= 46 and Angle <= 134
+	else if Angle >= 46 and Angle < 135			
 	{
-		AngleQuadEven = RangeRWall;
+		// 46.0 ~ 134.9
+		AngleQuadFloor = RangeRWall;
 	}
-	if Angle >= 135 and Angle <= 225
+	else if Angle >= 135 and Angle < 226		
 	{
-		AngleQuadEven = RangeRoof;
+		// 135.0 ~ 225.9
+		AngleQuadFloor = RangeRoof;
 	}
-	if Angle >= 226 and Angle <= 314
+	else if Angle >= 226 and Angle <= 314		
 	{
-		AngleQuadEven = RangeLWall;
+		// 226.0 ~ 314.0
+		AngleQuadFloor = RangeLWall;
 	}
-	
-	// Update odd angle quadrant
-	if Angle >= 0 and Angle <= 44 or Angle >= 316 and Angle <= 360
-	{
-		AngleQuadOdd = RangeFloor;
-	}
-	else if Angle >= 45 and Angle <= 135
-	{
-		AngleQuadOdd = RangeRWall;
-	}
-	else if Angle >= 136 and Angle <= 224
-	{
-		AngleQuadOdd = RangeRoof;
-	}
-	else if Angle >= 225 and Angle <= 315
-	{
-		AngleQuadOdd = RangeLWall;
-	}
-	
+
 	// Collide with one of four floor sides based on floor angle range
-	switch AngleQuadEven
+	switch AngleQuadFloor
 	{
 		case RangeFloor:
 		{		
@@ -236,130 +222,3 @@ function PlayerAnglePos()
 		break;
 	}
 }
-
-// Use original mode change method based on current angle
-/*if !Game.ImprovedTileCollision
-{
-}
-		
-// Use custom advanced method using tile detection (smoother, but inaccurate to originals)
-else
-{
-	// Set maximum angle difference. If difference exceeds this value, mode won't change
-	var angleTolerance = 45;
-		
-	switch AngleQuadEven
-	{
-		case RangeFloor:
-		{
-			// Get tiles
-			var leftTile  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, true, Layer)
-			var rightTile = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true,  true, Layer)
-				
-			// Check if we collide left tile and angle difference isn't greater than 45
-			if leftTile[0] < 0 and Angle - leftTile[1] < angleTolerance
-			{
-				// Enter left wall collision mode
-				AngleQuadEven = RangeLWall;
-			}
-				
-			// Check if we collide right tile and angle difference isn't greater than 45
-			if rightTile[0] < 0 and rightTile[1] - Angle mod 360 < angleTolerance
-			{
-				// Enter right wall collision mode
-				AngleQuadEven = RangeRWall;
-			}
-		}
-		break;
-		case RangeRWall:
-		{
-			// Get tiles
-			var leftTile  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true,  true, Layer);
-			var rightTile = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
-
-			// Check if we collide left tile and angle difference isn't greater than 45
-			if leftTile[0] < 0 and Angle - leftTile[1] < angleTolerance
-			{
-				// Enter floor collision mode
-				AngleQuadEven = RangeFloor;
-			}
-				
-			// Check if we collide right tile and angle difference isn't greater than 45
-			if rightTile[0] < 0 and rightTile[1] - Angle mod 360 < angleTolerance
-			{
-				// Enter roof collision mode
-				AngleQuadEven = RangeRoof;
-			}
-		}
-		case RangeRoof:
-		{
-			// Get tiles
-			var leftTile  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true,  true, Layer)
-			var rightTile = tile_check_collision_h(floor(PosX - yRadius), floor(PosY - xRadius), false, true, Layer)
-				
-			// Check if we collide left tile and angle difference isn't greater than 45
-			if leftTile[0] < 0 and Angle - leftTile[1] < angleTolerance
-			{
-				// Enter right wall collision mode
-				AngleQuadEven = RangeRWall;
-			}
-				
-			// Check if we collide right tile and angle difference isn't greater than 45
-			if rightTile[0] < 0 and rightTile[1] - Angle mod 360 < angleTolerance
-			{
-				// Enter left wall collision mode
-				AngleQuadEven = RangeLWall;
-			}
-		}
-		break;
-		case RangeLWall:
-		{
-			// Get tiles
-			var leftTile  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
-			var rightTile = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true,  true, Layer);				
-				
-			// Check if we collide left tile and angle difference isn't greater than 45
-			if leftTile[0] < 0 and Angle - leftTile[1] < angleTolerance
-			{
-				// Enter roof collision mode
-				AngleQuadEven = RangeRoof;
-			}
-				
-			// Check if we collide right tile and angle difference isn't greater than 45
-			if rightTile[0] < 0 and rightTile[1] - Angle mod 360 < angleTolerance
-			{
-				// Enter floor collision mode
-				AngleQuadEven = RangeFloor;
-			}
-		}
-		break;
-	}
-		
-	// Update collision mode normally in case advanced method will fail
-	if Angle >= 0 and Angle <= 45 or Angle >= 315 and Angle <= 360
-	{
-		AngleQuadEven = RangeFloor;
-	}
-	if Angle >= 46 and Angle <= 134
-	{
-		AngleQuadEven = RangeRWall;
-	}
-	if Angle >= 135 and Angle <= 225
-	{
-		AngleQuadEven = RangeRoof;
-	}
-	if Angle >= 226 and Angle <= 314
-	{
-		AngleQuadEven = RangeLWall;
-	}
-}*/
-
-// Lost obj
-/*if OnObject and !instance_exists(OnObject)
-{
-	OnObject = false;
-	Grounded = false;
-		
-	// Delete dust effect
-	instance_destroy(SpindashDust);
-}*/

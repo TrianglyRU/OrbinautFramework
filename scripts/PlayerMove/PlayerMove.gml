@@ -63,7 +63,7 @@ function PlayerMove()
 	// Check for start or stop skidding
 	if Skidding == false 
 	{
-		if AngleQuadOdd == RangeFloor and MovementLock == false and abs(Inertia) > 4
+		if AngleQuadWall == RangeFloor and MovementLock == false and abs(Inertia) > 4
 		{
 			// Define skidding direction
 			if Inertia > 0 and Input.Left
@@ -106,7 +106,7 @@ function PlayerMove()
 	}
 
 	// Our default animation if AnimIdle
-	if AngleQuadOdd == RangeFloor
+	if AngleQuadWall == RangeFloor
 	{
 		Animation = AnimIdle;
 	}

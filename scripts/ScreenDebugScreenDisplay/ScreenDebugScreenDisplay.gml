@@ -55,8 +55,8 @@ function ScreenDebugScreenDisplay()
 				+ "\n"
 				+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 				+ "\n   MOVEMENT ANGLE: " + string(Player.Angle)
-				+ "\n   FLOOR RANGE: " + string(Player.AngleQuadEven)
-				+ "\n   WALL RANGE: " + string(Player.AngleQuadOdd)
+				+ "\n   FLOOR RANGE: " + string(Player.AngleQuadFloor)
+				+ "\n   WALL RANGE: " + string(Player.AngleQuadWall)
 				+ "\n"
 				+ "\n         * STATES AND FLAGS *"
 				+ "\n"

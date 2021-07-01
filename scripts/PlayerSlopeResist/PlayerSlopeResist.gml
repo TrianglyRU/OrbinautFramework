@@ -2,9 +2,11 @@ function PlayerSlopeResist()
 {	
 	// Non-rolling slope gravity
 	if !Rolling
-	{		
-		if !Game.StrongerSlopeGravity and (AngleQuadOdd == RangeFloor) 
-		or  Game.StrongerSlopeGravity and (Angle < 22.5 or Angle > 337.5) 
+	{	
+		
+		if !Game.StrongerSlopeGravity and (Angle < 45    or Angle > 315) 
+		or  Game.StrongerSlopeGravity and (Angle < 33.75 or Angle > 326.25) 
+	  //or  Game.StrongerSlopeGravity and (Angle < 22.5 or Angle > 337.5) 
 		{	
 			// Apply only when moving if angle is less than 45/22.5
 			SlopeGravity = (Inertia != 0) * 0.125;			

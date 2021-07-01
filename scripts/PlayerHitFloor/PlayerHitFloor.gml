@@ -7,7 +7,7 @@ function PlayerHitFloor()
 	}
 	
 	// Mode is always RangeFloor when airborne
-	AngleQuadEven = RangeFloor;
+	AngleQuadFloor = RangeFloor;
 		
 	// Check if we're moving horizontally faster than vertically, or moving downwards
 	if (Ysp > 0 or abs(Xsp) > abs(Ysp))
@@ -48,7 +48,7 @@ function PlayerHitFloor()
 			if abs(Xsp) < abs(Ysp)
 			{
 				// Use vertical speed on steep angles
-				if floorAngle >= 45 and floorAngle <= 315
+				if floorAngle > 45 and floorAngle < 315
 				{
 					if (Ysp > 16) Ysp = 16;
 					Xsp		= 0;
@@ -56,7 +56,7 @@ function PlayerHitFloor()
 				}
 		
 				// Use halved vertical speed on shallow angles
-				else if floorAngle >= 22.5 and floorAngle <= 337.5
+				else if floorAngle > 22.5 and floorAngle < 337.5
 				{
 					Inertia = floorAngle <= 180 ? -Ysp / 2 : Ysp / 2;
 				}

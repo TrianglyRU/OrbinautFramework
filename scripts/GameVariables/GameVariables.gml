@@ -51,7 +51,6 @@ function GameVariables()
 	Game.StrongerSlopeGravity	 isVar;
 	Game.LooseCrouch			 isVar;
 	Game.ConstantRollFrc		 isVar;
-	Game.StrongerSlopeRepel	     isVar;
 	Game.SpeedFloorClip			 isVar;
 	Game.ExtensiveWallCollision  isVar;
 	Game.BalancingCrouch		 isVar;

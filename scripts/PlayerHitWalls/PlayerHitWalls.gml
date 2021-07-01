@@ -6,13 +6,35 @@ function PlayerHitWalls()
 		exit;
 	}
 	
+	// Update wall angle quadrant
+	if Angle >= 0 and Angle < 45 or Angle > 315 and Angle <= 360	
+	{
+		// 0.0 ~ 44.9 | 360.0 ~ 314.9
+		AngleQuadWall = RangeFloor;
+	}
+	else if Angle >= 45 and Angle < 136			
+	{
+		// 45.0 ~ 135.9
+		AngleQuadWall = RangeRWall;
+	}
+	else if Angle >= 136 and Angle < 225		
+	{
+		// 136.0 ~ 224.9
+		AngleQuadWall = RangeRoof;
+	}
+	else if Angle >= 225 and Angle <= 315		
+	{
+		// 225.0 ~ 315.0
+		AngleQuadWall = RangeLWall;
+	}
+	
 	// Left wall collision
 	if Grounded
 	{
 		if Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch AngleQuadOdd
+			switch AngleQuadWall
 			{
 				case RangeFloor:
 				{	
@@ -38,7 +60,7 @@ function PlayerHitWalls()
 						
 						// We're colling with floor in this case. Update angle
 						Angle   = tileData[1];
-						AngleQuadEven = RangeFloor;
+						AngleQuadFloor = RangeFloor;
 						
 						// Reset speed
 						Inertia = 0;
@@ -87,7 +109,7 @@ function PlayerHitWalls()
 		if Inertia > 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch AngleQuadOdd
+			switch AngleQuadWall
 			{
 				case RangeFloor:
 				{	
@@ -135,7 +157,7 @@ function PlayerHitWalls()
 						
 						// We're colling with floor in this case. Update angle
 						Angle	   = tileData[1];
-						AngleQuadEven = RangeFloor;
+						AngleQuadFloor = RangeFloor;
 						
 						// Reset speed
 						Inertia = 0;
