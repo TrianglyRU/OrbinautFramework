@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Game Code/Menu.yy",
+    "name": "OldMenu",
+    "path": "folders/Game Code/OldMenu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "MenuFunctions",
+  "name": "OldMenuLoadGamedata",
   "tags": [],
   "resourceType": "GMScript",
 }

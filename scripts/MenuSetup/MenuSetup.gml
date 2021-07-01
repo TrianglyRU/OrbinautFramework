@@ -4,12 +4,17 @@ function MenuSetup()
 	{
 		MenuSize[i]   = 0;
 		MenuHeader[i] = "TEMPLATE HEADER";
+		
+		PreviousMenuID[i]   = 0;
+		PreviousOptionID[i] = 0;
+	}
+	
+	for (var i = 0; i < 4; i++)
+	{
+		DisplayData[i] = 0;
 	}
 	
 	MenuID           = 0;
 	OptionID		 = 0;
-	PreviousMenuID   = 0;
-	PreviousOptionID = 0;
-	DisplayData		 = 0;
-	DataMode		 = 0;	// 0 - don't save, 1 - do save, 2 - delete
+	DataMode		 = 0;
 }

@@ -30,7 +30,7 @@ function MenuMainUpdate()
 	}
 	
 	// React to key B
-	else if Input.BPress
+	else if Input.BPress and MenuID != 0
 	{
 		MenuID   = PreviousMenuID[MenuID];
 		OptionID = 0;

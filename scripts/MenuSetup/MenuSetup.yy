@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "NewMenu",
-    "path": "folders/Game Code/NewMenu.yy",
+    "name": "Menu",
+    "path": "folders/Game Code/Menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "MenuSetup",

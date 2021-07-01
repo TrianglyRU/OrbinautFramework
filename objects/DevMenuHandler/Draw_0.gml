@@ -1,5 +1,5 @@
-/// @description Display
+/// @description
 // You can write your code in this editor
 	
-	// Display menus
-	MenuDisplay();
+	// Display menu
+	MenuOptionsDisplay();

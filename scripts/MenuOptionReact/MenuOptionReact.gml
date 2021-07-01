@@ -103,6 +103,9 @@ function MenuOptionReact()
 	// Stage Select (stage select)
 	if MenuID == 4 and Input.APress
 	{
+		// Do not save any progress
+		Game.ActiveSave = -1;
+		
 		// Load stages
 		switch OptionID
 		{
