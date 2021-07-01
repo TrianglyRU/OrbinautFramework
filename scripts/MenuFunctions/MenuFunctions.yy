@@ -6,7 +6,7 @@
     "path": "folders/Game Code/NewMenu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "menu_add_sublist",
+  "name": "MenuFunctions",
   "tags": [],
   "resourceType": "GMScript",
 }

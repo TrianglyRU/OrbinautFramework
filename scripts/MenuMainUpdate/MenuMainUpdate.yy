@@ -6,7 +6,7 @@
     "path": "folders/Game Code/NewMenu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "MenuMainList",
+  "name": "MenuMainUpdate",
   "tags": [],
   "resourceType": "GMScript",
 }

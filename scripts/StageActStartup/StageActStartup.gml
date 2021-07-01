@@ -34,6 +34,15 @@ function StageActStartup()
 		DeathBoundary        = BottomBoundary;
 	}
 	
+	// Set tile layers IDs
+	TileLayer = [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];
+	
+	/// @function data_read(name)
+	/*function data_read(name) 
+	{
+		
+	}
+	
 	// Load tile angle data
 	data_read("anglemap.bin");
 	
@@ -41,8 +50,5 @@ function StageActStartup()
 	data_read("heightmap.bin");
 	
 	// Load tile width data
-	data_read("widthmap.bin");
-	
-	// Set tile layers IDs
-	TileLayer = [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];
+	data_read("widthmap.bin");*/
 }

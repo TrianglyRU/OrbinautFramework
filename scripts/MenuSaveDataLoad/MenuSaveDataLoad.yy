@@ -6,7 +6,7 @@
     "path": "folders/Game Code/NewMenu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "MenuMain",
+  "name": "MenuSaveDataLoad",
   "tags": [],
   "resourceType": "GMScript",
 }

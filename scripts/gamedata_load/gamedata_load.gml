@@ -20,19 +20,23 @@ function gamedata_load(slot)
 		*/
 		
 		// Read the data
-		var data	
-		for(var i = 0; i < 5; i++)
+		var data;	
+		for (var i = 0; i < 6; i++)
 		{
-			data[i] = file_bin_read_byte(file);
+			if i != 5
+			{
+				data[i] = file_bin_read_byte(file);
+			}
+			else
+			{
+				data[5] = 0;
+				for (j = 0; j < 4; j++) 
+				{
+					data[5] += file_bin_read_byte(file) * power(100, j);
+				}
+			}
 		}
 		
-		// Read score
-		data[5] = 0;
-		for(i = 0; i < 4; i++) 
-		{
-			data[5] += file_bin_read_byte(file) * power(100, i);
-		}
-	
 		// Close the file and return loaded data
 		file_bin_close(file);
 		return data;
