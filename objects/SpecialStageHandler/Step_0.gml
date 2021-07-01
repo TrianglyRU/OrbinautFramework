@@ -1,13 +1,18 @@
 /// @description Insert description here
 // You can write your code in this editor
-	if !Active
+	if State
+	{
+	}
+	else
 	{
 		if Input.ABCPress
 		{
-			Active = true;
+			State = 1;
+			fade_perform(to, white, 1);
 		}
 		else if Input.StartPress
 		{
-			Active = true;
+			State = 2;
+			fade_perform(to, white, 1);
 		}
 	}
