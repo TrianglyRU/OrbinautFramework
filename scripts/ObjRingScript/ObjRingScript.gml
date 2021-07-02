@@ -39,7 +39,7 @@ function ObjRingScript()
 	}
 	
 	// Check for hitbox collision
-	if object_player_overlap(CollisionHitbox)
+	if !Player.Hurt and object_player_overlap(CollisionHitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;

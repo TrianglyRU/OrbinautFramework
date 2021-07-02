@@ -9,12 +9,12 @@ function MenuConfiguration()
 
 	// Game Start
 	menu_add_header(1,    "SELECT A SAVE FILE");
-	menu_add_option(1, 0, "DELETE SAVE",		  10);
-	menu_add_option(1, 1, "NO SAVE MODE",		  2);
-	menu_add_option(1, 2, string(DisplayData[0]), 2);
-	menu_add_option(1, 3, string(DisplayData[1]), 2);
-	menu_add_option(1, 4, string(DisplayData[2]), 2);
-	menu_add_option(1, 5, string(DisplayData[3]), 2);
+	menu_add_option(1, 0, "NO SAVE MODE",		  2);
+	menu_add_option(1, 1, string(DisplayData[0]), 2);
+	menu_add_option(1, 2, string(DisplayData[1]), 2);
+	menu_add_option(1, 3, string(DisplayData[2]), 2);
+	menu_add_option(1, 4, string(DisplayData[3]), 2);
+	menu_add_option(1, 5, "DELETE SAVE",		  10);
 	
 	// Game Start (delete data)
 	menu_add_header(10,    "SELECT A SAVE FILE TO DELETE");

@@ -3,15 +3,12 @@ function GameFrameworkSetup()
 	// Dev mode. Enables some debug shortcuts and features, disable it on your game release
 	Game.DevMode = true;
 	
-	// Game state
+	// Default game state (in case we load right into stage avoiding menu)
 	Game.Character = CharSonic;
 	Game.Score	   = 0;
 	Game.Lives	   = 3;
 	Game.Continues = 0;
 	Game.Emeralds  = 0;
-	
-	/* From here and until 'engine' section values and flags are overwritten by default on game load
-	   if devmode is disabled, so you want to temporary enable it if you want to edit values here!   */
 	
 	// Window settings
 	Game.WindowFullscreen = false;
@@ -20,7 +17,7 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0.3;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.3;
 	
 	// Control settings (keyboard)

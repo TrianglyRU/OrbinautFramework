@@ -1,11 +1,11 @@
 /// @description Scripts
 // You can write your code in this editor
 
-	// Exit the code if stage is loading or unloading
-	if Stage.GamePaused or Stage.State == ActStateLoading or Stage.State == ActStateUnload
-	{
-		exit;
-	}
+	// Debug mode state
+	PlayerDebugMode();
+	
+	// Check if we should run the code below
+	if !PlayerCheckProceed() exit;
 
 	// Update general player stuff
 	PlayerGeneralUpdate();
@@ -13,121 +13,113 @@
 	// Handle player physics values
 	PlayerPhysicsHandle();
 
-	if !DebugMode
+	// Airborne script
+	if !Grounded
 	{
-		// Airborne script
-		if !Grounded
-		{
-			// Limit jump height
-			PlayerJumpResist();
+		// Limit jump height
+		PlayerJumpResist();
 			
-			// Update player's speeds
-			PlayerMoveAirborne();
+		// Update player's speeds
+		PlayerMoveAirborne();
 			
-			// Check for crossing stage boundaries
-			PlayerLevelBound();
+		// Check for crossing stage boundaries
+		PlayerLevelBound();
 			
-			// Update player's position
-			PlayerSpeedToPos();
+		// Update player's position
+		PlayerSpeedToPos();
 						
-			// Check for dropdash as Sonic
-			PlayerCheckDropdash();
+		// Check for dropdash as Sonic
+		PlayerCheckDropdash();
 			
-			// Check for flying as Tails
-			PlayerCheckFly();
+		// Check for flying as Tails
+		PlayerCheckFly();
 			
-			// Apply gravity and rotation
-			PlayerApplyGravity();
+		// Apply gravity and rotation
+		PlayerApplyGravity();
 			
-			// Collide with walls
-			PlayerHitWalls();
+		// Collide with walls
+		PlayerHitWalls();
 			
-			// Collide with roof
-			PlayerHitRoof();
+		// Collide with roof
+		PlayerHitRoof();
 			
-			// Check for gliding as Knuckles
-			PlayerCheckGlide();
+		// Check for gliding as Knuckles
+		PlayerCheckGlide();
 			
-			// Check for climbing walls as Knuckles
-			PlayerCheckClimb();
+		// Check for climbing walls as Knuckles
+		PlayerCheckClimb();
 			
-			// Collide with floor
-			PlayerHitFloor();
+		// Collide with floor
+		PlayerHitFloor();
 
-			// Use barriers abilities
-			PlayerBarriersUsage();
+		// Use barriers abilities
+		PlayerBarriersUsage();
 			
-			// Reset flags on landing
-			PlayerResetOnFloor();
-		}
-	
-		// Grounded script
-		else if !Rolling
-		{
-			// Perform jump and exit the code
-			if PlayerCheckJump() exit;
-
-			// Set slope gravity
-			PlayerSlopeResist();
-
-			// Update player's speeds
-			PlayerMove();
-			
-			// Collide with walls
-			PlayerHitWalls();
-			
-			// Check for crossing stage boundaries
-			PlayerLevelBound();
-			
-			// Update player's position
-			PlayerSpeedToPos();
-			
-			// Perform crouch actions, such as Spindash
-			PlayerCheckCrouch();
-			
-			// Perform look up actions, such as Super Peel Out
-			PlayerCheckLookup();
-			
-			// Perform roll
-			PlayerCheckRoll();
-			
-			// Collide with floor
-			PlayerAnglePos();
-			
-			// Fall off the ceiling and walls
-			PlayerSlopeRepel();
-		}
-	
-		// Rolling script
-		else
-		{
-			// Perform jump and exit the code
-			if PlayerCheckJump() exit;
-			
-			// Set slope gravity
-			PlayerSlopeResist();	
-			
-			// Update player's speeds
-			PlayerMoveRoll();
-
-			// Collide with walls
-			PlayerHitWalls();
-			
-			// Check for crossing stage boundaries
-			PlayerLevelBound();
-			
-			// Update player's position
-			PlayerSpeedToPos();
-			
-			// Collide with floor
-			PlayerAnglePos();
-	
-			// Fall off the ceiling and walls
-			PlayerSlopeRepel();
-		}
+		// Reset flags on landing
+		PlayerResetOnFloor();
 	}
-	else
+	
+	// Grounded script
+	else if Grounded and !Rolling
 	{
-		// Run debug mode
-		PlayerDebugModeControl();
+		// Perform jump and exit the code
+		if PlayerCheckJump() exit;
+
+		// Set slope gravity
+		PlayerSlopeResist();
+
+		// Update player's speeds
+		PlayerMove();
+			
+		// Collide with walls
+		PlayerHitWalls();
+			
+		// Check for crossing stage boundaries
+		PlayerLevelBound();
+			
+		// Update player's position
+		PlayerSpeedToPos();
+			
+		// Perform crouch actions, such as Spindash
+		PlayerCheckCrouch();
+			
+		// Perform look up actions, such as Super Peel Out
+		PlayerCheckLookup();
+			
+		// Perform roll
+		PlayerCheckRoll();
+			
+		// Collide with floor
+		PlayerAnglePos();
+			
+		// Fall off the ceiling and walls
+		PlayerSlopeRepel();
+	}
+	
+	// Rolling script
+	else if Grounded and Rolling
+	{
+		// Perform jump and exit the code
+		if PlayerCheckJump() exit;
+			
+		// Set slope gravity
+		PlayerSlopeResistRoll();	
+			
+		// Update player's speeds
+		PlayerMoveRoll();
+
+		// Collide with walls
+		PlayerHitWalls();
+			
+		// Check for crossing stage boundaries
+		PlayerLevelBound();
+			
+		// Update player's position
+		PlayerSpeedToPos();
+			
+		// Collide with floor
+		PlayerAnglePos();
+	
+		// Fall off the ceiling and walls
+		PlayerSlopeRepel();
 	}

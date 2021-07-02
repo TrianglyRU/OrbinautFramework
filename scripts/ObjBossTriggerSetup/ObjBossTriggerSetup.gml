@@ -8,7 +8,7 @@ function ObjBossControllerSetup()
 	2. ArenaHeight, default = 224
 	*/
 	
-	// Make invisible
+	// Set object visibility
 	visible = false;
 	
 	// Set triggerbox

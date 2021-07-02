@@ -1,5 +1,11 @@
 function PlayerDebugModeDisplay()
 {
+	// Exit if not in debug mode
+	if !DebugMode
+	{
+		exit;
+	}
+	
 	// Switch between objects
 	switch DebugList[DebugItem]
 	{

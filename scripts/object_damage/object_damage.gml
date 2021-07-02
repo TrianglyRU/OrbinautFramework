@@ -25,7 +25,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	Player.DropdashRev   = -1;
 
 	// Check if player has no rings and barrier or should die instantly
-	if (!Player.Rings and !Player.BarrierType) or instant_kill
+	if (!Player.Rings and !Player.BarrierType and !Game.DevMode) or instant_kill
 	{
 		// Remove barrier if we died by instantKill function
 		Player.BarrierType = false;
@@ -95,29 +95,44 @@ function object_damage(flame_type, thunder_type, instant_kill)
 				}
 				Dir *= -1
 			}
-				
+			
+			// Play sound
+			if Player.Rings > 0
+			{
+				audio_sfx_play(sfxRingLoss, false)
+			}
+			else
+			{
+				audio_sfx_play(sfxHurt, false);
+			}
+			
 			// Update player's ring counter
 			Player.Rings		= 0;
 			Player.LivesRewards = 0;
-			
-			// Play sound
-			audio_sfx_play(sfxRingLoss, false);
+	
 		}
 			
 		// Else just lose barrier if player has rings
 		else
 		{
-			// Play death sound (depending on what object is this)
-			var DeathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
-			audio_sfx_play(DeathSound, false);
+			// Play death sound
+			if object_index == SpikesVertical
+			{
+				audio_sfx_play(sfxHurtSpike, false)
+			}
+			else
+			{
+				audio_sfx_play(sfxHurt, false);
+			}
 			
+			// Remove barrier
 			instance_destroy(Barrier);
 			Player.BarrierType = false;
 		}
 
 		// Perform movement
-		Player.Ysp = -4;
 		Player.Xsp = floor(Player.PosX) > floor(x) ? 2 : -2;
+		Player.Ysp = -4;
 		Player.Grv = 0.1875;
 		
 		// Enter hurt state

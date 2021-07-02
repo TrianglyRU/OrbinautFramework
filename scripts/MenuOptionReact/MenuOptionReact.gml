@@ -14,17 +14,17 @@ function MenuOptionReact()
 	if MenuID == 1 and Input.APress
 	{
 		// Get current slot id
-		Game.ActiveSave = OptionID - 2;
+		Game.ActiveSave = OptionID - 1;
 			
 		// Check if "no save" slot has been selected
-		if OptionID == 1
+		if OptionID == 0
 		{
 			// Do not save data
 			DataMode = 0;
 		}
 		
 		// Check if saveslot has been selected
-		if OptionID >= 2
+		if OptionID >= 1 and OptionID <= 4
 		{
 			// Check if there is data
 			if SaveData[Game.ActiveSave] != 0
@@ -82,11 +82,14 @@ function MenuOptionReact()
 	// Game Start (data delete)
 	if MenuID == 10 and Input.APress
 	{
+		// Cleat slot
+		SaveData[OptionID] = 0;
+		
 		// Delete data
-		file_delete("saveslot" + string(OptionID) + ".bin");
+		file_delete("saveslot" + string(OptionID) + ".bin");	
 		
 		// Reset display data
-		menu_update_option(1, OptionID + 2, "SAVE " + string(OptionID + 1) + " - NEW GAME");
+		menu_update_option(1, OptionID + 1, "SAVE " + string(OptionID + 1) + " - NEW GAME");
 	}
 	
 	// Stage Select (character select)
