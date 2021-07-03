@@ -24,6 +24,10 @@ function PlayerBarriersUsage()
 				// Freeze the screen for 16 frames
 				if Screen.ExtendedOffset == 0 
 				{
+					//for (var i = 0; i < 32; i++)
+					//{
+						//RecordedPosX[| i] = floor(Player.PosX);
+					//}
 					Screen.ScrollDelay = 16;
 				}
 				

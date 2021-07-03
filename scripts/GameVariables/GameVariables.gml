@@ -50,7 +50,7 @@ function GameVariables()
 	Game.ExtendedCamera			 isVar;	
 	Game.StrongerSlopeGravity	 isVar;
 	Game.LooseCrouch			 isVar;
-	Game.ConstantRollFrc		 isVar;
+	Game.ConstantRollPhysics     isVar;
 	Game.SpeedFloorClip			 isVar;
 	Game.ExtensiveWallCollision  isVar;
 	Game.BalancingCrouch		 isVar;

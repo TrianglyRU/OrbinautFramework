@@ -77,7 +77,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 			for (var i = 0; i < min(Player.Rings, 32); i++) 
 			{
 				// Spawn ring
-				var Created = instance_create(floor(Player.PosX), floor(Player.PosY), ShatteredRing);
+				var Created = instance_create(floor(Player.PosX), floor(Player.PosY), RingShattered);
 				if  i == 16 
 				{ 
 					Ang = 168.75; 

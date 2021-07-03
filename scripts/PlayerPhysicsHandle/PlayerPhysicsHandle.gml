@@ -117,9 +117,15 @@ function PlayerPhysicsHandle()
 			}
 		}
 	}
-			
-	// Keep rolling friction constant
-	if Game.ConstantRollFrc and SuperState
+	
+	// Overwrite RollDec for Tails
+	if !Game.ConstantRollPhysics and CharacterID == CharTails
+	{
+		RollDec = Dec / 4;
+	}
+	
+	// Overwrite rolling friction constant when super
+	if Game.ConstantRollPhysics and SuperState
 	{
 		RollFrc = 0.0234375;
 	}

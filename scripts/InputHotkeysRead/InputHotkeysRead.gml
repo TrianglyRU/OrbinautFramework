@@ -32,14 +32,17 @@ function InputHotkeysRead()
 		game_restart();
 	}
 
-	// Low FPS mode (F4 hold)
-	if keyboard_check(vk_f4) 
+	// Low FPS mode (F4)
+	if keyboard_check_pressed(vk_f4) 
 	{
-		game_set_speed(2, gamespeed_fps);
-	}
-	else
-	{
-		game_set_speed(60, gamespeed_fps);
+		if game_get_speed(gamespeed_fps) != 2
+		{
+			game_set_speed(2, gamespeed_fps);
+		}
+		else
+		{
+			game_set_speed(60, gamespeed_fps);
+		}
 	}
 	
 	// Update resolution (F5)
@@ -143,12 +146,12 @@ function InputHotkeysRead()
 	{
 		if !Player.SuperState
 		{
-			Player.SuperState = SuperStart;
-			Player.Rings      = 50;
+			Player.SuperState = true;
+			Player.Rings      = max(Player.Rings, 50);
 		}
 		else
 		{
-			Player.SuperState = SuperEnd;
+			Player.SuperState = false;
 		}
 	}
 	

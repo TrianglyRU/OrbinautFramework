@@ -4,7 +4,7 @@ function PlayerCheckJump()
 	if Input.ABCPress and !GlidingState
 	{	
 		// Do not jump if found the low ceiling
-		if AngleQuadFloor == RangeFloor
+		if Angle <= 45 or Angle >= 315
 		{
 			if tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer)[0] < 6
 			or tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer)[0] < 6
@@ -33,8 +33,8 @@ function PlayerCheckJump()
 		// Update radiuses
 		if !Rolling
 		{
-			yRadius = yRadiusRoll;
-			xRadius	= xRadiusRoll;
+			yRadius = yRadiusDefault;
+			xRadius	= xRadiusDefault;
 			PosY   += yRadiusDefault - yRadiusRoll;
 		}
 		

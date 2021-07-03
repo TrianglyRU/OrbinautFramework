@@ -6,6 +6,13 @@ function GameMacro()
 	// Game macro
 	#macro isVar		 = 0
 	#macro isArr		[0] = 0
+	
+	#macro isAsset		= 0
+	#macro isReal		= 0
+	#macro isBool		= false
+	#macro isArray		[99] = 0
+	#macro isString		= ""
+	
 	#macro Game		     global
 	#macro FontDebug     0
 	#macro FontDigits1   1
@@ -29,16 +36,13 @@ function GameMacro()
 	#macro TrackLoop	   2
 	#macro TrackEvent	   3
 	#macro TrackEventTime  4
-	#macro TrackDAC		   5
 	#macro EventPlay	   0
 	#macro EventMute	   1
 	#macro EventUnmute     2
 	#macro EventStop	   3
 	
 	// Shader macro
-	#macro Uniform		     global
-	#macro Parallax			 global
-	#macro Shader			 global
+	#macro Shader global
 	
 	// Palette macro
 	#macro PaletteSurface    0
@@ -100,6 +104,7 @@ function GameMacro()
 	#macro AnimDropStand	   24
 	#macro AnimSwim			   25
 	#macro AnimSwimTired	   26
+	#macro AnimTransform	   27
 
 	// Stage macro	
 	#macro ActStateLoading	   0

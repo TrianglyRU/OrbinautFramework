@@ -6,7 +6,7 @@ function ScreenResultsDisplay()
 		if !ResultValue[0]
 		{
 			// Calculate ring bonus
-			RingBonus = round(Player.Rings) * 100;
+			RingBonus = Player.Rings * 100;
 
 			// Calculate time bonus
 			if (Stage.Time >= 1800 and Stage.Time < 2700) TimeBonus = 10000;

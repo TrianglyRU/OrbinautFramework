@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Capsule",
-    "path": "folders/Game Objects/Capsule.yy",
+    "path": "folders/Game Objects/_Unsorted&Unfinished/Capsule.yy",
   },
   "resourceVersion": "1.0",
   "name": "CapsuleButton",

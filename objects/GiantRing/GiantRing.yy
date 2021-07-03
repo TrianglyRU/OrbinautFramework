@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "_Unsorted",
-    "path": "folders/Game Objects/_Unsorted.yy",
+    "name": "_Unsorted&Unfinished",
+    "path": "folders/Game Objects/_Unsorted&Unfinished.yy",
   },
   "resourceVersion": "1.0",
   "name": "GiantRing",

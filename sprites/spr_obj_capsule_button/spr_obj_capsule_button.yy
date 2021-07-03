@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Capsule/Sprites.yy",
+    "path": "folders/Game Objects/_Unsorted&Unfinished/Capsule/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_capsule_button",

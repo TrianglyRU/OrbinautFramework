@@ -1,5 +1,8 @@
 function PlayerMoveRoll()
 {
+	// Set 'roll' animation
+	Animation = AnimRoll;
+	
 	// Stop pushing
 	Pushing = false;
 	
@@ -52,9 +55,6 @@ function PlayerMoveRoll()
 		
 			// Unroll
 			Rolling = false;
-		
-			// Set animation
-			Animation = AnimIdle;
 		}
 	}
 	

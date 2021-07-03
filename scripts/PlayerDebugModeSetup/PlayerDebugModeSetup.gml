@@ -10,10 +10,11 @@ function PlayerDebugModeSetup()
 	DebugList = 
 	[
 		Ring,
+		ItemBox,
 		SpikesVertical,
 		SpringVertical,
 		SpringHorizontal,
-		Lamppost,
+		StarPost,
 		FloatingPlatform,
 		Bridge,
 		Animal	

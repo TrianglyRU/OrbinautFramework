@@ -62,7 +62,7 @@ function object_player_touch(collisionSide)
 			}
 			
 			// Check top touch result
-			else if playerBottom < objectTop + 16
+			else if playerBottom < objectTop + 16 and Player.Ysp >= 0
 			{
 				objTouchedTop = true;
 			}

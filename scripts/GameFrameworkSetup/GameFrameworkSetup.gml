@@ -26,14 +26,14 @@ function GameFrameworkSetup()
 	// Originals differences
 	Game.SpindashEnabled        = true;  // Enables S2 Spindash
 	Game.DropdashEnabled        = false; // Enables Mania Dropdash
-	Game.PeeloutEnabled         = false; // Enables SCD Super Peel Out
+	Game.PeeloutEnabled         = true;  // Enables SCD Super Peel Out
 	Game.GroundSpeedcap	        = false; // Enables ground speedcap
 	Game.AirSpeedcap	        = false; // Enables air speedcap
 	Game.RolljumpControl        = false; // Unlocks directional contorls if you jump after rolling
 	Game.ExtendedCamera			= false; // Enables camera to shift to the side of your direction movement
 	Game.StrongerSlopeGravity   = true;  // In S3 slope gravity and slope detach method were re-written to work better. True - Sonic 3+ method.
 	Game.LooseCrouch		    = false; // In S&K, you can start crouching when you are moving slowly. True - SK method.
-	Game.ConstantRollFrc        = false; // In SK, rolling friction is hard-coded to always be half of regular acceleration when Super. True - SK method
+	Game.ConstantRollPhysics    = false; // In SK, rolling physics are the same for everyone. True - SK method
 	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
 	Game.ExtensiveWallCollision	= true;  // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
 	Game.StageTransitions		= true;  // In S3 stage transitions were introduced. True = S3+-like transitions (not a direct copy).
@@ -43,7 +43,7 @@ function GameFrameworkSetup()
 	// Orbinaut improvements
 	Game.ImprovedTileCollision = true;  // Fixes several tile collision flaws
 	Game.ImprovedObjCollision  = true;  // Fixes wacky hitboxes and fickle object collision
-	Game.SmoothRotation	       = false; // Use smooth rotation
+	Game.SmoothRotation	       = true;  // Use smooth rotation
 	Game.RichPresenceSupport   = false; // Enable Rich Presence
 	Game.RingsPreciseCollision = true;  // Make rings check for collision every frame instead of every 4
 	Game.RingsNoBoundDespawn   = true;  // Make rings despawn as soon as they leave the screen

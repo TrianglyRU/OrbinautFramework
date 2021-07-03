@@ -12,61 +12,40 @@ function PlayerCheckCrouch()
 		exit;
 	}
 	
-	// Check if we're holding DOWN button
-	if Input.Down and !Input.Left and !Input.Right
+	// Check if Spindash is being charged
+	if SpindashRev >= 0 
 	{
-		// Set 'crouch' animation
-		Animation = AnimCrouch;
+		// Use 'spindash' animation
+		Animation = AnimSpindash;
+
+		// Decrease spindash force every step
+		SpindashRev -= floor(SpindashRev / 0.125) / 256;
 		
-		// Check if Spindash is enabled and we pressed A, B or C button
-		if Game.SpindashEnabled and Input.ABCPress
+		// Check if we press any of action buttons
+		if Input.ABCPress
 		{
-			// Reset animation to its first frame
-			image_index = 0;
+			// Increase spindash force
+			SpindashRev = min(SpindashRev + 2, 8);
 			
-			// Charge Spindash
-			if SpindashRev == -1
-			{		
-				SpindashRev = 2;
-			}
-			else
-			{
-				 SpindashRev += 2;
-			}
-			
-			// Limit Spindash charge to 8
-			if (SpindashRev > 8) SpindashRev = 8;
-			
+			// Reset to first frame
+			animation_set_frame(sprite_index, 1);
+
 			// Play sound
 			audio_sfx_play(sfxCharge, false);
 		}
-	}
-
-	// Check if Spindash is being charged
-	if SpindashRev > 0 
-	{
-		// Handle dust effect
-		if !instance_exists(SpindashDust)
-		{
-			instance_create(floor(PosX), floor(PosY + yRadius), SpindashDust);			
-		}
-		
-		// Set 'spindash' animation
-		Animation    = AnimSpindash;
-		MovementLock = -1;
-		
-		// Decrease Spindash charge every step
-		SpindashRev -= floor(SpindashRev/0.125) / 256;
 		
 		// Release Spindash if we're not holding DOWN button anymore
 		if !Input.Down
 		{
+			// Define minimum speed
+			var MinimumSpd = SuperState == false ? 8 : 11;
+
 			// Launch Sonic forwards
-			Inertia		 = (8 + floor(SpindashRev) / 2) * Facing;
+			Inertia		 = (MinimumSpd + round(SpindashRev) / 2) * Facing;
 			MovementLock = false;
 			Rolling	     = true;
 			
-			// Freeze the screen for 16 frames
+			// Freeze the screen
 			if Screen.ExtendedOffset == 0 
 			{
 				Screen.ScrollDelay = 16;
@@ -88,4 +67,29 @@ function PlayerCheckCrouch()
 			audio_sfx_play(sfxRelease, false);
 		}
 	}
+	
+	// Check if we're holding DOWN button
+	else if Input.Down and !Input.Left and !Input.Right
+	{
+		// Set 'crouch' animation
+		Animation = AnimCrouch;
+				
+		// Check if Spindash is enabled and we pressed A, B or C button
+		if Game.SpindashEnabled and Input.ABCPress
+		{
+			// Create dust effect
+			instance_create(floor(PosX), floor(PosY + yRadius), SpindashDust);
+			
+			// Set 'spindash' animation
+			Animation = AnimSpindash;
+			
+			// Start Spindash
+			SpindashRev  = 2;
+			MovementLock = -1;
+			audio_sfx_play(sfxCharge, false);
+		}
+	}
+	
+	// Return rolling flag
+	return Rolling;
 }

@@ -5,7 +5,7 @@ function PlayerAnimate()
 		// Sonic animations
 		case CharSonic:
 		{
-			if SuperState != SuperActive
+			if !SuperState
 			{
 				switch Animation
 				{
@@ -101,6 +101,9 @@ function PlayerAnimate()
 					break;
 					case AnimSpring:
 						animation_play(spr_sonic_spring, 1, 1);
+					break;
+					case AnimTransform:
+						animation_play(spr_supersonic_transform, 3, 8);
 					break;
 				}
 			}

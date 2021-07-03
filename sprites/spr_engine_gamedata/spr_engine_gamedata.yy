@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/_Unsorted/Sprites.yy",
+    "path": "folders/Game Objects/_Unsorted&Unfinished/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_engine_gamedata",

@@ -6,7 +6,7 @@
 	
 	// Check if we should run the code below
 	if !PlayerCheckProceed() exit;
-
+	
 	// Update general player stuff
 	PlayerGeneralUpdate();
 	
@@ -62,7 +62,13 @@
 	// Grounded script
 	else if Grounded and !Rolling
 	{
-		// Perform jump and exit the code
+		// Perform crouch actions, such as Spindash
+		if PlayerCheckCrouch() exit;
+			
+		// Perform look up actions, such as Super Peel Out
+		if PlayerCheckLookup() exit;
+		
+		// Perform jump
 		if PlayerCheckJump() exit;
 
 		// Set slope gravity
@@ -70,25 +76,19 @@
 
 		// Update player's speeds
 		PlayerMove();
-			
+		
 		// Collide with walls
 		PlayerHitWalls();
+		
+		// Perform roll
+		PlayerCheckRoll();
 			
 		// Check for crossing stage boundaries
 		PlayerLevelBound();
 			
 		// Update player's position
 		PlayerSpeedToPos();
-			
-		// Perform crouch actions, such as Spindash
-		PlayerCheckCrouch();
-			
-		// Perform look up actions, such as Super Peel Out
-		PlayerCheckLookup();
-			
-		// Perform roll
-		PlayerCheckRoll();
-			
+					
 		// Collide with floor
 		PlayerAnglePos();
 			
@@ -99,7 +99,7 @@
 	// Rolling script
 	else if Grounded and Rolling
 	{
-		// Perform jump and exit the code
+		// Perform jump
 		if PlayerCheckJump() exit;
 			
 		// Set slope gravity

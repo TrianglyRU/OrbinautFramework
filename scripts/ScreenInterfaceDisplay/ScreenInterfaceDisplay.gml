@@ -39,7 +39,7 @@ function ScreenInterfaceDisplay()
 		
 	string_display(ScreenX + 113, ScreenY + 9,  Player.Score, 1);
 	string_display(ScreenX + 113, ScreenY + 25, string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds) + ";" + (mSeconds > 9 ? "" : "0") + string(mSeconds), 1);
-	string_display(ScreenX + 89,  ScreenY + 41, round(Player.Rings), 1);
+	string_display(ScreenX + 89,  ScreenY + 41, Player.Rings, 1);
 		
 	// Display lives counter
 	string_set_font(Game.Font[FontDigits2], "right");

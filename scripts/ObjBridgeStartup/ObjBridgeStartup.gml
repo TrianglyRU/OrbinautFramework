@@ -1,10 +1,10 @@
 function ObjBridgeStartup()
 {
 	// Initialize variables
-	RecoveryAngle    isVar;
-	NativeY		     isVar;
-	ActiveSegment    isVar;
-	ActiveDepression isVar;
+	RecoveryAngle    isReal;
+	NativeY		     isReal;
+	ActiveSegment    isReal;
+	ActiveDepression isReal;
 	LogDepression    isArr;
 	
 	/* Variable Definitions	

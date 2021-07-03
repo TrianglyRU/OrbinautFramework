@@ -26,7 +26,7 @@
 		break;
 		case 2:
 			instance_create(x, y, DustExplosion);
-			var Created = instance_create(x, y, ShatteredRing);
+			var Created = instance_create(x, y, RingShattered);
 			with Created
 			{		
 				// Set ring flags and speed

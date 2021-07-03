@@ -11,7 +11,7 @@ function PaletteHandleDynamic()
 	{	
 		switch Player.SuperState
 		{
-			case false:
+			case -1:
 			{
 				// Surface regular
 				for (var i = 0; i < 4; i++) 
@@ -26,30 +26,30 @@ function PaletteHandleDynamic()
 				}
 			}
 			break;
-			case SuperStart:
+			case 1:
 			{
 				// Surface super start
 				for (var i = 0; i < 4; i++) 
 				{
-					palette_handle(PaletteSurface, i, 1, 6, 3);
+					palette_handle(PaletteSurface, i, 1, 6, 4);
 				}
 			}
 			break;
-			case SuperActive:
+			case 2:
 			{
 				// Surface super active
 				for (var i = 0; i < 4; i++) 
 				{
-					palette_handle(PaletteSurface, i, 7, 8, 3);
+					palette_handle(PaletteSurface, i, 7, 8, 4);
 				}
 			}
 			break;
-			case SuperEnd:
+			case 0:
 			{
 				// Surface super end
 				for (var i = 0; i < 4; i++) 
 				{
-					palette_handle(PaletteSurface, i, 15, 6, 3);
+					palette_handle(PaletteSurface, i, 15, 6, 4);
 				}
 			}
 			break;

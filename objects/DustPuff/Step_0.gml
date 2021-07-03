@@ -1,5 +1,5 @@
-/// @description Script
+/// @description Main
 // You can call your scripts in this editor
 
-	// Call object main script
-	ObjDustPuffScript();
+	// Call object script
+	ObjDustPuffMain();

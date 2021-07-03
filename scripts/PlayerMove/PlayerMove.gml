@@ -106,7 +106,7 @@ function PlayerMove()
 	}
 
 	// Our default animation if AnimIdle
-	if AngleQuadWall == RangeFloor
+	if !Input.Down and !Input.Up
 	{
 		Animation = AnimIdle;
 	}
@@ -148,6 +148,18 @@ function PlayerMove()
 		else
 		{
 			Animation = CharacterID == CharSonic and Game.PeeloutEnabled ? AnimPeelout : AnimRun;
+			
+			if Skidding == false
+			{
+				// Spawn dust puff every 4 frames
+				SkiddingTimer = SkiddingTimer mod 4
+		
+				if !SkiddingTimer
+				{
+					instance_create(floor(PosX), floor(PosY + yRadius), DustPuff);
+				}
+				SkiddingTimer++;
+			}
 		}
 	}
 		

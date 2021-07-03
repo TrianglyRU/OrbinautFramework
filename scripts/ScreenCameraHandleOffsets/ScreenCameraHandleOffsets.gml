@@ -6,9 +6,6 @@ function ScreenCameraHandleOffsets()
 		exit;
 	}
 	
-	// Update camera lag delay timer
-	if (ScrollDelay > 0) ScrollDelay--;
-	
 	// Update extended camera offset
 	if Game.ExtendedCamera
 	{

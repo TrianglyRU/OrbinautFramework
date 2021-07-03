@@ -63,7 +63,7 @@ function PlayerCheckLookup()
 			audio_sfx_play(sfxPeeloutRelease, false);
 				
 			// Set 'peelout' animation
-			Animation    = AnimPeelout;
+			Animation = AnimPeelout;
 			
 			// Launch Sonic forwards
 			Inertia		 = 12 * Facing;
@@ -77,6 +77,10 @@ function PlayerCheckLookup()
 			{
 				Screen.ScrollDelay = 16;
 			}
+			
+			return true;
 		}
-	}		
+	}
+	
+	return false;
 }

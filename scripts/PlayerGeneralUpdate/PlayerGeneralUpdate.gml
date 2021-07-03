@@ -4,52 +4,57 @@ function PlayerGeneralUpdate()
 	switch SuperState
 	{	
 		// Transformation start
-		case SuperStart:
-		{
-			// Start timer
-			SuperStateValue++
-				
-			// Make us invincible
-			IsInvincible = true;
-				
-			// Become super after 18 frames
-			if SuperStateValue == 18
-			{
-				SuperState		= SuperActive;
-				SuperStateValue = 0;
-			}
-		}
-		break;
-		case SuperActive:
+		case 1:
 		{
 			// Make us invincible
 			IsInvincible = true;
 			
+			// Start timer
+			SuperStateValue++
+			
+			// Become super after 24 frames
+			if SuperStateValue == 25
+			{
+				SuperState		= 2;
+				SuperStateValue = 0;
+			}				
+		}
+		break;
+		case 2:
+		{
+			// Keep us invincible
+			IsInvincible = true;
+			
+			
 			// Decrease rings
 			if Rings
 			{
-				Rings -= 1/60;
+				SuperStateValue++
+				
+				if SuperStateValue mod 60 == 0
+				{
+					SuperStateValue = 0;
+					Rings--;
+				}
 			}
 			
 			// Exit superform
 			else
 			{
-				SuperState = SuperEnd;
+				SuperStateValue = 0;
+				SuperState		= 0;
 			}
 		}
 		break;
-		case SuperEnd:
-		{
+		case 0:
+		{		
 			// Start timer
 			SuperStateValue++
 			
-			// Make us invincible
-			IsInvincible = true;
-				
-			// Become regylar after 18 frames
-			if SuperStateValue == 18
+			// Become regylar after 24 frames
+			if SuperStateValue == 25
 			{
-				SuperState		= false;
+				SuperState		= -1;
 				SuperStateValue = 0;
 			}
 		}
@@ -81,6 +86,7 @@ function PlayerGeneralUpdate()
 	// Handle invincibility bonus
 	if InvincibilityBonus 
 	{
+		// Make us invincible
 		IsInvincible = true;
 		
 		// Check if star particles exist

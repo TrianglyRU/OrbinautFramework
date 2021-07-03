@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Breakable Wall",
-    "path": "folders/Game Objects/Breakable Wall.yy",
+    "path": "folders/Game Objects/_Unsorted&Unfinished/Breakable Wall.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjBreakableWallScript",
