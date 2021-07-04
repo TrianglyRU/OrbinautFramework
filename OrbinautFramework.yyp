@@ -132,6 +132,7 @@
     {"id":{"name":"ObjCapsuleButtonSetup","path":"scripts/ObjCapsuleButtonSetup/ObjCapsuleButtonSetup.yy",},"order":6,},
     {"id":{"name":"ObjBoundaryTriggerSetup","path":"scripts/ObjBoundaryTriggerSetup/ObjBoundaryTriggerSetup.yy",},"order":8,},
     {"id":{"name":"StageDevMode","path":"scripts/StageDevMode/StageDevMode.yy",},"order":11,},
+    {"id":{"name":"BlankObject","path":"objects/BlankObject/BlankObject.yy",},"order":30,},
     {"id":{"name":"palette_load","path":"scripts/palette_load/palette_load.yy",},"order":29,},
     {"id":{"name":"spr_obj_bridgestump_mqz","path":"sprites/spr_obj_bridgestump_mqz/spr_obj_bridgestump_mqz.yy",},"order":1,},
     {"id":{"name":"MenuSaveDataLoad","path":"scripts/MenuSaveDataLoad/MenuSaveDataLoad.yy",},"order":13,},

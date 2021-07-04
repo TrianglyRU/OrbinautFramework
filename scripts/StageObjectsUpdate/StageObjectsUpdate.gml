@@ -51,17 +51,18 @@ function StageObjectsUpdate()
 				}
 			}
 			
-			// Create this object current sprite on its position
-			var ObjectSprite = layer_sprite_create("Objects", x, y, sprite_index);
+			// Create blank object
+			var ObjectSprite = instance_create_depth(x, y, depth, BlankObject);
 			
-			// Set sprite properties
-			layer_sprite_speed(ObjectSprite,  0);
-			layer_sprite_alpha(ObjectSprite,  visible ? image_alpha : 0);
-			layer_sprite_index(ObjectSprite,  image_index);
-			layer_sprite_xscale(ObjectSprite, image_xscale);
-			layer_sprite_yscale(ObjectSprite, image_yscale);
+			// Setup blank object
+			ObjectSprite.visible	  = visible;
+			ObjectSprite.sprite_index = sprite_index;
+			ObjectSprite.image_index  = image_index;		
+			ObjectSprite.image_xscale = image_xscale;
+			ObjectSprite.image_yscale = image_yscale;
+			ObjectSprite.image_speed  = 0;
 
-			// Destroy object
+			// Destroy main object
 			instance_destroy();
 		}
 	}

@@ -28,7 +28,11 @@ function PlayerLevelBound()
 			FlyingState	  = false;
 			GlidingState  = false;
 			ClimbingState = false;
-			SuperState    = SuperEnd;
+			
+			if SuperState
+			{
+				SuperState = false;
+			}
 			
 			// Destroy barrier
 			instance_destroy(Barrier);
