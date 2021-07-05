@@ -16,16 +16,16 @@ function BackgroundSetup()
 			BackgroundSprites = [tex_mqz_bg00, tex_mqz_bg00, tex_mqz_bg01, tex_mqz_bg02, tex_mqz_bg02, tex_mqz_bg02];
 			
 			// tex_mqz_bg00
-			BackgroundValues[0] = [0, 0, 0,    0,    0, 0, 0,   167, 0, 0];
-			BackgroundValues[1] = [0, 0, 0.15, 0.01, 0, 0, 168, 301, 2, 0.3];
+			BackgroundValues[0] = [0, 0, 0,    0,    0, 0, 0,   167, 0, 0, 0];
+			BackgroundValues[1] = [0, 0, 0.15, 0.01, 0, 0, 168, 301, 2, 0.3, 1];
 			
 			// tex_mqz_bg01
-			BackgroundValues[2] = [0, 0, 0.1,  0.01, 0, 0, 0,   301, 0, 0];
+			BackgroundValues[2] = [0, 0, 0.1,  0.01, 0, 0, 0,   301, 0, 0, 0];
 			
 			// tex_mqz_bg02
-			BackgroundValues[3] = [0, 0, 0.01, 0.01, 0, 0, 0,   71,	 0, 0];
-			BackgroundValues[4] = [0, 0, 0.2,  0.01, 0, 0, 72,  175, 0, 0];
-			BackgroundValues[5] = [0, 0, 0.5,  0.01, 0, 0, 176, 301, 0, 0];
+			BackgroundValues[3] = [0, 0, 0.01, 0.01, 0, 0, 0,   71,	 0, 0, 0];
+			BackgroundValues[4] = [0, 0, 0.2,  0.01, 0, 0, 72,  175, 0, 0, 0];
+			BackgroundValues[5] = [0, 0, 0.5,  0.01, 0, 0, 176, 301, 0, 0, 0];
 		}
 		break;
 		default: 
@@ -40,7 +40,7 @@ function BackgroundSetup()
 	var BackgroundParts = array_length(BackgroundSprites);
 	for (var i = 0; i < BackgroundParts; i++)
 	{
-		BackgroundValues[i][10] = sprite_get_width(BackgroundSprites[i]);
-		BackgroundValues[i][11] = texture_get_texel_width(sprite_get_texture(BackgroundSprites[i], 0));
+		BackgroundValues[i][11] = sprite_get_width(BackgroundSprites[i]);
+		BackgroundValues[i][12] = texture_get_texel_width(sprite_get_texture(BackgroundSprites[i], 0));
 	}
 }
