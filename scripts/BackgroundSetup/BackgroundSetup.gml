@@ -41,12 +41,12 @@ function BackgroundSetup()
 			BackgroundValues[5] = [0, 0, 0.16, 0.03, 0, 0, 205, 287, 0, 0, false];
 			
 			// tex_mqz_bg02
-			BackgroundValues[6] = [0, 0, 0.01, 0.03, 0, 0, 0,   71,	0, 0, false];
+			BackgroundValues[6] = [0, 0, 0.01, 0.03, 0, 0, 0,   71,	 0, 0, false];
 			BackgroundValues[7] = [0, 0, 0.2,  0.03, 0, 0, 130, 175, 0, 0, false];
 			BackgroundValues[8] = [0, 0, 0.24, 0.03, 0, 0, 271, 382, 0, 0, false];
 			
 			// tex_mqz_bg03
-			BackgroundValues[9] = [0, 0, 0.2, 0.03, 0, 0, 176, 301, 1, 0.55, true];
+			BackgroundValues[9] = [0, 0, 0.2, 0.03, 0, 0, 176, 272, 1, 0.55, true];
 		}
 		break;
 		default: 

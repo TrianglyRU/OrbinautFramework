@@ -20,7 +20,7 @@ function GameShadersSetup()
 	// Setup background parallax shader
 	Shader.Prlx_Ofst  = shader_get_uniform(ShaderParallax, "ofst");
 	Shader.Prlx_Pos   = shader_get_uniform(ShaderParallax, "o_pos");
-	Shader.Prlx_Scale = shader_get_uniform(ShaderParallax, "width");
+	Shader.Prlx_Scale = shader_get_uniform(ShaderParallax, "scale");
 	Shader.Prlx_Hght  = shader_get_uniform(ShaderParallax, "y_height");
 	Shader.Prlx_Step  = shader_get_uniform(ShaderParallax, "y_step");
 	Shader.Prlx_Texel = shader_get_uniform(ShaderParallax, "texel");

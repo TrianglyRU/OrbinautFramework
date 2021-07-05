@@ -24,6 +24,8 @@ function BackgroundParallaxPerform()
 		var	YIncline	  = BackgroundValues[i][10];
 		var Width		  = BackgroundValues[i][11];
 		var Texel         = BackgroundValues[i][12];
+		var Height = Bottom - Top + 1;
+		var Yscale = YIncline ? clamp((Stage.WaterLevel - Screen.CameraY - Screen.Height / 2) / Height, -1, 1) : 1;
 	
 		// Set variables
 		if instance_exists(Screen)
@@ -41,7 +43,7 @@ function BackgroundParallaxPerform()
 		shader_set_uniform_f(Shader.Prlx_Ofst, DrawX * ScrollX - OffsetX);
 		shader_set_uniform_f(Shader.Prlx_Pos,  DrawX + PosX, DrawY - OffsetY);
 	
-		shader_set_uniform_f(Shader.Prlx_Scale, Width);
+		shader_set_uniform_f(Shader.Prlx_Scale, Width, Yscale);
 		shader_set_uniform_f(Shader.Prlx_Texel, Texel);
 	
 		// Skip incline parallax if incline height is 0
@@ -52,15 +54,13 @@ function BackgroundParallaxPerform()
 		}
 	
 		// Render sprite
-		var PartHeight = Bottom - Top + 1;
 		if  YIncline
 		{
-			var Yscale = clamp((DrawY - Screen.CameraY - Screen.Height / 2) / PartHeight, -1, 1);
-			draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, PartHeight, DrawX + PosX, DrawY, 1, Yscale, c_white, 1);
+			draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY, 1, Yscale, c_white, 1);
 		}
 		else
 		{
-			draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, PartHeight, DrawX + PosX, DrawY);
+			draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY);
 		}
 
 		// Reset incline height
