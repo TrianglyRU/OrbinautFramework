@@ -21,7 +21,7 @@ function BackgroundParallaxPerform()
 		var Bottom		  = BackgroundValues[i][7];
 		var InclineHeight = BackgroundValues[i][8];
 		var InclineForce  = BackgroundValues[i][9];
-		var	S3Water		  = BackgroundValues[i][10];
+		var	YIncline	  = BackgroundValues[i][10];
 		var Width		  = BackgroundValues[i][11];
 		var Texel         = BackgroundValues[i][12];
 	
@@ -53,13 +53,15 @@ function BackgroundParallaxPerform()
 	
 		// Render sprite
 		var PartHeight = Bottom - Top + 1;
-		if S3Water
+		if  YIncline
 		{
-			show_debug_message(DrawY - Screen.CameraY - Screen.Height / 2);
 			var Yscale = clamp((DrawY - Screen.CameraY - Screen.Height / 2) / PartHeight, -1, 1);
 			draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, PartHeight, DrawX + PosX, DrawY, 1, Yscale, c_white, 1);
 		}
-		else	draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, PartHeight, DrawX + PosX, DrawY);
+		else
+		{
+			draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, PartHeight, DrawX + PosX, DrawY);
+		}
 
 		// Reset incline height
 		if InclineHeight != 0 

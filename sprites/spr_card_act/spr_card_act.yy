@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "HUD",
-    "path": "folders/HUD.yy",
+    "path": "folders/Stages/Moonlight Quadrant/Textures/HUD.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_card_act",

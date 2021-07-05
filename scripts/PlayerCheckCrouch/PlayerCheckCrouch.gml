@@ -38,7 +38,7 @@ function PlayerCheckCrouch()
 		if !Input.Down
 		{
 			// Define minimum speed
-			var MinimumSpd = SuperState == false ? 8 : 11;
+			var MinimumSpd = !SuperState ? 8 : 11;
 
 			// Launch Sonic forwards
 			Inertia		 = (MinimumSpd + round(SpindashRev) / 2) * Facing;
