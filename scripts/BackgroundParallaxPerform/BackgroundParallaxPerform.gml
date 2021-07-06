@@ -1,5 +1,7 @@
 function BackgroundParallaxPerform()
 {
+	if keyboard_check(vk_alt) Stage.WaterLevel++;
+	if keyboard_check(vk_control) Stage.WaterLevel--;
 	// Draw gray background
 	draw_clear(c_gray);
 	
@@ -25,8 +27,8 @@ function BackgroundParallaxPerform()
 		var Width		  = BackgroundValues[i][11];
 		var Texel         = BackgroundValues[i][12];
 		var Height = Bottom - Top + 1;
-		var Yscale = YIncline ? clamp((Stage.WaterLevel - Screen.CameraY - Screen.Height / 2) / Height, -1, 1) : 1;
-	
+		//var Yscale = YIncline ? clamp((Stage.WaterLevel - Screen.CameraY - Screen.Height / 2) / Height, -1, 1) : 1;
+		var Yscale = YIncline ? clamp((Stage.WaterLevel - DrawY + Screen.Height / 2 - 16) / Height, -1, 1) : 1;
 		// Set variables
 		if instance_exists(Screen)
 		{

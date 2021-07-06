@@ -33,8 +33,8 @@ function PlayerCheckJump()
 		// Update radiuses
 		if !Rolling
 		{
-			yRadius = yRadiusDefault;
-			xRadius	= xRadiusDefault;
+			yRadius = yRadiusRoll;
+			xRadius	= xRadiusRoll;
 			PosY   += yRadiusDefault - yRadiusRoll;
 		}
 		
