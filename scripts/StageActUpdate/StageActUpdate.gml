@@ -24,13 +24,15 @@ function StageActUpdate()
 		CameraEnabled = false;
 		TimeEnabled   = false;
 				
-		if !(Player.Ysp > 0 and floor(Player.PosY) > Screen.CameraY + Screen.Height + 128)
+		if !(Player.Ysp > 0 and floor(Player.PosY) > Screen.CameraY + Screen.Height)
 		{
 			StateTimer = 0;
 		}
 		else
-		{	
-			if StateTimer == 0
+		{			
+			StateTimer++
+			
+			if StateTimer == 60
 			{
 				Player.Lives	-= 1;
 				Game.Lives = Player.Lives;
@@ -38,10 +40,8 @@ function StageActUpdate()
 				fade_perform(to, black, 1);
 				audio_bgm_stop(TypeAll, 2);
 			}
-					
-			StateTimer++
-			if StateTimer == 60
-			{
+			if StateTimer == 90
+			{		
 				if Player.Lives != 0
 				{
 					room_restart();

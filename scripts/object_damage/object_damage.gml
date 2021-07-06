@@ -131,9 +131,25 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		}
 
 		// Perform movement
-		Player.Xsp = floor(Player.PosX) > floor(x) ? 2 : -2;
-		Player.Ysp = -4;
+		if Player.isUnderwater
+		{
+			Player.Xsp = floor(Player.PosX) > floor(x) ? 1 : -1;
+			Player.Ysp = -2;
+		}
+		else
+		{
+			Player.Xsp = floor(Player.PosX) > floor(x) ? 2 : -2;
+			Player.Ysp = -4;
+		}
+		
+		// Set gravity
 		Player.Grv = 0.1875;
+		
+		// Set underwater gravity (subtract 0x20, which is 0.125)
+		if Player.isUnderwater
+		{
+			Player.Grv -= 0.125;
+		}
 		
 		// Enter hurt state
 		Player.Hurt			= true;

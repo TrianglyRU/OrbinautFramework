@@ -40,7 +40,7 @@ function ObjAnimalMain()
 			    image_xscale = FromCapsule ? choose(-1, 1) : -1;
 				
 				// Set horizontal speed
-				Xsp	 *= image_xscale;
+				Xsp	*= image_xscale;
 				
 				// Set second frame
 				animation_set_frame(AnimalType, 2);
@@ -54,8 +54,14 @@ function ObjAnimalMain()
 	// Leaving state
 	else if State == 1
 	{
+		// Move
 		PosX += Xsp;
-		Grv   = 0.09375;
+		
+		// Change gravity for Flicky
+		if AnimalType == spr_obj_animal_flicky
+		{
+			Grv = 0.09375;
+		}
 		
 		// Animate animal
 		switch AnimalType
@@ -63,14 +69,18 @@ function ObjAnimalMain()
 			// Flicky
 			case spr_obj_animal_flicky:
 			{
-				animation_play(AnimalType, 3, 2);
+				if animation_get_frame(id) == 1
+				{
+					animation_set_frame(sprite_index, 2);
+				}
+				animation_play(sprite_index, 3, 2);
 			}
 			break;
 			
 			// Pocky
 			case spr_obj_animal_pocky:
 			{
-				animation_set_frame(AnimalType, Ysp < 0 ? 2 : 3);
+				animation_set_frame(sprite_index, Ysp < 0 ? 2 : 3);
 			}
 			break;
 		}
@@ -81,7 +91,7 @@ function ObjAnimalMain()
 			var findFloor = object_collide_tiles_v(false, SideBottom, 0, LayerA)
 			if  findFloor
 			{
-				Ysp = -4;
+				Ysp = DefaultYsp;
 			}
 		}
 	}

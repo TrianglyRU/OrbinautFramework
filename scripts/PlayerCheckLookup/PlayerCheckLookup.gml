@@ -66,7 +66,7 @@ function PlayerCheckLookup()
 			Animation = AnimPeelout;
 			
 			// Launch Sonic forwards
-			Inertia		 = 12 * Facing;
+			Inertia		 = (!SuperState ? 12 : 15) * Facing;
 			MovementLock = false;
 			
 			// Reset peelout charge value

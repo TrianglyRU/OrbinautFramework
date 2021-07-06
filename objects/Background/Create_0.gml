@@ -5,4 +5,7 @@
 	BackgroundVariables();
 	
 	// Setup background parallax
-	BackgroundSetup();
+	BackgroundParallaxSetup();
+	
+	// Setup background system
+	BackgroundSystemSetup();

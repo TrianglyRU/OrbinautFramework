@@ -133,7 +133,7 @@ function PlayerMove()
 	if Inertia != 0
 	{
 		// Check for walk
-		if abs(Inertia) < 6
+		if !SuperState and abs(Inertia) < 6 or SuperState and abs(Inertia) < 8
 		{
 			Animation = AnimWalk;
 		}

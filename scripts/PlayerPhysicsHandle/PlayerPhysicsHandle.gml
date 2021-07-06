@@ -133,13 +133,13 @@ function PlayerPhysicsHandle()
 	// Handle basic gravity
 	if !Hurt and !Death and !FlyingState and !GlidingState and !ClimbingState
 	{
-		if !isUnderwater
+		// Regular gravity
+		Grv	= 0.21875;
+
+		// If underwater, subtract 0x28 (0.15625)
+		if isUnderwater
 		{
-			Grv	= 0.21875;
-		}
-		else
-		{
-			Grv = 0.0625;
+			Grv -= 0.15625;
 		}
 	}
 }

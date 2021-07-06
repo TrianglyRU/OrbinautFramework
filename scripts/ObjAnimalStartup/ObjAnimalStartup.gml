@@ -5,6 +5,8 @@ function ObjAnimalStartup()
 	State		 isReal;
 	PosX		 isReal;
 	PosY		 isReal;
+	DefaultXsp   isReal;
+	DefaultYsp   isReal;
 	Xsp          isReal;
 	Ysp			 isReal;
 	Grv			 isReal;
@@ -12,7 +14,7 @@ function ObjAnimalStartup()
 	FromCapsule  isBool;
 	
 	// Set object solidbox
-	object_set_solidbox(8, 8);
+	object_set_solidbox(8, 12);
 	
 	// Set object depth
 	object_set_depth(Player, false);
@@ -31,17 +33,21 @@ function ObjAnimalStartup()
 	{
         case spr_obj_animal_flicky: 
 		{
-			Xsp = 3; 
-			Ysp = -4; 
+			DefaultXsp = 3;
+			DefaultYsp = -4;
 		}
 		break;
 		case spr_obj_animal_pocky:
 		{
-			Xsp = 2;
-			Ysp = 4;
+			DefaultXsp = 2;
+			DefaultYsp = -4;
 		}
 		break;
     }
+	
+	// Set speeds
+	Xsp = DefaultXsp;
+	Ysp = -4;
 	
 	// Set default position
 	PosX = x;

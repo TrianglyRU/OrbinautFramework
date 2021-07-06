@@ -59,7 +59,4 @@ function animation_play(sprite_id, speed, loop)
 		    }	
 		}
 	}
-	
-	if object_index == SpringVertical
-		show_debug_message(AnimationTimer);
 }

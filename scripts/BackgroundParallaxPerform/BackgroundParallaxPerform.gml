@@ -56,7 +56,7 @@ function BackgroundParallaxPerform()
 		}
 	
 		// Render sprite
-		if  YIncline
+		if YIncline
 		{
 			draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY, 1, Yscale, c_white, 1);
 		}
