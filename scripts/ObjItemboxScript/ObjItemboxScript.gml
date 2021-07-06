@@ -44,7 +44,6 @@ function ObjItemboxScript()
 			// Update position
 			Ysp  += 0.21875;
 			PosY += Ysp;
-			y	  = floor(PosY);
 		
 			// Do collision with tiles & check if we collided
 			var foundFloor = object_collide_tiles_v(SideLeft, SideBottom, 0, LayerA)
@@ -61,4 +60,6 @@ function ObjItemboxScript()
 		// Play destroyed animation
 		animation_play(spr_obj_itembox_destroyed, 1, 1);
 	}
+	
+	y = floor(PosY);
 }

@@ -56,5 +56,7 @@ function ScreenInterfaceDisplay()
 		string_set_font(FontDebug, "right");
 		string_display(Width - 97, 9,  "X:", 1);
 		string_display(Width - 97, 17, "Y:", 1);
+		
+		string_display(Width - 97, 24, string(Background.BackgroundValues[3][Background.BackgroundDebug]), 1);
 	}
 }
