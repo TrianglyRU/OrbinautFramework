@@ -32,7 +32,7 @@
     "spriteId": {"name":"tex_mqz_newbg03","path":"sprites/tex_mqz_newbg03/tex_mqz_newbg03.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

@@ -26,9 +26,7 @@ function BackgroundParallaxPerform()
 		var	YIncline	  = BackgroundValues[i][10];
 		var Width		  = BackgroundValues[i][11];
 		var Texel         = BackgroundValues[i][12];
-		var Height = Bottom - Top + 1;
-		//var Yscale = YIncline ? clamp((Stage.WaterLevel - Screen.CameraY - Screen.Height / 2) / Height, -1, 1) : 1;
-		var Yscale = YIncline ? clamp((Stage.WaterLevel - DrawY + Screen.Height / 2 - 16) / Height, -1, 1) : 1;
+		
 		// Set variables
 		if instance_exists(Screen)
 		{
@@ -40,6 +38,8 @@ function BackgroundParallaxPerform()
 			var DrawX = 0;
 			var DrawY = PosY + Top;
 		}
+		var Height = Bottom - Top + 1;
+		var Yscale = YIncline ? clamp((Stage.WaterLevel - DrawY) / Height, -1, 1) : 1;
 
 		// Set shader uniforms
 		shader_set_uniform_f(Shader.Prlx_Ofst, DrawX * ScrollX - OffsetX);
