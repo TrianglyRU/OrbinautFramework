@@ -129,8 +129,11 @@ function PlayerGeneralUpdate()
 			Ysp			*= 0.25;
 			isUnderwater = true;
 			
-			instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
-			audio_sfx_play(sfxWaterSplash, false);
+			if !Grounded
+			{
+				instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+				audio_sfx_play(sfxWaterSplash, false);
+			}
 		}
 	}
 	else
@@ -155,8 +158,11 @@ function PlayerGeneralUpdate()
 			}
 			isUnderwater = false;
 			
-			instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
-			audio_sfx_play(sfxWaterSplash, false);
+			if !Grounded
+			{
+				instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+				audio_sfx_play(sfxWaterSplash, false);
+			}
 		}
 	}
 	

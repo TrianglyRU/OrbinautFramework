@@ -300,7 +300,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						// Rolling
 						if Ysp > 0 and !Grounded
 						{
-							if Input.Down
+							if Input.Down and !Input.Left and !Input.Right
 							{
 								Rolling = true;
 								audio_sfx_play(sfxRoll, false);

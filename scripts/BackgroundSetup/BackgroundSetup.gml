@@ -28,10 +28,10 @@ function BackgroundSetup()
 			BackgroundSprites = [tex_mqz_newbg00, tex_mqz_newbg00, tex_mqz_newbg00, tex_mqz_newbg00, tex_mqz_newbg01, tex_mqz_newbg01, tex_mqz_newbg02, tex_mqz_newbg02, tex_mqz_newbg02, tex_mqz_newbg03];
 			
 			// tex_mqz_bg00
-			BackgroundValues[0] = [0, 0, 0,    0,     0, 0, 0,   215, 0, 0, false];
-			BackgroundValues[1] = [0, 0, 0.0,  0.068, 0, 0, 215, 266, 0, 0, false];
-			BackgroundValues[2] = [0, 0, 0.05, 0.068, 0, 0, 267, 287, 0, 0, false];
-			BackgroundValues[3] = [0, 0, 0.08, 0.068, 0, 0, 288, 327, 0, 0, false];
+			BackgroundValues[0] = [0, 0, 0,    0,     0, 0, 0,   215, 0,  0,   false];
+			BackgroundValues[1] = [0, 0, 0.2,  0.068, 0, 0, 215, 266, 1, -0.6, false];
+			BackgroundValues[2] = [0, 0, 0.05, 0.068, 0, 0, 267, 287, 0,  0,   false];
+			BackgroundValues[3] = [0, 0, 0.08, 0.068, 0, 0, 288, 327, 0,  0,   false];
 			
 			// tex_mqz_bg01
 			BackgroundValues[4] = [0, 0, 0.12, 0.068, 0, 0, 112, 215, 0, 0, false];
