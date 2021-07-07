@@ -57,6 +57,9 @@ function PlayerAnimate()
 					case AnimActEnd:
 						animation_play(spr_sonic_actend, 3, 21);
 					break;
+					case AnimDrown:
+						animation_play(spr_sonic_drown, 1, 1);
+					break;
 				}
 			}
 			else

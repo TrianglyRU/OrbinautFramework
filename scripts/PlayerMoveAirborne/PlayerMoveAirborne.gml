@@ -51,37 +51,4 @@ function PlayerMoveAirborne()
 	{
 		Animation = AnimWalk;
 	}
-	
-	// Transform
-	if !SuperState
-	{
-		if Jumping and Ysp <= 0 and Rings >= 50 and !SuperStateValue and Input.ABCPress
-		{
-			SuperState = true;
-			Jumping    = false;
-		}
-	}
-	else if Jumping and Input.ABCPress
-	{
-		SuperStateValue = 0;
-		SuperState		= false;
-	}
-	
-	// Do transfomation sequence
-	if SuperState == true
-	{	
-		// Play animation
-		Animation = AnimTransform;
-		
-		// Switch to another animation
-		if SuperStateValue == 24
-		{
-			Animation = AnimWalk;
-		}
-		
-		// Reset speeds
-		Inertia = 0;
-		Xsp		= 0;
-		Ysp		= 0;
-	}
 }

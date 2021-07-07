@@ -7,6 +7,9 @@
 	// Check if we should run the code below
 	if !PlayerCheckProceed() exit;
 	
+	// Record player position
+	PlayerRecordPosition();
+	
 	// Animate character
 	PlayerAnimate();
 		

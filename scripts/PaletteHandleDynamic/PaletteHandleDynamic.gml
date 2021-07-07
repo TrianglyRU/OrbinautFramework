@@ -31,7 +31,7 @@ function PaletteHandleDynamic()
 				// Surface super start
 				for (var i = 0; i < 4; i++) 
 				{
-					palette_handle(PaletteSurface, i, 1, 6, 4);
+					palette_handle(PaletteSurface, i, 2, 6, 4);
 				}
 			}
 			break;
@@ -40,7 +40,7 @@ function PaletteHandleDynamic()
 				// Surface super active
 				for (var i = 0; i < 4; i++) 
 				{
-					palette_handle(PaletteSurface, i, 7, 8, 4);
+					palette_handle(PaletteSurface, i, 8, 8, 4);
 				}
 			}
 			break;
@@ -49,7 +49,7 @@ function PaletteHandleDynamic()
 				// Surface super end
 				for (var i = 0; i < 4; i++) 
 				{
-					palette_handle(PaletteSurface, i, 15, 6, 4);
+					palette_handle(PaletteSurface, i, 16, 6, 4);
 				}
 			}
 			break;
@@ -78,4 +78,6 @@ function PaletteHandleDynamic()
 		}
 		break;
 	}
+	
+	show_debug_message(string(PaletteAnimation[PaletteSurface, 0]));
 }

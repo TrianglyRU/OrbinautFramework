@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Framework.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameAudioLoad",
+  "name": "GameAudioNormalHandle",
   "tags": [],
   "resourceType": "GMScript",
 }

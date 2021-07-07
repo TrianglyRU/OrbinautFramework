@@ -10,7 +10,6 @@
 	// Display HUD
 	ScreenInterfaceDisplay();
 
-	draw_line(0, Stage.WaterLevel - CameraY, Width, Stage.WaterLevel - CameraY);
 	// Display results screen
 	ScreenResultsDisplay();
 	

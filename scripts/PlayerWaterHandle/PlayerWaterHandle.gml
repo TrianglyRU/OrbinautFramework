@@ -1,5 +1,11 @@
-function PlayerUnderwaterEvents()
+function PlayerWaterHandle()
 {
+	// Check if player has died
+	if Death
+	{
+		exit;
+	}
+	
 	// Check for joining and exiting water
 	if !isUnderwater
 	{
@@ -23,10 +29,11 @@ function PlayerUnderwaterEvents()
 	else
 	{ 
 		// Decrease timer
-		if AirTimer > 0
+		if AirTimer > 0 and !Stage.IsFinished
 		{
-			AirTimer--;
-		
+			// Decrease timer
+			AirTimer--
+			
 			// Play alerts
 			if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
 			{
@@ -34,9 +41,9 @@ function PlayerUnderwaterEvents()
 			}
 		
 			// Play drowning music
-			if AirTimer <= 720
+			if AirTimer == 720
 			{			
-				audio_bgm_play(Drowning, noone, 0, TypeNormal);
+				audio_bgm_play(Drowning, -1, TypeNormal);
 				audio_bgm_mute(TypePriority, 0);
 			}
 		}
@@ -66,7 +73,7 @@ function PlayerUnderwaterEvents()
 				Xsp					 = 0;
 				Ysp					 = 0;
 				MovementLock		 = -1;
-				Animation			 = AnimDeath;	
+				Animation			 = AnimDrown;	
 			}
 			else if floor(PosY) >= Screen.CameraY + Screen.Height + 276
 			{
@@ -91,7 +98,7 @@ function PlayerUnderwaterEvents()
 			if AirTimer <= 720
 			{	
 				audio_bgm_unmute(TypePriority, 0);
-				audio_bgm_play(Stage.StageMusic, noone, Stage.StageMusicLooppoint, TypeNormal);
+				audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
 			}
 			
 			if !Hurt and Animation != AnimSpring

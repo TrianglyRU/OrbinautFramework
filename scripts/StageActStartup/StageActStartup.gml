@@ -1,7 +1,7 @@
 function StageActStartup()
 {
 	// Play stage music
-	audio_bgm_play(StageMusic, StageMusicDAC, StageMusicLooppoint, TypeNormal);
+	audio_bgm_play(StageMusic, StageMusicLooppoint, TypeNormal);
 	
 	// Set tile layers IDs
 	TileLayer = [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];

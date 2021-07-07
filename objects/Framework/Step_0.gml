@@ -1,5 +1,11 @@
-/// @description Music Engine
+/// @description Audio Engine
 // You can write your code in this editor
 	
-	// Handle music events
-	GameMusicEngine();
+	// Handle normal audio events
+	GameAudioNormalHandle();
+	
+	// Handle priority audio events
+	GameAudioPriorityHandle();
+	
+	// Handle jingle audio events
+	GameAudioJingleHandle();

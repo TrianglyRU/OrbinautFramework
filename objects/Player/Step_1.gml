@@ -6,12 +6,6 @@
 	
 	// Check if we should run the code below
 	if !PlayerCheckProceed() exit;
-	
-	// Update general player stuff
-	PlayerGeneralUpdate();
-	
-	// Handle player physics values
-	PlayerPhysicsHandle();
 
 	// Airborne script
 	if !Grounded
@@ -124,5 +118,14 @@
 		PlayerSlopeRepel();
 	}
 	
+	// Handle superstate events
+	PlayerSuperStateHandle();
+	
+	// Update invincibility and highspeed bonuses
+	PlayerPowerupHandle();
+	
 	// Handle underwater events
-	PlayerUnderwaterEvents();
+	PlayerWaterHandle();
+	
+	// Handle player physics values
+	PlayerPhysicsHandle();

@@ -37,12 +37,15 @@ function GameMacro()
 	#macro TrackLoop	   2
 	#macro TrackEvent	   3
 	#macro TrackEventTime  4
-	#macro TrackState      5
-	
-	#macro EventPlay	   0
+		
+	#macro EventIdle	   0
 	#macro EventMute	   1
-	#macro EventStop	   2
-	#macro EventUnmute     3
+	#macro EventUnmute     2
+	#macro EventStop	   3
+	
+	#macro StateInactive   0
+	#macro StateActive	   1
+	#macro StateToggle	   2
 	
 	// Shader macro
 	#macro Shader global
@@ -108,6 +111,7 @@ function GameMacro()
 	#macro AnimSwim			   25
 	#macro AnimSwimTired	   26
 	#macro AnimTransform	   27
+	#macro AnimDrown		   28
 
 	// Stage macro	
 	#macro ActStateLoading	   0

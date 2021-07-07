@@ -15,9 +15,6 @@ function InputHotkeysRead()
 		Game.Score          = 0;
 		Game.PalIndexDry[0] = 0;
 		
-		// Reset tracks
-		audio_bgm_stop(TypeAll, 0);
-		
 		audio_stop_all();
 		room_restart();
 	}
@@ -25,9 +22,6 @@ function InputHotkeysRead()
 	// Stage checkpoint restart (F2)
 	if keyboard_check_pressed(vk_f2)
 	{
-		// Reset tracks
-		audio_bgm_stop(TypeAll, 0);
-		
 		audio_stop_all();
 		room_restart();
 	}
@@ -82,14 +76,14 @@ function InputHotkeysRead()
 	if keyboard_check_pressed(vk_f6)
 	{
 		Player.HighSpeedBonus = 1200;
-		audio_bgm_play(HighspeedMusic, noone, 0, TypePriority);
+		audio_bgm_play(HighspeedMusic, -1, TypePriority);
 	}
 	
 	// Give invincibility (F7)
 	if keyboard_check_pressed(vk_f7)
 	{
 		Player.InvincibilityBonus = 1200;
-		audio_bgm_play(InvincibilityMusic, noone, 20.0, TypePriority);
+		audio_bgm_play(InvincibilityMusic, -1, TypePriority);
 	}
 	
 	// Give barrier (F8)
@@ -138,7 +132,7 @@ function InputHotkeysRead()
 	if keyboard_check_pressed(vk_f9)
 	{
 		Player.Lives++;
-		audio_bgm_play(Jingle1UP, noone, 0, TypeJingle);
+		audio_bgm_play(Jingle1UP, -1, TypeJingle);
 	}
 	
 	// Hurt player (F10)

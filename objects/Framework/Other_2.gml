@@ -9,7 +9,7 @@
 	GameFrameworkSetup();
 	
 	// Initialize audio
-	GameAudioGroupsLoad();
+	GameAudioLoad();
 	
 	// Initialize fonts
 	GameFontsSetup();

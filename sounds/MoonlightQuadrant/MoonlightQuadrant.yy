@@ -1,5 +1,5 @@
 {
-  "compression": 1,
+  "compression": 0,
   "volume": 0.48,
   "preload": false,
   "bitRate": 128,

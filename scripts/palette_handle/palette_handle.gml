@@ -7,7 +7,6 @@ function palette_handle(type, index, startid, colours, duration)
 		PaletteTimer[type,index]     = duration;
 		PaletteColour[type,index]    = startid;
 		PaletteAnimation[type,index] = startid;
-		exit;
 	}
 	
 	// Exit if screen is fading
@@ -23,26 +22,28 @@ function palette_handle(type, index, startid, colours, duration)
 		PaletteColour[type,index]    = startid;
 		PaletteAnimation[type,index] = startid;
 	}
-	
-	// Decrease the value of animation timer
-	if PaletteTimer[type,index] > 0
-	{
-		PaletteTimer[type,index]--;
-	}
 	else
 	{
-		// Reset duration
-		PaletteTimer[type,index] = duration;
-		
-		// Shift colour
-		if PaletteColour[type,index] < startid + colours - 1
+		// Decrease the value of animation timer
+		if PaletteTimer[type,index] > 1
 		{
-			PaletteColour[type,index]++;
+			PaletteTimer[type,index]--;
 		}
 		else
 		{
-			PaletteColour[type,index] = startid;
-		}
+			// Reset duration
+			PaletteTimer[type,index] = duration;
+		
+			// Shift colour
+			if PaletteColour[type,index] < startid + colours - 1
+			{
+				PaletteColour[type,index]++;
+			}
+			else
+			{
+				PaletteColour[type,index] = startid;
+			}
+		}	
 	}
 	
 	// Apply colour

@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerUnderwaterEvents",
+  "name": "PlayerRecordPosition",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -34,16 +34,17 @@ function StageActUpdate()
 			
 			if StateTimer == 60
 			{
-				Player.Lives	-= 1;
-				Game.Lives = Player.Lives;
+				Player.Lives -= 1;
 					
 				fade_perform(to, black, 1);
-				audio_bgm_stop(TypeAll, 2);
+				audio_bgm_stop(TypeAll, 1);
 			}
 			if StateTimer == 90
 			{		
 				if Player.Lives != 0
 				{
+					Game.Lives = Player.Lives;
+					
 					room_restart();
 					audio_stop_all();
 				}
