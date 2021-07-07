@@ -12,6 +12,7 @@ function StageVariables()
 	
 	WaterEnabled    isVar;
 	WaterLevel      isVar;
+	WobbleData      isArray;
 	
 	State		    isVar;
 	StateTimer      isVar;

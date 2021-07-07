@@ -3,6 +3,25 @@ function StageActStartup()
 	// Play stage music
 	audio_bgm_play(StageMusic, StageMusicDAC, StageMusicLooppoint, TypeNormal);
 	
+	// Set tile layers IDs
+	TileLayer = [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];
+	
+	// Bubble wobble data
+	if WaterEnabled
+	{
+		WobbleData =
+		[ 
+		  0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2,
+		  2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+		  3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2,
+		  2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+		  0,-1,-1,-1,-1,-1,-2,-2,-2,-2,-2,-3,-3,-3,-3,-3,
+		 -3,-3,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,
+		 -4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-3,
+		 -3,-3,-3,-3,-3,-3,-2,-2,-2,-2,-2,-1,-1,-1,-1,-1
+		]
+	}
+	
 	// Set top, left and right boundaries
 	TargetLeftBoundary  = LeftBoundary;
 	TargetRightBoundary = RightBoundary;
@@ -33,22 +52,4 @@ function StageActStartup()
 		TargetBottomBoundary = BottomBoundary;
 		DeathBoundary        = BottomBoundary;
 	}
-	
-	// Set tile layers IDs
-	TileLayer = [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];
-	
-	/// @function data_read(name)
-	/*function data_read(name) 
-	{
-		
-	}
-	
-	// Load tile angle data
-	data_read("anglemap.bin");
-	
-	// Load tile height data
-	data_read("heightmap.bin");
-	
-	// Load tile width data
-	data_read("widthmap.bin");*/
 }

@@ -119,53 +119,6 @@ function PlayerGeneralUpdate()
 		}
 	}
 	
-	// Check for joining and exiting water
-	if !isUnderwater
-	{
-		// Check for falling into the water
-		if Stage.WaterEnabled and PosY > Stage.WaterLevel
-		{
-			Xsp			*= 0.5;
-			Ysp			*= 0.25;
-			isUnderwater = true;
-			
-			if !Grounded
-			{
-				instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
-				audio_sfx_play(sfxWaterSplash, false);
-			}
-		}
-	}
-	else
-	{ 
-		// Disable barrier
-		if BarrierType == BarrierFlame or BarrierType == BarrierThunder
-		{	
-			if BarrierType == BarrierThunder
-			{
-				fade_perform(from, flash, 12);
-			}
-			BarrierType = false;
-			instance_destroy(Barrier);				
-		}
-			
-		// Check for leaving the water
-		if PosY < Stage.WaterLevel
-		{
-			if !Hurt and Animation != AnimSpring
-			{
-				Ysp	*= 2;
-			}
-			isUnderwater = false;
-			
-			if !Grounded
-			{
-				instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
-				audio_sfx_play(sfxWaterSplash, false);
-			}
-		}
-	}
-	
 	// Stop forced roll if we unrolled
 	if !Rolling
 	{

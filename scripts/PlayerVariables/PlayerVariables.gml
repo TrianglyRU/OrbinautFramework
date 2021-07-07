@@ -24,6 +24,7 @@ function PlayerVariables()
 	Facing				 isVar;
 	Hurt			     isVar;
 	Death				 isVar;
+	Drown				 isVar;
 	CharacterID			 isVar;
 	PosX				 isVar;
 	PosY				 isVar;

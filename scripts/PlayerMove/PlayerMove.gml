@@ -106,7 +106,7 @@ function PlayerMove()
 	}
 
 	// Our default animation if AnimIdle
-	if !Input.Down and !Input.Up
+	if !Input.Down and !Input.Up and SlopeGravity == 0
 	{
 		Animation = AnimIdle;
 	}

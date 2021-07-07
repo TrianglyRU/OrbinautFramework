@@ -131,7 +131,7 @@ function PlayerPhysicsHandle()
 	}
 	
 	// Handle basic gravity
-	if !Hurt and !Death and !FlyingState and !GlidingState and !ClimbingState
+	if !Hurt and !Death and !Drown and !FlyingState and !GlidingState and !ClimbingState
 	{
 		// Regular gravity
 		Grv	= 0.21875;

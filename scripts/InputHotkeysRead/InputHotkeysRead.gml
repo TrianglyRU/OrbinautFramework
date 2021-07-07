@@ -15,6 +15,9 @@ function InputHotkeysRead()
 		Game.Score          = 0;
 		Game.PalIndexDry[0] = 0;
 		
+		// Reset tracks
+		audio_bgm_stop(TypeAll, 0);
+		
 		audio_stop_all();
 		room_restart();
 	}
@@ -22,6 +25,9 @@ function InputHotkeysRead()
 	// Stage checkpoint restart (F2)
 	if keyboard_check_pressed(vk_f2)
 	{
+		// Reset tracks
+		audio_bgm_stop(TypeAll, 0);
+		
 		audio_stop_all();
 		room_restart();
 	}

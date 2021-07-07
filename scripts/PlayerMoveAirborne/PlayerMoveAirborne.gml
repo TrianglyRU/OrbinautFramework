@@ -9,7 +9,7 @@ function PlayerMoveAirborne()
 	if !Game.RolljumpControl and !(Jumping and Rolling)
 	or  Game.RolljumpControl
 	{
-		if !GlidingState and !ClimbingState and !Hurt and !Death and SuperState != 1
+		if !GlidingState and !ClimbingState and !Hurt and !Death and !Drown and SuperState != 1
 		{
 			if Input.Left 
 			{		

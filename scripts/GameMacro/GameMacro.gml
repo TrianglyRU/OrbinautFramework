@@ -31,15 +31,18 @@ function GameMacro()
 	#macro TypePriority    1
 	#macro TypeJingle	   2
 	#macro TypeAll		   3
+	
 	#macro TrackIndex	   0
 	#macro TrackID		   1
 	#macro TrackLoop	   2
 	#macro TrackEvent	   3
 	#macro TrackEventTime  4
+	#macro TrackState      5
+	
 	#macro EventPlay	   0
 	#macro EventMute	   1
-	#macro EventUnmute     2
-	#macro EventStop	   3
+	#macro EventStop	   2
+	#macro EventUnmute     3
 	
 	// Shader macro
 	#macro Shader global

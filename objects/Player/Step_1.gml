@@ -123,3 +123,6 @@
 		// Fall off the ceiling and walls
 		PlayerSlopeRepel();
 	}
+	
+	// Handle underwater events
+	PlayerUnderwaterEvents();

@@ -15,7 +15,7 @@ function PlayerLevelBound()
 	}
 	
 	// Check if player is not in death state
-	if !Death
+	if !Death and !Drown
 	{
 		// Check if player is below bottom stage boundary
 		if floor(PosY) > Stage.DeathBoundary

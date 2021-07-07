@@ -3,6 +3,7 @@ function GameMusicEngine()
 	// Normal audio
 	var Track     = Game.NormalTrack[TrackID];
 	var Index     = Game.NormalTrack[TrackIndex];
+	var Active	  = Game.NormalTrack[PlayingFlag];
 	var Loop      = Game.NormalTrack[TrackLoop];
 	var Event     = Game.NormalTrack[TrackEvent];
 	var EventTime = Game.NormalTrack[TrackEventTime];
@@ -19,7 +20,18 @@ function GameMusicEngine()
 		
 		switch Event
 		{
-			case EventPlay: break;
+			case EventPlay:
+			{
+				// Get the volume step
+				var VolumeStep = Game.MusicVolume / (EventTime * 60);
+	
+				// Set the target volume
+				var VolumeLevel = min(audio_sound_get_gain(Track) + VolumeStep, Game.MusicVolume);
+	
+				// Update BGM volume
+				audio_sound_gain(Track, VolumeLevel, 0);
+			}
+			break;
 			case EventMute:
 			{
 				// Get the volume step
@@ -27,18 +39,6 @@ function GameMusicEngine()
 	
 				// Set the target volume
 				var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
-	
-				// Update BGM volume
-				audio_sound_gain(Track, VolumeLevel, 0);
-			}
-			break;
-			case EventUnmute:
-			{
-				// Get the volume step
-				var VolumeStep = Game.MusicVolume / (EventTime * 60);
-	
-				// Set the target volume
-				var VolumeLevel = min(audio_sound_get_gain(Track) + VolumeStep, Game.MusicVolume);
 	
 				// Update BGM volume
 				audio_sound_gain(Track, VolumeLevel, 0);
@@ -93,10 +93,21 @@ function GameMusicEngine()
 			case EventPlay: 
 			{
 				audio_bgm_mute(TypeNormal, 0);
+				
+				// Get the volume step
+				var VolumeStep = Game.MusicVolume / (EventTime * 60);
+	
+				// Set the target volume
+				var VolumeLevel = min(audio_sound_get_gain(Track) + VolumeStep, Game.MusicVolume);
+	
+				// Update BGM volume
+				audio_sound_gain(Track, VolumeLevel, 0);
 			}
 			break;
 			case EventMute:
 			{
+				audio_bgm_unmute(TypeNormal, 0);
+				
 				// Get the volume step
 				var VolumeStep = Game.MusicVolume / (EventTime * 60);
 	
@@ -107,17 +118,6 @@ function GameMusicEngine()
 				audio_sound_gain(Track, VolumeLevel, 0);	
 			}
 			break;
-			case EventUnmute:
-			{
-				// Get the volume step
-				var VolumeStep = Game.MusicVolume / (EventTime * 60);
-	
-				// Set the target volume
-				var VolumeLevel = min(audio_sound_get_gain(Track) + VolumeStep, Game.MusicVolume);
-	
-				// Update BGM volume
-				audio_sound_gain(Track, VolumeLevel, 0);	
-			}
 			break;
 			case EventStop:
 			{
@@ -165,6 +165,15 @@ function GameMusicEngine()
 				audio_bgm_mute(TypeNormal,   0);
 				audio_bgm_mute(TypePriority, 0);
 				
+				// Get the volume step
+				var VolumeStep = Game.MusicVolume / (EventTime * 60);
+	
+				// Set the target volume
+				var VolumeLevel = min(audio_sound_get_gain(Track) + VolumeStep, Game.MusicVolume);
+	
+				// Update BGM volume
+				audio_sound_gain(Track, VolumeLevel, 0);
+				
 				var Position = audio_sound_get_track_position(Index);
 				var Length   = audio_sound_length(Track);
 		
@@ -181,18 +190,6 @@ function GameMusicEngine()
 	
 				// Set the target volume
 				var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
-	
-				// Update BGM volume
-				audio_sound_gain(Track, VolumeLevel, 0);
-			}
-			break;
-			case EventUnmute:
-			{
-				// Get the volume step
-				var VolumeStep = Game.MusicVolume / (EventTime * 60);
-	
-				// Set the target volume
-				var VolumeLevel = min(audio_sound_get_gain(Track) + VolumeStep, Game.MusicVolume);
 	
 				// Update BGM volume
 				audio_sound_gain(Track, VolumeLevel, 0);

@@ -11,7 +11,7 @@ function ScreenTitleCardDisplay()
 	draw_sprite(spr_card_note, 0,				   LineX - 46, LineY + 34);
 	
 	// Draw composition name
-	switch Game.NormalTrack[TrackID]
+	switch Stage.StageMusic
 	{
 		case StarryNight:
 			var CompositionName = "WOOFER - STARRY NIGHT ZONE ACT 1";
