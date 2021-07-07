@@ -29,22 +29,25 @@ function PlayerWaterHandle()
 	else
 	{ 
 		// Decrease timer
-		if AirTimer > 0 and !Stage.IsFinished
+		if AirTimer > 0
 		{
-			// Decrease timer
-			AirTimer--
-			
-			// Play alerts
-			if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
+			if !Stage.IsFinished
 			{
-				audio_sfx_play(sfxAirAlert, false);
-			}
+				// Decrease timer
+				AirTimer--
+			
+				// Play alerts
+				if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
+				{
+					audio_sfx_play(sfxAirAlert, false);
+				}
 		
-			// Play drowning music
-			if AirTimer == 720
-			{			
-				audio_bgm_play(Drowning, -1, TypeNormal);
-				audio_bgm_mute(TypePriority, 0);
+				// Play drowning music
+				if AirTimer == 720
+				{			
+					audio_bgm_play(Drowning, -1, TypeNormal);
+					audio_bgm_mute(TypePriority, 0);
+				}
 			}
 		}
 		

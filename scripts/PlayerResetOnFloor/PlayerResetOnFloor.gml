@@ -28,7 +28,7 @@ function PlayerResetOnFloor()
 		// Reset hurt state
 		if Hurt
 		{
-			IsInvincible = 120;
+			IsInvincible = 121;
 			Inertia		 = 0;
 			Hurt		 = false;			
 		}

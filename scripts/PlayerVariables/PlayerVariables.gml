@@ -79,6 +79,8 @@ function PlayerVariables()
 	ForcedRoll			 isVar;
 	ScoreCombo			 isVar;
 	
+	AirTimer			 isReal;
+	
 	RecordedPosX		 isArr;
 	RecordedPosY         isArr;
 }

@@ -5,23 +5,25 @@ function PlayerSuperStateHandle()
 		exit;
 	}
 	
+	// Transform
+	if SuperState == -1
+	{
+		if Jumping and Ysp <= 0 and !SuperStateValue and Input.ABCPress
+		{
+			Jumping		    = false;
+			SuperState	    = true;
+			SuperStateValue = 0;
+			
+			xRadius = xRadiusDefault;
+			yRadius = yRadiusDefault;
+			
+			audio_sfx_play(sfxTransform, false);
+		}
+	}
+	
 	// Handle superform
 	switch SuperState
 	{	
-		// Do transformation
-		case -1:
-		{
-			if Jumping and Ysp <= 0 and !SuperStateValue and Input.ABCPress
-			{
-				Jumping		    = false;
-				SuperState	    = true;
-				SuperStateValue = 0;
-			
-				audio_sfx_play(sfxTransform, false);
-			}
-		}
-		break;
-		
 		// Transformation start
 		case 1:
 		{

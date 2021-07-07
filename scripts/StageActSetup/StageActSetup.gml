@@ -14,7 +14,7 @@ function StageActSetup()
 			CardEnabled				= true;
 			TimeEnabled				= false;
 			
-			WaterEnabled            = true;
+			WaterEnabled            = false;
 			WaterLevel				= 1592;
 
 			StageMusic				= StarryNight;

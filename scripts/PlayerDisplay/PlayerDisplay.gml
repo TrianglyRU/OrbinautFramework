@@ -72,9 +72,16 @@ function PlayerDisplay()
 	}
 	
 	// Blink sprite
-	if IsInvincible and (IsInvincible mod 4 == 0)
+	if IsInvincible
 	{
-		image_alpha = !image_alpha;
+		if IsInvincible mod 4 == 0
+		{
+			image_alpha = !image_alpha;
+		}
+	}
+	else
+	{
+		image_alpha = 1;
 	}
 	
 	// Update character display

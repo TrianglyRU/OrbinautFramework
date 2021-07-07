@@ -45,19 +45,18 @@ function PlayerPowerupHandle()
 			}
 		}
 		
-		
 		if !InvincibilityBonus
 		{
-			IsInvincible = false;
-			
 			if !HighSpeedBonus
 			{
 				audio_bgm_stop(TypePriority, 1);
 			}
 			instance_destroy(InvincibilityStar);
 		}
-		
-		InvincibilityBonus--;
+		else
+		{
+			InvincibilityBonus--;
+		}
 	}
 	
 	// Decrease invincibility timer

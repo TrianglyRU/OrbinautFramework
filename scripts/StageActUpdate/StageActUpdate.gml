@@ -88,15 +88,15 @@ function StageActUpdate()
 	{
 		exit;
 	}
-	
-	// Stop music
-	audio_bgm_stop(TypeAll, 2);
 		
 	// Disable stage time and reset saved positions
 	if TimeEnabled
 	{
 		TimeEnabled	= false;
 		StateTimer	= 0;
+			
+		// Stop music
+		audio_bgm_stop(TypeAll, 2);
 	}
 		
 	// Count timer
@@ -147,7 +147,7 @@ function StageActUpdate()
 			}
 			
 			// Play results music
-			audio_bgm_play(ActClear, noone, -1, TypeJingle);
+			audio_bgm_play(ActClear, -1, TypeNormal);
 
 			// Trigger results
 			IsFinished = 2;

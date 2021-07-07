@@ -70,16 +70,21 @@ function ScreenDebugScreenDisplay()
 				+ "\n   GLIDING: " + string(Player.GlidingState)
 				+ "\n   CLIMBING: " + string(Player.ClimbingState)
 				+ "\n   FLYING: " + string(Player.FlyingState)
-				+ "\n   LAYER: " + string(Player.Layer)
-				+ "\n   SPINDASHREV: " + string(round(Player.SpindashRev))
+				+ "\n   FLYING TIMER: " + string(Player.FlyingTimer)
+				+ "\n   SPINDASH: " + string(round(Player.SpindashRev))
 				+ "\n   PEELOUT: " + string(Player.PeeloutRev)
 				+ "\n   DROPDASH: " + string(Player.DropdashRev)
+				+ "\n   BARRIER: " + string(Player.BarrierType)
+				+ "\n   BARRIER ACTIVE: " + string(Player.BarrierIsActive)
+				+ "\n   LAYER: " + string(Player.Layer)
 				+ "\n   HIGHSPEED BONUS: " + string(Player.HighSpeedBonus)
 				+ "\n   INVINCIBILITY BONUS: " + string(Player.InvincibilityBonus)
-				+ "\n   IS HURT: " + string(Player.Hurt)
-				+ "\n   IS INVINCIBLE: " + string(Player.IsInvincible)
+				+ "\n   HURT: " + string(Player.Hurt)
+				+ "\n   INVINCIBLE: " + string(Player.IsInvincible)
+				+ "\n   UNDERWATER: " + string(Player.isUnderwater)
+				+ "\n   AIR TIMER: " + string(Player.AirTimer)
 				+ "\n   SUPER STATE: " + string(Player.SuperState)
-				+ "\n   TRANSFORMATION TIMER: " + string(Player.SuperStateValue)
+				+ "\n   SUPER STATE VALUE: " + string(Player.SuperStateValue)
 				+ "\n"
 				+ "\n         * CHARACTER VISUALS *"
 				+ "\n"
@@ -100,6 +105,6 @@ function ScreenDebugScreenDisplay()
 				+ "\n   OVERVIEW SHIFT: " + string(OverviewOffset)
 				+ "\n   EXTENDED VIEW SHIFT: " + string(ExtendedOffset)
 				+ "\n   SPIN OFFSET: " + string(SpinOffset),	
-		8, 0.25);
+		8, 0.28);
 	}
 }
