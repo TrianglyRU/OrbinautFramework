@@ -3,6 +3,6 @@
 
 	if object_player_overlap(CollisionHitbox)
 	{
-		object_act_badnik(false, false);
-		//object_damage(false, false, false, false);
+		//object_act_badnik(false, false);
+		object_damage(false, false, false);
 	}

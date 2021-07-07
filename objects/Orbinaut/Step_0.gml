@@ -4,18 +4,12 @@
 	// Check for hitbox overlap
 	if object_player_overlap(CollisionHitbox)
 	{
-		for(var i = 0; i < OrbNumb; i++)
-		{
-			instance_destroy(Orb[i]);
-		}
-	
 		// Damage player or be destroyed
 		object_act_badnik(true, false);
 	}
 	
-	Angle = (Angle + 4 * Dir) mod 360;
-	PosX += Dir / 2;
-	image_xscale = Dir;
+	Angle = (Angle + 4 * image_xscale) mod 360;
+	PosX += image_xscale / 2;
 	
 	x = floor(PosX);
 	y = floor(PosY);

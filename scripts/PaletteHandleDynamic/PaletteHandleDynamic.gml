@@ -79,5 +79,5 @@ function PaletteHandleDynamic()
 		break;
 	}
 	
-	show_debug_message(string(PaletteAnimation[PaletteSurface, 0]));
+	//show_debug_message(string(PaletteAnimation[PaletteSurface, 0]));
 }

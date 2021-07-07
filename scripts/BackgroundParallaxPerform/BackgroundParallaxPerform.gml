@@ -23,7 +23,7 @@ function BackgroundParallaxPerform()
 		var Bottom		  = BackgroundValues[i][7];
 		var InclineHeight = BackgroundValues[i][8];
 		var InclineForce  = BackgroundValues[i][9];
-		var	YIncline	  = BackgroundValues[i][10];
+		var	YScaleMode	  = BackgroundValues[i][10];
 		var Width		  = BackgroundValues[i][11];
 		var Texel         = BackgroundValues[i][12];
 		
@@ -39,7 +39,11 @@ function BackgroundParallaxPerform()
 			var DrawY = PosY + Top;
 		}
 		var Height = Bottom - Top + 1;
-		var Yscale = YIncline ? clamp((Stage.WaterLevel - DrawY) / Height, -1, 1) : 1;
+		var Yscale = YScaleMode ? (Stage.WaterLevel - DrawY) / Height : 1;
+		if YScaleMode == 2 
+		{
+			Yscale = clamp(Yscale, -1, 1);
+		}
 
 		// Set shader uniforms
 		shader_set_uniform_f(Shader.Prlx_Ofst, DrawX * ScrollX - OffsetX);
@@ -56,7 +60,7 @@ function BackgroundParallaxPerform()
 		}
 	
 		// Render sprite
-		if YIncline
+		if YScaleMode
 		{
 			draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY, 1, Yscale, c_white, 1);
 		}

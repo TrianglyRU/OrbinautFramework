@@ -13,7 +13,6 @@
 		with Orb[i] object_set_depth(ThisBadnik, true);
 	}
 	
-	Dir = image_xscale
 	Angle = 0;
 	PosX = x;
 	PosY = y;
