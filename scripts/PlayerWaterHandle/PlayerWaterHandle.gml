@@ -31,11 +31,16 @@ function PlayerWaterHandle()
 		// Decrease timer
 		if AirTimer > 0
 		{
+			if Stage.Time mod 60 == 0
+			{
+				instance_create(floor(PosX), floor(PosY), Bubble);
+			}
+			
 			if !Stage.IsFinished
 			{
 				// Decrease timer
 				AirTimer--
-			
+				
 				// Play alerts
 				if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
 				{

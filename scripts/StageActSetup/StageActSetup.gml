@@ -14,8 +14,8 @@ function StageActSetup()
 			CardEnabled				= true;
 			TimeEnabled				= false;
 			
-			WaterEnabled            = false;
-			WaterLevel				= 1592;
+			WaterEnabled            = true;
+			WaterLevel				= 1568;
 
 			StageMusic				= StarryNight;
 			StageMusicDAC			= noone;
@@ -24,7 +24,7 @@ function StageActSetup()
 			LeftBoundary			= 0;
 			TopBoundary				= 0;
 			RightBoundary			= room_width;
-			//BottomBoundary			= 1728;
+			//BottomBoundary	    = 1728;
 			BottomBoundary			= room_height;
 		}
 		break;

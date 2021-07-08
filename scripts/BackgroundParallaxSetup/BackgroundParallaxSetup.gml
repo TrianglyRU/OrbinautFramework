@@ -32,7 +32,7 @@ function BackgroundParallaxSetup()
 			BackgroundValues[8] = [0, 0, 0.24, 0.068, 0, 0, 311, 382, 0, 0, 0];
 			
 			// tex_mqz_bg03
-			BackgroundValues[9] = [0, 0, 0.2, 0.068, 0, 0, 216, 328, 1, 0.4, 1];
+			BackgroundValues[9] = [0, 0, 0.2, 0.068, 0, 0, 216, 328, 1, 0.35, 1];
 		}
 		break;
 		default: 

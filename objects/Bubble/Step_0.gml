@@ -14,3 +14,8 @@
 	// Update position
 	PosX  = OriginPosX + Stage.WobbleData[WobbleOffset];	
 	PosY += Ysp;
+	
+	if floor(PosY) < Stage.WaterLevel
+	{
+		instance_destroy();
+	}

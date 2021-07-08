@@ -9,6 +9,9 @@ function PlayerPowerupHandle()
 	// Handle highspeed bonus
 	if HighSpeedBonus
 	{	
+		// Decrease timer
+		HighSpeedBonus--;
+		
 		// Restore normal physics when bonus has ended 
 		if !HighSpeedBonus
 		{
@@ -16,10 +19,7 @@ function PlayerPowerupHandle()
 			{
 				audio_bgm_stop(TypePriority, 1);
 			}
-		}
-		
-		// Decrease timer
-		HighSpeedBonus--;
+		}	
 	}
 	
 	// Handle invincibility bonus
@@ -45,6 +45,8 @@ function PlayerPowerupHandle()
 			}
 		}
 		
+		InvincibilityBonus--;
+		
 		if !InvincibilityBonus
 		{
 			if !HighSpeedBonus
@@ -52,10 +54,6 @@ function PlayerPowerupHandle()
 				audio_bgm_stop(TypePriority, 1);
 			}
 			instance_destroy(InvincibilityStar);
-		}
-		else
-		{
-			InvincibilityBonus--;
 		}
 	}
 	

@@ -104,4 +104,18 @@ function GameAudioJingleHandle()
 		Game.JingleTrack[TrackEventTime] = 0;
 		Game.JingleTrack[TrackEvent]     = EventIdle;
 	}
+	
+	// Automatic behaviour
+	if Track and Event != EventMute and Event != EventStop
+	{
+		audio_bgm_mute(TypeNormal,   0);
+		audio_bgm_mute(TypePriority, 0);
+	}
+	else if Game.PriorityTrack[TrackEvent] == EventMute
+	{
+		if !audio_is_playing(Drowning)
+		{
+			audio_bgm_unmute(TypePriority, 1);
+		}
+	}
 }

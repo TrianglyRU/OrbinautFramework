@@ -104,7 +104,16 @@ function ScreenDebugScreenDisplay()
 				+ "\n   OVERVIEW DELAY TIMER: " + string(OverviewDelay)
 				+ "\n   OVERVIEW SHIFT: " + string(OverviewOffset)
 				+ "\n   EXTENDED VIEW SHIFT: " + string(ExtendedOffset)
-				+ "\n   SPIN OFFSET: " + string(SpinOffset),	
+				+ "\n   SPIN OFFSET: " + string(SpinOffset)
+				+ "\n"
+				+ "\n              * AUDIO *"
+				+ "\n"
+				+ "\n   NORMAL ACTIVE: " + string(Game.NormalTrack[TrackID])
+				+ "\n   NORMAL EVENT: " + string(Game.NormalTrack[TrackEvent])
+				+ "\n   PRIORITY ACTIVE: " + string(Game.PriorityTrack[TrackID])
+				+ "\n   PRIORITY EVENT: " + string(Game.PriorityTrack[TrackEvent])
+				+ "\n   JINGLE ACTIVE: " + string(Game.JingleTrack[TrackID])
+				+ "\n   JINGLE EVENT: " + string(Game.JingleTrack[TrackEvent]),
 		8, 0.28);
 	}
 }
