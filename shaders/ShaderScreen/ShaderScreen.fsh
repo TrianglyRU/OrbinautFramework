@@ -23,6 +23,8 @@
 	uniform float u_step;
 	uniform bool u_mode;
 	uniform int u_color;
+	
+	float Mixed;
 
 	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[64]) 
 	{
@@ -69,7 +71,6 @@
 		////////////////////
 		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
 		DoAlphaTest(col);
-		
 		if ((u_water != 0.) && (u_water >= u_scrnHeight - v_vPosition.y))
 		{
 			col = findAltColor(col, u_wetUvs, u_wetPixelSize, u_wetPalTex, u_wetPalId);
@@ -78,6 +79,14 @@
 		{
 			col = findAltColor(col, u_dryUvs, u_dryPixelSize, u_dryPalTex, u_dryPalId);
 		}
+		/*
+		col = findAltColor(col, u_dryUvs, u_dryPixelSize, u_dryPalTex, u_dryPalId);
+		if ((u_water != 0.) && (u_water >= u_scrnHeight - v_vPosition.y))
+		{
+			float Mixed = (col.r + col.g + col.b) / 3.;
+			col.rgb = mix(col.rgb, vec3(Mixed, Mixed / 1.5, Mixed / 2.), .5);
+		}
+		*/
 		#endregion
 	
 		#region Fade

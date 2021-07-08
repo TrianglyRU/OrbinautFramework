@@ -33,10 +33,33 @@ function BackgroundParallaxPerform()
 		var DrawY = floor(Screen.CameraY * (1 - ScrollY)) + Top + PosY;
 
 		var Height = Bottom - Top + 1;
-		var Yscale = YScaleMode ? (Stage.WaterLevel - DrawY) / Height : 1;
-		if  YScaleMode == 2 
+		if YScaleMode
 		{
-			Yscale = clamp(Yscale, -1, 1);
+			var Yscale = (Stage.WaterLevel - DrawY) / Height;
+			if YScaleMode > 1
+			{
+				var Min, Max;
+				switch YScaleMode
+				{
+					case 2: 
+						Min = -1; 
+						Max =  1; 
+					break;
+					case 3: 
+						Min = (Screen.CameraY - DrawY) / Height;
+						Max = (Screen.CameraY + Screen.Height - DrawY) / Height;
+					break;
+					case 4: 
+						Min = min(-1, (Screen.CameraY - DrawY) / Height);
+						Max = max( 1, (Screen.CameraY + Screen.Height - DrawY) / Height);
+					break;
+				}
+				Yscale = clamp(Yscale, Min, Max);
+			}
+		}
+		else 
+		{
+			Yscale = 1;
 		}
 
 		// Set shader uniforms

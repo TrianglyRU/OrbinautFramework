@@ -32,7 +32,7 @@
     "spriteId": {"name":"spr_obj_slopedplatform_mqz","path":"sprites/spr_obj_slopedplatform_mqz/spr_obj_slopedplatform_mqz.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

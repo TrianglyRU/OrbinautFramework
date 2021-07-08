@@ -1,10 +1,18 @@
 function BackgroundParallaxSetup()
 {
-	// Setup example
-	/* 
+	/* Setup example
+	
 	BackgroundSprites = [bg_sprite, ...];
 	BackgroundValues[0] = [PosX, PosY, ScrollX, ScrollY, OffsetX, OffsetY, RenderTop, RenderBottom, XScaleHeight, XScaleForce, YScaleMode]; 
 	...
+	*/
+	
+	/* YScaleMode
+		0 - Off
+		1 - Unlimited (Clickteam)
+		2 - Limited (Classic)
+		3 - Adaptive limit
+		4 - Smart limit (Recomended)
 	*/
 		
 	// Setup parallax
@@ -32,7 +40,7 @@ function BackgroundParallaxSetup()
 			BackgroundValues[8] = [0, 0, 0.24, 0.068, 0, 0, 311, 382, 0, 0, 0];
 			
 			// tex_mqz_bg03
-			BackgroundValues[9] = [0, 0, 0.2, 0.068, 0, 0, 216, 328, 1, 0.35, 1];
+			BackgroundValues[9] = [0, 0, 0.2, 0.068, 0, 0, 216, 328, 1, 0.35, 4];
 		}
 		break;
 		default: 
