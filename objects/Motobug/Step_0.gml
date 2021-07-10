@@ -12,22 +12,13 @@
 		{
 			Xsp  =  1;
 			Dir *= -1;
+			
+			// Set xscale to Motobug direction
+			image_xscale = Dir;
 		}
 	}
 	
-	// Check if Motobug is facing left
-	if Dir == DirLeft
-	{
-		// Move to the left
-		x -= Xsp;
-	}
-	
-	// Check if Motobug is facing right
-	else if Dir == DirRight
-	{
-		// Move to the right
-		x += Xsp;
-	}
+	x += Xsp * Dir;
 	
 	// Check if Motobug's speed is 0
 	if Xsp != 0
@@ -41,10 +32,7 @@
 			Xsp       = 0;
 		}
 	}
-	
-	// Set xscale to Motobug direction
-	image_xscale = Dir;
-	
+
 	// Check for hitbox overlap
 	if object_player_overlap(CollisionHitbox)
 	{
