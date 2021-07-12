@@ -16,6 +16,8 @@
 			
 			// Set xscale to Crabmeat direction
 			image_xscale = Dir;
+			
+			Reset = false;
 		}
 	}
 	
@@ -34,6 +36,30 @@
 		}
 	}
 	
+	if x < Screen.CameraX or x > Screen.CameraX + Screen.Width 
+	or y < Screen.CameraY or y > Screen.CameraY + Screen.Height 
+	{ 
+		Reset = true;
+	}
+	
+	if StopTimer == 60 and !Reset 
+	{
+		sprite_index = spr_badnik_crabmeat_fire;
+		var i = 1;
+		repeat(2)
+		{
+			var Bullet = instance_create_depth(x + 16 * i, y, depth, BadnikBullet)
+			with Bullet 
+			{
+				Xsp = i;      
+				Ysp = -4; 
+				Grv = 0.21875;
+				sprite_index = spr_badnik_bullet2;
+			}
+			i = -1;
+		}
+	}
+
 	// Check for hitbox overlap
 	if object_player_overlap(CollisionHitbox)
 	{

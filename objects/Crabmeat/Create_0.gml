@@ -8,3 +8,5 @@
 	Dir       = image_xscale;
 	Xsp       = 0.5;
 	StopTimer = 0;
+	Reset	  = false;
+	sprite_index = spr_badnik_crabmeat_move;
