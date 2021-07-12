@@ -125,7 +125,7 @@ function GameMacro()
 	#macro SideRight		   2
 	#macro SideBottom		   3
 	#macro SideCentre		   4
-	#macro SideCenter		   4	// >:(
+	#macro SideCenter		   4
 	#macro CollisionHitbox     0
 	#macro CollisionTriggerbox 1
 	#macro RangeFloor	       0

@@ -3,10 +3,9 @@ function StageActSetup()
 	// Setup stage properties
 	switch room 
 	{	
-		// Moonlight Quadrant 1
-		case MQZ1:
+		case MQZ0:
 		{
-			ZoneName			    = "MOONLIGHT QUADRANT";		
+			ZoneName			    = "MOONLIGHT QUADRANT";
 			ZoneID					= 0;
 			ActID					= 0;
 			FinalActID			    = 1;
@@ -15,10 +14,33 @@ function StageActSetup()
 			TimeEnabled				= false;
 			
 			WaterEnabled            = true;
+			WaterLevel				= 2240;
+
+			StageMusic				= StarryNight;
+			StageMusicLooppoint		= 0;
+			
+			LeftBoundary			= 0;
+			TopBoundary				= 0;
+			RightBoundary			= room_width;
+			BottomBoundary			= room_height;
+		}
+		break;
+		
+		// Moonlight Quadrant 1
+		case MQZ1:
+		{
+			ZoneName			    = "MOONLIGHT QUADRANT";		
+			ZoneID					= 0;
+			ActID					= 1;
+			FinalActID			    = 2;
+			
+			CardEnabled				= true;
+			TimeEnabled				= false;
+			
+			WaterEnabled            = true;
 			WaterLevel				= 1568;
 
 			StageMusic				= StarryNight;
-			StageMusicDAC			= noone;
 			StageMusicLooppoint		= 0;
 			
 			LeftBoundary			= 0;
@@ -34,8 +56,8 @@ function StageActSetup()
 		{
 			ZoneName			    = "MOONLIGHT QUADRANT";
 			ZoneID					= 0;
-			ActID					= 1;
-			FinalActID			    = 1;
+			ActID					= 2;
+			FinalActID			    = 2;
 			
 			CardEnabled				= true;
 			TimeEnabled				= false;
@@ -44,7 +66,6 @@ function StageActSetup()
 			WaterLevel				= 0;
 
 			StageMusic				= MoonlightQuadrant;
-			StageMusicDAC			= noone;
 			StageMusicLooppoint		= 0;
 			
 			LeftBoundary			= 0;
@@ -69,7 +90,6 @@ function StageActSetup()
 			WaterLevel				= 0;
 
 			StageMusic				= noone;
-			StageMusicDAC			= noone;
 			StageMusicLooppoint		= 0;
 			
 			LeftBoundary			= 0;

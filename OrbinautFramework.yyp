@@ -432,6 +432,7 @@
     {"id":{"name":"PlayerAnimate","path":"scripts/PlayerAnimate/PlayerAnimate.yy",},"order":1,},
     {"id":{"name":"PlayerSlopeResistRoll","path":"scripts/PlayerSlopeResistRoll/PlayerSlopeResistRoll.yy",},"order":36,},
     {"id":{"name":"sfxDrowning","path":"sounds/sfxDrowning/sfxDrowning.yy",},"order":27,},
+    {"id":{"name":"angle_hex_to_degree","path":"scripts/angle_hex_to_degree/angle_hex_to_degree.yy",},"order":44,},
     {"id":{"name":"spr_hud_time","path":"sprites/spr_hud_time/spr_hud_time.yy",},"order":5,},
     {"id":{"name":"tex_mqz_dec09","path":"sprites/tex_mqz_dec09/tex_mqz_dec09.yy",},"order":13,},
     {"id":{"name":"ObjBarrierMain","path":"scripts/ObjBarrierMain/ObjBarrierMain.yy",},"order":2,},

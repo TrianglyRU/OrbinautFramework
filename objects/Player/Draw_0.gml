@@ -1,4 +1,4 @@
-/// @description Render
+/// @description Animate & Display
 // You can write your code in this editor
 	
 	// Display objects when in debug mode
@@ -6,9 +6,6 @@
 	
 	// Check if we should run the code below
 	if !PlayerCheckProceed() exit;
-	
-	// Record player position
-	PlayerRecordPosition();
 	
 	// Animate character
 	PlayerAnimate();

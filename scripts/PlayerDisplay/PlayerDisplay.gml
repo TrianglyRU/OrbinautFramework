@@ -14,19 +14,19 @@ function PlayerDisplay()
 				if Grounded
 				{
 					// If in correct floor angle range, apply it to visual angle
-					if Angle >= 25.5 and Angle <= 334.5
+					if Angle >= 23 and Angle <= 338
 					{
 						// Start rotate on the right side
-						var StartRotationRight = min(VisualAngle mod 360 + 5.625, Angle)
+						var StartRotationRight = min(VisualAngle mod 360 + 5.625, Angle + Xsp)
 																							 
 						// Rotation on the right side
-						var RotationRight = min(VisualAngle mod 360 + Inertia, Angle);
+						var RotationRight = min(VisualAngle mod 360 + Inertia, Angle + Xsp);
 						
 						// Start rotate on the left side
-						var StartRotationLeft = max(Angle, VisualAngle - 5.625);
+						var StartRotationLeft = max(Angle + Xsp, VisualAngle - 5.625);
 						
 						// Rotation on the left side
-						var RotationLeft = max(Angle, VisualAngle + Inertia);
+						var RotationLeft = max(Angle + Xsp, VisualAngle + Inertia);
 						
 						// Do rotation
 						VisualAngle = Angle <= 180 ? clamp(max(StartRotationRight, RotationRight), 0,   180)
@@ -53,14 +53,14 @@ function PlayerDisplay()
 			// If smooth rotation is disabled, use this table for visual angle
 			else 
 			{	
-				if (Angle > 334.5 or Angle < 25.5)  VisualAngle = 360;
-				if (Angle > 25.5 and Angle < 75)	VisualAngle =  45; 
-				if (Angle > 75   and Angle < 105)	VisualAngle =  90; 
-				if (Angle > 105  and Angle < 155)   VisualAngle = 135; 
-				if (Angle > 155  and Angle < 205)   VisualAngle = 180; 
-				if (Angle > 205  and Angle < 255)   VisualAngle = 225; 
-				if (Angle > 255  and Angle < 285)   VisualAngle = 270; 
-				if (Angle > 285  and Angle < 334.5) VisualAngle = 305;
+				if (Angle <= 339  or Angle >= 22)  VisualAngle = 360;
+				if (Angle >= 23  and Angle <= 68)  VisualAngle =  45; 
+				if (Angle >= 69  and Angle <= 112) VisualAngle =  90; 
+				if (Angle >= 113 and Angle <= 158) VisualAngle = 135; 
+				if (Angle >= 159 and Angle <= 202) VisualAngle = 180; 
+				if (Angle >= 203 and Angle <= 248) VisualAngle = 225; 
+				if (Angle >= 249 and Angle <= 292) VisualAngle = 270; 
+				if (Angle >= 293 and Angle <= 338) VisualAngle = 305;
 			}
 		}
 		break;

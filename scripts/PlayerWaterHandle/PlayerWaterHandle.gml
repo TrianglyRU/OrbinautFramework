@@ -10,19 +10,27 @@ function PlayerWaterHandle()
 	if !isUnderwater
 	{
 		// Check for falling into the water
-		if Stage.WaterEnabled and PosY > Stage.WaterLevel
+		if Stage.WaterEnabled
 		{
-			Xsp			*= 0.5;
-			Ysp			*= 0.25;
-			isUnderwater = true;
-			
-			// Player can spend underwater for 30 seconds
-			AirTimer = 1800;
-			
-			if !Grounded
+			if Ysp == 0 and abs(Inertia) > 2.5 and floor(PosY + yRadius + 1) == Stage.WaterLevel
 			{
-				instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
-				audio_sfx_play(sfxWaterSplash, false);
+				Grounded = true;
+				PosY     = Stage.WaterLevel - yRadius - 1;
+			}
+			if floor(PosY) > Stage.WaterLevel
+			{
+				Xsp			*= 0.5;
+				Ysp			*= 0.25;
+				isUnderwater = true;
+			
+				// Player can spend underwater for 30 seconds
+				AirTimer = 1800;
+			
+				if !Grounded
+				{
+					instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+					audio_sfx_play(sfxWaterSplash, false);
+				}
 			}
 		}
 	}
@@ -109,9 +117,10 @@ function PlayerWaterHandle()
 				audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
 			}
 			
-			if !Hurt and Animation != AnimSpring
+			if !Hurt
 			{
-				Ysp	*= 2;
+				// Double (and limit) ysp
+				Ysp = max(Ysp * 2, -16);
 			}
 			isUnderwater = false;
 			

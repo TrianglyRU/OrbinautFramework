@@ -7,29 +7,25 @@ function PlayerAnglePos()
 	}
 	
 	// Update floor angle quadrant
-	if Angle >= 0 and Angle < 46 or Angle > 314 and Angle <= 360	
+	if Angle <= 45 or Angle >= 315
 	{
-		// 0.0 ~ 45.9 | 360.0 ~ 315.9
-		AngleQuadFloor = RangeFloor;
+		var AngleRange = RangeFloor;
 	}
-	else if Angle >= 46 and Angle < 135			
+	else if Angle >= 46 and Angle <= 134			
 	{
-		// 46.0 ~ 134.9
-		AngleQuadFloor = RangeRWall;
+		var AngleRange = RangeRWall;
 	}
-	else if Angle >= 135 and Angle < 226		
+	else if Angle >= 135 and Angle <= 225		
 	{
-		// 135.0 ~ 225.9
-		AngleQuadFloor = RangeRoof;
+		var AngleRange = RangeRoof;
 	}
 	else if Angle >= 226 and Angle <= 314		
 	{
-		// 226.0 ~ 314.0
-		AngleQuadFloor = RangeLWall;
+		var AngleRange = RangeLWall;
 	}
-
+	
 	// Collide with one of four floor sides based on floor angle range
-	switch AngleQuadFloor
+	switch AngleRange
 	{
 		case RangeFloor:
 		{		

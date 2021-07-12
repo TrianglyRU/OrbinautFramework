@@ -14,6 +14,7 @@ function ObjSpringVerticalScript()
 		Player.Grounded      = false;
 		Player.OnObject      = false;
 		Player.Jumping       = false;
+		Player.Rolling		 = false;
 		Player.FlyingState   = false;
 		Player.GlidingState  = false;
 		Player.ClimbingState = false;

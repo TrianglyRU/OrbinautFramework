@@ -20,6 +20,7 @@ function object_player_touch(collisionSide)
 	var objectLeft   = floor(x - objXRadiusSolid);
 	var objectRight  = floor(x + objXRadiusSolid - 1);
 	var objectBottom = floor(y + objYRadiusSolid);
+	var objectID	 = id;
 	
 	// Get player position and size
 	var playerX      = floor(Player.PosX);
@@ -36,7 +37,7 @@ function object_player_touch(collisionSide)
 	var objTouchedBottom = false;
 	
 	// Return true if we're checking for SideTop and player is standing on the object
-	if collisionSide == SideTop and Player.OnObject == id
+	if collisionSide == SideTop and Player.OnObject == objectID
 	{
 		return true;
 	}
@@ -56,7 +57,7 @@ function object_player_touch(collisionSide)
 		if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
 		{
 			// Check bottom touch
-			if playerY > objectY and playerTop < objectBottom
+			if playerY > objectY and playerTop < objectBottom and Player.Ysp <= 0
 			{	
 				objTouchedBottom = true;
 			}
@@ -72,13 +73,13 @@ function object_player_touch(collisionSide)
 		else
 		{
 			// Check right touch
-			if playerX > x
+			if playerX > objectX and Player.Xsp >= 0
 			{
 				objTouchedRight = true;	
 			}
 				
 			// Check left touch
-			if playerX < x
+			if playerX < objectX and Player.Xsp <= 0
 			{	
 				objTouchedLeft = true;
 			}		

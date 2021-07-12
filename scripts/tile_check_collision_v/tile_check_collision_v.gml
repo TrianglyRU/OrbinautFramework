@@ -93,12 +93,15 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 	else
 	{
+		// Make a check if tile is flipped
+		var TileFlipped = tile_get_flip(ResultTile);
+		
 		// Force cardinal angles for flipped tiles based on check direction
-		if toPositive and tile_get_flip(ResultTile)
+		if toPositive and TileFlipped
 		{
 			var TileAngle = 360;
 		}
-		else if !toPositive and !tile_get_flip(ResultTile)
+		else if !toPositive and !TileFlipped
 		{
 			var TileAngle = 180;
 		}
@@ -109,8 +112,8 @@ function tile_check_collision_v(startX, startY, toPositive, ignoreSolidTop, tile
 			// Get regular angle value
 			var TileAngle = tile_get_angle(ResultTileIndex);
 			
-			// Check if tile is flipped
-			if tile_get_flip(ResultTile)
+			// Mirror the angle for flipped tile
+			if TileFlipped
 			{
 				TileAngle = (540 - TileAngle) mod 360;
 			}

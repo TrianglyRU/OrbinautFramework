@@ -70,7 +70,7 @@ function GameLoadSettings()
 					// Load anglemap
 					case "anglemap.bin": 
 					{	
-						Game.AngleValueOf[i] = i < Size ? (256 - file_bin_read_byte(File)) * 360 / 256 : 0;
+						Game.AngleValueOf[i] = i < Size ? round((256 - file_bin_read_byte(File)) * 360 / 256) : 0;
 					}
 					break;
 					

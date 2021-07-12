@@ -7,25 +7,25 @@ function PlayerHitWalls()
 	}
 	
 	// Update wall angle quadrant
-	if Angle >= 0 and Angle < 45 or Angle > 315 and Angle <= 360	
+	if Angle <= 45 or Angle >= 314			
 	{
-		// 0.0 ~ 44.9 | 360.0 ~ 314.9
-		AngleQuadWall = RangeFloor;
+		// Hex: Angle >= 224 or Angle <= 31
+		var AngleRange = RangeFloor;
 	}
-	else if Angle >= 45 and Angle < 136			
+	else if Angle >= 46 and Angle <= 135	
 	{
-		// 45.0 ~ 135.9
-		AngleQuadWall = RangeRWall;
+		// Hex: Angle <= 223 and Angle >= 160
+		var AngleRange = RangeRWall;
 	}
-	else if Angle >= 136 and Angle < 225		
+	else if Angle >= 136 and Angle <= 225	
 	{
-		// 136.0 ~ 224.9
-		AngleQuadWall = RangeRoof;
+		// Hex: Angle <= 159 and Angle >= 96
+		var AngleRange = RangeRoof;
 	}
-	else if Angle >= 225 and Angle <= 315		
+	else if Angle >= 226 and Angle <= 315	
 	{
-		// 225.0 ~ 315.0
-		AngleQuadWall = RangeLWall;
+		// Hex: Angle <= 95 and Angle >= 32
+		var AngleRange = RangeLWall;
 	}
 	
 	// Left wall collision
@@ -34,7 +34,7 @@ function PlayerHitWalls()
 		if Inertia < 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch AngleQuadWall
+			switch AngleRange
 			{
 				case RangeFloor:
 				{	
@@ -109,7 +109,7 @@ function PlayerHitWalls()
 		if Inertia > 0
 		{
 			// Collide with walls based on current angle range, frame ahead
-			switch AngleQuadWall
+			switch AngleRange
 			{
 				case RangeFloor:
 				{	

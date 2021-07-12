@@ -334,7 +334,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							
 						// Set speed and angle
 						Inertia  = Xsp;
-						Angle    = 360;		
+						Angle    = 0;		
 						Ysp      = 0;
 		
 						// Sonic's dropdash

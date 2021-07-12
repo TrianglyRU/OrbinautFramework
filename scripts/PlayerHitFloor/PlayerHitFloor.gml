@@ -48,15 +48,14 @@ function PlayerHitFloor()
 			if abs(Xsp) < abs(Ysp)
 			{
 				// Use vertical speed on steep angles
-				if floorAngle > 45 and floorAngle < 315
+				if floorAngle >= 46 and floorAngle <= 315
 				{
-					if (Ysp > 16) Ysp = 16;
-					Xsp		= 0;
+					Xsp = 0;
 					Inertia = floorAngle < 180 ? -Ysp : Ysp;
 				}
 		
 				// Use halved vertical speed on shallow angles
-				else if floorAngle > 22.5 and floorAngle < 337.5
+				else if floorAngle >= 23 and floorAngle <= 338
 				{
 					Inertia = floorAngle <= 180 ? -Ysp / 2 : Ysp / 2;
 				}

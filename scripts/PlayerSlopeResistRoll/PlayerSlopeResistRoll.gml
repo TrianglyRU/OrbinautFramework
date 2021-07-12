@@ -9,7 +9,7 @@ function PlayerSlopeResistRoll()
 	{
 		SlopeGravity = 0.3125;
 	}
-	
+
 	// Update inertia
 	Inertia -= SlopeGravity * dsin(Angle);
 }

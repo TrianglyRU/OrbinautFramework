@@ -1,6 +1,6 @@
 function PlayerVariables()
 {
-	ForceAngle isVar;
+	HexAngle isVar;
 	
 	Acc					 isVar;
 	Dec					 isVar;

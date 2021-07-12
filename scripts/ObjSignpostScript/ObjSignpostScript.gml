@@ -18,8 +18,7 @@ function ObjSignpostScript()
 		{
 			if Player.SuperState
 			{
-				Player.SuperState      = false;
-				Player.SuperStateValue = 1;
+				Player.SuperState = false;
 			}
 			Active		      = true;
 			Stage.IsFinished  = true;

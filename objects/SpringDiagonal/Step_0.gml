@@ -8,10 +8,9 @@
 		exit;
 	}
 	
-	if object_player_touch(SideTop)
+	if object_player_touch(LaunchSide)
 	{
-		if image_xscale == 1  and floor(Player.PosX + 4) >= floor(x)
-		or image_xscale == -1 and floor(Player.PosX - 4) <= floor(x)
+		if (floor(Player.PosX + 4 * image_xscale) - floor(x)) * image_xscale >= 0
 		{
 			// Reset flags
 			Player.Grounded      = false;
@@ -25,6 +24,9 @@
 		
 			// Set 'spring up' or 'walk' animation
 			Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;
+			
+			// Reset visual angle
+			Player.VisualAngle = 360;
 		
 			// Launch upwards or downwards
 			Player.Ysp = -LaunchForce * image_yscale;
@@ -43,4 +45,4 @@
 	}
 
 	// Act solid
-	object_act_solid(false, true, false, CollisionMap);
+	object_act_solid(false, true, true, CollisionMap);

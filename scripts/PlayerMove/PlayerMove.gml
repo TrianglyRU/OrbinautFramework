@@ -63,7 +63,7 @@ function PlayerMove()
 	// Check for start or stop skidding
 	if Skidding == false 
 	{
-		if AngleQuadWall == RangeFloor and MovementLock == false and abs(Inertia) > 4
+		if (Angle <= 45 or Angle >= 315) and MovementLock == false and abs(Inertia) >= 4
 		{
 			// Define skidding direction
 			if Inertia > 0 and Input.Left
@@ -85,7 +85,8 @@ function PlayerMove()
 	else
 	{
 		// Stop skidding
-		if (Inertia < 0 and Input.LeftPress) or (Inertia > 0 and Input.RightPress) or Inertia == 0 or sign(Skidding) != sign(Inertia)
+		if (Inertia < 0 and Input.LeftPress) or (Inertia > 0 and Input.RightPress) 
+		or Inertia == 0 or sign(Skidding) != sign(Inertia)
 		{
 			SkiddingTimer = 0;
 			Skidding	  = false;

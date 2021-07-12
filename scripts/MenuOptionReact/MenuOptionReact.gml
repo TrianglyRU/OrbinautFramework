@@ -118,6 +118,9 @@ function MenuOptionReact()
 			case 1:
 				room_goto(MQZ2);
 			break;
+			case 2:
+				room_goto(MQZ0);
+			break;
 		}
 	}
 }

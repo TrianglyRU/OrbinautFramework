@@ -93,12 +93,15 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 	}
 	else
 	{	
+		// Make a check if tile is mirrored
+		var TileMirrored = tile_get_mirror(ResultTile);
+		
 		// Force cardinal angles for mirrored tiles based on check direction
-		if toPositive and tile_get_mirror(ResultTile)
+		if toPositive and TileMirrored
 		{
 			var TileAngle = 90;
 		}
-		else if !toPositive and !tile_get_mirror(ResultTile)
+		else if !toPositive and !TileMirrored
 		{
 			var TileAngle = 270;
 		}
@@ -116,7 +119,7 @@ function tile_check_collision_h(startX, startY, toPositive, ignoreSolidTop, tile
 			}
 			
 			// Check if tile is mirrored and finally return its angle
-			TileAngle = tile_get_mirror(ResultTile) ? 360 - TileAngle : TileAngle;
+			TileAngle = TileMirrored ? 360 - TileAngle : TileAngle;
 		}
 	}
 	

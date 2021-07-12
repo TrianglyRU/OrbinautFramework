@@ -1,4 +1,4 @@
-/// @description Scripts
+/// @description Pre-Object Code
 // You can write your code in this editor
 
 	// Debug mode state
@@ -118,14 +118,28 @@
 		PlayerSlopeRepel();
 	}
 	
-	// Handle superstate events
-	PlayerSuperStateHandle();
 	
-	// Update invincibility and highspeed bonuses
-	PlayerPowerupHandle();
+	if keyboard_check(ord("P"))
+	{
+		HexAngle -= 1;
+	}
+	if keyboard_check(ord("O"))
+	{
+		HexAngle += 1;
+	}
+	if keyboard_check_pressed(ord("I"))
+	{
+		HexAngle -= 1;
+	}
+	if keyboard_check_pressed(ord("U"))
+	{
+		HexAngle += 1;
+	}
+	if (HexAngle < 1)   HexAngle = 256;
+	if (HexAngle > 256) HexAngle = 1;
 	
-	// Handle underwater events
-	PlayerWaterHandle();
+	var Deg = round((256 - HexAngle) * 360 / 256);
 	
-	// Handle player physics values
-	PlayerPhysicsHandle();
+	show_debug_message("Hex: " + string(HexAngle));
+	show_debug_message("Deg: " + string(Deg));
+	
