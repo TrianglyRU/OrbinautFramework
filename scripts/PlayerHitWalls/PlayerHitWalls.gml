@@ -7,22 +7,22 @@ function PlayerHitWalls()
 	}
 	
 	// Update wall angle quadrant
-	if Angle <= 45 or Angle >= 314			
+	if Angle <= 45 or Angle >= 316.41			
 	{
 		// Hex: Angle >= 224 or Angle <= 31
 		var AngleRange = RangeFloor;
 	}
-	else if Angle >= 46 and Angle <= 135	
+	else if Angle >= 46.41 and Angle <= 135	
 	{
 		// Hex: Angle <= 223 and Angle >= 160
 		var AngleRange = RangeRWall;
 	}
-	else if Angle >= 136 and Angle <= 225	
+	else if Angle >= 136.41 and Angle <= 225	
 	{
 		// Hex: Angle <= 159 and Angle >= 96
 		var AngleRange = RangeRoof;
 	}
-	else if Angle >= 226 and Angle <= 315	
+	else if Angle >= 226.41 and Angle <= 315	
 	{
 		// Hex: Angle <= 95 and Angle >= 32
 		var AngleRange = RangeLWall;

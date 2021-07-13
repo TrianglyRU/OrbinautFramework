@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_trigger_bosscontroller",
-    "path": "sprites/spr_obj_trigger_bosscontroller/spr_obj_trigger_bosscontroller.yy",
+    "name": "spr_group",
+    "path": "sprites/spr_group/spr_group.yy",
   },
   "solid": false,
   "visible": true,
@@ -20,7 +20,9 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {

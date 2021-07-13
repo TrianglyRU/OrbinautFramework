@@ -1,8 +1,8 @@
 function PlayerSlopeResist()
 {	
 	// Set slope gravity	
-	if !Game.StrongerSlopeGravity and (Angle >= 46 and Angle <= 315) 
-	or  Game.StrongerSlopeGravity and (Angle >= 35 and Angle <= 326)
+	if !Game.StrongerSlopeGravity and (Angle >= 46.41 and Angle <= 315) 
+	or  Game.StrongerSlopeGravity and (Angle >= 35.16 and Angle <= 326.25)
 	{
 		SlopeGravity = 0.125;				
 	} 

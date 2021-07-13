@@ -1,8 +1,8 @@
 function ObjBoundaryTriggerSetup()
 {
 	/* Variable Definitions	
-	1. BottomBoundary, default = room_height		
-	2. TopBoundary,    default = 0			
+	1. BottomBoundary, default = Stage.BottomBoundary	
+	2. TopBoundary,    default = Stage.TopBoundary		
 	*/
 	
 	// Set object triggerbox

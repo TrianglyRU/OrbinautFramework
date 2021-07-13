@@ -12,11 +12,11 @@ function PlayerWaterHandle()
 		// Check for falling into the water
 		if Stage.WaterEnabled
 		{
-			if Ysp == 0 and abs(Inertia) > 2.5 and floor(PosY + yRadius + 1) == Stage.WaterLevel
+			/*if Ysp == 0 and abs(Inertia) > 2.5 and floor(PosY + yRadius + 1) == Stage.WaterLevel
 			{
 				Grounded = true;
 				PosY     = Stage.WaterLevel - yRadius - 1;
-			}
+			}*/
 			if floor(PosY) > Stage.WaterLevel
 			{
 				Xsp			*= 0.5;

@@ -48,8 +48,8 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 		objectRight -= 1;
 	}
 	
-	// Check if player is standing on this object, and collide only with its top side
-	if object_player_stand(id)
+	// Check if player is standing on this object, collide only with its top side
+	if object_player_stand(objectID)
 	{	
 		// Check if collision map array is assigned and object is not flipped
 		if collisionMap != false and !objectFlipped

@@ -45,4 +45,4 @@
 	}
 
 	// Act solid
-	object_act_solid(false, true, true, CollisionMap);
+	object_act_solid(true, true, true, CollisionMap);

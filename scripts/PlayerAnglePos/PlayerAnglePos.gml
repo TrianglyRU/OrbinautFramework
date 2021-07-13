@@ -11,7 +11,7 @@ function PlayerAnglePos()
 	{
 		var AngleRange = RangeFloor;
 	}
-	else if Angle >= 46 and Angle <= 134			
+	else if Angle >= 46.41 and Angle <= 133.59		
 	{
 		var AngleRange = RangeRWall;
 	}
@@ -19,7 +19,7 @@ function PlayerAnglePos()
 	{
 		var AngleRange = RangeRoof;
 	}
-	else if Angle >= 226 and Angle <= 314		
+	else if Angle >= 226.41 and Angle <= 313.59		
 	{
 		var AngleRange = RangeLWall;
 	}

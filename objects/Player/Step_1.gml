@@ -138,7 +138,7 @@
 	if (HexAngle < 1)   HexAngle = 256;
 	if (HexAngle > 256) HexAngle = 1;
 	
-	var Deg = round((256 - HexAngle) * 360 / 256);
+	var Deg = (256 - HexAngle) * 360 / 256;
 	
 	show_debug_message("Hex: " + string(HexAngle));
 	show_debug_message("Deg: " + string(Deg));

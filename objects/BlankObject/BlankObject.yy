@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -17,12 +20,14 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "_Unsorted&Unfinished",
+    "path": "folders/Game Objects/_Unsorted&Unfinished.yy",
   },
   "resourceVersion": "1.0",
   "name": "BlankObject",

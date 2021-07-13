@@ -20,9 +20,9 @@ function StageActSetup()
 			StageMusicLooppoint		= 0;
 			
 			LeftBoundary			= 0;
-			TopBoundary				= 0;
+			TopBoundary				= 768;
 			RightBoundary			= room_width;
-			BottomBoundary			= room_height;
+			BottomBoundary			= room_height//1680;
 		}
 		break;
 		

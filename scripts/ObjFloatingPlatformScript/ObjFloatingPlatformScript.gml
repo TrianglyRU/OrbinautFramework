@@ -1,37 +1,37 @@
 function ObjFloatingPlatformScript()
 {	
 	// Check if platform has any movement pattern
-	if PlatformMovement != "None"
+	if MovementType != "None"
 	{
 		// Update rotation angle
-		Angle += PlatformSpeed;
+		Angle += Speed;
 	
 		// Update code position
-		switch PlatformMovement
+		switch MovementType
 		{
 			case "Horizontal":
 			{
-				var PosX = OriginX + dcos(Angle) * PlatformDistance;
+				var PosX = OriginX + dcos(Angle) * Distance;
 				var PosY = OriginY;
 			}
 			break;
 			case "Vertical":
 			{
 				var PosX = OriginX;
-				var PosY = OriginY + dsin(Angle) * PlatformDistance;
+				var PosY = OriginY + dsin(Angle) * Distance;
 			}
 			break;
 			case "Diagonal":
 			{
-				var xDir = PlatformSpeed ? 1 : -1;
-				var PosX = OriginX + dsin(Angle) * PlatformDistance * xDir;
-				var PosY = OriginY + dsin(Angle) * PlatformDistance;
+				var xDir = Speed ? 1 : -1;
+				var PosX = OriginX + dsin(Angle) * Distance * xDir;
+				var PosY = OriginY + dsin(Angle) * Distance;
 			}
 			break;
 			case "Circular":
 			{
-				var PosX = OriginX + dcos(Angle) * PlatformDistance;
-				var PosY = OriginY + dsin(Angle) * PlatformDistance;
+				var PosX = OriginX + dcos(Angle) * Distance;
+				var PosY = OriginY + dsin(Angle) * Distance;
 			}
 			break;
 		}
@@ -51,7 +51,7 @@ function ObjFloatingPlatformScript()
 		Weight += 0.25;
 		
 		// TODO: Finish this
-		if PlatformDoFall
+		if DoFall
 		{
 			if FallState = false
 			{

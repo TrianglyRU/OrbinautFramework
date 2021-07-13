@@ -14,7 +14,7 @@ function PlayerDisplay()
 				if Grounded
 				{
 					// If in correct floor angle range, apply it to visual angle
-					if Angle >= 23 and Angle <= 338
+					if Angle >= 23.91 and Angle <= 337.5
 					{
 						// Start rotate on the right side
 						var StartRotationRight = min(VisualAngle mod 360 + 5.625, Angle + Xsp)
@@ -53,14 +53,14 @@ function PlayerDisplay()
 			// If smooth rotation is disabled, use this table for visual angle
 			else 
 			{	
-				if (Angle <= 339  or Angle >= 22)  VisualAngle = 360;
-				if (Angle >= 23  and Angle <= 68)  VisualAngle =  45; 
-				if (Angle >= 69  and Angle <= 112) VisualAngle =  90; 
-				if (Angle >= 113 and Angle <= 158) VisualAngle = 135; 
-				if (Angle >= 159 and Angle <= 202) VisualAngle = 180; 
-				if (Angle >= 203 and Angle <= 248) VisualAngle = 225; 
-				if (Angle >= 249 and Angle <= 292) VisualAngle = 270; 
-				if (Angle >= 293 and Angle <= 338) VisualAngle = 305;
+				if (Angle >= 338.91 or  Angle <= 22.5)  VisualAngle = 360;
+				if (Angle >= 23.91  and Angle <= 67.5)  VisualAngle = 45; 
+				if (Angle >= 68.91  and Angle <= 112.5) VisualAngle = 90; 
+				if (Angle >= 113.91 and Angle <= 157.5) VisualAngle = 135; 
+				if (Angle >= 158.91 and Angle <= 202.5) VisualAngle = 180; 
+				if (Angle >= 203.91 and Angle <= 247.5) VisualAngle = 225; 
+				if (Angle >= 248.91 and Angle <= 292.5) VisualAngle = 270; 
+				if (Angle >= 293.91 and Angle <= 337.5) VisualAngle = 305;
 			}
 		}
 		break;

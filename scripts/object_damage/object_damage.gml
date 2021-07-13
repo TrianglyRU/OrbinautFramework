@@ -15,7 +15,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	Player.MovementLock  = false;
 	Player.Grounded	     = false;
 	Player.OnObject	     = false;
-	Player.Rolling		 = false;
 	Player.Jumping		 = false;
 	Player.FlyingState	 = false;
 	Player.GlidingState  = false;
@@ -25,7 +24,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	Player.DropdashRev   = -1;
 
 	// Check if player has no rings and barrier or should die instantly
-	if (!Player.Rings and !Player.BarrierType and !Game.DevMode) or instant_kill
+	if (!Player.Rings and !Player.BarrierType) or instant_kill
 	{
 		// Remove barrier if we died by instantKill function
 		Player.BarrierType = false;
@@ -64,7 +63,11 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	{	
 		// Set 'hurt' animation
 		Player.Animation = AnimHurt;
-				
+		
+		// Reset radiuses
+		Player.xRadius = Player.xRadiusDefault;
+		Player.yRadius = Player.yRadiusDefault;
+						
 		// Lose rings if we do not have active barrier
 		if !Player.BarrierType
 		{
