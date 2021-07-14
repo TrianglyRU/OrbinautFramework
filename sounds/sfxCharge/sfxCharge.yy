@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxCharge.ogg",
-  "duration": 1.838379,
+  "duration": 1.833379,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

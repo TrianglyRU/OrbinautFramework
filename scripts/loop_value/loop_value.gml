@@ -1,6 +1,7 @@
-/// @function loop_value(x,min,max)
-function loop_value(X, Min, Max)
+/// @function loop_value(value,min,resetlimit)
+function loop_value(value, min, resetlimit)
 {
-	X = (X - Min) % (Max - Min);
-	return (X >= 0 ? X : Max + X) + Min;
+	value = (value - min) % (resetlimit - min);
+	
+	return (value >= 0 ? value : resetlimit + value) + min;
 }

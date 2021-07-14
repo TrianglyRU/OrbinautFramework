@@ -1,5 +1,5 @@
 {
-  "compression": 0,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "InvincibilityMusic.ogg",
-  "duration": 20.005,
+  "duration": 20.0,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxSignPost.wav",
-  "duration": 1.809422,
+  "duration": 1.804422,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

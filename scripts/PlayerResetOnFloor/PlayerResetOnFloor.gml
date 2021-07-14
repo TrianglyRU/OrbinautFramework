@@ -75,6 +75,9 @@ function PlayerResetOnFloor()
 		FlyingState	= false;
 		FlyingTimer = 0;
 		
+		audio_sfx_stop(sfxFlying);
+		audio_sfx_stop(sfxTired);
+		
 		// Knuckles' climbing and gliding
 		if ClimbingState
 		{	

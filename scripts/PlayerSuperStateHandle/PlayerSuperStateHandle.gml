@@ -12,7 +12,7 @@ function PlayerSuperStateHandle()
 	// Transform
 	if !SuperState
 	{
-		if Jumping and Ysp <= 0 and !SuperStateValue and Input.ABCPress
+		if Jumping and Rings >= 50 and Ysp <= 0 and !SuperStateValue and Input.CPress
 		{
 			Jumping		    = false;
 			SuperState	    = true;

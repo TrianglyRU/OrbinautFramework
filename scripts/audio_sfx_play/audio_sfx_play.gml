@@ -1,12 +1,19 @@
 /// @function audio_sfx_play(soundid,doloop)
 function audio_sfx_play(soundid, doloop)
 {	
-	// Stop the sound if it is already playing
-	if audio_is_playing(soundid)
+	if !doloop
 	{
-		audio_stop_sound(soundid);
-	}	
-	
-	// Play the sound
-	audio_play_sound(soundid, 0, doloop);
+		if audio_is_playing(soundid)
+		{
+			audio_stop_sound(soundid);
+		}
+		audio_play_sound(soundid, 0, doloop);
+	}
+	else
+	{
+		if !audio_is_playing(soundid)
+		{
+			audio_play_sound(soundid, 0, doloop);
+		}
+	}
 }

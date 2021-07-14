@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxAirAlert.wav",
-  "duration": 0.757404,
+  "duration": 0.752404,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

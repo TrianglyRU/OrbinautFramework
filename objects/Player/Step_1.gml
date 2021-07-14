@@ -117,29 +117,3 @@
 		// Fall off the ceiling and walls
 		PlayerSlopeRepel();
 	}
-	
-	
-	if keyboard_check(ord("P"))
-	{
-		HexAngle -= 1;
-	}
-	if keyboard_check(ord("O"))
-	{
-		HexAngle += 1;
-	}
-	if keyboard_check_pressed(ord("I"))
-	{
-		HexAngle -= 1;
-	}
-	if keyboard_check_pressed(ord("U"))
-	{
-		HexAngle += 1;
-	}
-	if (HexAngle < 1)   HexAngle = 256;
-	if (HexAngle > 256) HexAngle = 1;
-	
-	var Deg = (256 - HexAngle) * 360 / 256;
-	
-	show_debug_message("Hex: " + string(HexAngle));
-	show_debug_message("Deg: " + string(Deg));
-	

@@ -26,6 +26,8 @@
 				}
 				else
 				{
+					audio_stop_all();
+					
 					if (PauseMode = 1) room_restart();
 					else room_goto(DevMenu);
 				}

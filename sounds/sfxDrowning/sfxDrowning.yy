@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxDrowning.wav",
-  "duration": 1.67066908,
+  "duration": 1.665669,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

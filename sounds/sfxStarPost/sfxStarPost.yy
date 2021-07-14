@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxStarPost.wav",
-  "duration": 0.47407,
+  "duration": 0.46907,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

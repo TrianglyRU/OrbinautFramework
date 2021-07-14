@@ -1,6 +1,6 @@
 {
-  "compression": 0,
-  "volume": 1.0,
+  "compression": 1,
+  "volume": 0.5,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "StarryNight.ogg",
-  "duration": 207.305,
+  "duration": 207.3,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

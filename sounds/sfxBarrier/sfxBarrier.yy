@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxBarrier.ogg",
-  "duration": 0.730646,
+  "duration": 0.725646,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

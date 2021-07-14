@@ -8,6 +8,9 @@
 	// Initialize framework settings
 	GameFrameworkSetup();
 	
+	// Load game settings and tile data
+	GameDataLoad();
+	
 	// Initialize audio
 	GameAudioLoad();
 	
@@ -16,9 +19,6 @@
 
 	// Initialize shaders
 	GameShadersSetup();
-	
+
 	// Initialize application window
 	GameWindowSetup();
-	
-	// Load game settings
-	GameLoadSettings();

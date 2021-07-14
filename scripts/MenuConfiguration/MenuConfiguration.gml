@@ -1,9 +1,11 @@
 function MenuConfiguration()
 {
 	// Main Menu
+	var StageAccess = Game.DevMode ? 3 : noone;
+	
 	menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n DEV MENU");
 	menu_add_option(0, 0, "GAME START",		  1);
-	menu_add_option(0, 1, "STAGE SELECT",     3);
+	menu_add_option(0, 1, "STAGE SELECT",     StageAccess);
 	menu_add_option(0, 2, "OPTIONS",	      5);
 	menu_add_option(0, 3, "EXIT GAME",    noone);
 
@@ -43,10 +45,10 @@ function MenuConfiguration()
 	
 	// Options
 	menu_add_header(5,    "GAME OPTIONS");
-	menu_add_option(5, 0, "GAMEPLAY", 6);
+	menu_add_option(5, 0, "GAMEPLAY", noone);
 	menu_add_option(5, 1, "VIDEO",    7);
 	menu_add_option(5, 2, "AUDIO",    8);
-	menu_add_option(5, 3, "CONTROLS", 9);
+	menu_add_option(5, 3, "CONTROLS", noone);
 	
 	// Options (gameplay)
 	/*
@@ -60,7 +62,11 @@ function MenuConfiguration()
 	menu_add_option(7, 1, "FULLSCREEN: "  + string(FullscreenStatus),	   noone);
 	
 	// Options (audio)
-	menu_add_header(7,    "AUDIO OPTIONS");
+	menu_add_header(8,    "AUDIO OPTIONS");
 	menu_add_option(8, 0, "SFX VOLUME: " + string(Game.SoundVolume * 100), noone);
 	menu_add_option(8, 1, "BGM VOLUME: " + string(Game.MusicVolume * 100), noone);
+	
+	// Options (controls)
+	/*
+	*/
 }

@@ -11,7 +11,7 @@
     "path": "audiogroups/GlobalSFX",
   },
   "soundFile": "sfxDestroy.ogg",
-  "duration": 0.454637,
+  "duration": 0.449637,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

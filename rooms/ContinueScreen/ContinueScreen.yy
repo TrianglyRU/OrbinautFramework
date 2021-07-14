@@ -39,8 +39,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Menu Rooms",
-    "path": "folders/Menu Rooms.yy",
+    "name": "Stages",
+    "path": "folders/Stages.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueScreen",

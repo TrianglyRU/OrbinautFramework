@@ -16,7 +16,7 @@ function ScreenDebugActivate()
 	if DebugToggle
 	{
 		// Draw position points
-		/*with all
+		with all
 		{
 			if object_index == Player
 			{
@@ -40,6 +40,6 @@ function ScreenDebugActivate()
 				draw_point_colour(floor(x),     floor(y + 1), c_white);
 				draw_point_colour(floor(x),     floor(y - 1), c_white);
 			}
-		}*/
+		}
 	}
 }

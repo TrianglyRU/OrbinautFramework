@@ -1,5 +1,5 @@
 {
-  "compression": 0,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "ActClear.ogg",
-  "duration": 6.162415,
+  "duration": 6.157415,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

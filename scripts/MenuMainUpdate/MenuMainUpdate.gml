@@ -10,13 +10,13 @@ function MenuMainUpdate()
 		OptionID--;
 	}
 	OptionID = loop_value(OptionID, 0, MenuSize[MenuID]);
-	
+
 	// React to key A or key Start
 	if (Input.APress or Input.StartPress) and MenuAction[MenuID][OptionID] != noone
 	{
 		// Get target menu
-		var ThisMenu = MenuID;
-		var NewMenu  = MenuAction[MenuID][OptionID];
+		var ThisMenu   = MenuID; 
+		var NewMenu    = MenuAction[MenuID][OptionID];
 		
 		// Save current menu
 		if NewMenu > ThisMenu

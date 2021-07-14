@@ -1,5 +1,5 @@
 {
-  "compression": 0,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "Boss.ogg",
-  "duration": 145.233414,
+  "duration": 145.228409,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

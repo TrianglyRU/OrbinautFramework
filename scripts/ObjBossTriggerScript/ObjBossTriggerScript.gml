@@ -1,16 +1,16 @@
 function ObjBossControllerScript()
 {
+	// Always setforce right boundary if object exist
+	Stage.TargetRightBoundary = x + max(Screen.Width / 2, ArenaWidth  / 2);
+	
 	// Check if player ran past the trigger
 	if !BossTriggered
 	{
 		if object_player_overlap(CollisionTriggerbox)
 		{
-			// Set boundaries
-			Stage.TargetLeftBoundary   = x - max(Screen.Width  / 2, ArenaWidth  / 2);
-			Stage.TargetRightBoundary  = x + max(Screen.Width  / 2, ArenaWidth  / 2);
-			Stage.TargetTopBoundary    = y - max(Screen.Height / 2, ArenaHeight / 2);
-			Stage.TargetBottomBoundary = y + max(Screen.Height / 2, ArenaHeight / 2);
-			
+			// Reserve current boundaries
+			ReservedTopBound    = Stage.TopBoundary;
+			ReservedBottomBound = Stage.BottomBoundary;
 			// Stop music and play boss theme
 			audio_bgm_stop(TypePriority, 0);
 			audio_bgm_play(Boss, noone, 0, TypeNormal); 
@@ -18,7 +18,9 @@ function ObjBossControllerScript()
 			// Spawn boss
 			switch room
 			{
+				case MQZ0:
 				case MQZ1:
+				case MQZ2:
 					instance_create(x, y - 184, Orboss);
 				break;
 				default: break;
@@ -31,15 +33,21 @@ function ObjBossControllerScript()
 	// Check if boss is active
 	else 
 	{
+		
 		instance_deactivate_object(Signpost);
 		instance_deactivate_object(Capsule);
+		
+		// Set boundaries
+		Stage.TargetLeftBoundary   = x - max(Screen.Width  / 2, ArenaWidth  / 2);
+		Stage.TargetTopBoundary    = y - max(Screen.Height / 2, ArenaHeight / 2);
+		Stage.TargetBottomBoundary = y + max(Screen.Height / 2, ArenaHeight / 2);
 		
 		// Check if the boss was defeated
 		if BossDefeated
 		{
 			// Reset right and top boundaries
-			Stage.TargetRightBoundary = room_width;
-			Stage.TargetTopBoundary	  = 0;
+			Stage.TargetBottomBoundary = ReservedBottomBound;
+			Stage.TargetTopBoundary	   = ReservedTopBound;
 		
 			// Play stage music
 			audio_bgm_play(Stage.StageMusic, noone, Stage.StageMusicLooppoint, TypeNormal);

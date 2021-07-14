@@ -1,5 +1,5 @@
 {
-  "compression": 0,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "Jingle1UP.ogg",
-  "duration": 3.921848,
+  "duration": 3.916848,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

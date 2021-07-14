@@ -327,7 +327,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						// Reset hurt state
 						if Hurt
 						{
-							IsInvincible = 120;
+							IsInvincible = 121;
 							Xsp			 = 0;
 							Hurt		 = false;			
 						}
@@ -378,6 +378,9 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						// Tails' flying
 						FlyingState	= false;
 						FlyingTimer = 0;
+						
+						audio_sfx_stop(sfxFlying);
+						audio_sfx_stop(sfxTired);
 							
 						// Knuckles gliding
 						if GlidingState != GlidingAir and GlidingState != GlidingTurn and GlidingState != GlidingGround

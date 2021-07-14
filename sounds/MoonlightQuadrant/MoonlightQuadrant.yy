@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "MoonlightQuadrant.ogg",
-  "duration": 277.005,
+  "duration": 277.0,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

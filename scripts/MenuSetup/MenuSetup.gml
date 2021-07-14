@@ -6,7 +6,6 @@ function MenuSetup()
 		MenuHeader[i] = "TEMPLATE HEADER";
 		
 		PreviousMenuID[i]   = 0;
-		PreviousOptionID[i] = 0;
 	}
 	
 	for (var i = 0; i < 4; i++)

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "HUD",
-    "path": "folders/Stages/Moonlight Quadrant/Textures/HUD.yy",
+    "path": "folders/HUD.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_card_ribbon",

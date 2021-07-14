@@ -36,6 +36,16 @@ function PlayerCheckFly()
 		// Check if timer is higher than zero
 		if FlyingTimer > 0
 		{
+			// Play sound
+			if !isUnderwater
+			{
+				audio_sfx_play(sfxFlying, true);
+			}
+			else
+			{
+				audio_sfx_stop(sfxFlying);
+			}
+			
 			// Decrease timer
 			FlyingTimer--;
 				
@@ -51,6 +61,9 @@ function PlayerCheckFly()
 			// Check fly cancel is enabled, and we pressed A, B or C while holding DOWN
 			if Game.FlyingCancel and Input.Down and Input.ABCPress
 			{
+				// Stop sound
+				audio_sfx_stop(sfxFlying);	
+				
 				// Use small collision radiuses
 				xRadius = xRadiusRoll;
 				yRadius = yRadiusRoll;
@@ -72,13 +85,29 @@ function PlayerCheckFly()
 		
 		// Check if timer ran out
 		else
-		{
+		{					
+			// Stop sound
+			audio_sfx_stop(sfxFlying);	
+			
 			// Set 'tired' animation
 			Animation = isUnderwater ? AnimSwimTired : AnimFlyTired;
 			
 			// Enter tired state
 			FlyingState = 2;
 			Grv		    = 0.03125;
+		}
+		
+		// Play tired sound
+		if !isUnderwater
+		{
+			if FlyingState == 2
+			{
+				audio_sfx_play(sfxTired, true);
+			}
+		}
+		else
+		{
+			audio_sfx_stop(sfxTired);
 		}
 	}
 }
