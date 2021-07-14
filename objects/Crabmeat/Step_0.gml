@@ -36,8 +36,8 @@
 		}
 	}
 	
-	if x < Screen.CameraX or x > Screen.CameraX + Screen.Width 
-	or y < Screen.CameraY or y > Screen.CameraY + Screen.Height 
+	if x < Screen.CameraX - 32 or x > Screen.CameraX + Screen.Width  + 32
+	or y < Screen.CameraY - 32 or y > Screen.CameraY + Screen.Height + 32
 	{ 
 		Reset = true;
 	}

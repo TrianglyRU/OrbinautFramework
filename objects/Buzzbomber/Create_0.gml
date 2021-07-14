@@ -9,4 +9,5 @@
 	Delay   = 0;
 	Action  = 0;
 	InitDir = image_xscale;
+	Dir		= image_xscale; 
 	Bullet  = noone;
