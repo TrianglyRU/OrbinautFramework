@@ -45,8 +45,8 @@
 					{ 
 						image_index = 2; 
 						image_speed = 1; 
-						hspeed = 2 * BadnikDir; 
-						vspeed = 2;
+						Xsp = 2 * BadnikDir; 
+						Ysp = 2;
 					} 
 					Bullet = noone; 
 				break;

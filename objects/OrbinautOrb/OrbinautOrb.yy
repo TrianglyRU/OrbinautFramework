@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Orbinaut",
-    "path": "folders/Game Objects/Orbinaut.yy",
+    "path": "folders/Game Objects/Badniks/Orbinaut.yy",
   },
   "resourceVersion": "1.0",
   "name": "OrbinautOrb",

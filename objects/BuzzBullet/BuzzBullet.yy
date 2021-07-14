@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Buzzbomber",
-    "path": "folders/Game Objects/Buzzbomber.yy",
+    "path": "folders/Game Objects/Badniks/Buzzbomber.yy",
   },
   "resourceVersion": "1.0",
   "name": "BuzzBullet",

@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Motobug",
-    "path": "folders/Game Objects/Motobug.yy",
+    "path": "folders/Game Objects/Badniks/Motobug.yy",
   },
   "resourceVersion": "1.0",
   "name": "Motobug",

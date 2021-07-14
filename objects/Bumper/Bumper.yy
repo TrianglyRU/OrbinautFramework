@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_badnik_buzzbomber_idle",
-    "path": "sprites/spr_badnik_buzzbomber_idle/spr_badnik_buzzbomber_idle.yy",
+    "name": "spr_bumper",
+    "path": "sprites/spr_bumper/spr_bumper.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,17 +22,16 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Buzzbomber",
-    "path": "folders/Game Objects/Badniks/Buzzbomber.yy",
+    "name": "Bumper",
+    "path": "folders/Game Objects/Bumper.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Buzzbomber",
+  "name": "Bumper",
   "tags": [],
   "resourceType": "GMObject",
 }

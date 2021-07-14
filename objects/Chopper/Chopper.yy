@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_badnik_buzzbomber_idle",
-    "path": "sprites/spr_badnik_buzzbomber_idle/spr_badnik_buzzbomber_idle.yy",
+    "name": "spr_chopper",
+    "path": "sprites/spr_chopper/spr_chopper.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,17 +22,18 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"MovOfst","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Buzzbomber",
-    "path": "folders/Game Objects/Badniks/Buzzbomber.yy",
+    "name": "Chopper",
+    "path": "folders/Game Objects/Badniks/Chopper.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Buzzbomber",
+  "name": "Chopper",
   "tags": [],
   "resourceType": "GMObject",
 }

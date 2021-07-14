@@ -13,16 +13,19 @@ function object_act_badnik(is_destroyable, instant_kill)
 	{
 		// Delete Badnik
 		instance_destroy();
-			
+		
+		var PosX = floor(x);
+		var PosY = floor(y);
+		
 		// Spawn explosion, animal and play sound
-		instance_create(floor(x), floor(y), Animal);
-		instance_create(floor(x), floor(y), DustExplosion);
+		instance_create(PosX, PosY, Animal);
+		instance_create(PosX, PosY, DustExplosion);
 		audio_sfx_play(sfxDestroy, false);
 			
 		// Make player bounce if they are airborne
 		if !Player.Grounded
 		{
-			if floor(Player.PosY) < floor(y)
+			if floor(Player.PosY) < PosY
 			{
 				Player.Ysp = -Player.Ysp;
 			}
@@ -61,7 +64,7 @@ function object_act_badnik(is_destroyable, instant_kill)
 		}
 		
 		// Create score object
-		instance_create(x, y, ComboScore);
+		instance_create(PosX, PosY, ComboScore);
 	}
 	else
 	{

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Crabmeat/Sprites.yy",
+    "path": "folders/Game Objects/Badniks/Crabmeat/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_badnik_crabmeat_fire",
