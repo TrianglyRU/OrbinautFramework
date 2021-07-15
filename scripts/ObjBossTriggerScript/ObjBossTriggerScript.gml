@@ -11,9 +11,10 @@ function ObjBossControllerScript()
 			// Reserve current boundaries
 			ReservedTopBound    = Stage.TopBoundary;
 			ReservedBottomBound = Stage.BottomBoundary;
+			
 			// Stop music and play boss theme
-			audio_bgm_stop(TypePriority, 0);
-			audio_bgm_play(Boss, noone, 0, TypeNormal); 
+			audio_bgm_mute(TypeNormal, 0.5);
+			audio_bgm_play(Boss, 0, TypePriority); 
 			
 			// Spawn boss
 			switch room
@@ -49,8 +50,12 @@ function ObjBossControllerScript()
 			Stage.TargetBottomBoundary = ReservedBottomBound;
 			Stage.TargetTopBoundary	   = ReservedTopBound;
 		
+			// Stop all music
+			audio_bgm_stop(TypePriority, 0.5);
+			audio_bgm_stop(TypeNormal,   0);
+			
 			// Play stage music
-			audio_bgm_play(Stage.StageMusic, noone, Stage.StageMusicLooppoint, TypeNormal);
+			audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
 			
 			instance_activate_object(Signpost);
 			instance_activate_object(Capsule);

@@ -50,7 +50,7 @@ function ObjRingScript()
 		{
 			Player.Lives++;
 			Player.LivesRewards++;
-			audio_bgm_play(Jingle1UP, noone, 0, TypeJingle);
+			audio_bgm_play(Jingle1UP, -1, TypeJingle);
 		}
 	
 		// Create shine object

@@ -22,6 +22,20 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	Player.PeeloutRev	 = -1;
 	Player.SpindashRev   = -1;
 	Player.DropdashRev   = -1;
+	
+	// Stop Tails sfx
+	audio_sfx_stop(sfxFlying);
+	audio_sfx_stop(sfxTired);
+	
+	// Play hurt sound
+	if object_index == SpikesVertical or object_index == SpikesHorizontal
+	{
+		audio_sfx_play(sfxHurtSpike, false)
+	}
+	else
+	{
+		audio_sfx_play(sfxHurt, false);
+	}
 
 	// Check if player has no rings and barrier or should die instantly
 	if (!Player.Rings and !Player.BarrierType) or instant_kill
@@ -52,10 +66,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 			
 		// Enter death state
 		Player.Death = true;
-		
-		// Play death sound (depending on what object is this)
-		var DeathSound = object_index == SpikesVertical ? sfxHurtSpike : sfxHurt;
-		audio_sfx_play(DeathSound, false);
 	}
 		
 	// Check if player has rings or barrier
@@ -118,16 +128,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		// Else just lose barrier if player has rings
 		else
 		{
-			// Play death sound
-			if object_index == SpikesVertical
-			{
-				audio_sfx_play(sfxHurtSpike, false)
-			}
-			else
-			{
-				audio_sfx_play(sfxHurt, false);
-			}
-			
 			// Remove barrier
 			instance_destroy(Barrier);
 			Player.BarrierType = false;

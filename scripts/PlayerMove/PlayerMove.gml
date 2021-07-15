@@ -134,7 +134,7 @@ function PlayerMove()
 	if Inertia != 0
 	{
 		// Check for walk
-		if !SuperState and abs(Inertia) < 6 or SuperState and abs(Inertia) < 8
+		if abs(Inertia) < 6
 		{
 			Animation = AnimWalk;
 		}
@@ -157,7 +157,22 @@ function PlayerMove()
 		
 				if !SkiddingTimer
 				{
-					instance_create(floor(PosX), floor(PosY + yRadius), DustPuff);
+					switch AngleQuadFloor
+					{
+						case RangeFloor:
+							var DustPos = [floor(PosX), floor(PosY + yRadius)];
+						break;
+						case RangeRWall:
+							var DustPos = [floor(PosX + yRadius), floor(PosY)];
+						break;
+						case RangeRoof:
+							var DustPos = [floor(PosX), floor(PosY - yRadius)];
+						break;
+						case RangeLWall:
+							var DustPos = [floor(PosX - yRadius), floor(PosY)];
+						break;
+					}
+					instance_create(DustPos[0], DustPos[1], DustPuff);
 				}
 				SkiddingTimer++;
 			}

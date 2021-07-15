@@ -149,18 +149,10 @@ function InputHotkeysRead()
 		object_damage(false, false, false);
 	}
 	
-	// Switch Superform (F11)
-	if keyboard_check_pressed(vk_f11) 
+	// Add rings (F11 hold)
+	if keyboard_check(vk_f11)
 	{
-		if !Player.SuperState
-		{
-			Player.SuperState = true;
-			Player.Rings      = max(Player.Rings, 50);
-		}
-		else
-		{
-			Player.SuperState = false;
-		}
+		Player.Rings += 1;
 	}
 	
 	// Perform random type of fade (F12)
