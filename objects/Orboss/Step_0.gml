@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (keyboard_check_pressed(ord("V"))) HP = 0;
+if (keyboard_check_pressed(ord("V"))) HP = 1;
 
 	if (StateTimer) StateTimer--;
 	switch State
@@ -160,45 +160,23 @@ if (keyboard_check_pressed(ord("V"))) HP = 0;
 	y = floor(PosY + dsin(SinMove) * 8);
 	
 	if (!HP) exit;
-	if object_player_overlap(CollisionHitbox)
+	
+	if State == 1 and !StateTimer
 	{
-		// Check if player can destroy Badnik
-		if State != 3 and (Player.Jumping or Player.Rolling or Player.SpindashRev >= 0
-		or Player.InvincibilityBonus or Player.GlidingState)
-		{	
-			if State = 1 and !StateTimer
-			{
-				audio_sfx_play(sfxDestroy, false);
-				
-				HP--;
-				State = 2;
-				StateTimer = 90;
-				
-				OrbossOrb.State = 2;
-			
-				// Make player bounce if they are airborne
-				if !Player.Grounded
-				{
-					if floor(Player.PosY) < y
-					{
-						Player.Ysp = -Player.Ysp;
-					}
-					else
-					{
-						Player.Ysp -= 1 * sign(Player.Ysp);
-					}
-				}
-			
-				if !HP
-				{
-					State = 4;
-					StateTimer = 300;
-					image_index = 2;
-				}
-			}
-		}
-		else
+		var HitCheck = object_act_enemy(EnemyBoss);
+		if  HitCheck
 		{
-			object_damage(false, false, false);
+			HP--;
+			State = 2;
+			StateTimer = 90;
+			
+			OrbossOrb.State = 2;
+			
+			if !HP
+			{
+				State = 4;
+				StateTimer = 300;
+				image_index = 2;
+			}
 		}
 	}

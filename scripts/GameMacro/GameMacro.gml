@@ -7,8 +7,10 @@ function GameMacro()
 	#macro Game	global
 
 	// Object macro
-	#macro RangeClose 1
-	#macro RangeFar   7
+	#macro RangeClose  1
+	#macro RangeFar    7
+	#macro EnemyBadnik 0
+	#macro EnemyBoss   1
 	
 	// Variable macro
 	#macro isVar		 = 0

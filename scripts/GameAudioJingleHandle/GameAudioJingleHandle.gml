@@ -56,7 +56,6 @@ function GameAudioJingleHandle()
 					Game.JingleTrack[TrackIndex]	 = 0;	
 					Game.JingleTrack[TrackEventTime] = 0;
 					Game.JingleTrack[TrackEvent]     = EventIdle;
-					Game.JingleTrack[TrackState]     = StateInactive;
 					
 					audio_bgm_unmute(TypeNormal, 1);
 					audio_bgm_unmute(TypePriority, 1);

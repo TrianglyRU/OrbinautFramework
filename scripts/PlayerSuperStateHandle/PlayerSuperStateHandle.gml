@@ -1,16 +1,11 @@
 function PlayerSuperStateHandle()
 {
-	if Death
-	{
-		exit;
-	}
-	
-	/* SuperStateValue is handled automatically, all you have to use to toggle is
+	/* SuperStateValue is handled automatically, all you have to do is to toggle
 	SuperState = true or SuperState = false
 	*/
 	
 	// Transform
-	if !SuperState
+	if !SuperState and !Death and !Drown
 	{
 		if Jumping and Rings > 0 and Ysp <= 0 and !SuperStateValue and Input.CPress
 		{

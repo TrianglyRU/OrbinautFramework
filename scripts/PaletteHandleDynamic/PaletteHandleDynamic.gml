@@ -6,53 +6,86 @@ function PaletteHandleDynamic()
 		exit;
 	}
 	
-	// Player palette shift
-	if instance_exists(Player) and Player.CharacterID == CharSonic
+	// Player palette
+	if instance_exists(Player)
 	{	
-		switch Player.SuperState
+		// Sonic palette
+		if Player.CharacterID == CharSonic
 		{
-			case -1:
+			switch Player.SuperState
 			{
-				// Surface regular
-				for (var i = 0; i < 4; i++) 
+				case -1:
+				{
+					// Regular
+					for (var i = 0; i < 4; i++) 
+					{
+						palette_handle(PaletteSurface, i, 1, 1, 1);
+						palette_handle(PaletteUnderwater, i, 1, 1, 1);
+					}
+				}
+				break;
+				case 1:
+				{
+					// Super start
+					for (var i = 0; i < 4; i++) 
+					{
+						palette_handle(PaletteSurface, i, 2, 6, 4);
+						palette_handle(PaletteUnderwater, i, 2, 6, 4);
+					}
+				}
+				break;
+				case 2:
+				{
+					// Super active
+					for (var i = 0; i < 4; i++) 
+					{
+						palette_handle(PaletteSurface, i, 8, 10, 4);
+						palette_handle(PaletteUnderwater, i, 8, 10, 4);
+					}
+				}
+				break;
+				case 0:
+				{
+					// Super end
+					for (var i = 0; i < 4; i++) 
+					{
+						palette_handle(PaletteSurface, i, 18, 6, 4);
+						palette_handle(PaletteUnderwater, i, 18, 6, 4);
+					}
+				}
+				break;
+			}
+		}
+		
+		// Tails palette
+		if Player.CharacterID == CharTails
+		{
+			if !Player.SuperState
+			{
+				// Regular
+				for (var i = 4; i < 7; i++) 
 				{
 					palette_handle(PaletteSurface, i, 1, 1, 1);
-				}
-			
-				// Underwater regular
-				for (var i = 9; i < 13; i++) 
-				{
 					palette_handle(PaletteUnderwater, i, 1, 1, 1);
 				}
 			}
-			break;
-			case 1:
+			else
 			{
-				// Surface super start
-				for (var i = 0; i < 4; i++) 
+				// Super active
+				for (var i = 4; i < 7; i++) 
 				{
-					palette_handle(PaletteSurface, i, 2, 6, 4);
+					palette_handle(PaletteSurface, i, 1, 6, 6);
+					palette_handle(PaletteUnderwater, i, 1, 6, 6);
 				}
 			}
-			break;
-			case 2:
-			{
-				// Surface super active
-				for (var i = 0; i < 4; i++) 
-				{
-					palette_handle(PaletteSurface, i, 8, 8, 4);
-				}
-			}
-			break;
-			case 0:
-			{
-				// Surface super end
-				for (var i = 0; i < 4; i++) 
-				{
-					palette_handle(PaletteSurface, i, 16, 6, 4);
-				}
-			}
-			break;
+		}
+		
+		// Knuckles palette
+		
+		// General underwater
+		for (var i = 10; i < 17; i++)
+		{
+			palette_handle(PaletteUnderwater, i, 1, 1, 1);
 		}
 	}
 	
@@ -78,6 +111,4 @@ function PaletteHandleDynamic()
 		}
 		break;
 	}
-	
-	//show_debug_message(string(PaletteAnimation[PaletteSurface, 0]));
 }

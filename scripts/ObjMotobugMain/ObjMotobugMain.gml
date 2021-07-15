@@ -31,5 +31,5 @@ function ObjMotobugMain()
 	}
 
 	// Act as badnik
-	object_act_badnik(true, RangeFar);
+	object_act_enemy(EnemyBadnik);
 }
