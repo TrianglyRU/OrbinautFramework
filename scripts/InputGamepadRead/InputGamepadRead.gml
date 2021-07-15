@@ -36,7 +36,7 @@ function InputGamepadRead()
 		ABC		 = A or B or C;
 	
 		// Start
-		StartPress = keyboard_check_pressed(gp_start);
+		StartPress = gamepad_button_check(0, gp_start);
 		
 		// Ignore double input
 		if Left and Right

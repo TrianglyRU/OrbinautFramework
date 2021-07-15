@@ -26,7 +26,7 @@
 	if Xsp != 0
 	{
 		// Collide tiles & check for if Crabmeat is 2 pixels away from the surface
-		var collideFloor = object_collide_tiles_v(false, SideBottom, 2, LayerA);
+		var collideFloor = object_collide_tiles_v(Dir ? SideRight : SideLeft, SideBottom, 2, LayerA);
 		if !collideFloor
 		{
 			// Stop Motobug

@@ -6,7 +6,7 @@
 		MovOfst--;
 	} 
 	else 
-	{ 
+	{
 		if y >= InitY 
 		{ 
 			y = InitY; 

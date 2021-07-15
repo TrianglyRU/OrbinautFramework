@@ -28,8 +28,20 @@
 				{
 					audio_stop_all();
 					
-					if (PauseMode = 1) room_restart();
-					else room_goto(DevMenu);
+					if PauseMode == 1
+					{
+						room_restart();
+					}
+					else 
+					{
+						Game.CheckpointID = false;
+						Game.PlayerPosition = false;
+						Game.Time = 0;
+						Game.StageBoundary = 0;
+						Game.Score = 0;
+						Game.PalIndexDry[0] = 0;
+						room_goto(DevMenu);
+					}
 				}
 			}
 			else

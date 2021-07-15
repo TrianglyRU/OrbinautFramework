@@ -34,7 +34,7 @@
 			switch Delay 
 			{
 				case 46: 
-					Bullet = instance_create_depth(x + 26 * BadnikDir, y + 28, depth - 1, BuzzBullet); 
+					Bullet = instance_create_depth(x + 21 * BadnikDir, y + 20, depth - 1, BuzzBullet); 
 					Bullet.image_xscale = BadnikDir; 
 				break;
 				case 38: 
