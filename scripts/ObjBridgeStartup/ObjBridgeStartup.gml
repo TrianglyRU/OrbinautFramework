@@ -27,4 +27,7 @@ function ObjBridgeStartup()
 	
 	// Set bridge solidbox
 	object_set_solidbox(BridgeLength / 2 * 16, 8);
+	
+	// Set active range
+	object_set_range(RangeFar);
 }

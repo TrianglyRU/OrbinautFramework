@@ -12,7 +12,7 @@ function PlayerSuperStateHandle()
 	// Transform
 	if !SuperState
 	{
-		if Jumping and Rings >= 50 and Ysp <= 0 and !SuperStateValue and Input.CPress
+		if Jumping and Rings > 0 and Ysp <= 0 and !SuperStateValue and Input.CPress
 		{
 			Jumping		    = false;
 			SuperState	    = true;
@@ -22,6 +22,8 @@ function PlayerSuperStateHandle()
 			yRadius = yRadiusDefault;
 			
 			audio_sfx_play(sfxTransform, false);
+			
+			audio_bgm_play(SuperTheme, 0.6, TypeNormal);
 		}
 	}
 	
@@ -42,8 +44,8 @@ function PlayerSuperStateHandle()
 			// Play animation
 			Animation = AnimTransform;
 			
-			// Make us invincible
-			IsInvincible = true;
+			// Disable collisions
+			AllowCollision = false;
 			
 			// Become super after 24 frames
 			if SuperStateValue == 25
@@ -53,6 +55,8 @@ function PlayerSuperStateHandle()
 				
 				SuperState		= 2;
 				SuperStateValue = -1;
+				
+				AllowCollision = true;
 			}				
 		}
 		break;
@@ -62,7 +66,7 @@ function PlayerSuperStateHandle()
 		{
 			// Keep us invincible
 			IsInvincible = true;
-
+		
 			// Decrease rings
 			if Rings
 			{
@@ -82,6 +86,8 @@ function PlayerSuperStateHandle()
 				SuperState		= false;
 				
 				audio_sfx_play(sfxTransform, false);
+				
+				audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
 			}
 		}
 		break;

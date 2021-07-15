@@ -7,7 +7,7 @@ function ObjBoundaryTriggerSetup()
 	
 	// Set object triggerbox
 	object_set_triggerbox(-16, 16, -1024, 1024);
-	
+
 	// Set object visibility
 	visible = false;
 }

@@ -7,6 +7,9 @@ function ObjSpringVerticalStartup()
 	// Set object solidbox
 	object_set_solidbox(16, 8);
 	
+	// Set active range
+	object_set_range(RangeClose);
+	
 	// Set object depth
 	object_set_depth(Player, false);
 	

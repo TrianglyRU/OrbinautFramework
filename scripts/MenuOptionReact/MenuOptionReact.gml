@@ -131,16 +131,21 @@ function MenuOptionReact()
 	}
 	
 	// Options (main)
-	if MenuID == 5 and Input.APress
+	if MenuID == 5 
 	{
-		if OptionID == 0 or OptionID == 3
+		if Input.APress and (OptionID == 0 or OptionID == 3)
 		{
 			audio_sfx_play(sfxFail, false);
+		}
+		else if Input.BPress
+		{
+			// Update config file
+			gamesettings_save("config");
 		}
 	}
 	
 	// Options (video)
-	if MenuID == 7 and Input.LeftPress or Input.RightPress
+	if MenuID == 7 and (Input.LeftPress or Input.RightPress)
 	{
 		// Window size toggle
 		if OptionID == 0
@@ -188,13 +193,10 @@ function MenuOptionReact()
 			var FullscreenStatus = Game.WindowFullscreen ? "TRUE" : "FALSE";
 			menu_update_option(7, 1, "FULLSCREEN: "  + string(FullscreenStatus));
 		}
-		
-		// Update config file
-		gamesettings_save("config");
 	}
 	
 	// Options (audio)
-	if MenuID == 8 and Input.LeftPress or Input.RightPress
+	if MenuID == 8 and (Input.LeftPress or Input.RightPress)
 	{
 		// SFX volume
 		if OptionID == 0
@@ -239,8 +241,5 @@ function MenuOptionReact()
 		// Update groups volume
 		audio_group_set_gain(GlobalSFX, Game.SoundVolume, 0);
 		audio_group_set_gain(BGM,	    Game.MusicVolume, 0);
-		
-		// Update config file
-		gamesettings_save("config");
 	}
 }

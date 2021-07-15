@@ -7,26 +7,36 @@ function PlayerHitWalls()
 	}
 	
 	// Update wall angle quadrant
-	if Angle <= 45 or Angle >= 316.41			
+	if Grounded
 	{
-		// Hex: Angle >= 224 or Angle <= 31
+		if Angle <= 45 or Angle >= 316.41			
+		{
+			// Hex: Angle >= 224 or Angle <= 31
+			var AngleRange = RangeFloor;
+		}
+		else if Angle >= 46.41 and Angle <= 135	
+		{
+			// Hex: Angle <= 223 and Angle >= 160
+			var AngleRange = RangeRWall;
+		}
+		else if Angle >= 136.41 and Angle <= 225	
+		{
+			// Hex: Angle <= 159 and Angle >= 96
+			var AngleRange = RangeRoof;
+		}
+		else if Angle >= 226.41 and Angle <= 315	
+		{
+			// Hex: Angle <= 95 and Angle >= 32
+			var AngleRange = RangeLWall;
+		}
+	}
+	
+	// Quadrant is always RangeFloor when airborne
+	else
+	{
 		var AngleRange = RangeFloor;
 	}
-	else if Angle >= 46.41 and Angle <= 135	
-	{
-		// Hex: Angle <= 223 and Angle >= 160
-		var AngleRange = RangeRWall;
-	}
-	else if Angle >= 136.41 and Angle <= 225	
-	{
-		// Hex: Angle <= 159 and Angle >= 96
-		var AngleRange = RangeRoof;
-	}
-	else if Angle >= 226.41 and Angle <= 315	
-	{
-		// Hex: Angle <= 95 and Angle >= 32
-		var AngleRange = RangeLWall;
-	}
+	AngleQuadWall = AngleRange;
 	
 	// Left wall collision
 	if Grounded

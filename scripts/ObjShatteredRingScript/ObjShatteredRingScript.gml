@@ -100,15 +100,6 @@ function ObjShatteredRingScript()
 		// Add 1 to ring counter
 		Player.Rings++;
 		
-		// Give extra life
-		if Player.Rings >= 100 and Player.LivesRewards == 0
-		or Player.Rings >= 200 and Player.LivesRewards == 1
-		{
-			Player.Lives++;
-			Player.LivesRewards++;
-			audio_bgm_play(Jingle1UP, noone, 0, TypeJingle);
-		}
-	
 		// Create shine object
 		instance_create(x, y, RingSparkle);	
 	

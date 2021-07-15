@@ -4,7 +4,7 @@ function object_player_overlap(collisionType)
 	// Exit the code if collision is disabled
 	if !Player.AllowCollision
 	{
-		exit;
+		return false;
 	}
 	
 	// Check for hitbox overlap
@@ -13,7 +13,7 @@ function object_player_overlap(collisionType)
 		// Exit the code if this object hitbox wasn't initialized
 		if !variable_instance_exists(id, "objXRadiusHit")
 		{
-			exit;
+			return false;
 		}
 	
 		// Get object size
@@ -58,7 +58,7 @@ function object_player_overlap(collisionType)
 		}
 		
 		// If player overlaps object on both axis, they collided with it
-		else return true;
+		return true;
 	}
 	
 	// Check for triggerbox overlap

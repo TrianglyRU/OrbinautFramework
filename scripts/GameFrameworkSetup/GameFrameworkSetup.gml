@@ -1,7 +1,7 @@
 function GameFrameworkSetup()
 {
 	// Dev mode. Enables some debug shortcuts and features, disable it on your game release
-	Game.DevMode = false;
+	Game.DevMode = true;
 	
 	/* If devmode is disabed, settings marked with '**' will be overwritten by the
 	gameconfig file */
@@ -20,7 +20,7 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 3;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0;			/**/
+	Game.MusicVolume = 0.5;			/**/
 	Game.SoundVolume = 0.5;			/**/
 	
 	// Control settings (keyboard)

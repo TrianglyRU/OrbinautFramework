@@ -8,3 +8,5 @@
 	ScreenDebugHitboxDisplay();
 	ScreenDebugSolidboxDisplay();
 	ScreenDebugSensorsDisplay();
+	ScreenDebugTriggersDisplay();
+	ScreenDebugPositionsDisplay();

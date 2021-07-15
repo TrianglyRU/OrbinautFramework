@@ -1,23 +1,5 @@
 function StageObjectsUpdate() 
-{		
-	// Unload far objects
-	instance_deactivate_object(UnloadFar);
-	
-	// Load far objects in a given region
-	if State != ActStateLoading
-	{
-		instance_activate_region(Screen.CameraX - 128, Screen.CameraY - 256, Screen.Width + 256, Screen.Height + 512, true);
-	}
-	
-	// Unload close objects
-	instance_deactivate_object(UnloadClose);
-	
-	// Load close objects in a given region
-	if State != ActStateLoading
-	{
-		instance_activate_region(Screen.CameraX - 32, Screen.CameraY, Screen.Width + 64, Screen.Height, true);
-	}
-	
+{	
 	// Check if player died or stage unloads
 	if Player.Death or State == ActStateUnload
 	{			
@@ -66,4 +48,28 @@ function StageObjectsUpdate()
 			instance_destroy();
 		}
 	}
+	else
+	{
+		// Activate all objects
+		instance_activate_region(Screen.CameraX - 240, Screen.CameraY - 256, Screen.Width + 480, Screen.Height + 512, true);
+	
+		// Check for all objects
+		with all
+		{
+			// Was object_set_activerange function used?
+			if variable_instance_exists(id, "objActiveRange")
+			{
+				// Unload flag is either 1 (close) or 7 (far), resulting in boundary of 32/240 and 18/128	
+				var UnloadX = 32 * objActiveRange	
+				var UnloadY = 18 * objActiveRange;
+			
+				// Deactivate
+				if floor(x) < Screen.CameraX - UnloadX or floor(x) > Screen.CameraX + Screen.Width  + UnloadX
+				or floor(y) < Screen.CameraY - UnloadY or floor(y) > Screen.CameraY + Screen.Height + UnloadY
+				{
+					instance_deactivate_object(id);
+				}
+			}
+		}	
+	}		
 }

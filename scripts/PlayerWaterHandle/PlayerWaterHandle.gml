@@ -114,7 +114,15 @@ function PlayerWaterHandle()
 			if AirTimer <= 720
 			{	
 				audio_bgm_unmute(TypePriority, 0);
-				audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
+				
+				if !SuperState
+				{
+					audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
+				}
+				else
+				{
+					audio_bgm_play(SuperTheme, 0.6, TypeNormal);
+				}
 			}
 			
 			if !Hurt

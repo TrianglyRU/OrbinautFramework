@@ -3,22 +3,30 @@ function GameMacro()
 	/* Macros are basically replacement for using digits and numbers in your code to
 	make it more practical. We could use emums in that case, but macros are easier */
 	
-	// Game macro
-	#macro isVar		 = 0
-	#macro isArr		[0] = 0
+	// Main macro
+	#macro Game	global
+
+	// Object macro
+	#macro RangeClose 1
+	#macro RangeFar   7
 	
+	// Variable macro
+	#macro isVar		 = 0
+	#macro isArr		[0] = 0	
 	#macro isAsset		= 0
 	#macro isReal		= 0
 	#macro isBool		= false
 	#macro isArray		[99] = 0
 	#macro isString		= ""
 	
-	#macro Game		     global
+	// Game macro
 	#macro FontDebug     0
 	#macro FontDigits1   1
 	#macro FontDigits2   2
 	#macro FontCard      3
 	#macro FontMenu      4
+	
+	// Savedata macro
 	#macro SavedChar     0
 	#macro SavedZone     1
 	#macro SavedEmeralds 2
@@ -31,21 +39,15 @@ function GameMacro()
 	#macro TypePriority    1
 	#macro TypeJingle	   2
 	#macro TypeAll		   3
-	
 	#macro TrackIndex	   0
 	#macro TrackID		   1
 	#macro TrackLoop	   2
 	#macro TrackEvent	   3
-	#macro TrackEventTime  4
-		
+	#macro TrackEventTime  4	
 	#macro EventIdle	   0
 	#macro EventMute	   1
 	#macro EventUnmute     2
 	#macro EventStop	   3
-	
-	#macro StateInactive   0
-	#macro StateActive	   1
-	#macro StateToggle	   2
 	
 	// Shader macro
 	#macro Shader global

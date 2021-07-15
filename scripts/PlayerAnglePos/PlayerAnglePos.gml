@@ -22,7 +22,8 @@ function PlayerAnglePos()
 	else if Angle >= 226.41 and Angle <= 313.59		
 	{
 		var AngleRange = RangeLWall;
-	}
+	}	
+	AngleQuadFloor = AngleRange;
 	
 	// Collide with one of four floor sides based on floor angle range
 	switch AngleRange

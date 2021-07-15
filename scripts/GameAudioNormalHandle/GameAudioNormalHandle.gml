@@ -18,7 +18,7 @@ function GameAudioNormalHandle()
 	var Length   = audio_sound_length(Track);
 	var Offset   = 41.400 / Length;	
 	
-	if Position + Offset >= Length and Loop != -1
+	if Position + 0.1 >= Length and Loop != -1
 	{
 		audio_sound_set_track_position(Index, Loop);
 	}

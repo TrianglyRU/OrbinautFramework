@@ -9,6 +9,9 @@ function ObjCollisionChangeSetup()
 	// Set object triggerbox
 	object_set_triggerbox(-8, 8, -32, 32);
 	
+	// Set active range
+	object_set_range(RangeClose);
+	
 	// Set object visibility
 	visible = false;
 }
