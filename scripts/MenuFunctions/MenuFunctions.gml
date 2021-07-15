@@ -8,7 +8,7 @@ function MenuFunctions()
 		
 		// Set option name and target menu
 		MenuOption[listid][optionid] = optionname;
-		MenuAction[listid][optionid] = loadlist;	
+		MenuAction[listid][optionid] = loadlist;
 	}
 	
 	/// @function menu_update_option(listid,optionid,newname)

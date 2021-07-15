@@ -1,8 +1,5 @@
 function BackgroundParallaxPerform()
-{
-	if keyboard_check(vk_alt) Stage.WaterLevel++;
-	if keyboard_check(vk_control) Stage.WaterLevel--;
-	
+{	
 	// Draw gray background
 	draw_clear(c_gray);
 	

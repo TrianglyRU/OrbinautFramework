@@ -63,8 +63,8 @@ function MenuConfiguration()
 	
 	// Options (audio)
 	menu_add_header(8,    "AUDIO OPTIONS");
-	menu_add_option(8, 0, "SFX VOLUME: " + string(Game.SoundVolume * 100), noone);
-	menu_add_option(8, 1, "BGM VOLUME: " + string(Game.MusicVolume * 100), noone);
+	menu_add_option(8, 0, "SFX VOLUME: " + string(round(Game.SoundVolume * 100)), noone);
+	menu_add_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)), noone);
 	
 	// Options (controls)
 	/*

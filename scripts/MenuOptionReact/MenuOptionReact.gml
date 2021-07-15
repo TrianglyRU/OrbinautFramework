@@ -215,7 +215,7 @@ function MenuOptionReact()
 			Game.SoundVolume = clamp(Game.SoundVolume, 0, 1);
 				
 			// Update option
-			menu_update_option(8, 0, "SFX VOLUME: " + string(Game.SoundVolume * 100));	
+			menu_update_option(8, 0, "SFX VOLUME: " + string(round(Game.SoundVolume * 100)));	
 		}
 		
 		// BGM volume
@@ -235,7 +235,7 @@ function MenuOptionReact()
 			Game.MusicVolume = clamp(Game.MusicVolume, 0, 1);
 				
 			// Update option
-			menu_update_option(8, 1, "BGM VOLUME: " + string(Game.MusicVolume * 100));
+			menu_update_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
 		}
 		
 		// Update groups volume
