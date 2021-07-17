@@ -27,7 +27,7 @@ function PlayerAnglePos()
 	// Collide with the surface depending on current angle range
 	switch AngleRange
 	{
-		// Floor collision
+		// Handle floor collision
 		case RangeFloor:
 		{		
 			// Get the tiles below us
@@ -119,6 +119,8 @@ function PlayerAnglePos()
 			}
 		}
 		break;
+			
+		// Handle right wall collision
 		case RangeRWall:
 		{	
 			// Get the tiles to the right from us
@@ -155,6 +157,8 @@ function PlayerAnglePos()
 			}
 		}
 		break;
+			
+		// Handle roof collision
 		case RangeRoof:	
 		{	
 			// Get the tiles above us
@@ -191,6 +195,8 @@ function PlayerAnglePos()
 			}
 		}
 		break;
+			
+		// Handle left wall collision
 		case RangeLWall:
 		{	
 			// Get the tiles to the right from us
