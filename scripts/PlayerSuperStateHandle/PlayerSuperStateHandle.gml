@@ -4,20 +4,26 @@ function PlayerSuperStateHandle()
 	SuperState = true or SuperState = false
 	*/
 	
+	var RingCheck = (Game.DevMode and Rings > 0) or (!Game.DevMode and Rings >= 50)
+	
 	// Transform
 	if !SuperState and !Death and !Drown
 	{
-		if Jumping and Rings > 0 and Ysp <= 0 and !SuperStateValue and Input.CPress
+		if Jumping and RingCheck and Ysp <= 0 and !SuperStateValue and Input.CPress
 		{
 			Jumping		    = false;
 			SuperState	    = true;
 			SuperStateValue = 0;
+			
+			// Reset invincibility
+			InvincibilityBonus = false;
 			
 			xRadius = xRadiusDefault;
 			yRadius = yRadiusDefault;
 			
 			audio_sfx_play(sfxTransform, false);
 			
+			audio_bgm_stop(TypePriority, 1);
 			audio_bgm_play(SuperTheme, 0.6, TypeNormal);
 		}
 	}
@@ -75,14 +81,19 @@ function PlayerSuperStateHandle()
 			}
 			
 			// Exit superform
-			if !Rings or Jumping and Input.CPress
+			if !Rings or (Game.DevMode and Jumping and Input.CPress)
 			{
 				SuperStateValue = 1;
 				SuperState		= false;
 				
-				audio_sfx_play(sfxTransform, false);
+				//audio_sfx_play(sfxTransform, false);
 				
 				audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
+				
+				if HighSpeedBonus
+				{
+					audio_bgm_play(HighspeedMusic, -1, TypePriority);
+				}			
 			}
 		}
 		break;
@@ -98,8 +109,8 @@ function PlayerSuperStateHandle()
 			// Start timer
 			SuperStateValue++
 			
-			// Become regylar after 24 frames
-			if SuperStateValue == 25
+			// Become regylar after 40 frames
+			if SuperStateValue == 41
 			{
 				SuperState		= -1;
 				SuperStateValue = 0;

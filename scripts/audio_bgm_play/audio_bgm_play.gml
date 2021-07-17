@@ -1,6 +1,9 @@
 /// @function audio_bgm_play(soundid,looppoint,type)
 function audio_bgm_play(soundid, looppoint, type)
 {	
+	// Restore volume
+	audio_sound_gain(soundid, Game.MusicVolume, 0);
+	
 	switch type
 	{
 		case TypeNormal:

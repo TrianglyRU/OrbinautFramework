@@ -85,7 +85,7 @@ function ObjItemcardScript()
 						{
 							Player.Lives++;
 							Player.LivesRewards++;
-							audio_bgm_play(Jingle1UP, noone, 0, TypeJingle);
+							audio_bgm_play(Jingle1UP, -1, TypeJingle);
 						}
 						
 						// Play sound, switch left and right channels every ring
@@ -98,7 +98,10 @@ function ObjItemcardScript()
 						Player.HighSpeedBonus = 1200;
 						
 						// Play music
-						audio_bgm_play(HighspeedMusic, noone, 0, TypePriority);
+						if !Player.SuperState
+						{
+							audio_bgm_play(HighspeedMusic, -1, TypePriority);
+						}
 					}
 					break;
 					case "Regular Barrier":
@@ -151,11 +154,14 @@ function ObjItemcardScript()
 					break;
 					case "Invincibility":
 					{
-						// Give invincibility bonus for 20 seconds
-						Player.InvincibilityBonus = 1200;
+						if !Player.SuperState
+						{
+							// Give invincibility bonus for 20 seconds
+							Player.InvincibilityBonus = 1200;
 						
-						// Play music
-						audio_bgm_play(InvincibilityMusic, noone, 20.0, TypePriority);
+							// Play music
+							audio_bgm_play(InvincibilityMusic, -1, TypePriority);
+						}
 					}
 					break;
 					case "Extra Life":
@@ -164,7 +170,7 @@ function ObjItemcardScript()
 						Player.Lives += 1;
 						
 						// Play jingle
-						audio_bgm_play(Jingle1UP, noone, 3.92, TypeJingle);
+						audio_bgm_play(Jingle1UP, -1, TypeJingle);
 					}
 					break;
 					case "Eggman":

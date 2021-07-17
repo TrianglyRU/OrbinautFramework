@@ -76,6 +76,7 @@ function GameMacro()
 	#macro GlidingGround	   3
 	#macro GlidingStop		   4
 	#macro GlidingTurn		   5
+	#macro GlidingDropStand    6
 	#macro SuperStart		   1
 	#macro SuperActive		   2
 	#macro SuperEnd			   3

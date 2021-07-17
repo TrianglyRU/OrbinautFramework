@@ -3,12 +3,6 @@ function PlayerResetOnFloor()
 	// If grounded flag has been set to true when we've been airborne, we have landed
 	if Grounded
 	{	
-		// Set 'walk' animation
-		if !GlidingState
-		{
-			Animation = AnimWalk;
-		}
-		
 		// Reset gravity
 		Grv	= 0.21875;
 		
@@ -84,7 +78,10 @@ function PlayerResetOnFloor()
 			ClimbingState = false;
 			ClimbingValue = 0;			
 		}
-		GlidingState = false;
+		if GlidingState != GlidingDropStand
+		{
+			GlidingState = false;
+		}
 
 		// Reset radiuses to default values
 		if !Rolling
@@ -92,6 +89,12 @@ function PlayerResetOnFloor()
 			PosY   -= yRadiusDefault - yRadius;
 			yRadius = yRadiusDefault; 
 			xRadius	= xRadiusDefault;
+		}
+		
+		// Set 'walk' animation
+		if !GlidingState
+		{
+			Animation = AnimWalk;
 		}
 	}
 }

@@ -44,7 +44,7 @@ function PlayerWaterHandle()
 				instance_create(floor(PosX), floor(PosY), Bubble);
 			}
 			
-			if !Stage.IsFinished
+			if !Stage.IsFinished and BarrierType != BarrierWater
 			{
 				// Decrease timer
 				AirTimer--

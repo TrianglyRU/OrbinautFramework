@@ -1,5 +1,11 @@
 function ObjInvStarScript()
 {
+	if !Player.InvincibilityBonus or Player.SuperState
+	{
+		instance_destroy();
+		exit;
+	}
+	
 	// Set rotation speed
 	RotationSpeed += 10;
 	

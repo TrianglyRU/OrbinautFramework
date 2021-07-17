@@ -6,7 +6,11 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	{
 		exit;
 	}
-	if (flame_type and Player.BarrierType == BarrierFlame) or (thunder_type and Player.BarrierType == BarrierThunder)
+	if flame_type and Player.BarrierType == BarrierFlame
+	{
+		exit;
+	}
+	if thunder_type and Player.BarrierType == BarrierThunder
 	{
 		exit;
 	}
@@ -27,16 +31,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	audio_sfx_stop(sfxFlying);
 	audio_sfx_stop(sfxTired);
 	
-	// Play hurt sound
-	if object_index == SpikesVertical or object_index == SpikesHorizontal
-	{
-		audio_sfx_play(sfxHurtSpike, false)
-	}
-	else
-	{
-		audio_sfx_play(sfxHurt, false);
-	}
-
 	// Check if player has no rings and barrier or should die instantly
 	if (!Player.Rings and !Player.BarrierType) or instant_kill
 	{
@@ -66,6 +60,16 @@ function object_damage(flame_type, thunder_type, instant_kill)
 			
 		// Enter death state
 		Player.Death = true;
+		
+		// Play hurt sound
+		if object_index == SpikesVertical or object_index == SpikesHorizontal
+		{
+			audio_sfx_play(sfxHurtSpike, false)
+		}
+		else
+		{
+			audio_sfx_play(sfxHurt, false);
+		}
 	}
 		
 	// Check if player has rings or barrier
@@ -116,7 +120,14 @@ function object_damage(flame_type, thunder_type, instant_kill)
 			}
 			else
 			{
-				audio_sfx_play(sfxHurt, false);
+				if object_index == SpikesVertical or object_index == SpikesHorizontal
+				{
+					audio_sfx_play(sfxHurtSpike, false)
+				}
+				else
+				{
+					audio_sfx_play(sfxHurt, false);
+				}
 			}
 			
 			// Update player's ring counter

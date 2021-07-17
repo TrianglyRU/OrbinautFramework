@@ -73,7 +73,7 @@ function GameAudioPriorityHandle()
 				audio_sound_gain(Track, VolumeLevel, 0);
 				
 				// Check if track volume is 0 and we stop the bgm
-				if audio_sound_get_gain(Track) == 0
+				if audio_sound_get_gain(Track) == 0 or EventTime == 0
 				{	
 					// Clear data
 					Game.PriorityTrack[TrackID]		   = 0;
@@ -94,7 +94,7 @@ function GameAudioPriorityHandle()
 	// Automatic behaviour
 	if Track and Event != EventMute and Event != EventStop
 	{
-		audio_bgm_mute(TypeNormal, 1);
+		audio_bgm_mute(TypeNormal, 0);
 	}
 	else if Game.NormalTrack[TrackEvent] == EventMute
 	{

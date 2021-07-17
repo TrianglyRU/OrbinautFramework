@@ -2,24 +2,23 @@ function PaletteHandleStatic()
 {
 	switch room
 	{
+		case MQZ0:
 		case MQZ1:
 		case MQZ2:
 		{		
-			// MQZ underwater palette swap
-			for (var i = 0; i < 9; i++)
+			// General underwater
+			for (var i = 11; i <= 18; i++)
 			{
-				palette_handle(PaletteUnderwater, i, 0, 1, 1);
+				palette_handle(PaletteUnderwater, i, 1, 1, 1);
+			}
+			
+			// Underwater swap
+			for (var i = 22; i <= 50; i++)
+			{
+				palette_handle(PaletteUnderwater, i, 1, 1, 1);
 			}
 		}
 		break;
-		default:
-		{
-			// Default underwater palette swap
-			for (var i = 0; i < 9; i++)
-			{
-				palette_handle(PaletteUnderwater, i, 0, 1, 1);
-			}
-		}
-		break;
+		default: break;
 	}
 }

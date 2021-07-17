@@ -23,7 +23,7 @@ function ScreenTitleCardDisplay()
 			var CompositionName = "UNKNOWN TRACK";
 		break;
 	}
-	string_set_font(Game.Font[FontDebug], "right");
+	string_set_font(Game.Font[FontDebug], fa_right);
 	string_display(LineX - 52, LineY + 40, CompositionName, 1);
 	
 	// Draw card elements 2
@@ -33,7 +33,7 @@ function ScreenTitleCardDisplay()
 	draw_sprite(spr_card_act,       Stage.ActID, ActX,	       ActY);
 	
 	// Draw zone name
-	string_set_font(Game.Font[FontCard], "right");
+	string_set_font(Game.Font[FontCard], fa_right);
 	string_display(ZoneX, ZoneY, Stage.ZoneName, 1);
 	
 	// Start gameplay early if we're loading from previous act

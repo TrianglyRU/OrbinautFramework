@@ -11,7 +11,7 @@
 	PaletteFadeReset();
 	
 	// Handle static palette
-	//PaletteHandleStatic();
+	PaletteHandleStatic();
 	
 	// Reset surfaces
 	PaletteRendererSurfaceReset();

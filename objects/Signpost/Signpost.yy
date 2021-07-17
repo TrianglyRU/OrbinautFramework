@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_signpost",
-    "path": "sprites/spr_obj_signpost/spr_obj_signpost.yy",
+    "name": "spr_obj_signpost_start_sonic",
+    "path": "sprites/spr_obj_signpost_start_sonic/spr_obj_signpost_start_sonic.yy",
   },
   "solid": false,
   "visible": true,

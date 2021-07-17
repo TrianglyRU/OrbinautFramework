@@ -1,7 +1,7 @@
 function ObjRingScript()
 {
 	// Play animation
-	image_index = Stage.AnimationTime div 4 mod 8;
+	animation_play_sync(sprite_index, 8);
 		
 	// Check for being magnetized
 	if !Magnetized
@@ -39,7 +39,7 @@ function ObjRingScript()
 	}
 	
 	// Check for hitbox collision
-	if !Player.Hurt and object_player_overlap(CollisionHitbox)
+	if !Player.Hurt and Player.IsInvincible < 90 and object_player_overlap(CollisionHitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;

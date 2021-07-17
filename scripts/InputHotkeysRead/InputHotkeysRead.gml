@@ -155,12 +155,9 @@ function InputHotkeysRead()
 		Player.Rings += 1;
 	}
 	
-	// Perform random type of fade (F12)
+	// Turn on Superform (F12)
 	if keyboard_check_pressed(vk_f12)
 	{
-		var FadeMode   = choose(to, from);
-		var FadeColour = choose(black, white, flash);
-		
-		fade_perform(FadeMode, FadeColour, 1);
+		Player.SuperState = !Player.SuperState
 	}
 }

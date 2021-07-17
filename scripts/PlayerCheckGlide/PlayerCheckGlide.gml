@@ -1,7 +1,7 @@
 function PlayerCheckGlide()
 {
 	// Check if we're Knuckles
-	if CharacterID != CharKnuckles or OnObject
+	if CharacterID != CharKnuckles or OnObject or Death
 	{
 		exit;
 	}
@@ -10,7 +10,7 @@ function PlayerCheckGlide()
 	if !GlidingState
 	{
 		// Check if we're jumping and A, B or C button is pressed
-		if Jumping and Input.ABCPress
+		if Jumping and (Input.APress or Input.BPress)
 		{
 			// Set speeds
 			if (Ysp < 0) Ysp = 0;
@@ -61,7 +61,7 @@ function PlayerCheckGlide()
 				// Accelerate
 				Xsp += Facing * GlidingAcc;
 				
-				// Check for turning bacl
+				// Check for turning back
 				if Input.LeftPress  and Facing == DirRight
 				or Input.RightPress and Facing == DirLeft
 				{
@@ -113,6 +113,79 @@ function PlayerCheckGlide()
 			}
 			break;
 			
+			// Check if we're turning
+			case GlidingTurn:
+			{
+				// Apply gravity
+				Grv = Ysp < 0.5 ? 0.125 : -0.125;
+				
+				// Enter sliding state if we collided the ground
+				if floorDistance < 0
+				{
+					GlidingState = GlidingGround;
+					exit;
+				}
+			
+				// Gliding from right to left
+				if GlidingDirection == DirRight
+				{
+					// Decrease angle
+					GlidingValue = max(GlidingValue - 2.8125, -90);
+					
+					// Check if we start gliding back to the right
+					/*if Input.RightPress
+					{
+						GlidingDirection = DirLeft;
+						break;
+					}*/
+					
+					// Calculate speed
+					Xsp = ReservedSpeed * dsin(GlidingValue);
+					
+					// Check if we finished to turn
+					if GlidingValue == -90
+					{
+						GlidingState     = GlidingAir;
+						GlidingDirection = DirLeft;
+					}
+				}
+				
+				// Gliding from left ot right
+				else if GlidingDirection == DirLeft
+				{
+					// Increase angle
+					GlidingValue = min(GlidingValue + 2.8125, 90);
+					
+					// Check if we start gliding back to the left
+					/*if Input.LeftPress
+					{
+						GlidingDirection = DirRight;
+						break;
+					}*/
+					
+					// Calculated speed
+					Xsp = ReservedSpeed * -dsin(GlidingValue);
+					
+					// Check if we finished to trun
+					if GlidingValue == 90
+					{
+						GlidingState     = GlidingAir;
+						GlidingDirection = DirRight;
+					}
+				}
+				
+				// Drop down if no jump button is currently held
+				if !Input.ABC
+				{
+					Xsp		    *= 0.25;
+					GlidingState = GlidingDrop;
+				}
+				
+				// Set facing direction
+				Facing = GlidingValue > 0 ? DirRight : DirLeft;
+			}
+			break;
+			
 			// Check if we've glide dropped
 			case GlidingDrop:
 			{
@@ -129,12 +202,12 @@ function PlayerCheckGlide()
 				// Control character
 				if Input.Left
 				{
-					Xsp -= AirAcc;
+					Xsp   -= AirAcc;
 					Facing = DirLeft;
 				}
 				else if Input.Right
 				{
-					Xsp += AirAcc;
+					Xsp    += AirAcc;
 					Facing = DirRight;
 				}
 					
@@ -152,6 +225,10 @@ function PlayerCheckGlide()
 					// Set flags
 					Grounded     = true;
 					MovementLock = 20;
+					GlidingState = GlidingDropStand;
+					
+					// Set animation
+					Animation = AnimDropStand;
 				}
 			}
 			break;
@@ -231,66 +308,6 @@ function PlayerCheckGlide()
 					Grounded = true;
 					Angle    = floorAngle;
 				}
-			}
-			break;
-			
-			// Check if we're turning
-			case GlidingTurn:
-			{
-				// Apply gravity
-				Grv = Ysp < 0.5 ? 0.125 : -0.125;
-				
-				// Enter sliding state if we collided the ground
-				if floorDistance < 0
-				{
-					GlidingState = GlidingGround;
-					exit;
-				}
-		
-				if GlidingDirection == DirRight
-				{
-					GlidingValue = max(GlidingValue - 2.8125, -90);
-					if Input.RightPress
-					{
-						GlidingDirection = DirLeft;
-						ReservedSpeed    = Xsp;
-						break;
-					}
-					Xsp = ReservedSpeed * dsin(GlidingValue);
-				
-					if GlidingValue == -90
-					{
-						GlidingState     = GlidingAir;
-						GlidingDirection = DirLeft;
-					}
-				}
-				else if GlidingDirection == DirLeft
-				{
-					GlidingValue = min(GlidingValue + 2.8125, 90);
-					if Input.LeftPress
-					{
-						GlidingDirection = DirRight;
-						ReservedSpeed    = Xsp;
-						break;
-					}
-					Xsp = ReservedSpeed * -dsin(GlidingValue);
-				
-					if GlidingValue == 90
-					{
-						GlidingState     = GlidingAir;
-						GlidingDirection = DirRight;
-					}
-				}
-				
-				// Drop down if no jump button is currently held
-				if !Input.ABC
-				{
-					Xsp		    *= 0.25;
-					GlidingState = GlidingDrop;
-				}
-				
-				// Set facing direction
-				Facing = GlidingValue > 0 ? DirRight : DirLeft;
 			}
 			break;
 		}		

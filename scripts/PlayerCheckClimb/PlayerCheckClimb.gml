@@ -1,7 +1,7 @@
 function PlayerCheckClimb()
 {
 	// Check if we're Knuckles
-	if CharacterID != CharKnuckles
+	if CharacterID != CharKnuckles or Death
 	{
 		exit;
 	}

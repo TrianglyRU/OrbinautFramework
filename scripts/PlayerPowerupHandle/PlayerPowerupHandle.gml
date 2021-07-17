@@ -53,7 +53,6 @@ function PlayerPowerupHandle()
 			{
 				audio_bgm_stop(TypePriority, 1);
 			}
-			instance_destroy(InvincibilityStar);
 		}
 	}
 	

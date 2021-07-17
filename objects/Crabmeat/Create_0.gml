@@ -4,6 +4,7 @@
 	object_set_solidbox(8, 16);
 	object_set_hitbox(16, 16);
 	object_set_depth(Player, false);
+	object_set_range(RangeClose);
 	
 	Dir       = image_xscale;
 	Xsp       = 0.5;

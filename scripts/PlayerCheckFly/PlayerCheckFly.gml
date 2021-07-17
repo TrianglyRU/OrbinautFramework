@@ -10,7 +10,7 @@ function PlayerCheckFly()
 	if !FlyingState
 	{	
 		// Check if we're jumping and A, B or C button has been pressed
-		if Jumping and Input.ABCPress
+		if Jumping and (Input.APress or Input.BPress)
 		{
 			// Start flying
 			Grv			= 0.03125;

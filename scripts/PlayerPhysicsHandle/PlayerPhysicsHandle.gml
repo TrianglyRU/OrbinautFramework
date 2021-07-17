@@ -41,7 +41,7 @@ function PlayerPhysicsHandle()
 			{
 				Acc           = 0.09375;
 				AirAcc        = 0.1875;
-				GlidingAcc    = 0.015625;
+				GlidingAcc    = 0.046875;
 				Dec           = 0.75;
 				RollDec       = 0.125;
 				Frc           = 0.046875;
@@ -72,7 +72,7 @@ function PlayerPhysicsHandle()
 		{
 			Acc			  = 0.0234375;
 			AirAcc		  = 0.046875;
-			GlidingAcc    = 0.046875;
+			GlidingAcc    = 0.015625;
 			Dec			  = 0.25;
 			RollDec		  = 0.125;
 			Frc			  = 0.0234375;

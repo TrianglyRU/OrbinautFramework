@@ -9,7 +9,7 @@ function object_act_enemy(enemy_type)
 	if enemy_type == EnemyBadnik
 	{
 		// Return badniks to their initial state if outside camera
-		if !variable_instance_exists(id, "objBadnikState")
+		/*if !variable_instance_exists(id, "objBadnikState")
 		{
 			UnloadOriginX  = x;
 			UnloadOriginY  = y;
@@ -53,7 +53,7 @@ function object_act_enemy(enemy_type)
 					}
 				}
 			}	
-		}
+		}*/
 	}
 	
 	// Exit if no collision happened

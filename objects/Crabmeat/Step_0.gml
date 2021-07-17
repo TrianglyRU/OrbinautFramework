@@ -36,12 +36,6 @@
 		}
 	}
 	
-	if x < Screen.CameraX - 32 or x > Screen.CameraX + Screen.Width  + 32
-	or y < Screen.CameraY - 32 or y > Screen.CameraY + Screen.Height + 32
-	{ 
-		Reset = true;
-	}
-	
 	if StopTimer == 60 and !Reset 
 	{
 		sprite_index = spr_badnik_crabmeat_fire;
@@ -61,8 +55,4 @@
 	}
 
 	// Check for hitbox overlap
-	if object_player_overlap(CollisionHitbox)
-	{
-		// Damage player or be destroyed
-		object_act_badnik(true, false);
-	}
+	object_act_enemy(EnemyBadnik)

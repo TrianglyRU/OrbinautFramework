@@ -27,9 +27,6 @@
     {"compositeImage":{"FrameId":{"name":"c54d1c2c-be57-4d6c-9ecc-008cf3a81e44","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"c54d1c2c-be57-4d6c-9ecc-008cf3a81e44","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"LayerId":{"name":"c5ac0808-7bac-4b8b-854a-e81ab20732df","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_dropstand","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","name":"c54d1c2c-be57-4d6c-9ecc-008cf3a81e44","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"118a11e8-8ab0-4f8c-8901-5edd0a561495","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"118a11e8-8ab0-4f8c-8901-5edd0a561495","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"LayerId":{"name":"c5ac0808-7bac-4b8b-854a-e81ab20732df","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_knuckles_dropstand","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","name":"118a11e8-8ab0-4f8c-8901-5edd0a561495","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"81968f99-0dd8-4f3e-bf59-fc4cda3f8900","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"81968f99-0dd8-4f3e-bf59-fc4cda3f8900","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"LayerId":{"name":"c5ac0808-7bac-4b8b-854a-e81ab20732df","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_dropstand","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","name":"81968f99-0dd8-4f3e-bf59-fc4cda3f8900","tags":[],"resourceType":"GMSpriteFrame",},
@@ -42,14 +39,13 @@
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 3.0,
+    "length": 2.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"5f064443-39b2-4c75-ba6d-102c1edc0069","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c54d1c2c-be57-4d6c-9ecc-008cf3a81e44","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"a9f97a34-816f-4883-92c3-753fb23d461d","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"118a11e8-8ab0-4f8c-8901-5edd0a561495","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"227c99a3-705b-4568-bf9d-3dc8e58a1b93","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"81968f99-0dd8-4f3e-bf59-fc4cda3f8900","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"227c99a3-705b-4568-bf9d-3dc8e58a1b93","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"81968f99-0dd8-4f3e-bf59-fc4cda3f8900","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,

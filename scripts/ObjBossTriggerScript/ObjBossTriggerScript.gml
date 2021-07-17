@@ -51,7 +51,7 @@ function ObjBossControllerScript()
 			Stage.TargetTopBoundary	   = ReservedTopBound;
 		
 			// Stop all music
-			audio_bgm_stop(TypePriority, 0.5);
+			audio_bgm_stop(TypePriority, 0);
 			audio_bgm_stop(TypeNormal,   0);
 			
 			// Play stage music

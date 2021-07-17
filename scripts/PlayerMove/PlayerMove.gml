@@ -1,5 +1,18 @@
 function PlayerMove()
 {	
+	// Knuckles drop stand
+	if GlidingState
+	{
+		if MovementLock != false
+		{
+			Animation = AnimDropStand;
+		}
+		else
+		{
+			GlidingState = false;
+		}
+	}
+	
 	// Accelerate and decelerate
 	if MovementLock == false
 	{
@@ -107,7 +120,7 @@ function PlayerMove()
 	}
 
 	// Our default animation if AnimIdle
-	if !Input.Down and !Input.Up and SlopeGravity == 0
+	if !Input.Down and !Input.Up and SlopeGravity == 0 and !GlidingState
 	{
 		Animation = AnimIdle;
 	}

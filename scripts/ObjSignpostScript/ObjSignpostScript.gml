@@ -26,6 +26,9 @@ function ObjSignpostScript()
 			// Play sound
 			audio_sfx_play(sfxSignPost, false);
 		}
+		
+		// Freeze at the first frame
+		animation_set_frame(SpriteStart, 1);
 	}
 	else
 	{	
@@ -36,6 +39,20 @@ function ObjSignpostScript()
 		if ActiveTimer < 140
 		{
 			ActiveTimer++;
+		}
+		
+		// Play animation
+		if ActiveTimer < 62
+		{
+			animation_play(SpriteStart, 1, 1);
+		}
+		else if ActiveTimer < 123
+		{
+			animation_play(SpriteEnd, 1, 1);
+		}
+		else
+		{
+			animation_set_frame(SpriteEnd, 1);
 		}
 		
 		// Spawn stars

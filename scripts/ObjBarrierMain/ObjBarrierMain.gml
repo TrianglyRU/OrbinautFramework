@@ -7,7 +7,7 @@ function ObjBarrierMain()
 		case BarrierNormal:
 		{
 			// Play animation
-			animation_play(spr_barrier_normal, 1, 1);
+			animation_play(spr_barrier_normal, 2, 1);
 			
 			// Set object depth
 			object_set_depth(Player, true);
@@ -83,7 +83,7 @@ function ObjBarrierMain()
 	}
 	
 	// Hide the barrier when the player is under invincibility bonus
-	if Player.InvincibilityBonus or Player.SuperState == SuperStart or Player.SuperState == SuperActive
+	if Player.InvincibilityBonus or Player.SuperState
 	{
 		image_alpha = 0;
 	}

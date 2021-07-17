@@ -39,9 +39,10 @@ function MenuConfiguration()
 	
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
-	menu_add_option(4, 0, "MQZ1", noone);
-	menu_add_option(4, 1, "MQZ2", noone);
-	menu_add_option(4, 2, "MQZ0", noone);
+	menu_add_option(4, 0, "MQZ1",    noone);
+	menu_add_option(4, 1, "MQZ2",	 noone);
+	menu_add_option(4, 2, "MQZ0",	 noone);
+	menu_add_option(4, 3, "OBJTEST", noone);
 	
 	// Options
 	menu_add_header(5,    "GAME OPTIONS");

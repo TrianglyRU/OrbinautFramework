@@ -127,6 +127,9 @@ function MenuOptionReact()
 			case 2:
 				room_goto(MQZ0);
 			break;
+			case 3:
+				room_goto(ObjTest);
+			break;
 		}
 	}
 	

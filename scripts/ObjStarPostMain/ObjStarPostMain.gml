@@ -31,4 +31,8 @@ function ObjStarPostMain()
 			animation_set_frame(sprite_index, 3);
 		}
 	}
+	else
+	{
+		animation_play(sprite_index, 4, 3);
+	}
 }

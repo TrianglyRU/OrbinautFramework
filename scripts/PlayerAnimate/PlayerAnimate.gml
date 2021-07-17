@@ -5,6 +5,7 @@ function PlayerAnimate()
 		// Sonic animations
 		case CharSonic:
 		{
+			// Regular
 			if !SuperState
 			{
 				switch Animation
@@ -62,6 +63,8 @@ function PlayerAnimate()
 					break;
 				}
 			}
+			
+			// Super Sonic
 			else
 			{
 				switch Animation
@@ -127,6 +130,9 @@ function PlayerAnimate()
 				case AnimRun: 
 					animation_play(spr_tails_run,  round(max(1, 8 - abs(Inertia))), 1);
 				break;
+				case AnimPeelout: 
+					animation_play(spr_tails_dash, 1, 1);
+				break;
 				case AnimRoll:
 					animation_play(spr_tails_roll, 2, 1);
 				break;
@@ -158,6 +164,7 @@ function PlayerAnimate()
 					animation_play(spr_tails_hurt, 1, 1);
 				break;
 				case AnimDeath:
+				case AnimDrown:
 					animation_play(spr_tails_death, 1, 1);
 				break;
 				case AnimSpring:
@@ -167,7 +174,13 @@ function PlayerAnimate()
 					animation_play(spr_tails_push, 32, 1);
 				break;
 				case AnimActEnd:
-					animation_play(spr_tails_actend, 4, 2);
+					animation_play(spr_tails_actend, 8, 2);
+				break;
+				case AnimBalanceBack:
+					animation_play(spr_tails_balance_back, 20, 1);
+				break;
+				case AnimBalanceFront:
+					animation_play(spr_tails_balance_front, 20, 1);
 				break;
 			}	
 		}
@@ -242,7 +255,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_glidestand, 15, 2);
 				break;
 				case AnimDropStand:
-					animation_play(spr_knuckles_dropstand, 3, 3);
+					animation_play(spr_knuckles_dropstand, 20, 2);
 				break;
 				case AnimClimb:
 					animation_play(spr_knuckles_climb, -sign(Ysp) * 4, 1);
@@ -255,6 +268,12 @@ function PlayerAnimate()
 				break;
 				case AnimSpring:
 					animation_play(spr_knuckles_spring, 1, 1);
+				break;
+				case AnimBalanceFront:
+					animation_play(spr_knuckles_balance_front, 4, 34);
+				break;
+				case AnimBalanceBack:
+					animation_play(spr_knuckles_balance_back, 4, 34);
 				break;
 			}
 		}
