@@ -33,7 +33,7 @@ function PlayerAnglePos()
 			// Get the tiles below us
 			var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
 			var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
-			var TileMiddle = tile_check_collision_v(floor(PosX),		   floor(PosY + yRadius), true, false, Layer);
+			var TileMiddle = tile_check_collision_v(floor(PosX),	       floor(PosY + yRadius), true, false, Layer);
 			
 			// Is the left tile closer to us than the right one?
 			if TileLeft[0] <= TileRight[0]
@@ -42,8 +42,11 @@ function PlayerAnglePos()
 				var FloorDistance = TileLeft[0];
 				var FloorAngle	  = TileLeft[1];
 					
-				// Check for balancing
-				if (Inertia == 0 and TileMiddle[0] > 14) Balancing = Facing;
+				// Check for balancing on the left
+				if Inertia == 0 and TileMiddle[0] > 14
+				{
+					Balancing = Facing;
+				}
 			}
 			
 			// Else use right tile
@@ -52,8 +55,11 @@ function PlayerAnglePos()
 				var FloorDistance = TileRight[0];
 				var FloorAngle	  = TileRight[1];
 
-				// Check for balancing
-				if (Inertia == 0 and TileMiddle[0] > 14) Balancing = -Facing;
+				// Check for balancing on the right
+				if Inertia == 0 and TileMiddle[0] > 14
+				{
+					Balancing = -Facing;
+				}
 			}
 				
 			// Is the tile below our position is closer to us than tiles on the left and right?
@@ -78,9 +84,12 @@ function PlayerAnglePos()
 				if Game.ImprovedTileCollision
 				{
 					// Extra check for balancing on the slope
-					if (Inertia == 0 and TileMiddle[0] > 0) Balancing = -Facing;
+					if Inertia == 0 and TileMiddle[0] > 0
+					{
+						Balancing = -Facing;
+					}
 
-					// Go airborne if there is no ground right below us
+					// Go airborne if there is no surface right below us
 					if FloorDistance > 0
 					{
 						Grounded = false;
