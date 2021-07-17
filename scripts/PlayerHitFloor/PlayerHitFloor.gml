@@ -12,7 +12,7 @@ function PlayerHitFloor()
 		// Get the tiles below us
 		var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
 		var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
-		var TileMiddle = tile_check_collision_v(floor(PosX),		   floor(PosY + yRadius), true, false, Layer);
+		var TileMiddle = tile_check_collision_v(floor(PosX),	       floor(PosY + yRadius), true, false, Layer);
 			
 		// Is the left tile closer to us than the right one?
 		if TileLeft[0] <= TileRight[0]
