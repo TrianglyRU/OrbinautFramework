@@ -142,6 +142,15 @@ function object_damage(flame_type, thunder_type, instant_kill)
 			// Remove barrier
 			instance_destroy(Barrier);
 			Player.BarrierType = false;
+			
+			if object_index == SpikesVertical or object_index == SpikesHorizontal
+			{
+				audio_sfx_play(sfxHurtSpike, false)
+			}
+			else
+			{
+				audio_sfx_play(sfxHurt, false);
+			}
 		}
 
 		// Perform movement

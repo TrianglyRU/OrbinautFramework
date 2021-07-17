@@ -1,17 +1,19 @@
 function ObjMotobugStartup()
 {
 	// Create variables
-	PosX	  isReal;
-	PosY	  isReal;
-	Xsp		  isReal;
-	Direction isReal;
-	StopTimer isReal;
+	PosX	   isReal;
+	PosY	   isReal;
+	Xsp		   isReal;
+	Direction  isReal;
+	StopTimer  isReal;
+	SmokeTimer isReal;
 	
 	// Set values
-	PosX	  = x;
-	PosY	  = y;
-	Direction = image_xscale;
-	Xsp       = 1;
+	PosX	   = x;
+	PosY	   = y;
+	Direction  = image_xscale;
+	Xsp        = 1;
+	SmokeTimer = 17;
 	
 	// Set object solidbox
 	object_set_solidbox(8, 15);

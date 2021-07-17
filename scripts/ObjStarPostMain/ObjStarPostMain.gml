@@ -16,7 +16,7 @@ function ObjStarPostMain()
 				if !Active and ID <= ThisID
 				{
 					Active = true;
-					animation_set_frame(sprite_index, 2);
+					animation_set_frame(spr_obj_starpost, 2);
 				}	
 			}
 			
@@ -26,13 +26,9 @@ function ObjStarPostMain()
 	else if Angle < 900 
 	{
 		Angle += 22.5;
-		if Angle == 900
-		{
-			animation_set_frame(sprite_index, 3);
-		}
 	}
 	else
 	{
-		animation_play(sprite_index, 4, 3);
+		animation_play(spr_obj_starpost_active, 4, 1);
 	}
 }

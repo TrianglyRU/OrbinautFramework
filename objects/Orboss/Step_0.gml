@@ -155,9 +155,11 @@ if (keyboard_check_pressed(ord("V"))) HP = 1;
 		break;
 	}
 	
+	var KnuxOffset = Player.CharacterID == CharKnuckles ? 16 : 0;
+	
 	if (State) SinMove = (SinMove + 2) mod 360;
 	x = floor(PosX);
-	y = floor(PosY + dsin(SinMove) * 8);
+	y = floor(PosY + dsin(SinMove) * 8) + KnuxOffset;
 	
 	if (!HP) exit;
 	

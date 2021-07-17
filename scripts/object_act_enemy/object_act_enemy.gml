@@ -70,13 +70,13 @@ function object_act_enemy(enemy_type)
 		// Make player bounce if they are airborne
 		if !Player.Grounded
 		{
-			if floor(Player.PosY) < YPos
+			if floor(Player.PosY) > YPos or Player.Ysp < 0
+			{
+				Player.Ysp -= 1 * sign(Player.Ysp);	
+			}
+			else if Player.Ysp > 0
 			{
 				Player.Ysp = -Player.Ysp;
-			}
-			else
-			{
-				Player.Ysp -= 1 * sign(Player.Ysp);
 			}
 		}
 		

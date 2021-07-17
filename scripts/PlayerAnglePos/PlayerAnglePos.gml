@@ -1,12 +1,12 @@
 function PlayerAnglePos()
 {	
-	// Do not collide if we're not allowed to, or if we're standing on object
+	// Exit the code if we're not allowed to collide or we're standing on object
 	if !AllowCollision or OnObject
 	{
 		exit;
 	}
 	
-	// Update floor angle quadrant
+	// Get current angle range of the floor
 	if Angle <= 45 or Angle >= 315
 	{
 		var AngleRange = RangeFloor;
@@ -23,197 +23,198 @@ function PlayerAnglePos()
 	{
 		var AngleRange = RangeLWall;
 	}	
-	AngleQuadFloor = AngleRange;
 	
-	// Collide with one of four floor sides based on floor angle range
+	// Collide with the surface depending on current angle range
 	switch AngleRange
 	{
+		// Floor collision
 		case RangeFloor:
 		{		
-			// Get tiles
+			// Get the tiles below us
 			var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
 			var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
 			var TileMiddle = tile_check_collision_v(floor(PosX),		   floor(PosY + yRadius), true, false, Layer);
 			
-			// Use left tile (primary)
+			// Is the left tile closer to us than the right one?
 			if TileLeft[0] <= TileRight[0]
 			{
-				var floorDistance = TileLeft[0];
-				var floorAngle	  = TileLeft[1];
+				// Use left tile
+				var FloorDistance = TileLeft[0];
+				var FloorAngle	  = TileLeft[1];
 					
 				// Check for balancing
 				if (Inertia == 0 and TileMiddle[0] > 14) Balancing = Facing;
 			}
 			
-			// Use right tile (secondary)
+			// Else use right tile
 			else
 			{	
-				var floorDistance = TileRight[0];
-				var floorAngle	  = TileRight[1];
+				var FloorDistance = TileRight[0];
+				var FloorAngle	  = TileRight[1];
 
 				// Check for balancing
 				if (Inertia == 0 and TileMiddle[0] > 14) Balancing = -Facing;
 			}
 				
-			// Use middle tile if both left and right distances are the same and we're on the flat floor
+			// Is the tile below our position is closer to us than tiles on the left and right?
 			if Game.ImprovedTileCollision
 			{   
 				if TileLeft[0] == TileRight[0] and TileMiddle[0] <= 0
 				{
-					var floorDistance = TileMiddle[0];
-					var floorAngle	  = TileMiddle[1];
+					// Use the tile right below our position
+					var FloorDistance = TileMiddle[0];
+					var FloorAngle	  = TileMiddle[1];
 				}
 			}
 				
-			// Check if floor angle difference is too high
-			var angDifference = abs(Angle mod 180 - floorAngle mod 180);
-			if  angDifference > 45 and angDifference < 135
+			// Check if the difference between our angle and floor angle is too high
+			var Difference = abs(Angle mod 180 - FloorAngle mod 180);
+			if  Difference > 45 and Difference < 135
 			{
 				// Force reset floor angle
-				floorAngle = 360;
+				FloorAngle = 360;
 				
-				// Walk off of the edge naturally
+				// Should we walk off of the edge naturally?
 				if Game.ImprovedTileCollision
 				{
-					// Extra check for balancing
+					// Extra check for balancing on the slope
 					if (Inertia == 0 and TileMiddle[0] > 0) Balancing = -Facing;
 
 					// Go airborne if there is no ground right below us
-					if floorDistance > 0
+					if FloorDistance > 0
 					{
 						Grounded = false;
 						exit;
 					}
 				}
 					
-				// or just disable balancing
+				// If not, just ignore balancing
 				else
 				{
 					Balancing = false;
 				}
 			}
 				
-			// Lose the ground if distance is too high
-			var maxDistance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			if floorDistance > maxDistance
+			// Go airborne if the surface is far below us
+			var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+			if  FloorDistance > Distance
 			{
 				Grounded = false;
-				exit;
 			}
 				
-			// Collide with floor
-			else if floorDistance >= -14
+			// Else adhere to the surface and inherit floor angle
+			else if FloorDistance >= -14
 			{
-				Angle = floorAngle;
-				PosY += floorDistance;
+				Angle = FloorAngle;
+				PosY += FloorDistance;
 			}
 		}
 		break;
 		case RangeRWall:
 		{	
-			// Get tiles
+			// Get the tiles to the right from us
 			var TileLeft  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true, false, Layer);
 			var TileRight = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true, false, Layer);
 			
-			// Use left tile
+			// Is the lower tile closer to us than the higher one?
 			if TileLeft[0] <= TileRight[0]
 			{
-				var floorDistance = TileLeft[0];
-				var floorAngle	  = TileLeft[1];
+				// Use lower tile
+				var FloorDistance = TileLeft[0];
+				var FloorAngle	  = TileLeft[1];
 			}
 			
-			// Use right tile
+			// Else use higher tile
 			else
 			{
-				var floorDistance = TileRight[0];
-				var floorAngle	  = TileRight[1];
+				var FloorDistance = TileRight[0];
+				var FloorAngle	  = TileRight[1];
 			}
 			
-			// Lose the ground if distance is too high
-			var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			if  floorDistance > maxDistance
+			// Go airborne if the surface is far to the right from us
+			var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+			if  FloorDistance > Distance
 			{
 				Grounded = false;
-				exit;
 			}
 				
-			// Collide with floor
-			else if floorDistance >= -14
+			// Else adhere to the surface and inherit floor angle
+			else if FloorDistance >= -14
 			{
-				Angle = floorAngle;
-				PosX += floorDistance;
+				Angle = FloorAngle;
+				PosX += FloorDistance;
 			}
 		}
 		break;
 		case RangeRoof:	
 		{	
-			// Get tiles
+			// Get the tiles above us
 			var TileLeft  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, false, Layer);
 			var TileRight = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, false, Layer);
 			
-			// Use left tile
+			// Is the right tile closer to us than the left one?
 			if TileLeft[0] <= TileRight[0]
 			{
-				var floorDistance = TileLeft[0];
-				var floorAngle	  = TileLeft[1];
+				// Use right tile
+				var FloorDistance = TileLeft[0];
+				var FloorAngle	  = TileLeft[1];
 			}
 			
-			// Use right tile
+			// Else use left tile
 			else
 			{
-				var floorDistance = TileRight[0];
-				var floorAngle    = TileRight[1];
+				var FloorDistance = TileRight[0];
+				var FloorAngle    = TileRight[1];
 			}
 			
-			// Lose the ground if distance is too high
-			var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			if floorDistance > maxDistance
+			// Go airborne if the surface is far above us
+			var Distance  = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+			if  FloorDistance > Distance
 			{
 				Grounded = false;
-				exit;
 			}
 				
-			// Collide with floor
-			else if floorDistance >= -14
+			// Else adhere to the surface and inherit floor angle
+			else if FloorDistance >= -14
 			{
-				Angle = floorAngle;
-				PosY -= floorDistance;
+				Angle = FloorAngle;
+				PosY -= FloorDistance;
 			}
 		}
 		break;
 		case RangeLWall:
 		{	
-			// Get tiles
+			// Get the tiles to the right from us
 			var TileLeft  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY - xRadius), false, false, Layer);
 			var TileRight = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, false, Layer);
 			
-			// Use left tile
+			// Is the higher tile closer to us than the lower one?
 			if TileLeft[0] <= TileRight[0]
 			{
-				var floorDistance = TileLeft[0];
-				var floorAngle    = TileLeft[1];
+				// Use higher tile
+				var FloorDistance = TileLeft[0];
+				var FloorAngle    = TileLeft[1];
 			}
 			
-			// Use right tile
+			// Else use lower tile
 			else
 			{
-				var floorDistance = TileRight[0];
-				var floorAngle    = TileRight[1];
+				var FloorDistance = TileRight[0];
+				var FloorAngle    = TileRight[1];
 			}
 			
-			// Lose the ground if distance is too high
-			var maxDistance  = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			if floorDistance > maxDistance
+			// Go airborne if the surface is far to the left from us
+			var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+			if  FloorDistance > Distance
 			{
 				Grounded = false;
-				exit;
 			}
 				
-			// Collide with floor
-			else if floorDistance >= -14
+			// Else adhere to the surface and inherit floor angle
+			else if FloorDistance >= -14
 			{
-				Angle = floorAngle;
-				PosX -= floorDistance;
+				Angle = FloorAngle;
+				PosX -= FloorDistance;
 			}
 		}
 		break;

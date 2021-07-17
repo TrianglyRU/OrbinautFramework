@@ -80,6 +80,23 @@ function PlayerSuperStateHandle()
 				}
 			}
 			
+			if abs(Inertia) < 10
+			{
+				SuperStateStar = 0;
+			}
+			else
+			{
+				if !SuperStateStar
+				{
+					SuperStateStar = 12
+					instance_create(floor(PosX), floor(PosY), SuperStar);
+				}
+				else
+				{
+					SuperStateStar--
+				}
+			}
+			
 			// Exit superform
 			if !Rings or (Game.DevMode and Jumping and Input.CPress)
 			{

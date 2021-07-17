@@ -1,83 +1,72 @@
 function PlayerHitFloor()
 {
-	// Exit the code if we're gliding or dead
+	// Exit the code if we're not allowed to collide or we're gliding as Knuckles
 	if !AllowCollision or GlidingState
 	{
 		exit;
 	}
 	
-	// Mode is always RangeFloor when airborne
-	AngleQuadFloor = RangeFloor;
-		
-	// Check if we're moving horizontally faster than vertically, or moving downwards
-	if (Ysp > 0 or abs(Xsp) > abs(Ysp))
+	// Check if we're moving horizontally faster than vertically, or downwards
+	if (Ysp > 0 or abs(Xsp) >= abs(Ysp))
 	{	
-		// Get tiles
+		// Get the tiles below us
 		var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
 		var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
 		var TileMiddle = tile_check_collision_v(floor(PosX),		   floor(PosY + yRadius), true, false, Layer);
 			
-		// Use left tile
+		// Is the left tile closer to us than the right one?
 		if TileLeft[0] <= TileRight[0]
 		{
-			var floorDistance = TileLeft[0];
-			var floorAngle    = TileLeft[1];
+			// Use left tile
+			var FloorDistance = TileLeft[0];
+			var FloorAngle    = TileLeft[1];
 		}
 			
-		// Use right tile
+		// Else use right tile
 		else
-		{
-			var floorDistance = TileRight[0];
-			var floorAngle    = TileRight[1];
+		{	
+			var FloorDistance = TileRight[0];
+			var FloorAngle    = TileRight[1];
 		}
 		
-		// Use middle tile if both left and right distances are the same and we're on the flat floor
+		// Is the tile below our position is closer to us than tiles on the left and right?
 		if Game.ImprovedTileCollision
 		{   
 			if TileLeft[0] == TileRight[0] and TileMiddle[0] <= 0
 			{
-				var floorDistance = TileMiddle[0];
-				var floorAngle	  = TileMiddle[1];
+				// Use the tile right below our position
+				var FloorDistance = TileMiddle[0];
+				var FloorAngle	  = TileMiddle[1];
 			}
 		}
 		
-		// Check if we collide with the floor
-		if floorDistance < 0
+		// Are we touching the floor within the clip distance?
+		var ClipDistance = -(Ysp + 8)
+		if  FloorDistance < 0 and (TileLeft[0] >= ClipDistance or TileRight[0] >= ClipDistance)
 		{
-			// If we're moving downwards and not gliding, calculate a momentum using floor angle
-			if abs(Xsp) < abs(Ysp)
+			// Use full vertical speed on steep angles
+			if FloorAngle >= 46.41 and FloorAngle <= 315
 			{
-				// Use vertical speed on steep angles
-				if floorAngle >= 46 and floorAngle <= 315
-				{
-					Xsp = 0;
-					Inertia = floorAngle < 180 ? -Ysp : Ysp;
-				}
-		
-				// Use halved vertical speed on shallow angles
-				else if floorAngle >= 23 and floorAngle <= 338
-				{
-					Inertia = floorAngle <= 180 ? -Ysp / 2 : Ysp / 2;
-				}
-		
-				// Use horizontal speed if angle is almost flat
-				else 
-				{	
-					Ysp     = 0;
-					Inertia = Xsp;	
-				}
+				Xsp = 0;
+				Inertia = FloorAngle < 180 ? -Ysp : Ysp;
 			}
 		
-			// If we're moving to the left or right, just use horizontal speed
+			// Use halved vertical speed on shallow angles
+			else if FloorAngle >= 23.91 and FloorAngle <= 337.5
+			{
+				Inertia = FloorAngle < 180 ? -Ysp / 2 : Ysp / 2;
+			}
+		
+			// Use horizontal speed if angle is almost flat
 			else 
 			{	
 				Ysp     = 0;
-				Inertia = Xsp;
+				Inertia = Xsp;	
 			}
 
-			// Land
-			PosY	+= floorDistance;
-			Angle    = floorAngle;
+			// Adhere to the surface, inherit floor angle and land
+			PosY	+= FloorDistance;
+			Angle    = FloorAngle;
 			Grounded = true;
 		}
 	}

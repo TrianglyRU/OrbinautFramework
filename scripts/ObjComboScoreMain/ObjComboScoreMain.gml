@@ -1,25 +1,29 @@
 function ObjComboScoreMain()
 {
 	// Select frame
-	if Player.ScoreCombo < 2
+	if Player.ScoreCombo == 0
 	{
 		ScoreFrame = 1;
 	}
-	else if Player.ScoreCombo < 3
+	else if Player.ScoreCombo < 2
 	{
 		ScoreFrame = 2;
 	}
-	else if Player.ScoreCombo < 4
+	else if Player.ScoreCombo < 3
 	{
 		ScoreFrame = 3;
 	}
-	else if Player.ScoreCombo < 16
+	else if Player.ScoreCombo < 4
 	{
 		ScoreFrame = 4;
 	}
-	else							
+	else if Player.ScoreCombo < 16
 	{
 		ScoreFrame = 5;
+	}
+	else							
+	{
+		ScoreFrame = 6;
 	}
 	
 	// Play animation

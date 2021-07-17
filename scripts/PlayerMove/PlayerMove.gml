@@ -161,7 +161,11 @@ function PlayerMove()
 		// Check for very fast run
 		else
 		{
-			Animation = CharacterID == CharSonic and Game.PeeloutEnabled ? AnimPeelout : AnimRun;
+			if CharacterID == CharSonic and Game.PeeloutEnabled 
+			or CharacterID == CharTails
+			{
+				Animation = AnimPeelout;
+			}
 			
 			if Skidding == false
 			{

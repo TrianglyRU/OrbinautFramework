@@ -5,13 +5,17 @@
 	{
 		if Ready
 		{
-			if Player.Grounded
-			{
-				Player.Inertia = -7 * sign(Player.Inertia);
-			}
-			else
+			// Reset combo
+			Player.ComboScore = 0;
+			
+			//if Player.Grounded
+			//{
+			//	Player.Inertia = -7 * sign(Player.Inertia);
+			//}
+			//else
 			{
 				var Ang = point_direction(Player.PosX, Player.PosY, x, y);
+				
 				Player.Xsp = -7 * dcos(Ang);
 				Player.Ysp =  7 * dsin(Ang);
 			}

@@ -42,6 +42,7 @@ function PlayerVariables()
 	DropdashDirection	 isVar;
 	SuperState			 isVar;
 	SuperStateValue		 isVar;
+	SuperStateStar		 isVar;
 	IsInvincible		 isVar;
 	isUnderwater		 isVar;
 	BarrierType			 isVar;

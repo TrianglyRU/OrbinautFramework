@@ -9,6 +9,8 @@
 		{
 			if Player.OnObject == id
 			{
+				audio_sfx_play(sfxLedgeBreak, false);
+				
 				DestroyTimer = Width / PartW * 4 + Height / PartH * 2;
 				var ID = id;
 				if image_xscale

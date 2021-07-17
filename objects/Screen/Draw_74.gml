@@ -7,6 +7,8 @@
 	// Start render below the fade
 	ScreenRendererLowStart();
 	
+	StageDrawWaterSurface();
+	
 	// Display HUD
 	ScreenInterfaceDisplay();
 

@@ -12,13 +12,13 @@ function gamesettings_load(filename)
 		
 	Game.SpindashEnabled    = ini_read_real("Gameplay", "Spindash",    true);
 	Game.DropdashEnabled    = ini_read_real("Gameplay", "Dropdash",    false);
-	Game.PeeloutEnabled	    = ini_read_real("Gameplay", "Peelout",     false);
+	Game.PeeloutEnabled	    = ini_read_real("Gameplay", "Peelout",     true);
 	Game.GroundSpeedcap	    = ini_read_real("Gameplay", "GndSpeedcap", false);
 	Game.AirSpeedcap	    = ini_read_real("Gameplay", "AirSpeedcap", false);
 	Game.ExtendedCamera	    = ini_read_real("Gameplay", "CDCamera",    false);
 	Game.ResolutionWidth    = ini_read_real("Video",	"Width",       400);
 	Game.ResolutionHeight   = ini_read_real("Video",	"Height",      224);
-	Game.WindowSize		    = ini_read_real("Video",	"Size",        2);
+	Game.WindowSize		    = ini_read_real("Video",	"Size",        3);
 	Game.WindowFullscreen   = ini_read_real("Video",	"Fullscreen",  0);
 	Game.MusicVolume        = ini_read_real("Music",	"MusicVolume", 0.5);
 	Game.SoundVolume        = ini_read_real("Music",	"SoundVolume", 0.5);

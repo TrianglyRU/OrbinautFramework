@@ -3,7 +3,7 @@
 	
 	if !Game.DevMode
 	{
-		draw_set_font(Game.Font[FontDebug]);
-		draw_set_halign(fa_right)
-		string_display(Game.ResolutionWidth - 6, 6, "BETA!", 1);
+		//draw_set_font(Game.Font[FontDebug]);
+		//draw_set_halign(fa_right)
+		//string_display(Game.ResolutionWidth - 6, 6, "BETA!", 1);
 	}
