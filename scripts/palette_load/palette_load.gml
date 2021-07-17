@@ -2,7 +2,7 @@
 function palette_load(type, list)
 {
 	// Do not load palette list if not given
-	if !list
+	if !sprite_exists(list)
 	{
 		PaletteSet[type] = false;
 		exit;
