@@ -35,11 +35,11 @@ function object_player_touch(collisionSide)
 	// Adjust solidbox
 	if !Game.ImprovedObjCollision
 	{
-		objectBottom += 1;
+		objectBottom++;
 	}	
 	else
 	{
-		objectRight -= 1;
+		objectRight--;
 	}
 	
 	// Set flags

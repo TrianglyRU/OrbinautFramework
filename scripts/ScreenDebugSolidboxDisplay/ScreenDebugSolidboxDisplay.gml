@@ -16,9 +16,9 @@ function ScreenDebugSolidboxDisplay()
 	if DebugToggle and DebugSolids
 	{
 		// Draw solidboxes
+		draw_set_alpha(0.5);
 		with all
 		{
-			draw_set_alpha(0.5);
 			if object_index == Player
 			{
 				var pTop    = floor(PosY - yRadius);
@@ -32,7 +32,7 @@ function ScreenDebugSolidboxDisplay()
 				var sizeAdjust = Game.ImprovedObjCollision ? 1 : 0;
 				draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - sizeAdjust, y + objYRadiusSolid - sizeAdjust, $00ffff, $00ffff, $00ffff, $00ffff, false);	
 			}
-			draw_set_alpha(1.0);
 		}
+		draw_set_alpha(1.0);
 	}
 }

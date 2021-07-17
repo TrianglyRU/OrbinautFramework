@@ -16,9 +16,9 @@ function ScreenDebugHitboxDisplay()
 	if DebugToggle and DebugHitboxes
 	{		
 		// Draw hitboxes
+		draw_set_alpha(0.5);
 		with all
 		{
-			draw_set_alpha(0.5);
 			if object_index == Player
 			{
 				if Animation == AnimCrouch
@@ -42,7 +42,7 @@ function ScreenDebugHitboxDisplay()
 				var sizeAdjust = Game.ImprovedObjCollision ? 1 : 0;
 				draw_rectangle_colour(x - objXRadiusHit, y - objYRadiusHit, x + objXRadiusHit - sizeAdjust, y + objYRadiusHit - sizeAdjust, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
 			}			
-			draw_set_alpha(1.0);
 		}
+		draw_set_alpha(1.0);
 	}
 } 

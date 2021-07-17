@@ -53,19 +53,24 @@
 						audio_resume_all();
 						
 						GamePaused = false;
+						/*
+						var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette];
+						var Len = array_length(IgnoreList);
 						
 						// Do code from object side
 						with all
 						{
 							// Exit the code if object is the one to ignore
-							var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint];
-							var Len = array_length(IgnoreList);
 							for (var i = 0; i < Len; i++)
 							{
 								if object_index == IgnoreList[i] exit;
 							}	
 							instance_activate_object(self);
 						}
+						*/
+						
+						// Activate all objects
+						instance_activate_region(Screen.CameraX - 240, Screen.CameraY - 256, Screen.Width + 480, Screen.Height + 512, true);
 						
 						sprite_delete(Screen.PauseSurface);
 						Screen.PauseSurface = -1;
@@ -90,12 +95,13 @@
 
 		audio_pause_all();
 	
+		var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette];
+		var Len = array_length(IgnoreList);
+		
 		// Do code from object side
 		with all
 		{
 			// Exit the code if object is the one to ignore
-			var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint];
-			var Len = array_length(IgnoreList);
 			for (var i = 0; i < Len; i++)
 			{
 				if object_index == IgnoreList[i] exit;
