@@ -6,7 +6,7 @@ function ScreenPauseDisplay()
 	}
 	else
 	{
-		surface_set_target(application_surface);
+		surface_set_target(Palette.SurfaceHigh);
 		draw_sprite(PauseSurface, 0, 0, 0);
 		var MenuX = Width / 2;
 		var MenuY = Height / 2;

@@ -1,7 +1,7 @@
 function PaletteRendererSurfaceUpdate()
 {		
 	// If it is playable stage and it is paused, exit
-	if instance_exists(Stage) and Stage.GamePaused exit;
+	//if instance_exists(Stage) and Stage.GamePaused exit;
 	
 	surface_set_target(application_surface);
 	

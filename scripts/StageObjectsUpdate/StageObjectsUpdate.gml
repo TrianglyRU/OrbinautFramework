@@ -20,14 +20,14 @@ function StageObjectsUpdate()
 			}
 		}
 		
-		// Do code from object side
-		var IgnoreList  = [Framework, Player, Input, Screen, Stage, Discord, Palette, Spawnpoint];
-		var ArrayLength = array_length(IgnoreList);	
+		var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette];
+		var Len = array_length(IgnoreList);
 		
+		// Do code from object side
 		with all
 		{
 			// Exit the code if object is the one to ignore
-			for (var i = 0; i < ArrayLength; i++)
+			for (var i = 0; i < Len; i++)
 			{
 				if object_index == IgnoreList[i]
 				{
@@ -51,7 +51,27 @@ function StageObjectsUpdate()
 		}
 	}
 	else
-	{	
-		instance_activate_region(Screen.CameraX - 240, Screen.CameraY - 16, Screen.Width + 480, Screen.Height + 32, true);		
+	{
+		// Check for all objects
+		with all
+		{
+			// Was object_set_activerange function used?
+			if variable_instance_exists(id, "objActiveRange")
+			{
+				// Unload flag is either 1 (close) or 7 (far), resulting in boundary of 32/240 and 18/128	
+				var UnloadX = 32 * objActiveRange;	
+				var UnloadY = 18 * objActiveRange;
+			
+				// Deactivate
+				if floor(x) < Screen.CameraX - UnloadX or floor(x) > Screen.CameraX + Screen.Width  + UnloadX
+				or floor(y) < Screen.CameraY - UnloadY or floor(y) > Screen.CameraY + Screen.Height + UnloadY
+				{
+					instance_deactivate_object(id);
+				}
+			}
+		}
+		
+		// Activate all objects
+		instance_activate_region(Screen.CameraX - 240, Screen.CameraY - 256, Screen.Width + 480, Screen.Height + 512, true);
 	}		
 }
