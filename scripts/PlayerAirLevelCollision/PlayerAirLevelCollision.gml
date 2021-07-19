@@ -1,5 +1,11 @@
 function PlayerAirLevelCollision()
 {
+	// Exit if died
+	if Player.Death or Player.Drown
+	{
+		exit;
+	}
+	
 	// Get movement angle quadrant
 	if abs(Xsp) >= abs(Ysp)
 	{
@@ -129,7 +135,7 @@ function PlayerAirLevelCollision()
 				PosY -= RoofDistance;
 			
 				// Land on ceiling
-				if RoofAngle <= 135 or RoofAngle >= 225
+				if !FlyingState and (RoofAngle <= 135 or RoofAngle >= 225)
 				{
 					// Set inertia and inherit ceiling angle
 					Angle    = RoofAngle;
@@ -142,7 +148,14 @@ function PlayerAirLevelCollision()
 				// ...or stop
 				else 
 				{
+					// Reset ysp
 					Ysp = 0;
+					
+					// Reset gravity if flying
+					if FlyingState
+					{
+						Grv	= 0.03125;
+					}				
 				}
 			}
 		}
@@ -192,6 +205,12 @@ function PlayerAirLevelCollision()
 					if Ysp < 0
 					{
 						Ysp = 0;
+					}
+					
+					// Reset gravity if flying
+					if FlyingState
+					{
+						Grv	= 0.03125;
 					}
 				}
 				
@@ -279,6 +298,12 @@ function PlayerAirLevelCollision()
 					if Ysp < 0
 					{
 						Ysp = 0;
+					}
+					
+					// Reset gravity if flying
+					if FlyingState
+					{
+						Grv	= 0.03125;
 					}
 				}
 				

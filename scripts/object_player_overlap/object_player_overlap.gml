@@ -77,12 +77,6 @@ function object_player_overlap(collisionType)
 			
 		}	
 		
-		// Exit the code if object can't be overlapped
-		if !objXRadiusTriggerLeft or !objXRadiusTriggerRight or !objYRadiusTriggerBottom or !objYRadiusTriggerTop
-		{
-			return false;	
-		}
-		
 		// Return result
 		return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + objXRadiusTriggerLeft), floor(y + objYRadiusTriggerTop), floor(x + objXRadiusTriggerRight - 1), floor(y + objYRadiusTriggerBottom - 1));
 	}

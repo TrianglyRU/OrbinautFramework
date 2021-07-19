@@ -52,7 +52,7 @@ function PlayerCheckFly()
 			// Temporary decrease gravity if A, B or C button has been pressed
 			if (Input.ABCPress) Grv = -0.125;
 		
-			// Increase gravity when moving slow enough
+			// Increase gravity when moving upwards fast enough
 			if (Ysp < -1) Grv = 0.03125;
 			
 			// Set 'fly' or 'swim' animation
