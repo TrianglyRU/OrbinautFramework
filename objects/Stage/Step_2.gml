@@ -1,5 +1,5 @@
 /// @description Stage Scripts
-// You can call your scripts in this editor	
+// You can write your code in this editor
 
 	if (GamePaused) exit;
 	
@@ -7,10 +7,10 @@
 	StageActUpdate();
 	
 	// Update objects
-	StageObjectsUpdate();
+	//StageObjectsSystem();
 	
 	// Update boundaries
 	StageBoundariesUpdate();
 	
 	// Check for unloading the stage
-	StageActUnload();
+	StageActUnload();	

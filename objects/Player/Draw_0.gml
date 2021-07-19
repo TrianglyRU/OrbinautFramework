@@ -5,7 +5,7 @@
 	PlayerDebugModeDisplay();
 	
 	// Check if we should run the code below
-	if !PlayerCheckProceed() exit;
+	if !PlayerCheckProcess() exit;
 	
 	// Animate character
 	PlayerAnimate();

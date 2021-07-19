@@ -13,11 +13,11 @@ function ObjTailsObjectDisplay()
 		if !Player.Grounded
 		{
 			// Get movement angle based on current and next frame position
-			if Player.Facing == DirRight
+			if Player.Facing == DirectionRight
 			{
 				MotionAngle = point_direction(Player.PosX, Player.PosY, Player.PosX + Player.Xsp, Player.PosY + Player.Ysp);
 			}
-			else if Player.Facing == DirLeft
+			else if Player.Facing == DirectionLeft
 			{
 				MotionAngle = point_direction(Player.PosX + Player.Xsp, Player.PosY + Player.Ysp, Player.PosX, Player.PosY);
 			}

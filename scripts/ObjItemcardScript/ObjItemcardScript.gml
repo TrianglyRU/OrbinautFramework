@@ -15,6 +15,9 @@ function ObjItemcardScript()
 	// Check if monitor is not destroyed
 	if !Destroyed
 	{
+		// Reset object when off-screen
+		//object_reset(RangeFar);
+		
 		// Count timer
 		ItemCardTimer++
 		
@@ -39,7 +42,7 @@ function ObjItemcardScript()
 	
 	// Check if monitor is destroyed but card is not released yet
 	else if !ItemCardRel
-	{
+	{	
 		// Reset timer
 		ItemCardTimer = 0;
 		

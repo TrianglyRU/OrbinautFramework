@@ -2,7 +2,7 @@
 // You can write your code in this editor
 	
 	// Check if we should run the code below
-	if !PlayerCheckProceed() exit;
+	if !PlayerCheckProcess() exit;
 	
 	// Update invincibility and highspeed bonuses
 	PlayerPowerupHandle();

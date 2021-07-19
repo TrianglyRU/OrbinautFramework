@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Player",
-    "path": "folders/Game Controllers/Player.yy",
+    "name": "Stage",
+    "path": "folders/Game Controllers/Stage.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerCheckProceed",
+  "name": "StageObjectsUnload",
   "tags": [],
   "resourceType": "GMScript",
 }

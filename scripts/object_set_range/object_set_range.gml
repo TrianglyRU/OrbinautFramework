@@ -1,13 +1,9 @@
-/// @function object_set_range(type)
-function object_set_range(type)
+/// @function object_set_range(type,do_reset)
+function object_set_range(type, do_reset)
 {
-	// Set range
-	switch type
-	{
-		case RangeClose:
-		case RangeFar:
-			objActiveRange = type;
-		break;
-		default: break;
-	}
+	objLoadRange  = type;
+	
+	objResetX     = x;
+	objResetY     = y;
+	objResetFlag  = do_reset;
 }

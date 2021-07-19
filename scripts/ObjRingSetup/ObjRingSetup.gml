@@ -11,7 +11,7 @@ function ObjRingSetup()
 	object_set_hitbox(6, 6);
 	
 	// Set active range
-	object_set_range(RangeClose);
+	object_set_range(RangeClose, false);
 	
 	// Render behind the player
 	object_set_depth(Player, false);

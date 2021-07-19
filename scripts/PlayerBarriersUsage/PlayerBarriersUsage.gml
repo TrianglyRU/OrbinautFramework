@@ -1,33 +1,42 @@
 function PlayerBarriersUsage()
 {
-	// Exit the code if we do not have any active barrier, or current barrier is regular one
-	if BarrierType <= BarrierNormal or CharacterID != CharSonic or InvincibilityBonus or SuperState
+	// Exit the code if we play as Sonic
+	if CharacterID != CharSonic
 	{
 		exit;
 	}
 	
-	// Check for barrier ability usage
-	if Jumping and Input.ABCPress and !BarrierIsActive
+	// Exit the code if we do not have a barrier, or it is not elemental
+	if BarrierType <= BarrierNormal
+	{
+		exit;
+	}
+	
+	// Exit the code if we are under the invincibility bonus or in super form
+	if InvincibilityBonus or SuperState
+	{
+		exit;
+	}
+	
+	// We’re in a jump, no barrier used and the action button pressed?
+	if Jumping and !BarrierIsActive and Input.ABCPress
 	{
 		// Activate barrier ability
 		BarrierIsActive = true;
 		
-		// Get current barrier type
+		// Get current barrier
 		switch BarrierType
 		{
+			// Flame barrier
 			case BarrierFlame:
 			{
-				// Set speeds
+				// Set horizontal and vertical speeds
 				Xsp = 8 * Facing;
 				Ysp = 0;
 				
 				// Freeze the screen for 16 frames
 				if Screen.ExtendedOffset == 0 
 				{
-					//for (var i = 0; i < 32; i++)
-					//{
-						//RecordedPosX[| i] = floor(Player.PosX);
-					//}
 					Screen.ScrollDelay = 16;
 				}
 				
@@ -35,20 +44,24 @@ function PlayerBarriersUsage()
 				audio_sfx_play(sfxFlameBarrierDash, false);
 			}
 			break;
+			
+			// Thunder barrier
 			case BarrierThunder:
 			{
-				// Set speed
+				// Set vertical speed
 				Ysp = -5.5;
 				
 				// Play sound
 				audio_sfx_play(sfxThunderBarrierSpark, false);
 				
-				/* Ring magnetization is performed from the ring side */
+				/* Ring magnetization is performed from its side */
 			}
 			break;
+			
+			// Water barrier
 			case BarrierWater:
 			{
-				// Set speeds
+				// Set horizontal and vertical speeds
 				Xsp = Game.BuffedWaterBarrier ? Xsp / 2 : 0;
 				Ysp = 8;
 			}
@@ -56,9 +69,10 @@ function PlayerBarriersUsage()
 		}
 	}
 	
-	// Check for landing with water barrier
-	if Grounded and BarrierType == BarrierWater and BarrierIsActive
+	// Did we land with an activated water barrier?
+	if Grounded and BarrierIsActive and BarrierType == BarrierWater 
 	{
+		// Set flags
 		BarrierIsActive = false;
 		Grounded		= false;
 		Jumping			= true;
@@ -66,19 +80,19 @@ function PlayerBarriersUsage()
 		// Set vertical speed
 		Ysp	= -7.5 * dcos(Angle);
 		
-		// Set horizontal speed to vertical speed on steep angles
+		// Set horizontal speed to vertical speed if floor is full steep
 		if Angle >= 45 and Angle <= 315
 		{
 			Xsp = Angle <= 180 ? Ysp : -Ysp;
 		}
 		
-		// Set horizontal speed to halved vertical speed on shallow angles
+		// Set horizontal speed to halved vertical speed if floor is half steep
 		else if Angle >= 22.5 and Angle <= 337.5
 		{
 			Xsp = Angle <= 180 ? Ysp / 2 : -Ysp / 2;
 		}
 		
-		// Reset horizontal speed if angle is almost flat
+		// Reset horizontal speed if floor is shallow
 		else 
 		{	
 			Xsp = 0;	

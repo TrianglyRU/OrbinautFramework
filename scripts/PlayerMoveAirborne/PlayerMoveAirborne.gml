@@ -22,7 +22,7 @@ function PlayerMoveAirborne()
 					Xsp -= AirAcc;
 					if (Xsp <= -TopAcc) Xsp = -TopAcc;
 				}
-				Facing = DirLeft;
+				Facing = DirectionLeft;
 			}
 			if Input.Right 
 			{	
@@ -35,7 +35,7 @@ function PlayerMoveAirborne()
 					Xsp += AirAcc;
 					if (Xsp >= TopAcc) Xsp = TopAcc;
 				}
-				Facing = DirRight;
+				Facing = DirectionRight;
 			}	
 		}
 	}

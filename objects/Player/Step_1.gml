@@ -5,9 +5,9 @@
 	PlayerDebugMode();
 	
 	// Check if we should run the code below
-	if !PlayerCheckProceed() exit;
+	if !PlayerCheckProcess() exit;
 
-	// Airborne script
+	// Airborne
 	if !Grounded
 	{
 		// Limit jump height
@@ -30,21 +30,15 @@
 			
 		// Apply gravity and rotation
 		PlayerApplyGravity();
-			
-		// Collide with walls
-		PlayerHitWalls();
-			
-		// Collide with roof
-		PlayerHitRoof();
-			
+
+		// Air collision
+		PlayerAirLevelCollision();
+		
 		// Check for gliding as Knuckles
-		PlayerCheckGlide();
+		//PlayerCheckGlide();
 			
 		// Check for climbing walls as Knuckles
-		PlayerCheckClimb();
-			
-		// Collide with floor
-		PlayerHitFloor();
+		//PlayerCheckClimb();
 
 		// Use barriers abilities
 		PlayerBarriersUsage();
@@ -53,12 +47,12 @@
 		PlayerResetOnFloor();
 	}
 	
-	// Grounded script
+	// Grounded, not rolling
 	else if Grounded and !Rolling
 	{
 		// Perform crouch actions, such as Spindash
 		if PlayerCheckCrouch() exit;
-			
+		
 		// Perform look up actions, such as Super Peel Out
 		if PlayerCheckLookup() exit;
 		
@@ -71,8 +65,17 @@
 		// Update player's speeds
 		PlayerMove();
 		
+		// Check balancing
+		PlayerCheckBalance();
+		
+		// Check for skidding
+		PlayerCheckSkid();
+		
+		// Check push
+		PlayerCheckPush();
+		
 		// Collide with walls
-		PlayerHitWalls();
+		PlayerGroundWallCollision();
 		
 		// Perform roll
 		PlayerCheckRoll();
@@ -90,7 +93,7 @@
 		PlayerSlopeRepel();
 	}
 	
-	// Rolling script
+	// Grounded and rolling
 	else if Grounded and Rolling
 	{
 		// Perform jump
@@ -103,7 +106,7 @@
 		PlayerMoveRoll();
 
 		// Collide with walls
-		PlayerHitWalls();
+		PlayerGroundWallCollision();
 			
 		// Check for crossing stage boundaries
 		PlayerLevelBound();

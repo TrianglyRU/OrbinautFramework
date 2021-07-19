@@ -13,6 +13,12 @@ function object_object_overlap(targetObject)
 		exit;
 	}
 	
+	// Exit the code if objects can't overlap
+	if !id.objXRadiusHit or !id.objYRadiusHit or !targetObject.objXRadiusHit or !targetObject.objYRadiusHit
+	{
+		return false;	
+	}
+	
 	// Get this object size
 	var objectTop    = floor(y - objYRadiusHit);
 	var objectLeft   = floor(x - objXRadiusHit);

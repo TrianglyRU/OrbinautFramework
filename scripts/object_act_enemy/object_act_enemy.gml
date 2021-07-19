@@ -5,57 +5,6 @@ function object_act_enemy(enemy_type)
 	var XPos = variable_instance_exists(id, "PosX") ? floor(PosX) : floor(x);
 	var YPos = variable_instance_exists(id, "PosY") ? floor(PosY) : floor(y);
 	
-	// Check if enemy is Badnik
-	if enemy_type == EnemyBadnik
-	{
-		// Return badniks to their initial state if outside camera
-		/*if !variable_instance_exists(id, "objBadnikState")
-		{
-			UnloadOriginX  = x;
-			UnloadOriginY  = y;
-			objBadnikState = 1;
-		}
-		else
-		{	
-			// Check if object_set_activerange function was used
-			if variable_instance_exists(id, "objActiveRange")
-			{
-				var UnloadBound = 32 * objActiveRange;
-			
-				// Check if Badnik left active range before the game unloads it
-				if objBadnikState == 1
-				{
-					if XPos < Screen.CameraX - UnloadBound or XPos > Screen.CameraX + Screen.Width + UnloadBound
-					{	
-						// Update flag
-						objBadnikState = 2;
-					}
-				}
-			
-				// Check if badnik should reset itself
-				if objBadnikState = 2
-				{	
-					// Return to its initial state if init coordinates are outside the range
-					if UnloadOriginX < Screen.CameraX - UnloadBound or UnloadOriginX > Screen.CameraX + Screen.Width + UnloadBound
-					{	
-						objBadnikState = 1
-				
-						x = UnloadOriginX;
-						y = UnloadOriginY;
-				
-						event_perform(ev_create, 0);
-					}
-				
-					// Else keep deactivated
-					else
-					{
-						instance_deactivate_object(id);
-					}
-				}
-			}	
-		}*/
-	}
-	
 	// Exit if no collision happened
 	if !object_player_overlap(CollisionHitbox)
 	{

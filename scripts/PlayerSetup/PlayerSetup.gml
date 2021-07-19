@@ -4,7 +4,7 @@ function PlayerSetup()
 	CharacterID	= Game.Character;
 	
 	// Default sprite setup
-	Facing	  = DirRight;
+	Facing	  = DirectionRight;
 	Animation = AnimIdle;
 	DrawOrder = layer_get_depth("Objects");
 	

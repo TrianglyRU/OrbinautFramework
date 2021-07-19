@@ -34,7 +34,7 @@ function GameFrameworkSetup()
 	Game.AirSpeedcap	        = false; // Enables air speedcap        /**/
 	Game.RolljumpControl        = false; // Unlocks directional contorls if you jump after rolling
 	Game.ExtendedCamera			= false; // Enables camera to shift to the side of your direction movement
-	Game.StrongerSlopeGravity   = false; // In S3 slope gravity and slope detach method were re-written to work better. True - Sonic 3+ method.
+	Game.StrongerSlopeGravity   = true;  // In S3 slope gravity and slope detach method were re-written to work better. True - Sonic 3+ method.
 	Game.LooseCrouch		    = false; // In S&K, you can start crouching when you are moving slowly. True - SK method.
 	Game.ConstantRollPhysics    = true;  // In SK, rolling physics are the same for everyone. True - SK method
 	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method

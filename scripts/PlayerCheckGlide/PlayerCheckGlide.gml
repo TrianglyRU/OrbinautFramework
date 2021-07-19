@@ -62,8 +62,8 @@ function PlayerCheckGlide()
 				Xsp += Facing * GlidingAcc;
 				
 				// Check for turning back
-				if Input.LeftPress  and Facing == DirRight
-				or Input.RightPress and Facing == DirLeft
+				if Input.LeftPress  and Facing == DirectionRight
+				or Input.RightPress and Facing == DirectionLeft
 				{
 					// Start turning from right to left
 					if Input.LeftPress
@@ -127,7 +127,7 @@ function PlayerCheckGlide()
 				}
 			
 				// Gliding from right to left
-				if GlidingDirection == DirRight
+				if GlidingDirection == DirectionRight
 				{
 					// Decrease angle
 					GlidingValue = max(GlidingValue - 2.8125, -90);
@@ -135,7 +135,7 @@ function PlayerCheckGlide()
 					// Check if we start gliding back to the right
 					/*if Input.RightPress
 					{
-						GlidingDirection = DirLeft;
+						GlidingDirection = Left;
 						break;
 					}*/
 					
@@ -146,12 +146,12 @@ function PlayerCheckGlide()
 					if GlidingValue == -90
 					{
 						GlidingState     = GlidingAir;
-						GlidingDirection = DirLeft;
+						GlidingDirection = DirectionLeft;
 					}
 				}
 				
 				// Gliding from left ot right
-				else if GlidingDirection == DirLeft
+				else if GlidingDirection == DirectionLeft
 				{
 					// Increase angle
 					GlidingValue = min(GlidingValue + 2.8125, 90);
@@ -159,7 +159,7 @@ function PlayerCheckGlide()
 					// Check if we start gliding back to the left
 					/*if Input.LeftPress
 					{
-						GlidingDirection = DirRight;
+						GlidingDirection = Right;
 						break;
 					}*/
 					
@@ -170,7 +170,7 @@ function PlayerCheckGlide()
 					if GlidingValue == 90
 					{
 						GlidingState     = GlidingAir;
-						GlidingDirection = DirRight;
+						GlidingDirection = DirectionRight;
 					}
 				}
 				
@@ -182,7 +182,7 @@ function PlayerCheckGlide()
 				}
 				
 				// Set facing direction
-				Facing = GlidingValue > 0 ? DirRight : DirLeft;
+				Facing = GlidingValue > 0 ? DirectionRight : DirectionLeft;
 			}
 			break;
 			
@@ -203,12 +203,12 @@ function PlayerCheckGlide()
 				if Input.Left
 				{
 					Xsp   -= AirAcc;
-					Facing = DirLeft;
+					Facing = DirectionLeft;
 				}
 				else if Input.Right
 				{
 					Xsp    += AirAcc;
-					Facing = DirRight;
+					Facing  = DirectionRight;
 				}
 					
 				// Check if we collide with the ground

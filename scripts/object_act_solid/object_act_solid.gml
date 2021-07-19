@@ -13,6 +13,12 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 		exit;
 	}
 	
+	// Exit the code if object can't be collided
+	if !objXRadiusSolid or !objYRadiusSolid
+	{
+		return false;	
+	}
+	
 	// Exit the code if there is no side to collide with 
 	if !collideSides and !collideTop and !collideBottom
 	{
@@ -179,15 +185,15 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				var edgeExtension = (!collideSides and !Game.ImprovedObjCollision) * 5
 				
 				// Balance
-				if playerX < objectLeft  + edgeExtension and Player.Facing == DirLeft
-				or playerX > objectRight - edgeExtension and Player.Facing == DirRight
+				if playerX < objectLeft  + edgeExtension and Player.Facing == DirectionLeft
+				or playerX > objectRight - edgeExtension and Player.Facing == DirectionRight
 				{
-					Player.Balancing = DirRight;
+					Player.Balancing = DirectionRight;
 				}
-				if playerX < objectLeft  + edgeExtension and Player.Facing == DirRight
-				or playerX > objectRight - edgeExtension and Player.Facing == DirLeft
+				if playerX < objectLeft  + edgeExtension and Player.Facing == DirectionRight
+				or playerX > objectRight - edgeExtension and Player.Facing == DirectionLeft
 				{
-					Player.Balancing = DirLeft;
+					Player.Balancing = DirectionLeft;
 				}
 			}
 		}
@@ -344,11 +350,11 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							Rolling = true;
 								
 							// Set dropspeed
-							if DropdashDirection == DirRight
+							if DropdashDirection == DirectionRight
 							{
 								var Dropspeed = Inertia / 4 + 8 * Facing;
 							}
-							else if DropdashDirection = DirLeft
+							else if DropdashDirection = DirectionLeft
 							{
 								if Angle == 360
 								{
@@ -422,7 +428,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							if Grounded
 							{
 								Inertia = 0;
-								if (!Rolling) Pushing = DirLeft;
+								if (!Rolling) Pushing = DirectionLeft;
 							}
 							Xsp = 0;
 						}
@@ -437,7 +443,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							if Grounded
 							{
 								Inertia = 0;	
-								if (!Rolling) Pushing = DirRight;
+								if (!Rolling) Pushing = DirectionRight;
 							}
 							Xsp = 0;
 						}

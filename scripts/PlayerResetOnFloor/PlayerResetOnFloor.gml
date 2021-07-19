@@ -14,7 +14,7 @@ function PlayerResetOnFloor()
 		ScoreCombo		= false;
 		
 		// Set visual angle
-		if Angle >= 25.5 and Angle <= 334.5
+		if Angle >= 23.91 and Angle <= 337.5
 		{
 			VisualAngle = Angle;
 		}
@@ -34,11 +34,11 @@ function PlayerResetOnFloor()
 			Rolling = true;
 		
 			// Set dropspeed
-			if DropdashDirection == DirRight
+			if DropdashDirection == DirectionRight
 			{
 				var Dropspeed = Inertia / 4 + 8 * Facing;
 			}
-			else if DropdashDirection = DirLeft
+			else if DropdashDirection = DirectionLeft
 			{
 				if Angle == 360
 				{

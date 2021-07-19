@@ -14,7 +14,7 @@ function ObjItemboxSetup()
 	object_set_hitbox(15, 17);
 	
 	// Set active range
-	object_set_range(RangeClose);
+	//object_set_range(RangeFar, true);
 	
 	// Set object solidbox
 	object_set_solidbox(14, 16);

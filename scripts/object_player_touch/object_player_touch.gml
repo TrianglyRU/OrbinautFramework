@@ -13,6 +13,12 @@ function object_player_touch(collisionSide)
 		exit;
 	}
 	
+	// Exit the code if object can't be touched
+	if !objXRadiusSolid or !objYRadiusSolid
+	{
+		return false;	
+	}
+	
 	// Get object properties
 	var objectX		   = floor(x);
 	var objectY        = floor(y);

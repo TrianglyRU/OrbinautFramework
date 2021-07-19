@@ -16,7 +16,7 @@ function ObjItemcardSetup()
 	// Create item card
 	ItemCard	 = instance_create(x, y - 3, ItemboxCard);
 	ItemCardPosY = ItemCard.y;
-	
+
 	// Load sprite
 	ItemCard.sprite_index = spr_obj_itembox_powerup;
 	

@@ -1,5 +1,7 @@
 function ObjMotobugMain()
 {
+	show_debug_message("I am doing some code!: " + string(random_range(0, 9999)));
+	
 	// Is motobug currently stopped?
 	if StopTimer 
 	{

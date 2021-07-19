@@ -80,8 +80,8 @@ function GameMacro()
 	#macro SuperStart		   1
 	#macro SuperActive		   2
 	#macro SuperEnd			   3
-	#macro DirLeft	          -1
-	#macro DirRight	           1
+	#macro DirectionLeft	  -1
+	#macro DirectionRight	   1
 	#macro LayerA		       0
 	#macro LayerB		       1
 	#macro BarrierNormal	   1

@@ -15,6 +15,12 @@ function object_player_overlap(collisionType)
 		{
 			return false;
 		}
+		
+		// Exit the code if object can't be overlapped
+		if !objXRadiusHit or !objYRadiusHit
+		{
+			return false;	
+		}
 	
 		// Get object size
 		var objectTop    = floor(y - objYRadiusHit);
@@ -65,9 +71,19 @@ function object_player_overlap(collisionType)
 	else if collisionType == CollisionTriggerbox
 	{
 		// Return collision result
-		if variable_instance_exists(id, "objXRadiusTriggerLeft")
+		if !variable_instance_exists(id, "objXRadiusTriggerLeft")
 		{
-			return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + objXRadiusTriggerLeft), floor(y + objYRadiusTriggerTop), floor(x + objXRadiusTriggerRight - 1), floor(y + objYRadiusTriggerBottom - 1));
+			return false;
+			
 		}	
+		
+		// Exit the code if object can't be overlapped
+		if !objXRadiusTriggerLeft or !objXRadiusTriggerRight or !objYRadiusTriggerBottom or !objYRadiusTriggerTop
+		{
+			return false;	
+		}
+		
+		// Return result
+		return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + objXRadiusTriggerLeft), floor(y + objYRadiusTriggerTop), floor(x + objXRadiusTriggerRight - 1), floor(y + objYRadiusTriggerBottom - 1));
 	}
 }

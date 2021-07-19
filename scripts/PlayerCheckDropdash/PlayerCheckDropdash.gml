@@ -9,24 +9,24 @@ function PlayerCheckDropdash()
 	// Define our Dropdash direction by checking towards witch side we're moving and facing
 	if Xsp >= 0
 	{
-		if Facing == DirLeft and Input.Left
+		if Facing == DirectionLeft and Input.Left
 		{
-			DropdashDirection = DirLeft;
+			DropdashDirection = DirectionLeft;
 		}
 		else
 		{
-			DropdashDirection = DirRight;
+			DropdashDirection = DirectionRight;
 		}
 	}
 	else
 	{
-		if Facing == DirRight and Input.Right
+		if Facing == DirectionRight and Input.Right
 		{
-			DropdashDirection = DirLeft;
+			DropdashDirection = DirectionLeft;
 		}
 		else
 		{
-			DropdashDirection = DirRight;
+			DropdashDirection = DirectionRight;
 		}
 	}
 	

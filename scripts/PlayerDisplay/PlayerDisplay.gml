@@ -30,7 +30,7 @@ function PlayerDisplay()
 						
 						// Do rotation
 						VisualAngle = Angle <= 180 ? clamp(max(StartRotationRight, RotationRight), 0,   180)
-												   : clamp(min(StartRotationLeft,  RotationLeft),  180, 360);
+													: clamp(min(StartRotationLeft,  RotationLeft),  180, 360);
 					}
 			
 					// Rotate visual angle back to 360 if out of the range
@@ -85,7 +85,7 @@ function PlayerDisplay()
 	}
 	
 	// Update character display
-	x			 = floor(PosX) + (Facing == DirLeft);
+	x			 = floor(PosX) + (Facing == DirectionLeft);
 	y		     = floor(PosY);
 	depth		 = DrawOrder;
 	image_xscale = Facing;
