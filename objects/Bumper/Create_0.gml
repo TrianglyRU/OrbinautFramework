@@ -3,6 +3,7 @@
 	
 	object_set_hitbox(8, 8);
 	object_set_depth(Player, true);
+	object_set_range(RangeClose, false);
 	
 	AnimTimer = 0;
 	Ready = true;

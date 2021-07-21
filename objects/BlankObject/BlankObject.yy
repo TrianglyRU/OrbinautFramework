@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "_Unsorted&Unfinished",
-    "path": "folders/Game Objects/_Unsorted&Unfinished.yy",
+    "name": "Game Objects",
+    "path": "folders/Game Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "BlankObject",

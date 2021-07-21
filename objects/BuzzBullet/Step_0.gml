@@ -6,11 +6,7 @@
 	
 	if image_index >= 2
 	{
-		if x < Screen.CameraX - 32 or x > Screen.CameraX + Screen.Width  + 32
-		or y < Screen.CameraY - 32 or y > Screen.CameraY + Screen.Height + 32
-		{
-			instance_destroy();
-		}
+		object_set_range(RangeClose, 2);
 	}
 	
 	if object_player_overlap(CollisionHitbox)

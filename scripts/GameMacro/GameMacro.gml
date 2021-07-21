@@ -7,8 +7,8 @@ function GameMacro()
 	#macro Game	global
 
 	// Object macro
-	#macro RangeClose  1
-	#macro RangeFar    7
+	#macro RangeClose  0
+	#macro RangeFar    1
 	#macro EnemyBadnik 0
 	#macro EnemyBoss   1
 	
@@ -21,7 +21,7 @@ function GameMacro()
 	#macro isArray		[99] = 0
 	#macro isString		= ""
 	
-	// Game macro
+	// Font macro
 	#macro FontDebug     0
 	#macro FontDigits1   1
 	#macro FontDigits2   2
@@ -64,10 +64,6 @@ function GameMacro()
 	#macro flash	         2
 	
 	// Player macro
-	#macro PlayerStateNormal   0
-	#macro PlayerStateRoll     1
-	#macro PlayerStateAirborne 2
-	#macro PlayerStateDebug    3
 	#macro CharSonic		   0
 	#macro CharTails	       1
 	#macro CharKnuckles	       2
@@ -119,6 +115,11 @@ function GameMacro()
 	#macro AnimDrown		   28
 
 	// Stage macro	
+	#macro StageLoad           0
+	#macro StageActive		   1
+	#macro StagePaused		   2
+	#macro StageUnload		   3
+	
 	#macro ActStateLoading	   0
 	#macro ActStateDefault     1
 	#macro ActStateFinished    2	

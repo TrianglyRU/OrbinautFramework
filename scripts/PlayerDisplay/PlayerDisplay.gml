@@ -13,30 +13,32 @@ function PlayerDisplay()
 				// Check if we grounded
 				if Grounded
 				{
+					// Get rotation start/end speed
+					var RotationEdge = max(5.625, abs(Inertia));
+					
 					// If in correct floor angle range, apply it to visual angle
 					if Angle >= 23.91 and Angle <= 337.5
 					{
 						// Start rotate on the right side
-						var StartRotationRight = min(VisualAngle mod 360 + 5.625, Angle + Xsp)
+						var StartRotationRight = min(VisualAngle mod 360 + RotationEdge, Angle)
 																							 
 						// Rotation on the right side
-						var RotationRight = min(VisualAngle mod 360 + Inertia, Angle + Xsp);
+						var RotationRight = min(VisualAngle mod 360 + Inertia, Angle + 5.625 + abs(Inertia));
 						
 						// Start rotate on the left side
-						var StartRotationLeft = max(Angle + Xsp, VisualAngle - 5.625);
+						var StartRotationLeft = max(Angle, VisualAngle - RotationEdge);
 						
 						// Rotation on the left side
-						var RotationLeft = max(Angle + Xsp, VisualAngle + Inertia);
+						var RotationLeft = max(Angle - 5.625 - abs(Inertia), VisualAngle + Inertia);
 						
 						// Do rotation
-						VisualAngle = Angle <= 180 ? clamp(max(StartRotationRight, RotationRight), 0,   180)
-													: clamp(min(StartRotationLeft,  RotationLeft),  180, 360);
+						VisualAngle = Angle < 180 ? max(StartRotationRight, RotationRight) : min(StartRotationLeft, RotationLeft);
 					}
 			
 					// Rotate visual angle back to 360 if out of the range
 					else 
 					{
-						VisualAngle = VisualAngle > 180 ? VisualAngle + 5.625 : VisualAngle - 5.625;
+						VisualAngle += VisualAngle > 180 ? RotationEdge : -RotationEdge;
 					}
 				}
 		

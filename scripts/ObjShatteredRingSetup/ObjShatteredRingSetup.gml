@@ -16,6 +16,8 @@ function ObjShatteredRingSetup()
 	// Set object solidbox
 	object_set_solidbox(8, 8);
 	
+	object_set_range(RangeClose, 2);
+	
 	// Render behind the player
 	object_set_depth(Player, false);
 	

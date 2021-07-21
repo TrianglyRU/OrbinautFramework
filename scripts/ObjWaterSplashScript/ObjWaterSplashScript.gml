@@ -2,6 +2,7 @@ function ObjWaterSplashScript()
 {
 	// Set object depth
 	object_set_depth(Player, true);
+	object_set_range(RangeClose, 2);
 	
 	// Play animation
 	animation_play(spr_obj_watersplash, 4, 8);

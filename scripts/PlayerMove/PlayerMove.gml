@@ -89,7 +89,7 @@ function PlayerMove()
 			}
 		}
 	}
-	else if !Input.Down and !Input.Up and !SlopeGravity
+	else if !Input.Down and !Input.Up and SlopeGravity == 0
 	{
 		Animation = AnimIdle;	
 	}

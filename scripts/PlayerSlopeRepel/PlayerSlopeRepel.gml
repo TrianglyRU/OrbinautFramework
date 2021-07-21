@@ -16,6 +16,9 @@ function PlayerSlopeRepel()
 			{	
 				// Fall off the slope
 				Grounded = false;
+				
+				// Reset inertia
+				Inertia = 0;
 					
 				// Lock horizontal input controls for 30 frames
 				MovementLock = 30;		

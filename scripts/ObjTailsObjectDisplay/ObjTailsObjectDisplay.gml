@@ -31,17 +31,16 @@ function ObjTailsObjectDisplay()
 				var StartRotationRight = min(MotionAngle mod 360 + 5.625, Player.Angle)
 																							 
 				// Rotation on the right side
-				var RotationRight = min(MotionAngle mod 360 + Player.Inertia, Player.Angle);
+				var RotationRight = min(MotionAngle mod 360 + Player.Inertia, Player.Angle + 5.625 + abs(Player.Inertia));
 						
 				// Start rotate on the left side
 				var StartRotationLeft = max(Player.Angle, MotionAngle - 5.625);
 						
 				// Rotation on the left side
-				var RotationLeft = max(Player.Angle, MotionAngle + Player.Inertia);
+				var RotationLeft = max(Player.Angle - 5.625 - abs(Player.Inertia), MotionAngle + Player.Inertia);
 						
 				// Do rotation
-				MotionAngle = Player.Angle <= 180 ? clamp(max(StartRotationRight, RotationRight), 0,   180)
-												  : clamp(min(StartRotationLeft,  RotationLeft),  180, 360);
+				MotionAngle = Player.Angle < 180 ? max(StartRotationRight, RotationRight) : min(StartRotationLeft, RotationLeft);
 			}
 			
 			// Rotate visual angle back to 360 if out of the range

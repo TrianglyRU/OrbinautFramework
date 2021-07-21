@@ -19,6 +19,9 @@ function ObjAnimalStartup()
 	// Set object depth
 	object_set_depth(Player, false);
 	
+	// Set active range
+	object_set_range(RangeClose, 2);
+	
 	// Animals list
 	AnimalType = choose
 	(

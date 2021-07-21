@@ -5,3 +5,4 @@
 	Ysp = 0;
 	image_speed = 0;
 	object_set_hitbox(4, 4);
+	object_set_range(RangeClose, false);

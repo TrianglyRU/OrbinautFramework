@@ -57,7 +57,7 @@ function ObjItemboxScript()
 	// Check if monitor is destroyed
 	else
 	{
-		object_set_range(RangeFar, false);
+		object_set_range(RangeClose, false);
 		
 		// Play destroyed animation
 		animation_play(spr_obj_itembox_destroyed, 1, 1);

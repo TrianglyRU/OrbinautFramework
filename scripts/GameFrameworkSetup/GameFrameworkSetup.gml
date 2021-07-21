@@ -20,7 +20,7 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 3;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;			/**/
+	Game.MusicVolume = 0;			/**/
 	Game.SoundVolume = 0.5;			/**/
 	
 	// Control settings (keyboard)
@@ -44,7 +44,7 @@ function GameFrameworkSetup()
 	Game.BuffedWaterBarrier     = false; // In Sonic Mania, water barrier halves your xsp instead of setting it to 0
 	
 	// Orbinaut improvements
-	Game.ImprovedTileCollision = true;  // Fixes several tile collision flaws
+	Game.ImprovedTileCollision = false; // Fixes several tile collision flaws
 	Game.ImprovedObjCollision  = true;  // Fixes wacky hitboxes and fickle object collision
 	Game.SmoothRotation	       = true;  // Use smooth rotation
 	Game.RichPresenceSupport   = false; // Enable Rich Presence

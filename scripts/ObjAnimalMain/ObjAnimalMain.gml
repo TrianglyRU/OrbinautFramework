@@ -95,10 +95,4 @@ function ObjAnimalMain()
 			}
 		}
 	}
-	
-	// Delete animal when outside the camera
-	if floor(PosX) + 8 < Screen.CameraX or floor(PosX) - 8 > Screen.CameraX + Screen.Width
-	{
-		instance_destroy();
-	}
 }

@@ -7,10 +7,10 @@
 	StageActUpdate();
 	
 	// Update objects
-	//StageObjectsSystem();
+	StageObjectsSystem();
 	
 	// Update boundaries
 	StageBoundariesUpdate();
 	
 	// Check for unloading the stage
-	StageActUnload();	
+	StageActUnload();

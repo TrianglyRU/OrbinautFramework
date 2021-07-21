@@ -29,5 +29,5 @@ function ObjBridgeStartup()
 	object_set_solidbox(BridgeLength / 2 * 16, 8);
 	
 	// Set active range
-	object_set_range(RangeFar);
+	object_set_range(RangeFar, false);
 }

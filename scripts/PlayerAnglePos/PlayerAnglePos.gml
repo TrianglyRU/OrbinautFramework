@@ -36,18 +36,27 @@ function PlayerAnglePos()
 			var TileMiddle = tile_check_collision_v(floor(PosX),	       floor(PosY + yRadius), true, false, Layer);
 			
 			// Is the left tile closer to us than the right one?
-			if TileLeft[0] <= TileRight[0]
+			if TileLeft[0] < TileRight[0]
 			{
 				// Use the left tile
 				var FloorDistance = TileLeft[0];
 				var FloorAngle	  = TileLeft[1];
 			}
 			
-			// Else use the right tile
-			else
+			// Is the right tile closer to us than the left one?
+			else if TileRight[0] < TileLeft[0]
 			{	
+				// Use the right tile
 				var FloorDistance = TileRight[0];
 				var FloorAngle	  = TileRight[1];
+			}
+			
+			// Are both tiles on the same distance from us?
+			else
+			{
+				// Use blank values
+				var FloorDistance = TileLeft[0];
+				var FloorAngle	  = 360;
 			}
 				
 			// Is the tile below our position closer to us than the tiles on the left and right?
