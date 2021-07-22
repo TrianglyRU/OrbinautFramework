@@ -33,7 +33,6 @@ function PlayerAnglePos()
 			// Get the tiles below us
 			var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
 			var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
-			var TileMiddle = tile_check_collision_v(floor(PosX),	       floor(PosY + yRadius), true, false, Layer);
 			
 			// Is the left tile closer to us than the right one?
 			if TileLeft[0] < TileRight[0]
@@ -54,22 +53,26 @@ function PlayerAnglePos()
 			// Are both tiles on the same distance from us?
 			else
 			{
-				// Use blank values
-				var FloorDistance = TileLeft[0];
-				var FloorAngle	  = 360;
-			}
-				
-			// Is the tile below our position closer to us than the tiles on the left and right?
-			if Game.ImprovedTileCollision
-			{   
-				if TileLeft[0] == TileRight[0] and TileMiddle[0] <= 0
+				// If improved tile collision is enabled, use the tile below our position 
+				if Game.ImprovedTileCollision
 				{
-					// Use the tile below our position
-					var FloorDistance = TileMiddle[0];
-					var FloorAngle	  = TileMiddle[1];
+					var TileMiddle = tile_check_collision_v(floor(PosX), floor(PosY + yRadius), true, false, Layer);
+					if !TileMiddle[0]
+					{
+						var FloorDistance = TileMiddle[0];
+						var FloorAngle	  = TileMiddle[1];
+					}
+				}
+				else
+				{
+					// Use left distance as left tile is priority one
+					var FloorDistance = TileLeft[0];
+				
+					// Use steeper angle (?)
+					var FloorAngle = max(TileLeft[1], TileRight[1]);
 				}
 			}
-				
+			
 			// Is the difference between our angle and the floor angle greater than 45 degrees?
 			var Difference = abs(Angle mod 180 - FloorAngle mod 180);
 			if  Difference > 45 and Difference < 135
@@ -93,7 +96,7 @@ function PlayerAnglePos()
 			if !StickToConvex
 			{
 				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-				if  FloorDistance > Distance and !StickToConvex
+				if  FloorDistance > Distance
 				{
 					Grounded = false;
 					break;
