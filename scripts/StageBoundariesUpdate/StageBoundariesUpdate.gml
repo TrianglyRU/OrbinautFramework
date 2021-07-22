@@ -1,18 +1,11 @@
 function StageBoundariesUpdate()
 {	
 	// Exit
-	if Player.Death or Stage.State = StagePaused
+	if Player.Death or State = StagePaused
 	{
 		exit;
 	}
-	
-	// Limit left boundary if we've loaded from the previous act
-	if Game.StageTransitionData[4] == true and !IsFinished
-	{
-		TargetLeftBoundary = Spawnpoint.x - Screen.Width / 2;
-		LeftBoundary       = TargetLeftBoundary;
-	}
-	
+
 	// Update left boundary
 	if LeftBoundary < TargetLeftBoundary
 	{

@@ -15,5 +15,6 @@ function ScreenCameraSetup()
 		CameraX = RawX;
 		CameraY = RawY
 	}
+	
 	/* Regular camera position code is stored in Spawnpoint object! */
 }

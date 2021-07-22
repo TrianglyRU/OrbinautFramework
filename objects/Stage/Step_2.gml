@@ -7,7 +7,7 @@
 	StageActUpdate();
 	
 	// Update objects
-	StageObjectsSystem();
+	StageObjectsUpdate();
 	
 	// Update boundaries
 	StageBoundariesUpdate();

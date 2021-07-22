@@ -1,16 +1,5 @@
 function PaletteDataLoad()
 {	
-	// Initialize palette animation storage
-	for (var i = 0; i < 99; i++)
-	{
-		for (var j = 0; j < 99; j++)
-		{
-			PaletteColour[i, j]    = noone;
-			PaletteTimer[i, j]     = noone;
-			PaletteAnimation[i, j] = noone;
-		}
-	}
-	
 	// Check current room/scene
 	switch room 
 	{	

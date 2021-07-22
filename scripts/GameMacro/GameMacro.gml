@@ -4,7 +4,8 @@ function GameMacro()
 	make it more practical. We could use emums in that case, but macros are easier */
 	
 	// Main macro
-	#macro Game	global
+	#macro Game  global
+	#macro Array 0
 
 	// Object macro
 	#macro RangeClose  0
@@ -57,6 +58,7 @@ function GameMacro()
 	// Palette macro
 	#macro PaletteSurface    0
 	#macro PaletteUnderwater 1
+	#macro PaletteAll		 2
 	#macro to		         0
 	#macro from		         1
 	#macro black	         0

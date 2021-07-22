@@ -1,9 +1,9 @@
 function ObjComboScoreStartup()
 {
-	// Initialize variables
-	ScoreFrame isReal;
-	PosY	   isReal;
-	Ysp	       isReal;
+	// Variables list
+	ScoreFrame = 0;
+	PosY	   = 0;
+	Ysp	       = 0;
 	
 	// Render above player
 	object_set_depth(Player, true);

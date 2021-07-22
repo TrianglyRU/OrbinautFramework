@@ -55,7 +55,7 @@ function PlayerSuperStateHandle()
 				Animation = AnimWalk;
 				
 				SuperState		= 2;
-				SuperStateValue = -1;
+				SuperStateValue = 1;
 				
 				AllowCollision = true;
 			}				
@@ -71,11 +71,11 @@ function PlayerSuperStateHandle()
 			// Decrease rings
 			if Rings
 			{
-				SuperStateValue--
+				SuperStateValue++
 				
-				if SuperStateValue == -61
+				if SuperStateValue == 61
 				{
-					SuperStateValue = -1;
+					SuperStateValue = 1;
 					Rings--;
 				}
 			}
@@ -100,11 +100,10 @@ function PlayerSuperStateHandle()
 			// Exit superform
 			if !Rings or (Game.DevMode and Jumping and Input.CPress)
 			{
-				SuperStateValue = 1;
-				SuperState		= false;
+				SuperStateValue = 0;
+				SuperState	    = false;
 				
 				//audio_sfx_play(sfxTransform, false);
-				
 				audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
 				
 				if HighSpeedBonus
@@ -114,25 +113,5 @@ function PlayerSuperStateHandle()
 			}
 		}
 		break;
-		
-		// De-transform
-		case 0:
-		{	
-			if SuperStateValue < 0
-			{
-				SuperStateValue = 0;
-			}
-			
-			// Start timer
-			SuperStateValue++
-			
-			// Become regylar after 40 frames
-			if SuperStateValue == 41
-			{
-				SuperState		= -1;
-				SuperStateValue = 0;
-			}
-		}
-		break;		
 	}
 }

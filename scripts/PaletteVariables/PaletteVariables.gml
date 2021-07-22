@@ -11,9 +11,8 @@ function PaletteVariables()
 	FadePower	     isVar;
 	
 	PaletteSet	     isVar;
-	PaletteTimer     isArr;
-	PaletteColour    isArr;
-	PaletteAnimation isArr;
-	PalIndexDry	     isArr;
-	PalIndexWet	     isArr;
+	PaletteDuration  isArr;
+	PaletteSequence  isArr;
+	PaletteIndexDry  isArr;
+	PaletteIndexWet  isArr;
 }

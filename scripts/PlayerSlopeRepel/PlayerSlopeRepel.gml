@@ -1,5 +1,11 @@
 function PlayerSlopeRepel() 
 {
+	// Exit if we're stick to convex
+	if StickToConvex
+	{
+		exit;
+	}
+	
 	// Decrease timer every frame when grounded if non-zero
 	if MovementLock > 0
 	{

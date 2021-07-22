@@ -4,14 +4,11 @@
 	// Initialize variables
 	PaletteVariables();
 	
+	// Setup palette system
+	PaletteSystemSetup();
+	
 	// Load a palette set to use in the room
 	PaletteDataLoad();
-
-	// Reset fade state
-	PaletteFadeReset();
-	
-	// Handle static palette
-	PaletteHandleStatic();
 	
 	// Reset surfaces
 	PaletteRendererSurfaceReset();

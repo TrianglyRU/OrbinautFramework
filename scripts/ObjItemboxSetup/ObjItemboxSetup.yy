@@ -6,7 +6,7 @@
     "path": "folders/Game Objects/Item Box.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjItemboxSetup",
+  "name": "ObjItemBoxSetup",
   "tags": [],
   "resourceType": "GMScript",
 }

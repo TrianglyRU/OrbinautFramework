@@ -32,4 +32,9 @@ function ObjSignpostSetup()
 			SpriteEnd	= spr_obj_signpost_end_knuckles;
 		break;
 	}
+	
+	// Sparkle position data
+	SparkleToUse = 0;
+	SparkleX	 = [-24, 8, -16, 24, 0, 16, -24, 24];
+	SparkleY	 = [-16, 8, 0, -8, -8, 0, 8, 16];	
 }

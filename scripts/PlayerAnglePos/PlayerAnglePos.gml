@@ -81,7 +81,7 @@ function PlayerAnglePos()
 				if Game.ImprovedTileCollision
 				{
 					// Changing our state if there is no surface right below us 
-					if FloorDistance > 0
+					if FloorDistance > 0 and !StickToConvex
 					{
 						Grounded = false;
 						exit;
@@ -90,14 +90,18 @@ function PlayerAnglePos()
 			}
 				
 			// Lose ground if the surface below us is too far away
-			var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			if  FloorDistance > Distance
+			if !StickToConvex
 			{
-				Grounded = false;
+				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+				if  FloorDistance > Distance and !StickToConvex
+				{
+					Grounded = false;
+					break;
+				}		
 			}
 				
 			// Else adhere to the surface and inherit the floor angle
-			else if FloorDistance >= -14
+			if FloorDistance >= -14
 			{
 				Angle = FloorAngle;
 				PosY += FloorDistance;
@@ -128,14 +132,18 @@ function PlayerAnglePos()
 			}
 			
 			// Go airborne if the surface is far to the right from us
-			var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			if  FloorDistance > Distance
+			if !StickToConvex
 			{
-				Grounded = false;
+				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+				if  FloorDistance > Distance
+				{
+					Grounded = false;
+					break;
+				}	
 			}
 				
 			// Else adhere to the surface and inherit the floor angle
-			else if FloorDistance >= -14
+			if FloorDistance >= -14
 			{
 				Angle = FloorAngle;
 				PosX += FloorDistance;
@@ -166,14 +174,18 @@ function PlayerAnglePos()
 			}
 			
 			// Go airborne if the surface above us is too far away
-			var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
-			if  FloorDistance > Distance
+			if !StickToConvex
 			{
-				Grounded = false;
+				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+				if  FloorDistance > Distance
+				{
+					Grounded = false;
+					break;
+				}
 			}
 				
 			// Else adhere to the surface and inherit the floor angle
-			else if FloorDistance >= -14
+			if FloorDistance >= -14
 			{
 				Angle = FloorAngle;
 				PosY -= FloorDistance;
@@ -204,14 +216,18 @@ function PlayerAnglePos()
 			}
 			
 			// Go airborne if the surface is far to the left from us
-			var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
-			if  FloorDistance > Distance
+			if !StickToConvex
 			{
-				Grounded = false;
+				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+				if  FloorDistance > Distance
+				{
+					Grounded = false;
+					break;
+				}
 			}
 				
 			// Else adhere to the surface and inherit the floor angle
-			else if FloorDistance >= -14
+		    if FloorDistance >= -14
 			{
 				Angle = FloorAngle;
 				PosX -= FloorDistance;

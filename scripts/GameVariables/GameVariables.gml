@@ -17,8 +17,6 @@ function GameVariables()
 	Game.PlayerPosition		     isVar;
 	Game.Time				     isVar;
 	Game.StageBoundary			 isVar;
-	Game.StageTransitionData     isArr;
-	Game.StageTransitionData[10] = 0;
 	
 	// Graphics
 	Game.WindowFullscreen		 isVar;

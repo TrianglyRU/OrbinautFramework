@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_spawnpoint_editor",
-    "path": "sprites/spr_obj_spawnpoint_editor/spr_obj_spawnpoint_editor.yy",
+    "name": "spr_obj_spawnpoint",
+    "path": "sprites/spr_obj_spawnpoint/spr_obj_spawnpoint.yy",
   },
   "solid": false,
   "visible": false,
@@ -22,7 +22,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
     {"varType":6,"value":"\"All\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[

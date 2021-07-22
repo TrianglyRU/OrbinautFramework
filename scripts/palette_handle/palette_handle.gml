@@ -1,5 +1,5 @@
-/// @function palette_handle(type,index,startid,colours,duration)
-function palette_handle(type, index, startid, colours, duration)
+/// @function palette_handle(type,id,last,goto,duration)
+function palette_handle(type, id, last, goto, duration)
 {
 	// Exit if screen is fading
 	if FadeTimer
@@ -7,59 +7,56 @@ function palette_handle(type, index, startid, colours, duration)
 		exit;
 	}
 	
+	// Get colour index
+	var index = max(0, id - 1);
+	var cycle = max(1, goto);
+	
+	// Get unique ID
+	var AnimationID = string(last) + "_" + string(goto);
+	
 	// Initialize or update palette animation
-	if PaletteAnimation[type,index] == noone
-	or PaletteAnimation[type,index] != startid
+	if PaletteSequence[type,index] != AnimationID
 	{
 		// Set data
-		PaletteTimer[type,index]     = duration;
-		PaletteColour[type,index]    = startid;
-		PaletteAnimation[type,index] = startid;
-		
-		// Apply colour
-		if duration == 1
-		{
-			if type == PaletteUnderwater
-			{
-				PalIndexWet[index] = PaletteColour[type,index];
-			}
-			else if type == PaletteSurface
-			{
-				PalIndexDry[index] = PaletteColour[type,index];
-			}
-		}
+		PaletteSequence[type,index] = AnimationID;
+		PaletteDuration[type,index]	= duration;
 	}
 	else if duration > 1
 	{
 		// Decrease the value of animation timer
-		if PaletteTimer[type,index] > 1
+		if PaletteDuration[type,index] > 1
 		{
-			PaletteTimer[type,index]--;
+			PaletteDuration[type,index]--;
 		}
 		else
 		{
 			// Reset duration
-			PaletteTimer[type,index] = duration;
+			PaletteDuration[type,index] = duration;
 		
-			// Shift colour
-			if PaletteColour[type,index] < startid + colours - 1
+			// Update colour
+			if type == PaletteSurface
 			{
-				PaletteColour[type,index]++;
+				if PaletteIndexDry[index] < last
+				{
+					PaletteIndexDry[index]++;
+				}
+				else
+				{
+					PaletteIndexDry[index] = cycle;
+				}
 			}
-			else
+			else if type == PaletteUnderwater
 			{
-				PaletteColour[type,index] = startid;
+				if PaletteIndexWet[index] < last
+				{
+					PaletteIndexWet[index]++;
+				}
+				else
+				{
+					PaletteIndexWet[index] = cycle;
+				}
 			}
-		}
-		
-		// Update colour
-		if type == PaletteUnderwater
-		{
-			PalIndexWet[index] = PaletteColour[type,index];
-		}
-		else if type == PaletteSurface
-		{
-			PalIndexDry[index] = PaletteColour[type,index];
+			
 		}
 	}
 }

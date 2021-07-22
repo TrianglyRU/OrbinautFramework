@@ -11,7 +11,6 @@ function PlayerSetup()
 	// Set default flags
 	AllowCollision = true;
 	Grounded	   = true;
-	SuperState     = -1;
 	PeeloutRev     = -1;
 	SpindashRev    = -1;
 	DropdashRev    = -1;

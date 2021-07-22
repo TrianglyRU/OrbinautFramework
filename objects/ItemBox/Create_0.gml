@@ -1,6 +1,5 @@
-/// @description Setup
+/// @description Startup
 // You can write your code in this editor
 	
-	// Call object setup scripts
-	ObjItemboxSetup();
-	ObjItemcardSetup();
+	// Call object script
+	ObjItemBoxSetup();

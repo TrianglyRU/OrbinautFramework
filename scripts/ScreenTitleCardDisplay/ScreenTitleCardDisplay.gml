@@ -36,21 +36,6 @@ function ScreenTitleCardDisplay()
 	string_set_font(Game.Font[FontCard], fa_right);
 	string_display(ZoneX, ZoneY, Stage.ZoneName, 1);
 	
-	// Start gameplay early if we're loading from previous act
-	if CardTimer == 0
-	{
-		if Game.StageTransitionData[4] == true
-		{
-			fade_perform(from, black, 0);
-			
-			Stage.State       = ActStateDefault;
-			Stage.TimeEnabled = true;
-			Input.IgnoreInput = false;
-			InterfaceEnabled  = true;
-			CameraEnabled     = true;
-		}
-	}
-	
 	// Count card
 	CardTimer++;
 

@@ -18,6 +18,7 @@ function object_set_range(type, do_reset)
 		break;
 	}
 	
-	objResetData  = [x, y, image_xscale, image_yscale];
-	objResetFlag  = do_reset;
+	objResetData   = [x, y, image_xscale, image_yscale];
+	objResetFlag   = do_reset;
+	objResetActive = false;
 }

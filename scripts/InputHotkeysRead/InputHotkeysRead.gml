@@ -13,7 +13,7 @@ function InputHotkeysRead()
 		Game.Time		    = 0;
 		Game.StageBoundary	= 0;
 		Game.Score          = 0;
-		Game.PalIndexDry[0] = 0;
+		Game.PaletteIndexDry[0] = 0;
 		
 		audio_stop_all();
 		room_restart();
@@ -34,7 +34,7 @@ function InputHotkeysRead()
 		Game.Time		    = 0;
 		Game.StageBoundary	= 0;
 		Game.Score          = 0;
-		Game.PalIndexDry[0] = 0;
+		Game.PaletteIndexDry[0] = 0;
 		
 		audio_stop_all();
 		room_goto(DevMenu);

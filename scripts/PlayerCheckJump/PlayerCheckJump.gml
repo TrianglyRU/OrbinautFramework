@@ -23,12 +23,15 @@ function PlayerCheckJump()
 			}
 		}
 
-		// Set speeds and flags
+		// Set speeds
 		Xsp     += Jump * dsin(Angle);
 		Ysp	    += Jump * dcos(Angle);	
-		Jumping  = true;	
-		Grounded = false;
-		OnObject = false;
+		
+		// Update flags
+		Jumping       = true;	
+		Grounded      = false;
+		OnObject	  = false;
+		StickToConvex = false;
 		
 		// Update radiuses
 		if !Rolling

@@ -1,41 +1,39 @@
 function StageVariables()
 {
-	LeftBoundary		  isVar;
-	RightBoundary		  isVar;
-	TopBoundary			  isVar;
-	BottomBoundary		  isVar;	
-	TargetLeftBoundary    isVar;
-	TargetRightBoundary   isVar;
-	TargetTopBoundary     isVar;
-	TargetBottomBoundary  isVar;	
-	DeathBoundary		  isVar;
+	LeftBoundary		 = 0;
+	RightBoundary		 = 0;
+	TopBoundary			 = 0;
+	BottomBoundary		 = 0;	
+	TargetLeftBoundary   = 0;
+	TargetRightBoundary  = 0;
+	TargetTopBoundary    = 0;
+	TargetBottomBoundary = 0;	
+	DeathBoundary		 = 0;
 	
-	WaterEnabled    isVar;
-	WaterLevel      isVar;
-	WobbleData      isArray;
+	WaterEnabled      = 0;
+	WaterLevel        = 0;
+	WobbleData[Array] = 0;
 	
-	State		    isVar;
-	StateTimer      isVar;
+	State	   = 0;
+	StateTimer = 0;
+	IsFinished = 0;
 	
-	TileLayer       isArr;
+	ZoneID	 = 0;
+	ActID	 = 0;
+	ZoneName = 0;
 	
-	ZoneID	        isVar;
-	ActID	        isVar;
-	ZoneName		isVar;
+	Time          = 0;
+	TimeEnabled   = 0;	
+	AnimationTime = 0;
+
+	StageMusic		    = 0;
+	StageMusicDAC       = 0;
+	StageMusicLooppoint = 0;
 	
-	IsFinished      isVar;
+	GamePaused  = 0;
+	PauseButton = 0;
+	PauseMode   = 0;
 	
-	TimeEnabled     isVar;
-	Time            isVar;
-	AnimationTime   isVar;
-	
-	CardEnabled	    isVar;
-	
-	StageMusic		    isVar;
-	StageMusicDAC       isVar;
-	StageMusicLooppoint isVar;
-	
-	GamePaused      isVar;
-	PauseButton     isVar;
-	PauseMode       isVar;
+	CardEnabled	     = 0;
+	TileLayer[Array] = 0;
 }

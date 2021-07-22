@@ -1,15 +1,20 @@
-function ObjItemboxSetup()
+function ObjItemBoxSetup()
 {
-	// Initialize variables
-	Airborne  isVar;
-	Destroyed isVar;
-	Ysp		  isVar;
-	PosY	  isVar;
+	// Variables list
+	Airborne   = 0;
+	Destroyed  = 0;
+	PosX       = 0;
+	PosY	   = 0;
+	Ysp		   = 0;	
+	CardPosX   = 0;
+	CardPosY   = 0;
+	CardYsp    = 0;
+	CardSprite = 0;
 	
 	/* Variable Definitions	
 	1. BoxType, default = "Empty"
 	*/
-	
+
 	// Set object hitbox
 	object_set_hitbox(15, 17);
 	
@@ -22,6 +27,47 @@ function ObjItemboxSetup()
 	// Set object pdeth
 	object_set_depth(Player, false);
 	
-	// Set default Y position
-	PosY = y;
+	// Set default position
+	PosX     = x;
+	PosY     = y;
+	CardPosX = x;
+	CardPosY = y - 4;
+	
+	// Set card speed
+	CardYsp = -3;
+	
+	// Define card to display
+	switch BoxType
+	{
+		case "10 Rings":
+			CardSprite = 0;
+		break;
+		case "High Speed":
+			CardSprite = 1;
+		break;
+		case "Regular Barrier":
+			CardSprite = 2;
+		break;
+		case "Thunder Barrier":
+			CardSprite = 3;
+		break;
+		case "Flame Barrier":
+			CardSprite = 4;
+		break;
+		case "Water Barrier":
+			CardSprite = 5;
+		break;
+		case "Invincibility":
+			CardSprite = 6;
+		break;
+		case "Extra Life":
+			CardSprite = 7 + Player.CharacterID;
+		break;
+		case "Eggman":
+			CardSprite = 10;
+		break;
+		case "Empty":
+			CardSprite = 11;
+		break;
+	}
 }

@@ -1,5 +1,11 @@
 function StageObjectsUpdate() 
 {	
+	// Check if stage is paused
+	if State == StagePaused
+	{
+		exit;
+	}
+	
 	// Check if player died or stage unloads
 	if Player.Death or State == ActStateUnload
 	{			
@@ -52,26 +58,81 @@ function StageObjectsUpdate()
 	}
 	else
 	{
-		// Check for all objects
-		with all
-		{
-			// Was object_set_activerange function used?
-			if variable_instance_exists(id, "objActiveRange")
-			{
-				// Unload flag is either 1 (close) or 7 (far), resulting in boundary of 32/240 and 18/128	
-				var UnloadX = 32 * objActiveRange;	
-				var UnloadY = 18 * objActiveRange;
+		// Check if object can be unloaded
+		if variable_instance_exists(id, "objResetFlag")
+		{	
+			// Get position
+			var ObjectX = floor(x);
+			var ObjectY = floor(y);
 			
-				// Deactivate
-				if floor(x) < Screen.CameraX - UnloadX or floor(x) > Screen.CameraX + Screen.Width  + UnloadX
-				or floor(y) < Screen.CameraY - UnloadY or floor(y) > Screen.CameraY + Screen.Height + UnloadY
+			// Get limits
+			var LeftBound   = Screen.CameraX - objLoadRangeX;
+			var TopBound    = Screen.CameraY - objLoadRangeY;
+			var RightBound  = Screen.CameraX + Screen.Width  + objLoadRangeX;
+			var BottomBound = Screen.CameraY + Screen.Height + objLoadRangeY;
+			
+			// Check if the object is off-limits
+			if ObjectX < LeftBound or ObjectX > RightBound
+			or ObjectY < TopBound  or ObjectY > BottomBound
+			{
+				// Is reset flag set?
+				if objResetFlag
+				{
+					// Was object on the screen before?
+					if objResetActive
+					{
+						// Should object be resetted to its initial state?
+						if objResetFlag
+						{
+							// Reset object if its initial position if off-limits
+							if objResetData[0] < Screen.CameraX - objLoadRangeX or objResetData[0] > Screen.CameraX + Screen.Width + objLoadRangeX
+							{
+								x			 = objResetData[0];
+								y			 = objResetData[1];
+								image_xscale = objResetData[2];
+								image_yscale = objResetData[3];
+								
+								event_perform(ev_create,     0);
+								event_perform(ev_room_start, 0);
+							}
+							
+							// Else deactivate
+							else
+							{
+								instance_deactivate_object(id);
+							}
+						}
+						
+						// Should object be deleted?
+						else if objResetFlag == 2
+						{					
+							// Delete
+							instance_destroy(id);
+						}
+					}
+					
+					// If not, unload
+					else
+					{
+						instance_deactivate_object(id);
+					}
+				}
+				
+				// If no reset flag set, unload
+				else
 				{
 					instance_deactivate_object(id);
 				}
 			}
+			
+			// If object is inside the limits and has the reset flag, allow it to be resetted
+			else if objResetFlag and !objResetActive
+			{
+				objResetActive = true;
+			}
 		}
 		
-		// Activate all objects
-		instance_activate_region(Screen.CameraX - 240, Screen.CameraY - 256, Screen.Width + 480, Screen.Height + 512, true);
+		// Activate unloaded objects inside of the largest region
+		instance_activate_region(Screen.CameraX - 128, Screen.CameraY - 256, Screen.Width + 256, Screen.Height + 512, true);
 	}		
 }

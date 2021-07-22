@@ -6,7 +6,7 @@ function StageActStartup()
 	// Set tile layers IDs
 	TileLayer = [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];
 	
-	// Bubble wobble data
+	// Set bubble wobble data if water is enabled
 	if WaterEnabled
 	{
 		WobbleData =
@@ -22,34 +22,20 @@ function StageActStartup()
 		]
 	}
 	
-	// Set top, left and right boundaries
-	TargetLeftBoundary  = LeftBoundary;
-	TargetRightBoundary = RightBoundary;
-	TargetTopBoundary   = TopBoundary;
-	
-	// Check if it is act transition
-	if Game.StageTransitionData[4] == true
+	// Load saved time and stage boundary (loading on checkpoint)
+	if Game.Time
 	{
-		// Set target bottom boundary
-		TargetBottomBoundary = BottomBoundary;
-		DeathBoundary		 = TargetBottomBoundary;
+		Time = Game.Time;
+	}
+	if Game.StageBoundary
+	{
+		BottomBoundary = Game.StageBoundary;
 	}
 	
-	// Check if it is not act transition
-	else
-	{
-		// Load saved time and stage boundary (loading on checkpoint)
-		if Game.Time
-		{
-			Time = Game.Time;
-		}
-		if Game.StageBoundary
-		{
-			BottomBoundary = Game.StageBoundary;
-		}
-		
-		// Set target bottom boundary
-		TargetBottomBoundary = BottomBoundary;
-		DeathBoundary        = BottomBoundary;
-	}
+	// Set boundaries
+	TargetLeftBoundary   = LeftBoundary;
+	TargetRightBoundary  = RightBoundary;
+	TargetTopBoundary    = TopBoundary;
+	TargetBottomBoundary = BottomBoundary;
+	DeathBoundary        = BottomBoundary;
 }

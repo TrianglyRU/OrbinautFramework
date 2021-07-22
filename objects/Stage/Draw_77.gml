@@ -39,7 +39,7 @@
 						Game.Time = 0;
 						Game.StageBoundary = 0;
 						Game.Score = 0;
-						Game.PalIndexDry[0] = 0;
+						Game.PaletteIndexDry[0] = 0;
 						room_goto(DevMenu);
 					}
 				}

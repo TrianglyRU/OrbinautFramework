@@ -39,18 +39,15 @@ function GameFrameworkSetup()
 	Game.ConstantRollPhysics    = true;  // In SK, rolling physics are the same for everyone. True - SK method
 	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
 	Game.ExtensiveWallCollision	= true;  // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
-	Game.StageTransitions		= false; // In S3 stage transitions were introduced. True = S3+-like transitions (not a direct copy).
 	Game.BalancingCrouch		= false; // In S3 and later you're allowed to crouch when balancing. True = S3+ method
 	Game.BuffedWaterBarrier     = false; // In Sonic Mania, water barrier halves your xsp instead of setting it to 0
+	Game.PreciseRings			= false; // In Sonic Mania, shattered rings behaviour was updated
 	
 	// Orbinaut improvements
-	Game.ImprovedTileCollision = false; // Fixes several tile collision flaws
+	Game.ImprovedTileCollision = true;  // Fixes several tile collision flaws
 	Game.ImprovedObjCollision  = true;  // Fixes wacky hitboxes and fickle object collision
 	Game.SmoothRotation	       = true;  // Use smooth rotation
-	Game.RichPresenceSupport   = false; // Enable Rich Presence
-	Game.RingsPreciseCollision = false; // Make rings check for collision every frame instead of every 4
-	Game.RingsNoBoundDespawn   = false; // Make rings despawn as soon as they leave the screen
-	Game.RingsAllSideCollision = false; // Make rings collide with walls and ceiling instead of just floor
+	Game.RichPresenceSupport   = false;  // Enable Rich Presence
 	Game.NoRollSpeedLimit	   = false; // Disables xsp limitation when rolling. May cause collision glitches on higher speeds
 	Game.FlyingCancel	       = true;  // Allows you to cancel flying as Tails
 }

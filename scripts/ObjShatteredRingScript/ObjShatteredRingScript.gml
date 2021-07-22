@@ -32,7 +32,7 @@ function ObjShatteredRingScript()
 	y = floor(PosY);
 		
 	// Do tile collision every four frames when falling down
-	if CollisionCheck mod 4 == 0 and Ysp > 0 or Game.RingsPreciseCollision 
+	if CollisionCheck mod 4 == 0 and Ysp > 0 or Game.PreciseRings
 	{
 		// Check if ring found the tile & collide
 		var findFloor = object_collide_tiles_v(false, SideBottom, 0, Player.Layer);
@@ -43,7 +43,7 @@ function ObjShatteredRingScript()
 		}
 			
 		// Do additional collisions if all-side collision is enabled
-		if Game.RingsAllSideCollision
+		if Game.PreciseRings
 		{
 			// Collide ceiling
 			if Ysp < 0 
@@ -77,17 +77,6 @@ function ObjShatteredRingScript()
 		}
 	}
 		
-	// Check if ring is outside the camera X view
-	if !Game.RingsNoBoundDespawn
-	{
-		/*if x < Screen.CameraX - 8 or x > Screen.CameraX + Screen.Width + 8
-		{
-			// Delete it
-			instance_destroy();
-			exit;
-		}*/
-	}
-	
 	// Exit the code if ring can't be collected
 	if PickupTimeout
 	{

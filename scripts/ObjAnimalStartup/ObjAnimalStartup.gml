@@ -1,17 +1,17 @@
 function ObjAnimalStartup()
 {
-	// Initialize variables
-	AnimalType   isAsset;
-	State		 isReal;
-	PosX		 isReal;
-	PosY		 isReal;
-	DefaultXsp   isReal;
-	DefaultYsp   isReal;
-	Xsp          isReal;
-	Ysp			 isReal;
-	Grv			 isReal;
-	CapsuleDelay isReal;
-	FromCapsule  isBool;
+	// Variables list
+	AnimalType   = 0;
+	State		 = 0;
+	PosX		 = 0;
+	PosY		 = 0;
+	DefaultXsp   = 0;
+	DefaultYsp   = 0;
+	Xsp          = 0;
+	Ysp			 = 0;
+	Grv			 = 0;
+	CapsuleDelay = 0;
+	FromCapsule  = 0;
 	
 	// Set object solidbox
 	object_set_solidbox(8, 12);

@@ -75,7 +75,7 @@ function ScreenResultsDisplay()
 		draw_set_font(Game.Font[FontDigits1]);
 		draw_set_halign(fa_right);
 
-		draw_sprite_ext(spr_results_head, Player.CharacterID, CenterPos + 53, 87, CardFrm, CardFrm, 90 - ResultValue[1], c_white, CardFrm);
+		//draw_sprite_ext(spr_results_head, Player.CharacterID, CenterPos + 53, 87, CardFrm, CardFrm, 90 - ResultValue[1], c_white, CardFrm);
 		draw_sprite_ext(spr_results_act,  Stage.ActID,        CenterPos + 49, 81, CardFrm, 1,	    0,					 c_white, 1);
 		
 		draw_sprite(spr_results_char,		 Player.CharacterID, CenterPos - ResultValue[2] - 14, 60);
@@ -94,11 +94,6 @@ function ScreenResultsDisplay()
 			// Count timer
 			ResultsTimer++;
 			
-			// If stage transition is about to happen, remove hud
-			if Game.StageTransitionData[4] == true
-			{
-				
-			}
 			if ResultsTimer == 120
 			{
 				Stage.State = ActStateUnload;

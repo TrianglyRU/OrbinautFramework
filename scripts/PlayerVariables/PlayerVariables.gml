@@ -1,7 +1,6 @@
 function PlayerVariables()
 {
-	HexAngle isVar;
-	
+	StickToConvex		 isVar;
 	Acc					 isVar;
 	Dec					 isVar;
 	Frc					 isVar;
