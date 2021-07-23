@@ -4,10 +4,8 @@
 	// Render pause and exit the futher code if it is active
 	if ScreenPauseDisplay() exit;
 	
-	// Start render below the fade
+	// Start render GUI below the fade
 	ScreenRendererLowStart();
-	
-	StageDrawWaterSurface();
 	
 	// Display HUD
 	ScreenInterfaceDisplay();
@@ -18,7 +16,7 @@
 	// Update renderer
 	ScreenRendererUpdate();
 	
-	// Start render above the fade
+	// Start render GUI above the fade
 	ScreenRendererHighStart();
 	
 	// Display title card

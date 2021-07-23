@@ -22,10 +22,10 @@ function object_player_touch(collisionSide)
 	// Get object properties
 	var objectX		   = floor(x);
 	var objectY        = floor(y);
-	var objectTop      = floor(y - objYRadiusSolid);
-	var objectLeft     = floor(x - objXRadiusSolid);
-	var objectRight    = floor(x + objXRadiusSolid);
-	var objectBottom   = floor(y + objYRadiusSolid);	
+	var objectTop      = floor(y - objYRadiusSolid - 0);
+	var objectLeft     = floor(x - objXRadiusSolid - 0);
+	var objectRight    = floor(x + objXRadiusSolid - 1);
+	var objectBottom   = floor(y + objYRadiusSolid - 0);	
 	var objectMirrored = !image_xscale;
 	var objectFlipped  = !image_yscale;
 	var objectID	   = id;
@@ -37,16 +37,6 @@ function object_player_touch(collisionSide)
 	var playerLeft   = floor(Player.PosX - 11);
 	var playerRight  = floor(Player.PosX + 11);
 	var playerBottom = floor(Player.PosY + Player.yRadius);
-	
-	// Adjust solidbox
-	if !Game.ImprovedObjCollision
-	{
-		objectBottom++;
-	}	
-	else
-	{
-		objectRight--;
-	}
 	
 	// Set flags
 	var objTouchedTop    = false;

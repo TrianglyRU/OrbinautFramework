@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen",
-    "path": "folders/Game Controllers/Screen.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageDrawWaterSurface",
+  "name": "tile_check_nearest",
   "tags": [],
   "resourceType": "GMScript",
 }

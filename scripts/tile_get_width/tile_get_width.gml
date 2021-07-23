@@ -1,19 +1,13 @@
-/// @function tile_get_width(X, Y, tilemap, index)
-function tile_get_width(X, Y, tilemap, index)
+/// @function tile_get_width(x,y,tiledata,index)
+function tile_get_width(x, y, tiledata, index)
 {
-	if tile_get_flip(tilemap)
+	if tile_get_flip(tiledata)
 	{
-		var tileWidth = TileSize - 1 - Y mod TileSize;
+		var WidthToUse = TileSize - 1 - y mod TileSize;
 	}
 	else
 	{
-		var tileWidth = Y mod TileSize;
-	}
-	
-	if index >= TileAmount
-	{
-		index += 1;
-	}
-	
-	return Game.WidthValueOf[index mod TileAmount][tileWidth];
+		var WidthToUse = y mod TileSize;
+	}	
+	return Game.WidthValueOf[index mod TileAmount][WidthToUse];
 }

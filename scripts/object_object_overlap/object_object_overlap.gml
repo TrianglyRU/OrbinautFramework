@@ -26,19 +26,11 @@ function object_object_overlap(targetObject)
 	var objectBottom = floor(y + objYRadiusHit);
 	
 	// Get target object size
-	var targetTop    = floor(targetObject.y - targetObject.objYRadiusHit);
-	var targetLeft   = floor(targetObject.x - targetObject.objXRadiusHit);
-	var targetRight  = floor(targetObject.x + targetObject.objXRadiusHit);
-	var targetBottom = floor(targetObject.y + targetObject.objYRadiusHit);
+	var targetTop    = floor(targetObject.y - targetObject.objYRadiusHit - 1);
+	var targetLeft   = floor(targetObject.x - targetObject.objXRadiusHit - 1);
+	var targetRight  = floor(targetObject.x + targetObject.objXRadiusHit - 1);
+	var targetBottom = floor(targetObject.y + targetObject.objYRadiusHit - 1);
 	
-	if Game.ImprovedObjCollision
-	{
-		objectRight  -= 1;
-		objectBottom -= 1;
-		targetRight  -= 1;
-		targetBottom -= 1;
-	}
-		
 	// Check for overlap horizontally
 	if targetRight < objectLeft or targetLeft > objectRight
 	{

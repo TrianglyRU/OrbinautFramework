@@ -62,9 +62,6 @@ function PlayerGroundWallCollision()
 					// Affect player speeds
 					Ysp  += tileData[0];
 					Inertia = 0;
-						
-					// We're colling with floor in this case. Update angle
-					Angle = tileData[1];
 				}
 			}
 			break;
@@ -140,9 +137,6 @@ function PlayerGroundWallCollision()
 					// Affect player speeds
 					Ysp    += tileData[0];
 					Inertia = 0;
-						
-					// We're colling with floor in this case. Update angle
-					Angle = tileData[1];
 				}
 			}
 			break;

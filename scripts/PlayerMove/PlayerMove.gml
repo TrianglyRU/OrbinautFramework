@@ -62,8 +62,6 @@ function PlayerMove()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	
-		
 	// Check if we're moving
 	if Inertia != 0
 	{

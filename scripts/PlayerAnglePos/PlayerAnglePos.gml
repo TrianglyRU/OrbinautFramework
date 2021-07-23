@@ -34,64 +34,13 @@ function PlayerAnglePos()
 			var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
 			var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
 			
-			// Is the left tile closer to us than the right one?
-			if TileLeft[0] < TileRight[0]
-			{
-				// Use the left tile
-				var FloorDistance = TileLeft[0];
-				var FloorAngle	  = TileLeft[1];
-			}
+			// Get nearest tile
+			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
 			
-			// Is the right tile closer to us than the left one?
-			else if TileRight[0] < TileLeft[0]
-			{	
-				// Use the right tile
-				var FloorDistance = TileRight[0];
-				var FloorAngle	  = TileRight[1];
-			}
+			// Get data
+			var FloorDistance = NearestTile[0];
+			var FloorAngle    = NearestTile[1];
 			
-			// Are both tiles on the same distance from us?
-			else
-			{
-				// If improved tile collision is enabled, use the tile below our position 
-				if Game.ImprovedTileCollision
-				{
-					var TileMiddle = tile_check_collision_v(floor(PosX), floor(PosY + yRadius), true, false, Layer);
-					if !TileMiddle[0]
-					{
-						var FloorDistance = TileMiddle[0];
-						var FloorAngle	  = TileMiddle[1];
-					}
-				}
-				else
-				{
-					// Use left distance as left tile is priority one
-					var FloorDistance = TileLeft[0];
-				
-					// Use steeper angle (?)
-					var FloorAngle = max(TileLeft[1], TileRight[1]);
-				}
-			}
-			
-			// Is the difference between our angle and the floor angle greater than 45 degrees?
-			var Difference = abs(Angle mod 180 - FloorAngle mod 180);
-			if  Difference > 45 and Difference < 135
-			{
-				// Force reset the floor angle
-				FloorAngle = 360;
-				
-				// Should we walk off the slope naturally?
-				if Game.ImprovedTileCollision
-				{
-					// Changing our state if there is no surface right below us 
-					if FloorDistance > 0 and !StickToConvex
-					{
-						Grounded = false;
-						exit;
-					}
-				}
-			}
-				
 			// Lose ground if the surface below us is too far away
 			if !StickToConvex
 			{
@@ -106,8 +55,8 @@ function PlayerAnglePos()
 			// Else adhere to the surface and inherit the floor angle
 			if FloorDistance >= -14
 			{
-				Angle = FloorAngle;
 				PosY += FloorDistance;
+				Angle = FloorAngle;	
 			}
 		}
 		break;
@@ -119,20 +68,12 @@ function PlayerAnglePos()
 			var TileLeft  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true, false, Layer);
 			var TileRight = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true, false, Layer);
 			
-			// Is the bottom tile closer to us than the top one?
-			if TileLeft[0] <= TileRight[0]
-			{
-				// Use the bottom tile
-				var FloorDistance = TileLeft[0];
-				var FloorAngle	  = TileLeft[1];
-			}
+			// Get nearest tile
+			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
 			
-			// Else use the top tile
-			else
-			{
-				var FloorDistance = TileRight[0];
-				var FloorAngle	  = TileRight[1];
-			}
+			// Get data
+			var FloorDistance = NearestTile[0];
+			var FloorAngle    = NearestTile[1];
 			
 			// Go airborne if the surface is far to the right from us
 			if !StickToConvex
@@ -158,23 +99,15 @@ function PlayerAnglePos()
 		case RangeRoof:	
 		{	
 			// Get the tiles above us
-			var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, false, Layer);
-			var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, false, Layer);
+			var TileLeft  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, false, Layer);
+			var TileRight = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, false, Layer);
 			
-			// Is the right tile closer to us than the left one?
-			if TileRight[0] <= TileLeft[0]
-			{
-				// Use the right tile
-				var FloorDistance = TileRight[0];
-				var FloorAngle	  = TileRight[1];
-			}
+			// Get nearest tile
+			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
 			
-			// Else use the left tile
-			else
-			{
-				var FloorDistance = TileLeft[0];
-				var FloorAngle    = TileLeft[1];
-			}
+			// Get data
+			var FloorDistance = NearestTile[0];
+			var FloorAngle    = NearestTile[1];
 			
 			// Go airborne if the surface above us is too far away
 			if !StickToConvex
@@ -203,20 +136,12 @@ function PlayerAnglePos()
 			var TileLeft  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY - xRadius), false, false, Layer);
 			var TileRight = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, false, Layer);
 			
-			// Is the top tile closer to us than the bottom one?
-			if TileLeft[0] <= TileRight[0]
-			{
-				// Use the top tile
-				var FloorDistance = TileLeft[0];
-				var FloorAngle    = TileLeft[1];
-			}
+			// Get nearest tile
+			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
 			
-			// Else use the bottom tile
-			else
-			{
-				var FloorDistance = TileRight[0];
-				var FloorAngle    = TileRight[1];
-			}
+			// Get data
+			var FloorDistance = NearestTile[0];
+			var FloorAngle    = NearestTile[1];
 			
 			// Go airborne if the surface is far to the left from us
 			if !StickToConvex

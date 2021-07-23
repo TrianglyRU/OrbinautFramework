@@ -1,11 +1,5 @@
 function StageObjectsUpdate() 
 {	
-	// Check if stage is paused
-	if State == StagePaused
-	{
-		exit;
-	}
-	
 	// Check if player died or stage unloads
 	if Player.Death or State == ActStateUnload
 	{			
@@ -58,77 +52,81 @@ function StageObjectsUpdate()
 	}
 	else
 	{
-		// Check if object can be unloaded
-		if variable_instance_exists(id, "objResetFlag")
-		{	
-			// Get position
-			var ObjectX = floor(x);
-			var ObjectY = floor(y);
+		// Do code from object side
+		with all
+		{
+			// Check if object can be unloaded
+			if variable_instance_exists(id, "objResetFlag")
+			{	
+				// Get position
+				var ObjectX = floor(x);
+				var ObjectY = floor(y);
 			
-			// Get limits
-			var LeftBound   = Screen.CameraX - objLoadRangeX;
-			var TopBound    = Screen.CameraY - objLoadRangeY;
-			var RightBound  = Screen.CameraX + Screen.Width  + objLoadRangeX;
-			var BottomBound = Screen.CameraY + Screen.Height + objLoadRangeY;
+				// Get limits
+				var LeftBound   = Screen.CameraX - objLoadRangeX;
+				var TopBound    = Screen.CameraY - objLoadRangeY;
+				var RightBound  = Screen.CameraX + Screen.Width  + objLoadRangeX;
+				var BottomBound = Screen.CameraY + Screen.Height + objLoadRangeY;
 			
-			// Check if the object is off-limits
-			if ObjectX < LeftBound or ObjectX > RightBound
-			or ObjectY < TopBound  or ObjectY > BottomBound
-			{
-				// Is reset flag set?
-				if objResetFlag
+				// Check if the object is off-limits
+				if ObjectX < LeftBound or ObjectX > RightBound
+				or ObjectY < TopBound  or ObjectY > BottomBound
 				{
-					// Was object on the screen before?
-					if objResetActive
+					// Is reset flag set?
+					if objResetFlag
 					{
-						// Should object be resetted to its initial state?
-						if objResetFlag
+						// Was object on the screen before?
+						if objResetActive
 						{
-							// Reset object if its initial position if off-limits
-							if objResetData[0] < Screen.CameraX - objLoadRangeX or objResetData[0] > Screen.CameraX + Screen.Width + objLoadRangeX
+							// Should object be resetted to its initial state?
+							if objResetFlag == 1
 							{
-								x			 = objResetData[0];
-								y			 = objResetData[1];
-								image_xscale = objResetData[2];
-								image_yscale = objResetData[3];
+								// Reset object if its initial position if off-limits
+								if objResetData[0] < Screen.CameraX - objLoadRangeX or objResetData[0] > Screen.CameraX + Screen.Width + objLoadRangeX
+								{
+									x			 = objResetData[0];
+									y			 = objResetData[1];
+									image_xscale = objResetData[2];
+									image_yscale = objResetData[3];
 								
-								event_perform(ev_create,     0);
-								event_perform(ev_room_start, 0);
-							}
+									event_perform(ev_create,     0);
+									event_perform(ev_room_start, 0);
+								}
 							
-							// Else deactivate
-							else
-							{
-								instance_deactivate_object(id);
+								// Else deactivate
+								else
+								{
+									instance_deactivate_object(id);
+								}
+							}
+						
+							// Should object be deleted?
+							else if objResetFlag == 2
+							{	
+								// Delete
+								instance_destroy(id);
 							}
 						}
-						
-						// Should object be deleted?
-						else if objResetFlag == 2
-						{					
-							// Delete
-							instance_destroy(id);
+					
+						// If not, unload
+						else
+						{
+							instance_deactivate_object(id);
 						}
 					}
-					
-					// If not, unload
+				
+					// If no reset flag set, unload
 					else
 					{
 						instance_deactivate_object(id);
 					}
 				}
-				
-				// If no reset flag set, unload
-				else
-				{
-					instance_deactivate_object(id);
-				}
-			}
 			
-			// If object is inside the limits and has the reset flag, allow it to be resetted
-			else if objResetFlag and !objResetActive
-			{
-				objResetActive = true;
+				// If object is inside the limits and has the reset flag, allow it to be resetted
+				else if objResetFlag and !objResetActive
+				{
+					objResetActive = true;		
+				}
 			}
 		}
 		

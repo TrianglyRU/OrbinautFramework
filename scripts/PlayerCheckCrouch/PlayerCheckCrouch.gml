@@ -7,7 +7,7 @@ function PlayerCheckCrouch()
 	}
 	
 	// Exit if we're balancing
-	if !Game.BalancingCrouch and Balancing != false
+	if !Game.BalancingCrouch and (Animation == AnimBalanceBack or Animation == AnimBalanceFront)
 	{
 		exit;
 	}

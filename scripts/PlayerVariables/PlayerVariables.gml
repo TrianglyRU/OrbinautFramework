@@ -55,7 +55,7 @@ function PlayerVariables()
 	ClimbingValue        isVar;
 	ClimbingSpeed		 isVar;
 	Skidding			 isVar;
-	Balancing			 isVar;
+	Balancing			 = 0;
 	HighSpeedBonus		 isVar;
 	InvincibilityBonus   isVar;
 	Animation			 isVar;

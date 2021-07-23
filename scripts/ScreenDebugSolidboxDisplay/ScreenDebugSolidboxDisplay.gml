@@ -29,8 +29,7 @@ function ScreenDebugSolidboxDisplay()
 			}
 			else if variable_instance_exists(id, "objXRadiusSolid")
 			{	
-				var sizeAdjust = Game.ImprovedObjCollision ? 1 : 0;
-				draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - sizeAdjust, y + objYRadiusSolid - sizeAdjust, $00ffff, $00ffff, $00ffff, $00ffff, false);	
+				draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - 1, y + objYRadiusSolid - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);	
 			}
 		}
 		draw_set_alpha(1.0);

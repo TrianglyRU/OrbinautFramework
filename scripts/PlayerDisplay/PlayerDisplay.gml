@@ -23,13 +23,13 @@ function PlayerDisplay()
 						var StartRotationRight = min(VisualAngle mod 360 + RotationEdge, Angle)
 																							 
 						// Rotation on the right side
-						var RotationRight = min(VisualAngle mod 360 + Inertia, Angle + 5.625 + abs(Inertia));
+						var RotationRight = min(VisualAngle mod 360 + Inertia, min(Angle + 5.625 + abs(Inertia), 180));
 						
 						// Start rotate on the left side
 						var StartRotationLeft = max(Angle, VisualAngle - RotationEdge);
 						
 						// Rotation on the left side
-						var RotationLeft = max(Angle - 5.625 - abs(Inertia), VisualAngle + Inertia);
+						var RotationLeft = max(max(180, Angle - 5.625 - abs(Inertia)), VisualAngle + Inertia);
 						
 						// Do rotation
 						VisualAngle = Angle < 180 ? max(StartRotationRight, RotationRight) : min(StartRotationLeft, RotationLeft);

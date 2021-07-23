@@ -1,18 +1,14 @@
-/// @function tile_get_height(X, Y, tilemap, index)
-function tile_get_height(X, Y, tilemap, index)
+/// @function tile_get_height(x,y,tiledata,index)
+function tile_get_height(x, y, tiledata, index)
 {
-	if tile_get_mirror(tilemap)
+	if tile_get_mirror(tiledata)
 	{
-		var heightToUse = TileSize - 1 - X mod TileSize;
+		var HeightToUse = TileSize - 1 - x mod TileSize;
 	}
 	else
 	{
-		var heightToUse = X mod TileSize;
+		var HeightToUse = x mod TileSize;
 	}
 	
-	if index >= TileAmount
-	{
-		index += 1;
-	}
-	return Game.HeightValueOf[index mod TileAmount][heightToUse];
+	return Game.HeightValueOf[index mod TileAmount][HeightToUse];
 }

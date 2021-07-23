@@ -56,14 +56,10 @@ function GameVariables()
 	Game.StageTransitions		 isVar;
 	
 	// Orbinaut improvements
-	Game.ImprovedObjCollision	 isVar;
-	Game.ImprovedTileCollision   isVar;	
-	Game.SmoothPaletteCycle		 isVar;
 	Game.SmoothRotation			 isVar;
 	Game.RichPresenceSupport	 isVar;
-	Game.RingsPreciseCollision   isVar;
-	Game.RingsNoBoundDespawn	 isVar;
-	Game.RingsAllSideCollision   isVar;
+	Game.PreciseRings			 isVar;
 	Game.NoRollSpeedLimit		 isVar;
 	Game.FlyingCancel			 isVar;
+	Game.SuperCancel			 isVar;
 }

@@ -71,11 +71,11 @@
 		// Check for skidding
 		PlayerCheckSkid();
 		
-		// Check push
-		PlayerCheckPush();
-		
 		// Collide with walls
 		PlayerGroundWallCollision();
+		
+		// Check push
+		PlayerCheckPush();
 		
 		// Perform roll
 		PlayerCheckRoll();

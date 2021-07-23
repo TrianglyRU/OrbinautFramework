@@ -44,10 +44,9 @@ function GameFrameworkSetup()
 	Game.PreciseRings			= false; // In Sonic Mania, shattered rings behaviour was updated
 	
 	// Orbinaut improvements
-	Game.ImprovedTileCollision = true;  // Fixes several tile collision flaws
-	Game.ImprovedObjCollision  = true;  // Fixes wacky hitboxes and fickle object collision
 	Game.SmoothRotation	       = true;  // Use smooth rotation
-	Game.RichPresenceSupport   = false;  // Enable Rich Presence
+	Game.RichPresenceSupport   = false; // Enable Rich Presence
 	Game.NoRollSpeedLimit	   = false; // Disables xsp limitation when rolling. May cause collision glitches on higher speeds
 	Game.FlyingCancel	       = true;  // Allows you to cancel flying as Tails
+	Game.SuperCancel		   = false; // Allows you to cancel super form
 }

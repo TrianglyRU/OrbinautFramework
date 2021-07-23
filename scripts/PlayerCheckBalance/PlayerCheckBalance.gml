@@ -1,44 +1,69 @@
 function PlayerCheckBalance()
 {
-	if OnObject
+	// Reset balancing flag
+	Balancing = false;
+	
+	if Angle >= 46.41 and Angle <= 315
 	{
 		exit;
 	}
 	
-	if Inertia != 0
+	if OnObject or Inertia != 0
 	{
-		Balancing = false;
+		exit;
 	}
-	else
+
+	var DistanceMiddle = tile_check_collision_v(floor(PosX), floor(PosY + yRadius), true, false, Layer)[0];
+			
+	if DistanceMiddle < 12
 	{
-		var DistanceLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer)[0];		
-		var DistanceRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer)[0];
-		var DistanceMiddle = tile_check_collision_v(floor(PosX),		   floor(PosY + yRadius), true, false, Layer)[0];
-			
-		if !(DistanceMiddle > 14)
-		{
-			exit;
-		}
+		exit;
+	}
 	
-		if !DistanceLeft
-		{
-			Balancing = Facing;
+	Balancing = true;
+	
+	var DistanceLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer)[0];		
+	var DistanceRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer)[0];
 		
-		}
-			
-		// Else use the right tile
-		else if !DistanceRight
-		{	
-			Balancing = -Facing;		
-		}
-	
-		if Balancing == DirectionRight
+	// Standing on left edge
+	if !DistanceLeft
+	{
+		if !SuperState and !CharacterID != CharKnuckles
 		{
+			if Facing == DirectionRight
+			{
+				Animation = AnimBalanceFront;
+			}
+			else if Facing == DirectionLeft
+			{
+				Animation = AnimBalanceBack;
+			}
+		}
+		else
+		{
+			Facing    = DirectionRight;
 			Animation = AnimBalanceFront;
 		}
-		else if Balancing == DirectionLeft
+	}
+		
+	// Standing on right edge
+	else if !DistanceRight
+	{	
+		if !SuperState and !CharacterID != CharKnuckles
 		{
-			Animation = AnimBalanceBack;
+			if Facing == DirectionLeft
+			{
+				Animation = AnimBalanceFront;
+			}
+			else if Facing == DirectionRight
+			{
+				Animation = AnimBalanceBack;
+			}
+		}
+		else
+		{
+			Facing    = DirectionLeft;
+			Animation = AnimBalanceFront;
 		}
 	}
 }
