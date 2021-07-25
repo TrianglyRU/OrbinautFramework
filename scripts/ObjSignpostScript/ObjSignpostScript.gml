@@ -14,7 +14,7 @@ function ObjSignpostScript()
 			Active		      = true;
 			Stage.IsFinished  = true;
 			
-			if Player.SuperState
+			if Player.CharacterID == CharSonic and Player.SuperState
 			{
 				SpriteEnd = spr_obj_signpost_end_supersonic;
 			}
