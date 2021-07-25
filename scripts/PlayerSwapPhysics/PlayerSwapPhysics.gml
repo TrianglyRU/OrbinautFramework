@@ -1,7 +1,7 @@
 function PlayerSwapPhysics()
 {	
 	// Surface physics
-	if !isUnderwater
+	if !IsUnderwater
 	{	
 		// Normal physics
 		if !SuperState
@@ -128,5 +128,18 @@ function PlayerSwapPhysics()
 	if Game.ConstantRollPhysics and SuperState
 	{
 		RollFrc = 0.0234375;
+	}
+	
+	// Handle basic gravity (not hurt, dead, flying or gliding)s
+	if !Hurt and !Death and !Drown and !FlightState and !GlideState
+	{
+		// Regular gravity
+		Grv	= 0.21875;
+
+		// If underwater, subtract 0x28
+		if IsUnderwater
+		{
+			Grv -= 0.15625;
+		}
 	}
 }

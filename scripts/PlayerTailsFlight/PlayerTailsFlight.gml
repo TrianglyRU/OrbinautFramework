@@ -22,7 +22,7 @@ function PlayerTailsFlight()
 		FlightTimer--;
 		
 		// Set 'fly' or 'swim' animation
-		Animation = isUnderwater ? AnimSwim : AnimFly;
+		Animation = IsUnderwater ? AnimSwim : AnimFly;
 	}
 	else
 	{
@@ -75,7 +75,7 @@ function PlayerTailsFlight()
 		if FlyingTimer > 0
 		{
 			// Play sound
-			if !isUnderwater
+			if !IsUnderwater
 			{
 				audio_sfx_play(sfxFlying, true);
 			}
@@ -94,7 +94,7 @@ function PlayerTailsFlight()
 			if (Ysp < -1) Grv = 0.03125;
 			
 			// Set 'fly' or 'swim' animation
-			Animation = isUnderwater ? AnimSwim : AnimFly;
+			Animation = IsUnderwater ? AnimSwim : AnimFly;
 			
 			// Check fly cancel is enabled, and we pressed A, B or C while holding DOWN
 			if Game.FlyingCancel and Input.Down and Input.ABCPress
@@ -117,7 +117,7 @@ function PlayerTailsFlight()
 				
 				// Since we're going the into rolling state, rolling offset will be applied to the camera.
 				// So let's correct its position
-				Screen.CameraY += xRadiusDefault - xRadiusRoll;
+				Screen.RawY += xRadiusDefault - xRadiusRoll;
 			}		
 		}
 		
@@ -128,7 +128,7 @@ function PlayerTailsFlight()
 			audio_sfx_stop(sfxFlying);	
 			
 			// Set 'tired' animation
-			Animation = isUnderwater ? AnimSwimTired : AnimFlyTired;
+			Animation = IsUnderwater ? AnimSwimTired : AnimFlyTired;
 			
 			// Enter tired state
 			FlyingState = 2;
@@ -136,7 +136,7 @@ function PlayerTailsFlight()
 		}
 		
 		// Play tired sound
-		if !isUnderwater
+		if !IsUnderwater
 		{
 			if FlyingState == 2
 			{

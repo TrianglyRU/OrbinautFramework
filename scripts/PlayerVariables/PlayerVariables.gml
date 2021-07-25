@@ -40,7 +40,7 @@ function PlayerVariables()
 	SuperStateValue		 isVar;
 	SuperStateStar		 isVar;
 	IsInvincible		 isVar;
-	isUnderwater		 isVar;
+	IsUnderwater		 isVar;
 	BarrierType			 isVar;
 	BarrierIsActive	     isVar;
 	FlyingState			 isVar;

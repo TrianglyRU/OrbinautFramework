@@ -11,11 +11,28 @@ function ObjSpringHorizontalMain()
 		// Is player grounded and touching launch side?
 		if Player.Grounded and object_player_touch(LaunchSide)
 		{
-			// Launch player
+			// Lock controls for 16 frames
 			Player.MovementLock = 16;
-			Player.Facing		= image_xscale;	
-			Player.Xsp			= image_xscale * LaunchForce;
-			Player.Inertia		= Player.Xsp;
+			
+			// Launch player
+			Player.Xsp	   = image_xscale * LaunchForce;
+			Player.Facing  = image_xscale;	
+			Player.Inertia = Player.Xsp;
+			
+			// Force 'run' animation
+			Player.Animation = AnimRun;
+			
+			// Reset rolling
+			if Player.Rolling
+			{
+				// Adjust radiues
+				Player.PosY   -= Player.yRadiusDefault - Player.yRadius;
+				Player.yRadius = Player.yRadiusDefault;
+				Player.xRadius = Player.xRadiusDefault;
+				
+				// Clear flag
+				Player.Rolling = false;
+			}
 			
 			// Play sound
 			audio_sfx_play(sfxSpring, false);

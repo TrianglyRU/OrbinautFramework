@@ -83,9 +83,6 @@ function PlayerKnuxWallClimb()
 			// Leave climb state
 			ClimbState = false;
 			
-			// Restore normal gravity
-			Grv	= 0.21875;
-			
 			// Set 'drop' animation
 			Animation = AnimGlideDrop;
 				
@@ -98,9 +95,9 @@ function PlayerKnuxWallClimb()
 		else if DistanceAbove > 0
 		{
 			// Climb the edge
-			Ysp		   = 0;
 			ClimbState = 2;
-				
+			Ysp		   = 0;
+			
 			// Disable all collisions
 			AllowCollision = false;
 		}
@@ -116,9 +113,6 @@ function PlayerKnuxWallClimb()
 			Ysp	= -4;
 			Xsp	= -4 * Facing;
 			
-			// Restore normal gravity
-			Grv	= 0.21875;
-			
 			// Set 'roll' animation
 			Animation = AnimRoll;
 				
@@ -132,6 +126,9 @@ function PlayerKnuxWallClimb()
 	{
 		// Set 'climbering' animation
 		Animation = AnimClimbering;
+		
+		// Force reset vertical speed
+		Ysp = 0;
 			
 		// Start climbering timer
 		ClimbValue++;
@@ -164,7 +161,7 @@ function PlayerKnuxWallClimb()
 			AllowCollision = true;
 			Grounded	   = true;
 			
-			// Reset timer
+			// Reset value
 			ClimbValue = 0;
 			
 			// Final position update

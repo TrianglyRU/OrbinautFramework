@@ -19,7 +19,6 @@ function InputButtonsReset()
 		BPress		= false;
 		CPress		= false;
 		ABCPress	= false;
-		StartPress  = false;	
-		ResetInput	= false;
+		StartPress  = false;
 	}
 }

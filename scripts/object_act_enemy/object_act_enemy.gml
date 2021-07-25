@@ -12,9 +12,9 @@ function object_act_enemy(enemy_type)
 	}
 	
 	// Check if player can damage enemy
-	if Player.GlidingState == GlidingAir or Player.GlidingState == GlidingGround or Player.GlidingState == GlidingTurn
-	or Player.InvincibilityBonus		 or Player.SpindashRev >= 0				 or Player.Rolling
-	or Player.Jumping					 or Player.SuperState					 or Player.FlyingState == 1 and Player.Ysp < 0
+	if Player.GlideState == GlideActive or Player.Animation == AnimRoll			 
+	or Player.SuperState				or Player.SpindashRev >= 0
+	or Player.InvincibilityBonus        or Player.FlightState and Player.Ysp < 0
 	{		
 		// Make player bounce if they are airborne
 		if !Player.Grounded
@@ -78,7 +78,8 @@ function object_act_enemy(enemy_type)
 			// Knockback if grounded
 			if Player.Grounded
 			{
-				Player.Xsp = !Player.Xsp;
+				Player.Xsp = -Player.Xsp;
+				Player.Ysp = -Player.Ysp
 			}
 			
 			// Play sound

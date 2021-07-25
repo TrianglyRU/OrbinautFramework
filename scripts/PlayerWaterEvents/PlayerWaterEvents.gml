@@ -7,21 +7,16 @@ function PlayerWaterEvents()
 	}
 	
 	// Check for joining and exiting water
-	if !isUnderwater
+	if !IsUnderwater
 	{
 		// Check for falling into the water
 		if Stage.WaterEnabled
 		{
-			/*if Ysp == 0 and abs(Inertia) > 2.5 and floor(PosY + yRadius + 1) == Stage.WaterLevel
-			{
-				Grounded = true;
-				PosY     = Stage.WaterLevel - yRadius - 1;
-			}*/
 			if floor(PosY) > Stage.WaterLevel
 			{
 				Xsp			*= 0.5;
 				Ysp			*= 0.25;
-				isUnderwater = true;
+				IsUnderwater = true;
 			
 				// Player can spend underwater for 30 seconds
 				AirTimer = 1800;
@@ -75,13 +70,9 @@ function PlayerWaterEvents()
 				// Play drown sound
 				audio_sfx_play(sfxDrowning, false);
 			
-				if SuperState
-				{
-					SuperState = false;
-				}
-			
 				Screen.CameraEnabled = false;
 				Stage.TimeEnabled    = false;
+				SuperState			 = false;
 				AllowCollision		 = false;
 				Grounded			 = false;
 				OnObject			 = false;
@@ -130,7 +121,7 @@ function PlayerWaterEvents()
 				// Double (and limit) ysp
 				Ysp = max(Ysp * 2, -16);
 			}
-			isUnderwater = false;
+			IsUnderwater = false;
 			
 			// Reset air timer
 			AirTimer = 1800;

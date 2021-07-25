@@ -17,8 +17,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	
 	// Reset player flags
 	Player.MovementLock = false;
-	Player.Grounded	    = false;
-	Player.OnObject	    = false;
 	Player.Jumping		= false;
 	Player.FlightState	= false;
 	Player.GlideState	= false;
@@ -27,19 +25,22 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	Player.SpindashRev  = -1;
 	Player.DropdashRev  = -1;
 	
+	// Go airborne
+	Player.Grounded	= false;
+	Player.OnObject	= false;
+	
 	// Stop Tails sfx
 	audio_sfx_stop(sfxFlying);
 	audio_sfx_stop(sfxTired);
 	
+	// Set graivty
+	Player.Grv = 0.1875;
+	
 	// Check if player has no rings and barrier or should die instantly
-	if (!Player.Rings and !Player.BarrierType) or instant_kill
+	if !Player.Rings and !Player.BarrierType or instant_kill
 	{
-		// Remove barrier if we died by instantKill function
-		Player.BarrierType = false;
+		// Remove barrier
 		instance_destroy(Barrier);
-		
-		// Set 'death' animation
-		Player.Animation = AnimDeath;
 			
 		// Disable collisions and camera
 		Screen.CameraEnabled  = false;
@@ -47,19 +48,18 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		
 		// Ignore all input
 		Input.IgnoreInput = true;
-		Input.ResetInput  = true;
 		
 		// Draw player above everything
 		Player.DrawOrder = 0;
 			
 		// Perform movement
-		Player.Grv     = 0.1875;
 		Player.Inertia = 0;
 		Player.Xsp	   = 0;
 		Player.Ysp	   = -7;
 			
 		// Enter death state
-		Player.Death = true;
+		Player.Death     = true;
+		Player.Animation = AnimDeath;
 		
 		// Play hurt sound
 		if object_index == SpikesVertical or object_index == SpikesHorizontal
@@ -86,9 +86,9 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		if !Player.BarrierType
 		{
 			// Set default values we will use to spread rings
-			var Dir = -1
-			var Ang = 168.75
-			var Spd = 4
+			var Dir = -1;
+			var Ang = 168.75;
+			var Spd = 4;
 			
 			// Do for each ring (maximum of 32)
 			for (var i = 0; i < min(Player.Rings, 32); i++) 
@@ -152,9 +152,15 @@ function object_damage(flame_type, thunder_type, instant_kill)
 				audio_sfx_play(sfxHurt, false);
 			}
 		}
+		
+		// Reduce gravity if underwater by 0x20
+		if Player.IsUnderwater
+		{
+			Player.Grv -= 0.125;
+		}
 
 		// Perform movement
-		if Player.isUnderwater
+		if Player.IsUnderwater
 		{
 			Player.Xsp = floor(Player.PosX) > floor(x) ? 1 : -1;
 			Player.Ysp = -2;
@@ -164,9 +170,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 			Player.Xsp = floor(Player.PosX) > floor(x) ? 2 : -2;
 			Player.Ysp = -4;
 		}
-		
-		// Set gravity
-		Player.Grv = 0.1875;
 		
 		// Enter hurt state
 		Player.Hurt			= true;

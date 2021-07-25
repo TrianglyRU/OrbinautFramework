@@ -8,7 +8,7 @@ function ObjSpringDiagonalMain()
 	}
 	else
 	{
-		if object_player_touch(LaunchSide) and (floor(Player.PosX + 4 * image_xscale) - floor(x)) * image_xscale >= 0
+		if (floor(Player.PosX + 4 * image_xscale) - x) * image_xscale >= 0 and object_player_touch(LaunchSide)
 		{
 			// Reset flags
 			Player.Grounded      = false;
@@ -18,7 +18,6 @@ function ObjSpringDiagonalMain()
 			Player.GlidingState  = false;
 			Player.ClimbingState = false;
 			Player.DropdashRev   = -1;
-			Player.Inertia		 = 0;
 		
 			// Set 'spring up' or 'walk' animation
 			Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;
@@ -34,8 +33,12 @@ function ObjSpringDiagonalMain()
 			Player.xRadius = Player.xRadiusDefault;
 			Player.yRadius = Player.yRadiusDefault;
 
-			// Play sound
-			audio_sfx_play(sfxSpring, false);	
+			// Stop player sounds
+			audio_sfx_stop(sfxFlying);
+			audio_sfx_stop(sfxTired);
+			
+			// Play spring sound
+			audio_sfx_play(sfxSpring, false)	
 		
 			// Start animation
 			animation_set_frame(sprite_index, 2);

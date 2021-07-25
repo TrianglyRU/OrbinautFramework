@@ -188,9 +188,6 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							// Exit the further code
 							exit;
 						}
-							
-						// Reset gravity
-						Grv	= 0.21875;
 						
 						// Keep rolling if DOWN button is held
 						if Ysp > 0 and !Grounded
@@ -205,11 +202,10 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 								Rolling = false;
 							}
 						}
-		
+						
 						// Reset flags
 						Jumping			= false;
 						Pushing			= false;
-						Rolling			= false;
 						GlideState      = false;
 						GlideSlide      = false;
 						ClimbState		= false;
@@ -219,6 +215,9 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						// Become grounded
 						Grounded = true;
 						OnObject = objectID;
+						
+						// Reset gravity
+						Grv	= 0.21875;
 						
 						// Reset visual angle
 						VisualAngle = 360;

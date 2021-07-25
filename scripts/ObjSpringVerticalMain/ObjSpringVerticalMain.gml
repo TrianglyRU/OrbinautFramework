@@ -11,19 +11,23 @@ function ObjSpringVerticalMain()
 		// Is player touching launch side?
 		if object_player_touch(LaunchSide)
 		{
-			// Reset flags
-			Player.Grounded      = false;
-			Player.OnObject      = false;
-			Player.Jumping       = false;
-			Player.Rolling		 = false;
-			Player.FlyingState   = false;
-			Player.GlidingState  = false;
-			Player.ClimbingState = false;
-			Player.DropdashRev   = -1;
-			Player.Inertia		 = 0;
+			// Stop player's actions
+			Player.GlideState  = false;
+			Player.ClimbState  = false;
+			Player.FlightState = false;
+			Player.Jumping     = false;
+			Player.Rolling     = false;
+			Player.DropdashRev = -1;
+			
+			// Go airborne
+			Player.Grounded = false;
+			Player.OnObject = false;
 		
 			// Set 'spring up' or 'walk' animation
 			Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;
+			
+			// Reset visual angle
+			Player.VisualAngle = 360;
 
 			// Launch upwards or downwards
 			Player.Ysp = -LaunchForce * image_yscale;
@@ -32,7 +36,11 @@ function ObjSpringVerticalMain()
 			Player.xRadius = Player.xRadiusDefault;
 			Player.yRadius = Player.yRadiusDefault;
 		
-			// Play sound
+			// Stop player sounds
+			audio_sfx_stop(sfxFlying);
+			audio_sfx_stop(sfxTired);
+			
+			// Play spring sound
 			audio_sfx_play(sfxSpring, false);	
 		
 			// Start animation
