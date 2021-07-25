@@ -2,19 +2,19 @@
 // You can write your code in this editor
 	
 	// Check if we should run the code below
-	if !PlayerCheckProcess() exit;
+	if !PlayerProcess() exit;
 	
 	// Update invincibility and highspeed bonuses
-	PlayerPowerupHandle();
+	PlayerPowerup();
 	
 	// Handle superstate events
-	PlayerSuperStateHandle();
+	PlayerSuperFormsProcess();
 	
 	// Handle underwater events
-	PlayerWaterHandle();
+	PlayerWaterEvents();
 	
 	// Handle player physics values
-	PlayerPhysicsHandle();
+	PlayerSwapPhysics();
 	
 	// Record player position
-	PlayerRecordPosition();
+	PlayerPositionRecord();

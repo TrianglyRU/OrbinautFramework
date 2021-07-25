@@ -15,6 +15,9 @@ function PlayerSetup()
 	SpindashRev    = -1;
 	DropdashRev    = -1;
 	
+	// Set default gravity
+	Grv	= 0.21875;
+	
 	// Set collision radiuses
 	if CharacterID != CharTails
 	{

@@ -1,11 +1,11 @@
 function ObjBridgeStartup()
 {
-	// Initialize variables
-	RecoveryAngle    isReal;
-	NativeY		     isReal;
-	ActiveSegment    isReal;
-	ActiveDepression isReal;
-	LogDepression    isArr;
+	// Variables list
+	RecoveryAngle    = 0;
+	NativeY		     = 0;
+	ActiveSegment    = 0;
+	ActiveDepression = 0;
+	LogDepression    = [];
 	
 	/* Variable Definitions	
 	1. BridgeLength, default = 12

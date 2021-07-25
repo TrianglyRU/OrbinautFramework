@@ -5,41 +5,44 @@
 	PlayerDebugMode();
 	
 	// Check if we should run the code below
-	if !PlayerCheckProcess() exit;
+	if !PlayerProcess() exit;
 
 	// Airborne
 	if !Grounded
 	{
 		// Limit jump height
-		PlayerJumpResist();
+		PlayerJump();
 			
 		// Update player's speeds
-		PlayerMoveAirborne();
+		PlayerMovementAir();
 			
 		// Check for crossing stage boundaries
 		PlayerLevelBound();
 			
 		// Update player's position
-		PlayerSpeedToPos();
-						
-		// Check for dropdash as Sonic
-		PlayerCheckDropdash();
-			
-		// Check for flying as Tails
-		PlayerCheckFly();
-			
+		PlayerPosition();
+		
 		// Apply gravity and rotation
-		PlayerApplyGravity();
-
-		// Air collision
-		PlayerAirLevelCollision();
+		PlayerAirGravity();
+		
+		// Check for dropdash as Sonic
+		PlayerSonicDropdash();
+		
+		// Check for flying as Tails
+		PlayerTailsFlight();
+		
+		// Check for climbing walls as Knuckles
+		PlayerKnuxWallClimb();
 		
 		// Check for gliding as Knuckles
-		//PlayerCheckGlide();
-			
-		// Check for climbing walls as Knuckles
-		//PlayerCheckClimb();
-
+		PlayerKnuxGlideAir();
+		
+		// Check for sliding as Knuckles
+		PlayerKnuxGlideGround();
+		
+		// Air collision
+		PlayerAirLevelCollision();
+						
 		// Use barriers abilities
 		PlayerBarriersUsage();
 			
@@ -51,43 +54,43 @@
 	else if Grounded and !Rolling
 	{
 		// Perform crouch actions, such as Spindash
-		if PlayerCheckCrouch() exit;
+		if PlayerCrouch() exit;
 		
 		// Perform look up actions, such as Super Peel Out
-		if PlayerCheckLookup() exit;
+		if PlayerLookup() exit;
 		
 		// Perform jump
-		if PlayerCheckJump() exit;
+		if PlayerJumpStart() exit;
 
 		// Set slope gravity
 		PlayerSlopeResist();
 
 		// Update player's speeds
-		PlayerMove();
+		PlayerMovementGround();
 		
 		// Check balancing
-		PlayerCheckBalance();
+		PlayerBalance();
 		
 		// Check for skidding
-		PlayerCheckSkid();
+		PlayerSkid();
 		
 		// Collide with walls
 		PlayerGroundWallCollision();
 		
 		// Check push
-		PlayerCheckPush();
+		PlayerPush();
 		
 		// Perform roll
-		PlayerCheckRoll();
+		PlayerRollStart();
 			
 		// Check for crossing stage boundaries
 		PlayerLevelBound();
 			
 		// Update player's position
-		PlayerSpeedToPos();
+		PlayerPosition();
 					
 		// Collide with floor
-		PlayerAnglePos();
+		PlayerGroundFloorCollision();
 			
 		// Fall off the ceiling and walls
 		PlayerSlopeRepel();
@@ -97,13 +100,13 @@
 	else if Grounded and Rolling
 	{
 		// Perform jump
-		if PlayerCheckJump() exit;
+		if PlayerJumpStart() exit;
 			
 		// Set slope gravity
 		PlayerSlopeResistRoll();	
 			
 		// Update player's speeds
-		PlayerMoveRoll();
+		PlayerRoll();
 
 		// Collide with walls
 		PlayerGroundWallCollision();
@@ -112,10 +115,10 @@
 		PlayerLevelBound();
 			
 		// Update player's position
-		PlayerSpeedToPos();
+		PlayerPosition();
 			
 		// Collide with floor
-		PlayerAnglePos();
+		PlayerGroundFloorCollision();
 	
 		// Fall off the ceiling and walls
 		PlayerSlopeRepel();

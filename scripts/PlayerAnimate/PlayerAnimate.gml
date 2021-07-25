@@ -202,7 +202,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_spindash, 1, 1); 
 				break;
 				case AnimCrouch:
-					animation_play(spr_knuckles_crouch, 4, 2);
+					animation_play(spr_knuckles_crouch, 3, 3);
 				break;
 				case AnimLookup:
 					animation_play(spr_knuckles_lookup, 4, 2);
@@ -217,19 +217,19 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_death, 1, 1);
 				break;
 				case AnimGlide:
-					/* Handled by PlayerCheckGlide() */
+					animation_set_frame(spr_knuckles_glide, GlideFrame);
 				break;
 				case AnimGlideDrop:
 					animation_play(spr_knuckles_glidedrop, 6, 2);
 				break;
 				case AnimDropStand:
-					animation_play(spr_knuckles_dropstand, 20, 2);
+					animation_play(spr_knuckles_dropstand, 1, 1);
 				break;
 				case AnimGlideSlide:
 					animation_play(spr_knuckles_glideslide, 1, 1);
 				break;
 				case AnimGlideStand:
-					animation_play(spr_knuckles_glidestand, 15, 2);
+					animation_play(spr_knuckles_glidestand, 1, 1);
 				break;
 				case AnimClimb:
 					animation_play(spr_knuckles_climb, -sign(Ysp) * 4, 1);

@@ -39,6 +39,13 @@ function ScreenCameraHandleOffsets()
 	} 
 	else 
 	{
+		// Shift camera back if offset is active, but we're airborne and not rolling anymor
+		if !Player.Grounded and SpinOffset
+		{
+			RawY -= Player.yRadiusDefault - Player.yRadiusRoll;
+		}
+		
+		// Clear offset
 		SpinOffset = 0;
 	}
 	

@@ -16,16 +16,16 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	}
 	
 	// Reset player flags
-	Player.MovementLock  = false;
-	Player.Grounded	     = false;
-	Player.OnObject	     = false;
-	Player.Jumping		 = false;
-	Player.FlyingState	 = false;
-	Player.GlidingState  = false;
-	Player.ClimbingState = false;
-	Player.PeeloutRev	 = -1;
-	Player.SpindashRev   = -1;
-	Player.DropdashRev   = -1;
+	Player.MovementLock = false;
+	Player.Grounded	    = false;
+	Player.OnObject	    = false;
+	Player.Jumping		= false;
+	Player.FlightState	= false;
+	Player.GlideState	= false;
+	Player.ClimbState   = false;
+	Player.PeeloutRev	= -1;
+	Player.SpindashRev  = -1;
+	Player.DropdashRev  = -1;
 	
 	// Stop Tails sfx
 	audio_sfx_stop(sfxFlying);
@@ -167,12 +167,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		
 		// Set gravity
 		Player.Grv = 0.1875;
-		
-		// Set underwater gravity (subtract 0x20, which is 0.125)
-		if Player.isUnderwater
-		{
-			Player.Grv -= 0.125;
-		}
 		
 		// Enter hurt state
 		Player.Hurt			= true;

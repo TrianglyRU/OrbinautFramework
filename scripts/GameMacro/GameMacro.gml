@@ -69,15 +69,11 @@ function GameMacro()
 	#macro CharSonic		   0
 	#macro CharTails	       1
 	#macro CharKnuckles	       2
-	#macro GlidingAir		   1
-	#macro GlidingDrop	       2
-	#macro GlidingGround	   3
-	#macro GlidingStop		   4
-	#macro GlidingTurn		   5
-	#macro GlidingDropStand    6
-	#macro SuperStart		   1
-	#macro SuperActive		   2
-	#macro SuperEnd			   3
+	#macro FlightActive		   1
+	#macro FlightStop		   2
+	#macro GlideActive	       1
+	#macro GlideDrop           2
+	#macro GlideStop           3
 	#macro DirectionLeft	  -1
 	#macro DirectionRight	   1
 	#macro LayerA		       0
@@ -86,6 +82,7 @@ function GameMacro()
 	#macro BarrierThunder	   2
 	#macro BarrierWater        3
 	#macro BarrierFlame		   4
+	
 	#macro AnimIdle		       0
 	#macro AnimWalk		       1
 	#macro AnimRun		       2

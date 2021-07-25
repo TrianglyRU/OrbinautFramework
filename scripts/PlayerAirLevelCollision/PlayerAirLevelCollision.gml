@@ -1,23 +1,30 @@
 function PlayerAirLevelCollision()
 {
-	// Exit if died
-	if Player.Death or Player.Drown
+	// Exit if we've died
+	if Death or Drown
 	{
+		exit;
+	}
+	
+	// Exit if climbing or gliding
+	if ClimbState or GlideState
+	{
+		/* Knuckles gliding and climbing code do level collision on their own */
 		exit;
 	}
 	
 	// Get movement angle quadrant
 	if abs(Xsp) >= abs(Ysp)
 	{
-		var MoveDir = Xsp > 0 ? "MoveRight" : "MoveLeft";
+		var MoveDirection = Xsp > 0 ? "MoveRight" : "MoveLeft";
 	}
 	else
 	{
-		var MoveDir = Ysp > 0 ? "MoveDown" : "MoveUp";
+		var MoveDirection = Ysp > 0 ? "MoveDown" : "MoveUp";
 	}
 	
 	// Run the code based on quadrant
-	switch MoveDir
+	switch MoveDirection
 	{
 		case "MoveDown":
 		{

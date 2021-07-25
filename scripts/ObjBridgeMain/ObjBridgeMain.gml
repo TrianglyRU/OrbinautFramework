@@ -1,7 +1,7 @@
 function ObjBridgeMain()
 {
 	// Get player position within the bridge
-	var PlayerPosition = (floor(Player.PosX) - (x - BridgeLength / 2 * 16 - 16)) div 16;
+	var PlayerPos = (floor(Player.PosX) - (x - BridgeLength / 2 * 16 - 16)) div 16;
 
 	// Set a recovery angle by checking if player or AI is standing on any log of this bridge
     if object_player_stand(id)
@@ -17,7 +17,7 @@ function ObjBridgeMain()
     }
 
 	// Use segment player is standing on
-	ActiveSegment = clamp(PlayerPosition, 1, BridgeLength);
+	ActiveSegment = clamp(PlayerPos, 1, BridgeLength);
 
     // Get current maximun depression
 	ActiveDepression = LogDepression[ActiveSegment - 1];

@@ -6,7 +6,6 @@ function PlayerVariables()
 	Frc					 isVar;
 	RollFrc				 isVar;
 	AirAcc				 isVar;
-	GlidingAcc			 isVar;
 	RollDec				 isVar;
 	Jump				 isVar;
 	JumpMin				 isVar;
@@ -32,8 +31,6 @@ function PlayerVariables()
 	Inertia				 isVar;
 	SlopeGravity		 isVar;
 	Angle				 isVar;
-	AngleQuadFloor		 isVar;
-	AngleQuadWall		 isVar;
 	VisualAngle			 isVar;
 	PeeloutRev			 isVar;
 	SpindashRev		     isVar;
@@ -51,9 +48,9 @@ function PlayerVariables()
 	GlidingState		 isVar;
 	GlidingValue		 isVar;
 	GlidingDirection     isVar;
-	ClimbingState		 isVar;
-	ClimbingValue        isVar;
-	ClimbingSpeed		 isVar;
+	ClimbState		     isVar;
+	ClimbValue           isVar;
+	ClimbSpeed		 isVar;
 	Skidding			 isVar;
 	Balancing			 = 0;
 	HighSpeedBonus		 isVar;
@@ -78,6 +75,17 @@ function PlayerVariables()
 	DebugSpeed			 isVar;
 	ForcedRoll			 isVar;
 	ScoreCombo			 isVar;
+	
+	GlideAcc       = 0;
+	GlideSlide     = 0;
+	GlideState     = 0;
+	GlideValue	   = 0;
+	GlideSpeed     = 0;
+	GlideDirection = 0;
+	GlideFrame	   = 0;
+	
+	FlightState = 0;
+	FlightValue = 0;
 	
 	AirTimer			 isReal;
 	

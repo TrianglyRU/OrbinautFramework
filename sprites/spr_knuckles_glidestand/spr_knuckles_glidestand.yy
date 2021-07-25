@@ -9,7 +9,7 @@
   "swfPrecision": 2.525,
   "bbox_left": 12,
   "bbox_right": 51,
-  "bbox_top": 16,
+  "bbox_top": 27,
   "bbox_bottom": 55,
   "HTile": false,
   "VTile": false,
@@ -27,9 +27,6 @@
     {"compositeImage":{"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":{"name":"c664571a-1ed5-4d21-adee-1e5053eb7359","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_knuckles_glidestand","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"8b2bf944-2364-4eee-a59a-446e7da493d9","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8b2bf944-2364-4eee-a59a-446e7da493d9","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"LayerId":{"name":"c664571a-1ed5-4d21-adee-1e5053eb7359","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_knuckles_glidestand","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","name":"8b2bf944-2364-4eee-a59a-446e7da493d9","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_knuckles_glidestand","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},
@@ -39,13 +36,12 @@
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 2.0,
+    "length": 1.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"14aaecc7-b2ef-4481-8fab-f88fb0fa191f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3aa2f0bb-310e-4889-88f3-53b737c7499f","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"c6286121-7daf-4b39-be25-71fcd9b7b508","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8b2bf944-2364-4eee-a59a-446e7da493d9","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,

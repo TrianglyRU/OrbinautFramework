@@ -22,7 +22,7 @@ function tile_check_nearest(leftdata, rightdata, object_angle)
 		var Difference = abs(object_angle mod 180 - ResultAngle mod 180);
 		
 		// Is difference higher than or equal to 45 degrees, or angle equals to 360?
-		if Difference >= 45 and Difference <= 135 or ResultAngle == 360
+		if Difference > 45 and Difference < 135 or ResultAngle == 360
 		{
 			// Use cardinal angle
 			var ResultAngle = round(object_angle / 90) mod 4 * 90;

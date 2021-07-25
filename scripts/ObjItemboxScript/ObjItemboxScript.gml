@@ -6,7 +6,7 @@ function ObjItemBoxScript()
 		animation_play(spr_obj_itembox, 4, 1);
 		
 		// Can player destroy the itembox?
-		if (Player.Jumping or Player.Rolling or Player.GlidingState == 1) and Player.Ysp >= 0
+		if (Player.Jumping or Player.Rolling or Player.GlideState == GlideActive) and Player.Ysp >= 0
 		{
 			if object_player_overlap(CollisionHitbox)
 			{

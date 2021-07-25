@@ -67,75 +67,6 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 				objectTop = objectY - collisionMap[playerPosition];
 			}
 		}
-		
-		with Player
-		{
-			if GlidingState == GlidingGround
-			{
-				// We're not grounded yet
-				Grounded = false;
-							
-				// Set 'glide slide' animation
-				Animation = AnimGlideSlide;
-				
-				// Spawn dust puff every 4 frames
-				SkiddingTimer = SkiddingTimer mod 4
-				if !SkiddingTimer
-				{
-					instance_create(floor(PosX), floor(PosY + yRadius), DustPuff);
-				}
-				SkiddingTimer++;
-			
-				// Decelerate
-				if Xsp > 0
-				{
-					Xsp = max(0, Xsp - AirAcc);
-				}
-				else
-				{
-					Xsp = min(0, Xsp + AirAcc);
-				}
-				
-				// Slide until we stop or release jump button
-				if Xsp == 0 or !Input.ABC
-				{
-					GlidingState = GlidingStop;
-					GlidingValue = 20;
-				}
-				
-				// Reset ysp
-				Ysp = 0;
-			}
-			
-			if GlidingState == GlidingStop
-			{
-				// We're not grounded yet
-				Grounded = false;
-							
-				// Use 'glide stand' animation
-				Animation = AnimGlideStand;
-				
-				// Reset speed
-				Xsp     = 0;
-				Ysp     = 0;
-				Inertia = 0;
-				
-				// Use default radiuses
-				PosY   -= yRadiusDefault - yRadius;
-				xRadius = xRadiusDefault;
-				yRadius = yRadiusDefault;
-							
-				// Leave gliding state after 20 frames
-				GlidingValue--
-				if !GlidingValue
-				{
-					GlidingState = false;
-					Grounded     = true;
-				}
-			}
-			
-			/* Player will automatically join GlidingDrop state using the code in Player Object */
-		}
 
 		// Check if player is outside of this object collision diameter
 		if playerX + collideSides * 10 < objectLeft or playerX - collideSides * 10 > objectRight or !collideTop
@@ -248,7 +179,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						{
 							// Set flags and speed
 							BarrierIsActive = false;
-							Jumping			= false;
+							Jumping			= true;
 							Ysp				= -7.5;
 							
 							// Play sound
@@ -261,7 +192,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						// Reset gravity
 						Grv	= 0.21875;
 						
-						// Rolling
+						// Keep rolling if DOWN button is held
 						if Ysp > 0 and !Grounded
 						{
 							if Input.Down and !Input.Left and !Input.Right
@@ -276,37 +207,41 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						}
 		
 						// Reset flags
-						BarrierIsActive = false;
 						Jumping			= false;
 						Pushing			= false;
+						Rolling			= false;
+						GlideState      = false;
+						GlideSlide      = false;
+						ClimbState		= false;
 						ScoreCombo		= false;
+						BarrierIsActive = false;
 						
-						// Land
-						Grounded		= true;
-						OnObject		= objectID;
+						// Become grounded
+						Grounded = true;
+						OnObject = objectID;
 						
-						// Set visual angle
+						// Reset visual angle
 						VisualAngle = 360;
 		
 						// Reset hurt state
 						if Hurt
 						{
-							IsInvincible = 121;
+							Hurt		 = false;
+							IsInvincible = 121;	
 							Xsp			 = 0;
-							Hurt		 = false;			
 						}
 							
-						// Set speed and angle
-						Inertia  = Xsp;
-						Angle    = 0;		
-						Ysp      = 0;
+						// Set speeds and angle
+						Inertia = Xsp;		
+						Ysp     = 0;
+						Angle   = 360;
 		
-						// Sonic's dropdash
+						// Perform Dropdash (if charged), else reset
 						if DropdashRev == 20
 						{	
 							// Go to rolling state
 							Rolling = true;
-								
+		
 							// Set dropspeed
 							if DropdashDirection == DirectionRight
 							{
@@ -323,12 +258,11 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 									var Dropspeed = Inertia / 2 + 8 * Facing;
 								}
 							}
-							if (Dropspeed >  12) Dropspeed =  12;
-							if (Dropspeed < -12) Dropspeed = -12;
-		
+							Dropspeed = clamp(Dropspeed, -12, 12);
+			
 							// Apply dropspeed to inertia and set camera lag
 							Inertia			   = Dropspeed;
-							DropdashRev		   = -2;
+							DropdashRev		   = -1;
 							Screen.ScrollDelay = 16;
 			
 							// Set 'roll' animation
@@ -338,26 +272,9 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						{
 							DropdashRev = -1;
 						}
-		
-						// Tails' flying
-						FlyingState	= false;
-						FlyingTimer = 0;
-						
-						audio_sfx_stop(sfxFlying);
-						audio_sfx_stop(sfxTired);
-							
-						// Knuckles gliding
-						if GlidingState != GlidingAir and GlidingState != GlidingTurn and GlidingState != GlidingGround
-						{
-							GlidingState = false;
-						}
-						else
-						{
-							GlidingState = GlidingGround;
-						}
 						
 						// Reset radiuses to default values
-						if !Rolling and !GlidingState
+						if !Rolling
 						{
 							PosY   -= yRadiusDefault - yRadius;
 							yRadius = yRadiusDefault; 
@@ -386,7 +303,6 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							if Grounded
 							{
 								Inertia = 0;
-								if (!Rolling) Pushing = DirectionLeft;
 							}
 							Xsp = 0;
 						}
@@ -400,8 +316,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						{
 							if Grounded
 							{
-								Inertia = 0;	
-								if (!Rolling) Pushing = DirectionRight;
+								Inertia = 0;
 							}
 							Xsp = 0;
 						}
