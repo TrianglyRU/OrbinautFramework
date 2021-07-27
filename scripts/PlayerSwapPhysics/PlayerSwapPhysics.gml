@@ -119,27 +119,17 @@ function PlayerSwapPhysics()
 	}
 	
 	// Overwrite RollDec for Tails
-	if !Game.ConstantRollPhysics and CharacterID == CharTails
+	if !Game.ConstantRollPhysics
 	{
-		RollDec = Dec / 4;
+		if CharacterID == CharTails
+		{
+			RollDec = Dec / 4;
+		}
 	}
 	
 	// Overwrite rolling friction constant when super
-	if Game.ConstantRollPhysics and SuperState
+	else if SuperState
 	{
 		RollFrc = 0.0234375;
-	}
-	
-	// Handle basic gravity (not hurt, dead, flying or gliding)s
-	if !Hurt and !Death and !Drown and !FlightState and !GlideState
-	{
-		// Regular gravity
-		Grv	= 0.21875;
-
-		// If underwater, subtract 0x28
-		if IsUnderwater
-		{
-			Grv -= 0.15625;
-		}
 	}
 }

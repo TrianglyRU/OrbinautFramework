@@ -55,9 +55,9 @@ function PlayerCrouch()
 			SpindashRev = -1;
 
 			// Update collision radiuses
-			yRadius = yRadiusRoll;
-			xRadius	= xRadiusRoll;
-			PosY   += yRadiusDefault - yRadiusRoll;
+			RadiusY = SmallRadiusY;
+			RadiusX	= SmallRadiusX;
+			PosY   += DefaultRadiusY - SmallRadiusY;
 			
 			// Set 'roll' animation
 			Animation = AnimRoll;
@@ -78,7 +78,7 @@ function PlayerCrouch()
 		if Game.SpindashEnabled and Input.ABCPress
 		{
 			// Create dust effect
-			instance_create(floor(PosX), floor(PosY + yRadius), SpindashDust);
+			instance_create(floor(PosX), floor(PosY + RadiusY), SpindashDust);
 			
 			// Set 'spindash' animation
 			Animation = AnimSpindash;

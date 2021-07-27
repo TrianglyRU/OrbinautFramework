@@ -26,9 +26,9 @@ function ObjSpringHorizontalMain()
 			if Player.Rolling
 			{
 				// Adjust radiues
-				Player.PosY   -= Player.yRadiusDefault - Player.yRadius;
-				Player.yRadius = Player.yRadiusDefault;
-				Player.xRadius = Player.xRadiusDefault;
+				Player.PosY   -= Player.DefaultRadiusY - Player.RadiusY;
+				Player.RadiusY = Player.DefaultRadiusY;
+				Player.RadiusX = Player.DefaultRadiusX;
 				
 				// Clear flag
 				Player.Rolling = false;

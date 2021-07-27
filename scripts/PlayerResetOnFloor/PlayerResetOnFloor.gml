@@ -6,25 +6,36 @@ function PlayerResetOnFloor()
 		exit;
 	}
 	
-	// Set 'walk' animation if not in glide or climb state
-	if GlideState != GlideStop and !ClimbState
+	// Set 'walk' or 'run' animation if landing in a roll state
+	if Animation == AnimRoll
 	{
-		Animation = AnimWalk;
+		Animation = Inertia >= TopAcc ? AnimRun : AnimWalk;
 	}
 		
 	// Reset gravity
-	Grv	= 0.21875;
+	if !IsUnderwater
+	{
+		Grv	= 0.21875;
+	}
+	else
+	{
+		// Lower by 0x28 (0.15625) if underwater
+		Grv = 0.0625
+	}
 		
 	// Reset flags
 	Jumping			= false;
 	Pushing			= false;
 	Rolling			= false;
-	GlideState      = false;
-	GlideSlide      = false;
-	ClimbState		= false;
+	FlightState     = false;
+	FlightValue	    = false;
 	ScoreCombo		= false;
 	BarrierIsActive = false;
-		
+	
+	// Stop special player sfx
+	audio_sfx_stop(sfxFlying);
+	audio_sfx_stop(sfxTired);
+	
 	// Set visual angle
 	if Angle >= 23.91 and Angle <= 337.5
 	{
@@ -76,11 +87,11 @@ function PlayerResetOnFloor()
 		DropdashRev = -1;
 	}
 		
-	// Reset radiuses to default values
+	// Reset radiuses to default if not rolling
 	if !Rolling
 	{
-		PosY   -= yRadiusDefault - yRadius;
-		yRadius = yRadiusDefault; 
-		xRadius	= xRadiusDefault;
+		PosY   -= DefaultRadiusY - RadiusY;
+		RadiusY = DefaultRadiusY; 
+		RadiusX	= DefaultRadiusX;
 	}
 }

@@ -7,7 +7,7 @@ function PlayerKnuxGlideAir()
 	}
 	
 	// Exit the code if we're not in glide state or we're sliding on the ground
-	if !GlideState or GlideSlide
+	if !GlideState or GlideGrounded
 	{
 		exit;
 	}
@@ -23,8 +23,7 @@ function PlayerKnuxGlideAir()
 		// Are we in active glide state?
 		if GlideState == GlideActive
 		{					
-			// Reset gravity and vertical speed
-			Grv = 0;
+			// Reset vertical speed
 			Ysp = 0;
 						
 			// Enter climbing state
@@ -37,8 +36,8 @@ function PlayerKnuxGlideAir()
 	else if !(abs(Xsp) < abs(Ysp) and Ysp > 0)
 	{
 		// Check for ceiling
-		var RoofLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
-		var RoofRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
+		var RoofLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
+		var RoofRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
 				
 		// Get nearest tile
 		var NearestRoof = tile_check_nearest(RoofLeft, RoofRight, noone);
@@ -169,13 +168,23 @@ function PlayerKnuxGlideAir()
 	// If action button is not held
 	else
 	{
-		// Set speeds
+		// Lower horizontal speed
 		Xsp *= 0.25;
-		Grv  = 0.21875;
+		
+		// Reset gravity
+		if !IsUnderwater
+		{
+			Grv	= 0.21875;
+		}
+		else
+		{
+			// Lower by 0x28 (0.15625) if underwater
+			Grv = 0.0625
+		}
 			
 		// Restore default radiuses
-		xRadius	= xRadiusDefault;
-		yRadius	= yRadiusDefault;
+		RadiusX	= DefaultRadiusX;
+		RadiusY	= DefaultRadiusY;
 			
 		// Enter drop state
 		GlideState = GlideDrop;

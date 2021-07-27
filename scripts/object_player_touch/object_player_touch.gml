@@ -33,10 +33,10 @@ function object_player_touch(collisionSide)
 	// Get player properties
 	var playerX      = floor(Player.PosX);
 	var playerY      = floor(Player.PosY);
-	var playerTop    = floor(Player.PosY - Player.yRadius);
+	var playerTop    = floor(Player.PosY - Player.RadiusY);
 	var playerLeft   = floor(Player.PosX - 11);
 	var playerRight  = floor(Player.PosX + 11);
-	var playerBottom = floor(Player.PosY + Player.yRadius);
+	var playerBottom = floor(Player.PosY + Player.RadiusY);
 	
 	// Set flags
 	var objTouchedTop    = false;

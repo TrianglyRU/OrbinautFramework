@@ -5,7 +5,7 @@ function ObjStarPostMain()
 		if object_player_overlap(CollisionTriggerbox) 
 		{
 			Game.CheckpointID   = id;
-			Game.PlayerPosition = [x, y + sprite_get_height(sprite_index) / 2 - Player.yRadiusDefault];
+			Game.PlayerPosition = [x, y + sprite_get_height(sprite_index) / 2 - Player.DefaultRadiusY];
 			Game.Time		    = Stage.Time;
 			Game.StageBoundary  = Stage.BottomBoundary;
 			Game.Score          = Player.Score;

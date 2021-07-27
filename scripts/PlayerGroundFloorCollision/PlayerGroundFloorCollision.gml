@@ -31,8 +31,8 @@ function PlayerGroundFloorCollision()
 		case RangeFloor:
 		{		
 			// Get the tiles below us
-			var TileLeft   = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
-			var TileRight  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
+			var TileLeft   = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
+			var TileRight  = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
 			
 			// Get nearest tile
 			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
@@ -65,8 +65,8 @@ function PlayerGroundFloorCollision()
 		case RangeRWall:
 		{	
 			// Get the tiles to our right
-			var TileLeft  = tile_check_collision_h(floor(PosX + yRadius), floor(PosY + xRadius), true, false, Layer);
-			var TileRight = tile_check_collision_h(floor(PosX + yRadius), floor(PosY - xRadius), true, false, Layer);
+			var TileLeft  = tile_check_collision_h(floor(PosX + RadiusY), floor(PosY + RadiusX), true, false, Layer);
+			var TileRight = tile_check_collision_h(floor(PosX + RadiusY), floor(PosY - RadiusX), true, false, Layer);
 			
 			// Get nearest tile
 			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
@@ -99,8 +99,8 @@ function PlayerGroundFloorCollision()
 		case RangeRoof:	
 		{	
 			// Get the tiles above us
-			var TileLeft  = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, false, Layer);
-			var TileRight = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, false, Layer);
+			var TileLeft  = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, false, Layer);
+			var TileRight = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, false, Layer);
 			
 			// Get nearest tile
 			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
@@ -133,8 +133,8 @@ function PlayerGroundFloorCollision()
 		case RangeLWall:
 		{	
 			// Get the tiles to our left
-			var TileLeft  = tile_check_collision_h(floor(PosX - yRadius), floor(PosY - xRadius), false, false, Layer);
-			var TileRight = tile_check_collision_h(floor(PosX - yRadius), floor(PosY + xRadius), false, false, Layer);
+			var TileLeft  = tile_check_collision_h(floor(PosX - RadiusY), floor(PosY - RadiusX), false, false, Layer);
+			var TileRight = tile_check_collision_h(floor(PosX - RadiusY), floor(PosY + RadiusX), false, false, Layer);
 			
 			// Get nearest tile
 			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);

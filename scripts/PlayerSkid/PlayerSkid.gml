@@ -33,7 +33,7 @@ function PlayerSkid()
 		if SkiddingTimer mod 4 == 0
 		{
 			// Create dust effect
-			instance_create(floor(PosX), floor(PosY + yRadius), DustPuff);
+			instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
 			
 			// Reset timer
 			SkiddingTimer = 0;

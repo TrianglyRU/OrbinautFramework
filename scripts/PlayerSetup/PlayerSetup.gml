@@ -21,20 +21,20 @@ function PlayerSetup()
 	// Set collision radiuses
 	if CharacterID != CharTails
 	{
-		yRadiusDefault = 19;
-		xRadiusDefault = 9;
-		yRadiusRoll    = 14;
-		xRadiusRoll    = 7;
+		DefaultRadiusY = 19;
+		DefaultRadiusX = 9;
+		SmallRadiusY    = 14;
+		SmallRadiusX    = 7;
 	}
 	else
 	{
-		yRadiusDefault = 15;
-		xRadiusDefault = 9;
-		yRadiusRoll    = 14;
-		xRadiusRoll    = 7;
+		DefaultRadiusY = 15;
+		DefaultRadiusX = 9;
+		SmallRadiusY    = 14;
+		SmallRadiusX    = 7;
 	}
-	xRadius = xRadiusDefault;
-	yRadius = yRadiusDefault;
+	RadiusX = DefaultRadiusX;
+	RadiusY = DefaultRadiusY;
 	
 	// Load stats
 	Score    = Game.Score;

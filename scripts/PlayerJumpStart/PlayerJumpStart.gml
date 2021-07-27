@@ -1,13 +1,13 @@
 function PlayerJumpStart()
 {	
 	// Jump
-	if Input.ABCPress and !GlidingState
+	if Input.ABCPress
 	{	
 		// Do not jump if found the low ceiling
 		if Angle <= 45 or Angle >= 315
 		{
-			if tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer)[0] < 6
-			or tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer)[0] < 6
+			if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
+			or tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
 			{
 				exit;
 			}
@@ -36,9 +36,9 @@ function PlayerJumpStart()
 		// Update radiuses
 		if !Rolling
 		{
-			yRadius = yRadiusRoll;
-			xRadius	= xRadiusRoll;
-			PosY   += yRadiusDefault - yRadiusRoll;
+			RadiusY = SmallRadiusY;
+			RadiusX	= SmallRadiusX;
+			PosY   += DefaultRadiusY - SmallRadiusY;
 		}
 		
 		// Set animation

@@ -12,7 +12,7 @@ function StageWaterSurfaceDraw()
     {
         for (var i = -1; i < ceil(Screen.Width / 32) + 2; i++)
         {
-            draw_sprite(spr_water_surface, AnimationTime div 8 mod 3, i * 32 - Screen.CameraX mod 32, ScrnWater);
+            draw_sprite(spr_water_surface, AnimationTime div 8 mod 3, i * 32, WaterLevel);
         }
     }
 }

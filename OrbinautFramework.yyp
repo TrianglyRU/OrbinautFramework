@@ -419,7 +419,7 @@
     {"id":{"name":"spr_knuckles_dropstand","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},"order":4,},
     {"id":{"name":"spr_knuckles_glide","path":"sprites/spr_knuckles_glide/spr_knuckles_glide.yy",},"order":5,},
     {"id":{"name":"spr_knuckles_glidedrop","path":"sprites/spr_knuckles_glidedrop/spr_knuckles_glidedrop.yy",},"order":6,},
-    {"id":{"name":"spr_knuckles_glideslide","path":"sprites/spr_knuckles_glideslide/spr_knuckles_glideslide.yy",},"order":7,},
+    {"id":{"name":"spr_knuckles_glideground","path":"sprites/spr_knuckles_glideground/spr_knuckles_glideground.yy",},"order":7,},
     {"id":{"name":"spr_knuckles_glidestand","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},"order":8,},
     {"id":{"name":"spr_knuckles_hurt","path":"sprites/spr_knuckles_hurt/spr_knuckles_hurt.yy",},"order":9,},
     {"id":{"name":"spr_knuckles_idle","path":"sprites/spr_knuckles_idle/spr_knuckles_idle.yy",},"order":10,},

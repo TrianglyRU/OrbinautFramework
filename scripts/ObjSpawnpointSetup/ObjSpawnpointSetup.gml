@@ -16,7 +16,7 @@ function ObjSpawnpointSetup()
 		
 		// Set player position on spawnpoint
 		Player.PosX = x;
-		Player.PosY = y - Player.yRadius;
+		Player.PosY = y - Player.RadiusY;
 			
 		// Set camera
 		Screen.RawX    = floor(Player.PosX) - Screen.Width  / 2;

@@ -38,10 +38,10 @@ function object_player_overlap(collisionType)
 		}
 		else
 		{
-			var playerTop    = floor(Player.PosY - Player.yRadius + 3);
+			var playerTop    = floor(Player.PosY - Player.RadiusY + 3);
 			var playerLeft   = floor(Player.PosX - 8);
 			var playerRight  = floor(Player.PosX + 8);
-			var playerBottom = floor(Player.PosY + Player.yRadius - 3);	
+			var playerBottom = floor(Player.PosY + Player.RadiusY - 3);	
 		}
 		
 		// Check for overlap horizontally

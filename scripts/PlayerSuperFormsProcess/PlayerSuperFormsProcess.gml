@@ -18,8 +18,8 @@ function PlayerSuperFormsProcess()
 			// Reset invincibility
 			InvincibilityBonus = false;
 			
-			xRadius = xRadiusDefault;
-			yRadius = yRadiusDefault;
+			RadiusX = DefaultRadiusX;
+			RadiusY = DefaultRadiusY;
 			
 			audio_sfx_play(sfxTransform, false);
 			
@@ -80,7 +80,7 @@ function PlayerSuperFormsProcess()
 				}
 			}
 			
-			if abs(Inertia) < 10
+			if abs(Inertia) < TopAcc
 			{
 				SuperStateStar = 0;
 			}

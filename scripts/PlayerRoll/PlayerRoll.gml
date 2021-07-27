@@ -49,9 +49,9 @@ function PlayerRoll()
 		or  Game.LooseCrouch and abs(Inertia) < 0.5
 		{
 			// Reset radiuses
-			yRadius = yRadiusDefault;
-			xRadius = xRadiusDefault;
-			PosY   -= yRadiusDefault - yRadiusRoll;
+			RadiusY = DefaultRadiusY;
+			RadiusX = DefaultRadiusX;
+			PosY   -= DefaultRadiusY - SmallRadiusY;
 		
 			// Unroll
 			Rolling = false;

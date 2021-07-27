@@ -35,14 +35,14 @@ function ScreenCameraHandleOffsets()
 	// Set vertical spin offset
 	if Player.Rolling or (Player.Jumping and Player.Rolling)
 	{
-		SpinOffset = Player.yRadiusDefault - Player.yRadiusRoll;
+		SpinOffset = Player.DefaultRadiusY - Player.SmallRadiusY;
 	} 
 	else 
 	{
 		// Shift camera back if offset is active, but we're airborne and not rolling anymor
 		if !Player.Grounded and SpinOffset
 		{
-			RawY -= Player.yRadiusDefault - Player.yRadiusRoll;
+			RawY -= Player.DefaultRadiusY - Player.SmallRadiusY;
 		}
 		
 		// Clear offset

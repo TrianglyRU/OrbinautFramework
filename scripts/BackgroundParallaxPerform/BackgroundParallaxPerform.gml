@@ -1,12 +1,9 @@
 function BackgroundParallaxPerform()
 {	
-	// Draw gray background
 	draw_clear(c_gray);
 	
-	// Use shader
 	shader_set(ShaderParallax);
 	
-	// Draw actual background
 	var BackgroundParts = array_length(BackgroundSprites);
 	for (var i = 0; i < BackgroundParts; i++)
 	{
@@ -25,7 +22,6 @@ function BackgroundParallaxPerform()
 		var Width		  = BackgroundValues[i][11];
 		var Texel         = BackgroundValues[i][12];
 		
-		// Set variables
 		var DrawX = Screen.CameraX;
 		var DrawY = floor(Screen.CameraY * (1 - ScrollY)) + Top + PosY;
 
@@ -59,21 +55,18 @@ function BackgroundParallaxPerform()
 			Yscale = 1;
 		}
 
-		// Set shader uniforms
 		shader_set_uniform_f(Shader.Prlx_Ofst, DrawX * ScrollX - OffsetX);
 		shader_set_uniform_f(Shader.Prlx_Pos,  DrawX + PosX, DrawY - OffsetY);
 	
 		shader_set_uniform_f(Shader.Prlx_Scale, Width, Yscale);
 		shader_set_uniform_f(Shader.Prlx_Texel, Texel);
 	
-		// Skip incline parallax if incline height is 0
 		if InclineHeight != 0 
 		{
 		    shader_set_uniform_f(Shader.Prlx_Step, (InclineForce / 10) * InclineHeight);
 			shader_set_uniform_f(Shader.Prlx_Hght, InclineHeight);
 		}
 	
-		// Render sprite
 		if YScaleMode
 		{
 			draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY, 1, Yscale, c_white, 1);
@@ -83,7 +76,6 @@ function BackgroundParallaxPerform()
 			draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY);
 		}
 
-		// Reset incline height
 		if InclineHeight != 0 
 		{
 			shader_set_uniform_f(Shader.Prlx_Hght, 0); 
@@ -91,6 +83,5 @@ function BackgroundParallaxPerform()
 		
 	}
 	
-	// Reset shader
 	shader_reset();
 }

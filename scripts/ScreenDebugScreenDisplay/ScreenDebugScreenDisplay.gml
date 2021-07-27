@@ -43,8 +43,8 @@ function ScreenDebugScreenDisplay()
 				+ "\n"
 				+ "\n            * COLLISION *"
 				+ "\n"
-				+ "\n   PLAYER X RADIUS: " + string(Player.yRadius)
-				+ "\n   PLAYER Y RADIUS: " + string(Player.xRadius)
+				+ "\n   PLAYER X RADIUS: " + string(Player.RadiusY)
+				+ "\n   PLAYER Y RADIUS: " + string(Player.RadiusX)
 				+ "\n   WALL OFFSET: " + string((Player.Grounded and Player.Angle == 360) * 8)
 				+ "\n"
 				+ "\n          * PLAYER MOTION *"
@@ -73,7 +73,7 @@ function ScreenDebugScreenDisplay()
 				+ "\n   BALANCING: " + string(Player.Balancing)
 				+ "\n   GLIDE STATE: " + string(Player.GlideState)
 				+ "\n   GLIDE VALUE: " + string(Player.GlideValue)
-				+ "\n   GLIDE SLIDE: " + string(Player.GlideSlide)
+				+ "\n   GLIDE SLIDE: " + string(Player.GlideGrounded)
 				+ "\n   CLIMB STATE: " + string(Player.ClimbState)
 				+ "\n   CLIMB VALUE: " + string(Player.ClimbValue)
 				+ "\n   FLIGHT STATE: " + string(Player.FlightState)

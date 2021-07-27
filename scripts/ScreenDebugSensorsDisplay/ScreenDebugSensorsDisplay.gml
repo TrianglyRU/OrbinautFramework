@@ -34,31 +34,31 @@ function ScreenDebugSensorsDisplay()
 					{
 						case RangeFloor:
 						{
-							draw_point(floor(PosX - xRadius), floor(PosY + yRadius));							
-							draw_point(floor(PosX + xRadius), floor(PosY + yRadius));
+							draw_point(floor(PosX - RadiusX), floor(PosY + RadiusY));							
+							draw_point(floor(PosX + RadiusX), floor(PosY + RadiusY));
 						
 							if Inertia == 0
 							{
-								draw_point(floor(PosX), floor(PosY + yRadius));
+								draw_point(floor(PosX), floor(PosY + RadiusY));
 							}
 						}
 						break;
 						case RangeRWall:
 						{
-							draw_point(floor(PosX + yRadius), floor(PosY + xRadius));
-							draw_point(floor(PosX + yRadius), floor(PosY - xRadius));
+							draw_point(floor(PosX + RadiusY), floor(PosY + RadiusX));
+							draw_point(floor(PosX + RadiusY), floor(PosY - RadiusX));
 						}
 						break;
 						case RangeRoof:
 						{
-							draw_point(floor(PosX - xRadius), floor(PosY - yRadius));
-							draw_point(floor(PosX + xRadius), floor(PosY - yRadius));
+							draw_point(floor(PosX - RadiusX), floor(PosY - RadiusY));
+							draw_point(floor(PosX + RadiusX), floor(PosY - RadiusY));
 						}
 						break;
 						case RangeLWall:
 						{
-							draw_point(floor(PosX - yRadius), floor(PosY + xRadius));
-							draw_point(floor(PosX - yRadius), floor(PosY - xRadius));
+							draw_point(floor(PosX - RadiusY), floor(PosY + RadiusX));
+							draw_point(floor(PosX - RadiusY), floor(PosY - RadiusX));
 						}
 						break;
 					}
@@ -132,15 +132,15 @@ function ScreenDebugSensorsDisplay()
 				// Display floor sensors
 				if Ysp > 0 or abs(Xsp) > abs(Ysp)
 				{
-					draw_point(floor(PosX - xRadius), floor(PosY + yRadius));
-					draw_point(floor(PosX + xRadius), floor(PosY + yRadius));
+					draw_point(floor(PosX - RadiusX), floor(PosY + RadiusY));
+					draw_point(floor(PosX + RadiusX), floor(PosY + RadiusY));
 				}
 			
 				// Display roof sensors
 				if Ysp < 0 or abs(Xsp) > abs(Ysp)
 				{
-					draw_point(floor(PosX - xRadius), floor(PosY - yRadius));
-					draw_point(floor(PosX + xRadius), floor(PosY - yRadius));
+					draw_point(floor(PosX - RadiusX), floor(PosY - RadiusY));
+					draw_point(floor(PosX + RadiusX), floor(PosY - RadiusY));
 				}
 			
 				// Display wall sensors

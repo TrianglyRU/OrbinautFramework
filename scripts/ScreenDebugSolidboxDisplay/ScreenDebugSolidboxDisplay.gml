@@ -21,10 +21,10 @@ function ScreenDebugSolidboxDisplay()
 		{
 			if object_index == Player
 			{
-				var pTop    = floor(PosY - yRadius);
+				var pTop    = floor(PosY - RadiusY);
 				var pLeft   = floor(PosX - 10);
 				var pRight  = floor(PosX + 10);
-				var pBottom = floor(PosY + yRadius);
+				var pBottom = floor(PosY + RadiusY);
 				draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $00ffff, $00ffff, $00ffff, $00ffff, false);
 			}
 			else if variable_instance_exists(id, "objXRadiusSolid")

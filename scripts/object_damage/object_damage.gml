@@ -79,8 +79,8 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		Player.Animation = AnimHurt;
 		
 		// Reset radiuses
-		Player.xRadius = Player.xRadiusDefault;
-		Player.yRadius = Player.yRadiusDefault;
+		Player.RadiusX = Player.DefaultRadiusX;
+		Player.RadiusY = Player.DefaultRadiusY;
 						
 		// Lose rings if we do not have active barrier
 		if !Player.BarrierType

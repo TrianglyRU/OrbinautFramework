@@ -8,7 +8,7 @@ function ObjSpindashDustScript()
 	
 	// Follow player
 	x			 = floor(Player.PosX);
-	y			 = floor(Player.PosY + Player.yRadius);	
+	y			 = floor(Player.PosY + Player.RadiusY);	
 	image_xscale = Player.Facing;
 	
 	// Destroy if player is airborne

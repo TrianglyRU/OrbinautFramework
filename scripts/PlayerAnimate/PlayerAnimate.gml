@@ -225,8 +225,8 @@ function PlayerAnimate()
 				case AnimDropStand:
 					animation_play(spr_knuckles_dropstand, 1, 1);
 				break;
-				case AnimGlideSlide:
-					animation_play(spr_knuckles_glideslide, 1, 1);
+				case AnimGlideGrounded:
+					animation_play(spr_knuckles_glideground, 1, 1);
 				break;
 				case AnimGlideStand:
 					animation_play(spr_knuckles_glidestand, 1, 1);

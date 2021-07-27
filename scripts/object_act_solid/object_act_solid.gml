@@ -39,10 +39,10 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 	// Get player properties
 	var playerX      = floor(Player.PosX);
 	var playerY      = floor(Player.PosY);
-	var playerTop    = floor(Player.PosY - Player.yRadius);
+	var playerTop    = floor(Player.PosY - Player.RadiusY);
 	var playerLeft   = floor(Player.PosX - 11);
 	var playerRight  = floor(Player.PosX + 11);
-	var playerBottom = floor(Player.PosY + Player.yRadius);
+	var playerBottom = floor(Player.PosY + Player.RadiusY);
 	
 	// Check if player is standing on this object, collide only with its top side
 	if object_player_stand(objectID)
@@ -140,7 +140,7 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 					// Else push player out from this object
 					else if Player.Ysp < 0
 					{
-						if Player.FlyingState
+						if Player.FlightState
 						{
 							Player.Grv = 0.03125;
 						}			
@@ -189,8 +189,8 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 							exit;
 						}
 						
-						// Keep rolling if DOWN button is held
-						if Ysp > 0 and !Grounded
+						// Keep rolling if DOWN button is held (and we're not in climb state)
+						if Ysp > 0 and !Grounded and !ClimbState
 						{
 							if Input.Down and !Input.Left and !Input.Right
 							{
@@ -207,17 +207,31 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						Jumping			= false;
 						Pushing			= false;
 						GlideState      = false;
-						GlideSlide      = false;
-						ClimbState		= false;
+						GlideGrounded   = false;
+						GlideValue      = false;
+						ClimbState	    = false;
+						FlightState     = false;
+						FlightValue		= false;
 						ScoreCombo		= false;
 						BarrierIsActive = false;
+						
+						audio_sfx_stop(sfxFlying);
+						audio_sfx_stop(sfxTired);
 						
 						// Become grounded
 						Grounded = true;
 						OnObject = objectID;
 						
 						// Reset gravity
-						Grv	= 0.21875;
+						if !IsUnderwater
+						{
+							Grv	= 0.21875;
+						}
+						else
+						{
+							// Lower by 0x28 (0.15625) if underwater
+							Grv = 0.0625
+						}
 						
 						// Reset visual angle
 						VisualAngle = 360;
@@ -275,9 +289,9 @@ function object_act_solid(collideSides, collideTop, collideBottom, collisionMap)
 						// Reset radiuses to default values
 						if !Rolling
 						{
-							PosY   -= yRadiusDefault - yRadius;
-							yRadius = yRadiusDefault; 
-							xRadius	= xRadiusDefault;
+							PosY   -= DefaultRadiusY - RadiusY;
+							RadiusY = DefaultRadiusY; 
+							RadiusX	= DefaultRadiusX;
 						}
 								
 						// Attach player to the object's top boundary

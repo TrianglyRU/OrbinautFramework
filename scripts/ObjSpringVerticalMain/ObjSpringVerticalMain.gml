@@ -33,8 +33,8 @@ function ObjSpringVerticalMain()
 			Player.Ysp = -LaunchForce * image_yscale;
 		
 			// Use normal collision radiuses
-			Player.xRadius = Player.xRadiusDefault;
-			Player.yRadius = Player.yRadiusDefault;
+			Player.RadiusX = Player.DefaultRadiusX;
+			Player.RadiusY = Player.DefaultRadiusY;
 		
 			// Stop player sounds
 			audio_sfx_stop(sfxFlying);

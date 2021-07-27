@@ -9,7 +9,6 @@ function PlayerAirLevelCollision()
 	// Exit if climbing or gliding
 	if ClimbState or GlideState
 	{
-		/* Knuckles gliding and climbing code do level collision on their own */
 		exit;
 	}
 	
@@ -47,8 +46,8 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Check for floor
-			var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
-			var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
+			var TileLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
+			var TileRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
 			
 			// Get nearest tile
 			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -111,8 +110,8 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Check for ceiling
-			var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
-			var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
+			var TileLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
+			var TileRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
 				
 			// Get nearest tile
 			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -128,7 +127,7 @@ function PlayerAirLevelCollision()
 				PosY -= RoofDistance;
 			
 				// Land on ceiling
-				if (RoofAngle >= 91.41 and RoofAngle <= 136.41 or RoofAngle <= 226.41) and !FlyingState
+				if (RoofAngle >= 91.41 and RoofAngle <= 136.41 or RoofAngle <= 226.41) and !FlightState
 				{
 					// Set inertia and inherit ceiling angle
 					Angle    = RoofAngle;
@@ -145,7 +144,7 @@ function PlayerAirLevelCollision()
 					Ysp = 0;
 					
 					// Reset gravity if flying
-					if FlyingState
+					if FlightState
 					{
 						Grv	= 0.03125;
 					}				
@@ -171,8 +170,8 @@ function PlayerAirLevelCollision()
 			else
 			{
 				// Check for ceiling
-				var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
-				var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
+				var TileLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
+				var TileRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
 				
 				// Get nearest tile
 				var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -194,7 +193,7 @@ function PlayerAirLevelCollision()
 					}
 					
 					// Reset gravity if flying
-					if FlyingState
+					if FlightState
 					{
 						Grv	= 0.03125;
 					}
@@ -204,8 +203,8 @@ function PlayerAirLevelCollision()
 				else if Ysp > 0
 				{
 					// Check for floor
-					var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
-					var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
+					var TileLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
+					var TileRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
 				
 					// Get nearest tile
 					var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -250,8 +249,8 @@ function PlayerAirLevelCollision()
 			else
 			{
 				// Check for ceiling
-				var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY - yRadius), false, true, Layer);
-				var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY - yRadius), false, true, Layer);
+				var TileLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
+				var TileRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
 				
 				// Get nearest tile
 				var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -273,7 +272,7 @@ function PlayerAirLevelCollision()
 					}
 					
 					// Reset gravity if flying
-					if FlyingState
+					if FlightState
 					{
 						Grv	= 0.03125;
 					}
@@ -283,8 +282,8 @@ function PlayerAirLevelCollision()
 				else if Ysp > 0
 				{
 					// Check for floor
-					var TileLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
-					var TileRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
+					var TileLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
+					var TileRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
 				
 					// Get nearest tile
 					var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);

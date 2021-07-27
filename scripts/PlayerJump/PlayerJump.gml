@@ -35,14 +35,22 @@ function PlayerJump()
 			// Start flight
 			case CharTails:
 			{
+				// Use normal collision radiuses
+				RadiusX = DefaultRadiusX;
+				RadiusY = DefaultRadiusY;
+				
 				// Set gravity
 				Grv = 0.03125;
 				
 				// Set timer
-				FlightTimer = 480;
+				FlightValue = 480;
 				
 				// Enter flight state
 				FlightState = FlightActive;
+				
+				// Clear action inputs
+				Input.ABC	   = false;
+				Input.ABCPress = false;
 			}
 			break;
 			
@@ -50,8 +58,8 @@ function PlayerJump()
 			case CharKnuckles:
 			{
 				// Set unique glide radiuses
-				xRadius = 10;
-				yRadius = 10;
+				RadiusX = 10;
+				RadiusY = 10;
 				
 				// Reset vertical speed and inertia		
 				Ysp     = max(Ysp, 0);
@@ -76,8 +84,8 @@ function PlayerJump()
 				}
 				
 				// Enter glide state
-				GlideState = GlideActive;
-				GlideSlide = false;
+				GlideState    = GlideActive;
+				GlideGrounded = false;
 			}
 			break;
 		}

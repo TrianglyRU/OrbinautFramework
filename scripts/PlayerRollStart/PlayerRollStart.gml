@@ -13,9 +13,9 @@ function PlayerRollStart()
 		or  Game.LooseCrouch and abs(Inertia) >= 1
 		{
 			// Update radiuses
-			yRadius = yRadiusRoll;
-			xRadius	= xRadiusRoll;
-			PosY   += yRadiusDefault - yRadiusRoll;
+			RadiusY = SmallRadiusY;
+			RadiusX	= SmallRadiusX;
+			PosY   += DefaultRadiusY - SmallRadiusY;
 			
 			// Set rolling flag
 			Rolling = true;
@@ -31,9 +31,9 @@ function PlayerRollStart()
 	if ForcedRoll and !Rolling
 	{
 		// Update radiuses
-		yRadius = yRadiusRoll;
-		xRadius	= xRadiusRoll;
-		PosY   += yRadiusDefault - yRadiusRoll;
+		RadiusY = SmallRadiusY;
+		RadiusX	= SmallRadiusX;
+		PosY   += DefaultRadiusY - SmallRadiusY;
 			
 		// Set rolling flag
 		Rolling = true;

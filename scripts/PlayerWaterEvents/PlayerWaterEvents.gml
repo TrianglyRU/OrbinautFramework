@@ -17,6 +17,12 @@ function PlayerWaterEvents()
 				Xsp			*= 0.5;
 				Ysp			*= 0.25;
 				IsUnderwater = true;
+				
+				// Lower default gravity value by 0x28 (0.15625)
+				if !Hurt and !FlightState and GlideState != GlideActive
+				{
+					Grv = 0.0625;
+				}
 			
 				// Player can spend underwater for 30 seconds
 				AirTimer = 1800;
@@ -116,10 +122,11 @@ function PlayerWaterEvents()
 				}
 			}
 			
-			if !Hurt
+			// Increase default gravity value by 0x28 (0.15625), and double ysp
+			if !Hurt and !FlightState and GlideState != GlideActive
 			{
-				// Double (and limit) ysp
-				Ysp = max(Ysp * 2, -16);
+				Grv	 = 0.21875;
+				Ysp *= 2;
 			}
 			IsUnderwater = false;
 			

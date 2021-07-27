@@ -31,10 +31,10 @@ function PlayerKnuxGlideGround()
 	}
 	
 	// Check for floor
-	var FloorLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer);
-	var FloorRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer);
+	var FloorLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
+	var FloorRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
 				
-	// Get nearest tile
+	// Get nearest floor
 	var NearestFloor = tile_check_nearest(FloorLeft, FloorRight, noone);
 					
 	// Get data
@@ -42,7 +42,7 @@ function PlayerKnuxGlideGround()
 	var FloorAngle    = NearestFloor[1];
 	
 	// Are we not sliding yet?
-	if !GlideSlide
+	if !GlideGrounded
 	{	
 		// Are we not in stop state?
 		if GlideState != GlideStop
@@ -52,20 +52,20 @@ function PlayerKnuxGlideGround()
 			{
 				// Adhere to the surface
 				PosY += FloorDistance;
+				Ysp   = 0;
 				
-				// Reset gravity and vertical speed
+				// Disable gravity
 				Grv = 0;
-				Ysp = 0;
-			
+				
 				// Set slide flag if we're gliding
 				if GlideState == GlideActive
 				{
 					GlideValue = 0;
-					GlideSlide = true;
+					GlideGrounded = true;
 				}
 				
 				// Set stop flag if we're dropping
-				else
+				else if GlideState == GlideDrop
 				{
 					GlideState = GlideStop;
 					GlideValue = 16;
@@ -82,6 +82,11 @@ function PlayerKnuxGlideGround()
 			{
 				Angle    = FloorAngle;
 				Grounded = true;
+				
+				// Reset flags
+				GlideState    = false;
+				GlideGrounded = false;
+				GlideValue    = false;
 			}
 			
 			// Decrease timer
@@ -99,7 +104,7 @@ function PlayerKnuxGlideGround()
 	else
 	{
 		// Set animation
-		Animation = AnimGlideSlide;
+		Animation = AnimGlideGrounded;
 		
 		// Decelerate
 		if Xsp > 0
@@ -114,19 +119,27 @@ function PlayerKnuxGlideGround()
 		// Check if ground is far too away below us
 		if FloorDistance > 14
 		{
-			// Set default gravity
-			Grv = 0.21875;
+			// Reset gravity
+			if !IsUnderwater
+			{
+				Grv	= 0.21875;
+			}
+			else
+			{
+				// Lower by 0x28 (0.15625) if underwater
+				Grv = 0.0625
+			}
 			
 			// Set animation
 			Animation = AnimGlideDrop;
 			
 			// Enter drop state
-			GlideSlide = false;
+			GlideGrounded = false;
 			GlideState = GlideDrop;
 			
 			// Restore default radiuses
-			xRadius	= xRadiusDefault;
-			yRadius	= yRadiusDefault;	
+			RadiusX	= DefaultRadiusX;
+			RadiusY	= DefaultRadiusY;	
 		}
 		
 		// Adhere to the surface
@@ -150,6 +163,11 @@ function PlayerKnuxGlideGround()
 			{
 				Angle    = FloorAngle;
 				Grounded = true;
+				
+				// Reset flags
+				GlideState    = false;
+				GlideGrounded = false;
+				GlideValue    = false;
 			}
 			
 			// Decrease timer
@@ -162,9 +180,9 @@ function PlayerKnuxGlideGround()
 			Animation = AnimGlideStand;
 			
 			// Correct our position and restore default radiuses
-			PosY   -= yRadiusDefault - yRadius;
-			xRadius = xRadiusDefault;
-			yRadius = yRadiusDefault;
+			PosY   -= DefaultRadiusY - RadiusY;
+			RadiusX = DefaultRadiusX;
+			RadiusY = DefaultRadiusY;
 			
 			// Reset speed
 			Xsp	= 0;	
@@ -175,7 +193,7 @@ function PlayerKnuxGlideGround()
 			if GlideValue mod 4 == 0
 			{	
 				// Create dust effect
-				instance_create(floor(PosX), floor(PosY + yRadius), DustPuff);
+				instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
 			
 				// Reset value
 				GlideValue = 0;

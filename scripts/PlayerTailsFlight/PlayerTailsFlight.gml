@@ -1,14 +1,15 @@
 function PlayerTailsFlight()
 {
+	// Exit if we're not flying
 	if !FlightState
 	{
 		exit;
 	}
 	
-	// Check if we're able to fly
-	if FlightTimer
+	// Check if we're still able to fly
+	if FlightValue
 	{
-		// Affect gravity
+		// Affect vertical speed
 		if Ysp < -1
 		{
 			Grv = 0.03125;
@@ -17,135 +18,62 @@ function PlayerTailsFlight()
 		{
 			Grv = -0.125;
 		}
+		Ysp = max(Ysp, -4);
 		
 		// Decrease timer
-		FlightTimer--;
+		FlightValue--;
 		
-		// Set 'fly' or 'swim' animation
-		Animation = IsUnderwater ? AnimSwim : AnimFly;
-	}
-	else
-	{
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// Check if we're not flying yet
-	if !FlyingState
-	{	
-		// Check if we're jumping and A, B or C button has been pressed
-		if Jumping and (Input.APress or Input.BPress)
-		{
-			// Start flying
-			Grv			= 0.03125;
-			FlyingState = 1;
-			FlyingTimer = 480;
-			Jumping		= false;
-			
-			// Limit ysp
-			if Ysp < -4
-			{
-				Ysp = -4;
-			}
-			
-			// Use normal collision radiuses
-			xRadius = xRadiusDefault;
-			yRadius = yRadiusDefault;
-		}
-	}
-	
-	// Check if we're flying already
-	else
-	{	
-		// Check if timer is higher than zero
-		if FlyingTimer > 0
-		{
-			// Play sound
-			if !IsUnderwater
-			{
-				audio_sfx_play(sfxFlying, true);
-			}
-			else
-			{
-				audio_sfx_stop(sfxFlying);
-			}
-			
-			// Decrease timer
-			FlyingTimer--;
-				
-			// Temporary decrease gravity if A, B or C button has been pressed
-			if (Input.ABCPress) Grv = -0.125;
-		
-			// Increase gravity when moving upwards fast enough
-			if (Ysp < -1) Grv = 0.03125;
-			
-			// Set 'fly' or 'swim' animation
-			Animation = IsUnderwater ? AnimSwim : AnimFly;
-			
-			// Check fly cancel is enabled, and we pressed A, B or C while holding DOWN
-			if Game.FlyingCancel and Input.Down and Input.ABCPress
-			{
-				// Stop sound
-				audio_sfx_stop(sfxFlying);	
-				
-				// Use small collision radiuses
-				xRadius = xRadiusRoll;
-				yRadius = yRadiusRoll;
-			
-				// Leave flying state
-				FlyingState	= false;
-				FlyingTimer = 0;
-				Grv		    = 0.21875;
-				Rolling		= true;
-				
-				// Set 'roll' animation
-				Animation   = AnimRoll;
-				
-				// Since we're going the into rolling state, rolling offset will be applied to the camera.
-				// So let's correct its position
-				Screen.RawY += xRadiusDefault - xRadiusRoll;
-			}		
-		}
-		
-		// Check if timer ran out
-		else
-		{					
-			// Stop sound
-			audio_sfx_stop(sfxFlying);	
-			
-			// Set 'tired' animation
-			Animation = IsUnderwater ? AnimSwimTired : AnimFlyTired;
-			
-			// Enter tired state
-			FlyingState = 2;
-			Grv		    = 0.03125;
-		}
-		
-		// Play tired sound
+		// Play animation and sound
 		if !IsUnderwater
 		{
-			if FlyingState == 2
-			{
-				audio_sfx_play(sfxTired, true);
-			}
+			Animation = AnimFly;
+			audio_sfx_play(sfxFlying, true);
 		}
 		else
 		{
-			audio_sfx_stop(sfxTired);
+			Animation = AnimSwim;
+			audio_sfx_stop(sfxFlying);
 		}
 	}
+	
+	// Check if Tails has tired
+	else
+	{
+		// Update gravity
+		Grv = 0.03125;
+		
+		// Play animation and sound
+		if !IsUnderwater
+		{
+			Animation = AnimFlyTired;	
+			audio_sfx_play(sfxTired, true);
+		}
+		else
+		{
+			Animation = AnimSwimTired;
+			audio_sfx_stop(sfxTired);
+		}
+		audio_sfx_stop(sfxFlying);
+	}
+	
+	// Check fly cancel is enabled, and we pressed A, B or C while holding DOWN
+	if Game.FlyingCancel and Input.Down and Input.ABCPress
+	{
+		// Stop sounds
+		audio_sfx_stop(sfxFlying);	
+		audio_sfx_stop(sfxTired);	
+		
+		// Use smaller collision size
+		RadiusX	= SmallRadiusX;
+		RadiusY = SmallRadiusY;
+		
+		// Update character
+		FlightState	= false;
+		Rolling		= true;
+		Grv			= 0.21875;	
+		Animation	= AnimRoll;
+		
+		// Shift camera
+		Screen.RawY += DefaultRadiusX - SmallRadiusX;
+	}	
 }

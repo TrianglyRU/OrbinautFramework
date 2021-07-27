@@ -1,7 +1,13 @@
 function PlayerDebugMode()
 {
 	// Check if we're in dev mode
-	if !Game.DevMode
+	if !Game.DevMode or Death
+	{
+		exit;
+	}
+	
+	// Exit if stage is paused
+	if Stage.GamePaused
 	{
 		exit;
 	}
@@ -15,11 +21,18 @@ function PlayerDebugMode()
 		// Check if we entered debug
 		if DebugMode
 		{
-			// Set flags
+			// Reset flags
 			AllowCollision = false;
 			Grounded	   = false;
 			OnObject	   = false;
 			MovementLock   = false;
+			FlightState    = false;
+			FlightValue    = false;
+			ClimbState	   = false;
+			ClimbValue	   = false;
+			GlideState	   = false;
+			GlideGrounded  = false;
+			GlideValue     = false;
 			DebugSpeed     = 0;
 			Xsp			   = 0;
 			Ysp			   = 0;
@@ -36,8 +49,9 @@ function PlayerDebugMode()
 		else
 		{
 			// Enter walk animation
-			xRadius   = xRadiusDefault;
-			yRadius   = yRadiusDefault;
+			RadiusX   = DefaultRadiusX;
+			RadiusY   = DefaultRadiusY;
+			
 			Animation = AnimWalk;
 			
 			// Restore collision

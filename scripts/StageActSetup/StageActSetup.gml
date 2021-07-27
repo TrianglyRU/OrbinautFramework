@@ -86,8 +86,8 @@ function StageActSetup()
 			CardEnabled				= true;
 			TimeEnabled				= false;
 			
-			WaterEnabled            = false;
-			WaterLevel				= 0;
+			WaterEnabled            = true;
+			WaterLevel				= 264;
 
 			StageMusic				= noone;
 			StageMusicLooppoint		= 0;

@@ -99,7 +99,7 @@ function GameMacro()
 	#macro AnimGlide		   13
 	#macro AnimClimb		   14
 	#macro AnimGlideDrop	   15
-	#macro AnimGlideSlide	   16
+	#macro AnimGlideGrounded   16
 	#macro AnimSkid			   17
 	#macro AnimGlideStand	   18
 	#macro AnimClimbering	   19

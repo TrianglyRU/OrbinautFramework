@@ -14,9 +14,9 @@ function ObjSpringDiagonalMain()
 			Player.Grounded      = false;
 			Player.OnObject      = false;
 			Player.Jumping       = false;
-			Player.FlyingState   = false;
-			Player.GlidingState  = false;
-			Player.ClimbingState = false;
+			Player.FlightState   = false;
+			Player.GlideState    = false;
+			Player.ClimbState	 = false;
 			Player.DropdashRev   = -1;
 		
 			// Set 'spring up' or 'walk' animation
@@ -30,8 +30,8 @@ function ObjSpringDiagonalMain()
 			Player.Xsp =  LaunchForce * image_xscale;
 		
 			// Use normal collision radiuses
-			Player.xRadius = Player.xRadiusDefault;
-			Player.yRadius = Player.yRadiusDefault;
+			Player.RadiusX = Player.DefaultRadiusX;
+			Player.RadiusY = Player.DefaultRadiusY;
 
 			// Stop player sounds
 			audio_sfx_stop(sfxFlying);

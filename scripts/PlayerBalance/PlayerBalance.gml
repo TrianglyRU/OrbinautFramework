@@ -13,7 +13,7 @@ function PlayerBalance()
 		exit;
 	}
 
-	var DistanceMiddle = tile_check_collision_v(floor(PosX), floor(PosY + yRadius), true, false, Layer)[0];
+	var DistanceMiddle = tile_check_collision_v(floor(PosX), floor(PosY + RadiusY), true, false, Layer)[0];
 			
 	if DistanceMiddle < 12
 	{
@@ -22,8 +22,8 @@ function PlayerBalance()
 	
 	Balancing = true;
 	
-	var DistanceLeft  = tile_check_collision_v(floor(PosX - xRadius), floor(PosY + yRadius), true, false, Layer)[0];		
-	var DistanceRight = tile_check_collision_v(floor(PosX + xRadius), floor(PosY + yRadius), true, false, Layer)[0];
+	var DistanceLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer)[0];		
+	var DistanceRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer)[0];
 		
 	// Standing on left edge
 	if !DistanceLeft

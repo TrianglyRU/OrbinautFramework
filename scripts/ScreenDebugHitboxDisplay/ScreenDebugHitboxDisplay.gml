@@ -32,8 +32,8 @@ function ScreenDebugHitboxDisplay()
 				{
 					var pLeft   = floor(PosX - 8);
 					var pRight  = floor(PosX + 8);			     
-					var pTop	= floor(PosY - yRadius + 3);
-					var pBottom = floor(PosY + yRadius - 3);
+					var pTop	= floor(PosY - RadiusY + 3);
+					var pBottom = floor(PosY + RadiusY - 3);
 				}
 				draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
 			}
