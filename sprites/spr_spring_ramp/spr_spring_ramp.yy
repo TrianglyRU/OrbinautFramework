@@ -15,7 +15,7 @@
   "VTile": false,
   "For3D": false,
   "width": 58,
-  "height": 24,
+  "height": 16,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -59,7 +59,7 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 29,
-    "yorigin": 12,
+    "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_spring_ramp","path":"sprites/spr_spring_ramp/spr_spring_ramp.yy",},

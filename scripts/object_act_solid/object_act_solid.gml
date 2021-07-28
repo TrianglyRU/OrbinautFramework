@@ -56,7 +56,6 @@ function object_act_solid(sides, top, bottom, height_array)
 		var ObjectHeight = 0;
 	}
 	
-	
 	// Check if player is standing on this object, collide only with its top side
 	if Player.OnObject == ObjectID
 	{	
@@ -70,7 +69,7 @@ function object_act_solid(sides, top, bottom, height_array)
 			Player.OnObject = false;
 		}
 		else
-		{		
+		{	
 			// Make player to follow horizonatal movement of the object
 			Player.PosX += floor(x - xprevious);
 							
@@ -87,32 +86,28 @@ function object_act_solid(sides, top, bottom, height_array)
 		if  XDifference < 0 or XDifference > ObjectRadiusX * 2
 		{
 			exit;
-		}
-		var YDifference = PlayerY - ObjectY + ObjectRadiusY + !sides * 4;
+		}		
+		var YDifference = PlayerY - ObjectY + ObjectRadiusY + !sides * 4 - ObjectHeight;
 		if  YDifference < 0 or YDifference > ObjectRadiusY * 2
 		{
 			exit;
 		}
 		
 		// Find collision direction
-		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2 + 1							: XDifference;
-		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - ObjectHeight - !sides * 4 : YDifference - ObjectHeight;
+		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2 + 1          : XDifference;
+		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - !sides * 4 : YDifference;
 		
 		// Collide vertically
 		if abs(XDistance) > abs(YDistance)
 		{			
 			// Collide bottom
-			if bottom and YDistance < 0
-			{
-				if Player.Grounded
-				{
-					object_damage(false, false, true);
-				}
-				else if Player.Ysp < 0
-				{						
-					Player.PosY -= YDistance;
-					Player.Ysp   = 0;
-				}	
+			if bottom and YDistance < 0 and Player.Ysp < 0
+			{					
+				Player.PosY -= YDistance;
+				Player.Ysp   = 0;
+				
+				/* In S1 and S2 the game would also kill you if you were grounded, 
+				   however that was changed in S3 to allow to you use springs on ceilings */
 			}
 			
 			// Collide top
@@ -131,6 +126,13 @@ function object_act_solid(sides, top, bottom, height_array)
 				// Do from player's side
 				with Player
 				{
+					// Attach player to the object's top boundary
+					if !(Grounded and sides)
+					{
+						YDistance -= 4;
+					}
+					PosY -= YDistance + 1
+					
 					// Become grounded
 					Grounded = true;
 					OnObject = ObjectID;
@@ -139,13 +141,12 @@ function object_act_solid(sides, top, bottom, height_array)
 					Inertia  = Xsp;
 					Angle    = 360;
 					
-					/* We normally don't call scripts inside another scripts or functions
+					/* We normally don't call *scripts* inside scripts or functions
 					in Orbinaut, but that's really the case where we need to do this */
 					PlayerResetOnFloor();
 					
-					// Attach player to the object's top boundary
-					PosY -= (YDistance + ObjectHeight) - (3 + ObjectHeight);
-					Ysp   = 0;
+					// Reset vertical speed
+					Ysp = 0;
 				}
 			}		
 		}

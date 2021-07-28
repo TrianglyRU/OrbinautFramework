@@ -41,8 +41,8 @@ function PlayerResetOnFloor()
 		exit;
 	}	
 	
-	// Set 'walk' or 'run' animation if landing in a roll state
-	if Animation == AnimRoll
+	// Set 'walk' or 'run' animation if we've landed in roll state not on the object
+	if Animation == AnimRoll and !OnObject
 	{
 		Animation = Inertia >= TopAcc ? AnimRun : AnimWalk;
 	}
@@ -57,22 +57,14 @@ function PlayerResetOnFloor()
 		// Lower by 0x28 (0.15625) if underwater
 		Grv = 0.0625
 	}
-		
-	// Rolling flag
-	if !OnObject or Ysp > 0
+	
+	// Reset rolling flag if not rolling from the ground to object
+	if !(OnObject and Ysp == 0)
 	{
-		if Input.Down and !Input.Left and !Input.Right
-		{
-			Rolling = true;
-			audio_sfx_play(sfxRoll, false);
-		}
-		else
-		{
-			Rolling = false;
-		}
+		Rolling = false;
 	}
-		
-	// Reset flags
+	
+	// Reset other flags
 	Jumping			= false;
 	Pushing			= false;
 	FlightState     = false;
@@ -139,7 +131,7 @@ function PlayerResetOnFloor()
 		DropdashRev = -1;
 	}
 		
-	// Reset radiuses to default if not rolling
+	// Reset radiuses to default if not rolling, or on object
 	if !Rolling
 	{
 		PosY   -= DefaultRadiusY - RadiusY;

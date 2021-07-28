@@ -45,15 +45,15 @@ function object_player_touch(collisionSide)
 		{
 			return false;
 		}
-		var YDifference = PlayerY - ObjectY + ObjectRadiusY + !sides * 4;
+		var YDifference = PlayerY - ObjectY + ObjectRadiusY + 4;
 		if  YDifference < 0 or YDifference > ObjectRadiusY * 2
 		{
 			return false;
 		}
 		
 		// Find collision direction
-		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2 + 1			 : XDifference;
-		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - !sides * 4 : YDifference;
+		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2 + 1 : XDifference;
+		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - 4 : YDifference;
 		
 		// Check vertically
 		if abs(XDistance) > abs(YDistance)
