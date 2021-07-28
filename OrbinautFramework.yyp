@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"object_act_solid_backup","path":"scripts/object_act_solid_backup/object_act_solid_backup.yy",},"order":51,},
     {"id":{"name":"DRPC","path":"extensions/DRPC/DRPC.yy",},"order":0,},
     {"id":{"name":"PlayerKnuxGlideGround","path":"scripts/PlayerKnuxGlideGround/PlayerKnuxGlideGround.yy",},"order":42,},
     {"id":{"name":"Animal","path":"objects/Animal/Animal.yy",},"order":0,},
@@ -172,7 +173,6 @@
     {"id":{"name":"object_act_enemy","path":"scripts/object_act_enemy/object_act_enemy.yy",},"order":20,},
     {"id":{"name":"object_act_solid","path":"scripts/object_act_solid/object_act_solid.yy",},"order":21,},
     {"id":{"name":"object_camera_position","path":"scripts/object_camera_position/object_camera_position.yy",},"order":22,},
-    {"id":{"name":"object_check_unload","path":"scripts/object_check_unload/object_check_unload.yy",},"order":23,},
     {"id":{"name":"object_collide_tiles_h","path":"scripts/object_collide_tiles_h/object_collide_tiles_h.yy",},"order":24,},
     {"id":{"name":"object_collide_tiles_v","path":"scripts/object_collide_tiles_v/object_collide_tiles_v.yy",},"order":25,},
     {"id":{"name":"object_damage","path":"scripts/object_damage/object_damage.yy",},"order":26,},
@@ -458,6 +458,7 @@
     {"id":{"name":"spr_obj_orbinaut_orb","path":"sprites/spr_obj_orbinaut_orb/spr_obj_orbinaut_orb.yy",},"order":1,},
     {"id":{"name":"spr_obj_orboss","path":"sprites/spr_obj_orboss/spr_obj_orboss.yy",},"order":0,},
     {"id":{"name":"spr_obj_orboss_fire","path":"sprites/spr_obj_orboss_fire/spr_obj_orboss_fire.yy",},"order":1,},
+    {"id":{"name":"object_player_touch_backup","path":"scripts/object_player_touch_backup/object_player_touch_backup.yy",},"order":52,},
     {"id":{"name":"spr_obj_orboss_orb","path":"sprites/spr_obj_orboss_orb/spr_obj_orboss_orb.yy",},"order":2,},
     {"id":{"name":"spr_obj_orboss_smoke","path":"sprites/spr_obj_orboss_smoke/spr_obj_orboss_smoke.yy",},"order":3,},
     {"id":{"name":"spr_obj_platform_mqz","path":"sprites/spr_obj_platform_mqz/spr_obj_platform_mqz.yy",},"order":0,},

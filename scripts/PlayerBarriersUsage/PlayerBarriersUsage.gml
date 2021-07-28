@@ -68,37 +68,4 @@ function PlayerBarriersUsage()
 			break;
 		}
 	}
-	
-	// Did we land with an activated water barrier?
-	if Grounded and BarrierIsActive and BarrierType == BarrierWater 
-	{
-		// Set flags
-		BarrierIsActive = false;
-		Grounded		= false;
-		Jumping			= true;
-		
-		// Set vertical speed
-		Ysp	= -7.5 * dcos(Angle);
-		
-		// Set horizontal speed to vertical speed if floor is full steep
-		if Angle >= 45 and Angle <= 315
-		{
-			Xsp = Angle <= 180 ? Ysp : -Ysp;
-		}
-		
-		// Set horizontal speed to halved vertical speed if floor is half steep
-		else if Angle >= 22.5 and Angle <= 337.5
-		{
-			Xsp = Angle <= 180 ? Ysp / 2 : -Ysp / 2;
-		}
-		
-		// Reset horizontal speed if floor is shallow
-		else 
-		{	
-			Xsp = 0;	
-		}	
-		
-		// Play sound
-		audio_sfx_play(sfxWaterBarrierBounce, false);
-	}
 }

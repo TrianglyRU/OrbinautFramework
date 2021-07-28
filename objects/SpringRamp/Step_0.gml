@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-	if JumpTimer
+
+	/*if JumpTimer
 	{
 		JumpTimer--;
 		if !JumpTimer and object_player_stand(id)
@@ -46,10 +47,10 @@
 			}
 		}
 	}
-	else if object_player_stand(id) and Player.PosX >= x - 15 and Player.PosX <= x + 29
+	else if object_player_stand(id) and Player.PosX >= x - 15 and Player.PosX <= x + 30
 	{
 		JumpTimer = 4;
-	}
+	}*/
 	
-	image_index = JumpTimer > 0;
-	object_act_solid(false, true, false, JumpTimer ? ColMap2: ColMap1);
+	image_index = 0;
+	object_act_solid(false, true, false, ColMap1);

@@ -6,6 +6,41 @@ function PlayerResetOnFloor()
 		exit;
 	}
 	
+	// Did we land with active water barrier?
+	if BarrierIsActive and BarrierType == BarrierWater 
+	{
+		// Reset flags
+		BarrierIsActive = false;
+		Grounded        = false;
+		
+		// Set vertical speed
+		Ysp	= -7.5 * dcos(Angle);
+		
+		// Set horizontal speed to vertical speed if floor is full steep
+		if Angle >= 45 and Angle <= 315
+		{
+			Xsp = Angle <= 180 ? Ysp : -Ysp;
+		}
+		
+		// Set horizontal speed to halved vertical speed if floor is half steep
+		else if Angle >= 22.5 and Angle <= 337.5
+		{
+			Xsp = Angle <= 180 ? Ysp / 2 : -Ysp / 2;
+		}
+		
+		// Reset horizontal speed if floor is shallow
+		else 
+		{	
+			Xsp = 0;	
+		}	
+		
+		// Play sound
+		audio_sfx_play(sfxWaterBarrierBounce, false);
+		
+		// Exit the futher code
+		exit;
+	}	
+	
 	// Set 'walk' or 'run' animation if landing in a roll state
 	if Animation == AnimRoll
 	{
@@ -23,10 +58,23 @@ function PlayerResetOnFloor()
 		Grv = 0.0625
 	}
 		
+	// Rolling flag
+	if !OnObject or Ysp > 0
+	{
+		if Input.Down and !Input.Left and !Input.Right
+		{
+			Rolling = true;
+			audio_sfx_play(sfxRoll, false);
+		}
+		else
+		{
+			Rolling = false;
+		}
+	}
+		
 	// Reset flags
 	Jumping			= false;
 	Pushing			= false;
-	Rolling			= false;
 	FlightState     = false;
 	FlightValue	    = false;
 	ScoreCombo		= false;
@@ -40,6 +88,10 @@ function PlayerResetOnFloor()
 	if Angle >= 23.91 and Angle <= 337.5
 	{
 		VisualAngle = Angle;
+	}
+	else
+	{
+		VisualAngle = 360;
 	}
 		
 	// Reset hurt state

@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_check_unload",
+  "name": "object_player_touch",
   "tags": [],
   "resourceType": "GMScript",
 }

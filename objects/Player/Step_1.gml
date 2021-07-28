@@ -40,11 +40,11 @@
 		// Check for sliding as Knuckles
 		PlayerKnuxGlideGround();
 		
-		// Air collision
-		PlayerAirLevelCollision();
-						
 		// Use barriers abilities
 		PlayerBarriersUsage();
+		
+		// Air collision
+		PlayerAirLevelCollision();
 			
 		// Reset flags on landing
 		PlayerResetOnFloor();

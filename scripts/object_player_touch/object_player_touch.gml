@@ -13,93 +13,79 @@ function object_player_touch(collisionSide)
 		exit;
 	}
 	
-	// Exit the code if object can't be touched
+	// Exit the code if object can't be collided
 	if !objXRadiusSolid or !objYRadiusSolid
 	{
-		return false;	
+		exit;	
 	}
 	
-	// Get object properties
-	var objectX		   = floor(x);
-	var objectY        = floor(y);
-	var objectTop      = floor(y - objYRadiusSolid - 0);
-	var objectLeft     = floor(x - objXRadiusSolid - 0);
-	var objectRight    = floor(x + objXRadiusSolid - 1);
-	var objectBottom   = floor(y + objYRadiusSolid - 0);	
-	var objectMirrored = !image_xscale;
-	var objectFlipped  = !image_yscale;
-	var objectID	   = id;
+	// Get object
+	var ObjectX		   = floor(x);
+	var ObjectY        = floor(y);
+	var ObjectRadiusX  = floor(objXRadiusSolid + 11);
+	var ObjectRadiusY  = floor(objYRadiusSolid + Player.RadiusY);
+	var ObjectID	   = id;
 
-	// Get player properties
-	var playerX      = floor(Player.PosX);
-	var playerY      = floor(Player.PosY);
-	var playerTop    = floor(Player.PosY - Player.RadiusY);
-	var playerLeft   = floor(Player.PosX - 11);
-	var playerRight  = floor(Player.PosX + 11);
-	var playerBottom = floor(Player.PosY + Player.RadiusY);
+	// Get player
+	var PlayerX = floor(Player.PosX);
+	var PlayerY = floor(Player.PosY);
 	
-	// Set flags
-	var objTouchedTop    = false;
-	var objTouchedLeft   = false;
-	var objTouchedRight  = false;
-	var objTouchedBottom = false;
-	
-	// Return true if we're checking for SideTop and player is already standing on the object
-	if collisionSide == SideTop and Player.OnObject == objectID
-	{
+	// Return true if on object and checking for SideTop
+	if collisionSide == SideTop and Player.OnObject == ObjectID 
+	{	
 		return true;
 	}
+			
+	// If player is not standing on this object, collide with it
 	else
-	{
-		// Check for object overlap
-		if playerRight < objectLeft or playerLeft > objectRight
+	{	
+		// Check for overlap
+		var XDifference = PlayerX - ObjectX + ObjectRadiusX;
+		if  XDifference < 0 or XDifference > ObjectRadiusX * 2
 		{
-			exit;
+			return false;
 		}
-		if playerBottom < objectTop or playerTop > objectBottom
+		var YDifference = PlayerY - ObjectY + ObjectRadiusY + !sides * 4;
+		if  YDifference < 0 or YDifference > ObjectRadiusY * 2
 		{
-			exit;
+			return false;
 		}
+		
+		// Find collision direction
+		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2 + 1			 : XDifference;
+		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - !sides * 4 : YDifference;
 		
 		// Check vertically
-		if abs(objectX - playerX) + 4 <= abs(objectY - playerY) - 4
-		{
-			// Check bottom touch
-			if playerY > objectY and playerTop < objectBottom
-			{	
-				objTouchedBottom = true;
+		if abs(XDistance) > abs(YDistance)
+		{			
+			// Check bottom
+			if YDistance < 0 and collisionSide == SideBottom
+			{
+				return true;
 			}
 			
-			// Check top touch result
-			else if playerBottom < objectTop + 16
+			// Check top
+			else if YDistance < 16 and collisionSide == SideTop
 			{
-				objTouchedTop = true;
-			}
-		}
-		
-		// Check horizontally
-		else
-		{
-			// Check right touch
-			if playerX > objectX
-			{
-				objTouchedRight = true;	
-			}
-				
-			// Check left touch
-			if playerX < objectX
-			{	
-				objTouchedLeft = true;
+				var XComparison = PlayerX - ObjectX + objXRadiusSolid;			
+				if  XComparison >= 0 or XComparison < objXRadiusSolid * 2
+				{
+					return Player.Ysp >= 0;
+				}		
 			}		
 		}
-	
-		// Return check result
-		switch collisionSide
+		
+		// Collide horizontally
+		else if abs(YDistance) > 4
 		{
-			case SideTop:    return objTouchedTop;    break;
-			case SideLeft:   return objTouchedLeft;   break;
-			case SideRight:  return objTouchedRight;  break;
-			case SideBottom: return objTouchedBottom; break;
+			if XDistance > 0 and collisionSide == SideLeft
+			or XDistance < 0 and collisionSide == SideRight
+			{
+				return true;
+			}
 		}
 	}
+	
+	// If no collision happened, return
+	return false;
 }
