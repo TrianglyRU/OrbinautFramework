@@ -4,6 +4,9 @@
 	object_set_solidbox(29, 12);
 	object_set_range(RangeClose, false);
 	
+	// Set object depth
+	object_set_depth(Player, false);
+	
 	JumpTimer = 0;
 	
 	// Unpressed
