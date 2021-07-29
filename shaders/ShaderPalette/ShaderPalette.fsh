@@ -9,7 +9,7 @@
 	uniform sampler2D u_palTexture;
 	uniform vec4 u_Uvs;
 	uniform float u_palId[64];	// Max colours on the palette list. Increase if needed
-	uniform vec2 u_pixelSize;
+	uniform vec2 u_pixelSize; 
 
 	uniform float u_step;
 	uniform bool u_mode;
@@ -30,13 +30,14 @@
 	    }
 	    return inCol;
 	}
-
+	
 	void main()
 	{
-	
+		// Входной (базовый) цвет
 		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
-		DoAlphaTest(col);
+		
+		//DoAlphaTest(col); // Хз зачем, но пока не удалять
 
-		// Output
+		// Применение "функции" нахождения другого цвета и вывод цвета
 		gl_FragColor = findAltColor(col, u_Uvs.xy) * v_vColour;
 	}
