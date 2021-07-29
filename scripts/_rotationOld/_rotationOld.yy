@@ -6,7 +6,7 @@
     "path": "folders/Game Controllers/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerAirGravity",
+  "name": "_rotationOld",
   "tags": [],
   "resourceType": "GMScript",
 }

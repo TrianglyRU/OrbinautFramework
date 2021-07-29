@@ -29,9 +29,7 @@ function object_act_solid(sides, top, bottom, height_array)
 	var ObjectX		   = floor(x);
 	var ObjectY        = floor(y);
 	var ObjectRadiusX  = floor(objXRadiusSolid + 11);
-	var ObjectRadiusY  = floor(objYRadiusSolid + Player.RadiusY);	
-	var ObjectMirrored = !image_xscale;
-	var ObjectFlipped  = !image_yscale;
+	var ObjectRadiusY  = floor(objYRadiusSolid + Player.RadiusY);
 	var ObjectID	   = id;
 
 	// Get player
@@ -39,17 +37,17 @@ function object_act_solid(sides, top, bottom, height_array)
 	var PlayerY = floor(Player.PosY);
 	
 	// Get height array
-	if height_array != false and !ObjectFlipped
+	if height_array != false
 	{
 		// Get object sides
 		var ObjectLeft  = floor(x - objXRadiusSolid - 0);
 		var ObjectRight = floor(x + objXRadiusSolid - 1);
 			
 		// Get height from array to use
-		var ArrayHeight = clamp(ObjectMirrored ? ObjectRight - PlayerX : PlayerX - ObjectLeft, 0, array_length(height_array) - 1);
+		var ArrayHeight = clamp(image_xscale ? PlayerX - ObjectLeft : ObjectRight - PlayerX, 0, array_length(height_array) - 1);
 		
 		// Calculate height difference
-		var ObjectHeight = objYRadiusSolid * 2 - height_array[ArrayHeight];	
+		var ObjectHeight = (objYRadiusSolid * 2 - height_array[ArrayHeight]) * image_yscale;	
 	}
 	else
 	{
@@ -102,9 +100,16 @@ function object_act_solid(sides, top, bottom, height_array)
 		{			
 			// Collide bottom
 			if bottom and YDistance < 0 and Player.Ysp < 0
-			{					
+			{	
+				// Clip out
 				Player.PosY -= YDistance;
 				Player.Ysp   = 0;
+				
+				// Reset gravity if flying
+				if FlightState
+				{
+					Grv	= 0.03125;
+				}	
 				
 				/* In S1 and S2 the game would also kill you if you were grounded, 
 				   however that was changed in S3 to allow to you use springs on ceilings */

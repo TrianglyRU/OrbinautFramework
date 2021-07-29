@@ -64,11 +64,16 @@ function PlayerResetOnFloor()
 		Rolling = false;
 	}
 	
-	// Reset other flags
+	// Reset other action flags
 	Jumping			= false;
 	Pushing			= false;
 	FlightState     = false;
 	FlightValue	    = false;
+	GlideState      = false;
+	GlideValue      = false;
+	GlideGrounded   = false;	
+	ClimbState		= false;
+	ClimbValue		= false;
 	ScoreCombo		= false;
 	BarrierIsActive = false;
 	

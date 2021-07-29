@@ -22,9 +22,6 @@
 		// Update player's position
 		PlayerPosition();
 		
-		// Apply gravity and rotation
-		PlayerAirGravity();
-		
 		// Check for dropdash as Sonic
 		PlayerSonicDropdash();
 		

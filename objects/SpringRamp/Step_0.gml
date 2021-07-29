@@ -2,8 +2,6 @@
 // You can write your code in this editor
 
 	var Pos = floor(Player.PosX - x) * sign(image_xscale);
-	show_debug_message(Pos);
-
 	if JumpTimer
 	{
 		JumpTimer--;

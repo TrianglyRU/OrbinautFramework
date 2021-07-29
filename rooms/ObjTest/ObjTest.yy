@@ -99,6 +99,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"FloatingPlatform","path":"objects/FloatingPlatform/FloatingPlatform.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":320.0,"y":136.0,"resourceVersion":"1.0","name":"inst_2105FDB0","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"FloatingPlatform","path":"objects/FloatingPlatform/FloatingPlatform.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":672.0,"y":136.0,"resourceVersion":"1.0","name":"inst_1B28A76B","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"FloatingPlatform","path":"objects/FloatingPlatform/FloatingPlatform.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":992.0,"y":184.0,"resourceVersion":"1.0","name":"inst_580A7CC0","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"SpringYellowDiagonal","path":"objects/SpringYellowDiagonal/SpringYellowDiagonal.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":288.0,"y":224.0,"resourceVersion":"1.0","name":"inst_7E31EA23","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":null,"x":0,"y":0,"tiles":{"SerialiseWidth":4,"SerialiseHeight":2,"TileSerialiseData":[
 0,0,0,0,
@@ -122,6 +123,7 @@
     {"name":"inst_2105FDB0","path":"rooms/ObjTest/ObjTest.yy",},
     {"name":"inst_1B28A76B","path":"rooms/ObjTest/ObjTest.yy",},
     {"name":"inst_580A7CC0","path":"rooms/ObjTest/ObjTest.yy",},
+    {"name":"inst_7E31EA23","path":"rooms/ObjTest/ObjTest.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

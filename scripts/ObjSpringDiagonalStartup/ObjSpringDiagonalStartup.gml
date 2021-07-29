@@ -1,18 +1,20 @@
 function ObjSpringDiagonalStartup()
 {
-	// Initialize variables
-	LaunchSide  isVar;
-	LaunchForce isVar;
+	// Variables list
+	LaunchSide  = 0;
+	LaunchForce = 0;
 	
 	// Set object solidbox
 	object_set_solidbox(16, 16);
-	CollisionMap = [16,16,16,16,16,16,16,16,16,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0,-1,-2,-3,-4,-5,-6];
 	
 	// Set active range
 	object_set_range(RangeClose, false);
 	
 	// Set object depth
 	object_set_depth(Player, false);
+	
+	// Define collision map
+	CollisionMap = [32,32,32,32,32,32,32,32,32,32,31,30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10];
 	
 	// Define launch side
 	LaunchSide = image_yscale ? SideTop : SideBottom;

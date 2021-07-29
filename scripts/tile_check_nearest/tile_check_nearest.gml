@@ -8,7 +8,7 @@ function tile_check_nearest(leftdata, rightdata, object_angle)
 		var ResultDistance = leftdata[0];
 		var ResultAngle	   = leftdata[1];
 	}
-	else
+	else	
 	{
 		// Else use the right tile
 		var ResultDistance = rightdata[0];
@@ -21,9 +21,12 @@ function tile_check_nearest(leftdata, rightdata, object_angle)
 		// Get the difference between object current angle and floor angle
 		var Difference = abs(object_angle mod 180 - ResultAngle mod 180);
 		
-		// Is difference higher than or equal to 45 degrees, or angle equals to 360?
-		if Difference > 45 and Difference < 135 or ResultAngle == 360
+		// Is difference higher than or equal to 45 degrees?
+		if Difference > 45 and Difference < 135
 		{
+			/* The originals also check for a bit flag set for tiles with angle
+			   0xFF, but we're handle it right when we get tile data to make it more stable */
+			
 			// Use cardinal angle
 			var ResultAngle = round(object_angle / 90) mod 4 * 90;
 			if !ResultAngle

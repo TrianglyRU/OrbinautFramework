@@ -127,7 +127,7 @@ function PlayerAirLevelCollision()
 				PosY -= RoofDistance;
 			
 				// Land on ceiling
-				if (RoofAngle >= 91.41 and RoofAngle <= 136.41 or RoofAngle <= 226.41) and !FlightState
+				if (RoofAngle >= 91.41 and RoofAngle <= 136.41 or RoofAngle >= 226.41 and RoofAngle <= 268.59) and !FlightState
 				{
 					// Set inertia and inherit ceiling angle
 					Angle    = RoofAngle;

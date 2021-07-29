@@ -60,7 +60,7 @@ function PlayerKnuxGlideGround()
 				// Set slide flag if we're gliding
 				if GlideState == GlideActive
 				{
-					GlideValue = 0;
+					GlideValue    = 0;
 					GlideGrounded = true;
 				}
 				
@@ -82,11 +82,6 @@ function PlayerKnuxGlideGround()
 			{
 				Angle    = FloorAngle;
 				Grounded = true;
-				
-				// Reset flags
-				GlideState    = false;
-				GlideGrounded = false;
-				GlideValue    = false;
 			}
 			
 			// Decrease timer
@@ -163,11 +158,6 @@ function PlayerKnuxGlideGround()
 			{
 				Angle    = FloorAngle;
 				Grounded = true;
-				
-				// Reset flags
-				GlideState    = false;
-				GlideGrounded = false;
-				GlideValue    = false;
 			}
 			
 			// Decrease timer

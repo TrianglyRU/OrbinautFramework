@@ -104,6 +104,11 @@ function tile_check_collision_v(x, y, to_positive, ignore_top, tilelayer)
 			TileAngle = 360 - TileAngle;
 		}
 	}
+	else
+	{
+		// Get cardinal angle based on direction
+		TileAngle = to_positive ? 360 : 180;
+	}
 	
 	// Return data
 	return [TileDistance, TileAngle];

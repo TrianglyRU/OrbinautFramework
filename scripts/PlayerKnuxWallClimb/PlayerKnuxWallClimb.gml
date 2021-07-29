@@ -47,6 +47,9 @@ function PlayerKnuxWallClimb()
 			
 				// Reset Ysp
 				Ysp = 0;
+				
+				/* Originals seems not to reset Ysp, resulting in Knuckles
+				   behaving weirly when approaching ceilings			   */
 			}
 		}
 	
@@ -183,10 +186,6 @@ function PlayerKnuxWallClimb()
 			// Set flags
 			AllowCollision = true;
 			Grounded	   = true;
-			
-			// Reset state
-			ClimbState = false;
-			ClimbValue = false;
 			
 			// Final position update
 			PosX += 8 * Facing;
