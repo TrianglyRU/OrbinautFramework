@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_act_solid",
+  "name": "animation_play_backup",
   "tags": [],
   "resourceType": "GMScript",
 }

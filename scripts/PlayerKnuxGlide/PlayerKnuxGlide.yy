@@ -6,7 +6,7 @@
     "path": "folders/Game Controllers/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerKnuxWallClimb",
+  "name": "PlayerKnuxGlide",
   "tags": [],
   "resourceType": "GMScript",
 }

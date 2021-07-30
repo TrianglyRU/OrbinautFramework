@@ -1,0 +1,376 @@
+function PlayerKnuxGlide()
+{
+	// Exit if we've died
+	if Death or Drown
+	{
+		exit;
+	}
+	
+	// Exit the code if we're not in glide state
+	if !GlideState
+	{
+		exit;
+	}
+	
+	// Check if action button is held
+	if GlideState == GlideActive and !GlideGrounded
+	{
+		if Input.ABC
+		{
+			// Set 'glide' animation
+			Animation = AnimGlide;
+		
+			// Apply gravity
+			if Ysp < 0.5
+			{
+				Grv = 0.125;
+			}
+			else if Ysp > 0.5
+			{
+				Grv = -0.125;
+			}
+		
+			// Glide to the left
+			if GlideDirection = DirectionLeft
+			{	
+				// Check if we're turning from right
+				if GlideValue > 0
+				{
+					GlideValue -= 2.8125;		
+					Xsp			= GlideSpeed * dcos(GlideValue) * -sign(GlideSpeed);
+				}
+				
+				// Glide stright
+				else
+				{
+					Xsp = max(Xsp - GlideAcc, -24);
+				}
+					
+				// Start turn to the right
+				if Input.RightPress
+				{
+					if GlideValue == 0
+					{
+						GlideSpeed = Xsp;
+					}
+					GlideDirection = DirectionRight;
+				}
+			}
+		
+			// Glide to the right
+			else if GlideDirection == DirectionRight
+			{	
+				// Check if we're turning from left
+				if GlideValue < 180
+				{
+					GlideValue += 2.8125;
+					Xsp			= GlideSpeed * dcos(GlideValue) * -sign(GlideSpeed);
+				}
+				
+				// Glide stright
+				else
+				{
+					Xsp = min(Xsp + GlideAcc, 24);
+				}
+				
+				// Start turn to the left
+				if Input.LeftPress
+				{	
+					if GlideValue == 180
+					{
+						GlideSpeed = Xsp;
+					}
+					GlideDirection = DirectionLeft;
+				}
+			}
+		
+			// Define facing direction
+			Facing = GlideValue > 90 ? DirectionRight : DirectionLeft;
+		
+			// Define animation frame
+			if GlideValue < 119.53
+			{
+				if GlideValue > 60.47
+				{
+					GlideFrame = 3;
+				}
+				else if GlideValue > 30.94
+				{
+					GlideFrame = 2;
+				}
+				else
+				{
+					GlideFrame = 1;
+				}
+			}
+			else if GlideValue < 149.065
+			{
+				GlideFrame = 2;
+			}		
+			else
+			{
+				GlideFrame = 1;
+			}
+		}
+	
+		// If action button is not held anymore
+		else
+		{
+			// Lower horizontal speed
+			Xsp *= 0.25;
+		
+			// Reset gravity
+			if !IsUnderwater
+			{
+				Grv	= 0.21875;
+			}
+			else
+			{
+				// Lower by 0x28 (0.15625) if underwater
+				Grv = 0.0625
+			}
+			
+			// Restore default radiuses
+			RadiusX	= DefaultRadiusX;
+			RadiusY	= DefaultRadiusY;
+			
+			// Enter drop state
+			GlideState = GlideDrop;
+			
+			// Animation
+			Animation = AnimGlideDrop;
+		}
+	}
+	
+	// Check for walls
+	var LeftDistance  = tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0];
+	var RightDistance = tile_check_collision_h(floor(PosX + 10), floor(PosY), true, true,  Layer)[0];
+			
+	// Are we colliding left wall?
+	if LeftDistance < 0
+	{
+		PosX -= LeftDistance;
+		Xsp   = 0;
+	}
+			
+	// Are we colliding right wall?
+	else if RightDistance < 0
+	{
+		PosX += RightDistance;
+		Xsp   = 0;
+	}
+			
+	// If we're not colliding walls, try floor or ceiling collision
+	else
+	{
+		// Check for ceiling
+		var TileLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
+		var TileRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
+				
+		// Get nearest tile
+		var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+				
+		// Get data
+		var RoofDistance = NearestTile[0];
+		var RoofAngle    = NearestTile[1];
+			
+		// Are we touching the ceiling?
+		if RoofDistance < 0
+		{	
+			// Clip out
+			PosY -= RoofDistance;
+			
+			// Reset Ysp
+			if Ysp < 0
+			{
+				Ysp = 0;
+			}
+		}
+				
+		// If we're not touching the ceiling, do floor collision if we're moving downwards
+		else if Ysp >= 0
+		{
+			// Check for floor
+			var TileLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
+			var TileRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
+				
+			// Get nearest tile
+			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+					
+			// Get data
+			var FloorDistance = NearestTile[0];
+			var FloorAngle    = NearestTile[1];
+			
+			// Are we not sliding yet?
+			if !GlideGrounded
+			{	
+				// Are we not in stop state?
+				if GlideState != GlideStop
+				{
+					// Are we touching the floor?
+					if FloorDistance < 0
+					{
+						// Adhere to the surface
+						PosY += FloorDistance;
+						Ysp   = 0;
+				
+						// Disable gravity
+						Grv = 0;
+				
+						// Is floor shallow enough?
+						if FloorAngle <= 45 or FloorAngle >= 316.41
+						{
+							// Enter ground glide state if gliding
+							if GlideState == GlideActive
+							{
+								GlideValue    = 0;
+								GlideGrounded = true;
+							}
+				
+							// Enter stop state if dropping
+							else if GlideState == GlideDrop
+							{
+								GlideState = GlideStop;
+								GlideValue = 16;
+								Xsp	       = 0;
+							}
+						}
+				
+						// Just land on a steeper floor
+						else
+						{
+							// Use full vertical speed on full steep floor
+							Xsp		= 0;
+							Inertia = FloorAngle < 180 ? -Ysp : Ysp;
+					
+							// Inherit floor angle
+							Angle = FloorAngle;
+				
+							// Set flag
+							Grounded = true;
+						}
+					}
+				}
+		
+				// Are we in stop state?
+				else
+				{
+					// Land
+					if !GlideValue
+					{
+						Angle    = FloorAngle;
+						Grounded = true;
+					}
+			
+					// Decrease timer
+					else
+					{
+						GlideValue--;
+					}
+			
+					// Set animation
+					Animation = AnimDropStand;
+				}
+			}
+	
+			// Are we sliding?
+			else
+			{
+				// Set animation
+				Animation = AnimGlideGrounded;
+		
+				// Decelerate
+				if Xsp > 0
+				{
+					Xsp = max(0, Xsp - AirAcc);
+				}
+				else
+				{
+					Xsp = min(0, Xsp + AirAcc);
+				}
+		
+				// Check if ground is far too away below us
+				if FloorDistance > 14
+				{
+					// Reset gravity
+					if !IsUnderwater
+					{
+						Grv	= 0.21875;
+					}
+					else
+					{
+						// Lower by 0x28 (0.15625) if underwater
+						Grv = 0.0625
+					}
+			
+					// Set animation
+					Animation = AnimGlideDrop;
+			
+					// Enter drop state
+					GlideGrounded = false;
+					GlideState    = GlideDrop;
+			
+					// Restore default radiuses
+					RadiusX	= DefaultRadiusX;
+					RadiusY	= DefaultRadiusY;	
+				}
+		
+				// Adhere to the surface
+				else
+				{		
+					PosY += FloorDistance;
+				}
+		
+				// Slide until we stop or release jump button
+				if Xsp == 0 or !Input.ABC
+				{
+					// Change state
+					if GlideState != GlideStop
+					{
+						GlideState = GlideStop;
+						GlideValue = 16;
+					}
+			
+					// Land
+					if !GlideValue
+					{
+						Angle    = FloorAngle;
+						Grounded = true;
+					}
+			
+					// Decrease timer
+					else
+					{
+						GlideValue--;
+					}
+			
+					// Set animation
+					Animation = AnimGlideStand;
+			
+					// Correct our position and restore default radiuses
+					PosY   -= DefaultRadiusY - RadiusY;
+					RadiusX = DefaultRadiusX;
+					RadiusY = DefaultRadiusY;
+			
+					// Reset speed
+					Xsp	= 0;	
+				}
+				else
+				{
+					// 4 frames passed?
+					if GlideValue mod 4 == 0
+					{	
+						// Create dust effect
+						instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
+			
+						// Reset value
+						GlideValue = 0;
+					}
+			
+					// Increase timer
+					GlideValue++
+				}
+			}
+		}
+	}
+}

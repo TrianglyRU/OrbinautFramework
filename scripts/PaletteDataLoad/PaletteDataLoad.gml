@@ -5,8 +5,6 @@ function PaletteDataLoad()
 	{	
 		// Load palettes for MQZ
 		case MQZ0:
-		case MQZ1:
-		case MQZ2:
 		{
 			palette_load(PaletteSurface,    pal_surface);
 			palette_load(PaletteUnderwater, pal_underwater);

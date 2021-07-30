@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_spring_ramp",
-    "path": "sprites/spr_spring_ramp/spr_spring_ramp.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,16 +22,18 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Menu",
+    "path": "folders/Game Controllers/Menu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpringRamp",
+  "name": "_MenuController",
   "tags": [],
   "resourceType": "GMObject",
 }

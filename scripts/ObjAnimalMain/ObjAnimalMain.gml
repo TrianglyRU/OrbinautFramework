@@ -1,32 +1,12 @@
 function ObjAnimalMain()
 {
-	/*if FromCapsule
-	{ 
-		Ysp = 0; 
-		Grv = 0;
-		
-		if CapsuleDelay 
-		{
-			CapsuleDelay--;
-		}
-		else
-		{ 
-			FromCapsule = false; 
-			Ysp		    = -4; 
-			Grv         = 0.21875; 
-		}
-	}*/
-	
 	// Update vertical speed
 	Ysp  += Grv;
 	PosY += Ysp;
 	
-	// Appear state
+	// 'Appear from Badink' state
 	if State == 0
 	{
-		// Stay at the first frame
-		animation_set_frame(AnimalType, 1);
-		
 		// Check if animal colliding with the ground
 		if Ysp > 0 
 		{
@@ -42,8 +22,14 @@ function ObjAnimalMain()
 				// Set horizontal speed
 				Xsp	*= image_xscale;
 				
+				// Change gravity for Flicky
+				if AnimalType == spr_obj_animal_flicky
+				{
+					Grv = 0.09375;
+				}
+				
 				// Set second frame
-				animation_set_frame(AnimalType, 2);
+				animation_set_frame(false, 2);
 				
 				// Go to the next state
 		        State = 1;
@@ -56,12 +42,6 @@ function ObjAnimalMain()
 	{
 		// Move
 		PosX += Xsp;
-		
-		// Change gravity for Flicky
-		if AnimalType == spr_obj_animal_flicky
-		{
-			Grv = 0.09375;
-		}
 		
 		// Animate animal
 		switch AnimalType

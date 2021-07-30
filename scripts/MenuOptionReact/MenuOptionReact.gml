@@ -119,16 +119,10 @@ function MenuOptionReact()
 		switch OptionID
 		{
 			case 0:
-				room_goto(MQZ1);
-			break;
-			case 1:
-				room_goto(MQZ2);
-			break;
-			case 2:
 				room_goto(MQZ0);
 			break;
-			case 3:
-				room_goto(ObjTest);
+			case 1:
+				room_goto(TSZ0);
 			break;
 		}
 	}

@@ -73,13 +73,9 @@ function ObjItemBoxScript()
 		
 		CardYsp  += 0.09375;
 		CardPosY += CardYsp;
-		
-		show_debug_message(CardYsp);
 			
 		if CardYsp == 0
 		{
-			show_debug_message("??");
-			
 			switch BoxType
 			{
 				case "10 Rings":

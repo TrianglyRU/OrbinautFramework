@@ -4,7 +4,7 @@ function StageActStartup()
 	audio_bgm_play(StageMusic, StageMusicLooppoint, TypeNormal);
 	
 	// Set tile layers IDs
-	TileLayer = [layer_tilemap_get_id("CollisionTilesA"), layer_tilemap_get_id("CollisionTilesB")];
+	TileLayer = [layer_tilemap_get_id("CollisionLayerA"), layer_tilemap_get_id("CollisionLayerB")];
 	
 	// Set bubble wobble data if water is enabled
 	if WaterEnabled

@@ -57,20 +57,38 @@ function PlayerKnuxGlideGround()
 				// Disable gravity
 				Grv = 0;
 				
-				// Set slide flag if we're gliding
-				if GlideState == GlideActive
+				// Is floor shallow enough?
+				if FloorAngle <= 45 or FloorAngle >= 315
 				{
-					GlideValue    = 0;
-					GlideGrounded = true;
+					// Enter ground glide state if gliding
+					if GlideState == GlideActive
+					{
+						GlideValue    = 0;
+						GlideGrounded = true;
+					}
+				
+					// Enter stop state if dropping
+					else if GlideState == GlideDrop
+					{
+						GlideState = GlideStop;
+						GlideValue = 16;
+						Xsp	       = 0;
+					}
 				}
 				
-				// Set stop flag if we're dropping
-				else if GlideState == GlideDrop
+				// Just land on a steeper floor
+				else
 				{
-					GlideState = GlideStop;
-					GlideValue = 16;
-					Xsp	       = 0;
-				}	
+					// Use full vertical speed on full steep floor
+					Xsp		= 0;
+					Inertia = FloorAngle < 180 ? -Ysp : Ysp;
+					
+					// Inherit floor angle
+					Angle = FloorAngle;
+				
+					// Set flag
+					Grounded = true;
+				}
 			}
 		}
 		

@@ -1,33 +1,5 @@
 function PlayerSuperFormsProcess()
 {
-	/* SuperStateValue is handled automatically, all you have to do is to toggle
-	SuperState = true or SuperState = false
-	*/
-	
-	var RingCheck = (Game.DevMode and Rings > 0) or (!Game.DevMode and Rings >= 50)
-	
-	// Transform
-	if !SuperState and !Death and !Drown
-	{
-		if Jumping and RingCheck and Ysp <= 0 and !SuperStateValue and Input.CPress
-		{
-			Jumping		    = false;
-			SuperState	    = true;
-			SuperStateValue = 0;
-			
-			// Reset invincibility
-			InvincibilityBonus = false;
-			
-			RadiusX = DefaultRadiusX;
-			RadiusY = DefaultRadiusY;
-			
-			audio_sfx_play(sfxTransform, false);
-			
-			audio_bgm_stop(TypePriority, 1);
-			audio_bgm_play(SuperTheme, 0.6, TypeNormal);
-		}
-	}
-	
 	// Handle superform
 	switch SuperState
 	{	
@@ -79,7 +51,6 @@ function PlayerSuperFormsProcess()
 					Rings--;
 				}
 			}
-			
 			if abs(Inertia) < TopAcc
 			{
 				SuperStateStar = 0;
@@ -98,9 +69,9 @@ function PlayerSuperFormsProcess()
 			}
 			
 			// Exit superform
-			if !Rings or (Game.DevMode and Jumping and Input.CPress)
+			if !Rings
 			{
-				SuperStateValue = 0;
+				SuperStateValue = false;
 				SuperState	    = false;
 				
 				//audio_sfx_play(sfxTransform, false);

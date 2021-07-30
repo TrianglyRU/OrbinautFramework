@@ -10,7 +10,7 @@
 	// Airborne
 	if !Grounded
 	{
-		// Limit jump height
+		// Limit jump height and perform jump actions
 		PlayerJump();
 			
 		// Update player's speeds
@@ -32,13 +32,7 @@
 		PlayerKnuxWallClimb();
 		
 		// Check for gliding as Knuckles
-		PlayerKnuxGlideAir();
-		
-		// Check for sliding as Knuckles
-		PlayerKnuxGlideGround();
-		
-		// Use barriers abilities
-		PlayerBarriersUsage();
+		PlayerKnuxGlide();
 		
 		// Air collision
 		PlayerAirLevelCollision();

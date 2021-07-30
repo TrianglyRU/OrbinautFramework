@@ -19,8 +19,6 @@ function BackgroundParallaxSetup()
 	switch room
 	{	
 		case MQZ0:
-		case MQZ1:
-		case MQZ2:
 		{
 			// Background sprites
 			BackgroundSprites = [tex_mqz_newbg00, tex_mqz_newbg00, tex_mqz_newbg00, tex_mqz_newbg00, tex_mqz_newbg01, tex_mqz_newbg01, tex_mqz_newbg02, tex_mqz_newbg02, tex_mqz_newbg02, tex_mqz_newbg03];

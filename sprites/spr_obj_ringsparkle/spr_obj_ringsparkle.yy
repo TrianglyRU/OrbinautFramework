@@ -44,7 +44,7 @@
     "spriteId": {"name":"spr_obj_ringsparkle","path":"sprites/spr_obj_ringsparkle/spr_obj_ringsparkle.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

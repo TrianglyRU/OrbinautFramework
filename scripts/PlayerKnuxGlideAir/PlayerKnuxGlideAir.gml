@@ -13,22 +13,53 @@ function PlayerKnuxGlideAir()
 	}
 	
 	// Check left or right wall
-	var WallDistance = tile_check_collision_h(floor(PosX + 10 * Facing), floor(PosY), Facing, true, Layer)[0];
-	if  WallDistance < 0
+	var WallData = tile_check_collision_h(floor(PosX + 10 * Facing), floor(PosY), Facing, true, Layer);
+	if  WallData[0] < 0
 	{
 		// Collide if distance is less than 0
-		PosX += WallDistance * Facing;
+		PosX += WallData[0] * Facing;
 		Xsp   = 0;
 		
-		// Are we in active glide state?
+		// Are we gliding?
 		if GlideState == GlideActive
-		{					
-			// Reset vertical speed
-			Ysp = 0;
+		{	
+			// Is it flat wall?
+			if WallData[1] mod 90 == 0
+			{	
+				// Reset vertical speed
+				Ysp = 0;
 						
-			// Enter climbing state
-			GlideState = false;
-			ClimbState = true;
+				// Enter climbing state
+				GlideState = false;
+				ClimbState = true;
+			}
+			
+			// If not, drop
+			else
+			{
+				show_debug_message("Kok!");
+				
+				// Reset gravity
+				if !IsUnderwater
+				{
+					Grv	= 0.21875;
+				}
+				else
+				{
+					// Lower by 0x28 (0.15625) if underwater
+					Grv = 0.0625
+				}
+			
+				// Restore default radiuses
+				RadiusX	= DefaultRadiusX;
+				RadiusY	= DefaultRadiusY;
+			
+				// Enter drop state
+				GlideState = GlideDrop;
+			
+				// Animation
+				Animation = AnimGlideDrop;
+			}
 		}
 	}
 	

@@ -115,8 +115,6 @@ function PaletteShiftHandle()
 	switch room
 	{
 		case MQZ0:
-		case MQZ1:
-		case MQZ2:
 		{
 			/*// Surface dynamic
 			for (var i = 11; i <= 18; i++)

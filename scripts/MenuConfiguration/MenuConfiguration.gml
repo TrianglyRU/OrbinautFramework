@@ -1,11 +1,9 @@
 function MenuConfiguration()
 {
 	// Main Menu
-	var StageAccess = Game.DevMode ? 3 : noone;
-	
 	menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEV MENU");
 	menu_add_option(0, 0, "GAME START",		  1);
-	menu_add_option(0, 1, "STAGE SELECT",     StageAccess);
+	menu_add_option(0, 1, "STAGE SELECT",     3);
 	menu_add_option(0, 2, "OPTIONS",	      5);
 	menu_add_option(0, 3, "EXIT GAME",    noone);
 
@@ -39,10 +37,8 @@ function MenuConfiguration()
 	
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
-	menu_add_option(4, 0, "MQZ1",    noone);
-	menu_add_option(4, 1, "MQZ2",	 noone);
-	menu_add_option(4, 2, "MQZ0",	 noone);
-	menu_add_option(4, 3, "OBJTEST", noone);
+	menu_add_option(4, 0, "MQZ0",       noone);
+	menu_add_option(4, 1, "TEST STAGE", noone);
 	
 	// Options
 	menu_add_header(5,    "GAME OPTIONS");

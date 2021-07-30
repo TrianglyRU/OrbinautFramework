@@ -85,15 +85,15 @@ function object_act_solid(sides, top, bottom, height_array)
 		{
 			exit;
 		}		
-		var YDifference = PlayerY - ObjectY + ObjectRadiusY + !sides * 4 - ObjectHeight;
+		var YDifference = PlayerY - ObjectY + ObjectRadiusY + 4 - ObjectHeight;
 		if  YDifference < 0 or YDifference > ObjectRadiusY * 2
 		{
 			exit;
 		}
 		
 		// Find collision direction
-		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2 + 1          : XDifference;
-		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - !sides * 4 : YDifference;
+		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2 + 1 : XDifference;
+		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - 4 : YDifference;
 		
 		// Collide vertically
 		if abs(XDistance) > abs(YDistance)
@@ -106,9 +106,9 @@ function object_act_solid(sides, top, bottom, height_array)
 				Player.Ysp   = 0;
 				
 				// Reset gravity if flying
-				if FlightState
+				if Player.FlightState
 				{
-					Grv	= 0.03125;
+					Player.Grv = 0.03125;
 				}	
 				
 				/* In S1 and S2 the game would also kill you if you were grounded, 
@@ -132,11 +132,7 @@ function object_act_solid(sides, top, bottom, height_array)
 				with Player
 				{
 					// Attach player to the object's top boundary
-					if !(Grounded and sides)
-					{
-						YDistance -= 4;
-					}
-					PosY -= YDistance + 1
+					PosY -= YDistance - 3;
 					
 					// Become grounded
 					Grounded = true;
@@ -159,6 +155,11 @@ function object_act_solid(sides, top, bottom, height_array)
 		// Collide horizontally
 		else if sides and abs(YDistance) > 4
 		{
+			if object_index = SpringYellowDiagonal
+			{
+				show_debug_message(XDistance);
+			}
+			
 			// Stop
 			if XDistance > 0 and Player.Xsp > 0
 			or XDistance < 0 and Player.Xsp < 0

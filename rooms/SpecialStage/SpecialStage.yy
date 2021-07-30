@@ -55,8 +55,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Stages",
-    "path": "folders/Stages.yy",
+    "name": "Special Stage",
+    "path": "folders/Stages/Special Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpecialStage",

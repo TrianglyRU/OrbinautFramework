@@ -48,6 +48,9 @@ function ObjAnimalStartup()
 		break;
     }
 	
+	// Apply sprite
+	animation_set_frame(AnimalType, 1);
+	
 	// Set speeds
 	Xsp = DefaultXsp;
 	Ysp = -4;

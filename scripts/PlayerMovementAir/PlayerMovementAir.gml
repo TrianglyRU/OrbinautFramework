@@ -17,6 +17,12 @@ function PlayerMovementAir()
 		exit;
 	}
 	
+	// Exit if transforming into super form
+	if SuperState == 1
+	{
+		exit;
+	}
+	
 	// Accelerate and decelerate
 	if !(!Game.RolljumpControl and Jumping and Rolling)
 	{

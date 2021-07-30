@@ -202,10 +202,10 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_spindash, 1, 1); 
 				break;
 				case AnimCrouch:
-					animation_play(spr_knuckles_crouch, 3, 3);
+					animation_play(spr_knuckles_crouch, 6, 2);
 				break;
 				case AnimLookup:
-					animation_play(spr_knuckles_lookup, 4, 2);
+					animation_play(spr_knuckles_lookup, 6, 2);
 				break;
 				case AnimSkid:
 					animation_play(spr_knuckles_skid, 4, 3);

@@ -62,4 +62,11 @@
 	}
 	
 	image_index = JumpTimer > 0;
-	object_act_solid(true, true, true, JumpTimer ? ColMap2 : ColMap1);
+	if !JumpTimer and Player.OnObject == id
+	{
+		object_act_solid(false, false, false, JumpTimer ? ColMap2 : ColMap1);
+	}
+	else
+	{
+		object_act_solid(true, true, true, JumpTimer ? ColMap2 : ColMap1);
+	}
