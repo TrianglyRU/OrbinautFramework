@@ -1,6 +1,6 @@
 // ================================= //
 	/* Parallax Scrolling Shader
-	         by MicG            */
+	          by MicG            */
 // ================================= //
 	
 	varying vec2 v_vTexcoord;

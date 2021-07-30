@@ -44,6 +44,7 @@ function GameFrameworkSetup()
 	Game.PreciseRings			= false; // In Sonic Mania, shattered rings behaviour was updated
 	
 	// Orbinaut improvements
+	Game.PostProcessing        = false; // Enable post-processing shader
 	Game.SmoothRotation	       = true;  // Use smooth rotation
 	Game.RichPresenceSupport   = false; // Enable Rich Presence
 	Game.NoRollSpeedLimit	   = false; // Disables xsp limitation when rolling. May cause collision glitches on higher speeds

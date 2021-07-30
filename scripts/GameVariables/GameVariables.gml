@@ -56,6 +56,7 @@ function GameVariables()
 	Game.StageTransitions		 isVar;
 	
 	// Orbinaut improvements
+	Game.PostProcessing          isVar;
 	Game.SmoothRotation			 isVar;
 	Game.RichPresenceSupport	 isVar;
 	Game.PreciseRings			 isVar;

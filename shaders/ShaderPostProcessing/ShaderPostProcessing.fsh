@@ -1,19 +1,12 @@
-// Simple passthrough fragment shader
-
+// =============================== //
+	/* Post-processing Shaders
+			 by MicG           */
+// =============================== //
 	varying vec2 v_vTexcoord;
 	varying vec4 v_vColour;
 	
 	#region Blur&Bloom (Options)
-	/*
-	const float	bloomThreshold = .1;
-	const float	bloomRange = .4;
-	const vec3  bloomColour = vec3(.7);
 	
-	const float blurSize = 1. / 512.;
-	const float blurIntensity = .2;
-	
-	const float brightness = .65;
-	*/
 	const float	bloomThreshold = .1;
 	const float	bloomRange = .4;
 	const vec3  bloomColour = vec3(.7);
@@ -22,64 +15,70 @@
 	const float blurIntensity = .15;
 	
 	const float brightness = .75;
+	/*
+	const float blurIntensity = .2;
+	
+	const float brightness = .65;
+	*/
 
 	#endregion
 	
 	void main()
 	{
-		vec2 outCoord = v_vTexcoord;
+		// Координаты пикселей на текстурной карте
+		vec2 OutCoord = v_vTexcoord;
 	
 		#region Coord shaders
 	
 		// Flip vertically 
-		//outCoord.y = 1. - outCoord.y;
+		//OutCoord.y = 1. - OutCoord.y;
 	
 		//Flip horizontally 
-		//outCoord.x = 1. - outCoord.x;
+		//OutCoord.x = 1. - OutCoord.x;
 	
 		//Flip diagonally 
-		//outCoord = 1. - outCoord;
+		//OutCoord = 1. - OutCoord;
 	
 		#endregion
-	
-		vec4 outTex = texture2D(gm_BaseTexture, outCoord);
+		
+		// Заготовка текстуры 
+		vec4 OutTex = texture2D(gm_BaseTexture, OutCoord);
 	
 		#region Colour shaders
 	
 		// Black&White
-		//float Mixed = (outTex.r + outTex.g + outTex.b) / 3.;
-		//outTex.rgb = vec3(Mixed, Mixed, Mixed);
+		//OutTex.rgb = vec3((OutTex.r + OutTex.g + OutTex.b) / 3.);
 	
 		// Sepia
-		//float Mixed = (outTex.r + outTex.g + outTex.b) / 3.;
-		//outTex.rgb = vec3(Mixed, Mixed, Mixed / 1.5);
+		//float Mixed = (OutTex.r + OutTex.g + OutTex.b) / 3.; // Смешивание цветов
+		//OutTex.rgb = vec3(Mixed, Mixed, Mixed / 1.5);
 	
 		// Negative
-		//outTex.rgb = 1. - outTex.rgb;
+		//OutTex.rgb = 1. - OutTex.rgb;
 	
 		#endregion
 		
 		#region Blur&Bloom (RTX)
+		vec3 sumTex = vec3(0); // "Сумма" (наложение) текстур со "смещением", создающее эффект блюра
+		float mult = .05; // Множитель смещения
+		float blurSum; // Показатель наложение блюра  
 		
-		vec4 sumTex = vec4(0);
-		float mult = .05;
-		float blurSum;
-		
+		// Приминение блюра
 		for (float i = -4.; i < 5.; i += 1.)
 		{
 			blurSum = i * blurSize;
-			sumTex += texture2D(gm_BaseTexture, vec2(outCoord.x + blurSum, outCoord.y)) * mult;
-			sumTex += texture2D(gm_BaseTexture, vec2(outCoord.x, outCoord.y + blurSum)) * mult;
+			sumTex += texture2D(gm_BaseTexture, vec2(OutCoord.x + blurSum, OutCoord.y)).rgb * mult;
+			sumTex += texture2D(gm_BaseTexture, vec2(OutCoord.x, OutCoord.y + blurSum)).rgb * mult;
 			mult -= (i - (i >= 0. ? 1. : 0.)) * .01;
 		}
-	   
-		float lum		= dot(outTex.rgb, bloomColour);
-		float weight	= smoothstep(bloomThreshold, bloomThreshold + bloomRange, lum);
-		outTex.rgb	= mix(vec3(0.), outTex.rgb, weight);
-		gl_FragColor = (sumTex * blurIntensity + v_vColour * outTex)  * brightness;
 		
+		// Применение блума
+		float weight = smoothstep(bloomThreshold, bloomThreshold + bloomRange, dot(OutTex.rgb, bloomColour));
+		
+		// Совмещение эффектов
+		OutTex.rgb = (mix(vec3(0.), OutTex.rgb, weight) + sumTex.rgb * blurIntensity) * brightness;
 		#endregion
 		
-		// Without Blur&Bloom
-	    //gl_FragColor = v_vColour * outTex;	
+		// Вывод
+	    gl_FragColor = v_vColour * OutTex;
 	}

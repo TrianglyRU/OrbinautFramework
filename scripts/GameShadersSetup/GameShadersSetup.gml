@@ -6,7 +6,7 @@ function GameShadersSetup()
 	Shader.Scrn_Color = shader_get_uniform(ShaderScreen, "u_color");
 	
 	// Setup palette shader
-	Shader.Scrn_ScrnHeight	 = shader_get_uniform(ShaderScreen, "u_scrnHeight");
+	Shader.Scrn_WaterHeight	 = shader_get_uniform(ShaderScreen, "u_waterHeight");
 	Shader.Scrn_DryTexelSize = shader_get_uniform(ShaderScreen, "u_dryPixelSize");
 	Shader.Scrn_DryUVs		 = shader_get_uniform(ShaderScreen, "u_dryUvs");
 	Shader.Scrn_DryIndex	 = shader_get_uniform(ShaderScreen, "u_dryPalId");
@@ -14,7 +14,6 @@ function GameShadersSetup()
 	Shader.Scrn_WetTexelSize = shader_get_uniform(ShaderScreen, "u_wetPixelSize");
 	Shader.Scrn_WetUVs       = shader_get_uniform(ShaderScreen, "u_wetUvs");
 	Shader.Scrn_WetIndex	 = shader_get_uniform(ShaderScreen, "u_wetPalId");
-	Shader.Scrn_Water        = shader_get_uniform(ShaderScreen, "u_water");
 	Shader.Scrn_WetTex       = shader_get_sampler_index(ShaderScreen, "u_wetPalTex");
 
 	// Setup background parallax shader

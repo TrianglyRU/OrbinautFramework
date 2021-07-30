@@ -1,7 +1,3 @@
-// ================================= //
-	/* Parallax Scrolling Shader
-	         by MicG            */
-// ================================= //
 // Simple passthrough vertex shader
 
 	attribute vec3 in_Position;         // (x,y,z)

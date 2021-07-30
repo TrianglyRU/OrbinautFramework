@@ -1,41 +1,42 @@
-// ================================= //
+// ============================= //
 	/* Screen Palette Shader
-			by MicG       */
-// ================================= //
+			by MicG          */
+// ============================= //
 
 	varying vec2 v_vTexcoord;
 	varying vec4 v_vColour;
 	varying vec2 v_vPosition;
 	
-	uniform float u_scrnHeight;
+	#define MaxCol 64 // Max colours on the dynamic palette list. Increase if needed
 	
+	uniform float u_waterHeight;
+	
+	// Над водой
 	uniform sampler2D u_dryPalTex;
 	uniform vec3 u_dryUvs;
 	uniform vec2 u_dryPixelSize;
-	uniform float u_dryPalId[64]; // Max colours on the dynamic palette list. Increase if needed
+	uniform float u_dryPalId[MaxCol];
 
+	// Под водой
 	uniform sampler2D u_wetPalTex;
 	uniform vec3 u_wetUvs;
 	uniform vec2 u_wetPixelSize;
-	uniform float u_wetPalId[64]; // Max colours on the dynamic palette list. Increase if needed
-	uniform float u_water;
+	uniform float u_wetPalId[MaxCol];
 	
+	// Затемнение
 	uniform float u_step;
 	uniform bool u_mode;
 	uniform int u_color;
-	
-	float Mixed;
 
-	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[64]) 
+	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[MaxCol]) 
 	{
-	    vec2 testPos;
 	    for (float i = corner.y; i < corner.z; i += pixelSize.y) 
 		{
-			testPos = vec2(corner.x, i);
-			if (distance(texture2D(sampler, testPos), inCol) == 0.) 
+			vec2 testPos = vec2(corner.x, i);
+			if (texture2D(sampler, testPos) == inCol) 
 			{
 				float Index = palID[int((i - corner.y) / pixelSize.y)];
-				testPos = vec2(corner.x + pixelSize.x * floor(Index + 1.), i);
+				testPos.x += pixelSize.x * floor(Index + 1.);
 				return mix(texture2D(sampler, vec2(testPos.x - pixelSize.x, testPos.y)), texture2D(sampler, testPos), fract(Index));
 			}
 	    }
@@ -70,8 +71,10 @@
 		#region	Change color
 		////////////////////
 		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
-		DoAlphaTest(col);
-		if ((u_water != 0.) && (u_water >= u_scrnHeight - v_vPosition.y))
+		
+		//DoAlphaTest(col); // Не знаю зачем, но пока не удалять
+		
+		if (u_waterHeight <= v_vPosition.y)
 		{
 			col = findAltColor(col, u_wetUvs, u_wetPixelSize, u_wetPalTex, u_wetPalId);
 		}
@@ -79,19 +82,10 @@
 		{
 			col = findAltColor(col, u_dryUvs, u_dryPixelSize, u_dryPalTex, u_dryPalId);
 		}
-		/*
-		col = findAltColor(col, u_dryUvs, u_dryPixelSize, u_dryPalTex, u_dryPalId);
-		if ((u_water != 0.) && (u_water >= u_scrnHeight - v_vPosition.y))
-		{
-			float Mixed = (col.r + col.g + col.b) / 3.;
-			col.rgb = mix(col.rgb, vec3(Mixed, Mixed / 1.5, Mixed / 2.), .5);
-		}
-		*/
 		#endregion
 	
 		#region Fade
 		////////////
-		//col.rgb = min(col.rgb * 255., 252.);
 		col.rgb *= 255.;
 		vec3 OutCol;
 	
