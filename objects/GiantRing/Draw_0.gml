@@ -8,7 +8,7 @@
 		{
 			Xsp = 0;
 			Ysp = 0;
-			image_alpha = 0;
+			visible = 0;
 		}
 		if Timer < 16
 		{
@@ -20,7 +20,8 @@
 		}
 		if Timer == 64
 		{
-			room_goto(SpecialStage);
+			Game.SpecialPrevious = room;
+			room_goto(SpecialControllerRoom);
 		}
 	}
 	else if image_xscale == 1 and object_player_overlap(CollisionHitbox)

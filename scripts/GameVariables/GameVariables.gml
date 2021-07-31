@@ -17,6 +17,9 @@ function GameVariables()
 	Game.PlayerPosition		     isVar;
 	Game.Time				     isVar;
 	Game.StageBoundary			 isVar;
+	Game.SpecialScore			 isVar;
+	Game.SpecialState			 isVar;
+	Game.SpecialPrevious		 isVar;
 	
 	// Graphics
 	Game.WindowFullscreen		 isVar;

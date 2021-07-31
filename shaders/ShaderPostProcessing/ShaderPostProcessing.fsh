@@ -78,7 +78,7 @@
 		// Совмещение эффектов
 		OutTex.rgb = (mix(vec3(0.), OutTex.rgb, weight) + sumTex.rgb * blurIntensity) * brightness;
 		#endregion
-		
+
 		// Вывод
 	    gl_FragColor = v_vColour * OutTex;
 	}

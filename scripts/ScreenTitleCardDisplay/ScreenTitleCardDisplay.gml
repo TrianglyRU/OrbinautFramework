@@ -36,6 +36,11 @@ function ScreenTitleCardDisplay()
 	string_set_font(Game.Font[FontCard], fa_right);
 	string_display(ZoneX, ZoneY, Stage.ZoneName, 1);
 	
+	if !CardTimer
+	{
+		fade_perform(to, black, 0);
+	}
+	
 	// Count card
 	CardTimer++;
 

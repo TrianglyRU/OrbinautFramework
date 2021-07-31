@@ -15,7 +15,8 @@ function PaletteRendererSurfaceUpdate()
 		shader_set_uniform_i(Shader.Scrn_Color, FadeColour);
 		shader_set_uniform_i(Shader.Scrn_Mode,  FadeMode);
 		
-		var WaterHeight = Game.ResolutionHeight - clamp(Screen.CameraY - Stage.WaterLevel + Game.ResolutionHeight, 0, Game.ResolutionHeight);
+		var WaterHeight = instance_exists(Stage) and Stage.WaterEnabled ? Game.ResolutionHeight - clamp(Screen.CameraY - Stage.WaterLevel + Game.ResolutionHeight, 0, Game.ResolutionHeight) : Game.ResolutionHeight;
+		shader_set_uniform_f(Shader.Scrn_WaterHeight, WaterHeight);
 		
 		// Render surface palette
 		if WaterHeight > 0 and PaletteSet[PaletteSurface] != false
@@ -27,20 +28,12 @@ function PaletteRendererSurfaceUpdate()
 		}
 		
 		// Render underwater palette
-		if WaterHeight < Game.ResolutionHeight and instance_exists(Stage) and Stage.WaterEnabled
+		if WaterHeight < Game.ResolutionHeight and PaletteSet[PaletteUnderwater] != false
 		{
-			shader_set_uniform_f(Shader.Scrn_WaterHeight, WaterHeight);
-			if PaletteSet[PaletteUnderwater] != false
-			{
-				texture_set_stage(Shader.Scrn_WetTex,			 PaletteSet[1][0]);
-				shader_set_uniform_f_array(Shader.Scrn_WetIndex, PaletteIndexWet);
-				shader_set_uniform_f(Shader.Scrn_WetTexelSize,   PaletteSet[1][1], PaletteSet[1][2]);
-				shader_set_uniform_f(Shader.Scrn_WetUVs,		 PaletteSet[1][3], PaletteSet[1][4], PaletteSet[1][5]);
-			}
-		}
-		else
-		{
-			shader_set_uniform_f(Shader.Scrn_WaterHeight, Game.ResolutionHeight);
+			texture_set_stage(Shader.Scrn_WetTex,			 PaletteSet[1][0]);
+			shader_set_uniform_f_array(Shader.Scrn_WetIndex, PaletteIndexWet);
+			shader_set_uniform_f(Shader.Scrn_WetTexelSize,   PaletteSet[1][1], PaletteSet[1][2]);
+			shader_set_uniform_f(Shader.Scrn_WetUVs,		 PaletteSet[1][3], PaletteSet[1][4], PaletteSet[1][5]);
 		}
 		
 		// Draw surface and reset shader

@@ -12,9 +12,12 @@ function PaletteSystemSetup()
 		PaletteIndexWet[i] = 1;
 	}
 	
-	// Enabled palette fade
-	FadeEnabled = true;
-
+	FadeMode   = 1;
+	FadeColour = 0;
+	FadeStep   = 768;
+	FadeTimer  = 0;
+	FadePower  = 0;
+	
 	// Reset surface
 	application_surface_draw_enable(false);
 }

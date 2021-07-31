@@ -12,6 +12,9 @@ function GameFrameworkSetup()
 	Game.Lives	   = 3;
 	Game.Continues = 0;
 	Game.Emeralds  = 0;
+	Game.SpecialScore    = 0;
+	Game.SpecialState    = 0;
+	Game.SpecialPrevious = 0;
 	
 	// Window settings
 	Game.WindowFullscreen = false;	/**/

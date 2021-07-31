@@ -325,6 +325,7 @@
     {"id":{"name":"sfxAirAlert","path":"sounds/sfxAirAlert/sfxAirAlert.yy",},"order":0,},
     {"id":{"name":"sfxBarrier","path":"sounds/sfxBarrier/sfxBarrier.yy",},"order":1,},
     {"id":{"name":"sfxBossHit","path":"sounds/sfxBossHit/sfxBossHit.yy",},"order":2,},
+    {"id":{"name":"SpecialController","path":"objects/SpecialController/SpecialController.yy",},"order":4,},
     {"id":{"name":"sfxBumper","path":"sounds/sfxBumper/sfxBumper.yy",},"order":3,},
     {"id":{"name":"sfxCharge","path":"sounds/sfxCharge/sfxCharge.yy",},"order":4,},
     {"id":{"name":"sfxDestroy","path":"sounds/sfxDestroy/sfxDestroy.yy",},"order":5,},
@@ -444,6 +445,7 @@
     {"id":{"name":"spr_obj_dustexplosion","path":"sprites/spr_obj_dustexplosion/spr_obj_dustexplosion.yy",},"order":0,},
     {"id":{"name":"spr_obj_dustpuff","path":"sprites/spr_obj_dustpuff/spr_obj_dustpuff.yy",},"order":0,},
     {"id":{"name":"spr_obj_fireexplosion","path":"sprites/spr_obj_fireexplosion/spr_obj_fireexplosion.yy",},"order":1,},
+    {"id":{"name":"SpecialControllerRoom","path":"rooms/SpecialControllerRoom/SpecialControllerRoom.yy",},"order":3,},
     {"id":{"name":"spr_obj_inv_star_type1","path":"sprites/spr_obj_inv_star_type1/spr_obj_inv_star_type1.yy",},"order":0,},
     {"id":{"name":"spr_obj_inv_star_type2","path":"sprites/spr_obj_inv_star_type2/spr_obj_inv_star_type2.yy",},"order":1,},
     {"id":{"name":"spr_obj_itembox","path":"sprites/spr_obj_itembox/spr_obj_itembox.yy",},"order":0,},
@@ -604,6 +606,7 @@
     {"roomId":{"name":"TSZ0","path":"rooms/TSZ0/TSZ0.yy",},},
     {"roomId":{"name":"SpecialStage","path":"rooms/SpecialStage/SpecialStage.yy",},},
     {"roomId":{"name":"Template","path":"rooms/Template/Template.yy",},},
+    {"roomId":{"name":"SpecialControllerRoom","path":"rooms/SpecialControllerRoom/SpecialControllerRoom.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Extensions.yy","order":0,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},

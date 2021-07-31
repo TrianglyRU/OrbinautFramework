@@ -1,18 +1,24 @@
 /// @description Insert description here
 // You can write your code in this editor
-	if State
+	if Game.SpecialState
 	{
+		if !Palette.FadeStep
+		{
+			room_goto(SpecialControllerRoom);
+		}
 	}
 	else
 	{
 		if Input.ABCPress
 		{
-			State = 1;
+			Game.SpecialState = 1;
+			Game.SpecialScore = 10000;
 			fade_perform(to, white, 1);
 		}
 		else if Input.StartPress
 		{
-			State = 2;
+			Game.SpecialState = 2;
+			Game.SpecialScore = 1000;
 			fade_perform(to, white, 1);
 		}
 	}

@@ -3,7 +3,6 @@ function PaletteVariables()
 	SurfaceHigh		 isVar;
 	SurfaceLow		 isVar;
 	
-	FadeEnabled      isVar;
 	FadeMode	     isVar;
 	FadeColour	     isVar;
 	FadeStep	     isVar;
