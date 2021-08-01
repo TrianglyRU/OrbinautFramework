@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Player",
-    "path": "folders/Game Controllers/Player.yy",
+    "name": "Functions",
+    "path": "folders/Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "_rotationOld",
+  "name": "fade_check",
   "tags": [],
   "resourceType": "GMScript",
 }

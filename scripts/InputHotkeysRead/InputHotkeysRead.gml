@@ -29,15 +29,7 @@ function InputHotkeysRead()
 	// Game restart (F3)
 	if keyboard_check_pressed(vk_f3) 
 	{
-		Game.CheckpointID   = false;
-		Game.PlayerPosition	= false;
-		Game.Time		    = 0;
-		Game.StageBoundary	= 0;
-		Game.Score          = 0;
-		Game.PaletteIndexDry[0] = 0;
-		
-		audio_stop_all();
-		room_goto(DevMenu);
+		game_restart();
 	}
 
 	// Low FPS mode (F4)

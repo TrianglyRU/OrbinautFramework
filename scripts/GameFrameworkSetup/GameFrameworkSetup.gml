@@ -10,20 +10,17 @@ function GameFrameworkSetup()
 	Game.Character = CharSonic;
 	Game.Score	   = 0;
 	Game.Lives	   = 3;
-	Game.Continues = 0;
+	Game.Continues = 2;
 	Game.Emeralds  = 0;
-	Game.SpecialScore    = 0;
-	Game.SpecialState    = 0;
-	Game.SpecialPrevious = 0;
 	
 	// Window settings
 	Game.WindowFullscreen = false;	/**/
 	Game.ResolutionWidth  = 400;	/**/
 	Game.ResolutionHeight = 224;	/**/
-	Game.WindowSize		  = 3;		/**/
+	Game.WindowSize		  = 4;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0;			/**/
+	Game.MusicVolume = 0.5;			/**/
 	Game.SoundVolume = 0.5;			/**/
 	
 	// Control settings (keyboard)

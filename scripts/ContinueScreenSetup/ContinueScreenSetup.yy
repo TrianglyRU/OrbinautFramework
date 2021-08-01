@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Functions",
-    "path": "folders/Functions.yy",
+    "name": "Continue Screen",
+    "path": "folders/Game Controllers/Continue Screen.yy",
   },
   "resourceVersion": "1.0",
-  "name": "fade_check_active",
+  "name": "ContinueScreenSetup",
   "tags": [],
   "resourceType": "GMScript",
 }

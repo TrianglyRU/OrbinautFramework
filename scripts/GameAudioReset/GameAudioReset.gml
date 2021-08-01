@@ -1,5 +1,8 @@
 function GameAudioReset()
 {
+	// Stop all audio
+	audio_stop_all();
+	
 	// Reset all sounds and music volume
 	audio_group_set_gain(GlobalSFX, Game.SoundVolume, 0);
 	audio_group_set_gain(BGM,	    Game.MusicVolume, 0);

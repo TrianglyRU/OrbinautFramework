@@ -3,6 +3,9 @@ function GameDataLoad()
 	// Load game settings
 	gamesettings_load("config");
 	
+	// Load random seed
+	random_set_seed(randomise());
+	
 	// Load collision tiles binary data
 	for (var k = 0; k < 3; k++)
 	{

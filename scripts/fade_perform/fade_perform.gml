@@ -1,6 +1,12 @@
 /// @function fade_perform(mode, colour, power)
 function fade_perform(mode, colour, power) 
 {
+	// Exit if there is no palette contoller
+	if !instance_exists(Palette)
+	{
+		exit;
+	}
+	
 	// Clamp the power value
 	power = clamp(power, 0, 255);
 	var InstFade = power == 0;

@@ -13,6 +13,9 @@ function PlayerDisplay()
 				// Check if we grounded
 				if Grounded
 				{
+					/* Rotation code by Nihil (NullSpace)
+					   Used with permission! */
+					
 					// Interpolate angle
 					if Angle >= 23.91 and Angle <= 337.5
 					{
