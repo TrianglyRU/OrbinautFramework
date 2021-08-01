@@ -154,9 +154,8 @@ function PlayerJump()
 			RadiusY = 10;
 				
 			// Set speeds	
-			Xsp     = 4 * Facing;					
-			Inertia = 0;	
-			Grv     = 0.125;
+			Inertia = 0;
+			Xsp     = 4 * Facing;	
 			Ysp     = max(Ysp, 0);
 				
 			// Reset jump and roll flag

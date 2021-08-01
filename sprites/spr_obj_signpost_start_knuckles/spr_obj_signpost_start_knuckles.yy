@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Signpost/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Signpost/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_signpost_start_knuckles",

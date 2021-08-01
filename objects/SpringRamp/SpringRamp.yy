@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_spring_ramp",
-    "path": "sprites/spr_spring_ramp/spr_spring_ramp.yy",
+    "name": "spr_obj_springramp",
+    "path": "sprites/spr_obj_springramp/spr_obj_springramp.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Spring Ramp",
+    "path": "folders/Objects/Stage Objects/Spring Ramp.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpringRamp",

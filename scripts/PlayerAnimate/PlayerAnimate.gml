@@ -85,6 +85,9 @@ function PlayerAnimate()
 					case AnimRoll:
 						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
 					break;
+					case AnimSpindash:
+						animation_play(spr_sonic_spindash, 1, 1); 
+					break;
 					case AnimCrouch:
 						animation_play(spr_supersonic_crouch, 4, 2);
 					break;

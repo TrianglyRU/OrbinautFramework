@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Stages/Moonlight Quadrant/Textures.yy",
+    "path": "folders/Stages & Rooms/Moonlight Quadrant/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_mqz_dec06",

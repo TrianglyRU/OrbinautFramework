@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Game Controllers/Menu.yy",
+    "name": "Developer Menu",
+    "path": "folders/Game Controllers/Developer Menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "MenuSaveDataLoad",

@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Bumper",
-    "path": "folders/Game Objects/Bumper.yy",
+    "path": "folders/Objects/Stage Objects/Bumper.yy",
   },
   "resourceVersion": "1.0",
   "name": "Bumper",

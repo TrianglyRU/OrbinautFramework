@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_engine_discord",
-    "path": "sprites/spr_engine_discord/spr_engine_discord.yy",
+    "name": "spr_framework_discord",
+    "path": "sprites/spr_framework_discord/spr_framework_discord.yy",
   },
   "solid": false,
   "visible": true,

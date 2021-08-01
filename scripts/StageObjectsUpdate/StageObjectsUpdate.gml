@@ -73,13 +73,20 @@ function StageObjectsUpdate()
 				or ObjectY < TopBound  or ObjectY > BottomBound
 				{
 					// Is reset flag set?
-					if objResetFlag
+					if objResetFlag != false
 					{
 						// Was object on the screen before?
 						if objResetActive
 						{
+							// Should object be deactivated?
+							if objResetFlag == ResetUnload
+							{
+								// Then deactivate!
+								instance_deactivate_object(id);
+							}
+							
 							// Should object be resetted to its initial state?
-							if objResetFlag == 1
+							else if objResetFlag == ResetRespawn
 							{
 								// Reset object if its initial position if off-limits
 								if objResetData[0] < Screen.CameraX - objLoadRangeX or objResetData[0] > Screen.CameraX + Screen.Width + objLoadRangeX
@@ -101,29 +108,23 @@ function StageObjectsUpdate()
 							}
 						
 							// Should object be deleted?
-							else if objResetFlag == 2
+							else if objResetFlag == ResetDelete
 							{	
 								// Delete
 								instance_destroy(id);
 							}
 						}
 					
-						// If not, unload
+						// If not, just unload
 						else
 						{
 							instance_deactivate_object(id);
 						}
 					}
-				
-					// If no reset flag set, unload
-					else
-					{
-						instance_deactivate_object(id);
-					}
 				}
 			
-				// If object is inside the limits and has the reset flag, allow it to be resetted
-				else if objResetFlag and !objResetActive
+				// If object is inside the limits and has the reset flag, allow unload actions
+				else if objResetFlag != false and !objResetActive
 				{
 					objResetActive = true;		
 				}

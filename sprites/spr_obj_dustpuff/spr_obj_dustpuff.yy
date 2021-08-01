@@ -86,7 +86,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Dust Puff/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Dust Puff/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_dustpuff",

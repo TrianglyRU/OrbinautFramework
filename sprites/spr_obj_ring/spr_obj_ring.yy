@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Ring/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Ring/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_ring",

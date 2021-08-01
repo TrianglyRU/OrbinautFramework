@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Sprites",
+    "path": "folders/Objects/Unsorted & Unfinished/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_framework_palette",

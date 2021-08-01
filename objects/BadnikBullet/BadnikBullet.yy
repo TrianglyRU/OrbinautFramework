@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "_Unsorted&Unfinished",
-    "path": "folders/Game Objects/_Unsorted&Unfinished.yy",
+    "name": "Unsorted & Unfinished",
+    "path": "folders/Objects/Unsorted & Unfinished.yy",
   },
   "resourceVersion": "1.0",
   "name": "BadnikBullet",

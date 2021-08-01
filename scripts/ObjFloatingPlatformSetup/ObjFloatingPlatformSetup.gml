@@ -22,7 +22,7 @@ function ObjFloatingPlatformSetup()
 	// Set object solidbox
 	object_set_solidbox(XRadius, YRadius);
 	
-	object_set_range(RangeFar, true);
+	object_set_range(RangeFar, ResetUnload);
 	
 	// Set object depth
 	object_set_depth(Player, false);

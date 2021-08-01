@@ -7,11 +7,6 @@ function animation_play(sprite_id, speed, loop)
 	// Create a special timer variable for the object
 	if !variable_instance_exists(id, "AnimationTimer")
 	{	
-		/*if sprite_index != sprite_id
-		{	
-			image_index  = 0;
-		    sprite_index = sprite_id; 
-		}*/
 		AnimationTimer = abs(speed) + 1;
 	}
 

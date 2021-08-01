@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Water Splash",
-    "path": "folders/Game Objects/Water Splash.yy",
+    "path": "folders/Objects/Stage Objects/Water Splash.yy",
   },
   "resourceVersion": "1.0",
   "name": "WaterSplash",

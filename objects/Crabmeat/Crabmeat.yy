@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Crabmeat",
-    "path": "folders/Game Objects/Badniks/Crabmeat.yy",
+    "path": "folders/Objects/Stage Objects/Badniks/Crabmeat.yy",
   },
   "resourceVersion": "1.0",
   "name": "Crabmeat",

@@ -21,8 +21,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Spring",
-    "path": "folders/Game Objects/Spring.yy",
+    "name": "Spring Boards",
+    "path": "folders/Objects/Stage Objects/Spring Boards.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpringRedDiagonal",

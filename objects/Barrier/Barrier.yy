@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Barrier",
-    "path": "folders/Game Objects/Barrier.yy",
+    "path": "folders/Objects/Stage Objects/Barrier.yy",
   },
   "resourceVersion": "1.0",
   "name": "Barrier",

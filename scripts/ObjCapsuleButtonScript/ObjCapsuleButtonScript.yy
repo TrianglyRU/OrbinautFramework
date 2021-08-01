@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Capsule",
-    "path": "folders/Game Objects/_Unsorted&Unfinished/Capsule.yy",
+    "path": "folders/Objects/Unsorted & Unfinished/Capsule.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjCapsuleButtonScript",

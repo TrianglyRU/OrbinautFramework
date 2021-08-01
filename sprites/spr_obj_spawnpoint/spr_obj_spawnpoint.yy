@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Spawnpoint/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Spawnpoint/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_spawnpoint",

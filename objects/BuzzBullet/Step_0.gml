@@ -6,7 +6,7 @@
 	
 	if image_index >= 2
 	{
-		object_set_range(RangeClose, 2);
+		object_set_range(RangeClose, ResetDelete);
 	}
 	
 	if object_player_overlap(CollisionHitbox)

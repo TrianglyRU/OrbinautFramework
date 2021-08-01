@@ -8,10 +8,14 @@ function GameMacro()
 	#macro Array 0
 
 	// Object macro
-	#macro RangeClose  0
-	#macro RangeFar    1
-	#macro EnemyBadnik 0
-	#macro EnemyBoss   1
+	#macro RangeClose   0
+	#macro RangeFar     1
+	#macro EnemyBadnik  0
+	#macro EnemyBoss    1
+	#macro ResetNone    0
+	#macro ResetUnload  1
+	#macro ResetRespawn 2
+	#macro ResetDelete  3
 	
 	// Variable macro
 	#macro isVar		 = 0

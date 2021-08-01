@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Bumper/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Bumper/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_bumper",

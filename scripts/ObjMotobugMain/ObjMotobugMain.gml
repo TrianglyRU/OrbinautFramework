@@ -20,11 +20,10 @@ function ObjMotobugMain()
 	// Is Motobug currently moving?
 	if Xsp != 0
 	{
-		
 		if SmokeTimer
 		{
 			SmokeTimer--
-			if SmokeTimer == 0
+			if !SmokeTimer
 			{
 				var  ThisID   = id;
 				var  SmokeObj = instance_create(floor(PosX - 19 * Direction), floor(PosY - 1), MotobugSmoke);

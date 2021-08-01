@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Badniks/Chopper/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Badniks/Chopper/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_chopper",

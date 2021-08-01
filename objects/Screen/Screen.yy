@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_engine_screen",
-    "path": "sprites/spr_engine_screen/spr_engine_screen.yy",
+    "name": "spr_framework_screen",
+    "path": "sprites/spr_framework_screen/spr_framework_screen.yy",
   },
   "solid": false,
   "visible": true,

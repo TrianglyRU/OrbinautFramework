@@ -813,8 +813,8 @@
     ],
   },
   "parent": {
-    "name": "Collision Tilemap",
-    "path": "folders/Stages/Collision Tilemap.yy",
+    "name": "Collision Tileset",
+    "path": "folders/Stages & Rooms/Collision Tileset.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollisionTilemap",

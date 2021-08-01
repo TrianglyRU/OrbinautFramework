@@ -26,7 +26,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Sloped Platform",
-    "path": "folders/Game Objects/Sloped Platform.yy",
+    "path": "folders/Objects/Stage Objects/Sloped Platform.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollapsePlatformPart",

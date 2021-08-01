@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Stage Objects",
+    "path": "folders/Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_bubble",

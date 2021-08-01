@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Ring",
-    "path": "folders/Game Objects/Ring.yy",
+    "path": "folders/Objects/Stage Objects/Ring.yy",
   },
   "resourceVersion": "1.0",
   "name": "Ring",

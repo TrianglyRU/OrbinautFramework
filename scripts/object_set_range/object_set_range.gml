@@ -1,7 +1,7 @@
-/// @function object_set_range(type,do_reset)
-function object_set_range(type, do_reset)
+/// @function object_set_range(range_type,reset_type)
+function object_set_range(range_type, reset_type)
 {
-	switch type
+	switch range_type
 	{	
 		case RangeFar:
 		{
@@ -19,6 +19,6 @@ function object_set_range(type, do_reset)
 	}
 	
 	objResetData   = [x, y, image_xscale, image_yscale];
-	objResetFlag   = do_reset;
+	objResetFlag   = reset_type;
 	objResetActive = false;
 }

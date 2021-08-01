@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Moonlight Quadrant",
-    "path": "folders/Stages/Moonlight Quadrant.yy",
+    "path": "folders/Stages & Rooms/Moonlight Quadrant.yy",
   },
   "resourceVersion": "1.0",
   "name": "MQZAnimatedObject",

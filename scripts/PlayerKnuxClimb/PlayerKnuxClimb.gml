@@ -1,4 +1,4 @@
-function PlayerKnuxWallClimb()
+function PlayerKnuxClimb()
 {
 	// Exit the code if we've died
 	if Death or Drown
@@ -39,7 +39,7 @@ function PlayerKnuxWallClimb()
 		if Ysp < 0
 		{
 			// Are we touching the ceiling?
-			var RoofDistance = tile_check_collision_v(floor(PosX + RadiusX * Facing), floor(PosY - DefaultRadiusY), false, true, Layer)[0];	
+			var RoofDistance = tile_check_collision_v(floor(PosX + RadiusX * Facing), floor(PosY - RadiusY), false, true, Layer)[0];	
 			if  RoofDistance < 0
 			{	
 				// Clip out
@@ -57,7 +57,7 @@ function PlayerKnuxWallClimb()
 		else
 		{
 			// Are we touching the floor?
-			var FloorDistance = tile_check_collision_v(floor(PosX + 10 * Facing), floor(PosY + DefaultRadiusY), true, false, Layer)[0];	
+			var FloorDistance = tile_check_collision_v(floor(PosX + 10 * Facing), floor(PosY + RadiusY), true, false, Layer)[0];	
 			if  FloorDistance < 0
 			{	
 				// Reset Ysp
@@ -77,8 +77,8 @@ function PlayerKnuxWallClimb()
 		}
 		
 		// Check for collision with walls
-		var DistanceAbove = tile_check_collision_h(floor(PosX + RadiusX * Facing), floor(PosY - RadiusY - 1), Facing, true, Layer)[0];
-		var DistanceBelow = tile_check_collision_h(floor(PosX + RadiusX * Facing), floor(PosY + RadiusY),     Facing, true, Layer)[0];
+		var DistanceAbove = tile_check_collision_h(floor(PosX + RadiusX * Facing), floor(PosY - 10), Facing, true, Layer)[0];
+		var DistanceBelow = tile_check_collision_h(floor(PosX + RadiusX * Facing), floor(PosY + 10), Facing, true, Layer)[0];
 		
 		// Check if we do not find the wall in front of us
 		if DistanceBelow > 0
@@ -147,8 +147,8 @@ function PlayerKnuxWallClimb()
 		}
 	}
 		
-	// Check if we're climbering on the edge
-	else if ClimbState == 2
+	// Check if we're climbering on the edge (at the very same frame)
+	if ClimbState == 2
 	{
 		// Set 'climbering' animation
 		Animation = AnimClimbering;
@@ -163,7 +163,7 @@ function PlayerKnuxWallClimb()
 		if ClimbValue == 7
 		{
 			PosX += 3 * Facing;
-			PosY -= 3;
+			PosY -= 2;
 		}
 			
 		// Frame 3
@@ -189,7 +189,7 @@ function PlayerKnuxWallClimb()
 			
 			// Final position update
 			PosX += 8 * Facing;
-			PosY += 4;
+			PosY -= DefaultRadiusY - RadiusY;
 		}
 	}
 }

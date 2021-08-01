@@ -3,7 +3,6 @@
 
 	object_set_hitbox(8, 8);
 	object_set_depth(Player, false);
-	object_set_range(RangeFar);
 	
 	var ThisBadnik = id;
 	

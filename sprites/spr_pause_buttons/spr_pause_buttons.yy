@@ -86,7 +86,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/_Unsorted&Unfinished/Sprites.yy",
+    "path": "folders/Objects/Unsorted & Unfinished/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_pause_buttons",

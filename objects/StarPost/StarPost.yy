@@ -32,7 +32,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Star Post",
-    "path": "folders/Game Objects/Star Post.yy",
+    "path": "folders/Objects/Stage Objects/Star Post.yy",
   },
   "resourceVersion": "1.0",
   "name": "StarPost",

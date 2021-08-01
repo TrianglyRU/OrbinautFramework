@@ -12,23 +12,17 @@ function PlayerKnuxGlide()
 		exit;
 	}
 	
-	// Check if action button is held
+	// Air glide
 	if GlideState == GlideActive and !GlideGrounded
 	{
+		// Check if action button is held
 		if Input.ABC
 		{
 			// Set 'glide' animation
 			Animation = AnimGlide;
 		
 			// Apply gravity
-			if Ysp < 0.5
-			{
-				Grv = 0.125;
-			}
-			else if Ysp > 0.5
-			{
-				Grv = -0.125;
-			}
+			Grv = Ysp < 0.5 ? 0.125 : -0.125;
 		
 			// Glide to the left
 			if GlideDirection = DirectionLeft
@@ -146,18 +140,28 @@ function PlayerKnuxGlide()
 	var LeftDistance  = tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0];
 	var RightDistance = tile_check_collision_h(floor(PosX + 10), floor(PosY), true, true,  Layer)[0];
 			
-	// Are we colliding left wall?
-	if LeftDistance < 0
+	// Are we colliding with wall?
+	if LeftDistance < 0 or RightDistance < 0
 	{
-		PosX -= LeftDistance;
-		Xsp   = 0;
-	}
+		if LeftDistance < 0
+		{
+			PosX -= LeftDistance;
+		}
+		else if RightDistance < 0
+		{
+			PosX += RightDistance;
+		}
+		Xsp = 0;
+		
+		if GlideState == GlideActive and !GlideGrounded
+		{
+			Ysp = 0;
 			
-	// Are we colliding right wall?
-	else if RightDistance < 0
-	{
-		PosX += RightDistance;
-		Xsp   = 0;
+			RadiusY = DefaultRadiusY;
+			
+			GlideState = false;
+			ClimbState = true;
+		}	
 	}
 			
 	// If we're not colliding walls, try floor or ceiling collision
@@ -210,15 +214,12 @@ function PlayerKnuxGlide()
 					// Are we touching the floor?
 					if FloorDistance < 0
 					{
-						// Adhere to the surface
-						PosY += FloorDistance;
-						Ysp   = 0;
-				
-						// Disable gravity
+						// Reset vertical speed
+						Ysp = 0;
 						Grv = 0;
 				
 						// Is floor shallow enough?
-						if FloorAngle <= 45 or FloorAngle >= 316.41
+						if FloorAngle <= 45 or FloorAngle >= 315
 						{
 							// Enter ground glide state if gliding
 							if GlideState == GlideActive
@@ -230,6 +231,9 @@ function PlayerKnuxGlide()
 							// Enter stop state if dropping
 							else if GlideState == GlideDrop
 							{
+								// Adhere to the surface
+								PosY += FloorDistance;
+								
 								GlideState = GlideStop;
 								GlideValue = 16;
 								Xsp	       = 0;
@@ -252,20 +256,15 @@ function PlayerKnuxGlide()
 					}
 				}
 		
-				// Are we in stop state?
-				else
+				// Are we in stop state? (check at the very same frame)
+				if GlideState == GlideStop
 				{
 					// Land
+					GlideValue--;
 					if !GlideValue
 					{
 						Angle    = FloorAngle;
 						Grounded = true;
-					}
-			
-					// Decrease timer
-					else
-					{
-						GlideValue--;
 					}
 			
 					// Set animation
@@ -273,8 +272,8 @@ function PlayerKnuxGlide()
 				}
 			}
 	
-			// Are we sliding?
-			else
+			// Are we sliding? (check at the very same frame)
+			if GlideGrounded
 			{
 				// Set animation
 				Animation = AnimGlideGrounded;
@@ -316,7 +315,7 @@ function PlayerKnuxGlide()
 				}
 		
 				// Adhere to the surface
-				else
+				else if FloorDistance > -14
 				{		
 					PosY += FloorDistance;
 				}
@@ -369,6 +368,56 @@ function PlayerKnuxGlide()
 			
 					// Increase timer
 					GlideValue++
+				}
+			}
+			
+			// If in stop state, check for jumping
+			if GlideState == GlideStop
+			{
+				if Input.ABCPress
+				{	
+					// Do not jump if found the low ceiling
+					if Angle <= 45 or Angle >= 315
+					{
+						if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
+						or tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
+						{
+							exit;
+						}
+					}
+					
+					// Reset gravity
+					if !IsUnderwater
+					{
+						Grv	= 0.21875;
+					}
+					else
+					{
+						// Lower by 0x28 (0.15625) if underwater
+						Grv = 0.0625
+					}
+					
+					// Set speeds
+					Xsp  += Jump * dsin(Angle);
+					Ysp	 += Jump * dcos(Angle);	
+		
+					// Update flags
+					Jumping    = true;
+					Grounded   = false;
+					GlideState = false;
+					GlideValue = false;
+					GlideSlide = false;
+		
+					// Update radiuses
+					PosY   += RadiusY - SmallRadiusY;
+					RadiusY = SmallRadiusY;
+					RadiusX	= SmallRadiusX;
+							
+					// Set animation
+					Animation = AnimRoll;
+		
+					// Play sound
+					audio_sfx_play(sfxJump, false);
 				}
 			}
 		}

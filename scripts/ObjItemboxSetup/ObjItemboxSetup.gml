@@ -1,15 +1,16 @@
 function ObjItemBoxSetup()
 {
 	// Variables list
-	Airborne   = 0;
-	Destroyed  = 0;
-	PosX       = 0;
-	PosY	   = 0;
-	Ysp		   = 0;	
-	CardPosX   = 0;
-	CardPosY   = 0;
-	CardYsp    = 0;
-	CardSprite = 0;
+	Airborne    = 0;
+	Destroyed   = 0;
+	PosX        = 0;
+	PosY	    = 0;
+	Ysp		    = 0;	
+	CardPosX    = 0;
+	CardPosY    = 0;
+	CardSpeed   = 0;
+	CardSprite  = 0;
+	CardTimer   = 0;
 	
 	/* Variable Definitions	
 	1. BoxType, default = "Empty"
@@ -19,7 +20,7 @@ function ObjItemBoxSetup()
 	object_set_hitbox(15, 17);
 	
 	// Set active range
-	object_set_range(RangeFar, true);
+	object_set_range(RangeFar, ResetRespawn);
 	
 	// Set object solidbox
 	object_set_solidbox(14, 16);
@@ -33,8 +34,9 @@ function ObjItemBoxSetup()
 	CardPosX = x;
 	CardPosY = y - 4;
 	
-	// Set card speed
-	CardYsp = -3;
+	// Set card properties
+	CardSpeed = -3;
+	CardTimer = 5;
 	
 	// Define card to display
 	switch BoxType

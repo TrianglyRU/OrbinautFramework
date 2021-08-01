@@ -90,7 +90,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Combo Score/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Combo Score/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_comboscore",

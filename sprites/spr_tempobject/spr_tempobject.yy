@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "_Unsorted&Unfinished",
-    "path": "folders/Game Objects/_Unsorted&Unfinished.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tempobject",

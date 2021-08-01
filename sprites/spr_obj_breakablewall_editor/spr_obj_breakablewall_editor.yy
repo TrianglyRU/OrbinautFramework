@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/_Unsorted&Unfinished/Breakable Wall/Sprites.yy",
+    "path": "folders/Objects/Unsorted & Unfinished/Breakable Wall/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_breakablewall_editor",

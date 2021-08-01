@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_engine_input",
-    "path": "sprites/spr_engine_input/spr_engine_input.yy",
+    "name": "spr_framework_input",
+    "path": "sprites/spr_framework_input/spr_framework_input.yy",
   },
   "solid": false,
   "visible": true,

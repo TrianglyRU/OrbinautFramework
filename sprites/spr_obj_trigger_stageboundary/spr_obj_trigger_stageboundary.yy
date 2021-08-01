@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Triggers/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Stage Triggers/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_trigger_stageboundary",

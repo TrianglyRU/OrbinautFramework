@@ -2,7 +2,7 @@
 // You can call your scripts in this editor
 	
 	object_set_solidbox(56, 48);
-	object_set_range(RangeClose, false);
+	object_set_range(RangeClose, ResetUnload);
 	
 	if CollapseState
 	{

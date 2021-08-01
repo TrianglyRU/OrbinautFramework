@@ -6,7 +6,7 @@
 	object_set_triggerbox(-16, 16, -32, 32);
 	
 	// Set active range
-	object_set_range(RangeClose);
+	object_set_range(RangeClose, ResetUnload);
 	
 	// Set object visibility
 	visible = false;

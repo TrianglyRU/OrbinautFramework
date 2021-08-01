@@ -29,7 +29,7 @@
 		PlayerTailsFlight();
 		
 		// Check for climbing walls as Knuckles
-		PlayerKnuxWallClimb();
+		PlayerKnuxClimb();
 		
 		// Check for gliding as Knuckles
 		PlayerKnuxGlide();
@@ -65,11 +65,11 @@
 		// Check for skidding
 		PlayerSkid();
 		
-		// Collide with walls
-		PlayerGroundWallCollision();
-		
 		// Check push
 		PlayerPush();
+		
+		// Collide with walls
+		PlayerGroundWallCollision();
 		
 		// Perform roll
 		PlayerRollStart();

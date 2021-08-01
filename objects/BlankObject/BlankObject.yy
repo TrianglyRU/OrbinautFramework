@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Stage Objects",
+    "path": "folders/Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "BlankObject",

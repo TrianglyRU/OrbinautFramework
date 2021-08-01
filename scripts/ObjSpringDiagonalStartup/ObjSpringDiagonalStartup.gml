@@ -8,7 +8,7 @@ function ObjSpringDiagonalStartup()
 	object_set_solidbox(16, 16);
 	
 	// Set active range
-	object_set_range(RangeClose, false);
+	object_set_range(RangeClose, ResetUnload);
 	
 	// Set object depth
 	object_set_depth(Player, false);

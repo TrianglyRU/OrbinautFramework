@@ -3,7 +3,7 @@
 
 	object_set_hitbox(24, 12);
 	object_set_depth(Player, false);
-	object_set_range(RangeFar, true);
+	object_set_range(RangeFar, ResetRespawn);
 	
 	Way     = 500;
 	InitX   = x;

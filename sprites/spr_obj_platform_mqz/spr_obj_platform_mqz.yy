@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Floating Platform/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Floating Platform/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_platform_mqz",

@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Stages/Special Stage/Sprites.yy",
+    "name": "Textures",
+    "path": "folders/Stages & Rooms/Special Stage/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_spst_lose",

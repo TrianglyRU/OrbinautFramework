@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Boss",
-    "path": "folders/Game Objects/Boss.yy",
+    "path": "folders/Objects/Stage Objects/Boss.yy",
   },
   "resourceVersion": "1.0",
   "name": "OrbossFire",

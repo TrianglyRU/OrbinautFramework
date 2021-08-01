@@ -56,7 +56,7 @@
   },
   "parent": {
     "name": "Special Stage",
-    "path": "folders/Stages/Special Stage.yy",
+    "path": "folders/Stages & Rooms/Special Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpecialStage",

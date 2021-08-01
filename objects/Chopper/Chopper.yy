@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Chopper",
-    "path": "folders/Game Objects/Badniks/Chopper.yy",
+    "path": "folders/Objects/Stage Objects/Badniks/Chopper.yy",
   },
   "resourceVersion": "1.0",
   "name": "Chopper",

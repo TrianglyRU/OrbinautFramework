@@ -153,7 +153,7 @@
   },
   "parent": {
     "name": "Test Stage",
-    "path": "folders/Stages/Test Stage.yy",
+    "path": "folders/Stages & Rooms/Test Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "TSZTileset",

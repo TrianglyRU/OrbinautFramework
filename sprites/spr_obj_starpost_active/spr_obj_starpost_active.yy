@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Star Post/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Star Post/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_starpost_active",
