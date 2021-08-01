@@ -14,7 +14,7 @@ function PaletteSystemSetup()
 	
 	FadeMode   = 1;
 	FadeColour = 0;
-	FadeStep   = 768;
+	FadeStep   = 756;
 	FadeTimer  = 0;
 	FadePower  = 0;
 	

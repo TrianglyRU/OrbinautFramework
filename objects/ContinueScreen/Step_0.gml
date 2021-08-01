@@ -2,11 +2,12 @@
 // You can write your code in this editor
 	
 	// Exit if palette fade is active
+	/*
 	if fade_check(true)
 	{
 		exit;
 	}
-	
+	*/
 	// State 0: idle
 	if RoomState == 0
 	{
