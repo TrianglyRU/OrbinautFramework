@@ -8,11 +8,9 @@ function StageActUnload()
 	
 	if !StateTimer
 	{
-		// Buffer score, lives, continues and emeralds to transfer it to the next zone/act
-		Game.Score     = Player.Score;
-		Game.Lives     = Player.Lives;
-		Game.Emeralds  = Player.Emeralds;
-		Game.Continues = Player.Conts;
+		// Buffer score and lives to transfer it to the next zone/act
+		Game.Score = Player.Score;
+		Game.Lives = Player.Lives;
 		
 		// Clear data
 		Game.CheckpointID   = false;
@@ -29,12 +27,9 @@ function StageActUnload()
 		// Fade out
 		fade_perform(to, black, 1);
 	}
-		
-	// Start state timer
-	StateTimer++;
-				
-	// Load next act after 30 frames
-	if StateTimer == 30
+			
+	// Load next act after fade reached its max step
+	if fade_check(FadeMax)
 	{
 		switch ActID
 		{
@@ -43,9 +38,9 @@ function StageActUnload()
 			{
 				switch ZoneID
 				{
-					case 0: room_goto(DevMenu); break;
-					case 1: room_goto(MQZ2);    break;
-					case 2: room_goto(DevMenu); break;
+					case 0: 
+						room_goto(DevMenu);
+					break;
 				}
 			}	
 			break;

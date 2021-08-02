@@ -20,8 +20,4 @@ function MenuOptionsDisplay()
 	
 	string_display(Game.ResolutionWidth / 2 - OptionLength / 2 - 16, 100 + OptionID * 16, ">", 1);
 	string_display(Game.ResolutionWidth / 2 + OptionLength / 2 + 16, 100 + OptionID * 16, "<", 1);
-	
-	// Display button help
-	//string_display(52,						  Game.ResolutionHeight - 16, "A - SELECT", 1);
-	//string_display(Game.ResolutionWidth - 48, Game.ResolutionHeight - 16, "B - BACK",   1);
 }

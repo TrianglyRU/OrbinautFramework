@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Input",
-    "path": "folders/Game Controllers/Input.yy",
+    "path": "folders/Controllers (Main)/Input.yy",
   },
   "resourceVersion": "1.0",
   "name": "Input",

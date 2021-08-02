@@ -6,8 +6,8 @@
 		Timer++;
 		with Player
 		{
-			Xsp = 0;
-			Ysp = 0;
+			Xsp		= 0;
+			Ysp		= 0;
 			visible = 0;
 		}
 		if Timer < 16
@@ -16,19 +16,22 @@
 		}
 		if Timer == 32
 		{
-			fade_perform(to, white, 1);
+			audio_play_sound(sfxSpecialWarp, 0, false);
+			fade_perform(FadeIn, FadeWhite, 1);
 		}
-		if Timer == 64
+		if fade_check(FadeMax)
 		{
-			Game.SpecialPrevious = room;
-			room_goto(SpecialControllerRoom);
+			room_goto(SpecialMainRoom);
 		}
 	}
 	else if image_xscale == 1 and object_player_overlap(CollisionHitbox)
-	{	
+	{		
 		State = 2;
 		Input.IgnoreInput = true;
-		Input.ResetInput  = true;
+		
+		// Remember position
+		Game.PlayerPosition[0] = x;
+		Game.PlayerPosition[1] = y;
 	}
 
 	if Timer < 6

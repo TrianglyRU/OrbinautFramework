@@ -33,14 +33,6 @@ function GameMacro()
 	#macro FontCard      3
 	#macro FontMenu      4
 	
-	// Savedata macro
-	#macro SavedChar     0
-	#macro SavedZone     1
-	#macro SavedEmeralds 2
-	#macro SavedLives    3
-	#macro SavedConts    4
-	#macro SavedScore    5
-	
 	// Audio macro
 	#macro TypeNormal	   0
 	#macro TypePriority    1
@@ -60,9 +52,19 @@ function GameMacro()
 	#macro Shader global
 	
 	// Palette macro
+	#macro PaletteDry 0
+	#macro PaletteWet 1
+	#macro FadeNone   0
+	#macro FadeActive 1
+	#macro FadeMax    2
+	#macro FadeIn     0
+	#macro FadeOut    1
+	#macro FadeBlack  0
+	#macro FadeWhite  1
+	#macro FadeFlash  2
+	
 	#macro PaletteSurface    0
-	#macro PaletteUnderwater 1
-	#macro PaletteAll		 2
+	#macro PaletteUnderwater 1	
 	#macro to		         0
 	#macro from		         1
 	#macro black	         0

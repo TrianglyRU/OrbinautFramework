@@ -73,8 +73,6 @@ function PlayerVariables()
 	Rings				= 0;
 	Lives				= 0;
 	LivesRewards		= 0;
-	Conts				= 0;
-	Emeralds			= 0;
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;

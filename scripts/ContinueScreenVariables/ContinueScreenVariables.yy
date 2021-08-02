@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Continue Screen",
-    "path": "folders/Game Controllers/Continue Screen.yy",
+    "path": "folders/Controllers (Room)/Continue Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueScreenVariables",

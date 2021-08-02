@@ -15,7 +15,7 @@ function MenuSaveDataLoad()
 		else
 		{
 			// Local variables
-			var DataCharacter, DataZone
+			var DataCharacter, DataZone, DataEmeralds, DataLives, DataConts;
 			
 			// Define character
 			switch SaveData[i][0]
@@ -45,8 +45,13 @@ function MenuSaveDataLoad()
 				break;
 			}
 			
+			// Define emeralds, lives and conts amount
+			DataEmeralds = SaveData[i][2];
+			DataLives    = SaveData[i][3];
+			DataConts    = SaveData[i][4];
+
 			// Set display info
-			DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " " + string(DataZone);
+			DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " " + string(DataZone) + " L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
 		}
 	}
 }

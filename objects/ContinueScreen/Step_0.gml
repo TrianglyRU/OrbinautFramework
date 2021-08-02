@@ -2,12 +2,11 @@
 // You can write your code in this editor
 	
 	// Exit if palette fade is active
-	/*
-	if fade_check(true)
+	if !RoomTimer and fade_check(FadeActive)
 	{
 		exit;
 	}
-	*/
+	
 	// State 0: idle
 	if RoomState == 0
 	{
@@ -37,16 +36,25 @@
 		else
 		{
 			// Сount room timer
-			RoomTimer++;
-			
-			// Perform fade
-			if RoomTimer == 120
+			if RoomTimer < 120
 			{
-				fade_perform(to, black, 1);
+				RoomTimer++;
 			}
-
-			// Return to devmenu
-			else if RoomTimer == 156
+			else if RoomTimer == 120
+			{
+				// Perform fade
+				fade_perform(to, black, 1);
+				
+				// Overwrite savedata if not playing in 'no save' slot
+				if Game.ActiveSave != -1
+				{
+					gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0);
+				}	
+				RoomTimer++;
+			}
+			
+			// Goto into devMenu once fade reaches its max step
+			if fade_check(FadeMax)
 			{
 				room_goto(DevMenu);
 			}
@@ -66,14 +74,7 @@
 		// Flick last continue object while charging
 		if CharSpeed != 8
 		{
-			if ContObject[Game.Continues - 1].visible
-			{	
-				ContObject[Game.Continues - 1].visible = false;
-			}
-			else
-			{
-				ContObject[Game.Continues - 1].visible = true;
-			}
+			ContObject[Game.Continues - 1].visible = !ContObject[Game.Continues - 1].visible;
 		}
 		
 		// When full charged
@@ -97,8 +98,11 @@
 			// If object 64 pixels off-screen, go into next room state
 			if CharObject.x - room_width >= 64
 			{
-				RoomTimer = 0;
 				RoomState = 2;
+				RoomTimer = 1;
+				
+				// Perform fade
+				fade_perform(to, black, 1);
 			}
 		}
 	}
@@ -106,15 +110,23 @@
 	// State 2: unload, return to stage
 	else if RoomState == 2
 	{
-		if !RoomTimer
+		// Has fade reached its max state?
+		if fade_check(FadeMax)
 		{
-			fade_perform(to, black, 1);
-		}
-		RoomTimer++;
-		
-		// Return to devmenu
-		if RoomTimer == 36
-		{
-			room_goto(DevMenu);
-		}
+			// Subtract one continue
+			Game.Continues--;
+			
+			// Reset score and lives
+			Game.Lives = 3;
+			Game.Score = 0;
+			
+			// Overwrite savedata if not playing in 'no save' slot
+			if Game.ActiveSave != -1
+			{
+				gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0);
+			}
+			
+			// Go into the previous stage
+			room_goto(Game.CurrentStage[1]);
+		}	
 	}

@@ -23,24 +23,22 @@ function PlayerSetup()
 	{
 		DefaultRadiusY = 19;
 		DefaultRadiusX = 9;
-		SmallRadiusY    = 14;
-		SmallRadiusX    = 7;
+		SmallRadiusY   = 14;
+		SmallRadiusX   = 7;
 	}
 	else
 	{
 		DefaultRadiusY = 15;
 		DefaultRadiusX = 9;
-		SmallRadiusY    = 14;
-		SmallRadiusX    = 7;
+		SmallRadiusY   = 14;
+		SmallRadiusX   = 7;
 	}
 	RadiusX = DefaultRadiusX;
 	RadiusY = DefaultRadiusY;
 	
-	// Load stats
-	Score    = Game.Score;
-	Lives    = Game.Lives;
-	Emeralds = Game.Emeralds;
-	Conts    = Game.Continues;
+	// Load score and lives
+	Score = Game.Score;
+	Lives = Game.Lives;
 	
 	// If player uses saved global spawn position, use it
 	if Game.PlayerPosition != 0

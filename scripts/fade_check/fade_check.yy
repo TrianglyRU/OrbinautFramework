@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Functions",
-    "path": "folders/Functions.yy",
+    "name": "Framework Functions",
+    "path": "folders/Framework Functions.yy",
   },
   "resourceVersion": "1.0",
   "name": "fade_check",

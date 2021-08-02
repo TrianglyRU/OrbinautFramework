@@ -1,5 +1,5 @@
-/// @function fade_check(active|inactive)
-function fade_check(check)
+/// @function fade_check(fade_state)
+function fade_check(fade_state)
 {
 	// Exit if there is no palette contoller
 	if !instance_exists(Palette)
@@ -7,14 +7,17 @@ function fade_check(check)
 		return false;
 	}
 	
-	// Return check result
-	if  check and Palette.FadeStep != 756
-	or !check and Palette.FadeStep == 756
+	// Return result check
+	switch fade_state
 	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+		case FadeNone:
+			return Palette.FadeStep == 756;
+		break;
+		case FadeActive:
+			return Palette.FadeStep < 756;
+		break;
+		case FadeMax:
+			return Palette.FadeStep == 0;
+		break;
+	}	
 }

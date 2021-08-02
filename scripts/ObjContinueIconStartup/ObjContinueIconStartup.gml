@@ -16,4 +16,7 @@ function ObjContinueIconStartup()
 			IconSprite = spr_obj_conticon_knuckles;
 		break;
 	}
+	
+	// Apply icon
+	animation_set_frame(IconSprite, 1);
 }

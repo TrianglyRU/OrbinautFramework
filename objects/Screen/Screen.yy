@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Screen",
-    "path": "folders/Game Controllers/Screen.yy",
+    "path": "folders/Controllers (Main)/Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen",

@@ -32,6 +32,9 @@ function StageActStartup()
 		BottomBoundary = Game.StageBoundary;
 	}
 	
+	// Get current zone data
+	Game.CurrentStage = [ZoneID, room];
+	
 	// Set boundaries
 	TargetLeftBoundary   = LeftBoundary;
 	TargetRightBoundary  = RightBoundary;

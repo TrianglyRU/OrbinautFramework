@@ -6,12 +6,14 @@ function GameFrameworkSetup()
 	/* If devmode is disabed, settings marked with '**' will be overwritten by the
 	gameconfig file */
 	
-	// Default game state (in case we load right into stage avoiding menu)
-	Game.Character = CharSonic;
-	Game.Score	   = 0;
-	Game.Lives	   = 3;
-	Game.Continues = 2;
-	Game.Emeralds  = 0;
+	// Default game state (this only applies when we load right into stage/room avoiding main menu)
+	Game.Character    =  CharSonic;
+	Game.Score	      =  0;
+	Game.Lives	      =  1;
+	Game.Continues    =  2;
+	Game.Emeralds     =  0;
+	Game.ActiveSave   = -1;
+	Game.CurrentStage = [0, DevMenu];
 	
 	// Window settings
 	Game.WindowFullscreen = false;	/**/
@@ -47,7 +49,7 @@ function GameFrameworkSetup()
 	Game.PostProcessing        = false; // Enable post-processing shader
 	Game.SmoothRotation	       = true;  // Use smooth rotation
 	Game.RichPresenceSupport   = false; // Enable Rich Presence
-	Game.NoRollSpeedLimit	   = false; // Disables xsp limitation when rolling. May cause collision glitches on higher speeds
+	Game.NoRollSpeedLimit	   = false; // Disables xsp limit when rolling. May cause collision glitches on higher speeds
 	Game.FlyingCancel	       = true;  // Allows you to cancel flying as Tails
 	Game.SuperCancel		   = false; // Allows you to cancel super form
 }

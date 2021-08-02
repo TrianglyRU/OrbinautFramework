@@ -13,14 +13,16 @@ function GameVariables()
 	Game.Lives					 isVar;
 	Game.Continues			     isVar;
 	Game.Emeralds				 isVar;
+	Game.CurrentStage		     = [];
+	
 	Game.CheckpointID		     isVar;
 	Game.PlayerPosition		     isVar;
 	Game.Time				     isVar;
 	Game.StageBoundary			 isVar;
+	
 	Game.SpecialScore			 isVar;
 	Game.SpecialState			 isVar;
-	Game.SpecialPrevious		 isVar;
-	
+
 	// Graphics
 	Game.WindowFullscreen		 isVar;
 	Game.ResolutionWidth		 isVar;

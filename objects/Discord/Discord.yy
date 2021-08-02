@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Discord",
-    "path": "folders/Game Controllers/Discord.yy",
+    "path": "folders/Controllers (Main)/Discord.yy",
   },
   "resourceVersion": "1.0",
   "name": "Discord",

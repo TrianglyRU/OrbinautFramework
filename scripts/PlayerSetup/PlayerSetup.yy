@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Player",
-    "path": "folders/Game Controllers/Player.yy",
+    "path": "folders/Controllers (Main)/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "PlayerSetup",

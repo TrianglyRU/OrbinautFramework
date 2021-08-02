@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Background",
-    "path": "folders/Game Controllers/Background.yy",
+    "path": "folders/Controllers (Main)/Background.yy",
   },
   "resourceVersion": "1.0",
   "name": "Background",

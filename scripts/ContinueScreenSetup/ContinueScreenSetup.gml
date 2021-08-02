@@ -17,8 +17,7 @@ function ContinueScreenSetup()
 	// Create continue objects
 	for (var i = 0; i < Game.Continues; i++)
 	{
-		var ModOffset = max(Game.Continues - 1, 0) * 11;
-		ContObject[i] = instance_create(RoomX + (21 * i) - ModOffset, RoomY - 20, ContinueIcon);
+		ContObject[i] = instance_create(RoomX + 21 * i - max(Game.Continues - 1, 0) * 11, RoomY - 20, ContinueIcon);
 	}
 	
 	// Perfrom fade
@@ -26,5 +25,4 @@ function ContinueScreenSetup()
 	
 	// Play music
 	audio_play_sound(ContinueMusic, 0, false);
-	//audio_bgm_play(ContinueMusic, TypeNormal);
 }

@@ -4,13 +4,6 @@ function animation_play(sprite_id, speed, loop)
 	// Ignore the animation method built into the IDE 
 	image_speed = 0;
 	
-	// Exit the code if fade is active
-	if fade_check(true)
-	{
-		sprite_index = sprite_id;
-		exit;
-	}
-	
 	// Create a special timer variable for the object
 	if !variable_instance_exists(id, "AnimationTimer")
 	{	

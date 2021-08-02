@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Framework",
-    "path": "folders/Game Controllers/Framework.yy",
+    "path": "folders/Controllers (Main)/Framework.yy",
   },
   "resourceVersion": "1.0",
   "name": "Framework",

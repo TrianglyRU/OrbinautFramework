@@ -1,7 +1,7 @@
 function StageActUpdate()
 {	
 	// Check if act is in progress
-	if State != ActStateDefault
+	if State != StageActive
 	{
 		exit;
 	}
@@ -24,10 +24,10 @@ function StageActUpdate()
 			{
 				Player.Lives -= 1;
 					
-				fade_perform(to, black, 1);
+				fade_perform(FadeIn, FadeBlack, 1);
 				audio_bgm_stop(TypeAll, 1);
 			}
-			if StateTimer == 90
+			if fade_check(FadeMax)
 			{		
 				if Player.Lives != 0
 				{
@@ -36,17 +36,26 @@ function StageActUpdate()
 					room_restart();
 					audio_stop_all();
 				}
+				else if Game.Continues
+				{
+					// Reset game state
+					Game.Time	        = 0;
+					Game.StageBoundary  = 0;
+					Game.CheckpointID   = false;
+					Game.PlayerPosition = false;
+					
+					// Goto continue screen
+					room_goto(Continue);
+				}
 				else
 				{
 					// Override save
-					gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, Player.Emeralds, 3, 0, 0);
-					
+					if Game.ActiveSave != -1
+					{
+						gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, 0, 3, 0, 0);
+					}
+
 					// Reset game state
-					Game.Character      = CharSonic;
-					Game.Score	        = 0;
-					Game.Lives	        = 3;
-					Game.Continues      = 0;
-					Game.Emeralds       = 0;
 					Game.Time	        = 0;
 					Game.StageBoundary  = 0;
 					Game.CheckpointID   = false;
