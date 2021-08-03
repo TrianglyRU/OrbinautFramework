@@ -71,7 +71,7 @@ function PlayerAnimate()
 						animation_play(spr_supersonic_transform, 3, 8);
 					break;
 					case AnimIdle:
-						animation_play(spr_supersonic_idle, 6, 1);
+						animation_play(spr_supersonic_idle, 24, 15);
 					break;
 					case AnimWalk:
 						animation_play(spr_supersonic_walk, round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
@@ -89,25 +89,35 @@ function PlayerAnimate()
 						animation_play(spr_sonic_spindash, 1, 1); 
 					break;
 					case AnimCrouch:
-						animation_play(spr_supersonic_crouch, 4, 2);
+						animation_play(spr_supersonic_crouch, 1, 1);
 					break;
 					case AnimLookup:
 						animation_play(spr_supersonic_lookup, 4, 2);
 					break;
 					case AnimSkid:
-						animation_play(spr_sonic_skid, 6, 3);
+						animation_play(spr_supersonic_skid, 6, 3);
 					break;
 					case AnimPush:
 						animation_play(spr_sonic_push, 32, 1);
 					break;
-					case AnimBalanceFront:
-						animation_play(spr_sonic_balance_front, 16, 1);
+					case AnimHurt:
+						animation_play(spr_sonic_hurt, 1, 1);
 					break;
+					case AnimDeath:
+						animation_play(spr_sonic_death, 1, 1);
+					break;	
+					case AnimBalanceFront:
 					case AnimBalanceBack:
-						animation_play(spr_sonic_balance_back, 16, 1);
+						animation_play(spr_supersonic_balance, 4, 1);
 					break;
 					case AnimSpring:
-						animation_play(spr_sonic_spring, 1, 1);
+						animation_play(spr_supersonic_spring, 1, 1);
+					break;
+					case AnimActEnd:
+						animation_play(spr_sonic_actend, 3, 21);
+					break;
+					case AnimDrown:
+						animation_play(spr_sonic_drown, 1, 1);
 					break;
 				}
 			}

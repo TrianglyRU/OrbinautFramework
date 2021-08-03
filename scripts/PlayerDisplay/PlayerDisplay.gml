@@ -20,12 +20,12 @@ function PlayerDisplay()
 					if Angle >= 23.91 and Angle <= 337.5
 					{
 						var TargetAngle  = Angle;
-						var RotationStep = 2 - (max(0.165, abs(Inertia) / 16) + abs(Inertia) / 16);
+						var RotationStep = (abs(Inertia) / 16 + abs(Inertia) / 32 - 2) * -1
 					}
 					else
 					{
 						var TargetAngle  = 360;
-						var RotationStep = 2 - abs(Inertia) / 16;
+						var RotationStep = (abs(Inertia) / 16 - 2) * -1
 					}
 					
 					// Perform angle calculation

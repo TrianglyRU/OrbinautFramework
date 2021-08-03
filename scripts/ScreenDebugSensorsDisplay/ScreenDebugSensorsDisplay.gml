@@ -7,7 +7,7 @@ function ScreenDebugSensorsDisplay()
 	}
 	
 	// Activate solidbox debugging
-	if Stage.State != ActStateLoading
+	if Stage.State != StageLoad
 	{
 		if keyboard_check_pressed(ord("R"))
 		{

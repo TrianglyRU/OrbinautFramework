@@ -7,7 +7,7 @@ function ScreenDebugHitboxDisplay()
 	}
 	
 	// Activate hitbox debugging
-	if Stage.State != ActStateLoading and keyboard_check_pressed(ord("E"))
+	if Stage.State != StageLoad and keyboard_check_pressed(ord("E"))
 	{
 		DebugHitboxes = !DebugHitboxes;
 	}

@@ -21,7 +21,7 @@ function ObjSignpostSetup()
 	{
 		case CharSonic:
 			SpriteStart = spr_obj_signpost_start_sonic;
-			SpriteEnd	= spr_obj_signpost_start_sonic;
+			SpriteEnd	= spr_obj_signpost_end_sonic;
 		break;
 		case CharTails:
 			SpriteStart = spr_obj_signpost_start_tails;

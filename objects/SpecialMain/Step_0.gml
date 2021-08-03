@@ -31,6 +31,7 @@
 	}
 	else if fade_check(FadeMax)
 	{
+		Game.SpecialState = 0;
 		room_goto(Game.CurrentStage[1]);
 	}
 	

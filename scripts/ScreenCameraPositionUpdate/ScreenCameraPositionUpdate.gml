@@ -1,7 +1,7 @@
 function ScreenCameraPositionUpdate() 
 {	
-	// Exit if paused
-	if Stage.GamePaused
+	// Do not perform if camera is disabled
+	if !CameraEnabled
 	{
 		exit;
 	}

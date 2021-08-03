@@ -109,11 +109,11 @@ function ScreenTitleCardDisplay()
 		// Fade in after 3 seconds
 		if CardTimer == 180
 		{	
-			if Stage.State != ActStateDefault
+			if Stage.State != StageActive
 			{
-				fade_perform(from, black, 1);
+				fade_perform(FadeOut, FadeBlack, 1);
 					
-				Stage.State       = ActStateDefault;
+				Stage.State       = StageActive;
 				Stage.TimeEnabled = true;
 				Input.IgnoreInput = false;
 				InterfaceEnabled  = true;

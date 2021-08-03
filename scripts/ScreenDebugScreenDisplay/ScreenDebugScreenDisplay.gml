@@ -10,7 +10,7 @@ function ScreenDebugScreenDisplay()
 	}
 	
 	// Hotkeys:
-	if Stage.State != ActStateLoading and DebugToggle
+	if Stage.State != StageLoad and DebugToggle
 	{
 		string_set_font(Game.Font[FontDebug], fa_center);
 		string_display(Width / 2, Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  SENSORS: R  VARIABLES: T", 0.5);

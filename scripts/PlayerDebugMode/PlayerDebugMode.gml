@@ -7,7 +7,7 @@ function PlayerDebugMode()
 	}
 	
 	// Exit if stage is paused
-	if Stage.GamePaused
+	if Stage.State == StagePaused
 	{
 		exit;
 	}

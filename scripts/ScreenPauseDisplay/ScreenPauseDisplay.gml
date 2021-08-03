@@ -1,6 +1,6 @@
 function ScreenPauseDisplay()
 {
-	if !Stage.GamePaused
+	if Stage.State != StagePaused
 	{
 		return false;
 	}

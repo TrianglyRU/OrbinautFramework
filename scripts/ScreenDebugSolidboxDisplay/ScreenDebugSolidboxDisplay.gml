@@ -7,7 +7,7 @@ function ScreenDebugSolidboxDisplay()
 	}
 	
 	// Activate solidbox debugging
-	if Stage.State != ActStateLoading and keyboard_check_pressed(ord("W"))
+	if Stage.State != StageLoad and keyboard_check_pressed(ord("W"))
 	{
 		DebugSolids = !DebugSolids;
 	}

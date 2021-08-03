@@ -1,7 +1,7 @@
 function PaletteFadeUpdate()
 {	
 	// Exit if paused
-	if instance_exists(Stage) and Stage.GamePaused
+	if instance_exists(Stage) and Stage.State == StagePaused
 	{
 		exit;
 	}

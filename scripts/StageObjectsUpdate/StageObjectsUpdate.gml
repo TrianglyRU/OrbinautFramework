@@ -1,10 +1,10 @@
 function StageObjectsUpdate() 
 {	
 	// Check if player died or stage unloads
-	if Player.Death or State == ActStateUnload
+	if Player.Death or State == StageUnload
 	{			
 		// Stop player
-		if State == ActStateUnload
+		if State == StageUnload
 		{
 			with Player
 			{
@@ -21,13 +21,13 @@ function StageObjectsUpdate()
 		}
 		
 		var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette];
-		var Len = array_length(IgnoreList);
+		var Length = array_length(IgnoreList);
 		
-		// Do code from object side
+		// Update objects
 		with all
 		{
 			// Exit the code if object is the one to ignore
-			for (var i = 0; i < Len; i++)
+			for (var i = 0; i < Length; i++)
 			{
 				if object_index == IgnoreList[i]
 				{
@@ -52,7 +52,7 @@ function StageObjectsUpdate()
 	}
 	else
 	{
-		// Do code from object side
+		// Update objects
 		with all
 		{
 			// Check if object can be unloaded

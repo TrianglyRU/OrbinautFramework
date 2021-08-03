@@ -1,7 +1,7 @@
 /// @description Stage Pause
 // You can write your code in this editor
 	
-	if GamePaused
+	if State == StagePaused
 	{	
 		if Input.DownPress
 		{
@@ -39,7 +39,7 @@
 						Game.Time = 0;
 						Game.StageBoundary = 0;
 						Game.Score = 0;
-						Game.PaletteIndexDry[0] = 0;
+						//Game.PaletteIndexDry[0] = 0;
 						room_goto(DevMenu);
 					}
 				}
@@ -52,22 +52,9 @@
 					
 						audio_resume_all();
 						
-						GamePaused = false;
-						/*
-						var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette];
-						var Len = array_length(IgnoreList);
+						State = StageActive;
 						
-						// Do code from object side
-						with all
-						{
-							// Exit the code if object is the one to ignore
-							for (var i = 0; i < Len; i++)
-							{
-								if object_index == IgnoreList[i] exit;
-							}	
-							instance_activate_object(self);
-						}
-						*/
+						Screen.CameraEnabled = true;
 						
 						// Activate all objects
 						instance_activate_region(Screen.CameraX - 240, Screen.CameraY - 256, Screen.Width + 480, Screen.Height + 512, true);
@@ -89,9 +76,10 @@
 	}
 	else if Input.StartPress
 	{
-		GamePaused          = true;
-		Input.StartPress    = false;
-		Screen.PauseSurface = sprite_create_from_surface(application_surface, 0, 0, Game.ResolutionWidth, Game.ResolutionHeight, false, false, 0, 0);
+		State				 = StagePaused
+		Input.StartPress     = false;
+		Screen.CameraEnabled = false;
+		Screen.PauseSurface  = sprite_create_from_surface(application_surface, 0, 0, Game.ResolutionWidth, Game.ResolutionHeight, false, false, 0, 0);
 
 		audio_pause_all();
 	

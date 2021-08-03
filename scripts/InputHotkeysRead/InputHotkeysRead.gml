@@ -1,6 +1,6 @@
 function InputHotkeysRead()
 {	
-	if !Game.DevMode or !instance_exists(Stage) or Stage.State != ActStateDefault
+	if !Game.DevMode or !instance_exists(Stage) or Stage.State != StageActive
 	{
 		exit;
 	}

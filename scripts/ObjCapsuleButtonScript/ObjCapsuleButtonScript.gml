@@ -15,7 +15,7 @@ function ObjCapsuleButtonScript()
 			// Finish the act and tell the button it has been pressed
 			y          += 8;
 			image_index = 0;
-			Stage.State = ActStateFinished;
+			IsFinished  = true;
 			Pressed     = true;
 		}
 	}

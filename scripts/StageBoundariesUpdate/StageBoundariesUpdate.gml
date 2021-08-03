@@ -1,7 +1,7 @@
 function StageBoundariesUpdate()
 {	
 	// Exit
-	if Player.Death or State = StagePaused
+	if Player.Death or State != StageActive
 	{
 		exit;
 	}

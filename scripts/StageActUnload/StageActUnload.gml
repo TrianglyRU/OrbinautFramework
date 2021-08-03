@@ -1,7 +1,7 @@
 function StageActUnload()
 {
 	// Exit the code if act is not in its unload state
-	if State != ActStateUnload
+	if State != StageUnload
 	{
 		exit;
 	}
