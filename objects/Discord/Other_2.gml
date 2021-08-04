@@ -1,4 +1,5 @@
-/// @description Insert description here
+/// @description Startup
 // You can write your code in this editor
 
-	DiscordApplicationInitialization();
+	// Call startup script
+	DiscordPresenceStartup();

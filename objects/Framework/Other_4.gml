@@ -1,5 +1,5 @@
-/// @description Room Initialization
+/// @description Startup (Room)
 // You can call your scripts in this editor
 	
-	// Automaticly configure the room
-	GameRoomSetup();
+	// Call room startup script
+	GameRoomStartup();

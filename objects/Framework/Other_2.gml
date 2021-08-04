@@ -1,24 +1,26 @@
-/// @description Game Startup
+/// @description Startup (Application)
 // You can call your scripts in this editor
 	
-	// Initialize macros and global variables
+	// Call macro initialisation script
 	GameMacro();
+	
+	// Call variables initialisation script
 	GameVariables();
 	
-	// Initialize framework settings
+	// Call framework setup script
 	GameFrameworkSetup();
 	
-	// Load game settings and tile data
+	// Call fonts setup script
+	GameFontsSetup();
+	
+	// Call data load script
 	GameDataLoad();
 	
-	// Initialize audio
-	GameAudioLoad();
+	// Call audio startup script
+	GameAudioStartup();
 	
-	// Initialize fonts
-	GameFontsSetup();
+	// Call shaders startup script
+	GameShadersStartup();
 
-	// Initialize shaders
-	GameShadersSetup();
-
-	// Initialize application window
-	GameWindowSetup();
+	// Call window startup script
+	GameWindowStartup();

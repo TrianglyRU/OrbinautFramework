@@ -1,4 +1,5 @@
-/// @description Insert description here
+/// @description Process
 // You can write your code in this editor
 	
-	DiscordInformationUpdate();
+	// Call process script
+	DiscordPresenceProcess();

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Framework",
-    "path": "folders/Controllers (Main)/Framework.yy",
+    "name": "Discord",
+    "path": "folders/Controllers (Main)/Discord.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameMacro",
+  "name": "DiscordPresenceStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

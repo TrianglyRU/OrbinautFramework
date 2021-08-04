@@ -1,71 +1,66 @@
 function GameVariables()
 {	
 	// Dev mode
-	Game.DevMode				 isVar;
+	Game.DevMode = 0;
 	
 	// Saving
-	Game.ActiveSave				 isVar;
-	Game.Saveslot			     isVar;
+	Game.ActiveSave = 0;
 	
 	// Global data to transfer between stages
-	Game.Character		         isVar;
-	Game.Score				     isVar;
-	Game.Lives					 isVar;
-	Game.Continues			     isVar;
-	Game.Emeralds				 isVar;
+	Game.Character		         = 0;
+	Game.Score				     = 0;
+	Game.Lives					 = 0;
+	Game.Continues			     = 0;
+	Game.Emeralds				 = 0;
 	Game.CurrentStage		     = [];
 	
-	Game.CheckpointID		     isVar;
-	Game.PlayerPosition		     isVar;
-	Game.Time				     isVar;
-	Game.StageBoundary			 isVar;
+	Game.CheckpointID		     = 0;
+	Game.PlayerPosition		     = 0;
+	Game.Time				     = 0;
+	Game.StageBoundary			 = 0;
 	
-	Game.SpecialScore			 isVar;
-	Game.SpecialState			 isVar;
+	Game.SpecialScore			 = 0;
+	Game.SpecialState			 = 0;
 
 	// Graphics
-	Game.WindowFullscreen		 isVar;
-	Game.ResolutionWidth		 isVar;
-	Game.ResolutionHeight		 isVar;
-	Game.WindowSize				 isVar;
+	Game.WindowFullscreen		 = 0;
+	Game.ResolutionWidth		 = 0;
+	Game.ResolutionHeight		 = 0;
+	Game.WindowSize				 = 0;
 	
 	// Audio
-	Game.MusicVolume			 isVar;
-	Game.SoundVolume			 isVar;
+	Game.MusicVolume			 = 0;
+	Game.SoundVolume			 = 0;
 	
-	Game.NormalTrack			 isArr;
-	Game.PriorityTrack			 isArr;
-	Game.JingleTrack			 isArr;
-	Game.NormalTrack[5] = 0;
-	Game.PriorityTrack[5] = 0;
-	Game.JingleTrack[5] = 0;
+	Game.NormalTrack[5]			 = 0;
+	Game.PriorityTrack[5]		 = 0;
+	Game.JingleTrack[5]		     = 0;
 	
 	// Control
-	Game.KeyboardControl		 isVar;
+	Game.KeyboardControl		 = 0;
 	
 	// Original differences
-	Game.SpindashEnabled		 isVar;
-	Game.DropdashEnabled		 isVar;
-	Game.PeeloutEnabled			 isVar;
-	Game.GroundSpeedcap			 isVar;
-	Game.AirSpeedcap			 isVar;	
-	Game.RolljumpControl		 isVar;		
-	Game.ExtendedCamera			 isVar;	
-	Game.StrongerSlopeGravity	 isVar;
-	Game.LooseCrouch			 isVar;
-	Game.ConstantRollPhysics     isVar;
-	Game.SpeedFloorClip			 isVar;
-	Game.ExtensiveWallCollision  isVar;
-	Game.BalancingCrouch		 isVar;
-	Game.BuffedWaterBarrier      isVar;
-	Game.StageTransitions		 isVar;
+	Game.SpindashEnabled		 = 0;
+	Game.DropdashEnabled		 = 0;
+	Game.PeeloutEnabled			 = 0;
+	Game.GroundSpeedcap			 = 0;
+	Game.AirSpeedcap			 = 0;	
+	Game.RolljumpControl		 = 0;		
+	Game.ExtendedCamera			 = 0;	
+	Game.StrongerSlopeGravity	 = 0;
+	Game.LooseCrouch			 = 0;
+	Game.ConstantRollPhysics     = 0;
+	Game.SpeedFloorClip			 = 0;
+	Game.ExtensiveWallCollision  = 0;
+	Game.BalancingCrouch		 = 0;
+	Game.BuffedWaterBarrier      = 0;
 	
 	// Orbinaut improvements
-	Game.PostProcessing          isVar;
-	Game.SmoothRotation			 isVar;
-	Game.RichPresenceSupport	 isVar;
-	Game.PreciseRings			 isVar;
-	Game.NoRollSpeedLimit		 isVar;
-	Game.FlyingCancel			 isVar;
-	Game.SuperCancel			 isVar;
+	Game.PostProcessing          = 0;
+	Game.SmoothRotation			 = 0;
+	Game.RichPresenceSupport	 = 0;
+	Game.PreciseRings			 = 0;
+	Game.NoRollSpeedLimit		 = 0;
+	Game.FlyingCancel			 = 0;
+	Game.SuperCancel			 = 0;
 }

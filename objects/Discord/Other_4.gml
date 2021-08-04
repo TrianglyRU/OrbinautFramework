@@ -1,4 +1,5 @@
-/// @description Insert description here
+/// @description Setup
 // You can write your code in this editor
-
-	DiscordInformationSet();
+	
+	// Call setup script
+	DiscordDisplaySetup();

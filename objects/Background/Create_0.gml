@@ -1,11 +1,11 @@
-/// @description Variables & Setup
+/// @description Startup
 // You can call your scripts in this editor
 	
-	// Initialize background variables
+	// Call variables script
 	BackgroundVariables();
 	
-	// Setup background parallax
+	// Call setup script
 	BackgroundParallaxSetup();
 	
-	// Setup background system
-	BackgroundSystemSetup();
+	// Call startup script
+	BackgroundSystemStartup();

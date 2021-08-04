@@ -1,5 +1,5 @@
-/// @description Audio Update
+/// @description Reset
 // You can write your code in this editor
 	
-	// Update audio
+	// Call audio reset script
 	GameAudioReset();

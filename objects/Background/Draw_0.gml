@@ -1,5 +1,5 @@
-/// @description Parallax
+/// @description Process
 // You can call your scripts in this editor
 	
-	// Perform background parallax
-	BackgroundParallaxPerform();
+	// Call process script
+	BackgroundParallaxProcess();
