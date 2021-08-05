@@ -20,6 +20,6 @@ function application_set_size(appWidth, appHeight)
 		}
 	}
 	
-	// Enable surface rendering in case it was disabled
+	// Re-enable surface rendering
 	application_surface_draw_enable(true);
 }

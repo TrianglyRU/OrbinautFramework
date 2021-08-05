@@ -1,14 +1,11 @@
-/// @description Variables & Setup
+/// @description
 // You can write your code in this editor
 	
-	// Initialize variables
+	// Call variables initialization script
 	PaletteVariables();
 	
-	// Setup palette system
-	PaletteSystemSetup();
+	// Call system startup script
+	PaletteSystemStartup();
 	
-	// Load a palette set to use in the room
-	PaletteDataLoad();
-	
-	// Reset surfaces
-	PaletteRendererSurfaceReset();
+	// Call setup script
+	PaletteSetup();

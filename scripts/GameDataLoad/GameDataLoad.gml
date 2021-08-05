@@ -23,7 +23,7 @@ function GameDataLoad()
 			break;
 		}
 		
-		// Open datafile
+		// Open file
 		var File = file_bin_open(Name, 0);	
 		var Size = file_bin_size(File);
 		if  File 
@@ -60,6 +60,8 @@ function GameDataLoad()
 					break;
 				}
 			}
+			
+			// Close file
 			file_bin_close(File);									 
 		}
 	}

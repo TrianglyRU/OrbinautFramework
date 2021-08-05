@@ -1,5 +1,5 @@
-/// @description Update
+/// @description
 // You can write your code in this editor
 	
 	// Call update script
-	DiscordEventUpdate();
+	DiscordUpdate();

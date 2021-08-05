@@ -1,55 +1,43 @@
 function GameMacro()
 {	
-	/* Macros are basically replacement for using digits and numbers in your code to
-	make it more practical. We could use emums in that case, but macros are easier */
+	/* Macros are basically replacement for using digits in your code to
+	make it more readable. We could use emums in that case, but macros are easier */
 	
-	// Main macro
-	#macro Game  global
-	#macro Array 0
+	// Global framework macro
+	#macro Game   global
+	#macro Shader global
 
 	// Object macro
 	#macro RangeClose   0
 	#macro RangeFar     1
 	#macro EnemyBadnik  0
 	#macro EnemyBoss    1
-	#macro ResetNone    0
-	#macro ResetUnload  1
-	#macro ResetRespawn 2
-	#macro ResetDelete  3
-	
-	// Variable macro
-	#macro isVar		 = 0
-	#macro isArr		[0] = 0	
-	#macro isAsset		= 0
-	#macro isReal		= 0
-	#macro isBool		= false
-	#macro isArray		[99] = 0
-	#macro isString		= ""
+	#macro TypeNone		0
+	#macro TypeUnload	1
+	#macro TypeReset	2
+	#macro TypeDelete   3
 	
 	// Font macro
-	#macro FontDebug     0
-	#macro FontDigits1   1
-	#macro FontDigits2   2
-	#macro FontCard      3
-	#macro FontMenu      4
+	#macro FontDebug   0
+	#macro FontDigits1 1
+	#macro FontDigits2 2
+	#macro FontCard    3
+	#macro FontMenu    4
 	
 	// Audio macro
-	#macro TypeNormal	   0
-	#macro TypePriority    1
-	#macro TypeJingle	   2
-	#macro TypeAll		   3
-	#macro TrackIndex	   0
-	#macro TrackID		   1
-	#macro TrackLoop	   2
-	#macro TrackEvent	   3
-	#macro TrackEventTime  4	
-	#macro EventIdle	   0
-	#macro EventMute	   1
-	#macro EventUnmute     2
-	#macro EventStop	   3
-	
-	// Shader macro
-	#macro Shader global
+	#macro TypeNormal	  0
+	#macro TypePriority   1
+	#macro TypeJingle	  2
+	#macro TypeAll		  3
+	#macro TrackIndex	  0
+	#macro TrackID		  1
+	#macro TrackLoop	  2
+	#macro TrackEvent	  3
+	#macro TrackEventTime 4	
+	#macro EventIdle	  0
+	#macro EventMute	  1
+	#macro EventUnmute    2
+	#macro EventStop	  3
 	
 	// Palette macro
 	#macro PaletteDry 0
@@ -62,15 +50,7 @@ function GameMacro()
 	#macro FadeBlack  0
 	#macro FadeWhite  1
 	#macro FadeFlash  2
-	
-	#macro PaletteSurface    0
-	#macro PaletteUnderwater 1	
-	#macro to		         0
-	#macro from		         1
-	#macro black	         0
-	#macro white	         1
-	#macro flash	         2
-	
+
 	// Player macro
 	#macro CharSonic		   0
 	#macro CharTails	       1
@@ -80,15 +60,14 @@ function GameMacro()
 	#macro GlideActive	       1
 	#macro GlideDrop           2
 	#macro GlideStop           3
-	#macro DirectionLeft	  -1
-	#macro DirectionRight	   1
+	#macro FlipLeft			  -1
+	#macro FlipRight		   1
 	#macro LayerA		       0
 	#macro LayerB		       1
 	#macro BarrierNormal	   1
 	#macro BarrierThunder	   2
 	#macro BarrierWater        3
-	#macro BarrierFlame		   4
-	
+	#macro BarrierFlame		   4	
 	#macro AnimIdle		       0
 	#macro AnimWalk		       1
 	#macro AnimRun		       2
@@ -126,11 +105,6 @@ function GameMacro()
 	#macro StagePaused		   2
 	#macro StageUnload		   3
 	
-	#macro ActStateLoading	   0
-	#macro ActStateDefault     1
-	#macro ActStateFinished    2	
-	#macro ActStateUnload      3
-	
 	// Collision macro
 	#macro SideTop			   0
 	#macro SideLeft			   1
@@ -138,12 +112,44 @@ function GameMacro()
 	#macro SideBottom		   3
 	#macro SideCentre		   4
 	#macro SideCenter		   4
-	#macro CollisionHitbox     0
-	#macro CollisionTriggerbox 1
+	#macro Hitbox			   0
+	#macro Triggerbox		   1
+	#macro QuadFloor		   0
+	#macro QuadRWall		   1
+	#macro QuadRoof			   2
+	#macro QuadLWall		   3
+	#macro TileSize            16
+	#macro TileAmount          146
+	
+	// Outdated
 	#macro RangeFloor	       0
 	#macro RangeRWall	       1
 	#macro RangeRoof		   2
 	#macro RangeLWall		   3
-	#macro TileSize            16
-	#macro TileAmount          146
+	#macro PaletteSurface    0
+	#macro PaletteUnderwater 1	
+	#macro to		         0
+	#macro from		         1
+	#macro black	         0
+	#macro white	         1
+	#macro flash	         2
+	#macro isVar		 = 0
+	#macro isArr		[0] = 0	
+	#macro isAsset		= 0
+	#macro isReal		= 0
+	#macro isBool		= false
+	#macro isArray		[99] = 0
+	#macro isString		= ""
+	#macro ResetNone    0
+	#macro ResetUnload  1
+	#macro ResetRespawn 2
+	#macro ResetDelete  3
+	#macro DirectionLeft	  -1
+	#macro DirectionRight	   1
+	#macro CollisionHitbox     0
+	#macro CollisionTriggerbox 1
+	#macro ActStateLoading	   0
+	#macro ActStateDefault     1
+	#macro ActStateFinished    2	
+	#macro ActStateUnload      3
 }

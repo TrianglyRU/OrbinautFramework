@@ -1,17 +1,17 @@
-/// @description Read
+/// @description
 // You can call your scripts in this editor
 	
-	// Update input device
-	InputDeviceUpdate();
+	// Call update script
+	InputUpdate();
 	
-	// Read input from gamepad
-	InputGamepadRead();
+	// Call gamepad process script
+	InputGamepadProcess();
 	
-	// Read input from keyboard
-	InputKeyboardRead();
+	// Call keyboard process script
+	InputKeyboardProcess();
 	
-	// Reset buttons when called
-	InputButtonsReset();
+	// Call hotkeys process script
+	InputHotkeysProcess();
 	
-	// Hotkeys
-	InputHotkeysRead();
+	// Call reset script
+	InputReset();
