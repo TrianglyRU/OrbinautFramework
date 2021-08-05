@@ -14,36 +14,57 @@ function PaletteShiftHandle()
 		{
 			for (var i = 1; i <= 4; i++)
 			{
+				// Get current colour and duration
+				var Colour = palette_get_colour(PaletteSurface, i);
+				
+				// Is Sonic in his regular form?
 				if !Player.SuperState
 				{
-					// Regular form
-					if palette_get_colour(PaletteSurface, i) == 1
+					// If not transforming, use first colour
+					if Colour == 1
 					{
 						palette_handle(PaletteSurface,    i, 1, 1, 1);
 						palette_handle(PaletteUnderwater, i, 1, 1, 1);
 					}
 					
-					// Transforming from super into regular form
+					// If transforming from Super
 					else
 					{
-						if palette_get_colour(PaletteSurface, i) < 17
+						if Colour < 17
 						{
-							palette_handle(PaletteSurface,    i, 16, 17, 4);
-							palette_handle(PaletteUnderwater, i, 16, 17, 4);
-						}
-						else
-						{				
-							palette_handle(PaletteSurface,    i, 21, 1, 8);
-							palette_handle(PaletteUnderwater, i, 21, 1, 8);	
-						}
+							palette_set_colour(PaletteSurface,    i, 17);
+							palette_set_colour(PaletteUnderwater, i, 17);
+						}	
+						palette_handle(PaletteSurface,    i, 21, 1, 4);
+						palette_handle(PaletteUnderwater, i, 21, 1, 4);	
 					}
 				}
 				
-				// Super form
+				// Transforming into Super
+				else if Player.SuperState == 1
+				{
+					if Colour == 1
+					{
+						palette_handle(PaletteSurface,    i, 2, 2, 19);
+						palette_handle(PaletteUnderwater, i, 2, 2, 19);
+					}
+					if Colour > 1
+					{
+						palette_handle(PaletteSurface,    i, 6, 6, 4);
+						palette_handle(PaletteUnderwater, i, 6, 6, 4);
+					}
+				}
+				
+				// In Super Form
 				else
 				{
-					palette_handle(PaletteSurface,    i, 16, 7, 4);
-					palette_handle(PaletteUnderwater, i, 16, 7, 4);
+					if Colour < 7
+					{
+						palette_set_colour(PaletteSurface,    i, 7);
+						palette_set_colour(PaletteUnderwater, i, 7);
+					}
+					palette_handle(PaletteSurface,    i, 16, 7, 8);
+					palette_handle(PaletteUnderwater, i, 16, 7, 8);
 				}
 			}
 		}

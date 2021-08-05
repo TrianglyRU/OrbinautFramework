@@ -3,13 +3,25 @@ function ObjSpringDiagonalMain()
 	if (floor(Player.PosX + 4 * image_xscale) - x) * image_xscale >= 0 and object_player_touch(LaunchSide)
 	{
 		// Reset flags
-		Player.Grounded      = false;
-		Player.OnObject      = false;
-		Player.Jumping       = false;
-		Player.FlightState   = false;
-		Player.GlideState    = false;
-		Player.ClimbState	 = false;
-		Player.DropdashRev   = -1;
+		Player.Grounded    = false;
+		Player.OnObject    = false;
+		Player.Jumping     = false;
+		Player.FlightState = false;
+		Player.GlideState  = false;
+		Player.ClimbState  = false;
+		Player.DropdashRev = -1;
+		Player.Inertia	   = 0;
+		
+		// Reset gravity
+		if !Player.IsUnderwater
+		{
+			Player.Grv	= 0.21875;
+		}
+		else
+		{
+			// Lower by 0x28 (0.15625) if underwater
+			Player.Grv = 0.0625
+		}
 		
 		// Set 'spring up' or 'walk' animation
 		Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;
@@ -38,7 +50,7 @@ function ObjSpringDiagonalMain()
 	else
 	{
 		// Act solid
-		object_act_solid(true, true, true, CollisionMap);
+		object_act_solid(true, true, true);
 	}
 	
 	// Is current frame different from 1?

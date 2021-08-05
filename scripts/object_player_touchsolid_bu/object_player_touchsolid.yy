@@ -6,7 +6,7 @@
     "path": "folders/Framework Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_player_touch_backup",
+  "name": "object_player_touchsolid",
   "tags": [],
   "resourceType": "GMScript",
 }

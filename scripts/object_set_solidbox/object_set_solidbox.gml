@@ -1,7 +1,11 @@
-/// @function object_set_solidbox(xradius, yradius)
-function object_set_solidbox(xradius, yradius)
+/// @function object_set_solidbox(xradius, yradius, heightmap)
+function object_set_solidbox(xradius, yradius, heightmap)
 {
 	// Set solid radiuses
-	objXRadiusSolid = xradius;
-	objYRadiusSolid = yradius;
+	Obj_SolidX   = xradius;
+	Obj_SolidY   = yradius;
+	Obj_SolidMap = heightmap;
+	
+	// Set status
+	Obj_SolidStatus = true;
 }

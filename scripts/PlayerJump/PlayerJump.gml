@@ -27,10 +27,16 @@ function PlayerJump()
 		// Should we enter Super state?
 		if !SuperState
 		{
+			// Play animation
+			Animation = AnimTransform;
+			
 			// Transform
 			SuperState      = true;
 			SuperStateValue = false;
 			SuperStateStar  = false;
+			
+			// Disable controls
+			NoControls = true;
 			
 			// Reset invincibility
 			InvincibilityBonus = false;
@@ -38,12 +44,6 @@ function PlayerJump()
 			// Use normal collision radiuses
 			RadiusX = DefaultRadiusX;
 			RadiusY = DefaultRadiusY;
-			
-			// Play animation
-			Animation = AnimTransform;
-			
-			// Disable collisions
-			AllowCollision = false;
 			
 			audio_sfx_play(sfxTransform, false);		
 			audio_bgm_play(SuperTheme, 0.6, TypeNormal);

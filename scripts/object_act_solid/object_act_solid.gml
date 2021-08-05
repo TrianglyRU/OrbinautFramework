@@ -1,5 +1,5 @@
-/// @function object_act_solid(sides, top, bottom, height_array)
-function object_act_solid(sides, top, bottom, height_array)
+/// @function object_act_solid(sides, top, bottom)
+function object_act_solid(sides, top, bottom)
 {
 	// Exit the code if collisions are disabled
 	if !Player.AllowCollision
@@ -8,13 +8,13 @@ function object_act_solid(sides, top, bottom, height_array)
 	}
 	
 	// Exit the code if no solid radiuses were initialized for this object
-	if !variable_instance_exists(id, "objXRadiusSolid")
+	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
 		exit;
 	}
 	
 	// Exit the code if object can't be collided
-	if !objXRadiusSolid or !objYRadiusSolid
+	if !Obj_SolidX or !Obj_SolidY
 	{
 		exit;	
 	}
@@ -28,8 +28,8 @@ function object_act_solid(sides, top, bottom, height_array)
 	// Get object
 	var ObjectX		   = floor(x);
 	var ObjectY        = floor(y);
-	var ObjectRadiusX  = floor(objXRadiusSolid + 11);
-	var ObjectRadiusY  = floor(objYRadiusSolid + Player.RadiusY);
+	var ObjectRadiusX  = floor(Obj_SolidX + 11);
+	var ObjectRadiusY  = floor(Obj_SolidY + Player.RadiusY);
 	var ObjectID	   = id;
 
 	// Get player
@@ -37,17 +37,17 @@ function object_act_solid(sides, top, bottom, height_array)
 	var PlayerY = floor(Player.PosY);
 	
 	// Get height array
-	if height_array != false
+	if Obj_SolidMap != false
 	{
 		// Get object sides
-		var ObjectLeft  = floor(x - objXRadiusSolid - 0);
-		var ObjectRight = floor(x + objXRadiusSolid - 1);
+		var ObjectLeft  = floor(x - Obj_SolidX - 0);
+		var ObjectRight = floor(x + Obj_SolidX - 1);
 			
 		// Get height from array to use
-		var ArrayHeight = clamp(image_xscale ? PlayerX - ObjectLeft : ObjectRight - PlayerX, 0, array_length(height_array) - 1);
+		var ArrayHeight = clamp(image_xscale ? PlayerX - ObjectLeft : ObjectRight - PlayerX, 0, array_length(Obj_SolidMap) - 1);
 		
 		// Calculate height difference
-		var ObjectHeight = (objYRadiusSolid * 2 - height_array[ArrayHeight]) * image_yscale;	
+		var ObjectHeight = (Obj_SolidY * 2 - Obj_SolidMap[ArrayHeight]) * image_yscale;	
 	}
 	else
 	{
@@ -58,7 +58,7 @@ function object_act_solid(sides, top, bottom, height_array)
 	if Player.OnObject == ObjectID
 	{	
 		// Get fall radius
-		var FallRadius = sides ? ObjectRadiusX : objXRadiusSolid;
+		var FallRadius = sides ? ObjectRadiusX : Obj_SolidX;
 		
 		// Check if player is outside the object
 		var XComparison = PlayerX - ObjectX + FallRadius;
@@ -72,7 +72,7 @@ function object_act_solid(sides, top, bottom, height_array)
 			Player.PosX += floor(x - xprevious);
 							
 			// Make player to always stay on top of the object
-			Player.PosY = ObjectY - objYRadiusSolid - Player.RadiusY + ObjectHeight - 1;
+			Player.PosY = ObjectY - Obj_SolidY - Player.RadiusY + ObjectHeight - 1;
 		}
 	}
 			
@@ -92,7 +92,7 @@ function object_act_solid(sides, top, bottom, height_array)
 		}
 		
 		// Find collision direction
-		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2 + 1 : XDifference;
+		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2     : XDifference;
 		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - 4 : YDifference;
 		
 		// Collide vertically
@@ -119,7 +119,7 @@ function object_act_solid(sides, top, bottom, height_array)
 			else if top and YDistance > 0 and YDistance < 16 and Player.Ysp >= 0
 			{
 				// Get land radius
-				var LandRadius  = sides ? ObjectRadiusX : objXRadiusSolid;
+				var LandRadius  = sides ? ObjectRadiusX : Obj_SolidX;
 		
 				// Exit if outside the object
 				var XComparison = PlayerX - ObjectX + LandRadius;
@@ -155,11 +155,6 @@ function object_act_solid(sides, top, bottom, height_array)
 		// Collide horizontally
 		else if sides and abs(YDistance) > 4
 		{
-			if object_index = SpringYellowDiagonal
-			{
-				show_debug_message(XDistance);
-			}
-			
 			// Stop
 			if XDistance > 0 and Player.Xsp > 0
 			or XDistance < 0 and Player.Xsp < 0

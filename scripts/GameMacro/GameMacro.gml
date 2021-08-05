@@ -118,6 +118,7 @@ function GameMacro()
 	#macro AnimSwimTired	   26
 	#macro AnimTransform	   27
 	#macro AnimDrown		   28
+	#macro AnimSpinning		   29
 
 	// Stage macro	
 	#macro StageLoad           0

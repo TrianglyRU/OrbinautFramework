@@ -16,6 +16,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	}
 	
 	// Reset player flags
+	Player.NoControls   = true;
 	Player.MovementLock = false;
 	Player.Jumping		= false;
 	Player.FlightState	= false;
@@ -157,11 +158,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		if Player.IsUnderwater
 		{
 			Player.Grv -= 0.125;
-		}
-
-		// Perform movement
-		if Player.IsUnderwater
-		{
+			
 			Player.Xsp = floor(Player.PosX) > floor(x) ? 1 : -1;
 			Player.Ysp = -2;
 		}

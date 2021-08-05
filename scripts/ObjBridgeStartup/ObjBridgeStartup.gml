@@ -26,7 +26,7 @@ function ObjBridgeStartup()
 	x += (BridgeLength / 2 - 6) * 16;
 	
 	// Set bridge solidbox
-	object_set_solidbox(BridgeLength / 2 * 16, 8);
+	object_set_solidbox(BridgeLength / 2 * 16, 8, false);
 	
 	// Set active range
 	object_set_range(RangeFar, false);

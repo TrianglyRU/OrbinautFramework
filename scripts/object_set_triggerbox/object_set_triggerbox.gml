@@ -2,8 +2,11 @@
 function object_set_triggerbox(xLeft, xRight, yTop, yBottom)
 {
 	// Set triggerbox coordinates
-	objXRadiusTriggerLeft   = xLeft;
-	objXRadiusTriggerRight  = xRight;
-	objYRadiusTriggerTop    = yTop;
-	objYRadiusTriggerBottom = yBottom;
+	Obj_TriggerLeft   = xLeft;
+	Obj_TriggerRight  = xRight;
+	Obj_TriggerTop    = yTop;
+	Obj_TriggerBottom = yBottom;
+	
+	// Set status
+	Obj_TriggerStatus = true;
 }

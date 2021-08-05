@@ -1,11 +1,15 @@
 function PlayerAnimate()
 {	
+	// Calculate speed factor for certain animations
+	var SpeedFactor = PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3;
+	
 	// Get the current character
 	switch CharacterID
 	{	
 		// Sonic animations
 		case CharSonic:
 		{
+			// Regular state
 			if !SuperState
 			{
 				switch Animation
@@ -13,17 +17,17 @@ function PlayerAnimate()
 					case AnimIdle:
 						animation_play(spr_sonic_idle, 24, 15);
 					break;
-					case AnimWalk:
-						animation_play(spr_sonic_walk, round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+					case AnimWalk:						
+						animation_play(spr_sonic_walk, round(max(1, 8 - SpeedFactor)), 1);
 					break;
 					case AnimRun: 
-						animation_play(spr_sonic_run,  round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+						animation_play(spr_sonic_run, round(max(1, 8 - SpeedFactor)), 1);
 					break;
 					case AnimPeelout: 
 						animation_play(spr_sonic_peelout, 1, 1);
 					break;
 					case AnimRoll:
-						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
+						animation_play(spr_sonic_roll, round(max(1, 4 - SpeedFactor)), 1);
 					break;
 					case AnimSpindash:
 						animation_play(spr_sonic_spindash, 1, 1); 
@@ -63,27 +67,29 @@ function PlayerAnimate()
 					break;
 				}
 			}
+			
+			// Super state
 			else
 			{
 				switch Animation
 				{
 					case AnimTransform:
-						animation_play(spr_supersonic_transform, 3, 8);
+						animation_play(spr_supersonic_transform, 3, 6);
 					break;
 					case AnimIdle:
-						animation_play(spr_supersonic_idle, 24, 15);
+						animation_play(spr_supersonic_idle, 8, 1);
 					break;
 					case AnimWalk:
-						animation_play(spr_supersonic_walk, round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+						animation_play(spr_supersonic_walk, round(max(1, 8 - SpeedFactor)), 1);
 					break;
 					case AnimRun: 
-						animation_play(spr_supersonic_fly,  round(max(1, 8 - (PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3))), 1);
+						animation_play(spr_supersonic_fly,  round(max(1, 8 - SpeedFactor)), 1);
 					break;
 					case AnimPeelout: 
 						animation_play(spr_supersonic_fly, 1, 1);
 					break;
 					case AnimRoll:
-						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 1);
+						animation_play(spr_sonic_roll, round(max(1, 4 - SpeedFactor)), 1);
 					break;
 					case AnimSpindash:
 						animation_play(spr_sonic_spindash, 1, 1); 
@@ -108,7 +114,7 @@ function PlayerAnimate()
 					break;	
 					case AnimBalanceFront:
 					case AnimBalanceBack:
-						animation_play(spr_supersonic_balance, 4, 1);
+						animation_play(spr_supersonic_balance, 10, 1);
 					break;
 					case AnimSpring:
 						animation_play(spr_supersonic_spring, 1, 1);
@@ -133,10 +139,10 @@ function PlayerAnimate()
 					animation_play(spr_tails_idle, 1, 1); 
 				break;
 				case AnimWalk:
-					animation_play(spr_tails_walk, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_tails_walk, round(max(1, 8 - SpeedFactor)), 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_tails_run,  round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_tails_run,  round(max(1, 8 - SpeedFactor)), 1);
 				break;
 				case AnimPeelout: 
 					animation_play(spr_tails_dash, 1, 1);
@@ -203,13 +209,13 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_idle, 1, 1); 
 				break;
 				case AnimWalk: 
-					animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_knuckles_walk, round(max(1, 8 - SpeedFactor)), 1);
 				break;
 				case AnimRun: 
-					animation_play(spr_knuckles_run,  round(max(1, 8 - abs(Inertia))), 1);
+					animation_play(spr_knuckles_run,  round(max(1, 8 - SpeedFactor)), 1);
 				break;
 				case AnimRoll:
-					animation_play(spr_knuckles_roll, round(max(1, 4 - abs(Inertia))), 1);
+					animation_play(spr_knuckles_roll, round(max(1, 4 - SpeedFactor)), 1);
 				break;
 				case AnimSpindash:
 					animation_play(spr_knuckles_spindash, 1, 1); 

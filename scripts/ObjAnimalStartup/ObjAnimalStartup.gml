@@ -14,7 +14,7 @@ function ObjAnimalStartup()
 	FromCapsule  = 0;
 	
 	// Set object solidbox
-	object_set_solidbox(8, 12);
+	object_set_solidbox(8, 12, false);
 	
 	// Set object depth
 	object_set_depth(Player, false);

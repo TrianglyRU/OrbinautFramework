@@ -36,7 +36,7 @@ function ObjItemBoxScript()
 		}		
 		else
 		{
-			object_act_solid(true, true, false, false);
+			object_act_solid(true, true, false);
 			
 			if !Airborne
 			{

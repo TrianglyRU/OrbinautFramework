@@ -27,9 +27,20 @@ function ScreenDebugSolidboxDisplay()
 				var pBottom = floor(PosY + RadiusY);
 				draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $00ffff, $00ffff, $00ffff, $00ffff, false);
 			}
-			else if variable_instance_exists(id, "objXRadiusSolid")
+			else if variable_instance_exists(id, "Obj_SolidStatus")
 			{	
-				draw_rectangle_colour(x - objXRadiusSolid, y - objYRadiusSolid, x + objXRadiusSolid - 1, y + objYRadiusSolid - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);	
+				if Obj_SolidMap == false
+				{
+					draw_rectangle_colour(x - Obj_SolidX, y - Obj_SolidY, x + Obj_SolidX - 1, y + Obj_SolidY - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);
+				}
+				else
+				{
+					for (var i = 0; i < array_length(Obj_SolidMap); i++)
+					{
+						var HeightToDraw = image_xscale ? i : array_length(Obj_SolidMap) - 1 - i;
+						draw_line_colour(x - Obj_SolidX + i, y + Obj_SolidY - 1, x - Obj_SolidX + i, y + Obj_SolidY - Obj_SolidMap[HeightToDraw] - 1, $00ffff, $00ffff);
+					}
+				}
 			}
 		}
 		draw_set_alpha(1.0);

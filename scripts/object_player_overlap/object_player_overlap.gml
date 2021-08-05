@@ -11,22 +11,22 @@ function object_player_overlap(collisionType)
 	if collisionType == CollisionHitbox
 	{
 		// Exit the code if this object hitbox wasn't initialized
-		if !variable_instance_exists(id, "objXRadiusHit")
+		if !variable_instance_exists(id, "Obj_HitStatus")
 		{
 			return false;
 		}
 		
 		// Exit the code if object can't be overlapped
-		if !objXRadiusHit or !objYRadiusHit
+		if !Obj_HitX or !Obj_HitY
 		{
 			return false;	
 		}
 	
 		// Get object size
-		var objectTop    = floor(y - objYRadiusHit - 0);
-		var objectLeft   = floor(x - objXRadiusHit - 1);
-		var objectRight  = floor(x + objXRadiusHit - 1);
-		var objectBottom = floor(y + objYRadiusHit - 0);
+		var objectTop    = floor(y - Obj_HitY - 0);
+		var objectLeft   = floor(x - Obj_HitX - 1);
+		var objectRight  = floor(x + Obj_HitX - 1);
+		var objectBottom = floor(y + Obj_HitY - 0);
 		
 		// Get player hitbox size
 		if Player.Animation == AnimCrouch
@@ -64,13 +64,13 @@ function object_player_overlap(collisionType)
 	else if collisionType == CollisionTriggerbox
 	{
 		// Return collision result
-		if !variable_instance_exists(id, "objXRadiusTriggerLeft")
+		if !variable_instance_exists(id, "Obj_TriggerStatus")
 		{
 			return false;
 			
 		}	
 		
 		// Return result
-		return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + objXRadiusTriggerLeft), floor(y + objYRadiusTriggerTop), floor(x + objXRadiusTriggerRight - 1), floor(y + objYRadiusTriggerBottom - 1));
+		return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));
 	}
 }

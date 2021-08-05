@@ -29,7 +29,7 @@ function ObjBreakableWallSetup()
 			// Set piece properties
 			with Piece
 			{
-				object_set_solidbox(8, 8);
+				object_set_solidbox(8, 8, false);
 				object_set_depth(Player, false);
 			}
 		}

@@ -18,8 +18,8 @@ function PlayerLookup()
 			// Start Super Peel Out on A button press
 			if Input.APress and PeeloutRev == -1
 			{
-				PeeloutRev   = 0;
-				MovementLock = -1;
+				PeeloutRev = 0;
+				NoControls = true;
 				
 				// Play sound
 				audio_sfx_play(sfxPeeloutCharge, false);
@@ -49,14 +49,11 @@ function PlayerLookup()
 	// Release Super Peel Out
 	else if PeeloutRev >= 0
 	{
-		// If it is not fully charged, juts drop it
 		if PeeloutRev < 30
 		{
-			PeeloutRev   = -1;
-			MovementLock = false;
+			PeeloutRev = -1;
+			NoControls = false;
 		}
-		
-		// Else release correctly
 		else
 		{	
 			// Play sound
@@ -66,11 +63,7 @@ function PlayerLookup()
 			Animation = AnimPeelout;
 			
 			// Launch Sonic forwards
-			Inertia		 = (!SuperState ? 12 : 15) * Facing;
-			MovementLock = false;
-			
-			// Reset peelout charge value
-			PeeloutRev = -1;
+			Inertia = (!SuperState ? 12 : 15) * Facing;
 			
 			// Freeze the screen for 16 frames
 			if Screen.ExtendedOffset == 0
@@ -78,9 +71,11 @@ function PlayerLookup()
 				Screen.ScrollDelay = 16;
 			}
 			
+			PeeloutRev = -1;
+			NoControls = false;
+			
 			return true;
-		}
+		}		
 	}
-	
 	return false;
 }

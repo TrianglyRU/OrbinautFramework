@@ -76,6 +76,7 @@ function PlayerVariables()
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
+	NoControls			= 0;
 	RecordedPosX		= [];
 	RecordedPosY        = [];
 }

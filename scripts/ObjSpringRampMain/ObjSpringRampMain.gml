@@ -58,18 +58,22 @@ function ObjSpringRampMain()
 			
 			// Play sound
 			audio_sfx_play(sfxSpring, false);
+			
+			// Restore default heightmap
+			Obj_SolidMap = CollisionDefault;
 		}
 	}
 	
 	// If spring board is not active, check for activation
 	else if object_player_stand(id) and PlayerPos >= -14 and PlayerPos <= 28
 	{
-		JumpTimer = 4;
+		JumpTimer	 = 4;
+		Obj_SolidMap = CollisionPressed;
 	}
 	
 	// Set frame
 	animation_set_frame(false, (JumpTimer > 0) + 1);
 	
 	// Act solid
-	object_act_solid(false, true, false, JumpTimer ? CollisionPressed : CollisionDefault);
+	object_act_solid(false, true, false);
 }

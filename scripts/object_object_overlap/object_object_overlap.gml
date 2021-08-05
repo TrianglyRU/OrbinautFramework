@@ -2,34 +2,34 @@
 function object_object_overlap(targetObject)
 {
 	// Exit the code if this object hitbox wasnn't initialized
-	if !variable_instance_exists(id, "objXRadiusHit")
+	if !variable_instance_exists(id, "Obj_HitStatus")
 	{
 		exit;
 	}
 	
 	// Exit the code if target object hitbox wasn't initialized
-	if !variable_instance_exists(targetObject, "objXRadiusHit")
+	if !variable_instance_exists(targetObject, "Obj_HitStatus")
 	{
 		exit;
 	}
 	
 	// Exit the code if objects can't overlap
-	if !id.objXRadiusHit or !id.objYRadiusHit or !targetObject.objXRadiusHit or !targetObject.objYRadiusHit
+	if !id.Obj_HitX or !id.Obj_HitY or !targetObject.Obj_HitX or !targetObject.Obj_HitY
 	{
 		return false;	
 	}
 	
 	// Get this object size
-	var objectTop    = floor(y - objYRadiusHit);
-	var objectLeft   = floor(x - objXRadiusHit);
-	var objectRight  = floor(x + objXRadiusHit);
-	var objectBottom = floor(y + objYRadiusHit);
+	var objectTop    = floor(y - Obj_HitY);
+	var objectLeft   = floor(x - Obj_HitX);
+	var objectRight  = floor(x + Obj_HitX);
+	var objectBottom = floor(y + Obj_HitY);
 	
 	// Get target object size
-	var targetTop    = floor(targetObject.y - targetObject.objYRadiusHit - 1);
-	var targetLeft   = floor(targetObject.x - targetObject.objXRadiusHit - 1);
-	var targetRight  = floor(targetObject.x + targetObject.objXRadiusHit - 1);
-	var targetBottom = floor(targetObject.y + targetObject.objYRadiusHit - 1);
+	var targetTop    = floor(targetObject.y - targetObject.Obj_HitY - 1);
+	var targetLeft   = floor(targetObject.x - targetObject.Obj_HitX - 1);
+	var targetRight  = floor(targetObject.x + targetObject.Obj_HitX - 1);
+	var targetBottom = floor(targetObject.y + targetObject.Obj_HitY - 1);
 	
 	// Check for overlap horizontally
 	if targetRight < objectLeft or targetLeft > objectRight

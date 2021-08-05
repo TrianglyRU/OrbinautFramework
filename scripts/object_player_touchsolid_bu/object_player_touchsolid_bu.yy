@@ -6,7 +6,7 @@
     "path": "folders/Framework Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "palette_handle_bu",
+  "name": "object_player_touchsolid_bu",
   "tags": [],
   "resourceType": "GMScript",
 }

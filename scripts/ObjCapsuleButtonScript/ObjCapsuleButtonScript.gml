@@ -4,7 +4,7 @@ function ObjCapsuleButtonScript()
 	if !Pressed 
 	{	
 		// Do collision
-		object_act_solid(true, true, true, false);
+		object_act_solid(true, true, true);
 		
 		// Play animation
 		animation_play(spr_capsule_button, 3, 1);
@@ -23,6 +23,6 @@ function ObjCapsuleButtonScript()
 	// Disable collisions if it has been pressed
 	else
 	{	
-		object_act_solid(false, false, false, false);
+		object_act_solid(false, false, false);
 	}
 }

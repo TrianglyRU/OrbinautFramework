@@ -2,6 +2,9 @@
 function object_set_hitbox(xradius, yradius)
 {		
 	// Set hitbox radiusess
-	objXRadiusHit = xradius;
-	objYRadiusHit = yradius;
+	Obj_HitX = xradius;
+	Obj_HitY = yradius;
+	
+	// Set status
+	Obj_HitStatus = true;
 }

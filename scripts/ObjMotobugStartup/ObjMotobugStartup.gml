@@ -16,7 +16,7 @@ function ObjMotobugStartup()
 	SmokeTimer = 17;
 	
 	// Set object solidbox
-	object_set_solidbox(8, 15);
+	object_set_solidbox(8, 15, false);
 	
 	// Set object hitbox
 	object_set_hitbox(20, 17);

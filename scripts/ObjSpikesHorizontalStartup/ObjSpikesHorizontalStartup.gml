@@ -4,7 +4,7 @@ function ObjSpikesHorizontalStartup()
 	HurtSide isReal;
 	
 	// Set object solidbox
-	object_set_solidbox(16, 16);
+	object_set_solidbox(16, 16, false);
 	
 	// Set active range
 	object_set_range(RangeClose, ResetUnload);

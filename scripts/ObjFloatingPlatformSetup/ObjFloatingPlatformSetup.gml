@@ -20,7 +20,7 @@ function ObjFloatingPlatformSetup()
 	*/
 	
 	// Set object solidbox
-	object_set_solidbox(XRadius, YRadius);
+	object_set_solidbox(XRadius, YRadius, false);
 	
 	object_set_range(RangeFar, ResetUnload);
 	

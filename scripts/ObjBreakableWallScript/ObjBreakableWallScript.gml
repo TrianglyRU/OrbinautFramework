@@ -11,6 +11,6 @@ function ObjBreakableWallScript()
 	else
 	{
 		// Do collision
-		object_act_solid(true, false, false, false);
+		object_act_solid(true, false, false);
 	}
 }

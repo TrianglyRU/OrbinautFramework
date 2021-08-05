@@ -39,7 +39,10 @@ function PlayerResetOnFloor()
 		
 		// Exit the futher code
 		exit;
-	}	
+	}
+	
+	// Restore control (from hit)
+	NoControls = false;
 	
 	// Set 'walk' or 'run' animation if we've landed in roll state not on the object
 	if Animation == AnimRoll and !OnObject

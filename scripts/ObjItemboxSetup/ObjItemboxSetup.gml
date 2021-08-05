@@ -23,7 +23,7 @@ function ObjItemBoxSetup()
 	object_set_range(RangeFar, ResetRespawn);
 	
 	// Set object solidbox
-	object_set_solidbox(14, 16);
+	object_set_solidbox(14, 16, false);
 	
 	// Set object pdeth
 	object_set_depth(Player, false);

@@ -9,27 +9,31 @@ function PlayerSuperFormsProcess()
 			// Start timer
 			SuperStateValue++
 			
-			// Reset speeds
-			Inertia = 0;
-			Xsp		= 0;
-			Ysp		= 0;
-		
-			// Play animation
-			Animation = AnimTransform;
-			
-			// Disable collisions
-			AllowCollision = false;
-			
-			// Become super after 24 frames
-			if SuperStateValue == 25
+			// Reset speeds for 16 frames
+			if SuperStateValue < 16
 			{
-				// Exit transform animation
-				Animation = AnimWalk;
-				
+				Inertia = 0;
+				Xsp		= 0;
+				Ysp		= 0;	
+			}
+			
+			// Restore inputs on 16th frame
+			else if SuperStateValue == 16
+			{
+				NoControls = false;
+			}
+			
+			// Become super on 40th frame
+			else if SuperStateValue == 40
+			{
 				SuperState		= 2;
 				SuperStateValue = 1;
 				
-				AllowCollision = true;
+				// Exit transform animation if we're still in it
+				if Animation == AnimTransform
+				{
+					Animation = AnimWalk;
+				}
 			}				
 		}
 		break;

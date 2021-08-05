@@ -7,7 +7,7 @@ function PlayerCrouch()
 	}
 	
 	// Exit if we're balancing
-	if !Game.BalancingCrouch and (Animation == AnimBalanceBack or Animation == AnimBalanceFront)
+	if !Game.BalancingCrouch and Balancing
 	{
 		exit;
 	}
@@ -41,9 +41,9 @@ function PlayerCrouch()
 			var MinimumSpd = !SuperState ? 8 : 11;
 
 			// Launch Sonic forwards
-			Inertia		 = (MinimumSpd + round(SpindashRev) / 2) * Facing;
-			MovementLock = false;
-			Rolling	     = true;
+			Inertia	   = (MinimumSpd + round(SpindashRev) / 2) * Facing;
+			NoControls = false;
+			Rolling	   = true;
 			
 			// Freeze the screen
 			if Screen.ExtendedOffset == 0 
@@ -84,8 +84,8 @@ function PlayerCrouch()
 			Animation = AnimSpindash;
 			
 			// Start Spindash
-			SpindashRev  = 2;
-			MovementLock = -1;
+			SpindashRev = 2;
+			NoControls  = true;
 			audio_sfx_play(sfxCharge, false);
 		}
 	}

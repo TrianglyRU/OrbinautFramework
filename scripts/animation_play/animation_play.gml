@@ -1,22 +1,25 @@
 /// @function animation_play(sprite_id,speed,loop) 
 function animation_play(sprite_id, speed, loop) 
 {	
-	// Ignore the animation method built into the IDE 
-	image_speed = 0;
+	// Ignore the animation method built into the IDE
+	sprite_set_speed(sprite_id, 0, spritespeed_framespergameframe);
 	
-	// Create a special timer variable for the object
+	// Is animation timer exists for this object?
 	if !variable_instance_exists(id, "AnimationTimer")
 	{	
+		// Set animation timer
 		AnimationTimer = abs(speed) + 1;
 	}
 
 	// Update the sprite if the current sprite is not the target one
 	else if sprite_index != sprite_id
 	{	
-		// Set animation timer to current animation speed
+		// Set animation timer
 		AnimationTimer = abs(speed) + 1;	
-		image_index    = 0;
-	    sprite_index   = sprite_id; 
+		
+		// Reset
+		image_index  = 0;
+	    sprite_index = sprite_id; 
 	}
 	
 	// Handle subimage change if the animation speed is not zero

@@ -7,9 +7,9 @@ function ScreenDebugTriggersDisplay()
 		draw_set_alpha(0.5);
 		with all
 		{
-			if variable_instance_exists(id, "objXRadiusTriggerLeft")
+			if variable_instance_exists(id, "Obj_TriggerStatus")
 			{
-				draw_rectangle_colour(x + objXRadiusTriggerLeft, y + objYRadiusTriggerTop, x + objXRadiusTriggerRight - 1, y + objYRadiusTriggerBottom - 1, $ffff00, $ffff00, $ffff00, $ffff00, false);
+				draw_rectangle_colour(x + Obj_TriggerLeft, y + Obj_TriggerTop, x + Obj_TriggerRight - 1, y + Obj_TriggerBottom - 1, $ffff00, $ffff00, $ffff00, $ffff00, false);
 			}
 		}
 		draw_set_alpha(1.0);

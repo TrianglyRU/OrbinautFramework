@@ -11,20 +11,8 @@ function PlayerMovementAir()
 		exit;
 	}
 	
-	// Exit if hurt or dead
-	if Hurt or Death or Drown
-	{
-		exit;
-	}
-	
-	// Exit if transforming into super form
-	if SuperState == 1
-	{
-		exit;
-	}
-	
 	// Accelerate and decelerate
-	if !(!Game.RolljumpControl and Jumping and Rolling)
+	if !(!Game.RolljumpControl and Jumping and Rolling) and !NoControls
 	{
 		if Input.Left 
 		{		
@@ -61,7 +49,7 @@ function PlayerMovementAir()
 	}
 	
 	// Apply air drag
-	if Ysp < 0 and Ysp > -4
+	if Ysp < 0 and Ysp > -4 and !Hurt
 	{
 		Xsp -= floor(Xsp/0.125) / 256;
 	}

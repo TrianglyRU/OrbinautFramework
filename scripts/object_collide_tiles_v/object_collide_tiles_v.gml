@@ -2,7 +2,7 @@
 function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 {	
 	// Exit the code if solidbox is not specified
-	if !variable_instance_exists(id, "objYRadiusSolid")
+	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
 		exit;
 	}
@@ -14,23 +14,35 @@ function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 	// Define xside
 	switch xSide
 	{
-		case SideLeft:   var checkX = floor(XPos - objXRadiusSolid);     break;
-		case SideRight:  var checkX = floor(XPos + objXRadiusSolid - 1); break;
-		case SideCentre: var checkX = floor(XPos);				         break;
-		
-		// Use object X centre if no specific side is specified
-		default: var checkX = floor(XPos); break;
+		case SideLeft:   
+			var checkX = floor(XPos - Obj_SolidX);     
+		break;
+		case SideRight: 
+			var checkX = floor(XPos + Obj_SolidX - 1); 
+		break;
+		case SideCentre: 
+			var checkX = floor(XPos);				         
+		break;
+		default: 
+			var checkX = floor(XPos); 
+		break;
 	}
 	
 	// Define yside
 	switch ySide
 	{
-		case SideTop:    var checkY = floor(YPos - objYRadiusSolid);     break;
-		case SideBottom: var checkY = floor(YPos + objYRadiusSolid - 1); break;
-		case SideCentre: var checkY = floor(YPos);						 break;
-		
-		// Use object Y centre if no specific side is specified
-		default: var checkY = floor(YPos); break;
+		case SideTop:   
+			var checkY = floor(YPos - Obj_SolidY);     
+		break;
+		case SideBottom: 
+			var checkY = floor(YPos + Obj_SolidY - 1); 
+		break;
+		case SideCentre: 
+			var checkY = floor(YPos);						 
+		break;
+		default: 
+			var checkY = floor(YPos); 
+		break;
 	}
 	
 	// Get distance to surface

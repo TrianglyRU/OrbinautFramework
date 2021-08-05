@@ -13,9 +13,8 @@ function PlayerDisplay()
 				// Check if we grounded
 				if Grounded
 				{
-					/* Rotation code by Nihil (NullSpace)
-					   Used with permission! */
-					
+					/* Rotation step code by Nihil (NullSpace)
+					   Used with permission! */				
 					// Interpolate angle
 					if Angle >= 23.91 and Angle <= 337.5
 					{
@@ -29,7 +28,7 @@ function PlayerDisplay()
 					}
 					
 					// Perform angle calculation
-					VisualAngle = darctan2(dsin(TargetAngle) + dsin(VisualAngle) * RotationStep, dcos(TargetAngle) + dcos(VisualAngle) * RotationStep);	
+					VisualAngle = darctan2(dsin(TargetAngle) + dsin(VisualAngle) * RotationStep, dcos(TargetAngle) + dcos(VisualAngle) * RotationStep);
 				}
 		
 				// Simply apply regular angle to visual angle while in-air

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+    "name": "Framework Functions",
+    "path": "folders/Framework Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_player_touch",
+  "name": "object_player_touchsolid",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -1,19 +1,6 @@
 /// @description Scripts Event
 // You can call your scripts in this editor
 	
-	object_set_solidbox(56, 48);
-	object_set_range(RangeClose, ResetUnload);
-	
-	if CollapseState
-	{
-		Timer  = 0;
-		PosX   = floor(x - objXRadiusSolid);
-		PosY   = floor(y - objYRadiusSolid);
-		Width  = ceil(abs(sprite_width)  / PartW) * PartW;
-		Height = ceil(abs(sprite_height) / PartH) * PartH;
-		Dir	   = sprite_width >= 0 ? 1 : -1;
-		DestroyTimer = 0;
-	}
 	ColMap = [96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,
 			  95,95,95,95,95,95,
 			  94,94,94,94,94,94,
@@ -30,3 +17,17 @@
 			  83,83,83,83,83,83,
 			  82,82,82,82,82,82,
 			  81,81,81,81];
+	
+	object_set_solidbox(56, 48, ColMap);
+	object_set_range(RangeClose, ResetUnload);
+	
+	if CollapseState
+	{
+		Timer  = 0;
+		PosX   = floor(x - Obj_SolidX);
+		PosY   = floor(y - Obj_SolidY);
+		Width  = ceil(abs(sprite_width)  / PartW) * PartW;
+		Height = ceil(abs(sprite_height) / PartH) * PartH;
+		Dir	   = sprite_width >= 0 ? 1 : -1;
+		DestroyTimer = 0;
+	}

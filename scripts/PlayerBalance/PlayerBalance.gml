@@ -13,9 +13,8 @@ function PlayerBalance()
 		exit;
 	}
 
-	var DistanceMiddle = tile_check_collision_v(floor(PosX), floor(PosY + RadiusY), true, false, Layer)[0];
-			
-	if DistanceMiddle < 12
+	var DistanceMiddle = tile_check_collision_v(floor(PosX), floor(PosY + RadiusY), true, false, Layer)[0];		
+	if  DistanceMiddle < 12
 	{
 		exit;
 	}

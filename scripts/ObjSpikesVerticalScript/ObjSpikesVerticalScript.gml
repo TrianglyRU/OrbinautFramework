@@ -8,5 +8,5 @@ function ObjSpikesVerticalScript()
 	}
 	
 	// Do solid collision
-	object_act_solid(true, true, true, false);
+	object_act_solid(true, true, true);
 }

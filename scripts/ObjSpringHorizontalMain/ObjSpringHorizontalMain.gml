@@ -43,7 +43,7 @@ function ObjSpringHorizontalMain()
 		else
 		{		
 			// Perform collision routine
-			object_act_solid(true, true, true, false);
+			object_act_solid(true, true, true);
 		}
 	}
 }

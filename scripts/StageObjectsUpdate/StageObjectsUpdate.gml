@@ -1,6 +1,10 @@
 function StageObjectsUpdate() 
 {	
-	// Check if player died or stage unloads
+	// Get ignore list
+	var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette];
+	var Length = array_length(IgnoreList);
+	
+	// Check if player died
 	if Player.Death or State == StageUnload
 	{			
 		// Stop player
@@ -19,9 +23,6 @@ function StageObjectsUpdate()
 				layer_sprite_yscale(PlayerSprite, image_yscale);
 			}
 		}
-		
-		var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette];
-		var Length = array_length(IgnoreList);
 		
 		// Update objects
 		with all
@@ -55,46 +56,60 @@ function StageObjectsUpdate()
 		// Update objects
 		with all
 		{
+			// Pause all objects if stage is paused
+			if Stage.State == StagePaused
+			{
+				// Exit the code if object is the one to ignore
+				for (var i = 0; i < Length; i++)
+				{
+					if object_index == IgnoreList[i]
+					{
+						exit;
+					}
+				}
+				instance_deactivate_object(id);
+			}
+			
 			// Check if object can be unloaded
-			if variable_instance_exists(id, "objResetFlag")
+			else if variable_instance_exists(id, "Obj_LoadFlag")
 			{	
 				// Get position
 				var ObjectX = floor(x);
 				var ObjectY = floor(y);
 			
 				// Get limits
-				var LeftBound   = Screen.CameraX - objLoadRangeX;
-				var TopBound    = Screen.CameraY - objLoadRangeY;
-				var RightBound  = Screen.CameraX + Screen.Width  + objLoadRangeX;
-				var BottomBound = Screen.CameraY + Screen.Height + objLoadRangeY;
+				var LeftBound   = Screen.CameraX - Obj_LoadX;
+				var TopBound    = Screen.CameraY - Obj_LoadY;
+				var RightBound  = Screen.CameraX + Screen.Width  + Obj_LoadX;
+				var BottomBound = Screen.CameraY + Screen.Height + Obj_LoadY;
 			
 				// Check if the object is off-limits
 				if ObjectX < LeftBound or ObjectX > RightBound
 				or ObjectY < TopBound  or ObjectY > BottomBound
 				{
 					// Is reset flag set?
-					if objResetFlag != false
+					if Obj_LoadFlag != false
 					{
 						// Was object on the screen before?
-						if objResetActive
+						if Obj_LoadState
 						{
 							// Should object be deactivated?
-							if objResetFlag == ResetUnload
+							if Obj_LoadFlag == ResetUnload
 							{
 								// Then deactivate!
 								instance_deactivate_object(id);
 							}
 							
 							// Should object be resetted to its initial state?
-							else if objResetFlag == ResetRespawn
+							else if Obj_LoadFlag == ResetRespawn
 							{
 								// Reset object if its initial position if off-limits
-								if objResetData[0] < Screen.CameraX - objLoadRangeX or objResetData[0] > Screen.CameraX + Screen.Width + objLoadRangeX
+								if Obj_LoadData[0] < Screen.CameraX - Obj_LoadX or Obj_LoadData[0] > Screen.CameraX + Screen.Width + Obj_LoadX
 								{
-									x			 = objResetData[0];
-									y			 = objResetData[1];
-									image_xscale = objResetData[2];
-									image_yscale = objResetData[3];
+									x			 = Obj_LoadData[0];
+									y			 = Obj_LoadData[1];
+									image_xscale = Obj_LoadData[2];
+									image_yscale = Obj_LoadData[3];
 								
 									event_perform(ev_create,     0);
 									event_perform(ev_room_start, 0);
@@ -108,7 +123,7 @@ function StageObjectsUpdate()
 							}
 						
 							// Should object be deleted?
-							else if objResetFlag == ResetDelete
+							else if Obj_LoadFlag == ResetDelete
 							{	
 								// Delete
 								instance_destroy(id);
@@ -124,9 +139,9 @@ function StageObjectsUpdate()
 				}
 			
 				// If object is inside the limits and has the reset flag, allow unload actions
-				else if objResetFlag != false and !objResetActive
+				else if Obj_LoadFlag != false and !Obj_LoadState
 				{
-					objResetActive = true;		
+					Obj_LoadState = true;		
 				}
 			}
 		}

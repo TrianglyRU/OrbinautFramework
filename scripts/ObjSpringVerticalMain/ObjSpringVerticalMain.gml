@@ -18,10 +18,22 @@ function ObjSpringVerticalMain()
 			Player.Jumping     = false;
 			Player.Rolling     = false;
 			Player.DropdashRev = -1;
+			Player.Inertia     =  0;
 			
 			// Go airborne
 			Player.Grounded = false;
 			Player.OnObject = false;
+			
+			// Reset gravity
+			if !Player.IsUnderwater
+			{
+				Player.Grv	= 0.21875;
+			}
+			else
+			{
+				// Lower by 0x28 (0.15625) if underwater
+				Player.Grv = 0.0625
+			}
 		
 			// Set 'spring up' or 'walk' animation
 			Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;
@@ -49,7 +61,7 @@ function ObjSpringVerticalMain()
 		else
 		{
 			// Do collision
-			object_act_solid(true, true, true, false);
+			object_act_solid(true, true, true);
 		}
 	}	
 }

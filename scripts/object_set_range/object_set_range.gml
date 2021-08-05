@@ -5,20 +5,20 @@ function object_set_range(range_type, reset_type)
 	{	
 		case RangeFar:
 		{
-			objLoadRangeX = 128;
-			objLoadRangeY = 256;
+			Obj_LoadX = 128;
+			Obj_LoadY = 256;
 		}
 		break;
 		case RangeClose:
 		default:
 		{
-			objLoadRangeX = 32;
-			objLoadRangeY = 128;
+			Obj_LoadX = 32;
+			Obj_LoadY = 128;
 		}
 		break;
 	}
 	
-	objResetData   = [x, y, image_xscale, image_yscale];
-	objResetFlag   = reset_type;
-	objResetActive = false;
+	Obj_LoadData  = [x, y, image_xscale, image_yscale];
+	Obj_LoadFlag  = reset_type;
+	Obj_LoadState = false;
 }

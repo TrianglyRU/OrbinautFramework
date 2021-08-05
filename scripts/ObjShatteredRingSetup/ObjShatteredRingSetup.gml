@@ -14,7 +14,7 @@ function ObjShatteredRingSetup()
 	object_set_hitbox(6, 6);
 	
 	// Set object solidbox
-	object_set_solidbox(8, 8);
+	object_set_solidbox(8, 8, false);
 	
 	object_set_range(RangeClose, ResetDelete);
 	

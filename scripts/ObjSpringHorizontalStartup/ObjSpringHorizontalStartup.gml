@@ -5,7 +5,7 @@ function ObjSpringHorizontalStartup()
 	LaunchForce isVar;
 	
 	// Set object solidbox
-	object_set_solidbox(8, 16);
+	object_set_solidbox(8, 16, false);
 	
 	// Set active range
 	object_set_range(RangeClose, ResetUnload);
