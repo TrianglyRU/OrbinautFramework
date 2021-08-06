@@ -1,5 +1,5 @@
-/// @description Window Res. Output
+/// @description
 // You can call your scripts in this editor
 	
-	// Display debug screen
-	ScreenDebugScreenDisplay();
+	// Call debug screen draw script
+	ScreenDebugScreenDraw();

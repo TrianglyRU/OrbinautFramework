@@ -1,11 +1,11 @@
-/// @description Debug
+/// @description
 // You can write your code in this editor
 	
 	if (Stage.GamePaused) exit;
 	
 	// Display debug
-	ScreenDebugActivate();
-	ScreenDebugHitboxDisplay();
-	ScreenDebugSolidboxDisplay();
-	ScreenDebugTriggersDisplay();
-	ScreenDebugPositionsDisplay();
+	ScreenDebugProcess();
+	ScreenDebugHitboxDraw();
+	ScreenDebugSolidboxDraw();
+	ScreenDebugTriggersDraw();
+	ScreenDebugPositionsDraw();

@@ -29,27 +29,27 @@ function GameFrameworkSetup()
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];	/**/
 	
 	// Originals differences
-	Game.SpindashEnabled        = true;  // Enables S2 Spindash			/**/
-	Game.DropdashEnabled        = false; // Enables Mania Dropdash		/**/
-	Game.PeeloutEnabled         = true;  // Enables SCD Super Peel Out	/**/
-	Game.GroundSpeedcap	        = false; // Enables ground speedcap	    /**/
-	Game.AirSpeedcap	        = false; // Enables air speedcap        /**/
-	Game.RolljumpControl        = false; // Unlocks directional contorls if you jump after rolling
-	Game.ExtendedCamera			= false; // Enables camera to shift to the side of your direction movement
-	Game.StrongerSlopeGravity   = true;  // In S3 slope gravity and slope detach method were re-written to work better. True - Sonic 3+ method.
-	Game.LooseCrouch		    = false; // In S&K, you can start crouching when you are moving slowly. True - SK method.
-	Game.ConstantRollPhysics    = true;  // In SK, rolling physics are the same for everyone. True - SK method
-	Game.SpeedFloorClip	        = true;  // In S2 and later, the max distance you're allowed to clip to a floor is based on your speed. True = S2+ method
-	Game.ExtensiveWallCollision	= true;  // In SK, you can collide with the walls on cardinal angles as well (90, 180, 270) instead of just in angle range of 270->360->90
-	Game.BalancingCrouch		= false; // In S3 and later you're allowed to crouch when balancing. True = S3+ method
-	Game.BuffedWaterBarrier     = false; // In Sonic Mania, water barrier halves your xsp instead of setting it to 0
-	Game.PreciseRings			= false; // In Sonic Mania, shattered rings behaviour was updated
+	Game.SpindashEnabled        = true;  /**/
+	Game.DropdashEnabled        = false; /**/
+	Game.PeeloutEnabled         = true;  /**/
+	Game.GroundSpeedcap	        = false; /**/
+	Game.AirSpeedcap	        = false; /**/
+	Game.RolljumpControl        = false;
+	Game.ExtendedCamera			= false;
+	Game.StrongerSlopeGravity   = true;
+	Game.LooseCrouch		    = false;
+	Game.ConstantRollPhysics    = true;
+	Game.SpeedFloorClip	        = true;
+	Game.ExtensiveWallCollision	= true;
+	Game.BalancingCrouch		= false;
+	Game.BuffedWaterBarrier     = false;
+	Game.PreciseRings			= false;
 	
 	// Orbinaut improvements
-	Game.PostProcessing        = false; // Enable post-processing shader
-	Game.SmoothRotation	       = true;  // Use smooth rotation
-	Game.RichPresenceSupport   = false; // Enable Rich Presence
-	Game.NoRollSpeedLimit	   = false; // Disables xsp limit when rolling. May cause collision glitches on higher speeds
-	Game.FlyingCancel	       = true;  // Allows you to cancel flying as Tails
-	Game.SuperCancel		   = false; // Allows you to cancel super form
+	Game.PostProcessing        = false;
+	Game.SmoothRotation	       = true;
+	Game.RichPresenceSupport   = false;
+	Game.NoRollSpeedLimit	   = false;
+	Game.FlyingCancel	       = true;
+	Game.SuperCancel		   = false;
 }

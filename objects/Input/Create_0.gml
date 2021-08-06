@@ -1,8 +1,8 @@
-/// @description Variables & Setup
+/// @description
 // You can write your code in this editor
 	
-	// Initialize variables
+	// Call variables initialization script
 	InputVariables();
 	
-	// Setup input system
-	InputSetup();
+	// Call startup script
+	InputStartup();

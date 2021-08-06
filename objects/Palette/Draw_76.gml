@@ -1,5 +1,5 @@
-/// @description Surface Create
+/// @description
 // You can write your code in this editord
 
-	// Create application surface
-	PaletteRendererSurfaceCreate();
+	// Call surface startup script
+	PaletteSurfaceStartup();

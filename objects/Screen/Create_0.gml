@@ -1,17 +1,17 @@
-/// @description Variables & Setup
+/// @description
 // You can call your scripts in this editor
 	
-	// Initialize variables
+	// Call variables initialization script
 	ScreenVariables();
 	
-	// Setup camera
-	ScreenCameraSetup();
+	// Call camera startup script
+	ScreenCameraStartup();
 	
-	// Setup HUD
-	ScreenInterfaceSetup();
+	// Call interface startup script
+	ScreenInterfaceStartup();
 	
-	// Setup title card
-	ScreenTitleCardSetup();
+	// Setup title card startup script
+	ScreenCardStartup();
 	
-	// Setup results screen
-	ScreenResultsSetup();
+	// Setup results startup script
+	ScreenResultsStartup();
