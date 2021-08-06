@@ -3,7 +3,7 @@ function PlayerDebugModeDisplay()
 	// Exit if not in debug mode
 	if !DebugMode
 	{
-		exit;
+		return false;
 	}
 	
 	// Switch between objects
@@ -33,4 +33,6 @@ function PlayerDebugModeDisplay()
 	
 	// Draw player on the screen
 	draw_self();
+	
+	return true;
 }

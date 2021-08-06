@@ -7,6 +7,6 @@ function object_set_triggerbox(xLeft, xRight, yTop, yBottom)
 	Obj_TriggerTop    = yTop;
 	Obj_TriggerBottom = yBottom;
 	
-	// Set status
+	// Mark as trigger
 	Obj_TriggerStatus = true;
 }

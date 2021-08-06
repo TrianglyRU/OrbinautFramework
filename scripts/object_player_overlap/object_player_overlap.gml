@@ -19,7 +19,7 @@ function object_player_overlap(collisionType)
 		// Exit the code if object can't be overlapped
 		if !Obj_HitX or !Obj_HitY
 		{
-			return false;	
+			return false;
 		}
 	
 		// Get object size
@@ -29,7 +29,7 @@ function object_player_overlap(collisionType)
 		var objectBottom = floor(y + Obj_HitY - 0);
 		
 		// Get player hitbox size
-		if Player.Animation == AnimCrouch
+		if Player.Rolling or Player.Jumping
 		{
 			var playerTop    = floor(Player.PosY - 4);
 			var playerLeft   = floor(Player.PosX - 8);
@@ -63,12 +63,11 @@ function object_player_overlap(collisionType)
 	// Check for triggerbox overlap
 	else if collisionType == CollisionTriggerbox
 	{
-		// Return collision result
+		// Exit the code if this object triggerbox wasn't initialized
 		if !variable_instance_exists(id, "Obj_TriggerStatus")
 		{
 			return false;
-			
-		}	
+		}
 		
 		// Return result
 		return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));

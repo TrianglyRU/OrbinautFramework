@@ -4,9 +4,10 @@ function PlayerSetup()
 	CharacterID	= Game.Character;
 	
 	// Default sprite setup
-	Facing	  = DirectionRight;
+	Facing	  = FlipRight;
 	Animation = AnimIdle;
 	DrawOrder = layer_get_depth("Objects");
+	animation_set_frame(Animation, 1);
 	
 	// Set default flags
 	AllowCollision = true;

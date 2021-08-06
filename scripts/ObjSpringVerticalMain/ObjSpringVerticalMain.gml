@@ -8,60 +8,24 @@ function ObjSpringVerticalMain()
 	}
 	else 
 	{
+		// Do collision
+		object_act_solid(true, true, true);
+			
 		// Is player touching launch side?
 		if object_player_touch(LaunchSide)
 		{
-			// Stop player's actions
-			Player.GlideState  = false;
-			Player.ClimbState  = false;
-			Player.FlightState = false;
-			Player.Jumping     = false;
-			Player.Rolling     = false;
-			Player.DropdashRev = -1;
-			Player.Inertia     =  0;
-			
-			// Go airborne
-			Player.Grounded = false;
-			Player.OnObject = false;
-			
-			// Reset gravity
-			if !Player.IsUnderwater
-			{
-				Player.Grv	= 0.21875;
-			}
-			else
-			{
-				// Lower by 0x28 (0.15625) if underwater
-				Player.Grv = 0.0625
-			}
-		
-			// Set 'spring up' or 'walk' animation
-			Player.Animation = LaunchSide == SideTop ? AnimSpring : AnimWalk;
-			
-			// Reset visual angle
-			Player.VisualAngle = 360;
-
-			// Launch upwards or downwards
-			Player.Ysp = -LaunchForce * image_yscale;
-		
-			// Use normal collision radiuses
-			Player.RadiusX = Player.DefaultRadiusX;
-			Player.RadiusY = Player.DefaultRadiusY;
-		
-			// Stop player sounds
-			audio_sfx_stop(sfxFlying);
-			audio_sfx_stop(sfxTired);
+			// Launch player
+			Player.Inertia   = 0;
+			Player.Grounded  = false;
+			Player.OnObject  = false;		
+			Player.Ysp		 = -LaunchForce * image_yscale;
+			Player.Animation =  LaunchSide == SideTop ? AnimSpring : AnimWalk;
 			
 			// Play spring sound
 			audio_sfx_play(sfxSpring, false);	
 		
 			// Start animation
 			animation_set_frame(sprite_index, 2);
-		}
-		else
-		{
-			// Do collision
-			object_act_solid(true, true, true);
-		}
-	}	
+		}	
+	}
 }

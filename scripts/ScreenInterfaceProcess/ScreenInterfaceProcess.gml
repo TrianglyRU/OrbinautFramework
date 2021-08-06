@@ -6,9 +6,9 @@ function ScreenInterfaceProcess()
 		exit;
 	}
 	
-	// Get position for our HUD
-	var ScreenX = InterfaceOffsetX;
-	var ScreenY = InterfaceOffsetY;
+	// Get position for our HUD (you can apply offsets here)
+	var ScreenX = 0;
+	var ScreenY = 0;
 	
 	// Handle timer
 	var TimeValue = Stage.Time;

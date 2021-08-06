@@ -4,41 +4,30 @@ function animation_play(sprite_id, speed, loop)
 	// Ignore the animation method built into the IDE
 	sprite_set_speed(sprite_id, 0, spritespeed_framespergameframe);
 	
-	// Is animation timer exists for this object?
-	if !variable_instance_exists(id, "AnimationTimer")
-	{	
-		// Set animation timer
-		AnimationTimer = abs(speed) + 1;
+	if sprite_index != sprite_id or !variable_instance_exists(id, "Obj_AnimationTimer")
+	{
+		Obj_AnimationTimer = abs(speed) + 1;
+	    sprite_index   = sprite_id; 
+		image_index    = 0;
 	}
 
-	// Update the sprite if the current sprite is not the target one
-	else if sprite_index != sprite_id
-	{	
-		// Set animation timer
-		AnimationTimer = abs(speed) + 1;	
-		
-		// Reset
-		image_index  = 0;
-	    sprite_index = sprite_id; 
-	}
-	
 	// Handle subimage change if the animation speed is not zero
-	if speed != 0
+	if speed != 0 and fade_check(FadeNone)
 	{
 		// Decrease the value of the animation timer
-		if AnimationTimer > 0
+		if Obj_AnimationTimer > 0
 		{
-			AnimationTimer--;
+			Obj_AnimationTimer--;
 		}
 			
 		// Check if it equals zero
-		if !AnimationTimer
+		if !Obj_AnimationTimer
 		{	
 			// Clamp doLoopFrom argument
 			loop = clamp(loop, 1, image_number);
 			
 			// Reset animation timer to current animation speed
-			AnimationTimer = abs(speed);
+			Obj_AnimationTimer = abs(speed);
 				
 			// Switch to the next subimage if the animation speed is positive
 			if speed > 0

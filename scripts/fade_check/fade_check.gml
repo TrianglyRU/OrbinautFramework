@@ -1,10 +1,10 @@
 /// @function fade_check(fade_state)
 function fade_check(fade_state)
 {
-	// Exit if there is no palette contoller
+	// Return FadeNone result if there is no palette contoller
 	if !instance_exists(Palette)
 	{
-		return false;
+		return fade_state == FadeNone;
 	}
 	
 	// Return result check

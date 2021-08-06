@@ -6,6 +6,26 @@ function InputGamepadProcess()
 		exit;
 	}
 	
+	// Gamepad axis "pressed" function
+	function gamepad_axis_check(device, axisindex)
+	{
+		switch Axis 
+		{
+			case "gp_axis_lup":    
+				return gamepad_axis_value(Device, gp_axislv) < 0 and !Up;
+			break;
+			case "gp_axis_ldown":  
+				return gamepad_axis_value(Device, gp_axislv) > 0 and !Down;  
+			break;
+			case "gp_axis_lleft":  
+				return gamepad_axis_value(Device, gp_axislh) < 0 and !Left;  
+			break;
+			case "gp_axis_lright":
+				return gamepad_axis_value(Device, gp_axislh) > 0 and !Right; 
+			break;
+		}
+	}
+	
 	// Process single press
 	UpPress    = gamepad_button_check_pressed(0, gp_padu) or input_gp_axis_pressed(0, "gp_axis_lup");
 	DownPress  = gamepad_button_check_pressed(0, gp_padd) or input_gp_axis_pressed(0, "gp_axis_ldown");
@@ -29,24 +49,4 @@ function InputGamepadProcess()
 	Mode  = gamepad_button_check(0, gp_select);
 	Start = gamepad_button_check(0, gp_start);
 	ABC   = A or B or C;
-	
-	// Gamepad axis "pressed" function
-	function gamepad_axis_check(device, axisindex)
-	{
-		switch Axis 
-		{
-			case "gp_axis_lup":    
-				return gamepad_axis_value(Device, gp_axislv) < 0 and !Up;
-			break;
-			case "gp_axis_ldown":  
-				return gamepad_axis_value(Device, gp_axislv) > 0 and !Down;  
-			break;
-			case "gp_axis_lleft":  
-				return gamepad_axis_value(Device, gp_axislh) < 0 and !Left;  
-			break;
-			case "gp_axis_lright":
-				return gamepad_axis_value(Device, gp_axislh) > 0 and !Right; 
-			break;
-		}
-	}
 }

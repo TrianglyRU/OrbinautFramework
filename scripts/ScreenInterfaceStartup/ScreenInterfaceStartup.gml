@@ -1,6 +1,8 @@
 function ScreenInterfaceStartup()
 {	
-	PauseSurface     = -1;
-	InterfaceOffsetX = -120;	
-	InterfaceOffsetY =  0;	
+	// Disable pause surface
+	PauseSurface = -1;
+	
+	// Enable interface
+	InterfaceEnabled = true;
 }

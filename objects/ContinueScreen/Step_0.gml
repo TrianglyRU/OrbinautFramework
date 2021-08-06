@@ -11,10 +11,11 @@
 	if RoomState == 0
 	{
 		// Animate character
-		with CharObject animation_play(sprite_index, 18, 1);
+		var  SpriteSpeed = CharSpeed[0];
+		with CharObject animation_play(sprite_index, SpriteSpeed, 1);
 		
 		// Check if timer is active
-		if Countdown
+		if Countdown >= 60
 		{		
 			// Go into next room state
 			if Input.StartPress or Input.ABCPress
@@ -24,23 +25,12 @@
 				// Play sound
 				audio_sfx_play(sfxCharge, false);
 			}
-			
-			// Count down the timer
-			else
-			{
-				Countdown--;
-			}
 		}
 		
 		// Check if timer ran out
 		else
 		{
-			// Сount room timer
-			if RoomTimer < 120
-			{
-				RoomTimer++;
-			}
-			else if RoomTimer == 120
+			if Countdown == 0
 			{
 				// Perform fade
 				fade_perform(to, black, 1);
@@ -50,7 +40,6 @@
 				{
 					gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0);
 				}	
-				RoomTimer++;
 			}
 			
 			// Goto into devMenu once fade reaches its max step
@@ -59,20 +48,23 @@
 				room_goto(DevMenu);
 			}
 		}
+		
+		Countdown--;
 	}
 	
 	// State 1: react
 	else if RoomState == 1
 	{
 		// Charge character speed (for 64 frames)
-		CharSpeed	   = min(CharSpeed + 0.125, 8);
-		var SpriteTime = round(max(1, 8 - abs(CharSpeed)));
+		CharSpeed[1]   = min(CharSpeed[1] + 0.125, 8);
+		var SpriteTime = round(max(1, 8 - abs(CharSpeed[1])));
 		
 		// Animate character
-		with CharObject animation_play(spr_obj_cont_sonic_action, SpriteTime, 12);
+		var ActionSprite = CharSprite[1];
+		with CharObject animation_play(ActionSprite, SpriteTime, 12);
 		
 		// Flick last continue object while charging
-		if CharSpeed != 8
+		if CharSpeed[1] != 8
 		{
 			ContObject[Game.Continues - 1].visible = !ContObject[Game.Continues - 1].visible;
 		}
@@ -96,7 +88,7 @@
 			CharObject.x += 16;
 			
 			// If object 64 pixels off-screen, go into next room state
-			if CharObject.x - room_width >= 64
+			if CharObject.x - Game.ResolutionWidth >= 64
 			{
 				RoomState = 2;
 				RoomTimer = 1;

@@ -13,7 +13,7 @@ function ObjSpringRampStartup()
 	object_set_solidbox(29, 8, CollisionDefault);
 	
 	// Display object behind player
-	object_set_depth(Player, false);
+	object_set_depth(Player, true);
 	
 	// Set object active range
 	object_set_range(RangeClose, ResetUnload);

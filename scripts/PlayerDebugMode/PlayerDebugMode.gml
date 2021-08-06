@@ -3,13 +3,13 @@ function PlayerDebugMode()
 	// Check if we're in dev mode
 	if !Game.DevMode or Death
 	{
-		exit;
+		return false;
 	}
 	
 	// Exit if stage is paused
 	if Stage.State == StagePaused
 	{
-		exit;
+		return false;
 	}
 	
 	// Check for entering for exiting debug mode
@@ -62,7 +62,7 @@ function PlayerDebugMode()
 	// Check if we're in debug state
 	if !DebugMode
 	{
-		exit;
+		return false;
 	}
 	
 	// Increase speed
@@ -93,4 +93,6 @@ function PlayerDebugMode()
 	{
 		instance_create(floor(PosX), floor(PosY), DebugList[DebugItem]);
 	}
+	
+	return true;
 }

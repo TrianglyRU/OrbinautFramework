@@ -1,6 +1,6 @@
 function ScreenPauseProcess()
 {
-	if Stage.State != StagePaused
+	if !Stage.IsPaused
 	{
 		return false;
 	}

@@ -1,7 +1,7 @@
 /// @description Stage Pause
 // You can write your code in this editor
 	
-	if State == StagePaused
+	if IsPaused
 	{	
 		if Input.DownPress
 		{
@@ -52,7 +52,7 @@
 					
 						audio_resume_all();
 						
-						State = StageActive;
+						IsPaused = false;
 						
 						Screen.CameraEnabled = true;
 						
@@ -76,7 +76,7 @@
 	}
 	else if Input.StartPress
 	{
-		State				 = StagePaused
+		IsPaused = true;
 		Input.StartPress     = false;
 		Screen.CameraEnabled = false;
 		Screen.PauseSurface  = sprite_create_from_surface(application_surface, 0, 0, Game.ResolutionWidth, Game.ResolutionHeight, false, false, 0, 0);
@@ -87,7 +87,7 @@
 		var Len = array_length(IgnoreList);
 		
 		// Do code from object side
-		with all
+		/*with all
 		{
 			// Exit the code if object is the one to ignore
 			for (var i = 0; i < Len; i++)
@@ -95,5 +95,5 @@
 				if object_index == IgnoreList[i] exit;
 			}
 			instance_deactivate_object(self);
-		}
+		}*/
 	}

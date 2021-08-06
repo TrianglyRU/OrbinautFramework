@@ -5,6 +5,6 @@ function object_set_hitbox(xradius, yradius)
 	Obj_HitX = xradius;
 	Obj_HitY = yradius;
 	
-	// Set status
+	// Mark as interactive
 	Obj_HitStatus = true;
 }

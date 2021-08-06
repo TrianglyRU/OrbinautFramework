@@ -1,7 +1,7 @@
 /// @function object_object_overlap(targetObject)
 function object_object_overlap(targetObject)
 {
-	// Exit the code if this object hitbox wasnn't initialized
+	// Exit the code if this object hitbox wasn't initialized
 	if !variable_instance_exists(id, "Obj_HitStatus")
 	{
 		exit;

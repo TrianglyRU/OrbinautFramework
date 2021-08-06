@@ -1,11 +1,11 @@
 function PlayerProcess()
 {
-	// Do not proceed
-	if Stage.State != StageActive or DebugMode
+	// Do not process if stage is paused or fade is currently active
+	if Stage.IsPaused or fade_check(FadeActive)
 	{
 		return false;
 	}
 	
-	// Proceed
+	// Else process
 	return true;
 }

@@ -12,4 +12,6 @@ function ScreenCameraStartup()
 		CameraX = RawX;
 		CameraY = RawY
 	}
+	
+	CameraEnabled = true;
 }

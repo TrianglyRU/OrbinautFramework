@@ -11,7 +11,7 @@
     "path": "audiogroups/BGM",
   },
   "soundFile": "ContinueMusic.ogg",
-  "duration": 14.153039,
+  "duration": 12.1319733,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

@@ -5,13 +5,31 @@ function ContinueScreenSetup()
 	RoomY = Game.ResolutionHeight / 2;
 	
 	// Set countdown to 11 seconds - 1 frame
-	Countdown = 559;
+	Countdown = 659;
+	
+	// Define character sprite to use
+	switch Game.Character
+	{
+		case CharSonic:
+			CharSprite = [spr_obj_cont_sonic_wait, spr_obj_cont_sonic_action];
+			CharSpeed  = [18, 0];
+		break;
+		case CharTails:
+			CharSprite = [spr_obj_cont_sonic_wait, spr_obj_cont_sonic_action];
+			CharSpeed  = [18, 0];
+		break;
+		case CharKnuckles:
+			CharSprite = [spr_obj_cont_knux_wait, spr_obj_cont_knux_action];
+			CharSpeed  = [12, 0];
+		break;
+	}
+	var WaitSprite = CharSprite[0];
 	
 	// Create character object
 	CharObject = instance_create(RoomX, RoomY + 52, ContinueCharacter);
 	with CharObject
 	{
-		animation_set_frame(spr_obj_cont_sonic_wait, 1);
+		animation_set_frame(WaitSprite, 1);
 	}
 	
 	// Create continue objects
@@ -20,9 +38,7 @@ function ContinueScreenSetup()
 		ContObject[i] = instance_create(RoomX + 21 * i - max(Game.Continues - 1, 0) * 11, RoomY - 20, ContinueIcon);
 	}
 	
-	// Perfrom fade
+	// Perfrom fade and play music
 	fade_perform(from, black, 1);
-	
-	// Play music
 	audio_play_sound(ContinueMusic, 0, false);
 }

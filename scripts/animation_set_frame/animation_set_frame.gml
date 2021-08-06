@@ -7,8 +7,9 @@ function animation_set_frame(spriteID, frameNumber)
 		sprite_index = spriteID;
 	}
 	
-	image_speed  = 0;
+	// Ignore the animation method built into the IDE
+	sprite_set_speed(spriteID, 0, spritespeed_framespergameframe);
 	
 	// Set the subimage for the specified sprite
-	image_index  = frameNumber - 1;
+	image_index = frameNumber - 1;
 }

@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 	// Debug mode state
-	PlayerDebugMode();
+	if PlayerDebugMode() exit;
 	
 	// Check if we should run the code below
 	if !PlayerProcess() exit;

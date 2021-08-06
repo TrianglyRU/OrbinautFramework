@@ -1,4 +1,4 @@
-/// @function object_set_depth(target,above|behind)
+/// @function object_set_depth(target,above_behind)
 function object_set_depth(target, renderdepth)
 {
 	// Apply depth relative to the player

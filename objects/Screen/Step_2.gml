@@ -1,6 +1,6 @@
 /// @description
 // You can call your scripts in this editor
-
+	
 	// Call camera follow process script
 	ScreenCameraFollowProcess();
 	

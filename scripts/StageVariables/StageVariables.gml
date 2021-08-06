@@ -14,6 +14,7 @@ function StageVariables()
 	State				 = 0;
 	StateTimer			 = 0;
 	IsFinished			 = 0;
+	IsPaused			 = 0;
 	ZoneID				 = 0;
 	ActID				 = 0;
 	ZoneName			 = 0;
@@ -21,12 +22,12 @@ function StageVariables()
 	TimeEnabled			 = 0;	
 	AnimationTime		 = 0;
 	StageMusic		     = 0;
-	StageMusicDAC        = 0;
 	StageMusicLooppoint  = 0;
 	GamePaused			 = 0;
 	PauseButton			 = 0;
 	PauseMode			 = 0;
 	CardEnabled			 = 0;
+	DoUpdate			 = 0;
 	TileLayer			 = [];
 	WobbleData			 = [];
 }

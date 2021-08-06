@@ -10,55 +10,63 @@ function ObjSpringRampMain()
 		JumpTimer--;
 		
 		// When timer reach 0 and player is on object, launch them
-		if !JumpTimer and object_player_stand(id)
+		if object_player_stand(id)
 		{
-			// Get force modifier
-			var Modifier = 0;
-			if PlayerPos >= 27
+			if !JumpTimer
 			{
-				Modifier = 4;
-			}
-			else if PlayerPos >= 21
-			{
-				Modifier = 3;
-			}
-			else if PlayerPos >= 13
-			{
-				Modifier = 2;
-			}
-			else if PlayerPos >= -3  
-			{
-				Modifier = 1;
-			}
-			
-			with Player
-			{
-				// Stop player's actions
-				GlideState  = false;
-				ClimbState  = false;
-				FlightState = false;
-				Jumping     = false;
-				Rolling     = false;
-				DropdashRev = -1;
-			
-				// Go airborne
-				Grounded = false;
-				OnObject = false;
-				
-				// Use 'spring' animation
-				Animation = AnimSpring;
-				
-				// Launch player
-				if abs(Xsp) >= 4
+				// Get force modifier
+				var Modifier = 0;
+				if PlayerPos >= 27
 				{
-					Xsp += Modifier * sign(Xsp);
+					Modifier = 4;
 				}
-				Ysp = -4 - Modifier;
+				else if PlayerPos >= 21
+				{
+					Modifier = 3;
+				}
+				else if PlayerPos >= 13
+				{
+					Modifier = 2;
+				}
+				else if PlayerPos >= -3  
+				{
+					Modifier = 1;
+				}
+			
+				with Player
+				{
+					// Stop player's actions
+					GlideState  = false;
+					ClimbState  = false;
+					FlightState = false;
+					Jumping     = false;
+					Rolling     = false;
+					DropdashRev = -1;
+			
+					// Go airborne
+					Grounded = false;
+					OnObject = false;
+				
+					// Use 'spring' animation
+					Animation = AnimSpring;
+				
+					// Launch player
+					if abs(Xsp) >= 4
+					{
+						Xsp += Modifier * sign(Xsp);
+					}
+					Ysp = -4 - Modifier;
+				}
+			
+				// Play sound
+				audio_sfx_play(sfxSpring, false);
+			
+				// Restore default heightmap
+				Obj_SolidMap = CollisionDefault;
 			}
-			
-			// Play sound
-			audio_sfx_play(sfxSpring, false);
-			
+		}
+		else
+		{
 			// Restore default heightmap
 			Obj_SolidMap = CollisionDefault;
 		}

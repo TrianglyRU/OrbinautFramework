@@ -10,7 +10,7 @@ function ScreenDebugScreenDraw()
 	}
 	
 	// Hotkeys:
-	if Stage.State != StageLoad and DebugToggle
+	if Stage.DoUpdate and DebugToggle
 	{
 		string_set_font(Game.Font[FontDebug], fa_center);
 		string_display(Width / 2, Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  SENSORS: R  VARIABLES: T", 0.5);
@@ -96,7 +96,7 @@ function ScreenDebugScreenDraw()
 				+ "\n         * CHARACTER VISUALS *"
 				+ "\n"
 				+ "\n   ANIMATION: " + string(sprite_get_name(Player.sprite_index))
-				+ "\n   NEXT FRAME IN: " + string(Player.AnimationTimer)
+				+ "\n   NEXT FRAME IN: " + string(Player.Obj_AnimationTimer)
 				+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
 				+ "\n   FRAMES TOTAL: " + string(Player.image_number)
 				+ "\n   VISUAL ANGLE: " + string(Player.VisualAngle)

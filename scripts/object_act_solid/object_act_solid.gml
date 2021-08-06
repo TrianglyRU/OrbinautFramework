@@ -25,6 +25,12 @@ function object_act_solid(sides, top, bottom)
 		exit;
 	}
 	
+	// Clear touch flags
+	Obj_SolidTouchU	= false;
+	Obj_SolidTouchD	= false;
+	Obj_SolidTouchL	= false;
+	Obj_SolidTouchR	= false;
+	
 	// Get object
 	var ObjectX		   = floor(x);
 	var ObjectY        = floor(y);
@@ -73,6 +79,9 @@ function object_act_solid(sides, top, bottom)
 							
 			// Make player to always stay on top of the object
 			Player.PosY = ObjectY - Obj_SolidY - Player.RadiusY + ObjectHeight - 1;
+			
+			// Tell the object we're touching its top side
+			Obj_SolidTouchU = true;
 		}
 	}
 			
@@ -109,7 +118,10 @@ function object_act_solid(sides, top, bottom)
 				if Player.FlightState
 				{
 					Player.Grv = 0.03125;
-				}	
+				}
+				
+				// Tell the object we're touching its top side
+				Obj_SolidTouchD = true;
 				
 				/* In S1 and S2 the game would also kill you if you were grounded, 
 				   however that was changed in S3 to allow to you use springs on ceilings */
@@ -127,6 +139,9 @@ function object_act_solid(sides, top, bottom)
 				{
 					exit;
 				}
+				
+				// Tell the object we're touching its top side
+				Obj_SolidTouchU = true;
 				
 				// Do from player's side
 				with Player
@@ -159,6 +174,17 @@ function object_act_solid(sides, top, bottom)
 			if XDistance > 0 and Player.Xsp > 0
 			or XDistance < 0 and Player.Xsp < 0
 			{
+				// Tell the object we're touching its side
+				if Player.Xsp > 0
+				{
+					Obj_SolidTouchL = true;
+				}
+				else if Player.Xsp < 0
+				{
+					Obj_SolidTouchR = true;
+				}
+				
+				// Reset speeds
 				if Player.Grounded
 				{
 					Player.Inertia = 0;

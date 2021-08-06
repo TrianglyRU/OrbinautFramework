@@ -1,13 +1,11 @@
 /// @function application_set_size(appWidth, appHeight)
 function application_set_size(appWidth, appHeight)
 {	
-	// Set camera size
+	// Set camera size and resize application surface
 	camera_set_view_size(view_camera[0], appWidth, appHeight);
-	
-	// Set application surface/viewport size
-	surface_resize(application_surface, appWidth, appHeight);
-	
-	// Update palette surfaces
+	surface_resize(application_surface,  appWidth, appHeight);
+
+	// Resize palette surfaces
 	if instance_exists(Palette)
 	{
 		if surface_exists(Palette.SurfaceLow)

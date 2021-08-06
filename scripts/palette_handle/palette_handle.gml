@@ -1,8 +1,8 @@
 /// @function palette_handle(type,id,last,goto,duration)
 function palette_handle(type, id, last, goto, duration)
 {
-	// Exit if screen is fading
-	if FadeTimer
+	// Exit if fade is active
+	if fade_check(FadeActive)
 	{
 		exit;
 	}

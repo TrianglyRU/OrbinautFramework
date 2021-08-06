@@ -7,7 +7,7 @@ function ScreenDebugSolidboxDraw()
 	}
 	
 	// Activate solidbox debugging
-	if Stage.State != StageLoad and keyboard_check_pressed(ord("W"))
+	if Stage.DoUpdate and keyboard_check_pressed(ord("W"))
 	{
 		DebugSolids = !DebugSolids;
 	}
@@ -37,8 +37,9 @@ function ScreenDebugSolidboxDraw()
 				{
 					for (var i = 0; i < array_length(Obj_SolidMap); i++)
 					{
-						var HeightToDraw = image_xscale ? i : array_length(Obj_SolidMap) - 1 - i;
-						draw_line_colour(x - Obj_SolidX + i, y + Obj_SolidY - 1, x - Obj_SolidX + i, y + Obj_SolidY - Obj_SolidMap[HeightToDraw] - 1, $00ffff, $00ffff);
+						var HeightAbove = image_xscale ? i : array_length(Obj_SolidMap) - 1 - i;
+						var HeightBelow = image_xscale ? array_length(Obj_SolidMap) - 1 - i : i;
+						draw_line_colour(x - Obj_SolidX + i, y + Obj_SolidY + Obj_SolidMap[HeightBelow] - 1, x - Obj_SolidX + i, y + Obj_SolidY - Obj_SolidMap[HeightAbove] - 1, $00ffff, $00ffff);
 					}
 				}
 			}

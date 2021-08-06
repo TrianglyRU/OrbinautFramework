@@ -1,8 +1,6 @@
 /// @description Stage Scripts
 // You can write your code in this editor
 	
-	if (GamePaused) exit;
-	
 	// Update stage
 	StageActUpdate();
 	

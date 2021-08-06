@@ -1,5 +1,8 @@
 function BackgroundProcess()
 {	
+	// Draw white background colour
+	draw_clear(c_gray);
+	
 	// Use parallax shader
 	shader_set(ShaderParallax);
 	

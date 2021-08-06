@@ -7,7 +7,7 @@ function ScreenDebugProcess()
 	}
 	
 	// Activate general debugging
-	if Stage.State != StageLoad and keyboard_check_pressed(ord("Q"))
+	if Stage.DoUpdate and keyboard_check_pressed(ord("Q"))
 	{
 		DebugToggle = !DebugToggle;
 	}

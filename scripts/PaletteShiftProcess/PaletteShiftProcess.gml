@@ -1,7 +1,7 @@
 function PaletteShiftProcess()
 {	
-	// Exit if we're in playable stage and it is paused
-	if instance_exists(Stage) and Stage.State == StagePaused
+	// Exit if we're in playable stage and it is not updating
+	if instance_exists(Stage) and !Stage.DoUpdate
 	{
 		exit;
 	}
