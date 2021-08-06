@@ -1,11 +1,11 @@
-/// @description
+/// @description Camera
 // You can call your scripts in this editor
 
-	// Call camera follow process script
-	ScreenCameraFollowProcess();
+	// Follow the character
+	ScreenCameraFollowPlayer();
 	
-	// Set camera offsets process script
-	ScreenCameraOffsetsProcess();
+	// Set camera dynamic offsets
+	ScreenCameraHandleOffsets();
 	
-	// Call camera update script
-	ScreenCameraUpdate();
+	// Update camera position
+	ScreenCameraPositionUpdate();

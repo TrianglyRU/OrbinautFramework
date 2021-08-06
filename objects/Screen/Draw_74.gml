@@ -1,26 +1,26 @@
-/// @description
+/// @description GUI
 // You can write your code in this editor
 	
-	// Call pause process script, exit further code if active
-	if ScreenPauseProcess() exit;
+	// Render pause and exit the futher code if it is active
+	if ScreenPauseDisplay() exit;
 	
-	// Call renderer process script
-	ScreenRendererLowProcess();
+	// Start render GUI below the fade
+	ScreenRendererLowStart();
 	
-	// Call HUD process script
-	ScreenInterfaceProcess();
+	// Display HUD
+	ScreenInterfaceDisplay();
 
-	// Call results process script
-	ScreenResultsProcess();
+	// Display results screen
+	ScreenResultsDisplay();
 	
-	// Call renderer update script
+	// Update renderer
 	ScreenRendererUpdate();
 	
-	// Call renderer process script
-	ScreenRendererHighProcess();
+	// Start render GUI above the fade
+	ScreenRendererHighStart();
 	
-	// Call card process script
-	ScreenCardProcess();
+	// Display title card
+	ScreenTitleCardDisplay();
 		
-	// Call renderer update script
+	// Update renderer
 	ScreenRendererUpdate();

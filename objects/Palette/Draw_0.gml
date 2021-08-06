@@ -1,8 +1,8 @@
-/// @description
+/// @description Palette & Fade
 // You can write your code in this editor
 	
-	// Call shift process script
-	PaletteShiftProcess();
+	// Update dynamic shift
+	PaletteShiftHandle();
 	
-	// Call fade process script
-	PaletteFadeProcess();
+	// Update fade shader
+	PaletteFadeUpdate();

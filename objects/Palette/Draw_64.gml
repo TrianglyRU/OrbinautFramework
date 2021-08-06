@@ -1,8 +1,8 @@
-/// @description
+/// @description Surface Draw
 // You can write your code in this editor
 
-	// Call update script
-	PaletteUpdate();
+	// Update renderer
+	PaletteRendererSurfaceUpdate();
 	
-	// Call surface process script
-	PaletteSurfaceProcess();
+	// Draw surface
+	PaletteRendererSurfaceDraw();	

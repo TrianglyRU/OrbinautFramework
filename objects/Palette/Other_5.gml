@@ -1,5 +1,5 @@
-/// @description
+/// @description Surface Clear
 // You can write your code in this editor
 
-	// Call reset script
-	PaletteReset();
+	// Clear surfaces
+	PaletteRendererClear();

@@ -1,10 +1,10 @@
-/// @description
+/// @description Startup (Application)
 // You can call your scripts in this editor
 	
-	// Call macro initialization script
+	// Call macro initialisation script
 	GameMacro();
 	
-	// Call variables initialization script
+	// Call variables initialisation script
 	GameVariables();
 	
 	// Call framework setup script

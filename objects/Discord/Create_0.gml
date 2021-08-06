@@ -1,5 +1,5 @@
-/// @description
+/// @description Variables
 // You can write your code in this editor
 	
-	// Call variables initialization script
+	// Call variables script
 	DiscordVariables();
