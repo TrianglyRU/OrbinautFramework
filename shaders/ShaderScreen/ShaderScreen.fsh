@@ -26,7 +26,7 @@
 	// Затемнение
 	uniform float u_step;
 	uniform bool u_mode;
-	uniform int u_color;
+	uniform int u_colour;
 
 	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[MaxCol]) 
 	{
@@ -46,16 +46,16 @@
 	float SubA(float Val1, float Val2) // Appear
 	{
 		if (u_step == 756.) return Val1;
-		return Val1 + (u_color == 1 ? 
+		return Val1 + (u_colour == 1 ? 
 			 max(Val2 - Val1 - u_step + 252., 0.): 
 			-max(Val2 + Val1 - u_step, 0.));
 	}
 
 	float SubD(float Val1, float Val2) // Disappear
 	{ 
-		if (u_step == 0.) return u_color == 1 ? 255. : 0.;
+		if (u_step == 0.) return u_colour == 1 ? 255. : 0.;
 		float Diff = max(756. - u_step - Val2, 0.);
-		return Val1 + Diff * (u_color == 1 ? 1. : -1.);
+		return Val1 + Diff * (u_colour == 1 ? 1. : -1.);
 	}
 
 	float Flsh(float Val1) // Appear
@@ -89,7 +89,7 @@
 		col.rgb *= 255.;
 		vec3 OutCol;
 	
-		if (u_color == 2) 
+		if (u_colour == 2) 
 		{
 			OutCol = u_mode == true ? 
 			vec3(Flsh(col.r), Flsh(col.g), Flsh(col.b)):
@@ -97,7 +97,7 @@
 		} 
 		else 
 		{
-			OutCol = u_color == 1 ? 
+			OutCol = u_colour == 1 ? 
 			u_mode == true ? 
 				vec3(SubA(col.r, 504. - col.b - col.g), SubA(col.g, 252. - col.b), SubA(col.b, 0.)): 
 				vec3(SubD(col.r, 0.), SubD(col.g, 252. - col.r), SubD(col.b, 504. - col.r - col.g)):
