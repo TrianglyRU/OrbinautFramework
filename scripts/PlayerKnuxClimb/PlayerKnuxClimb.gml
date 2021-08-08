@@ -127,7 +127,7 @@ function PlayerKnuxClimb()
 			// Set speeds
 			Ysp	= -4;
 			Xsp	= -4 * Facing;
-			
+				
 			// Reset gravity
 			if !IsUnderwater
 			{
@@ -141,6 +141,7 @@ function PlayerKnuxClimb()
 			
 			// Set 'roll' animation
 			Animation = AnimRoll;
+			Facing    = !Facing;
 				
 			// Play sound
 			audio_sfx_play(sfxJump, false);

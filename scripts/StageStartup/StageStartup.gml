@@ -1,4 +1,4 @@
-function StageActStartup()
+function StageStartup()
 {
 	// Play stage music
 	audio_bgm_play(StageMusic, StageMusicLooppoint, TypeNormal);

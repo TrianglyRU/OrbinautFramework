@@ -1,4 +1,4 @@
-function StageActUnload()
+function StageEndProcess()
 {
 	// Exit if stage is not finished
 	if !(IsFinished and fade_check(FadeMax))

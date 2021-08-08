@@ -1,4 +1,4 @@
-function StageActSetup()
+function StageSetup()
 {	
 	switch room 
 	{	

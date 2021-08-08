@@ -1,5 +1,5 @@
-/// @description Water Surface
+/// @description
 // You can write your code in this editor
 	
-	// Draw water surface
+	// Call water surface draw script
 	StageWaterSurfaceDraw();

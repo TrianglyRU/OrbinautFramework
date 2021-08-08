@@ -1,4 +1,4 @@
-function StageDevMode()
+function StageDevModeProcess()
 {
 	// Check if we're in dev mode
 	if !Game.DevMode

@@ -1,6 +1,6 @@
 function InputHotkeysProcess()
 {	
-	if !Game.DevMode or !instance_exists(Stage) or Stage.State != StageActive
+	if !Game.DevMode or !instance_exists(Stage) or !Stage.DoUpdate
 	{
 		exit;
 	}
@@ -13,7 +13,6 @@ function InputHotkeysProcess()
 		Game.Time		    = 0;
 		Game.StageBoundary	= 0;
 		Game.Score          = 0;
-		Game.PaletteIndexDry[0] = 0;
 		
 		audio_stop_all();
 		room_restart();

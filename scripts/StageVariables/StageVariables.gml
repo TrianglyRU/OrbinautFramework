@@ -11,8 +11,7 @@ function StageVariables()
 	DeathBoundary		 = 0;
 	WaterEnabled		 = 0;
 	WaterLevel			 = 0;
-	State				 = 0;
-	StateTimer			 = 0;
+	EventTimer			 = 0;
 	IsFinished			 = 0;
 	IsPaused			 = 0;
 	ZoneID				 = 0;

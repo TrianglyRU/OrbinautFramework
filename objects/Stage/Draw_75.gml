@@ -1,4 +1,4 @@
-/// @description Stage Pause
+/// @description
 // You can write your code in this editor
 	
 	if IsPaused
@@ -82,18 +82,4 @@
 		Screen.PauseSurface  = sprite_create_from_surface(application_surface, 0, 0, Game.ResolutionWidth, Game.ResolutionHeight, false, false, 0, 0);
 
 		audio_pause_all();
-	
-		var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette];
-		var Len = array_length(IgnoreList);
-		
-		// Do code from object side
-		/*with all
-		{
-			// Exit the code if object is the one to ignore
-			for (var i = 0; i < Len; i++)
-			{
-				if object_index == IgnoreList[i] exit;
-			}
-			instance_deactivate_object(self);
-		}*/
 	}

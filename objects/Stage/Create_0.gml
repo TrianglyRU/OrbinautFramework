@@ -1,11 +1,11 @@
-/// @description Variables & Setup
+/// @description
 // You can call your scripts in this editor
 
-	// Initialize variables
+	// Call variables initialization script
 	StageVariables();
 	
-	// Set stage properties
-	StageActSetup();
+	// Call setup script
+	StageSetup();
 
-	// Load the stage
-	StageActStartup();
+	// Call startup script
+	StageStartup();

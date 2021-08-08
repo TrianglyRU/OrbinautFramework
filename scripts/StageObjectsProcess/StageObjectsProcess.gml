@@ -1,12 +1,13 @@
-function StageObjectsUpdate() 
+function StageObjectsProcess() 
 {	
-	// Get ignore list
+	// Define object array to ignore
 	var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette, BlankObject];
 	var Length = array_length(IgnoreList);
 	
+	// Is stage update enabled?
 	if DoUpdate
 	{
-		// Destroy the layer we store sprites on
+		// Destroy the layer we stored sprites on
 		if layer_exists("TempSprites")
 		{
 			layer_destroy("TempSprites");
@@ -16,21 +17,20 @@ function StageObjectsUpdate()
 		{
 			if variable_instance_exists(id, "Obj_LoadFlag")
 			{	
-				// Get position
+				// Get object position
 				var ObjectX = floor(x);
 				var ObjectY = floor(y);
 			
-				// Get limits
+				// Get load bounds
 				var LeftBound   = Screen.CameraX - Obj_LoadX;
 				var TopBound    = Screen.CameraY - Obj_LoadY;
 				var RightBound  = Screen.CameraX + Screen.Width  + Obj_LoadX;
 				var BottomBound = Screen.CameraY + Screen.Height + Obj_LoadY;
 			
-				// Check if the object is off-limits
+				// Check if the object is off-boundaries
 				if ObjectX < LeftBound or ObjectX > RightBound
 				or ObjectY < TopBound  or ObjectY > BottomBound
 				{
-					// Is reset flag set?
 					if Obj_LoadFlag != false
 					{
 						// Was object on the screen before?
@@ -76,7 +76,7 @@ function StageObjectsUpdate()
 					}
 				}
 			
-				// If object is inside the limits and has the reset flag, allow unload actions
+				// If object is inside the boundaries and has the reset flag, allow unload actions
 				else if Obj_LoadFlag != false and !Obj_LoadState
 				{
 					Obj_LoadState = true;		
@@ -87,6 +87,8 @@ function StageObjectsUpdate()
 		// Activate unloaded objects inside of the largest region
 		instance_activate_region(Screen.CameraX - 128, Screen.CameraY - 256, Screen.Width + 256, Screen.Height + 512, true);
 	}
+	
+	// Is stage not updating?
 	else
 	{
 		// Create layer to display sprites on
@@ -97,7 +99,7 @@ function StageObjectsUpdate()
 		
 		with all
 		{
-			// Exit if object is the one to ignore or object is not visible
+			// Exit if current object is the one to ignore
 			for (var i = 0; i < Length; i++)
 			{
 				if object_index == IgnoreList[i]
@@ -123,19 +125,16 @@ function StageObjectsUpdate()
 				instance_deactivate_object(id);
 			}
 			
-			// Replace objects with blank ones when dead
+			// Replace objects with blank ones when player dies
 			else
 			{
-				// Create blank object
-				var ObjectSprite = instance_create_depth(x, y, depth, BlankObject);
-			
-				// Setup blank object
-				ObjectSprite.visible	  = visible;
-				ObjectSprite.sprite_index = sprite_index;
-				ObjectSprite.image_index  = image_index;		
-				ObjectSprite.image_xscale = image_xscale;
-				ObjectSprite.image_yscale = image_yscale;
-				ObjectSprite.image_speed  = 0;
+				var ReplacedObject		    = instance_create_depth(x, y, depth, BlankObject);
+				ReplacedObject.visible	    = visible;
+				ReplacedObject.sprite_index = sprite_index;
+				ReplacedObject.image_index  = image_index;		
+				ReplacedObject.image_xscale = image_xscale;
+				ReplacedObject.image_yscale = image_yscale;
+				ReplacedObject.image_speed  = 0;
 
 				// Destroy main object
 				instance_destroy();

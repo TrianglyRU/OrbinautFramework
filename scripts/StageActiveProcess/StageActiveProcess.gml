@@ -1,4 +1,4 @@
-function StageActUpdate()
+function StageActiveProcess()
 {	
 	// Check if we should update stage or not
 	if fade_check(FadeActive) or Player.Death or IsPaused
@@ -19,9 +19,9 @@ function StageActUpdate()
 		// Check if player is off-screen vertically
 		if Player.Ysp > 0 and floor(Player.PosY) > Screen.CameraY + Screen.Height
 		{
-			// Fade into black after 1 second	
-			StateTimer++
-			if StateTimer == 60
+			// Fade into black after 1 second
+			EventTimer++
+			if EventTimer == 60
 			{
 				Player.Lives -= 1;
 					

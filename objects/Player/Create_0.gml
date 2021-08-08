@@ -1,4 +1,4 @@
-/// @description Variables & Setup
+/// @description Setup
 // You can write your code in this editor
 	
 	// Initialize variables

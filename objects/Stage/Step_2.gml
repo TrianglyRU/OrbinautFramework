@@ -1,14 +1,14 @@
-/// @description Stage Scripts
+/// @description
 // You can write your code in this editor
 	
-	// Update stage
-	StageActUpdate();
+	// Call active process script
+	StageActiveProcess();
 	
-	// Update objects
-	StageObjectsUpdate();
+	// Call objects process script
+	StageObjectsProcess();
 	
-	// Update boundaries
-	StageBoundariesUpdate();
+	// Call boundaries process script
+	StageBoundariesProcess();
 	
-	// Check for unloading the stage
-	StageActUnload();
+	// Call end process script
+	StageEndProcess();

@@ -1,11 +1,5 @@
 function PaletteFadeProcess()
 {	
-	// Exit if we're in playable stage and it is paused
-	if instance_exists(Stage) and Stage.State == StagePaused
-	{
-		exit;
-	}
-	
 	// Update fade
 	if FadeTimer > 0 
 	{

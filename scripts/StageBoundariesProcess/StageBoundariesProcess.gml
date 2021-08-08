@@ -1,4 +1,4 @@
-function StageBoundariesUpdate()
+function StageBoundariesProcess()
 {	
 	// Exit if stage update is disabled
 	if !DoUpdate

@@ -37,18 +37,18 @@ function PlayerResetOnFloor()
 		// Play sound
 		audio_sfx_play(sfxWaterBarrierBounce, false);
 		
-		// Exit the futher code
+		// Exit the further code
 		exit;
 	}
-	
-	// Restore control (from hit)
-	NoControls = false;
 	
 	// Set 'walk' or 'run' animation if we've landed in roll state not on the object
 	if Animation == AnimRoll and !OnObject
 	{
 		Animation = Inertia >= TopAcc ? AnimRun : AnimWalk;
 	}
+	
+	// Restore control (from hit)
+	NoControls = false;
 		
 	// Reset gravity
 	if !IsUnderwater

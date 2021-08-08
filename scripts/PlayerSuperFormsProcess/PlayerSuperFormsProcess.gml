@@ -55,20 +55,12 @@ function PlayerSuperFormsProcess()
 					Rings--;
 				}
 			}
-			if abs(Inertia) < TopAcc
+			if abs(Inertia) >= TopAcc and !instance_exists(SuperStar)
 			{
-				SuperStateStar = 0;
-			}
-			else
-			{
-				if !SuperStateStar
+				var  CreatedStar = instance_create(floor(PosX), floor(PosY), SuperStar);
+				with CreatedStar 
 				{
-					SuperStateStar = 12
-					instance_create(floor(PosX), floor(PosY), SuperStar);
-				}
-				else
-				{
-					SuperStateStar--
+					FollowPlayer = true;
 				}
 			}
 			
