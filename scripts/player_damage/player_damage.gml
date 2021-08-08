@@ -2,7 +2,7 @@
 function object_damage(flame_type, thunder_type, instant_kill)
 {	
 	// Exit the code if player can't be damaged
-	if Player.IsInvincible
+	if !instant_kill and Player.IsInvincible
 	{
 		exit;
 	}
@@ -17,7 +17,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	
 	// Reset player flags
 	Player.NoControls   = true;
-	Player.MovementLock = false;
 	Player.Jumping		= false;
 	Player.FlightState	= false;
 	Player.GlideState	= false;
@@ -39,10 +38,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	
 	// Check if player has no rings and barrier or should die instantly
 	if !Player.Rings and !Player.BarrierType or instant_kill
-	{
-		// Remove barrier
-		instance_destroy(Barrier);
-			
+	{	
 		// Disable collisions and camera
 		Screen.CameraEnabled  = false;
 		Player.AllowCollision = false;

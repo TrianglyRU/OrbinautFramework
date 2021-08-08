@@ -23,8 +23,8 @@ function PlayerSuperFormsProcess()
 				NoControls = false;
 			}
 			
-			// Become super on 40th frame
-			else if SuperStateValue == 40
+			// Become super on 40th (or 37th) frame
+			else if SuperStateValue == 40 - (CharacterID != CharSonic) * 3
 			{
 				SuperState		= 2;
 				SuperStateValue = 1;
@@ -45,7 +45,7 @@ function PlayerSuperFormsProcess()
 			IsInvincible = true;
 		
 			// Decrease rings
-			if Rings
+			if Rings and !Death and !Drown
 			{
 				SuperStateValue++
 				
@@ -55,6 +55,8 @@ function PlayerSuperFormsProcess()
 					Rings--;
 				}
 			}
+			
+			// Create first super star (and make it follow the player)
 			if abs(Inertia) >= TopAcc and !instance_exists(SuperStar)
 			{
 				var  CreatedStar = instance_create(floor(PosX), floor(PosY), SuperStar);

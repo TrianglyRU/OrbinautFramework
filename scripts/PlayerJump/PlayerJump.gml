@@ -22,37 +22,33 @@ function PlayerJump()
 	}	
 	
 	// Check if C button is pressed and we're moving upwards
-	if Input.CPress and Rings >= 10 and Ysp < 0
+	if Input.CPress and Rings >= 10 and Ysp < 0 and !SuperState
 	{
-		// Should we enter Super state?
-		if !SuperState
-		{
-			// Play animation
-			Animation = AnimTransform;
+		// Play animation
+		Animation = AnimTransform;
 			
-			// Transform
-			SuperState      = true;
-			SuperStateValue = false;
-			SuperStateStar  = false;
+		// Transform
+		SuperState      = true;
+		SuperStateValue = false;
+		SuperStateStar  = false;
 			
-			// Disable controls
-			NoControls = true;
+		// Disable controls
+		NoControls = true;
 			
-			// Reset invincibility
-			InvincibilityBonus = false;
+		// Reset invincibility
+		InvincibilityBonus = false;
 			
-			// Use normal collision radiuses
-			RadiusX = DefaultRadiusX;
-			RadiusY = DefaultRadiusY;
+		// Use normal collision radiuses
+		RadiusX = DefaultRadiusX;
+		RadiusY = DefaultRadiusY;
 			
-			audio_sfx_play(sfxTransform, false);		
-			audio_bgm_play(SuperTheme, 0.6, TypeNormal);
-			audio_bgm_stop(TypePriority, 1);
+		audio_sfx_play(sfxTransform, false);		
+		audio_bgm_play(SuperTheme, 0.6, TypeNormal);
+		audio_bgm_stop(TypePriority, 1);
 			
-			// Reset jump and roll flag
-			Jumping = false;
-			Rolling = false;
-		}
+		// Reset jump and roll flag
+		Jumping = false;
+		Rolling = false;
 	}
 	
 	// Else perform character action

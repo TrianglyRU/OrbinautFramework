@@ -40,24 +40,25 @@ function PlayerWaterEvents()
 		// Decrease timer
 		if AirTimer > 0
 		{
+			// Generate bubble
 			if Stage.Time mod 60 == 0
 			{
-				instance_create(floor(PosX), floor(PosY), Bubble);
+				var  PlayerBubble = instance_create(floor(PosX), floor(PosY), Bubble);
+				with PlayerBubble
+				{
+					FromPlayer = true;
+				}
 			}
 			
+			// Air countdown
 			if !Stage.IsFinished and BarrierType != BarrierWater
 			{
-				// Decrease timer
 				AirTimer--
-				
-				// Play alerts
 				if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
 				{
 					audio_sfx_play(sfxAirAlert, false);
 				}
-		
-				// Play drowning music
-				if AirTimer == 720
+				else if AirTimer == 720
 				{			
 					audio_bgm_play(Drowning, -1, TypeNormal);
 					audio_bgm_mute(TypePriority, 0);
@@ -75,17 +76,16 @@ function PlayerWaterEvents()
 			
 				// Play drown sound
 				audio_sfx_play(sfxDrowning, false);
-			
+				
+				NoControls			 = true;
 				Screen.CameraEnabled = false;
 				Stage.TimeEnabled    = false;
-				SuperState			 = false;
 				AllowCollision		 = false;
 				Grounded			 = false;
 				OnObject			 = false;
 				Drown				 = true;
 				Xsp					 = 0;
 				Ysp					 = 0;
-				MovementLock		 = -1;
 				Animation			 = AnimDrown;	
 			}
 			else if floor(PosY) >= Screen.CameraY + Screen.Height + 276

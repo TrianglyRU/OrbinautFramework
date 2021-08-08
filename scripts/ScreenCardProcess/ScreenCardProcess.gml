@@ -44,9 +44,6 @@ function ScreenCardProcess()
 	
 	// Count card
 	CardValue[0]++;
-	
-	show_debug_message(CardValue[0]);
-
 	if CardValue[1] == 0
 	{
 		// Update ribbon speed

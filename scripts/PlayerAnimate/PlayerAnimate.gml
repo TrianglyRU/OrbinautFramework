@@ -42,7 +42,7 @@ function PlayerAnimate()
 						animation_play(spr_sonic_skid, 6, 3);
 					break;
 					case AnimPush:
-						animation_play(spr_sonic_push, 32, 1);
+						animation_play(spr_sonic_push, round(max(1, 32 - SpeedFactor)), 1);
 					break;
 					case AnimHurt:
 						animation_play(spr_sonic_hurt, 1, 1);
@@ -50,6 +50,9 @@ function PlayerAnimate()
 					case AnimDeath:
 						animation_play(spr_sonic_death, 1, 1);
 					break;	
+					case AnimDrown:
+						animation_play(spr_sonic_drown, 1, 1);
+					break;
 					case AnimBalanceFront:
 						animation_play(spr_sonic_balance_front, 16, 1);
 					break;
@@ -61,10 +64,7 @@ function PlayerAnimate()
 					break;
 					case AnimActEnd:
 						animation_play(spr_sonic_actend, 3, 21);
-					break;
-					case AnimDrown:
-						animation_play(spr_sonic_drown, 1, 1);
-					break;
+					break;	
 				}
 			}
 			
@@ -104,14 +104,17 @@ function PlayerAnimate()
 						animation_play(spr_supersonic_skid, 6, 3);
 					break;
 					case AnimPush:
-						animation_play(spr_sonic_push, 32, 1);
+						animation_play(spr_supersonic_push, round(max(1, 32 - SpeedFactor)), 1);
 					break;
 					case AnimHurt:
-						animation_play(spr_sonic_hurt, 1, 1);
+						animation_play(spr_supersonic_hurt, 1, 1);
 					break;
 					case AnimDeath:
-						animation_play(spr_sonic_death, 1, 1);
+						animation_play(spr_supersonic_death, 1, 1);
 					break;	
+					case AnimDrown:
+						animation_play(spr_supersonic_drown, 1, 1);
+					break;
 					case AnimBalanceFront:
 					case AnimBalanceBack:
 						animation_play(spr_supersonic_balance, 10, 1);
@@ -121,9 +124,6 @@ function PlayerAnimate()
 					break;
 					case AnimActEnd:
 						animation_play(spr_sonic_actend, 3, 21);
-					break;
-					case AnimDrown:
-						animation_play(spr_sonic_drown, 1, 1);
 					break;
 				}
 			}
@@ -185,7 +185,7 @@ function PlayerAnimate()
 					animation_play(spr_tails_spring, 2, 1);
 				break;
 				case AnimPush:
-					animation_play(spr_tails_push, 32, 1);
+					animation_play(spr_tails_push, round(max(1, 32 - SpeedFactor)), 1);
 				break;
 				case AnimActEnd:
 					animation_play(spr_tails_actend, 8, 2);
@@ -195,6 +195,9 @@ function PlayerAnimate()
 				break;
 				case AnimBalanceFront:
 					animation_play(spr_tails_balance_front, 20, 1);
+				break;
+				case AnimTransform:
+					animation_play(spr_tails_transform, 3, 3);
 				break;
 			}	
 		}
@@ -267,6 +270,9 @@ function PlayerAnimate()
 				break;
 				case AnimBalanceBack:
 					animation_play(spr_knuckles_balance_back, 4, 34);
+				break;
+				case AnimTransform:
+					animation_play(spr_knuckles_transform, 3, 3);
 				break;
 			}
 		}

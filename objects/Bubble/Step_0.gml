@@ -15,7 +15,13 @@
 	PosX  = OriginPosX + Stage.WobbleData[WobbleOffset];	
 	PosY += Ysp;
 	
+	// Destroy when out of water
 	if floor(PosY) < Stage.WaterLevel
 	{
 		instance_destroy();
+	}
+	
+	// Be collected by player
+	if BubbleType == 2
+	{
 	}

@@ -23,6 +23,7 @@ function StageActiveProcess()
 			EventTimer++
 			if EventTimer == 60
 			{
+				Player.Rings  = 0;
 				Player.Lives -= 1;
 					
 				fade_perform(FadeIn, FadeBlack, 36);

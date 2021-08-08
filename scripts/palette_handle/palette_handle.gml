@@ -1,12 +1,6 @@
 /// @function palette_handle(type,id,last,goto,duration)
 function palette_handle(type, id, last, goto, duration)
 {
-	// Exit if fade is active
-	if fade_check(FadeActive)
-	{
-		exit;
-	}
-	
 	// Get colour index
 	var index = max(0, id - 1);
 	var cycle = max(1, goto);

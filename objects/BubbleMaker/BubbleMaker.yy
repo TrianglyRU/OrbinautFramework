@@ -19,8 +19,15 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":6,"value":"\"Medium\"","rangeEnabled":true,"rangeMin":0.0,"rangeMax":127.0,"listItems":[
+        "\"Fast\"",
+        "\"Medium\"",
+        "\"Slow\"",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"GenerationSpeed","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "Stage Objects",

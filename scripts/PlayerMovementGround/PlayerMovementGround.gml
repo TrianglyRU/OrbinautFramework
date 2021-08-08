@@ -83,7 +83,7 @@ function PlayerMovementGround()
 	else
 	{
 		// Set 'walk' or 'run' animaton
-		var WalkLimit = SuperState ? 8 : 6;
+		var WalkLimit = SuperState and CharacterID == CharSonic ? 8 : 6;
 		Animation = abs(Inertia) < WalkLimit ? AnimWalk : AnimRun;
 			
 		// Use 'peelout' animation is running very fast as Sonic

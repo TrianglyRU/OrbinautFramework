@@ -1,7 +1,7 @@
 function PaletteShiftProcess()
 {	
-	// Exit if we're in playable stage and it is not updating
-	if instance_exists(Stage) and !Stage.DoUpdate
+	// Exit if fade is active
+	if fade_check(FadeActive)
 	{
 		exit;
 	}
@@ -17,17 +17,14 @@ function PaletteShiftProcess()
 				// Get current colour
 				var Colour = palette_get_colour(PaletteSurface, i);
 				
-				// Regular form palette shift
+				// Regular form
 				if !Player.SuperState
 				{
-					// Not transforming
 					if Colour == 1
 					{
 						palette_handle(PaletteSurface,    i, 1, 1, 1);
 						palette_handle(PaletteUnderwater, i, 1, 1, 1);
 					}
-					
-					// Transforming from Super
 					else
 					{
 						if Colour < 17
@@ -40,35 +37,31 @@ function PaletteShiftProcess()
 					}
 				}
 				
-				// Super form palette shift
-				else if Player.SuperState
+				// Transforming into Super form
+				else if Player.SuperState == 1
 				{
-					// Transforming into Super
-					if Player.SuperState == 1
+					if Colour == 1
 					{
-						if Colour == 1
-						{
-							palette_handle(PaletteSurface,    i, 2, 2, 19);
-							palette_handle(PaletteUnderwater, i, 2, 2, 19);
-						}
-						if Colour > 1
-						{
-							palette_handle(PaletteSurface,    i, 6, 6, 4);
-							palette_handle(PaletteUnderwater, i, 6, 6, 4);
-						}
+						palette_handle(PaletteSurface,    i, 2, 2, 19);
+						palette_handle(PaletteUnderwater, i, 2, 2, 19);
 					}
+					if Colour > 1
+					{
+						palette_handle(PaletteSurface,    i, 6, 6, 4);
+						palette_handle(PaletteUnderwater, i, 6, 6, 4);
+					}
+				}
 					
-					// Super Form cycle
-					else
+				// Super form
+				else if Player.SuperState == 2
+				{
+					if Colour < 7
 					{
-						if Colour < 7
-						{
-							palette_set_colour(PaletteSurface,    i, 7);
-							palette_set_colour(PaletteUnderwater, i, 7);
-						}
-						palette_handle(PaletteSurface,    i, 16, 7, 8);
-						palette_handle(PaletteUnderwater, i, 16, 7, 8);
+						palette_set_colour(PaletteSurface,    i, 7);
+						palette_set_colour(PaletteUnderwater, i, 7);
 					}
+					palette_handle(PaletteSurface,    i, 16, 7, 8);
+					palette_handle(PaletteUnderwater, i, 16, 7, 8);
 				}
 			}
 		}
@@ -78,28 +71,37 @@ function PaletteShiftProcess()
 		{
 			for (var i = 5; i <= 8; i++)
 			{
+				// Get current colour
+				var Colour = palette_get_colour(PaletteSurface, i);
+				
+				// Regular form
 				if !Player.SuperState
-				{
-					// Regular form
-					if palette_get_colour(PaletteSurface, i) == 1
+				{	
+					if Colour == 1
 					{
 						palette_handle(PaletteSurface,    i, 1, 1, 1);
 						palette_handle(PaletteUnderwater, i, 1, 1, 1);
 					}
-					
-					// Transforming from super into regular form
 					else
 					{			
-						palette_handle(PaletteSurface,    i, 6, 1, 10);
-						palette_handle(PaletteUnderwater, i, 6, 1, 10);	
+						palette_handle(PaletteSurface,    i, 6, 1, 12);
+						palette_handle(PaletteUnderwater, i, 6, 1, 12);
 					}
 				}
 				
 				// Super form
 				else
 				{
-					palette_handle(PaletteSurface,    i, 6, 1, 10);
-					palette_handle(PaletteUnderwater, i, 6, 1, 10);
+					if Colour == 1
+					{
+						palette_handle(PaletteSurface,    i, 1, 2, 28);
+						palette_handle(PaletteUnderwater, i, 1, 2, 28);
+					}
+					if Colour > 1
+					{
+						palette_handle(PaletteSurface,    i, 7, 2, 12);
+						palette_handle(PaletteUnderwater, i, 7, 2, 12);
+					}
 				}
 			}
 		}
@@ -109,28 +111,42 @@ function PaletteShiftProcess()
 		{
 			for (var i = 9; i <= 11; i++)
 			{
+				// Get current colour
+				var Colour = palette_get_colour(PaletteSurface, i);
+				
+				// Regular form
 				if !Player.SuperState
 				{
-					// Regular form
-					if palette_get_colour(PaletteSurface, i) == 1
+					if Colour == 1
 					{
 						palette_handle(PaletteSurface,    i, 1, 1, 1);
 						palette_handle(PaletteUnderwater, i, 1, 1, 1);
 					}
-					
-					// Transforming from super into regular form
 					else
 					{			
-						palette_handle(PaletteSurface,    i, 15, 1, 3);
-						palette_handle(PaletteUnderwater, i, 15, 1, 3);	
+						palette_handle(PaletteSurface,    i, 11, 1, 3);
+						palette_handle(PaletteUnderwater, i, 11, 1, 3);	
 					}
 				}
-				
+			
 				// Super form
 				else
 				{
-					palette_handle(PaletteSurface,    i, 15, 1, 3);
-					palette_handle(PaletteUnderwater, i, 15, 1, 3);
+					if Colour == 1
+					{
+						palette_handle(PaletteSurface,    i, 1, 3, 17);
+						palette_handle(PaletteUnderwater, i, 1, 3, 17);
+					}
+					if Colour == 2
+					{
+						palette_handle(PaletteSurface,    i, 2, 3, 15);
+						palette_handle(PaletteUnderwater, i, 2, 3, 15);
+					}
+					if Colour > 2
+					{
+						palette_handle(PaletteSurface,    i, 11, 2, 3);
+						palette_handle(PaletteUnderwater, i, 11, 2, 3);
+					}
 				}
 			}			
 		}
