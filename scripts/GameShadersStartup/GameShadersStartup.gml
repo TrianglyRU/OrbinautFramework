@@ -3,7 +3,7 @@ function GameShadersStartup()
 	// Setup fade shader
 	Shader.ScreenStep  = shader_get_uniform(ShaderScreen, "u_step");
 	Shader.ScreenMode  = shader_get_uniform(ShaderScreen, "u_mode");
-	Shader.ScreenColour = shader_get_uniform(ShaderScreen, "u_color");
+	Shader.ScreenColour = shader_get_uniform(ShaderScreen, "u_colour");
 	
 	// Setup palette shader
 	Shader.ScreenWaterHeight  = shader_get_uniform(ShaderScreen, "u_waterHeight");

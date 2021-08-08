@@ -45,7 +45,6 @@
 
 	float SubA(float Val1, float Val2) // Appear
 	{
-		if (u_step == 756.) return Val1;
 		return Val1 + (u_colour == 1 ? 
 			 max(Val2 - Val1 - u_step + 252., 0.): 
 			-max(Val2 + Val1 - u_step, 0.));
@@ -53,60 +52,63 @@
 
 	float SubD(float Val1, float Val2) // Disappear
 	{ 
-		if (u_step == 0.) return u_colour == 1 ? 255. : 0.;
 		float Diff = max(756. - u_step - Val2, 0.);
 		return Val1 + Diff * (u_colour == 1 ? 1. : -1.);
 	}
 
 	float Flsh(float Val1) // Appear
 	{
-		if (u_step == 0.) return 255.;
-		if (u_step == 1008.) return Val1;
 		return max(252. - u_step, Val1);
 	}
 
 	void main() 
 	{
 	
-		#region	Change color
-		////////////////////
-		vec4 col = texture2D(gm_BaseTexture, v_vTexcoord);
+		#region	Change colour
+		/////////////////////
+		vec4 Col = texture2D(gm_BaseTexture, v_vTexcoord);
 		
-		//DoAlphaTest(col); // Не знаю зачем, но пока не удалять
+		//DoAlphaTest(Col); // Не знаю зачем, но пока не удалять
 		
 		if (u_waterHeight <= v_vPosition.y)
 		{
-			col = findAltColor(col, u_wetUvs, u_wetPixelSize, u_wetPalTex, u_wetPalId);
+			Col = findAltColor(Col, u_wetUvs, u_wetPixelSize, u_wetPalTex, u_wetPalId);
 		}
 		else
 		{
-			col = findAltColor(col, u_dryUvs, u_dryPixelSize, u_dryPalTex, u_dryPalId);
+			Col = findAltColor(Col, u_dryUvs, u_dryPixelSize, u_dryPalTex, u_dryPalId);
 		}
 		#endregion
 	
 		#region Fade
 		////////////
-		col.rgb *= 255.;
-		vec3 OutCol;
-	
-		if (u_colour == 2) 
+		Col.rgb *= 255.;
+		
+		if (u_step == 0.)
 		{
-			OutCol = u_mode == true ? 
-			vec3(Flsh(col.r), Flsh(col.g), Flsh(col.b)):
-			min(col.rgb + max(252. - u_step, 0.), 252.);
+			Col.rgb = vec3(u_colour == 0 ? 0. : 255.);
+		}
+		else if (u_colour == 2) 
+		{
+			if (u_step != 252.)
+			{
+			Col.rgb = u_mode == true ? 
+				vec3(Flsh(Col.r), Flsh(Col.g), Flsh(Col.b)):
+				min(Col.rgb + max(252. - u_step, 0.), 252.);
+			}
 		} 
-		else 
+		else if (u_step != 756.)
 		{
-			OutCol = u_colour == 1 ? 
+			Col.rgb = u_colour == 1 ? 
 			u_mode == true ? 
-				vec3(SubA(col.r, 504. - col.b - col.g), SubA(col.g, 252. - col.b), SubA(col.b, 0.)): 
-				vec3(SubD(col.r, 0.), SubD(col.g, 252. - col.r), SubD(col.b, 504. - col.r - col.g)):
+				vec3(SubA(Col.r, 504. - Col.b - Col.g), SubA(Col.g, 252. - Col.b), SubA(Col.b, 0.)): 
+				vec3(SubD(Col.r, 0.), SubD(Col.g, 252. - Col.r), SubD(Col.b, 504. - Col.r - Col.g)):
 			u_mode == true ? 
-				vec3(SubA(col.r, col.b + col.g), SubA(col.g, col.b), SubA(col.b, 0.)): 
-				vec3(SubD(col.r, 0.), SubD(col.g, col.r), SubD(col.b, col.r + col.g));
+				vec3(SubA(Col.r, Col.b + Col.g), SubA(Col.g, Col.b), SubA(Col.b, 0.)): 
+				vec3(SubD(Col.r, 0.), SubD(Col.g, Col.r), SubD(Col.b, Col.r + Col.g));
 		}
 		#endregion
 	
 		// Output
-		gl_FragColor = vec4(OutCol / 255., col.a) * v_vColour;
+		gl_FragColor = vec4(Col.rgb / 255., Col.a) * v_vColour;
 	}

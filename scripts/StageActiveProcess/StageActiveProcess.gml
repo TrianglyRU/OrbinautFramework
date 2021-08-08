@@ -25,7 +25,7 @@ function StageActiveProcess()
 			{
 				Player.Lives -= 1;
 					
-				fade_perform(FadeIn, FadeBlack, 1);
+				fade_perform(FadeIn, FadeBlack, 36);
 				audio_bgm_stop(TypeAll, 1);
 			}
 			

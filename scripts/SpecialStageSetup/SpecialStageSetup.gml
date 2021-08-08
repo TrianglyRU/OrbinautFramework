@@ -1,5 +1,5 @@
 function SpecialStageSetup()
 {
 	// Perform fade from white
-	fade_perform(FadeOut, FadeWhite, 1);
+	fade_perform(FadeOut, FadeWhite, 36);
 }

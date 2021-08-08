@@ -33,7 +33,7 @@
 			if Countdown == 0
 			{
 				// Perform fade
-				fade_perform(to, black, 1);
+				fade_perform(to, black, 36);
 				
 				// Overwrite savedata if not playing in 'no save' slot
 				if Game.ActiveSave != -1
@@ -94,7 +94,7 @@
 				RoomTimer = 1;
 				
 				// Perform fade
-				fade_perform(to, black, 1);
+				fade_perform(to, black, 36);
 			}
 		}
 	}

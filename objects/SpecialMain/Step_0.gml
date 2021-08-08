@@ -17,7 +17,7 @@
 		{
 			audio_play_sound(sfxSpecialWarp, 0, false);
 			
-			fade_perform(FadeIn, FadeWhite, 1);
+			fade_perform(FadeIn, FadeWhite, 36);
 			RoomState = 1;
 		}
 	}
@@ -26,7 +26,7 @@
 		if fade_check(FadeMax)
 		{
 			RoomState = 2;
-			fade_perform(FadeIn, FadeBlack, 1);
+			fade_perform(FadeIn, FadeBlack, 36);
 		}
 	}
 	else if fade_check(FadeMax)

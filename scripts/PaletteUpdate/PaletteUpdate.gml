@@ -11,9 +11,9 @@ function PaletteUpdate()
 		shader_set(ShaderScreen);
 		
 		// Render fade
-		shader_set_uniform_f(Shader.ScreenStep,  FadeColour == flash ? FadeStep div 144 * 36 : FadeStep);
+		shader_set_uniform_f(Shader.ScreenStep,   FadeColour == flash ? FadeStep div 3 : FadeStep);
 		shader_set_uniform_i(Shader.ScreenColour, FadeColour);
-		shader_set_uniform_i(Shader.ScreenMode,  FadeMode);
+		shader_set_uniform_i(Shader.ScreenMode,   FadeMode);
 		
 		// Get a render boundary between surface and underwater palette
 		var Height   = Game.ResolutionHeight;

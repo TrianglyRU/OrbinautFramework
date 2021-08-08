@@ -24,7 +24,16 @@ function InputHotkeysProcess()
 		audio_stop_all();
 		room_restart();
 	}
-
+	
+	if keyboard_check_pressed(vk_f3) 
+	{
+		fade_perform(from, flash, 36);
+	}
+	if keyboard_check_pressed(vk_f4) 
+	{
+		fade_perform(to, flash, 36);
+	}
+	/*
 	// Game restart (F3)
 	if keyboard_check_pressed(vk_f3) 
 	{
@@ -43,7 +52,7 @@ function InputHotkeysProcess()
 			game_set_speed(60, gamespeed_fps);
 		}
 	}
-	
+	*/
 	// Update resolution (F5)
 	if keyboard_check_pressed(vk_f5)
 	{

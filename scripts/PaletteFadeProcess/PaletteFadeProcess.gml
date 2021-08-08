@@ -1,10 +1,8 @@
 function PaletteFadeProcess()
 {	
 	// Update fade
-	if FadeTimer > 0 
+	if (FadeMode and FadeStep < 756) or (!FadeMode and FadeStep > 0)
 	{
-		var Step = 36 * FadePower;	 
-		FadeStep = clamp(FadeStep + (FadeMode ? Step : -Step), 0, FadeColour == FadeFlash ? 1008 : 756);
-		FadeTimer--;
+		FadeStep = clamp(FadeStep + (FadeMode ? FadePower : -FadePower), 0, 756);
 	}
 }

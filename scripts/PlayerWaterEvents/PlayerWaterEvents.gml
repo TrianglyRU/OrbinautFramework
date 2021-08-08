@@ -99,7 +99,7 @@ function PlayerWaterEvents()
 		{	
 			if BarrierType == BarrierThunder
 			{
-				fade_perform(from, flash, 12);
+				fade_perform(from, flash, 432);
 			}
 			BarrierType = false;
 			instance_destroy(Barrier);				

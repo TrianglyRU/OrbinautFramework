@@ -6,7 +6,6 @@ function PaletteVariables()
 	FadeMode	    = 0;
 	FadeColour	    = 0;
 	FadeStep	    = 0;
-	FadeTimer	    = 0;
 	FadePower	    = 0;
 	PaletteSet	    = [];
 	PaletteDuration = [];

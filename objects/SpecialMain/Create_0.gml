@@ -11,7 +11,7 @@
 	if Game.SpecialState
 	{
 		// Fade out
-		fade_perform(FadeOut, FadeWhite, 1);
+		fade_perform(FadeOut, FadeWhite, 36);
 		
 		// Play music
 		audio_play_sound(ActClear, 0, false);

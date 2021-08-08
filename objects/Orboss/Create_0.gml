@@ -25,7 +25,7 @@
 		Difficulty = 1;
 	}
 	
-	object_set_hitbox(16, 16);
+	object_set_hitbox(20, 20);
 	object_set_depth(Player, false);
 	
 	var cnt = Difficulty == 1 ? 6 : 4;
