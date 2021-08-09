@@ -1,25 +1,23 @@
 function PlayerMovementAir()
 {	
-	// Reset flags
-	Skidding  = false;
-	Balancing = false;
-	Pushing	  = false;
-	
 	// Exit if gliding (ignoring GlideDrop state) or climbing
 	if GlideState == GlideActive or GlideState == GlideStop or ClimbState
 	{
 		exit;
 	}
 	
-	// Accelerate and decelerate
-	if !(!Game.RolljumpControl and Jumping and Rolling) and !NoControls
+	// Handle air movement
+	if !(RollJumping and !Game.RolljumpControl) and !NoControls
 	{
 		if Input.Left 
-		{		
+		{	
+			// Decelerate
 			if Xsp > 0 
 			{
 				Xsp -= AirAcc;
 			} 
+			
+			// Accelerate
 			else if !Game.AirSpeedcap and Xsp > -TopAcc or Game.AirSpeedcap
 			{
 				Xsp -= AirAcc;
@@ -32,10 +30,13 @@ function PlayerMovementAir()
 		}
 		if Input.Right 
 		{	
+			// Decelerate
 			if Xsp < 0 
 			{
 				Xsp += AirAcc;
 			} 
+			
+			// Accelerate
 			else if (!Game.AirSpeedcap and Xsp < TopAcc) or Game.AirSpeedcap
 			{
 				Xsp += AirAcc;

@@ -23,6 +23,7 @@ function PlayerVariables()
 	ForcedRoll			= 0;
 	Rolling				= 0;
 	Jumping				= 0;
+	RollJumping			= 0;
 	Pushing             = 0;
 	Grounded			= 0;
 	OnObject			= 0;
@@ -32,7 +33,6 @@ function PlayerVariables()
 	DropdashDirection	= 0;
 	SuperState			= 0;
 	SuperStateValue		= 0;
-	SuperStateStar		= 0;
 	GlideGrounded	    = 0;
 	GlideState			= 0;
 	GlideValue			= 0;
@@ -44,10 +44,14 @@ function PlayerVariables()
 	FlightState			= 0;
 	FlightValue			= 0;
 	Skidding			= 0;
-	SkiddingTimer		= 0;
 	Balancing			= 0;
 	HighSpeedBonus		= 0;
+	
+	HighspeedBonus		= 0;
+	InvincibleBonus	    = 0;
+	
 	InvincibilityBonus	= 0;
+	InvincibilityFrames	= 0;
 	IsInvincible		= 0;
 	IsUnderwater		= 0;
 	BarrierType			= 0;

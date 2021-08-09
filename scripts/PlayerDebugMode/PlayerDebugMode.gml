@@ -21,11 +21,12 @@ function PlayerDebugMode()
 		// Check if we entered debug
 		if DebugMode
 		{
-			// Reset flags
+			// Reset flags. A lot of it
 			AllowCollision = false;
 			Grounded	   = false;
 			OnObject	   = false;
 			MovementLock   = false;
+			NoControls	   = false;
 			FlightState    = false;
 			FlightValue    = false;
 			ClimbState	   = false;
@@ -33,6 +34,13 @@ function PlayerDebugMode()
 			GlideState	   = false;
 			GlideGrounded  = false;
 			GlideValue     = false;
+			Jumping		   = false;
+			Rolling		   = false;
+			RollJumping	   = false;
+			Skidding	   = false;
+			StickToConvex  = false;
+			IsUnderwater   = false;
+			AirTimer	   = 1800;
 			DebugSpeed     = 0;
 			Xsp			   = 0;
 			Ysp			   = 0;
@@ -40,6 +48,17 @@ function PlayerDebugMode()
 			SpindashRev    = -1;
 			PeeloutRev     = -1;
 			DropdashRev    = -1;
+			
+			// Reset gravity
+			if !IsUnderwater
+			{
+				Grv	= 0.21875;
+			}
+			else
+			{
+				// Lower by 0x28 (0.15625) if underwater
+				Grv = 0.0625
+			}
 			
 			// Restore visibility
 			image_alpha = 1;
@@ -82,14 +101,14 @@ function PlayerDebugMode()
 	if (Input.Down)  PosY += DebugSpeed;
 	
 	// Update current object
-	if Input.CPress
+	if Input.APress
 	{
 		DebugItem++;
 		DebugItem = loop_value(DebugItem, 0, array_length(DebugList));
 	}
 	
 	// Spawn current object
-	if Input.APress
+	if Input.CPress
 	{
 		instance_create(floor(PosX), floor(PosY), DebugList[DebugItem]);
 	}

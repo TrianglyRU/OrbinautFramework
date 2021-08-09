@@ -41,8 +41,8 @@ function PlayerResetOnFloor()
 		exit;
 	}
 	
-	// Set 'walk' or 'run' animation if we've landed in roll state not on the object
-	if Animation == AnimRoll and !OnObject
+	// Set 'walk' or 'run' animation if we've landed on the solid ground
+	if Rolling and !OnObject
 	{
 		Animation = Inertia >= TopAcc ? AnimRun : AnimWalk;
 	}
@@ -61,15 +61,16 @@ function PlayerResetOnFloor()
 		Grv = 0.0625
 	}
 	
-	// Reset rolling flag if not rolling from the ground to object
+	// Clear the roll and skid flag
 	if !(OnObject and Ysp == 0)
 	{
-		Rolling = false;
+		Rolling  = false;
+		Skidding = false;
 	}
+	RollJumping = false;
 	
 	// Reset other action flags
 	Jumping			= false;
-	Pushing			= false;
 	FlightState     = false;
 	FlightValue	    = false;
 	GlideState      = false;
@@ -97,9 +98,8 @@ function PlayerResetOnFloor()
 	// Reset hurt state
 	if Hurt
 	{
-		Hurt		 = false;
-		IsInvincible = 121;	
-		Inertia		 = 0;
+		Hurt	= false;	
+		Inertia = 0;
 	}
 		
 	// Perform Dropdash (if charged), else reset
@@ -139,7 +139,7 @@ function PlayerResetOnFloor()
 		DropdashRev = -1;
 	}
 		
-	// Reset radiuses to default if not rolling, or on object
+	// Reset radiuses to default
 	if !Rolling
 	{
 		PosY   -= DefaultRadiusY - RadiusY;

@@ -1,103 +1,81 @@
 /// @description
 // You can write your code in this editor
 	
-	var bubSpawn = "-";
-	
-	// Timer stuff
-	CycleTimer--;
-	if !CycleTimer
+	// Exit if above water
+	if !Stage.WaterEnabled or y < Stage.WaterLevel
 	{
-		// Idle period
-		if CycleState mod 2 == 0
-		{
-			CycleState++;
-			CycleTimer		 = irandom_range(1, 32);
-			GenerationAmount = irandom_range(1, 6);
-			GenerationSet    = irandom_range(0, 3);
-			GenerationID     = 0;	
-		}
-	
-		// Making period
-		else
-		{
-			var GeneratedBubble = instance_create(x + irandom_range(-8, 7), y, Bubble);
-			
-			var LargeChance = irandom_range(0, 3);
-			if CycleID mod GenerationSpeed == 0 and (!LargeChance and !LargeSpawned or CycleState == 5 and !LargeSpawned)
-			{
-				// create large bubble
-				with GeneratedBubble
-				{
-					BubbleType = 2;
-				}
-				LargeSpawned = true;
-			}
-			else
-			{
-				if !BubbleSet[GenerationSet][GenerationID]
-				{
-					var bubSpawn = "Small!";
-					// create small bubble
-					with GeneratedBubble
-					{
-						BubbleType = 0;
-					}
-				}
-				else
-				{
-					var bubSpawn = "Medium!";
-					// create medium bubble
-					with GeneratedBubble
-					{
-						BubbleType = 1;
-					}
-				}
-			}
-			
-			// Continue to spawn bubbles, or switch to idle state
-			GenerationAmount--
-			if !GenerationAmount
-			{
-				if CycleState == 5
-				{
-					CycleState = 0;
-					CycleID++;
-					LargeSpawned = false;
-				}
-				else
-				{
-					CycleState++;
-				}
-				CycleTimer = irandom_range(129, 256);
-			}
-			else
-			{
-				GenerationID++;
-				CycleTimer = irandom_range(1, 32);
-			}
-		}
+		exit;
 	}
-
-	var cycleState = CycleState mod 2 == 0 ? "IDLE" : "MAKING";
 	
-	/*show_debug_message("Timer:		    " + string(CycleTimer));
-	show_debug_message("State:		    " + cycleState);
-	show_debug_message("Cycle ID:    " + string(CycleID));
-	show_debug_message("Cycle State:    " + string(CycleState));
-	show_debug_message("Large Possible: " + string(CycleID mod GenerationSpeed == 0));
-	show_debug_message("Large Spawned:  " + string(LargeSpawned));
+	// Play animation
+	animation_play(sprite_index, 16, 1);
 	
-	if CycleState mod 2 != 0
+	// Count down the timer
+	if --CycleTimer
 	{
-		show_debug_message("Generation Set: " + string(GenerationSet));
-		show_debug_message("Bubble Index:	" + string(GenerationID));
-		show_debug_message("Bubble Type:    " + bubSpawn);
-		show_debug_message("Bubbles Left:   " + string(GenerationAmount));
+		exit;
 	}
+	
+	// Define generation settings if in idle state
+	if !CycleState
+	{
+		CycleState++;
+			
+		CycleTimer   = irandom_range(1, 32);			
+		ChosenSet    = irandom_range(0, 3);
+		BubbleAmount = irandom_range(1, 6);
+			
+		BubbleID = 0;
+		LargeID  = irandom_range(0, BubbleAmount - 1);
+	}
+		
+	// Making state
 	else
 	{
-		show_debug_message("Generation Set: " + "-");
-		show_debug_message("Bubble Index:	" + "-");
-		show_debug_message("Bubble Type:    " + "-");
-		show_debug_message("Bubbles Left:   " + "-");
-	}*/
+		// Generate a bubble
+		var GeneratedBubble = instance_create(x + irandom_range(-8, 7), y, Bubble);
+			
+		// Mark bubble as large
+		if BubbleID == LargeID and !(CycleNumber mod GenerationSpeed)
+		{
+			with GeneratedBubble
+			{
+				BubbleType = 2;
+				object_set_triggerbox(-16, 16, -16, 16);
+			}
+		}
+			
+		// Mark bubble as small
+		else 
+		{
+			if !BubbleSet[ChosenSet][BubbleID]
+			{
+				with GeneratedBubble
+				{
+					BubbleType = 0;
+				}
+			}
+			
+			// Mark bubble as medium
+			else
+			{
+				with GeneratedBubble
+				{
+					BubbleType = 1;
+				}
+			}
+		}
+			
+		// Continue to generate bubbles, or switch to idle state
+		if !(--BubbleAmount)
+		{
+			CycleState--;
+			CycleNumber++;
+			CycleTimer = irandom_range(129, 256);
+		}
+		else
+		{
+			BubbleID++;
+			CycleTimer = irandom_range(1, 32);
+		}
+	}

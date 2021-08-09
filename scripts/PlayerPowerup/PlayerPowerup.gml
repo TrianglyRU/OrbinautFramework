@@ -9,11 +9,8 @@ function PlayerPowerup()
 	// Handle highspeed bonus
 	if HighSpeedBonus
 	{	
-		// Decrease timer
-		HighSpeedBonus--;
-		
 		// Restore normal physics when bonus has ended 
-		if !HighSpeedBonus
+		if !(--HighSpeedBonus)
 		{
 			if !InvincibilityBonus
 			{
@@ -25,9 +22,6 @@ function PlayerPowerup()
 	// Handle invincibility bonus
 	if InvincibilityBonus 
 	{
-		// Make us invincible
-		IsInvincible = true;
-		
 		// Check if star particles exist
 		if !instance_exists(InvincibilityStar) 
 		{
@@ -45,9 +39,7 @@ function PlayerPowerup()
 			}
 		}
 		
-		InvincibilityBonus--;
-		
-		if !InvincibilityBonus
+		if !(--InvincibilityBonus)
 		{
 			if !HighSpeedBonus
 			{
@@ -57,8 +49,8 @@ function PlayerPowerup()
 	}
 	
 	// Decrease invincibility timer
-	if IsInvincible and !InvincibilityBonus and !SuperState and !Hurt
+	if InvincibilityFrames and !Hurt
 	{
-		IsInvincible--;
+		InvincibilityFrames--;
 	}
 }

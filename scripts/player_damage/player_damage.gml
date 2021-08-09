@@ -2,7 +2,7 @@
 function object_damage(flame_type, thunder_type, instant_kill)
 {	
 	// Exit the code if player can't be damaged
-	if !instant_kill and Player.IsInvincible
+	if !instant_kill and (Player.InvincibilityFrames or Player.InvincibilityBonus or Player.SuperState)
 	{
 		exit;
 	}
@@ -165,7 +165,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		}
 		
 		// Enter hurt state
-		Player.Hurt			= true;
-		Player.IsInvincible = true;
+		Player.Hurt				   = true;
+		Player.InvincibilityFrames = 121;
 	}
 }

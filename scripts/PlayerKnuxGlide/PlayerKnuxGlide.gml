@@ -260,8 +260,7 @@ function PlayerKnuxGlide()
 				if GlideState == GlideStop
 				{
 					// Land
-					GlideValue--;
-					if !GlideValue
+					if !(--GlideValue)
 					{
 						Angle    = FloorAngle;
 						Grounded = true;
@@ -331,16 +330,10 @@ function PlayerKnuxGlide()
 					}
 			
 					// Land
-					if !GlideValue
+					if !(--GlideValue)
 					{
 						Angle    = FloorAngle;
 						Grounded = true;
-					}
-			
-					// Decrease timer
-					else
-					{
-						GlideValue--;
 					}
 			
 					// Set animation

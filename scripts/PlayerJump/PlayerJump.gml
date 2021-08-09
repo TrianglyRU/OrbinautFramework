@@ -19,7 +19,10 @@ function PlayerJump()
 	if !Input.ABCPress
 	{
 		exit;
-	}	
+	}
+	
+	// Clear the rolljump flag
+	RollJumping = false;
 	
 	// Check if C button is pressed and we're moving upwards
 	if Input.CPress and Rings >= 10 and Ysp < 0 and !SuperState
@@ -30,13 +33,13 @@ function PlayerJump()
 		// Transform
 		SuperState      = true;
 		SuperStateValue = false;
-		SuperStateStar  = false;
 			
 		// Disable controls
 		NoControls = true;
 			
 		// Reset invincibility
-		InvincibilityBonus = false;
+		InvincibilityBonus  = false;
+		InvincibilityFrames = 0;
 			
 		// Use normal collision radiuses
 		RadiusX = DefaultRadiusX;
@@ -51,7 +54,7 @@ function PlayerJump()
 		Rolling = false;
 	}
 	
-	// Else perform character action
+	// Else perform double jump action
 	else switch CharacterID
 	{
 		// Use barrier power as Sonic

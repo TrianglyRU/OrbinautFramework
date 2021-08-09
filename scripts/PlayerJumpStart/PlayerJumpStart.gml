@@ -3,7 +3,7 @@ function PlayerJumpStart()
 	// Jump
 	if Input.ABCPress
 	{	
-		// Do not jump if found the low ceiling
+		// Do not jump if found low celing
 		if Angle <= 45 or Angle >= 315
 		{
 			if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
@@ -12,7 +12,31 @@ function PlayerJumpStart()
 				exit;
 			}
 		}
-	
+		else if Angle >= 46.41 and Angle <= 133.59		
+		{
+			if tile_check_collision_h(floor(PosY - RadiusX), floor(PosX - RadiusY), false, true, Layer)[0] < 6
+			or tile_check_collision_h(floor(PosY + RadiusX), floor(PosX - RadiusY), false, true, Layer)[0] < 6
+			{
+				exit;
+			}
+		}
+		else if Angle >= 135 and Angle <= 225		
+		{
+			if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, true, Layer)[0] < 6
+			or tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, true, Layer)[0] < 6
+			{
+				exit;
+			}
+		}
+		else if Angle >= 226.41 and Angle <= 313.59		
+		{
+			if tile_check_collision_h(floor(PosY - RadiusX), floor(PosX + RadiusY), true, true, Layer)[0] < 6
+			or tile_check_collision_h(floor(PosY + RadiusX), floor(PosX + RadiusY), true, true, Layer)[0] < 6
+			{
+				exit;
+			}
+		}
+		
 		// Exit the code if we're trying to perform spindash or peelout
 		if Inertia == 0
 		{
@@ -22,25 +46,44 @@ function PlayerJumpStart()
 				exit;
 			}
 		}
+		
+		// Reset collision radiuses
+		RadiusY = DefaultRadiusY;
+		RadiusX	= DefaultRadiusX;
 
 		// Set speeds
-		Xsp     += Jump * dsin(Angle);
-		Ysp	    += Jump * dcos(Angle);	
+		Xsp += Jump * dsin(Angle);
+		Ysp	+= Jump * dcos(Angle);	
 		
 		// Update flags
-		Jumping       = true;	
+		Skidding	  = false;
+		Balancing	  = false;
+		Pushing		  = false;
 		Grounded      = false;
 		OnObject	  = false;
 		StickToConvex = false;
+		Jumping       = true;
 		
-		// Update radiuses
+		// Are we in roll (ball) state?
 		if !Rolling
 		{
+			// Enter rolling state
+			Rolling = true;
+			
+			// Update collision radiuses
+			PosY   += RadiusY - SmallRadiusY;
 			RadiusY = SmallRadiusY;
 			RadiusX	= SmallRadiusX;
-			PosY   += DefaultRadiusY - SmallRadiusY;
 		}
-		
+		else
+		{
+			// Set roll jump flag
+			RollJumping = true;
+			
+			/* Notice that in this case radiuses won't update. 
+			Why originals do that? No idea */
+		}
+
 		// Set animation
 		Animation = AnimRoll;
 		

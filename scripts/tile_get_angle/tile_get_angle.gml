@@ -1,5 +1,10 @@
 /// @function tile_get_angle(index)
 function tile_get_angle(index)
 {
-	return Game.AngleValueOf[index mod TileAmount];
+	var Tile = index mod TileAmount;
+	if  Tile
+	{
+		return Game.AngleValueOf[Tile];
+	}
+	return noone;
 }

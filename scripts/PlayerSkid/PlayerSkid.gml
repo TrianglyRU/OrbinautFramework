@@ -31,8 +31,7 @@ function PlayerSkid()
 
 		if !Inertia and Input.Left or Inertia and Input.Right or Inertia == 0
 		{
-			SkiddingTimer = 0;
-			Skidding	  = false;
+			Skidding = false;
 		}
 	}
 }

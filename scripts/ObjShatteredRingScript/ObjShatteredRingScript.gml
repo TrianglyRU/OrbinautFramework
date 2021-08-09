@@ -11,10 +11,9 @@ function ObjShatteredRingScript()
 		
 	// Do other timer stuff
 	CollisionCheck++;		
-	Timer--;
 		
 	// Check if it is time for ring to disappear
-	if !Timer
+	if !(--Timer)
 	{
 		instance_destroy();
 		exit;

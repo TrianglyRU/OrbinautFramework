@@ -33,7 +33,7 @@ function ScreenCameraOffsetsProcess()
 	}
 	
 	// Set vertical spin offset
-	if Player.Rolling or (Player.Jumping and Player.Rolling)
+	if Player.Rolling and Player.Grounded
 	{
 		SpinOffset = Player.DefaultRadiusY - Player.SmallRadiusY;
 	} 
@@ -58,7 +58,10 @@ function ScreenCameraOffsetsProcess()
 	{
 		if ShiftUp or ShiftDown
 		{
-			if (OverviewDelay > 0) OverviewDelay--;
+			if OverviewDelay > 0
+			{
+				OverviewDelay--;
+			}
 		} 
 		else if OverviewOffset == 0
 		{

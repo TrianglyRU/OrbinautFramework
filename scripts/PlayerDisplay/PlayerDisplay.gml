@@ -14,7 +14,8 @@ function PlayerDisplay()
 				if Grounded
 				{
 					/* Rotation step code by Nihil (NullSpace)
-					   Used with permission! */				
+					   Used with permission! */	
+					   
 					// Interpolate angle
 					if Angle >= 23.91 and Angle <= 337.5
 					{
@@ -60,9 +61,9 @@ function PlayerDisplay()
 	}
 	
 	// Blink sprite
-	if IsInvincible
+	if InvincibilityFrames
 	{
-		if IsInvincible mod 4 == 0
+		if !(InvincibilityFrames mod 4)
 		{
 			image_alpha = !image_alpha;
 		}

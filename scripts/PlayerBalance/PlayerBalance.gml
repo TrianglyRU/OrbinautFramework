@@ -13,19 +13,23 @@ function PlayerBalance()
 		exit;
 	}
 
-	var DistanceMiddle = tile_check_collision_v(floor(PosX), floor(PosY + RadiusY), true, false, Layer)[0];		
-	if  DistanceMiddle < 12
+	var Distance = tile_check_collision_v(floor(PosX), floor(PosY + RadiusY), true, false, Layer)[0];	
+	if  Distance < 12
+	{
+		exit;
+	}
+	
+	var LeftAngle  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
+	var RightAngle = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
+	if  LeftAngle and RightAngle
 	{
 		exit;
 	}
 	
 	Balancing = true;
-	
-	var DistanceLeft  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer)[0];		
-	var DistanceRight = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer)[0];
 		
-	// Standing on left edge
-	if !DistanceLeft
+	// Standing on right edge
+	if !RightAngle
 	{
 		if !SuperState and !CharacterID != CharKnuckles
 		{
@@ -45,8 +49,8 @@ function PlayerBalance()
 		}
 	}
 		
-	// Standing on right edge
-	else if !DistanceRight
+	// Standing on left edge
+	else if !LeftAngle
 	{	
 		if !SuperState and !CharacterID != CharKnuckles
 		{

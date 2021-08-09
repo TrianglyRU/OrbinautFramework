@@ -24,33 +24,23 @@ function ObjTailsObjectDisplay()
 		}
 		else
 		{	
-			// If in correct floor angle range, apply it to visual angle
-			if Player.Angle >= 25.5 and Player.Angle <= 334.5
+			/* Rotation step code by Nihil (NullSpace)
+			Used with permission! */	
+					   
+			// Interpolate angle
+			if Player.Angle >= 23.91 and Player.Angle <= 337.5
 			{
-				// Start rotate on the right side
-				var StartRotationRight = min(MotionAngle mod 360 + 5.625, Player.Angle)
-																							 
-				// Rotation on the right side
-				var RotationRight = min(MotionAngle mod 360 + Player.Inertia, Player.Angle + 5.625 + abs(Player.Inertia));
-						
-				// Start rotate on the left side
-				var StartRotationLeft = max(Player.Angle, MotionAngle - 5.625);
-						
-				// Rotation on the left side
-				var RotationLeft = max(Player.Angle - 5.625 - abs(Player.Inertia), MotionAngle + Player.Inertia);
-						
-				// Do rotation
-				MotionAngle = Player.Angle < 180 ? max(StartRotationRight, RotationRight) : min(StartRotationLeft, RotationLeft);
+				var TargetAngle  = Player.Angle;
+				var RotationStep = (abs(Player.Inertia) / 16 + abs(Player.Inertia) / 32 - 2) * -1
 			}
-			
-			// Rotate visual angle back to 360 if out of the range
-			else 
+			else
 			{
-				MotionAngle = MotionAngle > 180 ? MotionAngle + 5.625 : MotionAngle - 5.625;
+				var TargetAngle  = 360;
+				var RotationStep = (abs(Player.Inertia) / 16 - 2) * -1
 			}
-				
-			// Limit visual angle
-			MotionAngle = clamp(MotionAngle, 0, 360);
+					
+			// Perform angle calculation
+			MotionAngle = darctan2(dsin(TargetAngle) + dsin(MotionAngle) * RotationStep, dcos(TargetAngle) + dcos(MotionAngle) * RotationStep);
 		}
 			
 		// If smooth rotation is enabled, use raw movement angle for tails visual angle
