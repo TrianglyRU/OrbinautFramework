@@ -17,8 +17,8 @@
   "width": 28,
   "height": 27,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "MQZ",
+    "path": "texturegroups/MQZ",
   },
   "swatchColours": null,
   "gridX": 0,

@@ -17,20 +17,18 @@ function BackgroundProcess()
 		var ScrollY		  = BackgroundValues[i][3];
 		var OffsetX		  = BackgroundValues[i][4];
 		var OffsetY		  = BackgroundValues[i][5];
-		var Top			  = BackgroundValues[i][6];
-		var Bottom		  = BackgroundValues[i][7];
-		var InclineHeight = BackgroundValues[i][8];
-		var InclineForce  = BackgroundValues[i][9];
-		var	YScaleMode	  = BackgroundValues[i][10];
-		var Width		  = BackgroundValues[i][11];
-		var PixelSize     = BackgroundValues[i][12];
+		var InclineHeight = BackgroundValues[i][6];
+		var InclineForce  = BackgroundValues[i][7];
+		var	YScaleMode	  = BackgroundValues[i][8];
+		var Height		  = BackgroundValues[i][9];
+		var Width		  = BackgroundValues[i][10];
+		var PixelSize     = BackgroundValues[i][11];
 		
 		// Get screen position
 		var DrawX = Screen.CameraX;
-		var DrawY = floor(Screen.CameraY * (1 - ScrollY)) + Top + PosY;
+		var DrawY = floor(Screen.CameraY * (1 - ScrollY)) + PosY;
 		
 		// Set y-scale mode properties
-		var Height = Bottom - Top + 1;
 		if  YScaleMode
 		{
 			var YScale = (Stage.WaterLevel - DrawY) / Height;
@@ -81,24 +79,25 @@ function BackgroundProcess()
 		{
 		    shader_set_uniform_f(Shader.ParILStep, (InclineForce / 10) * InclineHeight);
 			shader_set_uniform_f(Shader.ParILHeight, InclineHeight);
-			if YScaleMode shader_set_uniform_f(Shader.ParYScale, YScale);
+			shader_set_uniform_f(Shader.ParYScale, YScale);
 		}
 		
 		// Draw parallax piece
 		if YScaleMode
 		{
-			draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY, 1, YScale, c_white, 1);
+			//draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY, 1, YScale, c_white, 1);
+			draw_sprite_ext(BackgroundSprites[i], 0, DrawX + PosX, DrawY, 1, YScale, 0, c_white, 1);
 		}
 		else
 		{
-			draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY);
+			//draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY);
+			draw_sprite(BackgroundSprites[i], 0, DrawX + PosX, DrawY);
 		}
 		
 		// Reset incline height (else entire background will be under this effect)
 		if InclineHeight != 0 
 		{
 			shader_set_uniform_f(Shader.ParILHeight, 0);
-			if YScaleMode shader_set_uniform_f(Shader.ParYScale, 1);
 		}
 	}
 	
