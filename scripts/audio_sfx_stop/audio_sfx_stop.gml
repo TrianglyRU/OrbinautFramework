@@ -1,9 +1,8 @@
-/// @function audio_sfx_stop(soundID)
-function audio_sfx_stop(soundID)
+/// @function audio_sfx_stop(soundid)
+function audio_sfx_stop(soundid)
 {	
-	// Stop the sound if it is playing
-	if audio_is_playing(soundID)
+	if audio_is_playing(soundid)
 	{	
-		audio_stop_sound(soundID);
+		audio_stop_sound(soundid);
 	}
 }

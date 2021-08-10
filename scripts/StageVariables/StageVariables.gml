@@ -14,6 +14,7 @@ function StageVariables()
 	EventTimer			 = 0;
 	IsFinished			 = 0;
 	IsPaused			 = 0;
+	IsGameOver			 = 0;
 	ZoneID				 = 0;
 	ActID				 = 0;
 	ZoneName			 = 0;
@@ -21,7 +22,6 @@ function StageVariables()
 	TimeEnabled			 = 0;	
 	AnimationTime		 = 0;
 	StageMusic		     = 0;
-	StageMusicLooppoint  = 0;
 	GamePaused			 = 0;
 	PauseButton			 = 0;
 	PauseMode			 = 0;

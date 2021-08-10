@@ -7,11 +7,11 @@
   "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "GlobalSFX",
-    "path": "audiogroups/GlobalSFX",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfxRoll.wav",
-  "duration": 2.024433,
+  "duration": 2.019433,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

@@ -23,10 +23,6 @@ function PlayerWaterEvents()
 				{
 					Grv = 0.0625;
 				}
-			
-				// Player can spend underwater for 30 seconds
-				AirTimer = 1800;
-			
 				if !Grounded
 				{
 					instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
@@ -60,8 +56,7 @@ function PlayerWaterEvents()
 				}
 				else if AirTimer == 720
 				{			
-					audio_bgm_play(Drowning, -1, TypeNormal);
-					audio_bgm_mute(TypePriority, 0);
+					audio_bgm_play(PriorityLow, DrowningMusic, noone);
 				}
 			}
 		}
@@ -108,19 +103,32 @@ function PlayerWaterEvents()
 		// Check for leaving the water
 		if PosY < Stage.WaterLevel
 		{
+			// Play previous track if running out of air
 			if AirTimer <= 720
 			{	
-				audio_bgm_unmute(TypePriority, 0);
-				
 				if !SuperState
 				{
-					audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
+					if HighSpeedBonus
+					{
+						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+					}
+					else if InvincibilityBonus
+					{
+						audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+					}
+					else
+					{
+						audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+					}
 				}
 				else
 				{
-					audio_bgm_play(SuperTheme, 0.6, TypeNormal);
+					audio_bgm_play(PriorityLow, SuperMusic, other);
 				}
 			}
+			
+			// Reset air timer
+			AirTimer = 1800;
 			
 			// Increase default gravity value by 0x28 (0.15625), and double ysp
 			if !Hurt and !FlightState and GlideState != GlideActive

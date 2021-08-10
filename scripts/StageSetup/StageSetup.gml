@@ -14,7 +14,6 @@ function StageSetup()
 			WaterEnabled        = true;
 			WaterLevel			= 2240;
 			StageMusic			= StarryNight;
-			StageMusicLooppoint = 0;
 			LeftBoundary		= 0;
 			TopBoundary			= 768;
 			RightBoundary		= room_width;
@@ -34,7 +33,6 @@ function StageSetup()
 			WaterEnabled        = false;
 			WaterLevel			= 0;
 			StageMusic			= noone;
-			StageMusicLooppoint = 0;
 			LeftBoundary		= 0;
 			TopBoundary			= 0;
 			RightBoundary		= room_width;

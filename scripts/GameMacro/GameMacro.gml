@@ -25,19 +25,12 @@ function GameMacro()
 	#macro FontMenu    4
 	
 	// Audio macro
-	#macro TypeNormal	  0
-	#macro TypePriority   1
-	#macro TypeJingle	  2
-	#macro TypeAll		  3
-	#macro TrackIndex	  0
-	#macro TrackID		  1
-	#macro TrackLoop	  2
-	#macro TrackEvent	  3
-	#macro TrackEventTime 4	
-	#macro EventIdle	  0
-	#macro EventMute	  1
-	#macro EventUnmute    2
-	#macro EventStop	  3
+	#macro PriorityLow  0
+	#macro PriorityHigh 1
+	#macro EventIdle	0
+	#macro EventMute	1
+	#macro EventUnmute  2
+	#macro EventStop	3
 	
 	// Palette macro
 	#macro PaletteLimit 64
@@ -98,7 +91,8 @@ function GameMacro()
 	#macro AnimSwimTired	   26
 	#macro AnimTransform	   27
 	#macro AnimDrown		   28
-	#macro AnimSpinning		   29
+	#macro AnimAirSpin		   29
+	#macro AnimBreathe		   30
 
 	// Stage macro	
 	#macro StageLoad           0

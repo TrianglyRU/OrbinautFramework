@@ -1,11 +1,11 @@
 {
-  "option_mac_display_name": "Orbinaut Framework (Dev Build)",
+  "option_mac_display_name": "",
   "option_mac_app_id": "com.company.game",
   "option_mac_version": "1.0.0.0",
   "option_mac_output_dir": "~/gamemakerstudio2",
   "option_mac_team_id": "",
   "option_mac_signing_identity": "Developer ID Application:",
-  "option_mac_copyright": "Triangly, MicG",
+  "option_mac_copyright": "",
   "option_mac_splash_png": "${base_options_dir}/mac/splash/splash.png",
   "option_mac_icon_png": "icons/1024.png",
   "option_mac_installer_background_png": "${base_options_dir}/mac/splash/installer_background.png",

@@ -72,13 +72,17 @@ function PlayerSuperFormsProcess()
 				SuperStateValue = false;
 				SuperState	    = false;
 				
-				//audio_sfx_play(sfxTransform, false);
-				audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
-				
-				if HighSpeedBonus
+				if audio_bgm_is_playing(SuperMusic)
 				{
-					audio_bgm_play(HighspeedMusic, -1, TypePriority);
-				}			
+					if HighSpeedBonus
+					{
+						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+					}
+					else
+					{
+						audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+					}					
+				}
 			}
 		}
 		break;

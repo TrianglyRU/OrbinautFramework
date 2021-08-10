@@ -111,11 +111,11 @@ function StageObjectsProcess()
 			// Create and setup object sprite on the layer
 			if !Player.Death
 			{
-				if visible and !Stage.IsPaused
+				if !Stage.IsPaused
 				{
 					var ObjectSprite = layer_sprite_create("TempSprites", x, y, sprite_index);
 					layer_sprite_speed(ObjectSprite,  0);
-					layer_sprite_alpha(ObjectSprite,  image_alpha);
+					layer_sprite_alpha(ObjectSprite,  visible);
 					layer_sprite_index(ObjectSprite,  image_index);
 					layer_sprite_xscale(ObjectSprite, image_xscale);
 					layer_sprite_yscale(ObjectSprite, image_yscale);
@@ -129,13 +129,13 @@ function StageObjectsProcess()
 			else
 			{
 				var ReplacedObject		    = instance_create_depth(x, y, depth, BlankObject);
-				ReplacedObject.visible	    = visible;
+				ReplacedObject.visible		= visible;
 				ReplacedObject.sprite_index = sprite_index;
 				ReplacedObject.image_index  = image_index;		
 				ReplacedObject.image_xscale = image_xscale;
 				ReplacedObject.image_yscale = image_yscale;
 				ReplacedObject.image_speed  = 0;
-
+				
 				// Destroy main object
 				instance_destroy();
 			}

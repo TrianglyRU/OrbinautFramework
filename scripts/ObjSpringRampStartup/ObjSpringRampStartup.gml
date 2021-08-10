@@ -2,6 +2,7 @@ function ObjSpringRampStartup()
 {
 	// Variables list
 	JumpTimer		 = 0;
+	JumpFlag		 = 0;
 	CollisionDefault = [];
 	CollisionPressed = [];
 	

@@ -3,27 +3,15 @@ function GameAudioReset()
 	// Stop all audio
 	audio_stop_all();
 	
-	// Reset audio groups volume
-	audio_group_set_gain(GlobalSFX, Game.SoundVolume, 0);
-	audio_group_set_gain(BGM,	    Game.MusicVolume, 0);
+	// Reset low priority track data
+	Game.LowTrack[2]  = EventIdle;
+	Game.LowTrack[0]  = 0;
+	Game.LowTrack[1]  = 0;
+	Game.LowTrack[3]  = 0;
 	
-	// Reset normal track data
-	Game.NormalTrack[TrackEvent]	 = EventIdle;
-	Game.NormalTrack[TrackEventTime] = 0;
-	Game.NormalTrack[TrackIndex]	 = 0;
-	Game.NormalTrack[TrackID]	     = 0;
-	Game.NormalTrack[TrackLoop]		 = 0;
-	
-	// Reset priority track data
-	Game.PriorityTrack[TrackEvent]	   = EventIdle;
-	Game.PriorityTrack[TrackEventTime] = 0;
-	Game.PriorityTrack[TrackIndex]	   = 0;
-	Game.PriorityTrack[TrackID]	       = 0;
-	Game.PriorityTrack[TrackLoop]	   = 0;
-	
-	// Reset jingle track data
-	Game.JingleTrack[TrackEvent]	 = EventIdle;
-	Game.JingleTrack[TrackEventTime] = 0;
-	Game.JingleTrack[TrackIndex]	 = 0;
-	Game.JingleTrack[TrackID]	     = 0;
+	// Reset high priority track data
+	Game.HighTrack[2]  = EventIdle;
+	Game.HighTrack[0]  = 0;
+	Game.HighTrack[1]  = 0;
+	Game.HighTrack[3]  = 0;
 }

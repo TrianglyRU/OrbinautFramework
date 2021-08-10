@@ -7,11 +7,11 @@
   "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "GlobalSFX",
-    "path": "audiogroups/GlobalSFX",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfxRelease.ogg",
-  "duration": 1.435136,
+  "duration": 1.430136,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

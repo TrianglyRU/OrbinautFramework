@@ -109,7 +109,7 @@ function ObjItemBoxScript()
 						{
 							Player.Lives++;
 							Player.LivesRewards++;
-							audio_bgm_play(Jingle1UP, -1, TypeJingle);
+							audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
 						}
 						
 						// Play sound, switch left and right channels every ring
@@ -124,7 +124,7 @@ function ObjItemBoxScript()
 						// Play music
 						if !Player.SuperState
 						{
-							audio_bgm_play(HighspeedMusic, -1, TypePriority);
+							audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 						}
 					}
 					break;
@@ -184,7 +184,7 @@ function ObjItemBoxScript()
 							Player.InvincibilityBonus = 1200;
 						
 							// Play music
-							audio_bgm_play(InvincibilityMusic, -1, TypePriority);
+							audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
 						}
 					}
 					break;
@@ -194,12 +194,12 @@ function ObjItemBoxScript()
 						Player.Lives += 1;
 						
 						// Play jingle
-						audio_bgm_play(Jingle1UP, -1, TypeJingle);
+						audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
 					}
 					break;
 					case "Eggman":
 					{
-						object_damage(false, false, false, false);
+						object_damage(false, false, false);
 					}
 					break;
 				}

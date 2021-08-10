@@ -7,11 +7,11 @@
   "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "GlobalSFX",
-    "path": "audiogroups/GlobalSFX",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfxScoreCount.wav",
-  "duration": 0.038311,
+  "duration": 0.033311,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

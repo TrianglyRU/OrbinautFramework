@@ -9,12 +9,13 @@ function PlayerPowerup()
 	// Handle highspeed bonus
 	if HighSpeedBonus
 	{	
-		// Restore normal physics when bonus has ended 
+		// Count down the timer
 		if !(--HighSpeedBonus)
 		{
-			if !InvincibilityBonus
+			// Play stage music
+			if audio_bgm_is_playing(HighspeedMusic)
 			{
-				audio_bgm_stop(TypePriority, 1);
+				audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			}
 		}	
 	}
@@ -39,11 +40,13 @@ function PlayerPowerup()
 			}
 		}
 		
+		// Count down the timer
 		if !(--InvincibilityBonus)
 		{
-			if !HighSpeedBonus
+			// Play stage music
+			if audio_bgm_is_playing(InvincibilityMusic)
 			{
-				audio_bgm_stop(TypePriority, 1);
+				audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			}
 		}
 	}

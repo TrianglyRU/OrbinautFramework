@@ -7,11 +7,11 @@
   "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "GlobalSFX",
-    "path": "audiogroups/GlobalSFX",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfxWaterSplash.wav",
-  "duration": 1.044206,
+  "duration": 1.039206,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

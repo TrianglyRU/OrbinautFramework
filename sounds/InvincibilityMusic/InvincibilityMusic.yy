@@ -7,8 +7,8 @@
   "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "BGM",
-    "path": "audiogroups/BGM",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "InvincibilityMusic.ogg",
   "duration": 20.0,

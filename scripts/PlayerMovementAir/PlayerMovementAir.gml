@@ -55,8 +55,12 @@ function PlayerMovementAir()
 		Xsp -= floor(Xsp/0.125) / 256;
 	}
 	
-	// Handle spring animation
+	// Handle animations
 	if Animation = AnimSpring and Ysp > 0
+	{
+		Animation = AnimWalk;
+	}
+	if Animation == AnimBreathe and animation_get_frame(id) == 2
 	{
 		Animation = AnimWalk;
 	}

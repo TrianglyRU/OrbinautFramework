@@ -9,7 +9,7 @@ function GameFrameworkSetup()
 	// Default game state (this only applies when we load right into stage/room avoiding main menu)
 	Game.Character    =  CharSonic;
 	Game.Score	      =  0;
-	Game.Lives	      =  3;
+	Game.Lives	      =  1;
 	Game.Continues    =  2;
 	Game.Emeralds     =  0;
 	Game.ActiveSave   = -1;

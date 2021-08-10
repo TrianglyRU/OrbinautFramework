@@ -25,11 +25,10 @@ function GameVariables()
 	// Audio
 	Game.MusicVolume = 0;
 	Game.SoundVolume = 0;
-	
-	Game.NormalTrack[5]			 = 0;
-	Game.PriorityTrack[5]		 = 0;
-	Game.JingleTrack[5]		     = 0;
-	
+	Game.LowTrack	 = [];
+	Game.HighTrack	 = [];
+	Game.TrackLoop   = [];
+
 	// Control
 	Game.KeyboardControl = [];
 	

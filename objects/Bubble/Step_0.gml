@@ -53,7 +53,36 @@
 	{
 		if animation_get_frame(id) == 5 and object_player_overlap(Triggerbox)
 		{
+			// Music stuff
+			if Player.AirTimer <= 720
+			{
+				if !Player.SuperState
+				{
+					if Player.HighSpeedBonus
+					{
+						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+					}
+					else if Player.InvincibilityBonus
+					{
+						audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+					}
+					else
+					{
+						audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+					}
+				}
+				else
+				{
+					audio_bgm_play(PriorityLow, SuperMusic, other);
+				}
+			}
+			
 			// Reset flags
+			if Player.Rolling
+			{
+				Player.RadiusX = Player.DefaultRadiusX;
+				Player.RadiusY = Player.DefaultRadiusY;
+			}
 			Player.AirTimer     = 1800;
 			Player.MovementLock = 35;
 			Player.Xsp		    = 0;
@@ -61,16 +90,17 @@
 			Player.Inertia	    = 0;	
 			Player.Jumping      = false;
 			Player.Rolling	    = false;
-			Player.RadiusX	    = Player.DefaultRadiusX;
-			Player.RadiusY      = Player.DefaultRadiusY;
-			Player.Animation	= AnimWalk;
+			
+			// Play animation
+			if !Player.FlightState and Player.GlideState != GlideActive
+			{
+				Player.Animation = AnimBreathe;
+			}
 			
 			// Set bubble flag
 			Collected = true;
 			
 			// Play sound
 			audio_sfx_play(sfxBreathe, false);
-			audio_bgm_stop(TypeNormal, 0);
-			audio_bgm_play(Stage.StageMusic, Stage.StageMusicLooppoint, TypeNormal);
 		}
 	}

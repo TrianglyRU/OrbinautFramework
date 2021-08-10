@@ -117,12 +117,14 @@ function ScreenDebugScreenDraw()
 				+ "\n"
 				+ "\n              * AUDIO *"
 				+ "\n"
-				+ "\n   NORMAL ACTIVE: " + string(Game.NormalTrack[TrackID])
-				+ "\n   NORMAL EVENT: " + string(Game.NormalTrack[TrackEvent])
-				+ "\n   PRIORITY ACTIVE: " + string(Game.PriorityTrack[TrackID])
-				+ "\n   PRIORITY EVENT: " + string(Game.PriorityTrack[TrackEvent])
-				+ "\n   JINGLE ACTIVE: " + string(Game.JingleTrack[TrackID])
-				+ "\n   JINGLE EVENT: " + string(Game.JingleTrack[TrackEvent]),
+				+ "\n   LOW TRACK: " + string(Game.LowTrack[0])
+				+ "\n   LOW EVENT: " + string(Game.LowTrack[2])
+				+ "\n   LOW EVENT TIME: " + string(Game.LowTrack[3])
+				+ "\n   LOW VOLUME: " + string(audio_sound_get_gain(Game.LowTrack[0]))
+				+ "\n   LOW POSITION: " + string(audio_sound_get_track_position(Game.LowTrack[0]))
+				+ "\n   HIGH TRACK: " + string(Game.HighTrack[0])
+				+ "\n   HIGH EVENT: " + string(Game.HighTrack[2])
+				+ "\n   HIGH EVENT TIME: " + string(Game.HighTrack[3]),
 		8, 0.28);
 	}
 }

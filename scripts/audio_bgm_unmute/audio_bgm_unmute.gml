@@ -1,34 +1,18 @@
-/// @function audio_bgm_unmute(type,time)
-function audio_bgm_unmute(type, time)
+/// @function audio_bgm_unmute(priority,time)
+function audio_bgm_unmute(priority, time)
 {	
-	switch type
+	switch priority
 	{
-		case TypeNormal:
+		case PriorityLow:
 		{
-			Game.NormalTrack[TrackEvent]	 = EventUnmute;
-			Game.NormalTrack[TrackEventTime] = time;
+			Game.LowTrack[2]  = EventUnmute;
+			Game.LowTrack[3] = time;
 		}
 		break;
-		case TypePriority:
+		case PriorityHigh:
 		{
-			Game.PriorityTrack[TrackEvent]	   = EventUnmute;
-			Game.PriorityTrack[TrackEventTime] = time;
-		}
-		break;
-		case TypeJingle:
-		{
-			Game.JingleTrack[TrackEvent]	   = EventUnmute;
-			Game.JingleTrack[TrackEventTime]   = time;
-		}
-		break;
-		case TypeAll:
-		{
-			Game.NormalTrack[TrackEvent]	   = EventUnmute;
-			Game.NormalTrack[TrackEventTime]   = time;
-			Game.PriorityTrack[TrackEvent]	   = EventUnmute;
-			Game.PriorityTrack[TrackEventTime] = time;
-			Game.JingleTrack[TrackEvent]	   = EventUnmute;
-			Game.JingleTrack[TrackEventTime]   = time;
+			Game.HighTrack[2] = EventUnmute;
+			Game.HighTrack[3] = time;
 		}
 		break;
 	}

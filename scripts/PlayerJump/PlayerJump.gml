@@ -46,8 +46,7 @@ function PlayerJump()
 		RadiusY = DefaultRadiusY;
 			
 		audio_sfx_play(sfxTransform, false);		
-		audio_bgm_play(SuperTheme, 0.6, TypeNormal);
-		audio_bgm_stop(TypePriority, 1);
+		audio_bgm_play(PriorityLow, SuperMusic, other);
 			
 		// Reset jump and roll flag
 		Jumping = false;

@@ -7,11 +7,11 @@
   "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "GlobalSFX",
-    "path": "audiogroups/GlobalSFX",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfxPeeloutRelease.wav",
-  "duration": 2.154864,
+  "duration": 2.149864,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

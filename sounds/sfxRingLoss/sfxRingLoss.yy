@@ -7,11 +7,11 @@
   "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "GlobalSFX",
-    "path": "audiogroups/GlobalSFX",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sfxRingLoss.wav",
-  "duration": 1.506814,
+  "duration": 1.501814,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",

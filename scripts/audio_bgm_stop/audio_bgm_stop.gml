@@ -1,34 +1,18 @@
-/// @function audio_bgm_stop(type,time)
-function audio_bgm_stop(type, time)
+/// @function audio_bgm_stop(priority,time)
+function audio_bgm_stop(priority, time)
 {	
-	switch type
+	switch priority
 	{
-		case TypeNormal:
+		case PriorityLow:
 		{
-			Game.NormalTrack[TrackEvent]	   = EventStop;
-			Game.NormalTrack[TrackEventTime]   = time;
+			Game.LowTrack[2] = EventStop;
+			Game.LowTrack[3] = time;
 		}
 		break;
-		case TypePriority:
+		case PriorityHigh:
 		{
-			Game.PriorityTrack[TrackEvent]	  = EventStop;
-			Game.PriorityTrack[TrackEventTime] = time;
-		}
-		break;
-		case TypeJingle:
-		{
-			Game.JingleTrack[TrackEvent]	 = EventStop;
-			Game.JingleTrack[TrackEventTime] = time;
-		}
-		break;
-		case TypeAll:
-		{
-			Game.NormalTrack[TrackEvent]	   = EventStop;
-			Game.NormalTrack[TrackEventTime]   = time;
-			Game.PriorityTrack[TrackEvent]	   = EventStop;
-			Game.PriorityTrack[TrackEventTime] = time;
-			Game.JingleTrack[TrackEvent]	   = EventStop;
-			Game.JingleTrack[TrackEventTime]   = time;
+			Game.HighTrack[2] = EventStop;
+			Game.HighTrack[3] = time;
 		}
 		break;
 	}

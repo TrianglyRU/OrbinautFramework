@@ -10,6 +10,7 @@ function PlayerSetup()
 	animation_set_frame(Animation, 1);
 	
 	// Set default flags
+	AirTimer	   = 1800;
 	AllowCollision = true;
 	Grounded	   = true;
 	PeeloutRev     = -1;

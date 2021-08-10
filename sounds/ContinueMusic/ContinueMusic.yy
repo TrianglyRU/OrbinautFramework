@@ -7,8 +7,8 @@
   "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "BGM",
-    "path": "audiogroups/BGM",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "ContinueMusic.ogg",
   "duration": 12.1319733,

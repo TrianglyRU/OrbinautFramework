@@ -10,6 +10,29 @@ function StageActiveProcess()
 		DoUpdate = true;
 	}
 	
+	// Update event
+	if DoUpdate
+	{
+		// Process timer
+		if TimeEnabled
+		{
+			if (++Time) == 36000
+			{
+				if Game.DevMode
+				{
+					Time = 32400;
+				}
+				else
+				{
+					object_damage(false, false, true);
+				}
+			}
+		}
+		
+		// Process sync animations
+		AnimationTime++;
+	}
+	
 	// Player death event
 	if Player.Death
 	{
@@ -17,17 +40,29 @@ function StageActiveProcess()
 		CameraEnabled = false;
 		
 		// Check if player is off-screen vertically
-		if Player.Ysp > 0 and floor(Player.PosY) > Screen.CameraY + Screen.Height
+		if floor(Player.PosY) > Screen.CameraY + Screen.Height + 16
 		{
-			// Fade into black after 1 second
-			EventTimer++
-			if EventTimer == 60
+			if (++EventTimer) == 60
 			{
 				Player.Rings  = 0;
 				Player.Lives -= 1;
-					
+				
+				if Time != 36000 and Player.Lives
+				{
+					fade_perform(FadeIn, FadeBlack, 36);
+					audio_bgm_stop(PriorityLow,  0.5);
+					audio_bgm_stop(PriorityHigh, 0.5);
+				}
+				else if !IsGameOver
+				{
+					IsGameOver = true;
+					audio_bgm_stop(PriorityHigh, 0);
+					audio_bgm_play(PriorityLow, GameOverMusic, noone);
+				}
+			}
+			if IsGameOver and EventTimer == 780
+			{
 				fade_perform(FadeIn, FadeBlack, 36);
-				audio_bgm_stop(TypeAll, 1);
 			}
 			
 			// Check if fade is at its peak
@@ -71,15 +106,5 @@ function StageActiveProcess()
 				}
 			}	
 		}
-	}
-	
-	// Update stage
-	if DoUpdate
-	{
-		if TimeEnabled
-		{
-			Time++;
-		}
-		AnimationTime++;
 	}
 }		

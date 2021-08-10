@@ -1,8 +1,5 @@
 function GameWindowStartup()
 {	
-	// Set window title
-	window_set_caption("Orbinaut Framework");
-	
 	// Get our game resolution and its multiplier
 	var Width  = Game.ResolutionWidth  * Game.WindowSize;
 	var Height = Game.ResolutionHeight * Game.WindowSize;

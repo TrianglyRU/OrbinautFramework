@@ -19,3 +19,5 @@
 	CycleNumber = 1;
 	CycleTimer  = irandom_range(128, 255);
 	
+	object_set_range(RangeClose, TypeUnload);
+	

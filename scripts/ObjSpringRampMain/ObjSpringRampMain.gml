@@ -48,7 +48,7 @@ function ObjSpringRampMain()
 					OnObject = false;
 				
 					// Use 'spring' animation
-					Animation = AnimSpring;
+					Animation = AnimAirSpin;
 				
 					// Launch player
 					if abs(Xsp) >= 4
