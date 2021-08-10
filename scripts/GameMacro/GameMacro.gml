@@ -40,16 +40,17 @@ function GameMacro()
 	#macro EventStop	  3
 	
 	// Palette macro
-	#macro PaletteDry 0
-	#macro PaletteWet 1
-	#macro FadeNone   0
-	#macro FadeActive 1
-	#macro FadeMax    2
-	#macro FadeIn     0
-	#macro FadeOut    1
-	#macro FadeBlack  0
-	#macro FadeWhite  1
-	#macro FadeFlash  2
+	#macro PaletteLimit 64
+	#macro PaletteDry   0
+	#macro PaletteWet   1
+	#macro FadeNone     0
+	#macro FadeActive   1
+	#macro FadeMax      2
+	#macro FadeIn       0
+	#macro FadeOut      1
+	#macro FadeBlack    0
+	#macro FadeWhite    1
+	#macro FadeFlash    2
 
 	// Player macro
 	#macro CharSonic		   0

@@ -7,7 +7,7 @@
 	varying vec4 v_vColour;
 	varying vec2 v_vPosition;
 	
-	#define MaxCol 64 // Max colours on the dynamic palette list. Increase if needed
+	#define PaletteLimit 64 // Max colours on the dynamic palette list. Increase if needed
 	
 	uniform float u_waterHeight;
 	
@@ -15,20 +15,20 @@
 	uniform sampler2D u_dryPalTex;
 	uniform vec3 u_dryUvs;
 	uniform vec2 u_dryPixelSize;
-	uniform float u_dryPalId[MaxCol];
+	uniform float u_dryPalId[PaletteLimit];
 
 	// Под водой
 	uniform sampler2D u_wetPalTex;
 	uniform vec3 u_wetUvs;
 	uniform vec2 u_wetPixelSize;
-	uniform float u_wetPalId[MaxCol];
+	uniform float u_wetPalId[PaletteLimit];
 	
 	// Затемнение
 	uniform float u_step;
 	uniform bool u_mode;
 	uniform int u_colour;
 
-	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[MaxCol]) 
+	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[PaletteLimit]) 
 	{
 	    for (float i = corner.y; i < corner.z; i += pixelSize.y) 
 		{

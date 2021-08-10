@@ -1,9 +1,9 @@
 function PaletteSystemStartup()
 {	
 	// Initialize palette animation storage
-	for (var i = 0; i < 64; i++)
+	for (var i = 0; i < PaletteLimit; i++)
 	{
-		for (var j = 0; j < 64; j++)
+		for (var j = 0; j < PaletteLimit; j++)
 		{
 			PaletteDuration[i, j] = noone;
 			PaletteSequence[i, j] = noone;
