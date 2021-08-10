@@ -1,6 +1,5 @@
 {
   "resources": [
-    {"id":{"name":"DRPC","path":"extensions/DRPC/DRPC.yy",},"order":0,},
     {"id":{"name":"Animal","path":"objects/Animal/Animal.yy",},"order":0,},
     {"id":{"name":"Background","path":"objects/Background/Background.yy",},"order":0,},
     {"id":{"name":"BadnikBullet","path":"objects/BadnikBullet/BadnikBullet.yy",},"order":0,},
@@ -228,6 +227,7 @@
     {"id":{"name":"ObjSignpostScript","path":"scripts/ObjSignpostScript/ObjSignpostScript.yy",},"order":1,},
     {"id":{"name":"ObjSignpostSetup","path":"scripts/ObjSignpostSetup/ObjSignpostSetup.yy",},"order":2,},
     {"id":{"name":"ObjSpawnpointSetup","path":"scripts/ObjSpawnpointSetup/ObjSpawnpointSetup.yy",},"order":2,},
+    {"id":{"name":"DRPC","path":"extensions/DRPC/DRPC.yy",},"order":0,},
     {"id":{"name":"spr_sonic_airspin","path":"sprites/spr_sonic_airspin/spr_sonic_airspin.yy",},"order":75,},
     {"id":{"name":"ObjSpikesHorizontalDraw","path":"scripts/ObjSpikesHorizontalDraw/ObjSpikesHorizontalDraw.yy",},"order":2,},
     {"id":{"name":"ObjSpikesHorizontalMain","path":"scripts/ObjSpikesHorizontalMain/ObjSpikesHorizontalMain.yy",},"order":3,},

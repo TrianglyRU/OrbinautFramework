@@ -1,8 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (keyboard_check_pressed(ord("V"))) HP = 1;
-
 	if (StateTimer) StateTimer--;
 	switch State
 	{
@@ -158,8 +156,13 @@ if (keyboard_check_pressed(ord("V"))) HP = 1;
 	var KnuxOffset = Player.CharacterID == CharKnuckles ? 16 : 0;
 	
 	if (State) SinMove = (SinMove + 2) mod 360;
-	x = floor(PosX);
-	y = floor(PosY + dsin(SinMove) * 8) + KnuxOffset;
+	
+	HurtFlash = (State == 2 or State == 4) and StateTimer div 4 mod 2;
+	var ROffsetX = HurtFlash ? irandom(4) - 2 : 0;
+	var ROffsetY = HurtFlash ? irandom(4) - 2 : 0;
+	
+	x = floor(PosX + ROffsetX);
+	y = floor(PosY + ROffsetY + dsin(SinMove) * 8) + KnuxOffset;
 	
 	if (!HP) exit;
 	

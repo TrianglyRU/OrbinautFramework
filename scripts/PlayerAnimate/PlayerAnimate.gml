@@ -1,5 +1,8 @@
 function PlayerAnimate()
 {	
+	// TODO Анимация сначала должна обновляться, а затем выключаться - сейчас наоборот
+	if !Stage.DoUpdate and !Death exit;
+	
 	// Calculate speed factor for certain animations
 	var SpeedFactor = PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3;
 	

@@ -48,7 +48,7 @@ function GameFrameworkSetup()
 	// Orbinaut improvements
 	Game.PostProcessing        = false;
 	Game.SmoothRotation	       = true;
-	Game.RichPresenceSupport   = false;
+	Game.RichPresenceSupport   = true;
 	Game.NoRollSpeedLimit	   = false;
 	Game.FlyingCancel	       = true;
 	Game.SuperCancel		   = false;

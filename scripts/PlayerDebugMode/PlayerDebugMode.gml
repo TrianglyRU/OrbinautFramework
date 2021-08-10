@@ -1,20 +1,31 @@
 function PlayerDebugMode()
 {
 	// Check if we're in dev mode
-	if !Game.DevMode or Death
+	if !Game.DevMode
 	{
 		return false;
 	}
-	
+
 	// Exit if stage is paused
 	if Stage.IsPaused
 	{
 		return false;
 	}
 	
+	// TODO починить инпут, он не работает
 	// Check for entering for exiting debug mode
 	if Input.BPress
 	{
+		if Death
+		{
+			Screen.CameraEnabled = true;
+			AllowCollision = true;
+			Input.IgnoreInput = false;
+			Stage.DoUpdate = true;
+			DrawOrder = layer_get_depth("Objects");
+			Death = false;
+		}
+		
 		// Toggle debug
 		DebugMode = !DebugMode;
 

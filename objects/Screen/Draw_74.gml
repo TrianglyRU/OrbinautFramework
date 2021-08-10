@@ -1,9 +1,6 @@
 /// @description
 // You can write your code in this editor
 	
-	// Call pause process script, exit further code if active
-	if ScreenPauseProcess() exit;
-	
 	// Call renderer process script
 	ScreenRendererLowProcess();
 	
@@ -21,6 +18,9 @@
 	
 	// Call card process script
 	ScreenCardProcess();
+	
+	// Call pause process script
+	ScreenPauseProcess();
 		
 	// Call renderer update script
 	ScreenRendererUpdate();

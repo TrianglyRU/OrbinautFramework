@@ -53,14 +53,12 @@
 						audio_resume_all();
 						
 						IsPaused = false;
+						DoUpdate = true;
 						
 						Screen.CameraEnabled = true;
 						
 						// Activate all objects
 						instance_activate_region(Screen.CameraX - 240, Screen.CameraY - 256, Screen.Width + 480, Screen.Height + 512, true);
-						
-						sprite_delete(Screen.PauseSurface);
-						Screen.PauseSurface = -1;
 					break;
 					case 1: 
 						PauseMode = 1;
@@ -77,9 +75,20 @@
 	else if Input.StartPress
 	{
 		IsPaused = true;
+		DoUpdate = false;
 		Input.StartPress     = false;
 		Screen.CameraEnabled = false;
-		Screen.PauseSurface  = sprite_create_from_surface(application_surface, 0, 0, Game.ResolutionWidth, Game.ResolutionHeight, false, false, 0, 0);
 
 		audio_pause_all();
+	}
+	
+	if !DoUpdate
+	{
+		instance_deactivate_all(true);
+		var IgnoreList = [Framework, Player, Input, Screen, Discord, Spawnpoint, Palette, Background, BlankObject];
+		var Length = array_length(IgnoreList);
+		for(var i = 0; i < Length; i++)
+		{
+			instance_activate_object(IgnoreList[i]);
+		}
 	}

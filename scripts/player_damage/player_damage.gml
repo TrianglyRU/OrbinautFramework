@@ -61,7 +61,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		// Play hurt sound
 		if object_index == SpikesVertical or object_index == SpikesHorizontal
 		{
-			audio_sfx_play(sfxHurtSpike, false)
+			audio_sfx_play(sfxHurtSpike, false);
 		}
 		else
 		{

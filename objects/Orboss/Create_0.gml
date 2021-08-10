@@ -13,6 +13,8 @@
 	PosX = x;
 	PosY = y;
 	Delay = 0;
+	HurtFlash = false;
+	
 	/*
 	if !instance_exists(Orbstatue)
 	{

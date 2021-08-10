@@ -1,18 +1,8 @@
 function StageObjectsProcess() 
 {	
-	// Define object array to ignore
-	var IgnoreList = [Framework, Player, Input, Screen, Stage, Discord, Spawnpoint, Palette, BlankObject];
-	var Length = array_length(IgnoreList);
-	
 	// Is stage update enabled?
 	if DoUpdate
-	{
-		// Destroy the layer we stored sprites on
-		if layer_exists("TempSprites")
-		{
-			layer_destroy("TempSprites");
-		}
-		
+	{		
 		with all
 		{
 			if variable_instance_exists(id, "Obj_LoadFlag")
@@ -83,62 +73,8 @@ function StageObjectsProcess()
 				}
 			}
 		}
-		
-		// Activate unloaded objects inside of the largest region
-		instance_activate_region(Screen.CameraX - 128, Screen.CameraY - 256, Screen.Width + 256, Screen.Height + 512, true);
 	}
 	
-	// Is stage not updating?
-	else
-	{
-		// Create layer to display sprites on
-		if !layer_exists("TempSprites")
-		{
-			layer_create(layer_get_depth("Objects"), "TempSprites");
-		}
-		
-		with all
-		{
-			// Exit if current object is the one to ignore
-			for (var i = 0; i < Length; i++)
-			{
-				if object_index == IgnoreList[i]
-				{
-					exit;
-				}
-			}
-			
-			// Create and setup object sprite on the layer
-			if !Player.Death
-			{
-				if !Stage.IsPaused
-				{
-					var ObjectSprite = layer_sprite_create("TempSprites", x, y, sprite_index);
-					layer_sprite_speed(ObjectSprite,  0);
-					layer_sprite_alpha(ObjectSprite,  visible);
-					layer_sprite_index(ObjectSprite,  image_index);
-					layer_sprite_xscale(ObjectSprite, image_xscale);
-					layer_sprite_yscale(ObjectSprite, image_yscale);
-				}
-				
-				// Deactivate object
-				instance_deactivate_object(id);
-			}
-			
-			// Replace objects with blank ones when player dies
-			else
-			{
-				var ReplacedObject		    = instance_create_depth(x, y, depth, BlankObject);
-				ReplacedObject.visible		= visible;
-				ReplacedObject.sprite_index = sprite_index;
-				ReplacedObject.image_index  = image_index;		
-				ReplacedObject.image_xscale = image_xscale;
-				ReplacedObject.image_yscale = image_yscale;
-				ReplacedObject.image_speed  = 0;
-				
-				// Destroy main object
-				instance_destroy();
-			}
-		}
-	}
+	// Activate unloaded objects inside of the largest region
+	instance_activate_region(Screen.CameraX - 128, Screen.CameraY - 256, Screen.Width + 256, Screen.Height + 512, true);
 }

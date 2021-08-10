@@ -15,8 +15,4 @@ function DiscordVariables()
 	DetailsString  = "";
 	DiscordAppID   = "";
 	PresenceReady  = 0;
-	
-	// Global variables list
-	global.DiscordEvent = "";
-	global.DiscordTime  = 0;
 }	
