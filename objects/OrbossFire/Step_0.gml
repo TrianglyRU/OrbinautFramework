@@ -2,7 +2,8 @@
 // You can write your code in this editor
 
 	ImgTimer++;	
-	if ImgTimer == 8 {
+	if ImgTimer == 8 
+	{
 		ImgTimer = 0;
 		image_xscale = -image_xscale;
 	}
@@ -57,7 +58,7 @@
 			}
 			Timer++;
 			Dist += max(Timer - 10, 0) / 20;
-			Angle += Spin * ((Parent.MaxHP - Parent.HP - 1) / 8 + 1) / Parent.Difficulty;
+			Angle += Spin * ((Parent.MaxHP - Parent.HP - 1) / 8 + 1);
 			x = ParX + round((40 + Dist) * dsin(Angle + 180));
 			y = ParY + round((40 + Dist) * dcos(Angle + 180));
 			var CamY = Screen.CameraY;

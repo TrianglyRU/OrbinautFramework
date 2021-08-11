@@ -1,11 +1,11 @@
 function DiscordStartup()
 {	
 	// Exit if Rich Presence support is disabled
-	if Game.RichPresenceSupport
+	if !Game.RichPresenceSupport
 	{
 		exit;
 	}
-
+	
 	// Get application ID. This one is for Orbianut and provides basic set of icons
 	DiscordAppID = "795659000645287996";
 	
@@ -14,5 +14,7 @@ function DiscordStartup()
 	{
 		Game.RichPresenceSupport = false;
 	}
+	
+	global.DiscordEvent = "";
 	global.DiscordTime = date_current_datetime();
 }

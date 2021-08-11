@@ -1,13 +1,10 @@
 function DiscordProcess()
 {
 	// Exit if Rich Presence support is disabled
-	if Game.RichPresenceSupport
+	if !Game.RichPresenceSupport
 	{
 		exit;
 	}
-	
-	// Call async event
-	np_update();
 	
 	// Update Rich Presence
 	if !PresenceReady and global.DiscordEvent == "DiscordReady"
@@ -19,4 +16,7 @@ function DiscordProcess()
 		
 		PresenceReady = true;
 	}
+	
+	// Call async event
+	np_update();
 }

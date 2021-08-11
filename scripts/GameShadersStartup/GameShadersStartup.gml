@@ -1,8 +1,11 @@
 function GameShadersStartup()
 {
+	// Setup boss flash shader
+	Shader.BossFlashType = shader_get_uniform(ShaderBossFlash, "u_type");
+	
 	// Setup fade shader
-	Shader.ScreenStep  = shader_get_uniform(ShaderScreen, "u_step");
-	Shader.ScreenMode  = shader_get_uniform(ShaderScreen, "u_mode");
+	Shader.ScreenStep   = shader_get_uniform(ShaderScreen, "u_step");
+	Shader.ScreenMode   = shader_get_uniform(ShaderScreen, "u_mode");
 	Shader.ScreenColour = shader_get_uniform(ShaderScreen, "u_colour");
 	
 	// Setup palette shader

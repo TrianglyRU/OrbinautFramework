@@ -3,6 +3,7 @@
 	
 	MaxHP  = 8;
 	HP     = MaxHP;
+	
 	AngleX = 0;
 	AngleY = 0;
 	Spin   = 90;
@@ -13,24 +14,12 @@
 	PosX = x;
 	PosY = y;
 	Delay = 0;
-	HurtFlash = false;
-	
-	/*
-	if !instance_exists(Orbstatue)
-	{
-		image_index = 2;
-		Difficulty = 2;
-	}
-	else
-	*/
-	{
-		Difficulty = 1;
-	}
+	DamageFlash = false;
 	
 	object_set_hitbox(20, 20);
 	object_set_depth(Player, false);
 	
-	var cnt = Difficulty == 1 ? 6 : 4;
+	var cnt = 6;
 	var ID = id;
 	var ofst = 360 / cnt;
 	for (var i = 0; i < cnt; i++) 

@@ -1,7 +1,7 @@
 function DiscordSetup()
 {
 	// Exit if Rich Presence support is disabled
-	if Game.RichPresenceSupport
+	if !Game.RichPresenceSupport
 	{
 		exit;
 	}

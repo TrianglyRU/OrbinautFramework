@@ -43,7 +43,7 @@
 				if HP mod 2
 				{
 					if (StateTimer == 350 or StateTimer == 200) Delay = 50;
-					if ((StateTimer < 350 and StateTimer >= 300) or (StateTimer < 200 and StateTimer >= 150)) and !(StateTimer mod (Difficulty == 1 ? 10 : 15))
+					if ((StateTimer < 350 and StateTimer >= 300) or (StateTimer < 200 and StateTimer >= 150)) and !(StateTimer mod 10)
 					{
 						var ID = id;
 						var Fire = instance_create_depth(x, y, depth - 1, OrbossFire);
@@ -157,9 +157,9 @@
 	
 	if (State) SinMove = (SinMove + 2) mod 360;
 	
-	HurtFlash = (State == 2 or State == 4) and StateTimer div 4 mod 2;
-	var ROffsetX = HurtFlash ? irandom(4) - 2 : 0;
-	var ROffsetY = HurtFlash ? irandom(4) - 2 : 0;
+	DamageFlash = (State == 2 or State == 4) and StateTimer div 4 mod 2;
+	var ROffsetX = DamageFlash ? irandom(4) - 2 : 0;
+	var ROffsetY = DamageFlash ? irandom(4) - 2 : 0;
 	
 	x = floor(PosX + ROffsetX);
 	y = floor(PosY + ROffsetY + dsin(SinMove) * 8) + KnuxOffset;

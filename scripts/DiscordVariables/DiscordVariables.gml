@@ -1,7 +1,7 @@
 function DiscordVariables()
-{
+{	
 	// Exit if Rich Presence support is disabled
-	if Game.RichPresenceSupport
+	if !Game.RichPresenceSupport
 	{
 		exit;
 	}
@@ -14,5 +14,5 @@ function DiscordVariables()
 	StateString	   = "";
 	DetailsString  = "";
 	DiscordAppID   = "";
-	PresenceReady  = 0;
+	PresenceReady  = false;
 }	
