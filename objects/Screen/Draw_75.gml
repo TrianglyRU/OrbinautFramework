@@ -1,5 +1,6 @@
 /// @description
 // You can call your scripts in this editor
+
 	// TODO Что-то переместить в draw_gui_begin, а что-то оставить тут
 	if Stage.IsPaused
 	{

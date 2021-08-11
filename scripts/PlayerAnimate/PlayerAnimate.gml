@@ -18,7 +18,18 @@ function PlayerAnimate()
 				switch Animation
 				{
 					case AnimIdle:
-						animation_play(spr_sonic_idle, 24, 15);
+					{
+						var Frame = sprite_index == spr_sonic_idle ? animation_get_frame(id) : 1;
+						if  Frame == 1
+						{
+							var Duration = 288;
+						}
+						else
+						{
+							var Duration = 24;
+						}
+						animation_play(spr_sonic_idle, Duration, 4);
+					}
 					break;
 					case AnimWalk:						
 						animation_play(spr_sonic_walk, round(max(1, 8 - SpeedFactor)), 1);
@@ -130,7 +141,7 @@ function PlayerAnimate()
 						animation_play(spr_supersonic_balance, 10, 1);
 					break;
 					case AnimSpring:
-						animation_play(spr_supersonic_spring, 2, 1);
+						animation_play(spr_supersonic_spring, 4, 1);
 					break;
 					case AnimAirSpin:
 						animation_play(spr_supersonic_airspin, 3, 1);
@@ -150,7 +161,38 @@ function PlayerAnimate()
 			switch Animation
 			{
 				case AnimIdle: 
-					animation_play(spr_tails_idle, 1, 1); 
+				{
+					var Frame = sprite_index == spr_tails_idle ? animation_get_frame(id) : 1;
+					if  Frame == 1
+					{
+						var Duration = 128;
+					}
+					else if Frame < 4
+					{
+						var Duration = 8;
+					}
+					else if Frame == 4
+					{
+						var Duration = 64;
+					}
+					else if Frame < 7
+					{
+						var Duration = 8;
+					}
+					else if Frame == 7
+					{
+						var Duration = 72;
+					}
+					else if Frame == 8
+					{
+						var Duration = 128;
+					}
+					else
+					{
+						var Duration = 8;
+					}
+					animation_play(spr_tails_idle, Duration, 8);
+				} 
 				break;
 				case AnimWalk:
 					animation_play(spr_tails_walk, round(max(1, 8 - SpeedFactor)), 1);
@@ -174,7 +216,7 @@ function PlayerAnimate()
 					animation_play(spr_tails_lookup, 4, 1);
 				break;
 				case AnimSkid:
-					animation_play(spr_tails_skid, 6, 1);
+					animation_play(spr_tails_skid, 8, 1);
 				break;
 				case AnimFly:
 					animation_play(spr_tails_fly, 1, 1);
@@ -196,7 +238,7 @@ function PlayerAnimate()
 					animation_play(spr_tails_death, 1, 1);
 				break;
 				case AnimSpring:
-					animation_play(spr_tails_spring, 2, 1);
+					animation_play(spr_tails_spring, 4, 1);
 				break;
 				case AnimPush:
 					animation_play(spr_tails_push, round(max(1, 8 - SpeedFactor) * 4), 1);
@@ -229,8 +271,27 @@ function PlayerAnimate()
 		{
 			switch Animation
 			{
-				case AnimIdle: 
-					animation_play(spr_knuckles_idle, 1, 1); 
+				case AnimIdle:
+				{
+					var Frame = sprite_index == spr_knuckles_idle ? animation_get_frame(id) : 1;
+					if  Frame == 1
+					{
+						var Duration = 300;
+					}
+					else if Frame < 18
+					{
+						var Duration = 18;
+					}
+					else if Frame == 18
+					{
+						var Duration = 30;
+					}
+					else
+					{
+						var Duration = 6;
+					}
+					animation_play(spr_knuckles_idle, Duration, 1);	
+				}
 				break;
 				case AnimWalk: 
 					animation_play(spr_knuckles_walk, round(max(1, 8 - SpeedFactor)), 1);
@@ -251,7 +312,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_lookup, 6, 2);
 				break;
 				case AnimSkid:
-					animation_play(spr_knuckles_skid, 4, 3);
+					animation_play(spr_knuckles_skid, 4, 2);
 				break;
 				case AnimHurt:
 					animation_play(spr_knuckles_hurt, 1, 1);

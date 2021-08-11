@@ -1,37 +1,43 @@
-/// @function animation_play(sprite_id,speed,loop) 
-function animation_play(sprite_id, speed, loop) 
+/// @function animation_play(ind,speed,goto) 
+function animation_play(ind,speed,goto) 
 {	
 	// Ignore the animation method built into the IDE
-	sprite_set_speed(sprite_id, 0, spritespeed_framespergameframe);
+	sprite_set_speed(ind, 0, spritespeed_framespergameframe);
+	
+	// Create new instance variables
+	variable_create_new("image_duration",  abs(speed) + 1);
+	variable_create_new("image_lastindex", 0);
 	
 	// Update sprite
-	if sprite_index != sprite_id or !variable_instance_exists(id, "Obj_AnimationTimer")
+	if sprite_index != ind
 	{
-		Obj_AnimationTimer = abs(speed) + 1;
-	    sprite_index	   = sprite_id; 
-		image_index        = 0;
+		sprite_index    = ind; 	
+		image_index     = 0;
+		image_lastindex = 0;
+		image_duration  = abs(speed) + 1;
+	}
+	
+	// Update duration
+	if image_lastindex != image_index
+	{
+		image_duration  = abs(speed);
+		image_lastindex = image_index;
 	}
 
 	// Handle subimage change
 	if speed != 0 and fade_check(FadeNone)
 	{
-		if !(--Obj_AnimationTimer)
+		if !(--image_duration)
 		{	
-			// Clamp doLoopFrom argument
-			loop = clamp(loop, 1, image_number);
-			
-			// Reset animation timer to current animation speed
-			Obj_AnimationTimer = abs(speed);
-				
 			// Switch to the next subimage
 			if speed > 0
 			{
-				image_index = image_index < image_number - 1 ? image_index + 1 : loop - 1;
+				image_index = image_index + 1 < image_number ? image_index + 1 : goto - 1;
 			}
 			else
 			{
-				image_index = image_index > 0 ? image_index - 1 : image_number - 1 * loop;
-			}		
-		}	
-	}
+				image_index = image_index + 1 > 1 ? image_index - 1 : image_number - goto;
+			}
+		}
+	}	
 }

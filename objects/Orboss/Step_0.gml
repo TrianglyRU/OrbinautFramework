@@ -157,9 +157,8 @@
 	
 	if (State) SinMove = (SinMove + 2) mod 360;
 	
-	DamageFlash = (State == 2 or State == 4) and StateTimer div 4 mod 2;
-	var ROffsetX = DamageFlash ? irandom(4) - 2 : 0;
-	var ROffsetY = DamageFlash ? irandom(4) - 2 : 0;
+	var ROffsetX = State == 2 ? irandom(4) - 2 : 0;
+	var ROffsetY = State == 2 ? irandom(4) - 2 : 0;
 	
 	x = floor(PosX + ROffsetX);
 	y = floor(PosY + ROffsetY + dsin(SinMove) * 8) + KnuxOffset;
@@ -174,6 +173,8 @@
 			HP--;
 			State = 2;
 			StateTimer = 90;
+			
+			object_flash_trigger(16, 2);
 			
 			OrbossOrb.State = 2;
 			

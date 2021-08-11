@@ -117,7 +117,7 @@ function PlayerKnuxClimb()
 			AllowCollision = false;
 		}
 				
-		// Check if we pressed A, B or C buttonzzzzzzz
+		// Check if we pressed A, B or C button
 		else if Input.ABCPress
 		{
 			// Leave climb state
@@ -141,7 +141,7 @@ function PlayerKnuxClimb()
 			
 			// Set 'roll' animation
 			Animation = AnimRoll;
-			Facing    = !Facing;
+			Facing	 *= -1;
 				
 			// Play sound
 			audio_sfx_play(sfxJump, false);

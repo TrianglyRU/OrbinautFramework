@@ -1,5 +1,7 @@
 function ObjTailsObjectAnimate()
 {
+	if !Stage.DoUpdate and !Player.Death exit;
+	
 	switch Player.Animation
 	{
 		case AnimIdle:

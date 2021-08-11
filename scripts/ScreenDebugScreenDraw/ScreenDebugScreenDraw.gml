@@ -98,8 +98,9 @@ function ScreenDebugScreenDraw()
 				+ "\n         * CHARACTER VISUALS *"
 				+ "\n"
 				+ "\n   ANIMATION: " + string(sprite_get_name(Player.sprite_index))
-				+ "\n   NEXT FRAME IN: " + string(Player.Obj_AnimationTimer)
+				+ "\n   NEXT FRAME IN: " + string(Player.image_duration)
 				+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
+				+ "\n   LAST FRAME: " + string(Player.image_lastindex + 1)
 				+ "\n   FRAMES TOTAL: " + string(Player.image_number)
 				+ "\n   VISUAL ANGLE: " + string(Player.VisualAngle)
 				+ "\n"
