@@ -33,12 +33,12 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	audio_sfx_stop(sfxFlying);
 	audio_sfx_stop(sfxTired);
 	
-	// Set graivty
-	Player.Grv = 0.1875;
-	
 	// Check if player has no rings and barrier or should die instantly
 	if !Player.Rings and !Player.BarrierType or instant_kill
 	{	
+		// Set gravity
+		Player.Grv = 0.21875;
+		
 		// Disable collisions and camera
 		Screen.CameraEnabled  = false;
 		Player.AllowCollision = false;
@@ -72,6 +72,9 @@ function object_damage(flame_type, thunder_type, instant_kill)
 	// Check if player has rings or barrier
 	else
 	{	
+		// Set graivty
+		Player.Grv = 0.1875;
+		
 		// Set 'hurt' animation
 		Player.Animation = AnimHurt;
 		

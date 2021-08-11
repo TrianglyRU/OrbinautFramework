@@ -9,8 +9,7 @@
 	
 	animation_play(sprite_index, 2, 6);
 	
-	ObjectTimer--;
-	if !ObjectTimer
+	if animation_get_frame(id) == 6
 	{
 		if abs(Player.Inertia) >= Player.TopAcc
 		{

@@ -5,16 +5,16 @@ function PaletteSetup()
 		// Load MQZ palette
 		case MQZ0:
 		{
-			palette_load(PaletteSurface,    pal_surface);
-			palette_load(PaletteUnderwater, pal_underwater);
+			palette_load(PaletteDry, pal_default_dry);
+			palette_load(PaletteWet, pal_default_wet);
 		}
 		break;
 		
 		// Load default palette
 		default:
 		{
-			palette_load(PaletteSurface,    pal_surface);
-			palette_load(PaletteUnderwater, pal_underwater);
+			palette_load(PaletteDry, pal_default_dry);
+			palette_load(PaletteWet, pal_default_wet);
 		}
 		break;
 	}

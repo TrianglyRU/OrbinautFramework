@@ -4,8 +4,8 @@
 	// Call active process script
 	StageActiveProcess();
 	
-	// Call objects process script
-	StageObjectsProcess();
+	// Call active objects process script
+	StageObjectsActiveProcess();
 	
 	// Call boundaries process script
 	StageBoundariesProcess();

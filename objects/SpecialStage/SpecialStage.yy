@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage (Special)",
-    "path": "folders/Controllers (Main)/Stage (Special).yy",
+    "name": "Special Stage",
+    "path": "folders/Controllers (Main)/Special Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpecialStage",

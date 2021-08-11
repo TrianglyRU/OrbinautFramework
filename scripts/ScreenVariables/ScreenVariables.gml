@@ -23,6 +23,7 @@ function ScreenVariables()
 	ExtendedOffset	 = 0;
 	OverviewOffset	 = 0;
 	CameraEnabled    = 0;
+	PauseValue		 = [];
 	CardValue		 = [];
 	ResultsValue     = [];
 	

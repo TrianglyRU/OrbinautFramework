@@ -10,6 +10,9 @@
 	// Call results process script
 	ScreenResultsProcess();
 	
+	// Call gameover screen process script
+	ScreenGameOverProcess();
+	
 	// Call renderer update script
 	ScreenRendererUpdate();
 	

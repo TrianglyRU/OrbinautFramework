@@ -1,8 +1,7 @@
-function StageObjectsProcess() 
-{	
-	// Is stage update enabled?
+function StageObjectsActiveProcess() 
+{		
 	if DoUpdate
-	{		
+	{
 		with all
 		{
 			if variable_instance_exists(id, "Obj_LoadFlag")

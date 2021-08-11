@@ -18,6 +18,7 @@ function StageSetup()
 			TopBoundary			= 768;
 			RightBoundary		= room_width;
 			BottomBoundary		= room_height;
+			AnimatedGraphics    = [tex_mqz_anitile, 6];
 		}
 		break;
 		
@@ -37,6 +38,7 @@ function StageSetup()
 			TopBoundary			= 0;
 			RightBoundary		= room_width;
 			BottomBoundary		= room_height;
+			AnimatedGraphics	= [noone];
 		}
 		break;
 	}

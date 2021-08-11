@@ -1,7 +1,7 @@
 function PaletteShiftProcess()
 {	
-	// Exit if fade is active
-	if fade_check(FadeActive)
+	// Exit if fade is active, or stage is paused
+	if fade_check(FadeActive) or instance_exists(Stage) and Stage.IsPaused
 	{
 		exit;
 	}

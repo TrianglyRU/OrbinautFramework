@@ -25,15 +25,6 @@ function InputHotkeysProcess()
 		room_restart();
 	}
 	
-	/*if keyboard_check_pressed(vk_f3) 
-	{
-		fade_perform(from, flash, 36);
-	}
-	if keyboard_check_pressed(vk_f4) 
-	{
-		fade_perform(to, flash, 36);
-	}*/
-	
 	// Game restart (F3)
 	if keyboard_check_pressed(vk_f3) 
 	{
@@ -149,15 +140,15 @@ function InputHotkeysProcess()
 		object_damage(false, false, false);
 	}
 	
-	// Add rings (F11 hold)
-	if keyboard_check(vk_f11)
+	// Kill player (F11)
+	if keyboard_check_pressed(vk_f11) 
 	{
-		Player.Rings += 1;
+		object_damage(false, false, true);
 	}
 	
-	// Turn on Superform (F12)
-	if keyboard_check_pressed(vk_f12)
+	// Add rings (F12 hold)
+	if keyboard_check(vk_f12)
 	{
-		Player.SuperState = !Player.SuperState
+		Player.Rings += 1;
 	}
 }

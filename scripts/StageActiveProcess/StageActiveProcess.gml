@@ -1,70 +1,93 @@
 function StageActiveProcess()
 {	
 	// Check if we should update stage or not
-	DoUpdate = !(fade_check(FadeActive) or Player.Death or IsPaused);
+	DoUpdate = !(fade_check(FadeActive) or IsPaused or Player.Death);
 	
-	// Update event
-	if DoUpdate
+	// Process stage time
+	if DoUpdate and TimeEnabled
 	{
-		// Process timer
-		if TimeEnabled
+		if (++Time) == 36000
 		{
-			if (++Time) == 36000
+			if Game.DevMode
 			{
-				if Game.DevMode
-				{
-					Time = 32400;
-				}
-				else
-				{
-					object_damage(false, false, true);
-				}
+				Time = 32400;
 			}
+			else
+			{
+				object_damage(false, false, true);
+			}
+		}	
+	}
+	
+	// Process animated graphics
+	if AnimatedGraphics[0] != noone
+	{
+		for (var i = 0; i < array_length(AnimatedGraphics); i += 2)
+		{
+			var AnimSpeed = fade_check(FadeNone) and !Stage.IsPaused ? 1 / AnimatedGraphics[i + 1] : 0;
+			
+			sprite_set_speed(AnimatedGraphics[i], AnimSpeed, spritespeed_framespergameframe);
 		}
-		
-		// Process sync animations
+	}
+	
+	// Process synced animations
+	if fade_check(FadeNone)
+	{
 		AnimationTime++;
 	}
 	
 	// Player death event
 	if Player.Death
 	{
-		// Disable camera
+		// Disable camera and timer
 		CameraEnabled = false;
+		TimeEnabled   = false;
 		
 		// Check if player is off-screen vertically
-		if floor(Player.PosY) > Screen.CameraY + Screen.Height + 16
-		{
-			if (++EventTimer) == 60
+		if floor(Player.PosY) > Screen.CameraY + Screen.Height + 256
+		{	
+			if !EventTimer
 			{
-				Player.Rings  = 0;
 				Player.Lives -= 1;
 				
-				if Time != 36000 and Player.Lives
-				{
-					fade_perform(FadeIn, FadeBlack, 36);
-					audio_bgm_stop(PriorityLow,  0.5);
-					audio_bgm_stop(PriorityHigh, 0.5);
-				}
-				else if !IsGameOver
+				if !Player.Lives or Time == 36000
 				{
 					IsGameOver = true;
 					audio_bgm_stop(PriorityHigh, 0);
 					audio_bgm_play(PriorityLow, GameOverMusic, noone);
 				}
 			}
-			if IsGameOver and EventTimer == 780
+			else if EventTimer == 60
 			{
-				fade_perform(FadeIn, FadeBlack, 36);
+				if !IsGameOver
+				{
+					fade_perform(FadeIn, FadeBlack, 36);
+					audio_bgm_stop(PriorityLow,  0.5);
+					audio_bgm_stop(PriorityHigh, 0.5);
+				}
 			}
+			else if EventTimer == 600
+			{
+				if IsGameOver
+				{
+					fade_perform(FadeIn, FadeBlack, 36);
+				}
+			}
+			EventTimer++
 			
 			// Check if fade is at its peak
 			if fade_check(FadeMax)
 			{	
-				// Subtract a life if player has it, and restart the stage
+				// Restart the stage
 				if Player.Lives != 0
 				{
 					Game.Lives = Player.Lives;
+					
+					// Clear time if Time Over
+					if IsGameOver
+					{
+						Game.Time = 0;
+					}
 					
 					room_restart();
 					audio_stop_all();

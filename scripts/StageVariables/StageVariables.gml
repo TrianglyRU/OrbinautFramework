@@ -22,11 +22,11 @@ function StageVariables()
 	TimeEnabled			 = 0;	
 	AnimationTime		 = 0;
 	StageMusic		     = 0;
-	GamePaused			 = 0;
 	PauseButton			 = 0;
 	PauseMode			 = 0;
 	CardEnabled			 = 0;
 	DoUpdate			 = 0;
 	TileLayer			 = [];
 	WobbleData			 = [];
+	AnimatedGraphics	 = [];
 }
