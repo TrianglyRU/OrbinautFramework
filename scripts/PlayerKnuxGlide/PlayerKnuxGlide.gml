@@ -161,6 +161,8 @@ function PlayerKnuxGlide()
 			
 			GlideState = false;
 			ClimbState = true;
+			
+			audio_sfx_play(sfxGrab, false);
 		}	
 	}
 			
@@ -224,8 +226,13 @@ function PlayerKnuxGlide()
 							// Enter ground glide state if gliding
 							if GlideState == GlideActive
 							{
-								GlideValue    = 0;
+								GlideValue    = 16;
 								GlideGrounded = true;
+								
+								audio_sfx_play(sfxSlide, true);
+								
+								// Create dust effect
+								instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
 							}
 				
 							// Enter stop state if dropping
@@ -237,6 +244,8 @@ function PlayerKnuxGlide()
 								GlideState = GlideStop;
 								GlideValue = 16;
 								Xsp	       = 0;
+								
+								audio_sfx_play(sfxLand, false);
 							}
 						}
 				
@@ -310,57 +319,41 @@ function PlayerKnuxGlide()
 			
 					// Restore default radiuses
 					RadiusX	= DefaultRadiusX;
-					RadiusY	= DefaultRadiusY;	
-				}
-		
-				// Adhere to the surface
-				else if FloorDistance > -14
-				{		
-					PosY += FloorDistance;
-				}
-		
-				// Slide until we stop or release jump button
-				if Xsp == 0 or !Input.ABC
-				{
-					// Change state
-					if GlideState != GlideStop
-					{
-						GlideState = GlideStop;
-						GlideValue = 16;
-					}
-			
-					// Land
-					if !(--GlideValue)
-					{
-						Angle    = FloorAngle;
-						Grounded = true;
-					}
-			
-					// Set animation
-					Animation = AnimGlideStand;
-			
-					// Correct our position and restore default radiuses
-					PosY   -= DefaultRadiusY - RadiusY;
-					RadiusX = DefaultRadiusX;
-					RadiusY = DefaultRadiusY;
-			
-					// Reset speed
-					Xsp	= 0;	
+					RadiusY	= DefaultRadiusY;
+					
+					audio_sfx_stop(sfxSlide);
 				}
 				else
-				{
-					// 4 frames passed?
-					if GlideValue mod 4 == 0
-					{	
-						// Create dust effect
-						instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
+				{		
+					// Adhere to the surface
+					PosY += FloorDistance;
+					
+					// Slide until we stop or release jump button
+					if Xsp == 0 or !Input.ABC
+					{
+						// Change state
+						GlideState = GlideStop;
 			
-						// Reset value
-						GlideValue = 0;
+						// Land
+						if !(--GlideValue)
+						{
+							Angle    = FloorAngle;
+							Grounded = true;
+						}
+			
+						// Set animation
+						Animation = AnimGlideStand;
+			
+						// Correct our position and restore default radiuses
+						PosY   -= DefaultRadiusY - RadiusY;
+						RadiusX = DefaultRadiusX;
+						RadiusY = DefaultRadiusY;
+			
+						// Reset speed
+						Xsp	= 0;	
+					
+						audio_sfx_stop(sfxSlide);
 					}
-			
-					// Increase timer
-					GlideValue++
 				}
 			}
 			

@@ -84,6 +84,7 @@ function PlayerResetOnFloor()
 	// Stop special player sfx
 	audio_sfx_stop(sfxFlying);
 	audio_sfx_stop(sfxTired);
+	audio_sfx_stop(sfxSlide);
 	
 	// Set visual angle
 	if Angle >= 23.91 and Angle <= 337.5

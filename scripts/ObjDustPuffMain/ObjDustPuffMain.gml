@@ -4,15 +4,19 @@ function ObjDustPuffMain()
 	animation_play(sprite_index, 4, 5);
 	
 	// Create another dust object after 4 frames
-	if Player.Skidding != false and Player.Grounded and !SpawnDust
+	if Player.Skidding != false			and Player.Grounded 
+	or Player.GlideState == GlideActive and Player.GlideGrounded
 	{
-		if animation_get_frame(id) == 2
+		if !SpawnDust
 		{
-			// Spawn
-			instance_create(floor(Player.PosX), floor(Player.PosY + Player.RadiusY), DustPuff);
+			if animation_get_frame(id) == 2
+			{
+				// Spawn
+				instance_create(floor(Player.PosX), floor(Player.PosY + Player.RadiusY), DustPuff);
 			
-			// Set flag
-			SpawnDust = true;
+				// Set flag
+				SpawnDust = true;
+			}
 		}
 	}
 	
