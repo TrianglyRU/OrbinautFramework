@@ -43,9 +43,6 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		Screen.CameraEnabled  = false;
 		Player.AllowCollision = false;
 		
-		// Ignore all input
-		Input.IgnoreInput = true;
-		
 		// Draw player above everything
 		Player.DrawOrder = 0;
 			

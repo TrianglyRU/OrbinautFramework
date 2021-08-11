@@ -12,7 +12,6 @@ function PlayerDebugMode()
 		return false;
 	}
 	
-	// TODO починить инпут, он не работает
 	// Check for entering for exiting debug mode
 	if Input.BPress
 	{
@@ -20,7 +19,6 @@ function PlayerDebugMode()
 		{
 			Screen.CameraEnabled = true;
 			AllowCollision = true;
-			Input.IgnoreInput = false;
 			Stage.DoUpdate = true;
 			DrawOrder = layer_get_depth("Objects");
 			Death = false;
