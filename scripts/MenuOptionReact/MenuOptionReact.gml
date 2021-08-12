@@ -234,9 +234,5 @@ function MenuOptionReact()
 			// Update option
 			menu_update_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
 		}
-		
-		// Update groups volume
-		audio_group_set_gain(GlobalSFX, Game.SoundVolume, 0);
-		audio_group_set_gain(BGM,	    Game.MusicVolume, 0);
 	}
 }

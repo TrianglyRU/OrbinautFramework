@@ -7,14 +7,16 @@
 	AngleX = 0;
 	AngleY = 0;
 	Spin   = 90;
+	
 	Active = false;
+	
 	StateTimer = 128;
 	State  = 0;
+	
 	SinMove = 0;
+	Delay = 0;
 	PosX = x;
 	PosY = y;
-	Delay = 0;
-	DamageFlash = false;
 	
 	object_set_hitbox(20, 20);
 	object_set_depth(Player, false);
