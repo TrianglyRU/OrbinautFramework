@@ -18,7 +18,7 @@ function PlayerRollStart()
 			PosY   += DefaultRadiusY - SmallRadiusY;
 			
 			// Set rolling flag
-			Rolling = true;
+			Spinning = true;
 			
 			// Set animation
 			Animation = AnimRoll;
@@ -28,7 +28,7 @@ function PlayerRollStart()
 		}
 	}	
 	
-	if ForcedRoll and !Rolling
+	if ForcedRoll and !Spinning
 	{
 		// Update radiuses
 		RadiusY = SmallRadiusY;
@@ -36,7 +36,7 @@ function PlayerRollStart()
 		PosY   += DefaultRadiusY - SmallRadiusY;
 			
 		// Set rolling flag
-		Rolling = true;
+		Spinning = true;
 			
 		// Set animation
 		Animation = AnimRoll;

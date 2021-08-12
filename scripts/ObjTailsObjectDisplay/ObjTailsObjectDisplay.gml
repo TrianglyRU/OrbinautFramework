@@ -1,7 +1,7 @@
 function ObjTailsObjectDisplay()
 {
 	// If we're not rolling or jumping, use current visual angle
-	if Player.Animation != AnimRoll
+	if !Player.Spinning
 	{
 		ResultAngle = Player.VisualAngle;
 		MotionAngle = Player.VisualAngle;

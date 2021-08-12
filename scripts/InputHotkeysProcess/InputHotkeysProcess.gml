@@ -1,6 +1,6 @@
 function InputHotkeysProcess()
 {	
-	if !Game.DevMode or !instance_exists(Stage) or !Stage.DoUpdate
+	if !Game.DevMode or !variable_check(Stage, "DoUpdate")
 	{
 		exit;
 	}

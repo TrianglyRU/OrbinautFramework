@@ -55,7 +55,7 @@ function PlayerRoll()
 			PosY   -= DefaultRadiusY - SmallRadiusY;
 		
 			// Unroll
-			Rolling = false;
+			Spinning = false;
 		}
 	}
 	

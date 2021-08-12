@@ -40,7 +40,7 @@ function ObjSpringRampMain()
 					ClimbState  = false;
 					FlightState = false;
 					Jumping     = false;
-					Rolling     = false;
+					Spinning    = false;
 					DropdashRev = -1;
 			
 					// Go airborne

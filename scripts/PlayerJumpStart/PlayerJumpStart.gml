@@ -64,11 +64,11 @@ function PlayerJumpStart()
 		StickToConvex = false;
 		Jumping       = true;
 		
-		// Are we in roll (ball) state?
-		if !Rolling
+		// Are we not spinning yet?
+		if !Spinning
 		{
-			// Enter rolling state
-			Rolling = true;
+			// Enter spinning state
+			Spinning = true;
 			
 			// Update collision radiuses
 			PosY   += RadiusY - SmallRadiusY;

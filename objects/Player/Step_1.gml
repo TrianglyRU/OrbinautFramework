@@ -42,7 +42,7 @@
 	}
 	
 	// Grounded, not rolling
-	else if Grounded and !Rolling
+	else if Grounded and !Spinning
 	{
 		// Perform crouch actions, such as Spindash
 		if PlayerCrouch() exit;
@@ -82,13 +82,13 @@
 					
 		// Collide with floor
 		PlayerGroundFloorCollision();
-			
+		
 		// Fall off the ceiling and walls
 		PlayerSlopeRepel();
 	}
 	
-	// Grounded and rolling
-	else if Grounded and Rolling
+	// Grounded, rolling
+	else if Grounded and Spinning
 	{
 		// Perform jump
 		if PlayerJumpStart() exit;

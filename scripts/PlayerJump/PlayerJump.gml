@@ -49,8 +49,8 @@ function PlayerJump()
 		audio_bgm_play(PriorityLow, SuperMusic, other);
 			
 		// Reset jump and roll flag
-		Jumping = false;
-		Rolling = false;
+		Jumping  = false;
+		Spinning = false;
 	}
 	
 	// Else perform double jump action
@@ -135,8 +135,8 @@ function PlayerJump()
 			FlightValue = 480;
 				
 			// Reset jump and roll flag
-			Jumping = false;
-			Rolling = false;
+			Jumping  = false;
+			Spinning = false;
 				
 			// Clear action inputs
 			Input.ABC	   = false;
@@ -157,8 +157,8 @@ function PlayerJump()
 			Ysp     = max(Ysp, 0);
 				
 			// Reset jump and roll flag
-			Jumping = false;
-			Rolling = false;
+			Jumping  = false;
+			Spinning = false;
 				
 			// Set glide direction
 			if Facing == DirectionRight

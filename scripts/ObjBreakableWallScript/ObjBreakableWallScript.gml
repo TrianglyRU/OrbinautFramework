@@ -1,6 +1,6 @@
 function ObjBreakableWallScript()
 {
-	if Player.Rolling and abs(Player.Inertia) > 4 
+	if Player.Spinning and abs(Player.Inertia) > 4 
 	{
 		if Player.Xsp > 0 and object_player_touch(SideLeft)
 		or Player.Xsp < 0 and object_player_touch(SideRight)

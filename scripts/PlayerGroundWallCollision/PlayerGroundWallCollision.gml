@@ -51,6 +51,8 @@ function PlayerGroundWallCollision()
 					// Affect player speeds
 					Xsp    -= tileData[0];
 					Inertia = 0;
+					
+					Pushing = FlipLeft;
 				}		
 			}
 			break;
@@ -104,6 +106,8 @@ function PlayerGroundWallCollision()
 					// Affect player speeds
 					Xsp    += tileData[0];
 					Inertia = 0;
+					
+					Pushing = FlipRight;
 				}
 			}
 			break;

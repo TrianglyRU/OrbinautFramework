@@ -29,8 +29,8 @@ function PlayerPowerup()
 			// Create star particles
 			for (var i = 1; i < 9; i++)
 			{
-				var spawnedStar	= instance_create(PosX, PosY, InvincibilityStar);
-					spawnedStar.Number = i;
+				var SpawnedStar	= instance_create(PosX, PosY, InvincibilityStar);
+					SpawnedStar.Number = i;
 			}
 			
 			// Start frame for particles

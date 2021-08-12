@@ -43,7 +43,7 @@ function PlayerCrouch()
 			// Launch Sonic forwards
 			Inertia	   = (MinimumSpd + round(SpindashRev) / 2) * Facing;
 			NoControls = false;
-			Rolling	   = true;
+			Spinning	   = true;
 			
 			// Freeze the screen
 			if Screen.ExtendedOffset == 0 
@@ -91,5 +91,5 @@ function PlayerCrouch()
 	}
 	
 	// Return rolling flag
-	return Rolling;
+	return Spinning;
 }

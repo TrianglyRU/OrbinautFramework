@@ -42,7 +42,7 @@ function PlayerResetOnFloor()
 	}
 	
 	// Set 'walk' or 'run' animation if we've landed on the solid ground
-	if Rolling and !OnObject
+	if Spinning and !OnObject
 	{
 		Animation = Inertia >= TopAcc ? AnimRun : AnimWalk;
 	}
@@ -64,7 +64,7 @@ function PlayerResetOnFloor()
 	// Clear the roll and skid flag
 	if !(OnObject and Ysp == 0)
 	{
-		Rolling  = false;
+		Spinning  = false;
 		Skidding = false;
 	}
 	RollJumping = false;
@@ -107,7 +107,7 @@ function PlayerResetOnFloor()
 	if DropdashRev == 20
 	{	
 		// Go to rolling state
-		Rolling = true;
+		Spinning = true;
 		
 		// Set dropspeed
 		if DropdashDirection == DirectionRight
@@ -141,7 +141,7 @@ function PlayerResetOnFloor()
 	}
 		
 	// Reset radiuses to default
-	if !Rolling
+	if !Spinning
 	{
 		PosY   -= DefaultRadiusY - RadiusY;
 		RadiusY = DefaultRadiusY; 

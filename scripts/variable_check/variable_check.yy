@@ -6,7 +6,7 @@
     "path": "folders/Framework Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "variable_exists",
+  "name": "variable_check",
   "tags": [],
   "resourceType": "GMScript",
 }

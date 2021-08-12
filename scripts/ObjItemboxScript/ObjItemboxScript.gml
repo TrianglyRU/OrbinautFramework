@@ -15,7 +15,7 @@ function ObjItemBoxScript()
 		} 
 		
 		// Can player destroy the itembox?
-		if (Player.Jumping or Player.Rolling or Player.GlideState == GlideActive) and Player.Ysp >= 0
+		if (Player.Jumping or Player.Spinning or Player.GlideState == GlideActive) and Player.Ysp >= 0
 		{
 			if object_player_overlap(CollisionHitbox)
 			{

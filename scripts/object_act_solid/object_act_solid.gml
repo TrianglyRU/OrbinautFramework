@@ -190,6 +190,9 @@ function object_act_solid(sides, top, bottom)
 					Player.Inertia = 0;
 				}
 				Player.Xsp = 0;
+				
+				// Set pushing flag
+				Player.Pushing = true;
 			}
 			
 			// Push outside

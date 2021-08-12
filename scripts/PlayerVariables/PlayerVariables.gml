@@ -21,7 +21,7 @@ function PlayerVariables()
 	Angle				= 0;	
 	MovementLock		= 0;
 	ForcedRoll			= 0;
-	Rolling				= 0;
+	Spinning		    = 0;
 	Jumping				= 0;
 	RollJumping			= 0;
 	Pushing             = 0;

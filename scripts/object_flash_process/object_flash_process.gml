@@ -17,7 +17,7 @@ function object_flash_process(type)
 		draw_self();
 	}
 
-	if instance_exists(Stage) and Stage.DoUpdate and Obj_FlashTimer and !(--Obj_FlashSubTimer)
+	if variable_check(Stage, "DoUpdate") and Obj_FlashTimer and !(--Obj_FlashSubTimer)
 	{
 		Obj_FlashSubTimer = Obj_FlashDuration;
 		Obj_FlashTimer--;

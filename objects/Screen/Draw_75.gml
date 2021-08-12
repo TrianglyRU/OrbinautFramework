@@ -56,7 +56,7 @@
 						Stage.IsPaused = false;
 						CameraEnabled  = true;
 						
-						instance_activate_region(CameraX - 240, CameraY - 256, Width + 480, Height + 512, true);
+						instance_activate_all();
 					}
 					break;
 					case 1: 

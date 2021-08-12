@@ -78,7 +78,7 @@
 			}
 			
 			// Reset flags
-			if Player.Rolling
+			if Player.Spinning
 			{
 				Player.RadiusX = Player.DefaultRadiusX;
 				Player.RadiusY = Player.DefaultRadiusY;
@@ -89,7 +89,7 @@
 			Player.Ysp		    = 0;
 			Player.Inertia	    = 0;	
 			Player.Jumping      = false;
-			Player.Rolling	    = false;
+			Player.Spinning	    = false;
 			
 			// Play animation
 			if !Player.FlightState and Player.GlideState != GlideActive

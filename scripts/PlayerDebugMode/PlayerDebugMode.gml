@@ -44,7 +44,7 @@ function PlayerDebugMode()
 			GlideGrounded  = false;
 			GlideValue     = false;
 			Jumping		   = false;
-			Rolling		   = false;
+			Spinning		   = false;
 			RollJumping	   = false;
 			Skidding	   = false;
 			StickToConvex  = false;

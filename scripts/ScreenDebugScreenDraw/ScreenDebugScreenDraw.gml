@@ -55,20 +55,18 @@ function ScreenDebugScreenDraw()
 				+ "\n   SPEED Y: " + string(Player.Ysp) 		
 				+ "\n   INERTIA: " + string(Player.Inertia) 
 				+ "\n   GRAVITY: " + string(Player.Grv) 
-				+ "\n   MOVEMENT LOCK: " + string(Player.MovementLock) 
-				+ "\n"
-				+ "\n          * SLOPE PHYSICS *"
-				+ "\n"
+				+ "\n   MOVEMENT LOCK: " + string(Player.MovementLock)
 				+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
-				+ "\n   FLOOR ANGLE: " + string(Player.Angle)
+				+ "\n   ANGLE: " + string(Player.Angle)
 				+ "\n"
 				+ "\n         * STATES AND FLAGS *"
 				+ "\n"
 				+ "\n   ON OBJECT: " + string(Player.OnObject)
 				+ "\n   GROUNDED: " + string(Player.Grounded)
 				+ "\n   FACING: " + string(Player.Facing)
-				+ "\n   ROLLING: " + string(Player.Rolling)
+				+ "\n   SPINNING: " + string(Player.Spinning)
 				+ "\n   JUMPING: " + string(Player.Jumping)
+				+ "\n   ROLLING: " + string(Player.Grounded and Player.Spinning)
 				+ "\n   ROLL JUMPING: " + string(Player.RollJumping)
 				+ "\n   PUSHING: " + string(Player.Pushing)
 				+ "\n   BALANCING: " + string(Player.Balancing)
@@ -125,7 +123,9 @@ function ScreenDebugScreenDraw()
 				+ "\n   LOW POSITION: " + string(audio_sound_get_track_position(Game.LowTrack[0]))
 				+ "\n   HIGH TRACK: " + string(Game.HighTrack[0])
 				+ "\n   HIGH EVENT: " + string(Game.HighTrack[2])
-				+ "\n   HIGH EVENT TIME: " + string(Game.HighTrack[3]),
+				+ "\n   HIGH EVENT TIME: " + string(Game.HighTrack[3])
+				+ "\n   HIGH VOLUME: " + string(audio_sound_get_gain(Game.HighTrack[0]))
+				+ "\n   HIGH POSITION: " + string(audio_sound_get_track_position(Game.HighTrack[0])),
 		8, 0.28);
 	}
 }
