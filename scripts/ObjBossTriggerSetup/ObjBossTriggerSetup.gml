@@ -1,9 +1,8 @@
 function ObjBossControllerSetup()
 {
-	BossTriggered		isVar;
-	BossDefeated		isVar;
-	ReservedTopBound    isVar;
-	ReservedBottomBound isVar;
+	BossDefeated		= 0;
+	ReservedTopBound    = 0;
+	ReservedBottomBound = 0;
 	
 	/* Variable Definitions
 	1. ArenaWidth,  default = 400

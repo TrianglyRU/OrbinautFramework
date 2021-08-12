@@ -4,7 +4,7 @@ function ObjBossControllerScript()
 	Stage.TargetRightBoundary = x + max(Screen.Width / 2, ArenaWidth  / 2);
 	
 	// Check if player ran past the trigger
-	if !BossTriggered
+	if Stage.IsBossfight == -1
 	{
 		if object_player_overlap(CollisionTriggerbox)
 		{
@@ -19,19 +19,17 @@ function ObjBossControllerScript()
 			switch room
 			{
 				case MQZ0:
-				case MQZ1:
-				case MQZ2:
 					instance_create(x, y - 184, Orboss);
 				break;
 				default: break;
 			}
 			
-			BossTriggered = true;
+			Stage.IsBossfight = true;
 		}
 	}
 	
 	// Check if boss is active
-	else 
+	else if Stage.IsBossfight == true
 	{
 		// Play boss music
 		if !audio_bgm_is_playing(PriorityLow)
@@ -62,6 +60,8 @@ function ObjBossControllerScript()
 		
 			// Destroy object
 			instance_destroy();
+			
+			Stage.IsBossfight = false;
 		}
 	}
 }

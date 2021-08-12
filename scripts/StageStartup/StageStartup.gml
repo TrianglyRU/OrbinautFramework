@@ -41,4 +41,7 @@ function StageStartup()
 	TargetTopBoundary    = TopBoundary;
 	TargetBottomBoundary = BottomBoundary;
 	DeathBoundary        = BottomBoundary;
+	
+	// Set boss status
+	IsBossfight = -1;
 }

@@ -15,8 +15,8 @@ function ContinueScreenSetup()
 			CharSpeed  = [18, 0];
 		break;
 		case CharTails:
-			CharSprite = [spr_obj_cont_sonic_wait, spr_obj_cont_sonic_action];
-			CharSpeed  = [18, 0];
+			CharSprite = [spr_obj_cont_tails_wait, spr_obj_cont_tails_action];
+			CharSpeed  = [24, 0];
 		break;
 		case CharKnuckles:
 			CharSprite = [spr_obj_cont_knux_wait, spr_obj_cont_knux_action];
@@ -39,6 +39,6 @@ function ContinueScreenSetup()
 	}
 	
 	// Perfrom fade and play music
-	fade_perform(from, black, 36);
+	fade_perform(from, black, 1);
 	audio_bgm_play(PriorityLow, ContinueMusic, noone);
 }

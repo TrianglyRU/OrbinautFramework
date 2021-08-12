@@ -17,6 +17,9 @@
 		// Check if timer is active
 		if Countdown >= 60
 		{		
+			var Count  = Countdown - 60
+			CountFrame = 9 - Count div 60;
+			
 			// Go into next room state
 			if Input.StartPress or Input.ABCPress
 			{	
@@ -30,10 +33,12 @@
 		// Check if timer ran out
 		else
 		{
+			CountFrame = 10; 
+			
 			if Countdown == 0
 			{
 				// Perform fade
-				fade_perform(to, black, 36);
+				fade_perform(FadeTo, FadeBlack, 1);
 				
 				// Overwrite savedata if not playing in 'no save' slot
 				if Game.ActiveSave != -1
@@ -48,7 +53,6 @@
 				room_goto(DevMenu);
 			}
 		}
-		
 		Countdown--;
 	}
 	
@@ -94,7 +98,7 @@
 				RoomTimer = 1;
 				
 				// Perform fade
-				fade_perform(to, black, 36);
+				fade_perform(FadeTo, FadeBlack, 1);
 			}
 		}
 	}

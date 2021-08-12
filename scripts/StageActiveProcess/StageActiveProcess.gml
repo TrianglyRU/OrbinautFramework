@@ -61,7 +61,7 @@ function StageActiveProcess()
 			{
 				if !IsGameOver
 				{
-					fade_perform(FadeIn, FadeBlack, 36);
+					fade_perform(FadeTo, FadeBlack, 1);
 					audio_bgm_stop(PriorityLow,  0.5);
 					audio_bgm_stop(PriorityHigh, 0.5);
 				}
@@ -70,7 +70,7 @@ function StageActiveProcess()
 			{
 				if IsGameOver
 				{
-					fade_perform(FadeIn, FadeBlack, 36);
+					fade_perform(FadeTo, FadeBlack, 1);
 				}
 			}
 			EventTimer++

@@ -17,7 +17,7 @@
 		if Timer == 32
 		{
 			audio_play_sound(sfxSpecialWarp, 0, false);
-			fade_perform(FadeIn, FadeWhite, 36);
+			fade_perform(FadeTo, FadeWhite, 1);
 		}
 		if fade_check(FadeMax)
 		{

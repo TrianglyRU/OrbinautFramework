@@ -74,7 +74,11 @@ function PlayerSuperFormsProcess()
 				
 				if audio_bgm_is_playing(SuperMusic)
 				{
-					if HighSpeedBonus
+					if Stage.IsBossfight
+					{
+						audio_bgm_play(PriorityLow, BossMusic, other);
+					}
+					else if HighSpeedBonus
 					{
 						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 					}

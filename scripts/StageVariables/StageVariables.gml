@@ -15,6 +15,7 @@ function StageVariables()
 	IsFinished			 = 0;
 	IsPaused			 = 0;
 	IsGameOver			 = 0;
+	IsBossfight			 = 0;
 	ZoneID				 = 0;
 	ActID				 = 0;
 	ZoneName			 = 0;

@@ -5,13 +5,13 @@
 	RoomTimer = 0;
 	
 	// Turn screen white
-	fade_perform(FadeIn, FadeWhite, 0);
+	fade_perform(FadeTo, FadeWhite, 0);
 	
 	// Are we coming back from Special Stage?
 	if Game.SpecialState
 	{
 		// Fade out
-		fade_perform(FadeOut, FadeWhite, 36);
+		fade_perform(FadeFrom, FadeWhite, 1);
 		
 		// Play music
 		audio_play_sound(ActClear, 0, false);

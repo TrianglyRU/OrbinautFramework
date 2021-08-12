@@ -39,8 +39,8 @@ function GameMacro()
 	#macro FadeNone      0
 	#macro FadeActive    1
 	#macro FadeMax       2
-	#macro FadeIn        0
-	#macro FadeOut       1
+	#macro FadeTo        0
+	#macro FadeFrom       1
 	#macro FadeBlack     0
 	#macro FadeWhite     1
 	#macro FadeFlash     2

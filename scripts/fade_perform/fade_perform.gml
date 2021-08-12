@@ -8,7 +8,7 @@ function fade_perform(mode, colour, power)
 	}
 	
 	// Clamp the power value
-	power = clamp(power, 0, 756);
+	power = clamp(floor(power * 36), 0, 756);
 	var InstFade = power == 0;
 	
 	// Perform a fade

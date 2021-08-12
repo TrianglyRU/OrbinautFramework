@@ -109,7 +109,7 @@ function ScreenCardProcess()
 		// Fade in after 3 seconds
 		if CardValue[0] == 180
 		{	
-			fade_perform(FadeOut, FadeBlack, 36);	
+			fade_perform(FadeFrom, FadeBlack, 1);	
 			CardValue[1]	  = 1;
 			Input.IgnoreInput = false;
 			Stage.TimeEnabled = true;
