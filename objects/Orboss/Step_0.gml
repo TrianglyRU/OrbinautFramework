@@ -3,7 +3,7 @@
 	
 	// Таймер
 	if (StateTimer) StateTimer--;
-	show_debug_message(State)
+
 	// Состояния
 	switch State
 	{

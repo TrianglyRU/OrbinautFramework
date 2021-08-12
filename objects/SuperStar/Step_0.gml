@@ -1,6 +1,11 @@
 /// @description
 // You can write your code in this editor
 	
+	if !Stage.DoUpdate
+	{
+		exit;
+	}
+	
 	if FollowPlayer
 	{
 		x = floor(Player.PosX);

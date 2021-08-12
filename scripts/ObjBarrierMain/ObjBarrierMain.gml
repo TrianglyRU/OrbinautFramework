@@ -1,5 +1,11 @@
 function ObjBarrierMain()
 {
+	// Exit if stage update is disabled
+	if !Stage.DoUpdate
+	{
+		exit;
+	}
+	
 	// Get current player barrier
 	switch Player.BarrierType
 	{
