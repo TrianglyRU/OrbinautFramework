@@ -72,24 +72,33 @@ function PlayerMovementGround()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	// Use 'idle' anmation
-	if (Angle <= 45 or Angle >= 316.41) and Inertia == 0 
+	if !Stage.IsFinished
 	{
-		if !Input.Up and !Input.Down
+		// Use 'idle' anmation
+		if (Angle <= 45 or Angle >= 316.41) and Inertia == 0 
 		{
-			Animation = AnimIdle;
+			if !Input.Up and !Input.Down
+			{
+				Animation = AnimIdle;
+			}
+		}
+		else
+		{
+			// Set 'walk' or 'run' animaton
+			var WalkLimit = SuperState and CharacterID == CharSonic ? 8 : 6;
+			Animation = abs(Inertia) < WalkLimit ? AnimWalk : AnimRun;
+			
+			// Use 'peelout' animation is running very fast as Sonic
+			if CharacterID == CharSonic and Game.PeeloutEnabled and abs(Inertia) >= 10
+			{
+				Animation = AnimPeelout;
+			}
 		}
 	}
+	
+	// Use 'actend' anmation
 	else
 	{
-		// Set 'walk' or 'run' animaton
-		var WalkLimit = SuperState and CharacterID == CharSonic ? 8 : 6;
-		Animation = abs(Inertia) < WalkLimit ? AnimWalk : AnimRun;
-			
-		// Use 'peelout' animation is running very fast as Sonic
-		if CharacterID == CharSonic and Game.PeeloutEnabled and abs(Inertia) >= 10
-		{
-			Animation = AnimPeelout;
-		}
+		Animation = AnimActEnd;	
 	}
 }

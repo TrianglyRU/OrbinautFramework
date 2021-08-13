@@ -11,38 +11,41 @@ function ObjSignpostScript()
 	{
 		if object_player_overlap(CollisionTriggerbox)
 		{
-			Active		      = true;
-			Stage.IsFinished  = true;
-			
-			if Player.CharacterID == CharSonic and Player.SuperState
-			{
-				SpriteEnd = spr_obj_signpost_end_supersonic;
-			}
-
+			Active = 1;	
 			audio_sfx_play(sfxSignPost, false);
+			
+			audio_bgm_stop(PriorityLow,  1);
+			audio_bgm_stop(PriorityHigh, 1);
+			
+			Stage.TimeEnabled = false;
+			Stage.AllowPause  = false;
+			
+			if Player.SuperState
+			{
+				Player.SuperState = false;
+			}
 		}
-		animation_set_frame(SpriteStart, 1);
+		animation_set_frame(SpriteData[0], 1);
 	}
-	else
+	else if Active == 1
 	{	
 		// Count timer
-		if ActiveTimer < 140
-		{
-			ActiveTimer++;
-		}
+		ActiveTimer++;
 		
 		// Play animation
 		if ActiveTimer < 62
 		{
-			animation_play(SpriteStart, 1, 1);
+			animation_play(SpriteData[0], 1, 1);
 		}
 		else if ActiveTimer < 123
 		{
-			animation_play(SpriteEnd, 1, 1);
+			animation_play(SpriteData[1], 1, 1);
 		}
 		else
 		{
-			animation_set_frame(SpriteEnd, 1);
+			animation_set_frame(false, 1);
+			Active		= 2;
+			ActiveTimer = 0;
 		}
 		
 		// Create sparkles
@@ -50,6 +53,22 @@ function ObjSignpostScript()
 		{
 			instance_create(x + SparkleX[SparkleToUse], y + SparkleY[SparkleToUse], RingSparkle);
 			SparkleToUse++;
+		}
+	}
+	else if Active == 2 and !Stage.IsFinished
+	{
+		if (++ActiveTimer) >= 24
+		{
+			if Player.Grounded
+			{
+				Stage.IsFinished = true;
+				audio_bgm_play(PriorityLow, ActClearMusic, noone);
+			
+				Input.IgnoreInput = true;	
+				Player.Xsp = 0;
+				Player.Ysp = 0;
+				Player.Inertia = 0;
+			}
 		}
 	}
 	

@@ -1,10 +1,12 @@
 function ObjSignpostSetup()
 {
 	// Initialize variables
-	Active	    isVar;
-	ActiveTimer isVar;
-	SpriteStart isVar;
-	SpriteEnd	isVar;
+	Active	     = 0;
+	ActiveTimer  = 0;
+	SparkleToUse = 0;
+	SparkleX	 = [];
+	SparkleY	 = [];
+	SpriteData   = [];
 	
 	/* Variable Definitions	
 	1. PlayerType, default = "All"					
@@ -20,21 +22,20 @@ function ObjSignpostSetup()
 	switch Player.CharacterID
 	{
 		case CharSonic:
-			SpriteStart = spr_obj_signpost_start_sonic;
-			SpriteEnd	= spr_obj_signpost_end_sonic;
+			SpriteData[0] = spr_obj_signpost_start_sonic;
+			SpriteData[1] = spr_obj_signpost_end_sonic;
 		break;
 		case CharTails:
-			SpriteStart = spr_obj_signpost_start_tails;
-			SpriteEnd	= spr_obj_signpost_end_tails;
+			SpriteData[0] = spr_obj_signpost_start_tails;
+			SpriteData[1] = spr_obj_signpost_end_tails;
 		break;
 		case CharKnuckles:
-			SpriteStart = spr_obj_signpost_start_knuckles;
-			SpriteEnd	= spr_obj_signpost_end_knuckles;
+			SpriteData[0] = spr_obj_signpost_start_knuckles;
+			SpriteData[1] = spr_obj_signpost_end_knuckles;
 		break;
 	}
 	
 	// Sparkle position data
-	SparkleToUse = 0;
 	SparkleX	 = [-24, 8, -16, 24, 0, 16, -24, 24];
 	SparkleY	 = [-16, 8, 0, -8, -8, 0, 8, 16];	
 }

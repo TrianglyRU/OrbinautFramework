@@ -77,7 +77,7 @@ function PlayerAnimate()
 						animation_play(spr_sonic_spring, 1, 1);
 					break;
 					case AnimActEnd:
-						animation_play(spr_sonic_actend, 3, 21);
+						animation_play(spr_sonic_actend, 6, 1);
 					break;
 					case AnimAirSpin:
 						animation_play(spr_sonic_airspin, 3, 1);
@@ -244,7 +244,7 @@ function PlayerAnimate()
 					animation_play(spr_tails_push, round(max(1, 8 - SpeedFactor) * 4), 1);
 				break;
 				case AnimActEnd:
-					animation_play(spr_tails_actend, 8, 2);
+					animation_play(spr_tails_actend, 16, 2);
 				break;
 				case AnimBalanceBack:
 					animation_play(spr_tails_balance_back, 20, 1);
@@ -355,6 +355,9 @@ function PlayerAnimate()
 				break;
 				case AnimTransform:
 					animation_play(spr_knuckles_transform, 3, 3);
+				break;
+				case AnimActEnd:
+					animation_play(spr_knuckles_actend, 6, 6);
 				break;
 				case AnimAirSpin:
 					animation_play(spr_knuckles_airspin, 3, 1);

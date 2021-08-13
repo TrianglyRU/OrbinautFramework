@@ -75,7 +75,7 @@
 			}
 		}
 	}
-	else if Stage.DoUpdate and Input.StartPress
+	else if Stage.AllowPause and Input.StartPress
 	{
 		Stage.IsPaused	 = true;
 		Input.StartPress = false;

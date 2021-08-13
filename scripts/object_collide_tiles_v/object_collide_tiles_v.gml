@@ -1,5 +1,5 @@
-/// @function object_collide_tiles_v(xSide, ySide, minDistsance, tileLayer)
-function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
+/// @function object_collide_tiles_v(xSide, ySide, maxDistsance, tileLayer)
+function object_collide_tiles_v(xSide, ySide, maxDistance, tileLayer)
 {	
 	// Exit the code if solidbox is not specified
 	if !variable_instance_exists(id, "Obj_SolidStatus")
@@ -49,10 +49,10 @@ function object_collide_tiles_v(xSide, ySide, minDistance, tileLayer)
 	var floorDistance = tile_check_collision_v(checkX, checkY, ySide = SideTop ? false : true, ySide = SideTop ? true : false, tileLayer)[0];
 	
 	// Check if the distance to the surface is less than the minimum distance
-	if floorDistance <= minDistance
+	if floorDistance <= abs(maxDistance)
 	{
 		// Push the object to the surface if it is not too far in tiles
-		if floorDistance >= -14 and floorDistance <= 14
+		if floorDistance >= -14
 		{
 			if variable_instance_exists(id, "PosY")
 			{

@@ -46,22 +46,20 @@ function object_collide_tiles_h(xSide, ySide, minDistance, tileLayer)
 	}
 	
 	// Get distance to surface
-	var wallDistance = tile_check_collision_h(checkX, checkY, xSide = SideLeft ? false : true, true, tileLayer)[0];
+	var dirCheck     = xSide = SideLeft ? -1 : 1;
+	var wallDistance = tile_check_collision_h(checkX, checkY, dirCheck, true, tileLayer)[0];
 
 	// Check if the distance to the surface is less than the minimum distance
 	if wallDistance <= minDistance
 	{
 		// Push the object to the surface if it is not too far in tiles
-		if wallDistance >= -14 and wallDistance <= 14
+		if variable_instance_exists(id, "PosX")
 		{
-			if variable_instance_exists(id, "PosX")
-			{
-				PosX += wallDistance;
-			}
-			else
-			{
-				x += wallDistance;
-			}
+			PosX += wallDistance * dirCheck;
+		}
+		else
+		{
+			x += wallDistance;
 		}
 		
 		// Confirm collision

@@ -16,9 +16,6 @@ function ScreenCardProcess()
 		case StarryNight:
 			var CompositionName = "WOOFLE - STARRY NIGHT ZONE ACT 1";
 		break;
-		case MoonlightQuadrant:
-			var CompositionName = "MASAFUMI OGATA - 8TH SPACE"
-		break;
 		default:
 			var CompositionName = "UNKNOWN TRACK";
 		break;
@@ -152,9 +149,10 @@ function ScreenCardProcess()
 		}
 		
 		// Stop card
-		if CardValue[0] == 300
+		if CardValue[0] == 235
 		{
-			CardValue[1] = 2;
+			CardValue[1]	 = 2;
+			Stage.AllowPause = true;
 		}
 	}
 }

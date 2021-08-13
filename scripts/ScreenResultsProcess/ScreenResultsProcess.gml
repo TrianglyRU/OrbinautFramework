@@ -1,7 +1,23 @@
 function ScreenResultsProcess()
 {
-	// Display only when act is finished and one second passed or act unloads
-	if Stage.IsFinished == 2
+	/* Value table
+	---------------
+	Value[0] - Timer (pre-results)
+	Value[1] - Head PosX
+	Value[2] - 'CHARACTER' PosX
+	Value[3] - 'GOT THROUGH' PosX
+	Value[4] - 'SCORE' PosX
+	Value[5] - 'TIME' PosX
+	Value[6] - 'RINGS' PosX
+	Value[7] - Timer (post-results)
+	Value[8] - ACT PosX
+	
+	TODO: Огранизовать массив 
+	
+	*/
+	
+	// Display only when act is finished
+	if Stage.IsFinished
 	{	
 		if !ResultValue[0]
 		{
@@ -9,24 +25,57 @@ function ScreenResultsProcess()
 			RingBonus = Player.Rings * 100;
 
 			// Calculate time bonus
-			if (Stage.Time >= 1800 and Stage.Time < 2700) TimeBonus = 10000;
+			if Stage.Time >= 35940
+			{
+				TimeBonus = 10000;
+			}
+			else if Stage.Time < 1800
+			{
+				TimeBonus = 50000;
+			}			
+			else if Stage.Time >= 1800 and Stage.Time < 2700
+			{
+				TimeBonus = 10000;
+			}
 			else
 			{
 				switch Stage.Time div 1800
 				{
-					case 0:			TimeBonus = 5000; break;
-					case 1:			TimeBonus = 5000;  break;
-					case 2:			TimeBonus = 4000;  break;
-					case 3:			TimeBonus = 3000;  break;
-					case 4: case 5: TimeBonus = 2000;  break;
-					case 6: case 7: TimeBonus = 1000;  break;
-					case 8: case 9: TimeBonus = 500;   break;
-					default:		TimeBonus = 0;	   break;
+					case 0:			
+						TimeBonus = 5000; 
+					break;
+					case 1:			
+						TimeBonus = 5000;  
+					break;
+					case 2:			
+						TimeBonus = 4000;  
+					break;
+					case 3:			
+						TimeBonus = 3000;  
+					break;
+					case 4: 
+					case 5: 
+						TimeBonus = 2000;  
+					break;
+					case 6: 
+					case 7: 
+						TimeBonus = 1000;  
+					break;
+					case 8: 
+					case 9: 
+						TimeBonus = 500;   
+					break;
+					default:
+						TimeBonus = 0;	  
+					break;
 				}
 			}
 		}
 		
-		if (ResultValue[0] < 300) ResultValue[0]++;
+		if ResultValue[0] < 300
+		{
+			ResultValue[0]++;
+		}
 		else
 		{
 			if ResultValue[0] == 300
@@ -57,46 +106,64 @@ function ScreenResultsProcess()
 				ResultValue[0]++;
 			}
 		}
-		
-		if (ResultValue[2]) ResultValue[2] -= 20;
-		else 
-		if (ResultValue[3]) ResultValue[3] -= 20;
-		else 
+		if ResultValue[2]
 		{
-			if (ResultValue[1] < 90) ResultValue[1] += 5;	
-			if (ResultValue[4]) ResultValue[4] -= 20;
-			if (ResultValue[5]) ResultValue[5] -= 20;
-			if (ResultValue[6]) ResultValue[6] -= 20;
+			ResultValue[2] -= 20;
+		}
+		else if ResultValue[3]
+		{
+			ResultValue[3] -= 20;
+		}
+		else if ResultValue[8]
+		{
+			if ResultValue[1]
+			{
+				ResultValue[1] -= 20;
+			}
+			ResultValue[8] -= 20;
+		}
+		else
+		{		
+			if ResultValue[4]
+			{
+				ResultValue[4] -= 20;
+			}
+			if ResultValue[5] 
+			{
+				ResultValue[5] -= 20;
+			}
+			if ResultValue[6] 
+			{
+				ResultValue[6] -= 20;
+			}
 		}
 		
-		var CardFrm   = ResultValue[1] / 90;
-		var CenterPos = Game.ResolutionWidth / 2
+		// Get screen centre
+		var ScreenCentre = Game.ResolutionWidth / 2
 		
 		draw_set_font(Game.Font[FontDigits1]);
 		draw_set_halign(fa_right);
 
-		draw_sprite_ext(spr_results_head, Player.CharacterID, CenterPos + 53, 87, CardFrm, CardFrm, 90 - ResultValue[1], c_white, CardFrm);
-		draw_sprite_ext(spr_results_act,  Stage.ActID,        CenterPos + 49, 81, CardFrm, 1,	    0,					 c_white, 1);
+		draw_sprite(spr_results_head, Player.CharacterID, ScreenCentre + 53 + ResultValue[1], 87);
+		draw_sprite(spr_results_act,  Stage.ActID,        ScreenCentre + 49 + ResultValue[8], 81);
 		
-		draw_sprite(spr_results_char,		 Player.CharacterID, CenterPos - ResultValue[2] - 14, 60);
-		draw_sprite(spr_results_through,	 0, CenterPos - ResultValue[3] - 15,			      80);
-		draw_sprite(spr_results_score,		 0, CenterPos - 80 + ResultValue[4],				 119);
-		draw_sprite(spr_results_timebonus,	 0, CenterPos - 80 + ResultValue[5],				 135);
-		draw_sprite(spr_results_ringbonus,	 0, CenterPos - 80 + ResultValue[6],				 151);
+		draw_sprite(spr_results_char,		 Player.CharacterID, ScreenCentre - ResultValue[2] - 14, 60);
+		draw_sprite(spr_results_through,	 0, ScreenCentre - ResultValue[3] - 15,			      80);
+		draw_sprite(spr_results_score,		 0, ScreenCentre - 80 + ResultValue[4],				 119);
+		draw_sprite(spr_results_timebonus,	 0, ScreenCentre - 80 + ResultValue[5],				 135);
+		draw_sprite(spr_results_ringbonus,	 0, ScreenCentre - 80 + ResultValue[6],				 151);
 		
-		draw_text(CenterPos + 80 + ResultValue[4], 120, Player.Score);
-		draw_text(CenterPos + 80 + ResultValue[5], 136, TimeBonus);
-		draw_text(CenterPos + 80 + ResultValue[6], 152, RingBonus);
+		draw_text(ScreenCentre + 80 + ResultValue[4], 120, Player.Score);
+		draw_text(ScreenCentre + 80 + ResultValue[5], 136, TimeBonus);
+		draw_text(ScreenCentre + 80 + ResultValue[6], 152, RingBonus);
 		
-		// Unload the act
-		if TimeBonus == 0 and RingBonus == 0 and Stage.State != StageUnload
+		// Perform fade out
+		if TimeBonus == 0 and RingBonus == 0
 		{
 			// Count timer
-			ResultsTimer++;
-			
-			if ResultsTimer == 120
+			if (++ResultValue[7]) == 120
 			{
-				Stage.State = StageUnload;
+				fade_perform(FadeTo, FadeBlack, 1);
 			}
 		}
 	}
