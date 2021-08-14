@@ -1,12 +1,16 @@
-/// @function palette_set_colour(type, id, colourid)
-function palette_set_colour(type, id, colourid)
+/// @function palette_set_colour(type, id, range, colourid)
+function palette_set_colour(type, id, range, colourid)
 {
-	if type == PaletteSurface
+	var lastcol = id - 1 + range;
+	for(var i = id - 1; i < lastcol; i++)
 	{
-		PaletteIndexDry[id - 1] = colourid;
-	}
-	else if type = PaletteUnderwater
-	{
-		PaletteIndexWet[id - 1] = colourid;
+		if type == PaletteSurface
+		{
+			PaletteIndexDry[id - 1] = colourid;
+		}
+		else if type = PaletteUnderwater
+		{
+			PaletteIndexWet[id - 1] = colourid;
+		}
 	}
 }

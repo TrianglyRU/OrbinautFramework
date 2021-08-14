@@ -12,17 +12,10 @@ function ObjBridgeStartup()
 	2. BridgeSprite, default = spr_obj_bridgelog_template
 	*/
 	
-	// Create logs and set their depression
-	var ThisBridge = id;
+	// Calculate log depression value
 	for (var i = 0; i < BridgeLength; i++) 
 	{
-		Log[i] = instance_create(x, y, BridgeLog);
-		with Log[i]
-		{
-			object_set_depth(Player, false);
-			animation_set_frame(ThisBridge.BridgeSprite, 1);
-		}
-		LogDepression[i] = (i < BridgeLength / 2 ? i : BridgeLength - i - 1) * 2 + 2;	
+		LogDepression[i] = (i < BridgeLength / 2 ? i : BridgeLength - i - 1) * 2 + 2;
 	}
 	
 	// Define native Y position
@@ -35,7 +28,8 @@ function ObjBridgeStartup()
 	object_set_solidbox(BridgeLength / 2 * 16, 8, false);
 	
 	// Set active range
-	object_set_range(RangeFar, false);
+	object_set_range(RangeFar, TypeUnload);
 	
-	visible = false;
+	// Set object depth
+	object_set_depth(Player, false);
 }

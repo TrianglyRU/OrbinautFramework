@@ -25,8 +25,13 @@
 	}
 	
 	draw_sprite(spr_results_score,     0, CentreX - 80 + Offset[4], CentreY + 32);
-	draw_sprite(spr_results_score,     0, CentreX - 80 + Offset[4], CentreY + 32);
 	draw_sprite(spr_results_ringbonus, 0, CentreX - 80 + Offset[5], CentreY + 48);
+	
+	draw_set_font(Game.Font[FontDigits1]);
+	draw_set_halign(fa_right);
+		
+	draw_text(CentreX + 80 + Offset[4], CentreY + 33, Game.Score);
+	draw_text(CentreX + 80 + Offset[5], CentreY + 49, Game.SpecialScore);
 	
 	if RenderFlag
 	{

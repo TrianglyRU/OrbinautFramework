@@ -1,9 +1,8 @@
-/// @function palette_handle(type,id,last,goto,duration)
-function palette_handle(type, id, last, goto, duration)
+/// @function palette_handle(type,id,range,last,goto,duration)
+function palette_handle(type, id, range, last, goto, duration)
 {
 	// Get colour index
 	var index = max(0, id - 1);
-	var cycle = max(1, goto);
 	
 	// Get unique ID
 	var AnimationID = string(last) + "_" + string(goto);
@@ -18,39 +17,32 @@ function palette_handle(type, id, last, goto, duration)
 	else if duration > 1
 	{
 		// Decrease the value of animation timer
-		if PaletteDuration[type,index] > 1
+		if --PaletteDuration[type,index] < 1
 		{
-			PaletteDuration[type,index]--;
-		}
-		else
-		{
+			var cycle = max(1, goto);
+			var lastanim = index + range;
+			
 			// Reset duration
 			PaletteDuration[type,index] = duration;
-		
-			// Update colour
-			if type == PaletteSurface
-			{
-				if PaletteIndexDry[index] < last
-				{
-					PaletteIndexDry[index]++;
-				}
-				else
-				{
-					PaletteIndexDry[index] = cycle;
-				}
-			}
-			else if type == PaletteUnderwater
-			{
-				if PaletteIndexWet[index] < last
-				{
-					PaletteIndexWet[index]++;
-				}
-				else
-				{
-					PaletteIndexWet[index] = cycle;
-				}
-			}
 			
+			// Update colour
+			for(var i = index; i < lastanim; i++)
+			{
+				if type == PaletteSurface
+				{
+					if ++PaletteIndexDry[i] > last
+					{
+						PaletteIndexDry[i] = cycle;
+					}
+				}
+				else if type == PaletteUnderwater
+				{
+					if ++PaletteIndexWet[i] > last
+					{
+						PaletteIndexWet[i] = cycle;
+					}
+				}
+			}
 		}
 	}
 }
