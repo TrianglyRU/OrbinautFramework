@@ -9,5 +9,5 @@ function ScreenResultsStartup()
 	ResultValue[5] = 440;
 	ResultValue[6] = 480;
 	ResultValue[7] = 0;
-	ResultValue[8] = 460;
+	ResultValue[8] = 560;
 }

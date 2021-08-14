@@ -11,6 +11,8 @@ function SpecialStageEnd()
 			fade_perform(FadeTo, FadeWhite, 1);
 			
 			State = 1;
+			
+			Game.Emeralds++;
 		}
 		
 		// Lose

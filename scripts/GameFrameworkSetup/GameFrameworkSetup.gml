@@ -7,7 +7,7 @@ function GameFrameworkSetup()
 	gameconfig file */
 	
 	// Default game state (this only applies when we load right into stage/room avoiding main menu)
-	Game.Character    =  CharSonic;
+	Game.Character    =  CharKnuckles;
 	Game.Score	      =  0;
 	Game.Lives	      =  3;
 	Game.Continues    =  2;
@@ -19,7 +19,7 @@ function GameFrameworkSetup()
 	Game.WindowFullscreen = false;	/**/
 	Game.ResolutionWidth  = 400;	/**/
 	Game.ResolutionHeight = 224;	/**/
-	Game.WindowSize		  = 3;		/**/
+	Game.WindowSize		  = 1;		/**/
 	
 	// Audio settings
 	Game.MusicVolume = 0;			/**/

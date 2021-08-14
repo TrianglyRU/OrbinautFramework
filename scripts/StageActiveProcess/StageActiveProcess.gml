@@ -31,7 +31,7 @@ function StageActiveProcess()
 	}
 	
 	// Process synced animations
-	if fade_check(FadeNone)
+	if !Stage.IsPaused and fade_check(FadeNone)
 	{
 		AnimationTime++;
 	}

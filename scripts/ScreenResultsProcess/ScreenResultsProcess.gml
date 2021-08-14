@@ -145,13 +145,13 @@ function ScreenResultsProcess()
 		draw_set_halign(fa_right);
 
 		draw_sprite(spr_results_head, Player.CharacterID, ScreenCentre + 53 + ResultValue[1], 87);
-		draw_sprite(spr_results_act,  Stage.ActID,        ScreenCentre + 49 + ResultValue[8], 81);
+		draw_sprite(spr_results_act,  Stage.ActID,        ScreenCentre + 25 + ResultValue[8], 78);
 		
 		draw_sprite(spr_results_char,		 Player.CharacterID, ScreenCentre - ResultValue[2] - 14, 60);
-		draw_sprite(spr_results_through,	 0, ScreenCentre - ResultValue[3] - 15,			      80);
-		draw_sprite(spr_results_score,		 0, ScreenCentre - 80 + ResultValue[4],				 119);
-		draw_sprite(spr_results_timebonus,	 0, ScreenCentre - 80 + ResultValue[5],				 135);
-		draw_sprite(spr_results_ringbonus,	 0, ScreenCentre - 80 + ResultValue[6],				 151);
+		draw_sprite(spr_results_through,	 0,					 ScreenCentre - ResultValue[3] - 15, 80);
+		draw_sprite(spr_results_score,		 0,					 ScreenCentre - 80 + ResultValue[4], 119);
+		draw_sprite(spr_results_timebonus,	 0,					 ScreenCentre - 80 + ResultValue[5], 135);
+		draw_sprite(spr_results_ringbonus,	 0,					 ScreenCentre - 80 + ResultValue[6], 151);
 		
 		draw_text(ScreenCentre + 80 + ResultValue[4], 120, Player.Score);
 		draw_text(ScreenCentre + 80 + ResultValue[5], 136, TimeBonus);

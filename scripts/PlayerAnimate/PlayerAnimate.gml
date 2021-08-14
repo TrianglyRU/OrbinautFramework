@@ -77,7 +77,7 @@ function PlayerAnimate()
 						animation_play(spr_sonic_spring, 1, 1);
 					break;
 					case AnimActEnd:
-						animation_play(spr_sonic_actend, 6, 1);
+						animation_play(spr_sonic_actend, 12, 1);
 					break;
 					case AnimAirSpin:
 						animation_play(spr_sonic_airspin, 3, 1);
