@@ -6,8 +6,10 @@
 	object_set_depth(Player, false);
 	object_set_range(RangeClose, ResetRespawn);
 	
-	Dir       = image_xscale;
-	Xsp       = 0.5;
-	StopTimer = 0;
-	Reset	  = false;
+	Dir   = image_xscale;
+	Xsp   = 0.5;
+	Timer = 128;
+	Reset = false;
+	PosX  = x;
+	PosY  = y;
 	sprite_index = spr_badnik_crabmeat_move;
