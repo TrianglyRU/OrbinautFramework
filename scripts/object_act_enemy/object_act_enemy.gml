@@ -12,8 +12,8 @@ function object_act_enemy(enemy_type)
 	}
 	
 	// Check if player can damage enemy
-	if Player.GlideState == GlideActive or Player.Spinning	   or Player.SuperState
-	or Player.InvincibilityBonus		or Player.FlightState and Player.Ysp < 0
+	if Player.GlideState == GlideActive or Player.Spinning		   or Player.SuperState
+	or Player.InvincibilityBonus		or Player.SpindashRev >= 0 or Player.FlightState and Player.Ysp < 0
 	{		
 		// Make player bounce if they are airborne
 		if !Player.Grounded
@@ -31,8 +31,11 @@ function object_act_enemy(enemy_type)
 		// Check if enemy is a Badnik
 		if enemy_type == EnemyBadnik
 		{
-			// Start combo
-			if !Player.Grounded or Player.SpindashRev >= 0
+			// Get next extra life requirement
+			var LifeReward = ceil(Player.Score / 50000) * 50000;
+			
+			// Count combo
+			if Player.Spinning or Player.SpindashRev >= 0
 			{
 				Player.ScoreCombo++;
 			}
@@ -59,6 +62,13 @@ function object_act_enemy(enemy_type)
 				Player.Score += 10000;
 			}
 			
+			// Grant extra life for exceeding 50000 points
+			if Player.Score >= LifeReward
+			{
+				Game.Lives++;
+				audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
+			}
+			
 			// Spawn animal, score and explosion
 			instance_create(XPos, YPos, Animal);
 			instance_create(XPos, YPos, ComboScore);
@@ -78,7 +88,9 @@ function object_act_enemy(enemy_type)
 			if Player.Grounded
 			{
 				Player.Xsp = -Player.Xsp;
-				Player.Ysp = -Player.Ysp
+				Player.Ysp = -Player.Ysp;
+				
+				Player.GlideState = GlideDrop;
 			}
 			
 			// Play sound

@@ -44,7 +44,7 @@ function ObjRingScript()
 		// Add 1 to ring counter
 		Player.Rings++;
 		
-		// Give extra life
+		// Grant extra life
 		if Player.Rings >= 100 and Player.LivesRewards == 0
 		or Player.Rings >= 200 and Player.LivesRewards == 1
 		{
