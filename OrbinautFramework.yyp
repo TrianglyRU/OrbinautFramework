@@ -382,6 +382,7 @@
     {"id":{"name":"sfxPeeloutCharge","path":"sounds/sfxPeeloutCharge/sfxPeeloutCharge.yy",},"order":14,},
     {"id":{"name":"sfxPeeloutRelease","path":"sounds/sfxPeeloutRelease/sfxPeeloutRelease.yy",},"order":15,},
     {"id":{"name":"ObjBridgeDraw","path":"scripts/ObjBridgeDraw/ObjBridgeDraw.yy",},"order":6,},
+    {"id":{"name":"GameAudioStartup","path":"scripts/GameAudioStartup/GameAudioStartup.yy",},"order":15,},
     {"id":{"name":"sfxRelease","path":"sounds/sfxRelease/sfxRelease.yy",},"order":16,},
     {"id":{"name":"sfxRingLeft","path":"sounds/sfxRingLeft/sfxRingLeft.yy",},"order":17,},
     {"id":{"name":"sfxRingLoss","path":"sounds/sfxRingLoss/sfxRingLoss.yy",},"order":18,},

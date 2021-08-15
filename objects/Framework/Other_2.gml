@@ -13,8 +13,8 @@
 	// Call fonts setup script
 	GameFontsSetup();
 	
-	// Call music loopdata setup script
-	GameMusicLoopSetup();
+	// Call music startup script
+	GameAudioStartup();
 	
 	// Call shaders startup script
 	GameShadersStartup();

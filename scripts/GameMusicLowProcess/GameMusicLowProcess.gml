@@ -1,7 +1,7 @@
 function GameMusicLowProcess()
 {
 	// Exit if music is disabled
-	if Game.MusicVolume == 0
+	if Game.MusicVolume == 0 or !Game.LowTrack[0]
 	{
 		exit;
 	}
@@ -75,7 +75,7 @@ function GameMusicLowProcess()
 			if audio_sound_get_gain(Track) == 0
 			{		
 				Game.LowTrack[2] = EventIdle;
-				Game.LowTrack[0] = 0;
+				Game.LowTrack[0] = noone;
 				Game.LowTrack[1] = 0;
 				Game.LowTrack[3] = 0;
 				

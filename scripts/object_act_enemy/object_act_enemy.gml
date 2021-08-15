@@ -84,14 +84,30 @@ function object_act_enemy(enemy_type)
 		// Check if enemy is a boss
 		else if enemy_type == EnemyBoss
 		{
-			// Knockback if grounded
-			if Player.Grounded
+			if !Player.Grounded
 			{
-				Player.Xsp = -Player.Xsp;
+				if Player.GlideState == GlideActive
+				{
+					Player.GlideState = GlideDrop;
+					Player.Animation  = AnimGlideDrop;
+					
+					Player.RadiusX = Player.DefaultRadiusX;
+					Player.RadiusY = Player.DefaultRadiusY;
+					
+					// Reset gravity
+					if !Player.IsUnderwater
+					{
+						Player.Grv	= 0.21875;
+					}
+					else
+					{
+						// Lower by 0x28 (0.15625) if underwater
+						Player.Grv = 0.0625
+					}
+				}
 				Player.Ysp = -Player.Ysp;
-				
-				Player.GlideState = GlideDrop;
 			}
+			Player.Xsp = -Player.Xsp;
 			
 			// Play sound
 			audio_sfx_play(sfxBossHit, false);
@@ -100,10 +116,12 @@ function object_act_enemy(enemy_type)
 		// Return succeed hit
 		return true;
 	}
-		
-	// Damage player
-	object_damage(false, false, false);
+	else
+	{
+		// Damage player
+		object_damage(false, false, false);
 	
-	// Return failed hit
-	return false;
+		// Return failed hit
+		return false;
+	}
 }

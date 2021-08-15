@@ -27,7 +27,6 @@ function GameVariables()
 	Game.SoundVolume = 0;
 	Game.LowTrack	 = [];
 	Game.HighTrack	 = [];
-	Game.TrackLoop   = [];
 
 	// Control
 	Game.KeyboardControl = [];

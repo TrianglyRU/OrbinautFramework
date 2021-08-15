@@ -1,7 +1,7 @@
 function GameMusicHighProcess()
 {
 	// Exit if music is disabled
-	if Game.MusicVolume == 0
+	if Game.MusicVolume == 0 or !Game.HighTrack[0]
 	{
 		exit;
 	}
@@ -85,7 +85,7 @@ function GameMusicHighProcess()
 			if audio_sound_get_gain(Track) == 0
 			{		
 				Game.HighTrack[2] = EventIdle;
-				Game.HighTrack[0] = 0;
+				Game.HighTrack[0] = noone;
 				Game.HighTrack[1] = 0;
 				Game.HighTrack[3] = 0;
 				
