@@ -61,13 +61,15 @@ function ObjSignpostScript()
 		{
 			if Player.Grounded
 			{
-				Stage.IsFinished = true;
 				audio_bgm_play(PriorityLow, ActClearMusic, noone);
-			
-				Input.IgnoreInput = true;	
-				Player.Xsp = 0;
-				Player.Ysp = 0;
-				Player.Inertia = 0;
+				
+				Stage.IsFinished   = true;
+				Input.IgnoreInput  = true;	
+				Player.Xsp		   = 0;
+				Player.Ysp		   = 0;
+				Player.Inertia     = 0;
+				Player.SpindashRev = -1;
+				Player.PeeloutRev  = -1;
 			}
 		}
 	}

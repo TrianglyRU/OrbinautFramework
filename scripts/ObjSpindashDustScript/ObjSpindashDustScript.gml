@@ -12,7 +12,7 @@ function ObjSpindashDustScript()
 	image_xscale = Player.Facing;
 	
 	// Destroy if player is airborne
-	if !Player.Grounded or Player.Animation = AnimRoll
+	if !Player.Grounded or Player.Spinning or Player.SpindashRev == -1
 	{
 		instance_destroy();
 	}

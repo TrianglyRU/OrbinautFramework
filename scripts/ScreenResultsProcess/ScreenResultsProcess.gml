@@ -224,7 +224,7 @@ function ScreenResultsProcess()
 	// Draw continue icon
 	if ResultValue[7] == 3 and ResultValue[0] > -1
 	{
-		if ResultValue[0] mod 31 <= 16
+		if ResultValue[0] mod 32 <= 15
 		{
 			switch Game.Character
 			{
