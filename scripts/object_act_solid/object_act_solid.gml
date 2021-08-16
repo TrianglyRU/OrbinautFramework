@@ -160,9 +160,6 @@ function object_act_solid(sides, top, bottom)
 					/* We normally don't call *scripts* inside scripts or functions
 					in Orbinaut, but that's really the case where we need to do this */
 					PlayerResetOnFloor();
-					
-					// Reset vertical speed
-					Ysp = 0;
 				}
 			}		
 		}

@@ -1,11 +1,5 @@
 function ObjBarrierMain()
 {
-	// Exit if stage update is disabled
-	if !Stage.DoUpdate
-	{
-		exit;
-	}
-	
 	// Get current player barrier
 	switch Player.BarrierType
 	{
@@ -79,11 +73,66 @@ function ObjBarrierMain()
 		// Water barrier
 		case BarrierWater:
 		{
-			// Play animation
-			animation_play(spr_barrier_water, 2, 1);
-			
 			// Set object depth
 			object_set_depth(Player, true);
+			
+			// Check if the barrier ability wasn't used
+			if !Player.BarrierIsActive
+			{
+				// Play animation
+				if sprite_index == spr_barrier_water_bounce
+				{
+					var Frame = animation_get_frame(id);
+					if  Frame == 1
+					{
+						var Duration = 13; // This is actually 12 frames
+					}
+					else
+					{
+						var Duration = 7;
+					}
+					animation_play(spr_barrier_water_bounce, Duration, 2);
+					
+					// Reset to normal animation
+					if animation_get_frame(id) == 3
+					{
+						animation_set_frame(spr_barrier_water, 1);
+					}
+				}
+				else
+				{
+					animation_play(spr_barrier_water, 2, 1);
+				}
+			}
+			
+			// Check if the barrier ability was used
+			else
+			{
+				// Play animation
+				if sprite_index == spr_barrier_water_drop
+				{
+					var Frame = animation_get_frame(id);
+					if  Frame == 1
+					{
+						var Duration = 6;
+					}
+					else
+					{
+						var Duration = 19;
+					}
+					animation_play(spr_barrier_water_drop, Duration, 2);
+				
+					// Reset to normal animation
+					if animation_get_frame(id) == 3
+					{
+						animation_set_frame(spr_barrier_water, 1);
+					}
+				}
+				else
+				{
+					animation_play(spr_barrier_water, 2, 1);
+				}
+			}			
 		}
 		break;
 	}

@@ -15,5 +15,4 @@ function MenuSetup()
 	
 	MenuID           = 0;
 	OptionID		 = 0;
-	DataMode		 = 0;
 }

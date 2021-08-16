@@ -36,27 +36,31 @@ function PlayerWaterEvents()
 		// Decrease timer
 		if AirTimer > 0
 		{
-			// Generate bubble
-			if Stage.Time mod 60 == 0
+			if BarrierType != BarrierWater
 			{
-				var  PlayerBubble = instance_create(floor(PosX), floor(PosY), Bubble);
-				with PlayerBubble
+				// Generate bubble
+				// TODO: дождаться информации от Mercury и переписать генерацию пузырей
+				if Stage.Time mod 60 == 0
 				{
-					FromPlayer = true;
+					var  PlayerBubble = instance_create(floor(PosX), floor(PosY), Bubble);
+					with PlayerBubble
+					{
+						FromPlayer = true;
+					}
 				}
-			}
 			
-			// Air countdown
-			if !Stage.IsFinished and BarrierType != BarrierWater
-			{
-				AirTimer--
-				if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
+				// Air countdown
+				if !Stage.IsFinished
 				{
-					audio_sfx_play(sfxAirAlert, false);
-				}
-				else if AirTimer == 720
-				{			
-					audio_bgm_play(PriorityLow, DrowningMusic, noone);
+					AirTimer--
+					if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
+					{
+						audio_sfx_play(sfxAirAlert, false);
+					}
+					else if AirTimer == 720
+					{			
+						audio_bgm_play(PriorityLow, DrowningMusic, noone);
+					}
 				}
 			}
 		}
@@ -94,7 +98,7 @@ function PlayerWaterEvents()
 		{	
 			if BarrierType == BarrierThunder
 			{
-				fade_perform(from, flash, 432);
+				fade_perform(FadeFrom, FadeFlash, 12);
 			}
 			BarrierType = false;
 			instance_destroy(Barrier);				

@@ -1,14 +1,11 @@
 function MenuOptionReact()
 {
+	/* If MenuID does not redirect to another MenuID,
+	we add input check, else it is done automatically via MenuMainUpdate() script */
+	
 	// Main Menu
-	if MenuID == 0 and Input.APress
+	if MenuID == 0 and (Input.APress or Input.StartPress)
 	{
-		// Deny stage select
-		if OptionID == 1 and !Game.DevMode
-		{
-			audio_sfx_play(sfxFail, false);
-		}
-		
 		// Exit the game
 		if OptionID == 3
 		{
@@ -17,17 +14,10 @@ function MenuOptionReact()
 	}
 	
 	// Game Start menu
-	if MenuID == 1 and Input.APress
+	if MenuID == 1
 	{
 		// Get current slot id
 		Game.ActiveSave = OptionID - 1;
-			
-		// Check if "no save" slot has been selected
-		if OptionID == 0
-		{
-			// Do not save data
-			DataMode = 0;
-		}
 		
 		// Check if saveslot has been selected
 		if OptionID >= 1 and OptionID <= 4
@@ -57,16 +47,13 @@ function MenuOptionReact()
 			else
 			{
 				/* If there is no data, the game will open character select screen
-				   via MenuMainUpdate() script									   */
-				
-				// Also set data mode to "save new game"
-				DataMode = 1;
+				   via MenuMainUpdate() script */
 			}
 		}
 	}
 	
-	// Game Start (character select /w no data)
-	if MenuID == 2 and Input.APress
+	// Game Start (character select with empty saveslot)
+	if MenuID == 2 and (Input.APress or Input.StartPress)
 	{
 		// Load first zone
 		room_goto(MQZ0);
@@ -78,15 +65,15 @@ function MenuOptionReact()
 		Game.Continues = 0;
 		Game.Score	   = 0;	
 		
-		// Save data
-		if DataMode == 1
+		// Save data if starting the game not in "no save" slot
+		if Game.ActiveSave != -1
 		{
 			gamedata_save(Game.ActiveSave, OptionID, 0, 0, 3, 0, 0);
 		}
 	}
 	
-	// Game Start (data delete)
-	if MenuID == 10 and Input.APress
+	// Game Start (save deletetion)
+	if MenuID == 10
 	{
 		// Cleat slot
 		SaveData[OptionID] = 0;
@@ -99,7 +86,7 @@ function MenuOptionReact()
 	}
 	
 	// Stage Select (character select)
-	if MenuID == 3 and Input.APress
+	if MenuID == 3 and (Input.APress or Input.StartPress)
 	{
 		// Set data
 		Game.Character = OptionID;	
@@ -109,10 +96,10 @@ function MenuOptionReact()
 		Game.Score	   = 0;	
 	}
 	
-	// Stage Select (stage select)
-	if MenuID == 4 and Input.APress
+	// Stage Select (zone select)
+	if MenuID == 4 and (Input.APress or Input.StartPress)
 	{
-		// Do not save any progress
+		// Use "no save" slot
 		Game.ActiveSave = -1;
 		
 		// Load stages

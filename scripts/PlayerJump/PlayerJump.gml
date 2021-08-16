@@ -103,6 +103,16 @@ function PlayerJump()
 				
 					// Play sound
 					audio_sfx_play(sfxThunderBarrierSpark, false);
+					
+					// Create sparkles
+					for (var i = 0; i < 4; i++)
+					{
+						var  Sparkle = instance_create(floor(PosX), floor(PosY), ThunderSparkle);
+						with Sparkle
+						{
+							SparkleID = i;
+						}
+					}
 				
 					/* Ring magnetization is performed from its side */
 				}
@@ -114,6 +124,12 @@ function PlayerJump()
 					// Set horizontal and vertical speeds
 					Xsp = Game.BuffedWaterBarrier ? Xsp / 2 : 0;
 					Ysp = 8;
+					
+					// Set barrier animation
+					with Barrier
+					{
+						animation_set_frame(spr_barrier_water_drop, 1);
+					}
 				}
 				break;
 			}

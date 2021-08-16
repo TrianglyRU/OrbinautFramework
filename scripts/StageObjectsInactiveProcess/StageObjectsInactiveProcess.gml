@@ -10,7 +10,7 @@ function StageObjectsInactiveProcess()
 	instance_deactivate_all(true);
 		
 	// ...but keep ignored objects active
-	var IgnoreList = [Framework, Player, Input, Screen, Discord, Palette, Background, InvincibilityStar, TailsObject, SuperStar, Barrier];
+	var IgnoreList = [Framework, Player, Input, Screen, Discord, Palette, Background];
 	var Length	   = array_length(IgnoreList);
 		
 	for (var i = 0; i < Length; i++)

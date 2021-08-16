@@ -7,7 +7,7 @@ function PlayerSkid()
 		{
 			exit;
 		}	
-		if Angle >= 46.41 and Angle <= 315
+		if Angle >= 46.41 and Angle <= 313.59
 		{
 			exit;
 		}

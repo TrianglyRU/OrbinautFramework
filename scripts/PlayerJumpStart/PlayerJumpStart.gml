@@ -14,8 +14,8 @@ function PlayerJumpStart()
 		}
 		else if Angle >= 46.41 and Angle <= 133.59		
 		{
-			if tile_check_collision_h(floor(PosY - RadiusX), floor(PosX - RadiusY), false, true, Layer)[0] < 6
-			or tile_check_collision_h(floor(PosY + RadiusX), floor(PosX - RadiusY), false, true, Layer)[0] < 6
+			if tile_check_collision_h(floor(PosX - RadiusY), floor(PosY - RadiusX), false, true, Layer)[0] < 6
+			or tile_check_collision_h(floor(PosX - RadiusY), floor(PosY + RadiusX), false, true, Layer)[0] < 6
 			{
 				exit;
 			}
@@ -30,8 +30,8 @@ function PlayerJumpStart()
 		}
 		else if Angle >= 226.41 and Angle <= 313.59		
 		{
-			if tile_check_collision_h(floor(PosY - RadiusX), floor(PosX + RadiusY), true, true, Layer)[0] < 6
-			or tile_check_collision_h(floor(PosY + RadiusX), floor(PosX + RadiusY), true, true, Layer)[0] < 6
+			if tile_check_collision_h(floor(PosX + RadiusY), floor(PosY - RadiusX), true, true, Layer)[0] < 6
+			or tile_check_collision_h(floor(PosX + RadiusY), floor(PosY + RadiusX), true, true, Layer)[0] < 6
 			{
 				exit;
 			}

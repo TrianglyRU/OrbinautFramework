@@ -22,7 +22,7 @@ function GameFrameworkSetup()
 	Game.WindowSize		  = 4;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;			/**/
+	Game.MusicVolume = 0;			/**/
 	Game.SoundVolume = 0.5;			/**/
 	
 	// Control settings (keyboard)
@@ -44,6 +44,7 @@ function GameFrameworkSetup()
 	Game.BalancingCrouch		= false;
 	Game.BuffedWaterBarrier     = false;
 	Game.PreciseRings			= false;
+	Game.ItemBoxBehaviour		= true;
 	
 	// Orbinaut improvements
 	Game.PostProcessing        = false;

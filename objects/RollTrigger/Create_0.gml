@@ -3,10 +3,10 @@
 	
 	Active isReal;
 	
-	object_set_triggerbox(-16, 16, -32, 32);
+	object_set_triggerbox(0, 288 - 32, 0, 352 - 32);
 	
 	// Set active range
-	object_set_range(RangeClose, ResetUnload);
+	object_set_range(RangeFar, ResetUnload);
 	
 	// Set object visibility
 	visible = false;

@@ -19,6 +19,12 @@ function PlayerResetOnFloor()
 		Ysp		  = Force * dcos(Angle);
 		Xsp		  = Force * dsin(Angle);
 		
+		// Set barrier animation
+		with Barrier
+		{
+			animation_set_frame(spr_barrier_water_bounce, 1);
+		}
+		
 		// Play sound
 		audio_sfx_play(sfxWaterBarrierBounce, false);
 		
@@ -49,7 +55,7 @@ function PlayerResetOnFloor()
 	// Clear the roll and skid flag
 	if !(OnObject and Ysp == 0)
 	{
-		Spinning  = false;
+		Spinning = false;
 		Skidding = false;
 	}
 	RollJumping = false;
@@ -69,7 +75,6 @@ function PlayerResetOnFloor()
 	// Stop special player sfx
 	audio_sfx_stop(sfxFlying);
 	audio_sfx_stop(sfxTired);
-	audio_sfx_stop(sfxSlide);
 	
 	// Set visual angle
 	if Angle >= 23.91 and Angle <= 337.5
@@ -123,6 +128,12 @@ function PlayerResetOnFloor()
 	else
 	{
 		DropdashRev = -1;
+	}
+		
+	// Reset vertical speed if landed on the object
+	if OnObject
+	{
+		Ysp = 0;
 	}
 		
 	// Reset radiuses to default

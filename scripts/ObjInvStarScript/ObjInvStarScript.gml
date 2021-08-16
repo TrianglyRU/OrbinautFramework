@@ -35,10 +35,4 @@ function ObjInvStarScript()
 	
 	// Play animation
 	animation_play(sprite_index, 1, 1);
-	
-	// Render above player
-	object_set_depth(Player, true);
-	
-	// Draw self
-	draw_self();
 }

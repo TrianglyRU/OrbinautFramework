@@ -18,8 +18,10 @@ function PlayerDebugMode()
 		if Death
 		{
 			Screen.CameraEnabled = true;
-			AllowCollision = true;
-			Stage.DoUpdate = true;
+			Stage.AllowPause     = true;
+			Stage.DoUpdate       = true;
+			AllowCollision       = true;
+			
 			DrawOrder = layer_get_depth("Objects");
 			Death = false;
 		}

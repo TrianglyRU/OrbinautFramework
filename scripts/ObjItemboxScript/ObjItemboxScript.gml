@@ -15,7 +15,9 @@ function ObjItemBoxScript()
 		} 
 		
 		// Can player destroy the itembox?
-		if (Player.Jumping or Player.Spinning or Player.GlideState == GlideActive) and Player.Ysp >= 0
+		var Check = Game.ItemBoxBehaviour ? true : Player.Ysp >= 0;
+		
+		if (Player.Spinning or Player.GlideState == GlideActive) and Check
 		{
 			if object_player_overlap(CollisionHitbox)
 			{
@@ -38,7 +40,7 @@ function ObjItemBoxScript()
 		{
 			object_act_solid(true, true, false);
 			
-			if !Airborne
+			if !Game.ItemBoxBehaviour and !Airborne
 			{
 				if floor(Player.PosY) >= floor(PosY + 16) and object_player_overlap(CollisionHitbox)
 				{
@@ -92,9 +94,7 @@ function ObjItemBoxScript()
 		
 		if CardTimer
 		{
-			CardTimer--;
-			
-			if CardTimer == 30
+			if (--CardTimer) == 30
 			{
 				switch BoxType
 				{
@@ -136,7 +136,11 @@ function ObjItemBoxScript()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							with Object
+							{
+								animation_set_frame(spr_barrier_normal, 1);
+							}
 						}
 					}
 					break;
@@ -148,7 +152,11 @@ function ObjItemBoxScript()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							with Object
+							{
+								animation_set_frame(spr_barrier_flame, 1);
+							}
 						}
 					}
 					break;
@@ -160,7 +168,11 @@ function ObjItemBoxScript()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							with Object
+							{
+								animation_set_frame(spr_barrier_thunder, 1);
+							}
 						}
 					}
 					break;
@@ -172,8 +184,39 @@ function ObjItemBoxScript()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							with Object
+							{
+								animation_set_frame(spr_barrier_water, 1);
+							}
 						}
+						
+						// Play previous track if running out of air
+						if Player.AirTimer <= 720
+						{	
+							if !Player.SuperState
+							{
+								if Player.HighSpeedBonus
+								{
+									audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+								}
+								else if Player.InvincibilityBonus
+								{
+									audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+								}
+								else
+								{
+									audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+								}
+							}
+							else
+							{
+								audio_bgm_play(PriorityLow, SuperMusic, other);
+							}
+						}
+			
+						// Reset air timer
+						Player.AirTimer = 1800;
 					}
 					break;
 					case "Invincibility":

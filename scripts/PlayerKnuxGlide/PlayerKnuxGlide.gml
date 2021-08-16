@@ -37,7 +37,7 @@ function PlayerKnuxGlide()
 				// Glide stright
 				else
 				{
-					Xsp = max(Xsp - GlideAcc, -24);
+					Xsp = max(Xsp - GlideAcc * 3, -24);
 				}
 					
 				// Start turn to the right
@@ -64,7 +64,7 @@ function PlayerKnuxGlide()
 				// Glide stright
 				else
 				{
-					Xsp = min(Xsp + GlideAcc, 24);
+					Xsp = min(Xsp + GlideAcc * 3, 24);
 				}
 				
 				// Start turn to the left
@@ -226,10 +226,8 @@ function PlayerKnuxGlide()
 							// Enter ground glide state if gliding
 							if GlideState == GlideActive
 							{
-								GlideValue    = 16;
+								GlideValue    = 0;
 								GlideGrounded = true;
-								
-								audio_sfx_play(sfxSlide, true);
 								
 								// Create dust effect
 								instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
@@ -320,8 +318,6 @@ function PlayerKnuxGlide()
 					// Restore default radiuses
 					RadiusX	= DefaultRadiusX;
 					RadiusY	= DefaultRadiusY;
-					
-					audio_sfx_stop(sfxSlide);
 				}
 				else
 				{		
@@ -332,7 +328,11 @@ function PlayerKnuxGlide()
 					if Xsp == 0 or !Input.ABC
 					{
 						// Change state
-						GlideState = GlideStop;
+						if GlideState != GlideStop
+						{
+							GlideValue = 16;
+							GlideState = GlideStop;
+						}
 			
 						// Land
 						if !(--GlideValue)
@@ -350,9 +350,13 @@ function PlayerKnuxGlide()
 						RadiusY = DefaultRadiusY;
 			
 						// Reset speed
-						Xsp	= 0;	
+						Xsp	= 0;
+					}
 					
-						audio_sfx_stop(sfxSlide);
+					// Play slide sound
+					else if (++GlideValue) mod 8 == 0
+					{
+						audio_sfx_play(sfxSlide, false);
 					}
 				}
 			}
@@ -363,13 +367,10 @@ function PlayerKnuxGlide()
 				if Input.ABCPress
 				{	
 					// Do not jump if found the low ceiling
-					if Angle <= 45 or Angle >= 315
+					if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
+					or tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
 					{
-						if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
-						or tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
-						{
-							exit;
-						}
+						exit;
 					}
 					
 					// Reset gravity
@@ -384,15 +385,13 @@ function PlayerKnuxGlide()
 					}
 					
 					// Set speeds
-					Xsp  += Jump * dsin(Angle);
-					Ysp	 += Jump * dcos(Angle);	
+					Xsp += Jump * dsin(Angle);
+					Ysp	+= Jump * dcos(Angle);	
 		
 					// Update flags
 					Jumping    = true;
 					Grounded   = false;
 					GlideState = false;
-					GlideValue = false;
-					GlideSlide = false;
 		
 					// Update radiuses
 					PosY   += RadiusY - SmallRadiusY;

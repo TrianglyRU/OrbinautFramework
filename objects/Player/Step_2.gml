@@ -18,3 +18,9 @@
 	
 	// Record player position
 	PlayerPositionRecord();
+	
+	// Animate character
+	PlayerAnimate();
+	
+	// Rotate character
+	PlayerRotation();

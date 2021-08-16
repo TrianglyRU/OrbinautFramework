@@ -4,7 +4,7 @@ function ObjDustPuffMain()
 	animation_play(sprite_index, 4, 5);
 	
 	// Create another dust object after 4 frames
-	if Player.Skidding != false			and Player.Grounded 
+	if Player.Skidding   != false	    and Player.Grounded 
 	or Player.GlideState == GlideActive and Player.GlideGrounded
 	{
 		if !SpawnDust

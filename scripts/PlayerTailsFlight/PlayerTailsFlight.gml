@@ -69,7 +69,7 @@ function PlayerTailsFlight()
 		
 		// Update character
 		FlightState	= false;
-		Spinning		= true;
+		Spinning	= true;
 		Grv			= 0.21875;	
 		Animation	= AnimRoll;
 		

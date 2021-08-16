@@ -29,7 +29,7 @@ function object_player_overlap(collisionType)
 		var objectBottom = floor(y + Obj_HitY - 0);
 		
 		// Get player hitbox size
-		if Player.Spinning or Player.Jumping
+		if Player.Animation == AnimCrouch
 		{
 			var playerTop    = floor(Player.PosY - 4);
 			var playerLeft   = floor(Player.PosX - 8);

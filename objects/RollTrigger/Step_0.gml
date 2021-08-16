@@ -1,32 +1,32 @@
 /// @description
 // You can write your code in this editor
 	
-	if Direction == "Not Defined"
-	{
-		exit;
-	}
-	
 	if object_player_overlap(CollisionTriggerbox)
 	{
 		if !Active
 		{
 			Active = true;
 			
-			if !Player.ForcedRoll
+			Player.FlightState = false;
+			Player.GlideState  = false;
+			
+			// Reset gravity
+			if !Player.IsUnderwater
 			{
-				if Player.Xsp > 0 and Direction == "Right"
-				or Player.Xsp < 0 and Direction == "Left"
-				{
-					Player.ForcedRoll = true;
-				}
+				Player.Grv = 0.21875;
 			}
 			else
 			{
-				Player.ForcedRoll = false;
+				// Lower by 0x28 (0.15625) if underwater
+				Player.Grv = 0.0625
 			}
+			
+			Player.Grounded   = true;
+			Player.ForcedRoll = true;
 		}
 	}
 	else if Active
 	{
-		Active = false;
+		Active			  = false;
+		Player.ForcedRoll = false;
 	}
