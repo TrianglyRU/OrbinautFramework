@@ -57,6 +57,7 @@
 						CameraEnabled  = true;
 						
 						instance_activate_all();
+						with Stage StageObjectsActiveProcess();
 					}
 					break;
 					case 1: 

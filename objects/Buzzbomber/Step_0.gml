@@ -25,28 +25,36 @@
 		}
 	}
 	
-	if Action = 2 
+	if Action == 2 
 	{
-		var BadnikDir = Dir;
-		switch Delay 
+		if Delay < 46 and !instance_exists(Bullet)
 		{
-			case 46: 
-				Bullet = instance_create_depth(x + 21 * BadnikDir, y + 20, depth - 1, BuzzBullet); 
-				Bullet.image_xscale = BadnikDir; 
-			break;
-			case 38: 
-				Bullet.image_index = 1;
-			break;
-			case 29: 
-				with Bullet 
-				{ 
-					image_index = 2; 
-					image_speed = 1; 
-					Xsp = 2 * BadnikDir; 
-					Ysp = 2;
-				} 
-				Bullet = noone; 
-			break;
+			Bullet = noone;
+		}
+		else
+		{
+			var BadnikDir = Dir;
+			switch Delay 
+			{
+				case 46: 
+					Bullet = instance_create_depth(x + 21 * BadnikDir, y + 20, depth - 1, BuzzBullet); 
+					Bullet.image_xscale = BadnikDir; 
+					Bullet.Parent = id;
+				break;
+				case 38: 
+					Bullet.image_index = 1;
+				break;
+				case 29: 
+					with Bullet 
+					{ 
+						image_index = 2; 
+						image_speed = 1; 
+						Xsp = 2 * BadnikDir; 
+						Ysp = 2;
+					} 
+					Bullet = noone; 
+				break;
+			}
 		}
 	}
 		
@@ -60,7 +68,7 @@
 	}
 		
 	// Action Delay
-	if !Delay 
+	if !(--Delay)
 	{
 		switch Action 
 		{
@@ -68,28 +76,14 @@
 			case 2: Action = 3 break;
 		}
 	} 
-	else 
-	{
-		Delay--;
-	}
 	
 	// Animation	
-	switch Action {		
-			case 0: sprite_index = spr_badnik_buzzbomber_fly  break
-			case 1: sprite_index = spr_badnik_buzzbomber_idle break
-			case 2: sprite_index = spr_badnik_buzzbomber_fire break
-			case 3: sprite_index = spr_badnik_buzzbomber_fly  break
+	switch Action 
+	{		
+			case 0: sprite_index = spr_badnik_buzzbomber_fly  break;
+			case 1: sprite_index = spr_badnik_buzzbomber_idle break;
+			case 2: sprite_index = spr_badnik_buzzbomber_fire break;
+			case 3: sprite_index = spr_badnik_buzzbomber_fly  break;
 	}
 	
-	object_act_enemy(EnemyBadnik)
-	
-	/*if Bullet
-	{ 
-		instance_destroy(Bullet);
-	}
-	Action = 0; 
-	x = InitX; 
-	Way = 500; 
-	image_xscale = InitDir;
-	Dir			 = InitDir;
-	visible = (InitX > Screen.CameraX + Screen.Width + 220 or InitX < Screen.CameraX - 220);
+	object_act_enemy(EnemyBadnik);
