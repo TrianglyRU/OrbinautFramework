@@ -27,31 +27,26 @@
 	
 	if Action == 2 
 	{
-		if Delay < 46 and !instance_exists(Bullet)
+		if Bullet and !instance_exists(Bullet)
 		{
 			Bullet = noone;
 		}
 		else
 		{
-			var BadnikDir = Dir;
 			switch Delay 
 			{
 				case 46: 
-					Bullet = instance_create_depth(x + 21 * BadnikDir, y + 20, depth - 1, BuzzBullet); 
-					Bullet.image_xscale = BadnikDir; 
-					Bullet.Parent = id;
-				break;
-				case 38: 
-					Bullet.image_index = 1;
+					Bullet = instance_create_depth(x + 21 * Dir, y + 20, depth - 1, BuzzBullet); 
+					var BadnikDir = Dir;
+					with Bullet
+					{
+						image_xscale = BadnikDir;
+						Timer = 17;
+						Xsp = 2 * BadnikDir;
+						Ysp = 2;
+					}
 				break;
 				case 29: 
-					with Bullet 
-					{ 
-						image_index = 2; 
-						image_speed = 1; 
-						Xsp = 2 * BadnikDir; 
-						Ysp = 2;
-					} 
 					Bullet = noone; 
 				break;
 			}
