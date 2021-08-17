@@ -1,7 +1,7 @@
 function GameMusicLowProcess()
 {
 	// Exit if music is disabled
-	if Game.MusicVolume == 0 or !Game.LowTrack[0]
+	if !Game.LowTrack[0]
 	{
 		exit;
 	}

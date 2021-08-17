@@ -5,7 +5,7 @@ function ObjSpawnpointSetup()
 	*/
 	
 	// Check if player should use spawnpoint to spawn
-	if Game.PlayerPosition == 0
+	if array_equals(Game.PlayerPosition, [])
 	{
 		// Check which spawnpoint player should use
 		if id.PlayerType == "Sonic & Tails" and Player.CharacterID == CharKnuckles

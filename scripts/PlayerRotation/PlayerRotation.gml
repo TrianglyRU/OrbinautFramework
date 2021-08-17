@@ -30,6 +30,7 @@ function PlayerRotation()
 					
 					// Perform angle calculation
 					VisualAngle = darctan2(dsin(TargetAngle) + dsin(VisualAngle) * RotationStep, dcos(TargetAngle) + dcos(VisualAngle) * RotationStep);
+					VisualAngle = (VisualAngle + 360) mod 360;
 				}
 		
 				// Rotate visual angle back when airborne (same as regular angle)

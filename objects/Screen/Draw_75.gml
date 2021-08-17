@@ -35,11 +35,12 @@
 					}
 					else
 					{
-						Game.CheckpointID   = false;
-						Game.PlayerPosition = false;
+						Game.StarpostID		= false;
 						Game.Time			= 0;
 						Game.StageBoundary  = 0;
 						Game.Score		    = 0;
+						Game.SpecialRingIDs = [];
+						Game.PlayerPosition = [];
 						
 						room_goto(DevMenu);
 					}

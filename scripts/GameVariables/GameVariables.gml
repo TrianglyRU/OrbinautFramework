@@ -8,13 +8,14 @@ function GameVariables()
 	Game.Lives		    = 0;
 	Game.Continues	    = 0;
 	Game.Emeralds	    = 0;
-	Game.CheckpointID	= 0;
-	Game.PlayerPosition	= 0;
 	Game.Time			= 0;
 	Game.StageBoundary	= 0;
 	Game.SpecialScore   = 0;
 	Game.SpecialState   = 0;
-	Game.CurrentStage   = [];
+	Game.StarpostID		= 0;
+	Game.SpecialRingIDs	= [];
+	Game.PlayerPosition	= [];
+	Game.CurrentStage   = [];		// 0 - ZoneID, 1 - room
 
 	// Graphics
 	Game.WindowFullscreen = 0;

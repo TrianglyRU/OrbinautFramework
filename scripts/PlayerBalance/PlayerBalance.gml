@@ -21,7 +21,8 @@ function PlayerBalance()
 	
 	var LeftAngle  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
 	var RightAngle = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
-	if  LeftAngle and RightAngle
+	
+	if !(LeftAngle or RightAngle)
 	{
 		exit;
 	}

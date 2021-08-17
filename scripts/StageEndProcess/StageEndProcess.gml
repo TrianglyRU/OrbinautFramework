@@ -11,10 +11,11 @@ function StageEndProcess()
 	Game.Lives = Player.Lives;
 		
 	// Clear data
-	Game.CheckpointID   = false;
-	Game.PlayerPosition = false;
+	Game.StarpostID     = false;
 	Game.Time	        = 0;
 	Game.StageBoundary  = 0;
+	Game.SpecialRingIDs = [];
+	Game.PlayerPosition = [];
 		
 	// Save game progress at the end of the zone if we're not in "no save" mode
 	if ActID == FinalActID and Game.ActiveSave != -1

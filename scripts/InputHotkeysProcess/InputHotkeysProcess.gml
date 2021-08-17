@@ -8,7 +8,7 @@ function InputHotkeysProcess()
 	// Stage fresh load (F1)
 	if keyboard_check_pressed(vk_f1) 
 	{
-		Game.CheckpointID   = false;
+		Game.StarpostID		= false;
 		Game.PlayerPosition	= false;
 		Game.Time		    = 0;
 		Game.StageBoundary	= 0;

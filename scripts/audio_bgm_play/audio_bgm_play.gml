@@ -1,6 +1,12 @@
 /// @function audio_bgm_play(priority,soundid,looppoint)
 function audio_bgm_play(priority, soundid, looppoint)
 {	
+	// Exit if empty audio set
+	if !soundid
+	{
+		exit;
+	}
+	
 	// Play new track
 	switch priority
 	{

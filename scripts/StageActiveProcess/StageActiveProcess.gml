@@ -20,7 +20,7 @@ function StageActiveProcess()
 	}
 	
 	// Process animated graphics
-	if AnimatedGraphics[0] != noone
+	if AnimatedGraphics != noone
 	{
 		for (var i = 0; i < array_length(AnimatedGraphics); i += 2)
 		{
@@ -96,10 +96,11 @@ function StageActiveProcess()
 				// If ran out of lives and have continues, go to continue screen
 				else if Game.Continues
 				{
+					Game.StarpostID     = false;
 					Game.Time	        = 0;
 					Game.StageBoundary  = 0;
-					Game.CheckpointID   = false;
-					Game.PlayerPosition = false;
+					Game.SpecialRingIDs = [];
+					Game.PlayerPosition = [];
 					
 					room_goto(Continue);
 				}
@@ -112,10 +113,11 @@ function StageActiveProcess()
 					}
 
 					// Reset game state
+					Game.StarpostID     = false;
 					Game.Time	        = 0;
 					Game.StageBoundary  = 0;
-					Game.CheckpointID   = false;
-					Game.PlayerPosition = false;
+					Game.SpecialRingIDs = [];
+					Game.PlayerPosition = [];
 				
 					audio_stop_all();
 					room_goto(DevMenu);

@@ -43,7 +43,7 @@ function PlayerSetup()
 	Lives = Game.Lives;
 	
 	// If player uses saved global spawn position, use it
-	if Game.PlayerPosition != 0
+	if !array_equals(Game.PlayerPosition, [])
 	{
 		PosX = Game.PlayerPosition[0];
 		PosY = Game.PlayerPosition[1];
@@ -62,5 +62,8 @@ function PlayerSetup()
 	}
 	
 	// Create Tails' tails
-	if (CharacterID == CharTails) instance_create(x, y, TailsObject);
+	if CharacterID == CharTails
+	{
+		instance_create(x, y, TailsObject);
+	}
 }

@@ -68,25 +68,23 @@ function object_act_solid(sides, top, bottom)
 	// Check if player is standing on this object, collide only with its top side
 	if Player.OnObject == ObjectID
 	{	
+		// Make player to follow horizonatal movement of the object
+		Player.PosX += floor(x - xprevious);
+		
+		// Make player to always stay on top of the object
+		Player.PosY = ObjectY - Obj_SolidY - Player.RadiusY + ObjectHeight - 1;
+			
+		// Tell the object we're touching its top side
+		Obj_SolidTouchU = true;
+		
 		// Get fall radius
 		var FallRadius = sides ? ObjectRadiusX : Obj_SolidX;
 		
 		// Check if player is outside the object
-		var XComparison = PlayerX - ObjectX + FallRadius;
+		var XComparison = floor(Player.PosX) - ObjectX + FallRadius;
 		if  XComparison < 0 or XComparison >= FallRadius * 2
 		{
 			Player.OnObject = false;
-		}
-		else
-		{	
-			// Make player to follow horizonatal movement of the object
-			Player.PosX += floor(x - xprevious);
-							
-			// Make player to always stay on top of the object
-			Player.PosY = ObjectY - Obj_SolidY - Player.RadiusY + ObjectHeight - 1;
-			
-			// Tell the object we're touching its top side
-			Obj_SolidTouchU = true;
 		}
 	}
 			

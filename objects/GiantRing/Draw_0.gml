@@ -25,13 +25,41 @@
 		}
 	}
 	else if image_xscale == 1 and object_player_overlap(CollisionHitbox)
-	{		
-		State = 2;
-		Input.IgnoreInput = true;
+	{	
+		audio_sfx_play(sfxSpecialRing, false);
 		
-		// Remember position
-		Game.PlayerPosition[0] = x;
-		Game.PlayerPosition[1] = y;
+		if Game.Emeralds != 7
+		{
+			State			      = 2;
+			Input.IgnoreInput	  = true;
+			Player.AllowCollision = false;
+		
+			// Remember position
+			Game.PlayerPosition[0] = x;
+			Game.PlayerPosition[1] = y;
+		
+			// Remember this ring
+			if !array_equals(Game.SpecialRingIDs, [])
+			{
+				Game.SpecialRingIDs[array_length(Game.SpecialRingIDs)] = id;
+			}
+			else
+			{
+				Game.SpecialRingIDs[0] = id;
+			}
+			
+			if Game.Character == CharTails
+			{
+				instance_destroy(TailsObject);
+				audio_sfx_stop(sfxTired);
+				audio_sfx_stop(sfxFlying);
+			}
+		}
+		else
+		{
+			Player.Rings += 50;
+			instance_destroy();
+		}
 	}
 
 	if Timer < 6
