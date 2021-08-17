@@ -19,7 +19,7 @@ function ObjBridgeDraw()
         }
 
 		// Calculate log position
-		var LogX = (x - (BridgeLength / 2) * 16) + 8 + 16 * i;
+		var LogX = (x - (BridgeLength / 2) * 16) + 16 * i + 8;
 		var LogY = floor(NativeY + (ActiveDepression * dsin(floor(90 * (1 - Tension)))) * dsin(RecoveryAngle));
 		
 		// Draw log

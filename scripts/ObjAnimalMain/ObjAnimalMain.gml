@@ -1,77 +1,96 @@
 function ObjAnimalMain()
 {
-	// Update vertical speed
-	Ysp  += Grv;
-	PosY += Ysp;
-	
-	// 'Appear from Badink' state
-	if State == 0
+	if CapsuleDelay
 	{
-		// Check if animal colliding with the ground
-		if Ysp > 0 
+		if !(--CapsuleDelay)
 		{
-			var findFloor = object_collide_tiles_v(false, SideBottom, 0, LayerA)
-			if  findFloor
-			{
-				// Reverse speed
-		        Ysp = -4;
-				
-				// Set direction
-			    image_xscale = FromCapsule ? choose(-1, 1) : -1;
-				
-				// Set horizontal speed
-				Xsp	*= image_xscale;
-				
-				// Change gravity for Flicky
-				if AnimalType == spr_obj_animal_flicky
-				{
-					Grv = 0.09375;
-				}
-				
-				// Set second frame
-				animation_set_frame(false, 2);
-				
-				// Go to the next state
-		        State = 1;
-		    }
+			State = 0;
 		}
 	}
+	else
+	{	
+		// Move vertically
+		Ysp  += Grv; 
+		PosY += Ysp;
 	
-	// Leaving state
-	else if State == 1
-	{
-		// Move
-		PosX += Xsp;
-		
-		// Animate animal
-		switch AnimalType
+		// Update position
+		object_update_position(PosX, PosY);
+	
+		// 'Appear from Badink' state
+		if State == 0
 		{
-			// Flicky
-			case spr_obj_animal_flicky:
+			if Ysp > 0 
 			{
-				if animation_get_frame(id) == 1
+				var FindFloor = object_collide_tiles_v(SideCentre, SideBottom, 0, LayerA)
+				if  FindFloor
 				{
-					animation_set_frame(sprite_index, 2);
-				}
-				animation_play(sprite_index, 3, 2);
+					// Reverse speed
+			        Ysp = -4;
+				
+					// Set direction
+				    image_xscale = FromCapsule ? choose(-1, 1) : -1;
+				
+					// Set horizontal speed
+					Xsp	*= image_xscale;
+				
+					// Change gravity for Flicky
+					if AnimalType == spr_obj_animal_flicky
+					{
+						Grv = 0.09375;
+					}
+				
+					// Set second frame
+					animation_set_frame(false, 2);
+				
+					// Go to the next state
+			        State++;
+			    }
 			}
-			break;
-			
-			// Pocky
-			case spr_obj_animal_pocky:
-			{
-				animation_set_frame(sprite_index, Ysp < 0 ? 2 : 3);
-			}
-			break;
 		}
-		 
-		// Reverse speed when colliding ground
-		if Ysp > 0
+	
+		// Leaving state
+		else if State == 1
 		{
-			var findFloor = object_collide_tiles_v(false, SideBottom, 0, LayerA)
-			if  findFloor
+			// Move horizontally
+			PosX += Xsp;
+		
+			// Animate animal
+			switch AnimalType
 			{
-				Ysp = DefaultYsp;
+				// Flicky
+				case spr_obj_animal_flicky:
+				{
+					animation_play(sprite_index, 4, 2);
+				}
+				break;
+			
+				// Cucky
+				case spr_obj_animal_cucky:
+				{
+					animation_play(sprite_index, 2, 2);
+				}
+				break;
+			
+				// Pocky, Ricky, Rocky, Picky, Pecky
+				case spr_obj_animal_pocky:
+				case spr_obj_animal_ricky:
+				case spr_obj_animal_rocky:
+				case spr_obj_animal_picky:
+				case spr_obj_animal_pecky:
+				{
+					animation_set_frame(sprite_index, Ysp < 0 ? 2 : 3);
+				}
+				break;
+			}
+		 
+			// Reverse speed when colliding ground
+			if Ysp > 0
+			{
+				var FindFloor = object_collide_tiles_v(SideCentre, SideBottom, 0, LayerA)
+				if  FindFloor
+				{
+					Ysp = DefaultYsp;
+				}
 			}
 		}
 	}

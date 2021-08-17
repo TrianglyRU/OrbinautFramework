@@ -38,7 +38,7 @@ function ObjBossControllerScript()
 		}
 		
 		instance_deactivate_object(Signpost);
-		instance_deactivate_object(Capsule);
+		instance_deactivate_object(EggPrison);
 		
 		// Set boundaries
 		Stage.TargetLeftBoundary   = x - max(Screen.Width  / 2, ArenaWidth  / 2);
@@ -56,7 +56,7 @@ function ObjBossControllerScript()
 			audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			
 			instance_activate_object(Signpost);
-			instance_activate_object(Capsule);
+			instance_activate_object(EggPrison);
 		
 			// Destroy object
 			instance_destroy();

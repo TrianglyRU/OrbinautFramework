@@ -34,6 +34,9 @@ function ObjItemBoxScript()
 				
 				CardTimer = 31;	
 				Destroyed = true;
+				
+				CardPosX = x;
+				CardPosY = y - 4;
 			}
 		}		
 		else
@@ -58,18 +61,17 @@ function ObjItemBoxScript()
 			// Update position
 			Ysp  += 0.21875;
 			PosY += Ysp;
+			
+			object_update_position(PosX, PosY);
 		
 			// Do collision with tiles & check if we collided
-			var FoundFloorA = object_collide_tiles_v(SideLeft, SideBottom, 0, LayerA)
-			var FoundFloorB = object_collide_tiles_v(SideLeft, SideBottom, 0, LayerB)
+			var FindFloorA = object_collide_tiles_v(SideLeft, SideBottom, 0, LayerA)
+			var FindFloorB = object_collide_tiles_v(SideLeft, SideBottom, 0, LayerB)
 			
-			if  FoundFloorA or FoundFloorB
+			if FindFloorA or FindFloorB
 			{
 				Airborne = false;
 			}
-			
-			CardPosX = PosX;
-			CardPosY = PosY - 4;
 		}	
 	}
 	

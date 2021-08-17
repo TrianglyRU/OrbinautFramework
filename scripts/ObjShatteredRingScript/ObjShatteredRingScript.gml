@@ -22,16 +22,15 @@ function ObjShatteredRingScript()
 	// Apply gravity
 	Ysp += Grv;
 	
-	// Update code position
+	// Move ring
 	PosX += Xsp;
 	PosY += Ysp;
 
-	// Update real position
-	x = floor(PosX);
-	y = floor(PosY);
+	// Update object position
+	object_update_position(PosX, PosY);
 		
 	// Do tile collision every four frames when falling down
-	if CollisionCheck mod 4 == 0 and Ysp > 0 or Game.PreciseRings
+	if Ysp > 0 and (CollisionCheck mod 4 == 0 or Game.PreciseRings)
 	{
 		// Check if ring found the tile & collide
 		var findFloor = object_collide_tiles_v(false, SideBottom, 0, Player.Layer);

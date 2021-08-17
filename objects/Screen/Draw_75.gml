@@ -57,7 +57,13 @@
 						CameraEnabled  = true;
 						
 						instance_activate_all();
-						with Stage StageObjectsActiveProcess();
+						
+						/* Just like in object_act_solid, we normally don't do things like that, but it 
+						needed there to avoid objects being active for 1 frame after we unpause the game */	
+						with Stage 
+						{
+							StageObjectsActiveProcess();
+						}
 					}
 					break;
 					case 1: 

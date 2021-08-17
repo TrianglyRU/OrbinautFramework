@@ -7,15 +7,13 @@ function ObjCapsuleButtonScript()
 		object_act_solid(true, true, true);
 		
 		// Play animation
-		animation_play(spr_capsule_button, 3, 1);
+		animation_play(sprite_index, 3, 1);
 		
 		// Check if player is standing on the object
 		if object_player_touch(SideTop)
 		{
-			// Finish the act and tell the button it has been pressed
 			y          += 8;
 			image_index = 0;
-			IsFinished  = true;
 			Pressed     = true;
 		}
 	}

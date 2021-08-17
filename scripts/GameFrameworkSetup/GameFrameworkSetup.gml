@@ -44,7 +44,7 @@ function GameFrameworkSetup()
 	Game.BalancingCrouch		= false;
 	Game.BuffedWaterBarrier     = false;
 	Game.PreciseRings			= false;
-	Game.ItemBoxBehaviour		= true;
+	Game.ItemBoxBehaviour		= false;
 	
 	// Orbinaut improvements
 	Game.PostProcessing        = false;

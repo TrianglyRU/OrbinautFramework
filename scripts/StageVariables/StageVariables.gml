@@ -30,5 +30,6 @@ function StageVariables()
 	DoUpdate			 = 0;
 	TileLayer			 = [];
 	WobbleData			 = [];
+	AnimalSet			 = [];
 	AnimatedGraphics	 = [];
 }

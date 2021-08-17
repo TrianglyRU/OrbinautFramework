@@ -31,8 +31,6 @@ function ObjItemBoxSetup()
 	// Set default position
 	PosX     = x;
 	PosY     = y;
-	CardPosX = x;
-	CardPosY = y - 4;
 	
 	// Set card properties
 	CardSpeed = -3;

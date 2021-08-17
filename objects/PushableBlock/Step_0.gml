@@ -44,6 +44,9 @@
 		}	
 	}
 	
+	// Update position
+	object_update_position(PosX, PosY);
+	
 	if Direction != noone
 	{
 		object_collide_tiles_h(SideLeft,  SideCentre, 0, LayerA);

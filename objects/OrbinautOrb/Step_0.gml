@@ -6,3 +6,8 @@
 		//object_act_badnik(false, false);
 		object_damage(false, false, false);
 	}
+	
+	if !instance_exists(Parent)
+	{
+		instance_deactivate_object(id);
+	}

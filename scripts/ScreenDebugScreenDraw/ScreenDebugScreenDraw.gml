@@ -1,8 +1,8 @@
 function ScreenDebugScreenDraw()
 {	
-	string_set_font(Game.Font[FontDebug], fa_left);
-	string_display(Width - 45, Height - 8, "FPS: " + string(floor(fps)), 0.5);
-	string_display(Width - 65, Height - 4, "GAME FPS: " + string(floor(fps_real)), 0.5);
+	//string_set_font(Game.Font[FontDebug], fa_left);
+	//string_display(Width - 45, Height - 8, "FPS: " + string(floor(fps)), 0.5);
+	//string_display(Width - 65, Height - 4, "GAME FPS: " + string(floor(fps_real)), 0.5);
 	
 	if !Game.DevMode
 	{

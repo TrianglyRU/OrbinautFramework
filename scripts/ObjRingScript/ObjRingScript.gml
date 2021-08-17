@@ -13,9 +13,7 @@ function ObjRingScript()
 	}
 	else
 	{
-		var ringacc;
-		ringacc[0] = 0.75;
-		ringacc[1] = 0.1875;
+		var ringacc = [0.75, 0.1875];
 			
 		//relative positions
 		var sx = sign(floor(Player.PosX) - floor(PosX));
@@ -34,12 +32,11 @@ function ObjRingScript()
 		PosY += Ysp;
 			
 		// Update real position
-		x = floor(PosX);
-		y = floor(PosY);
+		object_update_position(PosX, PosY);
 	}
 	
 	// Check for hitbox collision
-	if !Player.Hurt and Player.IsInvincible < 90 and object_player_overlap(CollisionHitbox)
+	if !Player.Hurt and Player.InvincibilityFrames < 90 and object_player_overlap(CollisionHitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;

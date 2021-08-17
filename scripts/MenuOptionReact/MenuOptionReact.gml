@@ -14,7 +14,7 @@ function MenuOptionReact()
 	}
 	
 	// Game Start menu
-	if MenuID == 1
+	if MenuID == 1 and (Input.APress or Input.StartPress)
 	{
 		// Get current slot id
 		Game.ActiveSave = OptionID - 1;

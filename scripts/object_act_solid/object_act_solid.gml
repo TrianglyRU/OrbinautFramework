@@ -22,6 +22,11 @@ function object_act_solid(sides, top, bottom)
 	// Exit the code if there is no side to collide with 
 	if !sides and !top and !bottom
 	{
+		if Player.OnObject == id
+		{
+			Player.OnObject = false;
+			Player.Grounded = false;
+		}
 		exit;
 	}
 	

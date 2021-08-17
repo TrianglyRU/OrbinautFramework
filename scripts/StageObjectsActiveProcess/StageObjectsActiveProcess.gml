@@ -44,10 +44,7 @@ function StageObjectsActiveProcess()
 									event_perform(ev_create,     0);
 									event_perform(ev_room_start, 0);
 								}
-								else
-								{
-									instance_deactivate_object(id);
-								}
+								instance_deactivate_object(id);
 							}
 						
 							// ... or delete completely
@@ -68,7 +65,7 @@ function StageObjectsActiveProcess()
 				// If object is inside the boundaries and has the reset flag, allow unload actions
 				else if Obj_LoadFlag != false and !Obj_LoadState
 				{
-					Obj_LoadState = true;		
+					Obj_LoadState  = true;		
 				}
 			}
 		}

@@ -33,6 +33,8 @@ function ObjComboScoreMain()
 	Ysp  += 0.09375;
 	PosY += Ysp;
 	
+	object_update_position(x, PosY);
+	
 	// Delete object when it stopped
 	if Ysp == 0
 	{

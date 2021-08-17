@@ -45,7 +45,7 @@ function ScreenInterfaceProcess()
 	string_set_font(Game.Font[FontDigits2], fa_right);
 	string_display(ScreenX + 65, ScreenY + Height - 15, Player.Lives, 1);
 	
-	if Game.DevMode
+	/*if Game.DevMode
 	{
 		string_display(Width - 57, 9,  floor(Player.PosX), 1);
 		string_display(Width - 17, 9,  floor(CameraX),	   1);
@@ -56,5 +56,5 @@ function ScreenInterfaceProcess()
 		string_set_font(Game.Font[FontDebug], fa_right);
 		string_display(Width - 97, 9,  "X:", 1);
 		string_display(Width - 97, 17, "Y:", 1);
-	}
+	}*/
 }
