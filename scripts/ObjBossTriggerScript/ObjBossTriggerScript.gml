@@ -40,7 +40,7 @@ function ObjBossControllerScript()
 		instance_deactivate_object(Signpost);
 		instance_deactivate_object(EggPrison);
 		
-		// Set boundaries
+		// Force boundaries
 		Stage.TargetLeftBoundary   = x - max(Screen.Width  / 2, ArenaWidth  / 2);
 		Stage.TargetTopBoundary    = y - max(Screen.Height / 2, ArenaHeight / 2);
 		Stage.TargetBottomBoundary = y + max(Screen.Height / 2, ArenaHeight / 2);
@@ -51,6 +51,7 @@ function ObjBossControllerScript()
 			// Reset right and top boundaries
 			Stage.TargetBottomBoundary = ReservedBottomBound;
 			Stage.TargetTopBoundary	   = ReservedTopBound;
+			Stage.TargetRightBoundary  = room_width;
 			
 			// Play stage music
 			audio_bgm_play(PriorityLow, Stage.StageMusic, other);

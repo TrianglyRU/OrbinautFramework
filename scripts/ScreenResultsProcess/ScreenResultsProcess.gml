@@ -17,7 +17,7 @@ function ScreenResultsProcess()
 	*/
 	
 	// Display only when act is finished
-	if !Stage.IsFinished
+	if Stage.IsFinished < 2
 	{
 		exit;
 	}

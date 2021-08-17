@@ -25,7 +25,7 @@ function PlayerJump()
 	RollJumping = false;
 	
 	// Check if C button is pressed and we're moving upwards
-	if Input.CPress and Rings >= 10 and Ysp < 0 and !SuperState
+	if Input.CPress and Rings >= 10 and Ysp < 0 and !SuperState and !Stage.IsFinished
 	{
 		// Play animation
 		Animation = AnimTransform;

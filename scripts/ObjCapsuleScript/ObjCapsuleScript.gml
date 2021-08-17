@@ -15,6 +15,15 @@ function ObjCapsuleScript()
 				Timer     = 60;
 				State     = 1;
 				ExplDelay = irandom(32);
+				
+				Stage.TimeEnabled = false;
+				Stage.AllowPause  = false;
+				Stage.IsFinished  = 1;
+			
+				if Player.SuperState
+				{
+					Player.SuperState = false;
+				}
 			}
 		}	
 		break;
@@ -90,7 +99,29 @@ function ObjCapsuleScript()
 					}
 				}
 			}
+			
+			// Start results when no animals left
+			if !instance_exists(Animal) and Stage.IsFinished == 1
+			{
+				Stage.IsFinished = 3;
+				
+				audio_bgm_play(PriorityLow, ActClearMusic, noone);
+			}
 		}
 		break;
+	}
+	
+	// Set boundaries
+	if x - (Screen.CameraX + Screen.Width) <= 128
+	{
+		if floor(Player.PosX) >= Screen.CameraX + Screen.Width / 2
+		{
+			Stage.TargetLeftBoundary = Screen.CameraX;
+		}
+		else if State
+		{
+			Stage.TargetLeftBoundary = x - Screen.Width / 2;
+		}
+		Stage.TargetRightBoundary = x + Screen.Width / 2;
 	}
 }

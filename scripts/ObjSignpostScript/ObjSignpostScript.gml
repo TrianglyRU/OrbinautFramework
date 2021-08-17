@@ -19,11 +19,12 @@ function ObjSignpostScript()
 			
 			Stage.TimeEnabled = false;
 			Stage.AllowPause  = false;
+			Stage.IsFinished  = 1;
 			
 			if Player.SuperState
 			{
 				Player.SuperState = false;
-			}
+			}	
 		}
 		animation_set_frame(SpriteData[0], 1);
 	}
@@ -55,7 +56,7 @@ function ObjSignpostScript()
 			SparkleToUse++;
 		}
 	}
-	else if Active == 2 and !Stage.IsFinished
+	else if Active == 2 and Stage.IsFinished != 2
 	{
 		if (++ActiveTimer) >= 24
 		{
@@ -63,7 +64,7 @@ function ObjSignpostScript()
 			{
 				audio_bgm_play(PriorityLow, ActClearMusic, noone);
 				
-				Stage.IsFinished   = true;
+				Stage.IsFinished   = 2;
 				Input.IgnoreInput  = true;	
 				Player.Xsp		   = 0;
 				Player.Ysp		   = 0;

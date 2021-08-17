@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 	
-	MaxHP  = 8;
+	MaxHP  = 1;
 	HP     = MaxHP;
 	
 	AngleX = 0;

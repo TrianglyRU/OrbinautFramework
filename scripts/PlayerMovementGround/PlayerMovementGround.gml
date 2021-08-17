@@ -72,7 +72,7 @@ function PlayerMovementGround()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	if !Stage.IsFinished
+	if Stage.IsFinished != 2
 	{
 		// Use 'idle' anmation
 		if (Angle <= 45 or Angle >= 316.41) and Inertia == 0 

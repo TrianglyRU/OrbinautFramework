@@ -12,9 +12,10 @@ function ObjCapsuleButtonScript()
 		// Check if player is standing on the object
 		if object_player_touch(SideTop)
 		{
-			y          += 8;
-			image_index = 0;
-			Pressed     = true;
+			Player.PosY += 8;	
+			y           += 8;
+			image_index  = 0;
+			Pressed      = true;
 		}
 	}
 	

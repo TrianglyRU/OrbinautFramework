@@ -31,8 +31,8 @@ function object_act_enemy(enemy_type)
 		// Check if enemy is a Badnik
 		if enemy_type == EnemyBadnik
 		{
-			// Get next extra life requirement
-			var LifeReward = ceil(Player.Score / 50000) * 50000;
+			// Get 50000 score target
+			var LifeReward = max(ceil(Player.Score / 50000) * 50000, 50000);
 			
 			// Count combo
 			if Player.Spinning or Player.SpindashRev >= 0
