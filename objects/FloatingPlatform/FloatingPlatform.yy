@@ -30,7 +30,7 @@
     {"varType":1,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":360.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"StartAngle","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Speed","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Distance","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":4,"value":"spr_obj_platform_template","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Sprite","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":5,"value":"spr_obj_platform_template","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Sprite","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "\"None\"",
         "\"Horizontal\"",
