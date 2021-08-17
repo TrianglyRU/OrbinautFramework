@@ -5,6 +5,7 @@ function ObjAnimalMain()
 		if !(--CapsuleDelay)
 		{
 			State = 0;
+			object_set_depth(EggPrison, true);
 		}
 	}
 	else

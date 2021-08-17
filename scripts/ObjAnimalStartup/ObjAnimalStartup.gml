@@ -21,7 +21,7 @@ function ObjAnimalStartup()
 	else
 	{
 		// Choose random animal
-		AnimalType = Stage.AnimalSet[irandom_range(0, array_length(Stage.AnimalSet) - 1)];
+		AnimalType = Stage.AnimalSet[irandom(array_length(Stage.AnimalSet) - 1)];
 	
 		// Set default speeds based on animal type
 		switch AnimalType

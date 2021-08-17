@@ -61,10 +61,26 @@ function ObjCapsuleScript()
 			// Spawn animals for 180 frames
 			if Timer 
 			{ 
+				if Timer == 180
+				{
+					var ThisObject = id;
+					for (var i = 0; i < 8; i++)
+					{
+						var  Object = instance_create(x - 27 + 7 * i, y + 4, Animal);
+						with Object
+						{
+							FromCapsule  = true;
+							CapsuleDelay = 154 - i * 8;
+							
+							object_set_depth(ThisObject, false);
+						}
+					}
+				}
+				
 				if (--Timer) mod 8 == 0 
 				{
 					var  ThisObject = id;
-					var  Object = instance_create(x - 27 + irandom(7) * 7, y + 8, Animal);
+					var  Object = instance_create(x - 27 + irandom(7) * 7, y + 4, Animal);
 					with Object
 					{
 						FromCapsule  = true;

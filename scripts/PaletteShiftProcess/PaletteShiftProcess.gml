@@ -111,13 +111,13 @@ function PaletteShiftProcess()
 			{
 				if Colour == 1
 				{
-					palette_set_colour(PaletteDry, 9, 4, 1);
-					palette_set_colour(PaletteWet, 9, 4, 1);
+					palette_set_colour(PaletteDry, 9, 3, 1);
+					palette_set_colour(PaletteWet, 9, 3, 1);
 				}
 				else
 				{			
-					palette_handle(PaletteDry, 9, 4, 11, 1, 3);
-					palette_handle(PaletteWet, 9, 4, 11, 1, 3);	
+					palette_handle(PaletteDry, 9, 3, 11, 1, 3);
+					palette_handle(PaletteWet, 9, 3, 11, 1, 3);	
 				}
 			}
 			
@@ -126,18 +126,18 @@ function PaletteShiftProcess()
 			{
 				if Colour == 1
 				{
-					palette_handle(PaletteDry, 9, 4, 1, 3, 17);
-					palette_handle(PaletteWet, 9, 4, 1, 3, 17);
+					palette_handle(PaletteDry, 9, 3, 1, 3, 17);
+					palette_handle(PaletteWet, 9, 3, 1, 3, 17);
 				}
 				if Colour == 2
 				{
-					palette_handle(PaletteDry, 9, 4, 2, 3, 15);
-					palette_handle(PaletteWet, 9, 4, 2, 3, 15);
+					palette_handle(PaletteDry, 9, 3, 2, 3, 15);
+					palette_handle(PaletteWet, 9, 3, 2, 3, 15);
 				}
 				if Colour > 2
 				{
-					palette_handle(PaletteDry, 9, 4, 11, 2, 3);
-					palette_handle(PaletteWet, 9, 4, 11, 2, 3);
+					palette_handle(PaletteDry, 9, 3, 11, 2, 3);
+					palette_handle(PaletteWet, 9, 3, 11, 2, 3);
 				}
 			}		
 		}
