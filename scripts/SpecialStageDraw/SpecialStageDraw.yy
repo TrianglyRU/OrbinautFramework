@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Special Stage",
-    "path": "folders/Controllers (Main)/Special Stage.yy",
+    "path": "folders/Game Scripts/Special Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpecialStageDraw",

@@ -1,16 +1,33 @@
 function PlayerSlopeResist()
 {	
 	// Set slope gravity	
-	if !Game.StrongerSlopeGravity and (Angle >= 46.41 and Angle <= 315) 
-	or  Game.StrongerSlopeGravity and (Angle >= 35.16 and Angle <= 326.25)
+	if !Game.StrongerSlopeGravity
 	{
-		SlopeGravity = 0.125;				
-	} 
-	else 
-	{	
-		SlopeGravity = (Inertia != 0) * 0.125;
+		if Angle >= 45 and Angle <= 315
+		{
+			SlopeGravity = 0.125 * dsin(Angle);
+		}
+		else if Inertia != 0
+		{
+			SlopeGravity = 0.125 * dsin(Angle);
+		}
+	}
+	else
+	{
+		if Angle >= 33.75 and Angle <= 326.25
+		{
+			SlopeGravity = 0.125 * dsin(Angle);
+		}
+		else if Inertia != 0
+		{
+			SlopeGravity = 0.125 * dsin(Angle);
+		}
+		else if abs(0.125 * dsin(Angle)) < 0.05078125
+		{
+			SlopeGravity = 0;
+		}
 	}
 	
-	// Update inertia
-	Inertia -= SlopeGravity * dsin(Angle);
+	// Apply it to inertia
+	Inertia -= SlopeGravity;
 }

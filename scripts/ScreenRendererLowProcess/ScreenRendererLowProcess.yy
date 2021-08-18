@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Screen",
-    "path": "folders/Controllers (Main)/Screen.yy",
+    "path": "folders/Game Scripts/Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "ScreenRendererLowProcess",

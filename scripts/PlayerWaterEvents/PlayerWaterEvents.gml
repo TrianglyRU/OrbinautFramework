@@ -18,6 +18,9 @@ function PlayerWaterEvents()
 				Ysp			*= 0.25;
 				IsUnderwater = true;
 				
+				// Create player bubble maker object
+				instance_create(0, 0, BubbleMakerPlayer);
+				
 				// Lower default gravity value by 0x28 (0.15625)
 				if !Hurt and !FlightState and GlideState != GlideActive
 				{
@@ -33,35 +36,20 @@ function PlayerWaterEvents()
 	}
 	else
 	{ 
-		// Decrease timer
+		// Air countdown
 		if AirTimer > 0
 		{
-			if BarrierType != BarrierWater
+			if BarrierType != BarrierWater and !Stage.IsFinished
 			{
-				// Generate bubble
-				// TODO: дождаться информации от Mercury и переписать генерацию пузырей
-				if Stage.Time mod 60 == 0
+				if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
 				{
-					var  PlayerBubble = instance_create(floor(PosX), floor(PosY), Bubble);
-					with PlayerBubble
-					{
-						FromPlayer = true;
-					}
+					audio_sfx_play(sfxAirAlert, false);
 				}
-			
-				// Air countdown
-				if !Stage.IsFinished
-				{
-					AirTimer--
-					if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
-					{
-						audio_sfx_play(sfxAirAlert, false);
-					}
-					else if AirTimer == 720
-					{			
-						audio_bgm_play(PriorityLow, DrowningMusic, noone);
-					}
+				else if AirTimer == 720
+				{			
+					audio_bgm_play(PriorityLow, DrowningMusic, noone);
 				}
+				AirTimer--
 			}
 		}
 		
@@ -81,8 +69,9 @@ function PlayerWaterEvents()
 				Stage.TimeEnabled    = false;
 				AllowCollision		 = false;
 				Grounded			 = false;
-				OnObject			 = false;
+				OnObject			 = false;	
 				Drown				 = true;
+				DrawOrder			 = 0;
 				Xsp					 = 0;
 				Ysp					 = 0;
 				Animation			 = AnimDrown;	
@@ -130,6 +119,9 @@ function PlayerWaterEvents()
 					audio_bgm_play(PriorityLow, SuperMusic, other);
 				}
 			}
+			
+			// Create player bubble maker object
+			instance_destroy(BubbleMakerPlayer);
 			
 			// Reset air timer
 			AirTimer = 1800;

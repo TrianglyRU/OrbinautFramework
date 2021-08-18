@@ -40,8 +40,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "SwingingPlatform",
-    "path": "folders/Objects/Stage Objects/SwingingPlatform.yy",
+    "name": "Swinging Platform",
+    "path": "folders/Objects/Stage Objects/Swinging Platform.yy",
   },
   "resourceVersion": "1.0",
   "name": "SwingingPlatform",

@@ -39,8 +39,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage Triggers",
-    "path": "folders/Objects/Stage Objects/Stage Triggers.yy",
+    "name": "Trigger (Collision)",
+    "path": "folders/Objects/Stage Objects/Trigger (Collision).yy",
   },
   "resourceVersion": "1.0",
   "name": "CollisionTrigger",

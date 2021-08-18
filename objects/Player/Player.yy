@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Controllers (Main)/Player.yy",
+    "path": "folders/Game Scripts/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "Player",

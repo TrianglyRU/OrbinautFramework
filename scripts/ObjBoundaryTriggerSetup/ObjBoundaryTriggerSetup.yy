@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage Triggers",
-    "path": "folders/Objects/Stage Objects/Stage Triggers.yy",
+    "name": "Trigger (Boundary)",
+    "path": "folders/Objects/Stage Objects/Trigger (Boundary).yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjBoundaryTriggerSetup",

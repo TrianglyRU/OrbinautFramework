@@ -9,7 +9,7 @@ function InputHotkeysProcess()
 	if keyboard_check_pressed(vk_f1) 
 	{
 		Game.StarpostID		= false;
-		Game.PlayerPosition	= false;
+		Game.PlayerPosition	= [];
 		Game.Time		    = 0;
 		Game.StageBoundary	= 0;
 		Game.Score          = 0;

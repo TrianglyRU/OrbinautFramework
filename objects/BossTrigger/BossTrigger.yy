@@ -35,8 +35,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage Triggers",
-    "path": "folders/Objects/Stage Objects/Stage Triggers.yy",
+    "name": "Trigger (Boss)",
+    "path": "folders/Objects/Stage Objects/Trigger (Boss).yy",
   },
   "resourceVersion": "1.0",
   "name": "BossTrigger",

@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage Triggers",
-    "path": "folders/Objects/Stage Objects/Stage Triggers.yy",
+    "name": "Trigger (S-Tube)",
+    "path": "folders/Objects/Stage Objects/Trigger (S-Tube).yy",
   },
   "resourceVersion": "1.0",
   "name": "RollTrigger",
