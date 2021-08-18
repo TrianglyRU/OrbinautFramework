@@ -10,7 +10,8 @@ function StageWaterSurfaceDraw()
     var ScrnWater = WaterLevel - Screen.CameraY;
     if  ScrnWater > -16 and ScrnWater < Screen.Height + 16
     {
-        for (var i = -1; i < ceil(Screen.Width / 32) + 2; i++)
+		var Length = ceil(Screen.Width / 32) + 2;
+        for (var i = -1; i < Length; i++)
         {
             draw_sprite(spr_water_surface, AnimationTime div 8 mod 3, (floor(Screen.CameraX / 32) + i) * 32, WaterLevel);
         }
