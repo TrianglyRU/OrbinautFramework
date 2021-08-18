@@ -1,12 +1,13 @@
 function ObjFloatingPlatformSetup()
 {
 	// Initialize variables
-	OriginX   isVar;
-	OriginY   isVar;
-	Weight    isVar;
-	Angle	  isVar;
-	FallState isVar;
-	FallTimer isVar;
+	OriginX   = 0;
+	OriginY   = 0;
+	Weight    = 0;
+	Angle	  = 0;
+	FallState = 0;
+	FallTimer = 0;
+	FallSpeed = 0;
 	
 	/* Variable Definitions	
 	1. XRadius,    default = 30;
