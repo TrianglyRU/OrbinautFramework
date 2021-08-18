@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Startup Screen",
-    "path": "folders/Game Scripts/Startup Screen.yy",
+    "path": "folders/Game Code/Startup Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "StartupScreenProcess",

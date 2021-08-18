@@ -112,16 +112,16 @@ function ObjCapsuleScript()
 	}
 	
 	// Set boundaries
-	if x - (Screen.CameraX + Screen.Width) <= 128
+	if x - (Camera.ViewX + Game.Width) <= 128
 	{
-		if floor(Player.PosX) >= Screen.CameraX + Screen.Width / 2
+		if floor(Player.PosX) >= Camera.ViewX + Game.Width / 2
 		{
-			Stage.TargetLeftBoundary = Screen.CameraX;
+			Stage.TargetLeftBoundary = Camera.ViewX;
 		}
 		else if State
 		{
-			Stage.TargetLeftBoundary = x - Screen.Width / 2;
+			Stage.TargetLeftBoundary = x - Game.Width / 2;
 		}
-		Stage.TargetRightBoundary = x + Screen.Width / 2;
+		Stage.TargetRightBoundary = x + Game.Width / 2;
 	}
 }

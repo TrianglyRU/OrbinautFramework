@@ -148,7 +148,7 @@ function MenuOptionReact()
 			Game.WindowSize = clamp(Game.WindowSize, 1, 4);
 				
 			// Update window
-			window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
+			window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
 				
 			// Update option
 			menu_update_option(7, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");	

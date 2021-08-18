@@ -37,9 +37,9 @@
 				Accel += 0.2;
 				x += round(Accel * dsin(Direction));
 				y += round(Accel * dcos(Direction));
-				var CamY = Screen.CameraY;
-				var CamX = Screen.CameraX;
-				if x < CamX - 128 or y < CamY - 32 or x > CamX + Screen.Width + 128 or y > CamY + Screen.Height + 32
+				var CamY = Camera.ViewY;
+				var CamX = Camera.ViewX;
+				if x < CamX - 128 or y < CamY - 32 or x > CamX + Game.Width + 128 or y > CamY + Game.Height + 32
 				{
 					instance_destroy();
 				}
@@ -61,9 +61,9 @@
 			Angle += Spin * ((Parent.MaxHP - Parent.HP - 1) / 8 + 1);
 			x = ParX + round((40 + Dist) * dsin(Angle + 180));
 			y = ParY + round((40 + Dist) * dcos(Angle + 180));
-			var CamY = Screen.CameraY;
-			var CamX = Screen.CameraX;
-			if x < CamX - 128 or y < CamY - 32 or x > CamX + Screen.Width + 128 or y > CamY + Screen.Height + 32
+			var CamY = Camera.ViewY;
+			var CamX = Camera.ViewX;
+			if x < CamX - 128 or y < CamY - 32 or x > CamX + Game.Width + 128 or y > CamY + Game.Height + 32
 			{
 				instance_destroy();
 			}

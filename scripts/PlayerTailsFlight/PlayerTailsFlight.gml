@@ -74,6 +74,6 @@ function PlayerTailsFlight()
 		Animation	= AnimRoll;
 		
 		// Shift camera
-		Screen.RawY += DefaultRadiusX - SmallRadiusX;
+		Screen.CameraY += DefaultRadiusX - SmallRadiusX;
 	}	
 }

@@ -1,12 +1,12 @@
 {
   "spriteId": {
-    "name": "spr_framework_discord",
-    "path": "sprites/spr_framework_discord/spr_framework_discord.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
-  "persistent": false,
+  "persistent": true,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Discord",
-    "path": "folders/Game Scripts/Discord.yy",
+    "path": "folders/Game Code/Discord.yy",
   },
   "resourceVersion": "1.0",
   "name": "Discord",

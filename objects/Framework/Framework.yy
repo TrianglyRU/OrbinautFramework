@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_framework_main",
-    "path": "sprites/spr_framework_main/spr_framework_main.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Framework",
-    "path": "folders/Game Scripts/Framework.yy",
+    "path": "folders/Game Code/Framework.yy",
   },
   "resourceVersion": "1.0",
   "name": "Framework",

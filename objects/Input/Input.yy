@@ -1,12 +1,12 @@
 {
   "spriteId": {
-    "name": "spr_framework_input",
-    "path": "sprites/spr_framework_input/spr_framework_input.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
-  "persistent": false,
+  "persistent": true,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Input",
-    "path": "folders/Game Scripts/Input.yy",
+    "path": "folders/Game Code/Input.yy",
   },
   "resourceVersion": "1.0",
   "name": "Input",

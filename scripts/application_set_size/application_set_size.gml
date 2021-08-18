@@ -3,7 +3,7 @@ function application_set_size(appWidth, appHeight)
 {	
 	// Set camera size and resize application surface
 	camera_set_view_size(view_camera[0], appWidth, appHeight);
-	surface_resize(application_surface,  appWidth, appHeight);
+	surface_resize(application_surface, appWidth, appHeight);
 
 	// Resize palette surfaces
 	if instance_exists(Palette)

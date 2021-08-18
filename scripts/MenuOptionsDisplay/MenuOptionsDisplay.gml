@@ -12,12 +12,12 @@ function MenuOptionsDisplay()
 	// Display options
 	for (var i = 0; i < MenuSize[MenuID]; i++)
 	{
-		string_display(Game.ResolutionWidth / 2, 100 + i * 16, MenuOption[MenuID][i], 1);
+		string_display(Game.Width / 2, 100 + i * 16, MenuOption[MenuID][i], 1);
 	}
 	
 	// Display pointer
 	var OptionLength = string_length(MenuOption[MenuID][OptionID]) * 8;
 	
-	string_display(Game.ResolutionWidth / 2 - OptionLength / 2 - 16, 100 + OptionID * 16, ">", 1);
-	string_display(Game.ResolutionWidth / 2 + OptionLength / 2 + 16, 100 + OptionID * 16, "<", 1);
+	string_display(Game.Width / 2 - OptionLength / 2 - 16, 100 + OptionID * 16, ">", 1);
+	string_display(Game.Width / 2 + OptionLength / 2 + 16, 100 + OptionID * 16, "<", 1);
 }

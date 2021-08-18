@@ -1,8 +1,8 @@
-/// @description Animate & Display
+/// @description Visualisation
 // You can write your code in this editor
 	
-	// Display objects when in debug mode
+	// Check if we're in Debug Mode
 	if PlayerDebugModeDisplay() exit;
 	
-	// Display character
+	// Visualisation Script
 	PlayerDisplay();

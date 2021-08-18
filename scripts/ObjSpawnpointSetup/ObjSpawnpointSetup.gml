@@ -8,8 +8,8 @@ function ObjSpawnpointSetup()
 	if array_equals(Game.PlayerPosition, [])
 	{
 		// Check which spawnpoint player should use
-		if id.PlayerType == "Sonic & Tails" and Player.CharacterID == CharKnuckles
-		or id.PlayerType == "Knuckles"		and Player.CharacterID != CharKnuckles
+		if id.PlayerType == "Sonic & Tails" and Game.Character == CharKnuckles
+		or id.PlayerType == "Knuckles"		and Game.Character != CharKnuckles
 		{
 			exit;
 		}
@@ -19,10 +19,8 @@ function ObjSpawnpointSetup()
 		Player.PosY = y - Player.RadiusY - 1;
 			
 		// Set camera
-		Screen.RawX    = floor(Player.PosX) - Screen.Width  / 2;
-		Screen.RawY    = floor(Player.PosY) - Screen.Height / 2 + 16;
-		Screen.CameraX = Screen.RawX;
-		Screen.CameraY = Screen.RawY;
+		Camera.PosX = floor(Player.PosX) - Game.Width  / 2;
+		Camera.PosY = floor(Player.PosY) - Game.Height / 2 + 16;
 	}
 
 	// Remove self

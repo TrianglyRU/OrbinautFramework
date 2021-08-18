@@ -1,6 +1,12 @@
 /// @description
 // You can write your code in this editor
 	
+	// Exit if player has water barrier
+	if Player.BarrierType == BarrierWater
+	{
+		exit;
+	}
+	
 	// Emit a bubble normally
 	if !Player.Drown
 	{

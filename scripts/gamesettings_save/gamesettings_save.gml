@@ -18,8 +18,8 @@ function gamesettings_save(filename)
 	ini_write_real("Music",    "MusicVolume", Game.MusicVolume);
 	ini_write_real("Video",    "Fullscreen",  Game.WindowFullscreen);
 	ini_write_real("Video",    "Size", 	      Game.WindowSize);
-	ini_write_real("Video",    "Height",	  Game.ResolutionHeight);
-	ini_write_real("Video",    "Width",		  Game.ResolutionWidth);
+	ini_write_real("Video",    "Height",	  Game.Height);
+	ini_write_real("Video",    "Width",		  Game.Width);
 	ini_write_real("Gameplay", "CDCamera",    Game.ExtendedCamera);
 	ini_write_real("Gameplay", "AirSpeedcap", Game.AirSpeedcap);
 	ini_write_real("Gameplay", "GndSpeedcap", Game.GroundSpeedcap);

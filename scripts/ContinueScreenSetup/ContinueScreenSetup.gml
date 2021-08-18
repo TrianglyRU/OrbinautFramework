@@ -1,8 +1,8 @@
 function ContinueScreenSetup()
 {
 	// Get room centre
-	RoomX = Game.ResolutionWidth / 2;
-	RoomY = Game.ResolutionHeight / 2;
+	RoomX = Game.Width / 2;
+	RoomY = Game.Height / 2;
 	
 	// Set countdown to 11 seconds - 1 frame
 	Countdown = 659;

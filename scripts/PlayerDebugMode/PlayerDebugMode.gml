@@ -17,7 +17,7 @@ function PlayerDebugMode()
 	{
 		if Death
 		{
-			Screen.CameraEnabled = true;
+			Camera.Enabled = true;
 			Stage.AllowPause     = true;
 			Stage.DoUpdate       = true;
 			AllowCollision       = true;

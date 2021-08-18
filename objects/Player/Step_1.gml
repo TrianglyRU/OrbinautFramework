@@ -1,116 +1,54 @@
-/// @description Pre-Object Code
+/// @description Pre-Objects Code
 // You can write your code in this editor
 
-	// Debug mode state
+	// Check if we're in Debug Mode
 	if PlayerDebugMode() exit;
 	
-	// Check if we should run the code below
+	// Check if we should execute the code below
 	if !PlayerProcess() exit;
 
-	// Airborne
+	// Pre-Objects Scripts
 	if !Grounded
 	{
-		// Limit jump height and perform jump actions
+		// Airborne
 		PlayerJump();
-			
-		// Update player's speeds
 		PlayerMovementAir();
-			
-		// Check for crossing stage boundaries
 		PlayerLevelBound();
-			
-		// Update player's position
 		PlayerPosition();
-		
-		// Check for dropdash as Sonic
 		PlayerSonicDropdash();
-		
-		// Check for flying as Tails
 		PlayerTailsFlight();
-		
-		// Check for climbing walls as Knuckles
 		PlayerKnuxClimb();
-		
-		// Check for gliding as Knuckles
 		PlayerKnuxGlide();
-		
-		// Air collision
 		PlayerAirLevelCollision();
-			
-		// Reset flags on landing
 		PlayerResetOnFloor();
 	}
-	
-	// Grounded, not rolling
 	else if Grounded and !Spinning
 	{
-		// Perform crouch actions, such as Spindash
-		if PlayerCrouch() exit;
-		
-		// Perform look up actions, such as Super Peel Out
-		if PlayerLookup() exit;
-		
-		// Perform jump
+		// Grounded, not rolling
+		if PlayerCrouch()    exit;
+		if PlayerLookup()    exit;
 		if PlayerJumpStart() exit;
-
-		// Set slope gravity
 		PlayerSlopeResist();
-
-		// Update player's speeds
 		PlayerMovementGround();
-		
-		// Check balancing
 		PlayerBalance();
-		
-		// Check for skidding
 		PlayerSkid();
-		
-		// Check push
 		PlayerPush();
-		
-		// Collide with walls
-		PlayerGroundWallCollision();
-		
-		// Perform roll
+		PlayerGroundWallCollision();	
 		PlayerRollStart();
-			
-		// Check for crossing stage boundaries
 		PlayerLevelBound();
-			
-		// Update player's position
 		PlayerPosition();
-					
-		// Collide with floor
 		PlayerGroundFloorCollision();
-		
-		// Fall off the ceiling and walls
 		PlayerSlopeRepel();
 	}
-	
-	// Grounded, rolling
 	else if Grounded and Spinning
 	{
-		// Perform jump
+		// Grounded, rolling
 		if PlayerJumpStart() exit;
-			
-		// Set slope gravity
 		PlayerSlopeResistRoll();	
-			
-		// Update player's speeds
 		PlayerRoll();
-
-		// Collide with walls
 		PlayerGroundWallCollision();
-			
-		// Check for crossing stage boundaries
 		PlayerLevelBound();
-			
-		// Update player's position
 		PlayerPosition();
-			
-		// Collide with floor
 		PlayerGroundFloorCollision();
-	
-		// Fall off the ceiling and walls
 		PlayerSlopeRepel();
 	}

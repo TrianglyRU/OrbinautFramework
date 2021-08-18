@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Startup Screen",
-    "path": "folders/Game Scripts/Startup Screen.yy",
+    "path": "folders/Game Code/Startup Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "StartupScreen",

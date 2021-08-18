@@ -40,11 +40,11 @@ function StageActiveProcess()
 	if Player.Death
 	{
 		// Disable camera and timer
-		CameraEnabled = false;
+		Camera.Enabled = false;
 		TimeEnabled   = false;
 		
 		// Check if player is off-screen vertically
-		if floor(Player.PosY) > Screen.CameraY + Screen.Height + 256
+		if floor(Player.PosY) > Camera.ViewY + Game.Height + 256
 		{	
 			if !EventTimer
 			{

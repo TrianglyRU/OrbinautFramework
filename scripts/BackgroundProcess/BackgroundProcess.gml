@@ -6,6 +6,10 @@ function BackgroundProcess()
 	// Use parallax shader
 	shader_set(ShaderParallax);
 	
+	// Get camera position
+	var ViewX = camera_get_view_x(GameCamera);
+	var ViewY = camera_get_view_y(GameCamera);
+	
 	// Work with each parallax piece individually
 	var BackgroundParts = array_length(BackgroundSprites);
 	for (var i = 0; i < BackgroundParts; i++)
@@ -25,8 +29,8 @@ function BackgroundProcess()
 		var PixelSize     = BackgroundValues[i][11];
 		
 		// Get screen position
-		var DrawX = Screen.CameraX;
-		var DrawY = floor(Screen.CameraY * (1 - ScrollY)) + PosY;
+		var DrawX = ViewX;
+		var DrawY = floor(ViewY * (1 - ScrollY)) + PosY;
 		
 		// Set y-scale mode properties
 		if  YScaleMode
@@ -47,16 +51,16 @@ function BackgroundProcess()
 					// Adaptive limit
 					case 3:
 					{
-						var Min = (Screen.CameraY - DrawY) / Height;
-						var Max = (Screen.CameraY + Screen.Height - DrawY) / Height;
+						var Min = (ViewY - DrawY) / Height;
+						var Max = (ViewY + Game.Height - DrawY) / Height;
 					}
 					break;
 					
 					// "Smart" limit
 					case 4:
 					{
-						var Min = min(-1, (Screen.CameraY - DrawY) / Height);
-						var Max = max( 1, (Screen.CameraY + Screen.Height - DrawY) / Height);
+						var Min = min(-1, (ViewY - DrawY) / Height);
+						var Max = max( 1, (ViewY + Game.Height - DrawY) / Height);
 					}
 					break;
 				}

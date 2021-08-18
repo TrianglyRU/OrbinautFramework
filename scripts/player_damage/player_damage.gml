@@ -40,7 +40,7 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		Player.Grv = 0.21875;
 		
 		// Disable collisions and camera
-		Screen.CameraEnabled  = false;
+		Camera.Enabled  = false;
 		Player.AllowCollision = false;
 		Stage.AllowPause	  = false;
 		

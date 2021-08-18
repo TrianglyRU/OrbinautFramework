@@ -4,8 +4,10 @@ function GameMacro()
 	make it more readable. We could use emums in that case, but macros are easier */
 	
 	// Global framework macro
-	#macro Game   global
-	#macro Shader global
+	#macro Shader	   global
+	#macro Game		   global
+	#macro GameCamera  view_camera[0]
+	#macro GameSurface application_surface
 
 	// Object macro
 	#macro RangeClose   0

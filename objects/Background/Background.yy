@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_framework_background",
-    "path": "sprites/spr_framework_background/spr_framework_background.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Background",
-    "path": "folders/Game Scripts/Background.yy",
+    "path": "folders/Game Code/Background.yy",
   },
   "resourceVersion": "1.0",
   "name": "Background",

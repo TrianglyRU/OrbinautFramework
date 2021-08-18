@@ -1,5 +1,5 @@
-/// @description
+/// @description Visualization
 // You can call your scripts in this editor
 	
-	// Call process script
+	// Visualization Script
 	BackgroundProcess();

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Background",
-    "path": "folders/Game Scripts/Background.yy",
+    "path": "folders/Game Code/Background.yy",
   },
   "resourceVersion": "1.0",
   "name": "BackgroundVariables",

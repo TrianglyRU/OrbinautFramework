@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Palette",
-    "path": "folders/Game Scripts/Palette.yy",
+    "path": "folders/Game Code/Palette.yy",
   },
   "resourceVersion": "1.0",
   "name": "PaletteReset",

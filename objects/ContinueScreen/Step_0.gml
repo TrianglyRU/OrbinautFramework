@@ -92,7 +92,7 @@
 			CharObject.x += 16;
 			
 			// If object 64 pixels off-screen, go into next room state
-			if CharObject.x - Game.ResolutionWidth >= 64
+			if CharObject.x - Game.Width >= 64
 			{
 				RoomState = 2;
 				RoomTimer = 1;

@@ -15,12 +15,16 @@ function GameVariables()
 	Game.StarpostID		= 0;
 	Game.SpecialRingIDs	= [];
 	Game.PlayerPosition	= [];
-	Game.CurrentStage   = [];		// 0 - ZoneID, 1 - room
+	Game.CurrentStage   = [];
+	
+	// Discord global data
+	Game.DiscordEvent = "";
+	Game.DiscordTime  = 0;
 
 	// Graphics
 	Game.WindowFullscreen = 0;
-	Game.ResolutionWidth  = 0;
-	Game.ResolutionHeight = 0;
+	Game.Width  = 0;
+	Game.Height = 0;
 	Game.WindowSize		  = 0;
 	
 	// Audio

@@ -48,27 +48,27 @@ function InputHotkeysProcess()
 	if keyboard_check_pressed(vk_f5)
 	{
 		// Switch between
-		if Game.ResolutionWidth == 320
+		if Game.Width == 320
 		{
-			Game.ResolutionWidth  = 400;
-			Game.ResolutionHeight = 224;
+			Game.Width  = 400;
+			Game.Height = 224;
 		}
-		else if Game.ResolutionWidth == 400
+		else if Game.Width == 400
 		{
-			Game.ResolutionWidth  = 426;
-			Game.ResolutionHeight = 240;
+			Game.Width  = 426;
+			Game.Height = 240;
 		}
-		else if Game.ResolutionWidth == 426
+		else if Game.Width == 426
 		{
-			Game.ResolutionWidth  = 320;
-			Game.ResolutionHeight = 224;
+			Game.Width  = 320;
+			Game.Height = 224;
 		}
-		Screen.Width  = Game.ResolutionWidth;
-		Screen.Height = Game.ResolutionHeight;
+		Game.Width  = Game.Width;
+		Game.Height = Game.Height;
 		
 		// Adjust room viewport to our resolution
-		application_set_size(Game.ResolutionWidth, Game.ResolutionHeight);
-		window_set_size(Game.ResolutionWidth * Game.WindowSize, Game.ResolutionHeight * Game.WindowSize);
+		application_set_size(Game.Width, Game.Height);
+		window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
 	}
 	
 	// Give highspeed bonus (F6)

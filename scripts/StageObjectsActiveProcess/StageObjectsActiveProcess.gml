@@ -11,10 +11,10 @@ function StageObjectsActiveProcess()
 				var ObjectY = floor(y);
 			
 				// Get load bounds
-				var LeftBound   = Screen.CameraX - Obj_LoadX;
-				var TopBound    = Screen.CameraY - Obj_LoadY;
-				var RightBound  = Screen.CameraX + Screen.Width  + Obj_LoadX;
-				var BottomBound = Screen.CameraY + Screen.Height + Obj_LoadY;
+				var LeftBound   = Camera.ViewX - Obj_LoadX;
+				var TopBound    = Camera.ViewY - Obj_LoadY;
+				var RightBound  = Camera.ViewX + Game.Width  + Obj_LoadX;
+				var BottomBound = Camera.ViewY + Game.Height + Obj_LoadY;
 			
 				// Check if the object is off-boundaries
 				if ObjectX < LeftBound or ObjectX > RightBound
@@ -34,7 +34,7 @@ function StageObjectsActiveProcess()
 							// ...or reset it to its initial state
 							else if Obj_LoadFlag == TypeReset
 							{
-								if Obj_LoadData[0] < Screen.CameraX - Obj_LoadX or Obj_LoadData[0] > Screen.CameraX + Screen.Width + Obj_LoadX
+								if Obj_LoadData[0] < Camera.ViewX - Obj_LoadX or Obj_LoadData[0] > Camera.ViewX + Game.Width + Obj_LoadX
 								{
 									x			 = Obj_LoadData[0];
 									y			 = Obj_LoadData[1];
@@ -72,5 +72,5 @@ function StageObjectsActiveProcess()
 	}
 	
 	// Activate unloaded objects inside of the largest region
-	instance_activate_region(Screen.CameraX - 128, Screen.CameraY - 256, Screen.Width + 256, Screen.Height + 512, true);
+	instance_activate_region(Camera.ViewX - 128, Camera.ViewY - 256, Game.Width + 256, Game.Height + 512, true);
 }

@@ -21,7 +21,7 @@ function PlayerSetup()
 	Grv	= 0.21875;
 	
 	// Set collision radiuses
-	if CharacterID != CharTails
+	if Game.Character != CharTails
 	{
 		DefaultRadiusY = 19;
 		DefaultRadiusX = 9;

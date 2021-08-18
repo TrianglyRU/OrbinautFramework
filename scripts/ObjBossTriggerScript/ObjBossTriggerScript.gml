@@ -1,7 +1,7 @@
 function ObjBossControllerScript()
 {
 	// Always setforce right boundary if object exist
-	Stage.TargetRightBoundary = x + max(Screen.Width / 2, ArenaWidth  / 2);
+	Stage.TargetRightBoundary = x + max(Game.Width / 2, ArenaWidth  / 2);
 	
 	// Check if player ran past the trigger
 	if Stage.IsBossfight == -1
@@ -41,9 +41,9 @@ function ObjBossControllerScript()
 		instance_deactivate_object(EggPrison);
 		
 		// Force boundaries
-		Stage.TargetLeftBoundary   = x - max(Screen.Width  / 2, ArenaWidth  / 2);
-		Stage.TargetTopBoundary    = y - max(Screen.Height / 2, ArenaHeight / 2);
-		Stage.TargetBottomBoundary = y + max(Screen.Height / 2, ArenaHeight / 2);
+		Stage.TargetLeftBoundary   = x - max(Game.Width  / 2, ArenaWidth  / 2);
+		Stage.TargetTopBoundary    = y - max(Game.Height / 2, ArenaHeight / 2);
+		Stage.TargetBottomBoundary = y + max(Game.Height / 2, ArenaHeight / 2);
 		
 		// Check if the boss was defeated
 		if BossDefeated

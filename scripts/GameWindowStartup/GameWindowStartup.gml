@@ -1,8 +1,8 @@
 function GameWindowStartup()
 {	
 	// Get our game resolution and its multiplier
-	var Width  = Game.ResolutionWidth  * Game.WindowSize;
-	var Height = Game.ResolutionHeight * Game.WindowSize;
+	var Width  = Game.Width  * Game.WindowSize;
+	var Height = Game.Height * Game.WindowSize;
 	
 	// Set window properties
 	window_set_size(Width, Height);

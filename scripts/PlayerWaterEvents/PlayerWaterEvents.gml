@@ -65,7 +65,7 @@ function PlayerWaterEvents()
 				audio_sfx_play(sfxDrowning, false);
 				
 				NoControls			 = true;
-				Screen.CameraEnabled = false;
+				Camera.Enabled = false;
 				Stage.TimeEnabled    = false;
 				AllowCollision		 = false;
 				Grounded			 = false;
@@ -76,7 +76,7 @@ function PlayerWaterEvents()
 				Ysp					 = 0;
 				Animation			 = AnimDrown;	
 			}
-			else if floor(PosY) >= Screen.CameraY + Screen.Height + 276
+			else if floor(PosY) >= Camera.ViewY + Game.Height + 276
 			{
 				Death = true;
 			}

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_framework_stage",
-    "path": "sprites/spr_framework_stage/spr_framework_stage.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage",
-    "path": "folders/Game Scripts/Stage.yy",
+    "name": "Playable Stage",
+    "path": "folders/Game Code/Playable Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage",

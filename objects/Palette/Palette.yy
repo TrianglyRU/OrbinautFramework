@@ -1,12 +1,12 @@
 {
   "spriteId": {
-    "name": "spr_framework_palette",
-    "path": "sprites/spr_framework_palette/spr_framework_palette.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
-  "persistent": false,
+  "persistent": true,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Palette",
-    "path": "folders/Game Scripts/Palette.yy",
+    "path": "folders/Game Code/Palette.yy",
   },
   "resourceVersion": "1.0",
   "name": "Palette",

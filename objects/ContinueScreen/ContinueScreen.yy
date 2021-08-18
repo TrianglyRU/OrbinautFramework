@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Continue Screen",
-    "path": "folders/Game Scripts/Continue Screen.yy",
+    "path": "folders/Game Code/Continue Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueScreen",

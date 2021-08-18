@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spt_controller",
+    "path": "sprites/spt_controller/spt_controller.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Developer Menu",
-    "path": "folders/Game Scripts/Developer Menu.yy",
+    "path": "folders/Game Code/Developer Menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "DeveloperMenu",

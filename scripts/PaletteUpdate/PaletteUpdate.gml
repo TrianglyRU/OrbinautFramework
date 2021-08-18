@@ -16,8 +16,8 @@ function PaletteUpdate()
 		shader_set_uniform_i(Shader.ScreenMode,   FadeMode);
 		
 		// Get a render boundary between surface and underwater palette
-		var Height   = Game.ResolutionHeight;
-		var Boundary = variable_check(Stage, "WaterEnabled") ? Height - clamp(Screen.CameraY - Stage.WaterLevel + Height, 0, Height) : Height;
+		var Height   = Game.Height;
+		var Boundary = variable_check(Stage, "WaterEnabled") ? Height - clamp(Camera.ViewY - Stage.WaterLevel + Height, 0, Height) : Height;
 		
 		// Transfer boundary data into the shader
 		shader_set_uniform_f(Shader.ScreenWaterHeight, Boundary);

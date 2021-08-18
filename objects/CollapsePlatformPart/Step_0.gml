@@ -10,7 +10,7 @@
 		SpdY += 0.21875;
 		PosY += SpdY;
 		y = floor(PosY);
-		if y >= Screen.CameraY + Screen.Height + 32
+		if y >= Camera.ViewY + Game.Height + 32
 		{
 			instance_destroy();
 		}

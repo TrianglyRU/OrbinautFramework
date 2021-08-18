@@ -7,8 +7,8 @@ function SpecialMainDraw()
 	}
 	
 	// Get screen centre
-	var CentreX	= Game.ResolutionWidth / 2;
-	var CentreY = Game.ResolutionHeight / 2;
+	var CentreX	= Game.Width / 2;
+	var CentreY = Game.Height / 2;
 	
 	var ShiftY = floor(Offset[3]);
 	
@@ -49,7 +49,7 @@ function SpecialMainDraw()
 	draw_sprite(spr_results_ringbonus, 0, CentreX - 80 + Offset[5], CentreY + 48);
 	
 	// Display counters
-	string_set_font(Game.Font[FontDigits1], fa_right);
+	text_set_font(Game.Font[FontDigits1], fa_right);
 	draw_text(CentreX + 80 + Offset[4], CentreY + 33, Game.Score);
 	draw_text(CentreX + 80 + Offset[5], CentreY + 49, Game.SpecialScore);
 	
