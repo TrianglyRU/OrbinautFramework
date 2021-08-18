@@ -15,7 +15,11 @@ function GameVariables()
 	Game.StarpostID		= 0;
 	Game.SpecialRingIDs	= [];
 	Game.PlayerPosition	= [];
-	Game.CurrentStage   = [];		// 0 - ZoneID, 1 - room
+	Game.CurrentStage   = [];
+	
+	// Discord global data
+	Game.DiscordEvent = "";
+	Game.DiscordTime  = 0;
 
 	// Graphics
 	Game.WindowFullscreen = 0;
@@ -47,6 +51,7 @@ function GameVariables()
 	Game.ExtensiveWallCollision = 0;
 	Game.BalancingCrouch		= 0;
 	Game.BuffedWaterBarrier     = 0;
+	Game.LimitVerticalSpeed		= 0;
 	
 	// Orbinaut improvements
 	Game.PostProcessing      = 0;

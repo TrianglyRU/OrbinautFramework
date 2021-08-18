@@ -6,6 +6,15 @@ function GameMacro()
 	// Global framework macro
 	#macro Game   global
 	#macro Shader global
+	
+	#macro Input      Framework2.InputStruct
+	#macro Palette    Framework2.PaletteStruct
+	#macro Discord    Framework2.DiscordStruct
+	#macro Player     Gameplay.PlayerStruct
+	#macro Screen	  Gameplay.ScreenStruct
+	#macro Stage	  Gameplay.StageStruct
+	#macro Background Gameplay.BackgroundStruct
+	#macro Camera     Gameplay.CameraStruct
 
 	// Object macro
 	#macro RangeClose   0
@@ -48,6 +57,9 @@ function GameMacro()
 	#macro FlashNegative 1
 
 	// Player macro
+	#macro StateAirborne	   0
+	#macro StateGrounded	   1
+	#macro StateRolling		   2
 	#macro CharSonic		   0
 	#macro CharTails	       1
 	#macro CharKnuckles	       2

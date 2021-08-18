@@ -1,8 +1,9 @@
 function PaletteFadeProcess()
 {	
 	// Update fade
-	if (FadeMode and FadeStep < 756) or (!FadeMode and FadeStep > 0)
+	if  Palette.FadeMode and Palette.FadeStep < 756 
+	or !Palette.FadeMode and Palette.FadeStep > 0
 	{
-		FadeStep = clamp(FadeStep + (FadeMode ? FadePower : -FadePower), 0, 756);
+		Palette.FadeStep = clamp(Palette.FadeStep + (Palette.FadeMode ? Palette.FadePower : -Palette.FadePower), 0, 756);
 	}
 }

@@ -1,52 +1,49 @@
 function PlayerSonicDropdash()
 {
-	// Exit if we're not Sonic
-	if CharacterID != CharSonic or !Game.DropdashEnabled or !Jumping
+	// Exit if we can't perform dropdash
+	if Game.Character != CharSonic or !Game.DropdashEnabled or !Player.Jumping
 	{
 		exit;
 	}
 	
-	// Define our Dropdash direction by checking towards witch side we're moving and facing
-	if Xsp >= 0
+	// Define dropdash direction
+	if Player.Xsp >= 0
 	{
-		if Facing == DirectionLeft and Input.Left
+		if Player.Facing == FlipLeft and Input.Left
 		{
-			DropdashDirection = DirectionLeft;
+			Player.DropdashDirection = FlipLeft;
 		}
 		else
 		{
-			DropdashDirection = DirectionRight;
+			Player.DropdashDirection = FlipRight;
 		}
 	}
 	else
 	{
-		if Facing == DirectionRight and Input.Right
+		if Player.Facing == FlipRight and Input.Right
 		{
-			DropdashDirection = DirectionLeft;
+			Player.DropdashDirection = FlipLeft;
 		}
 		else
 		{
-			DropdashDirection = DirectionRight;
+			Player.DropdashDirection = FlipRight;
 		}
 	}
 	
-	// Check if A, B or C button is being on hold
+	// Charge Dropdash
 	if Input.ABC
 	{
-		// Charge Dropdash
-		if DropdashRev == -1
+		if Player.DropdashRev == -1
 		{
-			DropdashRev = 0;
+			Player.DropdashRev = 0;
 		}
-		else
+		else if Player.DropdashRev < 20
 		{
-			if (DropdashRev < 20) DropdashRev++;
+			Player.DropdashRev++;
 		}
 	}
-	
-	// Reset Dropdash charge value if we've released the button
 	else
 	{
-		DropdashRev = 0;
+		Player.DropdashRev = 0;
 	}
 }

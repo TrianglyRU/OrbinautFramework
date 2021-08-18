@@ -1,39 +1,39 @@
 function InputReset()
 {	
 	// Ignore double input
-	if Left and Right
+	if Input.Left and Input.Right
 	{
-		Left  = false;
-		Right = false;
+		Input.Left  = false;
+		Input.Right = false;
 	}
-	if Up and Down
+	if Input.Up and Input.Down
 	{
-		Up   = false;
-		Down = false;
+		Input.Up   = false;
+		Input.Down = false;
 	}
 	
 	// Reset all buttons if we ignore all input
-	if IgnoreInput
+	if Input.IgnoreInput
 	{
-		Up			= false;
-		Down		= false;
-		Left		= false;
-		Right		= false;
-		A			= false;
-		B			= false;
-		C			= false;
-		ABC			= false;
-		Start       = false;
-		Mode		= false;
-		UpPress		= false;
-		DownPress	= false;
-		LeftPress	= false;
-		RightPress	= false;
-		APress		= false;
-		BPress		= false;
-		CPress		= false;
-		ABCPress	= false;
-		StartPress  = false;
-		ModePress   = false;
+		Input.Up		 = false;
+		Input.Down		 = false;
+		Input.Left		 = false;
+		Input.Right		 = false;
+		Input.A			 = false;
+		Input.B			 = false;
+		Input.C			 = false;
+		Input.ABC		 = false;
+		Input.Start      = false;
+		Input.Mode		 = false;
+		Input.UpPress	 = false;
+		Input.DownPress	 = false;
+		Input.LeftPress	 = false;
+		Input.RightPress = false;
+		Input.APress	 = false;
+		Input.BPress	 = false;
+		Input.CPress     = false;
+		Input.ABCPress	 = false;
+		Input.StartPress = false;
+		Input.ModePress  = false;
 	}
 }

@@ -1,15 +1,15 @@
 function PaletteSurfaceStartup()
 {
 	// Create low surface
-	if !surface_exists(SurfaceLow)
+	if !surface_exists(Palette.SurfaceLow)
 	{
-		SurfaceLow = surface_create(Game.ResolutionWidth, Game.ResolutionHeight);
-		view_surface_id[0] = SurfaceLow;
+		Palette.SurfaceLow = surface_create(Game.ResolutionWidth, Game.ResolutionHeight);
+		view_surface_id[0] = Palette.SurfaceLow;
 	}
 	
 	// Create high surface
-	if !surface_exists(SurfaceHigh)
+	if !surface_exists(Palette.SurfaceHigh)
 	{
-		SurfaceHigh = surface_create(Game.ResolutionWidth, Game.ResolutionHeight);
+		Palette.SurfaceHigh = surface_create(Game.ResolutionWidth, Game.ResolutionHeight);
 	}
 }

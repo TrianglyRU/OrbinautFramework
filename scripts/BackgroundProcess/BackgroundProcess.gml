@@ -7,22 +7,22 @@ function BackgroundProcess()
 	shader_set(ShaderParallax);
 	
 	// Work with each parallax piece individually
-	var BackgroundParts = array_length(BackgroundSprites);
+	var BackgroundParts = array_length(Background.BGSprites);
 	for (var i = 0; i < BackgroundParts; i++)
 	{
 		// Get parallax piece data
-		var PosX		  = BackgroundValues[i][0];
-		var PosY		  = BackgroundValues[i][1];
-		var ScrollX		  = BackgroundValues[i][2];
-		var ScrollY		  = BackgroundValues[i][3];
-		var OffsetX		  = BackgroundValues[i][4];
-		var OffsetY		  = BackgroundValues[i][5];
-		var InclineHeight = BackgroundValues[i][6];
-		var InclineForce  = BackgroundValues[i][7];
-		var	YScaleMode	  = BackgroundValues[i][8];
-		var Height		  = BackgroundValues[i][9];
-		var Width		  = BackgroundValues[i][10];
-		var PixelSize     = BackgroundValues[i][11];
+		var PosX		  = Background.BGValues[i][0];
+		var PosY		  = Background.BGValues[i][1];
+		var ScrollX		  = Background.BGValues[i][2];
+		var ScrollY		  = Background.BGValues[i][3];
+		var OffsetX		  = Background.BGValues[i][4];
+		var OffsetY		  = Background.BGValues[i][5];
+		var InclineHeight = Background.BGValues[i][6];
+		var InclineForce  = Background.BGValues[i][7];
+		var	YScaleMode	  = Background.BGValues[i][8];
+		var Height		  = Background.BGValues[i][9];
+		var Width		  = Background.BGValues[i][10];
+		var PixelSize     = Background.BGValues[i][11];
 		
 		// Get screen position
 		var DrawX = Screen.CameraX;
@@ -86,12 +86,12 @@ function BackgroundProcess()
 		if YScaleMode
 		{
 			//draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY, 1, YScale, c_white, 1);
-			draw_sprite_ext(BackgroundSprites[i], 0, DrawX + PosX, DrawY, 1, YScale, 0, c_white, 1);
+			draw_sprite_ext(Background.BGSprites[i], 0, DrawX + PosX, DrawY, 1, YScale, 0, c_white, 1);
 		}
 		else
 		{
 			//draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY);
-			draw_sprite(BackgroundSprites[i], 0, DrawX + PosX, DrawY);
+			draw_sprite(Background.BGSprites[i], 0, DrawX + PosX, DrawY);
 		}
 		
 		// Reset incline height (else entire background will be under this effect)

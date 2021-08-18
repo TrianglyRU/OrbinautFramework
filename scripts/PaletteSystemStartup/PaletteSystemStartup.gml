@@ -5,18 +5,18 @@ function PaletteSystemStartup()
 	{
 		for (var j = 0; j < PaletteLimit; j++)
 		{
-			PaletteDuration[i, j] = noone;
-			PaletteSequence[i, j] = noone;
+			PaletteStruct.Duration[i, j] = noone;
+			PaletteStruct.Sequence[i, j] = noone;
 		}	
-		PaletteIndexDry[i] = 1;
-		PaletteIndexWet[i] = 1;
+		PaletteStruct.IndexDry[i] = 1;
+		PaletteStruct.IndexWet[i] = 1;
 	}
 	
 	// Setup fade and surface state
-	SurfaceHigh = -1;
-	SurfaceLow  = -1;
-	FadeMode    =  1;
-	FadeStep    =  756;
+	PaletteStruct.SurfaceHigh = -1;
+	PaletteStruct.SurfaceLow  = -1;
+	PaletteStruct.FadeMode    =  1;
+	PaletteStruct.FadeStep    =  756;
 	
 	// Reset surface
 	application_surface_draw_enable(false);

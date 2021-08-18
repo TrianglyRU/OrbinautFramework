@@ -13,14 +13,14 @@ function InputUpdate()
 		return false;
 	}
 	
-	switch Type 
+	switch Input.Type 
 	{	
 		// Switch from keyboard to gamepad
 		case "Keyboard":
 		{
 			if gamepad_anybutton_check_pressed()
 			{
-				Type = "Gamepad";
+				Input.Type = "Gamepad";
 			}
 		}
 		break;
@@ -30,7 +30,7 @@ function InputUpdate()
 		{
 			if keyboard_check_pressed(vk_anykey) 
 			{
-				Type = "Keyboard";
+				Input.Type = "Keyboard";
 			}				
 		}
 		break;
@@ -38,7 +38,7 @@ function InputUpdate()
 		// Use keyboard by default
 		default:
 		{
-			Type = "Keyboard";	
+			Input.Type = "Keyboard";	
 		}
 		break;
 	}	

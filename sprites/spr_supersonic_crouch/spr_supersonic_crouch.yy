@@ -101,8 +101,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Characters",
-    "path": "folders/Characters.yy",
+    "name": "Sprites",
+    "path": "folders/Objects/Stage Objects/Character/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_supersonic_crouch",
