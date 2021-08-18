@@ -1,7 +1,7 @@
 /// @description
 // You can write your code in this editor
 	
-	// Palette Scripts
+	// Palette scripts
 	#region Palette
 	{
 		// Call update script

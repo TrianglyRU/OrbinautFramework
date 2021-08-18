@@ -7,8 +7,8 @@ function DiscordUpdate()
 	}
 
 	// Capture async events
-	if Game.DiscordEvent != "DiscordReady"
+	if global.DiscordEvent != "DiscordReady"
 	{
-		Game.DiscordEvent = async_load[? "event_type"];
+		global.DiscordEvent = async_load[? "event_type"];
 	}
 }

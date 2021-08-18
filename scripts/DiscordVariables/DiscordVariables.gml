@@ -1,14 +1,18 @@
 function DiscordVariables()
 {	
-	DiscordStruct =
+	// Exit if Rich Presence support is disabled
+	if !Game.RichPresenceSupport
 	{
-		MainImage	   : "",
-		MainImageDesc  : "",
-		SmallImage	   : "",
-		SmallImageDesc : "",
-		StateString	   : "",
-		DetailsString  : "",
-		DiscordAppID   : "",
-		PresenceReady  : false
+		exit;
 	}
+	
+	// Instance variables list
+	MainImage	   = "";
+	MainImageDesc  = "";
+	SmallImage	   = "";
+	SmallImageDesc = "";
+	StateString	   = "";
+	DetailsString  = "";
+	DiscordAppID   = "";
+	PresenceReady  = false;
 }	

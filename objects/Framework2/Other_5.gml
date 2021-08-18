@@ -9,7 +9,7 @@
 	}
 	#endregion
 	
-	// Palette Scripts
+	// Palette scripts
 	#region Palette
 	{
 		// Call reset script

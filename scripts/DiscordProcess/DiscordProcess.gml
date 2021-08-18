@@ -7,14 +7,14 @@ function DiscordProcess()
 	}
 	
 	// Update Rich Presence
-	if !Discord.PresenceReady and Game.DiscordEvent == "DiscordReady"
+	if !PresenceReady and global.DiscordEvent == "DiscordReady"
 	{	
 		np_clearpresence();
-		np_setpresence_timestamps(Game.DiscordTime, 0, false);
-		np_setpresence_more(Discord.MainImageDesc, Discord.SmallImageDesc, false);
-		np_setpresence(Discord.StateString, Discord.DetailsString, Discord.MainImage, Discord.SmallImage);		
+		np_setpresence_timestamps(global.DiscordTime, 0, false);
+		np_setpresence_more(MainImageDesc, SmallImageDesc, false);
+		np_setpresence(StateString, DetailsString, MainImage, SmallImage);		
 		
-		Discord.PresenceReady = true;
+		PresenceReady = true;
 	}
 	
 	// Call async event

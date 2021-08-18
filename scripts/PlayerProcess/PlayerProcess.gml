@@ -1,25 +1,11 @@
 function PlayerProcess()
 {
-	// Do not process player if stage is inactive
-	if !Stage.DoUpdate
+	// Do not process if stage is not updating or fade is active
+	if Stage.IsPaused or Stage.IsGameOver or fade_check(FadeActive)
 	{
 		return false;
 	}
 	
-	// Get player state
-	if !Player.Grounded
-	{
-		Player.State = StateAirborne;
-	}
-	else if Player.Grounded and !Player.Spinning
-	{
-		Player.State = StateGrounded;
-	}
-	else if Player.Grounded and Player.Spinning
-	{
-		Player.State = StateRolling;
-	}
-	
-	// Process player
+	// Else process
 	return true;
 }

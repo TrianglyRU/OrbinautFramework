@@ -45,7 +45,6 @@ function GameFrameworkSetup()
 	Game.BuffedWaterBarrier     = false;
 	Game.PreciseRings			= false;
 	Game.ItemBoxBehaviour		= false;
-	Game.LimitVerticalSpeed		= false;
 	
 	// Orbinaut improvements
 	Game.PostProcessing        = false;

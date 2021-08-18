@@ -1,116 +1,128 @@
 function PlayerDebugMode()
 {
-	// Exit if not in devmode or stage is paused
-	if !Game.DevMode or Stage.IsPaused
+	// Check if we're in dev mode
+	if !Game.DevMode
+	{
+		return false;
+	}
+
+	// Exit if stage is paused
+	if Stage.IsPaused
 	{
 		return false;
 	}
 	
+	// Check for entering for exiting debug mode
 	if Input.BPress
 	{
-		// If player died, restore controls
-		if Player.Death
+		if Death
 		{
-			Stage.AllowPause      = true;
-			Stage.DoUpdate        = true;
-			Screen.CameraEnabled  = true;
-			Player.AllowCollision = true;
-			Player.Death		  = false;
-			Player.DrawOrder	  = layer_get_depth("Objects");
+			Screen.CameraEnabled = true;
+			Stage.AllowPause     = true;
+			Stage.DoUpdate       = true;
+			AllowCollision       = true;
+			
+			DrawOrder = layer_get_depth("Objects");
+			Death = false;
 		}
 		
 		// Toggle debug
-		Player.DebugMode = !Player.DebugMode;
+		DebugMode = !DebugMode;
 
-		// If entered debug mdoe, reset flags. A lot of them
-		if Player.DebugMode
-		{			
-			Player.AllowCollision = false;
-			Player.Grounded	      = false;
-			Player.OnObject	      = false;
-			Player.MovementLock   = false;
-			Player.NoControls	  = false;
-			Player.FlightState    = false;
-			Player.FlightValue    = false;
-			Player.ClimbState	  = false;
-			Player.ClimbValue	  = false;
-			Player.GlideState	  = false;
-			Player.GlideGrounded  = false;
-			Player.GlideValue     = false;
-			Player.Jumping		  = false;
-			Player.Spinning	      = false;
-			Player.RollJumping	  = false;
-			Player.Skidding	      = false;
-			Player.StickToConvex  = false;
-			Player.IsUnderwater   = false;
-			Player.AirTimer		  = 1800;
-			Player.DebugSpeed     = 0;
-			Player.Xsp			  = 0;
-			Player.Ysp			  = 0;
-			Player.Inertia		  = 0;
-			Player.SpindashRev    = -1;
-			Player.PeeloutRev     = -1;
-			Player.DropdashRev    = -1;
+		// Check if we entered debug
+		if DebugMode
+		{
+			// Reset flags. A lot of it
+			AllowCollision = false;
+			Grounded	   = false;
+			OnObject	   = false;
+			MovementLock   = false;
+			NoControls	   = false;
+			FlightState    = false;
+			FlightValue    = false;
+			ClimbState	   = false;
+			ClimbValue	   = false;
+			GlideState	   = false;
+			GlideGrounded  = false;
+			GlideValue     = false;
+			Jumping		   = false;
+			Spinning	   = false;
+			RollJumping	   = false;
+			Skidding	   = false;
+			StickToConvex  = false;
+			IsUnderwater   = false;
+			AirTimer	   = 1800;
+			DebugSpeed     = 0;
+			Xsp			   = 0;
+			Ysp			   = 0;
+			Inertia		   = 0;
+			SpindashRev    = -1;
+			PeeloutRev     = -1;
+			DropdashRev    = -1;
+			
+			// Reset gravity
+			if !IsUnderwater
+			{
+				Grv	= 0.21875;
+			}
+			else
+			{
+				// Lower by 0x28 (0.15625) if underwater
+				Grv = 0.0625
+			}
 			
 			// Restore visibility
-			Character.image_alpha = 1;
+			image_alpha = 1;
 		}
 		
-		// If left debug mode, restore collision
+		// Check if we exited debug
 		else
 		{
-			Player.Animation	  = AnimWalk;
-			Player.RadiusX        = Player.DefaultRadiusX;
-			Player.RadiusY		  = Player.DefaultRadiusY;
-			Player.AllowCollision = true;
+			// Enter walk animation
+			RadiusX   = DefaultRadiusX;
+			RadiusY   = DefaultRadiusY;
+			
+			Animation = AnimWalk;
+			
+			// Restore collision
+			AllowCollision = true;
 		}
 	}
 	
-	// Exit the further code if not in debug mode
-	if !Player.DebugMode
+	// Check if we're in debug state
+	if !DebugMode
 	{
 		return false;
 	}
 	
-	// Move player
+	// Increase speed
 	if Input.Left or Input.Down or Input.Right or Input.Up
 	{
-		if Input.Left
-		{
-			Player.PosX -= Player.DebugSpeed;
-		}
-		if Input.Right
-		{
-			Player.PosX += Player.DebugSpeed;
-		}
-		if Input.Up 
-		{
-			Player.PosY -= Player.DebugSpeed;
-		}
-		if Input.Down
-		{
-			Player.PosY += Player.DebugSpeed;
-		}
-		Player.DebugSpeed = min(Player.DebugSpeed + 0.046875, 16);
+		DebugSpeed = min(DebugSpeed + 0.046875, 16);
 	}
 	else
 	{
-		Player.DebugSpeed = 0;
+		DebugSpeed = 0;
 	}
+	
+	// Update player position
+	if (Input.Left)  PosX -= DebugSpeed;
+	if (Input.Right) PosX += DebugSpeed;
+	if (Input.Up)    PosY -= DebugSpeed;
+	if (Input.Down)  PosY += DebugSpeed;
 	
 	// Update current object
 	if Input.APress
 	{
-		Player.DebugItem++;
-		Player.DebugItem = loop_value(Player.DebugItem, 0, array_length(Player.DebugList));
+		DebugItem++;
+		DebugItem = loop_value(DebugItem, 0, array_length(DebugList));
 	}
 	
 	// Spawn current object
 	if Input.CPress
 	{
-		instance_create(floor(Player.PosX), floor(Player.PosY), Player.DebugList[Player.DebugItem]);
+		instance_create(floor(PosX), floor(PosY), DebugList[DebugItem]);
 	}
 	
-	// Return that we're in debug state
 	return true;
 }

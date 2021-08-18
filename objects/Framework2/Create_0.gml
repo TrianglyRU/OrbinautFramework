@@ -1,7 +1,7 @@
 /// @description
 // You can write your code in this editor
 	
-	// Input Scripts
+	// Input scripts
 	#region Input
 	{
 		// Call variables initialization script
@@ -12,7 +12,7 @@
 	}
 	#endregion
 	
-	// Palette Scripts
+	// Palette scripts
 	#region Palette
 	{
 		// Call variables initialization script
@@ -23,13 +23,5 @@
 	
 		// Call setup script
 		PaletteSetup();
-	}
-	#endregion
-	
-	// Discord Scripts
-	#region Discord
-	{
-		// Call variables initialization script
-		DiscordVariables();
 	}
 	#endregion

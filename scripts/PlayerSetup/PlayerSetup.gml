@@ -1,67 +1,69 @@
 function PlayerSetup()
 {	
-	// Default sprite setup
-	Player.Facing	 = FlipRight;
-	Player.Animation = AnimIdle;
-	Player.DrawOrder = layer_get_depth("Objects");
+	// Set character
+	CharacterID	= Game.Character;
 	
-	// Set frame
-	with Character
-	{
-		animation_set_frame(Player.Animation, 1);
-	}
+	// Default sprite setup
+	Facing	  = FlipRight;
+	Animation = AnimIdle;
+	DrawOrder = layer_get_depth("Objects");
+	animation_set_frame(Animation, 1);
 	
 	// Set default flags
-	Player.AirTimer	      = 1800;
-	Player.AllowCollision = true;
-	Player.Grounded		  = true;
-	Player.PeeloutRev     = -1;
-	Player.SpindashRev    = -1;
-	Player.DropdashRev    = -1;
+	AirTimer	   = 1800;
+	AllowCollision = true;
+	Grounded	   = true;
+	PeeloutRev     = -1;
+	SpindashRev    = -1;
+	DropdashRev    = -1;
 	
 	// Set default gravity
-	Player.Grv	= 0.21875;
+	Grv	= 0.21875;
 	
 	// Set collision radiuses
-	if Game.Character != CharTails
+	if CharacterID != CharTails
 	{
-		Player.DefaultRadiusY = 19;
-		Player.DefaultRadiusX = 9;
-		Player.SmallRadiusY   = 14;
-		Player.SmallRadiusX   = 7;
+		DefaultRadiusY = 19;
+		DefaultRadiusX = 9;
+		SmallRadiusY   = 14;
+		SmallRadiusX   = 7;
 	}
 	else
 	{
-		Player.DefaultRadiusY = 15;
-		Player.DefaultRadiusX = 9;
-		Player.SmallRadiusY   = 14;
-		Player.SmallRadiusX   = 7;
-		
-		// Also create Tails Object
-		instance_create(x, y, TailsObject);
+		DefaultRadiusY = 15;
+		DefaultRadiusX = 9;
+		SmallRadiusY   = 14;
+		SmallRadiusX   = 7;
 	}
-	Player.RadiusX = Player.DefaultRadiusX;
-	Player.RadiusY = Player.DefaultRadiusY;
+	RadiusX = DefaultRadiusX;
+	RadiusY = DefaultRadiusY;
 	
 	// Load score and lives
-	Player.Score = Game.Score;
-	Player.Lives = Game.Lives;
+	Score = Game.Score;
+	Lives = Game.Lives;
 	
-	// If player uses global spawn position, use it
+	// If player uses saved global spawn position, use it
 	if !array_equals(Game.PlayerPosition, [])
 	{
-		Player.PosX = Game.PlayerPosition[0];
-		Player.PosY = Game.PlayerPosition[1];
+		PosX = Game.PlayerPosition[0];
+		PosY = Game.PlayerPosition[1];
 	}
+	/* Regular spawn code is stored in Spawnpoint object! */
 	
 	// Initialize recorded position datalist array
-	Player.RecordedPosX = ds_list_create();
-	Player.RecordedPosY = ds_list_create();
+	RecordedPosX = ds_list_create();
+	RecordedPosY = ds_list_create();
 		
 	// Fill recorded position datalist array
 	for (var Index = 0; Index < 32; Index++) 
 	{
-		Player.RecordedPosX[| Index] = 0;
-		Player.RecordedPosY[| Index] = 0;
+		RecordedPosX[| Index] = x;
+		RecordedPosY[| Index] = y;
+	}
+	
+	// Create Tails' tails
+	if CharacterID == CharTails
+	{
+		instance_create(x, y, TailsObject);
 	}
 }

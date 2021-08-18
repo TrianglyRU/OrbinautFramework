@@ -1,81 +1,70 @@
 function PlayerMovementAir()
 {	
 	// Rotate angle back to 360 degrees
-	if Player.Angle < 180
-	{
-		Player.Angle = max(Player.Angle - 2.8125, 0);
-	}
-	else
-	{
-		Player.Angle = min(Player.Angle + 2.8125, 360);
-	}
+	Angle = Angle < 180 ? max(Angle - 2.8125, 0) : min(Angle + 2.8125, 360);
 	
 	// Exit if gliding (ignoring GlideDrop state) or climbing
-	if Player.GlideState == GlideActive or Player.GlideState == GlideStop 
-	or Player.ClimbState
+	if GlideState == GlideActive or GlideState == GlideStop or ClimbState
 	{
 		exit;
 	}
 	
 	// Handle air movement
-	if !(Player.RollJumping and !Game.RolljumpControl) and !Player.NoControls
+	if !(RollJumping and !Game.RolljumpControl) and !NoControls
 	{
-		// Holding left
 		if Input.Left 
 		{	
 			// Decelerate
-			if Player.Xsp > 0 
+			if Xsp > 0 
 			{
-				Player.Xsp -= AirAcc;
+				Xsp -= AirAcc;
 			} 
 			
 			// Accelerate
-			else if !Game.AirSpeedcap and Player.Xsp > -Player.TopAcc or Game.AirSpeedcap
+			else if !Game.AirSpeedcap and Xsp > -TopAcc or Game.AirSpeedcap
 			{
-				Player.Xsp -= AirAcc;
-				if Player.Xsp <= -Player.TopAcc
+				Xsp -= AirAcc;
+				if Xsp <= -TopAcc
 				{
-					Player.Xsp = -Player.TopAcc;
+					Xsp = -TopAcc;
 				}
 			}
-			Player.Facing = FlipLeft;
+			Facing = DirectionLeft;
 		}
-		
-		// Holding right
-		else if Input.Right 
+		if Input.Right 
 		{	
 			// Decelerate
-			if Player.Xsp < 0 
+			if Xsp < 0 
 			{
-				Player.Xsp += Player.AirAcc;
+				Xsp += AirAcc;
 			} 
 			
 			// Accelerate
-			else if (!Game.AirSpeedcap and Player.Xsp < Player.TopAcc) or Game.AirSpeedcap
+			else if (!Game.AirSpeedcap and Xsp < TopAcc) or Game.AirSpeedcap
 			{
-				Player.Xsp += Player.AirAcc;
-				if Player.Xsp >= Player.TopAcc
+				Xsp += AirAcc;
+				if Xsp >= TopAcc
 				{
-					Player.Xsp = Player.TopAcc;
+					Xsp = TopAcc;
 				}
 			}
-			Player.Facing = FlipRight;
+			Facing = DirectionRight;
 		}	
 	}
 	
 	// Apply air drag
-	if Player.Ysp < 0 and Player.Ysp > -4 and !Player.Hurt
+	if Ysp < 0 and Ysp > -4 and !Hurt
 	{
-		Player.Xsp -= floor(Player.Xsp / 0.125) / 256;
+		Xsp -= floor(Xsp/0.125) / 256;
 	}
 	
 	// Handle animations
-	if Player.Animation = AnimSpring and Player.Ysp > 0
+	if Animation = AnimSpring and Ysp > 0
 	{
-		Player.Animation = AnimWalk;
+		Animation = AnimWalk;
 	}
-	if Player.Animation == AnimBreathe and animation_get_frame(id) == 2
+	if Animation == AnimBreathe and animation_get_frame(id) == 2
 	{
-		Player.Animation = AnimWalk;
+		Animation = AnimWalk;
 	}
 }

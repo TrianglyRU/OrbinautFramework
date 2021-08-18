@@ -1,25 +1,16 @@
 function PlayerPosition() 
 {	
 	// Update position
-	Player.PosX += Xsp;
-	Player.PosY += Ysp;	
+	PosX += Xsp;
+	PosY += Ysp;	
 	
-	// Apply gravity when airborne
-	if !Player.Grounded
+	// Are we airborne?
+	if !Grounded
 	{
-		Player.Ysp += Grv;
+		// Add gravity to vertical speed
+		Ysp += Grv;
 	}
 
 	// Limit vertical speed
-	if Game.LimitVerticalSpeed
-	{
-		if Player.Ysp > 15.75
-		{
-			Player.Ysp = 15.75;
-		}
-	}
-	if Player.Ysp < -15.75
-	{
-		Player.Ysp = -15.75;
-	}
+	Ysp = clamp(Ysp, -15.75, 15.75);
 }

@@ -1,73 +1,79 @@
 function PlayerTailsFlight()
 {
 	// Exit if we're not flying
-	if !Player.FlightState
+	if !FlightState
 	{
 		exit;
 	}
 	
-	// Not tired
-	if Player.FlightValue
+	// Check if we're still able to fly
+	if FlightValue
 	{
 		// Affect vertical speed
-		if Player.Ysp < -1
+		if Ysp < -1
 		{
-			Player.Grv = 0.03125;
+			Grv = 0.03125;
 		}
 		else if Input.ABCPress
 		{
-			Player.Grv = -0.125;
+			Grv = -0.125;
 		}
-		Player.Ysp = max(Player.Ysp, -4);
+		Ysp = max(Ysp, -4);
+		
+		// Decrease timer
+		FlightValue--;
 		
 		// Play animation and sound
-		if !Player.IsUnderwater
+		if !IsUnderwater
 		{
-			Player.Animation = AnimFly;
+			Animation = AnimFly;
 			audio_sfx_play(sfxFlying, true);
 		}
 		else
 		{
-			Player.Animation = AnimSwim;
+			Animation = AnimSwim;
 			audio_sfx_stop(sfxFlying);
 		}
-		
-		// Decrease timer
-		Player.FlightValue--;
 	}
 	
-	// Tired
+	// Check if Tails has tired
 	else
 	{
 		// Update gravity
-		Player.Grv = 0.03125;
+		Grv = 0.03125;
 		
 		// Play animation and sound
-		if !Player.IsUnderwater
+		if !IsUnderwater
 		{
-			Player.Animation = AnimFlyTired;	
+			Animation = AnimFlyTired;	
 			audio_sfx_play(sfxTired, true);
 		}
 		else
 		{
-			Player.Animation = AnimSwimTired;
+			Animation = AnimSwimTired;
 			audio_sfx_stop(sfxTired);
 		}
 		audio_sfx_stop(sfxFlying);
 	}
 	
-	// Stop flying
+	// Check fly cancel is enabled, and we pressed A, B or C while holding DOWN
 	if Game.FlyingCancel and Input.Down and Input.ABCPress
 	{
-		Player.Spinning	   = true;
-		Player.FlightState = false;
-		Player.Grv		   = 0.21875;	
-		Player.Animation   = AnimRoll;
-		Player.RadiusX     = Player.SmallRadiusX;
-		Player.RadiusY	   = Player.SmallRadiusY;
-		Screen.RawY		  += Player.DefaultRadiusX - Player.SmallRadiusX;
-		
+		// Stop sounds
 		audio_sfx_stop(sfxFlying);	
 		audio_sfx_stop(sfxTired);	
+		
+		// Use smaller collision size
+		RadiusX	= SmallRadiusX;
+		RadiusY = SmallRadiusY;
+		
+		// Update character
+		FlightState	= false;
+		Spinning	= true;
+		Grv			= 0.21875;	
+		Animation	= AnimRoll;
+		
+		// Shift camera
+		Screen.RawY += DefaultRadiusX - SmallRadiusX;
 	}	
 }

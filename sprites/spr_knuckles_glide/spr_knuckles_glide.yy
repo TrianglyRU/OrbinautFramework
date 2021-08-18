@@ -101,8 +101,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Character/Sprites.yy",
+    "name": "Characters",
+    "path": "folders/Characters.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_knuckles_glide",

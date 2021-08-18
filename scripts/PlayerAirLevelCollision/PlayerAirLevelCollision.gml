@@ -1,19 +1,25 @@
 function PlayerAirLevelCollision()
 {
-	// Exit if we're not allowed to collide
-	if !Player.AllowCollision or Player.ClimbState or Player.GlideState
+	// Exit if we've died
+	if Death or Drown
 	{
 		exit;
 	}
-
-	// Get movement angle quadrant
-	if abs(Player.Xsp) >= abs(Player.Ysp)
+	
+	// Exit if climbing or gliding
+	if ClimbState or GlideState
 	{
-		var MoveDirection = Player.Xsp > 0 ? "MoveRight" : "MoveLeft";
+		exit;
+	}
+	
+	// Get movement angle quadrant
+	if abs(Xsp) >= abs(Ysp)
+	{
+		var MoveDirection = Xsp > 0 ? "MoveRight" : "MoveLeft";
 	}
 	else
 	{
-		var MoveDirection = Player.Ysp > 0 ? "MoveDown" : "MoveUp";
+		var MoveDirection = Ysp > 0 ? "MoveDown" : "MoveUp";
 	}
 	
 	// Run the code based on quadrant

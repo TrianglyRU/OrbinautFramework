@@ -1,8 +1,6 @@
 function BackgroundVariables()
 {
-	BackgroundStruct =
-	{
-		BGSprites : [],
-		BGValues  : []
-	}
+	// Variables list
+	BackgroundSprites = [];
+	BackgroundValues  = [];
 }

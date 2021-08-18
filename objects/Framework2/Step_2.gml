@@ -12,7 +12,7 @@
 	}
 	#endregion
 	
-	// Palette Scripts
+	// Palette scripts
 	#region Palette
 	{
 		// Call shift process script
