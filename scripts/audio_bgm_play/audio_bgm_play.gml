@@ -12,20 +12,20 @@ function audio_bgm_play(priority, soundid, looppoint)
 	{
 		case PriorityLow:
 		{
-			audio_stop_sound(Game.LowTrack[0]);
+			audio_stop_sound(Audio.LowTrack[0]);
 			
-			Game.LowTrack[0] = audio_play_sound(soundid, 0, false);
-			Game.LowTrack[1] = looppoint == other ? Game.TrackLoop[soundid] : looppoint;
-			Game.LowTrack[2] = EventIdle;
+			Audio.LowTrack[0] = audio_play_sound(soundid, 0, false);
+			Audio.LowTrack[1] = looppoint == other ? Audio.TrackLoop[soundid] : looppoint;
+			Audio.LowTrack[2] = EventIdle;
 		}
 		break;
 		case PriorityHigh:
 		{
-			audio_stop_sound(Game.HighTrack[0]);
+			audio_stop_sound(Audio.HighTrack[0]);
 
-			Game.HighTrack[0] = audio_play_sound(soundid, 0, false);
-			Game.HighTrack[1] = looppoint == other ? Game.TrackLoop[soundid] : looppoint;
-			Game.HighTrack[2] = EventIdle;
+			Audio.HighTrack[0] = audio_play_sound(soundid, 0, false);
+			Audio.HighTrack[1] = looppoint == other ? Audio.TrackLoop[soundid] : looppoint;
+			Audio.HighTrack[2] = EventIdle;
 		}
 		break;
 	}

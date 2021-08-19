@@ -11,7 +11,7 @@
 	{
 		var Ang = OrbAng * i;
 		
-		Orb[i] = object_create_children(x + dsin(Ang), y + dcos(Ang), OrbinautOrb);
+		Orb[i] = instance_create_children(x + dsin(Ang), y + dcos(Ang), OrbinautOrb);
 		with Orb[i] 
 		{
 			object_set_depth(ThisBadnik, true);

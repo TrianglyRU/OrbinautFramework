@@ -39,6 +39,6 @@ function ContinueScreenSetup()
 	}
 	
 	// Perfrom fade and play music
-	fade_perform(from, black, 1);
+	fade_perform(FadeFrom, FadeBlack, 1);
 	audio_bgm_play(PriorityLow, ContinueMusic, noone);
 }

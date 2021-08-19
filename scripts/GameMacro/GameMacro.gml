@@ -7,17 +7,15 @@ function GameMacro()
 	#macro Shader	   global
 	#macro Game		   global
 	#macro GameCamera  view_camera[0]
-	#macro GameSurface application_surface
 
 	// Object macro
 	#macro RangeClose   0
 	#macro RangeFar     1
 	#macro EnemyBadnik  0
 	#macro EnemyBoss    1
-	#macro TypeNone		0
-	#macro TypeUnload	1
-	#macro TypeReset	2
-	#macro TypeDelete   3
+	#macro TypeUnload	0
+	#macro TypeReset	1
+	#macro TypeDelete   2
 	
 	// Font macro
 	#macro FontDebug   0

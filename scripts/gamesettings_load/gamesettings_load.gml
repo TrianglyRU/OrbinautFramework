@@ -16,8 +16,8 @@ function gamesettings_load(filename)
 	Game.GroundSpeedcap	    = ini_read_real("Gameplay", "GndSpeedcap", false);
 	Game.AirSpeedcap	    = ini_read_real("Gameplay", "AirSpeedcap", false);
 	Game.ExtendedCamera	    = ini_read_real("Gameplay", "CDCamera",    false);
-	Game.Width    = ini_read_real("Video",	"Width",       400);
-	Game.Height   = ini_read_real("Video",	"Height",      224);
+	Game.Width				= ini_read_real("Video",	"Width",       400);
+	Game.Height				= ini_read_real("Video",	"Height",      224);
 	Game.WindowSize		    = ini_read_real("Video",	"Size",        3);
 	Game.WindowFullscreen   = ini_read_real("Video",	"Fullscreen",  0);
 	Game.MusicVolume        = ini_read_real("Music",	"MusicVolume", 0.5);

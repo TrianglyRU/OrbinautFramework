@@ -12,9 +12,19 @@ function PaletteSystemStartup()
 		PaletteIndexWet[i] = 1;
 	}
 	
-	// Setup fade and surface state
-	SurfaceHigh = -1;
+	// Reset surfaces
+	if surface_exists(SurfaceLow) 
+	{
+		surface_free(SurfaceLow);
+	}
+	if surface_exists(SurfaceHigh) 
+	{
+		surface_free(SurfaceHigh);	
+	}
 	SurfaceLow  = -1;
+	SurfaceHigh = -1;
+	
+	// Setup fade
 	FadeMode    =  1;
 	FadeStep    =  756;
 	

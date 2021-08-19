@@ -18,7 +18,7 @@ function object_set_range(range_type, reset_type)
 		break;
 	}
 	
-	Obj_LoadData    = [x, y, image_xscale, image_yscale];
-	Obj_LoadFlag    = reset_type;
-	Obj_LoadState   = false;
+	Obj_LoadData   = [x, y, image_xscale, image_yscale];
+	Obj_LoadFlag   = reset_type;
+	Obj_LoadStatus = false;
 }

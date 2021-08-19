@@ -1,8 +1,9 @@
-/// @description
+/// @description Initialization
 // You can write your code in this editor
 
-	// Initialize menu functions
+	// Initialization Scripts
+	MenuVariables();
 	MenuFunctions();
-	
-	// Initialize menu system
+	MenuStartup();
+	MenuSaveDataLoad();
 	MenuSetup();

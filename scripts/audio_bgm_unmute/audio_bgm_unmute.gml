@@ -5,14 +5,14 @@ function audio_bgm_unmute(priority, time)
 	{
 		case PriorityLow:
 		{
-			Game.LowTrack[2]  = EventUnmute;
-			Game.LowTrack[3] = time;
+			Audio.LowTrack[2]  = EventUnmute;
+			Audio.LowTrack[3] = time;
 		}
 		break;
 		case PriorityHigh:
 		{
-			Game.HighTrack[2] = EventUnmute;
-			Game.HighTrack[3] = time;
+			Audio.HighTrack[2] = EventUnmute;
+			Audio.HighTrack[3] = time;
 		}
 		break;
 	}

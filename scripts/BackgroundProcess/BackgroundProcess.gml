@@ -1,6 +1,6 @@
 function BackgroundProcess()
 {	
-	// Draw white background colour
+	// Draw gray background colour
 	draw_clear(c_gray);
 	
 	// Use parallax shader
@@ -11,22 +11,22 @@ function BackgroundProcess()
 	var ViewY = camera_get_view_y(GameCamera);
 	
 	// Work with each parallax piece individually
-	var BackgroundParts = array_length(BackgroundSprites);
-	for (var i = 0; i < BackgroundParts; i++)
+	var Length = array_length(BGSprites);
+	for (var i = 0; i < Length; i++)
 	{
-		// Get parallax piece data
-		var PosX		  = BackgroundValues[i][0];
-		var PosY		  = BackgroundValues[i][1];
-		var ScrollX		  = BackgroundValues[i][2];
-		var ScrollY		  = BackgroundValues[i][3];
-		var OffsetX		  = BackgroundValues[i][4];
-		var OffsetY		  = BackgroundValues[i][5];
-		var InclineHeight = BackgroundValues[i][6];
-		var InclineForce  = BackgroundValues[i][7];
-		var	YScaleMode	  = BackgroundValues[i][8];
-		var Height		  = BackgroundValues[i][9];
-		var Width		  = BackgroundValues[i][10];
-		var PixelSize     = BackgroundValues[i][11];
+		// Get data
+		var PosX		  = BGValues[i][0];
+		var PosY		  = BGValues[i][1];
+		var ScrollX		  = BGValues[i][2];
+		var ScrollY		  = BGValues[i][3];
+		var OffsetX		  = BGValues[i][4];
+		var OffsetY		  = BGValues[i][5];
+		var InclineHeight = BGValues[i][6];
+		var InclineForce  = BGValues[i][7];
+		var	YScaleMode	  = BGValues[i][8];
+		var Height		  = BGValues[i][9];
+		var Width		  = BGValues[i][10];
+		var PixelSize     = BGValues[i][11];
 		
 		// Get screen position
 		var DrawX = ViewX;
@@ -72,7 +72,7 @@ function BackgroundProcess()
 			YScale = 1;
 		}
 		
-		// Transfer data into the shader
+		// Transfer data to the shader
 		shader_set_uniform_f(Shader.ParOffset, DrawX * ScrollX - OffsetX);
 		shader_set_uniform_f(Shader.ParPos,    DrawX + PosX, DrawY - OffsetY);
 		shader_set_uniform_f(Shader.ParWidth,  Width);
@@ -89,16 +89,14 @@ function BackgroundProcess()
 		// Draw parallax piece
 		if YScaleMode
 		{
-			//draw_sprite_part_ext(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY, 1, YScale, c_white, 1);
-			draw_sprite_ext(BackgroundSprites[i], 0, DrawX + PosX, DrawY, 1, YScale, 0, c_white, 1);
+			draw_sprite_ext(BGSprites[i], 0, DrawX + PosX, DrawY, 1, YScale, 0, c_white, 1);
 		}
 		else
 		{
-			//draw_sprite_part(BackgroundSprites[i], 0, 0, Top, Width, Height, DrawX + PosX, DrawY);
-			draw_sprite(BackgroundSprites[i], 0, DrawX + PosX, DrawY);
+			draw_sprite(BGSprites[i], 0, DrawX + PosX, DrawY);
 		}
 		
-		// Reset incline height (else entire background will be under this effect)
+		// Reset incline height
 		if InclineHeight != 0 
 		{
 			shader_set_uniform_f(Shader.ParILHeight, 0);

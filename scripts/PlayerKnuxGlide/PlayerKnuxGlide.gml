@@ -37,7 +37,7 @@ function PlayerKnuxGlide()
 				// Glide stright
 				else
 				{
-					Xsp = max(Xsp - GlideAcc * 3, -24);
+					Xsp = max(Xsp - GlideAcc, -24);
 				}
 					
 				// Start turn to the right
@@ -64,7 +64,7 @@ function PlayerKnuxGlide()
 				// Glide stright
 				else
 				{
-					Xsp = min(Xsp + GlideAcc * 3, 24);
+					Xsp = min(Xsp + GlideAcc, 24);
 				}
 				
 				// Start turn to the left

@@ -1,17 +1,9 @@
-/// @description
+/// @description Pre-Objects Code
 // You can call your scripts in this editor
 	
-	// Call update script
+	// Pre-Objects Scripts
 	InputUpdate();
-	
-	// Call gamepad process script
 	InputGamepadProcess();
-	
-	// Call keyboard process script
 	InputKeyboardProcess();
-	
-	// Call hotkeys process script
 	InputHotkeysProcess();
-	
-	// Call reset script
 	InputReset();

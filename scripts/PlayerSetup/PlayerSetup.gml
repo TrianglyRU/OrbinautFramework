@@ -53,6 +53,13 @@ function PlayerSetup()
 		RecordedPosY[| Index] = y;
 	}
 	
+	// Load player on global spawn position in case it exists
+	if !array_equals(Game.PlayerPosition, [])
+	{
+		Player.PosX = Game.PlayerPosition[0];
+		Player.PosY = Game.PlayerPosition[1];
+	}
+	
 	// Create Tails' tails
 	if CharacterID == CharTails
 	{

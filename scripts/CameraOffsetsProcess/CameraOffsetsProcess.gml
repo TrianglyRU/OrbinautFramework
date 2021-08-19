@@ -42,7 +42,7 @@ function CameraOffsetsProcess()
 		// Reset it
 		if !Player.Grounded and SpinOffset
 		{
-			//PosY -= Player.DefaultRadiusY - Player.SmallRadiusY;
+			PosY -= Player.DefaultRadiusY - Player.SmallRadiusY;
 		}
 		SpinOffset = 0;
 	}

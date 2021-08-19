@@ -1,5 +1,5 @@
-/// @description
+/// @description Room Draw
 // You can write your code in this editor
 	
-	// Display menu
-	MenuOptionsDisplay();
+	// Room Draw Script
+	MenuOptionsDraw();

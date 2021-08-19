@@ -3,7 +3,7 @@ function MenuFunctions()
 	/// @function menu_add_option(listid,optionid, optionname,loadlist)
 	function menu_add_option(listid, optionid, optionname, loadlist)
 	{
-		// Define menu size
+		// Increase menu size
 		MenuSize[listid] += 1;
 		
 		// Set option name and target menu
@@ -19,9 +19,23 @@ function MenuFunctions()
 	}
 	
 	/// @function menu_add_header(listid,header)
-	function menu_add_header(listid,header)
+	function menu_add_header(listid, header)
 	{
 		// Set header
 		MenuHeader[listid] = header;	
+	}
+	
+	/// @function menu_get_boolean(variable)
+	function menu_get_boolean(variable)
+	{
+		// Get variable value
+		if variable
+		{
+			return "TRUE";
+		}
+		else
+		{
+			return "FALSE";
+		}
 	}
 }

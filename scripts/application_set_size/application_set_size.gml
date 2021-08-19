@@ -2,7 +2,7 @@
 function application_set_size(appWidth, appHeight)
 {	
 	// Set camera size and resize application surface
-	camera_set_view_size(view_camera[0], appWidth, appHeight);
+	camera_set_view_size(GameCamera, appWidth, appHeight);
 	surface_resize(application_surface, appWidth, appHeight);
 
 	// Resize palette surfaces
@@ -14,7 +14,7 @@ function application_set_size(appWidth, appHeight)
 	{
 		surface_resize(Palette.SurfaceHigh, appWidth, appHeight);
 	}
-	
+
 	// Re-enable surface rendering
 	application_surface_draw_enable(true);
 }

@@ -32,7 +32,7 @@ function PlayerBalance()
 	// Standing on right edge
 	if !RightAngle
 	{
-		if !SuperState and !CharacterID != CharKnuckles
+		if !SuperState or CharacterID == CharSonic
 		{
 			if Facing == DirectionRight
 			{
@@ -53,7 +53,7 @@ function PlayerBalance()
 	// Standing on left edge
 	else if !LeftAngle
 	{	
-		if !SuperState and !CharacterID != CharKnuckles
+		if !SuperState or CharacterID == CharSonic
 		{
 			if Facing == DirectionLeft
 			{

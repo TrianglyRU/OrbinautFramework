@@ -10,7 +10,7 @@ function StageObjectsInactiveProcess()
 	instance_deactivate_all(true);
 		
 	// ...but keep controllers active
-	var IgnoreList = [Framework, Player, Input, Interface, Camera, Discord, Palette, Background];
+	var IgnoreList = [Framework, Player, Input, Interface, Camera, Discord, Palette, Background, Audio];
 	var Length	   = array_length(IgnoreList);
 		
 	for (var i = 0; i < Length; i++)

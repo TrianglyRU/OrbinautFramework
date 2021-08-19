@@ -5,14 +5,14 @@ function audio_bgm_stop(priority, time)
 	{
 		case PriorityLow:
 		{
-			Game.LowTrack[2] = EventStop;
-			Game.LowTrack[3] = time;
+			Audio.LowTrack[2] = EventStop;
+			Audio.LowTrack[3] = time;
 		}
 		break;
 		case PriorityHigh:
 		{
-			Game.HighTrack[2] = EventStop;
-			Game.HighTrack[3] = time;
+			Audio.HighTrack[2] = EventStop;
+			Audio.HighTrack[3] = time;
 		}
 		break;
 	}

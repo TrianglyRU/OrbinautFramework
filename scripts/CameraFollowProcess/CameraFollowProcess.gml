@@ -39,7 +39,7 @@ function CameraFollowProcess()
 		{
 			MaxShiftY = 6;
 		}
-		else if abs(Player.Ysp) >= 8
+		else
 		{
 			MaxShiftY = 16;
 		}
@@ -70,7 +70,7 @@ function CameraFollowProcess()
 	}
 	else
 	{
-		PosX += ShiftX;	
-		PosY += ShiftY;
+		PosX += ShiftX;		
 	}
+	PosY += ShiftY;
 }

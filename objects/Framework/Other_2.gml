@@ -1,5 +1,5 @@
-/// @description
-// You can call your scripts in this editor
+/// @description Startup Initialization
+// You can write your code in this editor
 	
 	// Call macro initialization script
 	GameMacro();
@@ -12,9 +12,6 @@
 	
 	// Call fonts setup script
 	GameFontsSetup();
-	
-	// Call music startup script
-	GameAudioStartup();
 	
 	// Call shaders startup script
 	GameShadersStartup();

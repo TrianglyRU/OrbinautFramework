@@ -22,15 +22,6 @@ function StageStartup()
 		]
 	}
 	
-	// Load player and camera on global spawn position in case it exists
-	if !array_equals(Game.PlayerPosition, [])
-	{
-		Player.PosX = Game.PlayerPosition[0];
-		Player.PosY = Game.PlayerPosition[1];
-		Camera.PosX = Game.PlayerPosition[0] - Game.Width  / 2;
-		Camera.PosY = Game.PlayerPosition[1] - Game.Height / 2 + 16;
-	}
-	
 	// Load saved time and stage boundary
 	if Game.Time
 	{

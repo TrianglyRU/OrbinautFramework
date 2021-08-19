@@ -58,7 +58,6 @@ function PlayerCrouch()
 			RadiusY		 = SmallRadiusY;
 			RadiusX		 = SmallRadiusX;
 			PosY	    += DefaultRadiusY - SmallRadiusY;
-			Camera.PosY += DefaultRadiusY - SmallRadiusY;
 			
 			// Set 'roll' animation
 			Animation = AnimRoll;

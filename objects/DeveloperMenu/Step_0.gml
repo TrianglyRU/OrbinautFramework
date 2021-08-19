@@ -1,8 +1,6 @@
-/// @description
+/// @description Room Process
 // You can write your code in this editor
 	
-	// React to specific options
-	MenuOptionReact();
-	
-	// Navigate between menus
-	MenuMainUpdate();
+	// Room Process Scripts
+	MenuOptionsProcess();
+	MenuSystemProcess();

@@ -19,5 +19,5 @@ function CameraPositionUpdate()
 	}
 	
 	// Update camera position
-	camera_set_view_pos(view_camera[0], ViewX, ViewY);
+	camera_set_view_pos(GameCamera, ViewX, ViewY);
 }

@@ -1,117 +1,98 @@
 function StageObjectsActiveProcess() 
-{		
+{	
+	// Script subfunction
+	function StageObjectsActiveProcess_SubFunc(type)
+	{
+		if variable_instance_exists(id, "Obj_ChildrenIDs")
+		{
+			var Length = array_length(Obj_ChildrenIDs);
+			for (var i = 0; i < Length; i++)
+			{
+				with Obj_ChildrenIDs[i]
+				{
+					if type
+					{
+						instance_destroy(id);
+					}
+					else
+					{
+						instance_deactivate_object(id);
+					}
+				}
+			}
+		}
+		if type != 2
+		{
+			instance_deactivate_object(id);
+		}
+		else
+		{
+			instance_destroy();
+		}
+	}
+	
+	// If stage is active, unload objects that are off-screen
 	if DoUpdate
 	{
-		with all if variable_instance_exists(id, "Obj_LoadFlag")
+		with all if variable_instance_exists(id, "Obj_LoadStatus")
 		{	
-			// Get load bounds
+			// Get bounds
 			var LeftBound   = Camera.ViewX - Obj_LoadX;
 			var TopBound    = Camera.ViewY - Obj_LoadY;
 			var RightBound  = Camera.ViewX + Game.Width  + Obj_LoadX;
 			var BottomBound = Camera.ViewY + Game.Height + Obj_LoadY;
 			
-			// Check if the object is off-boundaries
+			// Check if the object is off-screen
 			if x < LeftBound or x > RightBound
 			or y < TopBound  or y > BottomBound
 			{
-				if Obj_LoadFlag != false
+				// Was object on the screen before?
+				if Obj_LoadStatus
 				{
-					// Was object on the screen before?
-					if Obj_LoadState
+					// Deactivate object and its children
+					if Obj_LoadFlag == TypeUnload
 					{
-						// Unload object...
-						if Obj_LoadFlag == TypeUnload
+						StageObjectsActiveProcess_SubFunc(0);
+					}
+					else if Obj_LoadFlag == TypeReset
+					{
+						if Obj_LoadData[0] < LeftBound or Obj_LoadData[0] > RightBound
 						{
-							if variable_instance_exists(id, "Obj_ChildrenIDs")
-							{
-								for (var i = 0; i < array_length(Obj_ChildrenIDs); i++)
-								{
-									with Obj_ChildrenIDs[i]
-									{
-										instance_deactivate_object(id);
-									}
-								}
-							}
-							instance_deactivate_object(id);
+							// Destroy children
+							StageObjectsActiveProcess_SubFunc(1);
+								
+							// Reset object
+							x			 = Obj_LoadData[0];
+							y			 = Obj_LoadData[1];
+							image_xscale = Obj_LoadData[2];
+							image_yscale = Obj_LoadData[3];
+								
+							event_perform(ev_create,     0);
+							event_perform(ev_room_start, 0);
 						}
 							
-						// ...or reset it to its initial state
-						else if Obj_LoadFlag == TypeReset
-						{
-							if Obj_LoadData[0] < Camera.ViewX - Obj_LoadX or Obj_LoadData[0] > Camera.ViewX + Game.Width + Obj_LoadX
-							{
-								if variable_instance_exists(id, "Obj_ChildrenIDs")
-								{
-									for (var i = 0; i < array_length(Obj_ChildrenIDs); i++)
-									{
-										with Obj_ChildrenIDs[i]
-										{
-											instance_destroy(id);
-										}
-									}
-								}
-									
-								x			 = Obj_LoadData[0];
-								y			 = Obj_LoadData[1];
-								image_xscale = Obj_LoadData[2];
-								image_yscale = Obj_LoadData[3];
-								
-								event_perform(ev_create,     0);
-								event_perform(ev_room_start, 0);
-							}
-								
-							if variable_instance_exists(id, "Obj_ChildrenIDs")
-							{
-								for (var i = 0; i < array_length(Obj_ChildrenIDs); i++)
-								{
-									with Obj_ChildrenIDs[i]
-									{
-										instance_deactivate_object(id);
-									}
-								}
-							}
-							instance_deactivate_object(id);
-						}
+						// Deactivate object and its children
+						StageObjectsActiveProcess_SubFunc(0);
+					}
 						
-						// ... or delete completely
-						else if Obj_LoadFlag == ResetDelete
-						{	
-							if variable_instance_exists(id, "Obj_ChildrenIDs")
-							{
-								for (var i = 0; i < array_length(Obj_ChildrenIDs); i++)
-								{
-									with Obj_ChildrenIDs[i]
-									{
-										instance_destroy(id);
-									}
-								}
-							}
-							instance_destroy(id);
-						}
+					// Destroy object and its children
+					else if Obj_LoadFlag == ResetDelete
+					{	
+						StageObjectsActiveProcess_SubFunc(2);
 					}
+				}
 					
-					// If object wasn't on the screen yet, unload
-					else
-					{
-						if variable_instance_exists(id, "Obj_ChildrenIDs")
-						{
-							for (var i = 0; i < array_length(Obj_ChildrenIDs); i++)
-							{
-								with Obj_ChildrenIDs[i]
-								{
-									instance_deactivate_object(id);
-								}
-							}
-						}
-						instance_deactivate_object(id);		
-					}
+				// Deactivate object and its children
+				else
+				{
+					StageObjectsActiveProcess_SubFunc(0);
 				}
 			}
 			
 			// If object is inside the boundaries and has the reset flag, allow unload actions
-			else if Obj_LoadFlag != false and !Obj_LoadState
+			else if !Obj_LoadStatus
 			{
-				Obj_LoadState  = true;		
+				Obj_LoadStatus = true;		
 			}
 		}
 	}
