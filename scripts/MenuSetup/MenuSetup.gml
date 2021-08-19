@@ -45,7 +45,7 @@ function MenuSetup()
 	menu_add_option(5, 0, "GAMEPLAY", 6);
 	menu_add_option(5, 1, "VIDEO",    7);
 	menu_add_option(5, 2, "AUDIO",    8);
-	menu_add_option(5, 3, "CONTROLS", noone);
+	menu_add_option(5, 3, "CONTROLS", 9);
 	
 	// Options (gameplay)
 	var Spindash  = menu_get_boolean(Game.SpindashEnabled);
@@ -59,16 +59,18 @@ function MenuSetup()
 	menu_add_option(6, 0, "SPINDASH: "   + string(Spindash),  noone);
 	menu_add_option(6, 1, "PEELOUT: "    + string(Peelout),   noone);
 	menu_add_option(6, 2, "DROPDASH: "   + string(Dropdash),  noone);
-	menu_add_option(6, 3, "GND SPDCAP: " + string(GroundCap), noone);
+	menu_add_option(6, 3, "GRN SPDCAP: " + string(GroundCap), noone);
 	menu_add_option(6, 4, "AIR SPDCAP: " + string(AirCap),    noone);
 	menu_add_option(6, 5, "CD CAMERA: "  + string(CDCamera),  noone);
 	
 	// Options (video)
 	var Fullscreen = menu_get_boolean(Game.WindowFullscreen);
+	var PostProcessing = menu_get_boolean(Game.PostProcessing);
 	
 	menu_add_header(7,    "VIDEO OPTIONS");
-	menu_add_option(7, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X", noone);
-	menu_add_option(7, 1, "FULLSCREEN: "  + string(Fullscreen),			   noone);
+	menu_add_option(7, 0, "WINDOW SIZE: "     + string(Game.WindowSize) + "X", noone);
+	menu_add_option(7, 1, "FULLSCREEN: "	  + string(Fullscreen),			   noone);
+	menu_add_option(7, 2, "POST-PROCESSING: " + string(PostProcessing),		   noone);
 	
 	// Options (audio)
 	menu_add_header(8,    "AUDIO OPTIONS");
@@ -76,6 +78,14 @@ function MenuSetup()
 	menu_add_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)), noone);
 	
 	// Options (controls)
-	/*
-	*/
+	menu_add_header(9,    "CONTROLS OPTIONS");
+	menu_add_option(9, 0, "UP:"    + input_get_keyname(Game.KeyboardControl[0]), noone);
+	menu_add_option(9, 1, "DOWN:"  + input_get_keyname(Game.KeyboardControl[1]), noone);
+	menu_add_option(9, 2, "LEFT:"  + input_get_keyname(Game.KeyboardControl[2]), noone);
+	menu_add_option(9, 3, "RIGHT:" + input_get_keyname(Game.KeyboardControl[3]), noone);
+	menu_add_option(9, 4, "A:"     + input_get_keyname(Game.KeyboardControl[4]), noone);
+	menu_add_option(9, 5, "B:"     + input_get_keyname(Game.KeyboardControl[5]), noone);
+	menu_add_option(9, 6, "C:"	   + input_get_keyname(Game.KeyboardControl[6]), noone);
+	menu_add_option(9, 7, "MODE:"  + input_get_keyname(Game.KeyboardControl[7]), noone);
+	menu_add_option(9, 8, "START:" + input_get_keyname(Game.KeyboardControl[8]), noone);
 }

@@ -4,7 +4,7 @@ function MenuFunctions()
 	function menu_add_option(listid, optionid, optionname, loadlist)
 	{
 		// Increase menu size
-		MenuSize[listid] += 1;
+		MenuSize[listid]++;
 		
 		// Set option name and target menu
 		MenuOption[listid][optionid] = optionname;

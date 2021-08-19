@@ -1,5 +1,5 @@
 function MenuSystemProcess()
-{
+{	
 	// Navigate between options
 	if Input.DownPress
 	{
