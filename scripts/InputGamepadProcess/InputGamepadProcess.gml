@@ -12,19 +12,19 @@ function InputGamepadProcess()
 		// Check if gamepad axis is modified once
 		switch axisindex
 		{
-			case "gp_axis_lup":    
-				return gamepad_axis_value(device, gp_axislv) < 0 and !Up;
-			break;
-			case "gp_axis_ldown":  
-				return gamepad_axis_value(device, gp_axislv) > 0 and !Down;  
-			break;
-			case "gp_axis_lleft":  
-				return gamepad_axis_value(device, gp_axislh) < 0 and !Left;  
-			break;
-			case "gp_axis_lright":
-				return gamepad_axis_value(device, gp_axislh) > 0 and !Right; 
-			break;
-		}
+            case "gp_axis_lup":    
+                return !Up    and gamepad_axis_value(device, gp_axislv) < 0;
+            break;
+            case "gp_axis_ldown":  
+                return !Down  and gamepad_axis_value(device, gp_axislv) > 0;  
+            break;
+            case "gp_axis_lleft":  
+                return !Left  and gamepad_axis_value(device, gp_axislh) < 0;  
+            break;
+            case "gp_axis_lright":
+                return !Right and gamepad_axis_value(device, gp_axislh) > 0; 
+            break;
+        }
 	}
 	
 	// Process single press
