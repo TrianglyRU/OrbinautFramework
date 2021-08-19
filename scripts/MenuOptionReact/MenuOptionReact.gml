@@ -38,10 +38,7 @@ function MenuOptionReact()
 					case 0:
 						room_goto(MQZ0);
 					break;
-					
-					// Do not load anything if stage not set
-					default:
-					break;
+					default: break;
 				}
 			}
 			else
@@ -106,10 +103,10 @@ function MenuOptionReact()
 		switch OptionID
 		{
 			case 0:
-				room_goto(MQZ0);
+				room_goto(StageTemplate);
 			break;
 			case 1:
-				room_goto(TSZ0);
+				room_goto(MQZ0);
 			break;
 		}
 	}

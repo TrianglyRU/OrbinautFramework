@@ -19,7 +19,7 @@ function GameFrameworkSetup()
 	Game.WindowFullscreen = false;	/**/
 	Game.Width  = 400;	/**/
 	Game.Height = 224;	/**/
-	Game.WindowSize		  = 4;		/**/
+	Game.WindowSize		  = 2;		/**/
 	
 	// Audio settings
 	Game.MusicVolume = 0;			/**/

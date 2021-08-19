@@ -6,16 +6,13 @@ function application_set_size(appWidth, appHeight)
 	surface_resize(application_surface, appWidth, appHeight);
 
 	// Resize palette surfaces
-	if instance_exists(Palette)
+	if surface_exists(Palette.SurfaceLow)
 	{
-		if surface_exists(Palette.SurfaceLow)
-		{
-			surface_resize(Palette.SurfaceLow, appWidth, appHeight);
-		}
-		if surface_exists(Palette.SurfaceHigh)
-		{
-			surface_resize(Palette.SurfaceHigh, appWidth, appHeight);
-		}
+		surface_resize(Palette.SurfaceLow, appWidth, appHeight);
+	}
+	if surface_exists(Palette.SurfaceHigh)
+	{
+		surface_resize(Palette.SurfaceHigh, appWidth, appHeight);
 	}
 	
 	// Re-enable surface rendering

@@ -49,7 +49,7 @@ function PlayerGroundWallCollision()
 					Xsp    -= tileData[0];
 					Inertia = 0;
 					
-					Pushing = FlipLeft;
+					Pushing = true;
 				}		
 			}
 			break;
@@ -104,7 +104,7 @@ function PlayerGroundWallCollision()
 					Xsp    += tileData[0];
 					Inertia = 0;
 					
-					Pushing = FlipRight;
+					Pushing = true;
 				}
 			}
 			break;

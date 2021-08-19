@@ -9,6 +9,8 @@ function CameraVariables()
 	ViewY			= 0;
 	ShiftX			= 0;
 	ShiftY			= 0;
+	MaxShiftX		= 0;
+	MaxShiftY		= 0;
 	ScrollDelay		= 0;
 	OverviewDelay	= 0;
 	SpinOffset		= 0;

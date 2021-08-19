@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Camera",
-    "path": "folders/Game Code/Camera.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "CameraUpdate",
+  "name": "object_create_children",
   "tags": [],
   "resourceType": "GMScript",
 }

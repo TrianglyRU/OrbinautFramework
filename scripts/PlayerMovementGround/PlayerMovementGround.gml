@@ -5,7 +5,7 @@ function PlayerMovementGround()
 		// Left key is pressed?
 		if Input.Left
 		{	
-			// Are we moving to the right?
+			// Decelerate
 			if Inertia > 0 
 			{
 				// Decelerate
@@ -16,25 +16,27 @@ function PlayerMovementGround()
 				}
 			} 
 			
-			// Are we moving to the left?
+			// Accelerate
 			else
 			{
-				// Accelerate
+				if Facing != FlipLeft
+				{
+					Facing  = FlipLeft;
+					Pushing = false;
+				}
 				if !Game.GroundSpeedcap and Inertia > -TopAcc or Game.GroundSpeedcap
 				{
 					Inertia = max(Inertia - Acc, -TopAcc);
 				} 
-				Facing = DirectionLeft;
 			}
 		}
 		
 		// Right key is pressed?
 		else if Input.Right
 		{			
-			// Are we moving to the left?
+			// Decelerate
 			if Inertia < 0 
 			{
-				// Decelerate
 				Inertia += Dec;
 				if Inertia >= 0
 				{
@@ -42,20 +44,23 @@ function PlayerMovementGround()
 				}
 			} 
 			
-			// Are we moving to the right?
+			// Accelerate
 			else
 			{
-				// Accelerate
+				if Facing != FlipRight
+				{
+					Facing  = FlipRight;
+					Pushing = false;
+				}
 				if !Game.GroundSpeedcap and Inertia < TopAcc or Game.GroundSpeedcap
 				{
 					Inertia = min(Inertia + Acc, TopAcc);
 				} 
-				Facing = DirectionRight;
 			}
 		}
 	}
 	
-	// Apply friction
+	// Apply friction if no directional buttons held
 	if (!Input.Left and !Input.Right) or MovementLock or NoControls
 	{
 		if Inertia > 0
@@ -66,16 +71,21 @@ function PlayerMovementGround()
 		{
 			Inertia = min(Inertia + Frc, 0);
 		}
+		Pushing = false;
 	}
 	
 	// Convert inertia to speeds
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	if Stage.IsFinished != 2
+	// Set animation
+	if Pushing
 	{
-		// Use 'idle' anmation
-		if (Angle <= 45 or Angle >= 316.41) and Inertia == 0 
+		Animation = AnimPush;
+	}
+	else
+	{
+		if (Angle <= 45 or Angle >= 315) and Inertia == 0 
 		{
 			if !Input.Up and !Input.Down
 			{
@@ -84,21 +94,19 @@ function PlayerMovementGround()
 		}
 		else
 		{
-			// Set 'walk' or 'run' animaton
-			var WalkLimit = SuperState and CharacterID == CharSonic ? 8 : 6;
-			Animation = abs(Inertia) < WalkLimit ? AnimWalk : AnimRun;
-			
-			// Use 'peelout' animation is running very fast as Sonic
-			if CharacterID == CharSonic and Game.PeeloutEnabled and abs(Inertia) >= 10
+			var RunSpeed = (SuperState and Game.Character == CharSonic) ? 8 : TopAcc;
+			if abs(Inertia) < RunSpeed
+			{
+				Animation = AnimWalk;
+			}
+			else if abs(Inertia) < 10
+			{
+				Animation = AnimRun;
+			}
+			else
 			{
 				Animation = AnimPeelout;
 			}
 		}
-	}
-	
-	// Use 'actend' anmation
-	else
-	{
-		Animation = AnimActEnd;	
 	}
 }

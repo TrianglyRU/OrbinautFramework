@@ -43,21 +43,22 @@ function PlayerCrouch()
 			// Launch Sonic forwards
 			Inertia	   = (MinimumSpd + round(SpindashRev) / 2) * Facing;
 			NoControls = false;
-			Spinning	   = true;
+			Spinning   = true;
 			
 			// Freeze the screen
-			if Screen.ExtendedOffset == 0 
+			if Camera.ExtendedOffset == 0 
 			{
-				Screen.ScrollDelay = 16;
+				Camera.ScrollDelay = 16;
 			}
 			
 			// Reset Spindash charge value
 			SpindashRev = -1;
 
 			// Update collision radiuses
-			RadiusY = SmallRadiusY;
-			RadiusX	= SmallRadiusX;
-			PosY   += DefaultRadiusY - SmallRadiusY;
+			RadiusY		 = SmallRadiusY;
+			RadiusX		 = SmallRadiusX;
+			PosY	    += DefaultRadiusY - SmallRadiusY;
+			Camera.PosY += DefaultRadiusY - SmallRadiusY;
 			
 			// Set 'roll' animation
 			Animation = AnimRoll;

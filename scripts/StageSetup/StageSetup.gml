@@ -26,10 +26,10 @@ function StageSetup()
 		// Default
 		default:
 		{
-			ZoneName			= "UNKNOWN LEVEL";
+			ZoneName			= "TEMPLATE STAGE";
 			ZoneID				= -1;
 			ActID				= 0;
-			FinalActID			= 1;			
+			FinalActID			= 0;			
 			CardEnabled			= true;
 			TimeEnabled			= false;
 			WaterEnabled        = false;

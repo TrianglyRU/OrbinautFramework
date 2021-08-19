@@ -52,23 +52,19 @@ function PlayerResetOnFloor()
 		Grv = 0.0625
 	}
 	
-	// Clear the roll and skid flag
+	// Clear the spinning flag
 	if !(OnObject and Ysp == 0)
 	{
 		Spinning = false;
-		Skidding = false;
 	}
-	RollJumping = false;
 	
-	// Reset other action flags
+	// Reset flags
 	Jumping			= false;
+	RollJumping		= false;
+	Pushing			= false;
 	FlightState     = false;
-	FlightValue	    = false;
-	GlideState      = false;
-	GlideValue      = false;
-	GlideGrounded   = false;	
+	GlideState      = false;	
 	ClimbState		= false;
-	ClimbValue		= false;
 	ScoreCombo		= false;
 	BarrierIsActive = false;
 	
@@ -77,7 +73,7 @@ function PlayerResetOnFloor()
 	audio_sfx_stop(sfxTired);
 	
 	// Set visual angle
-	if Angle >= 23.91 and Angle <= 337.5
+	if Angle >= 22.5 and Angle <= 337.5
 	{
 		VisualAngle = Angle;
 	}
@@ -120,7 +116,7 @@ function PlayerResetOnFloor()
 		// Apply dropspeed to inertia and set camera lag
 		Inertia			   = Dropspeed;
 		DropdashRev		   = -1;
-		Screen.ScrollDelay = 16;
+		Camera.ScrollDelay = 16;
 			
 		// Set 'roll' animation
 		Animation = AnimRoll;

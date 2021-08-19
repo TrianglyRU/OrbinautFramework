@@ -56,22 +56,29 @@ function ObjSignpostScript()
 			SparkleToUse++;
 		}
 	}
-	else if Active == 2 and Stage.IsFinished != 2
+	else if Active == 2
 	{
-		if (++ActiveTimer) >= 24
+		if Stage.IsFinished != 2
 		{
-			if Player.Grounded
+			if (++ActiveTimer) >= 24
 			{
-				audio_bgm_play(PriorityLow, ActClearMusic, noone);
+				if Player.Grounded
+				{
+					audio_bgm_play(PriorityLow, ActClearMusic, noone);
 				
-				Stage.IsFinished   = 2;
-				Input.IgnoreInput  = true;	
-				Player.Xsp		   = 0;
-				Player.Ysp		   = 0;
-				Player.Inertia     = 0;
-				Player.SpindashRev = -1;
-				Player.PeeloutRev  = -1;
+					Stage.IsFinished   = 2;
+					Input.IgnoreInput  = true;	
+					Player.Xsp		   = 0;
+					Player.Ysp		   = 0;
+					Player.Inertia     = 0;
+					Player.SpindashRev = -1;
+					Player.PeeloutRev  = -1;
+				}
 			}
+		}
+		else
+		{
+			Player.Animation = AnimActEnd;
 		}
 	}
 	

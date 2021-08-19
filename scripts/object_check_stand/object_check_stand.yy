@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_player_touchsolid",
+  "name": "object_check_stand",
   "tags": [],
   "resourceType": "GMScript",
 }

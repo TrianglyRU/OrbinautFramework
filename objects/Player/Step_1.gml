@@ -30,9 +30,6 @@
 		if PlayerJumpStart() exit;
 		PlayerSlopeResist();
 		PlayerMovementGround();
-		PlayerBalance();
-		PlayerSkid();
-		PlayerPush();
 		PlayerGroundWallCollision();	
 		PlayerRollStart();
 		PlayerLevelBound();

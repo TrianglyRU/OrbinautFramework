@@ -41,7 +41,7 @@ function MenuSaveDataLoad()
 					DataZone = "MQZ";
 				break;
 				default:
-					DataZone = "UNKNOWN";
+					DataZone = "TEMPLATE";
 				break;
 			}
 			

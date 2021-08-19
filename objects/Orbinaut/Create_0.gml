@@ -3,6 +3,7 @@
 
 	object_set_hitbox(8, 8);
 	object_set_depth(Player, false);
+	object_set_range(RangeFar, TypeReset);
 	
 	var ThisBadnik = id;
 	
@@ -10,11 +11,10 @@
 	{
 		var Ang = OrbAng * i;
 		
-		Orb[i] = instance_create(x + dsin(Ang), y + dcos(Ang), OrbinautOrb);
+		Orb[i] = object_create_children(x + dsin(Ang), y + dcos(Ang), OrbinautOrb);
 		with Orb[i] 
 		{
 			object_set_depth(ThisBadnik, true);
-			Parent = ThisBadnik;
 		}
 	}
 	

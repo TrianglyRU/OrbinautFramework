@@ -1,23 +1,31 @@
 function CameraFollowProcess() 
 {	
 	// Exit if camera is disabled or no target set
-	if !Enabled or !Target
+	if !Enabled or !instance_exists(Target)
 	{
 		exit;
 	}
 	
 	// Get target's position relative to camera
-	TargetX = Target.x - PosX;
-	TargetY = Target.y - PosY;
+	if Target == Player
+	{
+		TargetX = floor(Player.PosX) - PosX;
+		TargetY = floor(Player.PosY) - PosY;
+	}
+	else
+	{
+		TargetX = Target.x - PosX;
+		TargetY = Target.y - PosY;
+	}
 	
 	// Set horizontal shift speed
 	if TargetX <= Game.Width / 2 - 16 
 	{ 
-		ShiftX = clamp(TargetX - (Game.Width / 2 - 16), -16, 0);  
+		ShiftX = clamp(TargetX - (Game.Width / 2 - 16), -MaxShiftX, 0);  
 	}
 	else if TargetX >= Game.Width / 2
 	{ 
-		ShiftX = clamp(TargetX - (Game.Width / 2), 0, 16);    
+		ShiftX = clamp(TargetX - (Game.Width / 2), 0, MaxShiftX);    
 	}
 	else
 	{
@@ -26,26 +34,28 @@ function CameraFollowProcess()
 	
 	// Set vertical shift speed
 	if Target == Player and (Player.Grounded or Player.GlideState == GlideStop)
-	{
+	{	
 		if abs(Player.Ysp) <= 6
 		{
-			var MaxShift = 6;
+			MaxShiftY = 6;
 		}
 		else if abs(Player.Ysp) >= 8
 		{
-			var MaxShift = 16;
+			MaxShiftY = 16;
 		}
-		ShiftY = clamp(TargetY - (Game.Height / 2 - 16), -MaxShift, MaxShift);  
+		ShiftY = clamp(TargetY - (Game.Height / 2 - 16), -MaxShiftY, MaxShiftY);
 	} 
 	else 
 	{
+		MaxShiftY = 16;
+		
 		if TargetY <= Game.Height / 2 - 48 
 		{ 
-			ShiftY = clamp(TargetY - (Game.Height / 2 - 48), -16, 0);  
+			ShiftY = clamp(TargetY - (Game.Height / 2 - 48), -MaxShiftY, 0);  
 		} 
 		else if TargetY >= Game.Height / 2 + 16 
 		{ 
-			ShiftY = clamp(TargetY - (Game.Height / 2 + 16), 0, 16);  
+			ShiftY = clamp(TargetY - (Game.Height / 2 + 16), 0, MaxShiftY);  
 		}
 		else
 		{
@@ -60,7 +70,7 @@ function CameraFollowProcess()
 	}
 	else
 	{
-		PosX += ShiftX;
+		PosX += ShiftX;	
 		PosY += ShiftY;
 	}
 }

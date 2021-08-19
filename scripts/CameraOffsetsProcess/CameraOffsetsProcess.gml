@@ -1,7 +1,7 @@
 function CameraOffsetsProcess()
 {	
 	// Exit if camera is disabled or target is not player
-	if !Enabled or Target != Player
+	if !Enabled or Target != Player or !instance_exists(Target)
 	{
 		exit;
 	}
@@ -39,13 +39,11 @@ function CameraOffsetsProcess()
 	} 
 	else 
 	{
-		// Shift camera back if offset is active, but we're airborne and not rolling anymor
+		// Reset it
 		if !Player.Grounded and SpinOffset
 		{
-			CameraY -= Player.DefaultRadiusY - Player.SmallRadiusY;
+			//PosY -= Player.DefaultRadiusY - Player.SmallRadiusY;
 		}
-		
-		// Clear offset
 		SpinOffset = 0;
 	}
 	

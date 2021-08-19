@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage",
-    "path": "folders/Game Code/Stage.yy",
+    "name": "Camera",
+    "path": "folders/Game Code/Camera.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageEndProcess",
+  "name": "CameraPositionUpdate",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -1,7 +1,7 @@
-function ScreenDebugPositionsDraw()
+function InterfaceDebugPositionsDraw()
 {
 	// Check if general debugging is enabled
-	if DebugToggle
+	//if DebugToggle
 	{
 		// Draw position points
 		with all

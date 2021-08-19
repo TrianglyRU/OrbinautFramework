@@ -19,5 +19,3 @@
 	}
 	
 	object_act_enemy(EnemyBadnik);
-	
-	

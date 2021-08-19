@@ -42,14 +42,6 @@ function PlayerSetup()
 	Score = Game.Score;
 	Lives = Game.Lives;
 	
-	// If player uses saved global spawn position, use it
-	if !array_equals(Game.PlayerPosition, [])
-	{
-		PosX = Game.PlayerPosition[0];
-		PosY = Game.PlayerPosition[1];
-	}
-	/* Regular spawn code is stored in Spawnpoint object! */
-	
 	// Initialize recorded position datalist array
 	RecordedPosX = ds_list_create();
 	RecordedPosY = ds_list_create();

@@ -4,4 +4,4 @@
 	// Post-Objects Scripts
 	CameraFollowProcess();
 	CameraOffsetsProcess();
-	CameraUpdate();
+	CameraPositionUpdate();

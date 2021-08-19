@@ -14,7 +14,7 @@ function PlayerDisplay()
 	}
 	
 	// Update character display
-	x			 = floor(PosX) + (Facing == DirectionLeft);
+	x			 = floor(PosX);
 	y		     = floor(PosY);
 	depth		 = DrawOrder;
 	image_xscale = Facing;

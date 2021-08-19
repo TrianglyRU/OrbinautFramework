@@ -4,7 +4,6 @@ function PlayerRoll()
 	Animation = AnimRoll;
 	
 	// Reset flags
-	Pushing  = false;
 	Skidding = false;
 	
 	// Perform only if directional input is allowed

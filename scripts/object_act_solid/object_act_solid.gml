@@ -1,6 +1,13 @@
 /// @function object_act_solid(sides, top, bottom)
 function object_act_solid(sides, top, bottom)
 {
+	// Clear touch and push flags
+	Obj_SolidTouchU	= false;
+	Obj_SolidTouchD	= false;
+	Obj_SolidTouchL	= false;
+	Obj_SolidTouchR	= false;
+	Obj_SolidPush	= false;
+	
 	// Exit the code if collisions are disabled
 	if !Player.AllowCollision
 	{
@@ -30,39 +37,31 @@ function object_act_solid(sides, top, bottom)
 		exit;
 	}
 	
-	// Clear touch flags
-	Obj_SolidTouchU	= false;
-	Obj_SolidTouchD	= false;
-	Obj_SolidTouchL	= false;
-	Obj_SolidTouchR	= false;
-	
-	// Get object
-	var ObjectX		   = floor(x);
-	var ObjectY        = floor(y);
-	var ObjectRadiusX  = floor(Obj_SolidX + 11);
-	var ObjectRadiusY  = floor(Obj_SolidY + Player.RadiusY);
-	var ObjectID	   = id;
-
-	// Get player
-	var PlayerX = floor(Player.PosX);
-	var PlayerY = floor(Player.PosY);
+	// Get object and player data
+	var PlayerX      = floor(Player.PosX);
+	var PlayerY      = floor(Player.PosY);
+	var ObjectID	 = id;
+	var ObjectX		 = x;
+	var ObjectY      = y;
+	var ObjectWidth  = Obj_SolidX + 11;
+	var ObjectHeight = Obj_SolidY + Player.RadiusY + 1;
 	
 	// Get height array
 	if Obj_SolidMap != false
 	{
 		// Get object sides
-		var ObjectLeft  = floor(x - Obj_SolidX - 0);
-		var ObjectRight = floor(x + Obj_SolidX - 1);
+		var ObjectLeft  = x - Obj_SolidX;
+		var ObjectRight = x + Obj_SolidX - 1;
 			
 		// Get height from array to use
 		var ArrayHeight = clamp(image_xscale ? PlayerX - ObjectLeft : ObjectRight - PlayerX, 0, array_length(Obj_SolidMap) - 1);
 		
 		// Calculate height difference
-		var ObjectHeight = (Obj_SolidY * 2 - Obj_SolidMap[ArrayHeight]) * image_yscale;	
+		var SlopeOffset = (Obj_SolidY * 2 - Obj_SolidMap[ArrayHeight]) * image_yscale;	
 	}
 	else
 	{
-		var ObjectHeight = 0;
+		var SlopeOffset = 0;
 	}
 	
 	// Check if player is standing on this object, collide only with its top side
@@ -72,13 +71,13 @@ function object_act_solid(sides, top, bottom)
 		Player.PosX += floor(x - xprevious);
 		
 		// Make player to always stay on top of the object
-		Player.PosY = ObjectY - Obj_SolidY - Player.RadiusY + ObjectHeight - 1;
+		Player.PosY = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
 			
 		// Tell the object we're touching its top side
 		Obj_SolidTouchU = true;
 		
 		// Get fall radius
-		var FallRadius = sides ? ObjectRadiusX : Obj_SolidX;
+		var FallRadius = sides ? ObjectWidth : Obj_SolidX;
 		
 		// Check if player is outside the object
 		var XComparison = floor(Player.PosX) - ObjectX + FallRadius;
@@ -92,110 +91,124 @@ function object_act_solid(sides, top, bottom)
 	else
 	{	
 		// Check for overlap
-		var XDifference = PlayerX - ObjectX + ObjectRadiusX;
-		if  XDifference < 0 or XDifference > ObjectRadiusX * 2
+		var XDifference = PlayerX - ObjectX + ObjectWidth;
+		if  XDifference < 0 or XDifference > ObjectWidth * 2
 		{
 			exit;
 		}		
-		var YDifference = PlayerY - ObjectY + ObjectRadiusY + 4 - ObjectHeight;
-		if  YDifference < 0 or YDifference > ObjectRadiusY * 2
+		var YDifference = PlayerY - ObjectY - SlopeOffset + 4 + ObjectHeight;
+		if  YDifference < 0 or YDifference > ObjectHeight * 2
 		{
 			exit;
 		}
 		
-		// Find collision direction
-		var XDistance = PlayerX > ObjectX ? XDifference - ObjectRadiusX * 2     : XDifference;
-		var YDistance = PlayerY > ObjectY ? YDifference - ObjectRadiusY * 2 - 4 : YDifference;
+		// Get distance differences
+		var XDistance = PlayerX > ObjectX ? XDifference - ObjectWidth  * 2	   : XDifference;
+		var YDistance = PlayerY > ObjectY ? YDifference - ObjectHeight * 2 - 4 : YDifference;
 		
 		// Collide vertically
-		if abs(XDistance) > abs(YDistance)
-		{			
+		if abs(XDistance) >= abs(YDistance)
+		{	
 			// Collide bottom
-			if bottom and YDistance < 0 and Player.Ysp < 0
-			{	
-				// Clip out
-				Player.PosY -= YDistance;
-				Player.Ysp   = 0;
-				
-				// Reset gravity if flying
-				if Player.FlightState
+			if bottom and YDistance < 0
+			{
+				// Kill player
+				if Player.Grounded and Player.Ysp == 0
 				{
-					Player.Grv = 0.03125;
+					if abs(XDistance) >= 16
+					{
+						object_damage(false, false, true);
+					}
 				}
 				
-				// Tell the object we're touching its top side
-				Obj_SolidTouchD = true;
+				// Clip out
+				else
+				{
+					if Player.FlightState
+					{
+						Player.Grv = 0.03125;
+					}
+					Player.PosY -= YDistance;
+					Player.Ysp   = 0;
+				}
 				
-				/* In S1 and S2 the game would also kill you if you were grounded, 
-				   however that was changed in S3 to allow to you use springs on ceilings */
+				// Tell the object we're touching its bottom
+				Obj_SolidTouchD = true;
 			}
 			
-			// Collide top
-			else if top and YDistance > 0 and YDistance < 16 and Player.Ysp >= 0
+			// Collide top side
+			else if top and YDistance >= 0 and YDistance < 16
 			{
-				// Get land radius
-				var LandRadius  = sides ? ObjectRadiusX : Obj_SolidX;
+				if Player.Ysp >= 0
+				{
+					// Get land radius
+					var LandRadius = sides ? ObjectWidth : Obj_SolidX;
 		
-				// Exit if outside the object
-				var XComparison = PlayerX - ObjectX + LandRadius;
-				if  XComparison < 0 or XComparison >= LandRadius * 2
-				{
-					exit;
-				}
+					// Exit if outside the object
+					var XDifference = PlayerX - ObjectX + LandRadius;
+					if XDifference < 0 or XDifference >= LandRadius * 2
+					{
+						exit;
+					}
 				
-				// Tell the object we're touching its top side
-				Obj_SolidTouchU = true;
-				
-				// Do from player's side
-				with Player
-				{
-					// Attach player to the object's top boundary
-					PosY -= YDistance - 3;
+					// Do from player's side
+					with Player
+					{
+						// Attach player to the object's top boundary
+						PosY -= YDistance - 4;
 					
-					// Become grounded
-					Grounded = true;
-					OnObject = ObjectID;
+						// Become grounded
+						Grounded = true;
+						OnObject = ObjectID;
 					
-					// Update horizontal speed and angle
-					Inertia  = Xsp;
-					Angle    = 360;
+						// Update horizontal speed and angle
+						Inertia  = Xsp;
+						Angle    = 360;
 					
-					/* We normally don't call *scripts* inside scripts or functions
-					in Orbinaut, but that's really the case where we need to do this */
-					PlayerResetOnFloor();
+						/* We normally don't call *scripts* inside scripts or functions
+						in Orbinaut, but that's really the case where we need to do this */
+						PlayerResetOnFloor();
+					}
+					
+					// Tell the object we're touching its top side
+					Obj_SolidTouchU = true;
 				}
 			}		
 		}
 		
 		// Collide horizontally
 		else if sides and abs(YDistance) > 4
-		{
-			// Stop
-			if XDistance > 0 and Player.Xsp > 0
-			or XDistance < 0 and Player.Xsp < 0
+		{		
+			// Tell the object we're touching its side, and set push animation
+			if PlayerX < ObjectX
 			{
-				// Tell the object we're touching its side
 				if Player.Xsp > 0
 				{
-					Obj_SolidTouchL = true;
+					Player.Pushing = true;
 				}
-				else if Player.Xsp < 0
+				Obj_SolidTouchL = true;
+			}
+			else
+			{
+				if Player.Xsp < 0
 				{
-					Obj_SolidTouchR = true;
+					Player.Pushing = true;
 				}
-				
-				// Reset speeds
-				if Player.Grounded
-				{
-					Player.Inertia = 0;
-				}
-				Player.Xsp = 0;
-				
-				// Set pushing flag
-				Player.Pushing = true;
+				Obj_SolidTouchR = true;
 			}
 			
-			// Push outside
+			// Reset speeds and push outside
+			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
+			{
+				Player.Inertia = 0;
+				Player.Xsp	   = 0;
+				
+				// Tell the object it is being pushed
+				if Player.Grounded
+				{
+					Obj_SolidPush = true;
+				}
+			}
 			Player.PosX -= XDistance;
 		}
 	}

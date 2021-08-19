@@ -1,58 +1,48 @@
 /// @description
 // You can write your code in this editor
-
+	
+	// Act solid
 	object_act_solid(true, true, true);
 	
-	if Player.Grounded and !Player.Spinning and Grounded
+	if Grounded
 	{
-		if floor(Player.PosX) > PosX and Input.Left
+		// Check for being pushed
+		if object_check_push(SideLeft)
 		{
-			Direction	 = FlipLeft;
-			var PushSide = SideRight;
+			Player.Inertia = 0.25;
+			Player.PosX   += 1;
+			PosX		  += 1;
+			Direction	   = FlipRight;	
 		}
-		else if floor(Player.PosX) < PosX and Input.Right
+		else if object_check_push(SideRight)
 		{
-			Direction	 = FlipRight;
-			var PushSide = SideLeft;
-		}
-		else
-		{
-			Direction    = noone;
-			var PushSide = noone;
-		}
-		if PushSide != noone and object_player_touch(PushSide)
-		{
-			// Move block
-			PosX		+= PushSide == SideLeft ? 1 : - 1;
-			Player.PosX += PushSide == SideLeft ? 1 : - 1;
-		
-			// Reset player's inertia
-			Player.Inertia = PushSide == SideLeft ? 0.25 : -0.25;
+			Player.Inertia = -0.25;
+			Player.PosX   -= 1;
+			PosX		  -= 1;
+			Direction	   = FlipLeft;	
 		}
 	}
-	
-	if !Grounded
+	else
 	{
+		// Adjust position when airborne
 		if ClipTimer--
 		{
 			PosX += 4 * Direction;
 		}
 		else
 		{
-			Ysp      += 0.21875;
-			PosY	 += Ysp;
+			Ysp  += 0.21875;
+			PosY += Ysp;
 		}	
 	}
 	
 	// Update position
 	object_update_position(PosX, PosY);
 	
-	if Direction != noone
-	{
-		object_collide_tiles_h(SideLeft,  SideCentre, 0, LayerA);
-		object_collide_tiles_h(SideRight, SideCentre, 0, LayerA);
-	}
+	// Collide with walls
+	object_collide_tiles_h(Direction, SideCentre, 0, LayerA);
 	
+	// Check for floor collision
 	var CollisionCheck = object_collide_tiles_v(SideCentre, SideBottom, 0, LayerA);	
 	if !CollisionCheck
 	{

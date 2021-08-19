@@ -1,4 +1,4 @@
-function ScreenDebugSolidboxDraw()
+function InterfaceDebugSolidboxDraw()
 {
 	// Exit the code if devmode is disabled
 	if !Game.DevMode
@@ -13,7 +13,7 @@ function ScreenDebugSolidboxDraw()
 	}
 
 	// Check if general and solidbox debugging is enabled
-	if DebugToggle and DebugSolids
+	//if DebugToggle and DebugSolids
 	{
 		// Draw solidboxes
 		draw_set_alpha(0.5);

@@ -32,10 +32,16 @@ function StageEndProcess()
 			switch ZoneID
 			{
 				case 0: 
+					room_goto(MQZ0);	// TODO: MQZ1
+				break;
+				default:
 					room_goto(DevMenu);
 				break;
 			}
 		}	
 		break;
+		
+		// Act 2
+		case 1: break;
 	}
 }

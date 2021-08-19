@@ -1,7 +1,7 @@
 function PlayerLookup()
 {	
 	// Exit
-	if Inertia != 0 or Pushing != false or Balancing
+	if Inertia != 0 or Pushing or Balancing
 	{
 		exit;
 	}
@@ -66,9 +66,9 @@ function PlayerLookup()
 			Inertia = (!SuperState ? 12 : 15) * Facing;
 			
 			// Freeze the screen for 16 frames
-			if Screen.ExtendedOffset == 0
+			if Camera.ExtendedOffset == 0
 			{
-				Screen.ScrollDelay = 16;
+				Camera.ScrollDelay = 16;
 			}
 			
 			PeeloutRev = -1;

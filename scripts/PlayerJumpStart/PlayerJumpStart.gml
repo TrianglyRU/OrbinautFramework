@@ -56,8 +56,6 @@ function PlayerJumpStart()
 		Ysp	+= Jump * dcos(Angle);	
 		
 		// Update flags
-		Skidding	  = false;
-		Balancing	  = false;
 		Pushing		  = false;
 		Grounded      = false;
 		OnObject	  = false;
