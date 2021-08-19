@@ -1,73 +1,145 @@
 function PlayerBalance()
 {
-	// Reset balancing flag
-	Balancing = false;
-	
-	if Angle >= 46.41 and Angle <= 313.59
+	// Exit if holding down and S&K crouching is enabled, or moving
+	if Game.SKCrouch and Input.Down or Inertia != 0
 	{
 		exit;
 	}
 	
-	if OnObject or Inertia != 0
+	// Balance on floor
+	if !OnObject
 	{
-		exit;
-	}
-
-	var Distance = tile_check_collision_v(floor(PosX), floor(PosY + RadiusY), true, false, Layer)[0];	
-	if  Distance < 12
-	{
-		exit;
-	}
-	
-	var LeftAngle  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
-	var RightAngle = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
-	
-	if !(LeftAngle or RightAngle)
-	{
-		exit;
-	}
-	
-	Balancing = true;
+		// Exit if angle is too steep
+		if Angle >= 46.41 and Angle <= 313.59
+		{
+			exit;
+		}
 		
-	// Standing on right edge
-	if !RightAngle
-	{
-		if !SuperState or CharacterID == CharSonic
+		// Check for floor
+		var FloorDistance = tile_check_collision_v(floor(PosX), floor(PosY + RadiusY), true, false, Layer)[0];	
+		if  FloorDistance < 12
 		{
-			if Facing == DirectionRight
+			exit;
+		}
+		
+		// Get floor angles
+		var LeftAngle  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
+		var RightAngle = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
+		
+		// Continue if only one angle exists
+		if !(LeftAngle or RightAngle)
+		{
+			exit;
+		}
+	
+		// Standing on the left edge
+		if !LeftAngle
+		{	
+			// Use two-sided balance animation
+			if !SuperState and CharacterID == CharSonic
 			{
-				Animation = AnimBalanceFront;
+				if Facing == FlipLeft
+				{
+					Animation = AnimBalance;
+				}
+				else if Facing == FlipRight
+				{
+					Animation = AnimBalanceFlip;
+				}
 			}
-			else if Facing == DirectionLeft
+			
+			// Use one-sided balance animation
+			else
 			{
-				Animation = AnimBalanceBack;
+				Facing    = FlipLeft;
+				Animation = AnimBalance;
 			}
 		}
-		else
+		
+		// Standing on the right edge
+		else if !RightAngle
 		{
-			Facing    = DirectionRight;
-			Animation = AnimBalanceFront;
+			// Use two-sided balance animation
+			if !SuperState and CharacterID == CharSonic
+			{
+				if Facing == FlipRight
+				{
+					Animation = AnimBalance;
+				}
+				else if Facing == FlipLeft
+				{
+					Animation = AnimBalanceFlip;
+				}
+			}
+			
+			// Use one-sided balance animation
+			else
+			{
+				Facing    = FlipRight;
+				Animation = AnimBalance;
+			}
 		}
 	}
-		
-	// Standing on left edge
-	else if !LeftAngle
-	{	
-		if !SuperState or CharacterID == CharSonic
+	
+	// Balance on object
+	else
+	{
+		// Ignore specific objects
+		if OnObject.object_index == Bridge
 		{
-			if Facing == DirectionLeft
+			exit;
+		}
+		
+		// Get balance range
+		var ObjectWidth  = OnObject.Obj_SolidX * 2 - 4;
+		var EdgeDistance = OnObject.Obj_SolidX - OnObject.x + floor(PosX);
+		
+		// Standing on the left edge
+		if EdgeDistance < 2
+		{
+			// Use two-sided balance animation
+			if !SuperState and CharacterID == CharSonic
 			{
-				Animation = AnimBalanceFront;
+				if Facing == FlipLeft
+				{
+					Animation = AnimBalance;
+				}
+				else if Facing == FlipRight
+				{
+					Animation = AnimBalanceFlip;
+				}
 			}
-			else if Facing == DirectionRight
+			
+			// Use one-sided balance animation
+			else
 			{
-				Animation = AnimBalanceBack;
+				Facing    = FlipLeft;
+				Animation = AnimBalance;
 			}
 		}
-		else
+		
+		// Standing on the right edge
+		else if EdgeDistance >= ObjectWidth
 		{
-			Facing    = DirectionLeft;
-			Animation = AnimBalanceFront;
+			// Use two-sided balance animation
+			if !SuperState and CharacterID == CharSonic
+			{
+				if Facing == FlipRight
+				{
+					Animation = AnimBalance;
+				}
+				else if Facing == FlipLeft
+				{
+					Animation = AnimBalanceFlip;
+				}
+			}
+			
+			// Use one-sided balance animation
+			else
+			{
+				Facing    = FlipRight;
+				Animation = AnimBalance;
+			}
 		}
 	}
 }

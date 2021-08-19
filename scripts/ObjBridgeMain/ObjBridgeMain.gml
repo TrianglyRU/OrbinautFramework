@@ -3,13 +3,13 @@ function ObjBridgeMain()
 	// Get player position within the bridge
 	var PlayerPos = (floor(Player.PosX) - (x - BridgeLength / 2 * 16 - 16)) div 16;
 
-	// Set a recovery angle by checking if player is standing on any log of this bridge
+	// Set a recovery angle
     if Player.OnObject == id
-    {    
+    {   
         if RecoveryAngle < 90
 		{
 			RecoveryAngle += 5.625;
-		}
+		}	
     } 
     else if RecoveryAngle > 0
     {

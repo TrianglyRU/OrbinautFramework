@@ -84,8 +84,8 @@ function GameMacro()
 	#macro AnimSkid			   17
 	#macro AnimGlideStand	   18
 	#macro AnimClimbering	   19
-	#macro AnimBalanceFront    20
-	#macro AnimBalanceBack	   21
+	#macro AnimBalance    20
+	#macro AnimBalanceFlip	   21
 	#macro AnimSpring		   22
 	#macro AnimActEnd		   23
 	#macro AnimDropStand	   24

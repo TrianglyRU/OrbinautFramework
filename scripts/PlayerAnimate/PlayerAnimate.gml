@@ -64,10 +64,10 @@ function PlayerAnimate()
 					case AnimDrown:
 						animation_play(spr_sonic_drown, 1, 1);
 					break;
-					case AnimBalanceFront:
+					case AnimBalance:
 						animation_play(spr_sonic_balance_front, 16, 1);
 					break;
-					case AnimBalanceBack:
+					case AnimBalanceFlip:
 						animation_play(spr_sonic_balance_back, 16, 1);
 					break;
 					case AnimSpring:
@@ -133,7 +133,7 @@ function PlayerAnimate()
 					case AnimDrown:
 						animation_play(spr_supersonic_drown, 1, 1);
 					break;
-					case AnimBalanceFront:
+					case AnimBalance:
 						animation_play(spr_supersonic_balance, 10, 1);
 					break;
 					case AnimSpring:
@@ -242,7 +242,7 @@ function PlayerAnimate()
 				case AnimActEnd:
 					animation_play(spr_tails_actend, 16, 2);
 				break;
-				case AnimBalanceFront:
+				case AnimBalance:
 					animation_play(spr_tails_balance_front, 20, 1);
 				break;
 				case AnimTransform:
@@ -340,7 +340,7 @@ function PlayerAnimate()
 				case AnimSpring:
 					animation_play(spr_knuckles_spring, 1, 1);
 				break;
-				case AnimBalanceFront:
+				case AnimBalance:
 					animation_play(spr_knuckles_balance_front, 4, 34);
 				break;
 				case AnimTransform:

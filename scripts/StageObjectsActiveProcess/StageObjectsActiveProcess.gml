@@ -27,7 +27,7 @@ function StageObjectsActiveProcess()
 		}
 		else
 		{
-			instance_destroy();
+			instance_destroy(id);
 		}
 	}
 	

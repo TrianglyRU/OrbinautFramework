@@ -22,7 +22,7 @@ function GameFrameworkSetup()
 	Game.WindowSize	      = 2;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;	/**/
+	Game.MusicVolume = 0;	/**/
 	Game.SoundVolume = 0.5;	/**/
 	
 	// Control settings (keyboard)
@@ -35,7 +35,7 @@ function GameFrameworkSetup()
 	Game.GroundSpeedcap	    = false; /**/
 	Game.AirSpeedcap	    = false; /**/
 	Game.CDCamera			= false; /**/
-	Game.RolljumpControl    = true;
+	Game.RolljumpControl    = false;
 	Game.S3SlopePhysics		= true;
 	Game.SKCrouch			= true;
 	Game.SKRollPhysics		= true;

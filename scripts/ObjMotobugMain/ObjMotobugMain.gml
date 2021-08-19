@@ -3,11 +3,8 @@ function ObjMotobugMain()
 	// Is motobug currently stopped?
 	if StopTimer 
 	{
-		// Count down the timer
-		StopTimer--;
-		
 		// Flip Motobug and restore its speed
-		if !StopTimer
+		if !(--StopTimer)
 		{
 			Xsp		   =  1;
 			Direction *= -1;
@@ -16,6 +13,9 @@ function ObjMotobugMain()
 	
 	// Move Motobug
 	PosX += Xsp * Direction;
+	
+	// Update position
+	object_update_position(PosX, y);
 	
 	// Is Motobug currently moving?
 	if Xsp != 0
@@ -26,7 +26,7 @@ function ObjMotobugMain()
 			if !SmokeTimer
 			{
 				var  ThisID   = id;
-				var  SmokeObj = instance_create(floor(PosX - 19 * Direction), floor(PosY - 1), MotobugSmoke);
+				var  SmokeObj = instance_create(x - 19 * Direction, y - 1, MotobugSmoke);
 				with SmokeObj
 				{
 					object_set_depth(ThisID, false);

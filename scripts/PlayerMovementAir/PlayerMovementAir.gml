@@ -1,7 +1,14 @@
 function PlayerMovementAir()
 {	
 	// Rotate angle back to 360 degrees
-	Angle = Angle < 180 ? max(Angle - 2.8125, 0) : min(Angle + 2.8125, 360);
+	if Angle < 180
+	{
+		Angle = max(Angle - 2.8125, 0);
+	}
+	else
+	{
+		Angle = min(Angle + 2.8125, 360);
+	}
 	
 	// Exit if gliding (ignoring GlideDrop state) or climbing
 	if GlideState == GlideActive or GlideState == GlideStop or ClimbState

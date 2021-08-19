@@ -18,8 +18,7 @@ function PlayerSlopeRepel()
 		if !Game.S3SlopePhysics
 		{	
 			// Check if we are on a steep slope and going slow
-			//if Angle >= 46.41 and Angle <= 315 and abs(Inertia) < 2.5
-			if Angle >= 45 and Angle <= 315 and abs(Inertia) < 2.5
+			if Angle >= 46.41 and Angle <= 315 and abs(Inertia) < 2.5
 			{	
 				// Fall off the slope
 				Grounded = false;
@@ -34,12 +33,10 @@ function PlayerSlopeRepel()
 		else
 		{
 			// Check if we are on a steep slope and going slow
-			//if Angle >= 35.16 and Angle <= 326.25 and abs(Inertia) < 2.5
-			if Angle >= 33.75 and Angle <= 326.25 and abs(Inertia) < 2.5
+			if Angle >= 35.16 and Angle <= 326.25 and abs(Inertia) < 2.5
 			{
 				// Fall off the slope
-				//if Angle >= 68.91 and Angle <= 292.50
-				if Angle >= 67.5 and Angle <= 292.5
+				if Angle >= 68.91 and Angle <= 292.5
 				{
 					Grounded = false;
 				}

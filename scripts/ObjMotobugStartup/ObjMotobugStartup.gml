@@ -2,7 +2,6 @@ function ObjMotobugStartup()
 {
 	// Create variables
 	PosX	   isReal;
-	PosY	   isReal;
 	Xsp		   isReal;
 	Direction  isReal;
 	StopTimer  isReal;
@@ -10,7 +9,6 @@ function ObjMotobugStartup()
 	
 	// Set values
 	PosX	   = x;
-	PosY	   = y;
 	Direction  = image_xscale;
 	Xsp        = 1;
 	SmokeTimer = 17;

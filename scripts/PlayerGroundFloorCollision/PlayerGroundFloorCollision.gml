@@ -11,15 +11,15 @@ function PlayerGroundFloorCollision()
 	{
 		var AngleRange = RangeFloor;
 	}
-	else if Angle >= 46.41 and Angle <= 133.59		
+	else if Angle >= 46.41 and Angle <= 133.59
 	{
 		var AngleRange = RangeRWall;
 	}
-	else if Angle >= 135 and Angle <= 225		
+	else if Angle >= 135 and Angle <= 225
 	{
 		var AngleRange = RangeRoof;
 	}
-	else if Angle >= 226.41 and Angle <= 313.59		
+	else if Angle >= 226.41 and Angle <= 313.59
 	{
 		var AngleRange = RangeLWall;
 	}	

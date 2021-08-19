@@ -15,21 +15,6 @@ function PlayerLevelBound()
 		PosX    = Stage.RightBoundary - 24;
 	}
 	
-	// Top bound
-	if GlideState or FlightState
-	{
-		if floor(PosY - RadiusY - Ysp) < Stage.TopBoundary
-		{
-			PosY = Stage.TopBoundary + RadiusY + 1;
-			
-			// Reset gravity if flying
-			if FlightState
-			{
-				Grv	= 0.03125;
-			}
-		}
-	}
-	
 	// Kill player when falling below death (bottom) boundary)
 	if !Death and !Drown
 	{

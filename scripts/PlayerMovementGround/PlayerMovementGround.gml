@@ -85,7 +85,7 @@ function PlayerMovementGround()
 	}
 	else
 	{
-		if (Angle <= 45 or Angle >= 315) and Inertia == 0 
+		if (Angle <= 45 or Angle >= 316.41) and Inertia == 0 
 		{
 			if !Input.Up and !Input.Down
 			{
@@ -94,7 +94,7 @@ function PlayerMovementGround()
 		}
 		else
 		{
-			var RunSpeed = (SuperState and Game.Character == CharSonic) ? 8 : TopAcc;
+			var RunSpeed = (SuperState and Game.Character == CharSonic) ? 8 : 6;
 			if abs(Inertia) < RunSpeed
 			{
 				Animation = AnimWalk;

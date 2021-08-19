@@ -3,7 +3,7 @@ function PlayerSlopeResist()
 	// Set slope gravity	
 	if !Game.S3SlopePhysics
 	{
-		if Angle >= 45 and Angle <= 315
+		if Angle >= 46.41 and Angle <= 315
 		{
 			SlopeGravity = 0.125 * dsin(Angle);
 		}
@@ -14,7 +14,7 @@ function PlayerSlopeResist()
 	}
 	else
 	{
-		if Angle >= 33.75 and Angle <= 326.25
+		if Angle >= 35.16 and Angle <= 326.25
 		{
 			SlopeGravity = 0.125 * dsin(Angle);
 		}
