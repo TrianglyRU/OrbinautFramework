@@ -215,16 +215,16 @@ function MenuOptionsProcess()
 			{
 				if Input.LeftPress
 				{
-					Game.ExtendedCamera--;
+					Game.CDCamera--;
 				}
 				else if Input.RightPress
 				{
-					Game.ExtendedCamera++;	
+					Game.CDCamera++;	
 				}
-				Game.ExtendedCamera = clamp(Game.ExtendedCamera, 0, 1);
+				Game.CDCamera = clamp(Game.CDCamera, 0, 1);
 				
 				// Update option
-				menu_update_option(6, 5, "CD CAMERA: " + menu_get_boolean(Game.ExtendedCamera));
+				menu_update_option(6, 5, "CD CAMERA: " + menu_get_boolean(Game.CDCamera));
 			}
 			break;
 		}

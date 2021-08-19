@@ -122,7 +122,7 @@ function PlayerJump()
 				case BarrierWater:
 				{
 					// Set horizontal and vertical speeds
-					Xsp = Game.BuffedWaterBarrier ? Xsp / 2 : 0;
+					Xsp = Game.SMWaterBarrier ? Xsp / 2 : 0;
 					Ysp = 8;
 					
 					// Set barrier animation

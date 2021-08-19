@@ -44,7 +44,7 @@ function PlayerGroundFloorCollision()
 			// Lose ground if the surface below us is too far away
 			if !StickToConvex
 			{
-				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Xsp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
 					Grounded = false;
@@ -78,7 +78,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if the surface is far to the right from us
 			if !StickToConvex
 			{
-				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Ysp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
 					Grounded = false;
@@ -112,7 +112,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if the surface above us is too far away
 			if !StickToConvex
 			{
-				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Xsp)), 14) : 14;
+				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Xsp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
 					Grounded = false;
@@ -146,7 +146,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if the surface is far to the left from us
 			if !StickToConvex
 			{
-				var Distance = Game.SpeedFloorClip ? min(4 + abs(floor(Ysp)), 14) : 14;
+				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Ysp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
 					Grounded = false;

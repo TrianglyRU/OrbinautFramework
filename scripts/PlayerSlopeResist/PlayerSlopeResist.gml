@@ -1,7 +1,7 @@
 function PlayerSlopeResist()
 {	
 	// Set slope gravity	
-	if !Game.StrongerSlopeGravity
+	if !Game.S3SlopePhysics
 	{
 		if Angle >= 45 and Angle <= 315
 		{

@@ -9,8 +9,8 @@ function PlayerRollStart()
 	// Start rolling if we're moving fast enough and are not gliding
 	if Input.Down
 	{
-		if !Game.LooseCrouch and abs(Inertia) >= 0.5 
-		or  Game.LooseCrouch and abs(Inertia) >= 1
+		if !Game.SKCrouch and abs(Inertia) >= 0.5 
+		or  Game.SKCrouch and abs(Inertia) >= 1
 		{
 			// Update radiuses
 			RadiusY = SmallRadiusY;

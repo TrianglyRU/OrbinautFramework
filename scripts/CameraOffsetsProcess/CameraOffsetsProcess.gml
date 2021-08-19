@@ -7,7 +7,7 @@ function CameraOffsetsProcess()
 	}
 	
 	// Update extended camera offset
-	if Game.ExtendedCamera
+	if Game.CDCamera
 	{
 		var ScreenShift = Game.Width / 2 - 96;
 		var ScreenSpeed = floor(ScreenShift / 32);

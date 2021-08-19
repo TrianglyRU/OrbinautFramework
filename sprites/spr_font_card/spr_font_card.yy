@@ -169,8 +169,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "HUD",
-    "path": "folders/HUD.yy",
+    "name": "Fonts",
+    "path": "folders/Fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_font_card",

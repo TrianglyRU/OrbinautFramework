@@ -6,9 +6,10 @@ function InputGamepadProcess()
 		exit;
 	}
 	
-	// Gamepad axis "pressed" function
-	function gamepad_axis_check(device, axisindex)
+	// Script subfunction
+	function InputGamepadProcess_SubFunc(device, axisindex)
 	{
+		// Check if gamepad axis is modified once
 		switch Axis 
 		{
 			case "gp_axis_lup":    
@@ -27,10 +28,10 @@ function InputGamepadProcess()
 	}
 	
 	// Process single press
-	UpPress    = gamepad_button_check_pressed(0, gp_padu) or input_gp_axis_pressed(0, "gp_axis_lup");
-	DownPress  = gamepad_button_check_pressed(0, gp_padd) or input_gp_axis_pressed(0, "gp_axis_ldown");
-	LeftPress  = gamepad_button_check_pressed(0, gp_padl) or input_gp_axis_pressed(0, "gp_axis_lleft");
-	RightPress = gamepad_button_check_pressed(0, gp_padr) or input_gp_axis_pressed(0, "gp_axis_lright");
+	UpPress    = gamepad_button_check_pressed(0, gp_padu) or InputGamepadProcess_SubFunc(0, "gp_axis_lup");
+	DownPress  = gamepad_button_check_pressed(0, gp_padd) or InputGamepadProcess_SubFunc(0, "gp_axis_ldown");
+	LeftPress  = gamepad_button_check_pressed(0, gp_padl) or InputGamepadProcess_SubFunc(0, "gp_axis_lleft");
+	RightPress = gamepad_button_check_pressed(0, gp_padr) or InputGamepadProcess_SubFunc(0, "gp_axis_lright");
 	APress     = gamepad_button_check_pressed(0, gp_face1);
 	BPress     = gamepad_button_check_pressed(0, gp_face2);
 	CPress     = gamepad_button_check_pressed(0, gp_face3);

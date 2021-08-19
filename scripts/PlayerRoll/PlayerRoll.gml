@@ -45,8 +45,8 @@ function PlayerRoll()
 	// Unroll
 	if !ForcedRoll
 	{
-		if !Game.LooseCrouch and Inertia == 0
-		or  Game.LooseCrouch and abs(Inertia) < 0.5
+		if !Game.SKCrouch and Inertia == 0
+		or  Game.SKCrouch and abs(Inertia) < 0.5
 		{
 			// Reset radiuses
 			RadiusY = DefaultRadiusY;

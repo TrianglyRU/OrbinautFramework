@@ -53,7 +53,7 @@ function MenuSetup()
 	var Dropdash  = menu_get_boolean(Game.DropdashEnabled);
 	var GroundCap = menu_get_boolean(Game.GroundSpeedcap);
 	var AirCap    = menu_get_boolean(Game.AirSpeedcap);
-	var CDCamera  = menu_get_boolean(Game.ExtendedCamera);
+	var CDCamera  = menu_get_boolean(Game.CDCamera);
 	
 	menu_add_header(6,    "GAMEPLAY OPTIONS");
 	menu_add_option(6, 0, "SPINDASH: "   + string(Spindash),  noone);

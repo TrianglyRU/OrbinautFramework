@@ -1,13 +1,13 @@
 function PlayerCrouch()
 {	
 	// Exit if we're moving
-	if !Game.LooseCrouch and Inertia != 0
+	if !Game.SKCrouch and Inertia != 0
 	{
 		exit;
 	}
 	
 	// Exit if we're balancing
-	if !Game.BalancingCrouch and Balancing
+	if !Game.SKCrouch and Balancing
 	{
 		exit;
 	}

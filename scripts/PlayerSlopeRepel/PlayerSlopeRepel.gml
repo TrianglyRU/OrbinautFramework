@@ -15,7 +15,7 @@ function PlayerSlopeRepel()
 	// Decrease timer every frame if it's non-zero when grounded
 	else
 	{
-		if !Game.StrongerSlopeGravity
+		if !Game.S3SlopePhysics
 		{	
 			// Check if we are on a steep slope and going slow
 			//if Angle >= 46.41 and Angle <= 315 and abs(Inertia) < 2.5

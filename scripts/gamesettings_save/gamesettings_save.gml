@@ -20,7 +20,7 @@ function gamesettings_save(filename)
 	ini_write_real("Video",    "Size", 	      Game.WindowSize);
 	ini_write_real("Video",    "Height",	  Game.Height);
 	ini_write_real("Video",    "Width",		  Game.Width);
-	ini_write_real("Gameplay", "CDCamera",    Game.ExtendedCamera);
+	ini_write_real("Gameplay", "CDCamera",    Game.CDCamera);
 	ini_write_real("Gameplay", "AirSpeedcap", Game.AirSpeedcap);
 	ini_write_real("Gameplay", "GndSpeedcap", Game.GroundSpeedcap);
 	ini_write_real("Gameplay", "Peelout",	  Game.PeeloutEnabled);

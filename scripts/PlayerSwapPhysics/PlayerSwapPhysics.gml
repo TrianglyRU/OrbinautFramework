@@ -119,7 +119,7 @@ function PlayerSwapPhysics()
 	}
 	
 	// Overwrite RollDec for Tails
-	if !Game.ConstantRollPhysics
+	if !Game.SKRollPhysics
 	{
 		if CharacterID == CharTails
 		{

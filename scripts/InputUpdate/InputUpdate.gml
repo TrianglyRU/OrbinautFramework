@@ -1,8 +1,9 @@
 function InputUpdate() 
 {	
-	// Gamepad any button pressed function
-	function gamepad_anybutton_check_pressed()
+	// Script subfunction
+	function InputUpdate_SubFunc()
 	{
+		// Check if any gamepad button is pressed
 		for (var i = gp_face1; i < gp_axisrv; i++)
 		{
 			if gamepad_button_check(0, i)
@@ -18,7 +19,7 @@ function InputUpdate()
 		// Switch from keyboard to gamepad
 		case "Keyboard":
 		{
-			if gamepad_anybutton_check_pressed()
+			if InputUpdate_SubFunc()
 			{
 				Type = "Gamepad";
 			}

@@ -18,12 +18,12 @@ function GameMacro()
 	#macro TypeDelete   2
 	
 	// Font macro
-	#macro FontDebug   0
-	#macro FontDigits1 1
-	#macro FontDigits2 2
-	#macro FontCard    3
-	#macro FontMenu    4
-	
+	#macro Debug	    0
+	#macro Counter      1
+	#macro CounterSmall 2
+	#macro Card			3
+	#macro Menu			4
+
 	// Audio macro
 	#macro PriorityLow  0
 	#macro PriorityHigh 1
@@ -149,4 +149,9 @@ function GameMacro()
 	#macro ActStateDefault     1
 	#macro ActStateFinished    2	
 	#macro ActStateUnload      3
+	#macro FontDebug   0
+	#macro FontDigits1 1
+	#macro FontDigits2 2
+	#macro FontCard    3
+	#macro FontMenu    4
 }

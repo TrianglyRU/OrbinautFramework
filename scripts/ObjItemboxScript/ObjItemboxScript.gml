@@ -15,7 +15,7 @@ function ObjItemBoxScript()
 		} 
 		
 		// Can player destroy the itembox?
-		var Check = Game.ItemBoxBehaviour ? true : Player.Ysp >= 0;
+		var Check = Game.SKItemBoxBehaviour ? true : Player.Ysp >= 0;
 		
 		if (Player.Spinning or Player.GlideState == GlideActive) and Check
 		{
@@ -43,7 +43,7 @@ function ObjItemBoxScript()
 		{
 			object_act_solid(true, true, false);
 			
-			if !Game.ItemBoxBehaviour and !Airborne
+			if !Game.SKItemBoxBehaviour and !Airborne
 			{
 				if floor(Player.PosY) >= floor(PosY + 16) and object_player_overlap(CollisionHitbox)
 				{

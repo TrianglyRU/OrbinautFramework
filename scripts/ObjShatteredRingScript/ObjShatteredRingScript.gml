@@ -30,7 +30,7 @@ function ObjShatteredRingScript()
 	object_update_position(PosX, PosY);
 		
 	// Do tile collision every four frames when falling down
-	if Ysp > 0 and (CollisionCheck mod 4 == 0 or Game.PreciseRings)
+	if Ysp > 0 and (CollisionCheck mod 4 == 0 or Game.SMRingBehaviour)
 	{
 		// Check if ring found the tile & collide
 		var findFloor = object_collide_tiles_v(false, SideBottom, 0, Player.Layer);
@@ -41,7 +41,7 @@ function ObjShatteredRingScript()
 		}
 			
 		// Do additional collisions if all-side collision is enabled
-		if Game.PreciseRings
+		if Game.SMRingBehaviour
 		{
 			// Collide ceiling
 			if Ysp < 0 

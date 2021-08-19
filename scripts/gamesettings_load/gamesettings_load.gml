@@ -15,7 +15,7 @@ function gamesettings_load(filename)
 	Game.PeeloutEnabled	    = ini_read_real("Gameplay", "Peelout",     true);
 	Game.GroundSpeedcap	    = ini_read_real("Gameplay", "GndSpeedcap", false);
 	Game.AirSpeedcap	    = ini_read_real("Gameplay", "AirSpeedcap", false);
-	Game.ExtendedCamera	    = ini_read_real("Gameplay", "CDCamera",    false);
+	Game.CDCamera	    = ini_read_real("Gameplay", "CDCamera",    false);
 	Game.Width				= ini_read_real("Video",	"Width",       400);
 	Game.Height				= ini_read_real("Video",	"Height",      224);
 	Game.WindowSize		    = ini_read_real("Video",	"Size",        3);

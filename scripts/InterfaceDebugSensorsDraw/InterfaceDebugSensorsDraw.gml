@@ -66,7 +66,7 @@ function ScreenDebugSensorsDraw()
 					
 				// Display wall sensors
 				/* We do not shift them on debug, because player already has moved on this frame, so there is no reason for that */
-				if (Angle < 90 or Angle > 270) or (Game.ExtensiveWallCollision and Angle mod 90 == 0)
+				if (Angle < 90 or Angle > 270) or (Game.SKWallCollision and Angle mod 90 == 0)
 				{	
 					// Display left wall sensor
 					if Inertia < 0

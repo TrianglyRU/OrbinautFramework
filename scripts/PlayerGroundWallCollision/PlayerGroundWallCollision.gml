@@ -9,8 +9,8 @@ function PlayerGroundWallCollision()
 	// Exit if angle is too steep
 	if Angle > 90 and Angle < 270
 	{
-		if !Game.ExtensiveWallCollision 
-		or  Game.ExtensiveWallCollision and Angle != 180
+		if !Game.SKWallCollision 
+		or  Game.SKWallCollision and Angle != 180
 		{
 			exit;
 		}
