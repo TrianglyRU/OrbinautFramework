@@ -22,8 +22,7 @@
 			AngleX = (AngleX + 3) mod 360;
 			AngleY = (AngleY + 6) mod 360;
 			Spin   = (Spin   + 1) mod 360;
-			if (Delay) Delay--; 
-			else
+			if !(--Delay)
 			{
 				var PPosX = floor(Player.PosX);
 				var Dest = PPosX + 32 * (PPosX > BossTrigger.x ? -1 : 1);
@@ -74,6 +73,8 @@
 							Angle = -(ID.StateTimer mod 50 + 10) * 2;
 							Timer = 60;
 						}
+						
+						audio_sfx_play(sfxBossFlame2, false);
 					}
 				}
 				// Огненные круги
@@ -101,6 +102,8 @@
 								}
 							}
 						}
+						
+						audio_sfx_play(sfxBossFlame, false);
 					}
 				}
 				

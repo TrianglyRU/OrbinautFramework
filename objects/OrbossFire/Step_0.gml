@@ -30,7 +30,11 @@
 					image_xscale += 0.1 * (image_xscale >= 0 ? 1 : -1);
 					image_yscale += 0.1;
 				}
-				if (!Timer) Direction = point_direction(x, y, Player.PosX + Player.Xsp * 8, Player.PosY + Player.Ysp * 8) + 90;
+				if !Timer
+				{
+					Direction = point_direction(x, y, Player.PosX + Player.Xsp * 8, Player.PosY + Player.Ysp * 8) + 90;
+					audio_sfx_play(sfxBossFireball, false);
+				}
 			}
 			else
 			{
