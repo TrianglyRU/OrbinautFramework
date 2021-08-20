@@ -1,26 +1,17 @@
 function PlayerKnuxClimb()
 {
-	// Exit the code if we've died
-	if Death or Drown
-	{
-		exit;
-	}
-	
-	// Exit if we're not climbing
+	// Exit if not climbing
 	if !ClimbState
 	{
 		exit;
 	}
-	
-	/* Knuckles climb code completely overrides air collision code,
-	   so AirLevelCollision is not performed */
 	   
-	// Set 'climb' animation
-	Animation = AnimClimb;
-	
 	// Climb on walls
 	if ClimbState == 1
 	{
+		// Set animation
+		Animation = AnimClimb;
+		
 		// Move up and down and all around
 		if Input.Up
 		{
@@ -35,57 +26,52 @@ function PlayerKnuxClimb()
 			Ysp = 0;
 		}
 		
-		// Check for ceiling if moving upwards
+		// Collide with ceiling
 		if Ysp < 0
 		{
-			// Are we touching the ceiling?
 			var RoofDistance = tile_check_collision_v(floor(PosX + RadiusX * Facing), floor(PosY - RadiusY), false, true, Layer)[0];	
 			if  RoofDistance < 0
 			{	
-				// Clip out
 				PosY -= RoofDistance;
-			
-				// Reset Ysp
-				Ysp = 0;
-				
-				/* Originals seems not to reset Ysp, resulting in Knuckles
-				   behaving weirly when approaching ceilings			   */
+				Ysp   = 0;
 			}
 		}
 	
-		// Check for floor if moving downwards
+		// Collide with floor
 		else
 		{
-			// Are we touching the floor?
 			var FloorDistance = tile_check_collision_v(floor(PosX + 10 * Facing), floor(PosY + RadiusY), true, false, Layer)[0];	
 			if  FloorDistance < 0
 			{	
-				// Reset Ysp
-				Ysp = 0;
-		
-				// Restore default collision radiuses
+				// Reset collision radiuses
 				RadiusX = DefaultRadiusX;
 				RadiusY = DefaultRadiusY;
 				
 				// Clip out and land
 				PosY    += FloorDistance;
 				Grounded = true;
+				Ysp      = 0;
 				
 				// Exit the code
 				exit;
 			}
 		}
 		
-		// Check for collision with walls
+		// Check for walls
 		var DistanceAbove = tile_check_collision_h(floor(PosX + RadiusX * Facing), floor(PosY - 10), Facing, true, Layer)[0];
 		var DistanceBelow = tile_check_collision_h(floor(PosX + RadiusX * Facing), floor(PosY + 10), Facing, true, Layer)[0];
 		
-		// Check if we do not find the wall in front of us
+		// Check if there is no wall in front of us
 		if DistanceBelow > 0
 		{
-			// Leave climb state
+			// Reset collision radiuses
+			RadiusX = DefaultRadiusX;
+			RadiusY = DefaultRadiusY;
+			
+			// Set flags
 			ClimbState = false;
 			GlideState = GlideDrop;
+			Animation  = AnimGlideDrop;
 			
 			// Reset gravity
 			if !IsUnderwater
@@ -97,36 +83,31 @@ function PlayerKnuxClimb()
 				// Lower by 0x28 (0.15625) if underwater
 				Grv = 0.0625
 			}
-			
-			// Set 'drop' animation
-			Animation = AnimGlideDrop;
-				
-			// Restore default collision radiuses
-			RadiusX = DefaultRadiusX;
-			RadiusY = DefaultRadiusY;
 		}
 		
 		// Check if we're near the edge to climb on it
 		else if DistanceAbove > 0
 		{
-			// Climb the edge
-			ClimbState = 2;
-			Ysp		   = 0;
-			
-			// Disable all collisions
+			ClimbState     = 2;
+			Ysp		       = 0;
 			AllowCollision = false;
 		}
 				
-		// Check if we pressed A, B or C button
+		// Jump if we pressed action button
 		else if Input.ABCPress
 		{
-			// Leave climb state
-			ClimbState = false;
+			// Set flags
+			Facing	  *= -1;
 			Jumping	   = true;
+			ClimbState = false;
+			Animation  = AnimRoll;
 			
 			// Set speeds
 			Ysp	= -4;
-			Xsp	= -4 * Facing;
+			Xsp	=  4 * Facing;
+			
+			// Play sound
+			audio_sfx_play(sfxJump, false);
 				
 			// Reset gravity
 			if !IsUnderwater
@@ -138,59 +119,47 @@ function PlayerKnuxClimb()
 				// Lower by 0x28 (0.15625) if underwater
 				Grv = 0.0625
 			}
-			
-			// Set 'roll' animation
-			Animation = AnimRoll;
-			Facing	 *= -1;
-				
-			// Play sound
-			audio_sfx_play(sfxJump, false);
 		}
 	}
 		
-	// Check if we're climbering on the edge (at the very same frame)
+	// Check if we're climbering on the edge
 	if ClimbState == 2
 	{
-		// Set 'climbering' animation
-		Animation = AnimClimbering;
+		// Adjust positons
+		switch (++ClimbValue)
+		{
+			case 7:
+			{
+				PosX += 3 * Facing;
+				PosY -= 2;
+			}
+			break;
+			case 13:
+			{
+				PosX += 8 * Facing;
+				PosY -= 10;
+			}
+			break;
+			case 19:
+			{
+				PosX -= 8 * Facing;
+				PosY -= 12;
+			}
+			break;
+			case 25:
+			{
+				PosX += 8 * Facing;
+				PosY -= DefaultRadiusY - RadiusY;
+				
+				// Land
+				AllowCollision = true;
+				Grounded	   = true;
+			}
+			break;
+		}
 		
-		// Force reset vertical speed
-		Ysp = 0;
-			
-		// Start climbering timer
-		ClimbValue++;
-			
-		// Frame 2
-		if ClimbValue == 7
-		{
-			PosX += 3 * Facing;
-			PosY -= 2;
-		}
-			
-		// Frame 3
-		else if ClimbValue == 13
-		{
-			PosX += 8 * Facing;
-			PosY -= 10;
-		}
-			
-		// Frame 4
-		else if ClimbValue == 19
-		{
-			PosX -= 8 * Facing;
-			PosY -= 12;
-		}
-			
-		// Frame 5
-		else if ClimbValue == 25
-		{
-			// Set flags
-			AllowCollision = true;
-			Grounded	   = true;
-			
-			// Final position update
-			PosX += 8 * Facing;
-			PosY -= DefaultRadiusY - RadiusY;
-		}
+		// Set vertical speed and animation
+		Ysp		  = 0;
+		Animation = AnimClimbering;
 	}
 }

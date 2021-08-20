@@ -15,44 +15,64 @@ function ObjItemBoxScript()
 		} 
 		
 		// Can player destroy the itembox?
-		var Check = Game.SKItemBoxBehaviour ? true : Player.Ysp >= 0;
-		
-		if (Player.Spinning or Player.GlideState == GlideActive) and Check
+		if Game.SKItemBoxBehaviour
 		{
-			if object_player_overlap(CollisionHitbox)
+			if Player.Ysp < 0
 			{
-				if !Player.Grounded
+				var Check = floor(Player.PosY + 16) >= CardPosY;
+			}
+			else
+			{
+				var Check = true;
+			}
+		}
+		else
+		{
+			var Check = Player.Ysp >= 0;
+		}
+		
+		if Player.Spinning or Player.GlideState == GlideActive
+		{
+			if Check
+			{
+				if object_player_overlap(CollisionHitbox)
 				{
-					Player.Ysp = -Player.Ysp;
-				}
+					if !Player.Grounded
+					{
+						Player.Ysp = -Player.Ysp;
+					}
 					
-				instance_create(floor(PosX), floor(PosY), DustExplosion);
-				audio_sfx_play(sfxDestroy, false);
+					instance_create(floor(PosX), floor(PosY), DustExplosion);
+					audio_sfx_play(sfxDestroy, false);
 				
-				// Do not unload it
-				object_set_range(RangeFar, false);	
+					// Do not unload it
+					object_set_range(RangeFar, false);	
 				
-				CardTimer = 31;	
-				Destroyed = true;
+					CardTimer = 31;	
+					Destroyed = true;
 				
-				CardPosX = x;
-				CardPosY = y - 4;
+					CardPosX = x;
+					CardPosY = y - 4;
+				}
+			}
+			else
+			{
+				if !Airborne
+				{
+					if floor(Player.PosY) >= floor(PosY + 16) and object_player_overlap(CollisionHitbox)
+					{
+						Airborne = true;
+						Ysp      = -1.5;
+					
+						Player.Ysp = -Player.Ysp;
+					}
+				}
+				object_act_solid(true, true, false);
 			}
 		}		
 		else
 		{
 			object_act_solid(true, true, false);
-			
-			if !Game.SKItemBoxBehaviour and !Airborne
-			{
-				if floor(Player.PosY) >= floor(PosY + 16) and object_player_overlap(CollisionHitbox)
-				{
-					Airborne = true;
-					Ysp      = -1.5;
-					
-					Player.Ysp = -Player.Ysp;
-				}
-			}
 		}
 
 		// Check if monitor is airborne

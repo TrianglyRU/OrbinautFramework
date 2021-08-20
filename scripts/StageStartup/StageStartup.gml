@@ -32,6 +32,12 @@ function StageStartup()
 		BottomBoundary = Game.StageBoundary;
 	}
 	
+	// Grant maximum emeralds if in devmode
+	if Game.DevMode
+	{
+		Game.Emeralds = 7;
+	}
+	
 	// Store current zone and room ID
 	Game.CurrentStage = [ZoneID, room];
 	

@@ -1,5 +1,5 @@
-/// @description
+/// @description Post-Visualization
 // You can write your code in this editor
 	
-	// Call inactive objects process
+	// Post-Visualization Script
 	StageObjectsInactiveProcess();

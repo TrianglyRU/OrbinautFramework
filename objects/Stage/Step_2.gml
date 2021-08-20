@@ -1,14 +1,8 @@
-/// @description
+/// @description Post-Objects Code
 // You can write your code in this editor
 	
-	// Call active process script
+	// Post-Objects Scripts
 	StageActiveProcess();
-	
-	// Call active objects process script
 	StageObjectsActiveProcess();
-	
-	// Call boundaries process script
 	StageBoundariesProcess();
-	
-	// Call end process script
 	StageEndProcess();

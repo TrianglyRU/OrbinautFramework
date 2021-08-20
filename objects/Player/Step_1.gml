@@ -1,8 +1,8 @@
 /// @description Pre-Objects Code
 // You can write your code in this editor
 
-	// Check if we're in Debug Mode
-	if PlayerDebugMode() exit;
+	// Process debug mode
+	PlayerDebugMode();
 	
 	// Check if we should execute the code below
 	if !PlayerProcess() exit;
@@ -24,9 +24,9 @@
 	}
 	else if Grounded and !Spinning
 	{
-		// Grounded, not rolling
-		if PlayerCrouch()    exit;
-		if PlayerLookup()    exit;
+		// Grounded, not rolling	
+		if PlayerSpindash()  exit;
+		if PlayerPeelout()   exit;
 		if PlayerJumpStart() exit;
 		PlayerSlopeResist();
 		PlayerMovementGround();

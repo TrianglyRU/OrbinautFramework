@@ -1,18 +1,11 @@
 function PlayerWaterEvents()
 {
-	// Check if player has died
-	if Death
-	{
-		exit;
-	}
-	
-	// Check for joining and exiting water
 	if !IsUnderwater
 	{
 		// Check for falling into the water
 		if Stage.WaterEnabled
 		{
-			if floor(PosY) > Stage.WaterLevel
+			if floor(PosY) > Stage.WaterLevel and !Death
 			{
 				Xsp			*= 0.5;
 				Ysp			*= 0.25;
@@ -23,10 +16,12 @@ function PlayerWaterEvents()
 				{
 					Grv = 0.0625;
 				}
+				
+				// Create splash object
 				if !Grounded
 				{
-					instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
 					audio_sfx_play(sfxWaterSplash, false);
+					instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
 				}
 			}
 		}
@@ -39,10 +34,10 @@ function PlayerWaterEvents()
 			instance_create(-16, -16, BubbleMakerPlayer);
 		}
 		
-		// Air countdown
+		// Countdown air timer
 		if AirTimer > 0
 		{
-			if BarrierType != BarrierWater and !Stage.IsFinished
+			if BarrierType != BarrierWater and !Stage.IsFinished and !Death
 			{
 				if AirTimer == 1500 or AirTimer == 1200 or AirTimer == 900
 				{
@@ -56,36 +51,40 @@ function PlayerWaterEvents()
 			}
 		}
 		
-		// Drown
+		// If ran out of air, drown
 		else if !Death
 		{
 			if !Drown
 			{
-				// Stop all audio
-				audio_stop_all();
-			
-				// Play drown sound
-				audio_sfx_play(sfxDrowning, false);
+				// Reset speeds
+				Xsp	= 0;
+				Ysp	= 0;
 				
-				NoControls			 = true;
-				Camera.Enabled = false;
-				Stage.TimeEnabled    = false;
-				AllowCollision		 = false;
-				Grounded			 = false;
-				OnObject			 = false;	
-				Drown				 = true;
-				DrawOrder			 = 0;
-				Xsp					 = 0;
-				Ysp					 = 0;
-				Animation			 = AnimDrown;	
+				// Set flags
+				Stage.TimeEnabled = false;
+				Camera.Enabled    = false;
+				AllowCollision    = false;
+				Grounded		  = false;
+				OnObject		  = false;	
+				Drown			  = true;
+				NoControls		  = true;
+				Animation		  = AnimDrown;	
+				
+				// Draw player above everything
+				DrawOrder = 0;
+				
+				// Play sound
+				audio_sfx_play(sfxDrowning, false);
 			}
+			
+			// Enter death state if off-screen
 			else if floor(PosY) >= Camera.ViewY + Game.Height + 276
 			{
 				Death = true;
 			}
 		}
 		
-		// Disable barrier
+		// Destroy barrier
 		if BarrierType == BarrierFlame or BarrierType == BarrierThunder
 		{	
 			if BarrierType == BarrierThunder
@@ -123,23 +122,19 @@ function PlayerWaterEvents()
 				}
 			}
 			
-			// Create player bubble maker object
+			// Destroy player bubble maker object
 			instance_destroy(BubbleMakerPlayer);
 			
-			// Reset air timer
-			AirTimer = 1800;
-			
-			// Increase default gravity value by 0x28 (0.15625), and double ysp
+			// Reset gravity and double vertical speed
 			if !Hurt and !FlightState and GlideState != GlideActive
 			{
 				Grv	 = 0.21875;
 				Ysp *= 2;
 			}
-			IsUnderwater = false;
+			IsUnderwater = false;	
+			AirTimer     = 1800;
 			
-			// Reset air timer
-			AirTimer = 1800;
-			
+			// Create splash object
 			if !Grounded
 			{
 				instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);

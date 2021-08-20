@@ -10,7 +10,7 @@ function StageEndProcess()
 	Game.Score = Player.Score;
 	Game.Lives = Player.Lives;
 		
-	// Clear data
+	// Reset game data
 	Game.StarpostID     = false;
 	Game.Time	        = 0;
 	Game.StageBoundary  = 0;
@@ -32,7 +32,7 @@ function StageEndProcess()
 			switch ZoneID
 			{
 				case 0: 
-					room_goto(MQZ0);	// TODO: MQZ1
+					room_goto(MQZ0);
 				break;
 				default:
 					room_goto(DevMenu);

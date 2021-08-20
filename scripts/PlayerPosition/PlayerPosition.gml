@@ -4,13 +4,9 @@ function PlayerPosition()
 	PosX += Xsp;
 	PosY += Ysp;	
 	
-	// Are we airborne?
+	// Add gravity if airborne
 	if !Grounded
 	{
-		// Add gravity to vertical speed
 		Ysp += Grv;
 	}
-
-	// Limit vertical speed
-	Ysp = clamp(Ysp, -15.75, 15.75);
 }

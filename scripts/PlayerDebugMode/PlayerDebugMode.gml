@@ -1,27 +1,19 @@
 function PlayerDebugMode()
 {
-	// Check if we're in dev mode
-	if !Game.DevMode
+	// Exit if not in devmode or stage is paused
+	if !Game.DevMode or Stage.IsPaused
 	{
 		return false;
 	}
 
-	// Exit if stage is paused
-	if Stage.IsPaused
-	{
-		return false;
-	}
-	
-	// Check for entering for exiting debug mode
 	if Input.BPress
 	{
-		// Toggle debug
+		// Toggle debug mode upon pressing B key
 		DebugMode = !DebugMode;
-
-		// Check if we entered debug
+		
+		// Reset flags. A lot of it
 		if DebugMode
 		{
-			// Reset flags. A lot of it
 			AllowCollision = false;
 			Grounded	   = false;
 			OnObject	   = false;
@@ -40,7 +32,6 @@ function PlayerDebugMode()
 			Skidding	   = false;
 			StickToConvex  = false;
 			IsUnderwater   = false;
-			AirTimer	   = 1800;
 			DebugSpeed     = 0;
 			Xsp			   = 0;
 			Ysp			   = 0;
@@ -52,13 +43,24 @@ function PlayerDebugMode()
 			// Cancel death event
 			if (Death or Drown) and floor(Player.PosY) < Camera.ViewY + Game.Height
 			{
-				DrawOrder		 = layer_get_depth("Objects");
-				Death		     = false;
-				Drown            = false;
-				Camera.Enabled   = true;
-				Stage.AllowPause = true;
-				Stage.DoUpdate   = true;	
+				DrawOrder		  = layer_get_depth("Objects");
+				Death		      = false;
+				Drown             = false;
+				Camera.Enabled    = true;
+				Stage.AllowPause  = true;
+				Stage.DoUpdate    = true;
+				Stage.TimeEnabled = true;
 			}
+			
+			// Reset air timer and restore music
+			if AirTimer <= 720
+			{
+				if audio_bgm_is_playing(DrowningMusic) or !audio_bgm_is_playing(PriorityLow)
+				{
+					audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+				}
+			}
+			AirTimer = 1800;
 			
 			// Reset gravity
 			if !IsUnderwater
@@ -74,28 +76,25 @@ function PlayerDebugMode()
 			// Restore visibility
 			image_alpha = 1;
 		}
-		
-		// Check if we exited debug
 		else
 		{
-			// Enter walk animation
-			RadiusX   = DefaultRadiusX;
-			RadiusY   = DefaultRadiusY;
+			// Reset collision radiuses
+			RadiusX	= DefaultRadiusX;
+			RadiusY = DefaultRadiusY;
 			
-			Animation = AnimWalk;
-			
-			// Restore collision
+			// Restore collision and set animation
 			AllowCollision = true;
+			Animation      = AnimMove;
 		}
 	}
 	
 	// Check if we're in debug state
 	if !DebugMode
 	{
-		return false;
+		exit;
 	}
 	
-	// Increase speed
+	// Update speed
 	if Input.Left or Input.Down or Input.Right or Input.Up
 	{
 		DebugSpeed = min(DebugSpeed + 0.046875, 16);
@@ -105,11 +104,23 @@ function PlayerDebugMode()
 		DebugSpeed = 0;
 	}
 	
-	// Update player position
-	if (Input.Left)  PosX -= DebugSpeed;
-	if (Input.Right) PosX += DebugSpeed;
-	if (Input.Up)    PosY -= DebugSpeed;
-	if (Input.Down)  PosY += DebugSpeed;
+	// Update position
+	if Input.Left
+	{
+		PosX -= DebugSpeed;
+	}
+	if Input.Right
+	{
+		PosX += DebugSpeed;
+	}
+	if Input.Up    
+	{
+		PosY -= DebugSpeed;
+	}
+	if Input.Down
+	{
+		PosY += DebugSpeed;
+	}
 	
 	// Update current object
 	if Input.APress
@@ -123,6 +134,4 @@ function PlayerDebugMode()
 	{
 		instance_create(floor(PosX), floor(PosY), DebugList[DebugItem]);
 	}
-	
-	return true;
 }

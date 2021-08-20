@@ -3,19 +3,13 @@ function PlayerRoll()
 	// Set 'roll' animation
 	Animation = AnimRoll;
 	
-	// Reset flags
-	Skidding = false;
-	
-	// Perform only if directional input is allowed
-	if MovementLock == false
+	// Decelerate
+	if !MovementLock
 	{
-		// If pressing left
 		if Input.Left and Inertia > 0
 		{
 			Inertia -= RollDec;
 		}
-	
-		// If pressing right
 		if Input.Right and Inertia < 0
 		{
 			Inertia += RollDec;
@@ -32,7 +26,7 @@ function PlayerRoll()
 		Inertia = min(Inertia + RollFrc, 0);
 	}
 	
-	// Convert inertia to normal axis speeds
+	// Convert inertia to speeds
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
@@ -45,24 +39,20 @@ function PlayerRoll()
 	// Unroll
 	if !ForcedRoll
 	{
-		if !Game.SKCrouch and Inertia == 0
-		or  Game.SKCrouch and abs(Inertia) < 0.5
+		if !Game.SKCrouch and Inertia == 0 or Game.SKCrouch and abs(Inertia) < 0.5
 		{
-			// Reset radiuses
-			RadiusY = DefaultRadiusY;
+			// Reset collision radiuses
 			RadiusX = DefaultRadiusX;
+			RadiusY = DefaultRadiusY;
 			PosY   -= DefaultRadiusY - SmallRadiusY;
-		
-			// Unroll
+			
 			Spinning = false;
 		}
 	}
 	
-	// Keep rolling if forced to
+	// If forced to roll, keep rolling
 	else if Inertia == 0
 	{
-		/* In Sonic 1 the game sets your Inertia to 2, in Sonic 2 however this
-		   was changed to 4 */
-		Inertia = 4 * Facing;
+		Inertia = 2 * Facing;
 	}
 }

@@ -14,4 +14,10 @@ function InterfaceVariables()
 	CardValue	   = [];
 	ResultsValue   = [];
 	GameOverValue  = [];
+	
+	// Force enable help for debug
+	if Game.DevMode
+	{
+		DebugHelp = true;
+	}
 }

@@ -6,7 +6,7 @@ function PlayerSuperFormsProcess()
 		// Transformation start
 		case 1:
 		{
-			// Start timer
+			// Count timer
 			SuperStateValue++
 			
 			// Reset speeds for 16 frames
@@ -26,14 +26,12 @@ function PlayerSuperFormsProcess()
 			// Become super on 40th (or 37th) frame
 			else if SuperStateValue == 40 - (CharacterID != CharSonic) * 3
 			{
-				SuperState		= 2;
-				SuperStateValue = 1;
-				
-				// Exit transform animation if we're still in it
 				if Animation == AnimTransform
 				{
 					Animation = AnimWalk;
 				}
+				SuperState		= 2;
+				SuperStateValue = 1;
 			}				
 		}
 		break;
@@ -47,20 +45,18 @@ function PlayerSuperFormsProcess()
 			// Decrease rings
 			if Rings and !Death and !Drown
 			{
-				SuperStateValue++
-				
-				if SuperStateValue == 61
+				if (++SuperStateValue) == 61
 				{
 					SuperStateValue = 1;
 					Rings--;
 				}
 			}
 			
-			// Create first super star (and make it follow the player)
+			// Create star particle (and make it follow the player)
 			if abs(Inertia) >= TopAcc and !instance_exists(SuperStar)
 			{
-				var  CreatedStar = instance_create(floor(PosX), floor(PosY), SuperStar);
-				with CreatedStar 
+				var  Object = instance_create(floor(PosX), floor(PosY), SuperStar);
+				with Object 
 				{
 					FollowPlayer = true;
 				}
@@ -68,10 +64,7 @@ function PlayerSuperFormsProcess()
 			
 			// Exit superform
 			if !Rings
-			{
-				SuperStateValue = false;
-				SuperState	    = false;
-				
+			{	
 				if audio_bgm_is_playing(SuperMusic)
 				{
 					if Stage.IsBossfight
@@ -87,6 +80,8 @@ function PlayerSuperFormsProcess()
 						audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 					}					
 				}
+				SuperStateValue = false;
+				SuperState	    = false;
 			}
 		}
 		break;

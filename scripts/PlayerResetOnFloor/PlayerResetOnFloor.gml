@@ -1,24 +1,24 @@
 function PlayerResetOnFloor()
 {	
-	// If grounded flag has been set to true when we've been airborne, we have landed
+	// Grounded flag set when airborne means we've landed
 	if !Grounded
 	{
 		exit;
 	}
 	
-	// Did we land with active water barrier?
+	// Is water barrier active?
 	if BarrierIsActive and BarrierType == BarrierWater 
 	{
-		// Reset flags
-		BarrierIsActive = false;
-		Grounded        = false;
-		OnObject		= false;
-		
-		// Set vertical speed
+		// Set speeds
 		var Force = IsUnderwater ? -4 : -7.5;
 		Ysp		  = Force * dcos(Angle);
 		Xsp		  = Force * dsin(Angle);
 		
+		// Reset flags
+		BarrierIsActive = false;
+		Grounded        = false;
+		OnObject		= false;
+
 		// Set barrier animation
 		with Barrier
 		{
@@ -27,133 +27,139 @@ function PlayerResetOnFloor()
 		
 		// Play sound
 		audio_sfx_play(sfxWaterBarrierBounce, false);
-		
-		// Exit the further code
-		exit;
-	}
-	
-	// Set 'move' animation if we've landed on the solid ground
-	if !OnObject
-	{
-		Animation = AnimMove;
-	}
-	
-	// Restore control (from hit)
-	NoControls = false;
-		
-	// Reset gravity
-	if !IsUnderwater
-	{
-		Grv	= 0.21875;
 	}
 	else
 	{
-		// Lower by 0x28 (0.15625) if underwater
-		Grv = 0.0625
-	}
-	
-	// Clear the spinning flag
-	if !(OnObject and Ysp == 0)
-	{
-		Spinning = false;
-	}
-	
-	// Reset flags
-	Jumping			= false;
-	RollJumping		= false;
-	Pushing			= false;
-	FlightState     = false;
-	GlideState      = false;	
-	ClimbState		= false;
-	ScoreCombo		= false;
-	BarrierIsActive = false;
-	DropdashFlag	= -1;
-	
-	// Stop special player sfx
-	audio_sfx_stop(sfxFlying);
-	audio_sfx_stop(sfxTired);
-	
-	// Set visual angle
-	if Angle >= 22.5 and Angle <= 337.5
-	{
-		VisualAngle = Angle;
-	}
-	else
-	{
-		VisualAngle = 360;
-	}
-		
-	// Reset hurt state
-	if Hurt
-	{
-		Hurt	= false;	
-		Inertia = 0;
-	}
-		
-	// Perform Dropdash (if charged), else reset
-	if DropdashRev == 20
-	{	
-		// Go to rolling state
-		Spinning = true;
-		
-		// Update radiuses
-		if RadiusY != SmallRadiusY
+		// If landed on solid ground, set animation and clear spinning flag
+		if !OnObject
 		{
-			PosY   += RadiusY - SmallRadiusY;
-			RadiusX = SmallRadiusX;
-			RadiusY = SmallRadiusY;
+			Animation = AnimMove;
+		}
+		if !(OnObject and Ysp == 0)
+		{
+			Spinning = false;
+		}
+	
+		// Reset flags
+		Jumping			= false;
+		RollJumping		= false;
+		Pushing			= false;
+		FlightState     = false;
+		GlideState      = false;	
+		ClimbState		= false;
+		ScoreCombo		= false;
+		BarrierIsActive = false;
+		DropdashFlag	= -1;
+	
+		// Stop sounds
+		audio_sfx_stop(sfxFlying);
+		audio_sfx_stop(sfxTired);
+	
+		// Set visual angle
+		if Angle >= 23.91 and Angle <= 337.5
+		{
+			VisualAngle = Angle;
+		}
+		else
+		{
+			VisualAngle = 360;
 		}
 		
-		// Set dropspeed
-		if DropdashDirection == DirectionRight
+		// Reset hurt state
+		if Hurt
 		{
-			var Dropspeed = Inertia / 4 + 8 * Facing;
+			NoControls = false;
+			Hurt	   = false;	
+			Inertia    = 0;
 		}
-		else if DropdashDirection = DirectionLeft
+	
+		// Reset gravity
+		if !IsUnderwater
 		{
-			if Angle == 360
+			Grv	= 0.21875;
+		}
+		else
+		{
+			// Lower by 0x28 (0.15625) if underwater
+			Grv = 0.0625
+		}
+		
+		// Release dropdash if charged, else reset
+		if DropdashRev == 20
+		{	
+			// Update collision radiuses
+			if RadiusY != SmallRadiusY
 			{
-				var Dropspeed = 8 * Facing;
+				PosY   -= SmallRadiusY - RadiusY;
+				RadiusX = SmallRadiusX;
+				RadiusY = SmallRadiusY;
+			}
+			
+			// Get dropdash force
+			if SuperState
+			{
+				var DropForce = 12;
+				var MaxForce  = 13;
 			}
 			else
 			{
-				var Dropspeed = Inertia / 2 + 8 * Facing;
+				var DropForce = 8;
+				var MaxForce  = 12;
 			}
-		}
-		Dropspeed = clamp(Dropspeed, -12, 12);
-			
-		// Apply dropspeed to inertia
-		Inertia			   = Dropspeed;
-		DropdashRev		   = -1;
 		
-		// Freeze the screen for 16 frames
-		if !Game.CDCamera
+			// Set dropspeed
+			if DropdashDirection == FlipRight
+			{
+				var Dropspeed = Inertia / 4 + DropForce * Facing;
+			}
+			else if DropdashDirection == FlipLeft
+			{
+				if Angle == 360
+				{
+					var Dropspeed = DropForce * Facing;
+				}
+				else
+				{
+					var Dropspeed = Inertia / 2 + DropForce * Facing;
+				}
+			}
+			Dropspeed = clamp(Dropspeed, -MaxForce, MaxForce);
+			
+			// Apply dropspeed to inertia
+			Inertia		= Dropspeed;
+			DropdashRev	= -1;
+			Spinning	= true;
+			Animation   = AnimRoll;
+			
+			// Freeze the screen for 16 frames
+			if !Game.CDCamera
+			{
+				Camera.ScrollDelay = 16;
+			}
+			
+			// Play sound
+			audio_sfx_play(sfxRelease, false);
+			
+			// Create dust effect
+			instance_create(floor(PosX), floor(PosY + RadiusY), DropdashDust);
+		}
+		else
 		{
-			Camera.ScrollDelay = 16;
+			DropdashRev = -1;
 		}
-			
-		// Set 'roll' animation
-		Animation = AnimRoll;
 		
-		audio_sfx_play(sfxRelease, false);
-		instance_create(floor(PosX), floor(PosY + RadiusY), DropdashDust);
-	}
-	else
-	{
-		DropdashRev = -1;
-	}
+		// Reset vertical speed if landed on the object
+		if OnObject
+		{
+			Ysp = 0;
+		}
 		
-	// Reset vertical speed if landed on the object
-	if OnObject
-	{
-		Ysp = 0;
-	}
-		
-	// Reset radiuses to default
-	if !Spinning
-	{
-		PosY   -= DefaultRadiusY - RadiusY;
-		RadiusY = DefaultRadiusY; 
-		RadiusX	= DefaultRadiusX;
+		// Reset collision radiuses if not rolling
+		if !Spinning
+		{
+			PosY   -= DefaultRadiusY - RadiusY;
+			RadiusX	= DefaultRadiusX;
+			RadiusY = DefaultRadiusY; 
+		}
 	}
 }

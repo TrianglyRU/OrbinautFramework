@@ -91,6 +91,6 @@ function ObjAnimalStartup()
 		object_set_depth(Player, false);
 	
 		// Set active range
-		object_set_range(RangeClose, ResetDelete);
+		object_set_range(RangeClose, TypeDelete);
 	}
 }

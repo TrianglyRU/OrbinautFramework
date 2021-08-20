@@ -29,8 +29,10 @@ function ObjItemBoxSetup()
 	object_set_depth(Player, false);
 	
 	// Set default position
-	PosX     = x;
-	PosY     = y;
+	PosX	 = x;
+	PosY	 = y;
+	CardPosX = x;
+	CardPosY = y - 4;
 	
 	// Set card properties
 	CardSpeed = -3;

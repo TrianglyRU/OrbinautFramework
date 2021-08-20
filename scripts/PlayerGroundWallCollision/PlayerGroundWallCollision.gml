@@ -1,12 +1,12 @@
 function PlayerGroundWallCollision()
 {	
-	// Exit if collision are disables
+	// Exit if collision are disabled
 	if !AllowCollision
 	{
 		exit;
 	}
 	
-	// Exit if angle is too steep
+	// Exit if angle is too steep or not a cardinal one
 	if Angle >= 90 and Angle <= 270
 	{
 		if !Game.SKWallCollision or Angle mod 90 != 0
@@ -15,72 +15,75 @@ function PlayerGroundWallCollision()
 		}
 	}
 	
-	// Update wall angle quadrant
+	// Get current angle quadrant
 	if Angle <= 43.59 or Angle >= 316.41			
 	{
-		var AngleRange = RangeFloor;
+		var AngleQuad = QuadFloor;
 	}
 	else if Angle >= 45 and Angle <= 135	
 	{
-		var AngleRange = RangeRWall;
+		var AngleQuad = QuadRWall;
 	}
 	else if Angle >= 136.41 and Angle <= 223.59
 	{
-		var AngleRange = RangeRoof;
+		var AngleQuad = QuadRoof;
 	}
 	else if Angle >= 225 and Angle <= 315	
 	{
-		var AngleRange = RangeLWall;
+		var AngleQuad = QuadLWall;
 	}
-
-	// Left wall collision
+	
+	// Collide with the wall to our left, frame ahead
 	if Inertia < 0
 	{
-		// Collide with walls based on current angle range, frame ahead
-		switch AngleRange
+		switch AngleQuad
 		{
 			case RangeFloor:
 			{	
-				var tileData = tile_check_collision_h(floor(PosX + Xsp - 10), floor(PosY + Ysp + 8 * (Angle == 360)), false, true, Layer);
-				if  tileData[0] < 0 
+				// Lower wall sensors by 8 pixels on a flat floor
+				var YOffset  = 8 * (Angle == 360);
+				
+				var Distance = tile_check_collision_h(floor(PosX + Xsp - 10), floor(PosY + Ysp + YOffset), false, true, Layer)[0];
+				if  Distance < 0 
 				{	
 					// Affect player speeds
-					Xsp    -= tileData[0];
+					Xsp    -= Distance;
 					Inertia = 0;
 					
+					// Set pushing flag
 					Pushing = true;
 				}		
 			}
 			break;
 			case RangeRWall:
 			{
-				var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
-				if  tileData[0] < 0
+				var Distance = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)[0];
+				if  Distance < 0
 				{
 					// Affect player speeds
-					Ysp  += tileData[0];
+					Ysp    += Distance;
 					Inertia = 0;
 				}
 			}
 			break;
 			case RangeRoof:
 			{	
-				var tileData = tile_check_collision_h(floor(PosX + Xsp + 10), floor(PosY + Ysp), true, true, Layer)
-				if  tileData[0] < 0
+				var Distance = tile_check_collision_h(floor(PosX + Xsp + 10), floor(PosY + Ysp), true, true, Layer)[0];
+				if  Distance < 0
 				{	
 					// Affect player speeds
-					Xsp    += tileData[0];
+					Xsp    += Distance;
 					Inertia = 0;
 				}
 			}
 			break;
 			case RangeLWall:
 			{
-				var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
-				if  tileData[0] < 0
+				var Distance = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)[0];
+				if  Distance < 0
 				{	
 					// Affect player speeds
-					Ysp    -= tileData[0];
+					Ysp    -= Distance;
 					Inertia = 0;
 				}
 			}
@@ -88,54 +91,54 @@ function PlayerGroundWallCollision()
 		}
 	}
 	
-	// Right wall collision
+	// Collide with the wall to our right, frame ahead
 	else if Inertia > 0
 	{
-		// Collide with walls based on current angle range, frame ahead
-		switch AngleRange
+		switch AngleQuad
 		{
 			case RangeFloor:
 			{	
-				var tileData = tile_check_collision_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + 8 * (Angle == 360)), true, true, Layer);
-				if  tileData[0] < 0
+				var Distance = tile_check_collision_h(floor(PosX + Xsp + 10), floor(PosY + Ysp + 8 * (Angle == 360)), true, true, Layer)[0];
+				if  Distance < 0
 				{	
 					// Affect player speeds
-					Xsp    += tileData[0];
+					Xsp    += Distance;
 					Inertia = 0;
 					
+					// Set pushing flag
 					Pushing = true;
 				}
 			}
 			break;
 			case RangeRWall:
 			{
-				var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)
-				if  tileData[0] < 0
+				var Distance = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp - 10), false, true, Layer)[0];
+				if  Distance < 0
 				{	
 					// Affect player speeds
-					Ysp    -= tileData[0];
+					Ysp    -= Distance;
 					Inertia = 0;
 				}
 			}
 			break;
 			case RangeRoof:
 			{	
-				var tileData = tile_check_collision_h(floor(PosX + Xsp - 10), floor(PosY + Ysp), false, true, Layer)
-				if  tileData[0] < 0
+				var Distance = tile_check_collision_h(floor(PosX + Xsp - 10), floor(PosY + Ysp), false, true, Layer)[0];
+				if  Distance < 0
 				{	
 					// Affect player speeds
-					Xsp    -= tileData[0];
+					Xsp    -= Distance;
 					Inertia = 0;
 				}
 			}
 			break;
 			case RangeLWall:
 			{
-				var tileData = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)
-				if  tileData[0] < 0
+				var Distance = tile_check_collision_v(floor(PosX + Xsp), floor(PosY + Ysp + 10), true, true, Layer)[0];
+				if  Distance < 0
 				{	
 					// Affect player speeds
-					Ysp    += tileData[0];
+					Ysp    += Distance;
 					Inertia = 0;
 				}
 			}

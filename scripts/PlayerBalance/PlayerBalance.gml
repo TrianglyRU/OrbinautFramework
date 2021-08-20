@@ -1,6 +1,6 @@
 function PlayerBalance()
 {
-	// Exit if holding down and S&K crouching is enabled, or moving
+	// Exit if holding down when S&K crouching is enabled, or moving
 	if Game.SKCrouch and Input.Down or Inertia != 0
 	{
 		exit;

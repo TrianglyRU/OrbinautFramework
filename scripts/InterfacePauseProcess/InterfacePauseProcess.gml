@@ -1,7 +1,16 @@
 function InterfacePauseProcess()
 {
+	/* Value table
+	---------------
+	Value[0] - Option
+	Value[1] - Menu
+	---------------
+	*/
+	
+	// Check if stage is paused
 	if Stage.IsPaused
-	{
+	{	
+		// Loop through options
 		if Input.DownPress
 		{
 			PauseValue[0] = loop_value(PauseValue[0] + 1, 0, PauseValue[1] ? 2 : 3);
@@ -11,13 +20,13 @@ function InterfacePauseProcess()
 			PauseValue[0] = loop_value(PauseValue[0] - 1, 0, PauseValue[1] ? 2 : 3);
 		}
 	
+		// React to action or start button
 		if Input.StartPress or Input.ABCPress
 		{
-			Input.StartPress = false;
-			Input.ABCPress   = false;
-			
+			// 'RESTART' or 'EXIT' menu
 			if PauseValue[1]
 			{
+				// If first option is selected, return to main menu
 				if PauseValue[0]
 				{
 					PauseValue[1] = 0;
@@ -25,68 +34,89 @@ function InterfacePauseProcess()
 				}
 				else
 				{
-					audio_stop_all();
-					
+					// Restart
 					if PauseValue[1] == 1
 					{
 						room_restart();
 					}
-					else
+					
+					// Exit
+					else if PauseValue[1] == 2
 					{
 						Game.StarpostID		= false;
+						Game.Score			= 0;
 						Game.Time			= 0;
-						Game.StageBoundary  = 0;
-						Game.Score		    = 0;
-						Game.SpecialRingIDs = [];
+						Game.StageBoundary  = 0;						
 						Game.PlayerPosition = [];
+						Game.SpecialRingIDs = [];
 						
 						room_goto(DevMenu);
 					}
+					
+					// Stop all audio
+					audio_stop_all();
 				}
 			}
-			else
+			
+			// Main menu
+			else switch PauseValue[0]
 			{
-				switch PauseValue[0]
+				// Return to stage
+				case 0:
 				{
-					case 0:
+					Stage.IsPaused = false;
+					Camera.Enabled = true;
+					
+					instance_activate_all();
+					audio_resume_all();
+						
+					/* Just like in object_act_solid, we normally don't do things like that, but it is
+					needed here to avoid objects being active for 1 frame after we unpause the game */	
+					with Stage 
 					{
-						audio_resume_all();
-						
-						Stage.IsPaused = false;
-						Camera.Enabled  = true;
-						
-						instance_activate_all();
-						
-						/* Just like in object_act_solid, we normally don't do things like that, but it 
-						needed there to avoid objects being active for 1 frame after we unpause the game */	
-						with Stage 
-						{
-							StageObjectsActiveProcess();
-						}
+						StageObjectsActiveProcess();
 					}
-					break;
-					case 1: 
+				}
+				break;
+					
+				// Enter 'RESTART' menu if we have more than 1 life
+				case 1: 
+				{
+					if Player.Lives > 1
 					{
 						PauseValue[1] = 1;
 						PauseValue[0] = 0;
 					}
-					break;
-					case 2: 
+					else
 					{
-						PauseValue[1] = 2;
-						PauseValue[0] = 0;
+						audio_sfx_play(sfxFail, false);
 					}
-					break;
 				}
+				break;
+					
+				// Enter 'EXIT' menu
+				case 2: 
+				{
+					PauseValue[1] = 2;
+					PauseValue[0] = 0;
+				}
+				break;
 			}
+			
+			// Clear input
+			Input.StartPress = false;
+			Input.ABCPress   = false;
 		}
 	}
+	
+	// If stage is not paused, pause!
 	else if Stage.AllowPause and Input.StartPress
 	{
-		Stage.IsPaused	 = true;
-		Input.StartPress = false;
+		Stage.IsPaused	 = true;	
 		Camera.Enabled   = false;
-
+		Input.StartPress = false;
+		
+		// Stop all audio
 		audio_pause_all();
 	}
 }

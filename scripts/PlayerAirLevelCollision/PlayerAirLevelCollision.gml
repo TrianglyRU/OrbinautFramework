@@ -1,7 +1,7 @@
 function PlayerAirLevelCollision()
 {
-	// Exit if climbing or gliding
-	if ClimbState or GlideState
+	// Exit if collision is not allowed
+	if !AllowCollision or ClimbState or GlideState
 	{
 		exit;
 	}
@@ -35,7 +35,7 @@ function PlayerAirLevelCollision()
 				Xsp   = 0;
 			}
 			
-			// Check for floor
+			// Get nearest tile below us
 			var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
 			var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
 			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -47,12 +47,18 @@ function PlayerAirLevelCollision()
 			// Collide with floor
 			if FloorDistance < 0
 			{
-				// Make sure if second distance is within the clip distance
+				// Make sure at least one distance is within the clip distance
 				var ClipDistance = -(Ysp + 8)
 				if  TileLeft[0] >= ClipDistance or TileRight[0] >= ClipDistance
 				{
+					// Convert speed to inertia
 					if FloorAngle >= 46.41 and FloorAngle <= 315
 					{
+						// Limit ysp
+						if Ysp > 15.76
+						{
+							Ysp = 15.75;
+						}
 						Xsp		= 0;
 						Inertia = FloorAngle < 180 ? -Ysp : Ysp;
 					}
@@ -65,7 +71,8 @@ function PlayerAirLevelCollision()
 						Ysp     = 0;
 						Inertia = Xsp;	
 					}
-				
+					
+					// Clip out and land
 					PosY    += FloorDistance;
 					Angle    = FloorAngle;
 					Grounded = true;
@@ -91,7 +98,7 @@ function PlayerAirLevelCollision()
 				Xsp   = 0;
 			}
 			
-			// Check for ceiling
+			// Get nearest tile above us
 			var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
 			var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
 			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -137,7 +144,7 @@ function PlayerAirLevelCollision()
 			// Try ceiling collision
 			else
 			{
-				// Check for ceiling
+				// Get nearest tile above us
 				var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
 				var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
 				var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -163,7 +170,7 @@ function PlayerAirLevelCollision()
 				// Try floor collision
 				else if Ysp > 0
 				{
-					// Check for floor
+					// Get nearest tile below us
 					var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
 					var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
 					var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -201,7 +208,7 @@ function PlayerAirLevelCollision()
 			// Try ceiling collision
 			else
 			{
-				// Check for ceiling
+				// Get nearest tile above us
 				var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
 				var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
 				var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
@@ -227,7 +234,7 @@ function PlayerAirLevelCollision()
 				// Try floor collision
 				else if Ysp > 0
 				{
-					// Check for floor
+					// Get nearest tile below us
 					var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
 					var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
 					var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);

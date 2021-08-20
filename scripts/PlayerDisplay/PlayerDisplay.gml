@@ -1,25 +1,12 @@
 function PlayerDisplay()
 {	
-	// Blink sprite
-	if InvincibilityFrames
-	{
-		if !(InvincibilityFrames mod 4)
-		{
-			image_alpha = !image_alpha;
-		}
-	}
-	else
-	{
-		image_alpha = 1;
-	}
-	
-	// Update character display
+	// Update player
 	x			 = floor(PosX);
 	y		     = floor(PosY);
 	depth		 = DrawOrder;
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
 	
-	// Draw player on the screen
+	// Draw player
 	draw_self();
 }

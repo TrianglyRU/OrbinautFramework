@@ -1,12 +1,12 @@
 function PlayerJumpStart()
 {	
-	// Exit if no action button is pressed
-	if !Input.ABCPress
+	// Exit if no action button is pressed or special ability is active
+	if !Input.ABCPress or SpindashRev != -1 or PeeloutRev != -1
 	{
 		exit;
 	}
-	
-	// Do not jump if found low celing
+
+	// Exit if found low ceiling
 	if Angle <= 45 or Angle >= 315
 	{
 		if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
@@ -39,18 +39,8 @@ function PlayerJumpStart()
 			exit;
 		}
 	}
-		
-	// Exit the code if we're trying to perform spindash or peelout
-	if Inertia == 0
-	{
-		if Game.SpindashEnabled and Input.Down
-		or Game.PeeloutEnabled  and CharacterID == CharSonic and Input.Up
-		{
-			exit;
-		}
-	}
-		
-	// Reset collision radiuses
+	
+	// Reset collision radiuses... to update them later?
 	RadiusY = DefaultRadiusY;
 	RadiusX	= DefaultRadiusX;
 
@@ -64,37 +54,31 @@ function PlayerJumpStart()
 	OnObject	  = false;
 	StickToConvex = false;
 	Jumping       = true;
-		
-	// Are we not spinning yet?
-	if !Spinning
-	{
-		// Enter spinning state
-		Spinning = true;
-			
-		// Update collision radiuses
-		PosY   += RadiusY - SmallRadiusY;
-		RadiusY = SmallRadiusY;
-		RadiusX	= SmallRadiusX;
-	}
-	else
-	{
-		// Set roll jump flag
-		RollJumping = true;
-			
-		/* Notice that in this case radiuses won't update. 
-		Why originals do that? No idea */
-	}
-
-	// Set animation
-	Animation = AnimRoll;
-		
+	Animation     = AnimRoll;
+	
 	// Play sound
 	audio_sfx_play(sfxJump, false);
+	
+	// If not spinning, enter spinning state
+	if !Spinning
+	{	
+		// Update collision radiuses
+		RadiusX	= SmallRadiusX;
+		RadiusY = SmallRadiusY;
+		PosY   += DefaultRadiusY - SmallRadiusY;
 		
-	// Clear buttons
-	Input.ABC	   = false;
-	Input.ABCPress = false;
-		
-	// Return true if we jumped
+		// Set flag
+		Spinning = true;
+	}
+	
+	// Set roll jump flag
+	else
+	{
+		/* Notice that in this case radiuses won't update. Why originals 
+		do that? No idea, but it allows us to land a bit earlier */
+		RollJumping = true;	
+	}
+			
+	// Return action result
 	return Jumping
 }

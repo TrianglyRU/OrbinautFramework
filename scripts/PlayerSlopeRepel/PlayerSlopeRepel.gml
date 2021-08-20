@@ -7,7 +7,7 @@ function PlayerSlopeRepel()
 	}
 	
 	// Decrease timer every frame when grounded if non-zero
-	if MovementLock > 0
+	if MovementLock
 	{
 		MovementLock--;
 	}

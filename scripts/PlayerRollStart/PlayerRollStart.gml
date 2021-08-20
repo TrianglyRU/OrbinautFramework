@@ -1,44 +1,31 @@
 function PlayerRollStart()
 {
-	// You are not able to roll if side direction button is pressed
+	// Eixt if can't roll up
 	if !ForcedRoll and (Input.Left or Input.Right)
 	{
 		exit;
 	}
 
-	// Start rolling if we're moving fast enough and are not gliding
-	if Input.Down
+	// Check for inertia required to manually roll up
+	if Game.SKCrouch
 	{
-		if !Game.SKCrouch and abs(Inertia) >= 0.5 
-		or  Game.SKCrouch and abs(Inertia) >= 1
-		{
-			// Update radiuses
-			RadiusY = SmallRadiusY;
-			RadiusX	= SmallRadiusX;
-			PosY   += DefaultRadiusY - SmallRadiusY;
-			
-			// Set rolling flag
-			Spinning = true;
-			
-			// Set animation
-			Animation = AnimRoll;
-			
-			// Play sound
-			audio_sfx_play(sfxRoll, false);
-		}
-	}	
+		var RollCheck = abs(Inertia) >= 1;
+	}
+	else
+	{
+		var RollCheck = abs(Inertia) >= 0.5;
+	}
 	
-	if ForcedRoll and !Spinning
+	// Roll up
+	if Input.Down and RollCheck or ForcedRoll and !Spinning
 	{
-		// Update radiuses
+		// Update collision radiuses
 		RadiusY = SmallRadiusY;
 		RadiusX	= SmallRadiusX;
 		PosY   += DefaultRadiusY - SmallRadiusY;
 			
-		// Set rolling flag
-		Spinning = true;
-			
-		// Set animation
+		// Set flags
+		Spinning  = true;
 		Animation = AnimRoll;
 			
 		// Play sound

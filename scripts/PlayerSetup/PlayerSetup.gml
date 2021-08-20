@@ -1,15 +1,22 @@
 function PlayerSetup()
 {	
-	// Set character
-	CharacterID	= Game.Character;
-	
 	// Default sprite setup
+	switch Game.Character
+	{
+		case CharSonic:
+			sprite_index = spr_sonic_idle;
+		break;
+		case CharTails:
+			sprite_index = spr_tails_idle;
+		break;
+		case CharKnuckles:
+			sprite_index = spr_knuckles_idle;
+		break;
+	}
 	Facing	  = FlipRight;
-	Animation = AnimIdle;
 	DrawOrder = layer_get_depth("Objects");
-	animation_set_frame(Animation, 1);
 	
-	// Set default flags
+	// Set flags and gravity
 	AirTimer	   = 1800;
 	AllowCollision = true;
 	Grounded	   = true;
@@ -17,9 +24,7 @@ function PlayerSetup()
 	SpindashRev    = -1;
 	DropdashRev    = -1;
 	DropdashFlag   = -1;
-	
-	// Set default gravity
-	Grv	= 0.21875;
+	Grv			   = 0.21875;
 	
 	// Set collision radiuses
 	if Game.Character != CharTails
@@ -35,6 +40,9 @@ function PlayerSetup()
 		DefaultRadiusX = 9;
 		SmallRadiusY   = 14;
 		SmallRadiusX   = 7;
+		
+		// Also create Tails' tails
+		instance_create(x, y, TailsObject);
 	}
 	RadiusX = DefaultRadiusX;
 	RadiusY = DefaultRadiusY;
@@ -46,8 +54,7 @@ function PlayerSetup()
 	// Initialize recorded position datalist array
 	RecordedPosX = ds_list_create();
 	RecordedPosY = ds_list_create();
-		
-	// Fill recorded position datalist array
+	
 	for (var Index = 0; Index < 32; Index++) 
 	{
 		RecordedPosX[| Index] = x;
@@ -59,11 +66,5 @@ function PlayerSetup()
 	{
 		Player.PosX = Game.PlayerPosition[0];
 		Player.PosY = Game.PlayerPosition[1];
-	}
-	
-	// Create Tails' tails
-	if CharacterID == CharTails
-	{
-		instance_create(x, y, TailsObject);
 	}
 }

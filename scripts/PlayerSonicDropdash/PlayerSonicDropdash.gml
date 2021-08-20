@@ -9,24 +9,24 @@ function PlayerSonicDropdash()
 	// Define our Dropdash direction by checking towards witch side we're moving and facing
 	if Xsp >= 0
 	{
-		if Facing == DirectionLeft and Input.Left
+		if Facing == FlipLeft and Input.Left
 		{
-			DropdashDirection = DirectionLeft;
+			DropdashDirection = FlipLeft;
 		}
 		else
 		{
-			DropdashDirection = DirectionRight;
+			DropdashDirection = FlipRight;
 		}
 	}
 	else
 	{
-		if Facing == DirectionRight and Input.Right
+		if Facing == FlipRight and Input.Right
 		{
-			DropdashDirection = DirectionLeft;
+			DropdashDirection = FlipLeft;
 		}
 		else
 		{
-			DropdashDirection = DirectionRight;
+			DropdashDirection = FlipRight;
 		}
 	}
 	
@@ -35,7 +35,7 @@ function PlayerSonicDropdash()
 	{
 		DropdashRev = 0;
 	}
-	if DropdashRev < 20
+	else if DropdashRev < 20
 	{
 		DropdashRev++;
 	}

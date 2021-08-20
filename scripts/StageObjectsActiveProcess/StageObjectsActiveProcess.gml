@@ -3,27 +3,9 @@ function StageObjectsActiveProcess()
 	// Script subfunction
 	function StageObjectsActiveProcess_SubFunc(type)
 	{
-		if variable_instance_exists(id, "Obj_ChildrenIDs")
-		{
-			var Length = array_length(Obj_ChildrenIDs);
-			for (var i = 0; i < Length; i++)
-			{
-				with Obj_ChildrenIDs[i]
-				{
-					if type
-					{
-						instance_destroy(id);
-					}
-					else
-					{
-						instance_deactivate_object(id);
-					}
-				}
-			}
-		}
 		if type != 2
 		{
-			instance_deactivate_object(id);
+			
 		}
 		else
 		{
@@ -36,6 +18,9 @@ function StageObjectsActiveProcess()
 	{
 		with all if variable_instance_exists(id, "Obj_LoadStatus")
 		{	
+			// Check if the object has children objects
+			var IsParent = variable_instance_exists(id, "Obj_ChildrenIDs");
+			
 			// Get bounds
 			var LeftBound   = Camera.ViewX - Obj_LoadX;
 			var TopBound    = Camera.ViewY - Obj_LoadY;
@@ -52,44 +37,98 @@ function StageObjectsActiveProcess()
 					// Deactivate object and its children
 					if Obj_LoadFlag == TypeUnload
 					{
-						StageObjectsActiveProcess_SubFunc(0);
+						if IsParent
+						{
+							var Length = array_length(Obj_ChildrenIDs);
+							for (var i = 0; i < Length; i++)
+							{
+								with Obj_ChildrenIDs[i]
+								{
+									instance_deactivate_object(id);
+								}
+							}
+						}
+						instance_deactivate_object(id);
 					}
 					else if Obj_LoadFlag == TypeReset
-					{
+					{		
 						if Obj_LoadData[0] < LeftBound or Obj_LoadData[0] > RightBound
 						{
 							// Destroy children
-							StageObjectsActiveProcess_SubFunc(1);
+							if IsParent
+							{
+								var Length = array_length(Obj_ChildrenIDs);
+								for (var i = 0; i < Length; i++)
+								{
+									with Obj_ChildrenIDs[i]
+									{
+										instance_destroy(id);
+									}
+								}
+							}
 								
 							// Reset object
 							x			 = Obj_LoadData[0];
 							y			 = Obj_LoadData[1];
 							image_xscale = Obj_LoadData[2];
 							image_yscale = Obj_LoadData[3];
-								
+							
 							event_perform(ev_create,     0);
 							event_perform(ev_room_start, 0);
 						}
 							
 						// Deactivate object and its children
-						StageObjectsActiveProcess_SubFunc(0);
+						if IsParent
+						{
+							var Length = array_length(Obj_ChildrenIDs);
+							for (var i = 0; i < Length; i++)
+							{
+								with Obj_ChildrenIDs[i]
+								{
+									instance_deactivate_object(id);
+								}
+							}
+						}
+						instance_deactivate_object(id);
 					}
 						
 					// Destroy object and its children
-					else if Obj_LoadFlag == ResetDelete
+					else if Obj_LoadFlag == TypeDelete
 					{	
-						StageObjectsActiveProcess_SubFunc(2);
+						if IsParent
+						{
+							var Length = array_length(Obj_ChildrenIDs);
+							for (var i = 0; i < Length; i++)
+							{
+								with Obj_ChildrenIDs[i]
+								{
+									instance_destroy(id);
+								}
+							}
+						}
+						instance_destroy(id);
 					}
 				}
 					
 				// Deactivate object and its children
 				else
 				{
-					StageObjectsActiveProcess_SubFunc(0);
+					if IsParent
+					{
+						var Length = array_length(Obj_ChildrenIDs);
+						for (var i = 0; i < Length; i++)
+						{
+							with Obj_ChildrenIDs[i]
+							{
+								instance_deactivate_object(id);
+							}
+						}
+					}
+					instance_deactivate_object(id);
 				}
 			}
 			
-			// If object is inside the boundaries and has the reset flag, allow unload actions
+			// If object is inside the boundaries, allow unload
 			else if !Obj_LoadStatus
 			{
 				Obj_LoadStatus = true;		

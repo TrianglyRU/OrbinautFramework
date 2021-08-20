@@ -1,6 +1,6 @@
 function StageActiveProcess()
 {	
-	// Check if we should update stage or not
+	// Check if we should update the stage or not
 	DoUpdate = !(fade_check(FadeActive) or IsPaused or Player.Death);
 	
 	// Process stage time
@@ -36,20 +36,22 @@ function StageActiveProcess()
 		AnimationTime++;
 	}
 	
-	// Player death event
+	// Process player death
 	if Player.Death
 	{
 		// Disable camera and timer
 		Camera.Enabled = false;
-		TimeEnabled   = false;
+		TimeEnabled    = false;
 		
-		// Check if player is off-screen vertically
+		// Check if player is off-screen
 		if floor(Player.PosY) > Camera.ViewY + Game.Height + 256
 		{	
 			if !EventTimer
 			{
+				// Subtract a life
 				Player.Lives -= 1;
 				
+				// If ran out of lives or time, start game/time over event
 				if !Player.Lives or Time == 36000
 				{
 					IsGameOver = true;
@@ -57,70 +59,62 @@ function StageActiveProcess()
 					audio_bgm_play(PriorityLow, GameOverMusic, noone);
 				}
 			}
-			else if EventTimer == 60
-			{
-				if !IsGameOver
-				{
-					fade_perform(FadeTo, FadeBlack, 1);
-					audio_bgm_stop(PriorityLow,  0.5);
-					audio_bgm_stop(PriorityHigh, 0.5);
-				}
-			}
-			else if EventTimer == 600
-			{
-				if IsGameOver
-				{
-					fade_perform(FadeTo, FadeBlack, 1);
-				}
-			}
-			EventTimer++
 			
-			// Check if fade is at its peak
+			// Fade out after 1 or 10 seconds
+			if (EventTimer++) == 60 * (IsGameOver * 10)
+			{
+				fade_perform(FadeTo, FadeBlack, 1);
+				
+				// Stop all music
+				audio_bgm_stop(PriorityLow,  0.5);
+				audio_bgm_stop(PriorityHigh, 0.5);
+			}
+			
 			if fade_check(FadeMax)
 			{	
-				// Restart the stage
 				if Player.Lives != 0
 				{
-					Game.Lives = Player.Lives;
-					
-					// Clear time if Time Over
+					// Clear time if it is time over
 					if IsGameOver
 					{
 						Game.Time = 0;
 					}
+					Game.Lives = Player.Lives;
 					
+					// Restart the stage
 					room_restart();
-					audio_stop_all();
-				}
-				
-				// If ran out of lives and have continues, go to continue screen
-				else if Game.Continues
-				{
-					Game.StarpostID     = false;
-					Game.Time	        = 0;
-					Game.StageBoundary  = 0;
-					Game.SpecialRingIDs = [];
-					Game.PlayerPosition = [];
-					
-					room_goto(Continue);
 				}
 				else
 				{
-					// Override save file if not in 'no-save' mode
-					if Game.ActiveSave != -1
-					{
-						gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, 0, 3, 0, 0);
-					}
-
-					// Reset game state
+					// Reset game data
 					Game.StarpostID     = false;
 					Game.Time	        = 0;
 					Game.StageBoundary  = 0;
 					Game.SpecialRingIDs = [];
 					Game.PlayerPosition = [];
-				
-					audio_stop_all();
-					room_goto(DevMenu);
+					
+					// If ran out of lives and have continues, go to continue screen
+					if Game.Continues
+					{
+						Game.StarpostID     = false;
+						Game.Time	        = 0;
+						Game.StageBoundary  = 0;
+						Game.SpecialRingIDs = [];
+						Game.PlayerPosition = [];
+					
+						room_goto(Continue);
+					}
+					
+					// If have nothing, return to menu
+					else
+					{
+						// Override save file if not in "no save" mode
+						if Game.ActiveSave != -1
+						{
+							gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, 0, 3, 0, 0);
+						}
+						room_goto(DevMenu);
+					}
 				}
 			}	
 		}

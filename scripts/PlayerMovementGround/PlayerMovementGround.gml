@@ -15,13 +15,15 @@ function PlayerMovementGround()
 					Inertia = -0.5;	
 				}
 				
-				// Skid
+				// Perform skid
 				if (Angle <= 45 or Angle >= 315) and Inertia >= 4
 				{
 					if Animation != AnimSkid
 					{
 						Animation = AnimSkid;
 						audio_sfx_play(sfxSkid, false);
+						
+						// Create dust object
 						instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
 					}
 				}
@@ -55,13 +57,15 @@ function PlayerMovementGround()
 					Inertia = 0.5;
 				}
 				
-				// Skid
+				// Perform skid
 				if (Angle <= 45 or Angle >= 315) and Inertia <= -4
 				{
 					if Animation != AnimSkid
 					{
 						Animation = AnimSkid;
 						audio_sfx_play(sfxSkid, false);
+						
+						// Create dust object
 						instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
 					}
 				}
@@ -83,7 +87,7 @@ function PlayerMovementGround()
 		}
 	}
 	
-	// Apply friction if no directional buttons held
+	// Apply friction
 	if (!Input.Left and !Input.Right) or MovementLock or NoControls
 	{
 		if Inertia > 0
@@ -101,30 +105,56 @@ function PlayerMovementGround()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	// Set animation
+	// Set 'push' animation
 	if Pushing
 	{
 		Animation = AnimPush;
 	}
-	else
+	else if Angle <= 45 or Angle >= 316.41
 	{
-		if (Angle <= 45 or Angle >= 316.41) and Inertia == 0 
+		// Set 'crouch' animation
+		if Game.SKCrouch
 		{
-			if !Input.Up and !Input.Down or Animation == AnimSkid
+			var CrouchCheck = abs(Inertia) < 1;
+		}
+		else
+		{
+			var CrouchCheck = Inertia == 0;
+		}
+		if CrouchCheck and Input.Down and (!Input.Left and !Input.Right)
+		{
+			if SpindashRev == -1 
 			{
-				Animation = AnimIdle;
+				Animation = AnimCrouch;
 			}
 		}
+		
+		// Set 'idle' or 'lookup' animation
+		else if Inertia == 0
+		{
+			if PeeloutRev == -1
+			{
+				if Input.Up
+				{
+					Animation = AnimLookup;
+				}
+				else
+				{
+					Animation = AnimIdle;
+				}
+			}
+		}
+		
+		// Set 'move' animation
 		else if Animation != AnimSkid
 		{
 			Animation = AnimMove;
 		}
-		else
+		
+		// Cancel skid animation if pressed control button in direction of our movement
+		else if Inertia and Input.Right or !Inertia and Input.Left
 		{
-			if Inertia and Input.Right or !Inertia and Input.Left
-			{
-				Animation = AnimMove;
-			}
+			Animation = AnimMove;
 		}
 	}
 }

@@ -17,10 +17,10 @@ function InterfaceCardDraw()
 	switch Stage.StageMusic
 	{
 		case StarryNight:
-			var CompositionName = "WOOFLE - STARRY NIGHT ZONE ACT 1";
+			var CompositionName = "WOOFLE - STARRY NIGHT ZONE";
 		break;
 		default:
-			var CompositionName = "UNKNOWN TRACK";
+			var CompositionName = "NO TRACK SET";
 		break;
 	}
 	draw_set_font(Game.Font[FontDebug]);

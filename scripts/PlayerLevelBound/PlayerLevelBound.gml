@@ -1,6 +1,6 @@
 function PlayerLevelBound()
 {
-	// Keep the player inside of stage boundaries using our next position
+	// Keep us inside of stage boundaries using our next position
 	if floor(PosX + Xsp) < Stage.LeftBoundary + 10 
 	{
 		Inertia = 0;
@@ -15,7 +15,20 @@ function PlayerLevelBound()
 		PosX    = Stage.RightBoundary - 24;
 	}
 	
-	// Kill player when falling below death (bottom) boundary)
+	// Prevent us from leaving top boundary if flying or climbing
+	if FlightState or ClimbState
+	{
+		if floor(PosY) < Stage.TopBoundary + 16 and Ysp < 0
+		{ 
+			if FlightState
+			{
+				Grv	= 0.03125;
+			}	
+			Ysp = 0;
+		}
+	}
+	
+	// Kill us if we fallen below death boundary
 	if !Death and !Drown
 	{
 		if floor(PosY) > Stage.DeathBoundary

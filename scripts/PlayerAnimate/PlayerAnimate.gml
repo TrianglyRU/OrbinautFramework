@@ -1,15 +1,27 @@
 function PlayerAnimate()
 {	
-	// Calculate speed factor for certain animations
+	// Blink sprite
+	if InvincibilityFrames
+	{
+		if !(InvincibilityFrames mod 4)
+		{
+			image_alpha = !image_alpha;
+		}
+	}
+	else
+	{
+		image_alpha = 1;
+	}
+	
+	// Calculate a speed factor for certain animations
 	var SpeedFactor = PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3;
 	
-	// Get the current character
-	switch CharacterID
+	switch Game.Character
 	{	
 		// Sonic animations
 		case CharSonic:
 		{
-			// Regular state
+			// Regular form
 			if !SuperState
 			{
 				switch Animation
@@ -100,10 +112,10 @@ function PlayerAnimate()
 						animation_play(spr_sonic_drown, 1, 1);
 					break;
 					case AnimBalance:
-						animation_play(spr_sonic_balance_front, 16, 1);
+						animation_play(spr_sonic_balance, 16, 1);
 					break;
 					case AnimBalanceFlip:
-						animation_play(spr_sonic_balance_back, 16, 1);
+						animation_play(spr_sonic_balance_flip, 16, 1);
 					break;
 					case AnimSpring:
 						animation_play(spr_sonic_spring, 1, 1);
@@ -149,7 +161,19 @@ function PlayerAnimate()
 					}
 					break;
 					case AnimPeelout: 
-						animation_play(spr_supersonic_fly, 1, 1);
+					{
+						switch PeeloutRev div 15
+						{
+							case 0:
+								var Sprite = spr_supersonic_walk;
+							break;
+							case 1:
+							case 2:
+								var Sprite = spr_supersonic_fly;
+							break;
+						}
+						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 1);
+					}
 					break;
 					case AnimRoll:
 						animation_play(spr_sonic_roll, round(max(1, 4 - SpeedFactor)), 1);
@@ -299,7 +323,7 @@ function PlayerAnimate()
 					animation_play(spr_tails_actend, 16, 2);
 				break;
 				case AnimBalance:
-					animation_play(spr_tails_balance_front, 20, 1);
+					animation_play(spr_tails_balance, 20, 1);
 				break;
 				case AnimTransform:
 					animation_play(spr_tails_transform, 3, 3);
@@ -354,6 +378,7 @@ function PlayerAnimate()
 					}
 					animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 1);
 				}
+				break;
 				case AnimRoll:
 					animation_play(spr_knuckles_roll, round(max(1, 4 - SpeedFactor)), 1);
 				break;
@@ -403,7 +428,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_spring, 1, 1);
 				break;
 				case AnimBalance:
-					animation_play(spr_knuckles_balance_front, 4, 34);
+					animation_play(spr_knuckles_balance, 4, 34);
 				break;
 				case AnimTransform:
 					animation_play(spr_knuckles_transform, 3, 3);

@@ -2,21 +2,19 @@ function InterfaceResultsDraw()
 {
 	/* Value table
 	---------------
-	Value[0] - Timer (pre-results)
-	Value[1] - Head PosX
+	Value[0] - Timer
+	Value[1] - Character Head PosX
 	Value[2] - 'CHARACTER' PosX
-	Value[3] - 'GOT THROUGH' PosX
+	Value[3] - 'GOT THROUGH PosX
 	Value[4] - 'SCORE' PosX
 	Value[5] - 'TIME' PosX
 	Value[6] - 'RINGS' PosX
-	Value[7] - State
-	Value[8] - ACT PosX
-	
-	TODO: Огранизовать массив 
-	
+	Value[7] - 'ACT' PosX
+	Value[8] - State
+	---------------
 	*/
 	
-	// Display only when act is finished
+	// Exit if act is not finished
 	if Stage.IsFinished < 2
 	{
 		exit;
@@ -27,7 +25,7 @@ function InterfaceResultsDraw()
 	
 	if Stage.DoUpdate
 	{	
-		// Init state
+		// State 0
 		if !ResultsValue[7]
 		{
 			// Calculate ring bonus
@@ -82,54 +80,56 @@ function InterfaceResultsDraw()
 			ResultsValue[7] = 1;
 		}
 	
-		// Active state
-		else if ResultsValue[7] == 1
+		// State 1
+		else if ResultsValue[8] == 1
 		{
 			// Shift assets
-			if ResultsValue[2]
+			if (++ResultsValue[0]) < 300
 			{
-				ResultsValue[2] -= 20;
-			}
-			else if ResultsValue[3]
-			{
-				ResultsValue[3] -= 20;
-			}
-			else if ResultsValue[8]
-			{
-				if ResultsValue[1]
+				if ResultsValue[2]
 				{
-					ResultsValue[1] -= 20;
+					ResultsValue[2] -= 20;
 				}
-				ResultsValue[8] -= 20;
+				else if ResultsValue[3]
+				{
+					ResultsValue[3] -= 20;
+				}
+				else if ResultsValue[8]
+				{
+					if ResultsValue[1]
+					{
+						ResultsValue[1] -= 20;
+					}
+					ResultsValue[7] -= 20;
+				}
+				else
+				{		
+					if ResultsValue[4]
+					{
+						ResultsValue[4] -= 20;
+					}
+					if ResultsValue[5] 
+					{
+						ResultsValue[5] -= 20;
+					}
+					if ResultsValue[6] 
+					{
+						ResultsValue[6] -= 20;
+					}
+				}
 			}
 			else
-			{		
-				if ResultsValue[4]
-				{
-					ResultsValue[4] -= 20;
-				}
-				if ResultsValue[5] 
-				{
-					ResultsValue[5] -= 20;
-				}
-				if ResultsValue[6] 
-				{
-					ResultsValue[6] -= 20;
-				}
-			}
-		
-			if (++ResultsValue[0]) >= 300
 			{
+				// Play sound
 				if ResultsValue[0] == 300
 				{
-					// Play sound
 					audio_sfx_play(sfxScoreCount, true);
 				}
 			
 				// Get 50000 score target
 				var LifeReward = max(ceil(Player.Score / 50000) * 50000, 50000);
 			
-				// Skip
+				// Skip bonuses math
 				if Input.StartPress
 				{
 					Player.Score += TimeBonus + RingBonus;
@@ -158,28 +158,31 @@ function InterfaceResultsDraw()
 					audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
 				}
 			
-				// Tally
+				// Score tally
 				if TimeBonus == 0 and RingBonus == 0
 				{
 					audio_sfx_play(sfxScoreTally, false);
 					audio_sfx_stop(sfxScoreCount);
-				
+					
+					// If earned more than 10000 points, grant continue
 					if Player.Score - InitialScore >= 10000
 					{
-						ResultsValue[7] = 3;
+						ResultsValue[8] = 3;
 						ResultsValue[0] = -1;
 					}
+					
+					// Else do nothing
 					else
 					{
-						ResultsValue[7] = 2;
+						ResultsValue[8] = 2;
 						ResultsValue[0] = 0;
 					}
 				}
 			}
 		}
 	
-		// End state (no continue)
-		else if ResultsValue[7] == 2
+		// State 2 (end, no continue)
+		else if ResultsValue[8] == 2
 		{
 			if (++ResultsValue[0]) == 180
 			{
@@ -187,16 +190,19 @@ function InterfaceResultsDraw()
 			}
 		}
 	
-		// End state (with continue earned)
-		else if ResultsValue[7] == 3
-		{
+		// State 3 (end with continue earned)
+		else if ResultsValue[8] == 3
+		{	
 			if ResultsValue[0] == -1
 			{
+				// Play continue sound
 				if !audio_is_playing(sfxScoreTally)
 				{
+					audio_sfx_play(sfxContinue, false);
+					
+					// Increment routine and continue amount
 					Game.Continues++;
 					ResultsValue[0]++;
-					audio_sfx_play(sfxContinue, false);
 				}
 			}
 			else if (++ResultsValue[0]) == 260
@@ -209,17 +215,17 @@ function InterfaceResultsDraw()
 	// Get screen centre
 	var ScreenCentre = Game.Width / 2
 	
-	draw_sprite(spr_results_head, Player.CharacterID, ScreenCentre + 53 + ResultsValue[1], 87);
-	draw_sprite(spr_results_act,  Stage.ActID,        ScreenCentre + 25 + ResultsValue[8], 78);
-		
-	draw_sprite(spr_results_char,		 Player.CharacterID, ScreenCentre - ResultsValue[2] - 14, 60);
-	draw_sprite(spr_results_through,	 0,					 ScreenCentre - ResultsValue[3] - 15, 80);
-	draw_sprite(spr_results_score,		 0,					 ScreenCentre - 80 + ResultsValue[4], 119);
-	draw_sprite(spr_results_timebonus,	 0,					 ScreenCentre - 80 + ResultsValue[5], 135);
-	draw_sprite(spr_results_ringbonus,	 0,					 ScreenCentre - 80 + ResultsValue[6], 151);
+	// Draw assets
+	draw_sprite(spr_results_head,		 Game.Character, ScreenCentre + 53 + ResultsValue[1], 87);
+	draw_sprite(spr_results_char,		 Game.Character, ScreenCentre - 14 - ResultsValue[2], 60);
+	draw_sprite(spr_results_act,		 Stage.ActID,    ScreenCentre + 25 + ResultsValue[7], 78);	
+	draw_sprite(spr_results_through,	 0,				 ScreenCentre - 15 - ResultsValue[3], 80);
+	draw_sprite(spr_results_score,		 0,				 ScreenCentre - 80 + ResultsValue[4], 119);
+	draw_sprite(spr_results_timebonus,	 0,				 ScreenCentre - 80 + ResultsValue[5], 135);
+	draw_sprite(spr_results_ringbonus,	 0,				 ScreenCentre - 80 + ResultsValue[6], 151);
 	
 	// Draw continue icon
-	if ResultsValue[7] == 3 and ResultsValue[0] > -1
+	if ResultsValue[8] == 3 and ResultsValue[0] > -1
 	{
 		if ResultsValue[0] mod 32 <= 15
 		{
@@ -238,7 +244,8 @@ function InterfaceResultsDraw()
 			draw_sprite(Icon, (Stage.AnimationTime div 16) mod sprite_get_number(Icon), ScreenCentre + 96, 123);
 		}
 	}
-
+	
+	// Draw counters
 	draw_set_font(Game.Font[FontDigits1]);
 	draw_set_halign(fa_right);
 	

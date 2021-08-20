@@ -1,8 +1,8 @@
-/// @description Visualisation
+/// @description Visualization
 // You can write your code in this editor
 	
-	// Check if we're in Debug Mode
+	// Process debug mode visualization
 	if PlayerDebugModeDisplay() exit;
 	
-	// Visualisation Script
+	// Visualization Script
 	PlayerDisplay();

@@ -1,7 +1,7 @@
 function GameFrameworkSetup()
 {
 	// Dev mode. Enables some debug shortcuts and features, disable it on your game release!
-	Game.DevMode = false;
+	Game.DevMode = true;
 	
 	/* If devmode is disabed, settings marked with '**' will be overwritten by the
 	gameconfig file */
@@ -22,7 +22,7 @@ function GameFrameworkSetup()
 	Game.WindowSize	      = 2;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;	/**/
+	Game.MusicVolume = 0;	/**/
 	Game.SoundVolume = 0.5;	/**/
 	
 	// Control settings (keyboard)
@@ -31,13 +31,13 @@ function GameFrameworkSetup()
 	// Originals differences
 	Game.SpindashEnabled    = true;  /**/
 	Game.DropdashEnabled    = false; /**/
-	Game.PeeloutEnabled		= false; /**/
+	Game.PeeloutEnabled		= true;  /**/
 	Game.GroundSpeedcap	    = false; /**/
 	Game.AirSpeedcap	    = false; /**/
 	Game.CDCamera			= false; /**/
 	Game.RolljumpControl    = false;
 	Game.S3SlopePhysics		= true;
-	Game.SKCrouch			= false;
+	Game.SKCrouch			= true;
 	Game.SKRollPhysics		= false;
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;
