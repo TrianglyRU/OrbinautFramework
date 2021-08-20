@@ -27,10 +27,11 @@
 	uniform float u_step;
 	uniform bool u_mode;
 	uniform int u_colour;
-
+	
+	// Нахождение цвета на листе палитры
 	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[PaletteLimit]) 
 	{
-	    for (float i = corner.y; i < corner.z; i += pixelSize.y) 
+		for (float i = corner.y; i < corner.z; i += pixelSize.y) 
 		{
 			vec2 testPos = vec2(corner.x, i);
 			if (texture2D(sampler, testPos) == inCol) 
@@ -39,37 +40,35 @@
 				testPos.x += pixelSize.x * floor(Index + 1.);
 				return mix(texture2D(sampler, vec2(testPos.x - pixelSize.x, testPos.y)), texture2D(sampler, testPos), fract(Index));
 			}
-	    }
-	    return inCol;
+		}
+		return inCol;
 	}
 
 	float SubA(float Val1, float Val2) // Appear
 	{
-		return Val1 + (u_colour == 1 ? 
-			 max(Val2 - Val1 - u_step + 252., 0.): 
-			-max(Val2 + Val1 - u_step, 0.));
+	    return Val1 + (u_colour == 1 ? 
+	            max(Val2 - Val1 - u_step + 252., 0.): 
+	        -max(Val2 + Val1 - u_step, 0.));
 	}
 
 	float SubD(float Val1, float Val2) // Disappear
 	{ 
-		float Diff = max(756. - u_step - Val2, 0.);
-		return Val1 + Diff * (u_colour == 1 ? 1. : -1.);
+	    float Diff = max(756. - u_step - Val2, 0.);
+	    return Val1 + Diff * (u_colour == 1 ? 1. : -1.);
 	}
 
-	float Flsh(float Val1) // Appear
+	float Flash(float Val1) // Appear (Flash)
 	{
-		return max(252. - u_step, Val1);
+	    return max(252. - u_step, Val1);
 	}
 
 	void main() 
 	{
 	
-		#region	Change colour
+		#region Change colour
 		/////////////////////
 		vec4 Col = texture2D(gm_BaseTexture, v_vTexcoord);
-		
-		//DoAlphaTest(Col); // Не знаю зачем, но пока не удалять
-		
+        
 		if (u_waterHeight <= v_vPosition.y)
 		{
 			Col = findAltColor(Col, u_wetUvs, u_wetPixelSize, u_wetPalTex, u_wetPalId);
@@ -79,11 +78,11 @@
 			Col = findAltColor(Col, u_dryUvs, u_dryPixelSize, u_dryPalTex, u_dryPalId);
 		}
 		#endregion
-	
+    
 		#region Fade
 		////////////
 		Col.rgb *= 255.;
-		
+        
 		if (u_step == 0.)
 		{
 			Col.rgb = vec3(u_colour == 0 ? 0. : 255.);
@@ -93,19 +92,19 @@
 			if (u_step != 252.)
 			{
 			Col.rgb = u_mode == true ? 
-				vec3(Flsh(Col.r), Flsh(Col.g), Flsh(Col.b)):
-				min(Col.rgb + max(252. - u_step, 0.), 252.);
+			    vec3(Flash(Col.r), Flash(Col.g), Flash(Col.b)):
+			    min(Col.rgb + max(252. - u_step, 0.), 252.);
 			}
 		} 
 		else if (u_step != 756.)
 		{
 			Col.rgb = u_colour == 1 ? 
 			u_mode == true ? 
-				vec3(SubA(Col.r, 504. - Col.b - Col.g), SubA(Col.g, 252. - Col.b), SubA(Col.b, 0.)): 
-				vec3(SubD(Col.r, 0.), SubD(Col.g, 252. - Col.r), SubD(Col.b, 504. - Col.r - Col.g)):
+			    vec3(SubA(Col.r, 504. - Col.b - Col.g), SubA(Col.g, 252. - Col.b), SubA(Col.b, 0.)): 
+			    vec3(SubD(Col.r, 0.), SubD(Col.g, 252. - Col.r), SubD(Col.b, 504. - Col.r - Col.g)):
 			u_mode == true ? 
-				vec3(SubA(Col.r, Col.b + Col.g), SubA(Col.g, Col.b), SubA(Col.b, 0.)): 
-				vec3(SubD(Col.r, 0.), SubD(Col.g, Col.r), SubD(Col.b, Col.r + Col.g));
+			    vec3(SubA(Col.r, Col.b + Col.g), SubA(Col.g, Col.b), SubA(Col.b, 0.)): 
+			    vec3(SubD(Col.r, 0.), SubD(Col.g, Col.r), SubD(Col.b, Col.r + Col.g));
 		}
 		#endregion
 	

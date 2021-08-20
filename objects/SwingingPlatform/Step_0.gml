@@ -1,8 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
     
-    Unload = OriginX + Amplitude < Camera.PosX or OriginX - Amplitude > Camera.PosX + Game.Width 
-          or OriginY + Amplitude < Camera.PosY or OriginY - Amplitude > Camera.PosY + Game.Height;
+    Unload = OriginX + Amplitude < Camera.ViewX or OriginX - Amplitude > Camera.ViewX + Game.Width 
+          or OriginY + Amplitude < Camera.ViewY or OriginY - Amplitude > Camera.ViewY + Game.Height;
           
     if Unload exit;
     
