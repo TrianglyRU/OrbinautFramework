@@ -3,3 +3,4 @@
 
 	// GUI Control Scripts
 	InterfacePauseProcess();
+	InterfaceDebugScreenDraw();

@@ -18,9 +18,6 @@ function PlayerWaterEvents()
 				Ysp			*= 0.25;
 				IsUnderwater = true;
 				
-				// Create player bubble maker object
-				instance_create(0, 0, BubbleMakerPlayer);
-				
 				// Lower default gravity value by 0x28 (0.15625)
 				if !Hurt and !FlightState and GlideState != GlideActive
 				{
@@ -36,6 +33,12 @@ function PlayerWaterEvents()
 	}
 	else
 	{ 
+		// Create player bubble maker object
+		if !instance_exists(BubbleMakerPlayer)
+		{
+			instance_create(-16, -16, BubbleMakerPlayer);
+		}
+		
 		// Air countdown
 		if AirTimer > 0
 		{
@@ -101,11 +104,11 @@ function PlayerWaterEvents()
 			{	
 				if !SuperState
 				{
-					if HighSpeedBonus
+					if HighspeedBonus
 					{
 						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 					}
-					else if InvincibilityBonus
+					else if InvincibleBonus
 					{
 						audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
 					}

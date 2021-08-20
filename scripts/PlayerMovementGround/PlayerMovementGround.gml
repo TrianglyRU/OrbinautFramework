@@ -14,6 +14,18 @@ function PlayerMovementGround()
 				{
 					Inertia = -0.5;	
 				}
+				
+				// Skid
+				if (Angle <= 45 or Angle >= 315) and Inertia >= 4
+				{
+					if Animation != AnimSkid
+					{
+						Animation = AnimSkid;
+						audio_sfx_play(sfxSkid, false);
+						instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
+					}
+				}
+
 			} 
 			
 			// Accelerate
@@ -41,6 +53,17 @@ function PlayerMovementGround()
 				if Inertia >= 0
 				{
 					Inertia = 0.5;
+				}
+				
+				// Skid
+				if (Angle <= 45 or Angle >= 315) and Inertia <= -4
+				{
+					if Animation != AnimSkid
+					{
+						Animation = AnimSkid;
+						audio_sfx_play(sfxSkid, false);
+						instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
+					}
 				}
 			} 
 			
@@ -87,25 +110,20 @@ function PlayerMovementGround()
 	{
 		if (Angle <= 45 or Angle >= 316.41) and Inertia == 0 
 		{
-			if !Input.Up and !Input.Down
+			if !Input.Up and !Input.Down or Animation == AnimSkid
 			{
 				Animation = AnimIdle;
 			}
 		}
+		else if Animation != AnimSkid
+		{
+			Animation = AnimMove;
+		}
 		else
 		{
-			var RunSpeed = (SuperState and Game.Character == CharSonic) ? 8 : 6;
-			if abs(Inertia) < RunSpeed
+			if Inertia and Input.Right or !Inertia and Input.Left
 			{
-				Animation = AnimWalk;
-			}
-			else if abs(Inertia) < 10
-			{
-				Animation = AnimRun;
-			}
-			else
-			{
-				Animation = AnimPeelout;
+				Animation = AnimMove;
 			}
 		}
 	}

@@ -88,6 +88,10 @@ function PlayerJumpStart()
 		// Play sound
 		audio_sfx_play(sfxJump, false);
 		
+		// Clear buttons
+		Input.ABC	   = false;
+		Input.ABCPress = false;
+		
 		// Return true if we jumped
 		return Jumping
 	}

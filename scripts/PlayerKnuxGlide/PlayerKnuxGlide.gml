@@ -181,7 +181,7 @@ function PlayerKnuxGlide()
 		var RoofAngle    = NearestTile[1];
 			
 		// Are we touching the ceiling?
-		if RoofDistance < 0
+		if RoofDistance < 0 and GlideState != GlideStop
 		{	
 			// Clip out
 			PosY -= RoofDistance;

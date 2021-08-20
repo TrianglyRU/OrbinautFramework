@@ -7,7 +7,7 @@ function PlayerCrouch()
 	}
 	
 	// Exit if we're balancing
-	if !Game.SKCrouch and Balancing
+	if !Game.SKCrouch and Animation == AnimBalance or Animation == AnimBalanceFlip
 	{
 		exit;
 	}
@@ -45,8 +45,8 @@ function PlayerCrouch()
 			NoControls = false;
 			Spinning   = true;
 			
-			// Freeze the screen
-			if Camera.ExtendedOffset == 0 
+			// Freeze the screen for 16 frames
+			if !Game.CDCamera
 			{
 				Camera.ScrollDelay = 16;
 			}

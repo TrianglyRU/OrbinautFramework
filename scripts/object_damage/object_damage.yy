@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Debug",
-    "path": "folders/Game Code/Interface/Debug.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "InterfaceDebugSensorsDraw",
+  "name": "object_damage",
   "tags": [],
   "resourceType": "GMScript",
 }

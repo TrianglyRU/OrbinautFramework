@@ -6,26 +6,25 @@ function PlayerJump()
 		exit;
 	}
 	
-	// Shorten our jump force
 	if !Input.ABC
 	{
+		// Shorten our jump force
 		if Ysp < JumpMin
 		{
 			Ysp = JumpMin;
 		}
-	}	
-	
-	// Exit the further code if action button wasn't pressed
-	if !Input.ABCPress
-	{
-		exit;
+		
+		// Reset dropdash
+		if DropdashFlag
+		{
+			DropdashRev = -1;
+			Animation   = AnimRoll;
+		}
+		DropdashFlag = 0;
 	}
 	
-	// Clear the rolljump flag
-	RollJumping = false;
-	
 	// Check if C button is pressed and we're moving upwards
-	if Input.CPress and Rings >= 10 and Ysp < 0 and !SuperState and !Stage.IsFinished
+	if Input.CPress and Rings >= 50 and Ysp < 0 and Game.Emeralds == 7 and !SuperState and !Stage.IsFinished
 	{
 		// Play animation
 		Animation = AnimTransform;
@@ -38,7 +37,7 @@ function PlayerJump()
 		NoControls = true;
 			
 		// Reset invincibility
-		InvincibilityBonus  = false;
+		InvincibleBonus  = false;
 		InvincibilityFrames = 0;
 			
 		// Use normal collision radiuses
@@ -49,8 +48,9 @@ function PlayerJump()
 		audio_bgm_play(PriorityLow, SuperMusic, other);
 			
 		// Reset jump and roll flag
-		Jumping  = false;
-		Spinning = false;
+		Jumping		= false;
+		Spinning	= false;
+		RollJumping = false;
 	}
 	
 	// Else perform double jump action
@@ -59,20 +59,29 @@ function PlayerJump()
 		// Use barrier power as Sonic
 		case CharSonic:
 		{
-			// Exit if in Super form or under invincibility bonus
-			if SuperState or InvincibilityBonus
+			// Perform dropdash
+			if BarrierType <= BarrierNormal or SuperState
 			{
+				if Game.DropdashEnabled and DropdashFlag == 0 and Input.ABC
+				{
+					RollJumping  = false;
+					DropdashFlag = 1;
+					Animation    = AnimDropdash;
+					
+					audio_sfx_play(sfxDropDash, false);
+				}
 				exit;
 			}
 			
-			// Exit if barrier is active or having no/regular barrier
-			if BarrierIsActive or BarrierType <= BarrierNormal
+			// Exit if in Super form or under invincibility bonus
+			if InvincibleBonus or DropdashFlag or BarrierIsActive or !Input.ABCPress
 			{
 				exit;
 			}
 			
 			// Activate ability
 			BarrierIsActive = true;
+			RollJumping     = false;
 			
 			// Get current barrier
 			switch BarrierType
@@ -85,9 +94,9 @@ function PlayerJump()
 					Ysp = 0;
 				
 					// Freeze the screen for 16 frames
-					if Screen.ExtendedOffset == 0 
+					if !Game.CDCamera
 					{
-						Screen.ScrollDelay = 16;
+						Camera.ScrollDelay = 16;
 					}
 				
 					// Play sound
@@ -151,8 +160,9 @@ function PlayerJump()
 			FlightValue = 480;
 				
 			// Reset jump and roll flag
-			Jumping  = false;
-			Spinning = false;
+			Jumping     = false;
+			Spinning    = false;
+			RollJumping = false;
 				
 			// Clear action inputs
 			Input.ABC	   = false;
@@ -173,22 +183,15 @@ function PlayerJump()
 			Ysp     = max(Ysp, 0);
 				
 			// Reset jump and roll flag
-			Jumping  = false;
-			Spinning = false;
+			Jumping     = false;
+			Spinning    = false;
+			RollJumping = false;
 				
 			// Set glide direction
-			if Facing == DirectionRight
-			{
-				GlideDirection = DirectionRight;
-				GlideValue	   = 180;
-			}
-			else if Facing == DirectionLeft
-			{
-				GlideDirection = DirectionLeft;
-				GlideValue	   = 0;
-			}
-				
+			GlideDirection = Facing;
+			
 			// Enter glide state
+			GlideValue    = Facing == FlipLeft ? 0 : 180;
 			GlideState    = GlideActive;
 			GlideGrounded = false;
 		}

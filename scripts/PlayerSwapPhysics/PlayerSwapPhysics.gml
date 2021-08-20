@@ -54,7 +54,7 @@ function PlayerSwapPhysics()
 		}
 		
 		// High-speed shoes
-		if HighSpeedBonus
+		if HighspeedBonus
 		{
 			Acc	    = 0.09375;
 			AirAcc  = 0.1875;

@@ -84,7 +84,7 @@ function GameMacro()
 	#macro AnimSkid			   17
 	#macro AnimGlideStand	   18
 	#macro AnimClimbering	   19
-	#macro AnimBalance    20
+	#macro AnimBalance		   20
 	#macro AnimBalanceFlip	   21
 	#macro AnimSpring		   22
 	#macro AnimActEnd		   23
@@ -95,6 +95,8 @@ function GameMacro()
 	#macro AnimDrown		   28
 	#macro AnimAirSpin		   29
 	#macro AnimBreathe		   30
+	#macro AnimDropdash		   31
+	#macro AnimMove			   32
 
 	// Stage macro	
 	#macro StageLoad           0

@@ -16,6 +16,7 @@ function PlayerSetup()
 	PeeloutRev     = -1;
 	SpindashRev    = -1;
 	DropdashRev    = -1;
+	DropdashFlag   = -1;
 	
 	// Set default gravity
 	Grv	= 0.21875;

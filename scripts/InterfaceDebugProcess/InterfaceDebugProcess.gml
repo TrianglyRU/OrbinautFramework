@@ -1,13 +1,13 @@
-function ScreenDebugProcess()
+function InterfaceDebugProcess()
 {
-	// Exit the code if devmode is disabled
-	if !Game.DevMode
+	// Exit if not allowed to toggle
+	if !Game.DevMode or !Stage.DoUpdate
 	{
 		exit;
 	}
 	
-	// Activate general debugging
-	if Stage.DoUpdate and keyboard_check_pressed(ord("Q"))
+	// Activate debug
+	if keyboard_check_pressed(ord("Q"))
 	{
 		DebugToggle = !DebugToggle;
 	}

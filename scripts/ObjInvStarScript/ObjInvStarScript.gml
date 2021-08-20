@@ -1,6 +1,6 @@
 function ObjInvStarScript()
 {
-	if !Player.InvincibilityBonus or Player.SuperState
+	if !Player.InvincibleBonus or Player.SuperState
 	{
 		instance_destroy();
 		exit;

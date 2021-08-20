@@ -22,7 +22,7 @@ function GameFrameworkSetup()
 	Game.WindowSize	      = 2;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0;	/**/
+	Game.MusicVolume = 0.5;	/**/
 	Game.SoundVolume = 0.5;	/**/
 	
 	// Control settings (keyboard)
@@ -31,14 +31,14 @@ function GameFrameworkSetup()
 	// Originals differences
 	Game.SpindashEnabled    = true;  /**/
 	Game.DropdashEnabled    = false; /**/
-	Game.PeeloutEnabled		= true;  /**/
+	Game.PeeloutEnabled		= false; /**/
 	Game.GroundSpeedcap	    = false; /**/
 	Game.AirSpeedcap	    = false; /**/
 	Game.CDCamera			= false; /**/
 	Game.RolljumpControl    = false;
 	Game.S3SlopePhysics		= true;
-	Game.SKCrouch			= true;
-	Game.SKRollPhysics		= true;
+	Game.SKCrouch			= false;
+	Game.SKRollPhysics		= false;
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;
 	Game.SMWaterBarrier		= false;

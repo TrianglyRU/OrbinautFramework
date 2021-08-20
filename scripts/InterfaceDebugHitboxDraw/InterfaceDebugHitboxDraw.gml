@@ -1,24 +1,24 @@
-function ScreenDebugHitboxDraw()
+function InterfaceDebugHitboxDraw()
 {
-	// Exit the code if devmode is disabled
-	if !Game.DevMode
+	// Exit if not allowed to display
+	if !Game.DevMode or !Stage.DoUpdate or !DebugToggle
 	{
 		exit;
 	}
 	
-	// Activate hitbox debugging
-	if Stage.DoUpdate and keyboard_check_pressed(ord("E"))
+	// Toggle hitboxes debug
+	if keyboard_check_pressed(ord("E"))
 	{
 		DebugHitboxes = !DebugHitboxes;
 	}
-
-	// Check if general and hitbox debugging is enabled
-	if DebugToggle and DebugHitboxes
+	
+	// Display hitboxes
+	if DebugHitboxes
 	{		
-		// Draw hitboxes
 		draw_set_alpha(0.5);
 		with all
-		{
+		{			
+			// Player hitbox
 			if object_index == Player
 			{
 				if Animation == AnimCrouch
@@ -37,6 +37,8 @@ function ScreenDebugHitboxDraw()
 				}
 				draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
 			}
+			
+			// Object hitbox
 			else if variable_instance_exists(id, "Obj_HitStatus")
 			{
 				draw_rectangle_colour(x - Obj_HitX, y - Obj_HitY, x + Obj_HitX - 1, y + Obj_HitY - 1, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);

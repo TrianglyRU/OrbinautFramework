@@ -1,9 +1,20 @@
-function ScreenDebugTriggersDraw()
+function InterfaceDebugTriggersDraw()
 {
-	// Check if general debugging is enabled
-	if DebugToggle
+	// Exit if not allowed to display
+	if !Game.DevMode or !Stage.DoUpdate or !DebugToggle
 	{
-		// Draw position points
+		exit;
+	}
+	
+	// Toggle triggers debug
+	if keyboard_check_pressed(ord("R"))
+	{
+		DebugTriggers = !DebugTriggers;
+	}
+	
+	// Display triggers
+	if DebugTriggers
+	{
 		draw_set_alpha(0.5);
 		with all
 		{

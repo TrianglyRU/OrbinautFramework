@@ -3,9 +3,7 @@ function PlayerRotation()
 	// Use visual angle only for some animations, 
 	switch Animation
 	{
-		case AnimWalk:
-		case AnimRun:
-		case AnimPeelout:
+		case AnimMove:
 		{
 			// Check if smooth rotation is enabled
 			if Game.SmoothRotation

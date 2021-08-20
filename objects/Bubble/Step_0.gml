@@ -109,7 +109,7 @@
 	}
 	
 	// If bubble is large, be collected by a player
-	if BubbleType == 2
+	if BubbleType == 2 and Player.BarrierType != BarrierWater
 	{
 		if animation_get_frame(id) == 5 and object_player_overlap(Triggerbox)
 		{
@@ -118,11 +118,11 @@
 			{
 				if !Player.SuperState
 				{
-					if Player.HighSpeedBonus
+					if Player.HighspeedBonus
 					{
 						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 					}
-					else if Player.InvincibilityBonus
+					else if Player.InvincibleBonus
 					{
 						audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
 					}

@@ -15,17 +15,6 @@ function PlayerDebugMode()
 	// Check for entering for exiting debug mode
 	if Input.BPress
 	{
-		if Death
-		{
-			Camera.Enabled = true;
-			Stage.AllowPause     = true;
-			Stage.DoUpdate       = true;
-			AllowCollision       = true;
-			
-			DrawOrder = layer_get_depth("Objects");
-			Death = false;
-		}
-		
 		// Toggle debug
 		DebugMode = !DebugMode;
 
@@ -59,6 +48,17 @@ function PlayerDebugMode()
 			SpindashRev    = -1;
 			PeeloutRev     = -1;
 			DropdashRev    = -1;
+			
+			// Cancel death event
+			if (Death or Drown) and floor(Player.PosY) < Camera.ViewY + Game.Height
+			{
+				DrawOrder		 = layer_get_depth("Objects");
+				Death		     = false;
+				Drown            = false;
+				Camera.Enabled   = true;
+				Stage.AllowPause = true;
+				Stage.DoUpdate   = true;	
+			}
 			
 			// Reset gravity
 			if !IsUnderwater

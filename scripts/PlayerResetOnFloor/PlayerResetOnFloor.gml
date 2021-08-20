@@ -32,10 +32,10 @@ function PlayerResetOnFloor()
 		exit;
 	}
 	
-	// Set 'walk' or 'run' animation if we've landed on the solid ground
-	if Spinning and !OnObject
+	// Set 'move' animation if we've landed on the solid ground
+	if !OnObject
 	{
-		Animation = Inertia >= TopAcc ? AnimRun : AnimWalk;
+		Animation = AnimMove;
 	}
 	
 	// Restore control (from hit)
@@ -67,6 +67,7 @@ function PlayerResetOnFloor()
 	ClimbState		= false;
 	ScoreCombo		= false;
 	BarrierIsActive = false;
+	DropdashFlag	= -1;
 	
 	// Stop special player sfx
 	audio_sfx_stop(sfxFlying);
@@ -95,6 +96,14 @@ function PlayerResetOnFloor()
 		// Go to rolling state
 		Spinning = true;
 		
+		// Update radiuses
+		if RadiusY != SmallRadiusY
+		{
+			PosY   += RadiusY - SmallRadiusY;
+			RadiusX = SmallRadiusX;
+			RadiusY = SmallRadiusY;
+		}
+		
 		// Set dropspeed
 		if DropdashDirection == DirectionRight
 		{
@@ -113,13 +122,21 @@ function PlayerResetOnFloor()
 		}
 		Dropspeed = clamp(Dropspeed, -12, 12);
 			
-		// Apply dropspeed to inertia and set camera lag
+		// Apply dropspeed to inertia
 		Inertia			   = Dropspeed;
 		DropdashRev		   = -1;
-		Camera.ScrollDelay = 16;
+		
+		// Freeze the screen for 16 frames
+		if !Game.CDCamera
+		{
+			Camera.ScrollDelay = 16;
+		}
 			
 		// Set 'roll' animation
 		Animation = AnimRoll;
+		
+		audio_sfx_play(sfxRelease, false);
+		instance_create(floor(PosX), floor(PosY + RadiusY), DropdashDust);
 	}
 	else
 	{

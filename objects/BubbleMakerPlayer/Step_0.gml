@@ -108,7 +108,7 @@
 		if !(DrownDelay--)
 		{
 			var  Random = irandom(3);
-			var  Object = instance_create(floor(PosX + 6 * Player.Facing), floor(Player.PosY - 12), Bubble);
+			var  Object = instance_create(floor(Player.PosX + 6 * Player.Facing), floor(Player.PosY - 12), Bubble);
 			with Object
 			{
 				BubbleType = Random ? 0 : 1;

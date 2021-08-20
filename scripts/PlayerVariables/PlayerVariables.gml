@@ -31,6 +31,7 @@ function PlayerVariables()
 	SpindashRev		    = 0;
 	DropdashRev			= 0;
 	DropdashDirection	= 0;
+	DropdashFlag		= 0;
 	SuperState			= 0;
 	SuperStateValue		= 0;
 	GlideGrounded	    = 0;
@@ -43,14 +44,8 @@ function PlayerVariables()
 	ClimbValue			= 0;
 	FlightState			= 0;
 	FlightValue			= 0;
-	Skidding			= 0;
-	Balancing			= 0;
-	HighSpeedBonus		= 0;
-	
 	HighspeedBonus		= 0;
 	InvincibleBonus	    = 0;
-	
-	InvincibilityBonus	= 0;
 	InvincibilityFrames	= 0;
 	IsInvincible		= 0;
 	IsUnderwater		= 0;

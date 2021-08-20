@@ -138,7 +138,7 @@ function ObjBarrierMain()
 	}
 	
 	// Hide the barrier when the player is under invincibility bonus
-	if Player.InvincibilityBonus or Player.SuperState
+	if Player.InvincibleBonus or Player.SuperState
 	{
 		image_alpha = 0;
 	}

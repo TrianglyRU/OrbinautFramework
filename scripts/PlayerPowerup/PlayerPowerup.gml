@@ -7,10 +7,10 @@ function PlayerPowerup()
 	}
 	
 	// Handle highspeed bonus
-	if HighSpeedBonus
+	if HighspeedBonus
 	{	
 		// Count down the timer
-		if !(--HighSpeedBonus)
+		if !(--HighspeedBonus)
 		{
 			// Play stage music
 			if audio_bgm_is_playing(HighspeedMusic)
@@ -21,7 +21,7 @@ function PlayerPowerup()
 	}
 	
 	// Handle invincibility bonus
-	if InvincibilityBonus 
+	if InvincibleBonus 
 	{
 		// Check if star particles exist
 		if !instance_exists(InvincibilityStar) 
@@ -41,7 +41,7 @@ function PlayerPowerup()
 		}
 		
 		// Count down the timer
-		if !(--InvincibilityBonus)
+		if !(--InvincibleBonus)
 		{
 			// Play stage music
 			if audio_bgm_is_playing(InvincibilityMusic)

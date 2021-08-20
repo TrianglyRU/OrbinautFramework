@@ -74,14 +74,14 @@ function InputHotkeysProcess()
 	// Give highspeed bonus (F6)
 	if keyboard_check_pressed(vk_f6)
 	{
-		Player.HighSpeedBonus = 1200;
+		Player.HighspeedBonus = 1200;
 		audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 	}
 	
 	// Give invincibility (F7)
 	if keyboard_check_pressed(vk_f7)
 	{
-		Player.InvincibilityBonus = 1200;
+		Player.InvincibleBonus = 1200;
 		audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
 	}
 	

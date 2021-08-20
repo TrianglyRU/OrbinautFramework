@@ -28,14 +28,39 @@ function PlayerAnimate()
 						animation_play(spr_sonic_idle, Duration, 4);
 					}
 					break;
-					case AnimWalk:						
-						animation_play(spr_sonic_walk, round(max(1, 8 - SpeedFactor)), 1);
+					case AnimMove:	
+					{
+						if abs(Inertia) < 6
+						{
+							var Sprite = spr_sonic_walk;
+						}
+						else if abs(Inertia) < 10
+						{
+							var Sprite = spr_sonic_run;
+						}
+						else if Game.PeeloutEnabled
+						{
+							var Sprite = spr_sonic_peelout;
+						}
+						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 1);
+					}
 					break;
-					case AnimRun: 
-						animation_play(spr_sonic_run, round(max(1, 8 - SpeedFactor)), 1);
-					break;
-					case AnimPeelout: 
-						animation_play(spr_sonic_peelout, 1, 1);
+					case AnimPeelout:
+					{
+						switch PeeloutRev div 15
+						{
+							case 0:
+								var Sprite = spr_sonic_walk;
+							break;
+							case 1:
+								var Sprite = spr_sonic_run;
+							break;
+							case 2:
+								var Sprite = spr_sonic_peelout;
+							break;
+						}
+						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 1);
+					}
 					break;
 					case AnimRoll:
 						animation_play(spr_sonic_roll, round(max(1, 4 - SpeedFactor)), 1);
@@ -82,6 +107,9 @@ function PlayerAnimate()
 					case AnimBreathe:
 						animation_play(spr_sonic_breathe, 24, 2);
 					break;
+					case AnimDropdash:
+						animation_play(spr_sonic_dropdash, 1, 1);
+					break;
 					default: break;
 				}
 			}
@@ -97,11 +125,18 @@ function PlayerAnimate()
 					case AnimIdle:
 						animation_play(spr_supersonic_idle, 8, 1);
 					break;
-					case AnimWalk:
-						animation_play(spr_supersonic_walk, round(max(1, 8 - SpeedFactor)), 1);
-					break;
-					case AnimRun: 
-						animation_play(spr_supersonic_fly,  round(max(1, 8 - SpeedFactor)), 1);
+					case AnimMove:	
+					{
+						if abs(Inertia) < 8
+						{
+							var Sprite = spr_supersonic_walk;
+						}
+						else
+						{
+							var Sprite = spr_supersonic_fly;
+						}
+						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 1);
+					}
 					break;
 					case AnimPeelout: 
 						animation_play(spr_supersonic_fly, 1, 1);
@@ -144,6 +179,9 @@ function PlayerAnimate()
 					break;
 					case AnimBreathe:
 						animation_play(spr_supersonic_breathe, 24, 2);
+					break;
+					case AnimDropdash:
+						animation_play(spr_sonic_dropdash, 1, 1);
 					break;
 					default: break;
 				}
@@ -190,14 +228,22 @@ function PlayerAnimate()
 					animation_play(spr_tails_idle, Duration, 8);
 				} 
 				break;
-				case AnimWalk:
-					animation_play(spr_tails_walk, round(max(1, 8 - SpeedFactor)), 1);
-				break;
-				case AnimRun: 
-					animation_play(spr_tails_run,  round(max(1, 8 - SpeedFactor)), 1);
-				break;
-				case AnimPeelout: 
-					animation_play(spr_tails_dash, 1, 1);
+				case AnimMove:	
+				{
+					if abs(Inertia) < 6
+					{
+						var Sprite = spr_tails_walk;
+					}
+					else if abs(Inertia) < 10
+					{
+						var Sprite = spr_tails_fly;
+					}
+					else
+					{
+						var Sprite = spr_tails_dash;
+					}
+					animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 1);
+				}
 				break;
 				case AnimRoll:
 					animation_play(spr_tails_roll, 2, 1);
@@ -286,12 +332,18 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_idle, Duration, 1);	
 				}
 				break;
-				case AnimWalk: 
-					animation_play(spr_knuckles_walk, round(max(1, 8 - SpeedFactor)), 1);
-				break;
-				case AnimRun: 
-					animation_play(spr_knuckles_run,  round(max(1, 8 - SpeedFactor)), 1);
-				break;
+				case AnimMove:	
+				{
+					if abs(Inertia) < 6
+					{
+						var Sprite = spr_knuckles_walk;
+					}
+					else
+					{
+						var Sprite = spr_knuckles_run;
+					}
+					animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 1);
+				}
 				case AnimRoll:
 					animation_play(spr_knuckles_roll, round(max(1, 4 - SpeedFactor)), 1);
 				break;

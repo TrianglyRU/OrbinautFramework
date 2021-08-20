@@ -13,7 +13,7 @@ function object_act_enemy(enemy_type)
 	
 	// Check if player can damage enemy
 	if Player.GlideState == GlideActive or Player.Spinning		   or Player.SuperState
-	or Player.InvincibilityBonus		or Player.SpindashRev >= 0 or Player.FlightState and Player.Ysp < 0
+	or Player.InvincibleBonus		or Player.SpindashRev >= 0 or Player.FlightState and Player.Ysp < 0
 	{		
 		// Make player bounce if they are airborne
 		if !Player.Grounded

@@ -1,7 +1,7 @@
 function PlayerSonicDropdash()
 {
-	// Exit if we're not Sonic
-	if CharacterID != CharSonic or !Game.DropdashEnabled or !Jumping
+	// Exit if dropdash isn't ready to be charged
+	if !DropdashFlag
 	{
 		exit;
 	}
@@ -30,23 +30,13 @@ function PlayerSonicDropdash()
 		}
 	}
 	
-	// Check if A, B or C button is being on hold
-	if Input.ABC
-	{
-		// Charge Dropdash
-		if DropdashRev == -1
-		{
-			DropdashRev = 0;
-		}
-		else
-		{
-			if (DropdashRev < 20) DropdashRev++;
-		}
-	}
-	
-	// Reset Dropdash charge value if we've released the button
-	else
+	// Charge Dropdash
+	if DropdashRev == -1
 	{
 		DropdashRev = 0;
+	}
+	if DropdashRev < 20
+	{
+		DropdashRev++;
 	}
 }

@@ -1,7 +1,7 @@
 function PlayerLookup()
 {	
 	// Exit
-	if Inertia != 0 or Pushing or Balancing
+	if Inertia != 0 or Pushing
 	{
 		exit;
 	}
@@ -31,12 +31,7 @@ function PlayerLookup()
 				PeeloutRev++;
 				
 				// Set 'peelout' animation
-				switch PeeloutRev div 15
-				{
-					case 0: Animation = AnimWalk	break;
-					case 1: Animation = AnimRun		break;
-					case 2: Animation = AnimPeelout break;
-				}
+				Animation = AnimPeelout;
 				
 				if PeeloutRev > 30
 				{
@@ -59,14 +54,14 @@ function PlayerLookup()
 			// Play sound
 			audio_sfx_play(sfxPeeloutRelease, false);
 				
-			// Set 'peelout' animation
-			Animation = AnimPeelout;
+			// Set 'move' animation
+			Animation = AnimMove;
 			
 			// Launch Sonic forwards
 			Inertia = (!SuperState ? 12 : 15) * Facing;
 			
 			// Freeze the screen for 16 frames
-			if Camera.ExtendedOffset == 0
+			if !Game.CDCamera
 			{
 				Camera.ScrollDelay = 16;
 			}

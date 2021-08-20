@@ -1,24 +1,24 @@
 function InterfaceDebugSolidboxDraw()
 {
-	// Exit the code if devmode is disabled
-	if !Game.DevMode
+	// Exit if not allowed to display
+	if !Game.DevMode or !Stage.DoUpdate or !DebugToggle
 	{
 		exit;
 	}
 	
-	// Activate solidbox debugging
-	if Stage.DoUpdate and keyboard_check_pressed(ord("W"))
+	// Toggle solidbox debug
+	if keyboard_check_pressed(ord("W"))
 	{
 		DebugSolids = !DebugSolids;
 	}
-
-	// Check if general and solidbox debugging is enabled
-	//if DebugToggle and DebugSolids
+	
+	// Display solidboxes
+	if DebugSolids
 	{
-		// Draw solidboxes
 		draw_set_alpha(0.5);
 		with all
 		{
+			// Player solidbox
 			if object_index == Player
 			{
 				var pTop    = floor(PosY - RadiusY);
@@ -27,12 +27,17 @@ function InterfaceDebugSolidboxDraw()
 				var pBottom = floor(PosY + RadiusY);
 				draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $00ffff, $00ffff, $00ffff, $00ffff, false);
 			}
+			
+			// Object solidbox
 			else if variable_instance_exists(id, "Obj_SolidStatus")
 			{	
+				// Display normal solidbox
 				if Obj_SolidMap == false
 				{
 					draw_rectangle_colour(x - Obj_SolidX, y - Obj_SolidY, x + Obj_SolidX - 1, y + Obj_SolidY - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);
 				}
+				
+				// Display sloped solidbox
 				else
 				{
 					for (var i = 0; i < array_length(Obj_SolidMap); i++)

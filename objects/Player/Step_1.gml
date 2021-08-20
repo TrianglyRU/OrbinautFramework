@@ -50,3 +50,7 @@
 		PlayerGroundFloorCollision();
 		PlayerSlopeRepel();
 	}
+	
+	show_debug_message(DropdashRev);
+	show_debug_message(DropdashFlag);
+	show_debug_message(RollJumping);

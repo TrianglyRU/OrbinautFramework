@@ -78,7 +78,7 @@ function PlayerSuperFormsProcess()
 					{
 						audio_bgm_play(PriorityLow, BossMusic, other);
 					}
-					else if HighSpeedBonus
+					else if HighspeedBonus
 					{
 						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 					}

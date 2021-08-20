@@ -2,7 +2,7 @@
 function object_damage(flame_type, thunder_type, instant_kill)
 {	
 	// Exit the code if player can't be damaged
-	if !instant_kill and (Player.InvincibilityFrames or Player.InvincibilityBonus or Player.SuperState)
+	if !instant_kill and (Player.InvincibilityFrames or Player.InvincibleBonus or Player.SuperState)
 	{
 		exit;
 	}
@@ -40,9 +40,9 @@ function object_damage(flame_type, thunder_type, instant_kill)
 		Player.Grv = 0.21875;
 		
 		// Disable collisions and camera
-		Camera.Enabled  = false;
-		Player.AllowCollision = false;
+		Camera.Enabled		  = false;
 		Stage.AllowPause	  = false;
+		Player.AllowCollision = false;
 		
 		// Draw player above everything
 		Player.DrawOrder = 0;

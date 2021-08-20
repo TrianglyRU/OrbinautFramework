@@ -121,7 +121,7 @@ function ObjItemBoxScript()
 					case "High Speed":
 					{
 						// Give highspeed bonus for 20 seconds
-						Player.HighSpeedBonus = 1200;
+						Player.HighspeedBonus = 1200;
 						
 						// Play music
 						if !Player.SuperState
@@ -198,11 +198,11 @@ function ObjItemBoxScript()
 						{	
 							if !Player.SuperState
 							{
-								if Player.HighSpeedBonus
+								if Player.HighspeedBonus
 								{
 									audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 								}
-								else if Player.InvincibilityBonus
+								else if Player.InvincibleBonus
 								{
 									audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
 								}
@@ -226,7 +226,7 @@ function ObjItemBoxScript()
 						if !Player.SuperState
 						{
 							// Give invincibility bonus for 20 seconds
-							Player.InvincibilityBonus = 1200;
+							Player.InvincibleBonus = 1200;
 						
 							// Play music
 							audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
