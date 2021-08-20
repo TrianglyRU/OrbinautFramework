@@ -19,7 +19,7 @@ function ObjSpringVerticalMain()
 			Player.Grounded  = false;
 			Player.OnObject  = false;		
 			Player.Ysp		 = -LaunchForce * image_yscale;
-			Player.Animation =  LaunchSide == SideTop ? AnimSpring : AnimWalk;
+			Player.Animation =  LaunchSide == SideTop ? AnimSpring : AnimMove;
 			
 			// Play spring sound
 			audio_sfx_play(sfxSpring, false);	
