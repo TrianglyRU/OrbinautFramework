@@ -7,6 +7,7 @@ function MenuOptionsProcess()
 	{
 		// Main Menu
 		case 0:
+		{
 			if Input.APress or Input.StartPress
 			{
 				// Exit the game
@@ -15,10 +16,12 @@ function MenuOptionsProcess()
 					game_end();
 				}
 			}
+		}
 		break;
 		
 		// Game Start menu
 		case 1:
+		{
 			if Input.APress or Input.StartPress
 			{
 				// Get current slot id
@@ -52,10 +55,12 @@ function MenuOptionsProcess()
 					}
 				}
 			}
+		}
 		break;
 	
 		// Game Start (character select with empty saveslot)
 		case 2:
+		{
 			if Input.APress or Input.StartPress
 			{
 				// Load first zone
@@ -74,10 +79,12 @@ function MenuOptionsProcess()
 					gamedata_save(Game.ActiveSave, OptionID, 0, 0, 3, 0, 0);
 				}
 			}
+		}
 		break;
 	
 		// Stage Select (character select)
 		case 3:
+		{
 			if Input.APress or Input.StartPress
 			{
 				// Set data
@@ -87,10 +94,12 @@ function MenuOptionsProcess()
 				Game.Continues = 0;
 				Game.Score	   = 0;	
 			}
+		}
 		break;
 	
 		// Stage Select (zone select)
 		case 4:
+		{
 			if Input.APress or Input.StartPress
 			{
 				// Use "no save" slot
@@ -107,19 +116,23 @@ function MenuOptionsProcess()
 					break;
 				}
 			}
+		}
 		break;
 	
 		// Options (main)
 		case 5:
+		{
 			if Input.BPress
 			{
 				// Update config file
 				gamesettings_save("config");
 			}
+		}
 		break;
 	
 		// Options (gameplay)
 		case 6:
+		{
 			switch OptionID
 			{
 				// Spindash toggle
@@ -200,10 +213,12 @@ function MenuOptionsProcess()
 				}
 				break;
 			}
+		}
 		break;
 	
 		// Options (video)
 		case 7:
+		{
 			switch OptionID
 			{
 				// Window size toggle
@@ -250,10 +265,12 @@ function MenuOptionsProcess()
 					menu_update_option(7, 2, "POST-PROCESSING: " + menu_get_boolean(Game.PostProcessing));
 				break;
 			}
+		}
 		break;
 	
 		// Options (audio)
 		case 8:
+		{
 			// SFX volume
 			if OptionID == 0
 			{
@@ -287,11 +304,15 @@ function MenuOptionsProcess()
 				// Update option
 				menu_update_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
 			}
+		}
 		break;
 		
 		// Options (controls)
 		case 9:
+		{
 			var Buttons = ["UP", "DOWN", "LEFT", "RIGHT", "A", "B", "C", "MODE", "START"];
+			
+			// Assign key
 			if Input.IgnoreInput
 			{
 				if keyboard_key and keyboard_check_pressed(vk_anykey)
@@ -305,27 +326,35 @@ function MenuOptionsProcess()
 							menu_update_option(9, i, Buttons[i] + ":" + input_get_keyname(CurButton));
 						}
 					}
-					
 					Input.IgnoreInput = false;
 					Game.KeyboardControl[OptionID] = keyboard_key;
+					
+					// Update option
 					menu_update_option(9, OptionID, Buttons[OptionID] + ":" + input_get_keyname(keyboard_key));
 				}
 			}
+			
+			// Select key
 			else if Input.APress or Input.StartPress
 			{
 				Input.IgnoreInput = true;
+				
+				// Update option
 				menu_update_option(9, OptionID, Buttons[OptionID] + ":" + "*-*");
 			}
+		}
 		break;
 		
 		// Game Start (save deletetion)
 		case 10:
+		{
 			// Delete data
 			SaveData[OptionID] = 0;
 			file_delete("saveslot" + string(OptionID) + ".bin");	
 		
 			// Update option
 			menu_update_option(1, OptionID + 1, "SAVE " + string(OptionID + 1) + " - NEW GAME");
+		}
 		break;
 	}
 }

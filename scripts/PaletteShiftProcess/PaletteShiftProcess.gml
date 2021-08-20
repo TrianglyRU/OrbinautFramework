@@ -1,6 +1,6 @@
 function PaletteShiftProcess()
 {	
-	// Exit if fade is active, or stage is paused
+	// Exit if fade is active or stage is paused
 	if fade_check(FadeActive) or variable_check(Stage, "IsPaused")
 	{
 		exit;
@@ -10,7 +10,7 @@ function PaletteShiftProcess()
 	if instance_exists(Player)
 	{	
 		// Sonic palette
-		if Player.CharacterID == CharSonic
+		if Game.Character == CharSonic
 		{
 			// Get current colour
 			var Colour = palette_get_colour(PaletteDry, 1);
@@ -64,7 +64,7 @@ function PaletteShiftProcess()
 		}
 		
 		// Tails palette
-		else if Player.CharacterID == CharTails
+		else if Game.Character == CharTails
 		{
 			// Get current colour
 			var Colour = palette_get_colour(PaletteDry, 5);
@@ -101,7 +101,7 @@ function PaletteShiftProcess()
 		}
 		
 		// Knuckles palette
-		else if Player.CharacterID == CharKnuckles
+		else if Game.Character == CharKnuckles
 		{
 			// Get current colour
 			var Colour = palette_get_colour(PaletteDry, 9);
@@ -143,16 +143,16 @@ function PaletteShiftProcess()
 		}
 	}
 	
-	// Basic shift
+	// Room colours shift
 	switch room
 	{
 		case MQZ0:
 		{
-			// Surface dynamic
+			// Surface
 			palette_handle(PaletteDry, 12, 8, 8, 1, 4);
 			palette_handle(PaletteDry, 20, 1, 8, 1, 6);
 			
-			// Underwater dynamic
+			// Underwater
 			palette_handle(PaletteWet, 47, 8, 8, 1, 4);
 			palette_handle(PaletteWet, 55, 1, 8, 1, 6);
 		}

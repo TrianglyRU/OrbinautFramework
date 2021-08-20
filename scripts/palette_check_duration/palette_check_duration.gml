@@ -4,5 +4,5 @@ function palette_check_duration(type, id)
 	var Index = max(0, 1 - id);
 	
 	// Return duration
-	return PaletteDuration[type, Index];
+	return Duration[type, Index];
 }

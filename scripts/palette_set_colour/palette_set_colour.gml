@@ -6,11 +6,11 @@ function palette_set_colour(type, id, range, colourid)
 	{
 		if type == PaletteSurface
 		{
-			PaletteIndexDry[i] = colourid;
+			IndexDry[i] = colourid;
 		}
 		else if type = PaletteUnderwater
 		{
-			PaletteIndexWet[i] = colourid;
+			IndexWet[i] = colourid;
 		}
 	}
 }

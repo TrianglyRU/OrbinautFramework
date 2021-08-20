@@ -1,8 +1,6 @@
-/// @description
+/// @description Visualization
 // You can write your code in this editor
 	
-	// Call shift process script
+	// Visualization Scripts
 	PaletteShiftProcess();
-	
-	// Call fade process script
 	PaletteFadeProcess();

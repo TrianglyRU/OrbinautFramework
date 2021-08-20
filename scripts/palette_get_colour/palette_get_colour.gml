@@ -5,10 +5,10 @@ function palette_get_colour(type, id)
 	
 	if type == PaletteSurface
 	{
-		return PaletteIndexDry[Index];
+		return IndexDry[Index];
 	}
 	else if type == PaletteUnderwater
 	{
-		return PaletteIndexWet[Index];
+		return IndexWet[Index];
 	}
 }

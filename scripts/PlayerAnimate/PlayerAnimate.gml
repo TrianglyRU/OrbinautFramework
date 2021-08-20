@@ -34,13 +34,23 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_sonic_walk;
 						}
-						else if abs(Inertia) < 10
+						else
 						{
-							var Sprite = spr_sonic_run;
-						}
-						else if Game.PeeloutEnabled
-						{
-							var Sprite = spr_sonic_peelout;
+							if Game.PeeloutEnabled
+							{
+								 if abs(Inertia) < 10
+								 {
+									 var Sprite = spr_sonic_run;
+								 }
+								 else
+								 {
+									 var Sprite = spr_sonic_peelout;
+								 }
+							}
+							else
+							{
+								var Sprite = spr_sonic_run;
+							}	
 						}
 						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 1);
 					}

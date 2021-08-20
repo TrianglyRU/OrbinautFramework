@@ -12,7 +12,7 @@ function SpecialStageEnd()
 			
 			State = 1;
 			
-			Game.Emeralds++;
+			Game.Emeralds = 7;
 		}
 		
 		// Lose

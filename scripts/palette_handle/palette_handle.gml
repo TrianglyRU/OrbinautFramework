@@ -8,38 +8,38 @@ function palette_handle(type, id, range, last, goto, duration)
 	var AnimationID = string(last) + "_" + string(goto);
 	
 	// Initialize or update palette animation
-	if PaletteSequence[type,index] != AnimationID
+	if Sequence[type,index] != AnimationID
 	{
 		// Set data
-		PaletteSequence[type,index] = AnimationID;
-		PaletteDuration[type,index]	= duration;
+		Sequence[type,index] = AnimationID;
+		Duration[type,index]	= duration;
 	}
 	else if duration > 1
 	{
 		// Decrease the value of animation timer
-		if --PaletteDuration[type,index] < 1
+		if --Duration[type,index] < 1
 		{
 			var cycle = max(1, goto);
 			var lastanim = index + range;
 			
 			// Reset duration
-			PaletteDuration[type,index] = duration;
+			Duration[type,index] = duration;
 			
 			// Update colour
 			for(var i = index; i < lastanim; i++)
 			{
 				if type == PaletteSurface
 				{
-					if ++PaletteIndexDry[i] > last
+					if ++IndexDry[i] > last
 					{
-						PaletteIndexDry[i] = cycle;
+						IndexDry[i] = cycle;
 					}
 				}
 				else if type == PaletteUnderwater
 				{
-					if ++PaletteIndexWet[i] > last
+					if ++IndexWet[i] > last
 					{
-						PaletteIndexWet[i] = cycle;
+						IndexWet[i] = cycle;
 					}
 				}
 			}

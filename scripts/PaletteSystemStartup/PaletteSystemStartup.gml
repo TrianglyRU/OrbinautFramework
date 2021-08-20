@@ -5,11 +5,11 @@ function PaletteSystemStartup()
 	{
 		for (var j = 0; j < PaletteLimit; j++)
 		{
-			PaletteDuration[i, j] = noone;
-			PaletteSequence[i, j] = noone;
+			Duration[i, j] = noone;
+			Sequence[i, j] = noone;
 		}	
-		PaletteIndexDry[i] = 1;
-		PaletteIndexWet[i] = 1;
+		IndexDry[i] = 1;
+		IndexWet[i] = 1;
 	}
 	
 	// Reset surfaces

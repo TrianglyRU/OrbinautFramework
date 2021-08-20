@@ -4,18 +4,19 @@ function MenuOptionsDraw()
 	draw_text(200, 50, MenuHeader[MenuID]);
 	
 	// Display options
-	var Page = OptionID div 7;
+	var Page  = OptionID div 7;
 	var Limit = min(MenuSize[MenuID], Page * 7 + 7);
+	
 	for (var i = Page * 7; i < Limit; i++)
 	{
 		draw_text(Game.Width / 2, 100 + i mod 7 * 16, MenuOption[MenuID][i]);
 	}
 	
-	// Display pages
+	// Display page number
 	var AllPages = MenuSize[MenuID] div 7;
-	if AllPages
+	if  AllPages
 	{
-		draw_text(Game.Width / 2, 212, "-" + string(Page + 1) + "/" + string(AllPages + 1) + "-");
+		draw_text(Game.Width / 2, 66, "-" + string(Page + 1) + "/" + string(AllPages + 1) + "-");
 	}
 	
 	

@@ -1,8 +1,6 @@
-/// @description
+/// @description GUI Shader Visualization
 // You can write your code in this editor
 
-	// Call update script
+	// GUI Shader Visualization Scripts
 	PaletteUpdate();
-	
-	// Call surface process script
 	PaletteSurfaceProcess();

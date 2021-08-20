@@ -1,5 +1,5 @@
-/// @description
+/// @description Surface Initialization
 // You can write your code in this editord
 
-	// Call surface startup script
+	// Surface Initialization Script
 	PaletteSurfaceStartup();

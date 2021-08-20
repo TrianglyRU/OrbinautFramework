@@ -1,7 +1,7 @@
 function GameFrameworkSetup()
 {
 	// Dev mode. Enables some debug shortcuts and features, disable it on your game release!
-	Game.DevMode = true;
+	Game.DevMode = false;
 	
 	/* If devmode is disabed, settings marked with '**' will be overwritten by the
 	gameconfig file */
