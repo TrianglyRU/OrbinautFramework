@@ -79,13 +79,13 @@ function MenuSetup()
 	
 	// Options (controls)
 	menu_add_header(9,    "CONTROLS OPTIONS");
-	menu_add_option(9, 0, "UP:"    + input_get_keyname(Game.KeyboardControl[0]), noone);
-	menu_add_option(9, 1, "DOWN:"  + input_get_keyname(Game.KeyboardControl[1]), noone);
-	menu_add_option(9, 2, "LEFT:"  + input_get_keyname(Game.KeyboardControl[2]), noone);
-	menu_add_option(9, 3, "RIGHT:" + input_get_keyname(Game.KeyboardControl[3]), noone);
-	menu_add_option(9, 4, "A:"     + input_get_keyname(Game.KeyboardControl[4]), noone);
-	menu_add_option(9, 5, "B:"     + input_get_keyname(Game.KeyboardControl[5]), noone);
-	menu_add_option(9, 6, "C:"	   + input_get_keyname(Game.KeyboardControl[6]), noone);
-	menu_add_option(9, 7, "MODE:"  + input_get_keyname(Game.KeyboardControl[7]), noone);
-	menu_add_option(9, 8, "START:" + input_get_keyname(Game.KeyboardControl[8]), noone);
+	menu_add_option(9, 0, "UP:"    + menu_get_keyname(Game.KeyboardControl[0]), noone);
+	menu_add_option(9, 1, "DOWN:"  + menu_get_keyname(Game.KeyboardControl[1]), noone);
+	menu_add_option(9, 2, "LEFT:"  + menu_get_keyname(Game.KeyboardControl[2]), noone);
+	menu_add_option(9, 3, "RIGHT:" + menu_get_keyname(Game.KeyboardControl[3]), noone);
+	menu_add_option(9, 4, "A:"     + menu_get_keyname(Game.KeyboardControl[4]), noone);
+	menu_add_option(9, 5, "B:"     + menu_get_keyname(Game.KeyboardControl[5]), noone);
+	menu_add_option(9, 6, "C:"	   + menu_get_keyname(Game.KeyboardControl[6]), noone);
+	menu_add_option(9, 7, "MODE:"  + menu_get_keyname(Game.KeyboardControl[7]), noone);
+	menu_add_option(9, 8, "START:" + menu_get_keyname(Game.KeyboardControl[8]), noone);
 }

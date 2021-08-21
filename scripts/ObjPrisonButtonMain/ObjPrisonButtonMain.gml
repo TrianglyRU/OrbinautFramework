@@ -7,7 +7,7 @@ function ObjPrisonButtonMain()
 		object_act_solid(true, true, true);
 		
 		// Play animation
-		animation_play(sprite_index, 3, 1);
+		animation_play(sprite_index, 3, 0);
 		
 		// Check if player is standing on the object
 		if object_player_touch(SideTop)

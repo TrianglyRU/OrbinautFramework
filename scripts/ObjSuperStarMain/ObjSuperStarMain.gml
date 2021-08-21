@@ -8,7 +8,7 @@ function ObjSuperStarMain()
 	}
 	
 	// Play animation
-	animation_play(sprite_index, 2, 6);
+	animation_play(sprite_index, 2, 5);
 	
 	// Destroy and create new object on animation end
 	if image_index == 5

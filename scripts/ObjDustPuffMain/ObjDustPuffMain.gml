@@ -1,7 +1,7 @@
 function ObjDustPuffMain()
 {
 	// Play animation
-	animation_play(sprite_index, 4, 5);
+	animation_play(sprite_index, 4, 4);
 	
 	// Create another dust object after 4 frames
 	if Player.Animation  == AnimSkid    and Player.Grounded

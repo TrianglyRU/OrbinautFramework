@@ -80,7 +80,7 @@ function ObjAnimalStartup()
 		PosY = y;
 		
 		// Apply sprite
-		animation_set(AnimalType, 1);
+		sprite_index = AnimalType;
 	
 		// Set object solidbox
 		object_set_solidbox(8, 12, false);

@@ -35,13 +35,14 @@ function ObjMotobugMain()
 			}
 		}
 		
-		animation_play(spr_obj_motobug, 8, 1);
+		animation_play(spr_obj_motobug, 8, 0);
 		
 		// Collide tiles & check for if Motobug is 2 pixels away from the surface
 		var CollideFloor = object_collide_tiles_v(false, SideBottom, 2, LayerA);
 		if !CollideFloor
 		{
-			animation_set(sprite_index, 1);
+			// Set first frame
+			image_index = 0;
 			
 			// Stop Motobug
 			StopTimer = 60;

@@ -61,7 +61,8 @@ function ObjBubbleMakerPlayerMain()
 			{
 				if Type == CountdownBubble
 				{
-					animation_set(Sprite, 1);
+					sprite_index = Sprite;
+					image_index  = 0;
 				}
 				Direction = Player.Facing;
 			}
@@ -83,7 +84,8 @@ function ObjBubbleMakerPlayerMain()
 				{
 					if Type == CountdownBubble
 					{
-						animation_set(Sprite, 1);
+						sprite_index = Sprite;
+						image_index  = 0;
 					}
 					Direction = Player.Facing;
 				}

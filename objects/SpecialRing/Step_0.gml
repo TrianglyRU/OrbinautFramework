@@ -91,4 +91,4 @@
 	}
 	
 	// Play animation
-	animation_play(spr_obj_specialring, 8, 1);
+	animation_play(spr_obj_specialring, 8, 0);

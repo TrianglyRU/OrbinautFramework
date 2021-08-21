@@ -31,7 +31,7 @@
     "path": "folders/Objects/Stage Objects/Ring.yy",
   },
   "resourceVersion": "1.0",
-  "name": "RingShattered",
+  "name": "ShatteredRing",
   "tags": [],
   "resourceType": "GMObject",
 }

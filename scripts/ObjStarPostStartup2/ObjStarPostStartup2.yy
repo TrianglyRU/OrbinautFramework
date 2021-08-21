@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+    "name": "Star Post",
+    "path": "folders/Objects/Stage Objects/Star Post.yy",
   },
   "resourceVersion": "1.0",
-  "name": "input_get_keyname",
+  "name": "ObjStarPostStartup2",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -7,7 +7,7 @@ function ObjBubbleMakerMain()
 	}
 	
 	// Play animation
-	animation_play(sprite_index, 16, 1);
+	animation_play(sprite_index, 16, 0);
 	
 	// Count down the timer
 	if --CycleTimer

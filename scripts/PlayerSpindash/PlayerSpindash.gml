@@ -32,7 +32,7 @@ function PlayerSpindash()
 		if Input.ABCPress
 		{
 			SpindashRev = min(SpindashRev + 2, 8);	
-			animation_set(sprite_index, 1);
+			image_index = 0;
 			
 			// Play sound
 			audio_sfx_play(sfxCharge, false);

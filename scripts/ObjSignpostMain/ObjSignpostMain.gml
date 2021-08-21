@@ -29,7 +29,6 @@ function ObjSignpostMain()
 				Player.SuperState = false;
 			}	
 		}
-		animation_set(SpriteData[0], 1);
 	}
 	else if Active == 1
 	{	
@@ -39,11 +38,11 @@ function ObjSignpostMain()
 		// Play animation
 		if ActiveTimer < 62
 		{
-			animation_play(SpriteData[0], 1, 1);
+			animation_play(SpriteData[0], 1, 0);
 		}
 		else if ActiveTimer < 123
 		{
-			animation_play(SpriteData[1], 1, 1);
+			animation_play(SpriteData[1], 1, 0);
 		}
 		else
 		{

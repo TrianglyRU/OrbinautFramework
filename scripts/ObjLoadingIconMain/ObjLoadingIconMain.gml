@@ -1,5 +1,5 @@
 function ObjLoadingIconMain()
 {
 	// Animate sprite
-	animation_play(LoadingSprite, 1, 1);
+	animation_play(LoadingSprite, 1, 0);
 }

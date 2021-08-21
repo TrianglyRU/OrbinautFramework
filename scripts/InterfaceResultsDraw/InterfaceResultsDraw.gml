@@ -26,7 +26,7 @@ function InterfaceResultsDraw()
 	if Stage.DoUpdate
 	{	
 		// State 0
-		if !ResultsValue[7]
+		if !ResultsValue[8]
 		{
 			// Calculate ring bonus
 			RingBonus = Player.Rings * 100;
@@ -77,7 +77,7 @@ function InterfaceResultsDraw()
 					break;
 				}
 			}			
-			ResultsValue[7] = 1;
+			ResultsValue[8] = 1;
 		}
 	
 		// State 1
@@ -94,7 +94,7 @@ function InterfaceResultsDraw()
 				{
 					ResultsValue[3] -= 20;
 				}
-				else if ResultsValue[8]
+				else if ResultsValue[7]
 				{
 					if ResultsValue[1]
 					{

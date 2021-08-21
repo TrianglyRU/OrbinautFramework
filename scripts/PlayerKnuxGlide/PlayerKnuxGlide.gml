@@ -70,24 +70,24 @@ function PlayerKnuxGlide()
 			{
 				if GlideValue > 60
 				{
-					GlideFrame = 3;
+					GlideFrame = 2;
 				}
 				else if GlideValue > 30
 				{
-					GlideFrame = 2;
+					GlideFrame = 1;
 				}
 				else
 				{
-					GlideFrame = 1;
+					GlideFrame = 0;
 				}
 			}
 			else if GlideValue < 150
 			{
-				GlideFrame = 2;
+				GlideFrame = 1;
 			}		
 			else
 			{
-				GlideFrame = 1;
+				GlideFrame = 0;
 			}
 			
 			// Set animation

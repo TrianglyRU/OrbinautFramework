@@ -7,13 +7,13 @@ function ObjBuzzbomberBulletMain()
 		y += Ysp;
 		
 		// Animate it
-		animation_play(sprite_index, 1, 3);
+		animation_play(sprite_index, 1, 2);
 	}
 	
 	// Advance to the next frame
 	else if Timer == 8
 	{
-		animation_set(sprite_index, 2);
+		sprite_index = 1;
 	}
 	
 	// Damage player

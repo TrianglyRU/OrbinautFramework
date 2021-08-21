@@ -40,7 +40,7 @@ function ObjCountdownBubbleMain()
 	}
 	if Frame < 12 and Player.IsUnderwater
 	{
-		animation_play(sprite_index, Duration, 13);
+		animation_play(sprite_index, Duration, 12);
 	}
 	else
 	{

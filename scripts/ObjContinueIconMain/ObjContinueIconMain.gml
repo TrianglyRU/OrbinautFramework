@@ -1,5 +1,5 @@
 function ObjContinueIconMain()
 {
 	// Animate sprite
-	animation_play(IconSprite, 16, 1);
+	animation_play(sprite_index, 16, 0);
 }

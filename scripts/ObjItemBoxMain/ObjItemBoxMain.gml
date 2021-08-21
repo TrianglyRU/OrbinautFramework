@@ -4,7 +4,7 @@ function ObjItemBoxMain()
 	if !Destroyed
 	{
 		// Play animation
-		animation_play(spr_obj_itembox, 4, 1);		
+		animation_play(spr_obj_itembox, 4, 0);		
 		
 		// Blink item card
 		if !CardTimer
@@ -108,7 +108,7 @@ function ObjItemBoxMain()
 	else
 	{
 		// Play destroyed animation
-		animation_play(spr_obj_itembox_destroyed, 1, 1);
+		animation_play(spr_obj_itembox_destroyed, 1, 0);
 		
 		// If card timer ran out, allow unload
 		if !CardTimer
@@ -166,10 +166,7 @@ function ObjItemBoxMain()
 						if !instance_exists(Barrier)
 						{
 							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							with Object
-							{
-								animation_set(spr_barrier_normal, 1);
-							}
+							Object.sprite_index = spr_barrier_normal;
 						}
 					}
 					break;
@@ -182,11 +179,8 @@ function ObjItemBoxMain()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							with Object
-							{
-								animation_set(spr_barrier_flame, 1);
-							}
+							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							Object.sprite_index = spr_barrier_flame;
 						}
 					}
 					break;
@@ -199,11 +193,8 @@ function ObjItemBoxMain()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							with Object
-							{
-								animation_set(spr_barrier_thunder, 1);
-							}
+							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							Object.sprite_index = spr_barrier_thunder;
 						}
 					}
 					break;
@@ -216,11 +207,8 @@ function ObjItemBoxMain()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							with Object
-							{
-								animation_set(spr_barrier_water, 1);
-							}
+							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+							Object.sprite_index = spr_barrier_water;
 						}
 						
 						// Play previous track if running out of air

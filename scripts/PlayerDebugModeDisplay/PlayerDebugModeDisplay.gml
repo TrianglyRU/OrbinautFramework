@@ -11,44 +11,44 @@ function PlayerDebugModeDisplay()
 		{
 			switch DebugList[DebugItem]
 			{
-				case Ring:					 
-					animation_set(spr_obj_ring, 1);			  
+				case Ring:
+					sprite_index = spr_obj_ring;		  
 				break;
-				case ItemBox:				 
-					animation_set(spr_obj_itembox, 1);		  
+				case ItemBox:	
+					sprite_index = spr_obj_itembox;	  
 				break;
 				case SpikesVertical:	    
-					animation_set(spr_obj_spikesvertical, 1);  
+					sprite_index = spr_obj_spikesvertical;  
 				break;
 				case SpringYellowVertical:   
-					animation_set(spr_obj_spring_yellow_v, 1); 
+					sprite_index = spr_obj_spring_yellow_v; 
 				break;
-				case SpringYellowHorizontal: 
-					animation_set(spr_obj_spring_yellow_h, 1); 
+				case SpringYellowHorizontal:
+					sprite_index = spr_obj_spring_yellow_h; 
 				break;
 				case SpringYellowDiagonal:   
-					animation_set(spr_obj_spring_yellow_d, 1); 
+					sprite_index = spr_obj_spring_yellow_d; 
 				break;
 				case SpringRedVertical:      
-					animation_set(spr_obj_spring_red_v, 1);	  
+					sprite_index = spr_obj_spring_red_v;	  
 				break;
 				case SpringRedHorizontal:   
-					animation_set(spr_obj_spring_red_h, 1);    
+					sprite_index = spr_obj_spring_red_h;    
 				break;
 				case SpringRedDiagonal:      
-					animation_set(spr_obj_spring_yellow_d, 1);
+					sprite_index = spr_obj_spring_yellow_d;
 				break;
 				case StarPost:				 
-					animation_set(spr_obj_starpost, 1);		  
+					sprite_index = spr_obj_starpost;		  
 				break;
 				case Animal:				 
-					animation_set(spr_obj_animal_flicky, 1);   
+					sprite_index = spr_obj_animal_flicky;   
 				break;
 				case Bridge:				 
-					animation_set(spr_obj_bridgelog_mqz, 1);   
+					sprite_index = spr_obj_bridgelog_mqz;   
 				break;
 				case FloatingPlatform:		 
-					animation_set(spr_obj_platform_mqz, 1);   
+					sprite_index = spr_obj_platform_mqz;   
 				break;
 			}
 		}
@@ -56,7 +56,8 @@ function PlayerDebugModeDisplay()
 		// Update player
 		x			 = floor(PosX);
 		y			 = floor(PosY);
-		image_xscale = 1;
+		image_xscale = Player.Facing;
+		image_index  = 0;
 		image_angle  = 360;
 	
 		// Draw player

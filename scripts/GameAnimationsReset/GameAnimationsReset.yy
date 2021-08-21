@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+    "name": "Framework",
+    "path": "folders/Game Code/Framework.yy",
   },
   "resourceVersion": "1.0",
-  "name": "animation_set",
+  "name": "GameAnimationsReset",
   "tags": [],
   "resourceType": "GMScript",
 }

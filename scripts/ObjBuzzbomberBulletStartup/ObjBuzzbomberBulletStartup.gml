@@ -5,9 +5,6 @@ function ObjBuzzbomberBulletStartup()
 	Ysp   = 0;
 	Timer = 0;
 	
-	// Set frame
-	animation_set(sprite_index, 1);
-	
 	// Set object hitbox
 	object_set_hitbox(4, 4);
 	

@@ -6,7 +6,7 @@ function ObjBarrierMain()
 		case BarrierNormal:
 		{
 			// Play animation
-			animation_play(spr_barrier_normal, 2, 1);
+			animation_play(spr_barrier_normal, 2, 0);
 			
 			// Set object depth
 			object_set_depth(Player, true);
@@ -17,7 +17,7 @@ function ObjBarrierMain()
 		case BarrierThunder:
 		{
 			// Play animation
-			animation_play(spr_barrier_thunder, 2, 1);	
+			animation_play(spr_barrier_thunder, 2, 0);	
 			
 			// Switch object depth
 			if image_index == 18
@@ -38,7 +38,7 @@ function ObjBarrierMain()
 			if !Player.BarrierIsActive
 			{
 				// Play animation
-				animation_play(spr_barrier_flame, 2, 1);
+				animation_play(spr_barrier_flame, 2, 0);
 				
 				// Reset horizontal scale
 				image_xscale = 1;
@@ -58,7 +58,7 @@ function ObjBarrierMain()
 			else
 			{
 				// Play animation
-				animation_play(spr_barrier_flame_dash, 2, 1);
+				animation_play(spr_barrier_flame_dash, 2, 0);
 				
 				// Set object depth
 				object_set_depth(Player, true);
@@ -95,12 +95,13 @@ function ObjBarrierMain()
 					// Reset to normal animation
 					if image_index == 2
 					{
-						animation_set(spr_barrier_water, 1);
+						sprite_index = spr_barrier_water;
+						image_index  = 0;
 					}
 				}
 				else
 				{
-					animation_play(spr_barrier_water, 2, 1);
+					animation_play(spr_barrier_water, 2, 0);
 				}
 			}
 			
@@ -110,8 +111,8 @@ function ObjBarrierMain()
 				// Play animation
 				if sprite_index == spr_barrier_water_drop
 				{
-					var Frame = animation_get_frame(id);
-					if  Frame == 1
+					var Frame = image_index;
+					if !Frame
 					{
 						var Duration = 6;
 					}
@@ -124,12 +125,13 @@ function ObjBarrierMain()
 					// Reset to normal animation
 					if image_index == 2
 					{
-						animation_set(spr_barrier_water, 1);
+						sprite_index = spr_barrier_water;
+						image_index  = 0;
 					}
 				}
 				else
 				{
-					animation_play(spr_barrier_water, 2, 1);
+					animation_play(spr_barrier_water, 2, 0);
 				}
 			}			
 		}

@@ -25,7 +25,8 @@ function PlayerPowerup()
 			}
 			with InvincibilityStar 
 			{
-				animation_set(ID mod 2 ? spr_obj_invstar_type1 : spr_obj_invstar_type2, ID);
+				sprite_index = ID mod 2 ? spr_obj_invstar_type1 : spr_obj_invstar_type2;
+				image_index  = ID;
 			}
 		}
 		if !(--InvincibleBonus)

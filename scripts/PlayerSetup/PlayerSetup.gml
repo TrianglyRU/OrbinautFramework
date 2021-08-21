@@ -4,24 +4,16 @@ function PlayerSetup()
 	switch Game.Character
 	{
 		case CharSonic:
-		{
 			sprite_index = spr_sonic_idle;
-			image_index  = 0;
-		}
 		break;
 		case CharTails:
-		{
 			sprite_index = spr_tails_idle;
-			image_index  = 0;
-		}
 		break;
 		case CharKnuckles:
-		{
 			sprite_index = spr_knuckles_idle;
-			image_index  = 0;
-		}
 		break;
 	}
+	Animation = AnimIdle;
 	Facing	  = FlipRight;
 	DrawOrder = layer_get_depth("Objects");
 	

@@ -1,9 +1,6 @@
 /// @function animation_play(ind,speed,goto) 
 function animation_play(ind,speed,goto) 
 {	
-	// Ignore the animation method built into the IDE
-	sprite_set_speed(ind, 0, spritespeed_framespergameframe);
-	
 	// Create new instance variables
 	variable_create_new("image_duration",  abs(speed) + 1);
 	variable_create_new("image_lastindex", 0);
@@ -32,11 +29,11 @@ function animation_play(ind,speed,goto)
 			// Switch to the next subimage
 			if speed > 0
 			{
-				image_index = image_index + 1 < image_number ? image_index + 1 : goto - 1;
+				image_index = image_index < image_number - 1 ? image_index + 1 : goto;
 			}
 			else
 			{
-				image_index = image_index + 1 > 1 ? image_index - 1 : image_number - goto;
+				image_index = image_index > 0 ? image_index - 1 : image_number - goto - 1;
 			}
 		}
 	}	

@@ -1,7 +1,7 @@
 function ObjWaterSplashMain()
 {
 	// Play animation
-	animation_play(spr_obj_watersplash, 4, 8);
+	animation_play(spr_obj_watersplash, 4, 7);
 	
 	// Destroy on animation end
 	if image_index == 7

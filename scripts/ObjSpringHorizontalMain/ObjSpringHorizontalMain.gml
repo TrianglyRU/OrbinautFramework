@@ -3,7 +3,7 @@ function ObjSpringHorizontalMain()
 	// Play animation
 	if image_index > 1
 	{
-		animation_play(sprite_index, 3, 1);
+		animation_play(sprite_index, 3, 0);
 	}
 	else
 	{	

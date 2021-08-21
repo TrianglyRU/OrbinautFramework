@@ -29,7 +29,7 @@ function ObjBubbleMain()
 	{
 		if BubbleType == 2
 		{
-			animation_play(spr_obj_bubble_disappear, 6, 4);
+			animation_play(spr_obj_bubble_disappear, 6, 3);
 			
 			// Destroy on animation end
 			if image_index == 3
@@ -48,13 +48,13 @@ function ObjBubbleMain()
 		switch BubbleType
 		{
 			case 0:
-				animation_play(spr_obj_bubble_small, 15, 3);
+				animation_play(spr_obj_bubble_small, 15, 2);
 			break;
 			case 1:
-				animation_play(spr_obj_bubble_medium, 15, 4);
+				animation_play(spr_obj_bubble_medium, 15, 3);
 			break;
 			case 2:
-				animation_play(spr_obj_bubble_large, 15, 5);
+				animation_play(spr_obj_bubble_large, 15, 4);
 			break;
 			case 3:
 			{
@@ -73,7 +73,7 @@ function ObjBubbleMain()
 				}
 				if Frame < 12 and Player.IsUnderwater
 				{
-					animation_play(sprite_index, Duration, 13);
+					animation_play(sprite_index, Duration, 12);
 				}
 				else
 				{

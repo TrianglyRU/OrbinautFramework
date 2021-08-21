@@ -115,7 +115,8 @@ function PlayerJump()
 							// Set barrier animation
 							with Barrier
 							{
-								animation_set(spr_barrier_water_drop, 1);
+								sprite_index = spr_barrier_water_drop;
+								image_index  = 0;
 							}
 						
 							// Set speeds

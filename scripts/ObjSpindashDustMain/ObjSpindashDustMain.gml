@@ -1,7 +1,7 @@
 function ObjSpindashDustMain()
 {
 	// Play animation
-	animation_play(sprite_index, 2, 1);
+	animation_play(sprite_index, 2, 0);
 	
 	// Follow player
 	x = floor(Player.PosX);

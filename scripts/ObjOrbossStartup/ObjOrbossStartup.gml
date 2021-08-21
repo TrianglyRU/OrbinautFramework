@@ -1,6 +1,6 @@
 function ObjOrbossStartup()
 {
-	MaxHP  = 8;
+	MaxHP  = 1;
 	HP     = MaxHP;
 	
 	AngleX = 0;

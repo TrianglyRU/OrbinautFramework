@@ -13,7 +13,7 @@ function ContinueScreenProcess()
 		var  SpriteSpeed = CharSpeed[0];
 		with CharObject 
 		{
-			animation_play(sprite_index, SpriteSpeed, 1);
+			animation_play(sprite_index, SpriteSpeed, 0);
 		}
 		
 		// Check if player can react
@@ -66,7 +66,7 @@ function ContinueScreenProcess()
 		var ActionSprite = CharSprite[1];
 		with CharObject 
 		{
-			animation_play(ActionSprite, SpriteTime, 12);
+			animation_play(ActionSprite, SpriteTime, 11);
 		}
 		
 		// Flick continue object while charging

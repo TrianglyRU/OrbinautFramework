@@ -98,16 +98,16 @@ function ObjBuzzbomberMain()
 	switch Action 
 	{		
 		case 0: 
-			animation_play(spr_obj_buzzbomber_fly, 1, 1);
+			animation_play(spr_obj_buzzbomber_fly, 1, 0);
 		break;
 		case 1: 
-			animation_play(spr_obj_buzzbomber_idle, 1, 1);
+			animation_play(spr_obj_buzzbomber_idle, 1, 0);
 		break;
 		case 2: 
-			animation_play(spr_obj_buzzbomber_fire, 1, 1);
+			animation_play(spr_obj_buzzbomber_fire, 1, 0);
 		break;
 		case 3: 
-			animation_play(spr_obj_buzzbomber_fly, 1, 1);  
+			animation_play(spr_obj_buzzbomber_fly, 1, 0);  
 		break;
 	}
 	

@@ -11,16 +11,22 @@ function ContinueScreenSetup()
 	switch Game.Character
 	{
 		case CharSonic:
+		{		
 			CharSprite = [spr_obj_cont_sonic_wait, spr_obj_cont_sonic_action];
 			CharSpeed  = [18, 0];
+		}
 		break;
 		case CharTails:
+		{
 			CharSprite = [spr_obj_cont_tails_wait, spr_obj_cont_tails_action];
 			CharSpeed  = [24, 0];
+		}
 		break;
 		case CharKnuckles:
+		{
 			CharSprite = [spr_obj_cont_knux_wait, spr_obj_cont_knux_action];
 			CharSpeed  = [12, 0];
+		}
 		break;
 	}
 	var WaitSprite = CharSprite[0];
@@ -29,7 +35,8 @@ function ContinueScreenSetup()
 	CharObject = instance_create(RoomX, RoomY + 52, ContinueCharacter);
 	with CharObject
 	{
-		animation_set(WaitSprite, 1);
+		sprite_index = WaitSprite;
+		image_index  = 0;
 	}
 	
 	// Create continue objects

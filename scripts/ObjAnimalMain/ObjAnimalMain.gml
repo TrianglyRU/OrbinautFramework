@@ -41,7 +41,7 @@ function ObjAnimalMain()
 					}
 				
 					// Switch to second frame
-					animation_set(sprite_index, 2);
+					image_index = 1;
 				
 					// Increment state
 			        State++;
@@ -61,14 +61,14 @@ function ObjAnimalMain()
 				// Flicky
 				case spr_obj_animal_flicky:
 				{
-					animation_play(sprite_index, 4, 2);
+					animation_play(sprite_index, 4, 1);
 				}
 				break;
 			
 				// Cucky
 				case spr_obj_animal_cucky:
 				{
-					animation_play(sprite_index, 2, 2);
+					animation_play(sprite_index, 2, 1);
 				}
 				break;
 			
@@ -79,7 +79,7 @@ function ObjAnimalMain()
 				case spr_obj_animal_picky:
 				case spr_obj_animal_pecky:
 				{
-					animation_set(sprite_index, Ysp < 0 ? 2 : 3);
+					image_index = Ysp < 0 ? 1 : 2;
 				}
 				break;
 			}

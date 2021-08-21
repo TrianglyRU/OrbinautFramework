@@ -323,14 +323,14 @@ function MenuOptionsProcess()
 						{
 							var CurButton = Game.KeyboardControl[OptionID];
 							Game.KeyboardControl[i] = CurButton;
-							menu_update_option(9, i, Buttons[i] + ":" + input_get_keyname(CurButton));
+							menu_update_option(9, i, Buttons[i] + ":" + menu_get_keyname(CurButton));
 						}
 					}
 					Input.IgnoreInput = false;
 					Game.KeyboardControl[OptionID] = keyboard_key;
 					
 					// Update option
-					menu_update_option(9, OptionID, Buttons[OptionID] + ":" + input_get_keyname(keyboard_key));
+					menu_update_option(9, OptionID, Buttons[OptionID] + ":" + menu_get_keyname(keyboard_key));
 				}
 			}
 			

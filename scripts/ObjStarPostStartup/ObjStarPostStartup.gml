@@ -14,17 +14,6 @@ function ObjStarPostStartup()
 	// Set object depth
 	object_set_depth(Player, false);
 	
-	// Load as activated if ID is lower than the ID of activated one
-	if Game.StarpostID != false and Game.StarpostID.ID >= ID
-	{
-		animation_set(spr_obj_starpost_active, 1);
-		
-		Active = true;
-		Angle  = 900;
-	}
-	else
-	{
-		// Set default lamp angle
-		Angle = 180;
-	}
+	// Set default lamp angle
+	Angle = 180;
 }

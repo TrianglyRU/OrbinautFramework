@@ -13,10 +13,10 @@ function ObjStarPostMain()
 			Game.Score          = Player.Score;
 			
 			// Activate all starposts with ID lower than ours
-			var ThisID = ID;
+			var ThisID = id;
 			with StarPost 
 			{
-				if !Active and ID <= ThisID
+				if !Active and ID <= ThisID.ID
 				{
 					Active      = true;
 					image_index = 1;
@@ -37,6 +37,6 @@ function ObjStarPostMain()
 	// Play animation of activated starpost
 	else
 	{
-		animation_play(spr_obj_starpost_active, 4, 1);
+		animation_play(spr_obj_starpost_active, 4, 0);
 	}
 }

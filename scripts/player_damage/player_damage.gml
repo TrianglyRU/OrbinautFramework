@@ -92,29 +92,29 @@ function player_damage(flame_type,thunder_type,instant_kill)
 			}
 			
 			// Set default values we will use to spread rings
-			var Dir = -1;
-			var Ang = 168.75;
-			var Spd = 4;
+			var Direction = -1;
+			var Angle     = 168.75;
+			var Speed     = 4;
 			
 			// Do for each ring (maximum of 32)
 			for (var i = 0; i < min(Player.Rings, 32); i++) 
 			{
 				// Spawn ring
-				var Created = instance_create(floor(Player.PosX), floor(Player.PosY), RingShattered);
+				var Object = instance_create(floor(Player.PosX), floor(Player.PosY), ShatteredRing);
 				if  i == 16 
 				{ 
-					Ang = 168.75; 
-					Spd = 2;
+					Angle = 168.75; 
+					Speed = 2;
 				}
-				Created.Xsp = Spd * dsin(Ang) * Dir;
-				Created.Ysp	= Spd * dcos(Ang);
+				Object.Xsp = Speed * dsin(Angle) * Direction;
+				Object.Ysp = Speed * dcos(Angle);
 				
 				// Update direction and movement angle
-				if Dir 
+				if Direction
 				{ 
-					Ang -= 22.5;
+					Angle -= 22.5;
 				}
-				Dir *= -1
+				Direction *= -1
 			}
 			
 			Player.Rings		= 0;
@@ -144,16 +144,17 @@ function player_damage(flame_type,thunder_type,instant_kill)
 		{
 			Player.Grv = 0.1875;
 			
-			Player.Xsp = floor(Player.PosX) > floor(x) ? 1 : -1;
-			Player.Ysp = -2;
+			Player.Xsp = floor(Player.PosX) > floor(x) ? 2 : -2;
+			Player.Ysp = -4;
+			
 		}
 		else
 		{
 			// Reduce gravity by 0x20 if underwater
 			Player.Grv = 0.0625;
 			
-			Player.Xsp = floor(Player.PosX) > floor(x) ? 2 : -2;
-			Player.Ysp = -4;
+			Player.Xsp = floor(Player.PosX) > floor(x) ? 1 : -1;
+			Player.Ysp = -2;
 		}
 	}
 }

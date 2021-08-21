@@ -25,8 +25,8 @@ function ObjRingMain()
 		var MoveY = (sign(Ysp) == RelativeY);
 	
 		// Increase speed and move ring
-		Xsp  += (RingAcceleration[tx] * MoveX);
-		Ysp  += (RingAcceleration[ty] * MoveY);
+		Xsp  += (RingAcceleration[RelativeX] * MoveX);
+		Ysp  += (RingAcceleration[RelativeY] * MoveY);
 		PosX += Xsp;
 		PosY += Ysp;
 			

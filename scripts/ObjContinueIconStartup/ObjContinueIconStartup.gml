@@ -1,22 +1,16 @@
 function ObjContinueIconStartup()
 {
-	// Create variable
-	IconSprite = 0;
-	
 	// Define icon sprite
 	switch Game.Character
 	{
 		case CharSonic:
-			IconSprite = spr_obj_conticon_sonic;
+			sprite_index = spr_obj_conticon_sonic;
 		break;
 		case CharTails:
-			IconSprite = spr_obj_conticon_tails;
+			sprite_index = spr_obj_conticon_tails;
 		break;
 		case CharKnuckles:
-			IconSprite = spr_obj_conticon_knuckles;
+			sprite_index = spr_obj_conticon_knuckles;
 		break;
 	}
-	
-	// Apply icon
-	animation_set(IconSprite, 1);
 }

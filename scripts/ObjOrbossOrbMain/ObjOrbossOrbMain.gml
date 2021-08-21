@@ -22,7 +22,7 @@ function ObjOrbossOrbMain()
 		break;
 		case 2:
 			instance_create(x, y, DustExplosion);
-			var Created = instance_create(x, y, RingShattered);
+			var Created = instance_create(x, y, ShatteredRing);
 			with Created
 			{		
 				// Set ring flags and speed
