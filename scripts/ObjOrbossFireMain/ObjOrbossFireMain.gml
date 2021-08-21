@@ -73,7 +73,7 @@ function ObjOrbossFireMain()
 		break;
 	}
 	
-	if object_player_overlap(CollisionHitbox)
+	if object_player_overlap(Hitbox)
 	{
 		player_damage(true, false, false);
 	}

@@ -15,7 +15,7 @@ function ObjOrbossOrbMain()
 	switch State
 	{
 		case 1:
-			if visualDepth <= 0.8 and object_player_overlap(CollisionHitbox)
+			if visualDepth <= 0.8 and object_player_overlap(Hitbox)
 			{
 				player_damage(false, false, false);
 			}

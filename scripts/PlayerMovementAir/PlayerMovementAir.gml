@@ -42,7 +42,7 @@ function PlayerMovementAir()
 					Xsp = -TopAcc;
 				}
 			}
-			Facing = DirectionLeft;
+			Facing = FlipLeft;
 		}
 		if Input.Right 
 		{	
@@ -61,7 +61,7 @@ function PlayerMovementAir()
 					Xsp = TopAcc;
 				}
 			}
-			Facing = DirectionRight;
+			Facing = FlipRight;
 		}	
 	}
 	

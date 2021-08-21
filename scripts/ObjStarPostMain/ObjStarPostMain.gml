@@ -3,7 +3,7 @@ function ObjStarPostMain()
 	// Activate starpost on overlap
 	if !Active 
 	{
-		if object_player_overlap(CollisionTriggerbox) 
+		if object_player_overlap(Triggerbox) 
 		{
 			// Save stage progress
 			Game.StarpostID     = id;

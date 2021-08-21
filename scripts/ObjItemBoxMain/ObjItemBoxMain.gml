@@ -67,7 +67,7 @@ function ObjItemBoxMain()
 				// Check for bumping into its bottom
 				if !Airborne
 				{
-					if floor(Player.PosY) >= floor(PosY + 16) and object_player_overlap(CollisionHitbox)
+					if floor(Player.PosY) >= floor(PosY + 16) and object_player_overlap(Hitbox)
 					{
 						Airborne = true;
 						Ysp      = -1.5;
@@ -113,7 +113,7 @@ function ObjItemBoxMain()
 		// If card timer ran out, allow unload
 		if !CardTimer
 		{
-			object_set_range(RangeFar, ResetUnload);
+			object_set_range(RangeFar, TypeUnload);
 		}
 		else
 		{

@@ -119,41 +119,4 @@ function GameMacro()
 	#macro QuadLWall		   3
 	#macro TileSize            16
 	#macro TileAmount          146
-	
-	// Outdated
-	#macro RangeFloor	       0
-	#macro RangeRWall	       1
-	#macro RangeRoof		   2
-	#macro RangeLWall		   3
-	#macro PaletteSurface    0
-	#macro PaletteUnderwater 1	
-	#macro to		         0
-	#macro from		         1
-	#macro black	         0
-	#macro white	         1
-	#macro flash	         2
-	#macro isVar		 = 0
-	#macro isArr		[0] = 0	
-	#macro isAsset		= 0
-	#macro isReal		= 0
-	#macro isBool		= false
-	#macro isArray		[99] = 0
-	#macro isString		= ""
-	#macro ResetNone    0
-	#macro ResetUnload  1
-	#macro ResetRespawn 2
-	#macro ResetDelete  3
-	#macro DirectionLeft	  -1
-	#macro DirectionRight	   1
-	#macro CollisionHitbox     0
-	#macro CollisionTriggerbox 1
-	#macro ActStateLoading	   0
-	#macro ActStateDefault     1
-	#macro ActStateFinished    2	
-	#macro ActStateUnload      3
-	#macro FontDebug   0
-	#macro FontDigits1 1
-	#macro FontDigits2 2
-	#macro FontCard    3
-	#macro FontMenu    4
 }

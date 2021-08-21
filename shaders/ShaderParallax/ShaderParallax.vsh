@@ -5,7 +5,7 @@
 	attribute vec2 in_TextureCoord;     // (u,v)
 	
 	varying vec2 v_vTexcoord;
-	varying vec2 v_vPosition; // Глобальная позиция отрисовки
+	varying vec2 v_vPosition;
 	varying vec4 v_vColour;
 	
 	void main() 

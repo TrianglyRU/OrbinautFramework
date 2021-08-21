@@ -36,7 +36,7 @@ function InterfaceOverlayDraw()
 	draw_sprite(spr_hud_time,  StageTime > 32400 ? RedFlash : 0, ScreenX + 16, ScreenY + 25);
 	draw_sprite(spr_hud_rings, Player.Rings == 0 ? RedFlash : 0, ScreenX + 16, ScreenY + 41);
 	
-	draw_set_font(Game.Font[FontDigits1]);
+	draw_set_font(Game.Font[Counter]);
 	draw_text(ScreenX + 112, ScreenY + 9,  Player.Score);
 	draw_text(ScreenX + 112, ScreenY + 25, string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds) + ";" + (MilliSeconds > 9 ? "" : "0") + string(MilliSeconds));
 	draw_text(ScreenX + 88,  ScreenY + 41, Player.Rings);
@@ -44,6 +44,6 @@ function InterfaceOverlayDraw()
 	// Display LIVES counter
 	draw_sprite(spr_hud_lives, Game.Character, ScreenX + 16, ScreenY + Game.Height - 24);
 	
-	draw_set_font(Game.Font[FontDigits2]);
+	draw_set_font(Game.Font[CounterSmall]);
 	draw_text(ScreenX + 65, ScreenY + Game.Height - 15, Player.Lives);
 }

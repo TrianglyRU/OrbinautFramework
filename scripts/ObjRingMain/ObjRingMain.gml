@@ -35,7 +35,7 @@ function ObjRingMain()
 	}
 	
 	// Check for hitbox collision
-	if !Player.Hurt and Player.InvincibilityFrames < 90 and object_player_overlap(CollisionHitbox)
+	if !Player.Hurt and Player.InvincibilityFrames < 90 and object_player_overlap(Hitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;

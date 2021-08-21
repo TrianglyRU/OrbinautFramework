@@ -7,24 +7,24 @@
 	
 	void main()
 	{
-		// Входной (базовый) цвет
+		// Input colour
 		vec4 Col = texture2D(gm_BaseTexture, v_vTexcoord);
 		
-		// Изменение цвета
+		// Change colour
 		if (u_type)
 		{
-			// Инверсия
+			// Negate
 			Col.rgb = vec3(1. - Col.rgb);
 		}
 		else
 		{
-			// Если чёрный, то сделать белым
+			// Replace black with white
 			if (Col.rgb == vec3(0.))
 			{
 				Col.rgb = vec3(1.);
 			}
 		}
 		
-		// Вывод цвета
+		// Result colour
 	    gl_FragColor = Col * v_vColour;
 	}

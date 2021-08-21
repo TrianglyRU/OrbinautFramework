@@ -2,7 +2,7 @@
 function object_act_enemy(type)
 {
 	// Exit if no collision is happening yet
-	if !object_player_overlap(CollisionHitbox)
+	if !object_player_overlap(Hitbox)
 	{
 		exit;
 	}

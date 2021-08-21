@@ -6,7 +6,7 @@ function ObjBossTriggerMain()
 	// Check if player ran past the trigger
 	if Stage.IsBossfight == -1
 	{
-		if object_player_overlap(CollisionTriggerbox)
+		if object_player_overlap(Triggerbox)
 		{
 			// Reserve current boundaries
 			ReservedTopBound    = Stage.TopBoundary;

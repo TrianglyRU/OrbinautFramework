@@ -1,7 +1,3 @@
-// ============================= //
-	/* Screen Palette Shader
-			by MicG          */
-// ============================= //
 
 	varying vec2 v_vTexcoord;
 	varying vec4 v_vColour;
@@ -11,24 +7,21 @@
 	
 	uniform float u_waterHeight;
 	
-	// Над водой
 	uniform sampler2D u_dryPalTex;
 	uniform vec3 u_dryUvs;
 	uniform vec2 u_dryPixelSize;
 	uniform float u_dryPalId[PaletteLimit];
 
-	// Под водой
 	uniform sampler2D u_wetPalTex;
 	uniform vec3 u_wetUvs;
 	uniform vec2 u_wetPixelSize;
 	uniform float u_wetPalId[PaletteLimit];
 	
-	// Затемнение
 	uniform float u_step;
 	uniform bool u_mode;
 	uniform int u_colour;
 	
-	// Нахождение цвета на листе палитры
+	// This block of code is based on the shader of Pixelated Pope, which we purchased! Credits to him
 	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[PaletteLimit]) 
 	{
 		for (float i = corner.y; i < corner.z; i += pixelSize.y) 

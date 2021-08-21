@@ -246,7 +246,7 @@ function InterfaceResultsDraw()
 	}
 	
 	// Draw counters
-	draw_set_font(Game.Font[FontDigits1]);
+	draw_set_font(Game.Font[Counter]);
 	draw_set_halign(fa_right);
 	
 	draw_text(ScreenCentre + 80 + ResultsValue[4], 120, Player.Score);

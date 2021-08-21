@@ -15,6 +15,6 @@ function MenuStartup()
 	}
 	
 	// Set font and its align
-	draw_set_font(Game.Font[FontMenu]);
+	draw_set_font(Game.Font[Menu]);
 	draw_set_halign(fa_center);
 }

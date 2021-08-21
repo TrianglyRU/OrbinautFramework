@@ -11,7 +11,7 @@ function ObjSignpostMain()
 	// Activate
 	if !Active
 	{
-		if object_player_overlap(CollisionTriggerbox)
+		if object_player_overlap(Triggerbox)
 		{
 			Active = 1;	
 			audio_sfx_play(sfxSignPost, false);

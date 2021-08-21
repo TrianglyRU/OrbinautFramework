@@ -1,7 +1,4 @@
-// =============================== //
-	/* Post-processing Shaders
-			 by MicG           */
-// =============================== //
+
 	varying vec2 v_vTexcoord;
 	varying vec4 v_vColour;
 	
@@ -21,7 +18,6 @@
 
 	#endregion
 	
-	// Уровни
 	float Levels(float colour)
 	{
 		if (colour < blackPoint)
@@ -37,18 +33,15 @@
 	
 	void main()
 	{
-		// Координаты пикселей на текстурной карте
 		vec2 OutCoord = v_vTexcoord;
 		
-		// Заготовка текстуры 
 		vec4 OutTex = texture2D(gm_BaseTexture, OutCoord);
 		
 		#region BBL shader
-		vec3 sumTex = vec3(0); // "Сумма" (наложение) текстур со "смещением", создающая эффект блюра
-		float mult = .05; // Множитель смещения
-		float blurSum; // Показатель наложение блюра
+		vec3 sumTex = vec3(0);
+		float mult = .05;
+		float blurSum; 
 		
-		// Приминение блюра
 		for (float i = -4.; i < 5.; i += 1.)
 		{
 			blurSum = i * blurSize;
@@ -57,18 +50,14 @@
 			mult -= (i - (i >= 0. ? 1. : 0.)) * .01;
 		}
 		
-		// Применение блума
 		float weight = smoothstep(bloomThreshold, bloomThreshold + bloomRange, dot(OutTex.rgb, bloomColour));
 		
-		// Совмещение эффектов
 		OutTex.rgb = (mix(vec3(0.), OutTex.rgb, weight) + sumTex.rgb * blurIntensity) * brightness;
 		
-		// Применение уровней
 		OutTex.r = Levels(OutTex.r);
 		OutTex.g = Levels(OutTex.g);
 		OutTex.b = Levels(OutTex.b);
 		#endregion
 
-		// Вывод
 	    gl_FragColor = v_vColour * OutTex;
 	}
