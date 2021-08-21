@@ -14,6 +14,8 @@
 			{
 				Timer = 0;
 			}
+			
+			animation_play(sprite_index, 16, 0);
 		}
 		else if Timer == 60 and !Reset 
 		{
@@ -32,6 +34,7 @@
 			}
 		}
 	}
+	
 	// If it counted to 0, flip badnik and restore speed
 	else
 	{

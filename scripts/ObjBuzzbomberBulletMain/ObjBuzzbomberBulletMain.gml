@@ -13,7 +13,7 @@ function ObjBuzzbomberBulletMain()
 	// Advance to the next frame
 	else if Timer == 8
 	{
-		sprite_index = 1;
+		image_index = 1;
 	}
 	
 	// Damage player

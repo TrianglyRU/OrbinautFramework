@@ -13,6 +13,8 @@
 		instance_destroy();
 	}
 	
+	animation_play(sprite_index, 4, 0);
+	
 	if object_player_overlap(Hitbox)
 	{
 		player_damage(false, false, false);

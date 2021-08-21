@@ -20,6 +20,7 @@ function player_damage(flame_type,thunder_type,instant_kill)
 	Player.Grounded	   = false;
 	Player.OnObject	   = false;
 	Player.Jumping	   = false;
+	Player.Spinning    = false;
 	Player.FlightState = false;
 	Player.GlideState  = false;
 	Player.ClimbState  = false;
@@ -35,12 +36,13 @@ function player_damage(flame_type,thunder_type,instant_kill)
 	if !Player.Rings and !Player.BarrierType or instant_kill
 	{	
 		// Set flags
-		Stage.AllowPause	  = false;
-		Camera.Enabled		  = false;
-		Player.AllowCollision = false;
-		Player.DrawOrder	  = 0;
-		Player.Death          = true;
-		Player.Animation	  = AnimDeath;
+		Stage.AllowPause	       = false;
+		Camera.Enabled			   = false;
+		Player.InvincibilityFrames = 0;
+		Player.DrawOrder	       = 0;
+		Player.Death               = true;
+		Player.AllowCollision      = false;
+		Player.Animation	       = AnimDeath;
 				
 		// Perform movement
 		Player.Grv     = 0.21875;
