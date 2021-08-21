@@ -24,16 +24,10 @@ function StageActiveProcess()
 	{
 		for (var i = 0; i < array_length(AnimatedGraphics); i += 2)
 		{
-			var AnimSpeed = fade_check(FadeNone) and !Stage.IsPaused ? 1 / AnimatedGraphics[i + 1] : 0;
+			var AnimSpeed = !fade_check(FadeActive) and !Stage.IsPaused ? 1 / AnimatedGraphics[i + 1] : 0;
 			
 			sprite_set_speed(AnimatedGraphics[i], AnimSpeed, spritespeed_framespergameframe);
 		}
-	}
-	
-	// Process synced animations
-	if !Stage.IsPaused and fade_check(FadeNone)
-	{
-		AnimationTime++;
 	}
 	
 	// Process player death

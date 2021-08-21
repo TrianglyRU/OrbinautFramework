@@ -7,7 +7,7 @@
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	for(var i = 0; i < OrbNumb; i++)
+	for (var i = 0; i < OrbNumb; i++)
 	{
 		var Parent = id;
 		var Ang = Angle + OrbAng * i;
@@ -18,4 +18,5 @@
 		}
 	}
 	
+	// Act as enemy
 	object_act_enemy(EnemyBadnik);

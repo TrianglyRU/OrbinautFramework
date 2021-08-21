@@ -20,8 +20,7 @@ function StageVariables()
 	ActID				 = 0;
 	ZoneName			 = 0;
 	Time				 = 0;
-	TimeEnabled			 = 0;	
-	AnimationTime		 = 0;
+	TimeEnabled			 = 0;
 	StageMusic		     = 0;
 	PauseButton			 = 0;
 	PauseMode			 = 0;

@@ -9,7 +9,6 @@ function ObjAnimalStartup()
 	DefaultYsp   = 0;
 	Xsp          = 0;
 	Ysp			 = 0;
-	Grv			 = 0;
 	CapsuleDelay = 0;
 	FromCapsule  = 0;
 	
@@ -73,7 +72,6 @@ function ObjAnimalStartup()
 		// Set speeds
 		Xsp = DefaultXsp;
 		Ysp = -4;
-		Grv = 0.21875;
 	
 		// Set default position
 		PosX = x;

@@ -11,9 +11,9 @@ function ObjAnimalMain()
 	}
 	else
 	{	
-		// Move vertically
-		Ysp  += Grv; 
+		// Move vertically		
 		PosY += Ysp;
+		Ysp  += 0.21875; 
 	
 		// Update position
 		object_update_position(PosX, PosY);

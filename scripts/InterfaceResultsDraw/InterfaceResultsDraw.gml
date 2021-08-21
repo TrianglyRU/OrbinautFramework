@@ -241,7 +241,7 @@ function InterfaceResultsDraw()
 					var Icon = spr_obj_conticon_knuckles;
 				break;
 			}
-			draw_sprite(Icon, (Stage.AnimationTime div 16) mod sprite_get_number(Icon), ScreenCentre + 96, 123);
+			draw_sprite(Icon, animate_sprite(2, 16), ScreenCentre + 96, 123);
 		}
 	}
 	

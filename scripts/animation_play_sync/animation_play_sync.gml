@@ -9,5 +9,5 @@ function animation_play_sync(ind,speed)
 	}
 	
 	// Play animation
-	image_index = Stage.AnimationTime div speed mod image_number;
+	image_index = Game.AnimationTime div speed mod image_number;
 }

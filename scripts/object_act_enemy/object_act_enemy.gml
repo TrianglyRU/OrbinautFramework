@@ -77,6 +77,20 @@ function object_act_enemy(type)
 			
 			// Destroy Badnik
 			instance_destroy();
+			
+			// Destroy children
+			if variable_instance_exists(id, "Obj_ChildrenIDs")
+			{
+				var Length = array_length(Obj_ChildrenIDs);
+				for (var i = 0; i < Length; i++)
+				{
+					with Obj_ChildrenIDs[i]
+					{
+						instance_destroy();
+					}
+				}
+			}
+			
 			return true;
 		}
 		

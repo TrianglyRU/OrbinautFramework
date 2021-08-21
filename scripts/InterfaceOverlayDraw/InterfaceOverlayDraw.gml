@@ -27,14 +27,11 @@ function InterfaceOverlayDraw()
 		var Seconds		 = 59;
 		var MilliSeconds = 99;
 	}
-	
-	// Handle overlay flash frequency
-	var RedFlash = Stage.AnimationTime ? Stage.AnimationTime mod 16 < 8 : 0;
 		
 	// Display SCORE, TIME and RINGS graphics
-	draw_sprite(spr_hud_score, 0,							     ScreenX + 16, ScreenY + 9);
-	draw_sprite(spr_hud_time,  StageTime > 32400 ? RedFlash : 0, ScreenX + 16, ScreenY + 25);
-	draw_sprite(spr_hud_rings, Player.Rings == 0 ? RedFlash : 0, ScreenX + 16, ScreenY + 41);
+	draw_sprite(spr_hud_score, 0,											 ScreenX + 16, ScreenY + 9);
+	draw_sprite(spr_hud_time,  StageTime > 32400 ? animate_sprite(2, 8) : 0, ScreenX + 16, ScreenY + 25);
+	draw_sprite(spr_hud_rings, Player.Rings == 0 ? animate_sprite(2, 8) : 0, ScreenX + 16, ScreenY + 41);
 	
 	draw_set_font(Game.Font[Counter]);
 	draw_text(ScreenX + 112, ScreenY + 9,  Player.Score);

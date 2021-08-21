@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_chopper",
-    "path": "sprites/spr_chopper/spr_chopper.yy",
+    "name": "spr_obj_chopper",
+    "path": "sprites/spr_obj_chopper/spr_obj_chopper.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,9 +24,7 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [
-    {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"MovOfst","tags":[],"resourceType":"GMObjectProperty",},
-  ],
+  "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Chopper",
