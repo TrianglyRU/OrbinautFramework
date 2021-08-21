@@ -32,7 +32,7 @@ function StageEndProcess()
 			switch ZoneID
 			{
 				case 0: 
-					room_goto(MQZ0);
+					room_goto(DevMenu);
 				break;
 				default:
 					room_goto(DevMenu);

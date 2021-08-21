@@ -11,7 +11,7 @@ function PaletteUpdate()
 		shader_set(ShaderScreen);
 		
 		// Render fade
-		shader_set_uniform_f(Shader.ScreenStep,   FadeColour == flash ? FadeStep div 3 : FadeStep);
+		shader_set_uniform_f(Shader.ScreenStep,   FadeColour == FadeFlash ? FadeStep div 3 : FadeStep);
 		shader_set_uniform_i(Shader.ScreenColour, FadeColour);
 		shader_set_uniform_i(Shader.ScreenMode,   FadeMode);
 		
@@ -26,9 +26,9 @@ function PaletteUpdate()
 		if Boundary > 0 and ColourSet[PaletteDry] != false
 		{
 			shader_set_uniform_f_array(Shader.ScreenDryIndex, IndexDry);
-			texture_set_stage(Shader.ScreenDryTex,			 ColourSet[0][0]);
+			texture_set_stage(Shader.ScreenDryTex,			  ColourSet[0][0]);
 			shader_set_uniform_f(Shader.ScreenDryTexelSize,   ColourSet[0][1], ColourSet[0][2]);
-			shader_set_uniform_f(Shader.ScreenDryUVs,		 ColourSet[0][3], ColourSet[0][4], ColourSet[0][5]);
+			shader_set_uniform_f(Shader.ScreenDryUVs,		  ColourSet[0][3], ColourSet[0][4], ColourSet[0][5]);
 		}
 		
 		// Render underwater palette

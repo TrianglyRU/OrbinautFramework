@@ -199,6 +199,7 @@
     {"id":{"name":"ObjDustPuffStartup","path":"scripts/ObjDustPuffStartup/ObjDustPuffStartup.yy",},"order":2,},
     {"id":{"name":"object_act_enemy","path":"scripts/object_act_enemy/object_act_enemy.yy",},"order":20,},
     {"id":{"name":"object_act_solid","path":"scripts/object_act_solid/object_act_solid.yy",},"order":21,},
+    {"id":{"name":"PLEASE READ","path":"notes/PLEASE READ/PLEASE READ.yy",},"order":17,},
     {"id":{"name":"tex_charcan","path":"sprites/tex_charcan/tex_charcan.yy",},"order":10,},
     {"id":{"name":"object_get_screenpos","path":"scripts/object_get_screenpos/object_get_screenpos.yy",},"order":22,},
     {"id":{"name":"object_collide_tiles_h","path":"scripts/object_collide_tiles_h/object_collide_tiles_h.yy",},"order":24,},

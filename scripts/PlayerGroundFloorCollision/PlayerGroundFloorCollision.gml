@@ -55,7 +55,7 @@ function PlayerGroundFloorCollision()
 			}
 		}
 		break;
-		case RangeRWall:
+		case QuadRWall:
 		{	
 			// Get nearest tile to our right
 			var TileLeft    = tile_check_collision_h(floor(PosX + RadiusY), floor(PosY + RadiusX), true, false, Layer);
@@ -85,7 +85,7 @@ function PlayerGroundFloorCollision()
 			}
 		}
 		break;
-		case RangeRoof:	
+		case QuadRoof:	
 		{	
 			// Get nearest tile above us
 			var TileLeft    = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, false, Layer);
@@ -117,7 +117,7 @@ function PlayerGroundFloorCollision()
 		break;
 			
 		// Handle left wall collision
-		case RangeLWall:
+		case QuadLWall:
 		{	
 			// Get nearest tile to our left
 			var TileLeft    = tile_check_collision_h(floor(PosX - RadiusY), floor(PosY - RadiusX), false, false, Layer);

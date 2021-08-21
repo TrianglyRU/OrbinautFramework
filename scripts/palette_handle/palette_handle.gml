@@ -28,14 +28,14 @@ function palette_handle(type, id, range, last, goto, duration)
 			// Update colour
 			for(var i = index; i < lastanim; i++)
 			{
-				if type == PaletteSurface
+				if type == PaletteDry
 				{
 					if ++IndexDry[i] > last
 					{
 						IndexDry[i] = cycle;
 					}
 				}
-				else if type == PaletteUnderwater
+				else if type == PaletteWet
 				{
 					if ++IndexWet[i] > last
 					{

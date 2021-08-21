@@ -1,14 +1,14 @@
 function ObjShatteredRingSetup()
 {
 	// Initialize variables
-	PosX		   isVar;
-	PosY		   isVar;
-	Xsp			   isVar;
-	Ysp			   isVar;
-	Grv			   isVar;
-	Timer		   isVar;
-	CollisionCheck isVar;
-	PickupTimeout  isVar;
+	PosX		   = 0;
+	PosY		   = 0;
+	Xsp			   = 0;
+	Ysp			   = 0;
+	Grv			   = 0;
+	Timer		   = 0;
+	CollisionCheck = 0;
+	PickupTimeout  = 0;
 	
 	// Set object hitbox
 	object_set_hitbox(6, 6);

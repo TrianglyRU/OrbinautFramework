@@ -23,7 +23,7 @@ function InterfaceCardDraw()
 			var CompositionName = "NO TRACK SET";
 		break;
 	}
-	draw_set_font(Game.Font[FontDebug]);
+	draw_set_font(Game.Font[Debug]);
 	draw_text(CardValue[5] - 52, CardValue[6] + 40, CompositionName);
 	
 	// Draw card elements
@@ -33,7 +33,7 @@ function InterfaceCardDraw()
 	draw_sprite(spr_card_act,       Stage.ActID, CardValue[12],	    CardValue[13]);
 	
 	// Draw zone name
-	draw_set_font(Game.Font[FontCard]);
+	draw_set_font(Game.Font[Card]);
 	draw_text(CardValue[14], CardValue[15], Stage.ZoneName);
 	
 	// Turn screen into black

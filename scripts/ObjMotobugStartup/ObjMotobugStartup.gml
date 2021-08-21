@@ -1,11 +1,11 @@
 function ObjMotobugStartup()
 {
 	// Create variables
-	PosX	   isReal;
-	Xsp		   isReal;
-	Direction  isReal;
-	StopTimer  isReal;
-	SmokeTimer isReal;
+	PosX	   = 0;
+	Xsp		   = 0;
+	Direction  = 0;
+	StopTimer  = 0;
+	SmokeTimer = 0;
 	
 	// Set values
 	PosX	   = x;

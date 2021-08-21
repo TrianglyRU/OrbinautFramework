@@ -1,0 +1,9 @@
+	
+	This is a source file of a playable build presented on SFGHQ!
+	It is not recommended to use to make your fan game (it probably has
+	some bugs), please, use a clean source for that!
+	
+	We're currently working on it and will let you know when you can
+	download it, please follow us at @TeamOrbianut on twitter! :)
+	
+	Thank you!
