@@ -7,5 +7,6 @@
 	GameFrameworkSetup();
 	GameFontsSetup();
 	GameShadersStartup();
-	GameWindowStartup();
 	GameDataLoad();
+	GameWindowStartup();
+	

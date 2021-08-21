@@ -178,7 +178,7 @@ function ObjOrbossMain()
 	}
 	
 	// Lower boss for Knuckles
-	var KnuxOffset = Player.CharacterID == CharKnuckles ? 16 : 0;
+	var KnuxOffset = Game.Character == CharKnuckles ? 16 : 0;
 	
 	// Sin movement
 	if (State) SinMove = (SinMove + 2) mod 360;

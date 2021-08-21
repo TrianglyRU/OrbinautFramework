@@ -73,10 +73,7 @@ function player_damage(flame_type,thunder_type,instant_kill)
 						
 		// Lose rings
 		if !Player.BarrierType
-		{
-			Player.Rings		= 0;
-			Player.LivesRewards = 0;
-			
+		{		
 			// Play sound
 			if Player.Rings > 0
 			{
@@ -119,6 +116,9 @@ function player_damage(flame_type,thunder_type,instant_kill)
 				}
 				Dir *= -1
 			}
+			
+			Player.Rings		= 0;
+			Player.LivesRewards = 0;
 		}
 			
 		// Lose barrier

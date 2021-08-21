@@ -20,7 +20,7 @@ function StageEndProcess()
 	// Save game progress at the end of the zone if we're not in "no save" mode
 	if ActID == FinalActID and Game.ActiveSave != -1
 	{
-		gamedata_save(Game.ActiveSave, Player.CharacterID, ZoneID + 1, Game.Emeralds, Game.Lives, Game.Continues, Game.Score);
+		gamedata_save(Game.ActiveSave, Game.Character, ZoneID + 1, Game.Emeralds, Game.Lives, Game.Continues, Game.Score);
 	}
 
 	// Load next stage

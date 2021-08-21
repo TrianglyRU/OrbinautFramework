@@ -1,4 +1,4 @@
-function ObjShatteredRingScript()
+function ObjShatteredRingMain()
 {
 	// Play animation
 	animation_play(sprite_index, floor((256 * 2) / Timer), 1);

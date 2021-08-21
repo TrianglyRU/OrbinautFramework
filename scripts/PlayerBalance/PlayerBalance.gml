@@ -36,7 +36,7 @@ function PlayerBalance()
 		if !LeftAngle
 		{	
 			// Use two-sided balance animation
-			if !SuperState and CharacterID == CharSonic
+			if !SuperState and Game.Character == CharSonic
 			{
 				if Facing == FlipLeft
 				{
@@ -60,7 +60,7 @@ function PlayerBalance()
 		else if !RightAngle
 		{
 			// Use two-sided balance animation
-			if !SuperState and CharacterID == CharSonic
+			if !SuperState and Game.Character == CharSonic
 			{
 				if Facing == FlipRight
 				{
@@ -98,7 +98,7 @@ function PlayerBalance()
 		if EdgeDistance < 2
 		{
 			// Use two-sided balance animation
-			if !SuperState and CharacterID == CharSonic
+			if !SuperState and Game.Character == CharSonic
 			{
 				if Facing == FlipLeft
 				{
@@ -122,7 +122,7 @@ function PlayerBalance()
 		else if EdgeDistance >= ObjectWidth
 		{
 			// Use two-sided balance animation
-			if !SuperState and CharacterID == CharSonic
+			if !SuperState and Game.Character == CharSonic
 			{
 				if Facing == FlipRight
 				{

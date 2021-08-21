@@ -113,7 +113,7 @@ function StageActiveProcess()
 						// Override save file if not in "no save" mode
 						if Game.ActiveSave != -1
 						{
-							gamedata_save(Game.ActiveSave, Player.CharacterID, Stage.ZoneID, 0, 3, 0, 0);
+							gamedata_save(Game.ActiveSave, Game.Character, Stage.ZoneID, 0, 3, 0, 0);
 						}
 						room_goto(DevMenu);
 					}

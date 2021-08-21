@@ -18,7 +18,7 @@ function DiscordSetup()
 	}
 	
 	// Set state information block
-	var ID = instance_exists(Player) ? Player.CharacterID : -1;
+	var ID = instance_exists(Player) ? Game.Character : -1;
 	switch ID
 	{
 		case CharSonic:    

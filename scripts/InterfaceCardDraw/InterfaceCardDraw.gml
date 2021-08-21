@@ -10,7 +10,7 @@ function InterfaceCardDraw()
 	draw_set_halign(fa_right);
 	
 	// Draw colour line and note
-	draw_sprite(spr_card_line, Player.CharacterID, CardValue[5],	   CardValue[6]);
+	draw_sprite(spr_card_line, Game.Character, CardValue[5],	   CardValue[6]);
 	draw_sprite(spr_card_note, 0,				   CardValue[5] - 46, CardValue[6] + 34);
 	
 	// Display composition name

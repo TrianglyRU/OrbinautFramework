@@ -2,9 +2,12 @@
 // You can write your code in this editor
 	
 	// Trigger ring to appear
-	if !State and distance_to_point(Player.PosX, Player.PosY) < 128
+	if !State
 	{
-		State = 1;
+		if  distance_to_point(Player.PosX, Player.PosY) < 128
+		{
+			State = 1;
+		}
 	}
 	else if State == 1
 	{
@@ -20,8 +23,7 @@
 		{	
 			// Play sound and destroy object
 			audio_sfx_play(sfxSpecialRing, false);
-			instance_destroy();
-			
+					
 			// Check if we do not have 7 emeralds
 			if Game.Emeralds != 7
 			{
@@ -52,11 +54,14 @@
 				
 				// Create flash object
 				instance_create(x, y, SpecialRingFlash);
+				visible	= false;
+				State   = 2;
 			}
 			
 			// Else give 50 rings
 			else
 			{
+				instance_destroy();
 				Player.Rings += 50;
 			}
 		}

@@ -6,10 +6,6 @@ function StageStartup()
 	// Set tile layers IDs
 	TileLayer = [layer_tilemap_get_id("CollisionLayerA"), layer_tilemap_get_id("CollisionLayerB")];
 	
-	/* Once again, we don't do this normally, but we call it here
-	to prevent all object being active for 1 frame when stage loads */
-	StageObjectsInactiveProcess();
-	
 	// Set bubble wobble data
 	if WaterEnabled
 	{

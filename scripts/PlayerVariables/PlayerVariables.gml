@@ -1,6 +1,6 @@
 function PlayerVariables()
 {
-	CharacterID			= 0;
+	Game.Character			= 0;
 	PosX				= 0;
 	PosY				= 0;
 	Acc					= 0;

@@ -1,4 +1,4 @@
-function ObjShatteredRingSetup()
+function ObjShatteredRingStartup()
 {
 	// Initialize variables
 	PosX		   = 0;
@@ -16,6 +16,7 @@ function ObjShatteredRingSetup()
 	// Set object solidbox
 	object_set_solidbox(8, 8, false);
 	
+	// Set object range
 	object_set_range(RangeClose, TypeDelete);
 	
 	// Render behind the player

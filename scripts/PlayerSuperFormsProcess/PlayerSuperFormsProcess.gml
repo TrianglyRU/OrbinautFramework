@@ -24,7 +24,7 @@ function PlayerSuperFormsProcess()
 			}
 			
 			// Become super on 40th (or 37th) frame
-			else if SuperStateValue == 40 - (CharacterID != CharSonic) * 3
+			else if SuperStateValue == 40 - (Game.Character != CharSonic) * 3
 			{
 				if Animation == AnimTransform
 				{

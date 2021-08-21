@@ -1,7 +1,7 @@
 function ObjCollisionTriggerMain()
 {
 	// Exit if no overlap occured
-	if object_player_overlap(Triggerbox)
+	if !object_player_overlap(Triggerbox)
 	{
 		exit;
 	}
