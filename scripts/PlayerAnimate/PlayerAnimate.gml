@@ -28,8 +28,8 @@ function PlayerAnimate()
 				{
 					case AnimIdle:
 					{
-						var Frame = sprite_index == spr_sonic_idle ? animation_get_frame(id) : 1;
-						if  Frame == 1
+						var Frame = sprite_index == spr_sonic_idle ? image_index : 0;
+						if  Frame == 0
 						{
 							var Duration = 288;
 						}
@@ -230,28 +230,28 @@ function PlayerAnimate()
 			{
 				case AnimIdle: 
 				{
-					var Frame = sprite_index == spr_tails_idle ? animation_get_frame(id) : 1;
-					if  Frame == 1
+					var Frame = sprite_index == spr_tails_idle ? image_index : 0;
+					if  Frame == 0
 					{
 						var Duration = 128;
 					}
-					else if Frame < 4
+					else if Frame < 3
 					{
 						var Duration = 8;
 					}
-					else if Frame == 4
+					else if Frame == 3
 					{
 						var Duration = 64;
 					}
-					else if Frame < 7
+					else if Frame < 6
 					{
 						var Duration = 8;
 					}
-					else if Frame == 7
+					else if Frame == 6
 					{
 						var Duration = 72;
 					}
-					else if Frame == 8
+					else if Frame == 7
 					{
 						var Duration = 128;
 					}
@@ -346,16 +346,16 @@ function PlayerAnimate()
 			{
 				case AnimIdle:
 				{
-					var Frame = sprite_index == spr_knuckles_idle ? animation_get_frame(id) : 1;
-					if  Frame == 1
+					var Frame = sprite_index == spr_knuckles_idle ? image_index : 0;
+					if  Frame == 0
 					{
 						var Duration = 300;
 					}
-					else if Frame < 18
+					else if Frame < 17
 					{
 						var Duration = 18;
 					}
-					else if Frame == 18
+					else if Frame == 17
 					{
 						var Duration = 30;
 					}
@@ -401,7 +401,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_death, 1, 1);
 				break;
 				case AnimGlide:
-					animation_set_frame(spr_knuckles_glide, GlideFrame);
+					animation_set(spr_knuckles_glide, GlideFrame);
 				break;
 				case AnimGlideDrop:
 					animation_play(spr_knuckles_glidedrop, 6, 2);

@@ -1,6 +1,6 @@
 function ObjStarPostDraw()
 {	
-	// Draw Star Post
+	// Draw starpost
 	draw_self();
 	
 	// Draw lamp

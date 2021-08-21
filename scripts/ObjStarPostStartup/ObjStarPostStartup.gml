@@ -1,19 +1,30 @@
 function ObjStarPostStartup()
 {
 	// Create variables
-	Active isBool;
-	Angle  isReal;
+	Active = 0;
+	Angle  = 0;
 	
 	/* Variable Definitions	
 	1. ID, default = 0		
 	*/
 	
-	// Set triggerbox
+	// Set object triggerbox
 	object_set_triggerbox(-8, 8, -52, 52);
 	
-	// Render behind the player
+	// Set object depth
 	object_set_depth(Player, false);
 	
-	// Set default lamp angle
-	Angle = 180;
+	// Load as activated if ID is lower than the ID of activated one
+	if Game.StarpostID != false and Game.StarpostID.ID >= ID
+	{
+		animation_set(spr_obj_starpost_active, 1);
+		
+		Active = true;
+		Angle  = 900;
+	}
+	else
+	{
+		// Set default lamp angle
+		Angle = 180;
+	}
 }

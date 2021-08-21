@@ -1,5 +1,5 @@
 /// @function tile_get_height(x,y,tiledata,index)
-function tile_get_height(x, y, tiledata, index)
+function tile_get_height(x,y,tiledata,index)
 {
 	if tile_get_mirror(tiledata)
 	{
@@ -9,6 +9,5 @@ function tile_get_height(x, y, tiledata, index)
 	{
 		var HeightToUse = x mod TileSize;
 	}
-	
 	return Game.HeightValueOf[index mod TileAmount][HeightToUse];
 }

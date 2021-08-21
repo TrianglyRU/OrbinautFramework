@@ -29,7 +29,7 @@ function ContinueScreenSetup()
 	CharObject = instance_create(RoomX, RoomY + 52, ContinueCharacter);
 	with CharObject
 	{
-		animation_set_frame(WaitSprite, 1);
+		animation_set(WaitSprite, 1);
 	}
 	
 	// Create continue objects

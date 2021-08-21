@@ -1,6 +1,6 @@
 function ObjSpringRampStartup()
 {
-	// Variables list
+	// Create variables
 	JumpTimer		 = 0;
 	JumpFlag		 = 0;
 	CollisionDefault = [];
@@ -13,7 +13,7 @@ function ObjSpringRampStartup()
 	// Set object solidbox
 	object_set_solidbox(29, 8, CollisionDefault);
 	
-	// Display object behind player
+	// Set object depth
 	object_set_depth(Player, true);
 	
 	// Set object active range

@@ -1,7 +1,8 @@
 function ObjAnimalMain()
 {
+	// If animal is coming from a capsule, wait until moving on
 	if CapsuleDelay
-	{
+	{	
 		if !(--CapsuleDelay)
 		{
 			State = 0;
@@ -17,22 +18,21 @@ function ObjAnimalMain()
 		// Update position
 		object_update_position(PosX, PosY);
 	
-		// 'Appear from Badink' state
+		// Appear
 		if State == 0
 		{
 			if Ysp > 0 
 			{
+				// Collide with floor
 				var FindFloor = object_collide_tiles_v(SideCentre, SideBottom, 0, LayerA)
 				if  FindFloor
 				{
-					// Reverse speed
-			        Ysp = -4;
-				
 					// Set direction
 				    image_xscale = FromCapsule ? choose(-1, 1) : -1;
 				
-					// Set horizontal speed
+					// Set speeds
 					Xsp	*= image_xscale;
+					Ysp  = -4;
 				
 					// Change gravity for Flicky
 					if AnimalType == spr_obj_animal_flicky
@@ -40,16 +40,16 @@ function ObjAnimalMain()
 						Grv = 0.09375;
 					}
 				
-					// Set second frame
-					animation_set_frame(false, 2);
+					// Switch to second frame
+					animation_set(sprite_index, 2);
 				
-					// Go to the next state
+					// Increment state
 			        State++;
 			    }
 			}
 		}
-	
-		// Leaving state
+		
+		// Leave the screen
 		else if State == 1
 		{
 			// Move horizontally
@@ -79,12 +79,12 @@ function ObjAnimalMain()
 				case spr_obj_animal_picky:
 				case spr_obj_animal_pecky:
 				{
-					animation_set_frame(sprite_index, Ysp < 0 ? 2 : 3);
+					animation_set(sprite_index, Ysp < 0 ? 2 : 3);
 				}
 				break;
 			}
 		 
-			// Reverse speed when colliding ground
+			// Reverse speed if in collision with floor
 			if Ysp > 0
 			{
 				var FindFloor = object_collide_tiles_v(SideCentre, SideBottom, 0, LayerA)

@@ -1,6 +1,6 @@
 function ObjAnimalStartup()
 {
-	// Variables list
+	// Create variables
 	AnimalType   = 0;
 	State		 = 0;
 	PosX		 = 0;
@@ -13,10 +13,10 @@ function ObjAnimalStartup()
 	CapsuleDelay = 0;
 	FromCapsule  = 0;
 	
-	// Destroy object if stage animal set is empty
+	// Destroy the object if stage animal set is empty
 	if Stage.AnimalSet == noone
 	{
-		instance_destroy(id);
+		instance_destroy();
 	}
 	else
 	{
@@ -73,16 +73,14 @@ function ObjAnimalStartup()
 		// Set speeds
 		Xsp = DefaultXsp;
 		Ysp = -4;
+		Grv = 0.21875;
 	
 		// Set default position
 		PosX = x;
 		PosY = y;
-	
-		// Set gravity
-		Grv = 0.21875;
-	
+		
 		// Apply sprite
-		animation_set_frame(AnimalType, 1);
+		animation_set(AnimalType, 1);
 	
 		// Set object solidbox
 		object_set_solidbox(8, 12, false);
@@ -90,7 +88,7 @@ function ObjAnimalStartup()
 		// Set object depth
 		object_set_depth(Player, false);
 	
-		// Set active range
+		// Set object active range
 		object_set_range(RangeClose, TypeDelete);
 	}
 }

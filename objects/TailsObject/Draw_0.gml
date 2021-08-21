@@ -1,4 +1,5 @@
-/// @description Animate & Display
+/// @description Draw
 // You can write your code in this editor
 
-	ObjTailsObjectDisplay();
+	// Call object script
+	ObjTailsObjectDraw();

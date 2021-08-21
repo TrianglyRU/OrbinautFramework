@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Stage Triggers/Sprites.yy",
+    "name": "Common Sprites",
+    "path": "folders/Objects/Common Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_trigger_collisionchange",

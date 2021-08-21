@@ -19,7 +19,7 @@ function InterfaceDebugScreenDraw()
 	if DebugHelp
 	{
 		draw_set_halign(fa_center);
-		string_display(Game.Width / 2, Game.Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  TRIGGERS: R  VARIABLES: T  SHORTCUTS: Y", 0.5);
+		draw_text_transformed(Game.Width / 2, Game.Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  TRIGGERS: R  VARIABLES: T  SHORTCUTS: Y", 0.5, 0.5, 0);
 	}
 	
 	// Toggle variables debug

@@ -1,5 +1,5 @@
-/// @description
+/// @description Startup
 // You can write your code in this editor
 	
-	// Follow player
-	image_xscale = Player.Facing;
+	// Call object script
+	ObjDropdashDustStartup();

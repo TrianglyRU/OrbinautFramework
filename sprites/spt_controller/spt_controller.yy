@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "OrbinautFramework",
-    "path": "OrbinautFramework.yyp",
+    "name": "Common Sprites",
+    "path": "folders/Objects/Common Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spt_controller",

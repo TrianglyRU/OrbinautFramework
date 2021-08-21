@@ -115,7 +115,7 @@ function PlayerJump()
 							// Set barrier animation
 							with Barrier
 							{
-								animation_set_frame(spr_barrier_water_drop, 1);
+								animation_set(spr_barrier_water_drop, 1);
 							}
 						
 							// Set speeds
@@ -134,8 +134,6 @@ function PlayerJump()
 		{
 			if Input.ABCPress
 			{
-				show_debug_message("Fly!!");
-				
 				// Reset collision radiuses
 				RadiusX = DefaultRadiusX;
 				RadiusY = DefaultRadiusY;
@@ -147,6 +145,12 @@ function PlayerJump()
 				Grv			= 0.03125;
 				FlightValue = 480;
 				FlightState = FlightActive;
+				
+				// Play sound
+				if !IsUnderwater
+				{
+					audio_sfx_play(sfxFlying, true);
+				}
 				
 				// Clear action buttons
 				Input.ABC      = false;

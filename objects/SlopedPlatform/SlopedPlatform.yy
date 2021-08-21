@@ -32,6 +32,8 @@
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"CollapseState","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"16","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PartW","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"16","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PartH","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":5,"value":"spr_obj_slopedplatform_template","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"PlatformSprite","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":4,"value":"[0,0,0,0]","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"CollisionMap","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

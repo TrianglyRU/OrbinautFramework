@@ -1,7 +1,7 @@
-/// @function object_collide_tiles_h(xside, yside, maxdistance, layer)
-function object_collide_tiles_h(xside, yside, maxdistance, layer)
+/// @function object_collide_tiles_h(xside,yside,maxdistance,layer)
+function object_collide_tiles_h(xside,yside,maxdistance,layer)
 {	
-	// Exit the code if solidbox is not specified
+	// Exit if no solid radiuses were initialized for this object
 	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
 		exit;
@@ -23,6 +23,7 @@ function object_collide_tiles_h(xside, yside, maxdistance, layer)
 			var CheckX = x;
 		break;
 	}
+	var Direction = xside == SideLeft ? -1 : 1;
 	
 	// Define yside
 	switch yside
@@ -41,13 +42,13 @@ function object_collide_tiles_h(xside, yside, maxdistance, layer)
 		break;
 	}
 	
-	var Direction = xside == SideLeft ? -1 : 1;	
-	
-	// Get distance to surface
+	// Collide walls
 	var WallDistance  = tile_check_collision_h(CheckX, CheckY, Direction, true, layer)[0];
 	if  WallDistance <= maxdistance
 	{
 		x += WallDistance * Direction;
+		
+		// Return collision result
 		return true;
 	}
 	return false;

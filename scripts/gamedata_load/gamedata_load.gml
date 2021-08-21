@@ -1,7 +1,7 @@
 /// @function gamedata_load(slot)
 function gamedata_load(slot)
 {
-	// Get out savedata file name
+	// Get savedata file name
 	var filename = "saveslot" + string(slot) + ".bin";
 	
 	// Check it if exists
@@ -10,7 +10,7 @@ function gamedata_load(slot)
 		// Open the file
 		var file = file_bin_open(filename, 0);
 		
-		/* NOTE: it reads the data in next order (as saved):
+		/* The function reads data in the following order (as saved):
 		0 - Character;
 		1 - Zone;
 		2 - Emeralds;

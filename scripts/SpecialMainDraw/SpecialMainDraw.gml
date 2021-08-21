@@ -49,7 +49,9 @@ function SpecialMainDraw()
 	draw_sprite(spr_results_ringbonus, 0, CentreX - 80 + Offset[5], CentreY + 48);
 	
 	// Display counters
-	text_set_font(Game.Font[FontDigits1], fa_right);
+	draw_set_font(Game.Font[Counter]);
+	draw_set_halign(fa_right);
+
 	draw_text(CentreX + 80 + Offset[4], CentreY + 33, Game.Score);
 	draw_text(CentreX + 80 + Offset[5], CentreY + 49, Game.SpecialScore);
 	

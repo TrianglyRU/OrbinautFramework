@@ -1,9 +1,8 @@
 function ObjSpringVerticalMain()
 {
-	// Is current frame different from 1?
-	if animation_get_frame(id) > 1
+	// Play animation
+	if image_index > 0
 	{
-		// Play animation
 		animation_play(sprite_index, 3, 1);
 	}
 	else 
@@ -25,7 +24,7 @@ function ObjSpringVerticalMain()
 			audio_sfx_play(sfxSpring, false);	
 		
 			// Start animation
-			animation_set_frame(sprite_index, 2);
+			image_index = 1;
 		}	
 	}
 }

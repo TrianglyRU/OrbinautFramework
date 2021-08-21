@@ -1,6 +1,7 @@
 function ObjComboScoreStartup()
 {
 	// Variables list
+	ComboFrame = 0;
 	ScoreFrame = 0;
 	PosY	   = 0;
 	Ysp	       = 0;
@@ -11,4 +12,7 @@ function ObjComboScoreStartup()
 	// Set default position and speed
 	PosY =  y;
 	Ysp  = -3;
+	
+	// Set flag
+	ComboFrame = true;
 }

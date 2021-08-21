@@ -1,7 +1,7 @@
 /// @function gamesettings_save(filename)
 function gamesettings_save(filename)
 {
-	// Open file
+	// Open config file
 	ini_open(filename + ".ini");
 	
 	// Write data

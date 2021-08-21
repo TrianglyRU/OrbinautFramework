@@ -1,5 +1,5 @@
-/// @description Setup
+/// @description Startup
 // You can call your scripts in this editor
 	
-	// Call object setup script
-	ObjInvStarSetup();
+	// Call object script
+	ObjInvincibilityStarStartup();

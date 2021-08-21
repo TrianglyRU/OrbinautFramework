@@ -34,7 +34,7 @@ function ObjThunderSparkleMain()
 			}
 		}
 		
-		// Destroy objecta after 21 frames
+		// Destroy object after 21 frames
 		else
 		{
 			instance_destroy();

@@ -1,4 +1,5 @@
-/// @description Insert description here
+/// @description Main
 // You can write your code in this editor
 
-	ObjBossControllerScript();
+	// Call object script
+	ObjBossTriggerMain();

@@ -16,7 +16,7 @@ function ObjBridgeMain()
         RecoveryAngle -= 5.625;
     }
 
-	// Get current maximun depression
+	// Get current maximum depression
 	ActiveSegment	 = clamp(PlayerPos, 1, BridgeLength);
 	ActiveDepression = LogDepression[ActiveSegment - 1];
 	

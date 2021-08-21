@@ -5,7 +5,13 @@ function StageObjectsInactiveProcess()
 	{
 		exit;
 	}
-
+	
+	// Stop all animations
+	with all
+	{
+		sprite_set_speed(sprite_index, 0, spritespeed_framespergameframe);
+	}
+	
 	// Deactivate all objects...
 	instance_deactivate_all(true);
 		

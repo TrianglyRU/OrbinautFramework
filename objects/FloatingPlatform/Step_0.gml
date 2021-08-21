@@ -1,5 +1,5 @@
-/// @description Script
+/// @description Main
 // You can write your code in this editor
 	
-	// Call object main script
-	ObjFloatingPlatformScript();
+	// Call object script
+	ObjFloatingPlatformMain();

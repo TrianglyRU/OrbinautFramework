@@ -1,5 +1,5 @@
-/// @function instance_create_children(x, y, obj)
-function instance_create_children(x, y, obj)
+/// @function instance_create_children(x,y,obj)
+function instance_create_children(x,y,obj)
 {
 	var ThisObject = id;
 	var NewObject  = instance_create(x, y, obj);
@@ -14,6 +14,6 @@ function instance_create_children(x, y, obj)
 		Obj_ChildrenIDs[array_length(Obj_ChildrenIDs)] = NewObject;
 	}
 	
-	// Return id of created object
+	// Return id of the created object
 	return NewObject;
 }

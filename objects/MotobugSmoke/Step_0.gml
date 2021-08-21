@@ -3,7 +3,7 @@
 	
 	animation_play(sprite_index, 2, 13);
 	
-	if animation_get_frame(id) == 13
+	if image_index == 12
 	{
 		instance_destroy();
 	}

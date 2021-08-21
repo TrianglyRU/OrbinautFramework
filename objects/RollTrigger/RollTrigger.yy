@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_trigger_bosscontroller",
-    "path": "sprites/spr_obj_trigger_bosscontroller/spr_obj_trigger_bosscontroller.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,11 +24,14 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":1,"value":"32","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"XSize","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"64","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"YSize","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Trigger (S-Tube)",
-    "path": "folders/Objects/Stage Objects/Trigger (S-Tube).yy",
+    "name": "Trigger (Roll)",
+    "path": "folders/Objects/Stage Objects/Trigger (Roll).yy",
   },
   "resourceVersion": "1.0",
   "name": "RollTrigger",

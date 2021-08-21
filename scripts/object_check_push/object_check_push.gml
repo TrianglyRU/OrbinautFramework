@@ -1,13 +1,13 @@
 /// @function object_check_push(side)
 function object_check_push(side)
 {
-	// Exit the code if collisions are disabled
+	// Exit if collisions are disabled
 	if !Player.AllowCollision
 	{
 		exit;
 	}
 	
-	// Exit the code if no solid radiuses were initialized for this object
+	// Exit if no solid radiuses were initialized for this object
 	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
 		exit;

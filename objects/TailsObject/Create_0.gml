@@ -1,5 +1,5 @@
-/// @description Variables
-// You can call your scripts in this editor
+/// @description Startup
+// You can write your code in this editor
 	
 	// Call object script
-	ObjTailsObjectVariables();
+	ObjTailsObjectStartup();

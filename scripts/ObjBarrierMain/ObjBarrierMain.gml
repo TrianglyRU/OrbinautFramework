@@ -1,6 +1,5 @@
 function ObjBarrierMain()
 {
-	// Get current player barrier
 	switch Player.BarrierType
 	{
 		// Normal barrier
@@ -21,11 +20,11 @@ function ObjBarrierMain()
 			animation_play(spr_barrier_thunder, 2, 1);	
 			
 			// Switch object depth
-			if animation_get_frame(id) == 19
+			if image_index == 18
 			{
 				object_set_depth(Player, false);
 			}
-			if animation_get_frame(id) == 40
+			if image_index == 39
 			{
 				object_set_depth(Player, true);
 			}
@@ -45,7 +44,7 @@ function ObjBarrierMain()
 				image_xscale = 1;
 			
 				// Switch object depth
-				if animation_get_frame(id) mod 2 == 0
+				if (image_index + 1) mod 2 == 0
 				{
 					object_set_depth(Player, true);
 				}
@@ -82,10 +81,10 @@ function ObjBarrierMain()
 				// Play animation
 				if sprite_index == spr_barrier_water_bounce
 				{
-					var Frame = animation_get_frame(id);
-					if  Frame == 1
+					var Frame = image_index;
+					if  Frame == 0
 					{
-						var Duration = 13; // This is actually 12 frames
+						var Duration = 13;
 					}
 					else
 					{
@@ -94,9 +93,9 @@ function ObjBarrierMain()
 					animation_play(spr_barrier_water_bounce, Duration, 2);
 					
 					// Reset to normal animation
-					if animation_get_frame(id) == 3
+					if image_index == 2
 					{
-						animation_set_frame(spr_barrier_water, 1);
+						animation_set(spr_barrier_water, 1);
 					}
 				}
 				else
@@ -123,9 +122,9 @@ function ObjBarrierMain()
 					animation_play(spr_barrier_water_drop, Duration, 2);
 				
 					// Reset to normal animation
-					if animation_get_frame(id) == 3
+					if image_index == 2
 					{
-						animation_set_frame(spr_barrier_water, 1);
+						animation_set(spr_barrier_water, 1);
 					}
 				}
 				else
@@ -137,7 +136,7 @@ function ObjBarrierMain()
 		break;
 	}
 	
-	// Hide the barrier when the player is under invincibility bonus
+	// Hide the barrier
 	if Player.InvincibleBonus or Player.SuperState
 	{
 		image_alpha = 0;
@@ -146,4 +145,7 @@ function ObjBarrierMain()
 	{
 		image_alpha = 1;
 	}
+	
+	// Update position
+	object_update_position(Player.PosX, Player.PosY);
 }

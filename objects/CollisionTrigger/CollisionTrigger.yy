@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_trigger_collisionchange",
-    "path": "sprites/spr_obj_trigger_collisionchange/spr_obj_trigger_collisionchange.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": false,

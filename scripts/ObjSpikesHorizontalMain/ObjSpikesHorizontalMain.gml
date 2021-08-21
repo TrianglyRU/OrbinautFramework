@@ -1,12 +1,11 @@
 function ObjSpikesHorizontalMain()
 {
-	// Check if player is touching the hurt side
+	// Do collision
+	object_act_solid(true, true, true);
+	
+	// Damage player if they're touching hurt side
 	if object_player_touch(HurtSide)
 	{
-		// Damage them
-		object_damage(false, false, false);
+		player_damage(false, false, false);
 	}
-	
-	// Do solid collision
-	object_act_solid(true, true, true);
 }

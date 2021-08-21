@@ -1,7 +1,7 @@
 function PlayerProcess()
 {
 	// Do not process player events if something of follow is happening
-	if DebugMode or Stage.IsPaused or Stage.IsGameOver or fade_check(FadeActive) 
+	if DebugMode or Stage.IsPaused or fade_check(FadeActive) 
 	{
 		return false;
 	}

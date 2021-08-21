@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Loading Icon",
-    "path": "folders/Objects/Stage Objects/Loading Icon.yy",
+    "path": "folders/Objects/Room Objects/Loading Icon.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjLoadingIconStartup",

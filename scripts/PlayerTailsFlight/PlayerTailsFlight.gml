@@ -19,15 +19,23 @@ function PlayerTailsFlight()
 		}
 		Ysp = max(Ysp, -4);
 		
-		// Play animation and sound
+		// Play animation
 		if !IsUnderwater
 		{
 			Animation = AnimFly;
-			audio_sfx_play(sfxFlying, true);
 		}
 		else
 		{
 			Animation = AnimSwim;
+		}
+		
+		// Stop and play new sound
+		if !FlightValue
+		{
+			if !IsUnderwater
+			{
+				audio_sfx_play(sfxTired, true);
+			}
 			audio_sfx_stop(sfxFlying);
 		}
 	}
@@ -36,18 +44,15 @@ function PlayerTailsFlight()
 		// Set lower gravity
 		Grv = 0.03125;
 		
-		// Play animation and sound
+		// Play animation
 		if !IsUnderwater
 		{
 			Animation = AnimFlyTired;	
-			audio_sfx_play(sfxTired, true);
 		}
 		else
 		{
 			Animation = AnimSwimTired;
-			audio_sfx_stop(sfxTired);
 		}
-		audio_sfx_stop(sfxFlying);
 	}
 	
 	// Cancel flight

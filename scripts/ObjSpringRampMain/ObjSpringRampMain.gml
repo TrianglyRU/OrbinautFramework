@@ -10,7 +10,7 @@ function ObjSpringRampMain()
 		JumpTimer--;
 		
 		// When timer reach 0 and player is on object, launch them
-		if object_player_stand(id)
+		if Player.OnObject == id
 		{
 			if !JumpTimer
 			{
@@ -73,15 +73,15 @@ function ObjSpringRampMain()
 	}
 	
 	// If spring board is not active, check for activation
-	else if object_player_stand(id) and PlayerPos >= -14 and PlayerPos <= 28
+	else if Player.OnObject == id and PlayerPos >= -14 and PlayerPos <= 28
 	{
 		JumpTimer	 = 4;
 		Obj_SolidMap = CollisionPressed;
 	}
 	
 	// Set frame
-	animation_set_frame(false, (JumpTimer > 0) + 1);
+	image_index = JumpTimer > 0;
 	
-	// Act solid
+	// Do collision
 	object_act_solid(false, true, false);
 }

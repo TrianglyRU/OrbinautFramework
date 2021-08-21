@@ -20,12 +20,12 @@ function PlayerPowerup()
 		{
 			for (var i = 1; i < 9; i++)
 			{
-				var SpawnedStar	= instance_create(PosX, PosY, InvincibilityStar);
-					SpawnedStar.Number = i;
+				var Object = instance_create(floor(PosX), floor(PosY), InvincibilityStar);
+					Object.ID = i;
 			}
 			with InvincibilityStar 
 			{
-				animation_set_frame(Number mod 2 ? spr_obj_inv_star_type1 : spr_obj_inv_star_type2, Number);
+				animation_set(ID mod 2 ? spr_obj_invstar_type1 : spr_obj_invstar_type2, ID);
 			}
 		}
 		if !(--InvincibleBonus)

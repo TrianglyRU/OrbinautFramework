@@ -4,5 +4,5 @@
 	if object_player_overlap(CollisionHitbox)
 	{
 		//object_act_badnik(false, false);
-		object_damage(false, false, false);
+		player_damage(false, false, false);
 	}

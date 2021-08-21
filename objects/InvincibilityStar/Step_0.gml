@@ -1,5 +1,5 @@
-/// @description
+/// @description Main
 // You can write your code in this editor
 
-	// Call main script
-	ObjInvStarScript();
+	// Call object script
+	ObjInvincibilityStarMain();

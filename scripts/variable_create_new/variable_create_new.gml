@@ -1,5 +1,5 @@
-/// @function variable_create_new(name, val)
-function variable_create_new(name, val)
+/// @function variable_create_new(name,val)
+function variable_create_new(name,val)
 {
 	if !variable_instance_exists(id, name)
 	{

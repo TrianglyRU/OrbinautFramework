@@ -1,6 +1,6 @@
 function ObjContinueIconStartup()
 {
-	// Variables list
+	// Create variable
 	IconSprite = 0;
 	
 	// Define icon sprite
@@ -18,5 +18,5 @@ function ObjContinueIconStartup()
 	}
 	
 	// Apply icon
-	animation_set_frame(IconSprite, 1);
+	animation_set(IconSprite, 1);
 }

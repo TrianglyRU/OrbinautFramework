@@ -1,7 +1,7 @@
 /// @function audio_bgm_play(priority,soundid,looppoint)
-function audio_bgm_play(priority, soundid, looppoint)
+function audio_bgm_play(priority,soundid,looppoint)
 {	
-	// Exit if empty audio set
+	// Exit if no audio set
 	if !soundid
 	{
 		exit;
@@ -12,6 +12,7 @@ function audio_bgm_play(priority, soundid, looppoint)
 	{
 		case PriorityLow:
 		{
+			// Stop previous track
 			audio_stop_sound(Audio.LowTrack[0]);
 			
 			Audio.LowTrack[0] = audio_play_sound(soundid, 0, false);
@@ -21,6 +22,7 @@ function audio_bgm_play(priority, soundid, looppoint)
 		break;
 		case PriorityHigh:
 		{
+			// Stop previous track
 			audio_stop_sound(Audio.HighTrack[0]);
 
 			Audio.HighTrack[0] = audio_play_sound(soundid, 0, false);
@@ -29,5 +31,7 @@ function audio_bgm_play(priority, soundid, looppoint)
 		}
 		break;
 	}
+	
+	// Set track volume
 	audio_sound_gain(soundid, Game.MusicVolume, 0);
 }

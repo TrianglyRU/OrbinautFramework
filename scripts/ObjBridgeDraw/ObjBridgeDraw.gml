@@ -4,18 +4,18 @@ function ObjBridgeDraw()
 	for (var i = 0; i < BridgeLength; i++)
     {   
         // Check for current log
-        var log_difference = abs((i + 1) - ActiveSegment);
+        var Difference = abs((i + 1) - ActiveSegment);
         
         // Set tension to the left
         if i < ActiveSegment
         {
-            var Tension = log_difference / ActiveSegment;
+            var Tension = Difference / ActiveSegment;
         }
         
         // Set tension to the right
         else
         {
-            var Tension = log_difference / (BridgeLength - ActiveSegment + 1);
+            var Tension = Difference / (BridgeLength - ActiveSegment + 1);
         }
 
 		// Calculate log position

@@ -137,13 +137,13 @@ function InputHotkeysProcess()
 	// Hurt player (F10)
 	if keyboard_check_pressed(vk_f10) 
 	{
-		object_damage(false, false, false);
+		player_damage(false, false, false);
 	}
 	
 	// Kill player (F11)
 	if keyboard_check_pressed(vk_f11) 
 	{
-		object_damage(false, false, true);
+		player_damage(false, false, true);
 	}
 	
 	// Add rings (F12 hold)

@@ -1,5 +1,7 @@
+/// @function input_get_keyname(UTF8value)
 function input_get_keyname(UTF8value)
 {
+	// Get keyname
 	switch UTF8value 
 	{
 		case 37:  return "LEFT"	 break;

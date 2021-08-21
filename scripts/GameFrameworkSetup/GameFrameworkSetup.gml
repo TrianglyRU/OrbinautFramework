@@ -43,7 +43,7 @@ function GameFrameworkSetup()
 	Game.SKWallCollision	= true;
 	Game.SMWaterBarrier		= false;
 	Game.SMRingBehaviour	= false;
-	Game.SKItemBoxBehaviour = true;
+	Game.SKItemBoxBehaviour = false;
 	
 	// Orbinaut improvements
 	Game.PostProcessing      = false;

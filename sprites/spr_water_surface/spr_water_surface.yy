@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Objects/Unsorted & Unfinished/Sprites.yy",
+    "name": "Stage",
+    "path": "folders/Game Code/Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_water_surface",

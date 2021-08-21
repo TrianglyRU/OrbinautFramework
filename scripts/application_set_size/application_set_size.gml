@@ -1,18 +1,18 @@
-/// @function application_set_size(appWidth, appHeight)
-function application_set_size(appWidth, appHeight)
+/// @function application_set_size(width,height)
+function application_set_size(width,height)
 {	
-	// Set camera size and resize application surface
-	camera_set_view_size(GameCamera, appWidth, appHeight);
-	surface_resize(application_surface, appWidth, appHeight);
+	// Set camera and surface size
+	camera_set_view_size(GameCamera, width, height);
+	surface_resize(application_surface, width, height);
 
 	// Resize palette surfaces
 	if surface_exists(Palette.SurfaceLow)
 	{
-		surface_resize(Palette.SurfaceLow, appWidth, appHeight);
+		surface_resize(Palette.SurfaceLow, width, height);
 	}
 	if surface_exists(Palette.SurfaceHigh)
 	{
-		surface_resize(Palette.SurfaceHigh, appWidth, appHeight);
+		surface_resize(Palette.SurfaceHigh, width, height);
 	}
 
 	// Re-enable surface rendering

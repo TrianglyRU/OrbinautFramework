@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_trigger_bosscontroller",
-    "path": "sprites/spr_obj_trigger_bosscontroller/spr_obj_trigger_bosscontroller.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,

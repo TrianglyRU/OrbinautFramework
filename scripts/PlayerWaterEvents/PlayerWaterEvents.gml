@@ -17,6 +17,13 @@ function PlayerWaterEvents()
 					Grv = 0.0625;
 				}
 				
+				// Stop sound
+				if FlightState
+				{
+					audio_sfx_stop(sfxFlying);
+					audio_sfx_stop(sfxTired);
+				}
+				
 				// Create splash object
 				if !Grounded
 				{
@@ -122,17 +129,23 @@ function PlayerWaterEvents()
 				}
 			}
 			
-			// Destroy player bubble maker object
-			instance_destroy(BubbleMakerPlayer);
-			
 			// Reset gravity and double vertical speed
 			if !Hurt and !FlightState and GlideState != GlideActive
 			{
 				Grv	 = 0.21875;
 				Ysp *= 2;
 			}
+			
+			// Play sound
+			if FlightValue
+			{
+				audio_sfx_play(sfxFlying, true);
+			}
 			IsUnderwater = false;	
 			AirTimer     = 1800;
+			
+			// Destroy player bubble maker object
+			instance_destroy(BubbleMakerPlayer);
 			
 			// Create splash object
 			if !Grounded

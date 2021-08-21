@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Objects/Unsorted & Unfinished/Sprites.yy",
+    "name": "Unsorted & Unfinished",
+    "path": "folders/Objects/Unsorted & Unfinished.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_badnik_bullet2",

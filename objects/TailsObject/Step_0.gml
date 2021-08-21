@@ -1,5 +1,5 @@
-/// @description
+/// @description Main
 // You can write your code in this editor
 	
-	// Call object scripts
-	ObjTailsObjectAnimate();
+	// Call object script
+	ObjTailsObjectMain();

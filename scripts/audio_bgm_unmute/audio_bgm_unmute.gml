@@ -1,6 +1,7 @@
 /// @function audio_bgm_unmute(priority,time)
-function audio_bgm_unmute(priority, time)
+function audio_bgm_unmute(priority,time)
 {	
+	// Unmute track
 	switch priority
 	{
 		case PriorityLow:

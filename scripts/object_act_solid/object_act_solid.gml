@@ -1,5 +1,5 @@
-/// @function object_act_solid(sides, top, bottom)
-function object_act_solid(sides, top, bottom)
+/// @function object_act_solid(sides,top,bottom)
+function object_act_solid(sides,top,bottom)
 {
 	// Clear touch and push flags
 	Obj_SolidTouchU	= false;
@@ -8,25 +8,25 @@ function object_act_solid(sides, top, bottom)
 	Obj_SolidTouchR	= false;
 	Obj_SolidPush	= false;
 	
-	// Exit the code if collisions are disabled
+	// Exit if collisions are disabled
 	if !Player.AllowCollision
 	{
 		exit;
 	}
 	
-	// Exit the code if no solid radiuses were initialized for this object
+	// Exit if no solid radiuses were initialized for this object
 	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
 		exit;
 	}
 	
-	// Exit the code if object can't be collided
+	// Exit if object can't be collided
 	if !Obj_SolidX or !Obj_SolidY
 	{
 		exit;	
 	}
 	
-	// Exit the code if there is no side to collide with 
+	// Exit if there is no side to collide with 
 	if !sides and !top and !bottom
 	{
 		if Player.OnObject == id
@@ -49,12 +49,16 @@ function object_act_solid(sides, top, bottom)
 	// Get height array
 	if Obj_SolidMap != false
 	{
-		// Get object sides
-		var ObjectLeft  = x - Obj_SolidX;
-		var ObjectRight = x + Obj_SolidX - 1;
-			
-		// Get height from array to use
-		var ArrayHeight = clamp(image_xscale ? PlayerX - ObjectLeft : ObjectRight - PlayerX, 0, array_length(Obj_SolidMap) - 1);
+		// Get a height to use
+		if image_xscale
+		{
+			var ArrayHeight = PlayerX - (x - Obj_SolidX);
+		}
+		else
+		{
+			var ArrayHeight = (x + Obj_SolidX - 1) - PlayerX;
+		}	
+		ArrayHeight = clamp(ArrayHeight, 0, array_length(Obj_SolidMap) - 1);
 		
 		// Calculate height difference
 		var SlopeOffset = (Obj_SolidY * 2 - Obj_SolidMap[ArrayHeight]) * image_yscale;	
@@ -67,19 +71,15 @@ function object_act_solid(sides, top, bottom)
 	// Check if player is standing on this object, collide only with its top side
 	if Player.OnObject == ObjectID
 	{	
-		// Make player to follow horizonatal movement of the object
 		Player.PosX += floor(x - xprevious);
-		
-		// Make player to always stay on top of the object
-		Player.PosY = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
+		Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
 			
 		// Tell the object we're touching its top side
 		Obj_SolidTouchU = true;
 		
-		// Get fall radius
-		var FallRadius = sides ? ObjectWidth : Obj_SolidX;
-		
 		// Check if player is outside the object
+		var FallRadius  = sides ? ObjectWidth : Obj_SolidX;
+		
 		var XComparison = floor(Player.PosX) - ObjectX + FallRadius;
 		if  XComparison < 0 or XComparison >= FallRadius * 2
 		{
@@ -109,7 +109,7 @@ function object_act_solid(sides, top, bottom)
 		// Collide vertically
 		if abs(XDistance) >= abs(YDistance)
 		{	
-			// Collide bottom
+			// Collide below
 			if bottom and YDistance < 0
 			{
 				// Kill player
@@ -117,7 +117,7 @@ function object_act_solid(sides, top, bottom)
 				{
 					if abs(XDistance) >= 16
 					{
-						object_damage(false, false, true);
+						player_damage(false, false, true);
 					}
 				}
 				
@@ -136,22 +136,19 @@ function object_act_solid(sides, top, bottom)
 				Obj_SolidTouchD = true;
 			}
 			
-			// Collide top side
+			// Collide above
 			else if top and YDistance >= 0 and YDistance < 16
 			{
 				if Player.Ysp >= 0
 				{
-					// Get land radius
-					var LandRadius = sides ? ObjectWidth : Obj_SolidX;
-		
 					// Exit if outside the object
+					var LandRadius = sides ? ObjectWidth : Obj_SolidX;
+					
 					var XDifference = PlayerX - ObjectX + LandRadius;
-					if XDifference < 0 or XDifference >= LandRadius * 2
+					if  XDifference < 0 or XDifference >= LandRadius * 2
 					{
 						exit;
 					}
-				
-					// Do from player's side
 					with Player
 					{
 						// Attach player to the object's top boundary

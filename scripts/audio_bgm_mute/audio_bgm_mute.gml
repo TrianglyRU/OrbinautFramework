@@ -1,6 +1,7 @@
 /// @function audio_bgm_mute(priority,time)
-function audio_bgm_mute(priority, time)
+function audio_bgm_mute(priority,time)
 {	
+	// Mute track
 	switch priority
 	{
 		case PriorityLow:

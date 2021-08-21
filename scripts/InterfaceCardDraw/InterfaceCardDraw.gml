@@ -34,7 +34,7 @@ function InterfaceCardDraw()
 	
 	// Draw zone name
 	draw_set_font(Game.Font[FontCard]);
-	string_display(CardValue[14], CardValue[15], Stage.ZoneName, 1);
+	draw_text(CardValue[14], CardValue[15], Stage.ZoneName);
 	
 	// Turn screen into black
 	if !CardValue[0]

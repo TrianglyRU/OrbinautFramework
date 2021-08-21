@@ -1,14 +1,13 @@
 function ObjSpringHorizontalMain()
 {
-	// Is current frame different from 1?
-	if animation_get_frame(id) > 1
+	// Play animation
+	if image_index > 1
 	{
-		// Play animation
 		animation_play(sprite_index, 3, 1);
 	}
 	else
 	{	
-		// Perform collision routine
+		// Do collision
 		object_act_solid(true, true, true);
 		
 		// Is player grounded and touching launch side?
@@ -25,8 +24,8 @@ function ObjSpringHorizontalMain()
 			// Play sound
 			audio_sfx_play(sfxSpring, false);
 			
-			// Set frame 2
-			animation_set_frame(sprite_index, 2);
+			// Start animation
+			image_index = 1;
 		}
 	}
 }

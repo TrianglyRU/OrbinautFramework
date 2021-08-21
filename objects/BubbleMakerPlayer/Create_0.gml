@@ -1,9 +1,5 @@
-/// @description
+/// @description Startup
 // You can write your code in this editor
 	
-	BubbleDelay     = -1;
-	CounterSprite   = noone;
-	CounterBubble   = false;
-	
-	DrownBubbles = 0;
-	DrownDelay   = -1;
+	// Call object script
+	ObjBubbleMakerPlayerStartup();

@@ -33,7 +33,7 @@ function PlayerLevelBound()
 	{
 		if floor(PosY) > Stage.DeathBoundary
 		{		
-			object_damage(false, false, true);
+			player_damage(false, false, true);
 		}
 	}
 }

@@ -1,6 +1,7 @@
 /// @function audio_bgm_stop(priority,time)
-function audio_bgm_stop(priority, time)
+function audio_bgm_stop(priority,time)
 {	
+	// Stop track
 	switch priority
 	{
 		case PriorityLow:

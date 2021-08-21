@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Boss/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Orboss (Code is quit messy!)/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_orboss_fire",

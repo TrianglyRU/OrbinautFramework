@@ -1,15 +1,16 @@
 /// @function gamesettings_load(filename)
 function gamesettings_load(filename)
 {
-	// Exit if in dev mode
+	// Exit if in devmode
 	if Game.DevMode
 	{
 		exit;
 	}
 	
-	// Open file
+	// Open config file
 	ini_open(filename + ".ini");
 		
+	// Load data
 	Game.SpindashEnabled    = ini_read_real("Gameplay", "Spindash",       true);
 	Game.DropdashEnabled    = ini_read_real("Gameplay", "Dropdash",       false);
 	Game.PeeloutEnabled	    = ini_read_real("Gameplay", "Peelout",        true);

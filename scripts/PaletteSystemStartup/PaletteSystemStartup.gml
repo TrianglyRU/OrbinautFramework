@@ -24,7 +24,7 @@ function PaletteSystemStartup()
 	SurfaceLow  = -1;
 	SurfaceHigh = -1;
 	
-	// Setup fade
+	// Setup fade and surfaces
 	FadeMode    =  1;
 	FadeStep    =  756;
 	

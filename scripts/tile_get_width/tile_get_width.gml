@@ -1,5 +1,5 @@
 /// @function tile_get_width(x,y,tiledata,index)
-function tile_get_width(x, y, tiledata, index)
+function tile_get_width(x,y,tiledata,index)
 {
 	if tile_get_flip(tiledata)
 	{

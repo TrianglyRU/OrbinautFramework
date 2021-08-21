@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Unsorted & Unfinished",
-    "path": "folders/Objects/Unsorted & Unfinished.yy",
+    "name": "Crabmeat",
+    "path": "folders/Objects/Stage Objects/Badniks/Crabmeat.yy",
   },
   "resourceVersion": "1.0",
   "name": "BadnikBullet",

@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Invincibility Star",
-    "path": "folders/Objects/Stage Objects/Invincibility Star.yy",
+    "name": "Super Star",
+    "path": "folders/Objects/Stage Objects/Super Star.yy",
   },
   "resourceVersion": "1.0",
   "name": "SuperStar",

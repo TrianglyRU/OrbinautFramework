@@ -41,7 +41,7 @@ function ObjMotobugMain()
 		var CollideFloor = object_collide_tiles_v(false, SideBottom, 2, LayerA);
 		if !CollideFloor
 		{
-			animation_set_frame(sprite_index, 1);
+			animation_set(sprite_index, 1);
 			
 			// Stop Motobug
 			StopTimer = 60;

@@ -1,34 +1,34 @@
-/// @function object_player_overlap(collisionType)
-function object_player_overlap(collisionType)
+/// @function object_player_overlap(collision_type)
+function object_player_overlap(collision_type)
 {	
-	// Exit the code if collision is disabled
+	// Exit if collision are disabled
 	if !Player.AllowCollision
 	{
 		return false;
 	}
 	
 	// Check for hitbox overlap
-	if collisionType == Hitbox
+	if collision_type == Hitbox
 	{
-		// Exit the code if this object hitbox wasn't initialized
+		// Exit if this object hitbox wasn't initialized
 		if !variable_instance_exists(id, "Obj_HitStatus")
 		{
 			return false;
 		}
 		
-		// Exit the code if object can't be overlapped
+		// Exit if object can't be overlapped
 		if !Obj_HitX or !Obj_HitY
 		{
 			return false;
 		}
 	
-		// Get object size
+		// Get object's size
 		var objectTop    = floor(y - Obj_HitY - 0);
 		var objectLeft   = floor(x - Obj_HitX - 1);
 		var objectRight  = floor(x + Obj_HitX - 1);
 		var objectBottom = floor(y + Obj_HitY - 0);
 		
-		// Get player hitbox size
+		// Get player's hitbox
 		if Player.Animation == AnimCrouch
 		{
 			var playerTop    = floor(Player.PosY - 4);
@@ -44,13 +44,11 @@ function object_player_overlap(collisionType)
 			var playerBottom = floor(Player.PosY + Player.RadiusY - 3);	
 		}
 		
-		// Check for overlap horizontally
+		// Check for overlap
 		if playerRight < objectLeft or playerLeft > objectRight
 		{
 			return false;
 		}
-		
-		// Check for overlap vertically
 		else if playerBottom < objectTop or playerTop > objectBottom
 		{
 			return false;
@@ -61,15 +59,15 @@ function object_player_overlap(collisionType)
 	}
 	
 	// Check for triggerbox overlap
-	else if collisionType == Triggerbox
+	else if collision_type == Triggerbox
 	{
-		// Exit the code if this object triggerbox wasn't initialized
+		// Exit if this object triggerbox wasn't initialized
 		if !variable_instance_exists(id, "Obj_TriggerStatus")
 		{
 			return false;
 		}
 		
-		// Return result
+		// Return check result
 		return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));
 	}
 }

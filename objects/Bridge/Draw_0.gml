@@ -1,4 +1,5 @@
 /// @description Draw
 // You can write your code in this editor
 	
-	ObjBridgeDraw()
+	// Call object script
+	ObjBridgeDraw();

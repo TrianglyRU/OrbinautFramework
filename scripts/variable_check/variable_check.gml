@@ -1,5 +1,5 @@
-/// @function variable_check(id, name)
-function variable_check(id, name)
+/// @function variable_check(id,name)
+function variable_check(id,name)
 {
 	if instance_exists(id)
 	{

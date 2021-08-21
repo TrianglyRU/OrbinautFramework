@@ -27,7 +27,7 @@
   ],
   "properties": [
     {"varType":1,"value":"12","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"BridgeLength","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":4,"value":"spr_obj_bridgelog_template","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"BridgeSprite","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":5,"value":"spr_obj_bridgelog_template","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"BridgeSprite","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

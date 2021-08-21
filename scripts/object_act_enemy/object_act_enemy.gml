@@ -1,24 +1,22 @@
-/// @function object_act_enemy(enemy_type)
-function object_act_enemy(enemy_type)
+/// @function object_act_enemy(badnik | boss)
+function object_act_enemy(type)
 {
-	// Get position
-	var XPos = variable_instance_exists(id, "PosX") ? floor(PosX) : floor(x);
-	var YPos = variable_instance_exists(id, "PosY") ? floor(PosY) : floor(y);
-	
-	// Exit if no collision happened
+	// Exit if no collision is happening yet
 	if !object_player_overlap(CollisionHitbox)
 	{
 		exit;
 	}
 	
 	// Check if player can damage enemy
-	if Player.GlideState == GlideActive or Player.Spinning		   or Player.SuperState
-	or Player.InvincibleBonus		or Player.SpindashRev >= 0 or Player.FlightState and Player.Ysp < 0
+	var FlightCheck = Player.FlightState and floor(Player.PosY) > y and Player.Ysp < 0;
+	
+	if Player.GlideState == GlideActive or Player.Spinning		    or Player.SuperState
+	or Player.InvincibleBonus			or Player.SpindashRev != -1 or FlightCheck
 	{		
 		// Make player bounce if they are airborne
 		if !Player.Grounded
 		{
-			if floor(Player.PosY) > YPos or Player.Ysp < 0
+			if floor(Player.PosY) > y or Player.Ysp < 0
 			{
 				Player.Ysp -= 1 * sign(Player.Ysp);	
 			}
@@ -29,13 +27,13 @@ function object_act_enemy(enemy_type)
 		}
 		
 		// Check if enemy is a Badnik
-		if enemy_type == EnemyBadnik
+		if type == EnemyBadnik
 		{
 			// Get 50000 score target
 			var LifeReward = max(ceil(Player.Score / 50000) * 50000, 50000);
 			
 			// Count combo
-			if Player.Spinning or Player.SpindashRev >= 0
+			if Player.Spinning or Player.SpindashRev != -1
 			{
 				Player.ScoreCombo++;
 			}
@@ -70,27 +68,30 @@ function object_act_enemy(enemy_type)
 			}
 			
 			// Spawn animal, score and explosion
-			instance_create(XPos, YPos, Animal);
-			instance_create(XPos, YPos, ComboScore);
-			instance_create(XPos, YPos, DustExplosion);
+			instance_create(x, y, Animal);
+			instance_create(x, y, ComboScore);
+			instance_create(x, y, DustExplosion);
 			
 			// Play sound
 			audio_sfx_play(sfxDestroy, false);
 			
-			// Delete Badnik
+			// Destroy Badnik
 			instance_destroy();
+			return true;
 		}
 		
 		// Check if enemy is a boss
-		else if enemy_type == EnemyBoss
+		else if type == EnemyBoss
 		{
 			if !Player.Grounded
 			{
+				// If gliding, stop
 				if Player.GlideState == GlideActive
 				{
 					Player.GlideState = GlideDrop;
 					Player.Animation  = AnimGlideDrop;
 					
+					// Reset collision radiuses
 					Player.RadiusX = Player.DefaultRadiusX;
 					Player.RadiusY = Player.DefaultRadiusY;
 					
@@ -105,6 +106,8 @@ function object_act_enemy(enemy_type)
 						Player.Grv = 0.0625
 					}
 				}
+				
+				// Reverse speeds
 				Player.Ysp = -Player.Ysp;
 			}
 			Player.Xsp = -Player.Xsp;
@@ -113,13 +116,13 @@ function object_act_enemy(enemy_type)
 			audio_sfx_play(sfxBossHit, false);
 		}
 		
-		// Return succeed hit
+		// Return success hit
 		return true;
 	}
 	else
 	{
 		// Damage player
-		object_damage(false, false, false);
+		player_damage(false, false, false);
 	
 		// Return failed hit
 		return false;

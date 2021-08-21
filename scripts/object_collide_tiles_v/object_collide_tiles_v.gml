@@ -1,7 +1,7 @@
 /// @function object_collide_tiles_v(xside, yside, maxdistance, layer)
 function object_collide_tiles_v(xside, yside, maxdistance, layer)
 {	
-	// Exit the code if solidbox is not specified
+	// Exit if no solid radiuses were initialized for this object
 	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
 		exit;
@@ -40,17 +40,18 @@ function object_collide_tiles_v(xside, yside, maxdistance, layer)
 			var CheckY = y; 
 		break;
 	}
-	
 	var Direction = yside == SideTop ? -1 : 1;
 	
-	// Get distance to surface
-	var FloorDistance  = tile_check_collision_v(CheckX, CheckY, Direction, !Direction, layer)[0];
-	if  FloorDistance <= abs(maxdistance)
+	// Collide floor or ceiling
+	var Distance  = tile_check_collision_v(CheckX, CheckY, Direction, !Direction, layer)[0];
+	if  Distance <= abs(maxdistance)
 	{
-		if FloorDistance >= -14
+		if Distance >= -14
 		{
-			y += FloorDistance;
+			y += Distance;
 		}
+		
+		// Return collision result
 		return true;
 	}
 	return false;

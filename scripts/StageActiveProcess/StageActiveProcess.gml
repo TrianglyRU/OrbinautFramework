@@ -14,7 +14,7 @@ function StageActiveProcess()
 			}
 			else
 			{
-				object_damage(false, false, true);
+				player_damage(false, false, true);
 			}
 		}	
 	}
@@ -43,8 +43,8 @@ function StageActiveProcess()
 		Camera.Enabled = false;
 		TimeEnabled    = false;
 		
-		// Check if player is off-screen
-		if floor(Player.PosY) > Camera.ViewY + Game.Height + 256
+		// Check if player has fallen below stage boundary
+		if floor(Player.PosY) >= Stage.BottomBoundary
 		{	
 			if !EventTimer
 			{
@@ -61,7 +61,8 @@ function StageActiveProcess()
 			}
 			
 			// Fade out after 1 or 10 seconds
-			if (EventTimer++) == 60 * (IsGameOver * 10)
+			if !IsGameOver and EventTimer == 60
+			or  IsGameOver and EventTimer == 600
 			{
 				fade_perform(FadeTo, FadeBlack, 1);
 				
@@ -69,6 +70,7 @@ function StageActiveProcess()
 				audio_bgm_stop(PriorityLow,  0.5);
 				audio_bgm_stop(PriorityHigh, 0.5);
 			}
+			EventTimer++;
 			
 			if fade_check(FadeMax)
 			{	

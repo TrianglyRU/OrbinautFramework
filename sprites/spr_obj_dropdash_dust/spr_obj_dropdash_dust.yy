@@ -109,8 +109,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Dropdash Dust",
-    "path": "folders/Objects/Stage Objects/Dropdash Dust.yy",
+    "name": "Sprites",
+    "path": "folders/Objects/Stage Objects/Dropdash Dust/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_dropdash_dust",

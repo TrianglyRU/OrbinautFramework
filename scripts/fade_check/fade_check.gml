@@ -1,14 +1,14 @@
-/// @function fade_check(fade_state)
-function fade_check(fade_state)
+/// @function fade_check(state)
+function fade_check(state)
 {
-	// Return FadeNone result if there is no palette contoller
+	// Return FadeNone result if there is no palette controller for some reason
 	if !instance_exists(Palette)
 	{
-		return fade_state == FadeNone;
+		return state == FadeNone;
 	}
 	
-	// Return result check
-	switch fade_state
+	// Return check result
+	switch state
 	{
 		case FadeNone:
 			return Palette.FadeStep == 756;
