@@ -53,6 +53,9 @@ function ObjBossTriggerMain()
 			Stage.TargetTopBoundary	   = ReservedTopBound;
 			Stage.TargetRightBoundary  = room_width;
 			
+			// Give 1000 points
+			Player.Score += 1000;
+			
 			// Play stage music
 			audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			

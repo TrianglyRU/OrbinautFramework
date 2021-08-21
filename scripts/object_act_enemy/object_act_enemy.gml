@@ -29,54 +29,25 @@ function object_act_enemy(type)
 		// Check if enemy is a Badnik
 		if type == EnemyBadnik
 		{
-			// Get 50000 score target
-			var LifeReward = max(ceil(Player.Score / 50000) * 50000, 50000);
-			
 			// Count combo
 			if Player.Spinning or Player.SpindashRev != -1
 			{
 				Player.ScoreCombo++;
 			}
-		
-			// Add score
-			if Player.ScoreCombo < 2
-			{
-				Player.Score += 100;
-			}
-			else if Player.ScoreCombo < 3
-			{
-				Player.Score += 200;
-			}
-			else if Player.ScoreCombo < 4
-			{
-				Player.Score += 300;
-			}
-			else if Player.ScoreCombo < 16
-			{
-				Player.Score += 1000;
-			}
-			else
-			{
-				Player.Score += 10000;
-			}
 			
-			// Grant extra life for exceeding 50000 points
-			if Player.Score >= LifeReward
-			{
-				Game.Lives++;
-				audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
-			}
-			
-			// Spawn animal, score and explosion
+			// Spawn animal and explosion
 			instance_create(x, y, Animal);
-			instance_create(x, y, ComboScore);
 			instance_create(x, y, DustExplosion);
+			
+			// Increase player score
+			var  Object = instance_create(x, y, ComboScore);
+			with Object
+			{
+				ComboTrigger = true;
+			}
 			
 			// Play sound
 			audio_sfx_play(sfxDestroy, false);
-			
-			// Destroy Badnik
-			instance_destroy();
 			
 			// Destroy children
 			if variable_instance_exists(id, "Obj_ChildrenIDs")
@@ -90,6 +61,9 @@ function object_act_enemy(type)
 					}
 				}
 			}
+			
+			// Destroy Badnik
+			instance_destroy();
 			
 			return true;
 		}

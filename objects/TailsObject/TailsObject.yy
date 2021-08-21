@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_obj_trigger_bosscontroller",
-    "path": "sprites/spr_obj_trigger_bosscontroller/spr_obj_trigger_bosscontroller.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

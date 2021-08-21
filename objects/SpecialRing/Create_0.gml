@@ -20,9 +20,8 @@
 	// Set object depth
 	object_set_depth(Player, false);
 	
-	// Set object hitbox
-	object_set_hitbox(16, 16);
+	// Set object triggerbox
+	object_set_triggerbox(-16, 16, -16, 16);
 	
-	// Set object size to 0
-	image_xscale = 0;
-	image_yscale = 0;
+	// Set sprite
+	sprite_index = spr_obj_specialring;

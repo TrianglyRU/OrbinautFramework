@@ -42,8 +42,7 @@ function SpecialMainDraw()
 	// Lose messages
 	else if Game.SpecialState == 2
 	{
-		draw_sprite(tex_special, 0, CentreX + Offset[0], CentreY - 20 + ShiftY);
-		draw_sprite(tex_stage,   0, CentreX + Offset[1], CentreY - 20 + ShiftY);
+		draw_sprite(tex_specialstage, 0, CentreX + Offset[1], CentreY - 20 + ShiftY);
 	}
 	draw_sprite(spr_results_score,     0, CentreX - 80 + Offset[4], CentreY + 32);
 	draw_sprite(spr_results_ringbonus, 0, CentreX - 80 + Offset[5], CentreY + 48);

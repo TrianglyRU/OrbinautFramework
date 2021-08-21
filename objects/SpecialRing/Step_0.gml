@@ -4,22 +4,27 @@
 	// Trigger ring to appear
 	if !State
 	{
-		if  distance_to_point(Player.PosX, Player.PosY) < 128
+		if distance_to_point(Player.PosX, Player.PosY) < 128
 		{
 			State = 1;
 		}
 	}
 	else if State == 1
 	{
-		// If ring's size is not the default one, increase
-		if image_xscale < 1
+		// Play animation
+		var Frame = image_index
+		if  Frame < 5
 		{
-			image_xscale += 0.025;
-			image_yscale += 0.025;
+			var Duration = 4;
 		}
+		else
+		{
+			var Duration = 8;
+		}
+		animation_play(spr_obj_specialring, Duration, 9);
 		
 		// Check for overlap
-		else if object_player_overlap(Hitbox)
+		if image_index >= 8 and object_player_overlap(Triggerbox)
 		{	
 			// Play sound and destroy object
 			audio_sfx_play(sfxSpecialRing, false);
@@ -54,8 +59,8 @@
 				
 				// Create flash object
 				instance_create(x, y, SpecialRingFlash);
-				visible	= false;
-				State   = 2;
+				image_index	= 0;
+				State       = 2;
 			}
 			
 			// Else give 50 rings
@@ -84,11 +89,4 @@
 			audio_play_sound(sfxSpecialWarp, 0, false);
 			fade_perform(FadeTo, FadeWhite, 1);
 		}
-		if fade_check(FadeMax)
-		{
-			room_goto(SpecialMainRoom);
-		}
 	}
-	
-	// Play animation
-	animation_play(spr_obj_specialring, 8, 0);
