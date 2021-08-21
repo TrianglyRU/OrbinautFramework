@@ -10,6 +10,12 @@ function MenuOptionsProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
+				// Deny stage select
+				if OptionID == 1
+				{
+					audio_sfx_play(sfxFail, false);
+				}
+				
 				// Exit the game
 				if OptionID == 3
 				{

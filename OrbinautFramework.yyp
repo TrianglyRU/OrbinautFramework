@@ -238,6 +238,7 @@
     {"id":{"name":"ObjSignpostMain","path":"scripts/ObjSignpostMain/ObjSignpostMain.yy",},"order":1,},
     {"id":{"name":"ObjSignpostStartup","path":"scripts/ObjSignpostStartup/ObjSignpostStartup.yy",},"order":2,},
     {"id":{"name":"ObjSpawnpointStartup","path":"scripts/ObjSpawnpointStartup/ObjSpawnpointStartup.yy",},"order":2,},
+    {"id":{"name":"StartupScreenDraw","path":"scripts/StartupScreenDraw/StartupScreenDraw.yy",},"order":3,},
     {"id":{"name":"DRPC","path":"extensions/DRPC/DRPC.yy",},"order":0,},
     {"id":{"name":"spr_sonic_airspin","path":"sprites/spr_sonic_airspin/spr_sonic_airspin.yy",},"order":75,},
     {"id":{"name":"spr_obj_animal_cucky","path":"sprites/spr_obj_animal_cucky/spr_obj_animal_cucky.yy",},"order":2,},

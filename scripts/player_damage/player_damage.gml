@@ -59,6 +59,9 @@ function player_damage(flame_type,thunder_type,instant_kill)
 		{
 			audio_sfx_play(sfxHurt, false);
 		}
+		
+		// Remove barrier
+		instance_destroy(Barrier);
 	}
 		
 	// Check if player has rings or barrier

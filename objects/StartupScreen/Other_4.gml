@@ -1,5 +1,5 @@
-/// @description Setup
+/// @description Initialization
 // You can write your code in this editor
 	
-	// Set room timer and create loading icon
+	// Initialization Script
 	StartupScreenSetup();

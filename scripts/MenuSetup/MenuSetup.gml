@@ -3,7 +3,7 @@ function MenuSetup()
 	// Main Menu
 	menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEV MENU");
 	menu_add_option(0, 0, "GAME START",		  1);
-	menu_add_option(0, 1, "STAGE SELECT",     3);
+	menu_add_option(0, 1, "STAGE SELECT", noone);
 	menu_add_option(0, 2, "OPTIONS",	      5);
 	menu_add_option(0, 3, "EXIT GAME",    noone);
 

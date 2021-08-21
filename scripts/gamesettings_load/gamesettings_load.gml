@@ -13,7 +13,7 @@ function gamesettings_load(filename)
 	// Load data
 	Game.SpindashEnabled    = ini_read_real("Gameplay", "Spindash",       true);
 	Game.DropdashEnabled    = ini_read_real("Gameplay", "Dropdash",       false);
-	Game.PeeloutEnabled	    = ini_read_real("Gameplay", "Peelout",        true);
+	Game.PeeloutEnabled	    = ini_read_real("Gameplay", "Peelout",        false);
 	Game.GroundSpeedcap	    = ini_read_real("Gameplay", "GndSpeedcap",    false);
 	Game.AirSpeedcap	    = ini_read_real("Gameplay", "AirSpeedcap",    false);
 	Game.CDCamera			= ini_read_real("Gameplay", "CDCamera",       false);
