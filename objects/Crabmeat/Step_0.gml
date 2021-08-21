@@ -21,13 +21,12 @@
 			var i = 1;
 			repeat(2)
 			{
-				var Bullet = instance_create_depth(x + 16 * i, y, depth, BadnikBullet)
+				var Bullet = instance_create_depth(x + 16 * i, y, depth, CrabmeatBullet)
 				with Bullet 
 				{
 					Xsp = i;      
 					Ysp = -4; 
 					Grv = 0.21875;
-					sprite_index = spr_badnik_bullet2;
 				}
 				i = -1;
 			}

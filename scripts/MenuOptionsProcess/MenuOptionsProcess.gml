@@ -133,85 +133,70 @@ function MenuOptionsProcess()
 		// Options (gameplay)
 		case 6:
 		{
-			switch OptionID
+			if Input.LeftPress or Input.RightPress
 			{
-				// Spindash toggle
-				case 0:
+				switch OptionID
 				{
-					if Input.LeftPress or Input.RightPress
+					// Spindash toggle
+					case 0:
 					{
 						Game.SpindashEnabled = !Game.SpindashEnabled;
+						
+						// Update option
+						menu_update_option(6, 0, "SPINDASH: " + menu_get_boolean(Game.SpindashEnabled));
 					}
-					
-					// Update option
-					menu_update_option(6, 0, "SPINDASH: " + menu_get_boolean(Game.SpindashEnabled));
-				}
-				break;
+					break;
 			
-				// Peelout toggle
-				case 1:
-				{
-					if Input.LeftPress or Input.RightPress
+					// Peelout toggle
+					case 1:
 					{
 						Game.PeeloutEnabled = !Game.PeeloutEnabled;
+						
+						// Update option
+						menu_update_option(6, 1, "PEELOUT: " + menu_get_boolean(Game.PeeloutEnabled));
 					}
-				
-					// Update option
-					menu_update_option(6, 1, "PEELOUT: " + menu_get_boolean(Game.PeeloutEnabled));
-				}
-				break;
+					break;
 			
-				// Dropdash toggle
-				case 2:
-				{
-					if Input.LeftPress or Input.RightPress
+					// Dropdash toggle
+					case 2:
 					{
 						Game.DropdashEnabled = !Game.DropdashEnabled;
+						
+						// Update option
+						menu_update_option(6, 2, "DROPDASH: " + menu_get_boolean(Game.DropdashEnabled));
 					}
-				
-					// Update option
-					menu_update_option(6, 2, "DROPDASH: " + menu_get_boolean(Game.DropdashEnabled));
-				}
-				break;
+					break;
 			
-				// Ground cap toggle
-				case 3:
-				{
-					if Input.LeftPress or Input.RightPress
+					// Ground cap toggle
+					case 3:
 					{
 						Game.GroundSpeedcap = !Game.GroundSpeedcap;
+						
+						// Update option
+						menu_update_option(6, 3, "GRN SPDCAP: " + menu_get_boolean(Game.GroundSpeedcap));
 					}
-
-					// Update option
-					menu_update_option(6, 3, "GRN SPDCAP: " + menu_get_boolean(Game.GroundSpeedcap));
-				}
-				break;
+					break;
 			
-				// Air cap toggle
-				case 4:
-				{
-					if Input.LeftPress or Input.RightPress
+					// Air cap toggle
+					case 4:
 					{
 						Game.AirSpeedcap = !Game.AirSpeedcap;
+						
+						// Update option
+						menu_update_option(6, 4, "AIR SPDCAP: " + menu_get_boolean(Game.AirSpeedcap));
 					}
-				
-					// Update option
-					menu_update_option(6, 4, "AIR SPDCAP: " + menu_get_boolean(Game.AirSpeedcap));
-				}
-				break;
+					break;
 			
-				// CD camera toggle
-				case 5:
-				{
-					if Input.LeftPress or Input.RightPress
+					// CD camera toggle
+					case 5:
 					{
 						Game.CDCamera = !Game.CDCamera;
+						
+						// Update option
+						menu_update_option(6, 5, "CD CAMERA: " + menu_get_boolean(Game.CDCamera));
 					}
-				
-					// Update option
-					menu_update_option(6, 5, "CD CAMERA: " + menu_get_boolean(Game.CDCamera));
+					break;
 				}
-				break;
 			}
 		}
 		break;
@@ -219,51 +204,40 @@ function MenuOptionsProcess()
 		// Options (video)
 		case 7:
 		{
-			switch OptionID
+			if Input.LeftPress or Input.RightPress
 			{
-				// Window size toggle
-				case 0:		
-					if Input.LeftPress
-					{
-						Game.WindowSize--;
-					}
-					else if Input.RightPress
-					{
-						Game.WindowSize++;
-					}
-					Game.WindowSize = clamp(Game.WindowSize, 1, 4);
+				switch OptionID
+				{
+					// Window size toggle
+					case 0:
+						Game.WindowSize = loop_value(Game.WindowSize + (Input.RightPress ? 1 : -1), 1, 5);
+						
+						// Update window
+						window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
 				
-					// Update window
-					window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
+						// Update option
+						menu_update_option(7, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");	
+					break;
 				
-					// Update option
-					menu_update_option(7, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");	
-				break;
-				
-				// Fullscreen toggle
-				case 1:					
-					if Input.LeftPress or Input.RightPress
-					{
+					// Fullscreen toggle
+					case 1:					
 						Game.WindowFullscreen = !Game.WindowFullscreen;
-					}
-					
-					// Update window
-					window_set_fullscreen(Game.WindowFullscreen);
+						
+						// Update window
+						window_set_fullscreen(Game.WindowFullscreen);
 				
-					// Update option
-					menu_update_option(7, 1, "FULLSCREEN: " + menu_get_boolean(Game.WindowFullscreen));
-				break;
+						// Update option
+						menu_update_option(7, 1, "FULLSCREEN: " + menu_get_boolean(Game.WindowFullscreen));
+					break;
 				
-				// Post-processing
-				case 2:
-					if Input.LeftPress or Input.RightPress
-					{
+					// Post-processing
+					case 2:
 						Game.PostProcessing = !Game.PostProcessing;
-					}
-					
-					// Update option
-					menu_update_option(7, 2, "POST-PROCESSING: " + menu_get_boolean(Game.PostProcessing));
-				break;
+						
+						// Update option
+						menu_update_option(7, 2, "POST-PROCESSING: " + menu_get_boolean(Game.PostProcessing));
+					break;
+				}
 			}
 		}
 		break;
@@ -271,38 +245,25 @@ function MenuOptionsProcess()
 		// Options (audio)
 		case 8:
 		{
-			// SFX volume
-			if OptionID == 0
+			if Input.LeftPress or Input.RightPress
 			{
-				if Input.LeftPress
+				// SFX volume
+				if OptionID == 0
 				{
-					Game.SoundVolume -= 0.1;
+					Game.SoundVolume = loop_value(Game.SoundVolume * 10 + (Input.RightPress ? 1 : -1), 0, 11) / 10;
+					
+					// Update option
+					menu_update_option(8, 0, "SFX VOLUME: " + string(round(Game.SoundVolume * 100)));	
 				}
-				else if Input.RightPress
-				{
-					Game.SoundVolume += 0.1;
-				}
-				Game.SoundVolume = clamp(Game.SoundVolume, 0, 1);
-				
-				// Update option
-				menu_update_option(8, 0, "SFX VOLUME: " + string(round(Game.SoundVolume * 100)));	
-			}
 		
-			// BGM volume
-			else if OptionID == 1
-			{
-				if Input.LeftPress
+				// BGM volume
+				else if OptionID == 1
 				{
-					Game.MusicVolume -= 0.1;
-				}
-				else if Input.RightPress
-				{
-					Game.MusicVolume += 0.1;
-				}
-				Game.MusicVolume = clamp(Game.MusicVolume, 0, 1);
+					Game.MusicVolume = loop_value(Game.MusicVolume * 10 + (Input.RightPress ? 1 : -1), 0, 11) / 10;
 				
-				// Update option
-				menu_update_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
+					// Update option
+					menu_update_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
+				}
 			}
 		}
 		break;

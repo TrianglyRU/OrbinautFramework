@@ -9,4 +9,3 @@
 	GameShadersStartup();
 	GameDataLoad();
 	GameWindowStartup();
-	

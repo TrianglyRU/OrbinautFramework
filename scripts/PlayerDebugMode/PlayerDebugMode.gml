@@ -125,8 +125,7 @@ function PlayerDebugMode()
 	// Update current object
 	if Input.APress
 	{
-		DebugItem++;
-		DebugItem = loop_value(DebugItem, 0, array_length(DebugList));
+		DebugItem = loop_value(DebugItem + 1, 0, array_length(DebugList));
 	}
 	
 	// Spawn current object

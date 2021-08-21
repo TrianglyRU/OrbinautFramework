@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_badnik_crabmeat_bullet",
+    "path": "sprites/spr_badnik_crabmeat_bullet/spr_badnik_crabmeat_bullet.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -28,7 +31,7 @@
     "path": "folders/Objects/Stage Objects/Badniks (Code is quit messy!)/Crabmeat.yy",
   },
   "resourceVersion": "1.0",
-  "name": "BadnikBullet",
+  "name": "CrabmeatBullet",
   "tags": [],
   "resourceType": "GMObject",
 }
