@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Badniks/Crabmeat/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Badniks (Code is quit messy!)/Crabmeat/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_badnik_crabmeat_move",

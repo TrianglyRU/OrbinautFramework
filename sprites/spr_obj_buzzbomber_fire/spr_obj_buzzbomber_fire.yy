@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Badniks/Buzzbomber/Sprites.yy",
+    "path": "folders/Objects/Stage Objects/Badniks (Code is quit messy!)/Buzzbomber/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_buzzbomber_fire",
