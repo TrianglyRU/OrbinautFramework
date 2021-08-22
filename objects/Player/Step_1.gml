@@ -17,9 +17,9 @@
 		PlayerPosition();
 		PlayerSonicDropdash();
 		PlayerTailsFlight();
+		PlayerAirLevelCollision();
 		PlayerKnuxClimb();
 		PlayerKnuxGlide();
-		PlayerAirLevelCollision();
 		PlayerResetOnFloor();
 	}
 	else if Grounded and !Spinning

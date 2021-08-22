@@ -69,15 +69,11 @@ function ObjAnimalStartup()
 			break;
 	    }
 	
-		// Set speeds
-		Xsp = DefaultXsp;
-		Ysp = -4;
-	
-		// Set default position
+		// Set default values
+		Xsp  = DefaultXsp;
+		Ysp  = -4;
 		PosX = x;
 		PosY = y;
-		
-		// Apply sprite
 		sprite_index = AnimalType;
 	
 		// Set object solidbox

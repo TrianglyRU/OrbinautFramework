@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Spring Ramp/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Spring Ramp/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_springramp",

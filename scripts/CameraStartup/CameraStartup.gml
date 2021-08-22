@@ -15,10 +15,24 @@ function CameraStartup()
 	// Set player as a default target
 	Target = Player;
 	
-	// Load camera on global spawn position in case it exists
-	if Target == Player and !array_equals(Game.PlayerPosition, [])
+	// If target is player, set camera position
+	if Target == Player
 	{
-		PosX = Game.PlayerPosition[0] - Game.Width  / 2;
-		PosY = Game.PlayerPosition[1] - Game.Height / 2 + 16;
+		// Set start position
+		if !array_equals(Game.PlayerPosition, [])
+		{
+			PosX = Game.PlayerPosition[0] - Game.Width  / 2;
+			PosY = Game.PlayerPosition[1] - Game.Height / 2 + 16;
+		}
+	
+		// If coming from special stage, load on ring's position
+		if !array_equals(Game.SpecialRingData, [])
+		{
+			PosX = Game.SpecialRingData[0] - Game.Width  / 2;
+			PosY = Game.SpecialRingData[1] - Game.Height / 2 + 16;
+		}
+	
+		/* If none of positions above exist, the camera will spawn
+		on checkpoint. It is handled from its side! */
 	}
 }

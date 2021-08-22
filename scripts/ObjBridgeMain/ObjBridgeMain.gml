@@ -24,5 +24,5 @@ function ObjBridgeMain()
 	y = NativeY + floor(ActiveDepression * dsin(RecoveryAngle));
 	
 	// Do solid collision
-	object_act_solid(false, true, false);
+	object_act_solid(false, true, false, false);
 }

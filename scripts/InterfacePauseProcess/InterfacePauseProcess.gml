@@ -38,6 +38,12 @@ function InterfacePauseProcess()
 					if PauseValue[1] == 1
 					{
 						room_restart();
+						
+						// Subtract a life
+						Game.Lives--;
+						
+						// Clear special ring data
+						Game.SpecialRingData = [];
 					}
 					
 					// Exit
@@ -70,8 +76,8 @@ function InterfacePauseProcess()
 					instance_activate_all();
 					audio_resume_all();
 						
-					/* Just like in object_act_solid, we normally don't do things like that, but it is
-					needed here to avoid objects being active for 1 frame after we unpause the game */	
+					/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
+					of another script. It is needed here to avoid ALL objects being active for 1 frame after we unpause */
 					with Stage 
 					{
 						StageObjectsActiveProcess();
@@ -110,7 +116,7 @@ function InterfacePauseProcess()
 	}
 	
 	// If stage is not paused, pause!
-	else if Stage.AllowPause and Input.StartPress
+	else if Stage.DoUpdate and Input.StartPress
 	{
 		Stage.IsPaused	 = true;	
 		Camera.Enabled   = false;

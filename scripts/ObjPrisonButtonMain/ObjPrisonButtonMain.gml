@@ -4,13 +4,13 @@ function ObjPrisonButtonMain()
 	if !Pressed 
 	{	
 		// Do collision
-		object_act_solid(true, true, true);
+		object_act_solid(true, true, true, true);
 		
 		// Play animation
 		animation_play(sprite_index, 3, 0);
 		
 		// Check if player is standing on the object
-		if object_player_touch(SideTop)
+		if object_check_touch(SideTop)
 		{
 			Player.PosY += 8;	
 			y           += 8;
@@ -20,8 +20,9 @@ function ObjPrisonButtonMain()
 	}
 	
 	// Disable collisions
-	else
+	else if Player.OnObject == id
 	{	
-		object_act_solid(false, false, false);
+		Player.Grounded = false;
+		Player.OnObject = false;
 	}
 }

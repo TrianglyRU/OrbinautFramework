@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Floating Platform",
-    "path": "folders/Objects/Stage Objects/Floating Platform.yy",
+    "path": "folders/Game Objects/Stage Objects/Floating Platform.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjFloatingPlatformMain",

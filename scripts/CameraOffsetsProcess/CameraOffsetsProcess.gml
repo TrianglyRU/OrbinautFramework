@@ -6,13 +6,28 @@ function CameraOffsetsProcess()
 		exit;
 	}
 	
-	// Update extended camera offset
+	// Set vertical spin offset
+	if Player.Spinning and Player.Grounded
+	{
+		SpinOffset = Player.DefaultRadiusY - Player.SmallRadiusY;
+	} 
+	else 
+	{
+		// Reset it
+		if !Player.Grounded and SpinOffset
+		{
+			PosY -= Player.DefaultRadiusY - Player.SmallRadiusY;
+		}
+		SpinOffset = 0;
+	}
+	
+	// Offset camera horizontally, like in CD
 	if Game.CDCamera
 	{
 		var ScreenShift = Game.Width / 2 - 96;
 		var ScreenSpeed = floor(ScreenShift / 32);
 		
-		if abs(Player.Inertia) >= 6 or Player.PeeloutRev >= 16 or Player.SpindashRev >= 0
+		if abs(Player.Inertia) >= 6 or Player.PeeloutRev != -1 or Player.SpindashRev != -1
 		{
 			if !ScrollDelay and abs(ExtendedOffset) < ScreenShift
 			{
@@ -32,47 +47,24 @@ function CameraOffsetsProcess()
 		}
 	}
 	
-	// Set vertical spin offset
-	if Player.Spinning and Player.Grounded
-	{
-		SpinOffset = Player.DefaultRadiusY - Player.SmallRadiusY;
-	} 
-	else 
-	{
-		// Reset it
-		if !Player.Grounded and SpinOffset
-		{
-			PosY -= Player.DefaultRadiusY - Player.SmallRadiusY;
-		}
-		SpinOffset = 0;
-	}
-	
-	// Set up/down shift varaible
+	// Check for overview delay
 	var ShiftDown = Player.Animation == AnimCrouch;
 	var ShiftUp   = Player.Animation == AnimLookup;
 	
-	// Delay up/down shift if spindash or peelout is enabled
-	if Game.SpindashEnabled or Game.PeeloutEnabled
+	if (ShiftUp or ShiftDown)
 	{
-		if ShiftUp or ShiftDown
+		if OverviewDelay
 		{
-			if OverviewDelay
-			{
-				OverviewDelay--;
-			}
-		} 
-		else if !OverviewOffset
-		{
-			OverviewDelay = 120;
+			OverviewDelay--;
 		}
-	} 
-	else 
+	}
+	else if Game.SpindashEnabled or Game.PeeloutEnabled
 	{
-		OverviewDelay = 0;
+		OverviewDelay = 120;
 	}
 	
-	// Shift up/down
-	if !OverviewDelay
+	// Offset vertically
+	if (ShiftUp or ShiftDown) and !OverviewDelay
 	{
 		if ShiftDown and OverviewOffset < 88 
 		{
@@ -81,11 +73,9 @@ function CameraOffsetsProcess()
 		if ShiftUp and OverviewOffset > -104 
 		{
 			OverviewOffset -= 2;
-		} 		
-	} 	
-	
-	// Shift back to original position
-	if !ShiftUp and !ShiftDown and OverviewOffset != 0
+		} 	
+	} 
+	else if OverviewOffset != 0
 	{
 		OverviewOffset -= 2 * sign(OverviewOffset);
 	}

@@ -1,5 +1,5 @@
-/// @description Instances Process
+/// @description Instances Visualization
 // You can write your code in this editor
 	
-	// Instances Process Script
+	// Instances Visualization Script
 	GameAnimationsProcess();

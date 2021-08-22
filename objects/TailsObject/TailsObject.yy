@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -26,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Tails Object",
-    "path": "folders/Objects/Stage Objects/Tails Object.yy",
+    "path": "folders/Game Objects/Stage Objects/Tails Object.yy",
   },
   "resourceVersion": "1.0",
   "name": "TailsObject",

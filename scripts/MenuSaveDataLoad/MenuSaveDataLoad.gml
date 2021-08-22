@@ -37,11 +37,8 @@ function MenuSaveDataLoad()
 			// Define zone
 			switch SaveData[i][1]
 			{
-				case 0:
-					DataZone = "MQZ";
-				break;
 				default:
-					DataZone = "TEMPLATE";
+					DataZone = "TEST STAGE";
 				break;
 			}
 			

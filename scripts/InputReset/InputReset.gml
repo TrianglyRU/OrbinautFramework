@@ -11,6 +11,22 @@ function InputReset()
 		Up   = false;
 		Down = false;
 	}
+	if !Left and LeftPress
+	{
+		LeftPress = false;
+	}
+	if !Right and RightPress
+	{
+		RightPress = false;
+	}
+	if !Up and UpPress
+	{
+		UpPress = false;
+	}
+	if !Down and DownPress
+	{
+		DownPress = false;
+	}
 	
 	// Reset all buttons if we ignore all input
 	if IgnoreInput

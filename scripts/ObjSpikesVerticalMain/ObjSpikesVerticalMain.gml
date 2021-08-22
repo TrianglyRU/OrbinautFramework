@@ -1,10 +1,18 @@
 function ObjSpikesVerticalMain()
 {
 	// Do collision
-	object_act_solid(true, true, true);
+	if !Player.InvincibleBonus and !Player.InvincibilityFrames and !Player.SuperState
+	{
+		object_act_solid(true, true, true, true);
+	}
+	else
+	{
+		// Allow to bounce and dropdash on the spikes
+		object_act_solid(true, true, true, false);
+	}
 	
 	// Damage player if they're touching hurt side
-	if object_player_touch(HurtSide)
+	if object_check_touch(HurtSide)
 	{
 		player_damage(false, false, false);
 	}

@@ -1,32 +1,32 @@
 function PlayerSonicDropdash()
 {
 	// Exit if dropdash isn't ready to be charged
-	if !DropdashFlag
+	if DropdashFlag != 1
 	{
 		exit;
 	}
 	
-	// Define our Dropdash direction by checking towards witch side we're moving and facing
+	// Define our dropdash direction by checking towards witch side we're moving and facing
 	if Xsp >= 0
 	{
 		if Facing == FlipLeft and Input.Left
 		{
-			DropdashDirection = FlipLeft;
+			DropdashSide = FlipLeft;
 		}
 		else
 		{
-			DropdashDirection = FlipRight;
+			DropdashSide = FlipRight;
 		}
 	}
 	else
 	{
 		if Facing == FlipRight and Input.Right
 		{
-			DropdashDirection = FlipLeft;
+			DropdashSide = FlipLeft;
 		}
 		else
 		{
-			DropdashDirection = FlipRight;
+			DropdashSide = FlipRight;
 		}
 	}
 	
@@ -37,6 +37,13 @@ function PlayerSonicDropdash()
 	}
 	else if DropdashRev < 20
 	{
-		DropdashRev++;
+		// Set animaion once fully charged
+		if ++DropdashRev == 20
+		{
+			Animation = AnimDropdash;
+			
+			// Play sound
+			audio_sfx_play(sfxDropDash, false);
+		}
 	}
 }

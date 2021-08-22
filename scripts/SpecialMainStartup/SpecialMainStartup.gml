@@ -1,7 +1,7 @@
 function SpecialMainStartup()
 {
 	// Turn screen white
-	fade_perform(FadeTo, FadeWhite, 0);
+	fade_perform(FadeTo, ColourWhite, 0);
 	
 	// If coming back from special stage, set offsets and play music
 	if Game.SpecialState
@@ -14,7 +14,7 @@ function SpecialMainStartup()
 		Offset[5]  =  330;
 		RenderFlag = -1;
 		
-		fade_perform(FadeFrom, FadeWhite, 1);
+		fade_perform(FadeFrom, ColourWhite, 1);
 		audio_bgm_play(PriorityLow, ActClearMusic, noone);
 	}
 	
@@ -23,7 +23,7 @@ function SpecialMainStartup()
 	{
 		/* Add redirection here */
 		default:
-			room_goto(SpecialStage1);
+			room_goto(SStageTemplate);
 		break;
 	}
 }

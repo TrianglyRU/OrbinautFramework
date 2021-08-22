@@ -1,5 +1,5 @@
-/// @function object_player_overlap(collision_type)
-function object_player_overlap(collision_type)
+/// @function object_check_overlap(collision_type)
+function object_check_overlap(collision_type)
 {	
 	// Exit if collision are disabled
 	if !Player.AllowCollision

@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Spikes",
-    "path": "folders/Objects/Stage Objects/Spikes.yy",
+    "path": "folders/Game Objects/Stage Objects/Spikes.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpikesHorizontal",

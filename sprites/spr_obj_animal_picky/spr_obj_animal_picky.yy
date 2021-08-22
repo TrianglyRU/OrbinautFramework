@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Animal/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Animal/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_animal_picky",

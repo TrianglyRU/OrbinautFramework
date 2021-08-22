@@ -11,7 +11,7 @@ function PaletteUpdate()
 		shader_set(ShaderScreen);
 		
 		// Render fade
-		shader_set_uniform_f(Shader.ScreenStep,   FadeColour == FadeFlash ? FadeStep div 3 : FadeStep);
+		shader_set_uniform_f(Shader.ScreenStep,   FadeColour == ColourFlash ? FadeStep div 3 : FadeStep);
 		shader_set_uniform_i(Shader.ScreenColour, FadeColour);
 		shader_set_uniform_i(Shader.ScreenMode,   FadeMode);
 		

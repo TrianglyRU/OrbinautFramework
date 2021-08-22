@@ -10,7 +10,7 @@
 			x = floor(PosX);
 			
 			// Collide tiles & check for if Crabmeat is 2 pixels away from the surface
-			if !object_collide_tiles_v(Dir ? SideRight : SideLeft, SideBottom, 2, LayerA)
+			if !object_collide_tiles(Dir ? SideRight : SideLeft, SideBottom, 2, LayerA)
 			{
 				Timer = 0;
 			}

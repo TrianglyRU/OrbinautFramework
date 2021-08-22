@@ -25,8 +25,8 @@ function ObjRingMain()
 		var MoveY = (sign(Ysp) == RelativeY);
 	
 		// Increase speed and move ring
-		Xsp  += (RingAcceleration[RelativeX] * MoveX);
-		Ysp  += (RingAcceleration[RelativeY] * MoveY);
+		Xsp  += (RingAcceleration[MoveX] * RelativeX);
+		Ysp  += (RingAcceleration[MoveY] * RelativeY);
 		PosX += Xsp;
 		PosY += Ysp;
 			
@@ -35,7 +35,7 @@ function ObjRingMain()
 	}
 	
 	// Check for hitbox collision
-	if !Player.Hurt and Player.InvincibilityFrames < 90 and object_player_overlap(Hitbox)
+	if !Player.Hurt and Player.InvincibilityFrames < 90 and object_check_overlap(Hitbox)
 	{	
 		// Add 1 to ring counter
 		Player.Rings++;

@@ -186,7 +186,7 @@ function InterfaceResultsDraw()
 		{
 			if (++ResultsValue[0]) == 180
 			{
-				fade_perform(FadeTo, FadeBlack, 1);
+				fade_perform(FadeTo, ColourBlack, 1);
 			}
 		}
 	
@@ -207,7 +207,7 @@ function InterfaceResultsDraw()
 			}
 			else if (++ResultsValue[0]) == 260
 			{
-				fade_perform(FadeTo, FadeBlack, 1);
+				fade_perform(FadeTo, ColourBlack, 1);
 			}
 		}
 	}
@@ -216,13 +216,13 @@ function InterfaceResultsDraw()
 	var ScreenCentre = Game.Width / 2
 	
 	// Draw assets
-	draw_sprite(spr_results_head,		 Game.Character, ScreenCentre + 53 + ResultsValue[1], 87);
-	draw_sprite(spr_results_char,		 Game.Character, ScreenCentre - 14 - ResultsValue[2], 60);
-	draw_sprite(spr_results_act,		 Stage.ActID,    ScreenCentre + 25 + ResultsValue[7], 78);	
-	draw_sprite(spr_results_through,	 0,				 ScreenCentre - 15 - ResultsValue[3], 80);
-	draw_sprite(spr_results_score,		 0,				 ScreenCentre - 80 + ResultsValue[4], 119);
-	draw_sprite(spr_results_timebonus,	 0,				 ScreenCentre - 80 + ResultsValue[5], 135);
-	draw_sprite(spr_results_ringbonus,	 0,				 ScreenCentre - 80 + ResultsValue[6], 151);
+	draw_sprite(gui_results_head,		 Game.Character, ScreenCentre + 53 + ResultsValue[1], 87);
+	draw_sprite(gui_results_char,		 Game.Character, ScreenCentre - 14 - ResultsValue[2], 60);
+	draw_sprite(gui_results_act,		 Stage.ActID,    ScreenCentre + 25 + ResultsValue[7], 78);	
+	draw_sprite(gui_results_through,	 0,				 ScreenCentre - 15 - ResultsValue[3], 80);
+	draw_sprite(gui_results_score,		 0,				 ScreenCentre - 80 + ResultsValue[4], 119);
+	draw_sprite(gui_results_timebonus,	 0,				 ScreenCentre - 80 + ResultsValue[5], 135);
+	draw_sprite(gui_results_ringbonus,	 0,				 ScreenCentre - 80 + ResultsValue[6], 151);
 	
 	// Draw continue icon
 	if ResultsValue[8] == 3 and ResultsValue[0] > -1
@@ -246,7 +246,7 @@ function InterfaceResultsDraw()
 	}
 	
 	// Draw counters
-	draw_set_font(Game.Font[Counter]);
+	draw_set_font(Game.Font[font_counter]);
 	draw_set_halign(fa_right);
 	
 	draw_text(ScreenCentre + 80 + ResultsValue[4], 120, Player.Score);

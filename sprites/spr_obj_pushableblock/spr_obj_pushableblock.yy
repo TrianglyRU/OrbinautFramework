@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Pushable Block/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Pushable Block/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_pushableblock",

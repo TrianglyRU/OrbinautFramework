@@ -7,7 +7,7 @@ function InterfaceDebugScreenDraw()
 	}
 	
 	// Set font
-	draw_set_font(Game.Font[Debug]);
+	draw_set_font(Game.Font[font_default]);
 	
 	// Toggle hotkeys on-screen guide
 	if keyboard_check_pressed(ord("Y"))
@@ -55,7 +55,8 @@ function InterfaceDebugScreenDraw()
 				+ "\n   SPEED Y: "		 + string(Player.Ysp) 		
 				+ "\n   INERTIA: "		 + string(Player.Inertia) 
 				+ "\n   GRAVITY: "	     + string(Player.Grv) 
-				+ "\n   MOVEMENT LOCK: " + string(Player.MovementLock)
+				+ "\n   GROUND LOCK: "   + string(Player.GroundLock)
+				+ "\n   AIR LOCK: "      + string(Player.AirLock)
 				+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 				+ "\n   ANGLE: "		 + string(Player.Angle)
 				+ "\n"
@@ -70,7 +71,6 @@ function InterfaceDebugScreenDraw()
 				+ "\n   SPINNING: "			 + string(Player.Spinning)
 				+ "\n   JUMPING: "			 + string(Player.Jumping)
 				+ "\n   ROLLING: "			 + string(Player.Grounded and Player.Spinning)
-				+ "\n   ROLL JUMPING: "		 + string(Player.RollJumping)
 				+ "\n   PUSHING: "			 + string(Player.Pushing)
 				+ "\n   GLIDE STATE: "		 + string(Player.GlideState)
 				+ "\n   GLIDE VALUE: "		 + string(Player.GlideValue)
@@ -115,6 +115,11 @@ function InterfaceDebugScreenDraw()
 				+ "\n   OVERVIEW SHIFT: " + string(Camera.OverviewOffset)
 				+ "\n   CD SHIFT: "       + string(Camera.ExtendedOffset)
 				+ "\n   SPIN OFFSET: "    + string(Camera.SpinOffset)
+				+ "\n"
+				+ "\n              * INPUT *"
+				+ "\n"
+				+ "\n   LEFT: "	 + string(Input.Left)  + " LEFT PRESS: " + string(Input.LeftPress)
+				+ "\n   RIGHT: " + string(Input.Right) + " RIGHT PRESS: " + string(Input.RightPress)
 				+ "\n"
 				+ "\n              * AUDIO *"
 				+ "\n"

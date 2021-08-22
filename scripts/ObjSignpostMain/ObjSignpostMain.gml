@@ -11,7 +11,7 @@ function ObjSignpostMain()
 	// Activate
 	if !Active
 	{
-		if object_player_overlap(Triggerbox)
+		if object_check_overlap(Triggerbox)
 		{
 			Active = 1;	
 			audio_sfx_play(sfxSignPost, false);
@@ -20,7 +20,6 @@ function ObjSignpostMain()
 			audio_bgm_stop(PriorityHigh, 1);
 			
 			Stage.TimeEnabled = false;
-			Stage.AllowPause  = false;
 			Stage.IsFinished  = 1;
 			
 			// Disable super state

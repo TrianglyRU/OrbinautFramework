@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Pushable Block",
-    "path": "folders/Objects/Stage Objects/Pushable Block.yy",
+    "path": "folders/Game Objects/Stage Objects/Pushable Block.yy",
   },
   "resourceVersion": "1.0",
   "name": "PushableBlock",

@@ -9,9 +9,6 @@ function DiscordSetup()
 	// Set details information block
 	switch room 
 	{
-		case MQZ0: 
-			DetailsString = "MOONLIGHT QUADRANT 1";
-		break;
 		default:
 			DetailsString = "UNKNOWN STAGE";
 		break;
@@ -39,4 +36,6 @@ function DiscordSetup()
 	// Set icons
 	MainImage  = "orbinaut";
 	SmallImage = Char;
+	
+	PresenceReady = false;
 }

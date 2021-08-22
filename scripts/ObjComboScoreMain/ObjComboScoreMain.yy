@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Combo Score",
-    "path": "folders/Objects/Stage Objects/Combo Score.yy",
+    "path": "folders/Game Objects/Stage Objects/Combo Score.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjComboScoreMain",

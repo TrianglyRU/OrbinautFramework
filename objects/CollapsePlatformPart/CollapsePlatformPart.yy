@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Sloped Platform",
-    "path": "folders/Objects/Stage Objects/Sloped Platform.yy",
+    "name": "Collapsing Ledge",
+    "path": "folders/Game Objects/Stage Objects/Collapsing Ledge.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollapsePlatformPart",

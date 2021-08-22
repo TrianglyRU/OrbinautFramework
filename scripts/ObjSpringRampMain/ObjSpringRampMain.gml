@@ -83,5 +83,5 @@ function ObjSpringRampMain()
 	image_index = JumpTimer > 0;
 	
 	// Do collision
-	object_act_solid(false, true, false);
+	object_act_solid(false, true, false, true);
 }

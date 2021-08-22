@@ -114,7 +114,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Item Box/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Item Box/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_itembox_powerup",

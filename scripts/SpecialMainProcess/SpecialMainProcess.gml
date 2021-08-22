@@ -118,7 +118,7 @@ function SpecialMainProcess()
 		if (++RoomTimer) == 180
 		{
 			audio_sfx_play(sfxSpecialWarp, false);
-			fade_perform(FadeTo, FadeWhite, 1);
+			fade_perform(FadeTo, ColourWhite, 1);
 			RoomState = 2;
 		}
 	}
@@ -128,7 +128,7 @@ function SpecialMainProcess()
 	{
 		if fade_check(FadeMax)
 		{
-			fade_perform(FadeTo, FadeBlack, 1);
+			fade_perform(FadeTo, ColourBlack, 1);
 			RoomState = 3;
 		}
 	}

@@ -1,9 +1,9 @@
 function ContinueScreenProcess()
 {
 	// Exit if fade is active
-	//if Countdown == 659 and fade_check(FadeActive)
+	if Countdown == 659 and fade_check(FadeActive)
 	{
-		//exit;
+		exit;
 	}
 	
 	// Idle
@@ -38,13 +38,13 @@ function ContinueScreenProcess()
 			// If timer ran out, go back to devmenu
 			if Countdown == 0
 			{
-				fade_perform(FadeTo, FadeBlack, 1);
+				fade_perform(FadeTo, ColourBlack, 1);
 				
-				// Overwrite savedata if not playing in 'no save' slot
+				// Override save file if not in "no save" mode
 				if Game.ActiveSave != -1
 				{
 					gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0);
-				}	
+				}
 			}
 			if fade_check(FadeMax)
 			{
@@ -94,7 +94,7 @@ function ContinueScreenProcess()
 			if CharObject.x - Game.Width >= 64
 			{
 				RoomState++;
-				fade_perform(FadeTo, FadeBlack, 1);
+				fade_perform(FadeTo, ColourBlack, 1);
 			}
 		}
 	}

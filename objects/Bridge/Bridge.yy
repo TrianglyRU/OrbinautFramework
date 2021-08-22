@@ -32,7 +32,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Bridge",
-    "path": "folders/Objects/Stage Objects/Bridge.yy",
+    "path": "folders/Game Objects/Stage Objects/Bridge.yy",
   },
   "resourceVersion": "1.0",
   "name": "Bridge",

@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Trigger (Roll)",
-    "path": "folders/Objects/Stage Objects/Trigger (Roll).yy",
+    "path": "folders/Game Objects/Stage Objects/Trigger (Roll).yy",
   },
   "resourceVersion": "1.0",
   "name": "RollTrigger",

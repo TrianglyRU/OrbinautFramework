@@ -4,16 +4,24 @@ function PlayerSetup()
 	switch Game.Character
 	{
 		case CharSonic:
+		{
 			sprite_index = spr_sonic_idle;
+			image_speed  = 0;
+		}
 		break;
 		case CharTails:
+		{
 			sprite_index = spr_tails_idle;
+			image_speed  = 0;
+		}
 		break;
 		case CharKnuckles:
+		{
 			sprite_index = spr_knuckles_idle;
+			image_speed  = 0;
+		}
 		break;
 	}
-	Animation = AnimIdle;
 	Facing	  = FlipRight;
 	DrawOrder = layer_get_depth("Objects");
 	
@@ -62,10 +70,20 @@ function PlayerSetup()
 		RecordedPosY[| Index] = y;
 	}
 	
-	// Load player on global spawn position in case it exists
+	// Set start position
 	if !array_equals(Game.PlayerPosition, [])
 	{
-		Player.PosX = Game.PlayerPosition[0];
-		Player.PosY = Game.PlayerPosition[1];
+		PosX = Game.PlayerPosition[0];
+		PosY = Game.PlayerPosition[1];
 	}
+	
+	// If coming from special stage, load on ring's position
+	if !array_equals(Game.SpecialRingData, [])
+	{
+		PosX = Game.SpecialRingData[0];
+		PosY = Game.SpecialRingData[1];
+	}
+	
+	/* If none of positions above exist, player will spawn
+	on checkpoint. It is handled from its side! */
 }

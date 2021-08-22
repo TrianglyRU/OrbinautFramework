@@ -1,8 +1,9 @@
 function ObjStarPostStartup()
 {
 	// Create variables
-	Active = 0;
-	Angle  = 0;
+	Active      = 0;
+	Angle       = 0;
+	ActiveCheck = 0;
 	
 	/* Variable Definitions	
 	1. ID, default = 0		

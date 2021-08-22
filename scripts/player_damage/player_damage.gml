@@ -16,17 +16,18 @@ function player_damage(flame_type,thunder_type,instant_kill)
 	}
 	
 	// Set flags
-	Player.NoControls  = true;
-	Player.Grounded	   = false;
-	Player.OnObject	   = false;
-	Player.Jumping	   = false;
-	Player.Spinning    = false;
-	Player.FlightState = false;
-	Player.GlideState  = false;
-	Player.ClimbState  = false;
-	Player.PeeloutRev  = -1;
-	Player.SpindashRev = -1;
-	Player.DropdashRev = -1;
+	Player.AirLock      = true;
+	Player.Grounded	    = false;
+	Player.OnObject	    = false;
+	Player.Jumping	    = false;
+	Player.Spinning     = false;
+	Player.FlightState  = false;
+	Player.GlideState   = false;
+	Player.ClimbState   = false;
+	Player.PeeloutRev   = -1;
+	Player.SpindashRev  = -1;
+	Player.DropdashRev  = -1;
+	Player.DropdashFlag = -1;
 	
 	// Stop sounds
 	audio_sfx_stop(sfxFlying);
@@ -36,7 +37,6 @@ function player_damage(flame_type,thunder_type,instant_kill)
 	if !Player.Rings and !Player.BarrierType or instant_kill
 	{	
 		// Set flags
-		Stage.AllowPause	       = false;
 		Camera.Enabled			   = false;
 		Player.InvincibilityFrames = 0;
 		Player.DrawOrder	       = 0;
@@ -60,8 +60,11 @@ function player_damage(flame_type,thunder_type,instant_kill)
 			audio_sfx_play(sfxHurt, false);
 		}
 		
-		// Remove barrier
-		instance_destroy(Barrier);
+		// Destroy invincibility stars
+		with all if object_index == InvincibilityStar
+		{
+			instance_destroy();
+		}
 	}
 		
 	// Check if player has rings or barrier
@@ -129,10 +132,6 @@ function player_damage(flame_type,thunder_type,instant_kill)
 		// Lose barrier
 		else
 		{
-			// Remove barrier
-			instance_destroy(Barrier);
-			Player.BarrierType = false;
-			
 			// Play sound
 			if object_index == SpikesVertical or object_index == SpikesHorizontal
 			{
@@ -161,5 +160,12 @@ function player_damage(flame_type,thunder_type,instant_kill)
 			Player.Xsp = floor(Player.PosX) > floor(x) ? 1 : -1;
 			Player.Ysp = -2;
 		}
+	}
+	
+	// Destroy barrier
+	if Player.BarrierType
+	{
+		Player.BarrierType = false;
+		instance_destroy(Barrier);
 	}
 }

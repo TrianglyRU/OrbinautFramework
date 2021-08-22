@@ -94,7 +94,7 @@ function ObjBubbleMain()
 	// If bubble is the large one, be collected by the player
 	if BubbleType == 2 and Player.BarrierType != BarrierWater
 	{
-		if image_index == 4 and object_player_overlap(Triggerbox)
+		if image_index == 4 and object_check_overlap(Triggerbox)
 		{
 			// Restore music
 			if Player.AirTimer <= 720
@@ -129,7 +129,7 @@ function ObjBubbleMain()
 			
 			// Reset flags
 			Player.AirTimer     = 1800;
-			Player.MovementLock = 35;
+			Player.GroundLock = 35;
 			Player.Xsp		    = 0;
 			Player.Ysp		    = 0;
 			Player.Inertia	    = 0;	

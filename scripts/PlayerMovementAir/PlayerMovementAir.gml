@@ -23,7 +23,7 @@ function PlayerMovementAir()
 	}
 	
 	// Handle air movement
-	if !(RollJumping and !Game.RolljumpControl) and !NoControls
+	if !AirLock
 	{
 		if Input.Left 
 		{	
@@ -69,15 +69,5 @@ function PlayerMovementAir()
 	if Ysp < 0 and Ysp > -4 and !Hurt
 	{
 		Xsp -= floor(Xsp/0.125) / 256;
-	}
-	
-	// Handle animations
-	if Animation = AnimSpring and Ysp > 0
-	{
-		Animation = AnimMove;
-	}
-	if Animation == AnimBreathe and animation_get_frame(id) == 2
-	{
-		Animation = AnimMove;
 	}
 }

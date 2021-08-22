@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Special Ring/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Special Ring/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_specialring_editor",

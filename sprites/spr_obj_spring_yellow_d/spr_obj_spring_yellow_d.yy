@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Spring Boards/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Springs/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_spring_yellow_d",

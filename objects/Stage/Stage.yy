@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage",
-    "path": "folders/Game Code/Stage.yy",
+    "name": "Playable Stage",
+    "path": "folders/Game Code/Playable Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage",

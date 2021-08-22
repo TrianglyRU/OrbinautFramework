@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Spikes/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Spikes/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_spikeshorizontal",

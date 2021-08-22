@@ -1,36 +1,37 @@
 function PlayerSlopeResist()
 {	
-	// Set slope gravity	
-	if !Game.S3SlopePhysics
+	// Exit if on ceiling
+	if Angle <= 225 and Angle >= 136.41
 	{
-		if Angle >= 46.41 and Angle <= 315
+		exit;
+	}
+	
+	// Set slope gravity
+	SlopeGravity = 0.125 * dsin(Angle);
+	
+	// Apply it
+	if Game.S3SlopePhysics
+	{
+		if Inertia != 0
 		{
-			SlopeGravity = 0.125 * dsin(Angle);
+			if Inertia < 0 or (Inertia >= 0 and SlopeGravity != 0)
+			{
+				Inertia -= SlopeGravity;
+			}
 		}
-		else if Inertia != 0
+		
+		// If moving, subtract slope gravity only if it is greater than 0.05078125
+		else if abs(SlopeGravity) > 0.05078125
 		{
-			SlopeGravity = 0.125 * dsin(Angle);
+			Inertia -= SlopeGravity;
 		}
 	}
 	else
 	{
-		if Angle >= 35.16 and Angle <= 326.25
+		// Apply slope gravity only when moving
+		if Inertia < 0 or (Inertia > 0 and SlopeGravity != 0)
 		{
-			if Inertia == 0 and abs(0.125 * dsin(Angle)) < 0.05078125
-			{
-				SlopeGravity = 0;
-			}
-			else
-			{
-				SlopeGravity = 0.125 * dsin(Angle);
-			}
-		}
-		else if Inertia != 0
-		{
-			SlopeGravity = 0.125 * dsin(Angle);
+			Inertia -= SlopeGravity;
 		}
 	}
-	
-	// Apply it to inertia
-	Inertia -= SlopeGravity;
 }

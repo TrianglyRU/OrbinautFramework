@@ -71,6 +71,6 @@ function PlayerTailsFlight()
 		FlightState	= false;
 		Spinning	= true;
 		Grv			= 0.21875;	
-		Animation	= AnimRoll;
+		Animation	= AnimSpin;
 	}	
 }

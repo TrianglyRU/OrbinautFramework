@@ -110,7 +110,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Dropdash Dust/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Dropdash Dust/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_dropdash_dust",

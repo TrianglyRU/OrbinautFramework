@@ -3,5 +3,5 @@
 	
 	if State == 2 and fade_check(FadeMax)
 	{
-		room_goto(SpecialMainRoom);
+		room_goto(SStageMain);
 	}

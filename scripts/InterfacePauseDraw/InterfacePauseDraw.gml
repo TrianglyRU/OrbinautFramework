@@ -11,6 +11,6 @@ function InterfacePauseDraw()
 	var MenuY = Game.Height / 2;
 	
 	// Draw pause menu
-	draw_sprite(spr_pause_menu,	   sign(PauseValue[1]),						MenuX, MenuY);
-	draw_sprite(spr_pause_buttons, PauseValue[0] + (PauseValue[1] ? 3 : 0), MenuX, MenuY);
+	draw_sprite(gui_pause_menu,	   sign(PauseValue[1]),						MenuX, MenuY);
+	draw_sprite(gui_pause_options, PauseValue[0] + (PauseValue[1] ? 3 : 0), MenuX, MenuY);
 }

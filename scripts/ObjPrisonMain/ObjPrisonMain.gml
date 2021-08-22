@@ -6,7 +6,7 @@ function ObjPrisonMain()
 		case 0:
 		{
 			// Do collision
-			object_act_solid(true, true, true);
+			object_act_solid(true, true, true, false);
 				
 			// Check if button has been pressed
 			if ChildObject.Pressed
@@ -16,7 +16,6 @@ function ObjPrisonMain()
 				ExplDelay = irandom(32);
 				
 				Stage.TimeEnabled = false;
-				Stage.AllowPause  = false;
 				Stage.IsFinished  = 1;
 				
 				// Disable super state
@@ -32,7 +31,7 @@ function ObjPrisonMain()
 		case 1: 
 		{
 			// Do collision
-			object_act_solid(true, true, true);
+			object_act_solid(true, true, true, false);
 				
 			// Spawn explosions for 60 frames
 			if Timer
@@ -66,7 +65,11 @@ function ObjPrisonMain()
 		case 2:
 		{
 			// Disable collisions
-			object_act_solid(false, false, false);
+			if Player.OnObject == id
+			{
+				Player.Grounded = false;
+				Player.OnObject = false;
+			}
 				
 			if Timer
 			{ 

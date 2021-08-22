@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Room Objects/Continue Character/Sprites.yy",
+    "path": "folders/Game Objects/Room Objects/Continue Character/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_cont_sonic_wait",

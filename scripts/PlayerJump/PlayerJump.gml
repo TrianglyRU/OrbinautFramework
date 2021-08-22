@@ -6,23 +6,35 @@ function PlayerJump()
 		exit;
 	}
 	
-	// If action button is not held, shorten jump force and reset dropdash
+	// If action button is not held, shorten jump force
 	if !Input.ABC
 	{
 		if Ysp < JumpMin
 		{
 			Ysp = JumpMin;
 		}
-		if DropdashFlag
+		
+		// Reset dropdash
+		if DropdashFlag == -1
 		{
-			DropdashRev = -1;
-			Animation   = AnimRoll;
+			DropdashFlag = 0;
 		}
-		DropdashFlag = 0;
+		else if DropdashFlag == 1
+		{
+			DropdashFlag =  2;
+			DropdashRev  = -1;
+			Animation    = AnimSpin;
+		}
+	}
+	
+	// Do not perform any actions if moving too fast
+	if Ysp < JumpMin
+	{
+		exit;
 	}
 	
 	// Transform into super form with C button
-	if Input.CPress and (Rings >= 50 and Game.Emeralds == 7 and !SuperState and !Stage.IsFinished)
+	if Input.CPress and Rings >= 50 and ((Game.Emeralds == 7 or Game.DevMode) and !SuperState and !Stage.IsFinished)
 	{	
 		// Set animation
 		Animation = AnimTransform;
@@ -31,11 +43,10 @@ function PlayerJump()
 		InvincibilityFrames = 0;
 		Jumping		    = false;
 		Spinning	    = false;
-		RollJumping     = false;
 		InvincibleBonus = false;
 		SuperStateValue = false;
 		SuperState      = true;
-		NoControls		= true;
+		AirLock		    = true;
 			
 		// Reset collision radiuses
 		RadiusX = DefaultRadiusX;
@@ -57,11 +68,8 @@ function PlayerJump()
 			{
 				if Input.ABC and (Game.DropdashEnabled and DropdashFlag == 0)
 				{
-					RollJumping  = false;
+					AirLock      = false;
 					DropdashFlag = 1;
-					Animation    = AnimDropdash;
-					
-					audio_sfx_play(sfxDropDash, false);
 				}
 			}
 			else
@@ -69,10 +77,6 @@ function PlayerJump()
 				// Perform barrier action
 				if Input.ABCPress and !(InvincibleBonus or DropdashFlag or BarrierIsActive)
 				{			
-					BarrierIsActive = true;
-					RollJumping     = false;
-				
-					// Get current barrier
 					switch BarrierType
 					{
 						case BarrierFlame:
@@ -82,10 +86,20 @@ function PlayerJump()
 							{
 								Camera.ScrollDelay = 16;
 							}
+							
+							// Set barrier animation
+							with Barrier
+							{
+								sprite_index = spr_obj_barrier_flame_dash;
+								image_index  = 0;
+							}
 						
 							// Set speeds
-							Xsp = 8 * Facing;
-							Ysp = 0;
+							Xsp     = 8 * Facing;
+							Ysp     = 0;
+							
+							// Lock control
+							AirLock = true;
 						
 							// Play sound
 							audio_sfx_play(sfxFlameBarrierDash, false);
@@ -96,12 +110,15 @@ function PlayerJump()
 							// Create sparkles
 							for (var i = 0; i < 4; i++)
 							{
-								var  Sparkle = instance_create(floor(PosX), floor(PosY), ThunderSparkle);
-								with Sparkle
+								var  Object = instance_create(floor(PosX), floor(PosY), BarrierSparkle);
+								with Object
 								{
 									SparkleID = i;
 								}
 							}
+							
+							// Restore control
+							AirLock = false;
 						
 							// Set vertical speed
 							Ysp = -5.5;
@@ -115,9 +132,12 @@ function PlayerJump()
 							// Set barrier animation
 							with Barrier
 							{
-								sprite_index = spr_barrier_water_drop;
+								sprite_index = spr_obj_barrier_water_drop;
 								image_index  = 0;
 							}
+							
+							// Restore control
+							AirLock = false;
 						
 							// Set speeds
 							Xsp = Game.SMWaterBarrier ? Xsp / 2 : 0;
@@ -125,6 +145,9 @@ function PlayerJump()
 						}
 						break;
 					}
+					
+					// Set flag
+					BarrierIsActive = true;
 				}
 			}
 		}
@@ -142,7 +165,6 @@ function PlayerJump()
 				// Set flags
 				Jumping     = false;
 				Spinning    = false;
-				RollJumping = false;
 				Grv			= 0.03125;
 				FlightValue = 480;
 				FlightState = FlightActive;
@@ -171,13 +193,12 @@ function PlayerJump()
 				
 				// Set speeds
 				Inertia = 0;
-				Xsp     = 4 * Facing;	
-				Ysp     = max(Ysp, 0);
+				Xsp     = 4 * Facing;
+				Ysp     = Ysp <= 0 ? 0 : Ysp + 2;
 				
 				// Set flags
 				Jumping        = false;
 				Spinning       = false;
-				RollJumping    = false;
 				GlideGrounded  = false;
 				GlideDirection = Facing;
 				GlideValue     = Facing == FlipLeft ? 0 : 180;

@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Special Ring",
-    "path": "folders/Objects/Stage Objects/Special Ring.yy",
+    "path": "folders/Game Objects/Stage Objects/Special Ring.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpecialRingFlash",

@@ -20,7 +20,7 @@ function PlayerSuperFormsProcess()
 			// Restore inputs on 16th frame
 			else if SuperStateValue == 16
 			{
-				NoControls = false;
+				AirLock = false;
 			}
 			
 			// Become super on 40th (or 37th) frame
@@ -28,7 +28,7 @@ function PlayerSuperFormsProcess()
 			{
 				if Animation == AnimTransform
 				{
-					Animation = AnimWalk;
+					Animation = AnimMove;
 				}
 				SuperState		= 2;
 				SuperStateValue = 1;
@@ -39,9 +39,6 @@ function PlayerSuperFormsProcess()
 		// Superform
 		case 2:
 		{
-			// Keep us invincible
-			IsInvincible = true;
-		
 			// Decrease rings
 			if Rings and !Death and !Drown
 			{

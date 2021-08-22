@@ -24,7 +24,7 @@ function ObjItemBoxMain()
 			{
 				if Player.Ysp < 0
 				{
-					var Check = floor(Player.PosY + 16) >= CardPosY;
+					var Check = floor(Player.PosY + 16) >= PosY;
 				}
 				else
 				{
@@ -37,7 +37,7 @@ function ObjItemBoxMain()
 			}
 			if Check
 			{
-				if object_player_overlap(Hitbox)
+				if object_check_overlap(Hitbox)
 				{
 					// Inverse player's speed
 					if !Player.Grounded
@@ -46,7 +46,7 @@ function ObjItemBoxMain()
 					}
 					
 					// Create explosion
-					instance_create(floor(PosX), floor(PosY), DustExplosion);
+					instance_create(PosX, PosY, DustExplosion);
 					audio_sfx_play(sfxDestroy, false);
 				
 					// Temporary do not unload itembox
@@ -60,14 +60,14 @@ function ObjItemBoxMain()
 				}
 				
 				// Reset collision
-				object_act_solid(false, false, false);
+				object_act_solid(false, false, false, false);
 			}
 			else
 			{
 				// Check for bumping into its bottom
 				if !Airborne
 				{
-					if floor(Player.PosY) >= floor(PosY + 16) and object_player_overlap(Hitbox)
+					if floor(Player.PosY) >= floor(PosY + 16) and object_check_overlap(Hitbox)
 					{
 						Airborne = true;
 						Ysp      = -1.5;
@@ -77,14 +77,14 @@ function ObjItemBoxMain()
 				}
 				
 				// Do collision
-				object_act_solid(true, true, false);
+				object_act_solid(true, true, false, false);
 			}
 		}	
 		
 		// Do collision
 		else
 		{
-			object_act_solid(true, true, false);
+			object_act_solid(true, true, false, false);
 		}
 
 		// Check if monitor is airborne
@@ -94,15 +94,16 @@ function ObjItemBoxMain()
 			Ysp  += 0.21875;
 			PosY += Ysp;
 			
-			// Update position
-			object_update_position(PosX, PosY);
-		
 			// Collide with floor
-			var FindFloor = object_collide_tiles_v(SideCentre, SideBottom, 0, Player.Layer)
-			if  FindFloor
+			var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, Player.Layer)[0];
+			if  FindFloor < 0
 			{
+				PosY    += FindFloor;
 				Airborne = false;
 			}
+			
+			// Update position
+			object_update_position(PosX, PosY);
 		}	
 	}
 	else
@@ -166,7 +167,7 @@ function ObjItemBoxMain()
 						if !instance_exists(Barrier)
 						{
 							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							Object.sprite_index = spr_barrier_normal;
+							Object.sprite_index = spr_obj_barrier_normal;
 						}
 					}
 					break;
@@ -180,7 +181,7 @@ function ObjItemBoxMain()
 						if !instance_exists(Barrier)
 						{
 							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							Object.sprite_index = spr_barrier_flame;
+							Object.sprite_index = spr_obj_barrier_flame;
 						}
 					}
 					break;
@@ -194,7 +195,7 @@ function ObjItemBoxMain()
 						if !instance_exists(Barrier)
 						{
 							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							Object.sprite_index = spr_barrier_thunder;
+							Object.sprite_index = spr_obj_barrier_thunder;
 						}
 					}
 					break;
@@ -208,7 +209,7 @@ function ObjItemBoxMain()
 						if !instance_exists(Barrier)
 						{
 							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							Object.sprite_index = spr_barrier_water;
+							Object.sprite_index = spr_obj_barrier_water;
 						}
 						
 						// Play previous track if running out of air

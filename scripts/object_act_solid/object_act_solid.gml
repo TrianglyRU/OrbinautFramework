@@ -1,5 +1,5 @@
-/// @function object_act_solid(sides,top,bottom)
-function object_act_solid(sides,top,bottom)
+/// @function object_act_solid(sides,top,bottom,interactable)
+function object_act_solid(sides,top,bottom,interactable)
 {
 	// Clear touch and push flags
 	Obj_SolidTouchU	= false;
@@ -161,9 +161,16 @@ function object_act_solid(sides,top,bottom)
 						// Update horizontal speed and angle
 						Inertia  = Xsp;
 						Angle    = 360;
-					
-						/* We normally don't call *scripts* inside scripts or functions
-						in Orbinaut, but that's really the case where we need to do this */
+						
+						// If interactable, cancel barrier ability and dropdash
+						if interactable
+						{
+							BarrierIsActive = false;
+							DropdashRev		= -1;
+						}
+						
+						/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
+						of another script. It is needed here to allow player land on the object like on the ground */
 						PlayerResetOnFloor();
 					}
 					
@@ -179,7 +186,7 @@ function object_act_solid(sides,top,bottom)
 			// Tell the object we're touching its side, and set push animation
 			if PlayerX < ObjectX
 			{
-				if Player.Xsp > 0
+				if Player.Xsp > 0 and Player.Facing == FlipRight
 				{
 					Player.Pushing = true;
 				}
@@ -187,7 +194,7 @@ function object_act_solid(sides,top,bottom)
 			}
 			else
 			{
-				if Player.Xsp < 0
+				if Player.Xsp < 0 and Player.Facing == FlipLeft
 				{
 					Player.Pushing = true;
 				}

@@ -1,21 +1,23 @@
 function GameVariables()
 {	
 	// Global data
-	Game.DevMode		= 0;
-	Game.ActiveSave     = 0;
-	Game.Character	    = 0;
-	Game.Score		    = 0;
-	Game.Lives		    = 0;
-	Game.Continues	    = 0;
-	Game.Emeralds	    = 0;
-	Game.Time			= 0;
-	Game.StageBoundary	= 0;
-	Game.SpecialScore   = 0;
-	Game.SpecialState   = 0;
-	Game.StarpostID		= 0;
-	Game.SpecialRingIDs	= [];
-	Game.PlayerPosition	= [];
-	Game.CurrentStage   = [];
+	Game.DevMode		 = 0;
+	Game.ShowSplash	     = 0;
+	Game.ActiveSave      = 0;
+	Game.Character	     = 0;
+	Game.Score		     = 0;
+	Game.Lives		     = 0;
+	Game.Continues	     = 0;
+	Game.Emeralds	     = 0;
+	Game.Time			 = 0;
+	Game.StageBoundary	 = 0;
+	Game.SpecialScore    = 0;
+	Game.SpecialState    = 0;
+	Game.StarpostID		 = 0;
+	Game.SpecialRingIDs	 = [];
+	Game.SpecialRingData = [];
+	Game.PlayerPosition	 = [];
+	Game.CurrentStage    = [];
 	
 	// Discord global data
 	Game.DiscordEvent = "";

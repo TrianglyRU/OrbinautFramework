@@ -1,8 +1,19 @@
 /// @function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 {	
+	// Floor positions
+	x = floor(x);
+	y = floor(y);
+	
+	// If checking to positvie side, subtract 1 from x and y if this object is not player
+	if to_positive and object_index != Player
+	{
+		x -= 1;
+		y -= 1;
+	}
+	
 	// Return blank values if outside of the room
-	if x < 0 or y < 0 or x > room_width or y > room_height 
+	if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
 	{
 		return [32, 360];
 	}
@@ -65,6 +76,13 @@ function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 			var ResultTile      = SecondTile;
 			var ResultTileIndex = SecondTileIndex;
 		}
+	}
+	
+	// Return blank values if target tile is outside of the room
+	var BoundsCheck = (y + SearchShift * SearchDirection) div TileSize * TileSize;
+	if  BoundsCheck >= room_height or BoundsCheck <= 0
+	{
+		return [32, 360];
 	}
 		
 	// Get result tile height

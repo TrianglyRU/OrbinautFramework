@@ -13,9 +13,23 @@ function PlayerAnimate()
 		image_alpha = 1;
 	}
 	
-	// Calculate a speed factor for certain animations
-	var SpeedFactor = PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3;
+	// Initialise static variables for certain animations
+	static SpeedFactor     = 0;
+	static AnimSpringTime  = 48;
+	static AnimBreatheTime = 24;
 	
+	// Update statics
+	if Animation != AnimBreathe
+	{
+		AnimBreatheTime = 24;
+	}
+	if Animation != AnimSpring
+	{
+		AnimSpringTime = 48;
+	}
+	SpeedFactor = PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3;
+	
+	// Animate character
 	switch Game.Character
 	{	
 		// Sonic animations
@@ -84,7 +98,7 @@ function PlayerAnimate()
 						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
 					}
 					break;
-					case AnimRoll:
+					case AnimSpin:
 						animation_play(spr_sonic_roll, round(max(1, 4 - SpeedFactor)), 0);
 					break;
 					case AnimSpindash:
@@ -118,7 +132,16 @@ function PlayerAnimate()
 						animation_play(spr_sonic_balance_flip, 16, 0);
 					break;
 					case AnimSpring:
-						animation_play(spr_sonic_spring, 1, 0);
+					{
+						if !(--AnimSpringTime)
+						{
+							Animation = AnimMove;
+						}
+						else
+						{
+							animation_play(spr_sonic_spring, 1, 0);
+						}
+					}
 					break;
 					case AnimActEnd:
 						animation_play(spr_sonic_actend, 12, 0);
@@ -127,7 +150,16 @@ function PlayerAnimate()
 						animation_play(spr_sonic_airspin, 3, 0);
 					break;
 					case AnimBreathe:
-						animation_play(spr_sonic_breathe, 24, 1);
+					{
+						if !(--AnimBreatheTime)
+						{
+							Animation = AnimMove;
+						}
+						else
+						{
+							animation_play(spr_sonic_breathe, 1, 0);
+						}
+					}
 					break;
 					case AnimDropdash:
 						animation_play(spr_sonic_dropdash, 1, 0);
@@ -175,7 +207,7 @@ function PlayerAnimate()
 						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
 					}
 					break;
-					case AnimRoll:
+					case AnimSpin:
 						animation_play(spr_sonic_roll, round(max(1, 4 - SpeedFactor)), 0);
 					break;
 					case AnimSpindash:
@@ -206,13 +238,31 @@ function PlayerAnimate()
 						animation_play(spr_supersonic_balance, 10, 0);
 					break;
 					case AnimSpring:
-						animation_play(spr_supersonic_spring, 4, 0);
+					{
+						if !(--AnimSpringTime)
+						{
+							Animation = AnimMove;
+						}
+						else
+						{
+							animation_play(spr_supersonic_spring, 4, 0);
+						}
+					}
 					break;
 					case AnimAirSpin:
 						animation_play(spr_supersonic_airspin, 3, 0);
 					break;
 					case AnimBreathe:
-						animation_play(spr_supersonic_breathe, 24, 1);
+					{	
+						if !(--AnimBreatheTime)
+						{
+							Animation = AnimMove;
+						}
+						else
+						{
+							animation_play(spr_supersonic_breathe, 1, 0);
+						}
+					}
 					break;
 					case AnimDropdash:
 						animation_play(spr_sonic_dropdash, 1, 0);
@@ -270,7 +320,7 @@ function PlayerAnimate()
 					}
 					else if abs(Inertia) < 10
 					{
-						var Sprite = spr_tails_fly;
+						var Sprite = spr_tails_run;
 					}
 					else
 					{
@@ -279,7 +329,7 @@ function PlayerAnimate()
 					animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
 				}
 				break;
-				case AnimRoll:
+				case AnimSpin:
 					animation_play(spr_tails_roll, 2, 0);
 				break;
 				case AnimSpindash:
@@ -314,7 +364,16 @@ function PlayerAnimate()
 					animation_play(spr_tails_death, 1, 0);
 				break;
 				case AnimSpring:
-					animation_play(spr_tails_spring, 4, 0);
+				{
+					if !(--AnimSpringTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_tails_spring, 4, 0);
+					}
+				}
 				break;
 				case AnimPush:
 					animation_play(spr_tails_push, round(max(1, 8 - SpeedFactor) * 4), 0);
@@ -332,7 +391,16 @@ function PlayerAnimate()
 					animation_play(spr_tails_airspin, 3, 0);
 				break;
 				case AnimBreathe:
-					animation_play(spr_tails_breathe, 24, 1);
+				{
+					if !(--AnimBreatheTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_tails_breathe, 1, 0);
+					}
+				}
 				break;
 				default: break;
 			}	
@@ -379,7 +447,7 @@ function PlayerAnimate()
 					animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
 				}
 				break;
-				case AnimRoll:
+				case AnimSpin:
 					animation_play(spr_knuckles_roll, round(max(1, 4 - SpeedFactor)), 0);
 				break;
 				case AnimSpindash:
@@ -407,7 +475,13 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimGlideDrop:
-					animation_play(spr_knuckles_glidedrop, 6, 1);
+					animation_play(spr_knuckles_drop, 6, 1);
+				break;
+				case AnimClimbDrop:
+				{
+					sprite_index = spr_knuckles_drop;
+					image_index  = 1;
+				}
 				break;
 				case AnimDropStand:
 					animation_play(spr_knuckles_dropstand, 1, 0);
@@ -428,10 +502,34 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_push, round(max(1, 8 - SpeedFactor)), 0);
 				break;
 				case AnimSpring:
-					animation_play(spr_knuckles_spring, 1, 0);
+				{
+					if !(--AnimSpringTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_knuckles_spring, 1, 0);
+					}
+				}
 				break;
 				case AnimBalance:
-					animation_play(spr_knuckles_balance, 4, 33);
+				{
+					var Frame = sprite_index == spr_knuckles_balance ? image_index : 0;
+					if  Frame < 6 or Frame >= 9
+					{
+						var Duration = 8;
+					}
+					else if Frame == 6
+					{
+						var Duration = 60;
+					}
+					else if Frame < 9
+					{
+						var Duration = 12;
+					}
+					animation_play(spr_knuckles_balance, Duration, 9);
+				}
 				break;
 				case AnimTransform:
 					animation_play(spr_knuckles_transform, 3, 2);
@@ -443,7 +541,16 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_airspin, 3, 0);
 				break;
 				case AnimBreathe:
-					animation_play(spr_knuckles_breathe, 24, 1);
+				{
+					if !(--AnimBreatheTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_knuckles_breathe, 1, 0);
+					}
+				}
 				break;
 				default: break;
 			}

@@ -16,15 +16,15 @@ function PlayerBalance()
 		}
 		
 		// Check for floor
-		var FloorDistance = tile_check_collision_v(floor(PosX), floor(PosY + RadiusY), true, false, Layer)[0];	
+		var FloorDistance = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer)[0];	
 		if  FloorDistance < 12
 		{
 			exit;
 		}
 		
 		// Get floor angles
-		var LeftAngle  = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
-		var RightAngle = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer)[1];
+		var LeftAngle  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer)[1];
+		var RightAngle = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer)[1];
 		
 		// Continue if only one angle exists
 		if !(LeftAngle or RightAngle)

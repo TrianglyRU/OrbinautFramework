@@ -13,20 +13,20 @@ function ObjAnimalMain()
 	{	
 		// Move vertically		
 		PosY += Ysp;
-		Ysp  += 0.21875; 
-	
-		// Update position
-		object_update_position(PosX, PosY);
-	
+		Ysp  += 0.21875;
+		
 		// Appear
 		if State == 0
 		{
 			if Ysp > 0 
 			{
 				// Collide with floor
-				var FindFloor = object_collide_tiles_v(SideCentre, SideBottom, 0, LayerA)
-				if  FindFloor
+				var FindFloor = tile_check_collision_v(PosX, PosY + 12, true, false, LayerA)[0];
+				if  FindFloor < 0
 				{
+					// Clip out
+					PosY += FindFloor;
+					
 					// Set direction
 				    image_xscale = FromCapsule ? choose(-1, 1) : -1;
 				
@@ -83,16 +83,23 @@ function ObjAnimalMain()
 				}
 				break;
 			}
-		 
-			// Reverse speed if in collision with floor
+			
+			// Check for floor
 			if Ysp > 0
 			{
-				var FindFloor = object_collide_tiles_v(SideCentre, SideBottom, 0, LayerA)
-				if  FindFloor
+				var FindFloor = tile_check_collision_v(PosX, PosY + 12, true, false, LayerA)[0]
+				if  FindFloor < 0
 				{
+					// Clip out
+					PosY += FindFloor;
+					
+					// Reverse speed
 					Ysp = DefaultYsp;
 				}
 			}
 		}
 	}
+	
+	// Update position
+	object_update_position(PosX, PosY);
 }

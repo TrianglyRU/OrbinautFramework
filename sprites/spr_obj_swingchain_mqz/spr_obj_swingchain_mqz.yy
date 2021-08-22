@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Swinging Platform/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Swinging Platform/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_swingchain_mqz",

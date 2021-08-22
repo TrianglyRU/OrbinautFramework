@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Badniks (Code is quit messy!)/Motobug/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Badniks/Motobug/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_motobug",

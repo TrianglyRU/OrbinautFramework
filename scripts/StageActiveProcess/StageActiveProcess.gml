@@ -37,8 +37,11 @@ function StageActiveProcess()
 		Camera.Enabled = false;
 		TimeEnabled    = false;
 		
+		// Clear special ring data
+		Game.SpecialRingData = [];
+		
 		// Check if player has fallen below stage boundary
-		if floor(Player.PosY) >= Stage.BottomBoundary
+		if floor(Player.PosY) >= Stage.BottomBoundary + 16
 		{	
 			if !EventTimer
 			{
@@ -58,7 +61,7 @@ function StageActiveProcess()
 			if !IsGameOver and EventTimer == 60
 			or  IsGameOver and EventTimer == 600
 			{
-				fade_perform(FadeTo, FadeBlack, 1);
+				fade_perform(FadeTo, ColourBlack, 1);
 				
 				// Stop all music
 				audio_bgm_stop(PriorityLow,  0.5);
@@ -86,18 +89,11 @@ function StageActiveProcess()
 					Game.StarpostID     = false;
 					Game.Time	        = 0;
 					Game.StageBoundary  = 0;
-					Game.SpecialRingIDs = [];
 					Game.PlayerPosition = [];
 					
 					// If ran out of lives and have continues, go to continue screen
 					if Game.Continues
 					{
-						Game.StarpostID     = false;
-						Game.Time	        = 0;
-						Game.StageBoundary  = 0;
-						Game.SpecialRingIDs = [];
-						Game.PlayerPosition = [];
-					
 						room_goto(Continue);
 					}
 					
@@ -107,7 +103,7 @@ function StageActiveProcess()
 						// Override save file if not in "no save" mode
 						if Game.ActiveSave != -1
 						{
-							gamedata_save(Game.ActiveSave, Game.Character, Stage.ZoneID, 0, 3, 0, 0);
+							gamedata_save(Game.ActiveSave, Game.Character, Stage.ZoneID, Game.Emeralds, 3, 0, 0);
 						}
 						room_goto(DevMenu);
 					}

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Motobug",
-    "path": "folders/Objects/Stage Objects/Badniks (Code is quit messy!)/Motobug.yy",
+    "path": "folders/Game Objects/Stage Objects/Badniks/Motobug.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjMotobugStartup",

@@ -146,17 +146,6 @@ function PaletteShiftProcess()
 	// Room colours shift
 	switch room
 	{
-		case MQZ0:
-		{
-			// Surface
-			palette_handle(PaletteDry, 12, 8, 8, 1, 4);
-			palette_handle(PaletteDry, 20, 1, 8, 1, 6);
-			
-			// Underwater
-			palette_handle(PaletteWet, 47, 8, 8, 1, 4);
-			palette_handle(PaletteWet, 55, 1, 8, 1, 6);
-		}
-		break;
 		default: break;
 	}
 }

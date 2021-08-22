@@ -7,9 +7,9 @@ function PlayerSlopeRepel()
 	}
 	
 	// Decrease timer every frame when grounded if non-zero
-	if MovementLock
+	if GroundLock
 	{
-		MovementLock--;
+		GroundLock--;
 	}
 	
 	// Decrease timer every frame if it's non-zero when grounded
@@ -27,7 +27,7 @@ function PlayerSlopeRepel()
 				Inertia = 0;
 					
 				// Lock horizontal input controls for 30 frames
-				MovementLock = 30;		
+				GroundLock = 30;		
 			} 
 		}
 		else
@@ -48,7 +48,7 @@ function PlayerSlopeRepel()
 				}
 				
 				// Lock horizontal input controls for 30 frames
-				MovementLock = 30;
+				GroundLock = 30;
 			}
 		}	
 	}

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Signpost",
-    "path": "folders/Objects/Stage Objects/Signpost.yy",
+    "name": "Sign Post",
+    "path": "folders/Game Objects/Stage Objects/Sign Post.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjSignpostMain",

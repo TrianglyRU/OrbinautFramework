@@ -814,7 +814,7 @@
   },
   "parent": {
     "name": "Collision Tileset",
-    "path": "folders/Stages & Rooms/Collision Tileset.yy",
+    "path": "folders/Collision Tileset.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollisionTilemap",

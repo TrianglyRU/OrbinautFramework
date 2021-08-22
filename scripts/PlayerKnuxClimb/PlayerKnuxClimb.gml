@@ -9,9 +9,6 @@ function PlayerKnuxClimb()
 	// Climb on walls
 	if ClimbState == 1
 	{
-		// Set animation
-		Animation = AnimClimb;
-		
 		// Move up and down and all around
 		if Input.Up
 		{
@@ -25,53 +22,44 @@ function PlayerKnuxClimb()
 		{
 			Ysp = 0;
 		}
+		Animation = AnimClimb;
 		
 		// Collide with ceiling
 		if Ysp < 0
 		{
-			var RoofDistance = tile_check_collision_v(floor(PosX + RadiusX * Facing), floor(PosY - RadiusY), false, true, Layer)[0];	
+			var RoofDistance = tile_check_collision_v(PosX + RadiusX * Facing, PosY - RadiusY, false, true, Layer)[0];	
 			if  RoofDistance < 0
 			{	
 				PosY -= RoofDistance;
-				Ysp   = 0;
 			}
 		}
 	
 		// Collide with floor
-		else
+		else if Ysp > 0
 		{
-			var FloorDistance = tile_check_collision_v(floor(PosX + 10 * Facing), floor(PosY + RadiusY), true, false, Layer)[0];	
+			var FloorDistance = tile_check_collision_v(PosX + 10 * Facing, PosY + RadiusY, true, false, Layer)[0];
 			if  FloorDistance < 0
-			{	
-				// Reset collision radiuses
-				RadiusX = DefaultRadiusX;
-				RadiusY = DefaultRadiusY;
-				
-				// Clip out and land
-				PosY    += FloorDistance;
+			{
+				PosY    += DistanceDown;
 				Grounded = true;
-				Ysp      = 0;
+				Ysp		 = 0;
 				
-				// Exit the code
+				// Exit further code
 				exit;
 			}
 		}
 		
-		// Check for walls
-		var DistanceAbove = tile_check_collision_h(floor(PosX + RadiusX * Facing), floor(PosY - 10), Facing, true, Layer)[0];
-		var DistanceBelow = tile_check_collision_h(floor(PosX + RadiusX * Facing), floor(PosY + 10), Facing, true, Layer)[0];
-		
-		// Check if there is no wall in front of us
-		if DistanceBelow > 0
+		// Drop if no wall found in front of us
+		var WallDistance = tile_check_collision_h(PosX + RadiusX * Facing, PosY + 10, Facing, true, Layer)[0];
+		if  WallDistance > 0
 		{
+			ClimbState = false;
+			GlideState = GlideDrop;	
+			Animation  = AnimClimbDrop;
+					
 			// Reset collision radiuses
 			RadiusX = DefaultRadiusX;
 			RadiusY = DefaultRadiusY;
-			
-			// Set flags
-			ClimbState = false;
-			GlideState = GlideDrop;
-			Animation  = AnimGlideDrop;
 			
 			// Reset gravity
 			if !IsUnderwater
@@ -83,24 +71,27 @@ function PlayerKnuxClimb()
 				// Lower by 0x28 (0.15625) if underwater
 				Grv = 0.0625
 			}
+			
+			// Exit further code
+			exit;
 		}
 		
-		// Check if we're near the edge to climb on it
-		else if DistanceAbove > 0
+		// If near the edge, start climbering
+		var EdgeDistance = tile_check_collision_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[0];
+		if  EdgeDistance
 		{
-			ClimbState     = 2;
 			Ysp		       = 0;
+			ClimbState     = 2;
 			AllowCollision = false;
 		}
 				
-		// Jump if we pressed action button
+		// Check for jump
 		else if Input.ABCPress
 		{
-			// Set flags
 			Facing	  *= -1;
 			Jumping	   = true;
 			ClimbState = false;
-			Animation  = AnimRoll;
+			Animation  = AnimSpin;
 			
 			// Set speeds
 			Ysp	= -4;
@@ -122,7 +113,7 @@ function PlayerKnuxClimb()
 		}
 	}
 		
-	// Check if we're climbering on the edge
+	// Climb on the edge
 	if ClimbState == 2
 	{
 		// Adjust positons

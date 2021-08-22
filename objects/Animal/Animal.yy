@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Animal",
-    "path": "folders/Objects/Stage Objects/Animal.yy",
+    "path": "folders/Game Objects/Stage Objects/Animal.yy",
   },
   "resourceVersion": "1.0",
   "name": "Animal",

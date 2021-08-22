@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Room Objects/Loading Icon/Sprites.yy",
+    "path": "folders/Game Objects/Room Objects/Loading Icon/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_loading_sonic",

@@ -24,7 +24,6 @@ function StageVariables()
 	StageMusic		     = 0;
 	PauseButton			 = 0;
 	PauseMode			 = 0;
-	AllowPause			 = 0;
 	CardEnabled			 = 0;
 	DoUpdate			 = 0;
 	TileLayer			 = [];

@@ -20,7 +20,7 @@ function PlayerAirLevelCollision()
 		case "MoveDown":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0];
+			var LeftDistance = tile_check_collision_h(PosX - 10, PosY, false, true, Layer)[0];
 			if  LeftDistance < 0
 			{
 				PosX -= LeftDistance;
@@ -28,7 +28,7 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(floor(PosX + 10), floor(PosY), true, true, Layer)[0];
+			var RightDistance = tile_check_collision_h(PosX + 10, PosY, true, true, Layer)[0];
 			if  RightDistance < 0
 			{
 				PosX += RightDistance;
@@ -36,13 +36,24 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Get nearest tile below us
-			var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
-			var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
-			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+			var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+			var TileRight = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+			
+			// Check if we should use tile right below our position to avoid stupid quirk from originals
+			var TileMiddle = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer);
 			
 			// Get data
-			var FloorDistance = NearestTile[0];
-			var FloorAngle    = NearestTile[1];
+			if TileMiddle[0] < TileLeft[0] and TileMiddle[0] < TileRight[0]
+			{
+				var FloorDistance = TileMiddle[0];
+				var FloorAngle    = TileMiddle[1];
+			}
+			else
+			{
+				var NearestTile   = tile_check_nearest(TileLeft, TileRight, noone);
+				var FloorDistance = NearestTile[0];
+				var FloorAngle    = NearestTile[1];
+			}
 			
 			// Collide with floor
 			if FloorDistance < 0
@@ -83,7 +94,7 @@ function PlayerAirLevelCollision()
 		case "MoveUp":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0];
+			var LeftDistance = tile_check_collision_h(PosX - 10, PosY, false, true, Layer)[0];
 			if  LeftDistance < 0
 			{
 				PosX -= LeftDistance;
@@ -91,7 +102,7 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(floor(PosX + 10), floor(PosY), true, true, Layer)[0];
+			var RightDistance = tile_check_collision_h(PosX + 10, PosY, true, true, Layer)[0];
 			if  RightDistance < 0
 			{
 				PosX += RightDistance;
@@ -99,11 +110,11 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Get nearest tile above us
-			var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
-			var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
-			var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+			var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
+			var TileRight = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
 			
 			// Get data
+			var NearestTile  = tile_check_nearest(TileLeft, TileRight, noone);
 			var RoofDistance = NearestTile[0];
 			var RoofAngle    = NearestTile[1];
 			
@@ -131,7 +142,7 @@ function PlayerAirLevelCollision()
 		case "MoveLeft":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(floor(PosX - 10), floor(PosY), false, true, Layer)[0];
+			var LeftDistance = tile_check_collision_h(PosX - 10, PosY, false, true, Layer)[0];
 			if  LeftDistance < 0
 			{
 				PosX -= LeftDistance;
@@ -145,11 +156,11 @@ function PlayerAirLevelCollision()
 			else
 			{
 				// Get nearest tile above us
-				var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
-				var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
-				var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+				var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
+				var TileRight = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
 				
 				// Get data
+				var NearestTile  = tile_check_nearest(TileLeft, TileRight, noone);
 				var RoofDistance = NearestTile[0];
 				var RoofAngle    = NearestTile[1];
 			
@@ -171,11 +182,11 @@ function PlayerAirLevelCollision()
 				else if Ysp > 0
 				{
 					// Get nearest tile below us
-					var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
-					var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
-					var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
-					
+					var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+					var TileRight = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+
 					// Get data
+					var NearestTile   = tile_check_nearest(TileLeft, TileRight, noone);
 					var FloorDistance = NearestTile[0];
 					var FloorAngle    = NearestTile[1];
 			
@@ -195,7 +206,7 @@ function PlayerAirLevelCollision()
 		case "MoveRight":
 		{
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(floor(PosX + 10), floor(PosY), true, true, Layer)[0];
+			var RightDistance = tile_check_collision_h(PosX + 10, PosY, true, true, Layer)[0];
 			if  RightDistance < 0
 			{
 				PosX += RightDistance;
@@ -209,11 +220,11 @@ function PlayerAirLevelCollision()
 			else
 			{
 				// Get nearest tile above us
-				var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer);
-				var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer);
-				var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+				var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
+				var TileRight = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
 				
 				// Get data
+				var NearestTile  = tile_check_nearest(TileLeft, TileRight, noone);
 				var RoofDistance = NearestTile[0];
 				var RoofAngle    = NearestTile[1];
 			
@@ -235,11 +246,11 @@ function PlayerAirLevelCollision()
 				else if Ysp > 0
 				{
 					// Get nearest tile below us
-					var TileLeft    = tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, false, Layer);
-					var TileRight   = tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, false, Layer);
-					var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+					var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+					var TileRight = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
 					
 					// Get data
+					var NearestTile   = tile_check_nearest(TileLeft, TileRight, noone);
 					var FloorDistance = NearestTile[0];
 					var FloorAngle    = NearestTile[1];
 			

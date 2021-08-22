@@ -22,7 +22,7 @@ function PlayerResetOnFloor()
 		// Set barrier animation
 		with Barrier
 		{
-			sprite_index = spr_barrier_water_bounce;
+			sprite_index = spr_obj_barrier_water_bounce;
 			image_index  = 0;
 		}
 		
@@ -32,7 +32,7 @@ function PlayerResetOnFloor()
 	else
 	{
 		// If landed on solid ground, set animation and clear spinning flag
-		if !OnObject
+		if !OnObject and Animation != AnimIdle
 		{
 			Animation = AnimMove;
 		}
@@ -43,10 +43,10 @@ function PlayerResetOnFloor()
 	
 		// Reset flags
 		Jumping			= false;
-		RollJumping		= false;
+		AirLock			= false;
 		Pushing			= false;
 		FlightState     = false;
-		GlideState      = false;	
+		GlideState      = false;
 		ClimbState		= false;
 		ScoreCombo		= false;
 		BarrierIsActive = false;
@@ -66,12 +66,11 @@ function PlayerResetOnFloor()
 			VisualAngle = 360;
 		}
 		
-		// Reset hurt state
+		// Clear hurt state
 		if Hurt
 		{
-			NoControls = false;
-			Hurt	   = false;	
-			Inertia    = 0;
+			Hurt	= false;	
+			Inertia = 0;
 		}
 	
 		// Reset gravity
@@ -109,11 +108,11 @@ function PlayerResetOnFloor()
 			}
 		
 			// Set dropspeed
-			if DropdashDirection == FlipRight
+			if DropdashSide == FlipRight
 			{
 				var Dropspeed = Inertia / 4 + DropForce * Facing;
 			}
-			else if DropdashDirection == FlipLeft
+			else if DropdashSide == FlipLeft
 			{
 				if Angle == 360
 				{
@@ -130,7 +129,7 @@ function PlayerResetOnFloor()
 			Inertia		= Dropspeed;
 			DropdashRev	= -1;
 			Spinning	= true;
-			Animation   = AnimRoll;
+			Animation   = AnimSpin;
 			
 			// Freeze the screen for 16 frames
 			if !Game.CDCamera

@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Tails Object/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Tails Object/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tails_tail_type3",

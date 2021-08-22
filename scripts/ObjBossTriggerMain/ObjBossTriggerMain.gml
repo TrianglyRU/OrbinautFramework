@@ -6,7 +6,7 @@ function ObjBossTriggerMain()
 	// Check if player ran past the trigger
 	if Stage.IsBossfight == -1
 	{
-		if object_player_overlap(Triggerbox)
+		if object_check_overlap(Triggerbox)
 		{
 			// Reserve current boundaries
 			ReservedTopBound    = Stage.TopBoundary;
@@ -18,9 +18,6 @@ function ObjBossTriggerMain()
 			// Spawn boss
 			switch room
 			{
-				case MQZ0:
-					instance_create(x, y - 184, Orboss);
-				break;
 				default: break;
 			}
 			Stage.IsBossfight = true;

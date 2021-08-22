@@ -26,7 +26,7 @@ function PlayerRollStart()
 			
 		// Set flags
 		Spinning  = true;
-		Animation = AnimRoll;
+		Animation = AnimSpin;
 			
 		// Play sound
 		audio_sfx_play(sfxRoll, false);

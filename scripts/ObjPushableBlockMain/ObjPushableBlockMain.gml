@@ -1,29 +1,33 @@
 function ObjPushableBlockMain()
 {
-	// Act solid
-	object_act_solid(true, true, true);
+	// Do collision
+	object_act_solid(true, true, true, false);
 	
+	// Check for being pushed
 	if Grounded
 	{
-		// Check for being pushed
-		if object_check_push(SideLeft)
+		if !FoundWall
 		{
-			Player.Inertia = 0.25;
-			Player.PosX   += 1;
-			PosX		  += 1;
-			Direction	   = FlipRight;	
-		}
-		else if object_check_push(SideRight)
-		{
-			Player.Inertia = -0.25;
-			Player.PosX   -= 1;
-			PosX		  -= 1;
-			Direction	   = FlipLeft;	
+			if object_check_push(SideLeft)
+			{
+				Player.Inertia = 0.25;
+				Player.PosX   += 1;
+				PosX		  += 1;
+				Direction	   = FlipRight;	
+			}
+			else if object_check_push(SideRight)
+			{
+				Player.Inertia = -0.25;
+				Player.PosX   -= 1;
+				PosX		  -= 1;
+				Direction	   = FlipLeft;	
+			}
 		}
 	}
+	
+	// Adjust position when airborne
 	else
 	{
-		// Adjust position when airborne
 		if ClipTimer--
 		{
 			PosX += 4 * Direction;
@@ -35,15 +39,32 @@ function ObjPushableBlockMain()
 		}	
 	}
 	
-	// Update position
-	object_update_position(PosX, PosY);
-	
 	// Collide with walls
-	object_collide_tiles_h(Direction, SideCentre, 0, LayerA);
+	var LeftDistance = tile_check_collision_h(PosX - 16, PosY, false, true, LayerA)[0];
+	if  LeftDistance < 0
+	{
+		PosX     -= LeftDistance;
+		FoundWall = true;
+	}
+	var RightDistance = tile_check_collision_h(PosX + 16, PosY, true, true, LayerA)[0];
+	if  RightDistance < 0
+	{
+		PosX     += RightDistance;
+		FoundWall = true;
+	}
 	
 	// Check for floor collision
-	var FindFloor = object_collide_tiles_v(SideCentre, SideBottom, 0, LayerA);	
-	if !FindFloor
+	var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
+	if  FindFloor < 0
+	{
+		if !Grounded
+		{
+			PosY	 += FindFloor;
+			Grounded  = true;
+			Ysp		  = 0;
+		}
+	}
+	else if FindFloor > 0
 	{
 		if Grounded
 		{
@@ -51,10 +72,7 @@ function ObjPushableBlockMain()
 			Grounded  = false;
 		}
 	}
-	else if !Grounded
-	{
-		Grounded  = true;
-		Ysp		  = 0;
-		ClipTimer = 4;
-	}
+	
+	// Update position
+	object_update_position(PosX, PosY);
 }

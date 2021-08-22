@@ -1,10 +1,10 @@
 function PlayerRoll()
 {
 	// Set 'roll' animation
-	Animation = AnimRoll;
+	Animation = AnimSpin;
 	
 	// Decelerate
-	if !MovementLock
+	if !GroundLock
 	{
 		if Input.Left and Inertia > 0
 		{
@@ -53,6 +53,11 @@ function PlayerRoll()
 	// If forced to roll, keep rolling
 	else if Inertia == 0
 	{
+		// Limit vertical speed
+		if Ysp < -15.75
+		{
+			Ysp = -15.75;
+		}
 		Inertia = 2 * Facing;
 	}
 }

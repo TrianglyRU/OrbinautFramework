@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Egg Prison",
-    "path": "folders/Objects/Stage Objects/Egg Prison.yy",
+    "path": "folders/Game Objects/Stage Objects/Egg Prison.yy",
   },
   "resourceVersion": "1.0",
   "name": "EggPrison",

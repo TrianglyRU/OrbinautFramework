@@ -9,41 +9,37 @@ function PlayerJumpStart()
 	// Exit if found low ceiling
 	if Angle <= 45 or Angle >= 315
 	{
-		if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
-		or tile_check_collision_v(floor(PosX + RadiusX), floor(PosY - RadiusY), false, true, Layer)[0] < 6
+		if tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer)[0] < 6
+		or tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer)[0] < 6
 		{
 			exit;
 		}
 	}
 	else if Angle >= 46.41 and Angle <= 133.59		
 	{
-		if tile_check_collision_h(floor(PosX - RadiusY), floor(PosY - RadiusX), false, true, Layer)[0] < 6
-		or tile_check_collision_h(floor(PosX - RadiusY), floor(PosY + RadiusX), false, true, Layer)[0] < 6
+		if tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, true, Layer)[0] < 6
+		or tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, true, Layer)[0] < 6
 		{
 			exit;
 		}
 	}
 	else if Angle >= 135 and Angle <= 225		
 	{
-		if tile_check_collision_v(floor(PosX - RadiusX), floor(PosY + RadiusY), true, true, Layer)[0] < 6
-		or tile_check_collision_v(floor(PosX + RadiusX), floor(PosY + RadiusY), true, true, Layer)[0] < 6
+		if tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, true, Layer)[0] < 6
+		or tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, true, Layer)[0] < 6
 		{
 			exit;
 		}
 	}
 	else if Angle >= 226.41 and Angle <= 313.59		
 	{
-		if tile_check_collision_h(floor(PosX + RadiusY), floor(PosY - RadiusX), true, true, Layer)[0] < 6
-		or tile_check_collision_h(floor(PosX + RadiusY), floor(PosY + RadiusX), true, true, Layer)[0] < 6
+		if tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, true, Layer)[0] < 6
+		or tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, true, Layer)[0] < 6
 		{
 			exit;
 		}
 	}
 	
-	// Reset collision radiuses... to update them later?
-	RadiusY = DefaultRadiusY;
-	RadiusX	= DefaultRadiusX;
-
 	// Set speeds
 	Xsp += Jump * dsin(Angle);
 	Ysp	+= Jump * dcos(Angle);	
@@ -54,30 +50,34 @@ function PlayerJumpStart()
 	OnObject	  = false;
 	StickToConvex = false;
 	Jumping       = true;
-	Animation     = AnimRoll;
+	Animation     = AnimSpin;
 	
-	// Play sound
-	audio_sfx_play(sfxJump, false);
+	// Update collision radiuses
+	RadiusX	= SmallRadiusX;
+	RadiusY = SmallRadiusY;
+	PosY  += DefaultRadiusY - SmallRadiusY;
 	
-	// If not spinning, enter spinning state
+	// Set spinning flag
 	if !Spinning
 	{	
-		// Update collision radiuses
-		RadiusX	= SmallRadiusX;
-		RadiusY = SmallRadiusY;
-		PosY   += DefaultRadiusY - SmallRadiusY;
-		
-		// Set flag
 		Spinning = true;
 	}
 	
-	// Set roll jump flag
+	// Lock airborne control
 	else
 	{
-		/* Notice that in this case radiuses won't update. Why originals 
-		do that? No idea, but it allows us to land a bit earlier */
-		RollJumping = true;	
+		if !Game.RolljumpControl
+		{
+			AirLock = true;
+		}
+		PosY -= DefaultRadiusY - SmallRadiusY;
+		
+		/* In originals, rolljump flag is set and radiuses are reset, resulting in collision with floor and ceiling
+		happening earlier. It is an oversight, so we fix that by updating radiuses in both cases */
 	}
+	
+	// Play sound
+	audio_sfx_play(sfxJump, false);
 			
 	// Return action result
 	return Jumping

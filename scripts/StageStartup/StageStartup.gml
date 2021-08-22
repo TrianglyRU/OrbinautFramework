@@ -22,20 +22,20 @@ function StageStartup()
 		]
 	}
 	
-	// Load saved time and stage boundary
-	if Game.Time
+	// Load saved time
+	if !array_equals(Game.SpecialRingData, [])
+	{
+		Time = Game.SpecialRingData[2];
+	}
+	else if Game.Time
 	{
 		Time = Game.Time;
 	}
+	
+	// Load saved stage boundary
 	if Game.StageBoundary
 	{
 		BottomBoundary = Game.StageBoundary;
-	}
-	
-	// Grant maximum emeralds if in devmode
-	if Game.DevMode
-	{
-		Game.Emeralds = 7;
 	}
 	
 	// Store current zone and room ID
@@ -48,6 +48,10 @@ function StageStartup()
 	TargetBottomBoundary = BottomBoundary;
 	DeathBoundary        = BottomBoundary;
 	
-	// Set boss status
+	// Set bossfight status
 	IsBossfight = -1;
+	
+	/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
+	of another script. It is needed here to avoid objects being active for 1 frame upon stage loading */
+	StageObjectsInactiveProcess();
 }

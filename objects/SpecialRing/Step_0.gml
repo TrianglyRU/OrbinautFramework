@@ -4,6 +4,18 @@
 	// Trigger ring to appear
 	if !State
 	{
+		// Update Special Rings data
+		if !array_equals(Game.SpecialRingIDs, [])
+		{
+			for (var i = 0; i < array_length(Game.SpecialRingIDs); i++)
+			{
+				if id == Game.SpecialRingIDs[i]
+				{
+					instance_destroy();
+				}
+			}
+		}
+		
 		if distance_to_point(Player.PosX, Player.PosY) < 128
 		{
 			State = 1;
@@ -24,7 +36,7 @@
 		animation_play(spr_obj_specialring, Duration, 9);
 		
 		// Check for overlap
-		if image_index >= 8 and object_player_overlap(Triggerbox)
+		if image_index >= 8 and object_check_overlap(Triggerbox)
 		{	
 			// Play sound and destroy object
 			audio_sfx_play(sfxSpecialRing, false);
@@ -35,10 +47,14 @@
 				Input.IgnoreInput	  = true;
 				Player.AllowCollision = false;
 		
-				// Remember position
-				Game.PlayerPosition[0] = x;
-				Game.PlayerPosition[1] = y;
-		
+				// Remember position and time
+				Game.SpecialRingData[0] = x;
+				Game.SpecialRingData[1] = y;
+				Game.SpecialRingData[2] = Stage.Time;
+				
+				Game.Score		   = Player.Score;
+				Game.StageBoundary = Stage.BottomBoundary;
+
 				// Remember this ring
 				if !array_equals(Game.SpecialRingIDs, [])
 				{
@@ -87,6 +103,6 @@
 		if (++Timer) == 32
 		{
 			audio_play_sound(sfxSpecialWarp, 0, false);
-			fade_perform(FadeTo, FadeWhite, 1);
+			fade_perform(FadeTo, ColourWhite, 1);
 		}
 	}

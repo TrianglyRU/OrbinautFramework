@@ -17,8 +17,8 @@ function PlayerDebugMode()
 			AllowCollision = false;
 			Grounded	   = false;
 			OnObject	   = false;
-			MovementLock   = false;
-			NoControls	   = false;
+			GroundLock     = false;
+			AirLock	       = false;
 			FlightState    = false;
 			FlightValue    = false;
 			ClimbState	   = false;
@@ -28,7 +28,6 @@ function PlayerDebugMode()
 			GlideValue     = false;
 			Jumping		   = false;
 			Spinning	   = false;
-			RollJumping	   = false;
 			Skidding	   = false;
 			StickToConvex  = false;
 			IsUnderwater   = false;
@@ -47,7 +46,6 @@ function PlayerDebugMode()
 				Death		      = false;
 				Drown             = false;
 				Camera.Enabled    = true;
-				Stage.AllowPause  = true;
 				Stage.DoUpdate    = true;
 				Stage.TimeEnabled = true;
 			}
@@ -73,7 +71,8 @@ function PlayerDebugMode()
 				Grv = 0.0625
 			}
 			
-			// Restore visibility
+			// Set animation
+			Animation   = AnimMove;
 			image_alpha = 1;
 		}
 		else
@@ -81,10 +80,7 @@ function PlayerDebugMode()
 			// Reset collision radiuses
 			RadiusX	= DefaultRadiusX;
 			RadiusY = DefaultRadiusY;
-			
-			// Restore collision and set animation
 			AllowCollision = true;
-			Animation      = AnimMove;
 		}
 	}
 	

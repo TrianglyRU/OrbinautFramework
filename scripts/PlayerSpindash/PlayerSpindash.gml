@@ -12,7 +12,7 @@ function PlayerSpindash()
 		if Animation == AnimCrouch and Input.ABCPress
 		{
 			SpindashRev = 0;
-			NoControls  = true;
+			AirLock  = true;
 			
 			// Play sound
 			audio_sfx_play(sfxCharge, false);
@@ -47,10 +47,10 @@ function PlayerSpindash()
 
 		// Launch player
 		Inertia	    = (MinimumSpd + round(SpindashRev) / 2) * Facing;
-		NoControls  = false;
+		AirLock  = false;
 		Spinning    = true;
 		SpindashRev = -1;
-		Animation   = AnimRoll;
+		Animation   = AnimSpin;
 			
 		// Freeze the screen for 16 frames
 		if !Game.CDCamera

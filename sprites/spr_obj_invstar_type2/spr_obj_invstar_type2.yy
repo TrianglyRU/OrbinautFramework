@@ -122,7 +122,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Invincibility Star/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Invincibility Star/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_invstar_type2",

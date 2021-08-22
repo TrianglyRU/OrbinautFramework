@@ -1,6 +1,6 @@
 function PlayerMovementGround()
 {	
-	if !MovementLock and !NoControls
+	if !GroundLock and !AirLock
 	{
 		// Left key is pressed?
 		if Input.Left
@@ -88,7 +88,7 @@ function PlayerMovementGround()
 	}
 	
 	// Apply friction
-	if (!Input.Left and !Input.Right) or MovementLock or NoControls
+	if !Input.Left and !Input.Right
 	{
 		if Inertia > 0
 		{
@@ -98,6 +98,8 @@ function PlayerMovementGround()
 		{
 			Inertia = min(Inertia + Frc, 0);
 		}
+		
+		// Clear push flag
 		Pushing = false;
 	}
 	
@@ -138,7 +140,7 @@ function PlayerMovementGround()
 				{
 					Animation = AnimLookup;
 				}
-				else
+				else if !Input.Left and !Input.Right
 				{
 					Animation = AnimIdle;
 				}

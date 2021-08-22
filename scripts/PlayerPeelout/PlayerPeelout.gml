@@ -15,7 +15,7 @@ function PlayerPeelout()
 			if Animation == AnimLookup and Input.ABCPress
 			{
 				PeeloutRev = 0;
-				NoControls = true;
+				AirLock = true;
 				
 				// Play sound
 				audio_sfx_play(sfxPeeloutCharge, false);
@@ -34,7 +34,7 @@ function PlayerPeelout()
 	{	
 		// Launch player
 		Inertia    = (!SuperState ? 12 : 15) * Facing;
-		NoControls = false;
+		AirLock = false;
 		PeeloutRev = -1;
 		Animation  = AnimMove;
 			
@@ -52,10 +52,10 @@ function PlayerPeelout()
 	}
 	
 	// Cancel peelout
-	else
+	else if PeeloutRev
 	{
 		PeeloutRev = -1;
-		NoControls = false;
+		AirLock = false;
 	}
 	
 	// Apply peelout animation

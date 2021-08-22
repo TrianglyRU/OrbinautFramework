@@ -42,9 +42,16 @@ function InterfaceDebugSolidboxDraw()
 				{
 					for (var i = 0; i < array_length(Obj_SolidMap); i++)
 					{
-						var HeightAbove = image_xscale ? i : array_length(Obj_SolidMap) - 1 - i;
-						var HeightBelow = image_xscale ? array_length(Obj_SolidMap) - 1 - i : i;
-						draw_line_colour(x - Obj_SolidX + i, y + Obj_SolidY + Obj_SolidMap[HeightBelow] - 1, x - Obj_SolidX + i, y + Obj_SolidY - Obj_SolidMap[HeightAbove] - 1, $00ffff, $00ffff);
+						var Height = image_xscale ? i : array_length(Obj_SolidMap) - 1 - i;
+						
+						if image_yscale
+						{
+							draw_line_colour(x - Obj_SolidX + i, y + Obj_SolidY + (Obj_SolidY * 2 - Obj_SolidMap[Height]) - 1, x - Obj_SolidX + i, y + Obj_SolidY - Obj_SolidMap[Height] - 1, $00ffff, $00ffff);
+						}
+						else
+						{
+							draw_line_colour(x - Obj_SolidX + i, y - Obj_SolidY - (Obj_SolidY * 2 - Obj_SolidMap[Height]) - 1, x - Obj_SolidX + i, y - Obj_SolidY + Obj_SolidMap[Height] - 1, $00ffff, $00ffff);
+						}
 					}
 				}
 			}

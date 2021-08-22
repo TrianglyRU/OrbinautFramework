@@ -22,17 +22,10 @@ function AudioHighProcess()
 		audio_bgm_unmute(PriorityLow, 1);
 	}
 	
-	// Loop track
+	// Stop track
 	if audio_sound_get_track_position(Track) + 0.1 >= audio_sound_length(Track)
 	{
-		if Loop != noone
-		{
-			audio_sound_set_track_position(Track, Loop);
-		}
-		else
-		{
-			audio_bgm_stop(PriorityHigh, 0);
-		}
+		audio_bgm_stop(PriorityHigh, 0);
 	}
 	
 	switch Event

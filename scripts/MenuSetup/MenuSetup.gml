@@ -3,7 +3,7 @@ function MenuSetup()
 	// Main Menu
 	menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEV MENU");
 	menu_add_option(0, 0, "GAME START",		  1);
-	menu_add_option(0, 1, "STAGE SELECT", noone);
+	menu_add_option(0, 1, "STAGE SELECT",     4);
 	menu_add_option(0, 2, "OPTIONS",	      5);
 	menu_add_option(0, 3, "EXIT GAME",    noone);
 
@@ -37,8 +37,17 @@ function MenuSetup()
 	
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
-	menu_add_option(4, 0, "TEMPLATE STAGE",		  noone);
-	menu_add_option(4, 1, "MOONLIGHT QUADRANT 1", noone);
+	menu_add_option(4, 0, "TEST STAGE",	noone);
+	menu_add_option(4, 1,  "- -",		noone);
+	menu_add_option(4, 2,  "- -",		noone);
+	menu_add_option(4, 3,  "- -",		noone);
+	menu_add_option(4, 4,  "- -",		noone);
+	menu_add_option(4, 5,  "- -",		noone);
+	menu_add_option(4, 6,  "- -",		noone);
+	menu_add_option(4, 7,  "- -",		noone);
+	menu_add_option(4, 8,  "- -",		noone);
+	menu_add_option(4, 9,  "- -",		noone);
+	menu_add_option(4, 10, "- -",		noone);
 	
 	// Options
 	menu_add_header(5,    "GAME OPTIONS");

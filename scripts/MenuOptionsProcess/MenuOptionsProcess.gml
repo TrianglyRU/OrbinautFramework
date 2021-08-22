@@ -10,12 +10,6 @@ function MenuOptionsProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
-				// Deny stage select
-				if OptionID == 1
-				{
-					audio_sfx_play(sfxFail, false);
-				}
-				
 				// Exit the game
 				if OptionID == 3
 				{
@@ -46,12 +40,12 @@ function MenuOptionsProcess()
 						Game.Score	   = SaveData[Game.ActiveSave][5];	
 				
 						// Load stage
-						switch SaveData[Game.ActiveSave][1]
+						var ZoneID = SaveData[Game.ActiveSave][1];
+						switch ZoneID
 						{
-							case 0:
-								room_goto(MQZ0);
+							default:
+								room_goto(TestStage);
 							break;
-							default: break;
 						}
 					}
 					else
@@ -70,10 +64,10 @@ function MenuOptionsProcess()
 			if Input.APress or Input.StartPress
 			{
 				// Load first zone
-				room_goto(MQZ0);
+				room_goto(TestStage);
 		
 				// Set data
-				Game.Character = OptionID;	
+				Game.Character = OptionID;
 				Game.Emeralds  = 0;
 				Game.Lives	   = 3;
 				Game.Continues = 0;
@@ -115,11 +109,9 @@ function MenuOptionsProcess()
 				switch OptionID
 				{
 					case 0:
-						room_goto(StageTemplate);
+						room_goto(TestStage);
 					break;
-					case 1:
-						room_goto(MQZ0);
-					break;
+					default: break;
 				}
 			}
 		}

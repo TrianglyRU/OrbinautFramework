@@ -15,7 +15,7 @@
 	
 	animation_play(sprite_index, 4, 0);
 	
-	if object_player_overlap(Hitbox)
+	if object_check_overlap(Hitbox)
 	{
 		player_damage(false, false, false);
 	}

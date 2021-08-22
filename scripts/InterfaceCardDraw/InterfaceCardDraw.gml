@@ -6,44 +6,63 @@ function InterfaceCardDraw()
 		exit;
 	}
 	
-	// Set text align
-	draw_set_halign(fa_right);
-	
-	// Draw colour line and note
-	draw_sprite(spr_card_line, Game.Character, CardValue[5],	   CardValue[6]);
-	draw_sprite(spr_card_note, 0,				   CardValue[5] - 46, CardValue[6] + 34);
-	
-	// Display composition name
-	switch Stage.StageMusic
+	// If card is disabled, just fade in
+	if !Stage.CardEnabled
 	{
-		case StarryNight:
-			var CompositionName = "WOOFLE - STARRY NIGHT ZONE";
-		break;
-		default:
-			var CompositionName = "NO TRACK SET";
-		break;
+		fade_perform(FadeFrom, ColourBlack, 1);	
+		Input.IgnoreInput = false;
+		Stage.TimeEnabled = true;
+		
+		CardValue[1] = 2;
+		exit;
 	}
-	draw_set_font(Game.Font[Debug]);
-	draw_text(CardValue[5] - 52, CardValue[6] + 40, CompositionName);
 	
-	// Draw card elements
-	draw_sprite(spr_card_ribbon,	0,			 CardValue[2],      CardValue[3]);
-	draw_sprite(spr_card_logo,	    0,			 CardValue[2] - 46, 24);
-	draw_sprite(spr_card_zoneline,  0,			 CardValue[10],     CardValue[11]);
-	draw_sprite(spr_card_act,       Stage.ActID, CardValue[12],	    CardValue[13]);
-	
-	// Draw zone name
-	draw_set_font(Game.Font[Card]);
-	draw_text(CardValue[14], CardValue[15], Stage.ZoneName);
+	// Exit if stage is paused
+	if Stage.IsPaused
+	{
+		exit;
+	}
 	
 	// Turn screen into black
 	if !CardValue[0]
 	{
-		fade_perform(FadeTo, FadeBlack, 0);
+		fade_perform(FadeTo, ColourBlack, 0);
 	}
 	
-	// Count card
+	// Set text align
+	draw_set_halign(fa_right);
+	
+	// Draw bottom line and note
+	draw_sprite(gui_card_line, Game.Character, CardValue[5],	  CardValue[6]);
+	draw_sprite(gui_card_note, 0,			   CardValue[5] - 46, CardValue[6] + 34);
+	
+	// Draw stage composition name
+	switch Stage.StageMusic
+	{
+		case TestStageMusic:
+			var CompositionName = "TEAM MEGAMIX - SPECIAL STAGE";
+		break;
+		default:
+			var CompositionName = "NO INFORMATION";
+		break;
+	}
+	draw_set_font(Game.Font[font_default]);
+	draw_text(CardValue[5] - 52, CardValue[6] + 40, CompositionName);
+	
+	// Draw other card elements
+	draw_sprite(gui_card_ribbon,	0,			 CardValue[2],      CardValue[3]);
+	draw_sprite(gui_card_logo,	    0,			 CardValue[2] - 46, 24);
+	draw_sprite(gui_card_zoneline,  0,			 CardValue[10],     CardValue[11]);
+	draw_sprite(gui_card_act,       Stage.ActID, CardValue[12],	    CardValue[13]);
+	
+	// Draw zone name
+	draw_set_font(Game.Font[font_card]);
+	draw_text(CardValue[14], CardValue[15], Stage.ZoneName);
+	
+	// Process timer
 	CardValue[0]++;
+	
+	// Appear state
 	if CardValue[1] == 0
 	{
 		// Update ribbon speed
@@ -56,7 +75,7 @@ function InterfaceCardDraw()
 		// Loop ribbon vertically
 		if CardValue[3] == 32
 		{
-			CardValue[3] -= 32;	
+			CardValue[3] -= 32;
 		}
 		
 		// Update line speed
@@ -109,15 +128,19 @@ function InterfaceCardDraw()
 		// Fade in after 3 seconds
 		if CardValue[0] == 180
 		{	
-			fade_perform(FadeFrom, FadeBlack, 1);	
-			CardValue[1]	  = 1;
+			fade_perform(FadeFrom, ColourBlack, 1);	
 			Input.IgnoreInput = false;
 			Stage.TimeEnabled = true;
+			
+			// Increment state
+			CardValue[1] = 1;
 		}
 	}
+	
+	// Disappear state
 	else if CardValue[1] == 1
 	{
-		// Update elements positions
+		// Keep assets on the screen for a bit
 		CardValue[10] -= 0.2;
 		CardValue[11] -= 0.05;
 		CardValue[12] -= 0.1;
@@ -127,11 +150,8 @@ function InterfaceCardDraw()
 		CardValue[2]  += 0.15;
 		CardValue[3]  += 2;
 		
-		// Update disappear speed
+		// Update global disappear speed
 		CardValue[16] += 0.2;
-		
-		// Disappear
-		CardValue[6] += CardValue[16];
 		
 		if CardValue[0] > 205
 		{
@@ -143,18 +163,12 @@ function InterfaceCardDraw()
 			CardValue[14] += CardValue[16] * 6;
 			CardValue[12] -= CardValue[16] * 6;
 		}
+		CardValue[6] += CardValue[16];
 		
-		// Shift HUD
-		if CardValue[0] >= 235 and OffsetX < 0
-		{
-			OffsetX += 5;
-		}
-		
-		// Stop card
+		// End card sequence
 		if CardValue[0] == 235
 		{
 			CardValue[1]	 = 2;
-			Stage.AllowPause = true;
 		}
 	}
 }

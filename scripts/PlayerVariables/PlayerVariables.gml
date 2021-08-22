@@ -1,6 +1,5 @@
 function PlayerVariables()
 {
-	Game.Character			= 0;
 	PosX				= 0;
 	PosY				= 0;
 	Acc					= 0;
@@ -19,18 +18,18 @@ function PlayerVariables()
 	Inertia				= 0;
 	SlopeGravity		= 0;
 	Angle				= 0;	
-	MovementLock		= 0;
+	GroundLock		    = 0;
+	AirLock				= 0;
 	ForcedRoll			= 0;
 	Spinning		    = 0;
 	Jumping				= 0;
-	RollJumping			= 0;
 	Pushing             = 0;
 	Grounded			= 0;
 	OnObject			= 0;
 	PeeloutRev			= 0;
 	SpindashRev		    = 0;
 	DropdashRev			= 0;
-	DropdashDirection	= 0;
+	DropdashSide	    = 0;
 	DropdashFlag		= 0;
 	SuperState			= 0;
 	SuperStateValue		= 0;
@@ -47,7 +46,6 @@ function PlayerVariables()
 	HighspeedBonus		= 0;
 	InvincibleBonus	    = 0;
 	InvincibilityFrames	= 0;
-	IsInvincible		= 0;
 	IsUnderwater		= 0;
 	BarrierType			= 0;
 	BarrierIsActive		= 0;
@@ -75,7 +73,6 @@ function PlayerVariables()
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
-	NoControls			= 0;
 	RecordedPosX		= [];
 	RecordedPosY        = [];
 }

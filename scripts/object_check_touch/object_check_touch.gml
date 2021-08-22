@@ -1,5 +1,5 @@
-/// @function object_player_touch(collisionSide)
-function object_player_touch(collisionSide)
+/// @function object_check_touch(side)
+function object_check_touch(side)
 {
 	// Exit if collisions are disabled
 	if !Player.AllowCollision
@@ -14,7 +14,7 @@ function object_player_touch(collisionSide)
 	}
 	
 	// Return touch flag
-	switch collisionSide
+	switch side
 	{
 		case SideTop:
 			return Obj_SolidTouchU;

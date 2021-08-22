@@ -8,7 +8,7 @@ function ObjTailsObjectMain()
 		case AnimCrouch:	
 			animation_play(spr_tails_tail_idle, 8, 0);
 		break;
-		case AnimRoll:
+		case AnimSpin:
 			animation_play(spr_tails_tail_type1, 4, 0);
 		break;
 		case AnimSpindash:

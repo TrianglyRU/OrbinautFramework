@@ -8,13 +8,13 @@ function ObjSpringHorizontalMain()
 	else
 	{	
 		// Do collision
-		object_act_solid(true, true, true);
+		object_act_solid(true, true, true, false);
 		
 		// Is player grounded and touching launch side?
-		if Player.Grounded and object_player_touch(LaunchSide)
+		if Player.Grounded and object_check_touch(LaunchSide)
 		{
 			// Lock controls for 16 frames
-			Player.MovementLock = 16;
+			Player.GroundLock = 16;
 			
 			// Launch player
 			Player.Xsp	   = image_xscale * LaunchForce;

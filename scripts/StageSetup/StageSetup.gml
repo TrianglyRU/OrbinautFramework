@@ -2,45 +2,23 @@ function StageSetup()
 {	
 	switch room 
 	{	
-		// Moonlight Quadrant 1
-		case MQZ0:
-		{
-			ZoneName		 = "MOONLIGHT QUADRANT";
-			ZoneID			 = 0;
-			ActID			 = 0;
-			FinalActID		 = 1;
-			CardEnabled		 = true;
-			TimeEnabled		 = false;
-			WaterEnabled     = true;
-			WaterLevel		 = 2240;
-			StageMusic		 = StarryNight;
-			LeftBoundary	 = 0;
-			TopBoundary		 = 768;
-			RightBoundary	 = room_width;
-			BottomBoundary   = room_height;
-			AnimatedGraphics = [tex_mqz_anitile, 6];
-			AnimalSet		 = [spr_obj_animal_flicky, spr_obj_animal_ricky];
-		}
-		break;
-		
 		// Default
 		default:
 		{
-			ZoneName			= "TEMPLATE STAGE";
+			ZoneName			= "TEST STAGE";
 			ZoneID				= -1;
 			ActID				= 0;
-			FinalActID			= 0;			
-			CardEnabled			= true;
-			TimeEnabled			= false;
-			WaterEnabled        = false;
-			WaterLevel			= 0;
-			StageMusic			= noone;
+			FinalActID			= 0;
+			CardEnabled			= false;
+			WaterEnabled        = true;
+			WaterLevel			= 640;
+			StageMusic			= TestStageMusic;
 			LeftBoundary		= 0;
 			TopBoundary			= 0;
 			RightBoundary		= room_width;
 			BottomBoundary		= room_height;
-			AnimatedGraphics	= noone;		
-			AnimalSet			= noone;
+			AnimatedGraphics	= noone;		// Array: [sprite1, sprite1_duration, sprite2, sprite2_duration...]	
+			AnimalSet			= [spr_obj_animal_ricky];		// Array: [animal_sprite1, animal_sprite2...]
 		}
 		break;
 	}

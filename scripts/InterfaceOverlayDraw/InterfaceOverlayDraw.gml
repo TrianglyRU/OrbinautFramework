@@ -29,18 +29,18 @@ function InterfaceOverlayDraw()
 	}
 		
 	// Display SCORE, TIME and RINGS graphics
-	draw_sprite(spr_hud_score, 0,											 ScreenX + 16, ScreenY + 9);
-	draw_sprite(spr_hud_time,  StageTime > 32400 ? animate_sprite(2, 8) : 0, ScreenX + 16, ScreenY + 25);
-	draw_sprite(spr_hud_rings, Player.Rings == 0 ? animate_sprite(2, 8) : 0, ScreenX + 16, ScreenY + 41);
+	draw_sprite(gui_hud_score, 0,											 ScreenX + 16, ScreenY + 9);
+	draw_sprite(gui_hud_time,  StageTime > 32400 ? animate_sprite(2, 8) : 0, ScreenX + 16, ScreenY + 25);
+	draw_sprite(gui_hud_rings, Player.Rings == 0 ? animate_sprite(2, 8) : 0, ScreenX + 16, ScreenY + 41);
 	
-	draw_set_font(Game.Font[Counter]);
+	draw_set_font(Game.Font[font_counter]);
 	draw_text(ScreenX + 112, ScreenY + 9,  Player.Score);
 	draw_text(ScreenX + 112, ScreenY + 25, string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds) + ";" + (MilliSeconds > 9 ? "" : "0") + string(MilliSeconds));
 	draw_text(ScreenX + 88,  ScreenY + 41, Player.Rings);
 		
 	// Display LIVES counter
-	draw_sprite(spr_hud_lives, Game.Character, ScreenX + 16, ScreenY + Game.Height - 24);
+	draw_sprite(gui_hud_lives, Game.Character, ScreenX + 16, ScreenY + Game.Height - 24);
 	
-	draw_set_font(Game.Font[CounterSmall]);
+	draw_set_font(Game.Font[font_counter_small]);
 	draw_text(ScreenX + 65, ScreenY + Game.Height - 15, Player.Lives);
 }

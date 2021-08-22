@@ -14,9 +14,6 @@ function ObjMotobugMain()
 	// Move Motobug
 	PosX += Xsp * Direction;
 	
-	// Update position
-	object_update_position(PosX, y);
-	
 	// Is Motobug currently moving?
 	if Xsp != 0
 	{
@@ -37,9 +34,9 @@ function ObjMotobugMain()
 		
 		animation_play(spr_obj_motobug, 8, 0);
 		
-		// Collide tiles & check for if Motobug is 2 pixels away from the surface
-		var CollideFloor = object_collide_tiles_v(false, SideBottom, 2, LayerA);
-		if !CollideFloor
+		// Collide tiles and check for if Motobug is 8 pixels away from the surface
+		var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, LayerA)[0];
+		if  FindFloor > 8
 		{
 			// Set first frame
 			image_index = 0;
@@ -48,7 +45,14 @@ function ObjMotobugMain()
 			StopTimer = 60;
 			Xsp       = 0;
 		}
+		else if FindFloor > -8
+		{
+			PosY += FindFloor;
+		}
 	}
+	
+	// Update position
+	object_update_position(PosX, PosY);
 	
 	// Update image direction
 	image_xscale = Direction;

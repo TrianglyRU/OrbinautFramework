@@ -1,8 +1,19 @@
 /// @function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
-function tile_check_collision_h(x, y,to_positive,ignore_top,tilelayer)
+function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
 {	
+	// Floor positions
+	x = floor(x);
+	y = floor(y);
+	
+	// If checking to positvie side, subtract 1 from x and y if this object is not player
+	if to_positive and object_index != Player
+	{
+		x -= 1;
+		y -= 1;
+	}
+
 	// Return blank values if outside of the room
-	if x < 0 or y < 0 or x > room_width or y > room_height 
+	if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
 	{
 		return [32, 360];
 	}

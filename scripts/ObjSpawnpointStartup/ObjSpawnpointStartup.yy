@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Spawnpoint",
-    "path": "folders/Objects/Stage Objects/Spawnpoint.yy",
+    "path": "folders/Game Objects/Stage Objects/Spawnpoint.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjSpawnpointStartup",

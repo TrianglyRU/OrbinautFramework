@@ -9,7 +9,7 @@ function ObjRollTriggerStartup()
 	*/
 	
 	// Set object triggerbox
-	object_set_triggerbox(-16, XSize, -16, YSize);
+	object_set_triggerbox(0, XSize, 0, YSize);
 	
 	// Set object visibility
 	visible = false;

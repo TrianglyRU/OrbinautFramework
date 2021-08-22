@@ -36,9 +36,9 @@ function PlayerWaterEvents()
 	else
 	{ 
 		// Create player bubble maker object
-		if !instance_exists(BubbleMakerPlayer)
+		if !instance_exists(BubbleController)
 		{
-			instance_create(-16, -16, BubbleMakerPlayer);
+			instance_create(-16, -16, BubbleController);
 		}
 		
 		// Countdown air timer
@@ -74,7 +74,7 @@ function PlayerWaterEvents()
 				Grounded		  = false;
 				OnObject		  = false;	
 				Drown			  = true;
-				NoControls		  = true;
+				AirLock		  = true;
 				Animation		  = AnimDrown;	
 				
 				// Draw player above everything
@@ -96,7 +96,7 @@ function PlayerWaterEvents()
 		{	
 			if BarrierType == BarrierThunder
 			{
-				fade_perform(FadeFrom, FadeFlash, 12);
+				fade_perform(FadeFrom, ColourFlash, 12);
 			}
 			BarrierType = false;
 			instance_destroy(Barrier);				
@@ -145,7 +145,7 @@ function PlayerWaterEvents()
 			AirTimer     = 1800;
 			
 			// Destroy player bubble maker object
-			instance_destroy(BubbleMakerPlayer);
+			instance_destroy(BubbleController);
 			
 			// Create splash object
 			if !Grounded

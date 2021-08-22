@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Stage Objects/Bubble/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Bubble/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_bubble_disappear",

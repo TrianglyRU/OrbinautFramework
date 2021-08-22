@@ -1,7 +1,7 @@
 function ObjBumperMain()
 {
 	// Bounce on collision
-	if object_player_overlap(Hitbox)
+	if object_check_overlap(Hitbox)
 	{
 		if Ready
 		{

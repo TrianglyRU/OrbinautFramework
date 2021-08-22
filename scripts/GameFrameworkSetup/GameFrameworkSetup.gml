@@ -1,7 +1,8 @@
 function GameFrameworkSetup()
 {
-	// Dev mode. Enables some debug shortcuts and features, disable it on your game release!
-	Game.DevMode = false;
+	// Game settins
+	Game.DevMode    = true;
+	Game.ShowSplash = false;
 	
 	/* If devmode is disabed, settings marked with '**' will be overwritten by the
 	gameconfig file */
@@ -11,9 +12,9 @@ function GameFrameworkSetup()
 	Game.Score	      =  0;
 	Game.Lives	      =  3;
 	Game.Continues    =  2;
-	Game.Emeralds     =  4;
+	Game.Emeralds     =  0;
 	Game.ActiveSave   = -1;
-	Game.CurrentStage = [0, MQZ0];
+	Game.CurrentStage = [0, DevMenu];
 	
 	// Window settings
 	Game.WindowFullscreen = false;	/**/
@@ -22,7 +23,7 @@ function GameFrameworkSetup()
 	Game.WindowSize	      = 3;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;	/**/
+	Game.MusicVolume = 0;	/**/
 	Game.SoundVolume = 0.5;	/**/
 	
 	// Control settings (keyboard)
@@ -36,8 +37,8 @@ function GameFrameworkSetup()
 	Game.AirSpeedcap	    = false; /**/
 	Game.CDCamera			= false; /**/
 	Game.RolljumpControl    = false;
-	Game.S3SlopePhysics		= true;
-	Game.SKCrouch			= false;
+	Game.S3SlopePhysics		= false;
+	Game.SKCrouch			= true;
 	Game.SKRollPhysics		= false;
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;
@@ -48,7 +49,7 @@ function GameFrameworkSetup()
 	// Orbinaut improvements
 	Game.PostProcessing      = false;
 	Game.SmoothRotation	     = true;
-	Game.RichPresenceSupport = true;
+	Game.RichPresenceSupport = false;
 	Game.NoRollSpeedLimit	 = false;
-	Game.FlyingCancel	     = false;
+	Game.FlyingCancel	     = true;
 }

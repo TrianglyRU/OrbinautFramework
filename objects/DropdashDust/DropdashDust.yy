@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Dropdash Dust",
-    "path": "folders/Objects/Stage Objects/Dropdash Dust.yy",
+    "path": "folders/Game Objects/Stage Objects/Dropdash Dust.yy",
   },
   "resourceVersion": "1.0",
   "name": "DropdashDust",

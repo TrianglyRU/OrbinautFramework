@@ -5,18 +5,6 @@
 	State = 0;
 	Timer = 0;
 	
-	// Delete this ring if it was used before
-	if !array_equals(Game.SpecialRingIDs, [])
-	{
-		for (var i = 0; i < array_length(Game.SpecialRingIDs); i++)
-		{
-			if id == Game.SpecialRingIDs[i]
-			{
-				instance_destroy();
-			}
-		}
-	}	
-	
 	// Set object depth
 	object_set_depth(Player, false);
 	
