@@ -38,8 +38,8 @@ function GameFrameworkSetup()
 	Game.CDCamera			= false; /**/
 	Game.RolljumpControl    = false;
 	Game.S3SlopePhysics		= false;
-	Game.SKCrouch			= true;
-	Game.SKRollPhysics		= false;
+	Game.SKCrouch			= false;
+	Game.SKRollDeceleration	= false;
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;
 	Game.SMWaterBarrier		= false;

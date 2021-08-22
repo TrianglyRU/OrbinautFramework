@@ -16,7 +16,7 @@ function PlayerPowerup()
 	if InvincibleBonus 
 	{
 		// Create star particles
-		if !instance_exists(InvincibilityStar) 
+		if InvincibleBonus == 1200 and !instance_exists(InvincibilityStar)
 		{
 			for (var i = 1; i < 9; i++)
 			{

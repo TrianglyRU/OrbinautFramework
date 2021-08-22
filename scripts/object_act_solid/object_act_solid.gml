@@ -1,6 +1,9 @@
 /// @function object_act_solid(sides,top,bottom,interactable)
 function object_act_solid(sides,top,bottom,interactable)
 {
+	/* The following is long and replicates originals method of colliding with object,
+	however it was tweaked in several places to make collision much more consistent */
+	
 	// Clear touch and push flags
 	Obj_SolidTouchU	= false;
 	Obj_SolidTouchD	= false;
@@ -78,10 +81,10 @@ function object_act_solid(sides,top,bottom,interactable)
 		Obj_SolidTouchU = true;
 		
 		// Check if player is outside the object
-		var FallRadius  = sides ? ObjectWidth : Obj_SolidX;
+		var FallRadius = sides ? ObjectWidth : Obj_SolidX + 1;
 		
 		var XComparison = floor(Player.PosX) - ObjectX + FallRadius;
-		if  XComparison < 0 or XComparison >= FallRadius * 2
+		if  XComparison <= 0 or XComparison >= FallRadius * 2 - 1
 		{
 			Player.OnObject = false;
 		}
@@ -92,19 +95,19 @@ function object_act_solid(sides,top,bottom,interactable)
 	{	
 		// Check for overlap
 		var XDifference = PlayerX - ObjectX + ObjectWidth;
-		if  XDifference < 0 or XDifference > ObjectWidth * 2
+		if  XDifference <= 0 or XDifference >= ObjectWidth * 2 - 1
 		{
 			exit;
-		}		
-		var YDifference = PlayerY - ObjectY - SlopeOffset + 4 + ObjectHeight;
-		if  YDifference < 0 or YDifference > ObjectHeight * 2
+		}
+		var YDifference = PlayerY - ObjectY - SlopeOffset + ObjectHeight + 4;
+		if  YDifference < 0 or YDifference >= ObjectHeight * 2 + 3
 		{
 			exit;
 		}
 		
 		// Get distance differences
-		var XDistance = PlayerX > ObjectX ? XDifference - ObjectWidth  * 2	   : XDifference;
-		var YDistance = PlayerY > ObjectY ? YDifference - ObjectHeight * 2 - 4 : YDifference;
+		var XDistance = PlayerX > ObjectX ? XDifference - ObjectWidth  * 2 + 1 : XDifference;
+		var YDistance = PlayerY > ObjectY ? YDifference - ObjectHeight * 2 - 3 : YDifference;
 		
 		// Collide vertically
 		if abs(XDistance) >= abs(YDistance)
@@ -142,10 +145,10 @@ function object_act_solid(sides,top,bottom,interactable)
 				if Player.Ysp >= 0
 				{
 					// Exit if outside the object
-					var LandRadius = sides ? ObjectWidth : Obj_SolidX;
+					var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;
 					
 					var XDifference = PlayerX - ObjectX + LandRadius;
-					if  XDifference < 0 or XDifference >= LandRadius * 2
+					if  XDifference <= 0 or XDifference >= LandRadius * 2 - 1
 					{
 						exit;
 					}

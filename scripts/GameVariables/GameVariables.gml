@@ -47,7 +47,7 @@ function GameVariables()
 	Game.RolljumpControl    = 0;
 	Game.S3SlopePhysics		= 0;
 	Game.SKCrouch			= 0;
-	Game.SKRollPhysics		= 0;
+	Game.SKRollDeceleration = 0;
 	Game.S2FloorCollision	= 0;
 	Game.SKWallCollision	= 0;
 	Game.SMWaterBarrier		= 0;

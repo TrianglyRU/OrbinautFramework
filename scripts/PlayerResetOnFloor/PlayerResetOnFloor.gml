@@ -138,6 +138,7 @@ function PlayerResetOnFloor()
 			}
 			
 			// Play sound
+			audio_sfx_stop(sfxDropDash);
 			audio_sfx_play(sfxRelease, false);
 			
 			// Create dust effect

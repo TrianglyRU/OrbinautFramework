@@ -1,15 +1,19 @@
 function PlayerSlopeResistRoll()
 {
-	// Set slope gravity
-	if sign(Inertia) == sign(dsin(Angle)) 
+	// Exit if on ceiling
+	if Angle <= 225 and Angle >= 136.41
 	{
-		SlopeGravity = 0.078125 * dsin(Angle);
-	} 
-	else 
-	{
-		SlopeGravity = 0.3125 * dsin(Angle);
+		exit;
 	}
-
-	// Apply it to inertia
+	
+	// Set slope gravity
+	SlopeGravity = 0.3125 * dsin(Angle);
+	
+	// Apply it
+	if Inertia < 0  and SlopeGravity < 0
+	or Inertia >= 0 and SlopeGravity >= 0
+	{
+		SlopeGravity /= 4;
+	}
 	Inertia -= SlopeGravity;
 }

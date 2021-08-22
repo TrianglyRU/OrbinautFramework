@@ -7,6 +7,7 @@ function ObjBumperMain()
 		{
 			// Set player speeds based on angle
 			var Angle  = point_direction(floor(Player.PosX), floor(Player.PosY), x, y);
+			
 			Player.Xsp = -7 * dcos(Angle);
 			Player.Ysp =  7 * dsin(Angle);
 			

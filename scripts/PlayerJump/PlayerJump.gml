@@ -163,6 +163,7 @@ function PlayerJump()
 				RadiusY = DefaultRadiusY;
 				
 				// Set flags
+				AirLock     = false;
 				Jumping     = false;
 				Spinning    = false;
 				Grv			= 0.03125;
@@ -197,6 +198,7 @@ function PlayerJump()
 				Ysp     = Ysp <= 0 ? 0 : Ysp + 2;
 				
 				// Set flags
+				AirLock        = false;
 				Jumping        = false;
 				Spinning       = false;
 				GlideGrounded  = false;

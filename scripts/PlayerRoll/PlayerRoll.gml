@@ -9,10 +9,18 @@ function PlayerRoll()
 		if Input.Left and Inertia > 0
 		{
 			Inertia -= RollDec;
+			if Inertia < 0
+			{
+				Inertia = -0.5;
+			}
 		}
 		if Input.Right and Inertia < 0
 		{
 			Inertia += RollDec;
+			if Inertia >= 0
+			{
+				Inertia = 0.5;
+			}
 		}
 	}
 
@@ -39,25 +47,22 @@ function PlayerRoll()
 	// Unroll
 	if !ForcedRoll
 	{
-		if !Game.SKCrouch and Inertia == 0 or Game.SKCrouch and abs(Inertia) < 0.5
+		if !Game.SKCrouch and Inertia == 0 
+		or  Game.SKCrouch and abs(Inertia) < 0.5
 		{
 			// Reset collision radiuses
 			RadiusX = DefaultRadiusX;
 			RadiusY = DefaultRadiusY;
 			PosY   -= DefaultRadiusY - SmallRadiusY;
 			
-			Spinning = false;
+			Spinning  = false;
+			Animation = AnimMove;
 		}
 	}
 	
 	// If forced to roll, keep rolling
-	else if Inertia == 0
+	else 
 	{
-		// Limit vertical speed
-		if Ysp < -15.75
-		{
-			Ysp = -15.75;
-		}
-		Inertia = 2 * Facing;
+		Inertia = 4 * Facing;
 	}
 }

@@ -35,7 +35,7 @@ function PlayerGroundFloorCollision()
 			var TileMiddle = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer);
 			
 			// Get data
-			if TileMiddle[0] < TileLeft[0] and TileMiddle[0] < TileRight[0]
+			if TileLeft[0] == TileRight[0] and TileLeft[0] > 0
 			{
 				var FloorDistance = TileMiddle[0];
 				var FloorAngle    = TileMiddle[1];

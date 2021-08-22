@@ -40,9 +40,8 @@ function PlayerKnuxClimb()
 			var FloorDistance = tile_check_collision_v(PosX + 10 * Facing, PosY + RadiusY, true, false, Layer)[0];
 			if  FloorDistance < 0
 			{
-				PosY    += DistanceDown;
-				Grounded = true;
-				Ysp		 = 0;
+				PosY      += FloorDistance;
+				ClimbState = false;
 				
 				// Exit further code
 				exit;

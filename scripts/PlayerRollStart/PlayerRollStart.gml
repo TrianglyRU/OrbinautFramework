@@ -1,13 +1,13 @@
 function PlayerRollStart()
 {
 	// Eixt if can't roll up
-	if !ForcedRoll and (Input.Left or Input.Right)
+	if !ForcedRoll and (Input.Left or Input.Right) or SpindashRev != -1
 	{
 		exit;
 	}
 
 	// Check for inertia required to manually roll up
-	if Game.SKCrouch
+	if Game.SKRollDeceleration
 	{
 		var RollCheck = abs(Inertia) >= 1;
 	}

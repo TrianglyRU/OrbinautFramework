@@ -29,7 +29,7 @@ function PlayerSlopeResist()
 	else
 	{
 		// Apply slope gravity only when moving
-		if Inertia < 0 or (Inertia > 0 and SlopeGravity != 0)
+		if Inertia < 0 or (Inertia >= 0 and SlopeGravity != 0)
 		{
 			Inertia -= SlopeGravity;
 		}

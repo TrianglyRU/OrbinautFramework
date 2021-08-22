@@ -40,8 +40,8 @@ function StageActiveProcess()
 		// Clear special ring data
 		Game.SpecialRingData = [];
 		
-		// Check if player has fallen below stage boundary
-		if floor(Player.PosY) >= Stage.BottomBoundary + 16
+		// Check if player has fallen below camera boundary
+		if floor(Player.PosY) >= Camera.ViewY + Game.Height + 32
 		{	
 			if !EventTimer
 			{
@@ -57,47 +57,51 @@ function StageActiveProcess()
 				}
 			}
 			
-			// Fade out after 1 or 10 seconds
+			// Count timer
+			EventTimer++;
+			
+			// Wait 1 or 10 seconds
 			if !IsGameOver and EventTimer == 60
 			or  IsGameOver and EventTimer == 600
 			{
+				// Fade out
 				fade_perform(FadeTo, ColourBlack, 1);
 				
 				// Stop all music
 				audio_bgm_stop(PriorityLow,  0.5);
 				audio_bgm_stop(PriorityHigh, 0.5);
 			}
-			EventTimer++;
 			
 			if fade_check(FadeMax)
 			{	
+				// If we have lives, restart the stage
 				if Player.Lives != 0
 				{
-					// Clear time if it is time over
+					room_restart();
+					
+					// Clear saved time if time over
 					if IsGameOver
 					{
 						Game.Time = 0;
 					}
 					Game.Lives = Player.Lives;
-					
-					// Restart the stage
-					room_restart();
 				}
+				
+				// If ran out of lives, reset data
 				else
 				{
-					// Reset game data
 					Game.StarpostID     = false;
 					Game.Time	        = 0;
 					Game.StageBoundary  = 0;
 					Game.PlayerPosition = [];
 					
-					// If ran out of lives and have continues, go to continue screen
+					// If have continues, go to continue screen
 					if Game.Continues
 					{
 						room_goto(Continue);
 					}
 					
-					// If have nothing, return to menu
+					// If not, return to menu
 					else
 					{
 						// Override save file if not in "no save" mode

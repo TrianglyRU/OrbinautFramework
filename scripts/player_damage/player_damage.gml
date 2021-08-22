@@ -39,6 +39,7 @@ function player_damage(flame_type,thunder_type,instant_kill)
 		// Set flags
 		Camera.Enabled			   = false;
 		Player.InvincibilityFrames = 0;
+		Player.InvincibleBonus	   = 0;
 		Player.DrawOrder	       = 0;
 		Player.Death               = true;
 		Player.AllowCollision      = false;
@@ -58,12 +59,6 @@ function player_damage(flame_type,thunder_type,instant_kill)
 		else
 		{
 			audio_sfx_play(sfxHurt, false);
-		}
-		
-		// Destroy invincibility stars
-		with all if object_index == InvincibilityStar
-		{
-			instance_destroy();
 		}
 	}
 		

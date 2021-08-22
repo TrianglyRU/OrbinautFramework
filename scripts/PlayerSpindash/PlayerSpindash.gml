@@ -12,7 +12,7 @@ function PlayerSpindash()
 		if Animation == AnimCrouch and Input.ABCPress
 		{
 			SpindashRev = 0;
-			AirLock  = true;
+			AirLock     = true;
 			
 			// Play sound
 			audio_sfx_play(sfxCharge, false);
