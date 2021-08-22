@@ -13,6 +13,4 @@ function DiscordVariables()
 	SmallImageDesc = "";
 	StateString	   = "";
 	DetailsString  = "";
-	DiscordAppID   = "";
-	PresenceReady  = false;
 }	
