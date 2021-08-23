@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_badnik_crabmeat_bullet",
-    "path": "sprites/spr_badnik_crabmeat_bullet/spr_badnik_crabmeat_bullet.yy",
+    "name": "spr_obj_crabmeat_bullet",
+    "path": "sprites/spr_obj_crabmeat_bullet/spr_obj_crabmeat_bullet.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Crabmeat",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Crabmeat.yy",
+    "name": "Crabmeat Bullet",
+    "path": "folders/Game Objects/Stage Objects/Badniks/Crabmeat/Crabmeat Bullet.yy",
   },
   "resourceVersion": "1.0",
   "name": "CrabmeatBullet",

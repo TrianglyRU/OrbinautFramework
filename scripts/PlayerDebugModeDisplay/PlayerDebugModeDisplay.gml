@@ -18,7 +18,7 @@ function PlayerDebugModeDisplay()
 					sprite_index = spr_obj_specialring;
 				break;
 				case ItemBox:
-					sprite_index = spr_obj_itembox_powerup;
+					sprite_index = spr_obj_itembox;
 				break;
 				case SpikesVertical:	    
 					sprite_index = spr_obj_spikesvertical;  

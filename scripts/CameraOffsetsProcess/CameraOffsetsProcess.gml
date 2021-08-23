@@ -21,6 +21,17 @@ function CameraOffsetsProcess()
 		SpinOffset = 0;
 	}
 	
+	// Handle camera shake
+	if ShakeTime
+	{
+		ShakeOffset = irandom_range(-ShakeForce, ShakeForce);
+		ShakeTime--;
+	}
+	else
+	{
+		ShakeOffset = 0;
+	}
+	
 	// Offset camera horizontally, like in CD
 	if Game.CDCamera
 	{

@@ -31,6 +31,12 @@ function PlayerWaterEvents()
 					instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				}
 			}
+			
+			// Destroy player bubble maker object
+			if instance_exists(BubbleController)
+			{
+				instance_destroy(BubbleController);
+			}
 		}
 	}
 	else
@@ -96,7 +102,7 @@ function PlayerWaterEvents()
 		{	
 			if BarrierType == BarrierThunder
 			{
-				fade_perform(FadeFrom, ColourFlash, 12);
+				fade_perform(FadeFrom, ColourFlash, 8);
 			}
 			BarrierType = false;
 			instance_destroy(Barrier);				
@@ -143,9 +149,6 @@ function PlayerWaterEvents()
 			}
 			IsUnderwater = false;	
 			AirTimer     = 1800;
-			
-			// Destroy player bubble maker object
-			instance_destroy(BubbleController);
 			
 			// Create splash object
 			if !Grounded

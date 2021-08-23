@@ -141,6 +141,9 @@ function PlayerResetOnFloor()
 			audio_sfx_stop(sfxDropDash);
 			audio_sfx_play(sfxRelease, false);
 			
+			// Shake camera
+			camera_shake_perform(2, 8);
+			
 			// Create dust effect
 			instance_create(PosX, PosY + RadiusY, DropdashDust);
 		}

@@ -16,5 +16,8 @@ function CameraVariables()
 	SpinOffset		= 0;
 	ExtendedOffset	= 0;
 	OverviewOffset	= 0;
+	ShakeOffset     = 0;
+	ShakeForce		= 0;
+	ShakeTime		= 0;
 	Enabled			= 0;
 }

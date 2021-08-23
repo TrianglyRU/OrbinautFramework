@@ -6,13 +6,13 @@ function ObjMotobugMain()
 		// Flip Motobug and restore its speed
 		if !(--StopTimer)
 		{
-			Xsp		   =  1;
-			Direction *= -1;
+			Xsp		      =  1;
+			image_xscale *= -1;
 		}
 	}
 	
 	// Move Motobug
-	PosX += Xsp * Direction;
+	PosX += Xsp * image_xscale;
 	
 	// Is Motobug currently moving?
 	if Xsp != 0
@@ -23,7 +23,7 @@ function ObjMotobugMain()
 			if !SmokeTimer
 			{
 				var  ThisID   = id;
-				var  Object = instance_create(x - 19 * Direction, y - 1, MotobugSmoke);
+				var  Object = instance_create(x - 19 * image_xscale, y - 1, MotobugSmoke);
 				with Object
 				{
 					object_set_depth(ThisID, false);
@@ -32,6 +32,7 @@ function ObjMotobugMain()
 			}
 		}
 		
+		// Play animation
 		animation_play(spr_obj_motobug, 8, 0);
 		
 		// Collide tiles and check for if Motobug is 8 pixels away from the surface
@@ -53,9 +54,6 @@ function ObjMotobugMain()
 	
 	// Update position
 	object_update_position(PosX, PosY);
-	
-	// Update image direction
-	image_xscale = Direction;
 	
 	// Act as badnik
 	object_act_enemy(EnemyBadnik);

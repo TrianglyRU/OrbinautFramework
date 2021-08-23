@@ -307,12 +307,15 @@ function MenuOptionsProcess()
 		// Game Start (save deletetion)
 		case 10:
 		{
-			// Delete data
-			SaveData[OptionID] = 0;
-			file_delete("saveslot" + string(OptionID) + ".bin");	
+			if Input.APress or Input.StartPress
+			{
+				// Delete data
+				SaveData[OptionID] = 0;
+				file_delete("saveslot" + string(OptionID + 1) + ".bin");	
 		
-			// Update option
-			menu_update_option(1, OptionID + 1, "SAVE " + string(OptionID + 1) + " - NEW GAME");
+				// Update option
+				menu_update_option(1, OptionID + 1, "SAVE " + string(OptionID + 1) + " - NEW GAME");
+			}
 		}
 		break;
 	}

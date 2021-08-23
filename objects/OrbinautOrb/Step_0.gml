@@ -1,8 +1,5 @@
-/// @description Insert description here
+/// @description Main
 // You can write your code in this editor
 
-	if object_check_overlap(Hitbox)
-	{
-		//object_act_badnik(false, false);
-		player_damage(false, false, false);
-	}
+	// Call object script
+	ObjOrbinautOrbMain();

@@ -2,7 +2,7 @@
 function gamedata_load(slot)
 {
 	// Get savedata file name
-	var filename = "saveslot" + string(slot) + ".bin";
+	var filename = "saveslot" + string(slot + 1) + ".bin";
 	
 	// Check it if exists
 	if file_exists(filename)

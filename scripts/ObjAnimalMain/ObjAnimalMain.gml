@@ -13,7 +13,7 @@ function ObjAnimalMain()
 	{	
 		// Move vertically		
 		PosY += Ysp;
-		Ysp  += 0.21875;
+		Ysp  += Grv;
 		
 		// Appear
 		if State == 0

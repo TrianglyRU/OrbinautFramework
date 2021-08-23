@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Objects/Egg Prison Button/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Egg Prison/Egg Prison Button/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_prison_button",

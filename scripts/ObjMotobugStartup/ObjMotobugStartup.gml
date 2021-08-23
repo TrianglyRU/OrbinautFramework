@@ -4,14 +4,12 @@ function ObjMotobugStartup()
 	PosX	   = 0;
 	PosY	   = 0;
 	Xsp		   = 0;
-	Direction  = 0;
 	StopTimer  = 0;
 	SmokeTimer = 0;
 	
 	// Set values
 	PosX	   = x;
 	PosY	   = y;
-	Direction  = image_xscale;
 	Xsp        = 1;
 	SmokeTimer = 17;
 	

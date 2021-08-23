@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Ring Sparkle",
-    "path": "folders/Game Objects/Stage Objects/Ring Sparkle.yy",
+    "path": "folders/Game Objects/Stage Objects/Ring/Ring Sparkle.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjRingSparkleStartup",

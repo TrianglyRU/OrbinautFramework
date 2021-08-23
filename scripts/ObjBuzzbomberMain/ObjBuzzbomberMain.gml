@@ -94,21 +94,23 @@ function ObjBuzzbomberMain()
 		}
 	} 
 	
-	// Set animation
+	// Animate
 	switch Action 
-	{		
+	{	
+		// Set sprite
 		case 0: 
-			animation_play(spr_obj_buzzbomber_fly, 1, 0);
+		case 3:
+			var Sprite = spr_obj_buzzbomber_fly;
 		break;
 		case 1: 
-			animation_play(spr_obj_buzzbomber_idle, 1, 0);
+			var Sprite = spr_obj_buzzbomber_idle;
 		break;
 		case 2: 
-			animation_play(spr_obj_buzzbomber_fire, 1, 0);
+			var Sprite = spr_obj_buzzbomber_fire;
 		break;
-		case 3: 
-			animation_play(spr_obj_buzzbomber_fly, 1, 0);  
-		break;
+		
+		// Play animation
+		animation_play(Sprite, 1, 0);
 	}
 	
 	// Act as badnik

@@ -2,7 +2,7 @@
 function gamedata_save(slot,character,zone,emeralds,lives,continues,score)
 {
 	// Get savedata file name
-	var filename = "saveslot" + string(slot) + ".bin";
+	var filename = "saveslot" + string(slot + 1) + ".bin";
 	
 	// Open the file and save/rewrite data
 	var file = file_bin_open(filename, 1);

@@ -1,4 +1,5 @@
-/// @description Insert description here
+/// @description Startup
 // You can write your code in this editor
 
-	object_set_hitbox(4, 4);
+	// Call object script
+	ObjOrbinautOrbStartup();

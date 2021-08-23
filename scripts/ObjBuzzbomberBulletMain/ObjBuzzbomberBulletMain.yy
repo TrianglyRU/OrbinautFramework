@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Buzzbomber",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Buzzbomber.yy",
+    "name": "Buzzbomber Bullet",
+    "path": "folders/Game Objects/Stage Objects/Badniks/Buzzbomber/Buzzbomber Bullet.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjBuzzbomberBulletMain",

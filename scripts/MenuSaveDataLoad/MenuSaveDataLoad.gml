@@ -38,7 +38,7 @@ function MenuSaveDataLoad()
 			switch SaveData[i][1]
 			{
 				default:
-					DataZone = "TEST STAGE";
+					DataZone = "TSZ";
 				break;
 			}
 			

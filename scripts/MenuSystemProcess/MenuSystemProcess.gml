@@ -15,8 +15,8 @@ function MenuSystemProcess()
 	if MenuAction[MenuID][OptionID] != noone and (Input.APress or Input.StartPress) 
 	{
 		// Get target menu
-		var ThisMenu   = MenuID; 
-		var NewMenu    = MenuAction[MenuID][OptionID];
+		var ThisMenu = MenuID; 
+		var NewMenu  = MenuAction[MenuID][OptionID];
 		
 		// Save current menu
 		if NewMenu > ThisMenu

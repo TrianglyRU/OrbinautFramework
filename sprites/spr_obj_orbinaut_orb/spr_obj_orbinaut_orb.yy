@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Orbinaut/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Badniks/Orbinaut/Orbinaut Orb/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_orbinaut_orb",

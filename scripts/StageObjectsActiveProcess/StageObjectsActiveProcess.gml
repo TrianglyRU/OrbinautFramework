@@ -8,6 +8,11 @@ function StageObjectsActiveProcess()
 			// Check if the object has children objects
 			var IsParent = variable_instance_exists(id, "Obj_ChildrenIDs");
 			
+			if object_index == Orbinaut
+			{
+				show_debug_message(Obj_ChildrenIDs);
+			}
+			
 			// Get bounds
 			var LeftBound   = Camera.ViewX - Obj_LoadX;
 			var TopBound    = Camera.ViewY - Obj_LoadY;
@@ -31,36 +36,24 @@ function StageObjectsActiveProcess()
 								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
 								{
-									with Obj_ChildrenIDs[i]
-									{
-										instance_deactivate_object(id);
-									}
+									instance_deactivate_object(Obj_ChildrenIDs[i]);
 								}
 							}
 							instance_deactivate_object(id);
 						}
 						else if Obj_LoadFlag == TypeReset
 						{	
-							if object_index == Orbinaut
-							{
-								show_debug_message(string(random(225)) + " kek");
-							}
-							
 							if Obj_LoadData[0] < LeftBound or Obj_LoadData[0] > RightBound
 							{
-								show_debug_message("A)");
-								
 								// Destroy children
 								if IsParent
 								{
 									var Length = array_length(Obj_ChildrenIDs);
 									for (var i = 0; i < Length; i++)
 									{
-										with Obj_ChildrenIDs[i]
-										{
-											instance_destroy();
-										}
+										instance_destroy(Obj_ChildrenIDs[i]);
 									}
+									Obj_ChildrenIDs = [];
 								}
 								
 								// Reset object
@@ -72,22 +65,6 @@ function StageObjectsActiveProcess()
 								event_perform(ev_create,     0);
 								event_perform(ev_room_start, 0);
 							}
-							else
-							{
-								// Deactivate object and its children
-								if IsParent
-								{
-									var Length = array_length(Obj_ChildrenIDs);
-									for (var i = 0; i < Length; i++)
-									{
-										with Obj_ChildrenIDs[i]
-										{
-											instance_deactivate_object(id);
-										}
-									}
-								}
-								instance_deactivate_object(id);
-							}
 						}
 						
 						// Destroy object and its children
@@ -98,11 +75,9 @@ function StageObjectsActiveProcess()
 								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
 								{
-									with Obj_ChildrenIDs[i]
-									{
-										instance_destroy();
-									}
+									instance_destroy(Obj_ChildrenIDs[i]);
 								}
+								Obj_ChildrenIDs = [];
 							}
 							instance_destroy();
 						}
@@ -117,10 +92,7 @@ function StageObjectsActiveProcess()
 						var Length = array_length(Obj_ChildrenIDs);
 						for (var i = 0; i < Length; i++)
 						{
-							with Obj_ChildrenIDs[i]
-							{
-								instance_deactivate_object(id);
-							}
+							instance_deactivate_object(Obj_ChildrenIDs[i]);
 						}
 					}
 					instance_deactivate_object(id);

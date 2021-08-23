@@ -1,8 +1,8 @@
-/// @function loop_value(value,min,resetlimit)
-function loop_value(value,min,resetlimit)
+/// @function loop_value(value,return_to,reset_at)
+function loop_value(value,return_to,reset_at)
 {
 	// Loop the value through given boundaries
-	value = (value - min) % (resetlimit - min);
+	value = (value - return_to) % (reset_at - return_to);
 	
-	return (value >= 0 ? value + min : resetlimit + value);
+	return (value >= 0 ? value + return_to : reset_at + value);
 }

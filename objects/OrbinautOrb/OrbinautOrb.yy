@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Orbinaut",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Orbinaut.yy",
+    "name": "Orbinaut Orb",
+    "path": "folders/Game Objects/Stage Objects/Badniks/Orbinaut/Orbinaut Orb.yy",
   },
   "resourceVersion": "1.0",
   "name": "OrbinautOrb",

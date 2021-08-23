@@ -8,11 +8,12 @@ function InputHotkeysProcess()
 	// Stage fresh load (F1)
 	if keyboard_check_pressed(vk_f1) 
 	{
-		Game.StarpostID		= false;
-		Game.PlayerPosition	= [];
-		Game.Time		    = 0;
-		Game.StageBoundary	= 0;
-		Game.Score          = 0;
+		Game.StarpostID		 = false;
+		Game.Time		     = 0;
+		Game.StageBoundary	 = 0;
+		Game.Score           = 0;
+		Game.PlayerPosition	 = [];
+		Game.SpecialRingData = [];
 		
 		audio_stop_all();
 		room_restart();
@@ -44,31 +45,10 @@ function InputHotkeysProcess()
 		}
 	}
 	
-	// Update resolution (F5)
+	// Turn fullscreen (F5)
 	if keyboard_check_pressed(vk_f5)
 	{
-		// Switch between
-		if Game.Width == 320
-		{
-			Game.Width  = 400;
-			Game.Height = 224;
-		}
-		else if Game.Width == 400
-		{
-			Game.Width  = 426;
-			Game.Height = 240;
-		}
-		else if Game.Width == 426
-		{
-			Game.Width  = 320;
-			Game.Height = 224;
-		}
-		Game.Width  = Game.Width;
-		Game.Height = Game.Height;
-		
-		// Adjust room viewport to our resolution
-		application_set_size(Game.Width, Game.Height);
-		window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
+		window_set_fullscreen(!window_get_fullscreen());
 	}
 	
 	// Give highspeed bonus (F6)
@@ -88,43 +68,45 @@ function InputHotkeysProcess()
 	// Give barrier (F8)
 	if keyboard_check_pressed(vk_f8)
 	{
+		// Initialise static
+		static BarrierToGive = 1;
+		
+		// Spawn barrier
 		if !instance_exists(Barrier)
 		{
 			instance_create(Player.PosX, Player.PosY, Barrier);
-			
-			Player.BarrierType = BarrierNormal;	
-			audio_sfx_play(sfxBarrier, false);			
 		}
-		else
+		switch BarrierToGive
 		{
-			switch Player.BarrierType
+			case BarrierNormal:
 			{
-				case BarrierNormal:
-				{
-					Player.BarrierType = BarrierFlame;
-					audio_sfx_play(sfxFlameBarrier, false);
-				}
-				break;
-				case BarrierFlame:
-				{
-					Player.BarrierType = BarrierThunder;
-					audio_sfx_play(sfxThunderBarrier, false);
-				}
-				break;
-				case BarrierThunder:
-				{
-					Player.BarrierType = BarrierWater;
-					audio_sfx_play(sfxWaterBarrier, false);
-				}
-				break;
-				case BarrierWater:
-				{
-					Player.BarrierType = BarrierNormal;
-					audio_sfx_play(sfxBarrier, false);
-				}
-				break;
+				Player.BarrierType = BarrierFlame;
+				audio_sfx_play(sfxFlameBarrier, false);
 			}
-		}	
+			break;
+			case BarrierFlame:
+			{
+				Player.BarrierType = BarrierThunder;
+				audio_sfx_play(sfxThunderBarrier, false);
+			}
+			break;
+			case BarrierThunder:
+			{
+				Player.BarrierType = BarrierWater;
+				audio_sfx_play(sfxWaterBarrier, false);
+			}
+			break;
+			case BarrierWater:
+			{
+				Player.BarrierType = BarrierNormal;
+				audio_sfx_play(sfxBarrier, false);
+			}
+			break;
+		}
+		
+		// Increment value
+		BarrierToGive++
+		BarrierToGive = loop_value(BarrierToGive, 1, 5);
 	}
 	
 	// Grant extra life (F9)
