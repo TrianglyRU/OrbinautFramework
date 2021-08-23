@@ -23,8 +23,8 @@ function ObjMotobugMain()
 			if !SmokeTimer
 			{
 				var  ThisID   = id;
-				var  SmokeObj = instance_create(x - 19 * Direction, y - 1, MotobugSmoke);
-				with SmokeObj
+				var  Object = instance_create(x - 19 * Direction, y - 1, MotobugSmoke);
+				with Object
 				{
 					object_set_depth(ThisID, false);
 				}

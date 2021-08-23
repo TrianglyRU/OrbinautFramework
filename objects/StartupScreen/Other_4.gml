@@ -1,5 +1,5 @@
-/// @description Initialization
+/// @description Initialisation
 // You can write your code in this editor
 	
-	// Initialization Script
+	// Initialisation Script
 	StartupScreenSetup();

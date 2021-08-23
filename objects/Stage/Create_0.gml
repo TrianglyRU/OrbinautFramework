@@ -1,7 +1,7 @@
-/// @description Initialization
+/// @description Initialisation
 // You can call your scripts in this editor
 
-	// Initialization Scripts
+	// Initialisation Scripts
 	StageVariables();
 	StageSetup();
 	StageStartup();

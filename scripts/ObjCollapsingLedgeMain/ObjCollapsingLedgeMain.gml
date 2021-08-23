@@ -36,14 +36,14 @@ function ObjCollapsingLedgeMain()
 						for (var j = Height - 16; j >= 0; j -= 16) 
 						{
 							var  Time   = abs(Width - i) / 16 * 4 + abs(Height - j) / 16 * 2;
-							var  Object = instance_create(LeftX + i, TopY + j, CollapsePlatformPart);
+							var  Object = instance_create(LeftX + i, TopY + j, CollapsingLedgePiece);
 							with Object
 							{
 								sprite_index = ThisObject.sprite_index;
 								image_xscale = ThisObject.image_xscale;
 								
-								PartX = i;
-								PartY = j;
+								DrawX = i;
+								DrawY = j;
 								Timer = Time;
 							}
 						}
@@ -57,14 +57,14 @@ function ObjCollapsingLedgeMain()
 						for (var j = Height - 16; j >= 0; j -= 16) 
 						{
 							var  Time = i / 16 * 4 + abs(Height - j) / 16 * 2;
-							var  Object = instance_create(LeftX + i, TopY + j, CollapsePlatformPart);
+							var  Object = instance_create(LeftX + i, TopY + j, CollapsingLedgePiece);
 							with Object
 							{
 								sprite_index = ThisObject.sprite_index;                      
 								image_xscale = ThisObject.image_xscale;
 								
-								PartX = ThisObject.Width - i;
-								PartY = j;
+								DrawX = ThisObject.Width - i;
+								DrawY = j;
 								Timer = Time;
 							}
 						}

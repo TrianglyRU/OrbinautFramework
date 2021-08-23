@@ -28,7 +28,7 @@ function PlayerWaterEvents()
 				if !Grounded
 				{
 					audio_sfx_play(sfxWaterSplash, false);
-					instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+					instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				}
 			}
 		}
@@ -150,7 +150,7 @@ function PlayerWaterEvents()
 			// Create splash object
 			if !Grounded
 			{
-				instance_create(floor(PosX), floor(Stage.WaterLevel), WaterSplash);
+				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				audio_sfx_play(sfxWaterSplash, false);
 			}
 		}

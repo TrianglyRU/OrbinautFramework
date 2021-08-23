@@ -1,7 +1,7 @@
-/// @description Initialization
+/// @description Initialisation
 // You can write your code in this editor
 	
-	// Initialize variables
+	// Initialise variables
 	ContinueScreenVariables();
 	
 	// Setup events and create character

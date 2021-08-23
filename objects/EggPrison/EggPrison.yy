@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_capsule",
-    "path": "sprites/spr_obj_capsule/spr_obj_capsule.yy",
+    "name": "spr_obj_eggprison",
+    "path": "sprites/spr_obj_eggprison/spr_obj_eggprison.yy",
   },
   "solid": false,
   "visible": true,

@@ -1,5 +1,5 @@
-/// @description
+/// @description ASync Update
 // You can write your code in this editor
 	
-	// Call update script
+	// ASync Update Script
 	DiscordUpdate();

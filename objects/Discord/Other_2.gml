@@ -1,5 +1,5 @@
-/// @description
+/// @description Startup Initialisation
 // You can write your code in this editor
 	
-	// Call startup script
+	// Startup Initialisation Script
 	DiscordStartup();

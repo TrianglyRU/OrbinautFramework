@@ -1,7 +1,8 @@
-/// @description
+/// @description Event
 // You can write your code in this editor
 	
-	if State == 2 and fade_check(FadeMax)
-	{
-		room_goto(SStageMain);
-	}
+	/* When fade is active, all step events are ignored,
+	so the ring won't teleport us. We perform teleportation event here */
+	
+	// Call object script
+	ObjSpecialRingEvent();

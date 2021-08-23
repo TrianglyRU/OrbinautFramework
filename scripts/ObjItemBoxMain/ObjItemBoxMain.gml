@@ -24,7 +24,7 @@ function ObjItemBoxMain()
 			{
 				if Player.Ysp < 0
 				{
-					var Check = floor(Player.PosY + 16) >= PosY;
+					var Check = floor(Player.PosY + 16) >= y;
 				}
 				else
 				{
@@ -35,6 +35,8 @@ function ObjItemBoxMain()
 			{
 				var Check = Player.Ysp >= 0;
 			}
+			
+			// Destroy on overlap
 			if Check
 			{
 				if object_check_overlap(Hitbox)
@@ -58,36 +60,33 @@ function ObjItemBoxMain()
 					CardPosX  = x;
 					CardPosY  = y - 4;
 				}
-				
-				// Reset collision
-				object_act_solid(false, false, false, false);
 			}
 			else
 			{
 				// Check for bumping into its bottom
 				if !Airborne
 				{
-					if floor(Player.PosY) >= floor(PosY + 16) and object_check_overlap(Hitbox)
+					if floor(Player.PosY) >= floor(y + 16) and object_check_overlap(Hitbox)
 					{
-						Airborne = true;
-						Ysp      = -1.5;
-					
+						// Bounce itembox up
+						Airborne   = true;
+						Ysp        = -1.5;
 						Player.Ysp = -Player.Ysp;
 					}
 				}
 				
-				// Do collision
+				// Do collision if can't destroy just yet
 				object_act_solid(true, true, false, false);
 			}
 		}	
 		
-		// Do collision
+		// Do collision if can't destroy at all
 		else
 		{
 			object_act_solid(true, true, false, false);
 		}
 
-		// Check if monitor is airborne
+		// Check if itembox is airborne
 		if Airborne
 		{
 			// Move
@@ -114,7 +113,7 @@ function ObjItemBoxMain()
 		// If card timer ran out, allow unload
 		if !CardTimer
 		{
-			object_set_range(RangeFar, TypeUnload);
+			object_set_range(RangeClose, TypeUnload);
 		}
 		else
 		{
@@ -138,6 +137,8 @@ function ObjItemBoxMain()
 						{
 							Player.Lives++;
 							Player.LivesRewards++;
+							
+							// Play jungle
 							audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
 						}
 						
@@ -157,32 +158,58 @@ function ObjItemBoxMain()
 						}
 					}
 					break;
-					case "Regular Barrier":
+					case "Invincibility":
 					{
-						// Give regular barrier
+						if !Player.SuperState
+						{
+							// Give invincibility bonus for 20 seconds if not in super form
+							Player.InvincibleBonus = 1200;
+						
+							// Play music
+							audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+						}
+					}
+					break;
+					case "Barrier":
+					{
+						// Give normal barrier
 						Player.BarrierType = BarrierNormal;
-						audio_sfx_play(sfxBarrier, false);
 						
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							var  Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							Object.sprite_index = spr_obj_barrier_normal;
+							var  Object = instance_create(Player.PosX, Player.PosY, Barrier);
+							with Object
+							{
+								sprite_index = spr_obj_barrier_normal;
+							}
 						}
+						else with Barrier
+						{
+							sprite_index = spr_obj_barrier_normal;
+						}
+						audio_sfx_play(sfxBarrier, false);
 					}
 					break;
 					case "Flame Barrier":
 					{
 						// Give flame barrier
 						Player.BarrierType = BarrierFlame;
-						audio_sfx_play(sfxFlameBarrier, false);
 						
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							Object.sprite_index = spr_obj_barrier_flame;
+							var  Object = instance_create(Player.PosX, Player.PosY, Barrier);
+							with Object
+							{
+								sprite_index = spr_obj_barrier_flame;
+							}
 						}
+						else with Barrier
+						{
+							sprite_index = spr_obj_barrier_flame;
+						}
+						audio_sfx_play(sfxFlameBarrier, false);
 					}
 					break;
 					case "Thunder Barrier":
@@ -194,36 +221,50 @@ function ObjItemBoxMain()
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							Object.sprite_index = spr_obj_barrier_thunder;
+							var  Object = instance_create(Player.PosX, Player.PosY, Barrier);
+							with Object
+							{
+								sprite_index = spr_obj_barrier_thunder;
+							}
+						}
+						else with Barrier
+						{
+							sprite_index = spr_obj_barrier_thunder;
 						}
 					}
 					break;
 					case "Water Barrier":
 					{
 						// Give water barrier
-						Player.BarrierType = BarrierWater;
-						audio_sfx_play(sfxWaterBarrier, false);
+						Player.BarrierType = BarrierWater;	
 						
 						// Spawn barrier object
 						if !instance_exists(Barrier)
 						{
-							var Object = instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
-							Object.sprite_index = spr_obj_barrier_water;
+							var  Object = instance_create(Player.PosX, Player.PosY, Barrier);
+							with Object
+							{
+								sprite_index = spr_obj_barrier_water;
+							}
 						}
+						else with Barrier
+						{
+							sprite_index = spr_obj_barrier_water;
+						}
+						audio_sfx_play(sfxWaterBarrier, false);
 						
 						// Play previous track if running out of air
 						if Player.AirTimer <= 720
 						{	
 							if !Player.SuperState
 							{
-								if Player.HighspeedBonus
-								{
-									audio_bgm_play(PriorityLow, HighspeedMusic, noone);
-								}
-								else if Player.InvincibleBonus
+								if Player.InvincibleBonus
 								{
 									audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+								}
+								else if Player.HighspeedBonus
+								{
+									audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 								}
 								else
 								{
@@ -238,18 +279,6 @@ function ObjItemBoxMain()
 			
 						// Reset air timer
 						Player.AirTimer = 1800;
-					}
-					break;
-					case "Invincibility":
-					{
-						if !Player.SuperState
-						{
-							// Give invincibility bonus for 20 seconds
-							Player.InvincibleBonus = 1200;
-						
-							// Play music
-							audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
-						}
 					}
 					break;
 					case "Extra Life":

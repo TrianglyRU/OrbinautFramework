@@ -1,7 +1,7 @@
 /// @description Variables & Setup
 // You can write your code in this editor
 	
-	// Initialize variables
+	// Initialise variables
 	SpecialStageVariables();
 	
 	// Startup setup

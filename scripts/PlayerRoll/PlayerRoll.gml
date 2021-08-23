@@ -6,20 +6,34 @@ function PlayerRoll()
 	// Decelerate
 	if !GroundLock
 	{
-		if Input.Left and Inertia > 0
+		if Input.Left
 		{
-			Inertia -= RollDec;
-			if Inertia < 0
+			if Inertia > 0
 			{
-				Inertia = -0.5;
+				Inertia -= RollDec;
+				if Inertia < 0
+				{
+					Inertia = -0.5;
+				}
+			}
+			else
+			{
+				Facing = FlipLeft;
 			}
 		}
-		if Input.Right and Inertia < 0
+		if Input.Right
 		{
-			Inertia += RollDec;
-			if Inertia >= 0
+			if Inertia < 0
 			{
-				Inertia = 0.5;
+				Inertia += RollDec;
+				if Inertia >= 0
+				{
+					Inertia = 0.5;
+				}
+			}
+			else
+			{
+				Facing  = FlipRight;
 			}
 		}
 	}
@@ -56,13 +70,14 @@ function PlayerRoll()
 			PosY   -= DefaultRadiusY - SmallRadiusY;
 			
 			Spinning  = false;
-			Animation = AnimMove;
+			Animation = AnimIdle;
 		}
 	}
 	
 	// If forced to roll, keep rolling
-	else 
+	else if Inertia == 0
 	{
-		Inertia = 4 * Facing;
+		Inertia = 2 * Facing;
+		Facing = sign(Inertia);
 	}
 }

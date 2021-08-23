@@ -10,17 +10,26 @@ function PlayerDebugModeSetup()
 	DebugList = 
 	[
 		Ring,
+		SpecialRing,
 		ItemBox,
 		SpikesVertical,
+		SpikesHorizontal,
 		SpringYellowVertical,
 		SpringYellowHorizontal,
 		SpringYellowDiagonal,
 		SpringRedVertical,
 		SpringRedHorizontal,
 		SpringRedDiagonal,
+		SpringRamp,
 		StarPost,
+		AirBubbler,
+		PushableBlock,
 		FloatingPlatform,
+		SwingingPlatform,	
 		Bridge,
-		Animal	
+		Animal,
+		SignPost,
+		EggPrison,
+		Player		// Placeholder, grants (or revokes) 7 emeralds
 	]
 }

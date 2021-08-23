@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_capsule_button",
-    "path": "sprites/spr_obj_capsule_button/spr_obj_capsule_button.yy",
+    "name": "spr_obj_prison_button",
+    "path": "sprites/spr_obj_prison_button/spr_obj_prison_button.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Egg Prison",
-    "path": "folders/Game Objects/Stage Objects/Egg Prison.yy",
+    "name": "Egg Prison Button",
+    "path": "folders/Game Objects/Stage Objects/Egg Prison Button.yy",
   },
   "resourceVersion": "1.0",
   "name": "PrisonButton",

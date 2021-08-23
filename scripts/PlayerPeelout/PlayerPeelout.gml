@@ -33,8 +33,14 @@ function PlayerPeelout()
 	else if PeeloutRev == 30
 	{	
 		// Launch player
-		Inertia    = (!SuperState ? 12 : 15) * Facing;
-		AirLock = false;
+		var Force = !HighspeedBonus ? TopAcc * 2 : TopAcc * 1.5;
+		if SuperState and Force > 16	
+		{
+			Force = 16;
+		}
+		
+		Inertia    = Force * Facing;
+		AirLock    = false;
 		PeeloutRev = -1;
 		Animation  = AnimMove;
 			
@@ -53,9 +59,12 @@ function PlayerPeelout()
 	
 	// Cancel peelout
 	else if PeeloutRev
-	{
+	{	
 		PeeloutRev = -1;
-		AirLock = false;
+		AirLock    = false;
+		
+		// Stop sound
+		audio_sfx_stop(sfxPeeloutCharge);
 	}
 	
 	// Apply peelout animation

@@ -6,18 +6,33 @@ function PlayerRollStart()
 		exit;
 	}
 
-	// Check for inertia required to manually roll up
-	if Game.SKRollDeceleration
+	// Check for required inertia to manually roll up
+	var ManualRoll = false;
+	
+	if Input.Down
 	{
-		var RollCheck = abs(Inertia) >= 1;
-	}
-	else
-	{
-		var RollCheck = abs(Inertia) >= 0.5;
+		if Game.SKCrouch
+		{
+			if abs(Inertia) >= 1
+			{
+				ManualRoll = true;
+			}
+			
+			// Allow player to crouch. This can actually cause
+			// some issues on slopes :/
+			else
+			{
+				Animation = AnimCrouch;
+			}
+		}
+		else if abs(Inertia) >= 0.5
+		{
+			ManualRoll = true;
+		}
 	}
 	
 	// Roll up
-	if Input.Down and RollCheck or ForcedRoll and !Spinning
+	if ManualRoll or ForcedRoll
 	{
 		// Update collision radiuses
 		RadiusY = SmallRadiusY;

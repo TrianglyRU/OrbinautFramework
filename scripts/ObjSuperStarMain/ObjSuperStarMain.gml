@@ -15,7 +15,7 @@ function ObjSuperStarMain()
 	{
 		if abs(Player.Inertia) >= Player.TopAcc
 		{
-			instance_create(floor(Player.PosX), floor(Player.PosY), SuperStar);
+			instance_create(Player.PosX,Player.PosY, SuperStar);
 		}
 		instance_destroy();
 	}	

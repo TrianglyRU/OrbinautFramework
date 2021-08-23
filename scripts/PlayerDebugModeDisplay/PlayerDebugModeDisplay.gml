@@ -14,11 +14,17 @@ function PlayerDebugModeDisplay()
 				case Ring:
 					sprite_index = spr_obj_ring;		  
 				break;
-				case ItemBox:	
-					sprite_index = spr_obj_itembox;	  
+				case SpecialRing:
+					sprite_index = spr_obj_specialring;
+				break;
+				case ItemBox:
+					sprite_index = spr_obj_itembox_powerup;
 				break;
 				case SpikesVertical:	    
 					sprite_index = spr_obj_spikesvertical;  
+				break;
+				case SpikesHorizontal:	    
+					sprite_index = spr_obj_spikeshorizontal;  
 				break;
 				case SpringYellowVertical:   
 					sprite_index = spr_obj_spring_yellow_v; 
@@ -36,19 +42,37 @@ function PlayerDebugModeDisplay()
 					sprite_index = spr_obj_spring_red_h;    
 				break;
 				case SpringRedDiagonal:      
-					sprite_index = spr_obj_spring_yellow_d;
+					sprite_index = spr_obj_spring_red_d;
 				break;
 				case StarPost:				 
 					sprite_index = spr_obj_starpost;		  
 				break;
-				case Animal:				 
-					sprite_index = spr_obj_animal_flicky;   
+				case AirBubbler:				 
+					sprite_index = spr_obj_airbubbler;		  
 				break;
-				case Bridge:				 
-					sprite_index = spr_obj_bridgelog_mqz;   
+				case PushableBlock:				 
+					sprite_index = spr_obj_pushableblock;		  
 				break;
 				case FloatingPlatform:		 
-					sprite_index = spr_obj_platform_mqz;   
+					sprite_index = spr_obj_platform_template;   
+				break;
+				case SwingingPlatform:		 
+					sprite_index = spr_obj_swingplatform_editor;   
+				break;
+				case Bridge:				 
+					sprite_index = spr_obj_bridge_editor;   
+				break;
+				case Animal:				 
+					sprite_index = spr_obj_animal_flicky;   
+				break;	
+				case SignPost:				 
+					sprite_index = spr_obj_signpost_start_sonic;   
+				break;
+				case EggPrison:				 
+					sprite_index = spr_obj_eggprison;   
+				break;
+				case Player:
+					sprite_index = spr_tempobject;
 				break;
 			}
 		}
@@ -56,8 +80,8 @@ function PlayerDebugModeDisplay()
 		// Update player
 		x			 = floor(PosX);
 		y			 = floor(PosY);
-		image_xscale = Player.Facing;
 		image_index  = 0;
+		image_xscale = Player.Facing;
 		image_angle  = 360;
 	
 		// Draw player

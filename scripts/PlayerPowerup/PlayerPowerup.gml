@@ -20,7 +20,7 @@ function PlayerPowerup()
 		{
 			for (var i = 1; i < 9; i++)
 			{
-				var Object = instance_create(floor(PosX), floor(PosY), InvincibilityStar);
+				var Object = instance_create(PosX, PosY, InvincibilityStar);
 					Object.ID = i;
 			}
 			with InvincibilityStar 

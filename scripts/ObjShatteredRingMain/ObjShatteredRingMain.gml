@@ -15,14 +15,47 @@ function ObjShatteredRingMain()
 	Ysp  += Grv;
 		
 	// Collide with floor
-	if Ysp > 0 and (++CollisionCheck mod 4 == 0 or Game.SMRingBehaviour)
+	if Ysp > 0
 	{
-		// Collide with floor
 		var FindFloor = tile_check_collision_v(PosX, PosY + 8, true, false, Player.Layer)[0];
 		if  FindFloor < 0
 		{
 			PosY += FindFloor;
 			Ysp   = min(Ysp * -0.75, -2);
+		}
+	}
+	
+	// Perform additional collision checks
+	if Game.SMRingBehaviour
+	{
+		// Collide with ceiling
+		if Ysp < 0 
+		{
+			var FindCeiling = tile_check_collision_v(PosX, PosY - 8, false, true, Player.Layer)[0];
+			if  FindCeiling
+			{
+				Ysp *= -0.75;
+			}
+		}
+				
+		// Collide with left wall
+		if Xsp < 0
+		{
+			var FindWall = tile_check_collision_h(PosX - 8, PosY, false, true, Player.Layer)[0];
+			if  FindWall
+			{
+				Xsp *= -0.75;
+			}
+		}
+				
+		// Collide with right wall
+		else if Xsp > 0
+		{
+			var FindWall = tile_check_collision_h(PosX + 8, PosY, false, true, Player.Layer)[0];
+			if  FindWall
+			{
+				Xsp *= -0.75;
+			}
 		}
 	}
 	

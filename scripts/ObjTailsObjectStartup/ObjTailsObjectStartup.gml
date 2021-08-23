@@ -1,5 +1,6 @@
 function ObjTailsObjectStartup()
 {
-	// Create variable
+	// Create variables
+	Angle		= 0;
 	VisualAngle = 0;
 }

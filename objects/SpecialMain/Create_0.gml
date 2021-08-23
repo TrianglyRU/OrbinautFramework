@@ -1,7 +1,7 @@
 /// @description
 // You can write your code in this editor
 	
-	// Call varaibles initialization script
+	// Call varaibles initialisation script
 	SpecialMainVariables();
 	
 	// Call startup script

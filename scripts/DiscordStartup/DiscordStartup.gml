@@ -9,7 +9,7 @@ function DiscordStartup()
 	// Get application ID. This one is for Orbianut and provides basic set of icons
 	var DiscordAppID = "795659000645287996";
 	
-	// Initialize Rich Presence
+	// Initialise Rich Presence
 	if !np_initdiscord(DiscordAppID, true, "0")
 	{
 		Game.RichPresenceSupport = false;

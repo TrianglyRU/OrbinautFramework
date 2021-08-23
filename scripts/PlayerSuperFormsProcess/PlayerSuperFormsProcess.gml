@@ -52,7 +52,7 @@ function PlayerSuperFormsProcess()
 			// Create star particle (and make it follow the player)
 			if abs(Inertia) >= TopAcc and !instance_exists(SuperStar)
 			{
-				var  Object = instance_create(floor(PosX), floor(PosY), SuperStar);
+				var  Object = instance_create(PosX, PosY, SuperStar);
 				with Object 
 				{
 					FollowPlayer = true;

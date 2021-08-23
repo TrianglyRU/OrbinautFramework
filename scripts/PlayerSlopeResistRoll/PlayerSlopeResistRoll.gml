@@ -7,13 +7,15 @@ function PlayerSlopeResistRoll()
 	}
 	
 	// Set slope gravity
-	SlopeGravity = 0.3125 * dsin(Angle);
+	if sign(Inertia) != sign(dsin(Angle))
+	{
+		SlopeGravity = 0.3125 * dsin(Angle);
+	}
+	else
+	{
+		SlopeGravity = 0.078125 * dsin(Angle);
+	}
 	
 	// Apply it
-	if Inertia < 0  and SlopeGravity < 0
-	or Inertia >= 0 and SlopeGravity >= 0
-	{
-		SlopeGravity /= 4;
-	}
 	Inertia -= SlopeGravity;
 }

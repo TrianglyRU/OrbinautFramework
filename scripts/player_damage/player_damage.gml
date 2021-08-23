@@ -103,7 +103,7 @@ function player_damage(flame_type,thunder_type,instant_kill)
 			for (var i = 0; i < min(Player.Rings, 32); i++) 
 			{
 				// Spawn ring
-				var Object = instance_create(floor(Player.PosX), floor(Player.PosY), ShatteredRing);
+				var Object = instance_create(Player.PosX, Player.PosY, ShatteredRing);
 				if  i == 16 
 				{ 
 					Angle = 168.75; 
@@ -161,6 +161,6 @@ function player_damage(flame_type,thunder_type,instant_kill)
 	if Player.BarrierType
 	{
 		Player.BarrierType = false;
-		instance_destroy(Barrier);
+		//instance_destroy(Barrier);
 	}
 }

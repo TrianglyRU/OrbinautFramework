@@ -3,9 +3,9 @@ function ObjItemBoxStartup()
 	// Variables list
 	Airborne    = 0;
 	Destroyed   = 0;
+	Ysp		    = 0;
 	PosX        = 0;
-	PosY	    = 0;
-	Ysp		    = 0;	
+	PosY	    = 0;	
 	CardPosX    = 0;
 	CardPosY    = 0;
 	CardSpeed   = 0;
@@ -15,18 +15,6 @@ function ObjItemBoxStartup()
 	/* Variable Definitions	
 	1. BoxType, default = "Empty"
 	*/
-
-	// Set object solidbox
-	object_set_solidbox(14, 16, false);
-
-	// Set object hitbox
-	object_set_hitbox(15, 17);
-	
-	// Set object pdeth
-	object_set_depth(Player, false);
-	
-	// Set active range
-	object_set_range(RangeFar, TypeReset);
 	
 	// Set default propertiess
 	PosX	  = x;
@@ -70,4 +58,16 @@ function ObjItemBoxStartup()
 			CardSprite = 11;
 		break;
 	}
+	
+	// Set object solidbox
+	object_set_solidbox(14, 16, false);
+
+	// Set object hitbox
+	object_set_hitbox(15, 17);
+	
+	// Set object depth
+	object_set_depth(Player, false);
+	
+	// Set active range
+	object_set_range(RangeFar, TypeReset);
 }

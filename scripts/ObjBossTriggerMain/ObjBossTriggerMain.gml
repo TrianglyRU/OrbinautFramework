@@ -27,43 +27,43 @@ function ObjBossTriggerMain()
 	// Check if boss is active
 	else if Stage.IsBossfight == true
 	{
-		// Play boss music
-		if !audio_bgm_is_playing(PriorityLow)
-		{
-			audio_bgm_play(PriorityLow, BossMusic, other); 
-		}
-		
-		// Deactive signpost and egg prison
-		instance_deactivate_object(Signpost);
-		instance_deactivate_object(EggPrison);
-		
-		// Force boundaries
-		Stage.TargetLeftBoundary   = x - max(Game.Width  / 2, ArenaWidth  / 2);
-		Stage.TargetTopBoundary    = y - max(Game.Height / 2, ArenaHeight / 2);
-		Stage.TargetBottomBoundary = y + max(Game.Height / 2, ArenaHeight / 2);
-		
-		// Check if the boss was defeated
 		if BossDefeated
 		{
-			// Reset right and top boundaries
+			// Reset boundaries
 			Stage.TargetBottomBoundary = ReservedBottomBound;
 			Stage.TargetTopBoundary	   = ReservedTopBound;
 			Stage.TargetRightBoundary  = room_width;
 			
-			// Give 1000 points
-			Player.Score += 1000;
+			// Give 1000 points and cancel bossfight state
+			Player.Score     += 1000;
+			Stage.IsBossfight = false;
 			
 			// Play stage music
 			audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			
 			// Activate signpost and egg prison
-			instance_activate_object(Signpost);
+			instance_activate_object(SignPost);
 			instance_activate_object(EggPrison);
-		
+			
 			// Destroy object
 			instance_destroy();
+		}
+		else
+		{
+			// Set new boundaries
+			Stage.TargetLeftBoundary   = x - max(Game.Width  / 2, ArenaWidth  / 2);
+			Stage.TargetTopBoundary    = y - max(Game.Height / 2, ArenaHeight / 2);
+			Stage.TargetBottomBoundary = y + max(Game.Height / 2, ArenaHeight / 2);
 			
-			Stage.IsBossfight = false;
+			// Play boss music
+			if !audio_bgm_is_playing(PriorityLow)
+			{
+				audio_bgm_play(PriorityLow, BossMusic, other); 
+			}
+		
+			// Deactive signpost and egg prison
+			instance_deactivate_object(SignPost);
+			instance_deactivate_object(EggPrison);
 		}
 	}
 }

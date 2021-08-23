@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_specialring_editor",
-    "path": "sprites/spr_obj_specialring_editor/spr_obj_specialring_editor.yy",
+    "name": "spr_obj_specialring",
+    "path": "sprites/spr_obj_specialring/spr_obj_specialring.yy",
   },
   "solid": false,
   "visible": true,

@@ -1,6 +1,6 @@
 function PaletteSystemStartup()
 {	
-	// Initialize palette animation storage
+	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)
 	{
 		for (var j = 0; j < PaletteLimit; j++)

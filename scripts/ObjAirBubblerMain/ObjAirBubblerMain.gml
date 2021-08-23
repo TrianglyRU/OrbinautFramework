@@ -15,7 +15,7 @@ function ObjAirBubblerMain()
 		exit;
 	}
 	
-	// Define generation settings if in idle state
+	// Set generation properties if in idle state
 	if !CycleState
 	{
 		CycleState++;
@@ -32,13 +32,14 @@ function ObjAirBubblerMain()
 	else
 	{
 		// Generate a bubble
-		var GeneratedBubble = instance_create(x + irandom_range(-8, 7), y, Bubble);
+		var Object = instance_create(x + irandom_range(-8, 7), y, Bubble);
 			
 		// Mark bubble as large
 		if BubbleID == LargeID and !(CycleNumber mod GenerationSpeed)
 		{
-			with GeneratedBubble
+			with Object
 			{
+				Direction  = FlipRight;
 				BubbleType = 2;
 				object_set_triggerbox(-16, 16, -16, 16);
 			}
@@ -49,8 +50,9 @@ function ObjAirBubblerMain()
 		{
 			if !BubbleSet[ChosenSet][BubbleID]
 			{
-				with GeneratedBubble
+				with Object
 				{
+					Direction  = FlipRight;
 					BubbleType = 0;
 				}
 			}
@@ -58,8 +60,9 @@ function ObjAirBubblerMain()
 			// Mark bubble as medium
 			else
 			{
-				with GeneratedBubble
+				with Object
 				{
+					Direction  = FlipRight;
 					BubbleType = 1;
 				}
 			}

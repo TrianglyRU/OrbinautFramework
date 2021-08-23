@@ -7,7 +7,7 @@ function palette_handle(type, id, range, last, goto, duration)
 	// Get unique ID
 	var AnimationID = string(last) + "_" + string(goto);
 	
-	// Initialize or update palette animation
+	// Initialise or update palette animation
 	if Sequence[type,index] != AnimationID
 	{
 		// Set data

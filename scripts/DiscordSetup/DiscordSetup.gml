@@ -6,36 +6,44 @@ function DiscordSetup()
 		exit;
 	}
 	
-	// Set details information block
+	// Set details
 	switch room 
 	{
+		case TestStage:
+			DetailsString = "TEST STAGE";
+		break;
 		default:
-			DetailsString = "UNKNOWN STAGE";
+			DetailsString = "";
 		break;
 	}
 	
-	// Set state information block
-	var ID = instance_exists(Player) ? Game.Character : -1;
-	switch ID
+	// Set state and small icon
+	if instance_exists(Player)
 	{
-		case CharSonic:    
-			var Char = "sonic";
-		break;
-		case CharTails:	   
-			var Char = "tails";   
-		break;
-		case CharKnuckles: 
-			var Char = "knuckles";
-		break;
-		default:		  
-			var Char = "unknown";
-		break;
+		switch Game.Character
+		{
+			case CharSonic:    
+				var Char = "sonic";
+			break;
+			case CharTails:	   
+				var Char = "tails";   
+			break;
+			case CharKnuckles: 
+				var Char = "knuckles";
+			break;
+			default:		  
+				var Char = "?";
+			break;
+		}
+		StateString = "Playing as: " + string_upper(Char);
+		SmallImage  = Char;
 	}
-	StateString = "Playing as: " + string_upper(Char);
+	else
+	{
+		StateString = "";
+		SmallImage  = "";
+	}
 	
-	// Set icons
-	MainImage  = "orbinaut";
-	SmallImage = Char;
-	
-	PresenceReady = false;
+	// Set main icons
+	MainImage = "orbinaut";
 }

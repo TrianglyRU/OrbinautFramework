@@ -2,7 +2,19 @@ function PlayerMovementGround()
 {	
 	if !GroundLock and !AirLock
 	{
-		// Left key is pressed?
+		// Get skid angle range
+		if !Game.S3SlopePhysics
+		{
+			var SkidRange = Angle <= 45 or Angle >= 316.41;	
+		}
+		else
+		{
+			/* In S3, player appears to skid on both 45-degrees-like slopes, but an actual range check
+			is Angle <= 46.41 and Angle >= 315. So maybe they just don't use 45 degree angles for those 45-degree-like slopes? */
+			var SkidRange = Angle <= 45 or Angle >= 315;
+		}
+		
+		// Move left
 		if Input.Left
 		{	
 			// Decelerate
@@ -16,7 +28,7 @@ function PlayerMovementGround()
 				}
 				
 				// Perform skid
-				if (Angle <= 45 or Angle >= 315) and Inertia >= 4
+				if SkidRange and Inertia >= 4
 				{
 					if Animation != AnimSkid
 					{
@@ -24,7 +36,7 @@ function PlayerMovementGround()
 						audio_sfx_play(sfxSkid, false);
 						
 						// Create dust object
-						instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
+						instance_create(PosX, PosY + RadiusY, DustPuff);
 					}
 				}
 
@@ -45,7 +57,7 @@ function PlayerMovementGround()
 			}
 		}
 		
-		// Right key is pressed?
+		// Move right
 		else if Input.Right
 		{			
 			// Decelerate
@@ -58,7 +70,7 @@ function PlayerMovementGround()
 				}
 				
 				// Perform skid
-				if (Angle <= 45 or Angle >= 315) and Inertia <= -4
+				if SkidRange and Inertia <= -4
 				{
 					if Animation != AnimSkid
 					{
@@ -66,7 +78,7 @@ function PlayerMovementGround()
 						audio_sfx_play(sfxSkid, false);
 						
 						// Create dust object
-						instance_create(floor(PosX), floor(PosY + RadiusY), DustPuff);
+						instance_create(PosX, PosY + RadiusY, DustPuff);
 					}
 				}
 			} 
@@ -107,56 +119,52 @@ function PlayerMovementGround()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	// Set 'push' animation
-	if Pushing
+	// Set animation
+	if SpindashRev == -1 and PeeloutRev == -1
 	{
-		Animation = AnimPush;
-	}
-	else if Angle <= 45 or Angle >= 316.41
-	{
-		// Set 'crouch' animation
-		if Game.SKCrouch
+		// Set pushing animation
+		if Pushing
 		{
-			var CrouchCheck = abs(Inertia) < 1;
+			Animation = AnimPush;
 		}
-		else
+		else 
 		{
-			var CrouchCheck = Inertia == 0;
-		}
-		if CrouchCheck and Input.Down and (!Input.Left and !Input.Right)
-		{
-			if SpindashRev == -1 
+			if Angle <= 45 or Angle >= 316.41
 			{
-				Animation = AnimCrouch;
-			}
-		}
-		
-		// Set 'idle' or 'lookup' animation
-		else if Inertia == 0
-		{
-			if PeeloutRev == -1
-			{
-				if Input.Up
-				{
-					Animation = AnimLookup;
-				}
-				else if !Input.Left and !Input.Right
+				// Set idle animation
+				if Inertia == 0
 				{
 					Animation = AnimIdle;
 				}
+			
+				// Set crouch or lookup animation
+				if Animation == AnimIdle
+				{
+					if Input.Up
+					{
+						Animation = AnimLookup;
+					}
+					else if Input.Down
+					{
+						Animation = AnimCrouch;
+					}
+				}
 			}
-		}
 		
-		// Set 'move' animation
-		else if Animation != AnimSkid
-		{
-			Animation = AnimMove;
-		}
-		
-		// Cancel skid animation if pressed control button in direction of our movement
-		else if Inertia and Input.Right or !Inertia and Input.Left
-		{
-			Animation = AnimMove;
+			// If not skidding, use movement animation
+			if Inertia != 0
+			{
+				if Animation != AnimSkid
+				{
+					Animation = AnimMove;
+				}
+				
+				// Cancel skidding animation
+				else if Inertia and Input.Right or !Inertia and Input.Left
+				{
+					Animation = AnimMove;
+				}
+			}
 		}
 	}
 }

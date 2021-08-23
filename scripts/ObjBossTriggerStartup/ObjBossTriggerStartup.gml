@@ -14,5 +14,8 @@ function ObjBossTriggerStartup()
 	visible = false;
 	
 	// Set object triggerbox
-	object_set_triggerbox(0, 32, -512, 512);
+	object_set_triggerbox(0, 32, 0, room_width);
+	
+	// Set object active range
+	object_set_range(RangeFar, TypeUnload);
 }

@@ -1,13 +1,12 @@
 function ObjShatteredRingStartup()
 {
-	// Initialize variables
+	// Initialise variables
 	PosX		   = 0;
 	PosY		   = 0;
 	Xsp			   = 0;
 	Ysp			   = 0;
 	Grv			   = 0;
 	Timer		   = 0;
-	CollisionCheck = 0;
 	PickupTimeout  = 0;
 	
 	// Set object hitbox

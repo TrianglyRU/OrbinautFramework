@@ -95,12 +95,12 @@ function object_act_solid(sides,top,bottom,interactable)
 	{	
 		// Check for overlap
 		var XDifference = PlayerX - ObjectX + ObjectWidth;
-		if  XDifference <= 0 or XDifference >= ObjectWidth * 2 - 1
+		if  XDifference < 0 or XDifference > ObjectWidth * 2 - 1
 		{
 			exit;
 		}
 		var YDifference = PlayerY - ObjectY - SlopeOffset + ObjectHeight + 4;
-		if  YDifference < 0 or YDifference >= ObjectHeight * 2 + 3
+		if  YDifference < 0 or YDifference > ObjectHeight * 2 + 3
 		{
 			exit;
 		}

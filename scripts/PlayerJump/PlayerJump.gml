@@ -21,9 +21,12 @@ function PlayerJump()
 		}
 		else if DropdashFlag == 1
 		{
-			DropdashFlag =  2;
+			if DropdashRev == 20
+			{
+				Animation    = AnimSpin;
+				DropdashFlag = 2;
+			}
 			DropdashRev  = -1;
-			Animation    = AnimSpin;
 		}
 	}
 	
@@ -110,7 +113,7 @@ function PlayerJump()
 							// Create sparkles
 							for (var i = 0; i < 4; i++)
 							{
-								var  Object = instance_create(floor(PosX), floor(PosY), BarrierSparkle);
+								var  Object = instance_create(PosX, PosY, BarrierSparkle);
 								with Object
 								{
 									SparkleID = i;

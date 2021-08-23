@@ -11,7 +11,8 @@ function ObjFloatingPlatformMain()
 				FallState = true;
 				FallTimer = 32;
 				
-				object_set_range(RangeFar, TypeDelete);
+				// Do not unload automatically
+				object_set_range(RangeClose, false);
 			}
 		}
 		
@@ -22,7 +23,7 @@ function ObjFloatingPlatformMain()
 	{
 		Weight -= 0.25;
 	}
-	Weight = clamp(Weight, 0, 3);
+	Weight = clamp(Weight, 0, 4);
 	
 	// Increase fall speed
 	if FallState 
@@ -34,6 +35,12 @@ function ObjFloatingPlatformMain()
 		if !(--FallTimer) and Player.OnObject == id
 		{
 			Player.OnObject = false;
+		}
+		
+		// Delete platform
+		if OriginY > Stage.BottomBoundary
+		{
+			instance_destroy();
 		}
 	}
 	

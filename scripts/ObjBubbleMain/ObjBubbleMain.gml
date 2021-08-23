@@ -1,7 +1,7 @@
 function ObjBubbleMain()
 {
 	// Handle wobble data
-	if Direction = FlipRight
+	if Direction == FlipRight
 	{
 		if WobbleOffset + 1 == array_length(Stage.WobbleData)
 		{
@@ -12,7 +12,7 @@ function ObjBubbleMain()
 			WobbleOffset++
 		}
 	}
-	else if Direction = FlipLeft
+	else if Direction == FlipLeft
 	{
 		if !WobbleOffset
 		{
@@ -37,6 +37,8 @@ function ObjBubbleMain()
 				instance_destroy();
 			}
 		}
+		
+		// If small or medium bubble, destroy instantly
 		else
 		{
 			instance_destroy();
@@ -101,13 +103,13 @@ function ObjBubbleMain()
 			{
 				if !Player.SuperState
 				{
-					if Player.HighspeedBonus
-					{
-						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
-					}
-					else if Player.InvincibleBonus
+					if Player.InvincibleBonus
 					{
 						audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+					}
+					else if Player.HighspeedBonus
+					{
+						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
 					}
 					else
 					{
@@ -128,13 +130,13 @@ function ObjBubbleMain()
 			}
 			
 			// Reset flags
-			Player.AirTimer     = 1800;
+			Player.AirTimer   = 1800;
 			Player.GroundLock = 35;
-			Player.Xsp		    = 0;
-			Player.Ysp		    = 0;
-			Player.Inertia	    = 0;	
-			Player.Jumping      = false;
-			Player.Spinning	    = false;
+			Player.Xsp		  = 0;
+			Player.Ysp		  = 0;
+			Player.Inertia	  = 0;	
+			Player.Jumping    = false;
+			Player.Spinning	  = false;
 			
 			// Play animation
 			if !Player.FlightState and Player.GlideState != GlideActive

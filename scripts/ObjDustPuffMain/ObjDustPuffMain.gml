@@ -9,7 +9,7 @@ function ObjDustPuffMain()
 	{
 		if image_index == 1 and !SpawnDust
 		{
-			instance_create(floor(Player.PosX), floor(Player.PosY + Player.RadiusY), DustPuff);
+			instance_create(Player.PosX, Player.PosY + Player.RadiusY, DustPuff);
 			SpawnDust = true;
 		}
 	}

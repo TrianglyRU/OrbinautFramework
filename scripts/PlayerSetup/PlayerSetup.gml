@@ -60,7 +60,7 @@ function PlayerSetup()
 	Score = Game.Score;
 	Lives = Game.Lives;
 	
-	// Initialize recorded position datalist array
+	// Initialise recorded position datalist array
 	RecordedPosX = ds_list_create();
 	RecordedPosY = ds_list_create();
 	

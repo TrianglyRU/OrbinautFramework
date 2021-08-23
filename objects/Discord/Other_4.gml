@@ -1,8 +1,6 @@
-/// @description Initialization
+/// @description Initialisation
 // You can write your code in this editor
 	
-	// Call variables initialization script
+	// Initialisation Scripts
 	DiscordVariables();
-		
-	// Call setup script
 	DiscordSetup();

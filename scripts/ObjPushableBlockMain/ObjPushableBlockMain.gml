@@ -2,7 +2,7 @@ function ObjPushableBlockMain()
 {
 	// Do collision
 	object_act_solid(true, true, true, false);
-	/*
+	
 	// Check for being pushed
 	if Grounded
 	{
@@ -74,5 +74,5 @@ function ObjPushableBlockMain()
 	}
 	
 	// Update position
-	object_update_position(PosX, PosY);*/
+	object_update_position(PosX, PosY);
 }

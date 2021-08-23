@@ -186,7 +186,7 @@ function PlayerKnuxGlide()
 	var RoofAngle    = NearestTile[1];
 			
 	// Collide with ceiling
-	if RoofDistance < 0 and GlideState != GlideStop
+	if RoofDistance < 0 and GlideState != GlideStop and !GlideGrounded
 	{	
 		if Ysp < 0
 		{
@@ -220,11 +220,11 @@ function PlayerKnuxGlide()
 						// Start sliding if floor is shallow enough
 						if GlideState == GlideActive
 						{
-							GlideValue    = 4;
+							GlideValue    = 8;
 							GlideGrounded = true;
 								
 							// Create dust effect
-							instance_create(floor(PosX), floor(PosY + RadiusY + FloorDistance), DustPuff);
+							instance_create(PosX, PosY + RadiusY + FloorDistance, DustPuff);
 						}
 						
 						// If falling in drop state, land crouching

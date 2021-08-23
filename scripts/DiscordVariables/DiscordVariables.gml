@@ -6,11 +6,12 @@ function DiscordVariables()
 		exit;
 	}
 	
-	// Instance variables list
+	// Create variables
 	MainImage	   = "";
 	MainImageDesc  = "";
 	SmallImage	   = "";
 	SmallImageDesc = "";
 	StateString	   = "";
 	DetailsString  = "";
+	PresenceReady  = 0;
 }	

@@ -8,7 +8,7 @@ function palette_load(type, list)
 		exit;
 	}
 	
-	// Do texture and texel initialization
+	// Do texture and texel initialisation
 	var tex		= sprite_get_texture(list, 0);
 	var UVs		= sprite_get_uvs(list, 0);
 	var texel_x	= texture_get_texel_width(tex);

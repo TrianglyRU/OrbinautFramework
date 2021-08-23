@@ -142,7 +142,7 @@ function PlayerResetOnFloor()
 			audio_sfx_play(sfxRelease, false);
 			
 			// Create dust effect
-			instance_create(floor(PosX), floor(PosY + RadiusY), DropdashDust);
+			instance_create(PosX, PosY + RadiusY, DropdashDust);
 		}
 		else
 		{

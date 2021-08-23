@@ -26,5 +26,5 @@ function ObjAirBubblerStartup()
 	CycleTimer  = irandom_range(128, 255);
 	
 	// Set object active range
-	object_set_range(RangeClose, TypeUnload);
+	object_set_range(RangeClose, TypeReset);
 }

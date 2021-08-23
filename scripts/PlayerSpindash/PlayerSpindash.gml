@@ -18,7 +18,7 @@ function PlayerSpindash()
 			audio_sfx_play(sfxCharge, false);
 			
 			// Create dust effect
-			instance_create(floor(PosX), floor(PosY + RadiusY), SpindashDust);
+			instance_create(PosX, PosY + RadiusY, SpindashDust);
 		}
 	}
 	

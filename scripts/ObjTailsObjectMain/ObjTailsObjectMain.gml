@@ -29,7 +29,7 @@ function ObjTailsObjectMain()
 		break;
 	}
 	
-	// If we're not rolling or jumping, use current visual angle
+	// If we're not rolling or jumping, use player's current visual angle
 	if !Player.Spinning
 	{
 		VisualAngle = Player.VisualAngle;
@@ -38,49 +38,72 @@ function ObjTailsObjectMain()
 	// In case we're rolling or jumping
 	else
 	{
-		// Get movement angle based on current and next frame position
+		// If airborne, get angle based on current and next frame position
 		if !Player.Grounded
 		{
 			if Player.Facing == FlipRight
 			{
-				VisualAngle = point_direction(Player.PosX, Player.PosY, Player.PosX + Player.Xsp, Player.PosY + Player.Ysp);
+				Angle = point_direction(Player.PosX, Player.PosY, Player.PosX + Player.Xsp, Player.PosY + Player.Ysp);
 			}
 			else if Player.Facing == FlipLeft
 			{
-				VisualAngle = point_direction(Player.PosX + Player.Xsp, Player.PosY + Player.Ysp, Player.PosX, Player.PosY);
+				Angle = point_direction(Player.PosX + Player.Xsp, Player.PosY + Player.Ysp, Player.PosX, Player.PosY);
+			}
+			
+			// If smooth rotation is disabled, use one of 8 angles
+			if !Game.SmoothRotation
+			{
+				if (Angle >= 338.91 or  Angle <= 22.5)  VisualAngle = 360;
+				if (Angle >= 23.91  and Angle <= 67.5)  VisualAngle = 45;
+				if (Angle >= 68.91  and Angle <= 112.5) VisualAngle = 90;
+				if (Angle >= 113.91 and Angle <= 157.5) VisualAngle = 135;
+				if (Angle >= 158.91 and Angle <= 202.5) VisualAngle = 180;
+				if (Angle >= 203.91 and Angle <= 247.5) VisualAngle = 225;
+				if (Angle >= 248.91 and Angle <= 292.5) VisualAngle = 270;
+				if (Angle >= 293.91 and Angle <= 337.5) VisualAngle = 305;
+			}
+			
+			// Else use motion angle
+			else
+			{
+				VisualAngle = Angle;
 			}
 		}
 		
-		// Apply smooth rotation
-		else if Game.SmoothRotation
+		// If grounded, calculated angle based on ground angle
+		else
 		{	
-			/* Smooth rotation code by Nihil (NullSpace)
-			Used with permission! */		
-				   
-			if Player.Angle >= 23.91 and Player.Angle <= 337.5
+			// Get floor angle
+			Angle = Player.Angle;
+			
+			// If smooth rotation is disabled, use one of 8 angles
+			if !Game.SmoothRotation
 			{
-				var TargetAngle  = Player.Angle;
-				var RotationStep = (abs(Player.Inertia) / 16 + abs(Player.Inertia) / 32 - 2) * -1
+				if (Angle > 334.5 or Angle < 25.5)  VisualAngle = 360;
+				if (Angle > 25.5 and Angle < 75)	VisualAngle = 45; 
+				if (Angle > 75   and Angle < 105)	VisualAngle = 90; 
+				if (Angle > 105  and Angle < 155)   VisualAngle = 135;
+				if (Angle > 155  and Angle < 205)   VisualAngle = 180;
+				if (Angle > 205  and Angle < 255)   VisualAngle = 225;
+				if (Angle > 255  and Angle < 285)   VisualAngle = 270;
+				if (Angle > 285  and Angle < 334.5) VisualAngle = 305;
 			}
+			
+			// Else calculate visual angle
 			else
 			{
-				var TargetAngle  = 360;
-				var RotationStep = (abs(Player.Inertia) / 16 - 2) * -1
+				if Angle >= 23.91 and Angle <= 337.5
+				{
+					var TargetAngle  = Angle;
+					var RotationStep = (abs(Player.Inertia) / 16 + abs(Player.Inertia) / 32 - 2) * -1
+				}
+				else
+				{
+					var TargetAngle  = 360;
+					var RotationStep = (abs(Player.Inertia) / 16 - 2) * -1
+				}
+				VisualAngle = darctan2(dsin(TargetAngle) + dsin(VisualAngle) * RotationStep, dcos(TargetAngle) + dcos(VisualAngle) * RotationStep);
 			}
-			VisualAngle = darctan2(dsin(TargetAngle) + dsin(VisualAngle) * RotationStep, dcos(TargetAngle) + dcos(VisualAngle) * RotationStep);
 		}
-
-		// If smooth rotation is disabled, use this table for tails visual angle
-		else
-		{
-			if (Player.Angle > 334.5 or Player.Angle < 25.5)  VisualAngle = 360;
-			if (Player.Angle > 25.5 and Player.Angle < 75)	  VisualAngle = 45; 
-			if (Player.Angle > 75   and Player.Angle < 105)	  VisualAngle = 90; 
-			if (Player.Angle > 105  and Player.Angle < 155)   VisualAngle = 135; 
-			if (Player.Angle > 155  and Player.Angle < 205)   VisualAngle = 180; 
-			if (Player.Angle > 205  and Player.Angle < 255)   VisualAngle = 225; 
-			if (Player.Angle > 255  and Player.Angle < 285)   VisualAngle = 270; 
-			if (Player.Angle > 285  and Player.Angle < 334.5) VisualAngle = 305;
-		}	
 	}	
 }

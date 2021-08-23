@@ -1,5 +1,5 @@
-/// @description Component Initialization
+/// @description Component Initialisation
 // You can write your code in this editor
 	
-	// Component Initialization Script
+	// Component Initialisation Script
 	GameControllersLoad();

@@ -17,6 +17,7 @@ function PlayerAnimate()
 	static SpeedFactor     = 0;
 	static AnimSpringTime  = 48;
 	static AnimBreatheTime = 24;
+	static AnimKnuxSkid    = 16;
 	
 	// Update statics
 	if Animation != AnimBreathe
@@ -26,6 +27,10 @@ function PlayerAnimate()
 	if Animation != AnimSpring
 	{
 		AnimSpringTime = 48;
+	}
+	if Animation != AnimSkid
+	{
+		AnimKnuxSkid = 16;
 	}
 	SpeedFactor = PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3;
 	
@@ -460,7 +465,16 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_lookup, 6, 1);
 				break;
 				case AnimSkid:
-					animation_play(spr_knuckles_skid, 4, 1);
+				{
+					if !(--AnimKnuxSkid)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_knuckles_skid, 4, 3);
+					}
+				}
 				break;
 				case AnimHurt:
 					animation_play(spr_knuckles_hurt, 1, 0);

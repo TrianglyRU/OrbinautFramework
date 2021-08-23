@@ -118,15 +118,50 @@ function PlayerDebugMode()
 		PosY += DebugSpeed;
 	}
 	
-	// Update current object
+	// Switch to next object in the list
 	if Input.APress
 	{
 		DebugItem = loop_value(DebugItem + 1, 0, array_length(DebugList));
 	}
-	
-	// Spawn current object
 	if Input.CPress
 	{
-		instance_create(floor(PosX), floor(PosY), DebugList[DebugItem]);
+		// Spawn current object
+		if !Input.A
+		{
+			if DebugList[DebugItem] != Player
+			{
+				var  ThisObject = image_xscale;
+				var  Object     = instance_create(PosX, PosY, DebugList[DebugItem]);
+				with Object
+				{
+					// Spawn with the same xscale
+					image_xscale = ThisObject;
+					
+					// Delete when off-screen
+					object_set_range(RangeFar, TypeDelete);
+				}
+			}
+			
+			// Grant or revoke 7 emeralds
+			else
+			{
+				if !Game.Emeralds
+				{
+					Game.Emeralds = 7;
+					audio_sfx_play(sfxEmerald, false);
+				}
+				else
+				{
+					Game.Emeralds = 0;
+					audio_sfx_play(sfxFail, false);
+				}
+			}
+		}
+		
+		// Switch to previous object in the list
+		else
+		{
+			DebugItem = loop_value(DebugItem - 1, 0, array_length(DebugList));
+		}
 	}
 }

@@ -90,7 +90,7 @@ function InputHotkeysProcess()
 	{
 		if !instance_exists(Barrier)
 		{
-			instance_create(floor(Player.PosX), floor(Player.PosY), Barrier);
+			instance_create(Player.PosX, Player.PosY, Barrier);
 			
 			Player.BarrierType = BarrierNormal;	
 			audio_sfx_play(sfxBarrier, false);			

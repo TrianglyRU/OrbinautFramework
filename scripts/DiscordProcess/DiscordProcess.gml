@@ -14,6 +14,7 @@ function DiscordProcess()
 		np_setpresence_more(MainImageDesc, SmallImageDesc, false);
 		np_setpresence(StateString, DetailsString, MainImage, SmallImage);		
 		
+		// Set flag
 		PresenceReady = true;
 	}
 	
