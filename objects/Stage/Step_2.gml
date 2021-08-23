@@ -2,7 +2,7 @@
 // You can write your code in this editor
 	
 	// Post-Objects Scripts
-	StageActiveProcess();
+	StageGameplayProcess();
 	StageObjectsActiveProcess();
 	StageBoundariesProcess();
 	StageEndProcess();

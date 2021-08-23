@@ -40,9 +40,16 @@ function StageObjectsActiveProcess()
 							instance_deactivate_object(id);
 						}
 						else if Obj_LoadFlag == TypeReset
-						{		
+						{	
+							if object_index == Orbinaut
+							{
+								show_debug_message(string(random(225)) + " kek");
+							}
+							
 							if Obj_LoadData[0] < LeftBound or Obj_LoadData[0] > RightBound
 							{
+								show_debug_message("A)");
+								
 								// Destroy children
 								if IsParent
 								{
@@ -65,20 +72,22 @@ function StageObjectsActiveProcess()
 								event_perform(ev_create,     0);
 								event_perform(ev_room_start, 0);
 							}
-							
-							// Deactivate object and its children
-							if IsParent
+							else
 							{
-								var Length = array_length(Obj_ChildrenIDs);
-								for (var i = 0; i < Length; i++)
+								// Deactivate object and its children
+								if IsParent
 								{
-									with Obj_ChildrenIDs[i]
+									var Length = array_length(Obj_ChildrenIDs);
+									for (var i = 0; i < Length; i++)
 									{
-										instance_deactivate_object(id);
+										with Obj_ChildrenIDs[i]
+										{
+											instance_deactivate_object(id);
+										}
 									}
 								}
+								instance_deactivate_object(id);
 							}
-							instance_deactivate_object(id);
 						}
 						
 						// Destroy object and its children

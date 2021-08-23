@@ -1,9 +1,8 @@
 function ObjBarrierMain()
 {
 	// Delete barrier if player get hurt or died
-	if Player.Hurt or Player.Death or Player.Drown
+	if Player.BarrierType == false
 	{
-		Player.BarrierType = false;
 		instance_destroy();
 	}
 	else 

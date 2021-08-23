@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Playable Stage",
-    "path": "folders/Game Code/Playable Stage.yy",
+    "name": "Player",
+    "path": "folders/Game Code/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageActiveProcess",
+  "name": "PlayerStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

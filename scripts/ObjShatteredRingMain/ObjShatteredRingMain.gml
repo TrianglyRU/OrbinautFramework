@@ -21,7 +21,7 @@ function ObjShatteredRingMain()
 		if  FindFloor < 0
 		{
 			PosY += FindFloor;
-			Ysp   = min(Ysp * -0.75, -2);
+			Ysp  *= -0.75;
 		}
 	}
 	
@@ -32,7 +32,7 @@ function ObjShatteredRingMain()
 		if Ysp < 0 
 		{
 			var FindCeiling = tile_check_collision_v(PosX, PosY - 8, false, true, Player.Layer)[0];
-			if  FindCeiling
+			if  FindCeiling < 0
 			{
 				Ysp *= -0.75;
 			}
@@ -42,7 +42,7 @@ function ObjShatteredRingMain()
 		if Xsp < 0
 		{
 			var FindWall = tile_check_collision_h(PosX - 8, PosY, false, true, Player.Layer)[0];
-			if  FindWall
+			if  FindWall < 0
 			{
 				Xsp *= -0.75;
 			}
@@ -52,7 +52,7 @@ function ObjShatteredRingMain()
 		else if Xsp > 0
 		{
 			var FindWall = tile_check_collision_h(PosX + 8, PosY, false, true, Player.Layer)[0];
-			if  FindWall
+			if  FindWall < 0
 			{
 				Xsp *= -0.75;
 			}

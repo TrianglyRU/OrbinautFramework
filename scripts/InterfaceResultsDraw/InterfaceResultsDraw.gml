@@ -14,20 +14,25 @@ function InterfaceResultsDraw()
 	---------------
 	*/
 	
+	// Initialise static variables
+	static InitialScore = 0;
+	static RingBonus    = 0;
+	static TimeBonus    = 0;
+	
 	// Exit if act is not finished
 	if Stage.IsFinished < 2
 	{
 		exit;
 	}
-	
-	// Store initial score
-	static InitialScore = Player.Score;
-	
+
 	if Stage.DoUpdate
 	{	
 		// State 0
 		if !ResultsValue[8]
 		{
+			// Reset score
+			InitialScore = Player.Score;
+			
 			// Calculate ring bonus
 			RingBonus = Player.Rings * 100;
 

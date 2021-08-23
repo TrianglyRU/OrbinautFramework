@@ -2,15 +2,16 @@ function PlayerMovementGround()
 {	
 	if !GroundLock and !AirLock
 	{
-		// Get skid angle range
+		// Set skid angle range
 		if !Game.S3SlopePhysics
 		{
+			// Notice that player won't skid on 315 degree slope
 			var SkidRange = Angle <= 45 or Angle >= 316.41;	
 		}
 		else
 		{
-			/* In S3, player appears to skid on both 45-degrees-like slopes, but an actual range check
-			is Angle <= 46.41 and Angle >= 315. So maybe they just don't use 45 degree angles for those 45-degree-like slopes? */
+			/* In S3 you can skid on both 45 and 315 degree slope despite that the check is still the same. It it because those
+			slopes are actually... shallower. In order not to force you to lower the angle of the tile, we'll do this: */
 			var SkidRange = Angle <= 45 or Angle >= 315;
 		}
 		

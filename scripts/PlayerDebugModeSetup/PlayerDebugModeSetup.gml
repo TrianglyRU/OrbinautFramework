@@ -30,6 +30,8 @@ function PlayerDebugModeSetup()
 		Animal,
 		SignPost,
 		EggPrison,
-		Player		// Placeholder, grants (or revokes) 7 emeralds
-	]
+		
+		// Placeholder object, that will grant (or revoke) emeralds
+		Player
+	];
 }

@@ -3,5 +3,5 @@
 	
 	// Initialisation Scripts
 	PlayerVariables();
-	PlayerSetup();
+	PlayerStartup();
 	PlayerDebugModeSetup();

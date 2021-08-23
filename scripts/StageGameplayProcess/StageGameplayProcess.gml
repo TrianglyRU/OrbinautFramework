@@ -1,4 +1,4 @@
-function StageActiveProcess()
+function StageGameplayProcess()
 {	
 	// Check if we should update the stage or not
 	DoUpdate = !(fade_check(FadeActive) or IsPaused or Player.Death);
