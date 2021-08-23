@@ -166,7 +166,7 @@ function ObjItemBoxMain()
 							Player.InvincibleBonus = 1200;
 						
 							// Play music
-							audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+							audio_bgm_play(PriorityLow, InvincibleMusic, noone);
 						}
 					}
 					break;
@@ -260,7 +260,7 @@ function ObjItemBoxMain()
 							{
 								if Player.InvincibleBonus
 								{
-									audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+									audio_bgm_play(PriorityLow, InvincibleMusic, noone);
 								}
 								else if Player.HighspeedBonus
 								{

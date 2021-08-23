@@ -32,7 +32,7 @@ function PlayerResetOnFloor()
 	else
 	{
 		// If landed on solid ground, set animation and clear spinning flag
-		if !OnObject and Animation != AnimIdle
+		if !OnObject and Animation != AnimClimb
 		{
 			Animation = AnimMove;
 		}

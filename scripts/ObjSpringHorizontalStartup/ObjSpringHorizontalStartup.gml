@@ -1,7 +1,6 @@
 function ObjSpringHorizontalStartup()
 {
 	// Create variables
-	LaunchSide  = 0;
 	LaunchForce = 0;
 	
 	// Define spring force and launch side
@@ -13,7 +12,6 @@ function ObjSpringHorizontalStartup()
 	{
 		LaunchForce = 16;
 	}
-	LaunchSide = image_xscale ? SideRight : SideLeft;
 	
 	// Set object solidbox
 	object_set_solidbox(8, 16, false);

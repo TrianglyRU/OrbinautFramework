@@ -20,7 +20,8 @@ function ObjSpringDiagonalMain()
 			// Clear flags
 			if LaunchSide == SideTop
 			{
-				Player.Animation = AnimSpring;
+				Player.Animation  = AnimSpring;
+				Player.ClimbState = false;
 			}
 			Player.Grounded = false;
 			Player.OnObject = false;

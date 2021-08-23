@@ -1,5 +1,5 @@
-/// @function object_act_solid(sides,top,bottom,interactable)
-function object_act_solid(sides,top,bottom,interactable)
+/// @function object_act_solid(sides,top,bottom,interact)
+function object_act_solid(sides,top,bottom,interact)
 {
 	/* The following is long and replicates originals method of colliding with object,
 	however it was tweaked in several places to make collision much more consistent */
@@ -115,70 +115,79 @@ function object_act_solid(sides,top,bottom,interactable)
 			// Collide below
 			if bottom and YDistance < 0
 			{
-				// Kill player
-				if Player.Grounded and Player.Ysp == 0
+				if PlayerY > ObjectY
 				{
-					if abs(XDistance) >= 16
+					// Kill player
+					if Player.Grounded
 					{
-						player_damage(false, false, true);
+						if abs(XDistance) >= 16 and Player.Ysp == 0
+						{
+							player_damage(false, false, true);
+						}
 					}
-				}
 				
-				// Clip out
-				else
-				{
-					if Player.FlightState
+					// Clip out
+					else if Player.Ysp <= 0
 					{
-						Player.Grv = 0.03125;
+						if Player.FlightState
+						{
+							Player.Grv = 0.03125;
+						}
+					
+						show_debug_message("Lel");
+					
+						Player.PosY -= YDistance;
+						Player.Ysp   = 0;
 					}
-					Player.PosY -= YDistance;
-					Player.Ysp   = 0;
-				}
 				
-				// Tell the object we're touching its bottom
-				Obj_SolidTouchD = true;
+					// Tell the object we're touching its bottom
+					Obj_SolidTouchD = true;
+				}
 			}
 			
 			// Collide above
 			else if top and YDistance >= 0 and YDistance < 16
 			{
-				if Player.Ysp >= 0
+				if PlayerY < ObjectY
 				{
-					// Exit if outside the object
-					var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;
-					
-					var XDifference = PlayerX - ObjectX + LandRadius;
-					if  XDifference <= 0 or XDifference >= LandRadius * 2 - 1
+					if Player.Ysp >= 0
 					{
-						exit;
-					}
-					with Player
-					{
-						// Attach player to the object's top boundary
-						PosY -= YDistance - 4;
+						// Exit if outside the object
+						var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;
 					
-						// Become grounded
-						Grounded = true;
-						OnObject = ObjectID;
-					
-						// Update horizontal speed and angle
-						Inertia  = Xsp;
-						Angle    = 360;
-						
-						// If interactable, cancel barrier ability and dropdash
-						if interactable
+						var XDifference = PlayerX - ObjectX + LandRadius;
+						if  XDifference <= 0 or XDifference >= LandRadius * 2 - 1
 						{
-							BarrierIsActive = false;
-							DropdashRev		= -1;
+							exit;
 						}
-						
-						/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
-						of another script. It is needed here to allow player land on the object like on the ground */
-						PlayerResetOnFloor();
-					}
+						with Player
+						{
+							// Attach player to the object's top boundary
+							PosY -= YDistance - 4;
 					
-					// Tell the object we're touching its top side
-					Obj_SolidTouchU = true;
+							// Become grounded
+							Grounded = true;
+							OnObject = ObjectID;
+					
+							// Update horizontal speed and angle
+							Inertia  = Xsp;
+							Angle    = 360;
+						
+							// If interactable, cancel barrier ability and dropdash
+							if interact
+							{
+								BarrierIsActive = false;
+								DropdashRev		= -1;
+							}
+						
+							/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
+							of another script. It is needed here to allow player land on the object like on the ground */
+							PlayerResetOnFloor();
+						}
+					
+						// Tell the object we're touching its top side
+						Obj_SolidTouchU = true;
+					}
 				}
 			}		
 		}

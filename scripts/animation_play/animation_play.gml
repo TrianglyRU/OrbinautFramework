@@ -36,5 +36,5 @@ function animation_play(ind,speed,goto)
 				image_index = image_index > 0 ? image_index - 1 : image_number - goto - 1;
 			}
 		}
-	}	
+	}
 }

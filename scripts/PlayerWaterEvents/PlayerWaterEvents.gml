@@ -122,7 +122,7 @@ function PlayerWaterEvents()
 					}
 					else if InvincibleBonus
 					{
-						audio_bgm_play(PriorityLow, InvincibilityMusic, noone);
+						audio_bgm_play(PriorityLow, InvincibleMusic, noone);
 					}
 					else
 					{

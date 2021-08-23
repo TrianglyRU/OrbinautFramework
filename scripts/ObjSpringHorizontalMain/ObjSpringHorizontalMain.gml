@@ -1,7 +1,7 @@
 function ObjSpringHorizontalMain()
 {
 	// Play animation
-	if image_index > 1
+	if image_index > 0
 	{
 		animation_play(sprite_index, 3, 0);
 	}
@@ -9,6 +9,9 @@ function ObjSpringHorizontalMain()
 	{	
 		// Do collision
 		object_act_solid(true, true, true, false);
+		
+		// Get collision side
+		var LaunchSide = image_xscale ? SideRight : SideLeft;
 		
 		// Is player grounded and touching launch side?
 		if Player.Grounded and object_check_touch(LaunchSide)

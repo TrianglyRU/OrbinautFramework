@@ -10,6 +10,9 @@ function ObjSpringVerticalMain()
 		// Do collision
 		object_act_solid(true, true, true, true);
 		
+		// Get collision side
+		var LaunchSide = image_yscale ? SideTop : SideBottom;
+		
 		// Is player touching launch side?
 		if object_check_touch(LaunchSide)
 		{	
@@ -23,7 +26,8 @@ function ObjSpringVerticalMain()
 			}
 			else
 			{
-				Player.Xsp = 0;
+				Player.ClimbState = false;
+				Player.Xsp        = 0;
 			}
 			Player.Grounded = false;
 			Player.OnObject = false;

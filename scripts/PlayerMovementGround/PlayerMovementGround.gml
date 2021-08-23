@@ -111,8 +111,11 @@ function PlayerMovementGround()
 		{
 			Inertia = min(Inertia + Frc, 0);
 		}
-		
-		// Clear push flag
+	}
+	
+	// Clear push flag
+	if (!Input.Left and !Input.Right) or GroundLock
+	{
 		Pushing = false;
 	}
 	

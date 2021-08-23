@@ -257,7 +257,7 @@ function PlayerKnuxGlide()
 			// Restore control after 16 frames if landed crouching
 			if GlideState == GlideStop
 			{
-				if !(--GlideValue)
+				if !(GlideValue--)
 				{
 					Grounded = true;
 				}
@@ -321,7 +321,7 @@ function PlayerKnuxGlide()
 						GlideValue = 16;
 						GlideState = GlideStop;
 					}
-					if !(--GlideValue)
+					if !(GlideValue--)
 					{
 						Angle    = FloorAngle;
 						Grounded = true;

@@ -31,7 +31,7 @@ function PlayerPowerup()
 		}
 		if !(--InvincibleBonus)
 		{
-			if audio_bgm_is_playing(InvincibilityMusic)
+			if audio_bgm_is_playing(InvincibleMusic)
 			{
 				audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			}

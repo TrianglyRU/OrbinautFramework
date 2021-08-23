@@ -9,7 +9,7 @@ function StageSetup()
 			ZoneID				= -1;
 			ActID				= 0;
 			FinalActID			= 0;
-			CardEnabled			= false;
+			CardEnabled			= true;
 			WaterEnabled        = true;
 			WaterLevel			= 640;
 			StageMusic			= TestStageMusic;

@@ -466,7 +466,7 @@ function PlayerAnimate()
 				break;
 				case AnimSkid:
 				{
-					if !(--AnimKnuxSkid)
+					if !Input.Left and !Input.Right and !(--AnimKnuxSkid) or Inertia == 0
 					{
 						Animation = AnimMove;
 					}
@@ -507,7 +507,21 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_glidestand, 1, 0);
 				break;
 				case AnimClimb:
-					animation_play(spr_knuckles_climb, -sign(Ysp) * 4, 0);
+				{
+					if Input.Down
+					{
+						var Speed = -4;
+					}
+					else if Input.Up
+					{
+						var Speed = 4;
+					}
+					else
+					{
+						var Speed = 0;
+					}
+					animation_play(spr_knuckles_climb, Speed, 0);
+				}
 				break;
 				case AnimClimbering:
 					animation_play(spr_knuckles_climbering, 6, 3);

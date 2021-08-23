@@ -2,7 +2,7 @@ function GameFrameworkSetup()
 {
 	// Game settins
 	Game.DevMode    = true;
-	Game.ShowSplash = false;
+	Game.ShowSplash = true;
 	
 	/* If devmode is disabed, settings marked with '**' will be overwritten by the
 	gameconfig file */
@@ -43,7 +43,7 @@ function GameFrameworkSetup()
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;
 	Game.SMWaterBarrier		= false;
-	Game.SMRingBehaviour	= true;
+	Game.SMRingBehaviour	= false;
 	Game.SKItemBoxBehaviour = false;
 	
 	// Orbinaut improvements
