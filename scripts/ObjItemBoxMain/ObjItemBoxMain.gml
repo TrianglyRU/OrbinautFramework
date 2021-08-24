@@ -284,7 +284,7 @@ function ObjItemBoxMain()
 					case "Extra Life":
 					{
 						// Give player 1 extra life
-						Player.Lives += 1;
+						Player.Lives++;
 						
 						// Play jingle
 						audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);

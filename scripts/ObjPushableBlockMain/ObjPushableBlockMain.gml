@@ -18,7 +18,7 @@ function ObjPushableBlockMain()
 	{
 		if Grounded
 		{
-			PosX     -= 1 * Direction;;
+			PosX     -= Direction;
 			ClipTimer = 4;
 			Grounded  = false;
 		}
@@ -31,17 +31,17 @@ function ObjPushableBlockMain()
 		{
 			if object_check_push(SideLeft)
 			{
+				Direction = FlipRight;
 				Player.Inertia = 0.25;
-				Player.PosX   += 1;
-				PosX		  += 1;
-				Direction	   = FlipRight;	
+				Player.PosX++;
+				PosX++;	
 			}
 			else if object_check_push(SideRight)
 			{
+				Direction = FlipLeft;
 				Player.Inertia = -0.25;
-				Player.PosX   -= 1;
-				PosX		  -= 1;
-				Direction	   = FlipLeft;	
+				Player.PosX--;
+				PosX--;
 			}
 		}
 	}

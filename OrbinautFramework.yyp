@@ -531,7 +531,6 @@
     {"id":{"name":"spr_obj_orbinaut_orb","path":"sprites/spr_obj_orbinaut_orb/spr_obj_orbinaut_orb.yy",},"order":0,},
     {"id":{"name":"Camera","path":"objects/Camera/Camera.yy",},"order":0,},
     {"id":{"name":"ObjTailsObjectStartup","path":"scripts/ObjTailsObjectStartup/ObjTailsObjectStartup.yy",},"order":5,},
-    {"id":{"name":"spr_obj_platform_mqz","path":"sprites/spr_obj_platform_mqz/spr_obj_platform_mqz.yy",},"order":0,},
     {"id":{"name":"tex_continue_countdown","path":"sprites/tex_continue_countdown/tex_continue_countdown.yy",},"order":2,},
     {"id":{"name":"spr_tails_walk","path":"sprites/spr_tails_walk/spr_tails_walk.yy",},"order":74,},
     {"id":{"name":"spr_obj_platform_template","path":"sprites/spr_obj_platform_template/spr_obj_platform_template.yy",},"order":1,},
@@ -850,7 +849,6 @@
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"System","resourceType":"GMTextureGroup",},
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Players","resourceType":"GMTextureGroup",},
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Menu","resourceType":"GMTextureGroup",},
-    {"isScaled":true,"autocrop":false,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"MQZ","resourceType":"GMTextureGroup",},
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"anglemap.bin","resourceType":"GMIncludedFile",},

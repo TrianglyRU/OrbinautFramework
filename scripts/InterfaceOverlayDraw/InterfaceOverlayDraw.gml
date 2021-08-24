@@ -35,7 +35,14 @@ function InterfaceOverlayDraw()
 	
 	draw_set_font(Game.Font[font_counter]);
 	draw_text(ScreenX + 112, ScreenY + 9,  Player.Score);
-	draw_text(ScreenX + 112, ScreenY + 25, string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds) + ";" + (MilliSeconds > 9 ? "" : "0") + string(MilliSeconds));
+
+	var TimeString = string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds);
+	if Game.CDStageTimer
+	{
+		TimeString += ";" + (MilliSeconds > 9 ? "" : "0") + string(MilliSeconds);
+	}
+	draw_text(ScreenX + Game.CDStageTimer ? 112 : 88, ScreenY + 25, TimeString);
+	
 	draw_text(ScreenX + 88,  ScreenY + 41, Player.Rings);
 		
 	// Display LIVES counter

@@ -46,7 +46,7 @@ function StageGameplayProcess()
 			if !EventTimer
 			{
 				// Subtract a life
-				Player.Lives -= 1;
+				Player.Lives--;
 				
 				// If ran out of lives or time, start game/time over event
 				if !Player.Lives or Time == 36000

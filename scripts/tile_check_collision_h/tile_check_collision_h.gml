@@ -8,8 +8,8 @@ function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
 	// If checking to positvie side, subtract 1 from x and y if this object is not player
 	if to_positive and object_index != Player
 	{
-		x -= 1;
-		y -= 1;
+		x--;
+		y--;
 	}
 
 	// Return blank values if outside of the room

@@ -131,6 +131,6 @@ function InputHotkeysProcess()
 	// Add rings (F12 hold)
 	if keyboard_check(vk_f12)
 	{
-		Player.Rings += 1;
+		Player.Rings++;
 	}
 }
