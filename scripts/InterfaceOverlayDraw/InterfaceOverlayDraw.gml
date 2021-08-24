@@ -36,7 +36,7 @@ function InterfaceOverlayDraw()
 	draw_set_font(Game.Font[font_counter]);
 	draw_text(ScreenX + 112, ScreenY + 9,  Player.Score);
 
-	var TimeString = string(Minutes) + "'" + (Seconds > 9 ? "" : "0") + string(Seconds);
+	var TimeString = string(Minutes) + (Game.CDStageTimer ? "'" : ":") + (Seconds > 9 ? "" : "0") + string(Seconds);
 	if Game.CDStageTimer
 	{
 		TimeString += ";" + (MilliSeconds > 9 ? "" : "0") + string(MilliSeconds);
