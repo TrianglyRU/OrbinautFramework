@@ -27,3 +27,9 @@ Follow our Twitter account to get latest news: https://twitter.com/TeamOrbinaut
 - Nihil (NullSpace)
 - PixelatedPope
 - Nkrapivin (Discord RP plugin)
+
+# TERMS OF USE
+- You are NOT allow to re-release our framework with "features" added to it (like NotSoSimpleSonicWorlds etc. etc.)
+- You are ALLOWED to heavily modificate our framework (and release it then) while crediting us as originals creators
+- You are ALLOWED to use our code (and shaders) while crediting us under "additional programming" and/or "shaders" (if you use palette shader, also credit PixelatedPope)
+- We WON'T provide support to you if you're developing an .exe fangame using our framework
