@@ -9,8 +9,8 @@ function GameMacro()
 	#macro GameCamera  view_camera[0]
 
 	// Object macro
-	#macro RangeClose  0
-	#macro RangeFar    1
+	#macro RangeClose  1
+	#macro RangeFar    2
 	#macro EnemyBadnik 0
 	#macro EnemyBoss   1
 	#macro TypeUnload  0

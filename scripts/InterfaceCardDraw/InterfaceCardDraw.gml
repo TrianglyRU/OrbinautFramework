@@ -1,5 +1,8 @@
 function InterfaceCardDraw()
 {
+	/* Now this is probably the worst code in Orbinaut,
+	we're so sorry xd */
+	
 	// If card sequence has ended, exit
 	if CardValue[1] == 2
 	{
