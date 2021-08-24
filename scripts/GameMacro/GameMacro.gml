@@ -9,13 +9,13 @@ function GameMacro()
 	#macro GameCamera  view_camera[0]
 
 	// Object macro
-	#macro RangeClose  1
-	#macro RangeFar    2
+	#macro RangeClose  0
+	#macro RangeFar    1
 	#macro EnemyBadnik 0
 	#macro EnemyBoss   1
-	#macro TypeUnload  0
-	#macro TypeReset   1
-	#macro TypeDelete  2
+	#macro TypeUnload  1
+	#macro TypeReset   2
+	#macro TypeDelete  3
 	#macro FlipLeft	  -1
 	#macro FlipRight   1
 
