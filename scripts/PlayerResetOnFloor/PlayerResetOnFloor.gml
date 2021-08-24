@@ -11,13 +11,13 @@ function PlayerResetOnFloor()
 	{
 		// Set speeds
 		var Force = IsUnderwater ? -4 : -7.5;
-		Ysp		  = Force * dcos(Angle);
-		Xsp		  = Force * dsin(Angle);
+		Ysp = Force * dcos(Angle);
+		Xsp = Force * dsin(Angle);
 		
 		// Reset flags
 		BarrierIsActive = false;
 		Grounded        = false;
-		OnObject		= false;
+		OnObject	= false;
 
 		// Set barrier animation
 		with Barrier
@@ -42,13 +42,13 @@ function PlayerResetOnFloor()
 		}
 	
 		// Reset flags
-		Jumping			= false;
-		AirLock			= false;
-		Pushing			= false;
+		Jumping		= false;
+		AirLock		= false;
+		Pushing		= false;
 		FlightState     = false;
 		GlideState      = false;
-		ClimbState		= false;
-		ScoreCombo		= false;
+		ClimbState	= false;
+		ScoreCombo	= false;
 		BarrierIsActive = false;
 		DropdashFlag	= -1;
 	
@@ -76,7 +76,7 @@ function PlayerResetOnFloor()
 		// Reset gravity
 		if !IsUnderwater
 		{
-			Grv	= 0.21875;
+			Grv = 0.21875;
 		}
 		else
 		{
@@ -126,9 +126,9 @@ function PlayerResetOnFloor()
 			Dropspeed = clamp(Dropspeed, -MaxForce, MaxForce);
 			
 			// Apply dropspeed to inertia
-			Inertia		= Dropspeed;
-			DropdashRev	= -1;
-			Spinning	= true;
+			Inertia	    = Dropspeed;
+			DropdashRev = -1;
+			Spinning    = true;
 			Animation   = AnimSpin;
 			
 			// Freeze the screen for 16 frames
@@ -141,8 +141,11 @@ function PlayerResetOnFloor()
 			audio_sfx_stop(sfxDropDash);
 			audio_sfx_play(sfxRelease, false);
 			
-			// Shake camera
-			camera_shake_perform(2, 8);
+			// Shake camera if Super Sonic
+			if SuperState
+			{
+				camera_shake_perform(2, 8);
+			}
 			
 			// Create dust effect
 			instance_create(PosX, PosY + RadiusY, DropdashDust);
