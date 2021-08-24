@@ -7,12 +7,7 @@ function StageObjectsActiveProcess()
 		{	
 			// Check if the object has children objects
 			var IsParent = variable_instance_exists(id, "Obj_ChildrenIDs");
-			
-			if object_index == Orbinaut
-			{
-				show_debug_message(Obj_ChildrenIDs);
-			}
-			
+
 			// Get bounds
 			var LeftBound   = Camera.ViewX - Obj_LoadX;
 			var TopBound    = Camera.ViewY - Obj_LoadY;

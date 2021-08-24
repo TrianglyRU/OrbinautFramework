@@ -134,8 +134,6 @@ function object_act_solid(sides,top,bottom,interact)
 							Player.Grv = 0.03125;
 						}
 					
-						show_debug_message("Lel");
-					
 						Player.PosY -= YDistance;
 						Player.Ysp   = 0;
 					}
