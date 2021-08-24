@@ -17,8 +17,8 @@
   "width": 28,
   "height": 45,
   "textureGroupId": {
-    "name": "Players",
-    "path": "texturegroups/Players",
+    "name": "tgSonic",
+    "path": "texturegroups/tgSonic",
   },
   "swatchColours": [
     4282384639,
@@ -107,7 +107,7 @@
     "spriteId": {"name":"spr_supersonic_idle","path":"sprites/spr_supersonic_idle/spr_supersonic_idle.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

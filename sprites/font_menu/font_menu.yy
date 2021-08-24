@@ -17,8 +17,8 @@
   "width": 7,
   "height": 7,
   "textureGroupId": {
-    "name": "Global",
-    "path": "texturegroups/Global",
+    "name": "tgMenu",
+    "path": "texturegroups/tgMenu",
   },
   "swatchColours": null,
   "gridX": 0,

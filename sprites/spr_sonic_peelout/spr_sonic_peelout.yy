@@ -17,8 +17,8 @@
   "width": 39,
   "height": 32,
   "textureGroupId": {
-    "name": "Players",
-    "path": "texturegroups/Players",
+    "name": "tgSonic",
+    "path": "texturegroups/tgSonic",
   },
   "swatchColours": null,
   "gridX": 0,

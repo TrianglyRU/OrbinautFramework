@@ -17,8 +17,8 @@
   "width": 36,
   "height": 35,
   "textureGroupId": {
-    "name": "Players",
-    "path": "texturegroups/Players",
+    "name": "tgTails",
+    "path": "texturegroups/tgTails",
   },
   "swatchColours": null,
   "gridX": 0,
