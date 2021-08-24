@@ -2,11 +2,11 @@
 An accurate classic Sonic framework, made for GameMaker Studio 2.
 
 # Features
-- Classic-accurate physics.
+- Classic-accurate physics
 - Orignal-engine-like stage collision method based on distances.
-- Various toggable frameworks tweaks, including differences between classic trilogy games.
-- Discord Rich Presence support.
-- Solid optimization.
+- Various toggable frameworks tweaks, including differences between classic trilogy games
+- Discord Rich Presence support
+- Solid optimization
 - and much more!
 
 # Architecture
@@ -29,7 +29,7 @@ Follow our Twitter account to get latest news: https://twitter.com/TeamOrbinaut
 - Nkrapivin (Discord RP plugin)
 
 # TERMS OF USE
-- You are NOT allow to re-release our framework with "features" added to it (like NotSoSimpleSonicWorlds etc. etc.)
+- You are NOT allow to re-release our framework with "features" added to it (like OrbinautFrameworkPlus etc etc.)
 - You are ALLOWED to heavily modificate our framework (and release it then) while crediting us as originals creators
 - You are ALLOWED to use our code (and shaders) while crediting us under "additional programming" and/or "shaders" (if you use palette shader, also credit PixelatedPope)
 - We WON'T provide support to you if you're developing an .exe fangame using our framework
