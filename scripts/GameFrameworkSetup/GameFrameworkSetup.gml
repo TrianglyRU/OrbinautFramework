@@ -23,7 +23,7 @@ function GameFrameworkSetup()
 	Game.WindowSize	      = 3;		/**/
 	
 	// Audio settings
-	Game.MusicVolume = 0;	/**/
+	Game.MusicVolume = 0.5;	/**/
 	Game.SoundVolume = 0.5;	/**/
 	
 	// Control settings (keyboard)
@@ -31,8 +31,8 @@ function GameFrameworkSetup()
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;  /**/
-	Game.DropdashEnabled    = false; /**/
-	Game.PeeloutEnabled		= false; /**/
+	Game.DropdashEnabled    = true; /**/
+	Game.PeeloutEnabled		= true; /**/
 	Game.GroundSpeedcap	    = false; /**/
 	Game.AirSpeedcap	    = false; /**/
 	Game.CDCamera			= false; /**/
