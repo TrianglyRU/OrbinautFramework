@@ -17,8 +17,8 @@
   "width": 26,
   "height": 39,
   "textureGroupId": {
-    "name": "Players",
-    "path": "texturegroups/Players",
+    "name": "tgKnuckles",
+    "path": "texturegroups/tgKnuckles",
   },
   "swatchColours": null,
   "gridX": 0,

@@ -17,8 +17,8 @@
   "width": 37,
   "height": 43,
   "textureGroupId": {
-    "name": "Players",
-    "path": "texturegroups/Players",
+    "name": "tgSonic",
+    "path": "texturegroups/tgSonic",
   },
   "swatchColours": [
     4282384639,
@@ -122,7 +122,7 @@
     "spriteId": {"name":"spr_supersonic_lookup","path":"sprites/spr_supersonic_lookup/spr_supersonic_lookup.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
