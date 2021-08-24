@@ -1,68 +1,88 @@
 function ObjCrabmeatMain()
 {
-	// Check if timer is higher than 0
-	if (--Timer)
+	switch State
 	{
-		// Move
-		if Xsp != 0 
+		// Walk
+		case 0:
 		{
-			PosX += Xsp * image_xscale;
-			x = floor(PosX);
+			// Animate
+			animation_play(sprite_index, 16, 0);
 			
-			// Collide tiles and check for if Crabmeat is 8 pixels away from the surface
-			var FindFloor = tile_check_collision_v(x + 16 * image_xscale, y + 16, true, false, LayerA)[0];
-			if  FindFloor > 8
+			// Move and update position
+			if (--Timer)
 			{
-				Timer = 0;
+				PosX += 0.5 * Direction;
+				x     = floor(PosX);
+			}
+			
+			// Check for floor
+			var FindFloor  = tile_check_collision_v(x,					y + 16, true, false, LayerA);
+			var CheckFloor = tile_check_collision_v(x + 16 * Direction, y + 16, true, false, LayerA)[0];
+			
+			// Change state
+			if CheckFloor > 12 or CheckFloor < -8 or !Timer
+			{
+				image_index = 2;
+				
+				PrevAnim = sprite_index;
+				Timer    = 59;
+				State++;
 			}
 			else
 			{
-				y += FindFloor;
+				// If surface is angled, update sprite
+				if FindFloor[1] >= 8.44 and FindFloor[1] <= 351.56
+				{
+					image_xscale = FindFloor[1] > 180 ? -1 : 1;
+					sprite_index = spr_obj_crabmeat_move_angled;
+				}
+				else
+				{
+					sprite_index = spr_obj_crabmeat_move;
+				}
+				
+				// Align to surface
+				y += FindFloor[0];
 			}
-			
-			// Play animation
-			animation_play(sprite_index, 16, 0);
 		}
+		break;
 		
 		// Fire
-		else if Timer == 60
+		case 1:
 		{
-			// Set sprite
-			sprite_index = spr_obj_crabmeat_fire;
-			
-			// Create two bullets
-			for (var i = 1; i > -3; i -= 2)
+			if !(--Timer)
 			{
-			  var  Bullet = instance_create_depth(x + 16 * i, y, depth, CrabmeatBullet);
-			  with Bullet
-			  {
-				  Xsp = i;
-			  }
+				State++;
+				Timer        = 59;
+				Direction   *= -1;
+				sprite_index = spr_obj_crabmeat_fire;
+				
+				// Create bullets
+				for (var i = 1; i > -3; i -= 2)
+				{
+				  var  Bullet = instance_create_depth(x + 16 * i, y, depth, CrabmeatBullet);
+				  with Bullet
+				  {
+					  Xsp = i;
+				  }
+				}
 			}
 		}
-	}
-	
-	// If 0, flip badnik and restore speed
-	else
-	{
-		if Xsp == 0
+		break;
+		
+		// Wait after firing, then start moving
+		case 2:
 		{
-			sprite_index = spr_obj_crabmeat_move;
-			Timer        = 128;
-			Xsp          = 0.5;
-			
-			// Set xscale to Crabmeat direction
-			image_xscale *= -1;
+			if !(--Timer)
+			{
+				State		 -= 2;
+				Timer         = 127;
+				sprite_index  = PrevAnim;
+			}
 		}
-		else
-		{
-			// Stop Motobug
-			Timer = 120;
-			Xsp   = 0;
-			sprite_index = spr_obj_crabmeat_idle;
-		}
+		break;	
 	}
 
-	// Check for hitbox overlap
+	// Act as badnik
 	object_act_enemy(EnemyBadnik)
 }

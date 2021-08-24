@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"470e3fd4-ec8d-4e92-9460-330592c1a493","path":"sprites/spr_obj_crabmeat_idle/spr_obj_crabmeat_idle.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"470e3fd4-ec8d-4e92-9460-330592c1a493","path":"sprites/spr_obj_crabmeat_idle/spr_obj_crabmeat_idle.yy",},"LayerId":{"name":"2d6fb29d-0fb3-44e2-b75e-5d4de8aa6d12","path":"sprites/spr_obj_crabmeat_idle/spr_obj_crabmeat_idle.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_crabmeat_idle","path":"sprites/spr_obj_crabmeat_idle/spr_obj_crabmeat_idle.yy",},"resourceVersion":"1.0","name":"470e3fd4-ec8d-4e92-9460-330592c1a493","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"470e3fd4-ec8d-4e92-9460-330592c1a493","path":"sprites/spr_obj_crabmeat_editor/spr_obj_crabmeat_editor.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"470e3fd4-ec8d-4e92-9460-330592c1a493","path":"sprites/spr_obj_crabmeat_editor/spr_obj_crabmeat_editor.yy",},"LayerId":{"name":"2d6fb29d-0fb3-44e2-b75e-5d4de8aa6d12","path":"sprites/spr_obj_crabmeat_editor/spr_obj_crabmeat_editor.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_obj_crabmeat_editor","path":"sprites/spr_obj_crabmeat_editor/spr_obj_crabmeat_editor.yy",},"resourceVersion":"1.0","name":"470e3fd4-ec8d-4e92-9460-330592c1a493","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_obj_crabmeat_idle","path":"sprites/spr_obj_crabmeat_idle/spr_obj_crabmeat_idle.yy",},
+    "spriteId": {"name":"spr_obj_crabmeat_editor","path":"sprites/spr_obj_crabmeat_editor/spr_obj_crabmeat_editor.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"095157db-6fcd-4d30-adc0-2a866d7bd379","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"470e3fd4-ec8d-4e92-9460-330592c1a493","path":"sprites/spr_obj_crabmeat_idle/spr_obj_crabmeat_idle.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"095157db-6fcd-4d30-adc0-2a866d7bd379","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"470e3fd4-ec8d-4e92-9460-330592c1a493","path":"sprites/spr_obj_crabmeat_editor/spr_obj_crabmeat_editor.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 15,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_obj_crabmeat_idle","path":"sprites/spr_obj_crabmeat_idle/spr_obj_crabmeat_idle.yy",},
+    "parent": {"name":"spr_obj_crabmeat_editor","path":"sprites/spr_obj_crabmeat_editor/spr_obj_crabmeat_editor.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_obj_crabmeat_idle",
+    "name": "spr_obj_crabmeat_editor",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Game Objects/Stage Objects/Badniks/Crabmeat/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_obj_crabmeat_idle",
+  "name": "spr_obj_crabmeat_editor",
   "tags": [],
   "resourceType": "GMSprite",
 }
