@@ -90,7 +90,8 @@ function ObjBubbleMain()
 		PosY  += Ysp;
 		
 		// Update position
-		object_update_position(FinalX, PosY);
+		x = floor(FinalX);
+		y = floor(PosY);
 	}
 	
 	// If bubble is the large one, be collected by the player

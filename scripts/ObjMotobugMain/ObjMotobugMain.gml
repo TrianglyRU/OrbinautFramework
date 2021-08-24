@@ -53,7 +53,8 @@ function ObjMotobugMain()
 	}
 	
 	// Update position
-	object_update_position(PosX, PosY);
+	x = floor(PosX);
+	y = floor(PosY);
 	
 	// Act as badnik
 	object_act_enemy(EnemyBadnik);

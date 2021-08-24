@@ -1,8 +1,14 @@
 function PlayerJump()
 {
-	// Exit if we're not jumping
+	// If not jumping, apply limit to vertical speed
 	if !Jumping
 	{
+		if Ysp < -15.75
+		{
+			Ysp = -15.75;
+		}
+		
+		// Then exit
 		exit;
 	}
 	
@@ -127,7 +133,7 @@ function PlayerJump()
 							Ysp = -5.5;
 						
 							// Play sound
-							audio_sfx_play(sfxThunderBarrierSpark, false);
+							audio_sfx_play(sfxThunderBarrierJump, false);
 						}
 						break;
 						case BarrierWater:

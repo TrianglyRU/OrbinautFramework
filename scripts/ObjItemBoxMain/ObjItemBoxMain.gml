@@ -102,7 +102,8 @@ function ObjItemBoxMain()
 			}
 			
 			// Update position
-			object_update_position(PosX, PosY);
+			x = floor(PosX);
+			y = floor(PosY);
 		}	
 	}
 	else

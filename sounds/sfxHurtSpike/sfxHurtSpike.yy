@@ -10,7 +10,7 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxHurtSpike.ogg",
+  "soundFile": "sfxHurtSpike.wav",
   "duration": 0.701655,
   "parent": {
     "name": "SFX",

@@ -10,7 +10,7 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxHurt.ogg",
+  "soundFile": "sfxHurt.wav",
   "duration": 0.901723,
   "parent": {
     "name": "SFX",

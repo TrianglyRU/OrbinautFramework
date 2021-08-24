@@ -26,7 +26,8 @@ function ObjSwingingPlatformMain()
 		YDist = dsin(90 + Angle * AngleY) * ChainSize;
 		
 		// Update position
-		object_update_position(OriginX + XDist * Count, OriginY + YDist * Count);
+		x = floor(OriginX + XDist * Count);
+		y = floor(OriginY + YDist * Count);
     
 		// Do collision
 		object_act_solid(false, true, false, false);

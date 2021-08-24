@@ -66,7 +66,7 @@ function ObjComboScoreMain()
 	PosY += Ysp;
 	
 	// Update position
-	object_update_position(x, PosY);
+	y = floor(PosY);
 	
 	// Delete object if it is stopped
 	if Ysp == 0

@@ -54,7 +54,8 @@ function ObjCountdownBubbleMain()
 		PosY  += Ysp;
 		
 		// Update position
-		object_update_position(FinalX, PosY);
+		x = floor(FinalX);
+		y = floor(PosY);
 	}
 	else if array_equals(ScreenPosition, [])
 	{

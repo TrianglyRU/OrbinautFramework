@@ -10,12 +10,6 @@ function PlayerMovementAir()
 		Angle = min(Angle + 2.8125, 360);
 	}
 	
-	// Limit vertical speed
-	if Ysp < -15.75
-	{
-		Ysp = -15.75;
-	}
-	
 	// Exit if gliding (ignoring GlideDrop state) or climbing
 	if GlideState == GlideActive or GlideState == GlideStop or ClimbState
 	{

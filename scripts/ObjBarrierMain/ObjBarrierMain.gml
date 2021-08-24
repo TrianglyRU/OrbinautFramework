@@ -161,6 +161,10 @@ function ObjBarrierMain()
 		image_alpha = 1;
 	}
 	
+	// If player is not visibile, make us not visible too (is not for invincibility frames!)
+	visible = Player.visible;
+	
 	// Update position
-	object_update_position(Player.PosX, Player.PosY);
+	x = floor(Player.PosX);
+	y = floor(Player.PosY);
 }

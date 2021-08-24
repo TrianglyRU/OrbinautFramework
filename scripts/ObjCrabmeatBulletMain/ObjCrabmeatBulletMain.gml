@@ -6,7 +6,8 @@ function ObjCrabmeatBulletMain()
 	Ysp  += 0.21875;
 	
 	// Update position
-	object_update_position(PosX, PosY);
+	x = floor(PosX);
+	y = floor(PosY);
 	
 	// Damage player on overlap
 	if object_check_overlap(Hitbox)

@@ -105,5 +105,8 @@ function ObjTailsObjectMain()
 				VisualAngle = darctan2(dsin(TargetAngle) + dsin(VisualAngle) * RotationStep, dcos(TargetAngle) + dcos(VisualAngle) * RotationStep);
 			}
 		}
-	}	
+	}
+	
+	// If player is not visibile, make us not visible too (is not for invincibility frames!)
+	visible = Player.visible;
 }

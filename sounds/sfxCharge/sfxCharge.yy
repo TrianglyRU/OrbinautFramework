@@ -10,7 +10,7 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxCharge.ogg",
+  "soundFile": "sfxCharge.wav",
   "duration": 1.833379,
   "parent": {
     "name": "SFX",

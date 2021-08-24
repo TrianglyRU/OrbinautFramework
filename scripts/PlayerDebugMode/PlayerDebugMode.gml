@@ -5,6 +5,12 @@ function PlayerDebugMode()
 	{
 		return false;
 	}
+	
+	// Exit if died and fallen off-screen
+	if Player.Death and floor(Player.PosY) >= Camera.ViewY + Game.Height + 32
+	{
+		return false;
+	}
 
 	if Input.BPress
 	{

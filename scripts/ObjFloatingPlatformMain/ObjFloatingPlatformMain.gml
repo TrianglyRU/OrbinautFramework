@@ -86,7 +86,8 @@ function ObjFloatingPlatformMain()
 	}
 	
 	// Update position
-	object_update_position(PosX, PosY + Weight);
+	x = floor(PosX);
+	y = floor(PosY + Weight);
 	
 	// Do collision
 	object_act_solid(false, true, false, false);

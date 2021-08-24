@@ -31,7 +31,8 @@ function ObjRingMain()
 		PosY += Ysp;
 			
 		// Update position
-		object_update_position(PosX, PosY);
+		x = floor(PosX);
+		y = floor(PosY);
 	}
 	
 	// Check for hitbox collision

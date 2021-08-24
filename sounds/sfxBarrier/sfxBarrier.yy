@@ -10,7 +10,7 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxBarrier.ogg",
+  "soundFile": "sfxBarrier.wav",
   "duration": 0.725646,
   "parent": {
     "name": "SFX",
