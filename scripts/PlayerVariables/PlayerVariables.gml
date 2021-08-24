@@ -27,6 +27,7 @@ function PlayerVariables()
 	Grounded			= 0;
 	OnObject			= 0;
 	PeeloutRev			= 0;
+	PeeloutForce        = 0;
 	SpindashRev		    = 0;
 	DropdashRev			= 0;
 	DropdashSide	    = 0;

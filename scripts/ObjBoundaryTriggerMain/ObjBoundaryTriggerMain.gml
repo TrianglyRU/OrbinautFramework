@@ -1,9 +1,8 @@
 function ObjBoundaryTriggerMain()
 {
-	// Update target boundaries
+	// Update target boundary
 	if object_check_overlap(Triggerbox)
 	{
-		Stage.TargetBottomBoundary = BottomBoundary;
-		Stage.TargetTopBoundary    = TopBoundary;
+		Stage.TargetBottomBoundary = y;
 	}
 }

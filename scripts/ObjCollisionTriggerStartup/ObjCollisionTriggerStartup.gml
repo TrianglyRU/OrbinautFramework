@@ -1,5 +1,8 @@
 function ObjCollisionTriggerStartup()
 {
+	// Create variable
+	TargetLayer = 0;
+	
 	/* Variable Definitions	
 	1. GroundOnly,     default = false		
 	2. LeftDirection,  default = "None"	
@@ -11,7 +14,4 @@ function ObjCollisionTriggerStartup()
 	
 	// Set object active range
 	object_set_range(RangeClose, TypeUnload);
-	
-	// Set object visibility
-	visible = false;
 }

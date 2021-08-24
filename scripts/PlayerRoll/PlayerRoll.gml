@@ -77,7 +77,6 @@ function PlayerRoll()
 	// If forced to roll, keep rolling
 	else if Inertia == 0
 	{
-		Inertia = 2 * Facing;
-		Facing = sign(Inertia);
+		Inertia = 4 * Facing;
 	}
 }

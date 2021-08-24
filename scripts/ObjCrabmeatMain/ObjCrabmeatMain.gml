@@ -31,15 +31,13 @@ function ObjCrabmeatMain()
 			sprite_index = spr_obj_crabmeat_fire;
 			
 			// Create two bullets
-			var i = 1;
-			repeat(2)
+			for (var i = 1; i > -3; i -= 2)
 			{
-				var Bullet = instance_create_depth(x + 16 * i, y, depth, CrabmeatBullet)
-				with Bullet 
-				{
-					Xsp = i;    
-				}
-				i = -1;
+			  var  Bullet = instance_create_depth(x + 16 * i, y, depth, CrabmeatBullet);
+			  with Bullet
+			  {
+				  Xsp = i;
+			  }
 			}
 		}
 	}

@@ -3,12 +3,15 @@ function ObjStarPostMain()
 	// Load as activated if ID is lower than the ID of activated one
 	if !ActiveCheck
 	{
-		if Game.StarpostID != false and Game.StarpostID.ID >= ID
+		if Game.StarpostID != false and instance_exists(Game.StarpostID)
 		{
-			sprite_index = spr_obj_starpost_active;
-			image_index  = 0;
-			Active = true;
-			Angle  = 900;
+			if Game.StarpostID.ID >= ID
+			{
+				sprite_index = spr_obj_starpost_active;
+				image_index  = 0;
+				Active = true;
+				Angle  = 900;
+			}
 		}
 		ActiveCheck = true;
 	}

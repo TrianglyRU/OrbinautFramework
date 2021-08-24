@@ -14,7 +14,6 @@ function PlayerAnimate()
 	}
 	
 	// Initialise static variables for certain animations
-	static SpeedFactor     = 0;
 	static AnimSpringTime  = 48;
 	static AnimBreatheTime = 24;
 	static AnimKnuxSkid    = 16;
@@ -32,7 +31,6 @@ function PlayerAnimate()
 	{
 		AnimKnuxSkid = 16;
 	}
-	SpeedFactor = PeeloutRev == -1 ? abs(Inertia) : PeeloutRev div 3;
 	
 	// Animate character
 	switch Game.Character
@@ -83,28 +81,28 @@ function PlayerAnimate()
 								var Sprite = spr_sonic_run;
 							}	
 						}
-						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
+						animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 					}
 					break;
 					case AnimPeelout:
 					{
-						switch PeeloutRev div 15
+						if abs(PeeloutRev) < 6
 						{
-							case 0:
-								var Sprite = spr_sonic_walk;
-							break;
-							case 1:
-								var Sprite = spr_sonic_run;
-							break;
-							case 2:
-								var Sprite = spr_sonic_peelout;
-							break;
+							var Sprite = spr_sonic_walk;
 						}
-						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
+						else if abs(PeeloutRev) < 10
+						{
+							var Sprite = spr_sonic_run;
+						}
+						else
+						{
+							var Sprite = spr_sonic_peelout;
+						}	
+						animation_play(Sprite, round(max(1, 8 - abs(PeeloutRev))), 0);
 					}
 					break;
 					case AnimSpin:
-						animation_play(spr_sonic_roll, round(max(1, 4 - SpeedFactor)), 0);
+						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 0);
 					break;
 					case AnimSpindash:
 						animation_play(spr_sonic_spindash, 1, 0); 
@@ -119,7 +117,7 @@ function PlayerAnimate()
 						animation_play(spr_sonic_skid, 6, 2);
 					break;
 					case AnimPush:
-						animation_play(spr_sonic_push, round(max(1, 8 - SpeedFactor) * 4), 0);
+						animation_play(spr_sonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
 					break;
 					case AnimHurt:
 						animation_play(spr_sonic_hurt, 1, 0);
@@ -186,7 +184,8 @@ function PlayerAnimate()
 					break;
 					case AnimMove:	
 					{
-						if abs(Inertia) < 8
+						var RunSpeed = IsUnderwater ? 6 : 8;
+						if abs(Inertia) < RunSpeed
 						{
 							var Sprite = spr_supersonic_walk;
 						}
@@ -194,26 +193,24 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_supersonic_fly;
 						}
-						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
+						animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 					}
 					break;
 					case AnimPeelout: 
 					{
-						switch PeeloutRev div 15
+						if abs(PeeloutRev) < 6
 						{
-							case 0:
-								var Sprite = spr_supersonic_walk;
-							break;
-							case 1:
-							case 2:
-								var Sprite = spr_supersonic_fly;
-							break;
+							var Sprite = spr_supersonic_walk;
 						}
-						animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
+						else
+						{
+							var Sprite = spr_supersonic_fly;
+						}
+						animation_play(Sprite, round(max(1, 8 - abs(PeeloutRev))), 0);
 					}
 					break;
 					case AnimSpin:
-						animation_play(spr_sonic_roll, round(max(1, 4 - SpeedFactor)), 0);
+						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 0);
 					break;
 					case AnimSpindash:
 						animation_play(spr_sonic_spindash, 1, 0); 
@@ -228,7 +225,7 @@ function PlayerAnimate()
 						animation_play(spr_supersonic_skid, 3, 4);
 					break;
 					case AnimPush:
-						animation_play(spr_supersonic_push, round(max(1, 8 - SpeedFactor) * 4), 0);
+						animation_play(spr_supersonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
 					break;
 					case AnimHurt:
 						animation_play(spr_supersonic_hurt, 1, 0);
@@ -331,7 +328,7 @@ function PlayerAnimate()
 					{
 						var Sprite = spr_tails_dash;
 					}
-					animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
+					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 				}
 				break;
 				case AnimSpin:
@@ -381,7 +378,7 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimPush:
-					animation_play(spr_tails_push, round(max(1, 8 - SpeedFactor) * 4), 0);
+					animation_play(spr_tails_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
 				break;
 				case AnimActEnd:
 					animation_play(spr_tails_actend, 16, 1);
@@ -449,11 +446,11 @@ function PlayerAnimate()
 					{
 						var Sprite = spr_knuckles_run;
 					}
-					animation_play(Sprite, round(max(1, 8 - SpeedFactor)), 0);
+					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
 				}
 				break;
 				case AnimSpin:
-					animation_play(spr_knuckles_roll, round(max(1, 4 - SpeedFactor)), 0);
+					animation_play(spr_knuckles_roll, round(max(1, 4 - abs(Inertia))), 0);
 				break;
 				case AnimSpindash:
 					animation_play(spr_knuckles_spindash, 1, 0); 
@@ -527,7 +524,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_climbering, 6, 3);
 				break;
 				case AnimPush:
-					animation_play(spr_knuckles_push, round(max(1, 8 - SpeedFactor)), 0);
+					animation_play(spr_knuckles_push, round(max(1, 8 - abs(Inertia))), 0);
 				break;
 				case AnimSpring:
 				{

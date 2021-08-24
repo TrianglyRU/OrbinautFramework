@@ -55,6 +55,7 @@ function GameVariables()
 	Game.SKItemBoxBehaviour = 0;
 	
 	// Orbinaut improvements
+	Game.CDStageTimer		 = 0;
 	Game.PostProcessing      = 0;
 	Game.SmoothRotation	     = 0;
 	Game.RichPresenceSupport = 0;

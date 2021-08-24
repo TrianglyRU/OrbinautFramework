@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_crabmeat_move",
-    "path": "sprites/spr_obj_crabmeat_move/spr_obj_crabmeat_move.yy",
+    "name": "spr_obj_crabmeat_idle",
+    "path": "sprites/spr_obj_crabmeat_idle/spr_obj_crabmeat_idle.yy",
   },
   "solid": false,
   "visible": true,

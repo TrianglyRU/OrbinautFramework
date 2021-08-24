@@ -1,6 +1,6 @@
 function PlayerMovementGround()
 {	
-	if !GroundLock and !AirLock
+	if !GroundLock and SpindashRev == -1 and PeeloutRev == -1
 	{
 		// Set skid angle range
 		if !Game.S3SlopePhysics

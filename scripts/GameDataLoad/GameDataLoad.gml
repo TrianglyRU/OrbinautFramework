@@ -28,7 +28,7 @@ function GameDataLoad()
 		var Size = file_bin_size(File);
 		if  File 
 		{														
-			for (var i = 0; i < TileAmount; i++) 
+			for (var i = 0; i <= TileAmount; i++) 
 			{
 				switch Name 
 				{

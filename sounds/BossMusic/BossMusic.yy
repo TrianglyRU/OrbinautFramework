@@ -1,6 +1,6 @@
 {
-  "compression": 1,
-  "volume": 0.7,
+  "compression": 3,
+  "volume": 0.97,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "BossMusic.ogg",
-  "duration": 145.228409,
+  "duration": 72.97501,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

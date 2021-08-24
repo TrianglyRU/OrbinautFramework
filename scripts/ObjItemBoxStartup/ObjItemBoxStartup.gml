@@ -30,19 +30,19 @@ function ObjItemBoxStartup()
 		case "10 Rings":
 			CardSprite = 0;
 		break;
-		case "High Speed":
+		case "Barrier":
 			CardSprite = 1;
 		break;
-		case "Regular Barrier":
+		case "Thunder Barrier":
 			CardSprite = 2;
 		break;
-		case "Thunder Barrier":
+		case "Flame Barrier":
 			CardSprite = 3;
 		break;
-		case "Flame Barrier":
+		case "Water Barrier":
 			CardSprite = 4;
 		break;
-		case "Water Barrier":
+		case "High Speed":
 			CardSprite = 5;
 		break;
 		case "Invincibility":

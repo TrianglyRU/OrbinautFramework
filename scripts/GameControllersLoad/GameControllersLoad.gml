@@ -1,7 +1,7 @@
 function GameControllersLoad()
 {
 	// Exit if room is the start one
-	if room == Startup or room == Splash
+	if room == Startup
 	{
 		exit;
 	}

@@ -3,6 +3,27 @@ function ObjPushableBlockMain()
 	// Do collision
 	object_act_solid(true, true, true, false);
 	
+	// Check for floor collision
+	var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
+	if  FindFloor < 0
+	{
+		if !Grounded
+		{
+			PosY	 += FindFloor;
+			Grounded  = true;
+			Ysp		  = 0;
+		}
+	}
+	else if FindFloor > 0
+	{
+		if Grounded
+		{
+			PosX     -= 1 * Direction;;
+			ClipTimer = 4;
+			Grounded  = false;
+		}
+	}
+	
 	// Check for being pushed
 	if Grounded
 	{
@@ -51,26 +72,6 @@ function ObjPushableBlockMain()
 	{
 		PosX     += RightDistance;
 		FoundWall = true;
-	}
-	
-	// Check for floor collision
-	var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
-	if  FindFloor < 0
-	{
-		if !Grounded
-		{
-			PosY	 += FindFloor;
-			Grounded  = true;
-			Ysp		  = 0;
-		}
-	}
-	else if FindFloor > 0
-	{
-		if Grounded
-		{
-			ClipTimer = 4;
-			Grounded  = false;
-		}
 	}
 	
 	// Update position

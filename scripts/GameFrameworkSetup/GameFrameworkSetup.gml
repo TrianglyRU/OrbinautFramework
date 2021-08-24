@@ -47,6 +47,7 @@ function GameFrameworkSetup()
 	Game.SKItemBoxBehaviour = false;
 	
 	// Orbinaut improvements
+	Game.CDStageTimer	     = false;
 	Game.PostProcessing      = false;
 	Game.SmoothRotation	     = false;
 	Game.RichPresenceSupport = true;

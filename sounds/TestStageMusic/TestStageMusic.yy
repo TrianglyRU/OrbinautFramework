@@ -1,5 +1,5 @@
 {
-  "compression": 1,
+  "compression": 3,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "TestStageMusic.ogg",
-  "duration": 201.367828,
+  "duration": 139.468323,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",

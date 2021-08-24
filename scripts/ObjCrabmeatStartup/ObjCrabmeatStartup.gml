@@ -12,6 +12,9 @@ function ObjCrabmeatStartup()
 	Xsp   = 0.5;
 	Timer = 128;
 	
+	// Set object animation
+	sprite_index = spr_obj_crabmeat_move;
+	
 	// Set object hitbox
 	object_set_hitbox(16, 16);
 	

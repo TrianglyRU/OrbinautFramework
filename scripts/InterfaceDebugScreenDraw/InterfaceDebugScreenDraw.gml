@@ -41,10 +41,10 @@ function InterfaceDebugScreenDraw()
 	
 		// Display debug screen
 		draw_text_ext_transformed(Game.Width - 86, 8,
-					"          ORBINAUT  FRAMEWORK"
-				+ "\n            STANDALONE VER."
+					"         ORBINAUT  FRAMEWORK"
+				+ "\n           STANDALONE VER."
 				+ "\n"
-				+ "\n         BY TRIANGLY AND MICG"
+				+ "\n        BY TRIANGLY AND MICG"
 				+ "\n"
 				+ "\n"
 				+ "\n          * PLAYER MOTION *"
@@ -106,8 +106,8 @@ function InterfaceDebugScreenDraw()
 				+ "\n"
 				+ "\n              * CAMERA *"
 				+ "\n"
-				+ "\n   X: "			  + string(Camera.ViewX)
-				+ "\n   Y: "			  + string(Camera.ViewY)
+				+ "\n   X: "			  + string(Camera.PosX) + " VIEW X: " + string(Camera.ViewX)
+				+ "\n   Y: "			  + string(Camera.PosY) + " VIEW Y: " + string(Camera.ViewY)
 				+ "\n   SHIFT X: "		  + string(Camera.ShiftX)
 				+ "\n   SHIFT Y: "		  + string(Camera.ShiftY)
 				+ "\n   SCROLL DELAY: "   + string(Camera.ScrollDelay)
@@ -116,11 +116,6 @@ function InterfaceDebugScreenDraw()
 				+ "\n   CD SHIFT: "       + string(Camera.ExtendedOffset)
 				+ "\n   SPIN OFFSET: "    + string(Camera.SpinOffset)
 				+ "\n"
-				+ "\n              * INPUT *"
-				+ "\n"
-				+ "\n   LEFT: "	 + string(Input.Left)  + " LEFT PRESS: " + string(Input.LeftPress)
-				+ "\n   RIGHT: " + string(Input.Right) + " RIGHT PRESS: " + string(Input.RightPress)
-				+ "\n"
 				+ "\n              * AUDIO *"
 				+ "\n"
 				+ "\n   LOW TRACK: "       + string(Audio.LowTrack[0])
@@ -128,11 +123,13 @@ function InterfaceDebugScreenDraw()
 				+ "\n   LOW EVENT TIME: "  + string(Audio.LowTrack[3])
 				+ "\n   LOW VOLUME: "      + string(audio_sound_get_gain(Audio.LowTrack[0]))
 				+ "\n   LOW POSITION: "    + string(audio_sound_get_track_position(Audio.LowTrack[0]))
+				+ "\n   LOW LENGTH: "      + string(audio_sound_length(Audio.LowTrack[0]))
 				+ "\n   HIGH TRACK: "      + string(Audio.HighTrack[0])
 				+ "\n   HIGH EVENT: "      + string(Audio.HighTrack[2])
 				+ "\n   HIGH EVENT TIME: " + string(Audio.HighTrack[3])
 				+ "\n   HIGH VOLUME: "     + string(audio_sound_get_gain(Audio.HighTrack[0]))
-				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[0])),
+				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[0]))
+				+ "\n   HIGH LENGTH: "     + string(audio_sound_length(Audio.HighTrack[0])),
 		8, 256, 0.28, 0.28, 0);
 	}
 }

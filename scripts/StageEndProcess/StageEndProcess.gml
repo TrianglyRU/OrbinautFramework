@@ -11,11 +11,12 @@ function StageEndProcess()
 	Game.Lives = Player.Lives;
 		
 	// Reset game data
-	Game.StarpostID     = false;
-	Game.Time	        = 0;
-	Game.StageBoundary  = 0;
-	Game.SpecialRingIDs = [];
-	Game.PlayerPosition = [];
+	Game.StarpostID      = false;
+	Game.Time	         = 0;
+	Game.StageBoundary   = 0;
+	Game.SpecialRingIDs  = [];
+	Game.SpecialRingData = [];
+	Game.PlayerPosition  = [];
 		
 	// Save game progress at the end of the zone if we're not in "no save" mode
 	if ActID == FinalActID and Game.ActiveSave != -1
@@ -24,24 +25,10 @@ function StageEndProcess()
 	}
 
 	// Load next stage
-	switch ActID
+	switch room
 	{
-		// Act 1
-		case 0:
-		{
-			switch ZoneID
-			{
-				case 0: 
-					room_goto(DevMenu);
-				break;
-				default:
-					room_goto(DevMenu);
-				break;
-			}
-		}	
+		case TestStage:
+			room_goto(DevMenu);
 		break;
-		
-		// Act 2
-		case 1: break;
 	}
 }

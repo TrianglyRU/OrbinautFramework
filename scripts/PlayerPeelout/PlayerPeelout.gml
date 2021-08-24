@@ -14,8 +14,20 @@ function PlayerPeelout()
 		{
 			if Animation == AnimLookup and Input.ABCPress
 			{
+				// Set our target peelout force
+				if !IsUnderwater
+				{
+					PeeloutForce = !HighspeedBonus ? 12 : 9;
+					if SuperState
+					{
+						PeeloutForce += 2;
+					}
+				}
+				else
+				{
+					PeeloutForce = 6;
+				}
 				PeeloutRev = 0;
-				AirLock = true;
 				
 				// Play sound
 				audio_sfx_play(sfxPeeloutCharge, false);
@@ -23,26 +35,23 @@ function PlayerPeelout()
 		}
 		
 		// Charge it
-		else if PeeloutRev < 30
+		else 
 		{
-			PeeloutRev++;
+			if PeeloutRev < PeeloutForce
+			{
+				PeeloutRev = min(PeeloutRev + 0.390625, PeeloutForce);
+			}
 		}
 	}
 	
 	// Release peelout
-	else if PeeloutRev == 30
+	else if PeeloutRev == PeeloutForce
 	{	
 		// Launch player
-		var Force = !HighspeedBonus ? TopAcc * 2 : TopAcc * 1.5;
-		if SuperState and Force > 16	
-		{
-			Force = 16;
-		}
-		
-		Inertia    = Force * Facing;
-		AirLock    = false;
-		PeeloutRev = -1;
-		Animation  = AnimMove;
+		Inertia      = PeeloutForce * Facing;
+		PeeloutRev   = -1;
+		PeeloutForce = 0;
+		Animation    = AnimMove;
 			
 		// Freeze the screen for 16 frames
 		if !Game.CDCamera
@@ -58,10 +67,10 @@ function PlayerPeelout()
 	}
 	
 	// Cancel peelout
-	else if PeeloutRev
+	else
 	{	
-		PeeloutRev = -1;
-		AirLock    = false;
+		PeeloutRev   = -1;
+		PeeloutForce = 0;
 		
 		// Stop sound
 		audio_sfx_stop(sfxPeeloutCharge);
