@@ -1,5 +1,12 @@
 function ObjBridgeDraw()
 {
+	// Draw posts
+	if GeneratePosts
+	{
+		draw_sprite(PostSprite, 0, x - BridgeLength / 2 * 16 - 18, NativeY - 15);
+		draw_sprite_ext(PostSprite, 0, x + BridgeLength / 2 * 16 + 18, NativeY - 15, -1, 1, 0, c_white, 1);
+	}
+	
 	// Draw logs
 	for (var i = 0; i < BridgeLength; i++)
     {   

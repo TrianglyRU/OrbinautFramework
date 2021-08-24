@@ -1,7 +1,7 @@
 function InterfaceDebugScreenDraw()
 {	
 	// Exit if not allowed to display
-	if !Game.DevMode or !Stage.DoUpdate or !DebugToggle
+	if !Game.DevMode or !Stage.DoUpdate
 	{
 		exit;
 	}
@@ -15,11 +15,14 @@ function InterfaceDebugScreenDraw()
 		DebugHelp = !DebugHelp;
 	}
 	
-	// Display available hotkeys
+	// Display available hotkeys and game fps
 	if DebugHelp
 	{
 		draw_set_halign(fa_center);
-		draw_text_transformed(Game.Width / 2, Game.Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  TRIGGERS: R  VARIABLES: T  SHORTCUTS: Y", 0.5, 0.5, 0);
+		draw_text_transformed(Game.Width / 2 - 44, Game.Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  TRIGGERS: R  VARIABLES: T  SHORTCUTS: Y", 0.5, 0.5, 0);
+		
+		draw_set_halign(fa_left);
+		draw_text_transformed(Game.Width - 44, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
 	}
 	
 	// Toggle variables debug
@@ -29,7 +32,7 @@ function InterfaceDebugScreenDraw()
 	}
 	
 	// Display variables
-	if DebugVariables
+	if DebugVariables and !DebugToggle
 	{
 		// Draw rectangle
 		draw_set_alpha(0.65);

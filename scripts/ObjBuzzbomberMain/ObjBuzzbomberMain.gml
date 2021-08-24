@@ -108,10 +108,8 @@ function ObjBuzzbomberMain()
 		case 2: 
 			var Sprite = spr_obj_buzzbomber_fire;
 		break;
-		
-		// Play animation
-		animation_play(Sprite, 1, 0);
 	}
+	animation_play(Sprite, 1, 0);
 	
 	// Act as badnik
 	if object_act_enemy(EnemyBadnik)

@@ -4,11 +4,13 @@ function ObjRollTriggerMain()
 	if object_check_overlap(Triggerbox)
 	{
 		// Set flags
-		Active			   = true;
-		Player.FlightState = false;
-		Player.GlideState  = false;
-		Player.Grounded    = true;
-		Player.ForcedRoll  = true;
+		Player.BarrierIsActive = false;
+		Player.FlightState     = false;
+		Player.GlideState      = false;
+		Player.Jumping         = false;
+		Player.Grounded        = true;
+		Player.ForcedRoll      = true;
+		Active			       = true;
 			
 		// Reset gravity
 		if !Player.IsUnderwater

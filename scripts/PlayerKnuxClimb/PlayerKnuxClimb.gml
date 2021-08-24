@@ -76,8 +76,8 @@ function PlayerKnuxClimb()
 		}
 		
 		// If near the edge, start climbering
-		var EdgeDistance = tile_check_collision_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[0];
-		if  EdgeDistance
+		var EdgeAngle = tile_check_collision_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[1];
+		if  EdgeAngle == noone
 		{
 			Ysp		       = 0;
 			ClimbState     = 2;

@@ -25,7 +25,7 @@ function tile_check_nearest(leftdata,rightdata,object_angle)
 		if Difference > 45 and Difference < 135
 		{
 			/* The originals also check for a bit flag set for tiles with angle
-			   0xFF, but we handle it right when we get tile data to make it more stable */
+			0xFF, but we handle it right when we get tile data to make it more stable */
 			   
 			ResultAngle = round(object_angle / 90) mod 4 * 90;
 			if !ResultAngle
@@ -36,5 +36,5 @@ function tile_check_nearest(leftdata,rightdata,object_angle)
 	}
 	
 	// Return data
-	return [ResultDistance, VisualAngle];
+	return [ResultDistance, ResultAngle];
 }

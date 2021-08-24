@@ -1,7 +1,7 @@
 function PlayerJumpStart()
 {	
 	// Exit if no action button is pressed or special ability is active
-	if !Input.ABCPress or SpindashRev != -1 or PeeloutRev != -1
+	if !Input.ABCPress or SpindashRev != -1 or PeeloutRev != -1 or ForcedRoll
 	{
 		exit;
 	}

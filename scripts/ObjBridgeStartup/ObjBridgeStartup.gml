@@ -2,6 +2,7 @@ function ObjBridgeStartup()
 {
 	// Create variables
 	RecoveryAngle    = 0;
+	NativeX			 = 0;
 	NativeY		     = 0;
 	ActiveSegment    = 0;
 	ActiveDepression = 0;
@@ -9,7 +10,8 @@ function ObjBridgeStartup()
 	
 	/* Variable Definitions	
 	1. BridgeLength, default = 12
-	2. BridgeSprite, default = spr_obj_bridgelog_template
+	2. BridgeSprite, default = spr_obj_bridge_log_template
+	3. PostSprite,   default = spr_obj_bridge_post_template
 	*/
 	
 	// Calculate log depression value
@@ -19,8 +21,9 @@ function ObjBridgeStartup()
 	}
 	
 	// Set default position
-	x      += (BridgeLength / 2 - 6) * 16;
+	NativeX = x;
 	NativeY = y;
+	x += (BridgeLength / 2 - 6) * 16;
 	
 	// Set object solidbox
 	object_set_solidbox(BridgeLength / 2 * 16, 8, false);
