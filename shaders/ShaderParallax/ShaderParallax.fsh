@@ -1,5 +1,5 @@
 //
-// Simple passthrough fragment shader
+// Parallax shader
 //
 	varying vec2 v_vTexcoord;
 	varying vec2 v_vPosition;

@@ -1,5 +1,5 @@
 //
-// Simple passthrough fragment shader
+// Post-processing shader
 //
 	varying vec2 v_vTexcoord;
 	varying vec4 v_vColour;
