@@ -8,11 +8,11 @@ function InputHotkeysProcess()
 	// Stage fresh load (F1)
 	if keyboard_check_pressed(vk_f1) 
 	{
-		Game.StarpostID		 = false;
+		Game.Rings           = 0;
 		Game.Time		     = 0;
 		Game.StageBoundary	 = 0;
 		Game.Score           = 0;
-		Game.PlayerPosition	 = [];
+		Game.StarPostData	 = [];
 		Game.SpecialRingData = [];
 		
 		audio_stop_all();

@@ -49,12 +49,13 @@ function InterfacePauseProcess()
 					// Exit
 					else if PauseValue[1] == 2
 					{
-						Game.StarpostID		= false;
-						Game.Score			= 0;
-						Game.Time			= 0;
-						Game.StageBoundary  = 0;						
-						Game.PlayerPosition = [];
-						Game.SpecialRingIDs = [];
+						Game.Score			 = 0;
+						Game.Time			 = 0;
+						Game.Rings			 = 0;
+						Game.StageBoundary   = 0;						
+						Game.StarPostData    = [];
+						Game.SpecialRingData = [];
+						Game.SpecialRingList = [];
 						
 						room_goto(DevMenu);
 					}

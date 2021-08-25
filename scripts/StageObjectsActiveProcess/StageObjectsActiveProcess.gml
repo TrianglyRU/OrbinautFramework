@@ -23,9 +23,9 @@ function StageObjectsActiveProcess()
 				{
 					if Obj_LoadFlag != false
 					{
-						// Deactivate object and its children
 						if Obj_LoadFlag == TypeUnload
 						{
+							// Deactivate object and its children
 							if IsParent
 							{
 								var Length = array_length(Obj_ChildrenIDs);
@@ -38,6 +38,7 @@ function StageObjectsActiveProcess()
 						}
 						else if Obj_LoadFlag == TypeReset
 						{	
+							// Is initial position off-screen?
 							if Obj_LoadData[0] < LeftBound or Obj_LoadData[0] > RightBound
 							{
 								// Destroy children
@@ -56,20 +57,43 @@ function StageObjectsActiveProcess()
 								y			 = Obj_LoadData[1];
 								image_xscale = Obj_LoadData[2];
 								image_yscale = Obj_LoadData[3];
+								visible      = true;
+								
+								// Perform create event to re-initialise variables
+								event_perform(ev_create, 0);
+							}
 							
-								event_perform(ev_create,     0);
-								event_perform(ev_room_start, 0);
+							// If not, "destroy" object
+							else if !Obj_ResetFlag
+							{
+								// Cancel all player collision events
+								object_set_hitbox(0, 0);
+								object_set_solidbox(0, 0, false);
+								
+								// Destroy children and make object invisible
+								if IsParent
+								{
+									var Length = array_length(Obj_ChildrenIDs);
+									for (var i = 0; i < Length; i++)
+									{
+										instance_destroy(Obj_ChildrenIDs[i]);
+									}
+									Obj_ChildrenIDs = [];
+								}
+								visible = false;
+								
+								// Set flag
+								Obj_ResetFlag = true;
 							}
 						}
-						
-						// Destroy object and its children
 						else if Obj_LoadFlag == TypeDelete
 						{	
+							// Destroy object and its children
 							if IsParent
 							{
 								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
-								{
+								{				
 									instance_destroy(Obj_ChildrenIDs[i]);
 								}
 								Obj_ChildrenIDs = [];
@@ -78,8 +102,8 @@ function StageObjectsActiveProcess()
 						}
 					}
 				}
-					
-				// Deactivate object and its children
+				
+				// If not, deactivate object and its children
 				else
 				{
 					if IsParent

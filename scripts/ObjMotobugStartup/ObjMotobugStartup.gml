@@ -6,6 +6,7 @@ function ObjMotobugStartup()
 	Xsp		   = 0;
 	StopTimer  = 0;
 	SmokeTimer = 0;
+	ChildrenData = [];
 	
 	// Set values
 	PosX	   = x;
@@ -20,5 +21,5 @@ function ObjMotobugStartup()
 	object_set_depth(Player, false);
 	
 	// Set object active range
-	object_set_range(RangeFar, TypeReset);
+	object_set_range(RangeClose, TypeReset);
 }

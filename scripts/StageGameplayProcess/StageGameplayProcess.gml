@@ -37,9 +37,6 @@ function StageGameplayProcess()
 		Camera.Enabled = false;
 		TimeEnabled    = false;
 		
-		// Clear special ring data
-		Game.SpecialRingData = [];
-		
 		// Check if player has fallen below camera boundary
 		if floor(Player.PosY) >= Camera.ViewY + Game.Height + 32
 		{	
@@ -74,6 +71,12 @@ function StageGameplayProcess()
 			
 			if fade_check(FadeMax)
 			{	
+				// Reset rings
+				Game.Rings = 0;
+				
+				// Clear special ring data
+				Game.SpecialRingData = [];
+				
 				// If we have lives, restart the stage
 				if Player.Lives != 0
 				{
@@ -90,10 +93,11 @@ function StageGameplayProcess()
 				// If ran out of lives, reset data
 				else
 				{
-					Game.StarpostID     = false;
-					Game.Time	        = 0;
-					Game.StageBoundary  = 0;
-					Game.PlayerPosition = [];
+					Game.Rings			 = 0;
+					Game.Time	         = 0;
+					Game.StageBoundary   = 0;
+					Game.StarPostData    = [];
+					Game.SpecialRingList = [];
 					
 					// If have continues, go to continue screen
 					if Game.Continues

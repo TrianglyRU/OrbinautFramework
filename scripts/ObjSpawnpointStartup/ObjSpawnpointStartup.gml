@@ -8,8 +8,8 @@ function ObjSpawnpointSetup()
 	if !Player.PosX and !Player.PosY
 	{
 		// Check which spawnpoint player should use
-		if id.PlayerType == "Sonic & Tails" and Game.Character == CharKnuckles
-		or id.PlayerType == "Knuckles"		and Game.Character != CharKnuckles
+		if PlayerType == "Sonic & Tails" and Game.Character == CharKnuckles
+		or PlayerType == "Knuckles"		 and Game.Character != CharKnuckles
 		{
 			exit;
 		}

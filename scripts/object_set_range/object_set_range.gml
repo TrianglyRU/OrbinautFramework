@@ -21,4 +21,5 @@ function object_set_range(range_type, reset_type)
 	Obj_LoadData   = [x, y, image_xscale, image_yscale];
 	Obj_LoadFlag   = reset_type;
 	Obj_LoadStatus = false;
+	Obj_ResetFlag  = false;
 }

@@ -1,5 +1,0 @@
-function BackgroundVariables()
-{
-	BGSprites = [];
-	BGValues  = [];
-}

@@ -59,6 +59,7 @@ function PlayerStartup()
 	// Load score and lives
 	Score = Game.Score;
 	Lives = Game.Lives;
+	Rings = Game.Rings;
 	
 	// Initialise recorded position datalist array
 	RecordedPosX = ds_list_create();
@@ -71,10 +72,10 @@ function PlayerStartup()
 	}
 	
 	// Set start position
-	if !array_equals(Game.PlayerPosition, [])
+	if !array_equals(Game.StarPostData, [])
 	{
-		PosX = Game.PlayerPosition[0];
-		PosY = Game.PlayerPosition[1];
+		PosX = Game.StarPostData[0];
+		PosY = Game.StarPostData[1];
 	}
 	
 	// If coming from special stage, load on ring's position

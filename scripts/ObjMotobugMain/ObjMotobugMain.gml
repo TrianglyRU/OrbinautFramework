@@ -23,7 +23,7 @@ function ObjMotobugMain()
 			if !SmokeTimer
 			{
 				var  ThisID   = id;
-				var  Object = instance_create(x - 19 * image_xscale, y - 1, MotobugSmoke);
+				var  Object = instance_create_children(x - 19 * image_xscale, y - 1, MotobugSmoke, ChildrenData);
 				with Object
 				{
 					object_set_depth(ThisID, false);

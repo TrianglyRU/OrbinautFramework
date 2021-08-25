@@ -1,5 +1,10 @@
 function PlayerLevelBound()
 {
+	if !Stage.DoUpdate
+	{
+		exit;
+	}
+	
 	// Keep us inside of stage boundaries using our next position
 	if floor(PosX + Xsp) < Stage.LeftBoundary + 10 
 	{

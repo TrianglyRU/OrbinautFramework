@@ -9,14 +9,15 @@ function StageEndProcess()
 	// Buffer score and lives to transfer it to the next zone/act
 	Game.Score = Player.Score;
 	Game.Lives = Player.Lives;
-		
+	
 	// Reset game data
-	Game.StarpostID      = false;
+	Game.Rings			 = 0;
 	Game.Time	         = 0;
 	Game.StageBoundary   = 0;
-	Game.SpecialRingIDs  = [];
+	Game.StarPostData    = [];
 	Game.SpecialRingData = [];
-	Game.PlayerPosition  = [];
+	Game.SpecialRingList = [];
+	
 		
 	// Save game progress at the end of the zone if we're not in "no save" mode
 	if ActID == FinalActID and Game.ActiveSave != -1

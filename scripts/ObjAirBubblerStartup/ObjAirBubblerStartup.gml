@@ -4,12 +4,8 @@ function ObjAirBubblerStartup()
 	BubbleAmount = 0;
 	BubbleID	 = 0;
 	LargeID		 = 0;
-	LargeSpawned = 0;	
-	CycleNumber	 = 0;
-	CycleState   = 0;
-	CycleTimer   = 0;
 	ChosenSet    = 0;
-	BubbleSet	 = [];
+	State        = 0;
 	
 	/* Variable Definitions	
 	1. GenerationSpeed, default = 1
@@ -22,8 +18,8 @@ function ObjAirBubblerStartup()
 	BubbleSet[3] = [0,1,0,0,1,0];
 	
 	// Set flags
-	CycleNumber = 1;
-	CycleTimer  = irandom_range(128, 255);
+	Cycle = 1;
+	Delay = irandom_range(128, 255);
 	
 	// Set object active range
 	object_set_range(RangeClose, TypeReset);

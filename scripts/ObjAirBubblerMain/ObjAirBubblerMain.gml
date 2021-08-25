@@ -9,76 +9,97 @@ function ObjAirBubblerMain()
 	// Play animation
 	animation_play(sprite_index, 16, 0);
 	
-	// Count down the timer
-	if --CycleTimer
+	switch State
 	{
-		exit;
-	}
-	
-	// Set generation properties if in idle state
-	if !CycleState
-	{
-		CycleState++;
-			
-		CycleTimer   = irandom_range(1, 32);			
-		ChosenSet    = irandom_range(0, 3);
-		BubbleAmount = irandom_range(1, 6);
-			
-		BubbleID = 0;
-		LargeID  = irandom_range(0, BubbleAmount - 1);
-	}
+		// Idle
+		case 0:
+		{
+			// Once delay timer runs out, set generation properties
+			if !(--Delay)
+			{
+				Delay		 = irandom_range(1, 32);			
+				ChosenSet    = irandom_range(0, 3);
+				BubbleAmount = irandom_range(1, 6);
+				
+				BubbleID = 0;
+				LargeID  = irandom_range(0, BubbleAmount - 1);
+				
+				// Increment state
+				State++;
+			}
+		}
+		break;
 		
-	// Making state
-	else
-	{
-		// Generate a bubble
-		var Object = instance_create(x + irandom_range(-8, 7), y, Bubble);
-			
-		// Mark bubble as large
-		if BubbleID == LargeID and !(CycleNumber mod GenerationSpeed)
+		// Bubble making
+		case 1:
 		{
-			with Object
-			{
-				Direction  = FlipRight;
-				BubbleType = 2;
-				object_set_triggerbox(-16, 16, -16, 16);
-			}
-		}
+			// Generate a bubble
+			var Object = instance_create(x + irandom_range(-8, 7), y, Bubble);
 			
-		// Mark bubble as small
-		else 
-		{
-			if !BubbleSet[ChosenSet][BubbleID]
+			// Mark bubble as large
+			if BubbleID == LargeID and !(Cycle mod GenerationSpeed)
 			{
 				with Object
 				{
 					Direction  = FlipRight;
-					BubbleType = 0;
+					BubbleType = 2;
+					
+					// Set object triggerbox
+					object_set_triggerbox(-16, 16, -16, 16);
 				}
 			}
-			
-			// Mark bubble as medium
-			else
+			else 
 			{
-				with Object
+				// Mark bubble as small
+				if !BubbleSet[ChosenSet][BubbleID]
 				{
-					Direction  = FlipRight;
-					BubbleType = 1;
+					with Object
+					{
+						Direction  = FlipRight;
+						BubbleType = 0;
+					}
+				}
+			
+				// Mark bubble as medium
+				else
+				{
+					with Object
+					{
+						Direction  = FlipRight;
+						BubbleType = 1;
+					}
 				}
 			}
-		}
 			
+			// Decrease amount of bubbles left to generate
+			BubbleAmount--;
+			Delay = irandom_range(0, 31);
+			
+			// Increment state
+			State++;
+		}
+		break;
+		
 		// Continue to generate bubbles, or switch to idle state
-		if !(--BubbleAmount)
+		case 2:
 		{
-			CycleState--;
-			CycleNumber++;
-			CycleTimer = irandom_range(129, 256);
+			if !BubbleAmount
+			{
+				Cycle++;
+				Delay = irandom_range(128, 255);
+				
+				// Return to state 0
+				State -= 2;
+			}
+			else if !(--Delay)
+			{
+				// Get next bubble to generate
+				BubbleID++;
+				
+				// Return to state 1
+				State--;
+			}
 		}
-		else
-		{
-			BubbleID++;
-			CycleTimer = irandom_range(1, 32);
-		}
+		break;
 	}
 }

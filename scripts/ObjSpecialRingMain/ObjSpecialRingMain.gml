@@ -2,15 +2,14 @@ function ObjSpecialRingMain()
 {
 	switch State
 	{
-		// Initialisation check
 		case 0:
 		{
 			// Delete this ring if it was used before
-			if !array_equals(Game.SpecialRingIDs, [])
+			if !array_equals(Game.SpecialRingList, [])
 			{
-				for (var i = 0; i < array_length(Game.SpecialRingIDs); i++)
+				for (var i = 0; i < array_length(Game.SpecialRingList); i++)
 				{
-					if id == Game.SpecialRingIDs[i]
+					if id == Game.SpecialRingList[i]
 					{
 						instance_destroy();
 					}
@@ -36,13 +35,13 @@ function ObjSpecialRingMain()
 				audio_sfx_play(sfxSpecialRing, false);
 				
 				// Remember this ring
-				if !array_equals(Game.SpecialRingIDs, [])
+				if !array_equals(Game.SpecialRingList, [])
 				{
-					Game.SpecialRingIDs[array_length(Game.SpecialRingIDs)] = id;
+					Game.SpecialRingList[array_length(Game.SpecialRingList)] = id;
 				}
 				else
 				{
-					Game.SpecialRingIDs[0] = id;
+					Game.SpecialRingList[0] = id;
 				}
 					
 				// If we have all emeralds, give 50 rings
@@ -82,15 +81,14 @@ function ObjSpecialRingMain()
 				visible = 0;
 			}
 			
-			// If Tails, remove tails object and stop sounds
+			// If Tails, stop sounds
 			if Game.Character == CharTails
 			{
-				instance_destroy(TailsObject);
 				audio_sfx_stop(sfxTired);
 				audio_sfx_stop(sfxFlying);
 			}
 			
-			// Perform fade
+			// Perform fade after 32 frames
 			if (++Timer) == 32
 			{
 				audio_play_sound(sfxSpecialWarp, 0, false);
