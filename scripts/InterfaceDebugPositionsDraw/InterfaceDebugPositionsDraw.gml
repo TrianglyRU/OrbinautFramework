@@ -19,8 +19,8 @@ function InterfaceDebugPositionsDraw()
 			draw_point_colour(floor(PosX),     floor(PosY - 1), c_white);
 		}
 		
-		// Object position
-		else
+		// Object position (ignore tails object because... well, there is no reason to draw their position)
+		else if object_index != TailsObject
 		{		
 			draw_point_colour(floor(x),	    floor(y),     c_black);
 			draw_point_colour(floor(x + 1), floor(y),	  c_white);

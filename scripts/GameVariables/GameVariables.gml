@@ -19,6 +19,13 @@ function GameVariables()
 	Game.SpecialRingData = [];	// 0 - time, 1 - y, 2 - y
 	Game.SpecialRingList = [];
 	
+	// Collision
+	Game.TileLayers  = [];  // 0 - LayerA,   1 - layerB
+	Game.TileData	 = [];	// 0 - dataname, 1 - tileamount
+	Game.TileAngle	 = [];  // Automatically generated
+	Game.TileHeights = [];  // Automatically generated
+	Game.TileWidths  = [];  // Automatically generated
+	
 	// Discord global data
 	Game.DiscordEvent = "";
 	Game.DiscordTime  = 0;

@@ -105,6 +105,4 @@ function GameMacro()
 	#macro QuadRWall  1
 	#macro QuadRoof	  2
 	#macro QuadLWall  3
-	#macro TileSize   16
-	#macro TileAmount 146
 }

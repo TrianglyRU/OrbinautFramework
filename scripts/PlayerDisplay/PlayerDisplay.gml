@@ -7,8 +7,7 @@ function PlayerDisplay()
 	image_xscale = Facing;
 	image_angle  = VisualAngle;
 	
-	/* Fix one pixel offset when facing left. Comment this if you
-	don't need that */
+	// Fix that one pixel offset when facing left
 	if Facing == FlipLeft
 	{
 		x++;

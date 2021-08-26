@@ -45,11 +45,11 @@ function GameFrameworkSetup()
 	Game.SMWaterBarrier		= false;
 	Game.SMRingBehaviour	= false;
 	Game.SKItemBoxBehaviour = false;
+	Game.CDStageTimer	    = false;
 	
 	// Orbinaut improvements
-	Game.CDStageTimer	     = false;
 	Game.PostProcessing      = false;
-	Game.SmoothRotation	     = false;
+	Game.SmoothRotation	     = true;
 	Game.RichPresenceSupport = true;
 	Game.NoRollSpeedLimit	 = false;
 	Game.FlyingCancel	     = true;

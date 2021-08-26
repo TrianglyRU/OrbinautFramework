@@ -40,7 +40,8 @@ function InterfacePauseProcess()
 						room_restart();
 						
 						// Subtract a life
-						Game.Lives--;
+						Player.Lives -= 1;
+						Game.Lives    = Player.Lives;
 						
 						// Clear special ring data
 						Game.SpecialRingData = [];

@@ -18,22 +18,25 @@ function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 		return [32, 360];
 	}
 	
+	// Get tilelayer ID
+	var Layer = layer_tilemap_get_id(Game.TileLayers[tilelayer]);
+	
 	// Set search direction sign
 	var SearchDirection = to_positive ? 1 : -1;
 	
 	// Get first tile
-	var FirstTile       = tilemap_get(Stage.TileLayer[tilelayer], x div TileSize, y div TileSize);
+	var FirstTile       = tilemap_get(Layer, x div 16, y div 16);
 	var FirstTileIndex  = tile_get_index(FirstTile);
 	var FirstTileHeight = tile_get_height(x, y, FirstTile, FirstTileIndex);
 	
 	// Ignore first tile if it is solidtop and we're ignoring them
-	if ignore_top and FirstTileIndex > TileAmount
+	if ignore_top and FirstTileIndex > Game.TileData[1]
 	{
 		FirstTileHeight = 0;
 	}
 	
 	// If first tile height is in range of [1, 15], use this tile
-	if FirstTileHeight != 0 and FirstTileHeight != TileSize
+	if FirstTileHeight != 0 and FirstTileHeight != 16
 	{
 		var SearchShift     = 0;
 		var ResultTile      = FirstTile;
@@ -43,21 +46,21 @@ function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 	// If first tile height is 0, use a tile below
 	else if FirstTileHeight == 0
 	{
-		var SearchShift     = TileSize;
-		var ResultTile      = tilemap_get(Stage.TileLayer[tilelayer], x div TileSize, (y + SearchShift * SearchDirection) div TileSize);
+		var SearchShift     = 16;
+		var ResultTile      = tilemap_get(Layer, x div 16, (y + SearchShift * SearchDirection) div 16);
 		var ResultTileIndex = tile_get_index(ResultTile);
 	}
 	
 	// If first tile height is 16, get a tile above
 	else
 	{
-		var SearchShift      = -TileSize;
-		var SecondTile       = tilemap_get(Stage.TileLayer[tilelayer], x div TileSize, (y + SearchShift * SearchDirection) div TileSize);
+		var SearchShift      = -16;
+		var SecondTile       = tilemap_get(Layer, x div 16, (y + SearchShift * SearchDirection) div 16);
 		var SecondTileIndex  = tile_get_index(SecondTile);
 		var SecondTileHeight = tile_get_height(x, y, SecondTile, SecondTileIndex);
 		
 		// Ignore second tile if it is solidtop and we're ignoring them
-		if ignore_top and SecondTileIndex > TileAmount
+		if ignore_top and SecondTileIndex > Game.TileData[1]
 		{
 			SecondTileHeight = 0;
 		}
@@ -79,7 +82,7 @@ function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 	}
 	
 	// Return blank values if target tile is outside of the room
-	var BoundsCheck = (y + SearchShift * SearchDirection) div TileSize * TileSize;
+	var BoundsCheck = (y + SearchShift * SearchDirection) div 16 * 16;
 	if  BoundsCheck >= room_height or BoundsCheck <= 0
 	{
 		return [32, 360];
@@ -89,7 +92,7 @@ function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 	var ResultHeight = tile_get_height(x, y, ResultTile, ResultTileIndex);
 	
 	// Ignore result tile if it is solidtop and we're ignoring them
-	if ignore_top and ResultTileIndex > TileAmount
+	if ignore_top and ResultTileIndex > Game.TileData[1]
 	{
 		ResultHeight = 0;
 	}
@@ -97,11 +100,11 @@ function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 	// Calculate distance to edge of the result tile
 	if to_positive
 	{
-		var TileDistance = (y + SearchShift * SearchDirection) div TileSize * TileSize + (TileSize - ResultHeight - 1) - y;
+		var TileDistance = (y + SearchShift * SearchDirection) div 16 * 16 + (16 - ResultHeight - 1) - y;
 	}
 	else
 	{
-		var TileDistance = y - ((y + SearchShift * SearchDirection) div TileSize * TileSize + ResultHeight);
+		var TileDistance = y - ((y + SearchShift * SearchDirection) div 16 * 16 + ResultHeight);
 	}
 	
 	// Get tile angle

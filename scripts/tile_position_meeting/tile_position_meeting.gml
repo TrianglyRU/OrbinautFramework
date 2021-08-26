@@ -1,5 +1,5 @@
-/// @function tile_position_meeting(x,y,ignore_top,layer)
-function tile_position_meeting(x,y,ignore_top,layer)
+/// @function tile_position_meeting(x,y,ignore_top,tilelayer)
+function tile_position_meeting(x,y,ignore_top,tilelayer)
 {
 	// Floor positions
 	x = floor(x);
@@ -10,23 +10,33 @@ function tile_position_meeting(x,y,ignore_top,layer)
     {
         return false;
     }
+	
+	// Get tilelayer ID
+	var Layer = layer_tilemap_get_id(Game.TileLayers[tilelayer]);
     
     // Check for the tile
-    var Tile = tilemap_get(Stage.TileLayer[layer], x div TileSize, y div TileSize);
+    var Tile = tilemap_get(Layer, x div 16, y div 16);
     
     // Check for its index
     var Index = tile_get_index(Tile);
     
     // Return false if it is solidtop and we're ignoring them
-    if ignore_top and Index > TileAmount
+    if ignore_top and Index > Game.TileData[1]
     {
         return false;
     }
         
     // Get position within the tile and tile height
-    var TilePosition = y mod TileSize;
+    var TilePosition = y mod 16;
     var TileHeight   = tile_get_height(x, y, Tile, Index);
 
     // Return result
-    return (tile_get_flip(Tile) ? TilePosition : (TileSize - 1 - TilePosition)) < TileHeight;
+	if tile_get_flip(Tile)
+	{
+		return TilePosition < TileHeight;
+	}
+	else
+	{
+		return 16 - 1 - TilePosition < TileHeight;
+	}
 }
