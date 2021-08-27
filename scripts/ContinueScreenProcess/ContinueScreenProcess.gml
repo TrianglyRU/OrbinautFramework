@@ -43,7 +43,7 @@ function ContinueScreenProcess()
 				// Override save file if not in "no save" mode
 				if Game.ActiveSave != -1
 				{
-					gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0);
+					gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0, false);
 				}
 			}
 			if fade_check(FadeMax)
@@ -110,7 +110,7 @@ function ContinueScreenProcess()
 		// Overwrite savedata if not playing in 'no save' slot
 		if Game.ActiveSave != -1
 		{
-			gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0);
+			gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0, false);
 		}
 			
 		// Load into the room

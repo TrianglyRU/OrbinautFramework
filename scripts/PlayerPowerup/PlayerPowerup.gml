@@ -5,7 +5,7 @@ function PlayerPowerup()
 	{	
 		if !(--HighspeedBonus)
 		{
-			if audio_bgm_is_playing(HighspeedMusic)
+			if audio_bgm_is_playing(HighspeedMusic) or !audio_bgm_is_playing(PriorityLow)
 			{
 				audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			}
@@ -31,7 +31,7 @@ function PlayerPowerup()
 		}
 		if !(--InvincibleBonus)
 		{
-			if audio_bgm_is_playing(InvincibleMusic)
+			if audio_bgm_is_playing(InvincibleMusic) or !audio_bgm_is_playing(PriorityLow)
 			{
 				audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			}

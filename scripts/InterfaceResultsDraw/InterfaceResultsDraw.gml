@@ -11,13 +11,11 @@ function InterfaceResultsDraw()
 	Value[6] - 'RINGS' PosX
 	Value[7] - 'ACT' PosX
 	Value[8] - State
+	Value[9] - Ring Bonus
+	Value[10] - Time Bonus
+	Value[11] - Continue flag
 	---------------
 	*/
-	
-	// Initialise static variables
-	static InitialScore = 0;
-	static RingBonus    = 0;
-	static TimeBonus    = 0;
 	
 	// Exit if act is not finished
 	if Stage.IsFinished < 2
@@ -30,59 +28,61 @@ function InterfaceResultsDraw()
 		// State 0
 		if !ResultsValue[8]
 		{
-			// Reset score
-			InitialScore = Player.Score;
-			
 			// Calculate ring bonus
-			RingBonus = Player.Rings * 100;
-
+			ResultsValue[9] = Player.Rings * 100;
+			
 			// Calculate time bonus
 			if Stage.Time >= 35940
 			{
-				TimeBonus = 100000;
+				ResultsValue[10] = 100000;
 			}
 			else if Stage.Time < 1800
 			{
-				TimeBonus = 50000;
+				ResultsValue[10] = 50000;
 			}			
 			else if Stage.Time >= 1800 and Stage.Time < 2700
 			{
-				TimeBonus = 10000;
+				ResultsValue[10] = 10000;
 			}
 			else
 			{
 				switch Stage.Time div 1800
 				{
 					case 0:			
-						TimeBonus = 5000; 
+						ResultsValue[10] = 5000; 
 					break;
 					case 1:			
-						TimeBonus = 5000;  
+						ResultsValue[10] = 5000;  
 					break;
 					case 2:			
-						TimeBonus = 4000;  
+						ResultsValue[10] = 4000;  
 					break;
 					case 3:			
-						TimeBonus = 3000;  
+						ResultsValue[10] = 3000;  
 					break;
 					case 4: 
 					case 5: 
-						TimeBonus = 2000;  
+						ResultsValue[10] = 2000;  
 					break;
 					case 6: 
 					case 7: 
-						TimeBonus = 1000;  
+						ResultsValue[10] = 1000;  
 					break;
 					case 8: 
 					case 9: 
-						TimeBonus = 500;   
+						ResultsValue[10] = 500;   
 					break;
 					default:
-						TimeBonus = 0;	  
+						ResultsValue[10] = 0;	  
 					break;
 				}
 			}			
-			ResultsValue[8] = 1;
+			
+			// Check if we can get a reward
+			ResultsValue[11] = ResultsValue[9] + ResultsValue[10] >= 10000
+			
+			// Increment state
+			ResultsValue[8]++;
 		}
 	
 		// State 1
@@ -137,21 +137,21 @@ function InterfaceResultsDraw()
 				// Skip bonuses math
 				if Input.StartPress
 				{
-					Player.Score += TimeBonus + RingBonus;
-					TimeBonus = 0; 
-					RingBonus = 0;
+					Player.Score += ResultsValue[10] + ResultsValue[9];
+					ResultsValue[10] = 0; 
+					ResultsValue[9] = 0;
 				}
 				else
 				{
 					// Count bonuses
-					if TimeBonus
+					if ResultsValue[10]
 					{ 
-						TimeBonus	 -= 100;
+						ResultsValue[10]	 -= 100;
 						Player.Score += 100;
 					}
-					if RingBonus
+					if ResultsValue[9]
 					{
-						RingBonus    -= 100;
+						ResultsValue[9]    -= 100;
 						Player.Score += 100;
 					}
 				}
@@ -164,13 +164,13 @@ function InterfaceResultsDraw()
 				}
 			
 				// Score tally
-				if TimeBonus == 0 and RingBonus == 0
+				if ResultsValue[10] == 0 and ResultsValue[9] == 0
 				{
 					audio_sfx_play(sfxScoreTally, false);
 					audio_sfx_stop(sfxScoreCount);
 					
 					// If earned more than 10000 points, grant continue
-					if Player.Score - InitialScore >= 10000
+					if ResultsValue[11]
 					{
 						ResultsValue[8] = 3;
 						ResultsValue[0] = -1;
@@ -221,13 +221,13 @@ function InterfaceResultsDraw()
 	var ScreenCentre = Game.Width / 2
 	
 	// Draw assets
-	draw_sprite(gui_results_head,		 Game.Character, ScreenCentre + 53 + ResultsValue[1], 87);
-	draw_sprite(gui_results_char,		 Game.Character, ScreenCentre - 14 - ResultsValue[2], 60);
-	draw_sprite(gui_results_act,		 Stage.ActID,    ScreenCentre + 25 + ResultsValue[7], 78);	
-	draw_sprite(gui_results_through,	 0,				 ScreenCentre - 15 - ResultsValue[3], 80);
-	draw_sprite(gui_results_score,		 0,				 ScreenCentre - 80 + ResultsValue[4], 119);
-	draw_sprite(gui_results_timebonus,	 0,				 ScreenCentre - 80 + ResultsValue[5], 135);
-	draw_sprite(gui_results_ringbonus,	 0,				 ScreenCentre - 80 + ResultsValue[6], 151);
+	draw_sprite(gui_results_head,	   Game.Character, ScreenCentre + 53 + ResultsValue[1], 87);
+	draw_sprite(gui_results_char,	   Game.Character, ScreenCentre - 14 - ResultsValue[2], 60);
+	draw_sprite(gui_results_act,	   Stage.ActID,    ScreenCentre + 25 + ResultsValue[7], 78);	
+	draw_sprite(gui_results_through,   0,			   ScreenCentre - 15 - ResultsValue[3], 80);
+	draw_sprite(gui_results_score,	   0,			   ScreenCentre - 80 + ResultsValue[4], 119);
+	draw_sprite(gui_results_timebonus, 0,			   ScreenCentre - 80 + ResultsValue[5], 135);
+	draw_sprite(gui_results_ringbonus, 0,			   ScreenCentre - 80 + ResultsValue[6], 151);
 	
 	// Draw continue icon
 	if ResultsValue[8] == 3 and ResultsValue[0] > -1
@@ -255,6 +255,6 @@ function InterfaceResultsDraw()
 	draw_set_halign(fa_right);
 	
 	draw_text(ScreenCentre + 80 + ResultsValue[4], 120, Player.Score);
-	draw_text(ScreenCentre + 80 + ResultsValue[5], 136, TimeBonus);
-	draw_text(ScreenCentre + 80 + ResultsValue[6], 152, RingBonus);
+	draw_text(ScreenCentre + 80 + ResultsValue[5], 136, ResultsValue[10]);
+	draw_text(ScreenCentre + 80 + ResultsValue[6], 152, ResultsValue[9]);
 }

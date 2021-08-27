@@ -1,5 +1,5 @@
-/// @function gamedata_save(slot,character,zone,emeralds,lives,continues,score)
-function gamedata_save(slot,character,zone,emeralds,lives,continues,score)
+/// @function gamedata_save(slot,character,zone,emeralds,lives,continues,score,cleared)
+function gamedata_save(slot,character,zone,emeralds,lives,continues,score,cleared)
 {
 	// Get savedata file name
 	var filename = "saveslot" + string(slot + 1) + ".bin";
@@ -16,6 +16,7 @@ function gamedata_save(slot,character,zone,emeralds,lives,continues,score)
 		file_bin_write_byte(file, emeralds); 
 		file_bin_write_byte(file, lives);
 		file_bin_write_byte(file, continues); 
+		file_bin_write_byte(file, cleared);
 		
 		// Save score (it can be huge to save in bytes, so we split it)
 		file_bin_write_byte(file, score             mod 100);

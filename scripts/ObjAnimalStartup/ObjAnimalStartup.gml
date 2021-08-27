@@ -10,8 +10,7 @@ function ObjAnimalStartup()
 	Xsp          = 0;
 	Ysp			 = 0;
 	Grv			 = 0;
-	CapsuleDelay = 0;
-	FromCapsule  = 0;
+	Delay		 = 0;
 	
 	// Destroy the object if stage animal set is empty
 	if Stage.AnimalSet == noone
@@ -77,6 +76,7 @@ function ObjAnimalStartup()
 		PosX = x;
 		PosY = y;
 		sprite_index = AnimalType;
+		image_xscale = -1;
 	
 		// Set object solidbox
 		object_set_solidbox(8, 12, false);

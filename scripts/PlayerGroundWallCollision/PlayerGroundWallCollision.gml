@@ -41,9 +41,9 @@ function PlayerGroundWallCollision()
 			case QuadFloor:
 			{	
 				// Lower wall sensors by 8 pixels on a flat floor
-				var YOffset  = 8 * (Angle == 360);
+				var YOffset = 8 * (Angle == 360);
 				
-				var Distance = tile_check_collision_h(PosX + Xsp - 10, PosY + Ysp + YOffset, false, true, Layer)[0];
+				var Distance = tile_check_collision_h(PosX + Xsp - RadiusW, PosY + Ysp + YOffset, false, true, Layer)[0];
 				if  Distance < 0 
 				{	
 					// Affect player speeds
@@ -60,7 +60,7 @@ function PlayerGroundWallCollision()
 			break;
 			case QuadRWall:
 			{
-				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp + 10, true, true, Layer)[0];
+				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp + RadiusW, true, true, Layer)[0];
 				if  Distance < 0
 				{
 					// Affect player speeds
@@ -74,7 +74,7 @@ function PlayerGroundWallCollision()
 			break;
 			case QuadRoof:
 			{	
-				var Distance = tile_check_collision_h(PosX + Xsp + 10, PosY + Ysp, true, true, Layer)[0];
+				var Distance = tile_check_collision_h(PosX + Xsp + RadiusW, PosY + Ysp, true, true, Layer)[0];
 				if  Distance < 0
 				{	
 					// Affect player speeds
@@ -85,7 +85,7 @@ function PlayerGroundWallCollision()
 			break;
 			case QuadLWall:
 			{
-				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp - 10, false, true, Layer)[0];
+				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp - RadiusW, false, true, Layer)[0];
 				if  Distance < 0
 				{	
 					// Affect player speeds
@@ -104,7 +104,7 @@ function PlayerGroundWallCollision()
 		{
 			case QuadFloor:
 			{	
-				var Distance = tile_check_collision_h(PosX + Xsp + 10, PosY + Ysp + 8 * (Angle == 360), true, true, Layer)[0];
+				var Distance = tile_check_collision_h(PosX + Xsp + RadiusW, PosY + Ysp + 8 * (Angle == 360), true, true, Layer)[0];
 				if  Distance < 0
 				{	
 					// Affect player speeds
@@ -121,7 +121,7 @@ function PlayerGroundWallCollision()
 			break;
 			case QuadRWall:
 			{
-				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp - 10, false, true, Layer)[0];
+				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp - RadiusW, false, true, Layer)[0];
 				if  Distance < 0
 				{	
 					// Affect player speeds
@@ -132,7 +132,7 @@ function PlayerGroundWallCollision()
 			break;
 			case QuadRoof:
 			{	
-				var Distance = tile_check_collision_h(PosX + Xsp - 10, PosY + Ysp, false, true, Layer)[0];
+				var Distance = tile_check_collision_h(PosX + Xsp - RadiusW, PosY + Ysp, false, true, Layer)[0];
 				if  Distance < 0
 				{	
 					// Affect player speeds
@@ -143,7 +143,7 @@ function PlayerGroundWallCollision()
 			break;
 			case QuadLWall:
 			{
-				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp + 10, true, true, Layer)[0];
+				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp + RadiusW, true, true, Layer)[0];
 				if  Distance < 0
 				{	
 					// Affect player speeds

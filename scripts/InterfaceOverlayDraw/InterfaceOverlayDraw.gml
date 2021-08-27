@@ -17,14 +17,14 @@ function InterfaceOverlayDraw()
 	var StageTime = Stage.Time;
 	if  StageTime < 35999
 	{
-		var Minutes		 = StageTime div 3600;
-		var Seconds		 = (StageTime - Minutes * 3600) div 60;
+		var Minutes	= StageTime div 3600;
+		var Seconds	= (StageTime - Minutes * 3600) div 60;
 		var MilliSeconds = floor(StageTime mod 60 / 3 * 5);
 	} 
 	else 
 	{
-		var Minutes		 = 9;
-		var Seconds		 = 59;
+		var Minutes	= 9;
+		var Seconds = 59;
 		var MilliSeconds = 99;
 	}
 		

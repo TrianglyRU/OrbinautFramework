@@ -1,22 +1,12 @@
 function ObjAnimalMain()
 {
-	// If animal is coming from a capsule, wait until moving on
-	if CapsuleDelay
-	{	
-		if !(--CapsuleDelay)
-		{
-			State = 0;
-			object_set_depth(EggPrison, true);
-		}
-	}
-	else
-	{	
-		// Move vertically		
-		PosY += Ysp;
-		Ysp  += Grv;
-		
-		// Appear
-		if State == 0
+	// Move vertically		
+	PosY += Ysp;
+	Ysp  += Grv;
+	
+	switch State
+	{
+		case 0:
 		{
 			if Ysp > 0 
 			{
@@ -26,9 +16,6 @@ function ObjAnimalMain()
 				{
 					// Clip out
 					PosY += FindFloor;
-					
-					// Set direction
-				    image_xscale = FromCapsule ? choose(-1, 1) : -1;
 				
 					// Set speeds
 					Xsp	*= image_xscale;
@@ -48,9 +35,8 @@ function ObjAnimalMain()
 			    }
 			}
 		}
-		
-		// Leave the screen
-		else if State == 1
+		break;
+		case 1:
 		{
 			// Move horizontally
 			PosX += Xsp;
@@ -98,6 +84,19 @@ function ObjAnimalMain()
 				}
 			}
 		}
+		break;
+		case 2:
+		{
+			if !(--Delay)
+			{
+				State -= 2;
+				object_set_depth(EggPrison, true);
+				
+				// Set direction
+				image_xscale = choose(-1, 1);
+			}
+		}
+		break;
 	}
 	
 	// Update position

@@ -1,5 +1,8 @@
 function StageSetup()
 {	
+	// Define last zone id. That will be used to mark savefile as completed one
+	FinalZoneID = -1;
+	
 	switch room 
 	{	
 		// Default

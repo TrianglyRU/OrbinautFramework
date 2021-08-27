@@ -143,7 +143,7 @@ function PlayerWaterEvents()
 			}
 			
 			// Play sound
-			if FlightValue
+			if FlightState == FlightActive
 			{
 				audio_sfx_play(sfxFlying, true);
 			}

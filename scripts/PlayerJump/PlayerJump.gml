@@ -1,14 +1,8 @@
 function PlayerJump()
 {
-	// If not jumping, apply limit to vertical speed
+	// If not jumping, exit
 	if !Jumping
 	{
-		if Ysp < -15.75
-		{
-			Ysp = -15.75;
-		}
-		
-		// Then exit
 		exit;
 	}
 	

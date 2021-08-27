@@ -46,7 +46,7 @@ function object_act_solid(sides,top,bottom,interact)
 	var ObjectID	 = id;
 	var ObjectX		 = x;
 	var ObjectY      = y;
-	var ObjectWidth  = Obj_SolidX + 11;
+	var ObjectWidth  = Obj_SolidX + Player.RadiusW + 1;
 	var ObjectHeight = Obj_SolidY + Player.RadiusY + 1;
 	
 	// Get height array

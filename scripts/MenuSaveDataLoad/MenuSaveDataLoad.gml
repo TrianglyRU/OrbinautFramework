@@ -15,7 +15,7 @@ function MenuSaveDataLoad()
 		else
 		{
 			// Local variables
-			var DataCharacter, DataZone, DataEmeralds, DataLives, DataConts;
+			var DataCharacter, DataZone, DataEmeralds, DataLives, DataConts, GameCleared;
 			
 			// Define character
 			switch SaveData[i][0]
@@ -46,9 +46,17 @@ function MenuSaveDataLoad()
 			DataEmeralds = SaveData[i][2];
 			DataLives    = SaveData[i][3];
 			DataConts    = SaveData[i][4];
+			GameCleared  = SaveData[i][5];
 
 			// Set display info
-			DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " " + string(DataZone) + " L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
+			if !GameCleared
+			{
+				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " " + string(DataZone) + " L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
+			}
+			else
+			{
+				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " " + "COMPELTED" + " L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
+			}
 		}
 	}
 }

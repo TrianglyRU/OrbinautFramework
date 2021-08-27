@@ -82,8 +82,8 @@ function ObjPrisonMain()
 						var  Object = instance_create(x - 27 + 7 * i, y + 4, Animal);
 						with Object
 						{
-							FromCapsule  = true;
-							CapsuleDelay = 154 - i * 8;
+							State = 2;
+							Delay = 154 - i * 8;
 							
 							object_set_depth(ThisObject, false);
 						}
@@ -97,8 +97,8 @@ function ObjPrisonMain()
 					var  Object = instance_create(x - 27 + irandom(7) * 7, y + 4, Animal);
 					with Object
 					{
-						FromCapsule  = true;
-						CapsuleDelay = 12;
+						State = 2;
+						Delay = 12;
 						
 						object_set_depth(ThisObject, false);
 					}

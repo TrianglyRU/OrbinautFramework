@@ -62,13 +62,13 @@ function ObjSpringRampMain()
 				audio_sfx_play(sfxSpring, false);
 			
 				// Restore default heightmap
-				Obj_SolidMap = CollisionDefault;
+				Obj_SolidMap = MapDefault;
 			}
 		}
 		else
 		{
 			// Restore default heightmap
-			Obj_SolidMap = CollisionDefault;
+			Obj_SolidMap = MapDefault;
 		}
 	}
 	
@@ -76,7 +76,7 @@ function ObjSpringRampMain()
 	else if Player.OnObject == id and PlayerPos >= -14 and PlayerPos <= 28
 	{
 		JumpTimer	 = 4;
-		Obj_SolidMap = CollisionPressed;
+		Obj_SolidMap = MapPressed;
 	}
 	
 	// Set frame

@@ -55,6 +55,7 @@ function PlayerStartup()
 	}
 	RadiusX = DefaultRadiusX;
 	RadiusY = DefaultRadiusY;
+	RadiusW = 10;				// Wall radius. It is 10 for everyone by default
 	
 	// Load score and lives
 	Score = Game.Score;

@@ -37,15 +37,24 @@ function MenuOptionsProcess()
 						Game.Emeralds  = SaveData[Game.ActiveSave][2];
 						Game.Lives	   = SaveData[Game.ActiveSave][3];
 						Game.Continues = SaveData[Game.ActiveSave][4];
-						Game.Score	   = SaveData[Game.ActiveSave][5];	
+						Game.Score	   = SaveData[Game.ActiveSave][6];	
 				
 						// Load stage
-						var ZoneID = SaveData[Game.ActiveSave][1];
-						switch ZoneID
+						if !SaveData[Game.ActiveSave][5]
 						{
-							default:
-								room_goto(TestStage);
-							break;
+							var ZoneID = SaveData[Game.ActiveSave][1];
+							switch ZoneID
+							{
+								default:
+									room_goto(TestStage);
+								break;
+							}
+						}
+						
+						// Load level select
+						else
+						{
+							/* You can add redirection to your level select here */
 						}
 					}
 					else
@@ -76,7 +85,7 @@ function MenuOptionsProcess()
 				// Save data if starting the game not in "no save" slot
 				if Game.ActiveSave != -1
 				{
-					gamedata_save(Game.ActiveSave, OptionID, 0, 0, 3, 0, 0);
+					gamedata_save(Game.ActiveSave, OptionID, 0, 0, 3, 0, 0, false);
 				}
 			}
 		}

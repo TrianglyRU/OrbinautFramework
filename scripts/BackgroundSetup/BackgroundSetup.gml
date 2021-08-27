@@ -6,7 +6,7 @@ function BackgroundSetup()
 		BGSprites = [sprite1, sprite2, sprite3...]
 	
 		// sprite1
-		BGValues[0] = [onscreen_x, onscreen_y, scroll_xfactor, scroll_yfactor, offset_x, offset_y, 2.5d_height, 2.5d_force, 2.5d_mode];
+		BGValues[0] = [x, y, scrollx, scrolly, autoscrollx, 2.5d_height, 2.5d_force, 2.5d_mode];
 	
 		// sprite2
 		BGValues[1] = [...];
@@ -28,6 +28,9 @@ function BackgroundSetup()
 			BGValues[1] = [...];
 			BGValues[2] = [...];
 			*/
+			
+			// Set default background colour
+			BGColour = c_gray;
 		}
 		break;
 	}	

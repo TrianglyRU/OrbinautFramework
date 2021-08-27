@@ -18,15 +18,14 @@ function StageVariables()
 	IsBossfight			 = 0;
 	ZoneID				 = 0;
 	ActID				 = 0;
+	FinalActID			 = 0;
+	FinalZoneID			 = 0;
 	ZoneName			 = 0;
 	Time				 = 0;
 	TimeEnabled			 = 0;
 	StageMusic		     = 0;
-	PauseButton			 = 0;
-	PauseMode			 = 0;
 	CardEnabled			 = 0;
 	DoUpdate			 = 0;
-	TileLayer			 = [];
 	WobbleData			 = [];
 	AnimalSet			 = [];
 	AnimatedGraphics	 = [];

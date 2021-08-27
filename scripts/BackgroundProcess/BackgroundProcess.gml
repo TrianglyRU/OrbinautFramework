@@ -1,32 +1,34 @@
 function BackgroundProcess()
 {	
 	// Draw gray background colour
-	draw_clear(c_gray);
+	draw_clear(BGColour);
 	
 	// Use parallax shader
 	shader_set(ShaderParallax);
 	
 	// Get camera position
-	var ViewX = camera_get_view_x(GameCamera);
-	var ViewY = camera_get_view_y(GameCamera);
+	var ViewX = Camera.ViewX;
+	var ViewY = Camera.ViewY;
 	
 	// Work with each parallax piece individually
 	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
 	{
+		// Update autoscroll values
+		BGValues[i][11] += BGValues[i][4];
+		
 		// Get data
 		var PosX		  = BGValues[i][0];
 		var PosY		  = BGValues[i][1];
 		var ScrollX		  = BGValues[i][2];
 		var ScrollY		  = BGValues[i][3];
-		var OffsetX		  = BGValues[i][4];
-		var OffsetY		  = BGValues[i][5];
-		var InclineHeight = BGValues[i][6];
-		var InclineForce  = BGValues[i][7];
-		var	YScaleMode	  = BGValues[i][8];
-		var Height		  = BGValues[i][9];
-		var Width		  = BGValues[i][10];
-		var PixelSize     = BGValues[i][11];
+		var ScrollAuto	  = BGValues[i][4] + BGValues[i][11];
+		var InclineHeight = BGValues[i][5];
+		var InclineForce  = BGValues[i][6];
+		var	YScaleMode	  = BGValues[i][7];
+		var Height		  = BGValues[i][8];
+		var Width		  = BGValues[i][9];
+		var PixelSize     = BGValues[i][10];
 		
 		// Get screen position
 		var DrawX = ViewX;
@@ -73,8 +75,8 @@ function BackgroundProcess()
 		}
 		
 		// Transfer data to the shader
-		shader_set_uniform_f(Shader.ParOffset, DrawX * ScrollX - OffsetX);
-		shader_set_uniform_f(Shader.ParPos,    DrawX + PosX, DrawY - OffsetY);
+		shader_set_uniform_f(Shader.ParOffset, DrawX * ScrollX - ScrollAuto);
+		shader_set_uniform_f(Shader.ParPos,    DrawX + PosX, DrawY);
 		shader_set_uniform_f(Shader.ParWidth,  Width);
 		shader_set_uniform_f(Shader.ParPixelSize, PixelSize);
 		
