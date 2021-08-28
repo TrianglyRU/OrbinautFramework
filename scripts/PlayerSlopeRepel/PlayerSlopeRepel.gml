@@ -11,8 +11,6 @@ function PlayerSlopeRepel()
 	{
 		GroundLock--;
 	}
-	
-	// Decrease timer every frame if it's non-zero when grounded
 	else
 	{
 		if !Game.S3SlopePhysics
@@ -20,12 +18,9 @@ function PlayerSlopeRepel()
 			// Check if we are on a steep slope and going slow
 			if Angle >= 46.41 and Angle <= 315 and abs(Inertia) < 2.5
 			{	
-				// Fall off the slope
-				Grounded = false;
+				Grounded   = false;
+				Inertia    = 0;
 				
-				// Reset inertia
-				Inertia = 0;
-					
 				// Lock horizontal input controls for 30 frames
 				GroundLock = 30;		
 			} 

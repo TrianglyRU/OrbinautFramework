@@ -1,14 +1,32 @@
 function MenuFunctions()
 {
-	/// @function menu_add_option(listid,optionid, optionname,loadlist)
-	function menu_add_option(listid, optionid, optionname, loadlist)
+	/// @function menu_add_option(listid,optionid,optionname)
+	function menu_add_option(listid, optionid, optionname)
 	{
 		// Increase menu size
 		MenuSize[listid]++;
 		
 		// Set option name and target menu
 		MenuOption[listid][optionid] = optionname;
-		MenuAction[listid][optionid] = loadlist;
+	}
+	
+	/// @function menu_list_redirect(listid,remember_current_option)
+	function menu_list_redirect(listid, remember_current_option)
+	{
+		// Remember previous
+		if remember_current_option
+		{	
+			PreviousOptionID[listid] = OptionID;
+		}
+		else
+		{
+			PreviousOptionID[listid] = noone;
+		}
+		PreviousMenuID[listid] = MenuID;
+		
+		// Update option
+		MenuID	 = listid;
+		OptionID = 0;
 	}
 	
 	/// @function menu_update_option(listid,optionid,newname)

@@ -16,8 +16,8 @@ function PlayerMovementAir()
 		Ysp = -15.75;
 	}
 	
-	// Exit if gliding (ignoring GlideDrop state) or climbing
-	if GlideState == GlideActive or GlideState == GlideStop or ClimbState
+	// Exit if gliding or climbing
+	if GlideState > GlideFall or ClimbState
 	{
 		exit;
 	}

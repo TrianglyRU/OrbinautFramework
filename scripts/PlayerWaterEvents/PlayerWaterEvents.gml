@@ -12,7 +12,7 @@ function PlayerWaterEvents()
 				IsUnderwater = true;
 				
 				// Lower default gravity value by 0x28 (0.15625)
-				if !Hurt and !FlightState and GlideState != GlideActive
+				if !Hurt and !FlightState and GlideState != GlideAir
 				{
 					Grv = 0.0625;
 				}
@@ -80,7 +80,7 @@ function PlayerWaterEvents()
 				Grounded		  = false;
 				OnObject		  = false;	
 				Drown			  = true;
-				AirLock		  = true;
+				AirLock		      = true;
 				Animation		  = AnimDrown;	
 				
 				// Draw player above everything
@@ -136,14 +136,14 @@ function PlayerWaterEvents()
 			}
 			
 			// Reset gravity and double vertical speed
-			if !Hurt and !FlightState and GlideState != GlideActive
+			if !Hurt and !FlightState and GlideState != GlideAir
 			{
 				Grv	 = 0.21875;
 				Ysp *= 2;
 			}
 			
 			// Play sound
-			if FlightState == FlightActive
+			if FlightState
 			{
 				audio_sfx_play(sfxFlying, true);
 			}

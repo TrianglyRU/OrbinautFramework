@@ -33,7 +33,7 @@ function CameraFollowProcess()
 	}
 	
 	// Set vertical shift speed
-	if Target == Player and (Player.Grounded or Player.GlideState == GlideStop)
+	if Target == Player and Player.Grounded
 	{	
 		if abs(Player.Ysp) <= 6
 		{

@@ -22,39 +22,14 @@ function PlayerKnuxClimb()
 		{
 			Ysp = 0;
 		}
-		Animation = AnimClimb;
-		
-		// Collide with ceiling
-		if Ysp < 0
-		{
-			var RoofDistance = tile_check_collision_v(PosX + RadiusX * Facing, PosY - RadiusY, false, true, Layer)[0];	
-			if  RoofDistance < 0
-			{	
-				PosY -= RoofDistance;
-			}
-		}
-	
-		// Collide with floor
-		else if Ysp > 0
-		{
-			var FloorDistance = tile_check_collision_v(PosX + 10 * Facing, PosY + RadiusY, true, false, Layer)[0];
-			if  FloorDistance < 0
-			{
-				PosY      += FloorDistance;
-				ClimbState = false;
-				
-				// Exit further code
-				exit;
-			}
-		}
 		
 		// Drop if no wall found in front of us
-		var WallDistance = tile_check_collision_h(PosX + RadiusX * Facing, PosY + 10, Facing, true, Layer)[0];
-		if  WallDistance > 0
+		var WallDistance  = tile_check_collision_h(PosX + RadiusX * Facing, PosY + 10, Facing, true, Layer)[0];
+		if  WallDistance != 0
 		{
 			ClimbState = false;
-			GlideState = GlideDrop;	
-			Animation  = AnimClimbDrop;
+			GlideState = GlideFall;
+			Animation  = AnimClimbFall;
 					
 			// Reset collision radiuses
 			RadiusX = DefaultRadiusX;
@@ -70,44 +45,66 @@ function PlayerKnuxClimb()
 				// Lower by 0x28 (0.15625) if underwater
 				Grv = 0.0625
 			}
-			
-			// Exit further code
-			exit;
 		}
-		
-		// If near the edge, start climbering
-		var EdgeAngle = tile_check_collision_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[1];
-		if  EdgeAngle == noone
+		else
 		{
-			Ysp		       = 0;
-			ClimbState     = 2;
-			AllowCollision = false;
-		}
-				
-		// Check for jump
-		else if Input.ABCPress
-		{
-			Facing	  *= -1;
-			Jumping	   = true;
-			ClimbState = false;
-			Animation  = AnimSpin;
-			
-			// Set speeds
-			Ysp	= -4;
-			Xsp	=  4 * Facing;
-			
-			// Play sound
-			audio_sfx_play(sfxJump, false);
-				
-			// Reset gravity
-			if !IsUnderwater
+			// If near the edge, start climbering
+			var EdgeDistance = tile_check_collision_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[0];
+			if  EdgeDistance >= 4
 			{
-				Grv	= 0.21875;
+				Ysp		       = 0;
+				ClimbState     = 2;
+				AllowCollision = false;
+			}
+				
+			// Check for jump
+			else if Input.ABCPress
+			{
+				Facing	  *= -1;
+				Jumping	   = true;
+				ClimbState = false;
+				Animation  = AnimSpin;
+			
+				// Set speeds
+				Ysp	= -4;
+				Xsp	= 3.5 * Facing;
+			
+				// Play sound
+				audio_sfx_play(sfxJump, false);
+				
+				// Reset gravity
+				if !IsUnderwater
+				{
+					Grv	= 0.21875;
+				}
+				else
+				{
+					// Lower by 0x28 (0.15625) if underwater
+					Grv = 0.0625
+				}
 			}
 			else
 			{
-				// Lower by 0x28 (0.15625) if underwater
-				Grv = 0.0625
+				// Collide with ceiling
+				var RoofDistance = tile_check_collision_v(PosX + RadiusX * Facing, PosY - DefaultRadiusY, false, true, Layer)[0];
+				if  RoofDistance < 0
+				{			
+					PosY -= RoofDistance;
+				}
+	
+				// Collide with floor
+				var TileFloor = tile_check_collision_v(PosX + RadiusX * Facing, PosY + DefaultRadiusY, true, false, Layer);
+				if  TileFloor[0] < 0
+				{
+					if TileFloor[1] <= 45 or TileFloor[1] >= 316.41
+					{
+						Grounded  = true;
+						Animation = AnimIdle;
+					
+						// Adjust position
+						PosY += DefaultRadiusY - RadiusY;
+					}
+				}
 			}
 		}
 	}
@@ -139,17 +136,18 @@ function PlayerKnuxClimb()
 			case 25:
 			{
 				PosX += 8 * Facing;
-				PosY -= DefaultRadiusY - RadiusY;
+				PosY += DefaultRadiusY - RadiusY;
 				
 				// Land
 				AllowCollision = true;
-				Grounded	   = true;
+				Grounded       = true;
+				Animation	   = AnimIdle;
 			}
 			break;
 		}
 		
 		// Set vertical speed and animation
 		Ysp		  = 0;
-		Animation = AnimClimbering;
+		Animation = AnimClimbLedge;
 	}
 }

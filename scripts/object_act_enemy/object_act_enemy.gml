@@ -7,11 +7,17 @@ function object_act_enemy(type)
 		exit;
 	}
 	
-	// Check if player can damage enemy
-	var FlightCheck = Player.FlightState and floor(Player.PosY) > y and Player.Ysp < 0;
+	// Check if player can damage enemy by gliding, spinning or spindashing
+	var ActionCheck = Player.GlideState > GlideFall or Player.Spinning or Player.SpindashRev != -1;
 	
-	if Player.GlideState == GlideActive or Player.Spinning		    or Player.SuperState
-	or Player.InvincibleBonus			or Player.SpindashRev != -1 or FlightCheck
+	// Check if player can damage enemy because they are invincible
+	var InvincibleCheck = Player.SuperState or Player.InvincibleBonus;
+	
+	// Check if Tails can damage enemy by flying
+	var FlightCheck	= Player.FlightState and floor(Player.PosY) > y and Player.Ysp < 0;
+	
+	// Damage enemy
+	if ActionCheck or FlightCheck or InvincibleCheck    
 	{		
 		// Make player bounce if they are airborne
 		if !Player.Grounded
@@ -74,10 +80,10 @@ function object_act_enemy(type)
 			if !Player.Grounded
 			{
 				// If gliding, stop
-				if Player.GlideState == GlideActive
+				if Player.GlideState
 				{
-					Player.GlideState = GlideDrop;
-					Player.Animation  = AnimGlideDrop;
+					Player.GlideState = GlideFall;
+					Player.Animation  = AnimGlideFall;
 					
 					// Reset collision radiuses
 					Player.RadiusX = Player.DefaultRadiusX;

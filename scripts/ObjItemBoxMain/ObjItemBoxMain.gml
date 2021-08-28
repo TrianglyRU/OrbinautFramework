@@ -17,7 +17,7 @@ function ObjItemBoxMain()
 		} 
 		
 		// Check if player is spinning or gliding
-		if (Player.Spinning or Player.GlideState == GlideActive) and Player.OnObject != id
+		if (Player.Spinning or Player.GlideState == GlideAir or Player.GlideState == GlideGround) and Player.OnObject != id
 		{
 			// Check if player is able to destroy the itembox
 			if Game.SKItemBoxBehaviour

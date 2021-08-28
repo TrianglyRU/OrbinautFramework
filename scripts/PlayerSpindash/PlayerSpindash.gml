@@ -12,6 +12,7 @@ function PlayerSpindash()
 		if Animation == AnimCrouch and Input.ABCPress
 		{
 			SpindashRev = 0;
+			Xsp			= 0;
 			AirLock     = true;
 			
 			// Play sound
@@ -47,7 +48,7 @@ function PlayerSpindash()
 
 		// Launch player
 		Inertia	    = (MinimumSpd + round(SpindashRev) / 2) * Facing;
-		AirLock  = false;
+		AirLock     = false;
 		Spinning    = true;
 		SpindashRev = -1;
 		Animation   = AnimSpin;

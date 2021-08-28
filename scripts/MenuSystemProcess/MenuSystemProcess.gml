@@ -11,28 +11,17 @@ function MenuSystemProcess()
 	}
 	OptionID = loop_value(OptionID, 0, MenuSize[MenuID]);
 
-	// React to key A or key Start
-	if MenuAction[MenuID][OptionID] != noone and (Input.APress or Input.StartPress) 
-	{
-		// Get target menu
-		var ThisMenu = MenuID; 
-		var NewMenu  = MenuAction[MenuID][OptionID];
-		
-		// Save current menu
-		if NewMenu > ThisMenu
-		{
-			PreviousMenuID[NewMenu] = ThisMenu;
-		}
-		
-		// Load new menu
-		MenuID   = NewMenu;
-		OptionID = 0;
-	}
-	
 	// React to key B
-	else if Input.BPress and MenuID != 0
+	if Input.BPress and MenuID != 0
 	{
-		MenuID   = PreviousMenuID[MenuID];
-		OptionID = 0;
+		if PreviousOptionID[MenuID] != noone
+		{
+			OptionID = PreviousOptionID[MenuID];
+		}
+		else
+		{
+			OptionID = 0;
+		}
+		MenuID = PreviousMenuID[MenuID];
 	}
 }

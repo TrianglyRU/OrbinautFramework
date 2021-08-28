@@ -1,8 +1,5 @@
 function MenuOptionsProcess()
 {
-	/* If MenuID does not redirect to another MenuID,
-	we add input check, else it is done automatically via MenuMainUpdate() script */
-	
 	switch MenuID
 	{
 		// Main Menu
@@ -10,10 +7,20 @@ function MenuOptionsProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
-				// Exit the game
-				if OptionID == 3
+				switch OptionID
 				{
-					game_end();
+					case 0:
+						menu_list_redirect(1, true);
+					break;
+					case 1:
+						menu_list_redirect(3, true);
+					break;
+					case 2:
+						menu_list_redirect(5, true);
+					break;
+					case 3:
+						game_end();
+					break;
 				}
 			}
 		}
@@ -27,41 +34,39 @@ function MenuOptionsProcess()
 				// Get current slot id
 				Game.ActiveSave = OptionID - 1;
 		
-				if OptionID >= 1 and OptionID <= 4
+				// Check if there is data
+				if OptionID >= 1 and OptionID <= 4 and SaveData[Game.ActiveSave] != 0
 				{
-					// Check if there is data
-					if SaveData[Game.ActiveSave] != 0
-					{
-						// Load data
-						Game.Character = SaveData[Game.ActiveSave][0];	
-						Game.Emeralds  = SaveData[Game.ActiveSave][2];
-						Game.Lives	   = SaveData[Game.ActiveSave][3];
-						Game.Continues = SaveData[Game.ActiveSave][4];
-						Game.Score	   = SaveData[Game.ActiveSave][6];	
+					// Load data
+					Game.Character = SaveData[Game.ActiveSave][0];	
+					Game.Emeralds  = SaveData[Game.ActiveSave][2];
+					Game.Lives	   = SaveData[Game.ActiveSave][3];
+					Game.Continues = SaveData[Game.ActiveSave][4];
+					Game.Score	   = SaveData[Game.ActiveSave][6];	
 				
-						// Load stage
-						if !SaveData[Game.ActiveSave][5]
+					// Load stage
+					if !SaveData[Game.ActiveSave][5]
+					{
+						var ZoneID = SaveData[Game.ActiveSave][1];
+						switch ZoneID
 						{
-							var ZoneID = SaveData[Game.ActiveSave][1];
-							switch ZoneID
-							{
-								default:
-									room_goto(TestStage);
-								break;
-							}
-						}
-						
-						// Load level select
-						else
-						{
-							/* You can add redirection to your level select here */
+							default:
+								room_goto(TestStage);
+							break;
 						}
 					}
+						
+					// Load level select
 					else
 					{
-						/* If there is no data, the game will open character select screen
-						   via MenuMainUpdate() script */
+						/* You can add redirection to your level select here */
 					}
+				}
+				
+				// Redirect to character select
+				else
+				{
+					menu_list_redirect(2, true);
 				}
 			}
 		}
@@ -102,6 +107,9 @@ function MenuOptionsProcess()
 				Game.Lives	   = 3;
 				Game.Continues = 0;
 				Game.Score	   = 0;	
+				
+				// Redirect to stage select
+				menu_list_redirect(4, false);
 			}
 		}
 		break;

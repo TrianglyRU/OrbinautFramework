@@ -17,6 +17,7 @@ function PlayerAnimate()
 	static AnimSpringTime  = 48;
 	static AnimBreatheTime = 24;
 	static AnimKnuxSkid    = 16;
+	static AnimKnuxGetUp   = 16;
 	
 	// Update statics
 	if Animation != AnimBreathe
@@ -30,6 +31,10 @@ function PlayerAnimate()
 	if Animation != AnimSkid
 	{
 		AnimKnuxSkid = 16;
+	}
+	if Animation != AnimGetUp
+	{
+		AnimKnuxGetUp   = 16;
 	}
 	
 	// Animate character
@@ -485,24 +490,24 @@ function PlayerAnimate()
 					image_index  = GlideFrame;
 				}
 				break;
-				case AnimGlideDrop:
+				case AnimGlideFall:
 					animation_play(spr_knuckles_drop, 6, 1);
-				break;
-				case AnimClimbDrop:
-				{
-					sprite_index = spr_knuckles_drop;
-					image_index  = 1;
-				}
-				break;
-				case AnimDropStand:
-					animation_play(spr_knuckles_dropstand, 1, 0);
-				break;
-				case AnimGlideGrounded:
+				break;			
+				case AnimSlide:
 					animation_play(spr_knuckles_glideground, 1, 0);
 				break;
-				case AnimGlideStand:
-					animation_play(spr_knuckles_glidestand, 1, 0);
-				break;
+				case AnimGetUp:
+				{
+					if !(--AnimKnuxGetUp)
+					{
+						Animation = AnimIdle;
+					}
+					else
+					{
+						sprite_index = spr_knuckles_getup;
+					}
+				}
+				break;				
 				case AnimClimb:
 				{
 					if Input.Down
@@ -520,8 +525,14 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_climb, Speed, 0);
 				}
 				break;
-				case AnimClimbering:
+				case AnimClimbLedge:
 					animation_play(spr_knuckles_climbering, 6, 3);
+				break;
+				case AnimClimbFall:
+				{
+					sprite_index = spr_knuckles_drop;
+					image_index  = 1;
+				}
 				break;
 				case AnimPush:
 					animation_play(spr_knuckles_push, round(max(1, 8 - abs(Inertia))), 0);

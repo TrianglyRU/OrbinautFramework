@@ -57,7 +57,6 @@ function StageObjectsActiveProcess()
 								y			 = Obj_LoadData[1];
 								image_xscale = Obj_LoadData[2];
 								image_yscale = Obj_LoadData[3];
-								visible      = true;
 								
 								// Perform create event to re-initialise variables
 								event_perform(ev_create, 0);
@@ -66,11 +65,15 @@ function StageObjectsActiveProcess()
 							// If not, "destroy" object
 							else if !Obj_ResetFlag
 							{
+								// Update position
+								/*x = -Game.Width;
+								y = -Game.Height;
+								
 								// Cancel all player collision events
 								object_set_hitbox(0, 0);
 								object_set_solidbox(0, 0, false);
 								
-								// Destroy children and make object invisible
+								// Destroy children make object invisible
 								if IsParent
 								{
 									var Length = array_length(Obj_ChildrenIDs);
@@ -80,10 +83,9 @@ function StageObjectsActiveProcess()
 									}
 									Obj_ChildrenIDs = [];
 								}
-								visible = false;
 								
 								// Set flag
-								Obj_ResetFlag = true;
+								Obj_ResetFlag = true;*/
 							}
 						}
 						else if Obj_LoadFlag == TypeDelete

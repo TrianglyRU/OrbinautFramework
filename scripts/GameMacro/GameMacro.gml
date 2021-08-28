@@ -48,11 +48,9 @@ function GameMacro()
 	#macro CharSonic		 0
 	#macro CharTails	     1
 	#macro CharKnuckles	     2
-	#macro FlightActive		 1
-	#macro FlightStop		 2
-	#macro GlideActive	     1
-	#macro GlideDrop         2
-	#macro GlideStop         3
+	#macro GlideFall         1
+	#macro GlideAir          2
+	#macro GlideGround       3
 	#macro LayerA		     0
 	#macro LayerB		     1
 	#macro BarrierNormal	 1
@@ -63,34 +61,33 @@ function GameMacro()
 	#macro AnimMove			 1
 	#macro AnimPeelout	     2
 	#macro AnimSpin			 3
-	#macro AnimDropdash		 4
-	#macro AnimSpindash		 5
-	#macro AnimPush			 6
-	#macro AnimCrouch		 7
-	#macro AnimLookup		 8
-	#macro AnimFly			 9
-	#macro AnimFlyTired		 10
-	#macro AnimHurt			 11
-	#macro AnimDeath		 12
-	#macro AnimGlide		 13
-	#macro AnimClimb		 14
-	#macro AnimGlideDrop	 15
-	#macro AnimGlideGrounded 16
-	#macro AnimSkid			 17
-	#macro AnimGlideStand	 18
-	#macro AnimClimbering	 19
-	#macro AnimBalance		 20
-	#macro AnimBalanceFlip	 21
-	#macro AnimSpring		 22
-	#macro AnimActEnd		 23
-	#macro AnimDropStand	 24
-	#macro AnimSwim			 25
-	#macro AnimSwimTired	 26
-	#macro AnimTransform	 27
-	#macro AnimDrown		 28
-	#macro AnimAirSpin		 29
+	#macro AnimAirSpin		 4
+	#macro AnimDropdash		 5
+	#macro AnimSpindash		 6
+	#macro AnimPush			 7
+	#macro AnimCrouch		 8
+	#macro AnimLookup		 9
+	#macro AnimFly			 10
+	#macro AnimFlyTired		 11
+	#macro AnimSwim			 22
+	#macro AnimSwimTired	 13
+	#macro AnimHurt			 14
+	#macro AnimDeath		 15
+	#macro AnimDrown		 16
+	#macro AnimGlide		 17
+	#macro AnimGlideFall     18    
+	#macro AnimSlide         19
+	#macro AnimGetUp	     20
+	#macro AnimClimb		 21
+	#macro AnimClimbLedge	 22
+	#macro AnimClimbFall     23
+	#macro AnimSkid			 24
+	#macro AnimBalance		 25
+	#macro AnimBalanceFlip	 26
+	#macro AnimSpring		 27
+	#macro AnimActEnd		 28
+	#macro AnimTransform	 29
 	#macro AnimBreathe		 30
-	#macro AnimClimbDrop     31
 	
 	// Collision macro
 	#macro SideTop	  0

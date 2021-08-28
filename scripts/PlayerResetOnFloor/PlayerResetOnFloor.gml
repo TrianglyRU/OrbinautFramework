@@ -17,7 +17,7 @@ function PlayerResetOnFloor()
 		// Reset flags
 		BarrierIsActive = false;
 		Grounded        = false;
-		OnObject	= false;
+		OnObject	    = false;
 
 		// Set barrier animation
 		with Barrier
@@ -31,11 +31,16 @@ function PlayerResetOnFloor()
 	}
 	else
 	{
-		// If landed on solid ground, set animation and clear spinning flag
-		if !OnObject and Animation != AnimClimb
+		// Set animation if landed on solid ground
+		if !OnObject
 		{
-			Animation = AnimMove;
+			if Animation != AnimIdle and Animation != AnimGetUp
+			{
+				Animation = AnimMove;
+			}
 		}
+		
+		// Clear spinning flag
 		if !(OnObject and Ysp == 0)
 		{
 			Spinning = false;
@@ -45,8 +50,8 @@ function PlayerResetOnFloor()
 		Jumping		= false;
 		AirLock		= false;
 		Pushing		= false;
-		FlightState     = false;
-		GlideState      = false;
+		FlightState = false;
+		GlideState  = false;
 		ClimbState	= false;
 		ScoreCombo	= false;
 		BarrierIsActive = false;

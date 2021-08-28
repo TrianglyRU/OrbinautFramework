@@ -594,6 +594,7 @@
     {"id":{"name":"ObjSpindashDustStartup","path":"scripts/ObjSpindashDustStartup/ObjSpindashDustStartup.yy",},"order":3,},
     {"id":{"name":"spr_sonic_balance","path":"sprites/spr_sonic_balance/spr_sonic_balance.yy",},"order":21,},
     {"id":{"name":"SpecialStageDraw","path":"scripts/SpecialStageDraw/SpecialStageDraw.yy",},"order":4,},
+    {"id":{"name":"spr_knuckles_getup","path":"sprites/spr_knuckles_getup/spr_knuckles_getup.yy",},"order":85,},
     {"id":{"name":"spr_sonic_crouch","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"order":22,},
     {"id":{"name":"spr_supersonic_push","path":"sprites/spr_supersonic_push/spr_supersonic_push.yy",},"order":71,},
     {"id":{"name":"spr_sonic_death","path":"sprites/spr_sonic_death/spr_sonic_death.yy",},"order":23,},

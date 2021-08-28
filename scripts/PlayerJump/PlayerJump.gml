@@ -171,7 +171,7 @@ function PlayerJump()
 				Spinning    = false;
 				Grv			= 0.03125;
 				FlightValue = 480;
-				FlightState = FlightActive;
+				FlightState = true;
 				
 				// Play sound
 				if !IsUnderwater
@@ -207,7 +207,10 @@ function PlayerJump()
 				GlideGrounded  = false;
 				GlideDirection = Facing;
 				GlideValue     = Facing == FlipLeft ? 0 : 180;
-				GlideState     = GlideActive;
+				GlideState     = GlideAir;
+				
+				// Set animation
+				Animation = AnimGlide;
 			}
 		}
 		break;

@@ -15,7 +15,10 @@ function BackgroundProcess()
 	for (var i = 0; i < Length; i++)
 	{
 		// Update autoscroll values
-		BGValues[i][11] += BGValues[i][4];
+		if !(variable_check(Stage, "IsPaused") or fade_check(FadeActive))
+		{
+			BGValues[i][11] += BGValues[i][4];
+		}
 		
 		// Get data
 		var PosX		  = BGValues[i][0];

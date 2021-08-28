@@ -34,7 +34,6 @@ function PlayerVariables()
 	DropdashFlag		= 0;
 	SuperState			= 0;
 	SuperStateValue		= 0;
-	GlideGrounded	    = 0;
 	GlideState			= 0;
 	GlideValue			= 0;
 	GlideSpeed			= 0;
