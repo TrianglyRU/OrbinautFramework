@@ -9,6 +9,8 @@ function ObjDustPuffMain()
 		if image_index == 1 and !SpawnDust
 		{
 			instance_create(Player.PosX, Player.PosY + Player.RadiusY, DustPuff);
+			
+			// Set flag so the object won't spawn another dust object
 			SpawnDust = true;
 		}
 	}
