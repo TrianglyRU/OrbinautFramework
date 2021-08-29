@@ -13,9 +13,9 @@ function PlayerRotation()
 			if Grounded
 			{
 				/* Smooth rotation code by Nihil (NullSpace)
-				Used with permission! */	
-					   
-				if Angle >= 23.91 and Angle <= 337.5
+				Used with permission! */
+				
+				if Angle >= 33.75 and Angle <= 326.25
 				{
 					var TargetAngle  = Angle;
 					var RotationStep = (abs(Inertia) / 16 + abs(Inertia) / 32 - 2) * -1
@@ -35,7 +35,7 @@ function PlayerRotation()
 					VisualAngle += 360;
 				}
 				
-				// Rotate back to 0/360
+				// Rotate back to 360
 				if VisualAngle < 180
 				{
 					VisualAngle = max(VisualAngle - 2.8125, 0);

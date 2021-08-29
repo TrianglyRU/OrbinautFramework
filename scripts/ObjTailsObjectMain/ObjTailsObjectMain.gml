@@ -79,20 +79,23 @@ function ObjTailsObjectMain()
 			// If smooth rotation is disabled, use one of 8 angles
 			if !Game.SmoothRotation
 			{
-				if (Angle > 334.5 or Angle < 25.5)  VisualAngle = 360;
-				if (Angle > 25.5 and Angle < 75)	VisualAngle = 45; 
-				if (Angle > 75   and Angle < 105)	VisualAngle = 90; 
-				if (Angle > 105  and Angle < 155)   VisualAngle = 135;
-				if (Angle > 155  and Angle < 205)   VisualAngle = 180;
-				if (Angle > 205  and Angle < 255)   VisualAngle = 225;
-				if (Angle > 255  and Angle < 285)   VisualAngle = 270;
-				if (Angle > 285  and Angle < 334.5) VisualAngle = 305;
+				if (Angle >= 338.91 or  Angle <= 22.5)  VisualAngle = 360;
+				if (Angle >= 23.91  and Angle <= 67.5)  VisualAngle = 45;
+				if (Angle >= 68.91  and Angle <= 112.5) VisualAngle = 90;
+				if (Angle >= 113.91 and Angle <= 157.5) VisualAngle = 135;
+				if (Angle >= 158.91 and Angle <= 202.5) VisualAngle = 180;
+				if (Angle >= 203.91 and Angle <= 247.5) VisualAngle = 225;
+				if (Angle >= 248.91 and Angle <= 292.5) VisualAngle = 270; 
+				if (Angle >= 293.91 and Angle <= 337.5) VisualAngle = 305;
 			}
 			
 			// Else calculate visual angle
 			else
 			{
-				if Angle >= 23.91 and Angle <= 337.5
+				/* Smooth rotation code by Nihil (NullSpace)
+				Used with permission! */
+				
+				if Angle >= 33.75 and Angle <= 326.25
 				{
 					var TargetAngle  = Angle;
 					var RotationStep = (abs(Player.Inertia) / 16 + abs(Player.Inertia) / 32 - 2) * -1
@@ -107,6 +110,6 @@ function ObjTailsObjectMain()
 		}
 	}
 	
-	// If player is not visibile, make us not visible too (is not for invincibility frames!)
+	// If player is not visibile, make us invisible too (is not for invincibility frames!)
 	visible = Player.visible;
 }
