@@ -10,11 +10,11 @@ function MenuFunctions()
 		MenuOption[listid][optionid] = optionname;
 	}
 	
-	/// @function menu_list_redirect(listid,remember_current_option)
-	function menu_list_redirect(listid, remember_current_option)
+	/// @function menu_list_redirect(listid,remember_option,remember_menu)
+	function menu_list_redirect(listid, remember_option, remember_menu)
 	{
-		// Remember previous
-		if remember_current_option
+		// Remember highlighted option in current menu
+		if remember_option
 		{	
 			PreviousOptionID[listid] = OptionID;
 		}
@@ -22,7 +22,12 @@ function MenuFunctions()
 		{
 			PreviousOptionID[listid] = noone;
 		}
-		PreviousMenuID[listid] = MenuID;
+		
+		// Remember current menu
+		if remember_menu
+		{
+			PreviousMenuID[listid] = MenuID;
+		}
 		
 		// Update option
 		MenuID	 = listid;

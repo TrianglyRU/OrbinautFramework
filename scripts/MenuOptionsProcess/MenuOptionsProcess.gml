@@ -10,13 +10,13 @@ function MenuOptionsProcess()
 				switch OptionID
 				{
 					case 0:
-						menu_list_redirect(1, true);
+						menu_list_redirect(1, true, true);
 					break;
 					case 1:
-						menu_list_redirect(3, true);
+						menu_list_redirect(3, true, true);
 					break;
 					case 2:
-						menu_list_redirect(5, true);
+						menu_list_redirect(5, true, true);
 					break;
 					case 3:
 						game_end();
@@ -64,9 +64,15 @@ function MenuOptionsProcess()
 				}
 				
 				// Redirect to character select
+				else if OptionID != 5
+				{
+					menu_list_redirect(2, true, true);
+				}
+				
+				// Redirect to save deletion
 				else
 				{
-					menu_list_redirect(2, true);
+					menu_list_redirect(10, false, true);
 				}
 			}
 		}
@@ -109,7 +115,7 @@ function MenuOptionsProcess()
 				Game.Score	   = 0;	
 				
 				// Redirect to stage select
-				menu_list_redirect(4, false);
+				menu_list_redirect(4, false, true);
 			}
 		}
 		break;
@@ -136,8 +142,33 @@ function MenuOptionsProcess()
 	
 		// Options (main)
 		case 5:
-		{
-			if Input.BPress
+		{	
+			if Input.APress or Input.StartPress
+			{
+				switch OptionID
+				{
+					// Redirect to gameplay options
+					case 0:
+						menu_list_redirect(6, true, true);
+					break;
+					
+					// Redirect to video options
+					case 1:
+						menu_list_redirect(7, true, true);
+					break;
+					
+					// Redirect to audio options
+					case 2:
+						menu_list_redirect(8, true, true);
+					break;
+					
+					// Redirect to control options
+					case 3:
+						menu_list_redirect(9, true, true);
+					break;
+				}
+			}
+			else if Input.BPress
 			{
 				// Update config file
 				gamesettings_save("config");
@@ -332,6 +363,9 @@ function MenuOptionsProcess()
 		
 				// Update option
 				menu_update_option(1, OptionID + 1, "SAVE " + string(OptionID + 1) + " - NEW GAME");
+				
+				// Redirect back to save select
+				menu_list_redirect(1, false, false);
 			}
 		}
 		break;

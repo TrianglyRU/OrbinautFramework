@@ -140,7 +140,7 @@ function ObjBubbleMain()
 			Player.Spinning	  = false;
 			
 			// Play animation
-			if !Player.FlightState and Player.GlideState != GlideActive
+			if !Player.FlightState and Player.GlideState != GlideAir
 			{
 				Player.Animation = AnimBreathe;
 			}

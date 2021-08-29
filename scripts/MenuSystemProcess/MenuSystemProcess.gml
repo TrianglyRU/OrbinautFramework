@@ -14,6 +14,7 @@ function MenuSystemProcess()
 	// React to key B
 	if Input.BPress and MenuID != 0
 	{
+		// Highlight remembered option
 		if PreviousOptionID[MenuID] != noone
 		{
 			OptionID = PreviousOptionID[MenuID];
@@ -22,6 +23,8 @@ function MenuSystemProcess()
 		{
 			OptionID = 0;
 		}
+		
+		// Back to previous menu
 		MenuID = PreviousMenuID[MenuID];
 	}
 }

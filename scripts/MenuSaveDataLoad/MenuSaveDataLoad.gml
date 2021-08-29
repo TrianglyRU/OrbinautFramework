@@ -21,16 +21,16 @@ function MenuSaveDataLoad()
 			switch SaveData[i][0]
 			{
 				case 0:
-					DataCharacter = "SONIC";
+					DataCharacter = "S";
 				break;
 				case 1:
-					DataCharacter = "TAILS";
+					DataCharacter = "T";
 				break;
 				case 2:
-					DataCharacter = "KNUCKLES";
+					DataCharacter = "K";
 				break;
 				default:
-					DataCharacter = "UNKNOWN";
+					DataCharacter = "UNK";
 				break;
 			}
 			
@@ -55,7 +55,7 @@ function MenuSaveDataLoad()
 			}
 			else
 			{
-				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " " + "COMPELTED" + " L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
+				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " DONE " + "L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
 			}
 		}
 	}

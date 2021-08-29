@@ -118,7 +118,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Objects/Bubble/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Bubble (Countdown)/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_bubble_number4",

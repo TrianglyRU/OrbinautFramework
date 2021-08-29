@@ -1,28 +1,19 @@
 function ObjItemBoxStartup()
 {
-	// Variables list
-	Airborne    = 0;
-	Destroyed   = 0;
-	Ysp		    = 0;
-	PosX        = 0;
-	PosY	    = 0;	
-	CardPosX    = 0;
-	CardPosY    = 0;
-	CardSpeed   = 0;
-	CardSprite  = 0;
-	CardTimer   = 0;
+	// Set variables
+	PosX	  = x;
+	PosY	  = y;
+	CardX	  = x;
+	CardY	  = y - 4;
+	Timer     = 5;
+	CardSpeed = 3;
+	State	  = 0;
+	IsFalling = 0;
+	Ysp		  = 0;
 	
 	/* Variable Definitions	
 	1. BoxType, default = "Empty"
 	*/
-	
-	// Set default propertiess
-	PosX	  = x;
-	PosY	  = y;
-	CardPosX  = x;
-	CardPosY  = y - 4;
-	CardSpeed = -3;
-	CardTimer =  5;
 	
 	// Define item card to display
 	switch BoxType

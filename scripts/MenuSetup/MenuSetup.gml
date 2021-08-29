@@ -37,7 +37,7 @@ function MenuSetup()
 	
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
-	menu_add_option(4, 0, "TEST STAGE");
+	menu_add_option(4, 0, "TSZ");
 	menu_add_option(4, 1,  "- -");
 	menu_add_option(4, 2,  "- -");
 	menu_add_option(4, 3,  "- -");
@@ -87,7 +87,7 @@ function MenuSetup()
 	menu_add_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
 	
 	// Options (controls)
-	menu_add_header(9,    "CONTROLS OPTIONS");
+	menu_add_header(9,    "CONTROL OPTIONS");
 	menu_add_option(9, 0, "UP:"    + menu_get_keyname(Game.KeyboardControl[0]));
 	menu_add_option(9, 1, "DOWN:"  + menu_get_keyname(Game.KeyboardControl[1]));
 	menu_add_option(9, 2, "LEFT:"  + menu_get_keyname(Game.KeyboardControl[2]));
