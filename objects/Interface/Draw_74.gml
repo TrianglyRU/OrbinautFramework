@@ -1,4 +1,4 @@
-/// @description GUI Visualization
+/// @description GUI Visualisation
 // You can write your code in this editor
 	
 	// Visualization Scripts

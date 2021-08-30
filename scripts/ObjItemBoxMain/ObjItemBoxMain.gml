@@ -165,7 +165,7 @@ function ObjItemBoxMain()
 				case "Invincibility":
 				{
 					// If in super form, exit
-					if !Player.SuperState
+					if Player.SuperState
 					{
 						break;
 					}

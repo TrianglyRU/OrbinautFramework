@@ -1,6 +1,6 @@
 function InterfaceVariables()
 {
-	DebugToggle	   = 0;
+	DebugPositions = 0;
 	DebugHelp	   = 0;
 	DebugVariables = 0;
 	DebugSolids	   = 0;

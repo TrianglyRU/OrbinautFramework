@@ -5,10 +5,10 @@ function palette_get_colour(type, id)
 	
 	if type == PaletteDry
 	{
-		return IndexDry[Index];
+		return Palette.IndexDry[Index];
 	}
 	else if type == PaletteWet
 	{
-		return IndexWet[Index];
+		return Palette.IndexWet[Index];
 	}
 }

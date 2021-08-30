@@ -1,13 +1,19 @@
 function InterfaceDebugPositionsDraw()
 {
-	// Exit if not allowed to display
-	if !Game.DevMode or !Stage.DoUpdate or !DebugToggle
+	// Exit if not allowed to toggle
+	if !Game.DevMode or !Stage.DoUpdate
 	{
 		exit;
 	}
 	
+	// Toggle positions
+	if keyboard_check_pressed(ord("Q"))
+	{
+		DebugPositions = !DebugPositions;
+	}
+	
 	// Display position points
-	with all
+	if DebugPositions then with all
 	{
 		// Player position
 		if object_index == Player

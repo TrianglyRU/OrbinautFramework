@@ -6,20 +6,20 @@ function InterfaceDebugScreenDraw()
 		exit;
 	}
 	
-	// Set font
-	draw_set_font(Game.Font[font_default]);
-	
 	// Toggle hotkeys on-screen guide
 	if keyboard_check_pressed(ord("Y"))
 	{
 		DebugHelp = !DebugHelp;
 	}
 	
+	// Set font
+	draw_set_font(Game.Font[font_default]);
+	
 	// Display available hotkeys and game fps
 	if DebugHelp
 	{
 		draw_set_halign(fa_center);
-		draw_text_transformed(Game.Width / 2 - 44, Game.Height - 4, "TOGGLE: Q  SOLIDS: W  HITBOXES:E  TRIGGERS: R  VARIABLES: T  SHORTCUTS: Y", 0.5, 0.5, 0);
+		draw_text_transformed(Game.Width / 2 - 44, Game.Height - 4, "POSITIONS: Q  SOLIDS: W  HITBOXES:E  TRIGGERS: R  VARIABLES: T  THIS HELP: Y", 0.5, 0.5, 0);
 		
 		draw_set_halign(fa_left);
 		draw_text_transformed(Game.Width - 44, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
@@ -32,7 +32,7 @@ function InterfaceDebugScreenDraw()
 	}
 	
 	// Display variables
-	if DebugVariables and !DebugToggle
+	if DebugVariables
 	{
 		// Draw rectangle
 		draw_set_alpha(0.65);

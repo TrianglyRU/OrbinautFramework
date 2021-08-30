@@ -1,7 +1,7 @@
 function InterfaceDebugSolidboxDraw()
 {
 	// Exit if not allowed to display
-	if !Game.DevMode or !Stage.DoUpdate or !DebugToggle
+	if !Game.DevMode or !Stage.DoUpdate
 	{
 		exit;
 	}

@@ -268,6 +268,7 @@ function PlayerKnuxGlide()
 				{
 					GlideState = GlideGround;
 					Animation  = AnimSlide;
+					GlideValue = 8;
 							
 					// Reset gravity
 					Grv = 0;
@@ -282,6 +283,9 @@ function PlayerKnuxGlide()
 					Xsp		   = 0;
 					GroundLock = 16;
 					Animation  = AnimGetUp;
+					
+					// Play sound
+					audio_sfx_play(sfxLand, false);
 				
 					// Use second frame of animation
 					image_index = 1;

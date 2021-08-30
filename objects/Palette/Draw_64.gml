@@ -4,3 +4,4 @@
 	// GUI Shader Visualization Scripts
 	PaletteUpdate();
 	PaletteSurfaceProcess();
+	PaletteFadeProcess();

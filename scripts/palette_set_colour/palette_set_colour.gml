@@ -6,11 +6,11 @@ function palette_set_colour(type, id, range, colourid)
 	{
 		if type == PaletteDry
 		{
-			IndexDry[i] = colourid;
+			Palette.IndexDry[i] = colourid;
 		}
 		else if type = PaletteWet
 		{
-			IndexWet[i] = colourid;
+			Palette.IndexWet[i] = colourid;
 		}
 	}
 }
