@@ -40,6 +40,7 @@ function ObjSignpostStartup()
 		}
 		break;
 	}
+	sprite_index = SpriteData[0];
 	
 	// Set sparkle position data
 	SparkleX = [-24, 8, -16, 24, 0, 16, -24, 24];

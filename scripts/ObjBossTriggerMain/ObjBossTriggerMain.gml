@@ -11,6 +11,12 @@ function ObjBossTriggerMain()
 			// Stop music and play boss theme
 			audio_bgm_stop(PriorityLow, 1);
 			
+			// Set new top boundary
+			if ArenaHeight != -1
+			{
+				Stage.TargetTopBoundary = Stage.BottomBoundary - ArenaHeight;
+			}
+			
 			// Spawn boss
 			switch room
 			{
@@ -23,9 +29,9 @@ function ObjBossTriggerMain()
 	// Check if boss is active
 	else if Stage.IsBossfight == true
 	{
-		// Check for a key to be pressed if it is example bossfight
 		if !BossDefeated
 		{
+			// Check for a key to be pressed if it is example bossfight
 			if room == TestStage and keyboard_check_pressed(ord("K"))
 			{
 				BossDefeated = true;

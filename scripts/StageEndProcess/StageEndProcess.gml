@@ -28,7 +28,7 @@ function StageEndProcess()
 	// Load next stage
 	switch room
 	{
-		case TestStage:
+		default:
 			room_goto(DevMenu);
 		break;
 	}

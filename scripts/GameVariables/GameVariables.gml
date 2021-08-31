@@ -4,6 +4,7 @@ function GameVariables()
 	Game.DevMode		 = 0;
 	Game.ShowSplash	     = 0;
 	Game.ActiveSave      = 0;
+	Game.SaveState       = 0;	// 0 - regular game, 1 - completed game
 	Game.Character	     = 0;
 	Game.Score		     = 0;
 	Game.Lives		     = 0;
@@ -15,16 +16,16 @@ function GameVariables()
 	Game.SpecialScore    = 0;
 	Game.SpecialState    = 0;
 	Game.CurrentStage    = [];	// 0 - zoneid, 1 - room
-	Game.StarPostData    = [];	// 0 - id, 1 - x, 2 - y
-	Game.SpecialRingData = [];	// 0 - time, 1 - y, 2 - y
+	Game.StarPostData    = [];	// 0 - id,     1 - x, 2 - y
+	Game.SpecialRingData = [];	// 0 - time,   1 - y, 2 - y
 	Game.SpecialRingList = [];
 	
 	// Collision
 	Game.TileLayers  = [];  // 0 - LayerA,   1 - layerB
 	Game.TileData	 = [];	// 0 - dataname, 1 - tileamount
-	Game.TileAngle	 = [];  // Automatically generated
-	Game.TileHeights = [];  // Automatically generated
-	Game.TileWidths  = [];  // Automatically generated
+	Game.TileAngle	 = [];  // Automatically loaded
+	Game.TileHeights = [];  // Automatically loaded
+	Game.TileWidths  = [];  // Automatically loaded
 	
 	// Discord global data
 	Game.DiscordEvent = "";

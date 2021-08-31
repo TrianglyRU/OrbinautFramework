@@ -5,7 +5,8 @@ function ObjBossTriggerStartup()
 	PreviousBottomBound = 0;
 	
 	/* Variable Definitions
-	1. ArenaWidth, default = 400
+	1. ArenaWidth,  default = 400
+	2. ArenaHeight, default = -1
 	*/
 	
 	// Replace sprite

@@ -29,7 +29,7 @@ function BackgroundSetup()
 			BGValues[2] = [...];
 			*/
 			
-			// Set default background colour
+			// Set default background colour (you can also use HEX colour, in $BBGGRR format)
 			BGColour = c_gray;
 		}
 		break;

@@ -7,8 +7,8 @@ function InterfaceGameOverDraw()
 	}
 	
 	// Move sprites
-	GameOverValue[0] = min(GameOverValue[0] + 16, Game.Width / 2 - 9);
-	GameOverValue[1] = max(GameOverValue[1] - 16, Game.Width / 2 + 9);
+	GameOverValue[0] = min(GameOverValue[0] + 16, Game.Width / 2 - 40);
+	GameOverValue[1] = max(GameOverValue[1] - 16, Game.Width / 2 + 40);
 	
 	// Draw sprites
 	draw_sprite(gui_gameover_gametime, Stage.Time == 36000 and Player.Lives, GameOverValue[0], Game.Height / 2);

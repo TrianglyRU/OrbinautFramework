@@ -44,7 +44,7 @@ function MenuOptionsProcess()
 					Game.Continues = SaveData[Game.ActiveSave][4];
 					Game.Score	   = SaveData[Game.ActiveSave][6];	
 				
-					// Load stage
+					// Load stage if game is not completed
 					if !SaveData[Game.ActiveSave][5]
 					{
 						var ZoneID = SaveData[Game.ActiveSave][1];
@@ -53,12 +53,16 @@ function MenuOptionsProcess()
 							default:
 								room_goto(TestStage);
 							break;
+							
+							// Let the game know this save is not a completed game
+							Game.SaveState = 0;
 						}
 					}
-						
-					// Load level select
 					else
 					{
+						// Let the game know this save is completed game
+						Game.SaveState = 1;
+						
 						/* You can add redirection to your level select here */
 					}
 				}
