@@ -6,6 +6,12 @@ function PlayerBalance()
 		exit;
 	}
 	
+	// Exit if getting up
+	if Animation == AnimGetUp
+	{
+		exit;
+	}
+	
 	// Balance on floor
 	if !OnObject
 	{

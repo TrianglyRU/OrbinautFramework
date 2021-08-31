@@ -5,7 +5,7 @@ function GameCollisionsSetup()
 		// Default collision
 		default:
 		{
-			Game.TileData   = ["Default", 146];
+			Game.TileData   = ["", 146];
 			Game.TileLayers = ["CollisionLayerA", "CollisionLayerB"];	
 		}
 		break;

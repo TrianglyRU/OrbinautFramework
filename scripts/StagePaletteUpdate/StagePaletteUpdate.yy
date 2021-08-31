@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Debug",
-    "path": "folders/Game Code/Interface/Debug.yy",
+    "name": "Playable Stage",
+    "path": "folders/Game Code/Playable Stage.yy",
   },
   "resourceVersion": "1.0",
-  "name": "InterfaceDebugProcess",
+  "name": "StagePaletteUpdate",
   "tags": [],
   "resourceType": "GMScript",
 }
