@@ -61,12 +61,13 @@ function GameVariables()
 	Game.SMWaterBarrier		= 0;
 	Game.SMRingBehaviour	= 0;
 	Game.SKItemBoxBehaviour = 0;
+	Game.CDStageTimer		= 0;
 	
 	// Orbinaut improvements
-	Game.CDStageTimer		 = 0;
-	Game.PostProcessing      = 0;
-	Game.SmoothRotation	     = 0;
-	Game.RichPresenceSupport = 0;
-	Game.NoRollSpeedLimit	 = 0;
-	Game.FlyingCancel	     = 0;
+	Game.CustomSlopeCollision = 0;
+	Game.PostProcessing       = 0;
+	Game.SmoothRotation	      = 0;
+	Game.RichPresenceSupport  = 0;
+	Game.NoRollSpeedLimit	  = 0;
+	Game.FlyingCancel	      = 0;
 }

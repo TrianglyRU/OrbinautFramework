@@ -8,7 +8,7 @@ function PaletteUpdate()
 	if surface_exists(SurfaceLow) 
 	{
 		// Use screen shader
-		shader_set(ShaderScreen);
+		shader_set(ShaderPalette);
 		
 		// Render fade
 		shader_set_uniform_f(Shader.ScreenStep,   FadeColour == ColourFlash ? FadeStep div 3 : FadeStep);

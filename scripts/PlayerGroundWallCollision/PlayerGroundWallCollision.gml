@@ -15,28 +15,31 @@ function PlayerGroundWallCollision()
 		}
 	}
 	
-	// Get current angle quadrant
-	if Angle <= 43.59 or Angle >= 316.41			
+	// Use different from floor collision angle ranges if custom collision is disabled
+	if !Game.CustomSlopeCollision
 	{
-		var AngleQuad = QuadFloor;
-	}
-	else if Angle >= 45 and Angle <= 135	
-	{
-		var AngleQuad = QuadRWall;
-	}
-	else if Angle >= 136.41 and Angle <= 223.59
-	{
-		var AngleQuad = QuadRoof;
-	}
-	else if Angle >= 225 and Angle <= 315	
-	{
-		var AngleQuad = QuadLWall;
+		if Angle <= 43.59 or Angle >= 316.41			
+		{
+			CollisionMode = QuadFloor;
+		}
+		else if Angle >= 45 and Angle <= 135	
+		{
+			CollisionMode = QuadRWall;
+		}
+		else if Angle >= 136.41 and Angle <= 223.59
+		{
+			CollisionMode = QuadRoof;
+		}
+		else if Angle >= 225 and Angle <= 315	
+		{
+			CollisionMode = QuadLWall;
+		}
 	}
 	
 	// Collide with the wall to our left, frame ahead
 	if Inertia < 0
 	{
-		switch AngleQuad
+		switch CollisionMode
 		{
 			case QuadFloor:
 			{	
@@ -100,7 +103,7 @@ function PlayerGroundWallCollision()
 	// Collide with the wall to our right, frame ahead
 	else if Inertia > 0
 	{
-		switch AngleQuad
+		switch CollisionMode
 		{
 			case QuadFloor:
 			{	

@@ -39,18 +39,19 @@ function PlayerAirLevelCollision()
 			var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
 			var TileRight = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
 			
-			// Check if we should use tile right below our position to avoid stupid quirk from originals
-			var TileMiddle = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer);
-			
 			// Get data
-			if TileLeft[0] == TileRight[0] and TileLeft[0] > 0
+			if Game.CustomSlopeCollision and (TileLeft[0] == TileRight[0] and TileLeft[0] > 0)
 			{
+				// Check if we should use tile right below our position to avoid that stupid quirk from originals
+				var TileMiddle = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer);
+			
 				var FloorDistance = TileMiddle[0];
 				var FloorAngle    = TileMiddle[1];
 			}
 			else
 			{
 				var NearestTile   = tile_check_nearest(TileLeft, TileRight, noone);
+				
 				var FloorDistance = NearestTile[0];
 				var FloorAngle    = NearestTile[1];
 			}

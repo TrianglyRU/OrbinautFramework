@@ -31,8 +31,8 @@ function GameFrameworkSetup()
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;  /**/
-	Game.DropdashEnabled    = true; /**/
-	Game.PeeloutEnabled		= true; /**/
+	Game.DropdashEnabled    = true;  /**/
+	Game.PeeloutEnabled		= true;  /**/
 	Game.GroundSpeedcap	    = false; /**/
 	Game.AirSpeedcap	    = false; /**/
 	Game.CDCamera			= false; /**/
@@ -48,9 +48,10 @@ function GameFrameworkSetup()
 	Game.CDStageTimer	    = false;
 	
 	// Orbinaut improvements
-	Game.PostProcessing      = false;
-	Game.SmoothRotation	     = true;
-	Game.RichPresenceSupport = true;
-	Game.NoRollSpeedLimit	 = false;
-	Game.FlyingCancel	     = true;
+	Game.CustomSlopeCollision = true;
+	Game.PostProcessing       = false;
+	Game.SmoothRotation	      = true;
+	Game.RichPresenceSupport  = true;
+	Game.NoRollSpeedLimit	  = false;
+	Game.FlyingCancel	      = true;
 }

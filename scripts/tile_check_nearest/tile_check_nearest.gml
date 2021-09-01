@@ -18,13 +18,11 @@ function tile_check_nearest(leftdata,rightdata,object_angle)
 	// Is object angle defined?
 	if object_angle != noone
 	{
-		// Get the difference between object current angle and floor angle
-		var Difference = abs(object_angle mod 180 - ResultAngle mod 180);
-		
 		// Use cardinal angle if difference is higher than 45
-		if Difference > 45 and Difference < 135
+		var Difference = abs(object_angle mod 180 - ResultAngle mod 180);		
+		if  Difference > 45 and Difference < 135
 		{
-			/* The originals also check for a bit flag set for tiles with angle
+			/* Originals also check for a bit flag set for tiles with angle
 			0xFF, but we handle it right when we get tile data to make it more stable */
 			   
 			ResultAngle = round(object_angle / 90) mod 4 * 90;

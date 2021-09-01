@@ -6,104 +6,107 @@ function PlayerGroundFloorCollision()
 		exit;
 	}
 	
-	// Get current angle quadrant
+	// Do additional checks for collision mode if custom collision is enabled
+	if Game.CustomSlopeCollision
+	{
+		// Set maximum angle difference. If difference exceeds this value, mode won't change
+		var AngleTolerance = 45;
+		
+		// Update angle quadrant
+		switch CollisionMode
+		{
+			case QuadFloor:
+			{
+				// Enter left wall collision mode
+				var LeftWall = tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, true, Layer);
+				if  LeftWall[0] < 0 and Angle - LeftWall[1] < AngleTolerance
+				{				
+					CollisionMode = QuadLWall;
+				}
+				
+				// Enter right wall collision mode
+				var RightWall = tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, true, Layer);
+				if  RightWall[0] < 0 and RightWall[1] - Angle mod 360 < AngleTolerance
+				{
+					CollisionMode = QuadRWall;
+				}
+			}
+			break;
+			case QuadRWall:
+			{
+				// Enter floor collision mode
+				var FloorTile = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, true, Layer);
+				if  FloorTile[0] < 0 and Angle - FloorTile[1] < AngleTolerance
+				{
+					CollisionMode = QuadFloor;
+				}
+				
+				// Enter ceiling collision mode
+				var RoofTile = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
+				if  RoofTile[0] < 0 and RoofTile[1] - Angle mod 360 < AngleTolerance
+				{
+					CollisionMode = QuadRoof;
+				}
+			}
+			break;
+			case QuadRoof:
+			{
+				// Enter right wall collision mode
+				var RightWall = tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, true, Layer);
+				if  RightWall[0] < 0 and Angle - RightWall[1] < AngleTolerance
+				{
+				
+					CollisionMode = QuadRWall;
+				}
+				
+				// Enter left wall collision mode
+				var LeftWall = tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, true, Layer);
+				if  LeftWall[0] < 0 and LeftWall[1] - Angle mod 360 < AngleTolerance
+				{
+					CollisionMode = QuadLWall;
+				}
+			}
+			break;
+			case QuadLWall:
+			{
+				// Enter ceiling collision mode
+				var RoofTile = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
+				if RoofTile[0] < 0 and Angle - RoofTile[1] < AngleTolerance
+				{
+					CollisionMode = QuadRoof;
+				}
+				
+				// Enter floor collision mode
+				var FloorTile = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, true, Layer);	
+				if FloorTile[0] < 0 and FloorTile[1] - Angle mod 360 < AngleTolerance
+				{
+					CollisionMode = QuadFloor;
+				}
+			}
+			break;
+		}
+	}
+	
+	// Get current angle quadrant normally, like in originals
 	if Angle <= 45 or Angle >= 315
 	{
-		var AngleQuad = QuadFloor;
+		CollisionMode = QuadFloor;
 	}
 	else if Angle >= 46.41 and Angle <= 133.59
 	{
-		var AngleQuad = QuadRWall;
+		CollisionMode = QuadRWall;
 	}
 	else if Angle >= 135 and Angle <= 225
 	{
-		var AngleQuad = QuadRoof;
+		CollisionMode = QuadRoof;
 	}
 	else if Angle >= 226.41 and Angle <= 313.59
 	{
-		var AngleQuad = QuadLWall;
+		CollisionMode = QuadLWall;
 	}
 	
-	// Initialise static variable
-	/*static AngleQuad = 0;
-	
-	// Set maximum angle difference. If difference exceeds this value, mode won't change
-	var AngleTolerance = 45;
-		
-	// Update angle quadrant
-	switch AngleQuad
-	{
-		case QuadFloor:
-		{
-			// Enter left wall collision mode
-			var LeftWall = tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, true, Layer);
-			if  LeftWall[0] < 0 and Angle - LeftWall[1] < AngleTolerance
-			{				
-				AngleQuad = QuadLWall;
-			}
-				
-			// Enter right wall collision mode
-			var RightWall = tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, true, Layer);
-			if  RightWall[0] < 0 and RightWall[1] - Angle mod 360 < AngleTolerance
-			{
-				AngleQuad = QuadRWall;
-			}
-		}
-		break;
-		case QuadRWall:
-		{
-			// Enter floor collision mode
-			var FloorTile = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, true, Layer);
-			if  FloorTile[0] < 0 and Angle - FloorTile[1] < AngleTolerance
-			{
-				AngleQuad = QuadFloor;
-			}
-				
-			// Enter ceiling collision mode
-			var RoofTile = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-			if  RoofTile[0] < 0 and RoofTile[1] - Angle mod 360 < AngleTolerance
-			{
-				AngleQuad = QuadRoof;
-			}
-		}
-		case QuadRoof:
-		{
-			// Enter right wall collision mode
-			var RightWall = tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, true, Layer);
-			if  RightWall[0] < 0 and Angle - RightWall[1] < AngleTolerance
-			{
-				
-				AngleQuad = QuadRWall;
-			}
-				
-			// Enter left wall collision mode
-			var LeftWall = tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, true, Layer);
-			if  LeftWall[0] < 0 and LeftWall[1] - Angle mod 360 < AngleTolerance
-			{
-				AngleQuad = QuadLWall;
-			}
-		}
-		break;
-		case QuadLWall:
-		{
-			// Enter ceiling collision mode
-			var RoofTile = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-			if RoofTile[0] < 0 and Angle - RoofTile[1] < AngleTolerance
-			{
-				AngleQuad = QuadRoof;
-			}
-				
-			// Enter floor collision mode
-			var FloorTile = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, true, Layer);	
-			if FloorTile[0] < 0 and FloorTile[1] - Angle mod 360 < AngleTolerance
-			{
-				AngleQuad = QuadFloor;
-			}
-		}
-		break;
-	}*/
-	
-	switch AngleQuad
+	// Collide with floor
+	switch CollisionMode
 	{
 		case QuadFloor:
 		{		
@@ -111,18 +114,19 @@ function PlayerGroundFloorCollision()
 			var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
 			var TileRight = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
 			
-			// Check if we should use tile right below our position to avoid stupid quirk from originals
-			var TileMiddle = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer);
-			
-			// Get data
-			if TileLeft[0] == TileRight[0] and TileLeft[0] > 0
+			// Get closest tile
+			if Game.CustomSlopeCollision and (TileLeft[0] == TileRight[0] and TileLeft[0] > 0)
 			{
+				// Check if we should use tile right below our position to avoid that stupid quirk from originals
+				var TileMiddle = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer);
+				
 				var FloorDistance = TileMiddle[0];
 				var FloorAngle    = TileMiddle[1];
 			}
 			else
 			{
 				var NearestTile   = tile_check_nearest(TileLeft, TileRight, Angle);
+				
 				var FloorDistance = NearestTile[0];
 				var FloorAngle    = NearestTile[1];
 			}
@@ -133,10 +137,11 @@ function PlayerGroundFloorCollision()
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Xsp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
-					Grounded  = false;
-					AngleQuad = false;
+					Grounded      = false;
+					CollisionMode = QuadFloor;
 					
-					exit;
+					// Exit
+					break;
 				}		
 			}
 			
@@ -165,10 +170,11 @@ function PlayerGroundFloorCollision()
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Ysp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
-					Grounded  = false;
-					AngleQuad = false;
+					Grounded      = false;
+					CollisionMode = QuadFloor;
 					
-					exit;
+					// Exit
+					break;
 				}	
 			}
 			
@@ -197,10 +203,11 @@ function PlayerGroundFloorCollision()
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Xsp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
-					Grounded  = false;
-					AngleQuad = false;
+					Grounded      = false;
+					CollisionMode = QuadFloor;
 					
-					exit;
+					// Exit
+					break;
 				}
 			}
 			
@@ -231,10 +238,11 @@ function PlayerGroundFloorCollision()
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Ysp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
-					Grounded  = false;
-					AngleQuad = false;
+					Grounded      = false;
+					CollisionMode = QuadFloor;
 					
-					exit;
+					// Exit
+					break;
 				}
 			}
 				
