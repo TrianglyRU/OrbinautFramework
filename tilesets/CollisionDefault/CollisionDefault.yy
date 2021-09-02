@@ -813,8 +813,8 @@
     ],
   },
   "parent": {
-    "name": "Collision Tileset",
-    "path": "folders/Collision Tileset.yy",
+    "name": "Collisions",
+    "path": "folders/Collisions.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollisionDefault",

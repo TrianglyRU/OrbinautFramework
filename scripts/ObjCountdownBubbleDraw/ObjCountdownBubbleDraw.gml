@@ -1,6 +1,6 @@
 function ObjCountdownBubbleDraw()
 {
-	// If showing a countdown number, fix position
+	// If displaying a countdown number, keep the same position on-screen
 	if !array_equals(ScreenPosition, [])
 	{
 		x = Camera.ViewX + ScreenPosition[0];

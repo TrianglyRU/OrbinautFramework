@@ -48,6 +48,10 @@ function StageStartup()
 	// Set bossfight status
 	IsBossfight = -1;
 	
+	// Hide collision layers
+	layer_set_visible(Game.TileLayers[0], false);
+	layer_set_visible(Game.TileLayers[1], false);
+	
 	/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
 	of another script. It is needed here to avoid objects being active for 1 frame upon stage loading */
 	StageObjectsInactiveProcess();

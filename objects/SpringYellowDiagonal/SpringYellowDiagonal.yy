@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Springs",
-    "path": "folders/Game Objects/Stage Objects/Springs.yy",
+    "name": "Springs Diagonal",
+    "path": "folders/Game Objects/Stage Objects/Springs Diagonal.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpringYellowDiagonal",

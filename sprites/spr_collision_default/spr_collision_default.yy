@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Collision Tileset/Textures.yy",
+    "path": "folders/Collisions/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_collision_default",

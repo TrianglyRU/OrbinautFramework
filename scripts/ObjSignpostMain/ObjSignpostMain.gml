@@ -8,70 +8,75 @@ function ObjSignpostMain()
 		exit;
 	}
 	
-	// Activate
-	if !Active
+	switch State
 	{
-		if object_check_overlap(Triggerbox)
+		// Idle
+		case 0:
 		{
-			Active = 1;	
-			audio_sfx_play(sfxSignPost, false);
-			
-			audio_bgm_stop(PriorityLow,  1);
-			audio_bgm_stop(PriorityHigh, 1);
-			
-			Stage.TimeEnabled = false;
-			Stage.IsFinished  = 1;
-			
-			// Disable super state
-			if Player.SuperState
+			if object_check_overlap(Triggerbox)
 			{
-				Player.SuperState = false;
-			}	
+				// Play sound and stop music
+				audio_sfx_play(sfxSignPost, false);
+				audio_bgm_stop(PriorityLow,  1);
+				audio_bgm_stop(PriorityHigh, 1);
+				
+				// Set stage flags
+				Stage.TimeEnabled = false;
+				Stage.IsFinished  = 1;
+				
+				// Make player exit super form
+				if Player.SuperState
+				{
+					Player.SuperState = false;
+				}
+				
+				// Increment state
+				State++;
+			}
 		}
-	}
-	else if Active == 1
-	{	
-		// Count timer
-		ActiveTimer++;
+		break;
+		case 1:
+		{
+			// Count timer
+			StateTimer++;
 		
-		// Play animation
-		if ActiveTimer < 62
-		{
-			animation_play(SpriteData[0], 1, 0);
-		}
-		else if ActiveTimer < 123
-		{
-			animation_play(SpriteData[1], 1, 0);
-		}
-		else
-		{
-			image_index = 0;
-			Active		= 2;
-			ActiveTimer = 0;
-		}
+			// Play animation
+			if StateTimer < 62
+			{
+				animation_play(SpriteData[0], 1, 0);
+			}
+			else if StateTimer < 123
+			{
+				animation_play(SpriteData[1], 1, 0);
+			}
+			
+			// Increment state after 124 frames
+			else
+			{
+				image_index = 0;
+				State++;
+			}
 		
-		// Create sparkles
-		if ActiveTimer mod 12 == 0 and SparkleToUse < 8
-		{
-			instance_create(x + SparkleX[SparkleToUse], y + SparkleY[SparkleToUse], RingSparkle);
-			SparkleToUse++;
+			// Create sparkles every 12 frames
+			if StateTimer mod 12 == 0 and SparkleToUse < 8
+			{
+				instance_create(x + SparkleX[SparkleToUse], y + SparkleY[SparkleToUse], RingSparkle);
+				SparkleToUse++;
+			}
 		}
-	}
-	
-	// Finish the stage
-	else if Active == 2
-	{
-		if Stage.IsFinished != 2
+		break;
+		case 2:
 		{
-			if (++ActiveTimer) >= 24
+			if Stage.IsFinished != 2
 			{
 				if Player.Grounded
 				{
-					// Play results music and set flags
+					// Play results music
 					audio_bgm_play(PriorityLow, ActClearMusic, noone);
 				
-					Stage.IsFinished   = 2;
-					Input.IgnoreInput  = true;	
+					// Update flags
+					Input.IgnoreInput  = true;
+					Stage.IsFinished   = 2;	
 					Player.Xsp		   = 0;
 					Player.Ysp		   = 0;
 					Player.Inertia     = 0;
@@ -79,12 +84,12 @@ function ObjSignpostMain()
 					Player.PeeloutRev  = -1;
 				}
 			}
-		}
 		
-		// Set player animation
-		else
-		{
-			Player.Animation = AnimActEnd;
+			// Set player animation
+			else
+			{
+				Player.Animation = AnimActEnd;
+			}
 		}
 	}
 	

@@ -37,6 +37,7 @@ function GameVariables()
 	Game.Height			  = 0;
 	Game.WindowSize		  = 0;
 	Game.AnimationTime	  = 0;
+	Game.PostProcessing   = 0;
 	
 	// Audio
 	Game.MusicVolume = 0;
@@ -65,9 +66,8 @@ function GameVariables()
 	
 	// Orbinaut improvements
 	Game.CustomSlopeCollision = 0;
-	Game.PostProcessing       = 0;
 	Game.SmoothRotation	      = 0;
 	Game.RichPresenceSupport  = 0;
 	Game.NoRollSpeedLimit	  = 0;
-	Game.FlyingCancel	      = 0;
+	Game.FlightCancel	      = 0;
 }

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Springs",
-    "path": "folders/Game Objects/Stage Objects/Springs.yy",
+    "name": "Springs Horizontal",
+    "path": "folders/Game Objects/Stage Objects/Springs Horizontal.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjSpringHorizontalMain",

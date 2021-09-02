@@ -1,22 +1,17 @@
 function ObjSignpostStartup()
 {
 	// Create variables
-	Active	     = 0;
-	ActiveTimer  = 0;
+	State	     = 0;
+	StateTimer   = 0;
 	SparkleToUse = 0;
-	SparkleX	 = [];
-	SparkleY	 = [];
-	SpriteData   = [];
 	
 	/* Variable Definitions	
 	1. PlayerType, default = "All"					
 	*/
 	
-	// Set object triggerbox
-	object_set_triggerbox(0, 32, -512, 512);
-		
-	// Set object depth
-	object_set_depth(Player, false);
+	// Set sparkle position data
+	SparkleX = [-24, 8, -16, 24, 0, 16, -24, 24];
+	SparkleY = [-16, 8, 0, -8, -8, 0, 8, 16];
 	
 	// Set sprites
 	switch Game.Character
@@ -42,7 +37,9 @@ function ObjSignpostStartup()
 	}
 	sprite_index = SpriteData[0];
 	
-	// Set sparkle position data
-	SparkleX = [-24, 8, -16, 24, 0, 16, -24, 24];
-	SparkleY = [-16, 8, 0, -8, -8, 0, 8, 16];	
+	// Set object triggerbox
+	object_set_triggerbox(0, 32, -512, 512);
+		
+	// Set object depth
+	object_set_depth(Player, false);
 }
