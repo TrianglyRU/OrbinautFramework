@@ -11,11 +11,12 @@ function BackgroundProcess()
 	var ViewY = Camera.ViewY;
 	
 	// Work with each parallax piece individually
+	var UpdateAutoscroll = !(fade_check(FadeActive) or variable_check(Stage, "IsPaused"));
 	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
 	{
 		// Update autoscroll values
-		if !(variable_check(Stage, "IsPaused") or fade_check(FadeActive))
+		if UpdateAutoscroll
 		{
 			BGValues[i][11] += BGValues[i][4];
 		}
@@ -25,7 +26,7 @@ function BackgroundProcess()
 		var PosY		  = BGValues[i][1];
 		var ScrollX		  = BGValues[i][2];
 		var ScrollY		  = BGValues[i][3];
-		var ScrollAuto	  = BGValues[i][4] + BGValues[i][11];
+		var ScrollXAuto	  = BGValues[i][11];
 		var InclineHeight = BGValues[i][5];
 		var InclineForce  = BGValues[i][6];
 		var	YScaleMode	  = BGValues[i][7];
@@ -78,7 +79,7 @@ function BackgroundProcess()
 		}
 		
 		// Transfer data to the shader
-		shader_set_uniform_f(Shader.ParOffset, DrawX * ScrollX - ScrollAuto);
+		shader_set_uniform_f(Shader.ParOffset, DrawX * ScrollX - ScrollXAuto);
 		shader_set_uniform_f(Shader.ParPos,    DrawX + PosX, DrawY);
 		shader_set_uniform_f(Shader.ParWidth,  Width);
 		shader_set_uniform_f(Shader.ParPixelSize, PixelSize);

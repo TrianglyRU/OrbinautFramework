@@ -99,7 +99,7 @@ function ObjSignpostMain()
 		Stage.TargetLeftBoundary  = x - Game.Width * 1.5 + 64;
 		Stage.TargetRightBoundary = x + Game.Width / 2;
 		
-		if Active
+		if State
 		{
 			Stage.TargetLeftBoundary = x - (Game.Width / 2);
 		}
