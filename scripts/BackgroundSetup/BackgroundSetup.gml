@@ -17,6 +17,22 @@ function BackgroundSetup()
 	
 	switch room
 	{	
+		// Test Stage
+		case TestStage:
+		{
+			// Set background sprites
+			BGSprites = [tex_tsz_bg0, tex_tsz_bg1];
+			
+			// Set background properties
+			BGValues[0] = [0, 0,   0.15, 0.05, 0, 0, 0, 0];
+			BGValues[1] = [0, 124, 0.25, 0.05, 0, 0, 0, 0];
+			
+			// Set background colour
+			BGColour = c_gray;
+		}
+		break;
+		
+		// Default
 		default: 
 		{
 			// Set background sprites
@@ -29,7 +45,7 @@ function BackgroundSetup()
 			BGValues[2] = [...];
 			*/
 			
-			// Set default background colour (you can also use HEX colour, in $BBGGRR format)
+			// Set background colour
 			BGColour = c_gray;
 		}
 		break;

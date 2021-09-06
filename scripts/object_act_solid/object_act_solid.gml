@@ -18,7 +18,8 @@ function object_act_solid(sides,top,bottom,interact)
 	}
 	
 	// Exit if object is off-screen
-	if x < Camera.ViewX or x > Camera.ViewX + Game.Width
+	if x < Camera.ViewX - 32 or x > Camera.ViewX + Game.Width  + 32
+	or y < Camera.ViewY - 32 or y > Camera.ViewY + Game.Height + 32
 	{
 		exit;
 	}
