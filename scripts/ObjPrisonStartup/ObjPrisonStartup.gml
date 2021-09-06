@@ -14,7 +14,7 @@ function ObjPrisonStartup()
 	object_set_depth(Player, false);
 	
 	// Set object active range
-	object_set_range(RangeFar, TypeUnload);
+	object_set_range(TypePause);
 	
 	// Create button object
 	ChildObject	= instance_create(x, y - 38, PrisonButton);

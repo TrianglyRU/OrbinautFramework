@@ -7,6 +7,12 @@ function object_check_touch(side)
 		exit;
 	}
 	
+	// Exit if object is off-screen
+	if x < Camera.ViewX or x > Camera.ViewX + Game.Width
+	{
+		exit;
+	}
+	
 	// Exit if no solid radiuses were initialized for this object
 	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{

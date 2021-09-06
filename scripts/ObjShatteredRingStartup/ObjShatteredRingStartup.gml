@@ -12,7 +12,7 @@ function ObjShatteredRingStartup()
 	object_set_hitbox(6, 6);
 	
 	// Set object range
-	object_set_range(RangeClose, TypeDelete);
+	object_set_range(TypeDelete);
 	
 	// Set object depth
 	object_set_depth(Player, false);

@@ -9,7 +9,7 @@ function ObjRollTriggerMain()
 		Player.GlideState  = false;
 		
 		// Set object flag
-		if !Active
+		if !Active and abs(Player.Inertia) < 4
 		{
 			Player.Inertia = 4 * abs(Player.Facing);
 		}

@@ -9,5 +9,5 @@ function ObjBuzzbomberBulletStartup()
 	object_set_hitbox(4, 4);
 	
 	// Set object active range
-	object_set_range(RangeClose, TypeDelete);
+	object_set_range(TypeDelete);
 }

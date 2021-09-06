@@ -111,25 +111,13 @@ function PlayerGroundFloorCollision()
 		case QuadFloor:
 		{		
 			// Get nearest tile below us
-			var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-			var TileRight = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-			
-			// Get closest tile
-			if Game.CustomSlopeCollision and (TileLeft[0] == TileRight[0] and TileLeft[0] > 0)
-			{
-				// Check if we should use tile right below our position to avoid that stupid quirk from originals
-				var TileMiddle = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer);
+			var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+			var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+		    var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
 				
-				var FloorDistance = TileMiddle[0];
-				var FloorAngle    = TileMiddle[1];
-			}
-			else
-			{
-				var NearestTile   = tile_check_nearest(TileLeft, TileRight, Angle);
-				
-				var FloorDistance = NearestTile[0];
-				var FloorAngle    = NearestTile[1];
-			}
+			// Get data
+			var FloorDistance = NearestTile[0];
+			var FloorAngle    = NearestTile[1];
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
@@ -156,11 +144,11 @@ function PlayerGroundFloorCollision()
 		case QuadRWall:
 		{	
 			// Get nearest tile to our right
-			var TileLeft  = tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, false, Layer);
-			var TileRight = tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, false, Layer);
+			var TileLeft    = tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, false, Layer);
+			var TileRight   = tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, false, Layer);
+			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
 			
 			// Get data
-			var NearestTile   = tile_check_nearest(TileLeft, TileRight, Angle);
 			var FloorDistance = NearestTile[0];
 			var FloorAngle    = NearestTile[1];
 			
@@ -191,9 +179,9 @@ function PlayerGroundFloorCollision()
 			// Get nearest tile above us
 			var TileLeft    = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, false, Layer);
 			var TileRight   = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, false, Layer);
+			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
 			
 			// Get data
-			var NearestTile   = tile_check_nearest(TileLeft, TileRight, Angle);
 			var FloorDistance = NearestTile[0];
 			var FloorAngle    = NearestTile[1];
 			
@@ -224,11 +212,11 @@ function PlayerGroundFloorCollision()
 		case QuadLWall:
 		{	
 			// Get nearest tile to our left
-			var TileLeft  = tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, false, Layer);
-			var TileRight = tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, false, Layer);
+			var TileLeft    = tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, false, Layer);
+			var TileRight   = tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, false, Layer);
+			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
 			
 			// Get data
-			var NearestTile   = tile_check_nearest(TileLeft, TileRight, Angle);
 			var FloorDistance = NearestTile[0];
 			var FloorAngle    = NearestTile[1];
 			

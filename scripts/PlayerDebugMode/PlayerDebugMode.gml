@@ -144,7 +144,7 @@ function PlayerDebugMode()
 					image_xscale = ThisObject;
 					
 					// Delete when off-screen
-					object_set_range(RangeFar, TypeDelete);
+					object_set_range(TypeDelete);
 				}
 			}
 			

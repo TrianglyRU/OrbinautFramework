@@ -10,7 +10,7 @@ function ObjSpikesVerticalStartup()
 	object_set_depth(Player, false);
 	
 	// Set object active range
-	object_set_range(RangeClose, TypeUnload);
+	object_set_range(TypePause);
 	
 	// Define hurt side
 	HurtSide = image_yscale == 1 ? SideTop : SideBottom;

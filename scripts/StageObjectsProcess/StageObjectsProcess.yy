@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+    "name": "Stage",
+    "path": "folders/Game Code/Stage.yy",
   },
   "resourceVersion": "1.0",
-  "name": "object_update_position",
+  "name": "StageObjectsProcess",
   "tags": [],
   "resourceType": "GMScript",
 }

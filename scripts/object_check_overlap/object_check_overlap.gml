@@ -7,6 +7,12 @@ function object_check_overlap(collision_type)
 		return false;
 	}
 	
+	// Exit if object is off-screen
+	if x < Camera.ViewX or x > Camera.ViewX + Game.Width
+	{
+		exit;
+	}
+	
 	// Check for hitbox overlap
 	if collision_type == Hitbox
 	{

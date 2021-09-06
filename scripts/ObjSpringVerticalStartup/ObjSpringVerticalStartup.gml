@@ -20,5 +20,5 @@ function ObjSpringVerticalStartup()
 	object_set_depth(Player, false);
 	
 	// Set object active range
-	object_set_range(RangeClose, TypeUnload);
+	object_set_range(TypePause);
 }

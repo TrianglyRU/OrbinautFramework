@@ -13,7 +13,7 @@ function GameMacro()
 	#macro RangeFar    1
 	#macro EnemyBadnik 0
 	#macro EnemyBoss   1
-	#macro TypeUnload  1
+	#macro TypePause   1
 	#macro TypeReset   2
 	#macro TypeDelete  3
 	#macro FlipLeft	  -1

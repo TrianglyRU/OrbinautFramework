@@ -19,5 +19,5 @@ function ObjCountdownBubbleStartup()
 	object_set_depth(Player, true);
 	
 	// Set object active range
-	object_set_range(RangeFar, TypeDelete);
+	object_set_range(TypeDelete);
 }

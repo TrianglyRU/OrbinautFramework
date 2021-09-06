@@ -16,5 +16,5 @@ function ObjBossTriggerStartup()
 	object_set_triggerbox(0, 32, -y, room_width - y);
 	
 	// Set object active range
-	object_set_range(RangeFar, TypeUnload);
+	object_set_range(TypePause);
 }

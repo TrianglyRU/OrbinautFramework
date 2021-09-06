@@ -60,5 +60,5 @@ function ObjItemBoxStartup()
 	object_set_depth(Player, false);
 	
 	// Set active range
-	object_set_range(RangeFar, TypeReset);
+	object_set_range(TypeReset);
 }

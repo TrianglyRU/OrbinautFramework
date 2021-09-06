@@ -11,7 +11,7 @@ function ObjRingStartup()
 	object_set_hitbox(6, 6);
 	
 	// Set object active range
-	object_set_range(RangeClose, TypeUnload);
+	object_set_range(TypePause);
 	
 	// Set object depth
 	object_set_depth(Player, false);

@@ -21,5 +21,5 @@ function ObjMotobugStartup()
 	object_set_depth(Player, false);
 	
 	// Set object active range
-	object_set_range(RangeClose, TypeReset);
+	object_set_range(TypeReset);
 }

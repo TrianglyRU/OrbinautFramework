@@ -14,5 +14,5 @@ function ObjChopperStartup()
 	object_set_hitbox(12, 16);
 	
 	// Set object active range
-	object_set_range(RangeFar, TypeReset);
+	object_set_range(TypeReset);
 }
