@@ -1,6 +1,5 @@
-# Orbinaut Framework
-An accurate classic Sonic framework, made for GameMaker Studio 2!
-NOTE: Please, do not use the latest master as it is somewhat a dev version. Use the latest release instead
+# Please Note!
+Do not use the latest master as it is somewhat a dev version. Use the latest release instead!
 
 # Features
 - Classic-accurate physics
