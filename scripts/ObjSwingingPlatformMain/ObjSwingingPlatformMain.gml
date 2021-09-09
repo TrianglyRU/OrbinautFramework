@@ -12,24 +12,26 @@ function ObjSwingingPlatformMain()
 	}
      
 	// Do not run the code below is unloaded
-	if !Unload
+	if Unload
 	{
-		// Set rotation angle
-		RotationAngle = Stage.Time * Speed mod 360;
-		
-		// Get rotation angle (in degrees) and chain amount
-		var Angle = dsin(RotationAngle);
-		var Count = ChainCount + 1;
-		
-		// Move platform
-		XDist = dcos(90 + Angle * AngleX) * ChainSize;
-		YDist = dsin(90 + Angle * AngleY) * ChainSize;
-		
-		// Update position
-		x = floor(OriginX + XDist * Count);
-		y = floor(OriginY + YDist * Count);
-    
-		// Do collision
-		object_act_solid(false, true, false, false);
+		exit;
 	}
+	
+	// Set rotation angle
+	RotationAngle = Stage.Time * Speed mod 360;
+		
+	// Get rotation angle (in degrees) and chain amount
+	var Angle = dsin(RotationAngle);
+	var Count = ChainCount + 1;
+		
+	// Move platform
+	XDist = dcos(90 + Angle * AngleX) * ChainSize;
+	YDist = dsin(90 + Angle * AngleY) * ChainSize;
+		
+	// Update position
+	x = floor(OriginX + XDist * Count);
+	y = floor(OriginY + YDist * Count);
+    
+	// Do collision
+	object_act_solid(false, true, false, false);
 }

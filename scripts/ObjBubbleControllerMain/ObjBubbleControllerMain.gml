@@ -38,7 +38,7 @@ function ObjBubbleControllerMain()
 				IsCountBubble = true;
 			}
 		
-			// Set a chance to generate second bubble	
+			// Generate a second bubble with 50% chance	
 			if irandom(1)
 			{
 				BubbleDelay = irandom_range(1, 16);
