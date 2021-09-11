@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Special Stage",
-    "path": "folders/Game Code/Special Stage.yy",
+    "name": "Stage (Special)",
+    "path": "folders/Game Code/Stage (Special).yy",
   },
   "resourceVersion": "1.0",
   "name": "SpecialStage",

@@ -105,14 +105,11 @@ function PlayerMovementGround()
 		{
 			Inertia = min(Inertia + Frc, 0);
 		}
-	}
-	
-	// Clear push flag
-	if (!Input.Left and !Input.Right) or GroundLock
-	{
+		
+		// Clear push flag
 		Pushing = false;
 	}
-	
+
 	// Convert inertia to speeds
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
@@ -130,11 +127,8 @@ function PlayerMovementGround()
 			if Inertia == 0
 			{
 				Animation = AnimIdle;
-			}
-			
-			// Set crouch or lookup animation
-			if Animation == AnimIdle
-			{
+				
+				// Set crouch or lookup animation
 				if Input.Up
 				{
 					Animation = AnimLookup;
@@ -145,10 +139,9 @@ function PlayerMovementGround()
 				}
 			}
 		}
-		
-		// If not skidding, use movement animation
 		if Inertia != 0
 		{
+			// If not skidding, use movement animation
 			if Animation != AnimSkid
 			{
 				Animation = AnimMove;

@@ -1,4 +1,4 @@
-function SpecialMainStartup()
+function SpecialScreenStartup()
 {
 	// Turn screen white
 	fade_perform(FadeTo, ColourWhite, 0);

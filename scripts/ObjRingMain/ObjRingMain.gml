@@ -49,17 +49,6 @@ function ObjRingMain()
 		// Add 1 to ring counter
 		Player.Rings++;
 		
-		// Grant extra life
-		if Player.Rings >= 100 and Player.LivesRewards == 0
-		or Player.Rings >= 200 and Player.LivesRewards == 1
-		{
-			Player.Lives++;
-			Player.LivesRewards++;
-			
-			// Play jingle
-			audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
-		}
-		
 		// Play sound
 		audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
 	

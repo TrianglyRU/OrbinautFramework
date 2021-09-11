@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Special Main",
-    "path": "folders/Game Code/Special Main.yy",
+    "name": "Player",
+    "path": "folders/Game Code/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpecialMainProcess",
+  "name": "PlayerGeneralUpdate",
   "tags": [],
   "resourceType": "GMScript",
 }

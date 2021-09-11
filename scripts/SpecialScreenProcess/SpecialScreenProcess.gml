@@ -1,4 +1,4 @@
-function SpecialMainProcess()
+function SpecialScreenProcess()
 {
 	// Exit if not coming from Special Stage, or fade is active
 	if !Game.SpecialState or (!RoomState and fade_check(FadeActive))

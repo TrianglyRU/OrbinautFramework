@@ -1,4 +1,4 @@
-function SpecialMainDraw()
+function SpecialScreenDraw()
 {
 	// Exit if not coming from a Special Stage, or fading out
 	if !Game.SpecialState or RoomState == 3

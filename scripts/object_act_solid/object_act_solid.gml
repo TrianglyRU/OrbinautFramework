@@ -205,7 +205,7 @@ function object_act_solid(sides,top,bottom,interact)
 			{
 				if Player.Xsp > 0 and Player.Facing == FlipRight
 				{
-					Player.Pushing = true;
+					Player.Pushing = !Player.Spinning;
 				}
 				Obj_SolidTouchL = true;
 			}
@@ -213,7 +213,7 @@ function object_act_solid(sides,top,bottom,interact)
 			{
 				if Player.Xsp < 0 and Player.Facing == FlipLeft
 				{
-					Player.Pushing = true;
+					Player.Pushing = !Player.Spinning;
 				}
 				Obj_SolidTouchR = true;
 			}

@@ -135,17 +135,6 @@ function ObjItemBoxMain()
 					// Give 10 rings
 					Player.Rings += 10;
 						
-					// Grant extra life
-					if Player.Rings >= 100 and Player.LivesRewards == 0
-					or Player.Rings >= 200 and Player.LivesRewards == 1
-					{
-						Player.Lives++;
-						Player.LivesRewards++;
-							
-						// Play jungle
-						audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
-					}
-						
 					// Play ring sound
 					audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
 				}

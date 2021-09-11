@@ -52,18 +52,36 @@ function ObjSpecialRingMain()
 				}
 				else
 				{
-					// Remember position and time
+					// Remember position
 					Game.SpecialRingData[0] = x;
 					Game.SpecialRingData[1] = y;
 					Game.SpecialRingData[2] = Stage.Time;
-					
-					// Remember current score and stage boundary
+						
+					// Remember current score, rings and stage boundary
 					Game.Score		   = Player.Score;
+					Game.Rings		   = Player.Rings;
 					Game.StageBoundary = Stage.BottomBoundary;
 					
 					// Create flash object
 					instance_create(x, y, SpecialRingFlash);
 					image_alpha = 0;
+					
+					// Stop player
+					with Player
+					{
+						Xsp		      = 0;
+						Ysp			  = 0;
+						Inertia		  = 0;
+						AllowMovement = 0;
+						visible = 0;
+					}
+			
+					// If Tails, stop sounds
+					if Game.Character == CharTails
+					{
+						audio_sfx_stop(sfxTired);
+						audio_sfx_stop(sfxFlying);
+					}
 					
 					// Increment state
 					State++;
@@ -73,21 +91,6 @@ function ObjSpecialRingMain()
 		break;
 		case 2:
 		{	
-			// Stop player
-			with Player
-			{
-				Xsp		= 0;
-				Ysp		= 0;
-				visible = 0;
-			}
-			
-			// If Tails, stop sounds
-			if Game.Character == CharTails
-			{
-				audio_sfx_stop(sfxTired);
-				audio_sfx_stop(sfxFlying);
-			}
-			
 			// Perform fade after 32 frames
 			if (++Timer) == 32
 			{

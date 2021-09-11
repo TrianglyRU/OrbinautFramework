@@ -28,11 +28,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Special Main",
-    "path": "folders/Game Code/Special Main.yy",
+    "name": "Screen (Special Stage)",
+    "path": "folders/Game Code/Screen (Special Stage).yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpecialMain",
+  "name": "SpecialScreen",
   "tags": [],
   "resourceType": "GMObject",
 }

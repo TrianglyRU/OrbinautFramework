@@ -1,5 +1,22 @@
-function PlayerPowerup()
+function PlayerGeneralUpdate()
 {
+	// Decrease invincibility frames timer
+	if InvincibilityFrames and !Hurt
+	{
+		InvincibilityFrames--;
+	}
+	
+	// Grant extra life
+	if Rings >= 100 and LivesRewards == 0
+	or Rings >= 200 and LivesRewards == 1
+	{
+		Lives++;
+		LivesRewards++;
+							
+		// Play jungle
+		audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
+	}
+	
 	// Handle highspeed bonus
 	if HighspeedBonus
 	{	
@@ -36,11 +53,5 @@ function PlayerPowerup()
 				audio_bgm_play(PriorityLow, Stage.StageMusic, other);
 			}
 		}
-	}
-	
-	// Decrease invincibility frames timer
-	if InvincibilityFrames and !Hurt
-	{
-		InvincibilityFrames--;
 	}
 }

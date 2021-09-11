@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Player",
-    "path": "folders/Game Code/Player.yy",
+    "name": "Screen (Special Stage)",
+    "path": "folders/Game Code/Screen (Special Stage).yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerPowerup",
+  "name": "SpecialScreenStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

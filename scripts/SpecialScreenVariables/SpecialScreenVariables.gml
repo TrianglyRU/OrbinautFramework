@@ -1,4 +1,4 @@
-function SpecialMainVariables()
+function SpecialScreenVariables()
 {
 	RoomState   = 0;
 	RoomTimer   = 0;

@@ -5,7 +5,7 @@
 	if !PlayerProcess() exit;
 	
 	// Post-Objects Scripts
-	PlayerPowerup();
+	PlayerGeneralUpdate();
 	PlayerSuperFormsProcess();
 	PlayerWaterEvents();
 	PlayerSwapPhysics();

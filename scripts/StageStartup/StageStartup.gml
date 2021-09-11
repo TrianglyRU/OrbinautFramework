@@ -54,5 +54,5 @@ function StageStartup()
 	
 	/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
 	of another script. It is needed here to avoid objects being active for 1 frame upon stage loading */
-	//StageObjectsInactiveProcess();
+	StageObjectsInactiveProcess();
 }
