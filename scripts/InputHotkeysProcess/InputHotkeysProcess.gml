@@ -1,6 +1,6 @@
 function InputHotkeysProcess()
 {	
-	if !Game.DevMode or !variable_check(Stage, "DoUpdate")
+	if !Game.DevMode or Type != "keyboard" or !variable_check(Stage, "DoUpdate")
 	{
 		exit;
 	}

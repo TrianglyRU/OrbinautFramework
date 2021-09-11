@@ -22,4 +22,6 @@ function InputVariables()
 	ABCPress	= 0;
 	StartPress  = 0;
 	ModePress   = 0;
+	LVAxisValue = 0;
+	LHAxisValue = 0;
 }

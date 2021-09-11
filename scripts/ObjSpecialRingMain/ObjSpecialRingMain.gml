@@ -5,9 +5,10 @@ function ObjSpecialRingMain()
 		case 0:
 		{
 			// Delete this ring if it was used before
-			if !array_equals(Game.SpecialRingList, [])
+			var Length = array_length(Game.SpecialRingList);
+			if Length
 			{
-				for (var i = 0; i < array_length(Game.SpecialRingList); i++)
+				for (var i = 0; i < Length; i++)
 				{
 					if id == Game.SpecialRingList[i]
 					{
@@ -35,15 +36,8 @@ function ObjSpecialRingMain()
 				audio_sfx_play(sfxSpecialRing, false);
 				
 				// Remember this ring
-				if !array_equals(Game.SpecialRingList, [])
-				{
-					Game.SpecialRingList[array_length(Game.SpecialRingList)] = id;
-				}
-				else
-				{
-					Game.SpecialRingList[0] = id;
-				}
-					
+				Game.SpecialRingList[array_length(Game.SpecialRingList)] = id;
+				
 				// If we have all emeralds, give 50 rings
 				if Game.Emeralds == 7
 				{

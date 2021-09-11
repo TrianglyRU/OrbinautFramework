@@ -1,7 +1,7 @@
 function InputKeyboardProcess() 
 {
 	// Exit if we ignore input or gamepad input is active
-	if IgnoreInput or Type == "Gamepad"
+	if IgnoreInput or Type != "Keyboard"
 	{
 		exit;
 	}

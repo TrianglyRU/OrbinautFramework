@@ -20,7 +20,7 @@ function StageStartup()
 	}
 	
 	// Load saved time
-	if !array_equals(Game.SpecialRingData, [])
+	if array_length(Game.SpecialRingData)
 	{
 		Time = Game.SpecialRingData[2];
 	}

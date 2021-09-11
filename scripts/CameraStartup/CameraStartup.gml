@@ -15,14 +15,14 @@ function CameraStartup()
 			Target = Player;
 			
 			// Set position on Star Post if its data exists
-			if !array_equals(Game.StarPostData, [])
+			if array_length(Game.StarPostData)
 			{
 				PosX = Game.StarPostData[0] - Game.Width  / 2;
 				PosY = Game.StarPostData[1] - Game.Height / 2 + 16;
 			}
 	
 			// Set position on Special Ring if its data exists
-			if !array_equals(Game.SpecialRingData, [])
+			if array_length(Game.SpecialRingData)
 			{
 				PosX = Game.SpecialRingData[0] - Game.Width  / 2;
 				PosY = Game.SpecialRingData[1] - Game.Height / 2 + 16;

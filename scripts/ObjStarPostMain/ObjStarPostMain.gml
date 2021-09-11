@@ -3,7 +3,7 @@ function ObjStarPostMain()
 	// Load as activated if ID is lower than the ID of activated one
 	if !ActiveCheck
 	{
-		if !array_equals(Game.StarPostData, []) and instance_exists(Game.StarPostData[2])
+		if array_length(Game.StarPostData) and instance_exists(Game.StarPostData[2])
 		{
 			if Game.StarPostData[2].ID >= ID
 			{

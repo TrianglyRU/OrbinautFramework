@@ -57,7 +57,7 @@ function ObjCountdownBubbleMain()
 		x = floor(FinalX);
 		y = floor(PosY);
 	}
-	else if array_equals(ScreenPosition, [])
+	else if !array_length(ScreenPosition)
 	{
 		ScreenPosition[0] = x - Camera.ViewX;
 		ScreenPosition[1] = y - Camera.ViewY;
