@@ -2,16 +2,14 @@ function ObjBridgeStartup()
 {
 	// Create variables
 	RecoveryAngle    = 0;
-	NativeX			 = 0;
-	NativeY		     = 0;
 	ActiveSegment    = 0;
 	ActiveDepression = 0;
-	LogDepression    = [];
 	
 	/* Variable Definitions	
-	1. BridgeLength, default = 12
-	2. BridgeSprite, default = spr_obj_bridge_log_template
-	3. PostSprite,   default = spr_obj_bridge_post_template
+	1. BridgeLength,  default = 12
+	2. GeneratePosts, default = true
+	3. BridgeSprite,  default = spr_obj_bridge_log_template
+	4. PostSprite,    default = spr_obj_bridge_post_template
 	*/
 	
 	// Calculate log depression value

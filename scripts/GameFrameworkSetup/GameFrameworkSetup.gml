@@ -2,7 +2,7 @@ function GameFrameworkSetup()
 {
 	// Game settins
 	Game.DevMode    = true;
-	Game.ShowSplash = true;
+	Game.ShowSplash = false;
 	
 	// Default game state (this only applies when we load right into stage/room avoiding main menu)
 	Game.Character    =  CharSonic;

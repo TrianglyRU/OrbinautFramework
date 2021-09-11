@@ -63,7 +63,7 @@ function ObjSpecialRingMain()
 					
 					// Create flash object
 					instance_create(x, y, SpecialRingFlash);
-					sprite_index = spr_obj_specialring_collected;
+					image_alpha = 0;
 					
 					// Increment state
 					State++;

@@ -31,17 +31,17 @@ function ObjPushableBlockMain()
 		{
 			if object_check_push(SideLeft)
 			{
-				Direction = FlipRight;
+				Direction      = FlipRight;
+				PosX		  += 1;
+				Player.PosX   += 1;
 				Player.Inertia = 0.25;
-				Player.PosX++;
-				PosX++;	
 			}
 			else if object_check_push(SideRight)
 			{
-				Direction = FlipLeft;
+				Direction      = FlipLeft;
+				PosX		  -= 1;
+				Player.PosX	  -= 1;
 				Player.Inertia = -0.25;
-				Player.PosX--;
-				PosX--;
 			}
 		}
 	}

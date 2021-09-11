@@ -34,7 +34,7 @@ function PlayerAnimate()
 	}
 	if Animation != AnimGetUp
 	{
-		AnimKnuxGetUp   = 16;
+		AnimKnuxGetUp = 16;
 	}
 	
 	// Animate character

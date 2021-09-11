@@ -83,7 +83,7 @@ function tile_check_collision_v(x,y,to_positive,ignore_top,tilelayer)
 	
 	// Return blank values if target tile is outside of the room
 	var BoundsCheck = (y + SearchShift * SearchDirection) div 16 * 16;
-	if  BoundsCheck >= room_height or BoundsCheck <= 0
+	if  BoundsCheck >= room_height
 	{
 		return [32, 360];
 	}
