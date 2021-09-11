@@ -28,6 +28,7 @@ function PlayerStartup()
 	// Set flags and gravity
 	AirTimer	   = 1800;
 	AllowCollision = true;
+	AllowMovement  = true;
 	Grounded	   = true;
 	PeeloutRev     = -1;
 	SpindashRev    = -1;

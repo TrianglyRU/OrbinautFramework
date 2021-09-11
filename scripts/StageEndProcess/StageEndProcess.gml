@@ -18,6 +18,9 @@ function StageEndProcess()
 	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];
 	
+	// Clear recorded position
+	ds_list_destroy(Player.RecordedPosX);
+	ds_list_destroy(Player.RecordedPosY);
 		
 	// Save game progress at the end of the zone if we're not in "no save" mode
 	if ActID == FinalActID and Game.ActiveSave != -1
