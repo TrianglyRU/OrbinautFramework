@@ -14,7 +14,7 @@ function InputGamepadProcess()
 
 	// Get stick data
 	var LVAxisValue = gamepad_axis_value(0, gp_axislv);
-	var LHAxisValue = gamepad_axis_value(0, gp_axislv);
+	var LHAxisValue = gamepad_axis_value(0, gp_axislh);
 	
 	// Process single press
 	UpPress    = (LVAxisValue < 0 and !Up)    or gamepad_button_check_pressed(0, gp_padu);
