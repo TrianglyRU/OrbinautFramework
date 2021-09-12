@@ -4,33 +4,25 @@ function ObjPushableBlockMain()
 	object_act_solid(true, true, true, false);
 	
 	// Check for floor collision
-	if Update
+	var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
+	if  FindFloor < 0
 	{
-		var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
-		if  FindFloor < 0
+		if !Grounded
 		{
-			if !Grounded
-			{
-				PosY	 += FindFloor;
-				Grounded  = true;
-				Ysp		  = 0;
-			}
-		}
-		else if FindFloor > 0
-		{
-			if Grounded
-			{
-				PosX     -= Direction;
-				ClipTimer = 4;
-				Grounded  = false;
-			}
+			PosY	 += FindFloor;
+			Grounded  = true;
+			Ysp		  = 0;
 		}
 	}
-	
-	// Update previous position
-	Update = !(PrevX == PosX and PrevY == PosY);
-	PrevX = PosX;
-	PrevY = PosY;
+	else if FindFloor > 0
+	{
+		if Grounded
+		{
+			PosX     -= Direction;
+			ClipTimer = 4;
+			Grounded  = false;
+		}
+	}
 	
 	// Check for being pushed
 	if Grounded
@@ -39,17 +31,19 @@ function ObjPushableBlockMain()
 		{
 			if object_check_push(SideLeft)
 			{
-				Direction      = FlipRight;
 				Player.Inertia = 0.25;
-				Player.PosX++;
-				PosX++;
+				Player.PosX   += 1;
+				
+				PosX	 += 1;
+				Direction = FlipRight;				
 			}
 			else if object_check_push(SideRight)
 			{
-				Direction      = FlipLeft;
 				Player.Inertia = -0.25;
-				Player.PosX--;
-				PosX--;
+				Player.PosX   -= 1;
+				
+				PosX	 -= 1;
+				Direction = FlipLeft;
 			}
 		}
 	}
@@ -69,20 +63,17 @@ function ObjPushableBlockMain()
 	}
 	
 	// Collide with walls
-	if Update
+	var LeftDistance = tile_check_collision_h(PosX - 16, PosY, false, true, LayerA)[0];
+	if  LeftDistance < 0
 	{
-		var LeftDistance = tile_check_collision_h(PosX - 16, PosY, false, true, LayerA)[0];
-		if  LeftDistance < 0
-		{
-			PosX     -= LeftDistance;
-			FoundWall = true;
-		}
-		var RightDistance = tile_check_collision_h(PosX + 16, PosY, true, true, LayerA)[0];
-		if  RightDistance < 0
-		{
-			PosX     += RightDistance;
-			FoundWall = true;
-		}
+		PosX     -= LeftDistance;
+		FoundWall = true;
+	}
+	var RightDistance = tile_check_collision_h(PosX + 16, PosY, true, true, LayerA)[0];
+	if  RightDistance < 0
+	{
+		PosX     += RightDistance;
+		FoundWall = true;
 	}
 	
 	// Update position

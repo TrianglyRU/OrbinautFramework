@@ -1,13 +1,20 @@
 function InputGamepadProcess() 
 {
-	// Exit if we ignore input or keyboard input is active
-	if IgnoreInput or Type != "Gamepad" or !gamepad_is_connected(0)
+	// Exit if gamepad isn't connected
+	if !gamepad_is_connected(0)
 	{
 		exit;
 	}
 	
-	LVAxisValue = gamepad_axis_value(0, gp_axislv);
-	LHAxisValue = gamepad_axis_value(0, gp_axislv);
+	// Exit if we ignore input or keyboard input is active
+	if IgnoreInput or Type != "Gamepad"
+	{
+		exit;
+	}
+
+	// Get stick data
+	var LVAxisValue = gamepad_axis_value(0, gp_axislv);
+	var LHAxisValue = gamepad_axis_value(0, gp_axislv);
 	
 	// Process single press
 	UpPress    = (LVAxisValue < 0 and !Up)    or gamepad_button_check_pressed(0, gp_padu);
@@ -32,4 +39,16 @@ function InputGamepadProcess()
 	Mode  = gamepad_button_check(0, gp_select);
 	Start = gamepad_button_check(0, gp_start);
 	ABC   = A or B or C;
+	
+	// Ignore double input
+	if Left and Right
+	{
+		Left  = false;
+		Right = false;
+	}
+	if Up and Down
+	{
+		Up   = false;
+		Down = false;
+	}
 }

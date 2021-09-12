@@ -1,5 +1,5 @@
-/// @function object_act_solid(sides,top,bottom,interact)
-function object_act_solid(sides,top,bottom,interact)
+/// @function object_act_solid(sides,top,bottom,reset_actions)
+function object_act_solid(sides,top,bottom,reset_actions)
 {
 	/* The following is long and replicates originals method of colliding with object,
 	however it was tweaked in several places to make collision much more consistent */
@@ -78,7 +78,7 @@ function object_act_solid(sides,top,bottom,interact)
 		var SlopeOffset = 0;
 	}
 	
-	// Check if player is standing on this object, collide only with its top side
+	// If player is standing on this object, collide only with its top side
 	if Player.OnObject == ObjectID
 	{	
 		Player.PosX += floor(x - xprevious);
@@ -179,7 +179,7 @@ function object_act_solid(sides,top,bottom,interact)
 							Angle    = 360;
 						
 							// If interactable, cancel barrier ability and dropdash
-							if interact
+							if reset_actions
 							{
 								BarrierIsActive = false;
 								DropdashRev		= -1;

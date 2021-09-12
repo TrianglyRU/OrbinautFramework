@@ -1,6 +1,13 @@
 function InputHotkeysProcess()
 {	
-	if !Game.DevMode or Type != "keyboard" or !variable_check(Stage, "DoUpdate")
+	// Exit if input device is gamepad
+	if Type != "Keyboard"
+	{
+		exit;
+	}
+	
+	// Exit if not in dev mode or stage isn't updating
+	if !Game.DevMode or !variable_check(Stage, "DoUpdate")
 	{
 		exit;
 	}

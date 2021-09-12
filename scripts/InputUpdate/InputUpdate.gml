@@ -1,4 +1,12 @@
 function InputUpdate() 
 {
-	Type = keyboard_check(vk_anykey) ? "Keyboard" : "Gamepad";
+	// Update device
+	if keyboard_check(vk_anykey)
+	{
+		Type = "Keyboard";
+	}
+	else if gamepad_is_connected(0)
+	{
+		Type = "Gamepad";
+	}
 }
