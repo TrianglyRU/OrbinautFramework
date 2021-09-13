@@ -106,7 +106,6 @@ function player_damage(flame_type,thunder_type,instant_kill)
 			}
 			
 			// Clear ring counter
-			Player.LivesRewards = 0;
 			Player.Rings        = 0;
 		}
 			
