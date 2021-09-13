@@ -1,4 +1,4 @@
-function ObjSpawnpointSetup()
+function ObjSpawnPointSetup()
 {
 	/* Variable Definitions	
 	1. PlayerType, default = "All"					

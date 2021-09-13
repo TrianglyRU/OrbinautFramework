@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Developer Menu",
-    "path": "folders/Game Code/Developer Menu.yy",
+    "name": "Screen (DevMenu)",
+    "path": "folders/Game Code/Screen (DevMenu).yy",
   },
   "resourceVersion": "1.0",
   "name": "MenuSetup",

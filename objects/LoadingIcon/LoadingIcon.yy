@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Loading Icon",
-    "path": "folders/Game Objects/Room Objects/Loading Icon.yy",
+    "path": "folders/Game Objects/Screen Objects/Loading Icon.yy",
   },
   "resourceVersion": "1.0",
   "name": "LoadingIcon",

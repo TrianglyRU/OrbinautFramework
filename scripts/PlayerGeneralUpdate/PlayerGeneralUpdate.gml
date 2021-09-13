@@ -7,8 +7,7 @@ function PlayerGeneralUpdate()
 	}
 	
 	// Grant extra life
-	if Rings >= 100 and LivesRewards == 0
-	or Rings >= 200 and LivesRewards == 1
+	if Rings >= 100 and LivesRewards == 0 or Rings >= 200 and LivesRewards == 1
 	{
 		Lives++;
 		LivesRewards++;

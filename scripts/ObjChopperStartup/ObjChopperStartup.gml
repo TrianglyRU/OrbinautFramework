@@ -13,6 +13,6 @@ function ObjChopperStartup()
 	// Set object hitbox
 	object_set_hitbox(12, 16);
 	
-	// Set object active range
-	object_set_range(TypeReset);
+	// Set object unload type
+	object_set_unload(TypeReset);
 }

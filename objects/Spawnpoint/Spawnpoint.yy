@@ -32,11 +32,11 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Spawnpoint",
-    "path": "folders/Game Objects/Stage Objects/Spawnpoint.yy",
+    "name": "Spawn Point",
+    "path": "folders/Game Objects/Stage Objects/Spawn Point.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Spawnpoint",
+  "name": "SpawnPoint",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -10,7 +10,7 @@ function BackgroundStartup()
 		BGValues[i][9] = sprite_get_width(BGSprites[i]);
 		BGValues[i][10] = texture_get_texel_width(sprite_get_texture(BGSprites[i], 0));
 		
-		// Set default autoscroll speed
+		// Initialise autoscroll speed
 		BGValues[i][11] = 0;
 	}
 	

@@ -1,6 +1,6 @@
 function BackgroundProcess()
 {	
-	// Draw gray background colour
+	// Draw background colour
 	draw_clear(BGColour);
 	
 	// Use parallax shader
@@ -10,12 +10,14 @@ function BackgroundProcess()
 	var ViewX = Camera.ViewX;
 	var ViewY = Camera.ViewY;
 	
-	// Work with each parallax piece individually
+	// Check if we should update autoscroll value
 	var UpdateAutoscroll = !(fade_check(FadeActive) or variable_check(Stage, "IsPaused"));
+	
+	// Work with each layer individually
 	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
 	{
-		// Update autoscroll values
+		// Update autoscroll value
 		if UpdateAutoscroll
 		{
 			BGValues[i][11] += BGValues[i][4];
@@ -39,7 +41,7 @@ function BackgroundProcess()
 		var DrawY = floor(ViewY * (1 - ScrollY)) + PosY;
 		
 		// Set y-scale mode properties
-		if  YScaleMode
+		if YScaleMode
 		{
 			var YScale = (Stage.WaterLevel - DrawY) / Height;
 			if  YScaleMode > 1

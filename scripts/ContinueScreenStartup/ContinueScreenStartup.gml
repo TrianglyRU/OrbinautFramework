@@ -1,4 +1,4 @@
-function ContinueScreenSetup()
+function ContinueScreenStartup()
 {
 	// Get room centre
 	RoomX = Game.Width / 2;

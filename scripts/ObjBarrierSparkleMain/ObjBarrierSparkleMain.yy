@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Barrier Sparkle",
-    "path": "folders/Game Objects/Stage Objects/Barrier Sparkle.yy",
+    "path": "folders/Game Objects/Stage Objects/Barrier/Barrier Sparkle.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjBarrierSparkleMain",

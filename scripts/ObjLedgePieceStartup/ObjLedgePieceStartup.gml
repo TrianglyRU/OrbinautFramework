@@ -10,6 +10,6 @@ function ObjLedgePieceStartup()
 	// Set default position
 	PosY = y;
 	
-	// Set object active range
-	object_set_range(TypeDelete);
+	// Set object unload type
+	object_set_unload(TypeDelete);
 }

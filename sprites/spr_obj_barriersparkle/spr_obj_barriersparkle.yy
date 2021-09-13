@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Objects/Barrier Sparkle/Sprites.yy",
+    "path": "folders/Game Objects/Stage Objects/Barrier/Barrier Sparkle/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_barriersparkle",

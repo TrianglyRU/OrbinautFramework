@@ -21,6 +21,6 @@ function ObjAirBubblerStartup()
 	Cycle = 1;
 	Delay = irandom_range(128, 255);
 	
-	// Set object active range
-	object_set_range(TypeReset);
+	// Set object unload type
+	object_set_unload(TypeReset);
 }

@@ -5,4 +5,4 @@
 	ContinueScreenVariables();
 	
 	// Setup events and create character
-	ContinueScreenSetup();
+	ContinueScreenStartup();

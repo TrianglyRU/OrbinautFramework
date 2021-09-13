@@ -14,6 +14,6 @@ function ObjCrabmeatBulletStartup()
 	// Set object hitbox
 	object_set_hitbox(4, 4);
 	
-	// Set object active range
-	object_set_range(TypeDelete);
+	// Set object unload type
+	object_set_unload(TypeDelete);
 }

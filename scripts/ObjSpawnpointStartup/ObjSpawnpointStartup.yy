@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Spawnpoint",
-    "path": "folders/Game Objects/Stage Objects/Spawnpoint.yy",
+    "name": "Spawn Point",
+    "path": "folders/Game Objects/Stage Objects/Spawn Point.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjSpawnpointStartup",
+  "name": "ObjSpawnPointStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen (DevMenu)",
-    "path": "folders/Game Code/Screen (DevMenu).yy",
+    "name": "Background",
+    "path": "folders/Game Code/Background.yy",
   },
   "resourceVersion": "1.0",
-  "name": "MenuFunctions",
+  "name": "BackgroundFunctions",
   "tags": [],
   "resourceType": "GMScript",
 }

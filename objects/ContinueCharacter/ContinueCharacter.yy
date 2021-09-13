@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Continue Character",
-    "path": "folders/Game Objects/Room Objects/Continue Character.yy",
+    "path": "folders/Game Objects/Screen Objects/Continue Character.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueCharacter",

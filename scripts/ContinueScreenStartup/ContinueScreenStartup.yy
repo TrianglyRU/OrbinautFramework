@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Screen (Continue).yy",
   },
   "resourceVersion": "1.0",
-  "name": "ContinueScreenSetup",
+  "name": "ContinueScreenStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

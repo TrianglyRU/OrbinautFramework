@@ -16,9 +16,6 @@ function ObjBarrierMain()
 			
 				// Set object depth
 				object_set_depth(Player, true);
-			
-				// Reset xscale
-				image_xscale = 1;
 			}
 			break;
 			case BarrierThunder:
@@ -35,7 +32,6 @@ function ObjBarrierMain()
 				{
 					object_set_depth(Player, true);
 				}
-				image_xscale = 1;
 			}
 			break;
 			case BarrierFlame:
@@ -48,9 +44,6 @@ function ObjBarrierMain()
 				{
 					// Set object depth
 					object_set_depth(Player, true);
-				
-					// Match scale to player's facing direction
-					image_xscale = Player.Facing;
 				
 					// Reset to default animation after 24 frames
 					static FlameAnimationTime = 25;
@@ -77,7 +70,6 @@ function ObjBarrierMain()
 					{
 						object_set_depth(Player, false);
 					}
-					image_xscale = 1;
 				}
 			}
 			break;
@@ -88,7 +80,7 @@ function ObjBarrierMain()
 			
 				if !Player.BarrierIsActive
 				{
-					// Finish bounce animation
+					// If bouncing animation is playing, end it
 					if sprite_index == spr_obj_barrier_water_bounce
 					{
 						var Frame = image_index;
@@ -145,10 +137,13 @@ function ObjBarrierMain()
 					{
 						animation_play(spr_obj_barrier_water, 2, 0);
 					}
-				}			
+				}
 			}
 			break;
 		}
+		
+		// Match scale to player's facing direction
+		image_xscale = Player.Facing;
 	}
 	
 	// Hide the barrier

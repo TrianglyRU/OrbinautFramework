@@ -12,6 +12,6 @@ function ObjCollisionTriggerStartup()
 	// Set object triggerbox
 	object_set_triggerbox(-12, 12, -32, 32);
 	
-	// Set object active range
-	object_set_range(TypePause);
+	// Set object unload type
+	object_set_unload(TypePause);
 }

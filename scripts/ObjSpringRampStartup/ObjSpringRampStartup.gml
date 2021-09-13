@@ -16,6 +16,6 @@ function ObjSpringRampStartup()
 	// Set object depth
 	object_set_depth(Player, true);
 	
-	// Set object active range
-	object_set_range(TypePause);
+	// Set object unload type
+	object_set_unload(TypePause);
 }

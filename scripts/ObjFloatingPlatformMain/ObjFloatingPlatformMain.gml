@@ -12,7 +12,7 @@ function ObjFloatingPlatformMain()
 				FallTimer = 32;
 				
 				// Do not unload automatically
-				object_set_range(false);
+				object_set_unload(false);
 			}
 		}
 		

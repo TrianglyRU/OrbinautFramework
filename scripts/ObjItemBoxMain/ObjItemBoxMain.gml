@@ -49,7 +49,7 @@ function ObjItemBoxMain()
 						audio_sfx_play(sfxDestroy, false);
 				
 						// Temporary do not unload object
-						object_set_range(false);	
+						object_set_unload(false);	
 						
 						// Update sprite
 						animation_set_sprite(id, spr_obj_itembox_destroyed);
