@@ -1,6 +1,6 @@
 function ObjSpecialRingStartup()
 {
-	// Create variables
+	// Set blank values
 	State = 0;
 	Timer = 0;
 	

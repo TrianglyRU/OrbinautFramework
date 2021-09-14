@@ -1,9 +1,6 @@
 function ObjSpringHorizontalStartup()
 {
-	// Create variables
-	LaunchForce = 0;
-	
-	// Define spring force and launch side
+	// Define spring force
 	if object_index == SpringYellowHorizontal
 	{
 		LaunchForce = 10;

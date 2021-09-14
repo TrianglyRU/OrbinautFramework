@@ -9,10 +9,9 @@ function ObjPrisonMain()
 			object_act_solid(true, true, true, false);
 				
 			// Check if button has been pressed
-			if ChildObject.Pressed
+			if ChildObject.State
 			{
 				Timer     = 60;
-				State     = 1;
 				ExplDelay = irandom(32);
 				
 				Stage.TimeEnabled = false;
@@ -23,6 +22,10 @@ function ObjPrisonMain()
 				{
 					Player.SuperState = false;
 				}
+				audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+				
+				// Increment state
+				State++;
 			}
 		}	
 		break;
@@ -55,8 +58,10 @@ function ObjPrisonMain()
 			{
 				instance_destroy(ChildObject);
 				image_index = 1;
-				State       = 2;
 				Timer       = 180;
+				
+				// Increment state
+				State++;
 			}
 		}
 		break;
@@ -87,6 +92,7 @@ function ObjPrisonMain()
 							
 							object_set_depth(ThisObject, false);
 						}
+						TargetAnimal = Object;
 					}
 				}
 				
@@ -105,11 +111,10 @@ function ObjPrisonMain()
 				}
 			}
 			
-			// Start results screen when no animals left
-			if !instance_exists(Animal) and Stage.IsFinished == 1
+			// Start results event if target animal is off-screen
+			if Stage.IsFinished == 1 and !instance_exists(Animal)
 			{
 				Stage.IsFinished = 3;
-				
 				audio_bgm_play(PriorityLow, ActClearMusic, noone);
 			}
 		}

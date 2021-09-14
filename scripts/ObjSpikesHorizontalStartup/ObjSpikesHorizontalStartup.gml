@@ -1,8 +1,5 @@
 function ObjSpikesHorizontalStartup()
 {
-	// Create variable
-	HurtSide = 0;
-	
 	// Set object solidbox
 	object_set_solidbox(16, 16, false);
 	
@@ -11,7 +8,4 @@ function ObjSpikesHorizontalStartup()
 	
 	// Set object unload type
 	object_set_unload(TypePause);
-	
-	// Define hurt side
-	HurtSide = image_xscale == 1 ? SideRight : SideLeft;
 }

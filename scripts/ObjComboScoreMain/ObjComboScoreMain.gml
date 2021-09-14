@@ -57,7 +57,7 @@ function ObjComboScoreMain()
 	// Grant extra life for exceeding 50000 points
 	if Player.Score >= LifeReward
 	{
-		Game.Lives++;
+		Player.Lives++;
 		audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
 	}
 	

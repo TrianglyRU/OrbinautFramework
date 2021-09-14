@@ -1,6 +1,6 @@
 function ObjSuperStarStartup()
 {
-	// Create variable
+	// Set variable
 	FollowPlayer = 0;
 	
 	// Set object depth

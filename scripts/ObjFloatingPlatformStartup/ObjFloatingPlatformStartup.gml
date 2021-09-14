@@ -1,14 +1,5 @@
 function ObjFloatingPlatformStartup()
 {
-	// Create variables
-	OriginX   = 0;
-	OriginY   = 0;
-	Weight    = 0;
-	Angle	  = 0;
-	FallState = 0;
-	FallTimer = 0;
-	FallSpeed = 0;
-	
 	/* Variable Definitions	
 	1. XRadius,    default = 30
 	2. YRadius,    default = 11
@@ -20,11 +11,17 @@ function ObjFloatingPlatformStartup()
 	8. DoFall,     default = false
 	*/
 	
-	// Set default properties
-	OriginX			= x;
-	OriginY			= y;
-	Angle			= StartAngle;
-	id.sprite_index = Sprite;
+	// Set blank values
+	Weight    = 0;
+	State     = 0;
+	Timer     = 0;
+	FallSpeed = 0;
+	
+	// Set other variables
+	OriginX	     = x;
+	OriginY	     = y;
+	Angle	     = StartAngle;
+	sprite_index = Sprite;
 	
 	// Set object solidbox
 	object_set_solidbox(XRadius, YRadius, false);

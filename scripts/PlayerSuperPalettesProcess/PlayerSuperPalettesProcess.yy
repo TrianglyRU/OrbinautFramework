@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Animal",
-    "path": "folders/Game Objects/Stage Objects/Animal.yy",
+    "name": "Player",
+    "path": "folders/Game Code/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjAnimalMain",
+  "name": "PlayerSuperPalettesProcess",
   "tags": [],
   "resourceType": "GMScript",
 }

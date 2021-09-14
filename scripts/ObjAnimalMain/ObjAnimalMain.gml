@@ -1,13 +1,13 @@
 function ObjAnimalMain()
 {
-	// Move vertically		
-	PosY += Ysp;
-	Ysp  += Grv;
-	
 	switch State
 	{
 		case 0:
 		{
+			// Move vertically
+			PosY += Ysp;
+			Ysp  += Grv;
+			
 			if Ysp > 0 
 			{
 				// Collide with floor
@@ -38,8 +38,10 @@ function ObjAnimalMain()
 		break;
 		case 1:
 		{
-			// Move horizontally
+			// Move
 			PosX += Xsp;
+			PosY += Ysp;
+			Ysp  += Grv;
 		
 			// Animate animal
 			switch AnimalType

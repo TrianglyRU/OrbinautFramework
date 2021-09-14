@@ -54,6 +54,7 @@ function ObjSpecialRingMain()
 					// Remember current score, rings and stage boundary
 					Game.Score		   = Player.Score;
 					Game.Rings		   = Player.Rings;
+					Game.Lives		   = Player.Lives;
 					Game.StageBoundary = Stage.BottomBoundary;
 					
 					// Create flash object

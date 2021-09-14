@@ -9,8 +9,8 @@ function ObjStarPostMain()
 			{
 				sprite_index = spr_obj_starpost_active;
 				image_index  = 0;
-				Active = true;
-				Angle  = 900;
+				Active		 = true;
+				Angle		 = 900;
 			}
 		}
 		ActiveCheck = true;

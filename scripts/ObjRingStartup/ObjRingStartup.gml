@@ -1,11 +1,13 @@
 function ObjRingStartup()
 {	
-	// Create variables
-	PosX  = x;
-	PosY  = y;
+	// Set blank values
 	Xsp	  = 0;
 	Ysp	  = 0;
 	State = 0;
+	
+	// Set other variables
+	PosX  = x;
+	PosY  = y;
 	
 	// Set object hitbox
 	object_set_hitbox(6, 6);

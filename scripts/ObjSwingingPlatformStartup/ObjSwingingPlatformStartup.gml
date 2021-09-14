@@ -1,13 +1,5 @@
 function ObjSwingingPlatformStartup()
 {
-	// Create variables
-	OriginX   = 0;
-	OriginY   = 0;
-	XDist     = 0;
-	YDist     = 0;
-	Amplitude = 0;
-	Unload    = 0;
-	
 	/* Variable Definitions	
 	1. XRadius,		   default = 24
 	2. YRadius,		   default = 8
@@ -20,11 +12,15 @@ function ObjSwingingPlatformStartup()
 	9. SpriteTop,      default = spr_obj_swingtop_template
 	*/
 	
-	// Set default properties
+	// Set blank values
+	XDist     = 0;
+	YDist     = 0;
+	Amplitude = 0;
+	Unload    = 0;
+
+	// Set other variables
     OriginX   = x;
     OriginY   = y;
-    XDist     = 0;
-    YDist     = 0;
     Amplitude = (ChainCount + 2) * ChainSize + sprite_get_width(SpritePlatform) div 2;
     
 	// Set object solidbox

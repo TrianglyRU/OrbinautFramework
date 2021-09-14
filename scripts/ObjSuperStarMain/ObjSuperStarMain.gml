@@ -1,6 +1,6 @@
 function ObjSuperStarMain()
 {
-	// Follow player if flag is set (basically, first star spawned)
+	// Follow player if flag is set (first star spawned)
 	if FollowPlayer
 	{
 		x = floor(Player.PosX);
@@ -15,7 +15,7 @@ function ObjSuperStarMain()
 	{
 		if abs(Player.Inertia) >= Player.TopAcc
 		{
-			instance_create(Player.PosX,Player.PosY, SuperStar);
+			instance_create(Player.PosX, Player.PosY, SuperStar);
 		}
 		instance_destroy();
 	}	

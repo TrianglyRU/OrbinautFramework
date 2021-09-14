@@ -1,7 +1,7 @@
 function ObjCountdownBubbleMain()
 {
 	// Handle wobble data
-	if Direction = FlipRight
+	if Direction == FlipRight
 	{
 		if WobbleOffset + 1 == array_length(Stage.WobbleData)
 		{

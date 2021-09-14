@@ -60,7 +60,7 @@ function ObjCollapsingLedgeMain()
 							var  Object = instance_create(LeftX + i, TopY + j, CollapsingLedgePiece);
 							with Object
 							{
-								sprite_index = ThisObject.sprite_index;                      
+								sprite_index = ThisObject.sprite_index;                  
 								image_xscale = ThisObject.image_xscale;
 								
 								DrawX = ThisObject.Width - i;
@@ -72,7 +72,7 @@ function ObjCollapsingLedgeMain()
 				}
 				
 				// Increment state
-				State = 2;
+				State++;
 			}
 		}
 		break;
@@ -84,7 +84,7 @@ function ObjCollapsingLedgeMain()
 			{
 				instance_destroy();
 				
-				// Player should be now airbone
+				// Player should be airbone now
 				Player.OnObject = false;
 				Player.Grounded = false;
 			}

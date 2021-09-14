@@ -1,7 +1,7 @@
 function ObjPrisonButtonMain()
 {
 	// Check if button hasn't been pressed
-	if !Pressed 
+	if !State
 	{	
 		// Do collision
 		object_act_solid(true, true, true, true);
@@ -15,7 +15,9 @@ function ObjPrisonButtonMain()
 			Player.PosY += 8;	
 			y           += 8;
 			image_index  = 0;
-			Pressed      = true;
+			
+			// Increment state
+			State++;
 		}
 	}
 	

@@ -1,6 +1,6 @@
 function ObjInvincibilityStarStartup()
 {
-	// Create variables
+	// Set blank values
 	RotationSpeed = 0;
 	ID			  = 0;
 	

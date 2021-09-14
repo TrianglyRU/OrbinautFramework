@@ -57,12 +57,14 @@ function ObjAnimalStartup()
 		break;
 	}
 	
-	// Set values
+	// Set blank values
+	State = 0;
+	Delay = 0;
+	
+	// Set other variables
 	PosX  = x;
 	PosY  = y;
 	Grv   = 0.21875;
-	State = 0;
-	Delay = 0;
 	Ysp   = -4;
 	Xsp   = DefaultXsp;
 	

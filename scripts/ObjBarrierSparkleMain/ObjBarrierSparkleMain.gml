@@ -1,6 +1,6 @@
 function ObjBarrierSparkleMain()
 {
-	if DoMovement
+	if State
 	{
 		// Perform movement
 		if (++Timer) < 22
@@ -44,7 +44,7 @@ function ObjBarrierSparkleMain()
 	// Start movement on the second frame
 	else
 	{
-		DoMovement = true;
+		State++;
 	}
 	
 	// Animate

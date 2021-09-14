@@ -15,8 +15,30 @@ function StageObjectsActiveProcess()
 		// Check if the object has children objects
 		var IsParent = variable_instance_exists(id, "Obj_ChildrenIDs");
 			
-		// Check if the object is off-screen
-		if x < LeftBound - sprite_get_width(sprite_index) or x > RightBound + sprite_get_width(sprite_index)
+		// Get object's sprite width
+		var SpriteWidth = sprite_get_width(sprite_index);
+		
+		// Check if the object should be deleted and is off-camera
+		if Obj_UnloadStatus == TypeDelete
+		{	
+			if x + SpriteWidth < Camera.ViewX or x - SpriteWidth > Camera.ViewX + Game.Width
+			{
+				// Destroy object and its children
+				if IsParent
+				{
+					var Length = array_length(Obj_ChildrenIDs);
+					for (var i = 0; i < Length; i++)
+					{				
+						instance_destroy(Obj_ChildrenIDs[i]);
+					}
+					Obj_ChildrenIDs = [];
+				}
+				instance_destroy();
+			}
+		}	
+		
+		// Check if the object is outside of active boundaries
+		else if x + SpriteWidth < LeftBound or x - SpriteWidth > RightBound 
 		{
 			// Was object on the screen before?
 			if Obj_UnloadFlag
@@ -61,20 +83,6 @@ function StageObjectsActiveProcess()
 							// Perform create event to re-initialise variables
 							event_perform(ev_create, 0);
 						}
-					}
-					else if Obj_UnloadStatus == TypeDelete
-					{	
-						// Destroy object and its children
-						if IsParent
-						{
-							var Length = array_length(Obj_ChildrenIDs);
-							for (var i = 0; i < Length; i++)
-							{				
-								instance_destroy(Obj_ChildrenIDs[i]);
-							}
-							Obj_ChildrenIDs = [];
-						}
-						instance_destroy();
 					}
 				}
 			}

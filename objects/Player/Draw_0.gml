@@ -1,8 +1,11 @@
 /// @description Visualization
 // You can write your code in this editor
 	
-	// Process debug mode visualization
-	if PlayerDebugModeDisplay() exit;
+	// Process super palettes
+	PlayerSuperPalettesProcess();
 	
-	// Visualization Script
-	PlayerDisplay();
+	// Visualization Scripts
+	if !PlayerDebugModeDisplay()
+	{	
+		PlayerDisplay();
+	}

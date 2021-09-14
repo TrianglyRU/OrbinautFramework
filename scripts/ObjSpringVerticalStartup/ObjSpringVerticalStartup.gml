@@ -1,9 +1,6 @@
 function ObjSpringVerticalStartup()
 {
-	// Create variables
-	LaunchForce = 0;
-	
-	// Define spring force and launch side
+	// Define spring force
 	if object_index == SpringYellowVertical
 	{
 		LaunchForce = 10;

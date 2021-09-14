@@ -1,11 +1,7 @@
 function ObjBumperStartup()
 {
-	// Create variables
-	Ready      = 0;
-	ScoreLimit = 0;
-	
-	// Set flags
-	Ready	   = true;
+	// Set variables
+	State	   = 0;
 	ScoreLimit = 10;
 	
 	// Set object hitbox

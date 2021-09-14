@@ -1,16 +1,12 @@
 function ObjCountdownBubbleStartup()
 {
-	// Create variables
-	Ysp            = 0;
+	// Set blank values
 	WobbleOffset   = 0;
-	PosX		   = 0;
-	PosY		   = 0;
 	FinalX		   = 0;
-	FinalY		   = 0;
 	Direction      = 0;
 	ScreenPosition = [];
 	
-	// Set default position and speed
+	// Set other variables
 	PosX = x;
 	PosY = y;
 	Ysp  = -0.53125;

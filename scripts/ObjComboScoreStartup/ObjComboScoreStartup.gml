@@ -1,16 +1,14 @@
 function ObjComboScoreStartup()
 {
-	// Variables list
+	// Set blank values
 	ComboTrigger = 0;
 	SpriteFrame  = 0;
 	PointsGiven  = 0;
-	PosY	     = 0;
-	Ysp	         = 0;
 	
-	// Render above player
+	// Set other variables
+	Ysp	 = -3;
+	PosY = y;
+	
+	// Set object depth
 	object_set_depth(Player, true);
-	
-	// Set default position and speed
-	PosY =  y;
-	Ysp  = -3;
 }

@@ -1,20 +1,22 @@
 function ObjItemBoxStartup()
 {
-	// Set variables
+	/* Variable Definitions	
+	1. BoxType, default = "Empty"
+	*/
+	
+	// Set blank values
+	State	  = 0;
+	IsFalling = 0;
+	Ysp		  = 0;
+	
+	// Set other variables
 	PosX	  = x;
 	PosY	  = y;
 	CardX	  = x;
 	CardY	  = y - 4;
 	Timer     = 5;
 	CardSpeed = 3;
-	State	  = 0;
-	IsFalling = 0;
-	Ysp		  = 0;
-	
-	/* Variable Definitions	
-	1. BoxType, default = "Empty"
-	*/
-	
+
 	// Define item card to display
 	switch BoxType
 	{

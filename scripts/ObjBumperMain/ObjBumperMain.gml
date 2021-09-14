@@ -3,7 +3,7 @@ function ObjBumperMain()
 	// Bounce on collision
 	if object_check_overlap(Hitbox)
 	{
-		if Ready
+		if !State
 		{
 			// Set player speeds based on angle
 			var Angle = point_direction(x, y, floor(Player.PosX), floor(Player.PosY));
@@ -12,7 +12,7 @@ function ObjBumperMain()
 			Player.Ysp     = 7 * -dsin(Angle);
 			Player.Jumping = false;
 			
-			// Add score
+			// Add points to player's score
 			if ScoreLimit
 			{
 				var  ThisObject = id;
@@ -30,12 +30,15 @@ function ObjBumperMain()
 			// Switch to the next frame
 			image_index = 1;
 			
-			Ready = false;
+			// Increment state
+			State++;
 		}
 	}
-	else
+	
+	// Back to normal state
+	else if State
 	{
-		Ready = true;
+		State--;
 	}
 	
 	// Play animation

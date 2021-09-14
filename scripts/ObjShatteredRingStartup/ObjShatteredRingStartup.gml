@@ -1,10 +1,12 @@
 function ObjShatteredRingStartup()
 {
-	// Create variables
+	// Set blank values
+	Xsp	= 0;
+	Ysp = 0;
+	
+	// Set other variables
 	PosX		   = x;
 	PosY		   = y;
-	Xsp			   = 0;
-	Ysp			   = 0;
 	Timer		   = 256;
 	PickupTimeout  = 64;
 	

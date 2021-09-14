@@ -1,16 +1,13 @@
 function ObjBubbleStartup()
 {
-	// Create variables
-	Ysp			 = 0;
+	// Set blank values
 	BubbleType   = 0;
 	WobbleOffset = 0;
 	Collected	 = 0;
 	FinalX		 = 0;
-	PosX		 = 0;
-	PosY		 = 0;
 	Direction    = 0;
 	
-	// Set default position and speed
+	// Set other variables
 	PosX = x;
 	PosY = y;
 	Ysp  = -0.53125;

@@ -1,13 +1,13 @@
 function ObjSignpostStartup()
 {
-	// Create variables
-	State	     = 0;
-	StateTimer   = 0;
-	SparkleToUse = 0;
-	
 	/* Variable Definitions	
 	1. PlayerType, default = "All"					
 	*/
+	
+	// Set blank values
+	State	     = 0;
+	StateTimer   = 0;
+	SparkleToUse = 0;
 	
 	// Set sparkle position data
 	SparkleX = [-24, 8, -16, 24, 0, 16, -24, 24];

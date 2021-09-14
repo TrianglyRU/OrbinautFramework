@@ -11,7 +11,7 @@ function ObjSwingingPlatformMain()
 		Unload = false;
 	}
      
-	// Do not run the code below is unloaded
+	// Do not run the code below if unloaded
 	if Unload
 	{
 		exit;
@@ -19,16 +19,14 @@ function ObjSwingingPlatformMain()
 	
 	// Set rotation angle
 	RotationAngle = Stage.Time * Speed mod 360;
-		
-	// Get rotation angle (in degrees) and chain amount
-	var Angle = dsin(RotationAngle);
-	var Count = ChainCount + 1;
-		
+	
 	// Move platform
-	XDist = dcos(90 + Angle * AngleX) * ChainSize;
-	YDist = dsin(90 + Angle * AngleY) * ChainSize;
+	var Angle = dsin(RotationAngle);
+	XDist     = dcos(90 + Angle * AngleX) * ChainSize;
+	YDist     = dsin(90 + Angle * AngleY) * ChainSize;
 		
 	// Update position
+	var Count = ChainCount + 1;
 	x = floor(OriginX + XDist * Count);
 	y = floor(OriginY + YDist * Count);
     

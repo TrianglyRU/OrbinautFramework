@@ -35,6 +35,8 @@ function ObjBubbleControllerMain()
 						CountdownSprite = spr_obj_bubble_number0;
 					break;
 				}
+				
+				// If so, set flag
 				IsCountBubble = true;
 			}
 		
@@ -77,9 +79,9 @@ function ObjBubbleControllerMain()
 		{
 			if !BubbleDelay
 			{
-				var  Sprite  = CountdownSprite;
-				var  Type    = IsCountBubble ? CountdownBubble : Bubble;
-				var  Object  = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY, Type);
+				var  Sprite = CountdownSprite;
+				var  Type   = IsCountBubble ? CountdownBubble : Bubble;
+				var  Object = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY, Type);
 				with Object
 				{
 					if Type == CountdownBubble
@@ -112,6 +114,7 @@ function ObjBubbleControllerMain()
 			var  Object = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY - 12, Bubble);
 			with Object
 			{
+				// Mark bubble as small with 75% chance
 				BubbleType = Random ? 0 : 1;
 				Direction  = Player.Facing;
 				

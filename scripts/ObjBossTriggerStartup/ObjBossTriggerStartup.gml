@@ -1,16 +1,15 @@
 function ObjBossTriggerStartup()
 {
-	// Create variables
-	BossDefeated		= 0;
-	PreviousBottomBound = 0;
-	
 	/* Variable Definitions
 	1. ArenaWidth,  default = 400
 	2. ArenaHeight, default = -1
 	*/
 	
-	// Replace sprite
-	sprite_index = spr_blank;
+	// Set variable
+	BossDefeated = 0;
+	
+	// Hide sprite
+	image_alpha = 0;
 	
 	// Set object triggerbox
 	object_set_triggerbox(0, 32, -y, room_width - y);

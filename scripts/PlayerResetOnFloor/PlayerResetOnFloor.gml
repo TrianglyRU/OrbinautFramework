@@ -62,8 +62,8 @@ function PlayerResetOnFloor()
 		audio_sfx_stop(sfxTired);
 	
 		// Set visual angle
-		if !Game.SmoothRotation and (Angle >= 33.75 and Angle <= 326.25)
-		or  Game.SmoothRotation and (Angle >= 23.91 and Angle <= 337.50)
+		if !Game.SmoothRotation and (Angle >= 23.91 and Angle <= 337.50)
+		or  Game.SmoothRotation and (Angle >= 33.75 and Angle <= 326.25)
 		{
 			VisualAngle = Angle;
 		}
