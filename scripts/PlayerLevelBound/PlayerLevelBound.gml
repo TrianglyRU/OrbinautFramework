@@ -1,5 +1,6 @@
 function PlayerLevelBound()
 {
+	// Exit if stage is inactive
 	if !Stage.DoUpdate
 	{
 		exit;

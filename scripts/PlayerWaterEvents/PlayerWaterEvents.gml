@@ -31,12 +31,6 @@ function PlayerWaterEvents()
 					instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				}
 			}
-			
-			// Destroy player bubble maker object
-			if instance_exists(BubbleController)
-			{
-				instance_destroy(BubbleController);
-			}
 		}
 	}
 	else
@@ -111,6 +105,12 @@ function PlayerWaterEvents()
 		// Check for leaving the water
 		if PosY < Stage.WaterLevel
 		{
+			// Destroy player bubble maker object
+			if instance_exists(BubbleController)
+			{
+				instance_destroy(BubbleController);
+			}
+			
 			// Play previous track if running out of air
 			if AirTimer <= 720
 			{	

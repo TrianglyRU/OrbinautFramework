@@ -5,6 +5,6 @@ function object_get_screenpos(obj)
 	var XPos = obj.x - Camera.ViewX;
 	var YPos = obj.y - Camera.ViewY;
 	
-	// Retrun
+	// Return
 	return [XPos, YPos];
 }

@@ -18,8 +18,7 @@ function PlayerRollStart()
 				ManualRoll = true;
 			}
 			
-			// Allow player to crouch. This can actually cause
-			// some issues on slopes :/
+			// Allow player to crouch while moving slowly... which will cause some issues on slopes :/
 			else
 			{
 				Animation = AnimCrouch;

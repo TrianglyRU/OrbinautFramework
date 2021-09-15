@@ -72,7 +72,7 @@ function PlayerJumpStart()
 		}
 		PosY -= DefaultRadiusY - SmallRadiusY;
 		
-		/* In originals, rolljump flag is set and radiuses are reset, resulting in collision with floor and ceiling
+		/* In originals, it would set rolljump flag and reset radiuses, resulting in collision with floor and ceiling
 		happening earlier. It is an oversight, so we fix that by updating radiuses in both cases */
 	}
 	

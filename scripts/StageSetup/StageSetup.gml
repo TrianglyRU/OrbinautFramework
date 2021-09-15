@@ -13,13 +13,13 @@ function StageSetup()
 			ActID				= 0;
 			FinalActID			= 0;
 			CardEnabled			= true;
-			WaterEnabled        = true;
-			WaterLevel			= 672;
+			WaterEnabled        = false;
+			WaterLevel			= 0;
 			StageMusic			= TestStageMusic;
 			LeftBoundary		= 0;
 			TopBoundary			= 0;
 			RightBoundary		= room_width;
-			BottomBoundary		= room_height;
+			BottomBoundary		= 736;
 			AnimatedGraphics	= noone;
 			AnimalSet			= [spr_obj_animal_flicky, spr_obj_animal_ricky];
 		}
