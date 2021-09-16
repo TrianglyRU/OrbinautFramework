@@ -13,7 +13,7 @@ function ObjItemBoxStartup()
 	PosX	  = x;
 	PosY	  = y;
 	CardX	  = x;
-	CardY	  = y - 4;
+	CardY	  = y - 3;
 	Timer     = 5;
 	CardSpeed = 3;
 
@@ -53,10 +53,10 @@ function ObjItemBoxStartup()
 	}
 	
 	// Set object solidbox
-	object_set_solidbox(14, 16, false);
+	object_set_solidbox(15, 15, false);
 
 	// Set object hitbox
-	object_set_hitbox(15, 17);
+	object_set_hitbox(16, 16);
 	
 	// Set object depth
 	object_set_depth(Player, false);

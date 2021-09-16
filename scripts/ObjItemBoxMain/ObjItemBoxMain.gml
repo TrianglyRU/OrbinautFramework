@@ -50,11 +50,9 @@ function ObjItemBoxMain()
 				
 						// Temporary do not unload the object
 						object_set_unload(false);	
-						
-						// Update sprite
-						animation_set_sprite(id, spr_obj_itembox_destroyed);
-						
+
 						// Increment state
+						Timer = 0;
 						State++;
 					}
 				}
@@ -92,7 +90,7 @@ function ObjItemBoxMain()
 				PosY += Ysp;
 			
 				// Collide with floor
-				var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, Player.Layer)[0];
+				var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, Player.Layer)[0];
 				if  FindFloor < 0
 				{
 					PosY     += FindFloor;
@@ -106,13 +104,19 @@ function ObjItemBoxMain()
 			
 			// Update card position
 			CardX = x;
-			CardY = y - 4;
+			CardY = y - 3;
 		}
 		break;
 		
 		// Destroyed
 		case 1:
 		{	
+			// Update sprite
+			if (++Timer) == 12
+			{
+				animation_set_sprite(id, spr_obj_itembox_destroyed);
+			}
+			
 			// Move item card
 			CardSpeed = max(CardSpeed - 0.09375, 0);
 			CardY	 -= CardSpeed;
@@ -124,8 +128,8 @@ function ObjItemBoxMain()
 			}
 			
 			// Increment state
-			Timer  = 30;
-			State += 1;
+			Timer = 30;
+			State++;
 			
 			// Give bonus
 			switch BoxType

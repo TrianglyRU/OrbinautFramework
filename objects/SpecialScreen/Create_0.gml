@@ -1,8 +1,8 @@
-/// @description
+/// @description Initialisation
 // You can write your code in this editor
 	
 	// Call varaibles initialisation script
-	SpecialMainVariables();
+	SpecialScreenVariables();
 	
 	// Call startup script
-	SpecialMainStartup();
+	SpecialScreenStartup();
