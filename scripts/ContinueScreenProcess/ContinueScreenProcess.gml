@@ -33,23 +33,29 @@ function ContinueScreenProcess()
 		// Check if player can't react anymore
 		else
 		{
-			CountFrame = 10;
-			
-			// If timer ran out, go back to devmenu
 			if Countdown == 0
 			{
+				// Perform fade
 				fade_perform(FadeTo, ColourBlack, 1);
+				
+				// Clear data
+				Game.Lives     = 3;
+				Game.Score     = 0;
+				Game.Continues = 0;
 				
 				// Override save file if not in "no save" mode
 				if Game.ActiveSave != -1
 				{
-					gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0, Game.SaveState);
+					gamedata_save(Game.ActiveSave);
 				}
 			}
 			if fade_check(FadeMax)
 			{
 				room_goto(DevMenu);
 			}
+			
+			// Set timer frame to 00
+			CountFrame = 10;
 		}
 		
 		// Decrease timer value
@@ -110,10 +116,10 @@ function ContinueScreenProcess()
 		// Overwrite savedata if not playing in 'no save' slot
 		if Game.ActiveSave != -1
 		{
-			gamedata_save(Game.ActiveSave, Game.Character, Game.CurrentStage[0], Game.Emeralds, 3, 0, 0, Game.SaveState);
+			gamedata_save(Game.ActiveSave);
 		}
 			
-		// Load into the room
-		room_goto(Game.CurrentStage[1]);
+		// Load stage
+		room_goto(Game.StageRoom);
 	}
 }

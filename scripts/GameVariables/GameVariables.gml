@@ -12,12 +12,13 @@ function GameVariables()
 	Game.Emeralds	     = 0;
 	Game.Time			 = 0;
 	Game.Rings			 = 0;
+	Game.Stage			 = 0;
 	Game.StageBoundary	 = 0;
+	Game.StageRoom       = 0;
 	Game.SpecialScore    = 0;
 	Game.SpecialState    = 0;
-	Game.CurrentStage    = [];	// 0 - zoneid, 1 - room
-	Game.StarPostData    = [];	// 0 - id,     1 - x, 2 - y
-	Game.SpecialRingData = [];	// 0 - time,   1 - y, 2 - y
+	Game.StarPostData    = [];	// 0 - id,   1 - x, 2 - y
+	Game.SpecialRingData = [];	// 0 - time, 1 - y, 2 - y
 	Game.SpecialRingList = [];
 	
 	// Collision

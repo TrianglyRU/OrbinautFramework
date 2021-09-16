@@ -8,7 +8,7 @@ function ObjItemBoxMain()
 			// Play animation
 			animation_play(spr_obj_itembox, 4, 0);
 			
-			// Handle item card blinking
+			// Handle item card flick
 			if !(--Timer)
 			{
 				Timer = 5;
@@ -48,7 +48,7 @@ function ObjItemBoxMain()
 						instance_create(PosX, PosY, DustExplosion);
 						audio_sfx_play(sfxDestroy, false);
 				
-						// Temporary do not unload object
+						// Temporary do not unload the object
 						object_set_unload(false);	
 						
 						// Update sprite
@@ -312,6 +312,9 @@ function ObjItemBoxMain()
 				// Increment state
 				State++;
 			}
+			
+			// Set object unload type
+			object_set_unload(TypePause);
 		}
 		break;
 	}

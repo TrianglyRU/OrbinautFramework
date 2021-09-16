@@ -37,33 +37,22 @@ function MenuOptionsProcess()
 				// Check if there is data
 				if OptionID >= 1 and OptionID <= 4 and SaveData[Game.ActiveSave] != 0
 				{
-					// Load data
-					Game.Character = SaveData[Game.ActiveSave][0];	
-					Game.Emeralds  = SaveData[Game.ActiveSave][2];
-					Game.Lives	   = SaveData[Game.ActiveSave][3];
-					Game.Continues = SaveData[Game.ActiveSave][4];
-					Game.Score	   = SaveData[Game.ActiveSave][6];	
+					// Apply data
+					gamedata_load(Game.ActiveSave, true);
 				
-					// Load stage if game is not completed
-					if !SaveData[Game.ActiveSave][5]
+					// Load stage if the game is not completed
+					if !Game.SaveState
 					{
-						var ZoneID = SaveData[Game.ActiveSave][1];
-						switch ZoneID
+						switch Game.Stage
 						{
 							default:
 								room_goto(TestStage);
 							break;
-							
-							// Let the game know this save is not a completed game
-							Game.SaveState = 0;
 						}
 					}
 					else
 					{
-						// Let the game know this save is completed game
-						Game.SaveState = 1;
-						
-						/* You can add redirection to your level select here */
+						/* You can add redirection to your in-game level select here */
 					}
 				}
 				
@@ -100,7 +89,7 @@ function MenuOptionsProcess()
 				// Save data if starting the game not in "no save" slot
 				if Game.ActiveSave != -1
 				{
-					gamedata_save(Game.ActiveSave, OptionID, 0, 0, 3, 0, 0, false);
+					gamedata_save(Game.ActiveSave);
 				}
 			}
 		}
@@ -116,7 +105,7 @@ function MenuOptionsProcess()
 				Game.Emeralds  = 0;
 				Game.Lives	   = 3;
 				Game.Continues = 0;
-				Game.Score	   = 0;	
+				Game.Score	   = 0;
 				
 				// Redirect to stage select
 				menu_list_redirect(4, false, true);

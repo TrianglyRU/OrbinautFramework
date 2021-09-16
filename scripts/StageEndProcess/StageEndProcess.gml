@@ -22,10 +22,20 @@ function StageEndProcess()
 	ds_list_destroy(Player.RecordedPosX);
 	ds_list_destroy(Player.RecordedPosY);
 		
-	// Save game progress at the end of the zone if we're not in "no save" mode
+	// Check if this is the last act of the zone and we're not in "no save" mode
 	if ActID == FinalActID and Game.ActiveSave != -1
 	{
-		gamedata_save(Game.ActiveSave, Game.Character, ZoneID + 1, Game.Emeralds, Game.Lives, Game.Continues, Game.Score, ZoneID == FinalZoneID ? true : false);
+		// If this if the final zone, mark save as completed
+		if ZoneID == FinalZoneID
+		{
+			Game.SaveState = 1;
+		}
+		
+		// Save next zone but not the current one
+		Game.Stage++;
+		
+		// Save our progress
+		gamedata_save(Game.ActiveSave);
 	}
 
 	// Load next stage

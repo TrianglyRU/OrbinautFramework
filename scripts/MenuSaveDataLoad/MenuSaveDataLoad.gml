@@ -3,7 +3,7 @@ function MenuSaveDataLoad()
 	for (var i = 0; i < 4; i++)
 	{
 		// Load data slot
-		SaveData[i] = gamedata_load(i);
+		SaveData[i] = gamedata_load(i, false);
 		
 		// If empty, display as "new game" slot
 		if SaveData[i] == 0

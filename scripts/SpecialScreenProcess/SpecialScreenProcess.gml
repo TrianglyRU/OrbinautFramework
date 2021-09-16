@@ -139,7 +139,7 @@ function SpecialScreenProcess()
 		if fade_check(FadeMax)
 		{
 			Game.SpecialState = 0;
-			room_goto(Game.CurrentStage[1]);
+			room_goto(Game.StageRoom);
 		}
 	}
 	

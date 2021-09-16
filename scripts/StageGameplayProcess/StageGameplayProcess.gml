@@ -108,10 +108,15 @@ function StageGameplayProcess()
 					// If not, return to menu
 					else
 					{
+						// Clear data
+						Game.Lives     = 3;
+						Game.Score     = 0;
+						Game.Continues = 0;
+						
 						// Override save file if not in "no save" mode
 						if Game.ActiveSave != -1
 						{
-							gamedata_save(Game.ActiveSave, Game.Character, Stage.ZoneID, Game.Emeralds, 3, 0, 0, Game.SaveState);
+							gamedata_save(Game.ActiveSave);
 						}
 						room_goto(DevMenu);
 					}

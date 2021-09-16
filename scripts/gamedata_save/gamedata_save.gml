@@ -1,30 +1,39 @@
-/// @function gamedata_save(slot,character,zone,emeralds,lives,continues,score,cleared)
-function gamedata_save(slot,character,zone,emeralds,lives,continues,score,cleared)
+/// @function gamedata_save(slot)
+function gamedata_save(slot)
 {
 	// Get savedata file name
-	var filename = "saveslot" + string(slot + 1) + ".bin";
+	var Filename = "saveslot" + string(slot + 1) + ".bin";
 	
-	// Open the file and save/rewrite data
-	var file = file_bin_open(filename, 1);
-	if  file
+	// Open the file
+	var File = file_bin_open(Filename, 1);
+	if  File
 	{
-		file_bin_rewrite(file);
+		// Rewrite data
+		file_bin_rewrite(File);
 		
-		// Save basic data
-		file_bin_write_byte(file, character); 
-		file_bin_write_byte(file, zone);	  
-		file_bin_write_byte(file, emeralds); 
-		file_bin_write_byte(file, lives);
-		file_bin_write_byte(file, continues); 
-		file_bin_write_byte(file, cleared);
+		/* The function saves the data in following order (score should be always last):
+		- Character
+		- Stage (ZoneID)
+		- Emeralds
+		- Lives
+		- Continues
+		- SaveState (game clear flag)
+		- Score (split into 4 values)
+		*/
 		
-		// Save score (it can be huge to save in bytes, so we split it)
-		file_bin_write_byte(file, score             mod 100);
-		file_bin_write_byte(file, score div 100     mod 100);
-		file_bin_write_byte(file, score div 10000   mod 100);
-		file_bin_write_byte(file, score div 1000000 mod 100);
+		// Save data
+		file_bin_write_byte(File, Game.Character); 
+		file_bin_write_byte(File, Game.Stage);	  
+		file_bin_write_byte(File, Game.Emeralds); 
+		file_bin_write_byte(File, Game.Lives);
+		file_bin_write_byte(File, Game.Continues); 
+		file_bin_write_byte(File, Game.SaveState);
+		file_bin_write_byte(File, Game.Score             mod 100);
+		file_bin_write_byte(File, Game.Score div 100     mod 100);
+		file_bin_write_byte(File, Game.Score div 10000   mod 100);
+		file_bin_write_byte(File, Game.Score div 1000000 mod 100);
 		
 		// Close the file
-		file_bin_close(file);
+		file_bin_close(File);
 	}
 }

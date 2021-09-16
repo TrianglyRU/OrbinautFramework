@@ -43,46 +43,43 @@ function StageObjectsActiveProcess()
 			// Was object on the screen before?
 			if Obj_UnloadFlag
 			{
-				if Obj_UnloadStatus != false
+				if Obj_UnloadStatus == TypePause
 				{
-					if Obj_UnloadStatus == TypePause
+					// Deactivate object and its children
+					if IsParent
 					{
-						// Deactivate object and its children
+						var Length = array_length(Obj_ChildrenIDs);
+						for (var i = 0; i < Length; i++)
+						{
+							instance_deactivate_object(Obj_ChildrenIDs[i]);
+						}
+					}
+					instance_deactivate_object(id);
+				}
+				else if Obj_UnloadStatus == TypeReset
+				{	
+					// Is initial position off-screen?
+					if Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound
+					{
+						// Destroy children
 						if IsParent
 						{
 							var Length = array_length(Obj_ChildrenIDs);
 							for (var i = 0; i < Length; i++)
 							{
-								instance_deactivate_object(Obj_ChildrenIDs[i]);
+								instance_destroy(Obj_ChildrenIDs[i]);
 							}
+							Obj_ChildrenIDs = [];
 						}
-						instance_deactivate_object(id);
-					}
-					else if Obj_UnloadStatus == TypeReset
-					{	
-						// Is initial position off-screen?
-						if Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound
-						{
-							// Destroy children
-							if IsParent
-							{
-								var Length = array_length(Obj_ChildrenIDs);
-								for (var i = 0; i < Length; i++)
-								{
-									instance_destroy(Obj_ChildrenIDs[i]);
-								}
-								Obj_ChildrenIDs = [];
-							}
 								
-							// Reset object
-							x			 = Obj_UnloadData[0];
-							y			 = Obj_UnloadData[1];
-							image_xscale = Obj_UnloadData[2];
-							image_yscale = Obj_UnloadData[3];
+						// Reset object
+						x			 = Obj_UnloadData[0];
+						y			 = Obj_UnloadData[1];
+						image_xscale = Obj_UnloadData[2];
+						image_yscale = Obj_UnloadData[3];
 								
-							// Perform create event to re-initialise variables
-							event_perform(ev_create, 0);
-						}
+						// Perform create event to re-initialise variables
+						event_perform(ev_create, 0);
 					}
 				}
 			}
