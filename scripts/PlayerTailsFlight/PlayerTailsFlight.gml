@@ -70,7 +70,17 @@ function PlayerTailsFlight()
 		// Set flags
 		FlightState	= false;
 		Spinning	= true;
-		Grv			= 0.21875;	
 		Animation	= AnimSpin;
+		
+		// Reset gravity
+		if !IsUnderwater
+		{
+			Grv	= 0.21875;
+		}
+		else
+		{
+			// Lower by 0x28 (0.15625) if underwater
+			Grv = 0.0625
+		}
 	}	
 }
