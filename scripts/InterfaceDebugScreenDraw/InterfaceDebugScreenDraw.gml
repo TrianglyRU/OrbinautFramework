@@ -47,8 +47,6 @@ function InterfaceDebugScreenDraw()
 					"         ORBINAUT  FRAMEWORK"
 				+ "\n           STANDALONE VER."
 				+ "\n"
-				+ "\n        BY TRIANGLY AND MICG"
-				+ "\n"
 				+ "\n"
 				+ "\n          * PLAYER MOTION *"
 				+ "\n"
@@ -63,10 +61,11 @@ function InterfaceDebugScreenDraw()
 				+ "\n   SLOPE GRAVITY: " + string(Player.SlopeGravity)
 				+ "\n   ANGLE: "		 + string(Player.Angle)
 				+ "\n"
-				+ "\n         * PLAYER INFORMATION *"
+				+ "\n         * PLAYER FLAGS *"
 				+ "\n"
 				+ "\n   X RADIUS: "			 + string(Player.RadiusY)
 				+ "\n   Y RADIUS: "		     + string(Player.RadiusX)
+				+ "\n   WALL RADIUS: "		 + string(Player.RadiusW)
 				+ "\n   WALL OFFSET: "       + string((Player.Grounded and Player.Angle == 360) * 8)
 				+ "\n   ON OBJECT: "		 + string(Player.OnObject)
 				+ "\n   GROUNDED: "			 + string(Player.Grounded)

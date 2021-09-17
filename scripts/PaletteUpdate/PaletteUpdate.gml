@@ -34,10 +34,10 @@ function PaletteUpdate()
 		// Render underwater palette
 		if Boundary < Height and ColourSet[PaletteWet] != false
 		{
-			texture_set_stage(Shader.ScreenWetTex,			 ColourSet[1][0]);
+			texture_set_stage(Shader.ScreenWetTex,			  ColourSet[1][0]);
 			shader_set_uniform_f_array(Shader.ScreenWetIndex, IndexWet);
 			shader_set_uniform_f(Shader.ScreenWetTexelSize,   ColourSet[1][1], ColourSet[1][2]);
-			shader_set_uniform_f(Shader.ScreenWetUVs,		 ColourSet[1][3], ColourSet[1][4], ColourSet[1][5]);
+			shader_set_uniform_f(Shader.ScreenWetUVs,		  ColourSet[1][3], ColourSet[1][4], ColourSet[1][5]);
 		}
 		
 		// Render low surface

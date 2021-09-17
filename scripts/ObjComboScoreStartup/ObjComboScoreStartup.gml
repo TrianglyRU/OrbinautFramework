@@ -3,7 +3,7 @@ function ObjComboScoreStartup()
 	// Set blank values
 	ComboTrigger = 0;
 	SpriteFrame  = 0;
-	PointsGiven  = 0;
+	State	     = 0;
 	
 	// Set other variables
 	Ysp	 = -3;

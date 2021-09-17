@@ -13,7 +13,6 @@ function PlayerSpindash()
 		{
 			SpindashRev = 0;
 			Xsp			= 0;
-			AirLock     = true;
 			
 			// Play sound
 			audio_sfx_play(sfxCharge, false);
@@ -48,7 +47,6 @@ function PlayerSpindash()
 
 		// Launch player
 		Inertia	    = (MinimumSpd + round(SpindashRev) / 2) * Facing;
-		AirLock     = false;
 		Spinning    = true;
 		SpindashRev = -1;
 		Animation   = AnimSpin;

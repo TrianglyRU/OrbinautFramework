@@ -147,10 +147,11 @@ function PlayerResetOnFloor()
 			audio_sfx_stop(sfxDropDash);
 			audio_sfx_play(sfxRelease, false);
 			
-			// Shake camera if Super Sonic
+			// Shake camera if Super Sonic (values are not accurate to Mania)
 			if SuperState
 			{
-				camera_shake_perform(2, 8);
+				Camera.ShakeForce = 2;
+				Camera.ShakeTime  = 8;
 			}
 			
 			// Create dust effect

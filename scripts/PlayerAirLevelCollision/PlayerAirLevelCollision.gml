@@ -55,7 +55,7 @@ function PlayerAirLevelCollision()
 					if FloorAngle >= 46.41 and FloorAngle <= 315
 					{
 						// Limit ysp
-						if Ysp > 15.76
+						if Ysp > 15.75
 						{
 							Ysp = 15.75;
 						}
@@ -202,7 +202,7 @@ function PlayerAirLevelCollision()
 				PosX += RightDistance;
 				Xsp   = 0;
 				
-				// Also set inertia to ysp?
+				// Also set inertia to... ysp?
 				Inertia = Ysp;
 			}
 			

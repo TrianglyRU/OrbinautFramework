@@ -1,35 +1,38 @@
 function PlayerWaterEvents()
 {
+	// If there is no water in the stage, exit
+	if !Stage.WaterEnabled
+	{
+		exit;
+	}
+	
+	// Check for falling into the water
 	if !IsUnderwater
 	{
-		// Check for falling into the water
-		if Stage.WaterEnabled
+		if floor(PosY) > Stage.WaterLevel and !Death
 		{
-			if floor(PosY) > Stage.WaterLevel and !Death
+			Xsp			*= 0.5;
+			Ysp			*= 0.25;
+			IsUnderwater = true;
+				
+			// Lower default gravity value by 0x28 (0.15625)
+			if !Hurt and !FlightState and GlideState != GlideAir
 			{
-				Xsp			*= 0.5;
-				Ysp			*= 0.25;
-				IsUnderwater = true;
+				Grv = 0.0625;
+			}
 				
-				// Lower default gravity value by 0x28 (0.15625)
-				if !Hurt and !FlightState and GlideState != GlideAir
-				{
-					Grv = 0.0625;
-				}
+			// Stop sound
+			if FlightState
+			{
+				audio_sfx_stop(sfxFlying);
+				audio_sfx_stop(sfxTired);
+			}
 				
-				// Stop sound
-				if FlightState
-				{
-					audio_sfx_stop(sfxFlying);
-					audio_sfx_stop(sfxTired);
-				}
-				
-				// Create splash object
-				if !Grounded
-				{
-					audio_sfx_play(sfxWaterSplash, false);
-					instance_create(PosX, Stage.WaterLevel, WaterSplash);
-				}
+			// Create splash object
+			if !Grounded
+			{
+				audio_sfx_play(sfxWaterSplash, false);
+				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 			}
 		}
 	}

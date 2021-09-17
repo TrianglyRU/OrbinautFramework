@@ -6,8 +6,8 @@ function PlayerDebugMode()
 		return false;
 	}
 	
-	// Exit if died and fallen off-screen
-	if Player.Death and floor(Player.PosY) >= Camera.ViewY + Game.Height + 32
+	// Exit if died and fell off-screen
+	if Player.Death and floor(Player.PosY) >= Camera.ViewY + Game.Height
 	{
 		return false;
 	}
@@ -34,7 +34,6 @@ function PlayerDebugMode()
 			GlideValue     = false;
 			Jumping		   = false;
 			Spinning	   = false;
-			Skidding	   = false;
 			StickToConvex  = false;
 			IsUnderwater   = false;
 			DebugSpeed     = 0;
@@ -80,10 +79,14 @@ function PlayerDebugMode()
 			// Set animation
 			Animation   = AnimMove;
 			image_alpha = 1;
+			
+			// Stop player sfx
+			audio_sfx_stop(sfxFlying);
+			audio_sfx_stop(sfxTired);
 		}
 		else
 		{
-			// Reset collision radiuses
+			// Reset collision
 			RadiusX	= DefaultRadiusX;
 			RadiusY = DefaultRadiusY;
 			AllowCollision = true;
@@ -143,7 +146,7 @@ function PlayerDebugMode()
 					// Spawn with the same xscale
 					image_xscale = ThisObject;
 					
-					// Delete when off-screen
+					// Delete object onc off-screen
 					object_set_unload(TypeDelete);
 				}
 			}
@@ -151,7 +154,7 @@ function PlayerDebugMode()
 			// Grant or revoke 7 emeralds
 			else
 			{
-				if !Game.Emeralds
+				if Game.Emeralds != 7
 				{
 					Game.Emeralds = 7;
 					audio_sfx_play(sfxEmerald, false);
