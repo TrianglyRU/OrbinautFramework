@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "_DevMenu",
-    "path": "folders/Game Code/_DevMenu.yy",
+    "name": "Screen (DevMenu)",
+    "path": "folders/Game Code/Screen (DevMenu).yy",
   },
   "resourceVersion": "1.0",
   "name": "MenuSaveDataLoad",
