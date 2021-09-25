@@ -47,22 +47,21 @@ function GameVariables()
 	Game.KeyboardControl = [];
 	
 	// Originals differences
-	Game.SpindashEnabled    = 0; 
-	Game.DropdashEnabled    = 0;
-	Game.PeeloutEnabled		= 0; 
-	Game.GroundSpeedcap	    = 0; 
-	Game.AirSpeedcap	    = 0;
-	Game.CDCamera			= 0;
-	Game.RolljumpControl    = 0;
-	Game.S3SlopePhysics		= 0;
-	Game.SKCrouch			= 0;
-	Game.SKRollDeceleration = 0;
-	Game.S2FloorCollision	= 0;
-	Game.SKWallCollision	= 0;
-	Game.SMWaterBarrier		= 0;
-	Game.SMRingBehaviour	= 0;
-	Game.SKItemBoxBehaviour = 0;
-	Game.CDStageTimer		= 0;
+	Game.SpindashEnabled      = 0; 
+	Game.DropdashEnabled      = 0;
+	Game.PeeloutEnabled		  = 0; 
+	Game.GroundSpeedcap	      = 0; 
+	Game.AirSpeedcap	      = 0;
+	Game.CDCamera			  = 0;
+	Game.RolljumpControl      = 0;
+	Game.S3SlopePhysics		  = 0;
+	Game.SKCrouch			  = 0;
+	Game.SKRollDeceleration   = 0;
+	Game.S2FloorCollision	  = 0;
+	Game.SKWallCollision	  = 0;
+	Game.PreciseRingBehaviour = 0;
+	Game.SKItemBoxBehaviour   = 0;
+	Game.CDStageTimer		  = 0;
 	
 	// Orbinaut improvements
 	Game.CustomSlopeCollision = 0;

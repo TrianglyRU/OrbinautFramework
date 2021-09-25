@@ -151,7 +151,7 @@ function PlayerJump()
 							AirLock = false;
 						
 							// Set speeds
-							Xsp = Game.SMWaterBarrier ? Xsp / 2 : 0;
+							Xsp = 0;
 							Ysp = 8;
 						}
 						break;

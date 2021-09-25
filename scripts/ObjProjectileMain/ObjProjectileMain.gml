@@ -9,7 +9,7 @@ function ObjProjectileMain()
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if object_check_overlap(Hitbox)
+	if Xsp != 0 and Ysp != 0 and object_check_overlap(Hitbox)
 	{
 		// Check if object should bounce off player
 		if Player.BarrierType > BarrierNormal
@@ -33,5 +33,5 @@ function ObjProjectileMain()
 	}
 	
 	// Play animation
-	animation_play(sprite_index, 4, 0);
+	animation_play(sprite_index, 2, 0);
 }

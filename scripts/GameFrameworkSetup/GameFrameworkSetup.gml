@@ -25,15 +25,15 @@ function GameFrameworkSetup()
 	Game.SKRollDeceleration	= false;
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;
-	Game.SMWaterBarrier		= false;
-	Game.SMRingBehaviour	= false;
+	
 	Game.SKItemBoxBehaviour = true;
-	Game.CDStageTimer	    = false;
+	Game.CDStageTimer	    = true;
 	
 	// Orbinaut improvements
 	Game.CustomSlopeCollision = true;
 	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = true;
+	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
 	
@@ -47,7 +47,7 @@ function GameFrameworkSetup()
 	Game.WindowSize	      = 4;
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)

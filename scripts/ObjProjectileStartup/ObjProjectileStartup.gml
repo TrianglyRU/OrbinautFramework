@@ -1,17 +1,16 @@
 function ObjProjectileStartup()
 {
-	// Create variables
-	PosX   = x;
-	PosY   = y;
-	Xsp    = 0;
-	Ysp    = 0;
-	Grv    = 0.21875;
+	// Set blank values
+	Xsp = 0;
+	Ysp = 0;
 	
-	// Set object hitbox size
+	// Set other variables
+	PosX = x;
+	PosY = y;
+	Grv  = 0.21875;
+	
+	// Set object hitbox
 	object_set_hitbox(6, 6);
-	
-	// Set object depth
-	object_set_depth(Player, false);
 	
 	// Set object unload type
 	object_set_unload(TypeDelete);
