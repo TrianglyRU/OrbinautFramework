@@ -5,7 +5,10 @@ function ObjProjectileStartup()
 	PosY   = y;
 	Xsp    = 0;
 	Ysp    = 0;
-	Sprite = 0;
+	Grv    = 0.21875;
+	
+	// Set object hitbox size
+	object_set_hitbox(6, 6);
 	
 	// Set object depth
 	object_set_depth(Player, false);

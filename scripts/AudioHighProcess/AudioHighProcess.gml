@@ -8,7 +8,6 @@ function AudioHighProcess()
 	
 	// Get priority track data
 	var Track     = HighTrack[0];
-	var Loop      = HighTrack[1];
 	var Event     = HighTrack[2];
 	var EventTime = HighTrack[3];
 	

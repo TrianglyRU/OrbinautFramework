@@ -60,10 +60,12 @@ function ObjCrabmeatMain()
 				// Create bullets
 				for (var i = 1; i > -3; i -= 2)
 				{
-				  var  Bullet = instance_create_depth(x + 16 * i, y, depth, CrabmeatBullet);
+				  var  Bullet = instance_create(x + 16 * i, y, Projectile);
 				  with Bullet
 				  {
-					  Xsp = i;
+					  Xsp          = i;
+					  Ysp		   = -4;
+					  sprite_index = spr_obj_projectile_crabmeat;
 				  }
 				}
 			}

@@ -38,7 +38,6 @@ function GameVariables()
 	Game.Height			  = 0;
 	Game.WindowSize		  = 0;
 	Game.AnimationTime	  = 0;
-	Game.PostProcessing   = 0;
 	
 	// Audio
 	Game.MusicVolume = 0;

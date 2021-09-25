@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_motobug_smoke",
-    "path": "sprites/spr_obj_motobug_smoke/spr_obj_motobug_smoke.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,16 +21,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Motobug Smoke",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Motobug/Motobug Smoke.yy",
+    "name": "Projectile",
+    "path": "folders/Game Objects/Stage Objects/Badniks/Projectile.yy",
   },
   "resourceVersion": "1.0",
-  "name": "MotobugSmoke",
+  "name": "Projectile",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_crabmeat_bullet",
-    "path": "sprites/spr_obj_crabmeat_bullet/spr_obj_crabmeat_bullet.yy",
+    "name": "spr_obj_projectile_crabmeat",
+    "path": "sprites/spr_obj_projectile_crabmeat/spr_obj_projectile_crabmeat.yy",
   },
   "solid": false,
   "visible": true,

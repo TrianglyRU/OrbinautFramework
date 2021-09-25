@@ -249,32 +249,24 @@ function MenuOptionsProcess()
 				{
 					// Window size toggle
 					case 0:
+					{
 						Game.WindowSize = loop_value(Game.WindowSize + (Input.RightPress ? 1 : -1), 1, 5);
-						
-						// Update window
 						window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
 				
 						// Update option
 						menu_update_option(7, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");	
+					}
 					break;
 				
 					// Fullscreen toggle
-					case 1:					
+					case 1:	
+					{
 						Game.WindowFullscreen = !Game.WindowFullscreen;
-						
-						// Update window
 						window_set_fullscreen(Game.WindowFullscreen);
 				
 						// Update option
 						menu_update_option(7, 1, "FULLSCREEN: " + menu_get_boolean(Game.WindowFullscreen));
-					break;
-				
-					// Post-processing
-					case 2:
-						Game.PostProcessing = !Game.PostProcessing;
-						
-						// Update option
-						menu_update_option(7, 2, "POST-PROCESSING: " + menu_get_boolean(Game.PostProcessing));
+					}
 					break;
 				}
 			}

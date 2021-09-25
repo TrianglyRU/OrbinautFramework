@@ -57,29 +57,18 @@ function MenuSetup()
 	menu_add_option(5, 3, "CONTROLS");
 	
 	// Options (gameplay)
-	var Spindash  = menu_get_boolean(Game.SpindashEnabled);
-	var Peelout   = menu_get_boolean(Game.PeeloutEnabled);
-	var Dropdash  = menu_get_boolean(Game.DropdashEnabled);
-	var GroundCap = menu_get_boolean(Game.GroundSpeedcap);
-	var AirCap    = menu_get_boolean(Game.AirSpeedcap);
-	var CDCamera  = menu_get_boolean(Game.CDCamera);
-	
 	menu_add_header(6,    "GAMEPLAY OPTIONS");
-	menu_add_option(6, 0, "SPINDASH: "   + string(Spindash));
-	menu_add_option(6, 1, "PEELOUT: "    + string(Peelout));
-	menu_add_option(6, 2, "DROPDASH: "   + string(Dropdash));
-	menu_add_option(6, 3, "GRN SPDCAP: " + string(GroundCap));
-	menu_add_option(6, 4, "AIR SPDCAP: " + string(AirCap));
-	menu_add_option(6, 5, "CD CAMERA: "  + string(CDCamera));
+	menu_add_option(6, 0, "SPINDASH: "   + string(menu_get_boolean(Game.SpindashEnabled)));
+	menu_add_option(6, 1, "PEELOUT: "    + string(menu_get_boolean(Game.PeeloutEnabled)));
+	menu_add_option(6, 2, "DROPDASH: "   + string(menu_get_boolean(Game.DropdashEnabled)));
+	menu_add_option(6, 3, "GRN SPDCAP: " + string(menu_get_boolean(Game.GroundSpeedcap)));
+	menu_add_option(6, 4, "AIR SPDCAP: " + string(menu_get_boolean(Game.AirSpeedcap)));
+	menu_add_option(6, 5, "CD CAMERA: "  + string(menu_get_boolean(Game.CDCamera)));
 	
 	// Options (video)
-	var Fullscreen = menu_get_boolean(Game.WindowFullscreen);
-	var PostProcessing = menu_get_boolean(Game.PostProcessing);
-	
 	menu_add_header(7,    "VIDEO OPTIONS");
-	menu_add_option(7, 0, "WINDOW SIZE: "     + string(Game.WindowSize) + "X");
-	menu_add_option(7, 1, "FULLSCREEN: "	  + string(Fullscreen));
-	menu_add_option(7, 2, "POST-PROCESSING: " + string(PostProcessing));
+	menu_add_option(7, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");
+	menu_add_option(7, 1, "FULLSCREEN: "  + string(menu_get_boolean(Game.WindowFullscreen)));
 	
 	// Options (audio)
 	menu_add_header(8,    "AUDIO OPTIONS");

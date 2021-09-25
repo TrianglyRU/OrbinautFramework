@@ -18,7 +18,6 @@ function gamesettings_save(filename)
 	ini_write_real("Video",    "Height",		 Game.Height);
 	ini_write_real("Video",    "Size", 			 Game.WindowSize);
 	ini_write_real("Video",    "Fullscreen",	 Game.WindowFullscreen);
-	ini_write_real("Video",    "PostProcessing", Game.PostProcessing);
 	ini_write_real("Music",    "MusicVolume",	 Game.MusicVolume);
 	ini_write_real("Music",    "SoundVolume",	 Game.SoundVolume);
 	

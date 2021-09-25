@@ -3,16 +3,33 @@ function ObjProjectileMain()
 	// Move object
 	PosX += Xsp;
 	PosY += Ysp;
-	Ysp  += 0.21875;
+	Ysp  += Grv;
 	
 	// Update object position
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	// Check if object should bounce off player (TODO)
 	if object_check_overlap(Hitbox)
 	{
-		player_damage(false, false, false);
+		// Check if object should bounce off player
+		if Player.BarrierType > BarrierNormal
+		{
+			// Get angle
+			var X	  = floor(Player.PosX) - x;
+			var Y	  = floor(Player.PosY) - y;
+			var Angle = darctan2(Y, X);
+			
+			// Reflect projectile
+			Xsp = dcos(Angle) * -8;
+			Ysp = dsin(Angle) * -8;
+			Grv = 0;
+		}
+		
+		// Else damage player
+		else
+		{
+			player_damage(false, false, false);
+		}
 	}
 	
 	// Play animation
