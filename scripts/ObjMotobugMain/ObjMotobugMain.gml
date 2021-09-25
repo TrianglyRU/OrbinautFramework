@@ -33,7 +33,7 @@ function ObjMotobugMain()
 					Timer = 16;
 				}
 				
-				// Attach to surface
+				// Attach to the surface
 				if FindFloor > -16
 				{
 					PosY += FindFloor;
