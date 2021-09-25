@@ -1,18 +1,10 @@
 function ObjMotobugStartup()
 {
-	// Create variables
-	PosX	   = 0;
-	PosY	   = 0;
-	Xsp		   = 0;
-	StopTimer  = 0;
-	SmokeTimer = 0;
-	ChildrenData = [];
-	
-	// Set values
-	PosX	   = x;
-	PosY	   = y;
-	Xsp        = 1;
-	SmokeTimer = 17;
+	// Set variables
+	PosX  = x;
+	PosY  = y;
+	State = 0;
+	Timer = 16;
 	
 	// Set object hitbox
 	object_set_hitbox(20, 17);
