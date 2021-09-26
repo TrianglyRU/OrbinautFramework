@@ -115,7 +115,7 @@ function ObjPrisonMain()
 			if Stage.IsFinished == 1 and !instance_exists(Animal)
 			{
 				Stage.IsFinished = 3;
-				audio_bgm_play(PriorityLow, ActClearMusic, noone);
+				audio_bgm_play(PriorityLow, ActClear, noone);
 			}
 		}
 		break;

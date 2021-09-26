@@ -15,7 +15,7 @@ function SpecialScreenStartup()
 		RenderFlag = -1;
 		
 		fade_perform(FadeFrom, ColourWhite, 1);
-		audio_bgm_play(PriorityLow, ActClearMusic, noone);
+		audio_bgm_play(PriorityLow, ActClear, noone);
 	}
 	
 	// Else redirect to special stage

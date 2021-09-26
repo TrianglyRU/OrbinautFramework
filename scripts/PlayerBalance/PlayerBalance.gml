@@ -56,9 +56,10 @@ function PlayerBalance()
 						Animation = AnimBalancePanic;
 					}
 				}
+				
+				// Use two-sided balance animation
 				else
 				{
-					// Use two-sided balance animation
 					if Facing == FlipLeft
 					{
 						Animation = AnimBalance;
@@ -95,10 +96,11 @@ function PlayerBalance()
 					{
 						Animation = AnimBalancePanic;
 					}
-				}				
+				}
+				
+				// Use two-sided balance animation
 				else
 				{
-					// Use two-sided balance animation
 					if Facing == FlipRight
 					{
 						Animation = AnimBalance;
@@ -138,9 +140,9 @@ function PlayerBalance()
 		// Standing on the left edge
 		if PlayerX < 4
 		{
-			// Use two-sided balance animation
 			if !SuperState and Game.Character == CharSonic
 			{
+				// Use "panic balance" animation
 				if PlayerX < -2
 				{
 					if Facing == FlipRight
@@ -153,6 +155,8 @@ function PlayerBalance()
 						Animation = AnimBalancePanic;
 					}
 				}
+				
+				// Use two-sided balance animation
 				else
 				{
 					if Facing == FlipLeft
@@ -177,9 +181,9 @@ function PlayerBalance()
 		// Standing on the right edge
 		else if PlayerX > RightEdge - 4
 		{
-			// Use two-sided balance animation
 			if !SuperState and Game.Character == CharSonic
 			{
+				// Use "panic balance" animation
 				if PlayerX > RightEdge + 2
 				{
 					if Facing == FlipLeft
@@ -192,6 +196,8 @@ function PlayerBalance()
 						Animation = AnimBalancePanic;
 					}
 				}
+				
+				// Use two-sided balance animation
 				else
 				{
 					if Facing == FlipRight

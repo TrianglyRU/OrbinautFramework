@@ -55,7 +55,7 @@ function PlayerWaterEvents()
 				}
 				else if AirTimer == 720
 				{			
-					audio_bgm_play(PriorityLow, DrowningMusic, noone);
+					audio_bgm_play(PriorityLow, Drowning, noone);
 				}
 				AirTimer--
 			}

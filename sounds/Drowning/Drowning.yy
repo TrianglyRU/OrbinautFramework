@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "DrowningMusic.ogg",
-  "duration": 12.2382774,
+  "soundFile": "Drowning.ogg",
+  "duration": 11.8089123,
   "parent": {
     "name": "Audio",
     "path": "folders/Audio.yy",
   },
   "resourceVersion": "1.0",
-  "name": "DrowningMusic",
+  "name": "Drowning",
   "tags": [],
   "resourceType": "GMSound",
 }

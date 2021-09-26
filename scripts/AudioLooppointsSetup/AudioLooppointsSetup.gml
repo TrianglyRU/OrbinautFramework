@@ -5,5 +5,5 @@ function AudioLooppointsSetup()
 	
 	audio_bgm_setloop(TestStageMusic, 3.2);
 	audio_bgm_setloop(BossMusic,    1.625);
-	audio_bgm_setloop(SuperTheme,       0);
+	audio_bgm_setloop(SuperTheme,    0.63);
 }

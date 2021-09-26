@@ -57,9 +57,8 @@ function StageGameplayProcess()
 			// Count timer
 			EventTimer++;
 			
-			// Wait 1 or 10 seconds
-			if !IsGameOver and EventTimer == 60
-			or  IsGameOver and EventTimer == 600
+			// Wai for 1 or 12 seconds
+			if !IsGameOver and EventTimer == 60 or IsGameOver and EventTimer == 720
 			{
 				// Fade out
 				fade_perform(FadeTo, ColourBlack, 1);
@@ -81,13 +80,13 @@ function StageGameplayProcess()
 				if Player.Lives != 0
 				{
 					room_restart();
+					Game.Lives = Player.Lives;
 					
 					// Clear saved time if time over
 					if IsGameOver
 					{
 						Game.Time = 0;
 					}
-					Game.Lives = Player.Lives;
 				}
 				
 				// If ran out of lives, reset data
