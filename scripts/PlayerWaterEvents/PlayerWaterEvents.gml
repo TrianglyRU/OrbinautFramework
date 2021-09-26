@@ -121,11 +121,11 @@ function PlayerWaterEvents()
 				{
 					if HighspeedBonus
 					{
-						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+						audio_bgm_play(PriorityLow, HighSpeed, noone);
 					}
 					else if InvincibleBonus
 					{
-						audio_bgm_play(PriorityLow, InvincibleMusic, noone);
+						audio_bgm_play(PriorityLow, Invincibility, noone);
 					}
 					else
 					{
@@ -134,7 +134,7 @@ function PlayerWaterEvents()
 				}
 				else
 				{
-					audio_bgm_play(PriorityLow, SuperMusic, other);
+					audio_bgm_play(PriorityLow, SuperTheme, other);
 				}
 			}
 			

@@ -47,5 +47,5 @@ function ContinueScreenStartup()
 	
 	// Perfrom fade and play music
 	fade_perform(FadeFrom, ColourBlack, 1);
-	audio_bgm_play(PriorityLow, ContinueMusic, noone);
+	audio_bgm_play(PriorityLow, Continue, noone);
 }

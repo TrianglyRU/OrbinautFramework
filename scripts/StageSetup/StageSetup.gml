@@ -6,7 +6,7 @@ function StageSetup()
 	switch room 
 	{	
 		// Test Stage
-		case TestStage:
+		case Stage_TZ:
 		{
 			ZoneName			= "TEST STAGE";
 			ZoneID				= -1;

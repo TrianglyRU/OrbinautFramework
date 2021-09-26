@@ -1,5 +1,5 @@
-/// @description Startup Initialisation
+/// @description Screen_Startup Initialisation
 // You can write your code in this editor
 	
-	// Startup Initialisation Script
+	// Screen_Startup Initialisation Script
 	DiscordStartup();

@@ -51,7 +51,7 @@ function ContinueScreenProcess()
 			}
 			if fade_check(FadeMax)
 			{
-				room_goto(DevMenu);
+				room_goto(Screen_DevMenu);
 			}
 			
 			// Set timer frame to 00

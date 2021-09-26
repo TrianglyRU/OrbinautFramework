@@ -3,7 +3,7 @@ function PaletteSetup()
 	switch room 
 	{	
 		// Load basic palette for Test Stage
-		case TestStage:
+		case Stage_TZ:
 		{
 			palette_load(PaletteDry, pal_default_dry);
 			palette_load(PaletteWet, pal_default_wet);

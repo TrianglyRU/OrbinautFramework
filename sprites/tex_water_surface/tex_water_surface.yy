@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Common Textures",
-    "path": "folders/Stages & Rooms/Common Textures.yy",
+    "path": "folders/Rooms/Stages/Common Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_water_surface",

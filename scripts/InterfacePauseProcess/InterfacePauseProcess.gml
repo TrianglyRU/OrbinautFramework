@@ -58,7 +58,7 @@ function InterfacePauseProcess()
 						Game.SpecialRingData = [];
 						Game.SpecialRingList = [];
 						
-						room_goto(DevMenu);
+						room_goto(Screen_DevMenu);
 					}
 					
 					// Stop all audio

@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Stages & Rooms/Special Stage/Textures.yy",
+    "path": "folders/Rooms/Screens/Special Stage/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sstage_character_canbe",

@@ -46,7 +46,7 @@ function MenuOptionsProcess()
 						switch Game.Stage
 						{
 							default:
-								room_goto(TestStage);
+								room_goto(Stage_TZ);
 							break;
 						}
 					}
@@ -77,7 +77,7 @@ function MenuOptionsProcess()
 			if Input.APress or Input.StartPress
 			{
 				// Load first zone
-				room_goto(TestStage);
+				room_goto(Stage_TZ);
 		
 				// Set data
 				Game.Character = OptionID;
@@ -125,7 +125,7 @@ function MenuOptionsProcess()
 				switch OptionID
 				{
 					case 0:
-						room_goto(TestStage);
+						room_goto(Stage_TZ);
 					break;
 					default: break;
 				}

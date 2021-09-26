@@ -28,6 +28,6 @@ function SpecialStageEnd()
 	}
 	else if fade_check(FadeMax)
 	{
-		room_goto(SStageScreen);
+		room_goto(Screen_SStage);
 	}
 }

@@ -41,16 +41,32 @@ function PlayerBalance()
 		// Standing on the left edge
 		if !LeftAngle
 		{	
-			// Use two-sided balance animation
 			if !SuperState and Game.Character == CharSonic
 			{
-				if Facing == FlipLeft
+				// Use "panic balance" animation
+				if tile_check_collision_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0] >= 12
 				{
-					Animation = AnimBalance;
+					if Facing == FlipRight
+					{
+						Animation = AnimBalanceTurn;
+						Facing	  = FlipLeft;
+					}
+					else
+					{
+						Animation = AnimBalancePanic;
+					}
 				}
-				else if Facing == FlipRight
+				else
 				{
-					Animation = AnimBalanceFlip;
+					// Use two-sided balance animation
+					if Facing == FlipLeft
+					{
+						Animation = AnimBalance;
+					}
+					else if Facing == FlipRight
+					{
+						Animation = AnimBalanceFlip;
+					}
 				}
 			}
 			
@@ -65,16 +81,32 @@ function PlayerBalance()
 		// Standing on the right edge
 		else if !RightAngle
 		{
-			// Use two-sided balance animation
 			if !SuperState and Game.Character == CharSonic
 			{
-				if Facing == FlipRight
+				// Use "panic balance" animation
+				if tile_check_collision_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0] >= 12
 				{
-					Animation = AnimBalance;
-				}
-				else if Facing == FlipLeft
+					if Facing == FlipLeft
+					{
+						Animation = AnimBalanceTurn;
+						Facing	  = FlipRight;
+					}
+					else
+					{
+						Animation = AnimBalancePanic;
+					}
+				}				
+				else
 				{
-					Animation = AnimBalanceFlip;
+					// Use two-sided balance animation
+					if Facing == FlipRight
+					{
+						Animation = AnimBalance;
+					}
+					else if Facing == FlipLeft
+					{
+						Animation = AnimBalanceFlip;
+					}
 				}
 			}
 			
@@ -90,7 +122,7 @@ function PlayerBalance()
 	// Balance on object
 	else
 	{
-		/* In orginals, balance range varies from object to object (2 to 4). We'll
+		/* In orginals, the widest balance range varies from object to object (2 to 4). We'll
 		use a range of 4 pixels */
 		
 		// Ignore specific objects
@@ -109,13 +141,28 @@ function PlayerBalance()
 			// Use two-sided balance animation
 			if !SuperState and Game.Character == CharSonic
 			{
-				if Facing == FlipLeft
+				if PlayerX < -2
 				{
-					Animation = AnimBalance;
+					if Facing == FlipRight
+					{
+						Animation = AnimBalanceTurn;
+						Facing	  = FlipLeft;
+					}
+					else
+					{
+						Animation = AnimBalancePanic;
+					}
 				}
-				else if Facing == FlipRight
+				else
 				{
-					Animation = AnimBalanceFlip;
+					if Facing == FlipLeft
+					{
+						Animation = AnimBalance;
+					}
+					else if Facing == FlipRight
+					{
+						Animation = AnimBalanceFlip;
+					}
 				}
 			}
 			
@@ -133,13 +180,28 @@ function PlayerBalance()
 			// Use two-sided balance animation
 			if !SuperState and Game.Character == CharSonic
 			{
-				if Facing == FlipRight
+				if PlayerX > RightEdge + 2
 				{
-					Animation = AnimBalance;
+					if Facing == FlipLeft
+					{
+						Animation = AnimBalanceTurn;
+						Facing	  = FlipRight;
+					}
+					else
+					{
+						Animation = AnimBalancePanic;
+					}
 				}
-				else if Facing == FlipLeft
+				else
 				{
-					Animation = AnimBalanceFlip;
+					if Facing == FlipRight
+					{
+						Animation = AnimBalance;
+					}
+					else if Facing == FlipLeft
+					{
+						Animation = AnimBalanceFlip;
+					}
 				}
 			}
 			

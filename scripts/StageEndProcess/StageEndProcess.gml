@@ -42,7 +42,7 @@ function StageEndProcess()
 	switch room
 	{
 		default:
-			room_goto(DevMenu);
+			room_goto(Screen_DevMenu);
 		break;
 	}
 }

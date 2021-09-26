@@ -139,6 +139,12 @@ function PlayerAnimate()
 					case AnimBalanceFlip:
 						animation_play(spr_sonic_balance_flip, 16, 0);
 					break;
+					case AnimBalancePanic:
+						animation_play(spr_sonic_balance_panic, 4, 0);
+					break;
+					case AnimBalanceTurn:
+						animation_play(spr_sonic_balance_turn, 1, 0);
+					break;
 					case AnimSpring:
 					{
 						if !(--AnimSpringTime)

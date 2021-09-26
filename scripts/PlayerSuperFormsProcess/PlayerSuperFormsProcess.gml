@@ -62,7 +62,7 @@ function PlayerSuperFormsProcess()
 			// Exit superform
 			if !Rings
 			{	
-				if audio_bgm_is_playing(SuperMusic)
+				if audio_bgm_is_playing(SuperTheme)
 				{
 					if Stage.IsBossfight
 					{
@@ -70,7 +70,7 @@ function PlayerSuperFormsProcess()
 					}
 					else if HighspeedBonus
 					{
-						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+						audio_bgm_play(PriorityLow, HighSpeed, noone);
 					}
 					else
 					{

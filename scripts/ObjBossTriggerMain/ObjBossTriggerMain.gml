@@ -32,7 +32,7 @@ function ObjBossTriggerMain()
 		if !BossDefeated
 		{
 			// Check for a key to be pressed if it is example bossfight
-			if room == TestStage and keyboard_check_pressed(ord("K"))
+			if room == Stage_TZ and keyboard_check_pressed(ord("K"))
 			{
 				BossDefeated = true;
 			}

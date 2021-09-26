@@ -50,7 +50,7 @@ function StageGameplayProcess()
 				{
 					IsGameOver = true;
 					audio_bgm_stop(PriorityHigh, 0);
-					audio_bgm_play(PriorityLow, GameOverMusic, noone);
+					audio_bgm_play(PriorityLow, GameOver, noone);
 				}
 			}
 			
@@ -102,7 +102,7 @@ function StageGameplayProcess()
 					// If have continues, go to continue screen
 					if Game.Continues
 					{
-						room_goto(Continue);
+						room_goto(Screen_Continue);
 					}
 					
 					// If not, return to menu
@@ -118,7 +118,7 @@ function StageGameplayProcess()
 						{
 							gamedata_save(Game.ActiveSave);
 						}
-						room_goto(DevMenu);
+						room_goto(Screen_DevMenu);
 					}
 				}
 			}	

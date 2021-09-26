@@ -151,7 +151,7 @@ function ObjItemBoxMain()
 					// Play music
 					if !Player.SuperState
 					{
-						audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+						audio_bgm_play(PriorityLow, HighSpeed, noone);
 					}
 				}
 				break;
@@ -167,7 +167,7 @@ function ObjItemBoxMain()
 					Player.InvincibleBonus = 1200;
 						
 					// Play music
-					audio_bgm_play(PriorityLow, InvincibleMusic, noone);
+					audio_bgm_play(PriorityLow, Invincibility, noone);
 				}
 				break;
 				case "Barrier":
@@ -268,11 +268,11 @@ function ObjItemBoxMain()
 						{
 							if Player.InvincibleBonus
 							{
-								audio_bgm_play(PriorityLow, InvincibleMusic, noone);
+								audio_bgm_play(PriorityLow, Invincibility, noone);
 							}
 							else if Player.HighspeedBonus
 							{
-								audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+								audio_bgm_play(PriorityLow, HighSpeed, noone);
 							}
 							else
 							{
@@ -281,7 +281,7 @@ function ObjItemBoxMain()
 						}
 						else
 						{
-							audio_bgm_play(PriorityLow, SuperMusic, other);
+							audio_bgm_play(PriorityLow, SuperTheme, other);
 						}
 					}
 			
@@ -295,7 +295,7 @@ function ObjItemBoxMain()
 					Player.Lives++;
 						
 					// Play jingle
-					audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
+					audio_bgm_play(PriorityHigh, ExtraLife, noone);
 				}
 				break;
 				case "Eggman":

@@ -66,7 +66,7 @@ function ObjComboScoreMain()
 	if Player.Score >= LifeReward
 	{
 		Player.Lives++;
-		audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
+		audio_bgm_play(PriorityHigh, ExtraLife, noone);
 	}
 	
 	// Move object

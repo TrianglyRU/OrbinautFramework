@@ -14,7 +14,7 @@ function SplashScreenProcess()
 		
 		// Load into the next room after 3 seconds
 		case 180:
-			room_goto(DevMenu);
+			room_goto(Screen_DevMenu);
 		break;
 	}
 	

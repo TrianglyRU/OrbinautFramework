@@ -1,7 +1,7 @@
 function ObjBossTriggerDraw()
 {
 	// Exit if not a test stage or boss isn't triggered
-	if room != TestStage or !Stage.IsBossfight
+	if room != Stage_TZ or !Stage.IsBossfight
 	{
 		exit;
 	}

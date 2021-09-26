@@ -82,10 +82,12 @@ function GameMacro()
 	#macro AnimSkid			 24
 	#macro AnimBalance		 25
 	#macro AnimBalanceFlip	 26
-	#macro AnimSpring		 27
-	#macro AnimActEnd		 28
-	#macro AnimTransform	 29
-	#macro AnimBreathe		 30
+	#macro AnimBalancePanic  27
+	#macro AnimBalanceTurn   28
+	#macro AnimSpring		 29
+	#macro AnimActEnd		 30
+	#macro AnimTransform	 31
+	#macro AnimBreathe		 32
 	
 	// Collision macro
 	#macro SideTop	  0

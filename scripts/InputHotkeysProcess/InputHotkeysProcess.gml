@@ -62,14 +62,14 @@ function InputHotkeysProcess()
 	if keyboard_check_pressed(vk_f6)
 	{
 		Player.HighspeedBonus = 1200;
-		audio_bgm_play(PriorityLow, HighspeedMusic, noone);
+		audio_bgm_play(PriorityLow, HighSpeed, noone);
 	}
 	
 	// Give invincibility (F7)
 	if keyboard_check_pressed(vk_f7)
 	{
 		Player.InvincibleBonus = 1200;
-		audio_bgm_play(PriorityLow, InvincibleMusic, noone);
+		audio_bgm_play(PriorityLow, Invincibility, noone);
 	}
 	
 	// Give barrier (F8)
@@ -120,7 +120,7 @@ function InputHotkeysProcess()
 	if keyboard_check_pressed(vk_f9)
 	{
 		Player.Lives++;
-		audio_bgm_play(PriorityHigh, ExtraLifeJingle, noone);
+		audio_bgm_play(PriorityHigh, ExtraLife, noone);
 	}
 	
 	// Hurt player (F10)

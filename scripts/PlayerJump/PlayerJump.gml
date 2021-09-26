@@ -61,7 +61,7 @@ function PlayerJump()
 		
 			// Play sound and music
 			audio_sfx_play(sfxTransform, false);		
-			audio_bgm_play(PriorityLow, SuperMusic, other);
+			audio_bgm_play(PriorityLow, SuperTheme, other);
 				
 			// Exit the code
 			exit;

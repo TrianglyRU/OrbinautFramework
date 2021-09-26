@@ -5,11 +5,11 @@ function StartupScreenProcess()
 	{
 		if Game.ShowSplash
 		{
-			room_goto(Splash);
+			room_goto(Screen_Splash);
 		}
 		else
 		{
-			room_goto(DevMenu);
+			room_goto(Screen_DevMenu);
 		}
 	}
 }
