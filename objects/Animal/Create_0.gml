@@ -1,4 +1,4 @@
-/// @description Screen_Startup
+/// @description Startup
 // You can write your code in this editor
 
 	// Call object script

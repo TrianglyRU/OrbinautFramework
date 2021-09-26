@@ -1,7 +1,7 @@
-/// @description Screen_Startup Initialisation
+/// @description Startup Initialisation
 // You can write your code in this editor
 	
-	// Screen_Startup Initalization Scripts
+	// Startup Initalization Scripts
 	GameMacro();
 	GameVariables();
 	GameFrameworkSetup();

@@ -4,5 +4,5 @@
 	// Initialise variables
 	SpecialStageVariables();
 	
-	// Screen_Startup setup
+	// Startup setup
 	SpecialStageSetup();
