@@ -72,7 +72,7 @@ function ObjSignpostMain()
 				if Player.Grounded
 				{
 					// Play results music
-					audio_bgm_play(PriorityLow, ActClear, noone);
+					audio_bgm_play(PriorityLow, ActClear, 0, 0);
 				
 					// Update flags
 					Input.IgnoreInput  = true;

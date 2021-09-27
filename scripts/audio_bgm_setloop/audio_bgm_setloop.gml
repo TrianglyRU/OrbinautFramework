@@ -1,5 +1,5 @@
-/// @function audio_bgm_setloop(soundid,looppoint)
-function audio_bgm_setloop(soundid, looppoint)
+/// @function audio_bgm_setloop(soundid,loopstart,loopend)
+function audio_bgm_setloop(soundid, loopstart, loopend)
 {
 	if object_index != Audio
 	{
@@ -7,6 +7,7 @@ function audio_bgm_setloop(soundid, looppoint)
 	}
 	else
 	{
-		TrackLoop[soundid] = looppoint;
+		TrackLoop[soundid][0] = loopstart;
+		TrackLoop[soundid][1] = loopend;
 	}
 }

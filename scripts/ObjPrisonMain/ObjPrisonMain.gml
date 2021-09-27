@@ -22,7 +22,7 @@ function ObjPrisonMain()
 				{
 					Player.SuperState = false;
 				}
-				audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+				audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
 				
 				// Increment state
 				State++;
@@ -115,7 +115,7 @@ function ObjPrisonMain()
 			if Stage.IsFinished == 1 and !instance_exists(Animal)
 			{
 				Stage.IsFinished = 3;
-				audio_bgm_play(PriorityLow, ActClear, noone);
+				audio_bgm_play(PriorityLow, ActClear, 0, 0);
 			}
 		}
 		break;

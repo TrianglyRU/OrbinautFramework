@@ -1,7 +1,7 @@
 function InterfaceDebugScreenDraw()
 {	
-	// Exit if not allowed to display
-	if !Game.DevMode or !Stage.DoUpdate
+	// Exit if not in devmode
+	if !Game.DevMode
 	{
 		exit;
 	}
@@ -31,6 +31,84 @@ function InterfaceDebugScreenDraw()
 		DebugVariables = !DebugVariables;
 	}
 	
+	// Define information to display
+	#region Display Info
+	{
+		/* AUDIO */
+		
+		if Audio.LowTrack[0]
+		{
+			var LowPlaying = audio_get_name(Audio.LowTrack[0]);
+			var LowLength  = string(audio_sound_length(Audio.LowTrack[0]));
+		}
+		else
+		{
+			var LowPlaying = "NOT PLAYING";
+			var LowLength  = "NO DATA";
+		}
+		if Audio.HighTrack[0]
+		{
+			var HighPlaying = audio_get_name(Audio.HighTrack[0]);
+			var HighLength  = string(audio_sound_length(Audio.HighTrack[0]));
+		}
+		else
+		{
+			var HighPlaying = "NOT PLAYING";
+			var HighLength  = "NO DATA";
+		}
+		
+		switch Audio.LowTrack[2]
+		{
+			case EventIdle:
+				var LowEvent = "IDLE";
+			break;
+			case EventMute:
+				var LowEvent = "MUTE";
+			break;
+			case EventStop:
+				var LowEvent = "STOP";
+			break;
+			case EventUnmute:
+				var LowEvent = "UNMUTE";
+			break;
+		}
+		switch Audio.HighTrack[2]
+		{
+			case EventIdle:
+				var HighEvent = "IDLE";
+			break;
+			case EventMute:
+				var HighEvent = "MUTE";
+			break;
+			case EventStop:
+				var HighEvent = "STOP";
+			break;
+			case EventUnmute:
+				var HighEvent = "UNMUTE";
+			break;
+		}
+		
+		if Audio.LowTrack[1][1]
+		{
+			var LowLoop = "LOOP TO " + string(Audio.LowTrack[1][0]);
+		}
+		else
+		{
+			var LowLoop = "NO";
+		}
+		if Audio.HighTrack[1][1]
+		{
+			var HighLoop = "LOOP TO " + string(Audio.HighTrack[1][0]);
+		}
+		else
+		{
+			var HighLoop = "NO";
+		}
+		
+		/* */
+	}
+	#endregion
+	
 	// Display variables
 	if DebugVariables
 	{
@@ -44,6 +122,7 @@ function InterfaceDebugScreenDraw()
 	
 		// Display debug screen
 		draw_text_ext_transformed(Game.Width - 86, 8,
+		
 					"         ORBINAUT  FRAMEWORK"
 				+ "\n           STANDALONE VER."
 				+ "\n"
@@ -101,7 +180,6 @@ function InterfaceDebugScreenDraw()
 				+ "\n   ANIMATION: "     + string(sprite_get_name(Player.sprite_index))
 				+ "\n   NEXT FRAME IN: " + string(Player.image_duration)
 				+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
-				+ "\n   LAST FRAME: "    + string(Player.image_lastindex + 1)
 				+ "\n   FRAMES TOTAL: "  + string(Player.image_number)
 				+ "\n   VISUAL ANGLE: "  + string(Player.VisualAngle)
 				+ "\n"
@@ -119,18 +197,21 @@ function InterfaceDebugScreenDraw()
 				+ "\n"
 				+ "\n              * AUDIO *"
 				+ "\n"
-				+ "\n   LOW TRACK: "       + string(Audio.LowTrack[0])
-				+ "\n   LOW EVENT: "       + string(Audio.LowTrack[2])
+				+ "\n   LOW TRACK: "       + LowPlaying
+				+ "\n   LOW EVENT: "       + LowEvent
 				+ "\n   LOW EVENT TIME: "  + string(Audio.LowTrack[3])
 				+ "\n   LOW VOLUME: "      + string(audio_sound_get_gain(Audio.LowTrack[0]))
 				+ "\n   LOW POSITION: "    + string(audio_sound_get_track_position(Audio.LowTrack[0]))
-				+ "\n   LOW LENGTH: "      + string(audio_sound_length(Audio.LowTrack[0]))
-				+ "\n   HIGH TRACK: "      + string(Audio.HighTrack[0])
-				+ "\n   HIGH EVENT: "      + string(Audio.HighTrack[2])
+				+ "\n   LOW LENGTH: "      + LowLength
+				+ "\n   LOW LOOP: "        + LowLoop
+				+ "\n   HIGH TRACK: "      + HighPlaying
+				+ "\n   HIGH EVENT: "      + HighEvent
 				+ "\n   HIGH EVENT TIME: " + string(Audio.HighTrack[3])
 				+ "\n   HIGH VOLUME: "     + string(audio_sound_get_gain(Audio.HighTrack[0]))
 				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[0]))
-				+ "\n   HIGH LENGTH: "     + string(audio_sound_length(Audio.HighTrack[0])),
+				+ "\n   HIGH LENGTH: "     + HighLength
+				+ "\n   HIGH LOOP: "       + HighLoop,
+				
 		8, 256, 0.28, 0.28, 0);
 	}
 }

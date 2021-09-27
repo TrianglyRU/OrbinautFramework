@@ -60,7 +60,7 @@ function PlayerDebugMode()
 			{
 				if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(PriorityLow)
 				{
-					audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+					audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
 				}
 			}
 			AirTimer = 1800;

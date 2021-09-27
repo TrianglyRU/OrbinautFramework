@@ -1,7 +1,7 @@
 function StageStartup()
 {
 	// Play stage music
-	audio_bgm_play(PriorityLow, StageMusic, other);
+	audio_bgm_play(PriorityLow, StageMusic, other, other);
 	
 	// Set bubble wobble data
 	if WaterEnabled

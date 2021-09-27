@@ -53,7 +53,7 @@ function PlayerJump()
 			InvincibleBonus = false;
 			SuperStateValue = false;
 			SuperState      = true;
-			AirLock		    = true;
+			AirLock			= true;
 			
 			// Reset collision radiuses
 			RadiusX = DefaultRadiusX;
@@ -61,7 +61,7 @@ function PlayerJump()
 		
 			// Play sound and music
 			audio_sfx_play(sfxTransform, false);		
-			audio_bgm_play(PriorityLow, SuperTheme, other);
+			audio_bgm_play(PriorityLow, SuperTheme, other, other);
 				
 			// Exit the code
 			exit;

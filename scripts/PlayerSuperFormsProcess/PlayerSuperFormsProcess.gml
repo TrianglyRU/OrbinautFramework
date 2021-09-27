@@ -17,7 +17,7 @@ function PlayerSuperFormsProcess()
 				Ysp		= 0;	
 			}
 			
-			// Restore inputs on 16th frame
+			// Restore control on 16th frame
 			else if SuperStateValue == 16
 			{
 				AirLock = false;
@@ -66,15 +66,15 @@ function PlayerSuperFormsProcess()
 				{
 					if Stage.IsBossfight
 					{
-						audio_bgm_play(PriorityLow, BossMusic, other);
+						audio_bgm_play(PriorityLow, Boss, other, other);
 					}
 					else if HighspeedBonus
 					{
-						audio_bgm_play(PriorityLow, HighSpeed, noone);
+						audio_bgm_play(PriorityLow, HighSpeed, 0, 0);
 					}
 					else
 					{
-						audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+						audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
 					}					
 				}
 				SuperStateValue = false;

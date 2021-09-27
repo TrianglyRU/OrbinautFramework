@@ -21,8 +21,8 @@ function AudioHighProcess()
 		audio_bgm_unmute(PriorityLow, 1);
 	}
 	
-	// Stop track
-	if audio_sound_get_track_position(Track) + 0.1 >= audio_sound_length(Track)
+	// Stop track once it finished playing
+	if audio_sound_get_track_position(Track) >= audio_sound_length(Track)
 	{
 		audio_bgm_stop(PriorityHigh, 0);
 	}
@@ -63,10 +63,11 @@ function AudioHighProcess()
 			// Stop and reset track
 			if audio_sound_get_gain(Track) == 0
 			{		
-				HighTrack[2] = EventIdle;
-				HighTrack[0] = noone;
-				HighTrack[1] = 0;
-				HighTrack[3] = 0;
+				HighTrack[2]    = EventIdle;
+				HighTrack[0]    = noone;
+				HighTrack[3]    = 0;
+				HighTrack[1][0] = 0;
+				HighTrack[1][1] = 0;
 				
 				audio_stop_sound(Track);
 				audio_sound_gain(Track, Game.MusicVolume, 0);

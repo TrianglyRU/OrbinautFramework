@@ -32,7 +32,7 @@ function ObjBossTriggerMain()
 		if !BossDefeated
 		{
 			// Check for a key to be pressed if it is example bossfight
-			if room == Stage_TZ and keyboard_check_pressed(ord("K"))
+			if Template and keyboard_check_pressed(ord("K"))
 			{
 				BossDefeated = true;
 			}
@@ -43,7 +43,7 @@ function ObjBossTriggerMain()
 			// Play boss music
 			if !audio_bgm_is_playing(PriorityLow)
 			{
-				audio_bgm_play(PriorityLow, BossMusic, other); 
+				audio_bgm_play(PriorityLow, Boss, other, other); 
 			}
 		
 			// Deactive signpost and egg prison
@@ -60,7 +60,7 @@ function ObjBossTriggerMain()
 			Stage.IsBossfight = false;
 			
 			// Play stage music
-			audio_bgm_play(PriorityLow, Stage.StageMusic, other);
+			audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
 			
 			// Activate signpost and egg prison
 			instance_activate_object(SignPost);

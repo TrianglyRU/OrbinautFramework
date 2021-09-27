@@ -14,32 +14,36 @@ function palette_handle(type, id, range, last, goto, duration)
 		Palette.Sequence[type,index] = AnimationID;
 		Palette.Duration[type,index] = duration;
 	}
-	else if duration > 1 and !fade_check(FadeActive)
+	else if duration > 1
 	{
-		// Decrease the value of animation timer
-		if (--Palette.Duration[type,index]) < 1
+		// If fade is active or stage is paused, do not update
+		if !fade_check(FadeActive) and !variable_check(Stage, "IsPaused")
 		{
-			var cycle = max(1, goto);
-			var lastanim = index + range;
-			
-			// Reset duration
-			Palette.Duration[type,index] = duration;
-			
-			// Update colour
-			for(var i = index; i < lastanim; i++)
+			// Decrease the value of animation timer
+			if (--Palette.Duration[type,index]) < 1
 			{
-				if type == PaletteDry
+				var cycle = max(1, goto);
+				var lastanim = index + range;
+			
+				// Reset duration
+				Palette.Duration[type,index] = duration;
+			
+				// Update colour
+				for(var i = index; i < lastanim; i++)
 				{
-					if (++Palette.IndexDry[i]) > last
+					if type == PaletteDry
 					{
-						Palette.IndexDry[i] = cycle;
+						if (++Palette.IndexDry[i]) > last
+						{
+							Palette.IndexDry[i] = cycle;
+						}
 					}
-				}
-				else if type == PaletteWet
-				{
-					if (++Palette.IndexWet[i]) > last
+					else if type == PaletteWet
 					{
-						Palette.IndexWet[i] = cycle;
+						if (++Palette.IndexWet[i]) > last
+						{
+							Palette.IndexWet[i] = cycle;
+						}
 					}
 				}
 			}
