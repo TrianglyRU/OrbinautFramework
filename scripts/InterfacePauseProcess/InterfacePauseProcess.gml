@@ -26,7 +26,7 @@ function InterfacePauseProcess()
 			// 'RESTART' or 'EXIT' menu
 			if PauseValue[1]
 			{
-				// If first option is selected, return to main menu
+				// If first option is selected, return to previous menu
 				if PauseValue[0]
 				{
 					PauseValue[1] = 0;
@@ -34,6 +34,9 @@ function InterfacePauseProcess()
 				}
 				else
 				{
+					// Stop all audio
+					audio_stop_all();
+					
 					// Restart
 					if PauseValue[1] == 1
 					{
@@ -42,27 +45,20 @@ function InterfacePauseProcess()
 						// Subtract a life
 						Player.Lives -= 1;
 						Game.Lives    = Player.Lives;
-						
-						// Clear special ring data
-						Game.SpecialRingData = [];
 					}
 					
 					// Exit
 					else if PauseValue[1] == 2
 					{
-						Game.Score			 = 0;
-						Game.Time			 = 0;
-						Game.Rings			 = 0;
-						Game.StageBoundary   = 0;						
-						Game.StarPostData    = [];
-						Game.SpecialRingData = [];
-						Game.SpecialRingList = [];
-						
 						room_goto(Screen_DevMenu);
+						
+						// Reset all saved data during the stage		
+						Game.StarPostData    = [];
+						Game.SpecialRingList = [];
 					}
 					
-					// Stop all audio
-					audio_stop_all();
+					// Clear special ring data
+					Game.SpecialRingData = [];
 				}
 			}
 			

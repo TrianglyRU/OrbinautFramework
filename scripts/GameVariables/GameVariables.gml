@@ -10,10 +10,7 @@ function GameVariables()
 	Game.Lives		     = 0;
 	Game.Continues	     = 0;
 	Game.Emeralds	     = 0;
-	Game.Time			 = 0;
-	Game.Rings			 = 0;
 	Game.Stage			 = 0;
-	Game.StageBoundary	 = 0;
 	Game.StageRoom       = 0;
 	Game.SpecialScore    = 0;
 	Game.SpecialState    = 0;

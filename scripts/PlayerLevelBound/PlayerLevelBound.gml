@@ -34,7 +34,7 @@ function PlayerLevelBound()
 		}
 	}
 	
-	// Kill us if we fallen below death boundary
+	// Kill us if we have fallen below death boundary
 	if !Death and !Drown
 	{
 		if floor(PosY) > Stage.DeathBoundary

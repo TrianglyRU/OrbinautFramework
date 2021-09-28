@@ -3,9 +3,9 @@ function ObjStarPostMain()
 	// Load as activated if ID is lower than the ID of activated one
 	if !ActiveCheck
 	{
-		if array_length(Game.StarPostData) and instance_exists(Game.StarPostData[2])
+		if array_length(Game.StarPostData)
 		{
-			if Game.StarPostData[2].ID >= ID
+			if instance_exists(Game.StarPostData[4]) and Game.StarPostData[4].ID >= ID
 			{
 				sprite_index = spr_obj_starpost_active;
 				image_index  = 0;
@@ -21,11 +21,15 @@ function ObjStarPostMain()
 	{
 		if object_check_overlap(Triggerbox) 
 		{
-			// Save stage progress
-			Game.StarPostData  = [x, y + sprite_get_height(sprite_index) / 2 - Player.DefaultRadiusY, id];
-			Game.Time		   = Stage.Time;
-			Game.StageBoundary = Stage.BottomBoundary;
-			Game.Score         = Player.Score;
+			// Remember player and stage data
+			Game.StarPostData[0] = x;
+			Game.StarPostData[1] = y + sprite_get_height(sprite_index) / 2 - Player.DefaultRadiusY;
+			Game.StarPostData[2] = Stage.Time;
+			Game.StarPostData[3] = Stage.BottomBoundary;
+			Game.StarPostData[4] = id;
+			
+			// Buffer player score into its global variable
+			Game.Score = Player.Score;
 			
 			// Activate all starposts with ID lower than ours
 			var ThisID = id;

@@ -38,14 +38,13 @@ function ContinueScreenProcess()
 				// Perform fade
 				fade_perform(FadeTo, ColourBlack, 1);
 				
-				// Clear data
-				Game.Lives     = 3;
-				Game.Score     = 0;
-				Game.Continues = 0;
-				
-				// Override save file if not in "no save" mode
+				// Overwrite savedata if not playing in 'no save' slot
 				if Game.ActiveSave != -1
 				{
+					Game.Lives     = 3;
+					Game.Score     = 0;
+					Game.Continues = 0;
+				
 					gamedata_save(Game.ActiveSave);
 				}
 			}
@@ -66,8 +65,8 @@ function ContinueScreenProcess()
 	else if RoomState == 1
 	{
 		// Animate character
-		CharSpeed[1]    = min(CharSpeed[1] + 0.125, 8);
-		var SpriteTime  = round(max(1, 8 - abs(CharSpeed[1])));
+		CharSpeed[1]   = min(CharSpeed[1] + 0.125, 8);
+		var SpriteTime = round(max(1, 8 - abs(CharSpeed[1])));
 		
 		var ActionSprite = CharSprite[1];
 		with CharObject 

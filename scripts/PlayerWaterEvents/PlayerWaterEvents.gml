@@ -101,8 +101,7 @@ function PlayerWaterEvents()
 			{
 				fade_perform(FadeFrom, ColourFlash, 8);
 			}
-			BarrierType = false;
-			instance_destroy(Barrier);				
+			BarrierType = false;			
 		}
 			
 		// Check for leaving the water

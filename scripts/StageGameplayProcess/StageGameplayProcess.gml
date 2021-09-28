@@ -70,9 +70,6 @@ function StageGameplayProcess()
 			
 			if fade_check(FadeMax)
 			{	
-				// Reset rings
-				Game.Rings = 0;
-				
 				// Clear special ring data
 				Game.SpecialRingData = [];
 				
@@ -82,19 +79,17 @@ function StageGameplayProcess()
 					room_restart();
 					Game.Lives = Player.Lives;
 					
-					// Clear saved time if time over
-					if IsGameOver
+					// Clear saved time on checkpoint if this event is time over
+					if IsGameOver and array_length(Game.StarPostData)
 					{
-						Game.Time = 0;
+						Game.StarPostData[2] = 0;
 					}
 				}
 				
 				// If ran out of lives, reset data
 				else
 				{
-					Game.Rings			 = 0;
-					Game.Time	         = 0;
-					Game.StageBoundary   = 0;
+					// Reset all saved data during the stage		
 					Game.StarPostData    = [];
 					Game.SpecialRingList = [];
 					
@@ -107,14 +102,13 @@ function StageGameplayProcess()
 					// If not, return to menu
 					else
 					{
-						// Clear data
-						Game.Lives     = 3;
-						Game.Score     = 0;
-						Game.Continues = 0;
-						
 						// Override save file if not in "no save" mode
 						if Game.ActiveSave != -1
 						{
+							Game.Lives     = 3;
+							Game.Score     = 0;
+							Game.Continues = 0;
+							
 							gamedata_save(Game.ActiveSave);
 						}
 						room_goto(Screen_DevMenu);

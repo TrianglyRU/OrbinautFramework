@@ -10,10 +10,7 @@ function StageEndProcess()
 	Game.Score = Player.Score;
 	Game.Lives = Player.Lives;
 	
-	// Reset game data
-	Game.Rings			 = 0;
-	Game.Time	         = 0;
-	Game.StageBoundary   = 0;
+	// Reset data saved through out the stage
 	Game.StarPostData    = [];
 	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];

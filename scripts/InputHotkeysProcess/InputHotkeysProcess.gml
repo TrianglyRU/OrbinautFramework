@@ -15,12 +15,9 @@ function InputHotkeysProcess()
 	// Stage fresh load (F1)
 	if keyboard_check_pressed(vk_f1) 
 	{
-		Game.Rings           = 0;
-		Game.Time		     = 0;
-		Game.StageBoundary	 = 0;
-		Game.Score           = 0;
 		Game.StarPostData	 = [];
 		Game.SpecialRingData = [];
+		Game.SpecialRingList = [];
 		
 		audio_stop_all();
 		room_restart();
@@ -29,6 +26,8 @@ function InputHotkeysProcess()
 	// Stage checkpoint restart (F2)
 	if keyboard_check_pressed(vk_f2)
 	{
+		Game.SpecialRingData = [];
+		
 		audio_stop_all();
 		room_restart();
 	}
@@ -76,7 +75,7 @@ function InputHotkeysProcess()
 	if keyboard_check_pressed(vk_f8)
 	{
 		// Initialise static
-		static BarrierToGive = 1;
+		static BarrierToGive = BarrierNormal;
 		
 		// Spawn barrier
 		if !instance_exists(Barrier)
@@ -113,7 +112,7 @@ function InputHotkeysProcess()
 		
 		// Increment value
 		BarrierToGive++
-		BarrierToGive = loop_value(BarrierToGive, 1, 5);
+		BarrierToGive = loop_value(BarrierToGive, BarrierNormal, 5);
 	}
 	
 	// Grant extra life (F9)

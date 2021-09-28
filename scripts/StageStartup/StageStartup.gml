@@ -19,20 +19,18 @@ function StageStartup()
 		]
 	}
 	
-	// Load saved time
-	if array_length(Game.SpecialRingData)
+	// If player has respawned on checkpoint, load saved stage data
+	if array_length(Game.StarPostData)
 	{
-		Time = Game.SpecialRingData[2];
-	}
-	else if Game.Time
-	{
-		Time = Game.Time;
+		Time		   = Game.StarPostData[2];
+		BottomBoundary = Game.StarPostData[3];
 	}
 	
-	// Load saved stage boundary
-	if Game.StageBoundary
+	// If coming from special stage, load saved stage data
+	if array_length(Game.SpecialRingData)
 	{
-		BottomBoundary = Game.StageBoundary;
+		Time		   = Game.SpecialRingData[4];
+		BottomBoundary = Game.SpecialRingData[5];
 	}
 	
 	// Store current zone ID and room index

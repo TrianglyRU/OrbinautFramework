@@ -46,16 +46,17 @@ function ObjSpecialRingMain()
 				}
 				else
 				{
-					// Remember position
+					// Remember player and stage data
 					Game.SpecialRingData[0] = x;
 					Game.SpecialRingData[1] = y;
-					Game.SpecialRingData[2] = Stage.Time;
+					Game.SpecialRingData[2] = Player.Rings;
+					Game.SpecialRingData[3] = Player.BarrierType;
+					Game.SpecialRingData[4] = Stage.Time;
+					Game.SpecialRingData[5] = Stage.BottomBoundary;
 						
-					// Remember current score, rings and stage boundary
-					Game.Score		   = Player.Score;
-					Game.Rings		   = Player.Rings;
-					Game.Lives		   = Player.Lives;
-					Game.StageBoundary = Stage.BottomBoundary;
+					// Buffer score and lives into their global variables
+					Game.Score = Player.Score;
+					Game.Lives = Player.Lives;
 					
 					// Create flash object
 					instance_create(x, y, SpecialRingFlash);
@@ -68,7 +69,7 @@ function ObjSpecialRingMain()
 						Ysp			  = 0;
 						Inertia		  = 0;
 						AllowMovement = 0;
-						visible = 0;
+						visible		  = 0;
 					}
 			
 					// If Tails, stop sounds
@@ -77,6 +78,9 @@ function ObjSpecialRingMain()
 						audio_sfx_stop(sfxTired);
 						audio_sfx_stop(sfxFlying);
 					}
+					
+					// Destroy barrier (S3 doesn't do this, but it is stupid)
+					Player.BarrierType = false;
 					
 					// Increment state
 					State++;

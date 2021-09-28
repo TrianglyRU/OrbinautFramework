@@ -153,7 +153,6 @@ function player_damage(flame_type,thunder_type,instant_kill)
 	Player.FlightState  = false;
 	Player.GlideState   = false;
 	Player.ClimbState   = false;
-	Player.BarrierType  = false;
 	Player.PeeloutRev   = -1;
 	Player.SpindashRev  = -1;
 	Player.DropdashRev  = -1;

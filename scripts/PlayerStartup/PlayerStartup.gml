@@ -61,7 +61,6 @@ function PlayerStartup()
 	// Load score and lives
 	Score = Game.Score;
 	Lives = Game.Lives;
-	Rings = Game.Rings;
 	
 	// Initialise recorded position datalist array
 	RecordedPosX = ds_list_create();
@@ -73,18 +72,26 @@ function PlayerStartup()
 		RecordedPosY[| Index] = y;
 	}
 	
-	// Set start position
+	// If respawning on checkpoint, load saved player data
 	if array_length(Game.StarPostData)
 	{
-		PosX = Game.StarPostData[0];
-		PosY = Game.StarPostData[1];
+		PosX  = Game.StarPostData[0];
+		PosY  = Game.StarPostData[1];
 	}
 	
-	// If coming from special stage, load on ring's position
+	// If coming from special stage, load saved player data
 	if array_length(Game.SpecialRingData)
 	{
-		PosX = Game.SpecialRingData[0];
-		PosY = Game.SpecialRingData[1];
+		PosX  = Game.SpecialRingData[0];
+		PosY  = Game.SpecialRingData[1];
+		Rings = Game.SpecialRingData[2];
+		
+		// Restore barrier
+		if Game.SpecialRingData[3]
+		{
+			BarrierType = Game.SpecialRingData[3];
+			instance_create(PosX, PosY, Barrier);
+		}	
 	}
 	
 	/* If none of positions above exist, player will spawn

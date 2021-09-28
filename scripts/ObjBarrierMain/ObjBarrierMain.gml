@@ -1,6 +1,6 @@
 function ObjBarrierMain()
 {
-	// Delete barrier if player get hurt or died
+	// Delete barrier if player doesn't have barrier anymore
 	if Player.BarrierType == false
 	{
 		instance_destroy();
@@ -155,9 +155,6 @@ function ObjBarrierMain()
 	{
 		image_alpha = 1;
 	}
-	
-	// If player is not visibile, make us not visible too (is not for invincibility frames!)
-	visible = Player.visible;
 	
 	// Update position
 	x = floor(Player.PosX);
