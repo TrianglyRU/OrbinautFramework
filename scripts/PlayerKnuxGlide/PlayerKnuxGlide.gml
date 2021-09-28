@@ -264,7 +264,7 @@ function PlayerKnuxGlide()
 			// If floor is shallow enough, change state
 			if Angle <= 45 or Angle >= 316.41
 			{
-				if GlideState = GlideAir
+				if GlideState == GlideAir
 				{
 					GlideState = GlideGround;
 					Animation  = AnimSlide;

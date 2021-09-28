@@ -1,4 +1,4 @@
-/// @function object_act_enemy(badnik | boss)
+/// @function object_act_enemy(type)
 function object_act_enemy(type)
 {
 	// Exit if no collision is happening yet
