@@ -58,6 +58,7 @@ function GameVariables()
 	Game.SKCrouch			  = 0;
 	Game.SKRollDeceleration   = 0;
 	Game.S2FloorCollision	  = 0;
+	Game.S3WaterPhysics		  = 0;
 	Game.SKWallCollision	  = 0;
 	Game.PreciseRingBehaviour = 0;
 	Game.SKItemBoxBehaviour   = 0;

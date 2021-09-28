@@ -139,10 +139,26 @@ function PlayerWaterEvents()
 			}
 			
 			// Reset gravity and double vertical speed
-			if !Hurt and !FlightState and GlideState != GlideAir
+			if !Hurt and GlideState != GlideAir
 			{
-				Grv	 = 0.21875;
-				Ysp *= 2;
+				if Game.S3WaterPhysics
+				{
+					if Ysp >= -4
+					{
+						Ysp *= 2;
+					}
+				}
+				else
+				{
+					Ysp *= 2;
+				}
+				Grv = 0.21875;
+				
+				// Limit vertical speed
+				if Ysp < -16
+				{
+					Ysp = -16;
+				}
 			}
 			
 			// Play sound

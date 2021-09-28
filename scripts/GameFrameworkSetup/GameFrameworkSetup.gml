@@ -21,6 +21,7 @@ function GameFrameworkSetup()
 	Game.CDCamera			= false;
 	Game.RolljumpControl    = false;
 	Game.S3SlopePhysics		= false;
+	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
 	Game.S2FloorCollision	= true;
