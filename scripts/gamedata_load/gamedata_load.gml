@@ -1,5 +1,5 @@
 /// @function gamedata_load(slot,apply)
-function gamedata_load(slot, apply)
+function gamedata_load(slot,apply)
 {
 	// Get savedata file name
 	var Filename = "saveslot" + string(slot + 1) + ".bin";

@@ -1,5 +1,5 @@
 /// @function audio_bgm_setloop(soundid,loopstart,loopend)
-function audio_bgm_setloop(soundid, loopstart, loopend)
+function audio_bgm_setloop(soundid,loopstart,loopend)
 {
 	if object_index != Audio
 	{
