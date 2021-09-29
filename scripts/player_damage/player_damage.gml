@@ -54,7 +54,7 @@ function player_damage(isFlame,isThunder,instantKill)
 		// Set flags
 		Player.Animation		   = AnimHurt;
 		Player.Hurt				   = true;
-		Player.InvincibilityFrames = 121;
+		Player.InvincibilityFrames = 120;
 					
 		// Lose rings
 		if !Player.BarrierType

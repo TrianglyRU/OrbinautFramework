@@ -5,5 +5,5 @@ function loop_value(value,returnTo,resetAt)
 	value = (value - returnTo) % (resetAt - returnTo);
 	
 	// Return result
-	return (value >= 0 ? value + returnTo : reset_at + value);
+	return (value >= 0 ? value + returnTo : resetAt + value);
 }
