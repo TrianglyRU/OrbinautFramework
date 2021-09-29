@@ -1,16 +1,16 @@
-/// @function player_damage(flame_type,thunder_type,instant_kill)
-function player_damage(flame_type,thunder_type,instant_kill)
+/// @function player_damage(isFlame,isThunder,instantKill)
+function player_damage(isFlame,isThunder,instantKill)
 {	
 	// Exit if player can't be damaged
-	if !instant_kill and (Player.InvincibilityFrames or Player.InvincibleBonus or Player.SuperState)
+	if !instantKill and (Player.InvincibilityFrames or Player.InvincibleBonus or Player.SuperState)
 	{
 		exit;
 	}
-	if flame_type and Player.BarrierType == BarrierFlame
+	if isFlame and Player.BarrierType == BarrierFlame
 	{
 		exit;
 	}
-	if thunder_type and Player.BarrierType == BarrierThunder
+	if isThunder and Player.BarrierType == BarrierThunder
 	{
 		exit;
 	}
@@ -20,7 +20,7 @@ function player_damage(flame_type,thunder_type,instant_kill)
 	audio_sfx_stop(sfxTired);
 	
 	// Kill player
-	if !Player.Rings and !Player.BarrierType or instant_kill
+	if !Player.Rings and !Player.BarrierType or instantKill
 	{	
 		// Set flags
 		Camera.Enabled			   = false;

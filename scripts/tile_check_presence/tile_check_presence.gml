@@ -1,5 +1,5 @@
-/// @function tile_check_presence(x,y,ignore_top,tilelayer)
-function tile_check_presence(x,y,ignore_top,tilelayer)
+/// @function tile_check_presence(x,y,ignoreTop,tilelayer)
+function tile_check_presence(x,y,ignoreTop,tilelayer)
 {
 	// Floor positions
 	x = floor(x);
@@ -21,7 +21,7 @@ function tile_check_presence(x,y,ignore_top,tilelayer)
     var Index = tile_get_index(Tile);
 	
     // Return false if it is solidtop and we're ignoring them
-    if ignore_top and Index > Game.TileData[1]
+    if ignoreTop and Index > Game.TileData[1]
     {
         return false;
     }

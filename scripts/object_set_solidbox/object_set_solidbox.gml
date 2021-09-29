@@ -1,5 +1,5 @@
-/// @function object_set_solidbox(xradius, yradius, heightmap)
-function object_set_solidbox(xradius, yradius, heightmap)
+/// @function object_set_solidbox(xradius,yradius,heightmap)
+function object_set_solidbox(xradius,yradius,heightmap)
 {
 	// Set solid radiuses
 	Obj_SolidX   = xradius;

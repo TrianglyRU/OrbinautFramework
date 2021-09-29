@@ -1,5 +1,5 @@
-/// @function object_check_overlap(collision_type)
-function object_check_overlap(collision_type)
+/// @function object_check_overlap(collisionType)
+function object_check_overlap(collisionType)
 {	
 	// Exit if collision are disabled
 	if !Player.AllowCollision
@@ -15,7 +15,7 @@ function object_check_overlap(collision_type)
 	}
 	
 	// Check for hitbox overlap
-	if collision_type == Hitbox
+	if collisionType == Hitbox
 	{
 		// Exit if this object hitbox wasn't initialized
 		if !variable_instance_exists(id, "Obj_HitStatus")
@@ -66,7 +66,7 @@ function object_check_overlap(collision_type)
 	}
 	
 	// Check for triggerbox overlap
-	else if collision_type == Triggerbox
+	else if collisionType == Triggerbox
 	{
 		// Exit if this object triggerbox wasn't initialized
 		if !variable_instance_exists(id, "Obj_TriggerStatus")

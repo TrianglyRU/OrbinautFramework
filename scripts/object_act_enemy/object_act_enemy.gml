@@ -1,5 +1,5 @@
-/// @function object_act_enemy(type)
-function object_act_enemy(type)
+/// @function object_act_enemy(enemyType)
+function object_act_enemy(enemyType)
 {
 	// Exit if no collision is happening yet
 	if !object_check_overlap(Hitbox)
@@ -13,7 +13,7 @@ function object_act_enemy(type)
 	// Check if player can damage enemy because they are invincible
 	var InvincibleCheck = Player.SuperState or Player.InvincibleBonus;
 	
-	// Check if Tails can damage enemy by flying
+	// Check if Tails can damage enemy when flying
 	var FlightCheck	= Player.FlightState and floor(Player.PosY) > y and Player.Ysp < 0;
 	
 	// Damage enemy
@@ -33,7 +33,7 @@ function object_act_enemy(type)
 		}
 		
 		// Check if enemy is a Badnik
-		if type == EnemyBadnik
+		if enemyType == EnemyBadnik
 		{
 			// Count combo
 			if Player.Spinning or Player.SpindashRev != -1
@@ -75,7 +75,7 @@ function object_act_enemy(type)
 		}
 		
 		// Check if enemy is a boss
-		else if type == EnemyBoss
+		else if enemyType == EnemyBoss
 		{
 			if !Player.Grounded
 			{

@@ -1,5 +1,5 @@
-/// @function palette_load(type,list)
-function palette_load(type, list)
+/// @function palette_load(paletteType,list)
+function palette_load(paletteType,list)
 {
 	if object_index != Palette
 	{

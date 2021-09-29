@@ -1,5 +1,5 @@
-/// @function tile_check_nearest(leftdata,rightdata,object_angle)
-function tile_check_nearest(leftdata,rightdata,object_angle)
+/// @function tile_check_nearest(leftdata,rightdata,objectAngle)
+function tile_check_nearest(leftdata,rightdata,objectAngle)
 {
 	// Use the left tile
 	if leftdata[0] <= rightdata[0]
@@ -16,16 +16,16 @@ function tile_check_nearest(leftdata,rightdata,object_angle)
 	}
 	
 	// Is object angle defined?
-	if object_angle != noone
+	if objectAngle != noone
 	{
 		// Use cardinal angle if difference is higher than 45
-		var Difference = abs(object_angle mod 180 - ResultAngle mod 180);		
+		var Difference = abs(objectAngle mod 180 - ResultAngle mod 180);		
 		if  Difference > 45 and Difference < 135
 		{
 			/* Originals also check for a bit flag set for tiles with angle
 			0xFF, but we handle it right when we get tile data to make it more stable */
 			   
-			ResultAngle = round(object_angle / 90) mod 4 * 90;
+			ResultAngle = round(objectAngle / 90) mod 4 * 90;
 			if !ResultAngle
 			{
 				ResultAngle = 360;

@@ -1,5 +1,5 @@
-/// @function palette_handle(type,id,range,last,goto,duration)
-function palette_handle(type, id, range, last, goto, duration)
+/// @function palette_handle(paletteType,id,range,last,goto,duration)
+function palette_handle(paletteType,id,range,last,goto,duration)
 {
 	// Get colour index
 	var index = max(0, id - 1);
@@ -7,12 +7,11 @@ function palette_handle(type, id, range, last, goto, duration)
 	// Get unique ID
 	var AnimationID = string(last) + "_" + string(goto);
 	
-	// Initialise or update palette animation
-	if Palette.Sequence[type,index] != AnimationID
+	// Initialise or update palette shift
+	if Palette.Sequence[paletteType,index] != AnimationID
 	{
-		// Set data
-		Palette.Sequence[type,index] = AnimationID;
-		Palette.Duration[type,index] = duration;
+		Palette.Sequence[paletteType,index] = AnimationID;
+		Palette.Duration[paletteType,index] = duration;
 	}
 	else if duration > 1
 	{
@@ -20,29 +19,29 @@ function palette_handle(type, id, range, last, goto, duration)
 		if !fade_check(FadeActive) and !variable_check(Stage, "IsPaused")
 		{
 			// Decrease the value of animation timer
-			if (--Palette.Duration[type,index]) < 1
+			if (--Palette.Duration[paletteType,index]) < 1
 			{
-				var cycle = max(1, goto);
-				var lastanim = index + range;
+				var Bound  = max(1, goto);
+				var Amount = index + range;
 			
 				// Reset duration
-				Palette.Duration[type,index] = duration;
+				Palette.Duration[paletteType,index] = duration;
 			
-				// Update colour
-				for(var i = index; i < lastanim; i++)
+				// Update colour(s)
+				for (var i = index; i < Amount; i++)
 				{
-					if type == PaletteDry
+					if paletteType == PaletteDry
 					{
 						if (++Palette.IndexDry[i]) > last
 						{
-							Palette.IndexDry[i] = cycle;
+							Palette.IndexDry[i] = Bound;
 						}
 					}
-					else if type == PaletteWet
+					else if paletteType == PaletteWet
 					{
 						if (++Palette.IndexWet[i]) > last
 						{
-							Palette.IndexWet[i] = cycle;
+							Palette.IndexWet[i] = Bound;
 						}
 					}
 				}

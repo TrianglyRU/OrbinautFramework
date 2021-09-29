@@ -1,12 +1,12 @@
-/// @function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
-function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
+/// @function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
+function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
 {	
 	// Floor positions
 	x = floor(x);
 	y = floor(y);
 	
 	// If checking to positvie side, subtract 1 from x and y if this object is not player
-	if to_positive and object_index != Player
+	if toPositive and object_index != Player
 	{
 		x--;
 		y--;
@@ -19,7 +19,7 @@ function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
 	}
 	
 	// Set search direction sign
-	var SearchDirection = to_positive ? 1 : -1;
+	var SearchDirection = toPositive ? 1 : -1;
 	
 	// Get tilelayer ID
 	var Layer = layer_tilemap_get_id(Game.TileLayers[tilelayer]);
@@ -30,7 +30,7 @@ function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
 	var FirstTileWidth = tile_get_width(x, y, FirstTile, FirstTileIndex);
 	
 	// Ignore first tile if it is solidtop and we're ignoring them
-	if ignore_top and FirstTileIndex > Game.TileData[1]
+	if ignoreTop and FirstTileIndex > Game.TileData[1]
 	{
 		FirstTileWidth = 0;
 	}
@@ -60,7 +60,7 @@ function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
 		var SecondTileWidth = tile_get_width(x, y, SecondTile, SecondTileIndex);
 		
 		// Ignore second tile if it is solidtop and we're ignoring them
-		if ignore_top and SecondTileIndex > Game.TileData[1]
+		if ignoreTop and SecondTileIndex > Game.TileData[1]
 		{
 			SecondTileWidth = 0;
 		}
@@ -85,13 +85,13 @@ function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
 	var ResultWidth = tile_get_width(x, y, ResultTile, ResultTileIndex);
 	
 	// Ignore result tile if it is solidtop and we're ignoring them
-	if ignore_top and ResultTileIndex > Game.TileData[1]
+	if ignoreTop and ResultTileIndex > Game.TileData[1]
 	{
 		ResultWidth = 0;
 	}
 	
 	// Calculate distance to edge of the result tile
-	if to_positive
+	if toPositive
 	{
 		var TileDistance = (x + SearchShift * SearchDirection) div 16 * 16 + (16 - ResultWidth - 1) - x;
 	}
@@ -121,7 +121,7 @@ function tile_check_collision_h(x,y,to_positive,ignore_top,tilelayer)
 	else
 	{
 		// Get cardinal angle based on direction
-		TileAngle = to_positive ? 90 : 270;
+		TileAngle = toPositive ? 90 : 270;
 	}
 	
 	// Return data

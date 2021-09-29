@@ -1,5 +1,5 @@
 /// @function object_set_depth(target,above)
-function object_set_depth(target, renderdepth)
+function object_set_depth(target,renderdepth)
 {
 	// Apply depth relative to the player
 	if target == Player

@@ -1,5 +1,5 @@
-/// @function object_check_push(side)
-function object_check_push(side)
+/// @function object_check_push(pushSide)
+function object_check_push(pushSide)
 {
 	// Exit if collisions are disabled
 	if !Player.AllowCollision
@@ -23,7 +23,7 @@ function object_check_push(side)
 	// Return push flag
 	if Obj_SolidPush
 	{
-		switch side
+		switch pushSide
 		{
 			case SideLeft:
 				return floor(Player.PosX) < x;

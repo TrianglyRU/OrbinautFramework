@@ -1,5 +1,5 @@
-/// @function palette_set_colour(type,id,range,colourid)
-function palette_set_colour(type, id, range, colourid)
+/// @function palette_set_colour(paletteType,id,range,colourid)
+function palette_set_colour(paletteType,id,range,colourid)
 {
 	// Get colour
 	var LastColour = id - 1 + range;
@@ -7,11 +7,11 @@ function palette_set_colour(type, id, range, colourid)
 	// Update colour
 	for (var i = id - 1; i < LastColour; i++)
 	{
-		if type == PaletteDry
+		if paletteType == PaletteDry
 		{
 			Palette.IndexDry[i] = colourid;
 		}
-		else if type == PaletteWet
+		else if paletteType == PaletteWet
 		{
 			Palette.IndexWet[i] = colourid;
 		}

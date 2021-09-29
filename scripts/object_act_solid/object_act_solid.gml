@@ -1,5 +1,5 @@
-/// @function object_act_solid(sides,top,bottom,reset_actions)
-function object_act_solid(sides,top,bottom,reset_actions)
+/// @function object_act_solid(sides,top,bottom,resetActions)
+function object_act_solid(sides,top,bottom,resetActions)
 {
 	/* The following is long and replicates originals method of colliding with object,
 	however it was tweaked in several places to make collision much more consistent */
@@ -179,7 +179,7 @@ function object_act_solid(sides,top,bottom,reset_actions)
 							Angle    = 360;
 						
 							// If interactable, cancel barrier ability and dropdash
-							if reset_actions
+							if resetActions
 							{
 								BarrierIsActive = false;
 								DropdashRev		= -1;
