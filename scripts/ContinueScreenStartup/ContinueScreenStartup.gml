@@ -35,8 +35,7 @@ function ContinueScreenStartup()
 	CharObject = instance_create(RoomX, RoomY + 52, ContinueCharacter);
 	with CharObject
 	{
-		sprite_index = WaitSprite;
-		image_index  = 0;
+		animation_set(WaitSprite, 0);
 	}
 	
 	// Create continue objects

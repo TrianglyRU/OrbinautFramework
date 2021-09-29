@@ -50,7 +50,7 @@ function ObjBarrierMain()
 					if !(--FlameAnimationTime)
 					{
 						FlameAnimationTime = 25;
-						sprite_index = spr_obj_barrier_flame;
+						animation_set(spr_obj_barrier_flame, 0);
 					
 						// Restore control
 						Player.AirLock = false;
@@ -97,8 +97,7 @@ function ObjBarrierMain()
 						// Reset
 						if image_index == 2
 						{
-							sprite_index = spr_obj_barrier_water;
-							image_index  = 0;
+							animation_set(spr_obj_barrier_water, 0);
 						}
 					}
 				
@@ -127,8 +126,7 @@ function ObjBarrierMain()
 						// Reset
 						if image_index == 2
 						{
-							sprite_index = spr_obj_barrier_water;
-							image_index  = 0;
+							animation_set(spr_obj_barrier_water, 0);
 						}
 					}
 				

@@ -4,22 +4,13 @@ function PlayerStartup()
 	switch Game.Character
 	{
 		case CharSonic:
-		{
-			sprite_index = spr_sonic_idle;
-			image_speed  = 0;
-		}
+			animation_set(spr_sonic_idle, 0);
 		break;
 		case CharTails:
-		{
-			sprite_index = spr_tails_idle;
-			image_speed  = 0;
-		}
+			animation_set(spr_tails_idle, 0);
 		break;
 		case CharKnuckles:
-		{
-			sprite_index = spr_knuckles_idle;
-			image_speed  = 0;
-		}
+			animation_set(spr_knuckles_idle, 0);
 		break;
 	}
 	Facing	  = FlipRight;

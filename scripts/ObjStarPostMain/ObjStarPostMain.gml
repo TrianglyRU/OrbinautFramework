@@ -7,10 +7,11 @@ function ObjStarPostMain()
 		{
 			if instance_exists(Game.StarPostData[4]) and Game.StarPostData[4].ID >= ID
 			{
-				sprite_index = spr_obj_starpost_active;
-				image_index  = 0;
-				Active		 = true;
-				Angle		 = 900;
+				Active = true;
+				Angle  = 900;
+				
+				// Set animation
+				animation_set(spr_obj_starpost_active, 0);
 			}
 		}
 		ActiveCheck = true;

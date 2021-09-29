@@ -178,15 +178,11 @@ function ObjItemBoxMain()
 					// Spawn barrier object
 					if !instance_exists(Barrier)
 					{
-						var  Object = instance_create(Player.PosX, Player.PosY, Barrier);
-						with Object
-						{
-							sprite_index = spr_obj_barrier_normal;
-						}
+						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					else with Barrier
+					with Barrier
 					{
-						sprite_index = spr_obj_barrier_normal;
+						animation_set(spr_obj_barrier_normal, 0);
 					}
 					
 					// Play sound
@@ -201,15 +197,11 @@ function ObjItemBoxMain()
 					// Spawn barrier object
 					if !instance_exists(Barrier)
 					{
-						var  Object = instance_create(Player.PosX, Player.PosY, Barrier);
-						with Object
-						{
-							sprite_index = spr_obj_barrier_flame;
-						}
+						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					else with Barrier
+					with Barrier
 					{
-						sprite_index = spr_obj_barrier_flame;
+						animation_set(spr_obj_barrier_flame, 0);
 					}
 					
 					// Play sound
@@ -224,15 +216,11 @@ function ObjItemBoxMain()
 					// Spawn barrier object
 					if !instance_exists(Barrier)
 					{
-						var  Object = instance_create(Player.PosX, Player.PosY, Barrier);
-						with Object
-						{
-							sprite_index = spr_obj_barrier_thunder;
-						}
+						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					else with Barrier
+					with Barrier
 					{
-						sprite_index = spr_obj_barrier_thunder;
+						animation_set(spr_obj_barrier_thunder, 0);
 					}
 					
 					// Play sound
@@ -247,15 +235,11 @@ function ObjItemBoxMain()
 					// Spawn barrier object
 					if !instance_exists(Barrier)
 					{
-						var  Object = instance_create(Player.PosX, Player.PosY, Barrier);
-						with Object
-						{
-							sprite_index = spr_obj_barrier_water;
-						}
+						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					else with Barrier
+					with Barrier
 					{
-						sprite_index = spr_obj_barrier_water;
+						animation_set(spr_obj_barrier_water, 0);
 					}
 					
 					// Play sound
