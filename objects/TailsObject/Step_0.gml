@@ -3,5 +3,3 @@
 	
 	// Call object script
 	ObjTailsObjectMain();
-	
-	show_debug_message(x);
