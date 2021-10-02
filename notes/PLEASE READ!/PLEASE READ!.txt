@@ -1,0 +1,13 @@
+
+	You have downloaded the master branch or Orbinaut.
+	It is not recommended to use, because it is a DEV version of
+	the framework, so the chance that you encounter bugs or unfinished
+	features is way, WAY too high. Please, download the latest stable release from the
+	Releases section on GitHub. Thank you!
+	
+	https://github.com/TrianglyRU/OrbinautFramework/releases
+	
+	If you want get notified when the newest release is available to download,
+	please follow us on Twitter (@TeamOrbinaut) or join our Discord
+	
+	https://discord.gg/vyNr2MmjbJ

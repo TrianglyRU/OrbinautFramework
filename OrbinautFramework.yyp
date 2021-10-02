@@ -587,6 +587,7 @@
     {"id":{"name":"gui_results_through","path":"sprites/gui_results_through/gui_results_through.yy",},"order":15,},
     {"id":{"name":"gui_results_timebonus","path":"sprites/gui_results_timebonus/gui_results_timebonus.yy",},"order":16,},
     {"id":{"name":"spr_sonic_actend","path":"sprites/spr_sonic_actend/spr_sonic_actend.yy",},"order":19,},
+    {"id":{"name":"PLEASE READ!","path":"notes/PLEASE READ!/PLEASE READ!.yy",},"order":15,},
     {"id":{"name":"ObjCountdownBubbleMain","path":"scripts/ObjCountdownBubbleMain/ObjCountdownBubbleMain.yy",},"order":3,},
     {"id":{"name":"spr_sonic_balance_flip","path":"sprites/spr_sonic_balance_flip/spr_sonic_balance_flip.yy",},"order":20,},
     {"id":{"name":"fade_check","path":"scripts/fade_check/fade_check.yy",},"order":35,},
