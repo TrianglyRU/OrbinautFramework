@@ -1,8 +1,6 @@
-function PaletteSystemStartup()
+function PaletteStartup()
 {	
 	// Set blank values
-	SurfaceLow  = 0;
-	SurfaceHigh = 0;
 	ColourSet   = [];
 	Duration    = [];
 	Sequence    = [];
@@ -19,17 +17,9 @@ function PaletteSystemStartup()
 		IndexWet[i] = 1;
 	}
 	
-	// Reset surfaces
-	if surface_exists(SurfaceLow) 
-	{
-		surface_free(SurfaceLow);
-	}
-	if surface_exists(SurfaceHigh) 
-	{
-		surface_free(SurfaceHigh);	
-	}
-	SurfaceLow  = -1;
-	SurfaceHigh = -1;
+	// Set empty surfaces
+	SurfaceLow  = noone;
+	SurfaceHigh = noone;
 	
 	// Setup fade
 	FadeMode   = 1;

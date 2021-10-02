@@ -35,8 +35,8 @@ function GameFrameworkSetup()
 	
 	// Video settings
 	Game.WindowFullscreen = false;
-	Game.Width            = 424;
-	Game.Height			  = 240;
+	Game.Width            = 400;
+	Game.Height			  = 224;
 	Game.WindowSize	      = 4;
 	
 	// Audio settings

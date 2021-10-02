@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Palette.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PaletteSystemStartup",
+  "name": "PaletteStartup",
   "tags": [],
   "resourceType": "GMScript",
 }
