@@ -3,14 +3,7 @@ function GameFrameworkSetup()
 	// Game settins
 	Game.DevMode    = true;
 	Game.ShowSplash = false;
-	
-	// Default game state (this only applies when we load right into stage/room avoiding main menu)
-	Game.Character  = CharSonic;
-	Game.Score	    = 0;
-	Game.Lives	    = 3;
-	Game.Continues  = 2;
-	Game.Emeralds   = 0;
-	Game.ActiveSave = -1;
+	Game.ForceLoad	= false;	// If set to false the game will load into DevMenu, else will into the room you choose
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
@@ -25,8 +18,7 @@ function GameFrameworkSetup()
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
 	Game.S2FloorCollision	= true;
-	Game.SKWallCollision	= true;
-	
+	Game.SKWallCollision	= true;	
 	Game.SKItemBoxBehaviour = true;
 	Game.CDStageTimer	    = true;
 	
@@ -38,8 +30,8 @@ function GameFrameworkSetup()
 	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
 	
-	/* Everything below is overwritten by game settings if
-	Developer Mode is disabled! */
+	/* Video, audio and control settings below are overwritten by 
+	game settings if Developer Mode is disabled! */
 	
 	// Video settings
 	Game.WindowFullscreen = false;
@@ -53,4 +45,26 @@ function GameFrameworkSetup()
 	
 	// Control settings (keyboard)
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
+	
+	// Initialise other variables
+	Game.ActiveSave      = 0;
+	Game.SaveState       = 0;
+	Game.Score		     = 0;
+	Game.Lives		     = 0;
+	Game.Continues	     = 0;
+	Game.Emeralds	     = 0;
+	Game.Stage			 = 0;
+	Game.StageRoom       = 0;
+	Game.SpecialScore    = 0;
+	Game.SpecialState    = 0;	
+	Game.DiscordTime	 = 0;
+	Game.DiscordEvent	 = "";
+	Game.StarPostData    = [];
+	Game.SpecialRingData = [];
+	Game.SpecialRingList = [];
+	Game.TileLayers		 = [];
+	Game.TileData		 = [];
+	Game.TileAngle		 = [];
+	Game.TileHeights	 = [];
+	Game.TileWidths		 = [];
 }

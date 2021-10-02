@@ -1,6 +1,7 @@
 function SplashScreenProcess()
 {
-	switch RoomTimer
+	// Count timer
+	switch (++RoomTimer)
 	{
 		// Fade in
 		case 10:
@@ -14,10 +15,21 @@ function SplashScreenProcess()
 		
 		// Load into the next room after 3 seconds
 		case 180:
-			room_goto(Screen_DevMenu);
+		{
+			if !Game.ForceLoad
+			{
+				room_goto(Screen_DevMenu);
+			}
+			else
+			{
+				room_goto(Game.ForceLoad);
+			
+				// Set gamedata
+				Game.ActiveSave = -1;
+				Game.Lives		= 3;
+				Game.Continues  = 2;
+			}
+		}
 		break;
 	}
-	
-	// Count timer
-	RoomTimer++;
 }
