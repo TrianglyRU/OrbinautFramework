@@ -14,7 +14,5 @@ function DiscordStartup()
 	{
 		Game.RichPresenceSupport = false;
 	}
-	
-	Game.DiscordEvent = "";
 	Game.DiscordTime = date_current_datetime();
 }

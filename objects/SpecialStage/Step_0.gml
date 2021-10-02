@@ -1,5 +1,5 @@
-/// @description Process & End
+/// @description Process
 // You can write your code in this editor
 	
-	// End events
+	// ProcessScripts
 	SpecialStageEnd();

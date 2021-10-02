@@ -2,6 +2,6 @@
 // You can write your code in this editor
 	
 	// Initialisation Scripts
-	PaletteVariables();
+	//PaletteVariables();
 	PaletteSystemStartup();
 	PaletteSetup();

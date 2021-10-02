@@ -15,7 +15,7 @@ function GameCollisionsLoad()
 				var Name = AngleMap;
 			break;
 			case 1:
-				var Name  = HeightMap;
+				var Name = HeightMap;
 			break;
 			case 2:
 				var Name = WidthMap;

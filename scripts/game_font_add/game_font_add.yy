@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen (Continue)",
-    "path": "folders/Game Code/Screen (Continue).yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ContinueScreenVariables",
+  "name": "game_font_add",
   "tags": [],
   "resourceType": "GMScript",
 }

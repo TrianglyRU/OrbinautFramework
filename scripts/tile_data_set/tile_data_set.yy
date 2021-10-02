@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screen (Special Stage)",
-    "path": "folders/Game Code/Screen (Special Stage).yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpecialScreenVariables",
+  "name": "tile_data_set",
   "tags": [],
   "resourceType": "GMScript",
 }

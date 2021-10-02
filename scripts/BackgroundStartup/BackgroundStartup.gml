@@ -2,7 +2,6 @@ function BackgroundStartup()
 {
 	// Get background array
 	var Length = array_length(BGSprites);
-	
 	for (var i = 0; i < Length; i++)
 	{
 		// Get sprite and pixel width of each parallax piece

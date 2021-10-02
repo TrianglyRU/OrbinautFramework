@@ -1,6 +1,76 @@
 function PlayerStartup()
 {	
-	// Default sprite setup
+	// Set blank values
+	PosX				= 0;
+	PosY				= 0;
+	Acc					= 0;
+	GlideAcc			= 0;
+	Dec					= 0;
+	Frc					= 0;
+	RollFrc				= 0;
+	AirAcc				= 0;
+	RollDec				= 0;
+	Jump				= 0;
+	JumpMin				= 0;
+	TopAcc				= 0;
+	Xsp					= 0;
+	Ysp					= 0;
+	Inertia				= 0;
+	SlopeGravity		= 0;
+	Angle				= 0;	
+	GroundLock		    = 0;
+	AirLock				= 0;
+	ForcedRoll			= 0;
+	Spinning		    = 0;
+	Jumping				= 0;
+	Pushing             = 0;
+	OnObject			= 0;
+	PeeloutForce        = 0;
+	DropdashSide	    = 0;
+	SuperState			= 0;
+	SuperStateValue		= 0;
+	GlideState			= 0;
+	GlideValue			= 0;
+	GlideSpeed			= 0;
+	GlideDirection		= 0;
+	GlideFrame			= 0;
+	ClimbState		    = 0;
+	ClimbValue			= 0;
+	FlightState			= 0;
+	FlightValue			= 0;
+	HighspeedBonus		= 0;
+	InvincibleBonus	    = 0;
+	InvincibilityFrames	= 0;
+	IsUnderwater		= 0;
+	BarrierType			= 0;
+	BarrierIsActive		= 0;
+	StickToConvex		= 0;
+	Hurt				= 0;
+	Death				= 0;
+	Drown				= 0;
+	ScoreCombo			= 0;	
+	Layer				= 0;
+	VisualAngle			= 0;
+	Animation			= 0;
+	Rings				= 0;
+	LivesRewards		= 0;
+	DebugMode           = 0;
+	DebugItem			= 0;
+	DebugSpeed			= 0;
+	CollisionMode		= 0;
+	
+	// Set default values
+	AirTimer	   = 1800;
+	AllowCollision = true;
+	AllowMovement  = true;
+	Grounded	   = true;
+	PeeloutRev     = -1;
+	SpindashRev    = -1;
+	DropdashRev    = -1;
+	DropdashFlag   = -1;
+	Grv			   = 0.21875;
+	
+	// Set default sprite
 	switch Game.Character
 	{
 		case CharSonic:
@@ -15,17 +85,6 @@ function PlayerStartup()
 	}
 	Facing	  = FlipRight;
 	DrawOrder = layer_get_depth("Objects");
-	
-	// Set flags and gravity
-	AirTimer	   = 1800;
-	AllowCollision = true;
-	AllowMovement  = true;
-	Grounded	   = true;
-	PeeloutRev     = -1;
-	SpindashRev    = -1;
-	DropdashRev    = -1;
-	DropdashFlag   = -1;
-	Grv			   = 0.21875;
 	
 	// Set collision radiuses
 	if Game.Character != CharTails
@@ -53,7 +112,7 @@ function PlayerStartup()
 	Score = Game.Score;
 	Lives = Game.Lives;
 	
-	// Initialise recorded position datalist array
+	// Initialise recorded position datalist
 	RecordedPosX = ds_list_create();
 	RecordedPosY = ds_list_create();
 	
@@ -66,8 +125,8 @@ function PlayerStartup()
 	// If respawning on checkpoint, load saved player data
 	if array_length(Game.StarPostData)
 	{
-		PosX  = Game.StarPostData[0];
-		PosY  = Game.StarPostData[1];
+		PosX = Game.StarPostData[0];
+		PosY = Game.StarPostData[1];
 	}
 	
 	// If coming from special stage, load saved player data

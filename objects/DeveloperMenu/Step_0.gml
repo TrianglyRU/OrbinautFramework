@@ -1,6 +1,6 @@
-/// @description Room Process
+/// @description Process
 // You can write your code in this editor
 	
-	// Room Process Scripts
+	// Process Scripts
 	MenuOptionsProcess();
 	MenuSystemProcess();

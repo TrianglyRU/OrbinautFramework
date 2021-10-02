@@ -1,6 +1,12 @@
 function SpecialScreenStartup()
 {
-	// Turn screen white
+	// Set blank values
+	RoomState   = 0;
+	RoomTimer   = 0;
+	RenderFlag  = 0;
+	RenderAlpha = 0;
+	
+	// Turn screen into white
 	fade_perform(FadeTo, ColourWhite, 0);
 	
 	// If coming back from special stage, set offsets and play music

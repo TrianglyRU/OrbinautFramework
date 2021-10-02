@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage",
-    "path": "folders/Game Code/Stage.yy",
+    "name": "Screen (Startup)",
+    "path": "folders/Game Code/Screen (Startup).yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageVariables",
+  "name": "StartupScreenStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

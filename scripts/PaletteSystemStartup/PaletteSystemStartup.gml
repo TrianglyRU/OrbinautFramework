@@ -1,5 +1,12 @@
 function PaletteSystemStartup()
 {	
+	// Set blank values
+	SurfaceLow  = 0;
+	SurfaceHigh = 0;
+	ColourSet   = [];
+	Duration    = [];
+	Sequence    = [];
+	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)
 	{
@@ -24,9 +31,11 @@ function PaletteSystemStartup()
 	SurfaceLow  = -1;
 	SurfaceHigh = -1;
 	
-	// Setup fade and surfaces
-	FadeMode    =  1;
-	FadeStep    =  756;
+	// Setup fade
+	FadeMode   = 1;
+	FadeStep   = 756;
+	FadeColour = 0;
+	FadePower  = 0;
 	
 	// Reset surface
 	application_surface_draw_enable(false);

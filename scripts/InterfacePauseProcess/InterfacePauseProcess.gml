@@ -74,7 +74,7 @@ function InterfacePauseProcess()
 					instance_activate_all();
 					audio_resume_all();
 						
-					/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
+					/* We normally don't do this, but this is one of three cases where we call a script (not a function) inside
 					of another script. It is needed here to avoid ALL objects being active for 1 frame after we unpause */
 					with Stage 
 					{

@@ -1,4 +1,4 @@
-function PlayerSwapPhysics()
+function PlayerPhysicsHandle()
 {	
 	// Surface physics
 	if !IsUnderwater

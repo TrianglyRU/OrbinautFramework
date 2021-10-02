@@ -6,6 +6,9 @@ function DiscordSetup()
 		exit;
 	}
 	
+	// Set initalisation flag
+	PresenceReady = false;
+	
 	// Set details
 	switch room 
 	{
@@ -17,7 +20,7 @@ function DiscordSetup()
 		break;
 	}
 	
-	// Set state and small icon
+	// Set data
 	if instance_exists(Player)
 	{
 		switch Game.Character
@@ -35,15 +38,16 @@ function DiscordSetup()
 				var Char = "?";
 			break;
 		}
-		StateString = "Playing as: " + string_upper(Char);
-		SmallImage  = Char;
+		StateString    = "Playing as: " + string_upper(Char);
+		SmallImageDesc = "";
+		SmallImage     = Char;
 	}
 	else
 	{
-		StateString = "";
-		SmallImage  = "";
+		StateString    = "";
+		SmallImageDesc = "";
+		SmallImage     = "";
 	}
-	
-	// Set main icons
-	MainImage = "orbinaut";
+	MainImage     = "orbinaut";
+	MainImageDesc = "";
 }

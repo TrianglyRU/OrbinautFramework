@@ -1,8 +1,7 @@
 function ObjSpringRampStartup()
 {
 	// Create variables
-	JumpTimer		 = 0;
-	JumpFlag		 = 0;
+	JumpTimer  = 0;
 	MapDefault = [];
 	MapPressed = [];
 	
@@ -11,7 +10,7 @@ function ObjSpringRampStartup()
 	MapPressed = [0,1,1,2,2,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,8,8,8,8,7,7,7,7,6,6,6,6,5,5,5,5,5,5,5];
 	
 	// Set object solidbox
-	object_set_solidbox(29, 8, CollisionDefault);
+	object_set_solidbox(29, 8, MapDefault);
 	
 	// Set object depth
 	object_set_depth(Player, true);

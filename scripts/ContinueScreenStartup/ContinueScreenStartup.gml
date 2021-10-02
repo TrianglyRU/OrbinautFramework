@@ -1,5 +1,10 @@
 function ContinueScreenStartup()
 {
+	// Set blank values
+	RoomState  = 0;
+	RoomTimer  = 0;
+	CountFrame = 0;
+	
 	// Get room centre
 	RoomX = Game.Width / 2;
 	RoomY = Game.Height / 2;

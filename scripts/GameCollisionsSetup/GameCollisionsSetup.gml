@@ -4,10 +4,7 @@ function GameCollisionsSetup()
 	{
 		// Default collision
 		default:
-		{
-			Game.TileData   = ["", 146];
-			Game.TileLayers = ["CollisionLayerA", "CollisionLayerB"];	
-		}
+			tile_data_set("", 146, "CollisionLayerA", "CollisionLayerB");
 		break;
 	}
 }

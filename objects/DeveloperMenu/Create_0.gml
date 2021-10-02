@@ -1,7 +1,7 @@
-/// @description Initialisation
+/// @description Startup
 // You can write your code in this editor
 
-	// Initialisation Scripts
+	// Startup Scripts
 	MenuVariables();
 	MenuFunctions();
 	MenuStartup();

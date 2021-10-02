@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Framework",
-    "path": "folders/Game Code/Framework.yy",
+    "name": "Player",
+    "path": "folders/Game Code/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameVariables",
+  "name": "PlayerPhysicsHandle",
   "tags": [],
   "resourceType": "GMScript",
 }

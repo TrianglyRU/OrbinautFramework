@@ -14,6 +14,16 @@ function application_set_size(width,height)
 	{
 		surface_resize(Palette.SurfaceHigh, width, height);
 	}
+	
+	// Update room size
+	if room_width < Game.Width
+	{
+		room_width = Game.Width;
+	}
+	if room_height < Game.Height
+	{
+		room_height = Game.Height;
+	}
 
 	// Re-enable surface rendering
 	application_surface_draw_enable(true);

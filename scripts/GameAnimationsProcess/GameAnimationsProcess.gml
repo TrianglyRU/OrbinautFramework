@@ -6,7 +6,7 @@ function GameAnimationsProcess()
 		sprite_set_speed(sprite_index, 0, spritespeed_framespergameframe);
 	}
 	
-	// Count room animation timer (used for sync animations)
+	// Count room animation timer
 	if !fade_check(FadeActive) and !variable_check(Stage, "IsPaused")
 	{
 		Game.AnimationTime++;

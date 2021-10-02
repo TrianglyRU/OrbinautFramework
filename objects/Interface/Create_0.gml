@@ -2,7 +2,7 @@
 // You can call your scripts in this editor
 	
 	// Initialisation Scripts
-	InterfaceVariables();
+	InterfaceDebugStartup();
 	InterfaceOverlayStartup();
 	InterfaceGameOverStartup();
 	InterfacePauseStartup();

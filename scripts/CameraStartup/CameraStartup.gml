@@ -1,11 +1,29 @@
 function CameraStartup() 
 {
-	// Enable room viewport 0 and make it visible
-	view_enabled[0] = true;
-	view_visible[0] = true;	
+	// Enable camera
+	Enabled	= true;
 	
-	// Adjust surfaces and camera view to game resolution	
-	application_set_size(Game.Width, Game.Height);
+	// Set maximum speed
+	MaxShiftX = 16;
+	MaxShiftY = 16;
+	
+	// Set blank values
+	TargetX		   = 0;
+	TargetY		   = 0;
+	PosX		   = 0;
+	PosY		   = 0;
+	ViewX		   = 0;
+	ViewY		   = 0;
+	ShiftX		   = 0;
+	ShiftY		   = 0;
+	ScrollDelay	   = 0;
+	OverviewDelay  = 0;
+	SpinOffset	   = 0;
+	ExtendedOffset = 0;
+	OverviewOffset = 0;
+	ShakeOffset    = 0;
+	ShakeForce	   = 0;
+	ShakeTime	   = 0;
 	
 	switch room
 	{
@@ -33,4 +51,11 @@ function CameraStartup()
 		}
 		break;
 	}
+	
+	// Enable room viewport 0 and make it visible
+	view_enabled[0] = true;
+	view_visible[0] = true;	
+	
+	// Adjust surfaces and camera view to game resolution	
+	application_set_size(Game.Width, Game.Height);
 }

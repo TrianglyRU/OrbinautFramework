@@ -1,6 +1,6 @@
 function GameMacro()
 {	
-	/* Macros are basically replacement for using digits in your code to
+	/* Macro are basically replacement for digits in your code to
 	make it more readable. We could use emums in that case, but macros are easier */
 	
 	// Global framework macro
@@ -94,8 +94,6 @@ function GameMacro()
 	#macro SideLeft	  1
 	#macro SideRight  2
 	#macro SideBottom 3
-	#macro SideCentre 4
-	#macro SideCenter 4
 	#macro Hitbox	  0
 	#macro Triggerbox 1
 	#macro QuadFloor  0

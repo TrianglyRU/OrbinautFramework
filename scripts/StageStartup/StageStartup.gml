@@ -1,5 +1,14 @@
 function StageStartup()
 {
+	// Set blank values
+	EventTimer	= 0;
+	IsFinished	= 0;
+	IsPaused	= 0;
+	IsGameOver	= 0;
+	Time		= 0;
+	TimeEnabled	= 0;
+	DoUpdate	= 0;
+	
 	// Play stage music
 	audio_bgm_play(PriorityLow, StageMusic, other, other);
 	
@@ -51,7 +60,7 @@ function StageStartup()
 	layer_set_visible(Game.TileLayers[0], false);
 	layer_set_visible(Game.TileLayers[1], false);
 	
-	/* We normally don't do this, but this is one of three cases where we call a script (not function) inside
+	/* We normally don't do this, but this is one of three cases where we call a script (not a function) inside
 	of another script. It is needed here to avoid objects being active for 1 frame upon stage loading */
 	StageObjectsInactiveProcess();
 }

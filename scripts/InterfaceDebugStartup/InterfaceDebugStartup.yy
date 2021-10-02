@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Audio",
-    "path": "folders/Game Code/Audio.yy",
+    "name": "Debug",
+    "path": "folders/Game Code/Interface/Debug.yy",
   },
   "resourceVersion": "1.0",
-  "name": "AudioVariables",
+  "name": "InterfaceDebugStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

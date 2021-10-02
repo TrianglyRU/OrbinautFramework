@@ -3,7 +3,7 @@ function GameFrameworkSetup()
 	// Game settins
 	Game.DevMode    = true;
 	Game.ShowSplash = false;
-	Game.ForceLoad	= false;	// If set to false the game will load into DevMenu, else will into the room you choose
+	Game.ForceLoad	= false;	// If set to false the game will load into DevMenu, else into the room you choose
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
@@ -35,18 +35,19 @@ function GameFrameworkSetup()
 	
 	// Video settings
 	Game.WindowFullscreen = false;
-	Game.Width            = 400;
-	Game.Height			  = 224;
+	Game.Width            = 424;
+	Game.Height			  = 240;
 	Game.WindowSize	      = 4;
 	
 	// Audio settings
-	Game.MusicVolume = 0.5;
+	Game.MusicVolume = 0;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
 	// Initialise other variables
+	Game.AnimationTime	 = 0;
 	Game.ActiveSave      = 0;
 	Game.SaveState       = 0;
 	Game.Score		     = 0;

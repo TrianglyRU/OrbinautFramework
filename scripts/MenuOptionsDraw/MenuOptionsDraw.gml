@@ -1,7 +1,7 @@
 function MenuOptionsDraw()
 {
     // Display header
-    draw_text(200, 50, MenuHeader[MenuID]);
+    draw_text(Game.Width / 2, 50, MenuHeader[MenuID]);
     
     // Display options
     var Page  = OptionID div 7;

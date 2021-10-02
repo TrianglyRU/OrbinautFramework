@@ -3,7 +3,6 @@
 	
 	// Startup Initalization Scripts
 	GameMacro();
-	GameVariables();
 	GameFrameworkSetup();
 	GameFontsSetup();
 	GameShadersStartup();

@@ -1,6 +1,6 @@
 function SplashScreenStartup()
 {
-	// Create variables
+	// Set blank value
 	RoomTimer = 0;
 	
 	// Fade screen into black colour
