@@ -105,8 +105,8 @@ function PlayerJump()
 							}
 						
 							// Set speeds
-							Xsp     = 8 * Facing;
-							Ysp     = 0;
+							Xsp = 8 * Facing;
+							Ysp = 0;
 							
 							// Lock control
 							AirLock = true;
