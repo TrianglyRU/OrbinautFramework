@@ -44,8 +44,8 @@ function SpecialScreenDraw()
 	{
 		draw_sprite(tex_sstage_stage, 0, CentreX + Offset[1], CentreY - 20 + ShiftY);
 	}
-	draw_sprite(gui_results_score,     0, CentreX - 80 + Offset[4], CentreY + 32);
-	draw_sprite(gui_results_ringbonus, 0, CentreX - 80 + Offset[5], CentreY + 48);
+	draw_sprite(gui_results_score,     0, CentreX - 80 + 22 + Offset[4], CentreY + 35);
+	draw_sprite(gui_results_ringbonus, 0, CentreX - 80 + 42 + Offset[5], CentreY + 51);
 	
 	// Display counters
 	draw_set_font(Game.Font[font_counter]);

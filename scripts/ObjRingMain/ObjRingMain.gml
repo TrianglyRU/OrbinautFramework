@@ -2,7 +2,7 @@ function ObjRingMain()
 {
 	// Play animation
 	animation_play_sync(sprite_index, 8);
-		
+	
 	switch State
 	{
 		// Check for being magnetised

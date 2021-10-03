@@ -21,7 +21,7 @@ function StageObjectsActiveProcess()
 		// Check if the object should be deleted and is off-camera
 		if Obj_UnloadStatus == TypeDelete
 		{	
-			if x + SpriteWidth < Camera.ViewX or x - SpriteWidth > Camera.ViewX + Game.Width
+			if x + SpriteWidth < Camera.ViewX - 32 or x - SpriteWidth > Camera.ViewX + Game.Width + 32
 			{
 				// Destroy object and its children
 				if IsParent
