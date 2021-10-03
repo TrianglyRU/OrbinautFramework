@@ -1,5 +1,5 @@
-/// @function gamedata_load(slot,apply)
-function gamedata_load(slot,apply)
+/// @function gamedata_load(slot)
+function gamedata_load(slot)
 {
 	// Get savedata file name
 	var Filename = "saveslot" + string(slot + 1) + ".bin";
@@ -44,22 +44,8 @@ function gamedata_load(slot,apply)
 		// Close the file
 		file_bin_close(File);
 		
-		// Apply or return data
-		if apply
-		{
-			// Load it
-			Game.Character = Data[0];
-			Game.Stage	   = Data[1];
-			Game.Emeralds  = Data[2];
-			Game.Lives	   = Data[3];
-			Game.Continues = Data[4];
-			Game.SaveState = Data[5];
-			Game.Score	   = Data[DataPositions];
-		}
-		else
-		{
-			return Data;
-		}
+		// Return data
+		return Data;
 	}
 	
 	// If not, return 0

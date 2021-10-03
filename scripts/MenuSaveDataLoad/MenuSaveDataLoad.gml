@@ -2,11 +2,8 @@ function MenuSaveDataLoad()
 {
 	for (var i = 0; i < 4; i++)
 	{
-		// Load data slot
-		SaveData[i] = gamedata_load(i, false);
-		
 		// If empty, display as "new game" slot
-		if SaveData[i] == 0
+		if Game.SaveData[i] == 0
 		{
 			DisplayData[i] = "SAVE " + string(i + 1) + " - NEW GAME";
 		}
@@ -18,7 +15,7 @@ function MenuSaveDataLoad()
 			var DataCharacter, DataZone, DataEmeralds, DataLives, DataConts, GameCleared;
 			
 			// Define character
-			switch SaveData[i][0]
+			switch Game.SaveData[i][0]
 			{
 				case 0:
 					DataCharacter = "S";
@@ -35,7 +32,7 @@ function MenuSaveDataLoad()
 			}
 			
 			// Define zone
-			switch SaveData[i][1]
+			switch Game.SaveData[i][1]
 			{
 				default:
 					DataZone = "TSZ";
@@ -43,10 +40,10 @@ function MenuSaveDataLoad()
 			}
 			
 			// Define emeralds, lives and conts amount
-			DataEmeralds = SaveData[i][2];
-			DataLives    = SaveData[i][3];
-			DataConts    = SaveData[i][4];
-			GameCleared  = SaveData[i][5];
+			DataEmeralds = Game.SaveData[i][2];
+			DataLives    = Game.SaveData[i][3];
+			DataConts    = Game.SaveData[i][4];
+			GameCleared  = Game.SaveData[i][5];
 
 			// Set display info
 			if !GameCleared

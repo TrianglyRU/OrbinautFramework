@@ -36,4 +36,7 @@ function gamedata_save(slot)
 		// Close the file
 		file_bin_close(File);
 	}
+	
+	// Update slot
+	Game.SaveData[slot] = gamedata_load(slot);
 }

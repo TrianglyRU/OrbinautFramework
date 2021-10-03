@@ -49,6 +49,7 @@ function GameFrameworkSetup()
 	// Initialise other variables
 	Game.AnimationTime	 = 0;
 	Game.ActiveSave      = 0;
+	Game.SaveData		 = 0;
 	Game.SaveState       = 0;
 	Game.Score		     = 0;
 	Game.Lives		     = 0;
@@ -63,9 +64,4 @@ function GameFrameworkSetup()
 	Game.StarPostData    = [];
 	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];
-	Game.TileLayers		 = [];
-	Game.TileData		 = [];
-	Game.TileAngle		 = [];
-	Game.TileHeights	 = [];
-	Game.TileWidths		 = [];
 }

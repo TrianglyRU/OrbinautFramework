@@ -14,6 +14,10 @@ function MenuStartup()
 		DisplayData[i] = 0;
 	}
 	
+	// Set default Menu and Option IDs
+	MenuID   = 0;
+	OptionID = 0;
+	
 	// Set font and its align
 	draw_set_font(Game.Font[font_menu]);
 	draw_set_halign(fa_center);

@@ -35,10 +35,16 @@ function MenuOptionsProcess()
 				Game.ActiveSave = OptionID - 1;
 		
 				// Check if there is data
-				if OptionID >= 1 and OptionID <= 4 and SaveData[Game.ActiveSave] != 0
+				if OptionID >= 1 and OptionID <= 4 and Game.SaveData[Game.ActiveSave] != 0
 				{
 					// Apply data
-					gamedata_load(Game.ActiveSave, true);
+					Game.Character = Game.SaveData[Game.ActiveSave][0];
+					Game.Stage	   = Game.SaveData[Game.ActiveSave][1];
+					Game.Emeralds  = Game.SaveData[Game.ActiveSave][2];
+					Game.Lives	   = Game.SaveData[Game.ActiveSave][3];
+					Game.Continues = Game.SaveData[Game.ActiveSave][4];
+					Game.SaveState = Game.SaveData[Game.ActiveSave][5];
+					Game.Score	   = Game.SaveData[Game.ActiveSave][6];
 				
 					// Load stage if the game is not completed
 					if !Game.SaveState
@@ -343,7 +349,7 @@ function MenuOptionsProcess()
 			if Input.APress or Input.StartPress
 			{
 				// Delete data
-				SaveData[OptionID] = 0;
+				Game.SaveData[OptionID] = 0;
 				file_delete("saveslot" + string(OptionID + 1) + ".bin");	
 		
 				// Update option
