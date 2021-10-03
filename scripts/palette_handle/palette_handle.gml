@@ -5,12 +5,12 @@ function palette_handle(paletteType,id,range,last,goto,duration)
 	var index = max(0, id - 1);
 	
 	// Get unique ID
-	var AnimationID = string(last) + "_" + string(goto);
+	var SequenceID = string(last) + "_" + string(goto);
 	
 	// Initialise or update palette shift
-	if Palette.Sequence[paletteType,index] != AnimationID
+	if Palette.Sequence[paletteType,index] != SequenceID
 	{
-		Palette.Sequence[paletteType,index] = AnimationID;
+		Palette.Sequence[paletteType,index] = SequenceID;
 		Palette.Duration[paletteType,index] = duration;
 	}
 	else if duration > 1
