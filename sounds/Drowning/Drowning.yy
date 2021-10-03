@@ -1,5 +1,5 @@
 {
-  "compression": 3,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -13,8 +13,8 @@
   "soundFile": "Drowning.ogg",
   "duration": 11.8089123,
   "parent": {
-    "name": "Audio",
-    "path": "folders/Audio.yy",
+    "name": "BGM",
+    "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
   "name": "Drowning",

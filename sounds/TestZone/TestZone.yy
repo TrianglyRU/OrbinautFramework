@@ -13,8 +13,8 @@
   "soundFile": "TestZone.ogg",
   "duration": 44.9366226,
   "parent": {
-    "name": "Audio",
-    "path": "folders/Audio.yy",
+    "name": "BGM",
+    "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
   "name": "TestZone",

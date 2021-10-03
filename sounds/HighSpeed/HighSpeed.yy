@@ -1,5 +1,5 @@
 {
-  "compression": 3,
+  "compression": 1,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -13,8 +13,8 @@
   "soundFile": "HighSpeed.ogg",
   "duration": 36.06202,
   "parent": {
-    "name": "Audio",
-    "path": "folders/Audio.yy",
+    "name": "BGM",
+    "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
   "name": "HighSpeed",
