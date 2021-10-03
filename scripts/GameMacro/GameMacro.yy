@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Framework",
-    "path": "folders/Game Code/Framework.yy",
+    "name": "Game",
+    "path": "folders/Game Code/Game.yy",
   },
   "resourceVersion": "1.0",
   "name": "GameMacro",

@@ -1,8 +1,11 @@
 /// @function gamedata_load(slot)
 function gamedata_load(slot)
 {
+	/* It is not recommended to modify saveslot file to save/load additional data.
+	You'd want to create additional file for that case, like saveextra */
+	
 	// Get savedata file name
-	var Filename = program_directory + "saveslot" + string(slot + 1) + ".bin";
+	var Filename = "saveslot" + string(slot + 1) + ".bin";
 	
 	// Check it if exists
 	if file_exists(Filename)
@@ -10,7 +13,8 @@ function gamedata_load(slot)
 		// Open the file
 		var File = file_bin_open(Filename, 0);
 		
-		/* The function reads the data in following order (as saved, score should be always last):
+		/* The function reads the data in following order:
+		- Version (used to check for savefile compatibility)
 		- Character
 		- Stage (ZoneID)
 		- Emeralds
@@ -20,17 +24,16 @@ function gamedata_load(slot)
 		- Score (split into 4 values)
 		*/
 		
-		// Set amount of positions here, starting from 0:
-		var DataPositions = 6;
-		var Data;
-		
 		// Read the data
-		for (var i = 0; i <= DataPositions; i++)
+		var Data;
+		for (var i = 0; i <= 6; i++)
 		{
-			if i < DataPositions
+			if i < 6
 			{
 				Data[i] = file_bin_read_byte(File);
 			}
+			
+			// Score
 			else
 			{
 				Data[i] = 0;

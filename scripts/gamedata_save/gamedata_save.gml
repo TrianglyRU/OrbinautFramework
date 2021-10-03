@@ -1,8 +1,11 @@
 /// @function gamedata_save(slot)
 function gamedata_save(slot)
 {
+	/* It is not recommended to modify saveslot file to save/load additional data.
+	You'd want to create additional file for that case, like saveextra */
+	
 	// Get savedata file name
-	var Filename = program_directory + "saveslot" + string(slot + 1) + ".bin";
+	var Filename = "saveslot" + string(slot + 1) + ".bin";
 	
 	// Open the file
 	var File = file_bin_open(Filename, 1);
@@ -11,7 +14,8 @@ function gamedata_save(slot)
 		// Rewrite data
 		file_bin_rewrite(File);
 		
-		/* The function saves the data in following order (score should be always last):
+		/* The function saves the data in following order:
+		- Version (used to check for savefile compatibility)
 		- Character
 		- Stage (ZoneID)
 		- Emeralds
@@ -22,6 +26,7 @@ function gamedata_save(slot)
 		*/
 		
 		// Save data
+		file_bin_write_byte(File, Game.Version);
 		file_bin_write_byte(File, Game.Character); 
 		file_bin_write_byte(File, Game.Stage);	  
 		file_bin_write_byte(File, Game.Emeralds); 

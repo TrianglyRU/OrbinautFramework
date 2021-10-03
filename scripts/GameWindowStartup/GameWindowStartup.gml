@@ -11,4 +11,7 @@ function GameWindowStartup()
 	
 	// Enable surface draw
 	application_surface_draw_enable(true);
+	
+	// Set window title
+	window_set_caption(Game.WindowTitle);
 }
