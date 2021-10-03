@@ -8,7 +8,7 @@ function gamesettings_load(filename)
 	}
 	
 	// Open config file
-	ini_open(filename + ".ini");
+	ini_open(program_directory + filename + ".ini");
 		
 	// Load data
 	Game.KeyboardControl[0] = ini_read_real("Control",  "Up",		   vk_up);

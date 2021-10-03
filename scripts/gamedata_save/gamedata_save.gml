@@ -2,7 +2,7 @@
 function gamedata_save(slot)
 {
 	// Get savedata file name
-	var Filename = "saveslot" + string(slot + 1) + ".bin";
+	var Filename = program_directory + "saveslot" + string(slot + 1) + ".bin";
 	
 	// Open the file
 	var File = file_bin_open(Filename, 1);
