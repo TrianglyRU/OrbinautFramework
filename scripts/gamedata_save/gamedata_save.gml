@@ -26,7 +26,6 @@ function gamedata_save(slot)
 		*/
 		
 		// Save data
-		file_bin_write_byte(File, Game.Version);
 		file_bin_write_byte(File, Game.Character); 
 		file_bin_write_byte(File, Game.Stage);	  
 		file_bin_write_byte(File, Game.Emeralds); 
