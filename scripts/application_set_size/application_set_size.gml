@@ -16,15 +16,12 @@ function application_set_size(width,height)
 	}
 	
 	// Update room size
-	if room_width < Game.Width
+	if !instance_exists(Stage)
 	{
-		room_width = Game.Width;
-	}
-	if room_height < Game.Height
-	{
+		room_width  = Game.Width;
 		room_height = Game.Height;
 	}
-
+	
 	// Re-enable surface rendering
 	application_surface_draw_enable(true);
 }

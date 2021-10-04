@@ -1,11 +1,5 @@
 function DiscordSetup()
 {
-	// Exit if Rich Presence support is disabled
-	if !Game.RichPresenceSupport
-	{
-		exit;
-	}
-	
 	// Set initalisation flag
 	PresenceReady = false;
 	

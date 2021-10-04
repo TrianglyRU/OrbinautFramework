@@ -11,5 +11,10 @@ function GameControllersLoad()
 	instance_create(x, y, Input);
 	instance_create(x, y, Palette);
 	instance_create(x, y, Camera);
-	instance_create(x, y, Discord);
+	
+	// Create discord controller
+	if Game.RichPresenceSupport
+	{
+		instance_create(x, y, Discord);
+	}
 }

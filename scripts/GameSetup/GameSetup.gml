@@ -36,8 +36,8 @@ function GameSetup()
 	
 	// Video settings
 	Game.WindowFullscreen = false;
-	Game.Width            = 424;
-	Game.Height			  = 240;
+	Game.Width            = 400;
+	Game.Height			  = 224;
 	Game.WindowSize	      = 4;
 	
 	// Audio settings
@@ -48,6 +48,7 @@ function GameSetup()
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
 	// Initialise other variables
+	Game.Character		 = 0;
 	Game.AnimationTime	 = 0;
 	Game.ActiveSave      = 0;
 	Game.SaveData		 = 0;
