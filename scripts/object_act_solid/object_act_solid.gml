@@ -17,13 +17,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 		exit;
 	}
 	
-	// Exit if object is off-screen
-	if x < Camera.ViewX - 32 or x > Camera.ViewX + Game.Width  + 32
-	or y < Camera.ViewY - 32 or y > Camera.ViewY + Game.Height + 32
-	{
-		exit;
-	}
-	
 	// Exit if no solid radiuses were initialized for this object
 	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
@@ -39,11 +32,16 @@ function object_act_solid(sides,top,bottom,resetActions)
 	// Exit if there is no side to collide with 
 	if !sides and !top and !bottom
 	{
-		if Player.OnObject == id
-		{
-			Player.OnObject = false;
-			Player.Grounded = false;
-		}
+		exit;
+	}
+	
+	// Exit if object is off-screen
+	var RX = sprite_get_width(sprite_index)  / 2;
+	var RY = sprite_get_height(sprite_index) / 2;
+	
+	if x + RX < Camera.ViewX or x - RX > Camera.ViewX + Game.Width
+	or y + RY < Camera.ViewY or y - RY > Camera.ViewY + Game.Height
+	{
 		exit;
 	}
 	
