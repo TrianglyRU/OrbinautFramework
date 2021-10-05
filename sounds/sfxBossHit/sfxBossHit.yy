@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxSignPost.wav",
-  "duration": 1.804422,
+  "soundFile": "sfxBossHit.wav",
+  "duration": 0.666735,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxSignPost",
+  "name": "sfxBossHit",
   "tags": [],
   "resourceType": "GMSound",
 }

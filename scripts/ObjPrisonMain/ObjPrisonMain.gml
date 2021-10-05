@@ -84,24 +84,23 @@ function ObjPrisonMain()
 					var ThisObject = id;
 					for (var i = 0; i < 8; i++)
 					{
-						var  Object = instance_create(x - 27 + 7 * i, y + 4, Animal);
-						with Object
+						TargetAnimal = instance_create(x - 27 + 7 * i, y + 4, Animal);
+						with TargetAnimal
 						{
 							State = 2;
 							Delay = 154 - i * 8;
 							
 							object_set_depth(ThisObject, false);
 						}
-						TargetAnimal = Object;
 					}
 				}
 				
 				// Spawn additional animal each 8th frame
 				if (--Timer) mod 8 == 0 
 				{
-					var  ThisObject = id;
-					var  Object = instance_create(x - 27 + irandom(7) * 7, y + 4, Animal);
-					with Object
+					var ThisObject = id;
+					TargetAnimal = instance_create(x - 27 + irandom(7) * 7, y + 4, Animal);
+					with TargetAnimal
 					{
 						State = 2;
 						Delay = 12;
@@ -112,7 +111,7 @@ function ObjPrisonMain()
 			}
 			
 			// Start results event if target animal is off-screen
-			if Stage.IsFinished == 1 and !instance_exists(Animal)
+			if Stage.IsFinished == 1 and (TargetAnimal.x < Camera.ViewX or TargetAnimal.x > Camera.ViewX + Game.Width)
 			{
 				Stage.IsFinished = 3;
 				audio_bgm_play(PriorityLow, ActClear, 0, 0);
