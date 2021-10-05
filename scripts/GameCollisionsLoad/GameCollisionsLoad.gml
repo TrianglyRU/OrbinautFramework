@@ -5,6 +5,11 @@ function GameCollisionsLoad()
 	var HeightMap = "heightmap" + Game.TileData[0] + ".bin";
 	var WidthMap  = "widthmap"  + Game.TileData[0] + ".bin";
 	
+	// Clear tiledata
+	Game.TileAngle   = [];
+	Game.TileWidths  = [];
+	Game.TileHeights = [];
+	
 	// Load collision tiles binary data
 	for (var k = 0; k < 3; k++)
 	{

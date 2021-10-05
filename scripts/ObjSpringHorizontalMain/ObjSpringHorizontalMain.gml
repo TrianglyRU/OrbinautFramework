@@ -23,6 +23,7 @@ function ObjSpringHorizontalMain()
 			Player.Xsp	   = image_xscale * LaunchForce;
 			Player.Facing  = image_xscale;	
 			Player.Inertia = Player.Xsp;
+			Player.Pushing = false;
 			
 			// Play sound
 			audio_sfx_play(sfxSpring, false);
