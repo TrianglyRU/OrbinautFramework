@@ -7,4 +7,7 @@ function ObjTailsObjectStartup()
 	// Move tails to player
 	x = floor(Player.PosX);
 	y = floor(Player.PosY);
+	
+	// Set sprite
+	image_index = spr_tails_tail_idle;
 }

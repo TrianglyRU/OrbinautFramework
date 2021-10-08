@@ -24,7 +24,7 @@ function ObjStarPostMain()
 		{
 			// Remember player and stage data
 			Game.StarPostData[0] = x;
-			Game.StarPostData[1] = y + sprite_get_height(sprite_index) / 2 - Player.DefaultRadiusY;
+			Game.StarPostData[1] = y + sprite_get_height(sprite_index) / 2 - Player.DefaultRadiusY - 1;
 			Game.StarPostData[2] = Stage.Time;
 			Game.StarPostData[3] = Stage.BottomBoundary;
 			Game.StarPostData[4] = id;

@@ -5,6 +5,9 @@ function ObjFloatingPlatformMain()
 		// Movement / Idle
 		case 0:
 		{
+			var PosX = OriginX;
+			var PosY = OriginY;
+			
 			if Player.OnObject == id
 			{
 				// Fall after 30 frames if flag is set
@@ -12,11 +15,12 @@ function ObjFloatingPlatformMain()
 				{
 					if (++Timer) == 30
 					{
-						State++;
-						Timer = 32;
+						State  += 1;
+						Timer   = 32;
+						OriginY = OriginY + Weight;
 				
-						// Do not unload automatically
-						object_set_unload(false);
+						// Delete the object once it goes off-screen
+						object_set_unload(TypeDelete);
 					}
 				}
 				
@@ -28,9 +32,6 @@ function ObjFloatingPlatformMain()
 				Weight -= 0.25;
 			}
 			Weight = clamp(Weight, 0, 4);
-			
-			var PosX = OriginX;
-			var PosY = OriginY;
 	
 			// Check if platform has movement pattern assigned
 			if MovementType != "None"
@@ -84,17 +85,19 @@ function ObjFloatingPlatformMain()
 		{
 			FallSpeed += 0.21875;
 			OriginY   += FallSpeed;
+			
+			// Update position
+			y = floor(OriginY);
 		
 			// Make player lose the platform after 32 frames
 			if !(--Timer) and Player.OnObject == id
 			{
 				Player.OnObject = false;
 			}
-		
-			// Delete platform
-			if OriginY > Stage.BottomBoundary
+			else
 			{
-				instance_destroy();
+				// Do collision
+				object_act_solid(false, true, false, false);
 			}
 		}
 		break;

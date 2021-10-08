@@ -1,14 +1,14 @@
 function ObjFloatingPlatformStartup()
 {
 	/* Variable Definitions	
-	1. XRadius,    default = 30
-	2. YRadius,    default = 11
-	2. StartAngle, default = 0
-	4. Speed,      default = 0
-	5. Distance,   default = 0
-	6. Sprite,     default = spr_obj_platform_template
-	7. Movement,   default = "Horizontal"
-	8. DoFall,     default = false
+	1. XRadius,      default = 32
+	2. YRadius,      default = 11
+	2. StartAngle,   default = 0
+	4. Speed,        default = 0
+	5. Distance,     default = 0
+	6. Sprite,       default = spr_obj_platform_template
+	7. MovementType, default = "None"
+	8. DoFall,       default = false
 	*/
 	
 	// Set blank values
@@ -27,7 +27,10 @@ function ObjFloatingPlatformStartup()
 	object_set_solidbox(XRadius, YRadius, false);
 	
 	// Set object unload type
-	object_set_unload(TypePause);
+	if MovementType == "None"
+	{
+		object_set_unload(TypePause);
+	}
 	
 	// Set object depth
 	object_set_depth(Player, false);
