@@ -9,5 +9,5 @@ function ObjTailsObjectStartup()
 	y = floor(Player.PosY);
 	
 	// Set sprite
-	image_index = spr_tails_tail_idle;
+	sprite_index = spr_tails_tail_idle;
 }
