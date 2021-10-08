@@ -9,11 +9,14 @@ function ObjCollapsingLedgeStartup()
 	
 	// Set variables
 	LeftX     = floor(x - XRadius);
-	TopY      = floor(y - YRadius);
-	Width     = ceil(abs(sprite_get_width(LedgeSprite))  / 16) * 16;
-	Height    = ceil(abs(sprite_get_height(LedgeSprite)) / 16) * 16;
-	TimeDelay = 7;
-	State     = 0;
+    TopY      = floor(y - sprite_get_yoffset(LedgeSprite));
+    Width     = ceil(abs(sprite_get_width(LedgeSprite))  / 16) * 16;
+    Height    = ceil(abs(sprite_get_height(LedgeSprite)) / 16) * 16;
+    TimeDelay = 7;
+    State     = 0;
+	
+	// Set sprite
+	sprite_index = LedgeSprite;
 	
 	// Set object solidbox
 	object_set_solidbox(XRadius, YRadius, CollisionArray);

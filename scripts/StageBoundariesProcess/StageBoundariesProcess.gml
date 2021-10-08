@@ -58,26 +58,26 @@ function StageBoundariesProcess()
 			{
 				TopBoundary = Camera.ViewY;
 			}
-			TopBoundary++;
+			TopBoundary += 2;
 		}
 	}
 	else if TopBoundary > TargetTopBoundary
 	{
-		TopBoundary--;
+		TopBoundary -= 2;
 	}
 	
 	// Update bottom boundary
 	if BottomBoundary < TargetBottomBoundary
 	{
-		BottomBoundary++;
+		BottomBoundary += 2;
 		DeathBoundary = TargetBottomBoundary;
 	}
 	else if BottomBoundary > TargetBottomBoundary
 	{
 		if Camera.ViewY + Game.Height >= TargetBottomBoundary
 		{
-			BottomBoundary = Camera.ViewY + Game.Height
-			BottomBoundary--;
+			BottomBoundary  = Camera.ViewY + Game.Height
+			BottomBoundary -= 2;
 		}
 		else if Camera.ViewY + Game.Height <= TargetBottomBoundary
 		{

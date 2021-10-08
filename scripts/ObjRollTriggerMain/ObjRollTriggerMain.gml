@@ -11,7 +11,7 @@ function ObjRollTriggerMain()
 		// Set object flag
 		if !State and abs(Player.Inertia) < 4
 		{
-			Player.Inertia = 4 * abs(Player.Facing);
+			Player.Inertia = 2 * Player.Facing;
 		}
 		
 		// Increment state
