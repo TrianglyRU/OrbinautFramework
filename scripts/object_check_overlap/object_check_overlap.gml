@@ -6,17 +6,7 @@ function object_check_overlap(collisionType)
 	{
 		return false;
 	}
-	
-	// Exit if object is off-screen
-	var RX = sprite_get_width(sprite_index)  / 2;
-	var RY = sprite_get_height(sprite_index) / 2;
-	
-	if x + RX < Camera.ViewX or x - RX > Camera.ViewX + Game.Width
-	or y + RY < Camera.ViewY or y - RY > Camera.ViewY + Game.Height
-	{
-		return false;
-	}
-	
+
 	// Check for hitbox overlap
 	if collisionType == Hitbox
 	{
@@ -31,7 +21,18 @@ function object_check_overlap(collisionType)
 		{
 			return false;
 		}
+		
+		// Exit if object is off-screen
+		var RX = sprite_get_width(sprite_index)  / 2;
+		var RY = sprite_get_height(sprite_index) / 2;
+		
+		if x + RX < Camera.ViewX or x - RX > Camera.ViewX + Game.Width
+		or y + RY < Camera.ViewY or y - RY > Camera.ViewY + Game.Height
+		{
+			return false;
+		}
 	
+		
 		// Get object's size
 		var ObjectTop    = floor(y - Obj_HitY - 0);
 		var ObjectLeft   = floor(x - Obj_HitX - 0);

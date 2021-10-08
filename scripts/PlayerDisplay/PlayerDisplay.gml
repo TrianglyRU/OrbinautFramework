@@ -13,6 +13,19 @@ function PlayerDisplay()
 		x++;
 	}
 	
+	// Blink sprite
+	if InvincibilityFrames and !Hurt
+	{
+		if !(InvincibilityFrames mod 4)
+		{
+			image_alpha = !image_alpha;
+		}
+	}
+	else
+	{
+		image_alpha = 1;
+	}
+	
 	// Draw player
 	draw_self();
 }

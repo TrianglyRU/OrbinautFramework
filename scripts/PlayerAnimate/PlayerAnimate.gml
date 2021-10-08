@@ -1,18 +1,5 @@
 function PlayerAnimate()
 {	
-	// Blink sprite
-	if InvincibilityFrames
-	{
-		if !(InvincibilityFrames mod 4)
-		{
-			image_alpha = !image_alpha;
-		}
-	}
-	else
-	{
-		image_alpha = 1;
-	}
-	
 	// Initialise static variables for certain animations
 	static AnimSpringTime  = 48;
 	static AnimBreatheTime = 24;
