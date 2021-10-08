@@ -22,7 +22,7 @@ function animation_play(ind,speed,goto)
 	}
 
 	// Handle subimage change
-	if speed != 0 and !fade_check(FadeActive)
+	if speed != 0 and !fade_check(FadeActive) and !variable_check(Stage, "IsPaused")
 	{
 		if !(--image_duration)
 		{	
