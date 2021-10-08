@@ -1,7 +1,6 @@
 function ObjLedgePieceStartup()
 {
-	// Create varaibles
-	PosY  = 0;
+	// Set blank values
 	Ysp   = 0;
 	Timer = 0;
 	DrawX = 0;

@@ -12,7 +12,6 @@ function ObjCollapsingLedgeStartup()
 	TopY      = floor(y - YRadius);
 	Width     = ceil(abs(sprite_get_width(LedgeSprite))  / 16) * 16;
 	Height    = ceil(abs(sprite_get_height(LedgeSprite)) / 16) * 16;
-	Side      = sprite_get_width(LedgeSprite) >= 0 ? 1 : -1;
 	TimeDelay = 7;
 	State     = 0;
 	

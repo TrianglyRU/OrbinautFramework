@@ -24,7 +24,6 @@ function GameSetup()
 	Game.CDStageTimer	    = true;
 	
 	// Orbinaut improvements
-	Game.CustomSlopeCollision = true;
 	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = true;
 	Game.PreciseRingBehaviour = false;

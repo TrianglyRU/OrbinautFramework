@@ -54,8 +54,7 @@ function ObjFloatingPlatformMain()
 					break;
 					case "Diagonal":
 					{
-						var Direction = Speed ? 1 : -1;
-						PosX += dsin(Angle) * Distance * Direction;
+						PosX += dsin(Angle) * Distance * (Speed ? 1 : -1);
 						PosY += dsin(Angle) * Distance;
 					}
 					break;

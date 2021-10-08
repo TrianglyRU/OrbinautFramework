@@ -96,8 +96,4 @@ function GameMacro()
 	#macro SideBottom 3
 	#macro Hitbox	  0
 	#macro Triggerbox 1
-	#macro QuadFloor  0
-	#macro QuadRWall  1
-	#macro QuadRoof	  2
-	#macro QuadLWall  3
 }

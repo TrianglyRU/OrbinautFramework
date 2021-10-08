@@ -32,6 +32,33 @@ function ObjFloatingPlatformStartup()
 		object_set_unload(TypePause);
 	}
 	
+	// Set default position
+	else switch MovementType
+	{
+		case "Horizontal":
+		{
+			x += dcos(Angle) * Distance;
+		}
+		break;
+		case "Vertical":
+		{
+			y += dsin(Angle) * Distance;
+		}
+		break;
+		case "Diagonal":
+		{
+			x += dsin(Angle) * Distance * (Speed ? 1 : -1);
+			y += dsin(Angle) * Distance;
+		}
+		break;
+		case "Circular":
+		{
+			x += dcos(Angle) * Distance;
+			y += dsin(Angle) * Distance;
+		}
+		break;
+	}
+	
 	// Set object depth
 	object_set_depth(Player, false);
 }
