@@ -20,7 +20,7 @@ function PlayerAirLevelCollision()
 		case "MoveDown":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(PosX - 10, PosY, false, true, Layer)[0];
+			var LeftDistance = tile_check_collision_h(PosX - RadiusW, PosY, false, true, Layer)[0];
 			if  LeftDistance < 0
 			{
 				PosX -= LeftDistance;
@@ -28,7 +28,7 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(PosX + 10, PosY, true, true, Layer)[0];
+			var RightDistance = tile_check_collision_h(PosX + RadiusW, PosY, true, true, Layer)[0];
 			if  RightDistance < 0
 			{
 				PosX += RightDistance;
@@ -83,7 +83,7 @@ function PlayerAirLevelCollision()
 		case "MoveUp":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(PosX - 10, PosY, false, true, Layer)[0];
+			var LeftDistance = tile_check_collision_h(PosX - RadiusW, PosY, false, true, Layer)[0];
 			if  LeftDistance < 0
 			{
 				PosX -= LeftDistance;
@@ -91,7 +91,7 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(PosX + 10, PosY, true, true, Layer)[0];
+			var RightDistance = tile_check_collision_h(PosX + RadiusW, PosY, true, true, Layer)[0];
 			if  RightDistance < 0
 			{
 				PosX += RightDistance;
@@ -132,7 +132,7 @@ function PlayerAirLevelCollision()
 		case "MoveLeft":
 		{
 			// Collide with left wall
-			var LeftDistance = tile_check_collision_h(PosX - 10, PosY, false, true, Layer)[0];
+			var LeftDistance = tile_check_collision_h(PosX - RadiusW, PosY, false, true, Layer)[0];
 			if  LeftDistance < 0
 			{
 				PosX -= LeftDistance;
@@ -196,7 +196,7 @@ function PlayerAirLevelCollision()
 		case "MoveRight":
 		{
 			// Collide with right wall
-			var RightDistance = tile_check_collision_h(PosX + 10, PosY, true, true, Layer)[0];
+			var RightDistance = tile_check_collision_h(PosX + RadiusW, PosY, true, true, Layer)[0];
 			if  RightDistance < 0
 			{
 				PosX += RightDistance;
