@@ -11,16 +11,16 @@ function ObjCrabmeatMain()
 			// Move and update position
 			if (--Timer)
 			{
-				PosX += 0.5 * Direction;
+				PosX += 0.5 * image_xscale;
 				x     = floor(PosX);
 			}
 			
 			// Check for floor
-			var FindFloor  = tile_check_collision_v(x,					y + 16, true, false, LayerA);
-			var CheckFloor = tile_check_collision_v(x + 16 * Direction, y + 16, true, false, LayerA)[0];
+			var FindFloor = tile_check_collision_v(x, y + 16, true, false, LayerA);
+			var EdgeCheck = tile_check_collision_v(x + 16 * image_xscale, y + 16, true, false, LayerA)[0];
 			
 			// Change state
-			if CheckFloor > 12 or CheckFloor < -8 or !Timer
+			if EdgeCheck > 12 or EdgeCheck < -8 or !Timer
 			{
 				image_index = 2;
 				
@@ -54,7 +54,7 @@ function ObjCrabmeatMain()
 			{
 				State++;
 				Timer        = 59;
-				Direction   *= -1;
+				image_xscale *= -1;
 				sprite_index = spr_obj_crabmeat_fire;
 				
 				// Create bullets
@@ -90,5 +90,5 @@ function ObjCrabmeatMain()
 	}
 
 	// Act as badnik
-	object_act_enemy(EnemyBadnik)
+	object_act_enemy(EnemyBadnik);
 }

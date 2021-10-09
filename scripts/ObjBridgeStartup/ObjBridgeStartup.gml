@@ -26,7 +26,7 @@ function ObjBridgeStartup()
 	object_set_solidbox(BridgeLength / 2 * 16, 8, false);
 	
 	// Set object depth
-	object_set_depth(Player, false);
+	object_set_depth(Player, true);
 	
 	// Set object unload type
 	object_set_unload(TypePause);

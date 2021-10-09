@@ -2,7 +2,6 @@ function ObjCrabmeatStartup()
 {
 	// Create variables
 	PosX      = x;
-	Direction = image_xscale;
 	State     = 0;
 	PrevAnim  = 0;
 	Timer     = 127;

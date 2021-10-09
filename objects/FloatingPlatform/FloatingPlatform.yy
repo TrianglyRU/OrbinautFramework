@@ -27,10 +27,8 @@
   "properties": [
     {"varType":1,"value":"32","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"XRadius","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"11","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"YRadius","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":360.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"StartAngle","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Speed","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Distance","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":5,"value":"spr_obj_platform_template","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Sprite","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "\"None\"",
         "\"Horizontal\"",
@@ -38,7 +36,10 @@
         "\"Diagonal\"",
         "\"Circular\"",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"MovementType","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"InverseX","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"InverseY","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"DoFall","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":5,"value":"spr_obj_platform_template","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Sprite","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

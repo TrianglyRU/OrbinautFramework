@@ -21,7 +21,7 @@ function PlayerGeneralUpdate()
 	{	
 		if !(--HighspeedBonus)
 		{
-			if audio_bgm_is_playing(HighSpeed) or !audio_bgm_is_playing(PriorityLow)
+			if audio_bgm_is_playing(HighSpeed)
 			{
 				audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
 			}
@@ -46,7 +46,7 @@ function PlayerGeneralUpdate()
 		}
 		if !(--InvincibleBonus)
 		{
-			if audio_bgm_is_playing(Invincibility) or !audio_bgm_is_playing(PriorityLow)
+			if audio_bgm_is_playing(Invincibility)
 			{
 				audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
 			}

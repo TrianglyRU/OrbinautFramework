@@ -116,7 +116,7 @@ function InterfacePauseProcess()
 	// If we pressed start button and are allowed to pause, then pause!
 	else if Input.StartPress
 	{
-		if CardValue[1] == 3 and Stage.DoUpdate
+		if if CardValue[1] == 3 and Stage.DoUpdate and !Stage.IsFinished
 		{
 			Input.StartPress = false;
 			Camera.Enabled   = false;

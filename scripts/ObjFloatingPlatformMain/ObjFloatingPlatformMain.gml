@@ -10,18 +10,9 @@ function ObjFloatingPlatformMain()
 			
 			if Player.OnObject == id
 			{
-				// Fall after 30 frames if flag is set
-				if DoFall
+				if DoFall == 1
 				{
-					if (++Timer) == 30
-					{
-						State  += 1;
-						Timer   = 32;
-						OriginY = OriginY + Weight;
-				
-						// Delete the object once it goes off-screen
-						object_set_unload(TypeDelete);
-					}
+					DoFall = 2;
 				}
 				
 				// Lower the platform
@@ -32,36 +23,50 @@ function ObjFloatingPlatformMain()
 				Weight -= 0.25;
 			}
 			Weight = clamp(Weight, 0, 4);
+			
+			// Fall after 30 frames if flag is set
+			if DoFall == 2
+			{
+				if (++Timer) == 30
+				{
+					State  += 1;
+					Timer   = 32;
+					OriginY = OriginY + Weight;
+				
+					// Delete the object once it goes off-screen
+					object_set_unload(TypeDelete);
+				}
+			}
 	
 			// Check if platform has movement pattern assigned
 			if MovementType != "None"
 			{
 				// Update rotation angle
-				Angle += Speed;
+				Angle = abs(Speed) * Stage.Time;
 	
 				// Update code position
 				switch MovementType
 				{
 					case "Horizontal":
 					{
-						PosX += dcos(Angle) * Distance;
+						PosX += dcos(Angle) * Distance * (InverseX ? -1 : 1);
 					}
 					break;
 					case "Vertical":
 					{
-						PosY += dsin(Angle) * Distance;
+						PosY += dsin(Angle) * Distance * (InverseY ? -1 : 1);
 					}
 					break;
 					case "Diagonal":
 					{
-						PosX += dsin(Angle) * Distance * (Speed ? 1 : -1);
-						PosY += dsin(Angle) * Distance;
+						PosX += dsin(Angle + InverseX * 180) * Distance;
+						PosY += dsin(Angle + InverseY * 180) * Distance;
 					}
 					break;
 					case "Circular":
 					{
-						PosX += dcos(Angle) * Distance;
-						PosY += dsin(Angle) * Distance;
+						PosX += dcos(Angle) * Distance * (InverseX ? -1 : 1);
+						PosY += dsin(Angle) * Distance * (InverseY ? -1 : 1);
 					}
 					break;
 				}

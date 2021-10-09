@@ -3,12 +3,13 @@ function ObjFloatingPlatformStartup()
 	/* Variable Definitions	
 	1. XRadius,      default = 32
 	2. YRadius,      default = 11
-	2. StartAngle,   default = 0
-	4. Speed,        default = 0
-	5. Distance,     default = 0
-	6. Sprite,       default = spr_obj_platform_template
-	7. MovementType, default = "None"
+	3. Speed,        default = 0
+	4. Distance,     default = 0
+	5. MovementType, default = "None"
+	6. InverseX,	 default = false
+	7. InverseY,	 default = false
 	8. DoFall,       default = false
+	9. Sprite,       default = spr_obj_platform_template
 	*/
 	
 	// Set blank values
@@ -18,46 +19,18 @@ function ObjFloatingPlatformStartup()
 	FallSpeed = 0;
 	
 	// Set other variables
-	OriginX	     = x;
-	OriginY	     = y;
-	Angle	     = StartAngle;
+	OriginX = x;
+	OriginY	= y;
+	Angle	= 0;
+	
+	// Set sprite
 	sprite_index = Sprite;
 	
 	// Set object solidbox
 	object_set_solidbox(XRadius, YRadius, false);
 	
 	// Set object unload type
-	if MovementType == "None"
-	{
-		object_set_unload(TypePause);
-	}
-	
-	// Set default position
-	else switch MovementType
-	{
-		case "Horizontal":
-		{
-			x += dcos(Angle) * Distance;
-		}
-		break;
-		case "Vertical":
-		{
-			y += dsin(Angle) * Distance;
-		}
-		break;
-		case "Diagonal":
-		{
-			x += dsin(Angle) * Distance * (Speed ? 1 : -1);
-			y += dsin(Angle) * Distance;
-		}
-		break;
-		case "Circular":
-		{
-			x += dcos(Angle) * Distance;
-			y += dsin(Angle) * Distance;
-		}
-		break;
-	}
+	object_set_unload(TypePause);
 	
 	// Set object depth
 	object_set_depth(Player, false);
