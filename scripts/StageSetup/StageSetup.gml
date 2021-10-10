@@ -19,7 +19,7 @@ function StageSetup()
 			LeftBoundary		= 0;
 			TopBoundary			= 0;
 			RightBoundary		= room_width;
-			BottomBoundary		= 736;
+			BottomBoundary		= 1016;
 			AnimatedGraphics	= noone;
 			AnimalSet			= [spr_obj_animal_flicky, spr_obj_animal_ricky];
 		}

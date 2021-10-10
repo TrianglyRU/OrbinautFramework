@@ -35,11 +35,11 @@ function CameraFollowProcess()
 	// Set vertical shift speed
 	if Target == Player and Player.Grounded
 	{	
-		if abs(Player.Inertia) < 8
+		if abs(Player.Ysp) <= 6
 		{
 			MaxShiftY = 6;
 		}
-		else
+		if abs(Player.Inertia) >= 8
 		{
 			MaxShiftY = 16;
 		}
