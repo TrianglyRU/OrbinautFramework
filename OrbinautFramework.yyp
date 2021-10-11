@@ -181,6 +181,7 @@
     {"id":{"name":"ObjSuperStarMain","path":"scripts/ObjSuperStarMain/ObjSuperStarMain.yy",},"order":78,},
     {"id":{"name":"ObjAnimalStartup","path":"scripts/ObjAnimalStartup/ObjAnimalStartup.yy",},"order":6,},
     {"id":{"name":"sfxSignPost","path":"sounds/sfxSignPost/sfxSignPost.yy",},"order":44,},
+    {"id":{"name":"spr_obj_starpost_effect","path":"sprites/spr_obj_starpost_effect/spr_obj_starpost_effect.yy",},"order":92,},
     {"id":{"name":"spr_obj_buzzbomber_shot","path":"sprites/spr_obj_buzzbomber_shot/spr_obj_buzzbomber_shot.yy",},"order":23,},
     {"id":{"name":"ObjBarrierMain","path":"scripts/ObjBarrierMain/ObjBarrierMain.yy",},"order":20,},
     {"id":{"name":"ObjBossTriggerMain","path":"scripts/ObjBossTriggerMain/ObjBossTriggerMain.yy",},"order":70,},

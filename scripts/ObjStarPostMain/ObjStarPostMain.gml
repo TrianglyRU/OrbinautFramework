@@ -49,7 +49,7 @@ function ObjStarPostMain()
 			// Create Bonus Stage portal if we have more than 20 rings
 			if Player.Rings >= 20
 			{
-				instance_create(x, y - sprite_get_height(sprite_index) / 2, StarPostEffect);
+				instance_create(x, y - sprite_get_height(sprite_index) div 2 - 10, StarPostEffect);
 			}
 		}
 	}

@@ -2,11 +2,11 @@ function ObjStarPostEffectMain()
 {
 	if Timer < 128
 	{
-		Radius++;
+		Diameter++;
 	}
 	else if Timer > 472
 	{
-	    Radius--;
+	    Diameter--;
 	}
 	
 	switch State
