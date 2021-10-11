@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Crabmeat Bullet",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Crabmeat/Crabmeat Bullet.yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjCrabmeatBulletMain",

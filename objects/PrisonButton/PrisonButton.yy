@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Egg Prison Button",
-    "path": "folders/Game Objects/Stage Objects/Egg Prison/Egg Prison Button.yy",
+    "name": "Call-Only",
+    "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "PrisonButton",

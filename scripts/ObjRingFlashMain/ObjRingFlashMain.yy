@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Special Ring Flash",
-    "path": "folders/Game Objects/Stage Objects/Special Ring/Special Ring Flash.yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjRingFlashMain",

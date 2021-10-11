@@ -43,8 +43,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Floating Platform",
-    "path": "folders/Game Objects/Stage Objects/Floating Platform.yy",
+    "name": "Stage Objects",
+    "path": "folders/Game Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "FloatingPlatform",

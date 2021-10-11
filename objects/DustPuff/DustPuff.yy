@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Dust Puff",
-    "path": "folders/Game Objects/Stage Objects/Dust Puff.yy",
+    "name": "Call-Only",
+    "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "DustPuff",

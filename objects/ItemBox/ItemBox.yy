@@ -41,8 +41,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Item Box",
-    "path": "folders/Game Objects/Stage Objects/Item Box.yy",
+    "name": "Stage Objects",
+    "path": "folders/Game Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "ItemBox",

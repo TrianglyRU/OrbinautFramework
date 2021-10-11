@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Projectile",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Projectile.yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjProjectileStartup",

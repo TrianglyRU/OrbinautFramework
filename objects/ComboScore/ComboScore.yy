@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Combo Score",
-    "path": "folders/Game Objects/Stage Objects/Combo Score.yy",
+    "name": "Call-Only",
+    "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "ComboScore",

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Star Post",
-    "path": "folders/Game Objects/Stage Objects/Star Post.yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjStarPostStartup",

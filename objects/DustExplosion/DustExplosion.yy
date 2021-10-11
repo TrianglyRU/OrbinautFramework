@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Explosion",
-    "path": "folders/Game Objects/Stage Objects/Explosion.yy",
+    "name": "Call-Only",
+    "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "DustExplosion",

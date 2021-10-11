@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Barrier Sparkle",
-    "path": "folders/Game Objects/Stage Objects/Barrier/Barrier Sparkle.yy",
+    "name": "Call-Only",
+    "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "BarrierSparkle",

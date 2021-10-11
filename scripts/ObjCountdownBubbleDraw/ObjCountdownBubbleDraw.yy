@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Bubble (Countdown)",
-    "path": "folders/Game Objects/Stage Objects/Bubble (Countdown).yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjCountdownBubbleDraw",

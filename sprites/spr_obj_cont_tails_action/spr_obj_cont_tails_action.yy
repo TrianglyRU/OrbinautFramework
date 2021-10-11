@@ -98,7 +98,7 @@
             {"id":"a85650e3-032f-42cd-b804-a0d7c0f9b3e0","Key":12.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2d53bc76-08a1-45a8-a568-439eb08eb957","path":"sprites/spr_obj_cont_tails_action/spr_obj_cont_tails_action.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"31a838a9-2886-4638-96eb-f93985a55942","Key":13.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"20924526-dc96-41c9-9daa-ba02d2ae4b47","path":"sprites/spr_obj_cont_tails_action/spr_obj_cont_tails_action.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"5df8dddd-b83a-4aab-b6e7-072fd7c903b8","Key":14.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8cbfad48-67a2-4461-9a77-f4afeac9741b","path":"sprites/spr_obj_cont_tails_action/spr_obj_cont_tails_action.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -126,7 +126,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Screen Objects/Continue Character/Sprites.yy",
+    "path": "folders/Game Objects/Screen Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_cont_tails_action",

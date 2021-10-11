@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_bubble_number5",
-    "path": "sprites/spr_obj_bubble_number5/spr_obj_bubble_number5.yy",
+    "name": "spr_obj_bubble_disappear",
+    "path": "sprites/spr_obj_bubble_disappear/spr_obj_bubble_disappear.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Bubble",
-    "path": "folders/Game Objects/Stage Objects/Bubble.yy",
+    "name": "Call-Only",
+    "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "Bubble",

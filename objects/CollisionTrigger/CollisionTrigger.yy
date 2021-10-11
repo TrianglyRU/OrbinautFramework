@@ -40,8 +40,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Trigger (Collision)",
-    "path": "folders/Game Objects/Stage Objects/Trigger (Collision).yy",
+    "name": "Stage Objects",
+    "path": "folders/Game Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollisionTrigger",

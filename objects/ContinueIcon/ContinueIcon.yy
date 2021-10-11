@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Continue Icon",
-    "path": "folders/Game Objects/Screen Objects/Continue Icon.yy",
+    "name": "Screen Objects",
+    "path": "folders/Game Objects/Screen Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueIcon",

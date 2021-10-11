@@ -186,7 +186,6 @@
 ],},"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"GraphicsLayerB","tags":[],"resourceType":"GMRTileLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"SpawnPoint","path":"objects/SpawnPoint/SpawnPoint.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":80.0,"y":944.0,"resourceVersion":"1.0","name":"inst_10947A19","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1120.0,"y":920.0,"resourceVersion":"1.0","name":"inst_6D113D2E","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2416.0,"y":808.0,"resourceVersion":"1.0","name":"inst_75F78D93","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"Bridge","path":"objects/Bridge/Bridge.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":4272.0,"y":728.0,"resourceVersion":"1.0","name":"inst_1F474F02","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
@@ -366,7 +365,6 @@
     {"name":"inst_5F3E9230","path":"rooms/Stage_TZ/Stage_TZ.yy",},
     {"name":"inst_43FD2A22","path":"rooms/Stage_TZ/Stage_TZ.yy",},
     {"name":"inst_10947A19","path":"rooms/Stage_TZ/Stage_TZ.yy",},
-    {"name":"inst_6D113D2E","path":"rooms/Stage_TZ/Stage_TZ.yy",},
     {"name":"inst_75F78D93","path":"rooms/Stage_TZ/Stage_TZ.yy",},
     {"name":"inst_1F474F02","path":"rooms/Stage_TZ/Stage_TZ.yy",},
   ],

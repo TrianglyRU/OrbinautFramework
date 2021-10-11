@@ -218,16 +218,17 @@ function InterfaceResultsDraw()
 	}
 	
 	// Get screen centre
-	var ScreenCentre = Game.Width / 2
+	var CentreX = Game.Width  / 2;
+	var CentreY = Game.Height / 2;
 	
 	// Draw assets
-	draw_sprite(gui_results_head,	   Game.Character, ScreenCentre + 53 + ResultsValue[1], 87);
-	draw_sprite(gui_results_char,	   Game.Character, ScreenCentre - 14 - ResultsValue[2], 60);
-	draw_sprite(gui_results_act,	   Stage.ActID,    ScreenCentre + 46 + ResultsValue[7], 89);	
-	draw_sprite(gui_results_through,   0,			   ScreenCentre - 15 - ResultsValue[3], 80);
-	draw_sprite(gui_results_score,	   0,			   ScreenCentre - 58 + ResultsValue[4], 127);
-	draw_sprite(gui_results_timebonus, 0,			   ScreenCentre - 38 + ResultsValue[5], 143);
-	draw_sprite(gui_results_ringbonus, 0,			   ScreenCentre - 38 + ResultsValue[6], 159);
+	draw_sprite(gui_results_head,	   Game.Character, CentreX + 53 + ResultsValue[1], CentreY - 25);
+	draw_sprite(gui_results_char,	   Game.Character, CentreX - 14 - ResultsValue[2], CentreY - 52);
+	draw_sprite(gui_results_act,	   Stage.ActID,    CentreX + 46 + ResultsValue[7], CentreY - 23);	
+	draw_sprite(gui_results_through,   0,			   CentreX - 15 - ResultsValue[3], CentreY - 32);
+	draw_sprite(gui_results_score,	   0,			   CentreX - 58 + ResultsValue[4], CentreY + 15);
+	draw_sprite(gui_results_timebonus, 0,			   CentreX - 38 + ResultsValue[5], CentreY + 31);
+	draw_sprite(gui_results_ringbonus, 0,			   CentreX - 38 + ResultsValue[6], CentreY + 47);
 	
 	// Draw continue icon
 	if ResultsValue[8] == 3 and ResultsValue[0] > -1
@@ -246,7 +247,7 @@ function InterfaceResultsDraw()
 					var Icon = spr_obj_conticon_knuckles;
 				break;
 			}
-			draw_sprite(Icon, animate_sprite(2, 16), ScreenCentre + 96, 123);
+			draw_sprite(Icon, animate_sprite(2, 16), CentreX + 96, CentreY + 11);
 		}
 	}
 	
@@ -254,7 +255,7 @@ function InterfaceResultsDraw()
 	draw_set_font(Game.Font[font_counter]);
 	draw_set_halign(fa_right);
 	
-	draw_text(ScreenCentre + 83 + ResultsValue[4], 125, Player.Score);
-	draw_text(ScreenCentre + 83 + ResultsValue[5], 141, ResultsValue[10]);
-	draw_text(ScreenCentre + 83 + ResultsValue[6], 157, ResultsValue[9]);
+	draw_text(CentreX + 83 + ResultsValue[4], CentreY + 13, Player.Score);
+	draw_text(CentreX + 83 + ResultsValue[5], CentreY + 29, ResultsValue[10]);
+	draw_text(CentreX + 83 + ResultsValue[6], CentreY + 45, ResultsValue[9]);
 }

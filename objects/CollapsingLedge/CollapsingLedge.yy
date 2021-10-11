@@ -33,8 +33,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collapsing Ledge",
-    "path": "folders/Game Objects/Stage Objects/Collapsing Ledge.yy",
+    "name": "Stage Objects",
+    "path": "folders/Game Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollapsingLedge",

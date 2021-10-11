@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spt_controller",
-    "path": "sprites/spt_controller/spt_controller.yy",
+    "name": "spr_controller",
+    "path": "sprites/spr_controller/spr_controller.yy",
   },
   "solid": false,
   "visible": true,

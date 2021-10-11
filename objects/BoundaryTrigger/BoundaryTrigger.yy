@@ -29,8 +29,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Trigger (Boundary)",
-    "path": "folders/Game Objects/Stage Objects/Trigger (Boundary).yy",
+    "name": "Stage Objects",
+    "path": "folders/Game Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "BoundaryTrigger",

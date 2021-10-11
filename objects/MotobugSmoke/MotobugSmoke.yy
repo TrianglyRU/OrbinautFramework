@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Motobug Smoke",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Motobug/Motobug Smoke.yy",
+    "name": "Call-Only",
+    "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "MotobugSmoke",

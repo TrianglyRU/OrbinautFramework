@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Motobug Smoke",
-    "path": "folders/Game Objects/Stage Objects/Badniks/Motobug/Motobug Smoke.yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjMotobugSmokeMain",

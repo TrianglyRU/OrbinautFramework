@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Collapsing Ledge Piece",
-    "path": "folders/Game Objects/Stage Objects/Collapsing Ledge/Collapsing Ledge Piece.yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjLedgePieceStartup",

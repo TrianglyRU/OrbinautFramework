@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Continue Icon",
-    "path": "folders/Game Objects/Screen Objects/Continue Icon.yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Screen Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjContinueIconStartup",

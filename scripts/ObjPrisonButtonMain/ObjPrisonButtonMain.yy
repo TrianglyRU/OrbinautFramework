@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Egg Prison Button",
-    "path": "folders/Game Objects/Stage Objects/Egg Prison/Egg Prison Button.yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjPrisonButtonMain",

@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0213b89e-5d8e-4a31-bd56-ace2f9184d4a","path":"sprites/spt_controller/spt_controller.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0213b89e-5d8e-4a31-bd56-ace2f9184d4a","path":"sprites/spt_controller/spt_controller.yy",},"LayerId":{"name":"cc00afb6-1db4-4ba7-95de-e476db925954","path":"sprites/spt_controller/spt_controller.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spt_controller","path":"sprites/spt_controller/spt_controller.yy",},"resourceVersion":"1.0","name":"0213b89e-5d8e-4a31-bd56-ace2f9184d4a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"0213b89e-5d8e-4a31-bd56-ace2f9184d4a","path":"sprites/spr_controller/spr_controller.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"0213b89e-5d8e-4a31-bd56-ace2f9184d4a","path":"sprites/spr_controller/spr_controller.yy",},"LayerId":{"name":"cc00afb6-1db4-4ba7-95de-e476db925954","path":"sprites/spr_controller/spr_controller.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_controller","path":"sprites/spr_controller/spr_controller.yy",},"resourceVersion":"1.0","name":"0213b89e-5d8e-4a31-bd56-ace2f9184d4a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spt_controller","path":"sprites/spt_controller/spt_controller.yy",},
+    "spriteId": {"name":"spr_controller","path":"sprites/spr_controller/spr_controller.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -41,8 +41,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"38e5e75c-b4ed-4e97-962f-5632788fce64","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0213b89e-5d8e-4a31-bd56-ace2f9184d4a","path":"sprites/spt_controller/spt_controller.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+            {"id":"38e5e75c-b4ed-4e97-962f-5632788fce64","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0213b89e-5d8e-4a31-bd56-ace2f9184d4a","path":"sprites/spr_controller/spr_controller.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,9 +58,9 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spt_controller","path":"sprites/spt_controller/spt_controller.yy",},
+    "parent": {"name":"spr_controller","path":"sprites/spr_controller/spr_controller.yy",},
     "resourceVersion": "1.3",
-    "name": "spt_controller",
+    "name": "spr_controller",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -69,11 +69,11 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Game Code",
+    "path": "folders/Game Code.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spt_controller",
+  "name": "spr_controller",
   "tags": [],
   "resourceType": "GMSprite",
 }

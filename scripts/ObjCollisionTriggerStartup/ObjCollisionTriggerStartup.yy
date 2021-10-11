@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Trigger (Collision)",
-    "path": "folders/Game Objects/Stage Objects/Trigger (Collision).yy",
+    "name": "Scripts",
+    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjCollisionTriggerStartup",
