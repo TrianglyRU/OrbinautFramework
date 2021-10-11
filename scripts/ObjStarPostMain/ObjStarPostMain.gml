@@ -45,6 +45,12 @@ function ObjStarPostMain()
 			
 			// Play sound
 			audio_sfx_play(sfxStarPost, false);
+			
+			// Create Bonus Stage portal if we have more than 20 rings
+			if Player.Rings >= 20
+			{
+				instance_create(x, y - sprite_get_height(sprite_index) / 2, StarPostEffect);
+			}
 		}
 	}
 	
