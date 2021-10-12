@@ -21,11 +21,18 @@ function StageGameplayProcess()
 	
 	// Process animated graphics
 	if AnimatedGraphics != noone
-	{
-		for (var i = 0; i < array_length(AnimatedGraphics); i += 2)
+	{	
+		var Length = array_length(AnimatedGraphics);
+		for (var i = 0; i < Length; i += 2)
 		{
-			var AnimSpeed = !fade_check(FadeActive) and !Stage.IsPaused ? 1 / AnimatedGraphics[i + 1] : 0;
-			
+			if fade_check(FadeActive) and !Stage.IsPaused
+			{
+				var AnimSpeed = 1 / AnimatedGraphics[i + 1];
+			}
+			else
+			{
+				var AnimSpeed = 0;
+			}
 			sprite_set_speed(AnimatedGraphics[i], AnimSpeed, spritespeed_framespergameframe);
 		}
 	}
