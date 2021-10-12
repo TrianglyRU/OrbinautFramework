@@ -1,6 +1,12 @@
 // @function animation_play_sync(ind,speed)
 function animation_play_sync(ind,speed)
 {	
+	// Exit if object is off-screen
+	if !object_is_onscreen(id)
+	{
+		exit;
+	}
+	
 	// Update sprite
 	if sprite_index != ind
 	{
@@ -9,5 +15,5 @@ function animation_play_sync(ind,speed)
 	}
 	
 	// Play animation
-	image_index = Game.AnimationTime div speed mod image_number;
+	image_index = Game.GlobalTime div speed mod image_number;
 }

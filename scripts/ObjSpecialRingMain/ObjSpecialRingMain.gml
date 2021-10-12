@@ -96,6 +96,11 @@ function ObjSpecialRingMain()
 				audio_play_sound(sfxSpecialWarp, 0, false);
 				fade_perform(FadeTo, ColourWhite, 1);
 			}
+			// Teleport player to special stage
+			if fade_check(FadeMax)
+			{
+				room_goto(Screen_SStage);
+			}
 		}
 		break;
 	}

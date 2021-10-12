@@ -47,30 +47,39 @@ function ObjCrabmeatMain()
 		}
 		break;
 		
-		// Fire
+		// Fire or continue walking
 		case 1:
 		{
 			if !(--Timer)
 			{
-				State++;
-				Timer        = 59;
-				image_xscale *= -1;
-				sprite_index = spr_obj_crabmeat_fire;
-				
-				// Create bullets
-				for (var i = 1; i > -3; i -= 2)
+				if object_is_onscreen(id)
 				{
-				  var  ThisObject = id;
-				  var  NewObject  = instance_create(x + 16 * i, y, Projectile);
-				  with NewObject
-				  {
-					  Xsp          = i;
-					  Ysp		   = -4;
-					  sprite_index = spr_obj_projectile_crabmeat;
+					State++;
+					Timer        = 59;
+					image_xscale *= -1;
+					sprite_index = spr_obj_crabmeat_fire;
+				
+					// Create bullets
+					for (var i = 1; i > -3; i -= 2)
+					{
+						var  ThisObject = id;
+						var  NewObject  = instance_create(x + 16 * i, y, Projectile);
+						with NewObject
+						{
+							Xsp          = i;
+							Ysp		   = -4;
+							sprite_index = spr_obj_projectile_crabmeat;
 					  
-					  // Set object depth
-					  object_set_depth(ThisObject, false);
-				  }
+							// Set object depth
+							object_set_depth(ThisObject, false);
+						}
+					}
+				}
+				else
+				{
+					State		-= 1;
+					Timer		 = 127;
+					sprite_index = PrevAnim;
 				}
 			}
 		}
@@ -81,9 +90,9 @@ function ObjCrabmeatMain()
 		{
 			if !(--Timer)
 			{
-				State		 -= 2;
-				Timer         = 127;
-				sprite_index  = PrevAnim;
+				State		-= 2;
+				Timer        = 127;
+				sprite_index = PrevAnim;
 			}
 		}
 		break;	

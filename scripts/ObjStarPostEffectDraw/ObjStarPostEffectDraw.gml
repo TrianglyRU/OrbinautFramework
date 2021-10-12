@@ -1,6 +1,6 @@
 function ObjStarPostEffectDraw()
 {
-	var Frame = animate_sprite(4, 2);
+	var Frame  = animate_sprite(4, 2);
 	var Radius = Diameter >> 2;
 	for (var i = 0; i < 4; i++)
 	{

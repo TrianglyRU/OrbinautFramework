@@ -1,5 +1,5 @@
-/// @description Instances Reset
+/// @description Time Reset
 // You can write your code in this editor
 	
-	// Instances Reset Script
-	GameAnimationsReset();
+	// Global Time Reset Script
+	GameTimeReset();

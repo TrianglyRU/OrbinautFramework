@@ -1,18 +1,30 @@
 function ObjStarPostEffectMain()
 {
-	if Timer < 128
+	// Exit if stage is paused (object is ignored to deactivate automatically)
+	if Stage.IsPaused
 	{
-		Diameter++;
+		exit;
 	}
-	else if Timer > 472
+	
+	// Change the size if fade is not active
+	if !fade_check(FadeActive)
 	{
-	    Diameter--;
+		if Timer < 128
+		{
+			Diameter++;
+		}
+		else if Timer > 472
+		{
+		   Diameter--;
+	   
+		   // Update hitbox
+		   object_set_hitbox(Diameter >> 3, 4);
+		}
 	}
 	
 	switch State
 	{
 		case 0:
-		case 2:
 		{
 			if (++Timer) == 600
 			{
@@ -33,8 +45,7 @@ function ObjStarPostEffectMain()
 			if fade_check(FadeMax)
 			{
 				// TODO: send to bonus stage
-				State++;
-				fade_perform(FadeFrom, ColourBlack, 1);
+				room_restart();
 			}
 		}
 		break;

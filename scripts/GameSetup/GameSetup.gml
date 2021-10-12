@@ -48,7 +48,7 @@ function GameSetup()
 	
 	// Initialise other variables
 	Game.Character		 = 0;
-	Game.AnimationTime	 = 0;
+	Game.GlobalTime	 = 0;
 	Game.ActiveSave      = 0;
 	Game.SaveData		 = 0;
 	Game.SaveState       = 0;

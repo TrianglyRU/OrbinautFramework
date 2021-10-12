@@ -1,5 +1,11 @@
 function ObjBarrierMain()
 {
+	// Exit if stage is paused (object is ignored to deactivate automatically)
+	if Stage.IsPaused
+	{
+		exit;
+	}
+	
 	// Delete barrier if player doesn't have barrier anymore
 	if Player.BarrierType == false
 	{

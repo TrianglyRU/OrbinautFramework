@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spr_obj_starpost_effect",
+    "path": "sprites/spr_obj_starpost_effect/spr_obj_starpost_effect.yy",
   },
   "solid": false,
   "visible": true,

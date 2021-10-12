@@ -5,6 +5,12 @@ function animation_play(ind,speed,goto)
 	variable_create_new("image_duration",  abs(speed) + 1);
 	variable_create_new("image_lastindex", 0);
 	
+	// Exit if object is off-screen
+	if !object_is_onscreen(id)
+	{
+		exit;
+	}
+	
 	// Update sprite
 	if sprite_index != ind
 	{
@@ -22,7 +28,7 @@ function animation_play(ind,speed,goto)
 	}
 
 	// Handle subimage change
-	if speed != 0 and !fade_check(FadeActive) and !variable_check(Stage, "IsPaused")
+	if speed != 0 and !fade_check(FadeActive)
 	{
 		if !(--image_duration)
 		{	

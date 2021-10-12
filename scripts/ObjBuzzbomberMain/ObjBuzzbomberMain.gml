@@ -20,7 +20,7 @@ function ObjBuzzbomberMain()
 				var FoundTarget = abs(x - PlayerX) <= 96 and sign(PlayerX - x) == sign(image_xscale);
 				
 				// Stop and fire, else move
-				if !State and FoundTarget
+				if !State and FoundTarget and object_is_onscreen(id)
 				{
 					State++;
 					Timer = 29;

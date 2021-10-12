@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Game Objects/Stage Objects/Scripts.yy",
+    "name": "Game",
+    "path": "folders/Game Code/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjSpecialRingEvent",
+  "name": "GameTimeReset",
   "tags": [],
   "resourceType": "GMScript",
 }

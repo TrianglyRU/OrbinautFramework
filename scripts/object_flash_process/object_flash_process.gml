@@ -6,6 +6,12 @@ function object_flash_process(flashType)
 	variable_create_new("Obj_FlashSubTimer", 0);
 	variable_create_new("Obj_FlashTimer",    0);
 	
+	// Exit if object is off-screen
+	if !object_is_onscreen(id)
+	{
+		exit;
+	}
+	
 	// Apply flash effect
 	if Obj_FlashTimer mod 2
 	{
