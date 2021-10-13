@@ -5,9 +5,8 @@ function ObjStarPostStartup()
 	*/
 	
 	// Set variables
-	Active      = 0;
-	ActiveCheck = 0;
-	Angle       = 180;
+	State = 0;
+	Angle = 180;
 	
 	// Set object triggerbox
 	object_set_triggerbox(-8, 8, -52, 52);

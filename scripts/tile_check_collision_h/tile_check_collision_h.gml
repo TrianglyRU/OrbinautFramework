@@ -93,11 +93,11 @@ function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
 	// Calculate distance to edge of the result tile
 	if toPositive
 	{
-		var TileDistance = (x + SearchShift * SearchDirection) div 16 * 16 + (16 - ResultWidth - 1) - x;
+		var TileDistance = ((x + SearchShift * SearchDirection) & -16) + (16 - ResultWidth - 1) - x;
 	}
 	else
 	{
-		var TileDistance = x - ((x + SearchShift * SearchDirection) div 16 * 16 + ResultWidth);
+		var TileDistance = x - (((x + SearchShift * SearchDirection) & -16) + ResultWidth);
 	}
 	
 	// Get tile angle

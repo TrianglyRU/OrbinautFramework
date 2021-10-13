@@ -82,7 +82,7 @@ function tile_check_collision_v(x,y,toPositive,ignoreTop,tilelayer)
 	}
 	
 	// Return blank values if target tile is outside of the room
-	var BoundsCheck = (y + SearchShift * SearchDirection) div 16 * 16;
+	var BoundsCheck = (y + SearchShift * SearchDirection) & -16;
 	if  BoundsCheck >= room_height
 	{
 		return [32, 360];
@@ -100,11 +100,11 @@ function tile_check_collision_v(x,y,toPositive,ignoreTop,tilelayer)
 	// Calculate distance to edge of the result tile
 	if toPositive
 	{
-		var TileDistance = (y + SearchShift * SearchDirection) div 16 * 16 + (16 - ResultHeight - 1) - y;
+		var TileDistance = ((y + SearchShift * SearchDirection) & -16) + (16 - ResultHeight - 1) - y;
 	}
 	else
 	{
-		var TileDistance = y - ((y + SearchShift * SearchDirection) div 16 * 16 + ResultHeight);
+		var TileDistance = y - (((y + SearchShift * SearchDirection) & -16) + ResultHeight);
 	}
 	
 	// Get tile angle
