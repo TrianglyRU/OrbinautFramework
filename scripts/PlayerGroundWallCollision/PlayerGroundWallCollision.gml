@@ -66,9 +66,6 @@ function PlayerGroundWallCollision()
 					// Affect player speeds
 					Ysp    += Distance;
 					Inertia = 0;
-					
-					// We're touching the floor, reset player angle to avoid stucking
-					Player.Angle = 360;
 				}
 			}
 			break;
@@ -149,9 +146,6 @@ function PlayerGroundWallCollision()
 					// Affect player speeds
 					Ysp    += Distance;
 					Inertia = 0;
-					
-					// We're touching the floor, reset player angle to avoid stucking
-					Player.Angle = 360;
 				}
 			}
 			break;

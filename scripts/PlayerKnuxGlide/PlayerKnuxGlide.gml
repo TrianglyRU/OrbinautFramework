@@ -175,6 +175,7 @@ function PlayerKnuxGlide()
 				GlideState = false;
 				ClimbState = true;
 				ClimbValue = 0;
+				Ysp		   = 0;
 				
 				// Play sound
 				audio_sfx_play(sfxGrab, false);
@@ -201,6 +202,7 @@ function PlayerKnuxGlide()
 				GlideState = false;
 				ClimbState = true;
 				ClimbValue = 0;
+				Ysp		   = 0;
 			
 				// Play sound
 				audio_sfx_play(sfxGrab, false);

@@ -42,14 +42,14 @@ function ObjFloatingPlatformMain()
 			if MovementType != "None"
 			{
 				// Update rotation angle
-				Angle = abs(Speed) * Stage.Time;
+				Angle = (abs(Speed) * Stage.Time) mod 360;
 	
 				// Update code position
 				switch MovementType
 				{
 					case "Horizontal":
 					{
-						PosX += dcos(Angle) * Distance * (InverseX ? -1 : 1);
+						PosX += dcos(Angle + 90) * Distance * (InverseX ? -1 : 1);
 					}
 					break;
 					case "Vertical":

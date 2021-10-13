@@ -177,7 +177,8 @@ function InterfaceDebugScreenDraw()
 				+ "\n"
 				+ "\n         * PLAYER VISUALS *"
 				+ "\n"
-				+ "\n   ANIMATION: "     + string(sprite_get_name(Player.sprite_index))
+				+ "\n   ANIMATION ID: "  + string(Player.Animation)
+				+ "\n   SPRITE: "		 + string(sprite_get_name(Player.sprite_index))
 				+ "\n   NEXT FRAME IN: " + string(Player.image_duration)
 				+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
 				+ "\n   FRAMES TOTAL: "  + string(Player.image_number)

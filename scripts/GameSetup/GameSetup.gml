@@ -37,7 +37,7 @@ function GameSetup()
 	Game.WindowFullscreen = false;
 	Game.Width            = 424;
 	Game.Height			  = 240;
-	Game.WindowSize	      = 4;
+	Game.WindowSize	      = 3;
 	
 	// Audio settings
 	Game.MusicVolume = 0;
@@ -48,7 +48,7 @@ function GameSetup()
 	
 	// Initialise other variables
 	Game.Character		 = 0;
-	Game.GlobalTime	 = 0;
+	Game.GlobalTime		 = 0;
 	Game.ActiveSave      = 0;
 	Game.SaveData		 = 0;
 	Game.SaveState       = 0;

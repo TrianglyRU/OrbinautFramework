@@ -24,13 +24,14 @@ function PlayerLevelBound()
 	// Prevent us from leaving top boundary if flying or climbing
 	if FlightState or ClimbState
 	{
-		if floor(PosY) < Stage.TopBoundary + 16 and Ysp < 0
-		{ 
+		if floor(PosY + Ysp) < Stage.TopBoundary + 16
+		{ 	
 			if FlightState
 			{
 				Grv	= 0.03125;
 			}	
-			Ysp = 0;
+			Ysp	 = 0;
+			PosY = Stage.TopBoundary + 16;
 		}
 	}
 	

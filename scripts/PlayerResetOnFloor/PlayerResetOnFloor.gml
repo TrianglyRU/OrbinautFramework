@@ -46,13 +46,13 @@ function PlayerResetOnFloor()
 		}
 	
 		// Reset flags
-		Jumping		= false;
-		AirLock		= false;
-		Pushing		= false;
-		FlightState = false;
-		GlideState  = false;
-		ClimbState	= false;
-		ScoreCombo	= false;
+		Jumping			= false;
+		AirLock			= false;
+		Pushing			= false;
+		FlightState		= false;
+		GlideState		= false;
+		ClimbState		= false;
+		ScoreCombo		= false;
 		BarrierIsActive = false;
 		DropdashFlag	= -1;
 	
