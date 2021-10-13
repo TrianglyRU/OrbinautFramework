@@ -151,6 +151,9 @@ function PlayerJump()
 							// Set speeds
 							Xsp = 0;
 							Ysp = 8;
+							
+							// Play sound
+							audio_sfx_play(sfxWaterBarrierBounce, false);
 						}
 						break;
 					}

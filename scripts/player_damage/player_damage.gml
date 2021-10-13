@@ -30,6 +30,7 @@ function player_damage(isFlame,isThunder,instantKill)
 		Player.Death               = true;
 		Player.AllowCollision      = false;
 		Player.Animation	       = AnimDeath;
+		Player.BarrierType		   = false;
 				
 		// Perform movement
 		Player.Grv     = 0.21875;

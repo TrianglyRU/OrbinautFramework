@@ -24,14 +24,17 @@ function CameraOffsetsProcess()
 	// Handle camera shake
 	if ShakeTime
 	{
-		ShakeOffset = irandom_range(-ShakeForce, ShakeForce);
-		ShakeTime--;
+		// We do not guarantee this is accurate, but this is somewhat original engine does
+		ShakeX = irandom_range(8, 15)    * choose(-1, 1) * (1 + ShakeTime / 6) / 128;
+		ShakeY = irandom_range(128, 255) * choose(-1, 1) * (1 + ShakeTime / 6) / 255;
+		
+		if !(--ShakeTime)
+		{
+			ShakeX = 0;
+			ShakeY = 0;
+		}
 	}
-	else
-	{
-		ShakeOffset = 0;
-	}
-	
+
 	// Offset camera horizontally, like in CD
 	if Game.CDCamera
 	{

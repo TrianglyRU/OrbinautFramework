@@ -7,11 +7,11 @@ function PlayerLevelBound()
 	}
 	
 	// Keep us inside of stage boundaries using our next position
-	if floor(PosX + Xsp) < Stage.LeftBoundary + 10 
+	if floor(PosX + Xsp) < Stage.LeftBoundary + 16
 	{
 		Inertia = 0;
 		Xsp     = 0;
-		PosX    = Stage.LeftBoundary + 10;
+		PosX    = Stage.LeftBoundary + 16;
 		
 	}
 	if floor(PosX + Xsp) > Stage.RightBoundary - 24 

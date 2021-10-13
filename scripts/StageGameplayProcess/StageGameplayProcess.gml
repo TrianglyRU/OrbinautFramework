@@ -44,9 +44,13 @@ function StageGameplayProcess()
 		Camera.Enabled = false;
 		TimeEnabled    = false;
 		
-		// Check if player has fallen below camera boundary
-		if floor(Player.PosY) >= Camera.ViewY + Game.Height + 32
+		// Check if player has fallen below bottom boundary
+		if floor(Player.PosY) >= Stage.BottomBoundary + 32
 		{	
+			/* Since Sonic 3, the game checks if player has fallen below
+			Camera.ViewY + Game.Height + 32 instead. That's a quick change so we
+			didn't make a flag for it */
+			
 			if !EventTimer
 			{
 				// Subtract a life
