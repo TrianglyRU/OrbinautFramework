@@ -650,7 +650,6 @@
     {"id":{"name":"spr_tails_hurt","path":"sprites/spr_tails_hurt/spr_tails_hurt.yy",},"order":48,},
     {"id":{"name":"spr_obj_animal_pecky","path":"sprites/spr_obj_animal_pecky/spr_obj_animal_pecky.yy",},"order":2,},
     {"id":{"name":"spr_tails_idle","path":"sprites/spr_tails_idle/spr_tails_idle.yy",},"order":49,},
-    {"id":{"name":"animate_sprite","path":"scripts/animate_sprite/animate_sprite.yy",},"order":45,},
     {"id":{"name":"ExtraLife","path":"sounds/ExtraLife/ExtraLife.yy",},"order":4,},
     {"id":{"name":"spr_tails_lookup","path":"sprites/spr_tails_lookup/spr_tails_lookup.yy",},"order":50,},
     {"id":{"name":"spr_tails_push","path":"sprites/spr_tails_push/spr_tails_push.yy",},"order":51,},
