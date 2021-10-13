@@ -94,7 +94,17 @@ function PlayerAnimate()
 					}
 					break;
 					case AnimSpin:
-						animation_play(spr_sonic_roll, round(max(1, 4 - abs(Inertia))), 0);
+					{
+						if abs(Inertia) < 6
+						{
+							var Sprite = spr_sonic_spin;
+						}
+						else
+						{
+							var Sprite = spr_sonic_spin_fast;
+						}
+						animation_play(Sprite, round(max(1, 4 - abs(Inertia))), 0);
+					}
 					break;
 					case AnimSpindash:
 						animation_play(spr_sonic_spindash, 1, 0); 

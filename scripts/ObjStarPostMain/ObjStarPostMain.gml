@@ -12,9 +12,6 @@ function ObjStarPostMain()
 					// Increment state by 2
 					State = 2;
 					Angle = 900;
-				
-					// Set animation
-					animation_set(spr_obj_starpost_active, 0);
 					
 					// Exit
 					break;
