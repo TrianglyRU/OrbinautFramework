@@ -92,14 +92,12 @@ function ObjSpecialRingMain()
 		{	
 			// Perform fade after 32 frames
 			if (++Timer) == 32
-			{
-				audio_play_sound(sfxSpecialWarp, 0, false);
+			{				
 				fade_perform(FadeTo, ColourWhite, 1);
-			}
-			// Teleport player to special stage
-			if fade_check(FadeMax)
-			{
-				room_goto(Screen_SStage);
+				
+				// Play sound and increment state
+				audio_play_sound(sfxSpecialWarp, 0, false);
+				State++;
 			}
 		}
 		break;

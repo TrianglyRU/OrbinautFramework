@@ -1,53 +1,32 @@
 function ObjStarPostEffectMain()
 {
-	// Exit if stage is paused (object is ignored to deactivate automatically)
-	if Stage.IsPaused
+	// Handle size change
+	if Timer < 128
 	{
-		exit;
+		Diameter++;
 	}
-	
-	// Change the size if fade is not active
-	if !fade_check(FadeActive)
+	else if Timer > 472
 	{
-		if Timer < 128
-		{
-			Diameter++;
-		}
-		else if Timer > 472
-		{
-		   Diameter--;
+		Diameter--;
 	   
-		   // Update hitbox
-		   object_set_hitbox(Diameter >> 3, 4);
-		}
+		// Update hitbox
+		object_set_hitbox(Diameter >> 3, 4);
 	}
 	
-	switch State
+	// Handle portal
+	if !State
 	{
-		case 0:
+		if (++Timer) == 600
 		{
-			if (++Timer) == 600
+			instance_destroy();
+		}
+		else if Timer > 60
+		{
+			if !State and object_check_overlap(Hitbox)
 			{
-				instance_destroy();
-			}
-			else if Timer > 60
-			{
-				if !State and object_check_overlap(Hitbox)
-				{
-					State++;
-					fade_perform(FadeTo, ColourBlack, 1);		
-				}
+				State++;
+				fade_perform(FadeTo, ColourBlack, 1);		
 			}
 		}
-		break;
-		case 1:
-		{
-			if fade_check(FadeMax)
-			{
-				// TODO: send to bonus stage
-				room_restart();
-			}
-		}
-		break;
 	}
 }
