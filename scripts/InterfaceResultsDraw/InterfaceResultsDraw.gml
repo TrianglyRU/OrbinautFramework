@@ -247,7 +247,7 @@ function InterfaceResultsDraw()
 					var Icon = spr_obj_conticon_knuckles;
 				break;
 			}
-			draw_sprite(Icon, animate_sprite(2, 16), CentreX + 96, CentreY + 11);
+			draw_animated_sprite(Icon, 2, ResultsValue[0], CentreX + 96, CentreY + 11);
 		}
 	}
 	

@@ -1,8 +1,5 @@
 function ObjStarPostPortalDraw()
 {	
-	// Define frame to display
-	var Frame = animate_sprite(4, 2);
-	
 	// Set temp values
 	var Temp1 = Diameter >> 2;
 	var Temp2 = Timer * 12.65625;
@@ -21,6 +18,6 @@ function ObjStarPostPortalDraw()
 		var PosY = (SinY * Temp1) >> 21;
 		
 		// Draw
-		draw_sprite(spr_obj_starpost_portal, Frame, floor(x + PosX), floor(y + PosY));
+		draw_animated_sprite(spr_obj_starpost_portal, 2, Timer, floor(x + PosX), floor(y + PosY));
 	}
 }
