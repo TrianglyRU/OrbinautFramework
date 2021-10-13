@@ -6,7 +6,7 @@
     "path": "folders/Game Objects/Stage Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjStarPostEffectDraw",
+  "name": "ObjStarPostPortalMain",
   "tags": [],
   "resourceType": "GMScript",
 }

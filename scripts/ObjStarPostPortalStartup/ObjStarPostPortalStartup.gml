@@ -1,4 +1,4 @@
-function ObjStarPostEffectStartup()
+function ObjStarPostPortalStartup()
 {
 	// Set blank values
 	Timer    = 0;

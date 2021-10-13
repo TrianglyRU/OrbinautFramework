@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_starpost_effect",
-    "path": "sprites/spr_obj_starpost_effect/spr_obj_starpost_effect.yy",
+    "name": "spr_obj_starpost_portal",
+    "path": "sprites/spr_obj_starpost_portal/spr_obj_starpost_portal.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,7 +33,7 @@
     "path": "folders/Game Objects/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StarPostEffect",
+  "name": "StarPostPortal",
   "tags": [],
   "resourceType": "GMObject",
 }

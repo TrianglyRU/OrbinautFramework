@@ -1,4 +1,4 @@
-function ObjStarPostEffectMain()
+function ObjStarPostPortalMain()
 {
 	// Handle size change
 	if Timer < 128

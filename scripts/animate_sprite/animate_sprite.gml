@@ -8,6 +8,6 @@ function animate_sprite(frames,speed)
 		return Game.GlobalTime div speed mod frames;
 	}
 	
-	// Else return first frame
+	// Else return current frame
 	return 0;
 }

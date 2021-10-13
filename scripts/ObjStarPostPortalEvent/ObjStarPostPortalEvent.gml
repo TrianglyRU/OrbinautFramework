@@ -1,4 +1,4 @@
-function ObjStarPostEffectEvent()
+function ObjStarPostPortalEvent()
 {
 	// Exit if in state 0
 	if !State
