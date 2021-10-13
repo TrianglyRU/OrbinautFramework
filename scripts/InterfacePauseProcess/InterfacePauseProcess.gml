@@ -71,15 +71,12 @@ function InterfacePauseProcess()
 					Stage.IsPaused = false;
 					Camera.Enabled = true;
 					
-					instance_activate_all();
+					// Activate objects
+					instance_activate_range();
+					
+					// Resume audio
 					audio_resume_all();
-						
-					/* We normally don't do this, but this is one of three cases where we call a script (not a function) inside
-					of another script. It is needed here to avoid ALL objects being active for 1 frame after we unpause */
-					with Stage 
-					{
-						StageObjectsActiveProcess();
-					}
+					
 				}
 				break;
 					
@@ -93,6 +90,7 @@ function InterfacePauseProcess()
 					}
 					else
 					{
+						// Play deny sound
 						audio_sfx_play(sfxFail, false);
 					}
 				}

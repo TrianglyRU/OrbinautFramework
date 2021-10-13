@@ -8,22 +8,22 @@ function CameraStartup()
 	MaxShiftY = 16;
 	
 	// Set blank values
-	TargetX		   = 0;
-	TargetY		   = 0;
-	PosX		   = 0;
-	PosY		   = 0;
-	ViewX		   = 0;
-	ViewY		   = 0;
-	ShiftX		   = 0;
-	ShiftY		   = 0;
-	ScrollDelay	   = 0;
+	TargetX	       = 0;
+	TargetY	       = 0;
+	PosX	       = 0;
+	PosY	       = 0;
+	ViewX	       = 0;
+	ViewY	       = 0;
+	ShiftX	       = 0;
+	ShiftY	       = 0;
+	ScrollDelay    = 0;
 	OverviewDelay  = 0;
-	SpinOffset	   = 0;
+	SpinOffset     = 0;
 	ExtendedOffset = 0;
 	OverviewOffset = 0;
-	ShakeTime	   = 0;
-	ShakeX		   = 0;
-	ShakeY		   = 0;
+	ShakeTime      = 0;
+	ShakeX	       = 0;
+	ShakeY	       = 0;
 	
 	switch room
 	{

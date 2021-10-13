@@ -1,4 +1,4 @@
-function StageObjectsInactiveProcess()
+function StageObjectsFreeze()
 {
 	// Exit if stage is updating
 	if DoUpdate
@@ -6,13 +6,12 @@ function StageObjectsInactiveProcess()
 		exit;
 	}
 	
-	// Deactivate all objects...
+	// Deactivate all objects (even if they were activated on this frame)
 	instance_deactivate_all(true);
 		
-	// ...but keep controller and several objects active
+	// Keep controllers and several objects active
 	var IgnoreList = [Framework, Player, Input, Interface, Camera, Discord, Palette, Background, Audio, StarPostEffect, SpecialRing];
-	var Length	   = array_length(IgnoreList);
-		
+	var Length	   = array_length(IgnoreList);	
 	for (var i = 0; i < Length; i++)
 	{
 		instance_activate_object(IgnoreList[i]);

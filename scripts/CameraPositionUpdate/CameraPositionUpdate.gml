@@ -1,4 +1,4 @@
-function CameraPositionUpdate() 
+function CameraPositionUpdate()
 {	
 	// Exit if camera is disabled
 	if !Enabled

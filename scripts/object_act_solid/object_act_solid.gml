@@ -179,8 +179,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 								DropdashRev		= -1;
 							}
 						
-							/* We normally don't do this, but this is one of three cases where we call a script (not a function) inside
-							of another script. It is needed here to allow player land on the object like on the ground */
+							// Land
 							PlayerResetOnFloor();
 						}
 					

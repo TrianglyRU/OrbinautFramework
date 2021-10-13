@@ -3,8 +3,8 @@ function ObjFloatingPlatformStartup()
 	/* Variable Definitions	
 	1. XRadius,      default = 32
 	2. YRadius,      default = 11
-	3. Speed,        default = 0
-	4. Distance,     default = 0
+	3. Speed,        default = 1.5
+	4. Distance,     default = 64
 	5. MovementType, default = "None"
 	6. InverseX,	 default = false
 	7. InverseY,	 default = false

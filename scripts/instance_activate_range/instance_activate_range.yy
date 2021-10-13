@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage",
-    "path": "folders/Game Code/Stage.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "StageObjectsInactiveProcess",
+  "name": "instance_activate_range",
   "tags": [],
   "resourceType": "GMScript",
 }

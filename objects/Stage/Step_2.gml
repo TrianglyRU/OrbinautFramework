@@ -3,6 +3,6 @@
 	
 	// Post-Objects Scripts
 	StageGameplayProcess();
-	StageObjectsActiveProcess();
+	StageObjectsProcess();
 	StageBoundariesProcess();
 	StageEndProcess();

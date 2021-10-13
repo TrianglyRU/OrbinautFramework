@@ -1,4 +1,4 @@
-function StageObjectsActiveProcess() 
+function StageObjectsProcess() 
 {	
 	if DoUpdate
 	{
@@ -28,7 +28,6 @@ function StageObjectsActiveProcess()
 					{
 						if x < LeftBound or x > RightBound or y > Stage.BottomBoundary
 						{
-							// Destroy children
 							if IsParent
 							{
 								var Length = array_length(Obj_ChildrenIDs);
@@ -38,7 +37,6 @@ function StageObjectsActiveProcess()
 								}
 								Obj_ChildrenIDs = [];
 							}
-								
 							instance_destroy();
 						}
 					}
@@ -49,7 +47,6 @@ function StageObjectsActiveProcess()
 					{
 						if x < LeftBound or x > RightBound
 						{
-							// Deactivate children
 							if IsParent
 							{
 								var Length = array_length(Obj_ChildrenIDs);
@@ -58,7 +55,6 @@ function StageObjectsActiveProcess()
 									instance_deactivate_object(Obj_ChildrenIDs[i]);
 								}
 							}
-								
 							instance_deactivate_object(id);
 						}
 					}
@@ -69,7 +65,6 @@ function StageObjectsActiveProcess()
 					{
 						if (x < LeftBound or x > RightBound) and (Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound)
 						{
-							// Destroy children
 							if IsParent
 							{
 								var Length = array_length(Obj_ChildrenIDs);
@@ -79,7 +74,7 @@ function StageObjectsActiveProcess()
 								}
 								Obj_ChildrenIDs = [];
 							}
-							
+		
 							// Reset data
 							x			 = Obj_UnloadData[0];
 							y			 = Obj_UnloadData[1];
@@ -96,6 +91,6 @@ function StageObjectsActiveProcess()
 		}
 	}
 	
-	// Force activate all objects inside of the largest region
-	instance_activate_region((Camera.ViewX - 128) & -128, 0, ((Game.Width + 128) & -128) + 256, room_height, true);
+	// Activate objects (object's that were unloaded this frame WON'T activate)
+	instance_activate_range();
 }

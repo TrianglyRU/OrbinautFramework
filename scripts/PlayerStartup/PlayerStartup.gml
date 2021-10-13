@@ -57,7 +57,6 @@ function PlayerStartup()
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
-	CollisionMode	    = 0;
 	
 	// Set default values
 	AirTimer	   = 1800;

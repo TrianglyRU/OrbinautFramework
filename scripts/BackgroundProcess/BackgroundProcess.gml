@@ -24,16 +24,16 @@ function BackgroundProcess()
 		}
 		
 		// Get data
-		var PosX		  = BGValues[i][0];
-		var PosY		  = BGValues[i][1];
-		var ScrollX		  = BGValues[i][2];
-		var ScrollY		  = BGValues[i][3];
+		var PosX	  = BGValues[i][0];
+		var PosY	  = BGValues[i][1];
+		var ScrollX	  = BGValues[i][2];
+		var ScrollY	  = BGValues[i][3];
 		var ScrollXAuto	  = BGValues[i][11];
 		var InclineHeight = BGValues[i][5];
 		var InclineForce  = BGValues[i][6];
-		var	YScaleMode	  = BGValues[i][7];
-		var Height		  = BGValues[i][8];
-		var Width		  = BGValues[i][9];
+		var YScaleMode	  = BGValues[i][7];
+		var Height	  = BGValues[i][8];
+		var Width	  = BGValues[i][9];
 		var PixelSize     = BGValues[i][10];
 		
 		// Get screen position
@@ -81,17 +81,17 @@ function BackgroundProcess()
 		}
 		
 		// Transfer data to the shader
-		shader_set_uniform_f(Shader.ParOffset, DrawX * ScrollX - ScrollXAuto);
-		shader_set_uniform_f(Shader.ParPos,    DrawX + PosX, DrawY);
-		shader_set_uniform_f(Shader.ParWidth,  Width);
+		shader_set_uniform_f(Shader.ParOffset,    DrawX * ScrollX - ScrollXAuto);
+		shader_set_uniform_f(Shader.ParPos,       DrawX + PosX, DrawY);
+		shader_set_uniform_f(Shader.ParWidth,     Width);
 		shader_set_uniform_f(Shader.ParPixelSize, PixelSize);
 		
 		// Set incline height
 		if InclineHeight != 0 
 		{
-		    shader_set_uniform_f(Shader.ParILStep, (InclineForce / 10) * InclineHeight);
+			shader_set_uniform_f(Shader.ParILStep,  (InclineForce / 10) * InclineHeight);
 			shader_set_uniform_f(Shader.ParILHeight, InclineHeight);
-			shader_set_uniform_f(Shader.ParYScale, YScale);
+			shader_set_uniform_f(Shader.ParYScale,   YScale);
 		}
 		
 		// Draw parallax piece

@@ -44,11 +44,7 @@ function ObjBossTriggerMain()
 			if !audio_bgm_is_playing(PriorityLow)
 			{
 				audio_bgm_play(PriorityLow, Boss, other, other); 
-			}
-		
-			// Deactive signpost and egg prison
-			instance_deactivate_object(SignPost);
-			instance_deactivate_object(EggPrison);		
+			}		
 		}
 		else
 		{
@@ -61,10 +57,6 @@ function ObjBossTriggerMain()
 			
 			// Play stage music
 			audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
-			
-			// Activate signpost and egg prison
-			instance_activate_object(SignPost);
-			instance_activate_object(EggPrison);
 			
 			// Destroy object
 			instance_destroy();
