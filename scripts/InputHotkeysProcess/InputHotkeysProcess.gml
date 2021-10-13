@@ -6,8 +6,8 @@ function InputHotkeysProcess()
 		exit;
 	}
 	
-	// Exit if not in dev mode or stage isn't updating
-	if !Game.DevMode or !variable_check(Stage, "DoUpdate")
+	// Exit if not in dev mode
+	if !Game.DevMode
 	{
 		exit;
 	}
