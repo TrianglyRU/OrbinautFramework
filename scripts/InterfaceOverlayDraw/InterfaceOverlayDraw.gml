@@ -48,7 +48,7 @@ function InterfaceOverlayDraw()
 	draw_sprite(gui_hud_score, 0, ScreenX + 35, ScreenY + 14);
 	
 	// Draw SCORE counter
-	draw_set_font(Game.Font[font_counter]);
+	draw_set_font(game_font(font_counter));
 	draw_text(ScreenX + 115, ScreenY + 14,  Player.Score);
 	
 	// Draw TIME counter
@@ -65,6 +65,6 @@ function InterfaceOverlayDraw()
 	// Draw LIVES counter
 	draw_sprite(gui_hud_lives, Game.Character, ScreenX + 40, ScreenY + Game.Height - 16);
 	
-	draw_set_font(Game.Font[font_counter_small]);
+	draw_set_font(game_font(font_counter_small));
 	draw_text(ScreenX + 68, ScreenY + Game.Height - 12, Player.Lives);
 }

@@ -145,4 +145,18 @@ function PlayerStartup()
 	
 	/* If none of positions above exist, player will spawn
 	on checkpoint. It is handled from its side! */
+	
+	// If coming from bonus stage, load saved rings and barrier
+	if array_length(Game.BonusStageData)
+	{
+		Rings		= Game.BonusStageData[0];
+		BarrierType = Game.BonusStageData[1];
+		instance_create(PosX, PosY, Barrier);
+		
+		// Clear array
+		Game.BonusStageData = [];
+	}
+	
+	// Update life reward counter if we have rings
+	LivesRewards = Rings div 100;
 }

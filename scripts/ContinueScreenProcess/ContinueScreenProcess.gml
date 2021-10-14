@@ -7,7 +7,7 @@ function ContinueScreenProcess()
 	}
 	
 	// Idle
-	if !RoomState
+	if !State
 	{
 		// Animate character
 		var  SpriteSpeed = CharSpeed[0];
@@ -25,7 +25,7 @@ function ContinueScreenProcess()
 			
 			if Input.StartPress or Input.ABCPress
 			{	
-				RoomState++;
+				State++;
 				audio_sfx_play(sfxCharge, false);
 			}
 		}
@@ -62,7 +62,7 @@ function ContinueScreenProcess()
 	}
 	
 	// Move character
-	else if RoomState == 1
+	else if State == 1
 	{
 		// Animate character
 		CharSpeed[1]   = min(CharSpeed[1] + 0.125, 8);
@@ -98,14 +98,14 @@ function ContinueScreenProcess()
 			// If object 64 pixels off-screen, increment room state
 			if CharObject.x - Game.Width >= 64
 			{
-				RoomState++;
+				State++;
 				fade_perform(FadeTo, ColourBlack, 1);
 			}
 		}
 	}
 	
 	// Return to the stage
-	else if RoomState == 2 and fade_check(FadeMax)
+	else if State == 2 and fade_check(FadeMax)
 	{
 		// Update game data
 		Game.Continues--;

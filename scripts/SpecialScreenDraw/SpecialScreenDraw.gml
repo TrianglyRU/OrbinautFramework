@@ -1,7 +1,7 @@
 function SpecialScreenDraw()
 {
 	// Exit if not coming from a Special Stage, or fading out
-	if !Game.SpecialState or RoomState == 3
+	if !Game.SpecialState or State == 3
 	{
 		exit;
 	}
@@ -17,7 +17,7 @@ function SpecialScreenDraw()
 	{
 		if Game.Emeralds == 7
 		{
-			if RoomState
+			if State
 			{
 				var Text1      = tex_sstage_character_canbe;
 				var Text2	   = tex_sstage_besuper;
@@ -48,7 +48,7 @@ function SpecialScreenDraw()
 	draw_sprite(gui_results_ringbonus, 0, CentreX - 80 + 42 + Offset[5], CentreY + 51);
 	
 	// Display counters
-	draw_set_font(Game.Font[font_counter]);
+	draw_set_font(game_font(font_counter));
 	draw_set_halign(fa_right);
 
 	draw_text(CentreX + 80 + Offset[4], CentreY + 33, Game.Score);

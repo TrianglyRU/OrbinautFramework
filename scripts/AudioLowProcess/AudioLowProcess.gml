@@ -16,7 +16,7 @@ function AudioLowProcess()
 	var TrackPosition = audio_sound_get_track_position(Track);
 	if  LoopData[1]
 	{
-		if  TrackPosition > LoopData[1]
+		if TrackPosition >= LoopData[1]
 		{
 			audio_sound_set_track_position(Track, LoopData[0] + (TrackPosition - LoopData[1]));
 		}

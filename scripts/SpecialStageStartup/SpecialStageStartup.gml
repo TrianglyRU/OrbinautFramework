@@ -6,4 +6,7 @@ function SpecialStageStartup()
 	
 	// Perform fade from white
 	fade_perform(FadeFrom, ColourWhite, 1);
+	
+	// Play bgm
+	audio_bgm_play(PriorityLow, SpecialStageTheme, other, other);
 }

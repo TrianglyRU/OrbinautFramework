@@ -5,7 +5,7 @@ function SpecialStageDraw()
 	var CentreY = Game.Height / 2;
 	
 	// Set font
-	draw_set_font(Game.Font[font_default]);
+	draw_set_font(game_font(font_default));
 	draw_set_halign(fa_center);
 	
 	// Draw text

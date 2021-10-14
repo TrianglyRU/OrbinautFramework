@@ -81,9 +81,6 @@ function StageGameplayProcess()
 			
 			if fade_check(FadeMax)
 			{	
-				// Clear special ring data
-				Game.SpecialRingData = [];
-				
 				// If we have lives, restart the stage
 				if Player.Lives != 0
 				{

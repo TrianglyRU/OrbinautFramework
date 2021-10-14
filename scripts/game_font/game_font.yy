@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage (Special)",
-    "path": "folders/Game Code/Stage (Special).yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpecialStageVariables",
+  "name": "game_font",
   "tags": [],
   "resourceType": "GMScript",
 }

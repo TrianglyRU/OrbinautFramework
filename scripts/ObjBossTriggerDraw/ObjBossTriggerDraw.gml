@@ -7,7 +7,7 @@ function ObjBossTriggerDraw()
 	}
 	
 	// Draw text
-	draw_set_font(Game.Font[font_default]);
+	draw_set_font(game_font(font_default));
 	draw_set_halign(fa_center);
 	
 	draw_text(x, y, "*BOSSFIGHT TEMPLATE!*");

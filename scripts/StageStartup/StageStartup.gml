@@ -40,6 +40,9 @@ function StageStartup()
 	{
 		Time		   = Game.SpecialRingData[4];
 		BottomBoundary = Game.SpecialRingData[5];
+		
+		// Clear array (Player has already restored their rings and barrier atm.)
+		Game.SpecialRingData = [];
 	}
 	
 	// Store current zone ID and room index

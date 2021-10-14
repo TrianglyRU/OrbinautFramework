@@ -12,7 +12,6 @@ function StageEndProcess()
 	
 	// Reset data saved through out the stage
 	Game.StarPostData    = [];
-	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];
 	
 	// Clear recorded position
@@ -36,10 +35,5 @@ function StageEndProcess()
 	}
 
 	// Load next stage
-	switch room
-	{
-		default:
-			room_goto(Screen_DevMenu);
-		break;
-	}
+	room_goto(NextStage);
 }

@@ -252,7 +252,7 @@ function InterfaceResultsDraw()
 	}
 	
 	// Draw counters
-	draw_set_font(Game.Font[font_counter]);
+	draw_set_font(game_font(font_counter));
 	draw_set_halign(fa_right);
 	
 	draw_text(CentreX + 83 + ResultsValue[4], CentreY + 13, Player.Score);

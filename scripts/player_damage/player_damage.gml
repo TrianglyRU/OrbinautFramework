@@ -107,7 +107,8 @@ function player_damage(isFlame,isThunder,instantKill)
 			}
 			
 			// Clear ring counter
-			Player.Rings        = 0;
+			Player.Rings		= 0;
+			Player.LivesRewards = 0;
 		}
 			
 		// Lose barrier

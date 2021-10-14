@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "TestZone.ogg",
-  "duration": 44.9366226,
+  "soundFile": "BonusStageTheme.ogg",
+  "duration": 33.5539,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "TestZone",
+  "name": "BonusStageTheme",
   "tags": [],
   "resourceType": "GMSound",
 }

@@ -7,7 +7,7 @@ function ObjSpecialRingEvent()
 	}
 	
 	// Send player to the Special Stage Screen
-	if fade_check(FadeMax)
+	if fade_check(FadeMax) and !audio_sfx_is_playing(sfxSpecialWarp)
 	{
 		room_goto(Screen_SStage);
 	}

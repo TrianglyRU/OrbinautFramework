@@ -6,11 +6,14 @@ function ObjStarPostPortalEvent()
 		exit;
 	}
 	
-	// Send player to the Bonus Stage
+	// Check if screen is full black
 	if fade_check(FadeMax)
 	{
-		// TODO
-		room_restart();
-	}
-	
+		// Remember ring amount and barrier
+		Game.BonusStageData[0] = Player.Rings;
+		Game.BonusStageData[1] = Player.BarrierType;
+		
+		// Send player to the Bonus Stage
+		room_goto(Stage_BonusStage);			
+	}	
 }

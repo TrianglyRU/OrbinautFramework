@@ -22,6 +22,7 @@ function StageSetup()
 			BottomBoundary   = 1016;
 			AnimatedGraphics = noone;
 			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
+			NextStage		 = Screen_DevMenu;
 		}
 		break;
 		
@@ -42,6 +43,7 @@ function StageSetup()
 			BottomBoundary	 = room_height;
 			AnimatedGraphics = noone;		// Array: [sprite1, sprite1_duration, sprite2, sprite2_duration...]	
 			AnimalSet	     = noone;		// Array: [animal_sprite1, animal_sprite2...]
+			NextStage		 = noone;
 		}
 		break;
 	}

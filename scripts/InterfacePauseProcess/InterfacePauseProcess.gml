@@ -56,9 +56,6 @@ function InterfacePauseProcess()
 						Game.StarPostData    = [];
 						Game.SpecialRingList = [];
 					}
-					
-					// Clear special ring data
-					Game.SpecialRingData = [];
 				}
 			}
 			

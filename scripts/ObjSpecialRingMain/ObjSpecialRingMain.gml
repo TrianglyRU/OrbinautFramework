@@ -98,6 +98,10 @@ function ObjSpecialRingMain()
 				// Play sound and increment state
 				audio_play_sound(sfxSpecialWarp, 0, false);
 				State++;
+				
+				// Stop music instantly
+				audio_bgm_stop(PriorityLow,  0);
+				audio_bgm_stop(PriorityHigh, 0);
 			}
 		}
 		break;

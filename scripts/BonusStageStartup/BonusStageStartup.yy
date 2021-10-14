@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Stage (Special)",
-    "path": "folders/Game Code/Stage (Special).yy",
+    "name": "Stage (Bonus)",
+    "path": "folders/Game Code/Stage (Bonus).yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpecialStageEnd",
+  "name": "BonusStageStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

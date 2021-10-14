@@ -13,7 +13,7 @@ function InterfaceDebugScreenDraw()
 	}
 	
 	// Set font
-	draw_set_font(Game.Font[font_default]);
+	draw_set_font(game_font(font_default));
 	
 	// Display available hotkeys and game fps
 	if DebugHelp

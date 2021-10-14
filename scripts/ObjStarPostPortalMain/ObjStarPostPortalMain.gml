@@ -25,7 +25,11 @@ function ObjStarPostPortalMain()
 			if !State and object_check_overlap(Hitbox)
 			{
 				State++;
-				fade_perform(FadeTo, ColourBlack, 1);		
+				fade_perform(FadeTo, ColourBlack, 1);	
+				
+				// Stop music
+				audio_bgm_stop(PriorityLow,  0.5);
+				audio_bgm_stop(PriorityHigh, 0.5);
 			}
 		}
 	}

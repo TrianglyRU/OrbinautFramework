@@ -1,7 +1,7 @@
 function ContinueScreenStartup()
 {
 	// Set blank values
-	RoomState  = 0;
+	State      = 0;
 	RoomTimer  = 0;
 	CountFrame = 0;
 	
