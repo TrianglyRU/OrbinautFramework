@@ -1,6 +1,5 @@
-/// @description Draw
+/// @description Startup
 // You can write your code in this editor
 	
 	// Call object script
-	ObjStarPostPortalDraw();
-	
+	ObjBarrierStartup();

@@ -180,7 +180,9 @@ function ObjItemBoxMain()
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					with Barrier
+					
+					// Update animation if Barrier already exists
+					else with Barrier
 					{
 						animation_set(spr_obj_barrier_normal, 0);
 					}
@@ -199,7 +201,9 @@ function ObjItemBoxMain()
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					with Barrier
+					
+					// Update animation if Barrier already exists
+					else with Barrier
 					{
 						animation_set(spr_obj_barrier_flame, 0);
 					}
@@ -218,7 +222,9 @@ function ObjItemBoxMain()
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					with Barrier
+					
+					// Update animation if Barrier already exists
+					else with Barrier
 					{
 						animation_set(spr_obj_barrier_thunder, 0);
 					}
@@ -237,7 +243,9 @@ function ObjItemBoxMain()
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
-					with Barrier
+					
+					// Update animation if Barrier already exists
+					else with Barrier
 					{
 						animation_set(spr_obj_barrier_water, 0);
 					}
