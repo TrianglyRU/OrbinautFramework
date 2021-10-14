@@ -3,3 +3,4 @@
 	
 	// Call object script
 	ObjStarPostPortalDraw();
+	ObjStarPostPortalEvent();
