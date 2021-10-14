@@ -181,12 +181,6 @@ function ObjItemBoxMain()
 						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
 					
-					// Update animation if Barrier already exists
-					else with Barrier
-					{
-						animation_set(spr_obj_barrier_normal, 0);
-					}
-					
 					// Play sound
 					audio_sfx_play(sfxBarrier, false);
 				}
@@ -200,12 +194,6 @@ function ObjItemBoxMain()
 					if !instance_exists(Barrier)
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
-					}
-					
-					// Update animation if Barrier already exists
-					else with Barrier
-					{
-						animation_set(spr_obj_barrier_flame, 0);
 					}
 					
 					// Play sound
@@ -223,12 +211,6 @@ function ObjItemBoxMain()
 						instance_create(Player.PosX, Player.PosY, Barrier);
 					}
 					
-					// Update animation if Barrier already exists
-					else with Barrier
-					{
-						animation_set(spr_obj_barrier_thunder, 0);
-					}
-					
 					// Play sound
 					audio_sfx_play(sfxThunderBarrier, false);
 				}
@@ -242,12 +224,6 @@ function ObjItemBoxMain()
 					if !instance_exists(Barrier)
 					{
 						instance_create(Player.PosX, Player.PosY, Barrier);
-					}
-					
-					// Update animation if Barrier already exists
-					else with Barrier
-					{
-						animation_set(spr_obj_barrier_water, 0);
 					}
 					
 					// Play sound

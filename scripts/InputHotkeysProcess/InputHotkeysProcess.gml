@@ -71,18 +71,20 @@ function InputHotkeysProcess()
 		audio_bgm_play(PriorityLow, Invincibility, 0, 0);
 	}
 	
-	// Give barrier (F8)
+	// Give or update barrier (F8)
 	if keyboard_check_pressed(vk_f8)
 	{
-		// Initialise static
-		static BarrierToGive = BarrierNormal;
-		
-		// Spawn barrier
+		// Create barrier if it doesn't exist
 		if !instance_exists(Barrier)
 		{
+			Player.BarrierType = BarrierNormal;
+			audio_sfx_play(sfxBarrier, false);
+			
 			instance_create(Player.PosX, Player.PosY, Barrier);
 		}
-		switch BarrierToGive
+		
+		// Update its type
+		else switch Player.BarrierType
 		{
 			case BarrierNormal:
 			{
@@ -109,10 +111,6 @@ function InputHotkeysProcess()
 			}
 			break;
 		}
-		
-		// Increment value
-		BarrierToGive++
-		BarrierToGive = loop_value(BarrierToGive, BarrierNormal, 5);
 	}
 	
 	// Grant extra life (F9)
