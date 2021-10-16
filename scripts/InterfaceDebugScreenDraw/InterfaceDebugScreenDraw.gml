@@ -1,7 +1,7 @@
 function InterfaceDebugScreenDraw()
 {	
-	// Exit if not in devmode
-	if !Game.DevMode
+	// Exit if not in devmode or player doesn't exist
+	if !Game.DevMode or !instance_exists(Player)
 	{
 		exit;
 	}
