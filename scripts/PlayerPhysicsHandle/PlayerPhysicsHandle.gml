@@ -47,7 +47,7 @@ function PlayerPhysicsHandle()
 				Frc           = 0.046875;
 				RollFrc       = 0.0234375;
 				TopAcc		  = 8;
-				ClimbSpeed    = 2;
+				ClimbSpeed    = 15;
 				JumpMin		  = -4;
 				Jump          = Game.Character == CharKnuckles ? -6 : -6.5;
 			}

@@ -52,11 +52,17 @@ function PlayerKnuxClimb()
 			{
 				// If near the edge, start climbering
 				var EdgeDistance = tile_check_collision_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[0];
-				if  EdgeDistance >= 4
+				if  EdgeDistance > 3
 				{
 					Ysp		       = 0;
 					ClimbState     = 2;
 					AllowCollision = false;
+					
+					// Align to the edge
+					while tile_check_collision_h(PosX + RadiusX * Facing, PosY - 9, Facing, true, Layer)[0]
+					{
+						PosY++;
+					}
 				}
 				
 				// Check for jump
@@ -104,7 +110,7 @@ function PlayerKnuxClimb()
 							Animation = AnimIdle;
 					
 							// Adjust position
-							PosY += DefaultRadiusY - RadiusY;
+							PosY += TileFloor[0] + DefaultRadiusY - RadiusY;
 						}
 					}
 				}
