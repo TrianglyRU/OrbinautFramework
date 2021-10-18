@@ -51,7 +51,7 @@ function PlayerGroundWallCollision()
 					Inertia = 0;
 					
 					// Set pushing flag
-					if Facing == FlipLeft
+					if Facing == FlipLeft and !Spinning
 					{
 						Pushing = true;
 					}
@@ -109,7 +109,7 @@ function PlayerGroundWallCollision()
 					Inertia = 0;
 					
 					// Set pushing flag
-					if Facing == FlipRight
+					if Facing == FlipRight and !Spinning
 					{
 						Pushing = true;
 					}
