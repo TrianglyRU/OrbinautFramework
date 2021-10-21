@@ -22,7 +22,7 @@ function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
 	var SearchDirection = toPositive ? 1 : -1;
 	
 	// Get tilelayer ID
-	var Layer = layer_tilemap_get_id(Game.TileLayers[tilelayer]);
+	var Layer = Game.TileLayers[tilelayer];
 	
 	// Get first tile
 	var FirstTile      = tilemap_get(Layer, x div 16, y div 16);

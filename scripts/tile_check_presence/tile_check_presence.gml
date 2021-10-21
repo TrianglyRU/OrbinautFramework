@@ -12,7 +12,7 @@ function tile_check_presence(x,y,ignoreTop,tilelayer)
     }
 	
 	// Get tilelayer ID
-	var Layer = layer_tilemap_get_id(Game.TileLayers[tilelayer]);
+	var Layer = Game.TileLayers[tilelayer];
     
     // Check for the tile
     var Tile = tilemap_get(Layer, x div 16, y div 16);

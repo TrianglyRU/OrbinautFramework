@@ -19,7 +19,7 @@ function tile_check_collision_v(x,y,toPositive,ignoreTop,tilelayer)
 	}
 	
 	// Get tilelayer ID
-	var Layer = layer_tilemap_get_id(Game.TileLayers[tilelayer]);
+	var Layer = Game.TileLayers[tilelayer];
 	
 	// Set search direction sign
 	var SearchDirection = toPositive ? 1 : -1;
