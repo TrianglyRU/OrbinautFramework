@@ -4,10 +4,7 @@ function ObjCrabmeatMain()
 	{
 		// Walk
 		case 0:
-		{
-			// Animate
-			animation_play(sprite_index, 16, 0);
-			
+		{	
 			// Move and update position
 			if (--Timer)
 			{
@@ -21,12 +18,13 @@ function ObjCrabmeatMain()
 			
 			// Change state
 			if EdgeCheck > 12 or EdgeCheck < -8 or !Timer
-			{
-				image_index = 2;
-				
+			{	
 				PrevAnim = sprite_index;
 				Timer    = 59;
 				State++;
+				
+				// Stop animation
+				animation_stop(0, 0);
 			}
 			else
 			{
@@ -43,6 +41,9 @@ function ObjCrabmeatMain()
 				
 				// Align to surface
 				y += FindFloor[0];
+				
+				// Set animation
+				animation_set(sprite_index, 16, 0, 0);
 			}
 		}
 		break;
@@ -55,9 +56,11 @@ function ObjCrabmeatMain()
 				if object_is_onscreen(id)
 				{
 					State++;
-					Timer        = 59;
+					Timer         = 59;
 					image_xscale *= -1;
-					sprite_index = spr_obj_crabmeat_fire;
+					
+					// Update animation
+					animation_set(spr_obj_crabmeat_fire, 0, 0, 0);
 				
 					// Create bullets
 					for (var i = 1; i > -3; i -= 2)
@@ -77,9 +80,11 @@ function ObjCrabmeatMain()
 				}
 				else
 				{
-					State		-= 1;
-					Timer		 = 127;
-					sprite_index = PrevAnim;
+					State -= 1;
+					Timer = 127;
+					
+					// Update animation
+					animation_set(PrevAnim, 16, 1, 0);
 				}
 			}
 		}
@@ -90,9 +95,11 @@ function ObjCrabmeatMain()
 		{
 			if !(--Timer)
 			{
-				State		-= 2;
-				Timer        = 127;
-				sprite_index = PrevAnim;
+				State -= 2;
+				Timer  = 127;
+					
+				// Update animation
+				animation_set(PrevAnim, 16, 1, 0);
 			}
 		}
 		break;	

@@ -69,10 +69,15 @@ function PlayerWaterEvents()
 				// Reset speeds
 				Xsp	= 0;
 				Ysp	= 0;
+				Grv = 0.0625;
 				
 				// Set flags
 				Stage.TimeEnabled = false;
 				Camera.Enabled    = false;
+				ClimbState		  = false;
+				GlideState		  = false;
+				GlideValue		  = false;
+				FlightState       = false;
 				AllowCollision    = false;
 				Grounded		  = false;
 				OnObject		  = false;	
@@ -105,7 +110,7 @@ function PlayerWaterEvents()
 		}
 			
 		// Check for leaving the water
-		if PosY < Stage.WaterLevel
+		if PosY < Stage.WaterLevel and !Death
 		{
 			// Destroy player bubble maker object
 			if instance_exists(BubbleController)

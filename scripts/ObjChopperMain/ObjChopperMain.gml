@@ -8,15 +8,12 @@ function ObjChopperMain()
 	y = floor(PosY);
 
 	if Ysp < 0
-	{ 
+	{
 		// If near peak amplitude, speedup animation
 		if y < OriginY - 192
 		{
-			AnimationSpeed = 4;
-		}
-		
-		// Play animation
-		animation_play(sprite_index, AnimationSpeed, 0);
+			animation_set(sprite_index, 4, 0, 0);
+		}	
 	}
 	else
 	{ 
@@ -25,13 +22,16 @@ function ObjChopperMain()
 		{ 
 			y	= OriginY; 
 			Ysp	= -7; 
-			
-			// Set animation speed
-			AnimationSpeed = 8; 
+			 
+			// Reset animation speed
+			animation_set(sprite_index, 8, 0, 0);
 		}
 		
 		// Stop animation
-		image_index = 0;
+		else
+		{
+			animation_stop(0, 0);
+		}	
 	}
 	
 	// Act as badnik

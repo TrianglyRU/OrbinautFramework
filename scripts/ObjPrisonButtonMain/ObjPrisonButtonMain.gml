@@ -6,9 +6,6 @@ function ObjPrisonButtonMain()
 		// Do collision
 		object_act_solid(true, true, true, true);
 		
-		// Play animation
-		animation_play(sprite_index, 3, 0);
-		
 		// Check if player is standing on the object
 		if object_check_touch(SideTop)
 		{

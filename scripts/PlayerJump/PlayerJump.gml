@@ -101,7 +101,7 @@ function PlayerJump()
 							// Set barrier animation
 							with Barrier
 							{
-								animation_set(spr_obj_barrier_flame_dash, 0);
+								animation_set(spr_obj_barrier_flame_dash, 2, 0, 0);
 							}
 						
 							// Set speeds
@@ -142,7 +142,7 @@ function PlayerJump()
 							// Set barrier animation
 							with Barrier
 							{
-								animation_set(spr_obj_barrier_water_drop, 0);
+								animation_set(spr_obj_barrier_water_drop, [6, 19, 0], 0, 0);
 							}
 							
 							// Restore control

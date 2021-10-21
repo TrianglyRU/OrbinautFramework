@@ -46,7 +46,4 @@ function ObjBarrierSparkleMain()
 	{
 		State++;
 	}
-	
-	// Animate
-	animation_play(sprite_index, 1, 0);
 }

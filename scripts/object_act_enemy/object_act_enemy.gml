@@ -46,7 +46,7 @@ function object_act_enemy(enemyType)
 			instance_create(x, y, DustExplosion);
 			
 			// Increase player score
-			var  Object = instance_create(x, y, ComboScore);
+			var  Object = instance_create(x, y, ScoreObject);
 			with Object
 			{
 				ComboTrigger = true;

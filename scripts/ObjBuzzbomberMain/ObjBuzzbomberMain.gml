@@ -24,6 +24,9 @@ function ObjBuzzbomberMain()
 				{
 					State++;
 					Timer = 29;
+					
+					// Set animation
+					animation_set(spr_obj_buzzbomber_idle, 1, 0, 0);
 				}
 				else
 				{
@@ -40,6 +43,9 @@ function ObjBuzzbomberMain()
 			{
 				State++;
 				Timer = 73;
+				
+				// Set animation
+				animation_set(spr_obj_buzzbomber_fire, 1, 0, 0);
 			}
 		}
 		break;
@@ -52,6 +58,9 @@ function ObjBuzzbomberMain()
 			{
 				State++;
 				Timer = 127;
+				
+				// Set animation
+				animation_set(spr_obj_buzzbomber_fly, 1, 0, 0);
 			}
 			
 			// Create a projectile after 14 (+16) frames
@@ -80,21 +89,4 @@ function ObjBuzzbomberMain()
 	
 	// Act as badnik
 	object_act_enemy(EnemyBadnik)
-	
-	// Animate
-	switch State
-	{	
-		// Set sprite
-		case 0: 
-		case 3:
-			var Sprite = spr_obj_buzzbomber_fly;
-		break;
-		case 1: 
-			var Sprite = spr_obj_buzzbomber_idle;
-		break;
-		case 2: 
-			var Sprite = spr_obj_buzzbomber_fire;
-		break;
-	}
-	animation_play(Sprite, 1, 0);
 }

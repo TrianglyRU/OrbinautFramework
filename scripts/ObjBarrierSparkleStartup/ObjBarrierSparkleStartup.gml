@@ -7,4 +7,7 @@ function ObjBarrierSparkleStartup()
 	
 	// Set object depth
 	object_set_depth(Barrier, true);
+	
+	// Set animation
+	animation_set(sprite_index, 1, 0, 0);
 }

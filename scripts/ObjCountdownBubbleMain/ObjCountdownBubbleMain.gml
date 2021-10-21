@@ -24,29 +24,12 @@ function ObjCountdownBubbleMain()
 		}
 	}
 	
-	// Play animation
-	var Frame = image_index;
-	if  Frame < 4
-	{
-		var Duration = 7;
-	}
-	else if Frame < 6
-	{
-		var Duration = 6;
-	}
-	else
-	{
-		var Duration = 8;
-	}
-	if Frame < 12 and Player.IsUnderwater
-	{
-		animation_play(sprite_index, Duration, 12);
-	}
-	else
+	// Destroy object once animation reaches last frame
+	if image_index == 12
 	{
 		instance_destroy();
 	}
-		
+	
 	// Move bubble
 	if image_index < 4
 	{

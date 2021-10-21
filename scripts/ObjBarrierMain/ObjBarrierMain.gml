@@ -1,154 +1,100 @@
 function ObjBarrierMain()
 {
-	// Exit if stage is paused (object is ignored to deactivate automatically)
-	if Stage.IsPaused
-	{
-		exit;
-	}
+	// Set static animation value for flame barrier
+	static FlameAnimationTime = 25;
 	
-	// Delete barrier if player doesn't have barrier anymore
+	// Delete barrier if player doesn't have it anymore
 	if Player.BarrierType == false
 	{
 		instance_destroy();
 	}
-	else 
+	switch Player.BarrierType
 	{
-		switch Player.BarrierType
+		// Update normal barrier depth
+		case BarrierNormal:
 		{
-			case BarrierNormal:
+			if sprite_index != spr_obj_barrier_normal
 			{
-				// Play animation
-				animation_play(spr_obj_barrier_normal, 2, 0);
-			
-				// Set object depth
+				animation_set(spr_obj_barrier_normal, 2, 0, 0);
+			}
+			object_set_depth(Player, true);	
+		}
+		break;
+		
+		// Update thunder barrier depth
+		case BarrierThunder:
+		{
+			if sprite_index != spr_obj_barrier_thunder
+			{
+				animation_set(spr_obj_barrier_thunder, 2, 0, 0);
+			}
+			if image_index == 18
+			{
+				object_set_depth(Player, false);
+			}
+			else if image_index == 39
+			{
 				object_set_depth(Player, true);
 			}
-			break;
-			case BarrierThunder:
+		}
+		break;
+		
+		// Update flame barrier depth and animation
+		case BarrierFlame:
+		{
+			if sprite_index == spr_obj_barrier_flame_dash
 			{
-				// Play animation
-				animation_play(spr_obj_barrier_thunder, 2, 0);	
-			
-				// Switch object depth
-				if image_index == 18
+				if !(--FlameAnimationTime)
+				{
+					// Reset to default animation after 24 frames
+					animation_set(spr_obj_barrier_flame, 2, 0, 0);
+					
+					// Reset timer
+					FlameAnimationTime = 25;
+					
+					// Restore control
+					Player.AirLock = false;
+				}
+				object_set_depth(Player, true);
+			}
+			else
+			{
+				if sprite_index != spr_obj_barrier_flame
+				{
+					animation_set(spr_obj_barrier_flame, 2, 0, 0);
+				}
+				if (image_index + 1) mod 2 == 0
+				{
+					object_set_depth(Player, true);
+				}
+				else
 				{
 					object_set_depth(Player, false);
 				}
-				else if image_index == 39
-				{
-					object_set_depth(Player, true);
-				}
 			}
-			break;
-			case BarrierFlame:
-			{
-				// Play animation
-				animation_play(sprite_index, 2, 0);
-			
-				// Dash animation
-				if sprite_index == spr_obj_barrier_flame_dash
-				{
-					// Set object depth
-					object_set_depth(Player, true);
-				
-					// Reset to default animation after 24 frames
-					static FlameAnimationTime = 25;
-					if !(--FlameAnimationTime)
-					{
-						FlameAnimationTime = 25;
-						animation_set(spr_obj_barrier_flame, 0);
-					
-						// Restore control
-						Player.AirLock = false;
-					}
-				}
-				else
-				{
-					// Default animation
-					sprite_index = spr_obj_barrier_flame;
-				
-					// Switch object depth
-					if (image_index + 1) mod 2 == 0
-					{
-						object_set_depth(Player, true);
-					}
-					else
-					{
-						object_set_depth(Player, false);
-					}
-				}
-			}
-			break;
-			case BarrierWater:
-			{
-				// Set object depth
-				object_set_depth(Player, true);
-			
-				if !Player.BarrierIsActive
-				{
-					// If bouncing animation is playing, end it
-					if sprite_index == spr_obj_barrier_water_bounce
-					{
-						var Frame = image_index;
-						if  Frame == 0
-						{
-							var Duration = 13;
-						}
-						else
-						{
-							var Duration = 7;
-						}
-						animation_play(sprite_index, Duration, 2);
-					
-						// Reset
-						if image_index == 2
-						{
-							animation_set(spr_obj_barrier_water, 0);
-						}
-					}
-				
-					// Play default animation
-					else
-					{
-						animation_play(spr_obj_barrier_water, 2, 0);
-					}
-				}
-				else
-				{
-					// Play drop animation
-					if sprite_index == spr_obj_barrier_water_drop
-					{
-						var Frame = image_index;
-						if !Frame
-						{
-							var Duration = 6;
-						}
-						else
-						{
-							var Duration = 19;
-						}
-						animation_play(spr_obj_barrier_water_drop, Duration, 2);
-				
-						// Reset
-						if image_index == 2
-						{
-							animation_set(spr_obj_barrier_water, 0);
-						}
-					}
-				
-					// Play default animation if dropping for too long
-					else
-					{
-						animation_play(spr_obj_barrier_water, 2, 0);
-					}
-				}
-			}
-			break;
 		}
-		
-		// Match scale to player's facing direction
-		image_xscale = Player.Facing;
+		break;
+		case BarrierWater:
+		{
+			if sprite_index == spr_obj_barrier_water_drop
+			or sprite_index == spr_obj_barrier_water_bounce
+			{
+				if image_index == 2
+				{
+					animation_set(spr_obj_barrier_water, 2, 0, 0);
+				}
+			}
+			else if sprite_index != spr_obj_barrier_water
+			{
+				animation_set(spr_obj_barrier_water, 2, 0, 0);
+			}
+			object_set_depth(Player, true);
+		}
+		break;
 	}
+	
+	// Match scale to player's facing direction
+	image_xscale = Player.Facing;
 	
 	// Hide the barrier
 	if Player.InvincibleBonus or Player.SuperState
@@ -159,7 +105,7 @@ function ObjBarrierMain()
 	{
 		image_alpha = 1;
 	}
-	
+
 	// Update position
 	x = floor(Player.PosX);
 	y = floor(Player.PosY);

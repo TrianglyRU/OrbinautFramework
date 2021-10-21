@@ -6,9 +6,6 @@ function ObjAirBubblerMain()
 		exit;
 	}
 	
-	// Play animation
-	animation_play(sprite_index, 16, 0);
-	
 	switch State
 	{
 		// Idle

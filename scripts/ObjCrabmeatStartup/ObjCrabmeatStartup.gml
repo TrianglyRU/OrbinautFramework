@@ -5,10 +5,7 @@ function ObjCrabmeatStartup()
 	State     = 0;
 	PrevAnim  = 0;
 	Timer     = 127;
-	
-	// Set object animation
-	sprite_index = spr_obj_crabmeat_move;
-	
+
 	// Set object hitbox
 	object_set_hitbox(16, 16);
 	
@@ -17,4 +14,7 @@ function ObjCrabmeatStartup()
 	
 	// Set object unload type
 	object_set_unload(TypeReset);
+	
+	// Set animation
+	animation_set(sprite_index, 16, 1, 0);
 }

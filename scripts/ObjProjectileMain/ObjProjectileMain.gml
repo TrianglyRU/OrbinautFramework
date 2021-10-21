@@ -31,7 +31,4 @@ function ObjProjectileMain()
 			player_damage(false, false, false);
 		}
 	}
-	
-	// Play animation
-	animation_play(sprite_index, 2, 0);
 }

@@ -22,7 +22,12 @@ function ObjPrisonMain()
 				{
 					Player.SuperState = false;
 				}
-				audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+				
+				// Restore stage music
+				if !audio_bgm_is_playing(Stage.StageMusic)
+				{
+					audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+				}
 				
 				// Increment state
 				State++;

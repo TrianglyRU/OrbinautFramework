@@ -192,35 +192,30 @@ function object_act_solid(sides,top,bottom,resetActions)
 		// Collide horizontally
 		else if sides and abs(YDistance) > 4
 		{		
-			// Check if player should push on the object
-			if PlayerX <  ObjectX and Player.Xsp > 0
-			or PlayerX >= ObjectX and Player.Xsp < 0
+			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
 			{
-				if !Player.Spinning
+				// Tell the object it is being pushed
+				if PlayerX < ObjectX
+				{
+					Obj_SolidTouchL = true;
+				}
+				else
+				{
+					Obj_SolidTouchR = true;
+				}
+				
+				// Make player push the object
+				if Player.Grounded
 				{
 					Player.Pushing = true;
 				}
-			}
-
-			// Reset speeds and push player outside
-			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
-			{
+				
+				// Reset speeds
 				Player.Inertia = 0;
 				Player.Xsp	   = 0;
-				
-				// Tell the object it is being pushed
-				if Player.Grounded
-				{
-					if PlayerX < ObjectX
-					{
-						Obj_SolidTouchL = true;
-					}
-					else
-					{
-						Obj_SolidTouchR = true;
-					}
-				}
 			}
+			
+			// Clip player outside
 			Player.PosX -= XDistance;
 		}
 	}

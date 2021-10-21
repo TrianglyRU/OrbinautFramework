@@ -66,10 +66,10 @@ function ObjStarPostMain()
 				Angle += 22.5;
 			}
 			
-			// Play animation of activated starpost
+			// Set animation
 			else
 			{
-				animation_play(spr_obj_starpost_active, 4, 0);
+				animation_set(spr_obj_starpost_active, 4, 0, 0);
 			}
 		}
 		break;

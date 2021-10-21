@@ -3,3 +3,6 @@
 
 	// Global Time Script
 	GameTimeProcess();
+	
+	// Instances Visualization Script
+	GameAnimationsProcess();

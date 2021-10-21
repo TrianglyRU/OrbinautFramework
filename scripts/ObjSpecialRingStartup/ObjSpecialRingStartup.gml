@@ -10,6 +10,9 @@ function ObjSpecialRingStartup()
 	// Set object depth
 	object_set_depth(Player, false);
 	
+	// Set animation
+	animation_set(spr_obj_specialring, 8, 0, 0);
+	
 	// Make ring temporary invisible
 	visible = false;
 }

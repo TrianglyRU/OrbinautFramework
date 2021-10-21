@@ -1,17 +1,13 @@
 function ObjExplosionScript()
 {
-	// Play animation
+	// Update animation
 	if !image_index
 	{
-		animation_play(sprite_index, 6, 5);
-	}
-	else if image_index < 5
-	{
-		animation_play(sprite_index, 8, 5);
+		animation_set(sprite_index, 8, 0, 5);
 	}
 	
 	// Destroy on animation end
-	else
+	else if image_index == 5
 	{
 		instance_destroy();
 	}

@@ -8,4 +8,7 @@ function ObjPrisonButtonStartup()
 	
 	// Set object depth
 	object_set_depth(EggPrison, false);
+	
+	// Set animation
+	animation_set(sprite_index, 3, 0, 0);
 }

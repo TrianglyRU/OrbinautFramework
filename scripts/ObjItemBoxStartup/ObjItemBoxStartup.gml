@@ -63,4 +63,7 @@ function ObjItemBoxStartup()
 	
 	// Set active range
 	object_set_unload(TypeReset);
+	
+	// Set animation
+	animation_set(sprite_index, 4, 0, 0);
 }

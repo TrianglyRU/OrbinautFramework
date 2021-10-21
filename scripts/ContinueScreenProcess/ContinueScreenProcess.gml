@@ -9,13 +9,6 @@ function ContinueScreenProcess()
 	// Idle
 	if !State
 	{
-		// Animate character
-		var  SpriteSpeed = CharSpeed[0];
-		with CharObject 
-		{
-			animation_play(sprite_index, SpriteSpeed, 0);
-		}
-		
 		// Check if player can react
 		if Countdown >= 60
 		{	
@@ -71,7 +64,7 @@ function ContinueScreenProcess()
 		var ActionSprite = CharSprite[1];
 		with CharObject 
 		{
-			animation_play(ActionSprite, SpriteTime, 11);
+			animation_set(ActionSprite, SpriteTime, 0, 11);
 		}
 		
 		// Flick continue object while charging

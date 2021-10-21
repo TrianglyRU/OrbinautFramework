@@ -11,12 +11,13 @@ function ObjBumperMain()
 			Player.Xsp     = 7 *  dcos(Angle);
 			Player.Ysp     = 7 * -dsin(Angle);
 			Player.Jumping = false;
+			Player.AirLock = false;
 			
 			// Add points to player's score
 			if ScoreLimit
 			{
 				var  ThisObject = id;
-				var  Object = instance_create(x, y, ComboScore);
+				var  Object = instance_create(x, y, ScoreObject);
 				with Object
 				{
 					object_set_depth(ThisObject, id);
@@ -27,8 +28,8 @@ function ObjBumperMain()
 			// Play sound
 			audio_sfx_play(sfxBumper, false);
 			
-			// Switch to the next frame
-			image_index = 1;
+			// Set animation
+			animation_set(sprite_index, 4, 1, 5);
 			
 			// Increment state
 			State++;
@@ -39,11 +40,5 @@ function ObjBumperMain()
 	else if State
 	{
 		State--;
-	}
-	
-	// Play animation
-	if image_index > 0
-	{
-		animation_play(sprite_index, 4, 0);
 	}
 }

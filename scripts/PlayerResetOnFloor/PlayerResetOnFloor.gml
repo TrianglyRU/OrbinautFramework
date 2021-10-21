@@ -22,7 +22,7 @@ function PlayerResetOnFloor()
 		// Set barrier animation
 		with Barrier
 		{
-			animation_set(spr_obj_barrier_water_bounce, 0);
+			animation_set(spr_obj_barrier_water_bounce, [7, 13, 0], 0, 0);
 		}
 		
 		// Play sound

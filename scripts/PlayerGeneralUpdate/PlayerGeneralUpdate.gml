@@ -41,7 +41,7 @@ function PlayerGeneralUpdate()
 			}
 			with InvincibilityStar 
 			{
-				animation_set(ID mod 2 ? spr_obj_invstar_type1 : spr_obj_invstar_type2, ID);
+				animation_set(ID mod 2 ? spr_obj_invstar_type1 : spr_obj_invstar_type2, 1, ID, 0);
 			}
 		}
 		if !(--InvincibleBonus)

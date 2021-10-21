@@ -27,7 +27,7 @@ function GameSetup()
 	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = true;
 	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = true;
+	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
 	
 	/* Video, audio and control settings below are overwritten by 

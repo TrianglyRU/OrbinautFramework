@@ -4,19 +4,19 @@ function object_check_touch(side)
 	// Exit if collisions are disabled
 	if !Player.AllowCollision
 	{
-		exit;
+		return false;
 	}
 	
 	// Exit if no solid radiuses were initialized for this object
 	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
-		exit;
+		return false;
 	}
 	
 	// Exit if object is off-screen
 	if !object_is_onscreen(id)
 	{
-		exit;
+		return false;
 	}
 	
 	// Return touch flag

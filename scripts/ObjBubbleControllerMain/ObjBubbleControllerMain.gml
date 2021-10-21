@@ -9,7 +9,7 @@ function ObjBubbleControllerMain()
 	// Emit a bubble normally each second
 	if Player.AirTimer
 	{
-		if !(Player.AirTimer mod 60)
+		if !(Player.AirTimer mod 60) and Player.AirTimer != 1800
 		{
 			// Check if bubble should be the countdown one
 			if Player.AirTimer <= 720 and !(Player.AirTimer mod 120)

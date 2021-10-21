@@ -1,13 +1,7 @@
 function PlayerBalance()
 {
-	// Exit if holding down when S&K crouching is enabled, or moving
-	if Game.SKCrouch and Input.Down or Inertia != 0
-	{
-		exit;
-	}
-	
-	// Exit if getting up
-	if Animation == AnimGetUp
+	// Exit moving or getting up
+	if Inertia != 0 or Animation == AnimGetUp
 	{
 		exit;
 	}
@@ -15,6 +9,12 @@ function PlayerBalance()
 	// Balance on floor
 	if !OnObject
 	{
+		// Exit if holding down when S&K crouching is enabled
+		if Game.SKCrouch and Input.Down
+		{
+			exit;
+		}
+		
 		// Exit if angle is too steep
 		if Angle >= 46.41 and Angle <= 313.59
 		{

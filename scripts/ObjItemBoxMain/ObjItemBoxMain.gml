@@ -5,9 +5,6 @@ function ObjItemBoxMain()
 		// Not destroyed
 		case 0:
 		{
-			// Play animation
-			animation_play(spr_obj_itembox, 4, 0);
-			
 			// Handle item card flick
 			if !(--Timer)
 			{
@@ -111,10 +108,10 @@ function ObjItemBoxMain()
 		// Destroyed
 		case 1:
 		{	
-			// Update sprite
+			// Update animation
 			if (++Timer) == 12
 			{
-				animation_set(spr_obj_itembox_destroyed, 0);
+				animation_set(spr_obj_itembox_destroyed, 0, 0, 0);
 			}
 			
 			// Move item card

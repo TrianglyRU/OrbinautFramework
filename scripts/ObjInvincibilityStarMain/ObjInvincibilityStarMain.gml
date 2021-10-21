@@ -32,7 +32,4 @@ function ObjInvincibilityStarMain()
 	// Rotate
 	x = Player.RecordedPosX[| Delay] + dsin(Angle) * Distance;
 	y = Player.RecordedPosY[| Delay] + dcos(Angle) * Distance;
-	
-	// Play animation
-	animation_play(sprite_index, 1, 0);
 }

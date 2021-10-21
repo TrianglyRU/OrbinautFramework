@@ -14,4 +14,7 @@ function ObjProjectileStartup()
 	
 	// Set object unload type
 	object_set_unload(TypeDelete);
+	
+	// Set animation
+	animation_set(sprite_index, 2, 0, 0);
 }

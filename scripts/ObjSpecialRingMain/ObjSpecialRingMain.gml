@@ -6,7 +6,7 @@ function ObjSpecialRingMain()
 		{
 			// Delete this ring if it was used before
 			var Length = array_length(Game.SpecialRingList);
-			if Length
+			if  Length
 			{
 				for (var i = 0; i < Length; i++)
 				{
@@ -26,9 +26,6 @@ function ObjSpecialRingMain()
 		break;
 		case 1:
 		{
-			// Play animation
-			animation_play(spr_obj_specialring, 8, 0);
-			
 			// Check for overlap
 			if object_check_overlap(Hitbox)
 			{	

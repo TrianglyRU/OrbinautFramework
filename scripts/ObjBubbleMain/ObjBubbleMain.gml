@@ -27,60 +27,60 @@ function ObjBubbleMain()
 	// Destroy when out of water
 	if y < Stage.WaterLevel or Collected
 	{
-		if BubbleType == 2
+		if sprite_index != spr_obj_bubble_disappear
 		{
-			animation_play(spr_obj_bubble_disappear, 6, 3);
+			// If reached last frame possible, pop the bubble
+			if image_index == 6
+			{
+				// Update animation
+				animation_set(spr_obj_bubble_disappear, 6, 0, 3);
+			}
 			
-			// Destroy on animation end
-			if image_index == 3
+			// Else destroy instantly
+			else
 			{
 				instance_destroy();
 			}
 		}
 		
-		// If small or medium bubble, destroy instantly
-		else
+		// Destroy on animation end
+		else if image_index == 3
 		{
 			instance_destroy();
 		}
 	}
 	else
 	{
-		// Play animation
+		// Set animation
 		switch BubbleType
 		{
 			case 0:
-				animation_play(spr_obj_bubble_small, 15, 2);
+			{
+				if image_index == 2
+				{
+					animation_stop(2, 0);
+				}
+				else
+				{
+					animation_set(sprite_index, 15, 0, 2);
+				}
+			}
 			break;
 			case 1:
-				animation_play(spr_obj_bubble_medium, 15, 3);
+			{
+				if image_index == 4
+				{
+					animation_stop(4, 0);
+				}
+				else
+				{
+					animation_set(sprite_index, 15, 1, 4);
+				}
+			}
 			break;
 			case 2:
-				animation_play(spr_obj_bubble_large, 15, 4);
-			break;
-			case 3:
 			{
-				var Frame = image_index;
-				if  Frame < 4
-				{
-					var Duration = 7;
-				}
-				else if Frame < 6
-				{
-					var Duration = 6;
-				}
-				else
-				{
-					var Duration = 8;
-				}
-				if Frame < 12 and Player.IsUnderwater
-				{
-					animation_play(sprite_index, Duration, 12);
-				}
-				else
-				{
-					instance_destroy();
-				}
+				animation_set(sprite_index, 15, 2, 6);
 			}
 			break;
 		}
@@ -97,7 +97,7 @@ function ObjBubbleMain()
 	// If bubble is the large one, be collected by the player
 	if BubbleType == 2 and Player.BarrierType != BarrierWater
 	{
-		if image_index == 4 and object_check_overlap(Triggerbox)
+		if image_index == 6 and object_check_overlap(Triggerbox)
 		{
 			// Restore music
 			if Player.AirTimer <= 720
