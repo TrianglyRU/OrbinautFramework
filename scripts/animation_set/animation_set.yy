@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "animation_set2",
+  "name": "animation_set",
   "tags": [],
   "resourceType": "GMScript",
 }

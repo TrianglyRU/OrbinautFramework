@@ -10,24 +10,17 @@ function ObjBarrierMain()
 	}
 	switch Player.BarrierType
 	{
-		// Update normal barrier depth
+		// Update normal barrier
 		case BarrierNormal:
 		{
-			if sprite_index != spr_obj_barrier_normal
-			{
-				animation_play(spr_obj_barrier_normal, 2, 0, 0);
-			}
-			object_set_depth(Player, true);	
+			object_set_depth(Player, true);
+			animation_play(spr_obj_barrier_normal, 2, 0, 0);
 		}
 		break;
 		
-		// Update thunder barrier depth
+		// Update thunder barrier
 		case BarrierThunder:
 		{
-			if sprite_index != spr_obj_barrier_thunder
-			{
-				animation_play(spr_obj_barrier_thunder, 2, 0, 0);
-			}
 			if image_index == 18
 			{
 				object_set_depth(Player, false);
@@ -36,6 +29,7 @@ function ObjBarrierMain()
 			{
 				object_set_depth(Player, true);
 			}
+			animation_play(spr_obj_barrier_thunder, 2, 0, 0);
 		}
 		break;
 		
@@ -59,10 +53,6 @@ function ObjBarrierMain()
 			}
 			else
 			{
-				if sprite_index != spr_obj_barrier_flame
-				{
-					animation_play(spr_obj_barrier_flame, 2, 0, 0);
-				}
 				if (image_index + 1) mod 2 == 0
 				{
 					object_set_depth(Player, true);
@@ -71,6 +61,7 @@ function ObjBarrierMain()
 				{
 					object_set_depth(Player, false);
 				}
+				animation_play(spr_obj_barrier_flame, 2, 0, 0);
 			}
 		}
 		break;
@@ -84,7 +75,7 @@ function ObjBarrierMain()
 					animation_play(spr_obj_barrier_water, 2, 0, 0);
 				}
 			}
-			else if sprite_index != spr_obj_barrier_water
+			else
 			{
 				animation_play(spr_obj_barrier_water, 2, 0, 0);
 			}

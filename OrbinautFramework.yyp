@@ -26,7 +26,7 @@
     {"id":{"name":"PrisonButton","path":"objects/PrisonButton/PrisonButton.yy",},"order":22,},
     {"id":{"name":"ObjSpecialRingEvent","path":"scripts/ObjSpecialRingEvent/ObjSpecialRingEvent.yy",},"order":121,},
     {"id":{"name":"Chopper","path":"objects/Chopper/Chopper.yy",},"order":2,},
-    {"id":{"name":"animation_set2","path":"scripts/animation_set2/animation_set2.yy",},"order":63,},
+    {"id":{"name":"animation_set","path":"scripts/animation_set/animation_set.yy",},"order":63,},
     {"id":{"name":"CollapsingLedgePiece","path":"objects/CollapsingLedgePiece/CollapsingLedgePiece.yy",},"order":5,},
     {"id":{"name":"spr_sonic_balance_panic","path":"sprites/spr_sonic_balance_panic/spr_sonic_balance_panic.yy",},"order":82,},
     {"id":{"name":"CollisionTrigger","path":"objects/CollisionTrigger/CollisionTrigger.yy",},"order":30,},
