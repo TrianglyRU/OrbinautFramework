@@ -13,8 +13,8 @@ function StageSetup()
 			ActID            = 0;
 			FinalActID       = 0;
 			CardEnabled      = true;
-			WaterEnabled     = true;
-			WaterLevel       = 880;
+			WaterEnabled     = false;
+			WaterLevel       = 0;
 			StageMusic       = TestZone;
 			LeftBoundary     = 0;
 			TopBoundary      = 0;

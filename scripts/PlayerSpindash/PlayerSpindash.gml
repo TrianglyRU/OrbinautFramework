@@ -35,8 +35,7 @@ function PlayerSpindash()
 			audio_sfx_play(sfxCharge, false);
 			
 			// Reset animation
-			image_duration = 2;	// <- We set it to 2 because the game will immediately decrease it by 1
-			image_index    = 0;
+			animation_reset(0);
 		}
 	}
 	

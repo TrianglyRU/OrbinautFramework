@@ -1,7 +1,7 @@
 function ObjRingMain()
 {
 	// Play animation (sync for all rings)
-	image_index = Game.GlobalTime div speed mod image_number;
+	animation_play_sync(sprite_index, 8);
 	
 	switch State
 	{

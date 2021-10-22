@@ -16,5 +16,5 @@ function ObjProjectileStartup()
 	object_set_unload(TypeDelete);
 	
 	// Set animation
-	animation_set(sprite_index, 2, 0, 0);
+	animation_play(sprite_index, 2, 0, 0);
 }

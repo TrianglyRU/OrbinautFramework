@@ -25,5 +25,5 @@ function ObjAirBubblerStartup()
 	object_set_unload(TypeReset);
 	
 	// Set animation
-	animation_set(sprite_index, 16, 0, 0);
+	animation_play(sprite_index, 16, 0, 0);
 }

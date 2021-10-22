@@ -24,7 +24,7 @@ function ObjCrabmeatMain()
 				State++;
 				
 				// Stop animation
-				animation_stop(0, 0);
+				animation_set(sprite_index, 1);
 			}
 			else
 			{
@@ -43,7 +43,7 @@ function ObjCrabmeatMain()
 				y += FindFloor[0];
 				
 				// Set animation
-				animation_set(sprite_index, 16, 0, 0);
+				animation_play(sprite_index, 16, 0, 0);
 			}
 		}
 		break;
@@ -60,7 +60,7 @@ function ObjCrabmeatMain()
 					image_xscale *= -1;
 					
 					// Update animation
-					animation_set(spr_obj_crabmeat_fire, 0, 0, 0);
+					animation_set(spr_obj_crabmeat_fire, 0);
 				
 					// Create bullets
 					for (var i = 1; i > -3; i -= 2)
@@ -84,7 +84,7 @@ function ObjCrabmeatMain()
 					Timer = 127;
 					
 					// Update animation
-					animation_set(PrevAnim, 16, 1, 0);
+					animation_play(PrevAnim, 16, 1, 0);
 				}
 			}
 		}
@@ -99,7 +99,7 @@ function ObjCrabmeatMain()
 				Timer  = 127;
 					
 				// Update animation
-				animation_set(PrevAnim, 16, 1, 0);
+				animation_play(PrevAnim, 16, 1, 0);
 			}
 		}
 		break;	

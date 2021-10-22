@@ -4,5 +4,5 @@ function ObjExplosionSetup()
 	object_set_depth(Player, true);
 	
 	// Set animation
-	animation_set(sprite_index, 6, 0, 5);
+	animation_play(sprite_index, 6, 0, 5);
 }

@@ -111,7 +111,7 @@ function ObjItemBoxMain()
 			// Update animation
 			if (++Timer) == 12
 			{
-				animation_set(spr_obj_itembox_destroyed, 0, 0, 0);
+				animation_set(spr_obj_itembox_destroyed, 0);
 			}
 			
 			// Move item card

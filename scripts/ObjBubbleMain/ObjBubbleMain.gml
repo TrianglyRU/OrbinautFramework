@@ -33,7 +33,7 @@ function ObjBubbleMain()
 			if image_index == 6
 			{
 				// Update animation
-				animation_set(spr_obj_bubble_disappear, 6, 0, 3);
+				animation_play(spr_obj_bubble_disappear, 6, 0, 3);
 			}
 			
 			// Else destroy instantly
@@ -58,11 +58,11 @@ function ObjBubbleMain()
 			{
 				if image_index == 2
 				{
-					animation_stop(2, 0);
+					animation_set(sprite_index, 2);
 				}
 				else
 				{
-					animation_set(sprite_index, 15, 0, 2);
+					animation_play(sprite_index, 15, 0, 2);
 				}
 			}
 			break;
@@ -70,17 +70,17 @@ function ObjBubbleMain()
 			{
 				if image_index == 4
 				{
-					animation_stop(4, 0);
+					animation_set(sprite_index, 4);
 				}
 				else
 				{
-					animation_set(sprite_index, 15, 1, 4);
+					animation_play(sprite_index, 15, 1, 4);
 				}
 			}
 			break;
 			case 2:
 			{
-				animation_set(sprite_index, 15, 2, 6);
+				animation_play(sprite_index, 15, 2, 6);
 			}
 			break;
 		}

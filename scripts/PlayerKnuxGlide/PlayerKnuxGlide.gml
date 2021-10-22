@@ -235,104 +235,94 @@ function PlayerKnuxGlide()
 		PosY -= NearestTile[0];
 	}
 	
-	// Get nearest tile below us
-	var TileLeft  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-	var TileRight = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-			
-	// Check if we should use tile right below our position to avoid stupid quirk from originals
-	var TileMiddle = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer);
-			
-	// Get data
-	if TileLeft[0] == TileRight[0] and TileLeft[0] > 0
+	// Try floor collision
+	else if Ysp >= 0
 	{
-		var FloorDistance = TileMiddle[0];
-		var FloorAngle    = TileMiddle[1];
-	}
-	else
-	{
-		var NearestTile   = tile_check_nearest(TileLeft, TileRight, noone);
+		// Get nearest tile below us
+		var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+		var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+		var NearestTile = tile_check_nearest(TileLeft, TileRight, noone);
+		
+		// Get data
 		var FloorDistance = NearestTile[0];
-		var FloorAngle    = NearestTile[1];
-	}
+		Angle			  = NearestTile[1];
 	
-	// Get floor angle
-	Angle = FloorAngle;
-	
-	// Check if we're gliding and distance is negative
-	if GlideState != GlideGround 
-	{
-		if FloorDistance < 0
+		// Check if we're gliding and distance is negative
+		if GlideState != GlideGround 
 		{
-			// If floor is shallow enough, change state
-			if Angle <= 45 or Angle >= 316.41
+			if FloorDistance < 0
 			{
-				if GlideState == GlideAir
+				// If floor is shallow enough, change state
+				if Angle <= 45 or Angle >= 316.41
 				{
-					GlideState = GlideGround;
-					Animation  = AnimSlide;
-					GlideValue = 8;
+					if GlideState == GlideAir
+					{
+						GlideState = GlideGround;
+						Animation  = AnimSlide;
+						GlideValue = 8;
 							
-					// Reset gravity
-					Grv = 0;
-					Ysp = 0;
+						// Reset gravity
+						Grv = 0;
+						Ysp = 0;
 					
-					// Create dust object
-					instance_create(PosX, PosY + RadiusY + FloorDistance, DustPuff);
-				}
-				else if GlideState == GlideFall
-				{
-					Grounded   = true;
-					Xsp		   = 0;
-					GroundLock = 16;
-					Animation  = AnimGetUp;
+						// Create dust object
+						instance_create(PosX, PosY + RadiusY + FloorDistance, DustPuff);
+					}
+					else if GlideState == GlideFall
+					{
+						Grounded   = true;
+						Xsp		   = 0;
+						GroundLock = 16;
+						Animation  = AnimGetUp;
 					
-					// Play sound
-					audio_sfx_play(sfxLand, false);
+						// Play sound
+						audio_sfx_play(sfxLand, false);
 				
-					// Use second frame of animation
-					image_index = 1;
+						// Use second frame of animation
+						image_index = 1;
+					}
+				}
+			
+				// Else just land
+				else
+				{
+					Grounded = true;
+					Inertia  = -Xsp;
+				}
+			
+				// Adhere to the surface
+				PosY += FloorDistance;
+			}
+		}
+		else 
+		{
+			// If sliding and no ground found, fall
+			if FloorDistance > 14
+			{
+				GlideState = GlideFall;
+				Animation  = AnimGlideFall;
+			
+				// Reset collision radiuses
+				RadiusX	= DefaultRadiusX;
+				RadiusY	= DefaultRadiusY;
+					
+				// Reset gravity
+				if !IsUnderwater
+				{
+					Grv	= 0.21875;
+				}
+				else
+				{
+					// Lower by 0x28 (0.15625) if underwater
+					Grv = 0.0625
 				}
 			}
 			
-			// Else just land
+			// Clip to the surface
 			else
 			{
-				Grounded = true;
-				Inertia  = -Xsp;
+				PosY += FloorDistance;
 			}
-			
-			// Adhere to the surface
-			PosY += FloorDistance;
-		}
-	}
-	else 
-	{
-		// If sliding and no ground found, fall
-		if FloorDistance > 14
-		{
-			GlideState = GlideFall;
-			Animation  = AnimGlideFall;
-			
-			// Reset collision radiuses
-			RadiusX	= DefaultRadiusX;
-			RadiusY	= DefaultRadiusY;
-					
-			// Reset gravity
-			if !IsUnderwater
-			{
-				Grv	= 0.21875;
-			}
-			else
-			{
-				// Lower by 0x28 (0.15625) if underwater
-				Grv = 0.0625
-			}
-		}
-			
-		// Clip to the surface
-		else
-		{
-			PosY += FloorDistance;
 		}
 	}
 }

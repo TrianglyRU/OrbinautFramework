@@ -1,0 +1,12 @@
+/// @function animation_play_sync(spriteid,duration)
+function animation_play_sync(spriteid,duration)
+{
+	// Update sprite
+	if sprite_index != spriteid
+	{
+		sprite_index = spriteid;	
+	}
+	
+	// Play animation
+	image_index = Game.GlobalTime div duration mod image_number;
+}

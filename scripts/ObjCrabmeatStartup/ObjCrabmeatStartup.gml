@@ -16,5 +16,5 @@ function ObjCrabmeatStartup()
 	object_set_unload(TypeReset);
 	
 	// Set animation
-	animation_set(sprite_index, 16, 1, 0);
+	animation_play(sprite_index, 16, 0, 0);
 }

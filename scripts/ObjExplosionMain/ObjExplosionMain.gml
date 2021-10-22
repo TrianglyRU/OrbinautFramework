@@ -3,7 +3,7 @@ function ObjExplosionScript()
 	// Update animation
 	if !image_index
 	{
-		animation_set(sprite_index, 8, 0, 5);
+		animation_play(sprite_index, 8, 0, 5);
 	}
 	
 	// Destroy on animation end

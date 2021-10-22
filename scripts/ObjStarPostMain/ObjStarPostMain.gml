@@ -69,7 +69,7 @@ function ObjStarPostMain()
 			// Set animation
 			else
 			{
-				animation_set(spr_obj_starpost_active, 4, 0, 0);
+				animation_play(spr_obj_starpost_active, 4, 0, 0);
 			}
 		}
 		break;

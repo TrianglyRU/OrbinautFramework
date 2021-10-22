@@ -16,5 +16,5 @@ function ObjBuzzbomberStartup()
 	object_set_unload(TypeReset);
 	
 	// Set animation
-	animation_set(spr_obj_buzzbomber_fly, 1, 0, 0);
+	animation_play(spr_obj_buzzbomber_fly, 1, 0, 0);
 }

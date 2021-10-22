@@ -28,7 +28,7 @@ function ObjSpringVerticalMain()
 		// Play spring sound
 		audio_sfx_play(sfxSpring, false);	
 		
-		// Set animation
-		animation_set(sprite_index, 3, 1, 3);
+		// Reset animation
+		animation_reset(1);
 	}
 }

@@ -13,7 +13,7 @@ function ObjMotobugMain()
 			if  FindFloor > 8
 			{
 				// Stop animation
-				animation_stop(0, 0);
+				animation_set(sprite_index, 0);
 				
 				// Stop Motobug
 				State++;
@@ -55,7 +55,7 @@ function ObjMotobugMain()
 				image_xscale *= -1;
 				
 				// Set animation
-				animation_set(sprite_index, 8, 0, 0);
+				animation_play(sprite_index, 8, 0, 0);
 			}
 		}
 		break;

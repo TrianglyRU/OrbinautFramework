@@ -32,6 +32,9 @@ function ObjSignpostMain()
 				
 				// Increment state
 				State++;
+				
+				// Set animation
+				animation_play(SpriteData[0], 1, 0, 0);
 			}
 		}
 		break;
@@ -41,22 +44,18 @@ function ObjSignpostMain()
 			StateTimer++;
 		
 			// Set animation
-			if StateTimer < 62
+			if StateTimer == 62
 			{
-				animation_set(SpriteData[0], 1, 0, 0);
-			}
-			else if StateTimer < 123
-			{
-				animation_set(SpriteData[1], 1, 0, 0);
+				animation_play(SpriteData[1], 1, 0, 0);
 			}
 			
 			// Increment state after 124 frames
-			else
+			else if StateTimer == 123
 			{
 				State++;
 				
 				// Stop animation
-				animation_stop(0, 0);
+				animation_set(sprite_index, 0);
 			}
 		
 			// Create sparkles every 12 frames

@@ -4,5 +4,5 @@ function ObjRingSparkleStartup()
 	object_set_depth(Player, true);
 	
 	// Set animation
-	animation_set(sprite_index, 8, 0, 4);
+	animation_play(sprite_index, 8, 0, 4);
 }

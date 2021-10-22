@@ -4,80 +4,81 @@ function ObjAnimalStartup()
 	if Stage.AnimalSet == noone
 	{
 		instance_destroy();
-		exit;
 	}
-	
-	// Choose random animal
-	AnimalType = Stage.AnimalSet[irandom(array_length(Stage.AnimalSet) - 1)];
-	
-	// Set default speeds based on animal type
-	switch AnimalType
+	else
 	{
-	    case spr_obj_animal_flicky: 
+		// Choose random animal
+		AnimalType = Stage.AnimalSet[irandom(array_length(Stage.AnimalSet) - 1)];
+	
+		// Set default speeds based on animal type
+		switch AnimalType
 		{
-			DefaultXsp =  3;
-			DefaultYsp = -4;
+		    case spr_obj_animal_flicky: 
+			{
+				DefaultXsp =  3;
+				DefaultYsp = -4;
+			}
+			break;
+			case spr_obj_animal_pocky:
+			{
+				DefaultXsp =  2;
+				DefaultYsp = -4;
+			}
+			break;
+			case spr_obj_animal_cucky:
+			{
+				DefaultXsp =  2;
+				DefaultYsp = -3;
+			}
+			break;
+			case spr_obj_animal_pecky:
+			{
+				DefaultXsp =  1.5;
+				DefaultYsp = -3;
+			}
+			break;
+			case spr_obj_animal_picky:
+			{
+				DefaultXsp =  1.75;
+				DefaultYsp = -3;
+			}
+			break;
+			case spr_obj_animal_ricky:
+			{
+				DefaultXsp =  2.5;
+				DefaultYsp = -3.5;
+			}
+			break;
+			case spr_obj_animal_rocky:
+			{
+				DefaultXsp =  1.25;
+				DefaultYsp = -1.5;
+			}
+			break;
 		}
-		break;
-		case spr_obj_animal_pocky:
-		{
-			DefaultXsp =  2;
-			DefaultYsp = -4;
-		}
-		break;
-		case spr_obj_animal_cucky:
-		{
-			DefaultXsp =  2;
-			DefaultYsp = -3;
-		}
-		break;
-		case spr_obj_animal_pecky:
-		{
-			DefaultXsp =  1.5;
-			DefaultYsp = -3;
-		}
-		break;
-		case spr_obj_animal_picky:
-		{
-			DefaultXsp =  1.75;
-			DefaultYsp = -3;
-		}
-		break;
-		case spr_obj_animal_ricky:
-		{
-			DefaultXsp =  2.5;
-			DefaultYsp = -3.5;
-		}
-		break;
-		case spr_obj_animal_rocky:
-		{
-			DefaultXsp =  1.25;
-			DefaultYsp = -1.5;
-		}
-		break;
+	
+		// Set blank values
+		State = 0;
+		Delay = 0;
+	
+		// Set other variables
+		PosX  = x;
+		PosY  = y;
+		Grv   = 0.21875;
+		Ysp   = -4;
+		Xsp   = DefaultXsp;
+	
+		// Set sprite
+		sprite_index = AnimalType;
+		image_xscale = -1;
+	
+		// Set object solidbox
+		object_set_solidbox(8, 12, false);
+	
+		// Set object depth
+		object_set_depth(Player, false);
+	
+		// Set object unload type
+		object_set_unload(TypeDelete);
 	}
-	
-	// Set blank values
-	State = 0;
-	Delay = 0;
-	
-	// Set other variables
-	PosX  = x;
-	PosY  = y;
-	Grv   = 0.21875;
-	Ysp   = -4;
-	Xsp   = DefaultXsp;
-	
-	// Set sprite
-	sprite_index = AnimalType;
-	image_xscale = -1;
-	
-	// Set object solidbox
-	object_set_solidbox(8, 12, false);
-	
-	// Set object depth
-	object_set_depth(Player, false);
-	
-	// Set object unload type
-	object_set_unload(TypeDelete);
 }

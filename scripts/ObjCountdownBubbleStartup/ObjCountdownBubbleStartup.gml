@@ -18,5 +18,5 @@ function ObjCountdownBubbleStartup()
 	object_set_unload(TypeDelete);
 	
 	// Set animation
-	animation_set(sprite_index, [7, 7, 7, 7, 6, 6, 8, 8, 8, 8, 8, 8, 8], 0, 12);
+	animation_play(sprite_index, [7, 7, 7, 7, 6, 6, 8, 8, 8, 8, 8, 8, 8], 0, 12);
 }

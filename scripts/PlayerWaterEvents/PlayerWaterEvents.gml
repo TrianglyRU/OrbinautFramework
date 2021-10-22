@@ -69,7 +69,12 @@ function PlayerWaterEvents()
 				// Reset speeds
 				Xsp	= 0;
 				Ysp	= 0;
-				Grv = 0.0625;
+				
+				// Set gravity to its underwater value if sliding or flying
+				if FlightState or GlideState == GlideAir
+				{
+					Grv = 0.0625;
+				}
 				
 				// Set flags
 				Stage.TimeEnabled = false;

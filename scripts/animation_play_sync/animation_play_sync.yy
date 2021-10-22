@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "animation_set",
+  "name": "animation_play_sync",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -11,6 +11,6 @@ function ObjChopperStartup()
 	// Set object unload type
 	object_set_unload(TypeReset);
 	
-	// Set animation speed
-	animation_set(sprite_index, 8, 0, 0);
+	// Set animation
+	animation_play(sprite_index, 8, 0, 0);
 }

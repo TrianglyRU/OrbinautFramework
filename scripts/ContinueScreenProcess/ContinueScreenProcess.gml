@@ -64,7 +64,7 @@ function ContinueScreenProcess()
 		var ActionSprite = CharSprite[1];
 		with CharObject 
 		{
-			animation_set(ActionSprite, SpriteTime, 0, 11);
+			animation_play(ActionSprite, SpriteTime, 0, 11);
 		}
 		
 		// Flick continue object while charging

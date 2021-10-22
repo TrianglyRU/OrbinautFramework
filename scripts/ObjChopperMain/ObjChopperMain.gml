@@ -12,7 +12,7 @@ function ObjChopperMain()
 		// If near peak amplitude, speedup animation
 		if y < OriginY - 192
 		{
-			animation_set(sprite_index, 4, 0, 0);
+			animation_play(sprite_index, 4, 0, 0);
 		}	
 	}
 	else
@@ -24,13 +24,13 @@ function ObjChopperMain()
 			Ysp	= -7; 
 			 
 			// Reset animation speed
-			animation_set(sprite_index, 8, 0, 0);
+			animation_play(sprite_index, 8, 0, 0);
 		}
 		
 		// Stop animation
 		else
 		{
-			animation_stop(0, 0);
+			animation_set(sprite_index, 0);
 		}	
 	}
 	

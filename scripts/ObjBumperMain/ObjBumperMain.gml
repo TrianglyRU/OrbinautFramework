@@ -28,8 +28,8 @@ function ObjBumperMain()
 			// Play sound
 			audio_sfx_play(sfxBumper, false);
 			
-			// Set animation
-			animation_set(sprite_index, 4, 1, 5);
+			// Reset animation
+			animation_reset(1);
 			
 			// Increment state
 			State++;

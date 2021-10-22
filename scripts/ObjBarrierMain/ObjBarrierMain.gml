@@ -15,7 +15,7 @@ function ObjBarrierMain()
 		{
 			if sprite_index != spr_obj_barrier_normal
 			{
-				animation_set(spr_obj_barrier_normal, 2, 0, 0);
+				animation_play(spr_obj_barrier_normal, 2, 0, 0);
 			}
 			object_set_depth(Player, true);	
 		}
@@ -26,7 +26,7 @@ function ObjBarrierMain()
 		{
 			if sprite_index != spr_obj_barrier_thunder
 			{
-				animation_set(spr_obj_barrier_thunder, 2, 0, 0);
+				animation_play(spr_obj_barrier_thunder, 2, 0, 0);
 			}
 			if image_index == 18
 			{
@@ -47,7 +47,7 @@ function ObjBarrierMain()
 				if !(--FlameAnimationTime)
 				{
 					// Reset to default animation after 24 frames
-					animation_set(spr_obj_barrier_flame, 2, 0, 0);
+					animation_play(spr_obj_barrier_flame, 2, 0, 0);
 					
 					// Reset timer
 					FlameAnimationTime = 25;
@@ -61,7 +61,7 @@ function ObjBarrierMain()
 			{
 				if sprite_index != spr_obj_barrier_flame
 				{
-					animation_set(spr_obj_barrier_flame, 2, 0, 0);
+					animation_play(spr_obj_barrier_flame, 2, 0, 0);
 				}
 				if (image_index + 1) mod 2 == 0
 				{
@@ -81,12 +81,12 @@ function ObjBarrierMain()
 			{
 				if image_index == 2
 				{
-					animation_set(spr_obj_barrier_water, 2, 0, 0);
+					animation_play(spr_obj_barrier_water, 2, 0, 0);
 				}
 			}
 			else if sprite_index != spr_obj_barrier_water
 			{
-				animation_set(spr_obj_barrier_water, 2, 0, 0);
+				animation_play(spr_obj_barrier_water, 2, 0, 0);
 			}
 			object_set_depth(Player, true);
 		}
