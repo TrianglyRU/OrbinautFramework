@@ -176,7 +176,7 @@ function PlayerAnimate()
 				switch Animation
 				{
 					case AnimTransform:
-						animation_play(spr_supersonic_transform, 3, 0, 5);
+						animation_play(spr_supersonic_transform, [6, 6, 3, 3, 3], 0, 3);
 					break;
 					case AnimIdle:
 						animation_play(spr_supersonic_idle, 8, 0, 0);
@@ -225,10 +225,10 @@ function PlayerAnimate()
 						animation_play(spr_sonic_spindash, 1, 0, 0); 
 					break;
 					case AnimCrouch:
-						animation_play(spr_supersonic_crouch, 4, 0, 1);
+						animation_play(spr_supersonic_crouch, [4, 8, 8, 8, 8], 0, 1);
 					break;
 					case AnimLookup:
-						animation_play(spr_supersonic_lookup, 4, 0, 1);
+						animation_play(spr_supersonic_lookup, [4, 8, 8, 8, 8], 0, 1);
 					break;
 					case AnimSkid:
 						animation_play(spr_supersonic_skid, 3, 0, 4);
@@ -372,7 +372,7 @@ function PlayerAnimate()
 					animation_play(spr_tails_balance, 20, 0, 0);
 				break;
 				case AnimTransform:
-					animation_play(spr_tails_transform, 3, 0, 2);
+					animation_play(spr_tails_transform, [6, 3, 3], 0, 1);
 				break;
 				case AnimAirSpin:
 					animation_play(spr_tails_airspin, 3, 0, 0);
@@ -519,7 +519,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_balance, [8, 8, 8, 8, 8, 8, 60, 12, 12, 8, 8, 8], 0, 9);
 				break;
 				case AnimTransform:
-					animation_play(spr_knuckles_transform, 3, 0, 2);
+					animation_play(spr_knuckles_transform, [6, 3, 3], 0, 1);
 				break;
 				case AnimActEnd:
 					animation_play(spr_knuckles_actend, [6, 18, 6, 6], 0, 5);
