@@ -451,8 +451,10 @@ function PlayerAnimate()
 					animation_set(spr_knuckles_hurt, 0);
 				break;
 				case AnimDeath:
-				case AnimDrown:
 					animation_set(spr_knuckles_death, 0);
+				break;
+				case AnimDrown:
+					animation_set(spr_knuckles_drown, 0);
 				break;
 				case AnimGlide:
 					animation_set(spr_knuckles_glide, GlideFrame);
@@ -542,7 +544,4 @@ function PlayerAnimate()
 		}
 		break;
 	}
-	
-	show_debug_message(image_duration);
-	show_debug_message(image_timer);
 }

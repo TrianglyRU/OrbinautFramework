@@ -40,6 +40,7 @@
     {"id":{"name":"DustPuff","path":"objects/DustPuff/DustPuff.yy",},"order":10,},
     {"id":{"name":"FireExplosion","path":"objects/FireExplosion/FireExplosion.yy",},"order":11,},
     {"id":{"name":"FloatingPlatform","path":"objects/FloatingPlatform/FloatingPlatform.yy",},"order":10,},
+    {"id":{"name":"spr_knuckles_drown","path":"sprites/spr_knuckles_drown/spr_knuckles_drown.yy",},"order":91,},
     {"id":{"name":"BonusStage","path":"objects/BonusStage/BonusStage.yy",},"order":0,},
     {"id":{"name":"Framework","path":"objects/Framework/Framework.yy",},"order":0,},
     {"id":{"name":"SpecialRing","path":"objects/SpecialRing/SpecialRing.yy",},"order":16,},
