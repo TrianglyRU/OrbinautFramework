@@ -141,7 +141,7 @@ function PlayerKnuxGlide()
 				{
 					Xsp	= 0;
 				}
-				Animation  = AnimGetUp;
+				Animation  = AnimGlideStand;
 				Grounded   = true;
 				GroundLock = 16;
 			
@@ -273,13 +273,10 @@ function PlayerKnuxGlide()
 						Grounded   = true;
 						Xsp		   = 0;
 						GroundLock = 16;
-						Animation  = AnimGetUp;
+						Animation  = AnimDropStand;
 					
 						// Play sound
 						audio_sfx_play(sfxLand, false);
-				
-						// Use second frame of animation
-						image_index = 1;
 					}
 				}
 			

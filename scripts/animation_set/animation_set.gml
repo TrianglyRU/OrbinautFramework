@@ -5,7 +5,7 @@ function animation_set(spriteid,frame)
 	if sprite_index != spriteid or !variable_instance_exists(id, "image_duration")
 	{
 		image_timer     = 0;
-		image_loopframe = 0;
+		image_loopframe = frame;
 		sprite_index    = spriteid;
 	}
 	image_index	    = frame;

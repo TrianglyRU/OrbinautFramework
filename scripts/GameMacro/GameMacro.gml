@@ -75,19 +75,20 @@ function GameMacro()
 	#macro AnimGlide		 17
 	#macro AnimGlideFall     18    
 	#macro AnimSlide         19
-	#macro AnimGetUp	     20
-	#macro AnimClimb		 21
-	#macro AnimClimbLedge	 22
-	#macro AnimClimbFall     23
-	#macro AnimSkid			 24
-	#macro AnimBalance		 25
-	#macro AnimBalanceFlip	 26
-	#macro AnimBalancePanic  27
-	#macro AnimBalanceTurn   28
-	#macro AnimSpring		 29
-	#macro AnimActEnd		 30
-	#macro AnimTransform	 31
-	#macro AnimBreathe		 32
+	#macro AnimDropStand	 20
+	#macro AnimGlideStand    21
+	#macro AnimClimb		 22
+	#macro AnimClimbLedge	 23
+	#macro AnimClimbFall     24
+	#macro AnimSkid			 25
+	#macro AnimBalance		 26
+	#macro AnimBalanceFlip	 27
+	#macro AnimBalancePanic  28
+	#macro AnimBalanceTurn   29
+	#macro AnimSpring		 30
+	#macro AnimActEnd		 31
+	#macro AnimTransform	 32
+	#macro AnimBreathe		 33
 	
 	// Collision macro
 	#macro SideTop	  0

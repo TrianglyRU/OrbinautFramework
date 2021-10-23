@@ -19,7 +19,7 @@ function PlayerAnimate()
 	{
 		AnimKnuxSkid = 16;
 	}
-	if Animation != AnimGetUp
+	if Animation != AnimDropStand and Animation != AnimGlideStand
 	{
 		AnimKnuxGetUp = 16;
 	}
@@ -465,7 +465,7 @@ function PlayerAnimate()
 				case AnimSlide:
 					animation_set(spr_knuckles_glideground, 0);
 				break;
-				case AnimGetUp:
+				case AnimDropStand:
 				{
 					if !(--AnimKnuxGetUp)
 					{
@@ -476,7 +476,19 @@ function PlayerAnimate()
 						animation_set(spr_knuckles_crouch, 1);
 					}
 				}
-				break;				
+				break;
+				case AnimGlideStand:
+				{
+					if !(--AnimKnuxGetUp)
+					{
+						Animation = AnimIdle;
+					}
+					else
+					{
+						animation_set(spr_knuckles_glidestand, 0);
+					}
+				}
+				break;
 				case AnimClimb:
 				{
 					if Input.Down

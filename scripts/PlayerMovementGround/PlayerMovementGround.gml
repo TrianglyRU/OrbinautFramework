@@ -119,7 +119,9 @@ function PlayerMovementGround()
 	{
 		Animation = AnimPush;
 	}
-	else if Animation != AnimGetUp
+	
+	// Check if we're not getting up as Knuckles
+	else if Animation != AnimDropStand and Animation != AnimGlideStand
 	{
 		if Angle <= 45 or Angle >= 316.41
 		{

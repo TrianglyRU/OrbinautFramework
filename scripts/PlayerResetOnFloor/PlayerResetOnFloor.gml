@@ -33,7 +33,7 @@ function PlayerResetOnFloor()
 		// Set animation if landed on solid ground
 		if !OnObject
 		{
-			if Animation != AnimIdle and Animation != AnimGetUp
+			if Animation != AnimIdle and Animation != AnimDropStand and Animation != AnimGlideStand
 			{
 				Animation = AnimMove;
 			}

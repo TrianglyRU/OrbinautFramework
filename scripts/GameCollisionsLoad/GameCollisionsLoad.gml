@@ -1,14 +1,20 @@
 function GameCollisionsLoad()
 {
-	// Initialise statics
-	var AngleMap  = "anglemap"  + Game.TileData[0] + ".bin";
-	var HeightMap = "heightmap" + Game.TileData[0] + ".bin";
-	var WidthMap  = "widthmap"  + Game.TileData[0] + ".bin";
-	
 	// Clear tiledata
 	Game.TileAngle   = [];
 	Game.TileWidths  = [];
 	Game.TileHeights = [];
+	
+	// Exit if we do not need to load any tiledata
+	if !array_length(Game.TileData)
+	{
+		exit;
+	}
+	
+	// Get filenames
+	var AngleMap  = "anglemap"  + Game.TileData[0] + ".bin";
+	var HeightMap = "heightmap" + Game.TileData[0] + ".bin";
+	var WidthMap  = "widthmap"  + Game.TileData[0] + ".bin";
 	
 	// Load collision tiles binary data
 	for (var k = 0; k < 3; k++)

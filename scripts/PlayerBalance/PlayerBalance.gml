@@ -1,7 +1,7 @@
 function PlayerBalance()
 {
 	// Exit moving or getting up
-	if Inertia != 0 or Animation == AnimGetUp
+	if Inertia != 0 or Animation == AnimDropStand or Animation == AnimGlideStand
 	{
 		exit;
 	}

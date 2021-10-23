@@ -7,9 +7,9 @@ function GameCollisionsSetup()
 			tile_data_set("TZ", 66, "CollisionLayerA", "CollisionLayerB");
 		break;
 		
-		// Default
+		// Do not load any tiledata by default
 		default:
-			tile_data_set("", 146, "CollisionLayerA", "CollisionLayerB");
+			tile_data_set(noone, "", "", "");
 		break;
 	}
 }
