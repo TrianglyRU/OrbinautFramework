@@ -68,7 +68,7 @@ function PlayerDebugModeDisplay()
 				case Animal:				 
 					sprite_index = spr_obj_animal_flicky;   
 				break;	
-				case SignPost:				 
+				case ClearPlate:				 
 					sprite_index = spr_obj_signpost_start_sonic;   
 				break;
 				case EggPrison:				 

@@ -4,7 +4,7 @@ function object_act_enemy(enemyType)
 	// Exit if no collision is happening yet
 	if !object_check_overlap(Hitbox)
 	{
-		exit;
+		return false;
 	}
 	
 	// Check if player can damage enemy by gliding, spinning or spindashing
@@ -71,6 +71,7 @@ function object_act_enemy(enemyType)
 			// Destroy Badnik
 			instance_destroy();
 			
+			// Return successful hit
 			return true;
 		}
 		

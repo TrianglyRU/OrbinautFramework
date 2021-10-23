@@ -28,7 +28,7 @@ function PlayerDebugModeSetup()
 		SwingingPlatform,	
 		Bridge,
 		Animal,
-		SignPost,
+		ClearPlate,
 		EggPrison,
 		
 		// Placeholder object, that will grant (or revoke) emeralds

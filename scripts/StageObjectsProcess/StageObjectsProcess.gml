@@ -26,7 +26,7 @@ function StageObjectsProcess()
 					// Destroy object
 					case TypeDelete:
 					{
-						if x < LeftBound or x > RightBound or y > Stage.BottomBoundary
+						if x < LeftBound or x > RightBound or y > Stage.BottomBoundary or y < Stage.TopBoundary
 						{
 							if IsParent
 							{

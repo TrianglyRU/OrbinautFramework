@@ -24,7 +24,7 @@ function ObjCrabmeatMain()
 				State++;
 				
 				// Stop animation
-				animation_set(sprite_index, 1);
+				animation_set(sprite_index, 0);
 			}
 			else
 			{

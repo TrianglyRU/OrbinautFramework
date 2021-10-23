@@ -37,7 +37,7 @@
     "path": "folders/Game Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SignPost",
+  "name": "ClearPlate",
   "tags": [],
   "resourceType": "GMObject",
 }

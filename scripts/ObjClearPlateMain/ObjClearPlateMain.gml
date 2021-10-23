@@ -1,4 +1,4 @@
-function ObjSignpostMain()
+function ObjClearPlateMain()
 {
 	// Exit if playing as different character
 	if id.PlayerType == "Sonic & Tails" and Game.Character == CharKnuckles

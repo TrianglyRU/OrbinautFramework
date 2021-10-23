@@ -123,6 +123,7 @@ function player_damage(isFlame,isThunder,instantKill)
 			{
 				audio_sfx_play(sfxHurt, false);
 			}
+			Player.BarrierType = false;
 		}
 		
 		// Set speeds

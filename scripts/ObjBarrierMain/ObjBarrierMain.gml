@@ -8,7 +8,7 @@ function ObjBarrierMain()
 	{
 		instance_destroy();
 	}
-	switch Player.BarrierType
+	else switch Player.BarrierType
 	{
 		// Update normal barrier
 		case BarrierNormal:

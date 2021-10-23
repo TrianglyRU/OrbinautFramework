@@ -42,7 +42,7 @@ function ObjFloatingPlatformMain()
 			if MovementType != "None"
 			{
 				// Update rotation angle
-				Angle = (abs(Speed) * Stage.Time) mod 360;
+				Angle = (abs(Speed * 1.425) * Stage.Time) mod 360;
 	
 				// Update code position
 				switch MovementType

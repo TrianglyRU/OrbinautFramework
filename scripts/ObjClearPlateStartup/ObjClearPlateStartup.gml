@@ -1,4 +1,4 @@
-function ObjSignpostStartup()
+function ObjClearPlateStartup()
 {
 	/* Variable Definitions	
 	1. PlayerType, default = "All"					
