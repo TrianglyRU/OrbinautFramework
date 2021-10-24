@@ -12,7 +12,7 @@ function tile_check_collision_v(x,y,toPositive,ignoreTop,tilelayer)
 		y--;
 	}
 	
-	// Return blank values if outside of the room
+	// Return blank values if sensor is outside of the room
 	if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
 	{
 		return [32, 360];
@@ -81,7 +81,7 @@ function tile_check_collision_v(x,y,toPositive,ignoreTop,tilelayer)
 		}
 	}
 	
-	// Return blank values if target tile is outside of the room
+	// Return blank values if target tile is below the bottom boundary
 	var BoundsCheck = (y + SearchShift * SearchDirection) & -16;
 	if  BoundsCheck >= room_height
 	{
