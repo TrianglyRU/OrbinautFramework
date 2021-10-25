@@ -1,18 +1,18 @@
-/// @function tile_check_nearest(leftdata,rightdata,objectAngle)
-function tile_check_nearest(leftdata,rightdata,objectAngle)
+/// @function tile_check_nearest(data1,data2,objectAngle)
+function tile_check_nearest(data1,data2,objectAngle)
 {
 	// Use the left tile
-	if leftdata[0] <= rightdata[0]
+	if data1[0] <= data2[0]
 	{
-		var ResultDistance = leftdata[0];
-		var ResultAngle	   = leftdata[1];
+		var ResultDistance = data1[0];
+		var ResultAngle	   = data1[1];
 	}
 	
 	// Else use the right tile
 	else	
 	{
-		var ResultDistance = rightdata[0];
-		var ResultAngle	   = rightdata[1];
+		var ResultDistance = data2[0];
+		var ResultAngle	   = data2[1];
 	}
 	
 	// Is object angle defined?

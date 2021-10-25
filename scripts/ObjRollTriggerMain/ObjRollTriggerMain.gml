@@ -1,21 +1,20 @@
 function ObjRollTriggerMain()
 {	
 	// Check for overlap
-	if object_check_overlap(Triggerbox)
+	if object_check_overlap(Triggerbox) 
 	{
-		// Set player flags
-		Player.ForcedRoll  = true;
-		Player.FlightState = false;
-		Player.GlideState  = false;
-		
-		// Set object flag
-		if !State and abs(Player.Inertia) < 4
+		if Player.Grounded
 		{
-			Player.Inertia = 2 * Player.Facing;
-		}
+			// Force player to roll
+			if !State and abs(Player.Inertia) < 4
+			{
+				Player.Inertia = 4 * Player.Facing;
+			}
+			Player.ForcedRoll = true;
 		
-		// Increment state
-		State = 1;
+			// Increment state
+			State = 1;
+		}
 	}
 	
 	// Reset
