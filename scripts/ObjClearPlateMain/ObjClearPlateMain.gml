@@ -15,16 +15,20 @@ function ObjClearPlateMain()
 		{
 			if object_check_overlap(Triggerbox)
 			{
-				// Play sound and stop music
+				// Play sound 
 				audio_sfx_play(sfxSignPost, false);
-				audio_bgm_stop(PriorityLow,  1);
-				audio_bgm_stop(PriorityHigh, 1);
+				
+				// Restore stage music
+				if !audio_bgm_is_playing(Stage.StageMusic)
+				{
+					audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+				}
 				
 				// Set stage flags
 				Stage.TimeEnabled = false;
 				Stage.IsFinished  = 1;
 				
-				// Make player exit super form
+				// Make player exit out from super form
 				if Player.SuperState
 				{
 					Player.SuperState = false;

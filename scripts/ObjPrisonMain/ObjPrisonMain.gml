@@ -17,7 +17,7 @@ function ObjPrisonMain()
 				Stage.TimeEnabled = false;
 				Stage.IsFinished  = 1;
 				
-				// Disable super state
+				// Make player exit out from super form
 				if Player.SuperState
 				{
 					Player.SuperState = false;
@@ -116,7 +116,7 @@ function ObjPrisonMain()
 			}
 			
 			// Start results event if target animal is off-screen
-			if Stage.IsFinished == 1 and (TargetAnimal.x < Camera.ViewX or TargetAnimal.x > Camera.ViewX + Game.Width)
+			if Stage.IsFinished == 1 and !object_is_onscreen(TargetAnimal)
 			{
 				Stage.IsFinished = 3;
 				audio_bgm_play(PriorityLow, ActClear, 0, 0);
