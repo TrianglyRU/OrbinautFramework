@@ -16,7 +16,7 @@ function ObjClearPlateMain()
 			if object_check_overlap(Triggerbox)
 			{
 				// Play sound 
-				audio_sfx_play(sfxSignPost, false);
+				audio_sfx_play(sfxClearPlate, false);
 				
 				// Restore stage music
 				if !audio_bgm_is_playing(Stage.StageMusic)

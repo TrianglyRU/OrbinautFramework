@@ -18,20 +18,20 @@ function ObjClearPlateStartup()
 	{
 		case CharSonic:
 		{
-			SpriteData[0] = spr_obj_signpost_start_sonic;
-			SpriteData[1] = spr_obj_signpost_end_sonic;
+			SpriteData[0] = spr_obj_clearplate_start_sonic;
+			SpriteData[1] = spr_obj_clearplate_end_sonic;
 		}
 		break;
 		case CharTails:
 		{
-			SpriteData[0] = spr_obj_signpost_start_tails;
-			SpriteData[1] = spr_obj_signpost_end_tails;
+			SpriteData[0] = spr_obj_clearplate_start_tails;
+			SpriteData[1] = spr_obj_clearplate_end_tails;
 		}
 		break;
 		case CharKnuckles:
 		{
-			SpriteData[0] = spr_obj_signpost_start_knuckles;
-			SpriteData[1] = spr_obj_signpost_end_knuckles;
+			SpriteData[0] = spr_obj_clearplate_start_knuckles;
+			SpriteData[1] = spr_obj_clearplate_end_knuckles;
 		}
 		break;
 	}

@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxSignPost.wav",
-  "duration": 1.804422,
+  "soundFile": "sfxClearPlate.wav",
+  "duration": 1.975805,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxSignPost",
+  "name": "sfxClearPlate",
   "tags": [],
   "resourceType": "GMSound",
 }

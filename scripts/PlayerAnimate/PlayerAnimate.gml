@@ -534,7 +534,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_transform, [6, 3, 3], 0, 1);
 				break;
 				case AnimActEnd:
-					animation_play(spr_knuckles_actend, [6, 18, 6, 6], 0, 5);
+					animation_play(spr_knuckles_actend, [6, 18, 6, 6], 0, 4);
 				break;
 				case AnimAirSpin:
 					animation_play(spr_knuckles_airspin, 3, 0, 0);
