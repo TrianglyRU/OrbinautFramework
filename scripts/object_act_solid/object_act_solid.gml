@@ -148,7 +148,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 			{
 				if PlayerY < ObjectY
 				{
-					if Player.Ysp >= 0
+					if Player.Ysp >= 0 and !Player.Grounded
 					{
 						// Exit if outside the object
 						var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;
