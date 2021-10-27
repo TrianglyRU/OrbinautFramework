@@ -80,6 +80,16 @@ function StageObjectsProcess()
 							y			 = Obj_UnloadData[1];
 							image_xscale = Obj_UnloadData[2];
 							image_yscale = Obj_UnloadData[3];
+							image_index  = Obj_UnloadData[4];
+							sprite_index = Obj_UnloadData[5];
+							visible      = Obj_UnloadData[6];
+							
+							// Reset animation data
+							if variable_instance_exists(id, "image_duration")
+							{
+								image_duration = 0;
+								image_timer    = 0;
+							}
 								
 							// Perform create event to re-initialise variables
 							event_perform(ev_create, 0);

@@ -54,9 +54,8 @@ function PlayerKnuxClimb()
 				var EdgeDistance = tile_check_collision_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[0];
 				if  EdgeDistance > 3
 				{
-					Ysp		       = 0;
-					ClimbState     = 2;
-					AllowCollision = false;
+					Ysp		   = 0;
+					ClimbState = 2;
 					
 					// Align to the edge
 					while tile_check_collision_h(PosX + RadiusX * Facing, PosY - 9, Facing, true, Layer)[0]
@@ -153,9 +152,8 @@ function PlayerKnuxClimb()
 					PosY += 4;
 				
 					// Land
-					AllowCollision = true;
-					Grounded       = true;
-					Animation	   = AnimIdle;
+					Grounded  = true;
+					Animation = AnimIdle;
 				}
 				break;
 			}
