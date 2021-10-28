@@ -50,32 +50,14 @@ function PlayerDebugModeDisplay()
 				case StarPost:				 
 					sprite_index = spr_obj_starpost;		  
 				break;
-				case AirBubbler:				 
-					sprite_index = spr_obj_airbubbler;		  
-				break;
-				case PushableBlock:				 
-					sprite_index = spr_obj_pushableblock;		  
-				break;
-				case FloatingPlatform:		 
-					sprite_index = spr_obj_platform_template;   
-				break;
-				case SwingingPlatform:		 
-					sprite_index = spr_obj_swingplatform_editor;   
-				break;
-				case Bridge:				 
-					sprite_index = spr_obj_bridge_editor;   
-				break;
 				case Animal:				 
 					sprite_index = spr_obj_animal_flicky;   
 				break;	
 				case ClearPlate:				 
-					sprite_index = spr_obj_signpost_start_sonic;   
+					sprite_index = spr_obj_clearplate_start_st;   
 				break;
 				case EggPrison:				 
 					sprite_index = spr_obj_eggprison;   
-				break;
-				case Player:
-					sprite_index = spr_tempobject;
 				break;
 			}
 		}

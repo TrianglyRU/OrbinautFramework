@@ -18,7 +18,8 @@ function PlayerRoll()
 			}
 			else
 			{
-				Facing = FlipLeft;
+				Pushing = false;
+				Facing  = FlipLeft;
 			}
 		}
 		if Input.Right
@@ -33,6 +34,7 @@ function PlayerRoll()
 			}
 			else
 			{
+				Pushing = false;
 				Facing  = FlipRight;
 			}
 		}

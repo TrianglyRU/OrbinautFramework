@@ -9,7 +9,7 @@ function ObjPushableBlockMain()
 		case 0:
 		{
 			// Check for being pushed
-			if object_check_touch(SideLeft)
+			if object_check_push(SideLeft)
 			{
 				Player.Inertia = 0.25;
 				Player.PosX   += 1;
@@ -17,7 +17,7 @@ function ObjPushableBlockMain()
 				PosX	 += 1;
 				Direction = FlipRight;				
 			}
-			else if object_check_touch(SideRight)
+			else if object_check_push(SideRight)
 			{
 				Player.Inertia = -0.25;
 				Player.PosX   -= 1;

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_clearplate_start_sonic",
-    "path": "sprites/spr_obj_clearplate_start_sonic/spr_obj_clearplate_start_sonic.yy",
+    "name": "spr_obj_clearplate_start_st",
+    "path": "sprites/spr_obj_clearplate_start_st/spr_obj_clearplate_start_st.yy",
   },
   "solid": false,
   "visible": true,

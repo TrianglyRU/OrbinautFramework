@@ -137,33 +137,15 @@ function PlayerDebugMode()
 		// Spawn current object
 		if !Input.A
 		{
-			if DebugList[DebugItem] != Player
+			var  ThisObject = image_xscale;
+			var  Object     = instance_create(PosX, PosY, DebugList[DebugItem]);
+			with Object
 			{
-				var  ThisObject = image_xscale;
-				var  Object     = instance_create(PosX, PosY, DebugList[DebugItem]);
-				with Object
-				{
-					// Spawn with the same xscale
-					image_xscale = ThisObject;
+				// Spawn with the same xscale
+				image_xscale = ThisObject;
 					
-					// Delete object onc off-screen
-					object_set_unload(TypeDelete);
-				}
-			}
-			
-			// Grant or revoke 7 emeralds
-			else
-			{
-				if Game.Emeralds != 7
-				{
-					Game.Emeralds = 7;
-					audio_sfx_play(sfxEmerald, false);
-				}
-				else
-				{
-					Game.Emeralds = 0;
-					audio_sfx_play(sfxFail, false);
-				}
+				// Delete object onc off-screen
+				object_set_unload(TypeDelete);
 			}
 		}
 		

@@ -22,16 +22,8 @@ function PlayerDebugModeSetup()
 		SpringRedDiagonal,
 		SpringRamp,
 		StarPost,
-		AirBubbler,
-		PushableBlock,
-		FloatingPlatform,
-		SwingingPlatform,	
-		Bridge,
 		Animal,
 		ClearPlate,
 		EggPrison,
-		
-		// Placeholder object, that will grant (or revoke) emeralds
-		Player
 	];
 }

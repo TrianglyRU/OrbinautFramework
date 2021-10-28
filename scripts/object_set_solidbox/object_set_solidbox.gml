@@ -11,6 +11,7 @@ function object_set_solidbox(xradius,yradius,heightmap)
 	Obj_SolidTouchD = false;
 	Obj_SolidTouchL = false;
 	Obj_SolidTouchR = false;
+	Obj_SolidPush   = false;
 	
 	// Mark as solid
 	Obj_SolidStatus = true;
