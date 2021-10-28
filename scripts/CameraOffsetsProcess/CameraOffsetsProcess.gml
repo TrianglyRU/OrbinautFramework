@@ -43,15 +43,15 @@ function CameraOffsetsProcess()
 		
 		if abs(Player.Inertia) >= 6 or Player.PeeloutRev >= 6 or Player.SpindashRev >= 0
 		{
-			if !ScrollDelay
+			if !ScrollDelay and abs(ExtendedOffset) < ScreenShift
 			{
-				if Player.PeeloutRev >= 6 or Player.SpindashRev >= 0
+				if Player.Inertia == 0
 				{
 					ExtendedOffset += ScreenSpeed * Player.Facing;
 				}
-				else if Player.Xsp > 0 and abs(ExtendedOffset) < ScreenShift
+				else
 				{
-					ExtendedOffset += ScreenSpeed * sign(Player.Xsp) * (abs(Player.Inertia) >= 6);
+					ExtendedOffset += ScreenSpeed * sign(Player.Xsp);
 				}
 			}
 		}
