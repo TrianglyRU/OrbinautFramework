@@ -18,12 +18,6 @@ function ObjClearPlateMain()
 				// Play sound 
 				audio_sfx_play(sfxClearPlate, false);
 				
-				// Restore stage music
-				if !audio_bgm_is_playing(Stage.StageMusic)
-				{
-					audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
-				}
-				
 				// Set stage flags
 				Stage.TimeEnabled = false;
 				Stage.IsFinished  = 1;
@@ -32,6 +26,7 @@ function ObjClearPlateMain()
 				if Player.SuperState
 				{
 					Player.SuperState = false;
+					audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
 				}
 				
 				// Increment state
