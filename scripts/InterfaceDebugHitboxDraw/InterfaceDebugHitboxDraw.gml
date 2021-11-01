@@ -21,7 +21,7 @@ function InterfaceDebugHitboxDraw()
 			// Player hitbox
 			if object_index == Player
 			{
-				if Animation == AnimCrouch
+				if Game.Character != CharTails and Animation == AnimCrouch and image_index + 1 == image_number
 				{
 					var pTop    = floor(PosY - 4);
 					var pLeft   = floor(PosX - 8);

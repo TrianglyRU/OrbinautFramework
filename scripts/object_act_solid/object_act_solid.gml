@@ -128,13 +128,12 @@ function object_act_solid(sides,top,bottom,resetActions)
 					}
 				
 					// Clip out
-					else if Player.Ysp <= 0
+					else if Player.Ysp < 0
 					{
 						if Player.FlightState
 						{
 							Player.Grv = 0.03125;
 						}
-					
 						Player.PosY -= YDistance;
 						Player.Ysp   = 0;
 					}
@@ -169,8 +168,8 @@ function object_act_solid(sides,top,bottom,resetActions)
 							OnObject = ObjectID;
 					
 							// Update horizontal speed and angle
-							Inertia  = Xsp;
-							Angle    = 360;
+							Inertia = Xsp;
+							Angle   = 360;
 						
 							// If interactable, cancel barrier ability and dropdash
 							if resetActions

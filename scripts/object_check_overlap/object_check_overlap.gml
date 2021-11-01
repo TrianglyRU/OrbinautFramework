@@ -35,7 +35,7 @@ function object_check_overlap(collisionType)
 		var ObjectBottom = floor(y + Obj_HitY - 1);
 		
 		// Get player's hitbox
-		if Player.Animation == AnimCrouch
+		if Game.Character != CharTails and Player.Animation == AnimCrouch and Player.image_index + 1 == Player.image_number
 		{
 			var PlayerTop    = floor(Player.PosY - 4);
 			var PlayerLeft   = floor(Player.PosX - 8);
