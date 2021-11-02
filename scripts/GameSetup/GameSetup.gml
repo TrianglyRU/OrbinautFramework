@@ -3,7 +3,7 @@ function GameSetup()
 	// Game settings
 	Game.WindowTitle = "Orbinaut Framework (Dev.)";
 	Game.DevMode     = true;
-	Game.ShowSplash  = false;
+	Game.ShowSplash  = true;
 	Game.ForceLoad	 = false;	// If set to false the game will load into DevMenu, else into the room you choose
 	
 	// Originals differences
@@ -27,7 +27,7 @@ function GameSetup()
 	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = false;
 	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = false;
+	Game.NoRollSpeedLimit	  = true;
 	Game.FlightCancel	      = true;
 	
 	/* Video, audio and control settings below are overwritten by 
@@ -35,8 +35,8 @@ function GameSetup()
 	
 	// Video settings
 	Game.WindowFullscreen = false;
-	Game.Width            = 424;
-	Game.Height			  = 240;
+	Game.Width            = 400;
+	Game.Height			  = 224;
 	Game.WindowSize	      = 3;
 	
 	// Audio settings

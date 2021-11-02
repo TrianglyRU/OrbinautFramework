@@ -1,48 +1,48 @@
 /// @function palette_handle(paletteType,id,range,last,goto,duration)
 function palette_handle(paletteType,id,range,last,goto,duration)
 {
-	// Get unique ID
+	// Exit if no pallete set, if playable stage is paused, or fade is active
+	if Palette.ColourSet[paletteType] == false or variable_check(Stage, "IsPaused") or fade_check(FadeActive)
+	{
+		exit;
+	}
+	
+	// Get unique ID for this palette sequence
 	var SequenceID = string(last) + "_" + string(goto);
 	
-	// Initialise or update palette shift
+	// Initialise palette sequence
 	if Palette.Sequence[paletteType,id] != SequenceID
 	{
 		Palette.Sequence[paletteType,id] = SequenceID;
 		Palette.Duration[paletteType,id] = duration;
 	}
-	else if duration > 1
+	
+	// Update sequence
+	else if duration > 0
 	{
-		// If fade is active or stage is paused, do not update
-		if !fade_check(FadeActive) and !variable_check(Stage, "IsPaused")
+		if !(--Palette.Duration[paletteType,id])
 		{
-			// Decrease the value of animation timer
-			if (--Palette.Duration[paletteType,id]) < 1
+			// Update colour(-s)
+			for (var i = id; i < id + range; i++)
 			{
-				var Bound  = max(1, goto);
-				var Amount = id + range;
-			
-				// Reset duration
-				Palette.Duration[paletteType,id] = duration;
-			
-				// Update colour(s)
-				for (var i = id; i < Amount; i++)
+				if paletteType == PaletteType1
 				{
-					if paletteType == PaletteDry
+					if (++Palette.IndexType1[i]) > last
 					{
-						if (++Palette.IndexDry[i]) > last
-						{
-							Palette.IndexDry[i] = Bound;
-						}
+						Palette.IndexType1[i] = goto;
 					}
-					else if paletteType == PaletteWet
+				}
+				else if paletteType == PaletteType2
+				{
+					if (++Palette.IndexType2[i]) > last
 					{
-						if (++Palette.IndexWet[i]) > last
-						{
-							Palette.IndexWet[i] = Bound;
-						}
+						Palette.IndexType2[i] = goto;
 					}
 				}
 			}
+			
+			// Reset duration
+			Palette.Duration[paletteType,id] = duration;
 		}
 	}
 }

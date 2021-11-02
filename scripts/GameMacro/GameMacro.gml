@@ -27,8 +27,8 @@ function GameMacro()
 	
 	// Palette macro
 	#macro PaletteLimit  64
-	#macro PaletteDry    0
-	#macro PaletteWet    1
+	#macro PaletteType1    0
+	#macro PaletteType2    1
 	#macro FadeActive    0
 	#macro FadeMax       1
 	#macro FadeTo        0

@@ -1,9 +1,9 @@
 function PaletteStartup()
 {	
 	// Set blank values
-	ColourSet   = [];
-	Duration    = [];
-	Sequence    = [];
+	ColourSet = [];
+	Duration  = [];
+	Sequence  = [];
 	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)
@@ -13,8 +13,8 @@ function PaletteStartup()
 			Duration[i, j] = noone;
 			Sequence[i, j] = noone;
 		}	
-		IndexDry[i] = 1;
-		IndexWet[i] = 1;
+		IndexType1[i] = 1;
+		IndexType2[i] = 1;
 	}
 	
 	// Set empty surfaces
