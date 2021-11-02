@@ -1,7 +1,7 @@
 function ObjBossTriggerMain()
 {
 	// Set right boundary if object exist
-	Stage.TargetRightBoundary = x + max(Game.Width / 2, ArenaWidth  / 2);
+	Stage.TargetRightBoundary = x + max(Game.Width / 2, ArenaWidth / 2);
 	
 	// Check if player ran past the trigger
 	if Stage.IsBossfight == -1

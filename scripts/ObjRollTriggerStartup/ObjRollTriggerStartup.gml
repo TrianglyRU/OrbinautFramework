@@ -1,8 +1,8 @@
 function ObjRollTriggerStartup()
 {
 	/* Variable Definitions	
-	1. XSize, default = 32
-	2. YSize, default = 64		
+	1. XSize, default = 16
+	2. YSize, default = 32		
 	*/
 	
 	// Set variable
@@ -12,5 +12,5 @@ function ObjRollTriggerStartup()
 	visible = false;
 	
 	// Set object triggerbox
-	object_set_triggerbox(0, XSize, 0, YSize);
+	object_set_triggerbox(0, XSize * 16, 0, YSize * 16);
 }

@@ -4,31 +4,29 @@ function ObjSwingingPlatformMain()
 	if OriginX + Amplitude < Camera.ViewX or OriginX - Amplitude > Camera.ViewX + Game.Width 
 	or OriginY + Amplitude < Camera.ViewY or OriginY - Amplitude > Camera.ViewY + Game.Height
 	{
-		Unload = true;
+		ProcessObject = false;
 	}
 	else
 	{
-		Unload = false;
+		ProcessObject = true;
 	}
      
-	// Do not run the code below if unloaded
-	if Unload
+	// Exit if object is unloaded
+	if !ProcessObject
 	{
 		exit;
 	}
 	
-	// Set rotation angle
-	RotationAngle = Stage.Time * Speed mod 360;
+	// Update oscillate angle
+	var Angle = dsin((abs(Speed * 1.425) * Stage.Time) mod 360);
 	
-	// Move platform
-	var Angle = dsin(RotationAngle);
-	XDist     = dcos(90 + Angle * AngleX) * ChainSize;
-	YDist     = dsin(90 + Angle * AngleY) * ChainSize;
-		
-	// Update position
-	var Count = ChainCount + 1;
-	x = floor(OriginX + XDist * Count);
-	y = floor(OriginY + YDist * Count);
+	// Calculate distance
+	DistanceX = dcos(90 + Angle * 90) * 16
+	DistanceY = dsin(90 + Angle * 90) * 16;
+	
+	// Calculate final position
+	x = floor(OriginX + DistanceX * (ChainCount + 0.5));
+	y = floor(OriginY + DistanceY * (ChainCount + 0.5));
     
 	// Do collision
 	object_act_solid(false, true, false, false);

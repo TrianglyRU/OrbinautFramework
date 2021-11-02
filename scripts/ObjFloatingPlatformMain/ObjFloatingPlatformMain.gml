@@ -41,8 +41,8 @@ function ObjFloatingPlatformMain()
 			// Check if platform has movement pattern assigned
 			if MovementType != "None"
 			{
-				// Update rotation angle
-				Angle = (abs(Speed * 1.425) * Stage.Time) mod 360;
+				// Update oscillate angle
+				var Angle = (abs(Speed * 1.425) * Stage.Time) mod 360;
 	
 				// Update code position
 				switch MovementType
@@ -70,9 +70,6 @@ function ObjFloatingPlatformMain()
 					}
 					break;
 				}
-	
-				// Limit angle value
-				Angle = Angle mod 360;
 			}
 	
 			// Update position
