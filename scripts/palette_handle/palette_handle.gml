@@ -18,7 +18,7 @@ function palette_handle(paletteType,id,range,last,goto,duration)
 	}
 	
 	// Update sequence
-	else if duration > 0
+	else if duration
 	{
 		if !(--Palette.Duration[paletteType,id])
 		{

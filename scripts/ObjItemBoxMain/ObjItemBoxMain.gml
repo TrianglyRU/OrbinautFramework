@@ -10,75 +10,65 @@ function ObjItemBoxMain()
 			{
 				Timer = 5;
 			}
-			
-			// Check if player is able to interact with itembox
-			if (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id
-			{
-				// Check if player is able to destroy it
-				if Game.SKItemBoxBehaviour
-				{
-					if Player.Ysp < 0
-					{
-						var Check = floor(Player.PosY + 16) >= y;
-					}
-					else
-					{
-						var Check = true;
-					}
-				}
-				else
-				{
-					var Check = Player.Ysp >= 0;
-				}
-				if Check
-				{
-					// Destroy on overlap
-					if object_check_overlap(Hitbox)
-					{
-						// Inverse player's speed
-						if !Player.Grounded
-						{
-							Player.Ysp = -Player.Ysp;
-						}
-					
-						// Create explosion
-						instance_create(PosX, PosY, DustExplosion);
-						audio_sfx_play(sfxDestroy, false);
-				
-						// Temporary do not unload the object
-						object_set_unload(false);	
 
-						// Increment state
-						Timer = 0;
-						State++;
-					}
+			// Check if player is able to destroy it
+			if Game.SKItemBoxBehaviour
+			{
+				if Player.Ysp < 0
+				{
+					var Check = floor(Player.PosY + 16) >= y;
 				}
-				
-				// If not, check for bumping into its bottom
 				else
 				{
-					// Do collision
-					object_act_solid(true, true, false, false);
-					
-					// Make itembox fall down
-					if !IsFalling and floor(Player.PosY) >= floor(y + 16)
-					{
-						if object_check_overlap(Hitbox)
-						{
-							IsFalling  = true;
-							Ysp        = -1.5;
-							Player.Ysp = -Player.Ysp;
-						}
-					}
+					var Check = true;
 				}
-			}	
-		
-			// If can't interact, do collision
+			}
 			else
 			{
-				object_act_solid(true, true, false, false);
+				var Check = Player.Ysp >= 0;
 			}
+			if Check and (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id
+			{
+				// Destroy on overlap
+				if object_check_overlap(Hitbox)
+				{
+					// Inverse player's speed
+					if !Player.Grounded
+					{
+						Player.Ysp = -Player.Ysp;
+					}
+					
+					// Create explosion
+					instance_create(PosX, PosY, DustExplosion);
+					audio_sfx_play(sfxDestroy, false);
+				
+					// Temporary do not unload the object
+					object_set_unload(false);	
 
+					// Increment state
+					Timer = 0;
+					State++;
+				}
+			}
+				
+			// If not, just collide
+			else
+			{
+				// Do collision
+				object_act_solid(true, true, false, false);
+					
+				// Make itembox fall down
+				if !IsFalling and floor(Player.PosY) >= floor(y + 16)
+				{
+					if object_check_overlap(Hitbox)
+					{
+						IsFalling  = true;
+						Ysp        = -1.5;
+						Player.Ysp = -Player.Ysp;
+					}
+				}
+			}
+		
 			// Check if itembox is airborne
 			if IsFalling
 			{
@@ -164,7 +154,7 @@ function ObjItemBoxMain()
 					Player.InvincibleBonus = 1200;
 						
 					// Play music
-					audio_bgm_play(PriorityLow, Invincibility, 0, 0);
+					audio_bgm_play(PriorityLow, Invincibility, other, other);
 				}
 				break;
 				case "Barrier":
