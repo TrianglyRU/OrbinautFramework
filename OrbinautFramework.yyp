@@ -119,6 +119,7 @@
     {"id":{"name":"ObjBumperMain","path":"scripts/ObjBumperMain/ObjBumperMain.yy",},"order":38,},
     {"id":{"name":"InterfaceGameOverDraw","path":"scripts/InterfaceGameOverDraw/InterfaceGameOverDraw.yy",},"order":13,},
     {"id":{"name":"spr_supersonic_drown","path":"sprites/spr_supersonic_drown/spr_supersonic_drown.yy",},"order":66,},
+    {"id":{"name":"Screen_Template","path":"rooms/Screen_Template/Screen_Template.yy",},"order":5,},
     {"id":{"name":"audio_bgm_stop","path":"scripts/audio_bgm_stop/audio_bgm_stop.yy",},"order":4,},
     {"id":{"name":"SuperStar","path":"objects/SuperStar/SuperStar.yy",},"order":18,},
     {"id":{"name":"sfxHurt","path":"sounds/sfxHurt/sfxHurt.yy",},"order":38,},
@@ -725,6 +726,7 @@
     {"roomId":{"name":"Screen_Splash","path":"rooms/Screen_Splash/Screen_Splash.yy",},},
     {"roomId":{"name":"Stage_Template","path":"rooms/Stage_Template/Stage_Template.yy",},},
     {"roomId":{"name":"Stage_BonusStage","path":"rooms/Stage_BonusStage/Stage_BonusStage.yy",},},
+    {"roomId":{"name":"Screen_Template","path":"rooms/Screen_Template/Screen_Template.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Plugins.yy","order":0,"resourceVersion":"1.0","name":"Plugins","tags":[],"resourceType":"GMFolder",},
