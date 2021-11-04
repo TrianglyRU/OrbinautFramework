@@ -17,6 +17,9 @@ function ObjSpringHorizontalMain()
 		Player.Facing  = image_xscale;	
 		Player.Inertia = Player.Xsp;
 		Player.Pushing = false;
+		
+		// Set animation
+		Player.Animation = Player.Spinning ? AnimSpin : AnimMove;
 			
 		// Play sound
 		audio_sfx_play(sfxSpring, false);
