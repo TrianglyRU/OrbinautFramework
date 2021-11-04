@@ -24,5 +24,4 @@ We're currently developing a detailed documentation for our framework, planned t
 - You are allowed to heavily modify our framework and re-release it then (like Freedom Planet, which is global modification of Sonic Worlds). Just make sure to credit us.
 - You are allowed to use it for commertical releases!
 - You are allowed to use our code and/or shaders while crediting us under "additional programming" and/or "shaders". If you decide to use our palette shader, please, make sure to credit PixelatedPope, as we used part of their shader for ours.
-- You are allowed to heavily modify our framework and re-release it then, while
 - We will not provide any development support for you if you're developing an .exe fangame using our framework. Just no. Sorry.
