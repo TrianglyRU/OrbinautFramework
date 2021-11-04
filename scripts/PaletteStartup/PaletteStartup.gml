@@ -17,16 +17,17 @@ function PaletteStartup()
 		IndexType2[i] = 1;
 	}
 	
-	// Set empty surfaces
+	// Setup surfaces
 	SurfaceLow  = noone;
 	SurfaceHigh = noone;
-	
+	DoReset		= false;
+
 	// Setup fade
 	FadeMode   = 1;
 	FadeStep   = 756;
 	FadeColour = 0;
 	FadePower  = 0;
 	
-	// Reset surface
+	// Enable surface draw
 	application_surface_draw_enable(false);
 }

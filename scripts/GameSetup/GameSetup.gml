@@ -66,4 +66,8 @@ function GameSetup()
 	Game.BonusStageData  = [];
 	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];
+	
+	// Initialise surfaces used to render the game. DON'T TOUCH IT!
+	SurfaceLow = noone;
+	SurfaceHigh = noone;
 }
