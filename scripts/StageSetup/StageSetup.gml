@@ -3,6 +3,9 @@ function StageSetup()
 	// Define last zone id. That will be used to mark savefile as completed one
 	FinalZoneID = 0;
 	
+	// Set osillate angle to use in objects
+	OscillateAngle = 1.40625;
+	
 	switch room 
 	{	
 		// Test Stage

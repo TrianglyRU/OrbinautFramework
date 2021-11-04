@@ -18,7 +18,7 @@ function ObjSwingingPlatformMain()
 	}
 	
 	// Update oscillate angle
-	var Angle = dsin((abs(Speed * 1.425) * Stage.Time) mod 360);
+	var Angle = dsin((abs(Speed * Stage.OscillateAngle) * Stage.Time) mod 360);
 	
 	// Calculate distance
 	DistanceX = dcos(90 + Angle * 90) * 16
