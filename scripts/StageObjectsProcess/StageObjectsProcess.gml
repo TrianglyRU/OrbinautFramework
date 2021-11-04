@@ -8,20 +8,12 @@ function StageObjectsProcess()
 	
 		with all 
 		{	
-			if variable_instance_exists(id, "Obj_UnloadStatus")
+			if variable_instance_exists(id, "Obj_UnloadType")
 			{
 				// Check if object is a parent
 				var IsParent = variable_instance_exists(id, "Obj_ChildrenIDs");
 				
-				// If can't be unloaded, check if the object is within boundaries
-				if !Obj_UnloadFlag
-				{
-					if x >= LeftBound and x <= RightBound
-					{
-						Obj_UnloadFlag = true;
-					}
-				}
-				else switch Obj_UnloadStatus
+				switch Obj_UnloadType
 				{
 					// Destroy object
 					case TypeDelete:
@@ -90,9 +82,12 @@ function StageObjectsProcess()
 								image_duration = 0;
 								image_timer    = 0;
 							}
-								
+									
 							// Perform create event to re-initialise variables
 							event_perform(ev_create, 0);
+							
+							// Deactivate
+							instance_deactivate_object(id);
 						}
 					}
 					break;
