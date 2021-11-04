@@ -10,7 +10,7 @@ Orbinaut Framework is an extremely accurate and, which is most important, a very
 - and much more!
 
 # Documentation
-We're currently developing a detailed documentation for our framework, planned to relese this November, please stay tuned!
+We're currently developing a detailed documentation for our framework, planned to release this November, please stay tuned!
 
 # Special Thanks
 - LapperDev
