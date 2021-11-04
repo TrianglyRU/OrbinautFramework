@@ -20,7 +20,7 @@ We're currently developing a detailed documentation for our framework, planned t
 - Nkrapivin (Discord RP plugin)
 
 # Terms of use
-- We would like you NOT to re-release your framework with "features" added it (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.)
+- You are not allowed to re-release our framework with "features" added it (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.). Feel free to use it only for your own closed-source projects.
 - You are allowed to heavily modify our framework and re-release it then (like Freedom Planet, which is global modification of Sonic Worlds). Just make sure to credit us.
 - You are allowed to use it for commertical releases!
 - You are allowed to use our code and/or shaders while crediting us under "additional programming" and/or "shaders". If you decide to use our palette shader, please, make sure to credit PixelatedPope, as we used part of their shader for ours.
