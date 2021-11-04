@@ -1,25 +1,16 @@
-# Please Note!
-Do not use the latest master as it is somewhat a dev version. Use the latest release instead!
+# About
+Orbinaut Framework is an extremely accurate and, which is most important, a very easy to use classic Sonic framework, made for GameMaker Studio 2. Accuracy, improvements, optional tweaks: it is all there and is waiting for you. Whether you are a beginner or an experienced fan game developer, visual or traditional coding fan: Orbinaut is made for everyone!
 
 # Features
-- Classic-accurate physics
-- Orignal-engine-like stage collision method based on distances.
+- 100% classic-accurate physics
+- Accurate object and stage collision (tiles) method based on distances.
 - Various toggable frameworks tweaks, including differences between classic trilogy games
 - Discord Rich Presence support
-- Solid optimization
+- Solid optimisation
 - and much more!
 
-# Architecture
-Orbinaut is built to be simple to use and easy to understand. All main global code is stored in scripts that are called from the framework 
-controllers or objects. There is no code directly in events. The project library is sorted and organized as compact and understandable as possible, 
-so it's very difficult to get lost navigating it.
-
 # Documentation
-Orbinaut has its own documentation where we explain how the framework works, how to do things and how each custom function works. Including pictures, 
-everyone likes pictures! (Coming soon!)
-
-# Wanna stay tuned?
-Follow our Twitter account to get latest news: https://twitter.com/TeamOrbinaut
+We're currently developing a detailed documentation for our framework, planned to relese this November, please stay tuned!
 
 # Special Thanks
 - LapperDev
@@ -28,8 +19,10 @@ Follow our Twitter account to get latest news: https://twitter.com/TeamOrbinaut
 - PixelatedPope
 - Nkrapivin (Discord RP plugin)
 
-# TERMS OF USE
-- You are NOT allowed to re-release our framework with "features" added to it (like OrbinautFrameworkPlus etc etc.)
-- You are ALLOWED to heavily modificate our framework (and release it then) while crediting us as originals creators
-- You are ALLOWED to use our code (and shaders) while crediting us under "additional programming" and/or "shaders" (if you use palette shader, also credit PixelatedPope)
-- We WON'T provide you ANY kind of support if you're developing an .exe fangame using our framework, or ignoring terms of use stated above
+# Terms of use
+- We would like you NOT to re-release your framework with "features" added it (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.)
+- You are allowed to heavily modify our framework and re-release it then (like Freedom Planet, which is global modification of Sonic Worlds). Just make sure to credit us.
+- You are allowed to use it for commertical releases!
+- You are allowed to use our code and/or shaders while crediting us under "additional programming" and/or "shaders". If you decide to use our palette shader, please, make sure to credit PixelatedPope, as we used part of their shader for ours.
+- You are allowed to heavily modify our framework and re-release it then, while
+- We will not provide any development support for you if you're developing an .exe fangame using our framework. Just no. Sorry.
