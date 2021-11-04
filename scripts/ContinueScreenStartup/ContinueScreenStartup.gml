@@ -34,13 +34,15 @@ function ContinueScreenStartup()
 		}
 		break;
 	}
-	var WaitSprite = CharSprite[0];
-	
+	var StartData = [CharSprite[0], CharSpeed[0]];
+
 	// Create character object
 	CharObject = instance_create(RoomX, RoomY + 52, ContinueCharacter);
+	
+	// Set animation for them
 	with CharObject
 	{
-		animation_play(WaitSprite, CharSpeed[0], 0, 0);
+		animation_play(StartData[0], StartData[1], 0, 0);
 	}
 	
 	// Create continue objects
@@ -49,7 +51,9 @@ function ContinueScreenStartup()
 		ContObject[i] = instance_create(RoomX + 21 * i - max(Game.Continues - 1, 0) * 11, RoomY - 20, ContinueIcon);
 	}
 	
-	// Perfrom fade and play music
+	// Perform fade
 	fade_perform(FadeFrom, ColourBlack, 1);
+	
+	// Play music
 	audio_bgm_play(PriorityLow, Continue, 0, 0);
 }

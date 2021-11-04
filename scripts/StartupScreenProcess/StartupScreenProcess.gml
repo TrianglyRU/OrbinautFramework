@@ -13,6 +13,7 @@ function StartupScreenProcess()
 		}
 		else
 		{
+			// Load target room
 			room_goto(Game.ForceLoad);
 			
 			// Set gamedata

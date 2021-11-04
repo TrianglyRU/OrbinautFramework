@@ -4,7 +4,7 @@ function GameSetup()
 	Game.WindowTitle = "Orbinaut Framework (Dev.)";
 	Game.DevMode     = true;
 	Game.ShowSplash  = true;
-	Game.ForceLoad	 = false;	// If set to false the game will load into DevMenu, else into the room you choose
+	Game.ForceLoad	 = Screen_Continue;	// If set to false the game will load into DevMenu, else into the room you choose
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
@@ -40,7 +40,7 @@ function GameSetup()
 	Game.WindowSize	      = 3;
 	
 	// Audio settings
-	Game.MusicVolume = 0;
+	Game.MusicVolume = 0.5;
 	Game.SoundVolume = 0.5;
 	
 	// Control settings (keyboard)
@@ -66,8 +66,4 @@ function GameSetup()
 	Game.BonusStageData  = [];
 	Game.SpecialRingData = [];
 	Game.SpecialRingList = [];
-	
-	// Initialise surfaces used to render the game. DON'T TOUCH IT!
-	SurfaceLow = noone;
-	SurfaceHigh = noone;
 }
