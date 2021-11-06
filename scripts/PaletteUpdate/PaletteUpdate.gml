@@ -30,7 +30,7 @@ function PaletteUpdate()
 		shader_set_uniform_f(Shader.ScreenWaterHeight, Boundary);
 		
 		// Render palette type 1
-		if Boundary > 0 and ColourSet[TypePrimory] != false
+		if Boundary > 0 and ColourSet[TypePrimary] != false
 		{
 			shader_set_uniform_f_array(Shader.ScreenDryIndex, IndexType1);
 			texture_set_stage(Shader.ScreenDryTex,			  ColourSet[0][0]);

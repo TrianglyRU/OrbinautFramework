@@ -26,7 +26,7 @@ function palette_handle(paletteType,id,range,last,goto,duration)
 			// Update colour(-s)
 			for (var i = id; i < id + range; i++)
 			{
-				if paletteType == TypePrimory
+				if paletteType == TypePrimary
 				{
 					if (++Palette.IndexType1[i]) > last
 					{

@@ -10,7 +10,7 @@ function palette_set_colour(paletteType,id,range,colourid)
 	// Update colour(-s)
 	for (var i = id; i < id + range; i++)
 	{
-		if paletteType == TypePrimory
+		if paletteType == TypePrimary
 		{
 			Palette.IndexType1[i] = colourid;
 		}

@@ -8,7 +8,7 @@ function palette_get_colour(paletteType, id)
 	}
 	
 	// Return colour
-	if paletteType == TypePrimory
+	if paletteType == TypePrimary
 	{
 		return Palette.IndexType1[id];
 	}

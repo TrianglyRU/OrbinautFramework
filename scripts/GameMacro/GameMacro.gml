@@ -27,7 +27,7 @@ function GameMacro()
 	
 	// Palette macro
 	#macro PaletteLimit  64
-	#macro TypePrimory  0
+	#macro TypePrimary  0
 	#macro TypeSecondary  1
 	
 	// Fade macro
