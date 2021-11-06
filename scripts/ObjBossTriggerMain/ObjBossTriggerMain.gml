@@ -8,7 +8,7 @@ function ObjBossTriggerMain()
 	{
 		if object_check_overlap(TypeTrigger)
 		{
-			// Stop music and play boss theme
+			// Stop music
 			audio_bgm_stop(PriorityLow, 1);
 			
 			// Set new top boundary
@@ -17,7 +17,8 @@ function ObjBossTriggerMain()
 				Stage.TargetTopBoundary = Stage.BottomBoundary - ArenaHeight;
 			}
 			
-			// Spawn boss
+			/* SPAWN YOUR BOSS HERE. Do not forget to set BossTrigger.BossDefeated to
+			'true' once you want your stage to exit boss state! */
 			switch room
 			{
 				default: break;
@@ -38,7 +39,7 @@ function ObjBossTriggerMain()
 			}
 			
 			// Set new left boundary
-			Stage.TargetLeftBoundary = x - max(Game.Width  / 2, ArenaWidth  / 2);
+			Stage.TargetLeftBoundary = x - max(Game.Width / 2, ArenaWidth / 2);
 			
 			// Play boss music
 			if !audio_bgm_is_playing(PriorityLow)
@@ -48,7 +49,8 @@ function ObjBossTriggerMain()
 		}
 		else
 		{
-			// Scroll right boundary
+			// Set right boundary to room_width. Normally, you have to place EggPrison or ClearPlate
+			// after the arena, so the game will automatically set new boundaries once again
 			Stage.TargetRightBoundary = room_width;
 			
 			// Give 1000 points and cancel bossfight state

@@ -3,11 +3,9 @@ function ObjBridgeStartup()
 	/* Variable Definitions	
 	1. BridgeLength,  default = 12
 	2. GeneratePosts, default = true
-	3. BridgeSprite,  default = spr_obj_bridge_log_template
-	4. PostSprite,    default = spr_obj_bridge_post_template
 	*/
 	
-	// Set log and post sprites
+	// Setup object
 	switch room
 	{
 		case Stage_TZ:
