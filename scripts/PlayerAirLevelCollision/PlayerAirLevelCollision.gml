@@ -227,7 +227,7 @@ function PlayerAirLevelCollision()
 					}
 					if FlightState
 					{
-						Grv	= 0.03125;
+						//Grv	= 0.03125;
 					}
 					PosY -= RoofDistance;
 				}

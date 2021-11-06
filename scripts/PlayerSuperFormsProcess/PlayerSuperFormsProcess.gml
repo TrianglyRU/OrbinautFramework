@@ -70,7 +70,7 @@ function PlayerSuperFormsProcess()
 					}
 					else if HighspeedBonus
 					{
-						audio_bgm_play(PriorityLow, HighSpeed, 0, 0);
+						audio_bgm_play(PriorityLow, HighSpeed, other, other);
 					}
 					else
 					{

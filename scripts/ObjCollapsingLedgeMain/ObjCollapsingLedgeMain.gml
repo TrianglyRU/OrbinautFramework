@@ -36,7 +36,7 @@ function ObjCollapsingLedgeMain()
 						for (var j = Height - 16; j >= 0; j -= 16) 
 						{
 							var  Time = i / 16 * 4 + abs(Height - j) / 16 * 2;
-							var  Object = instance_create(LeftX + i, TopY + j, CollapsingLedgePiece);
+							var  Object = instance_create(OriginX + i, OriginY + j, CollapsingLedgePiece);
 							with Object
 							{
 								sprite_index = ThisObject.sprite_index;
@@ -57,7 +57,7 @@ function ObjCollapsingLedgeMain()
 						for (var j = Height - 16; j >= 0; j -= 16) 
 						{
 							var  Time   = abs(Width - i) / 16 * 4 + abs(Height - j) / 16 * 2;
-							var  Object = instance_create(LeftX + i, TopY + j, CollapsingLedgePiece);
+							var  Object = instance_create(OriginX + i, OriginY + j, CollapsingLedgePiece);
 							with Object
 							{
 								sprite_index = ThisObject.sprite_index;                  

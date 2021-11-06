@@ -9,20 +9,20 @@ function ObjFloatingPlatformStartup()
 	6. DoFall,       default = false
 	*/
 	
-	// Set platform sprite and collision size
+	// Setup object
 	switch room
 	{
 		case Stage_TZ:
 		{
-			XRadius		 = 32;
-			YRadius		 = 11;
+			var XRadius	 = 32;
+			var YRadius	 = 11;
 			sprite_index = spr_obj_platform_tz;
 		}
 		break;
 		default:
 		{
-			XRadius		 = 0;
-			YRadius		 = 0;
+			var XRadius	 = 0;
+			var YRadius	 = 0;
 			sprite_index = spr_tempobject;
 		}
 		break;

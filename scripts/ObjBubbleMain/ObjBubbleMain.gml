@@ -106,11 +106,11 @@ function ObjBubbleMain()
 				{
 					if Player.InvincibleBonus
 					{
-						audio_bgm_play(PriorityLow, Invincibility, 0, 0);
+						audio_bgm_play(PriorityLow, Invincibility, other, other);
 					}
 					else if Player.HighspeedBonus
 					{
-						audio_bgm_play(PriorityLow, HighSpeed, 0, 0);
+						audio_bgm_play(PriorityLow, HighSpeed, other, other);
 					}
 					else
 					{

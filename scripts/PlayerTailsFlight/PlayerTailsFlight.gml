@@ -9,13 +9,13 @@ function PlayerTailsFlight()
 	if (FlightValue--)
 	{
 		// Affect vertical speed
-		if Ysp < -1
-		{
-			Grv = 0.03125;
-		}
-		else if Input.ABCPress
+		if Input.ABCPress
 		{
 			Grv = -0.125;
+		}
+		else if Ysp < -1 or Ysp == 0
+		{
+			Grv = 0.03125;
 		}
 		Ysp = max(Ysp, -4);
 		

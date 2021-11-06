@@ -5,22 +5,22 @@ function ObjSwingingPlatformStartup()
 	2. Speed,	   default = 1
 	*/
 	
-	// Set platform sprite and collision size
+	// Setup object
 	switch room
 	{
 		case Stage_TZ:
 		{
-			XRadius		= 24;
-			YRadius		= 8;
-			SpriteData = [spr_obj_swingplatform_template, spr_tempobject, spr_tempobject];
+			var XRadius	= 24;
+			var YRadius	= 8;
+			SpriteData  = [spr_obj_swingplatform_template, spr_tempobject, spr_tempobject];
 		}
 		break;
 		default:
 		{
-			XRadius    = 0;
-			YRadius    = 0;
-			SpriteData = [spr_tempobject, spr_tempobject, spr_tempobject];
-					  /* [platform,		  chain,		  pendulum] */
+			var XRadius = 0;
+			var YRadius = 0;
+			SpriteData  = [spr_tempobject, spr_tempobject, spr_tempobject];
+					   /* [platform,	   chain,	       pendulum] */
 		}
 		break;
 	}
