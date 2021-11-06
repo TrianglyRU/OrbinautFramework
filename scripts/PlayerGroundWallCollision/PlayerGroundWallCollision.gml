@@ -1,6 +1,6 @@
 function PlayerGroundWallCollision()
 {	
-	// Exit if collision are disabled
+	// Exit if collisions are disabled
 	if !AllowCollision
 	{
 		exit;
@@ -15,7 +15,7 @@ function PlayerGroundWallCollision()
 		}
 	}
 	
-	// Use different from floor collision angle ranges if custom collision is disabled
+	// Get current angle quadrant (shallower on walls, comparing to ground collision)
 	if Angle <= 43.59 or Angle >= 316.41			
 	{
 		var CollisionMode = 0;

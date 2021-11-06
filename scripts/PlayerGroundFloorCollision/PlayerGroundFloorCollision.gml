@@ -6,7 +6,7 @@ function PlayerGroundFloorCollision()
 		exit;
 	}
 	
-	// Get current angle quadrant normally, like in originals
+	// Get current angle quadrant (shallower on floor and ceiling, comparing to wall collision)
 	if Angle <= 45 or Angle >= 315
 	{
 		var CollisionMode = 0;
