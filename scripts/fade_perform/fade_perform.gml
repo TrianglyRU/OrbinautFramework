@@ -1,18 +1,18 @@
-/// @function fade_perform(mode,colour,power)
-function fade_perform(mode,colour,power) 
+/// @function fade_perform(fadeMode,fadeBlend,speed)
+function fade_perform(fadeMode,fadeBlend,speed) 
 {
-    // Clamp the power value
-    power = clamp(floor(power * 36), 0, 756);
+    // Clamp the speed value
+	 speed = clamp(floor(speed * 36), 0, 756);
     
-    // If power is set to 0, perform instant fade
-    var InstantFade = power == 0;
+    // If speed is set to 0, perform instant fade
+    var InstantFade = speed == 0;
     
-    // Perform a fade
+    // Perform fade
     if InstantFade or !(Palette.FadeStep mod 756)
     {
-        Palette.FadeStep = InstantFade xor mode ? 0 : 756; 
-        Palette.FadeMode = mode; 
+        Palette.FadeStep = InstantFade xor fadeMode ? 0 : 756; 
+        Palette.FadeMode = fadeMode; 
     }
-    Palette.FadeColour = colour;
-    Palette.FadePower  = power;
+    Palette.FadeBlend = fadeBlend;
+    Palette.FadeSpeed = speed;
 }

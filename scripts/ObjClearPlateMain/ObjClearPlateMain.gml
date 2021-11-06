@@ -13,7 +13,7 @@ function ObjClearPlateMain()
 		// Idle
 		case 0:
 		{
-			if object_check_overlap(Triggerbox)
+			if object_check_overlap(TypeTrigger)
 			{
 				// Play sound 
 				audio_sfx_play(sfxClearPlate, false);

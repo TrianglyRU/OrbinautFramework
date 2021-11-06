@@ -22,10 +22,10 @@ function ObjStarPostPortalMain()
 		}
 		else if Timer > 60
 		{
-			if !State and object_check_overlap(Hitbox)
+			if !State and object_check_overlap(TypeHitbox)
 			{
 				State++;
-				fade_perform(FadeTo, ColourBlack, 1);	
+				fade_perform(ModeInto, BlendBlack, 1);	
 				
 				// Stop music
 				audio_bgm_stop(PriorityLow,  0.5);

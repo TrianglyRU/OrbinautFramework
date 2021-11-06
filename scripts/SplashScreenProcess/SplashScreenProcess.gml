@@ -5,12 +5,12 @@ function SplashScreenProcess()
 	{
 		// Fade in
 		case 10:
-			fade_perform(FadeFrom, ColourBlack, 1);
+			fade_perform(ModeFrom, BlendBlack, 1);
 		break;
 		
 		// Fade out
 		case 150:
-			fade_perform(FadeTo, ColourBlack, 1);
+			fade_perform(ModeInto, BlendBlack, 1);
 		break;
 		
 		// Load into the next room after 3 seconds

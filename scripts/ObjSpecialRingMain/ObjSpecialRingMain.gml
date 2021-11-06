@@ -27,7 +27,7 @@ function ObjSpecialRingMain()
 		case 1:
 		{
 			// Check for overlap
-			if object_check_overlap(Hitbox)
+			if object_check_overlap(TypeHitbox)
 			{	
 				// Play sound
 				audio_sfx_play(sfxSpecialRing, false);
@@ -90,7 +90,7 @@ function ObjSpecialRingMain()
 			// Perform fade after 32 frames
 			if (++Timer) == 32
 			{				
-				fade_perform(FadeTo, ColourWhite, 1);
+				fade_perform(ModeInto, BlendWhite, 1);
 				
 				// Play sound and increment state
 				audio_play_sound(sfxSpecialWarp, 0, false);

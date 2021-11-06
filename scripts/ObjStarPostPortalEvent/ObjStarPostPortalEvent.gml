@@ -7,7 +7,7 @@ function ObjStarPostPortalEvent()
 	}
 	
 	// Check if screen is full black
-	if fade_check(FadeMax)
+	if fade_check(StateMax)
 	{
 		// Remember ring amount and barrier
 		Game.BonusStageData[0] = Player.Rings;

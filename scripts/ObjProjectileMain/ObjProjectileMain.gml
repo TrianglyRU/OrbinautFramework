@@ -9,7 +9,7 @@ function ObjProjectileMain()
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if Xsp != 0 and Ysp != 0 and object_check_overlap(Hitbox)
+	if Xsp != 0 and Ysp != 0 and object_check_overlap(TypeHitbox)
 	{
 		// Check if object should bounce off player
 		if Player.BarrierType > BarrierNormal

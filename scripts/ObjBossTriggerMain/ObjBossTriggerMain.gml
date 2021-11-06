@@ -6,7 +6,7 @@ function ObjBossTriggerMain()
 	// Check if player ran past the trigger
 	if Stage.IsBossfight == -1
 	{
-		if object_check_overlap(Triggerbox)
+		if object_check_overlap(TypeTrigger)
 		{
 			// Stop music and play boss theme
 			audio_bgm_stop(PriorityLow, 1);

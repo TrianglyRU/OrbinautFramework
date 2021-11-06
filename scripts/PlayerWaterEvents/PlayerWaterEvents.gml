@@ -109,7 +109,7 @@ function PlayerWaterEvents()
 		{	
 			if BarrierType == BarrierThunder
 			{
-				fade_perform(FadeFrom, ColourFlash, 8);
+				fade_perform(ModeFrom, BlendFlash, 8);
 			}
 			BarrierType = false;			
 		}

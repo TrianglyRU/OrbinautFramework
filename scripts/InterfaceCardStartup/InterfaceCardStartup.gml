@@ -4,7 +4,7 @@ function InterfaceCardStartup()
 	Input.IgnoreInput = true;
 	
 	// Turn screen black
-	fade_perform(FadeTo, ColourBlack, 0);
+	fade_perform(ModeInto, BlendBlack, 0);
 	
 	/* Value Table Reference
 	------------------------

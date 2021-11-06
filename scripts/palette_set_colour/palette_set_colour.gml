@@ -10,13 +10,19 @@ function palette_set_colour(paletteType,id,range,colourid)
 	// Update colour(-s)
 	for (var i = id; i < id + range; i++)
 	{
-		if paletteType == PaletteType1
+		if paletteType == TypePrimory
 		{
 			Palette.IndexType1[i] = colourid;
 		}
-		else if paletteType == PaletteType2
+		else if paletteType == TypeSecondary
 		{
 			Palette.IndexType2[i] = colourid;
+		}
+		
+		// Reset swaptime
+		if Palette.Duration[paletteType,id] != noone
+		{
+			Palette.SwapTime[paletteType,id] = Palette.Duration[paletteType,id];
 		}
 	}
 }

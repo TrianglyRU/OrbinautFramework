@@ -1,8 +1,5 @@
 function GameShadersStartup()
 {
-	// Setup flash shader
-	Shader.FlashType = shader_get_uniform(ShaderFlash, "u_type");
-	
 	// Setup fade shader
 	Shader.ScreenStep   = shader_get_uniform(ShaderPalette, "u_step");
 	Shader.ScreenMode   = shader_get_uniform(ShaderPalette, "u_mode");

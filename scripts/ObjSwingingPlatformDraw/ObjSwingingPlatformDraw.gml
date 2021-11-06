@@ -7,7 +7,7 @@ function ObjSwingingPlatformDraw()
 	}
 	
 	// Draw origin sprite
-    draw_sprite(SpriteTop, 0, OriginX, OriginY);
+    draw_sprite(SpriteData[2], 0, OriginX, OriginY);
     
 	// Calculate chain position
     for (var i = 1; i < ChainCount + 1; i++)
@@ -16,9 +16,9 @@ function ObjSwingingPlatformDraw()
         var Y = floor(OriginY + DistanceY * i);
 		
 		// Draw sprite
-        draw_sprite(SpriteChain, 0, X, Y);
+        draw_sprite(SpriteData[1], 0, X, Y);
     }
     
 	// Draw platform
-    draw_sprite(SpritePlatform, 0, x, y);
+    draw_sprite(SpriteData[0], 0, x, y);
 }

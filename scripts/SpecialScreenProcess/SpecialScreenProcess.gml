@@ -1,7 +1,7 @@
 function SpecialScreenProcess()
 {
 	// Exit if not coming from Special Stage, or fade is active
-	if !Game.SpecialState or (!State and fade_check(FadeActive))
+	if !Game.SpecialState or (!State and fade_check(StateActive))
 	{
 		exit;
 	}
@@ -126,7 +126,7 @@ function SpecialScreenProcess()
 			if (++RoomTimer) == 180
 			{
 				State++
-				fade_perform(FadeTo, ColourWhite, 1);
+				fade_perform(ModeInto, BlendWhite, 1);
 				
 				// Play warp sound
 				audio_sfx_play(sfxSpecialWarp, false);
@@ -136,9 +136,9 @@ function SpecialScreenProcess()
 		case 2:
 		{
 			// Fade to black
-			if fade_check(FadeMax)
+			if fade_check(StateMax)
 			{
-				fade_perform(FadeTo, ColourBlack, 1);
+				fade_perform(ModeInto, BlendBlack, 1);
 				
 				// Increment state
 				State++;
@@ -148,7 +148,7 @@ function SpecialScreenProcess()
 		case 3:
 		{
 			// Return to stage
-			if fade_check(FadeMax) and !audio_sfx_is_playing(sfxSpecialWarp)
+			if fade_check(StateMax) and !audio_sfx_is_playing(sfxSpecialWarp)
 			{
 				room_goto(Game.StageRoom);
 				

@@ -1,8 +1,8 @@
 /// @function palette_handle(paletteType,id,range,last,goto,duration)
 function palette_handle(paletteType,id,range,last,goto,duration)
 {
-	// Exit if no pallete set, if playable stage is paused, or fade is active
-	if Palette.ColourSet[paletteType] == false or variable_check(Stage, "IsPaused") or fade_check(FadeActive)
+	// Exit if no pallete set, if playable stage is paused or fade is active
+	if Palette.ColourSet[paletteType] == false or variable_check(Stage, "IsPaused") or fade_check(StateActive)
 	{
 		exit;
 	}
@@ -15,24 +15,25 @@ function palette_handle(paletteType,id,range,last,goto,duration)
 	{
 		Palette.Sequence[paletteType,id] = SequenceID;
 		Palette.Duration[paletteType,id] = duration;
+		Palette.SwapTime[paletteType,id] = duration;
 	}
 	
 	// Update sequence
 	else if duration
 	{
-		if !(--Palette.Duration[paletteType,id])
+		if !(--Palette.SwapTime[paletteType,id])
 		{
 			// Update colour(-s)
 			for (var i = id; i < id + range; i++)
 			{
-				if paletteType == PaletteType1
+				if paletteType == TypePrimory
 				{
 					if (++Palette.IndexType1[i]) > last
 					{
 						Palette.IndexType1[i] = goto;
 					}
 				}
-				else if paletteType == PaletteType2
+				else if paletteType == TypeSecondary
 				{
 					if (++Palette.IndexType2[i]) > last
 					{
@@ -42,7 +43,7 @@ function palette_handle(paletteType,id,range,last,goto,duration)
 			}
 			
 			// Reset duration
-			Palette.Duration[paletteType,id] = duration;
+			Palette.SwapTime[paletteType,id] = Palette.Duration[paletteType,id];
 		}
 	}
 }

@@ -35,5 +35,5 @@ function ObjChopperMain()
 	}
 	
 	// Act as badnik
-	object_act_enemy(EnemyBadnik);
+	object_act_enemy(TypeBadnik);
 }

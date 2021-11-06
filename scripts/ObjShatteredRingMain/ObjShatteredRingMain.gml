@@ -69,7 +69,7 @@ function ObjShatteredRingMain()
 		{
 			PickupTimeout--;
 		}
-		else if object_check_overlap(Hitbox)
+		else if object_check_overlap(TypeHitbox)
 		{
 			// Add 1 to ring counter
 			Player.Rings++;

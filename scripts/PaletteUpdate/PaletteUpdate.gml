@@ -11,8 +11,8 @@ function PaletteUpdate()
 		shader_set(ShaderPalette);
 		
 		// Render fade
-		shader_set_uniform_f(Shader.ScreenStep,   FadeColour == ColourFlash ? FadeStep div 3 : FadeStep);
-		shader_set_uniform_i(Shader.ScreenColour, FadeColour);
+		shader_set_uniform_f(Shader.ScreenStep,   FadeBlend == BlendFlash ? FadeStep div 3 : FadeStep);
+		shader_set_uniform_i(Shader.ScreenColour, FadeBlend);
 		shader_set_uniform_i(Shader.ScreenMode,   FadeMode);
 		
 		// Get a render boundary between type 1 and type 2 palettes for playable stages
@@ -30,7 +30,7 @@ function PaletteUpdate()
 		shader_set_uniform_f(Shader.ScreenWaterHeight, Boundary);
 		
 		// Render palette type 1
-		if Boundary > 0 and ColourSet[PaletteType1] != false
+		if Boundary > 0 and ColourSet[TypePrimory] != false
 		{
 			shader_set_uniform_f_array(Shader.ScreenDryIndex, IndexType1);
 			texture_set_stage(Shader.ScreenDryTex,			  ColourSet[0][0]);
@@ -39,7 +39,7 @@ function PaletteUpdate()
 		}
 		
 		// Render palette type 2
-		if Boundary < Height and ColourSet[PaletteType2] != false
+		if Boundary < Height and ColourSet[TypeSecondary] != false
 		{
 			texture_set_stage(Shader.ScreenWetTex,			  ColourSet[1][0]);
 			shader_set_uniform_f_array(Shader.ScreenWetIndex, IndexType2);

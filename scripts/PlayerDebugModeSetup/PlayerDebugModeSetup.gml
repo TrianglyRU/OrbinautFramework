@@ -20,7 +20,6 @@ function PlayerDebugModeSetup()
 		SpringRedVertical,
 		SpringRedHorizontal,
 		SpringRedDiagonal,
-		SpringRamp,
 		StarPost,
 		Animal,
 		ClearPlate,

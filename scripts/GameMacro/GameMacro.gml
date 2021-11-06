@@ -9,8 +9,8 @@ function GameMacro()
 	#macro GameCamera  view_camera[0]
 
 	// Object macro
-	#macro EnemyBadnik 0
-	#macro EnemyBoss   1
+	#macro TypeBadnik  0
+	#macro TypeBoss    1
 	#macro TypePause   1
 	#macro TypeReset   2
 	#macro TypeDelete  3
@@ -27,21 +27,18 @@ function GameMacro()
 	
 	// Palette macro
 	#macro PaletteLimit  64
-	#macro PaletteType1    0
-	#macro PaletteType2    1
-	#macro FadeActive    0
-	#macro FadeMax       1
-	#macro FadeTo        0
-	#macro FadeFrom      1
-	#macro ColourBlack   0
-	#macro ColorBlack    0
-	#macro ColourWhite   1
-	#macro ColorWhite    1
-	#macro ColourFlash   2
-	#macro ColorFlash    2
-	#macro FlashWhite	 0
-	#macro FlashNegative 1
-
+	#macro TypePrimory  0
+	#macro TypeSecondary  1
+	
+	// Fade macro
+	#macro StateActive   0
+	#macro StateMax      1
+	#macro ModeInto      0
+	#macro ModeFrom      1
+	#macro BlendBlack    0
+	#macro BlendWhite    1
+	#macro BlendFlash    2
+	
 	// Player macro
 	#macro CharSonic		 0
 	#macro CharTails	     1
@@ -49,8 +46,6 @@ function GameMacro()
 	#macro GlideFall         1
 	#macro GlideAir          2
 	#macro GlideGround       3
-	#macro LayerA		     0
-	#macro LayerB		     1
 	#macro BarrierNormal	 1
 	#macro BarrierThunder	 2
 	#macro BarrierWater      3
@@ -91,10 +86,12 @@ function GameMacro()
 	#macro AnimBreathe		 33
 	
 	// Collision macro
-	#macro SideTop	  0
-	#macro SideLeft	  1
-	#macro SideRight  2
-	#macro SideBottom 3
-	#macro Hitbox	  0
-	#macro Triggerbox 1
+	#macro SideTop	   0
+	#macro SideLeft	   1
+	#macro SideRight   2
+	#macro SideBottom  3
+	#macro TypeHitbox  0
+	#macro TypeTrigger 1
+	#macro LayerA	   0
+	#macro LayerB	   1
 }

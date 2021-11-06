@@ -24,7 +24,7 @@ function ObjStarPostMain()
 		break;
 		case 1:
 		{
-			if object_check_overlap(Triggerbox) 
+			if object_check_overlap(TypeTrigger) 
 			{
 				// Remember player and stage data
 				Game.StarPostData[0] = x;

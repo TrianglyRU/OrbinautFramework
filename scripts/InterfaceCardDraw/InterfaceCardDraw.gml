@@ -78,7 +78,7 @@ function InterfaceCardDraw()
 					Stage.TimeEnabled = true;
 					
 					// Fade in
-					fade_perform(FadeFrom, ColourBlack, 1);
+					fade_perform(ModeFrom, BlendBlack, 1);
 				}
 				
 				// Move ribbon

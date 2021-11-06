@@ -8,7 +8,7 @@ function object_check_overlap(collisionType)
 	}
 
 	// Check for hitbox overlap
-	if collisionType == Hitbox
+	if collisionType == TypeHitbox
 	{
 		// Exit if this object hitbox wasn't initialized
 		if !variable_instance_exists(id, "Obj_HitStatus")
@@ -65,7 +65,7 @@ function object_check_overlap(collisionType)
 	}
 	
 	// Check for triggerbox overlap
-	else if collisionType == Triggerbox
+	else if collisionType == TypeTrigger
 	{
 		// Exit if this object triggerbox wasn't initialized
 		if !variable_instance_exists(id, "Obj_TriggerStatus")

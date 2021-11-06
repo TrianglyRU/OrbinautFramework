@@ -1,7 +1,7 @@
 function StageGameplayProcess()
 {	
 	// Check if we should update the stage or not
-	DoUpdate = !(fade_check(FadeActive) or IsPaused or Player.Death);
+	DoUpdate = !(fade_check(StateActive) or IsPaused or Player.Death);
 	
 	// Process stage time
 	if DoUpdate and TimeEnabled
@@ -25,7 +25,7 @@ function StageGameplayProcess()
 		var Length = array_length(AnimatedGraphics);
 		for (var i = 0; i < Length; i += 2)
 		{
-			if fade_check(FadeActive) and !Stage.IsPaused
+			if fade_check(StateActive) and !Stage.IsPaused
 			{
 				var AnimSpeed = 1 / AnimatedGraphics[i + 1];
 			}
@@ -72,14 +72,14 @@ function StageGameplayProcess()
 			if !IsGameOver and EventTimer == 60 or IsGameOver and EventTimer == 720
 			{
 				// Fade out
-				fade_perform(FadeTo, ColourBlack, 1);
+				fade_perform(ModeInto, BlendBlack, 1);
 				
 				// Stop all music
 				audio_bgm_stop(PriorityLow,  0.5);
 				audio_bgm_stop(PriorityHigh, 0.5);
 			}
 			
-			if fade_check(FadeMax)
+			if fade_check(StateMax)
 			{	
 				// If we have lives, restart the stage
 				if Player.Lives != 0

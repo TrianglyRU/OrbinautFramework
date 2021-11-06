@@ -9,7 +9,7 @@ function GameAnimationsProcess()
 		if variable_instance_exists(id, "image_duration") and !variable_check(Stage, "IsPaused")
 		{
 			// Handle subimage change
-			if image_duration != 0 and !fade_check(FadeActive)
+			if image_duration != 0 and !fade_check(StateActive)
 			{
 				if !(--image_timer)
 				{

@@ -1,7 +1,7 @@
 function ContinueScreenProcess()
 {
 	// Exit if fading in
-	if Countdown == 659 and fade_check(FadeActive)
+	if Countdown == 659 and fade_check(StateActive)
 	{
 		exit;
 	}
@@ -27,10 +27,10 @@ function ContinueScreenProcess()
 			// Return back to devmenu
 			else
 			{
-				if !fade_check(FadeActive)
+				if !fade_check(StateActive)
 				{
 					// Perform fade
-					fade_perform(FadeTo, ColourBlack, 1);
+					fade_perform(ModeInto, BlendBlack, 1);
 				
 					// Overwrite savedata if not playing in 'no save' slot
 					if Game.ActiveSave != -1
@@ -42,7 +42,7 @@ function ContinueScreenProcess()
 						gamedata_save(Game.ActiveSave);
 					}
 				}
-				else if fade_check(FadeMax)
+				else if fade_check(StateMax)
 				{
 					room_goto(Screen_DevMenu);
 				}
@@ -87,14 +87,14 @@ function ContinueScreenProcess()
 				if CharObject.x - Game.Width >= 64
 				{
 					State++;
-					fade_perform(FadeTo, ColourBlack, 1);
+					fade_perform(ModeInto, BlendBlack, 1);
 				}
 			}
 		}
 		break;
 		case 2:
 		{
-			if fade_check(FadeMax)
+			if fade_check(StateMax)
 			{
 				// Update game data
 				Game.Continues--;

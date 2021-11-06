@@ -20,5 +20,5 @@ function ObjOrbinautMain()
 	}
 	
 	// Act as enemy
-	object_act_enemy(EnemyBadnik);
+	object_act_enemy(TypeBadnik);
 }

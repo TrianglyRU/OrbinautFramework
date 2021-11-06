@@ -3,6 +3,7 @@ function PaletteStartup()
 	// Set blank values
 	ColourSet = [];
 	Duration  = [];
+	SwapTime  = [];
 	Sequence  = [];
 	
 	// Initialise palette animation storage
@@ -12,6 +13,7 @@ function PaletteStartup()
 		{
 			Duration[i, j] = noone;
 			Sequence[i, j] = noone;
+			SwapTime[i, j] = noone;
 		}	
 		IndexType1[i] = 1;
 		IndexType2[i] = 1;
@@ -25,8 +27,8 @@ function PaletteStartup()
 	// Setup fade
 	FadeMode   = 1;
 	FadeStep   = 756;
-	FadeColour = 0;
-	FadePower  = 0;
+	FadeBlend = 0;
+	FadeSpeed  = 0;
 	
 	// Enable surface draw
 	application_surface_draw_enable(false);

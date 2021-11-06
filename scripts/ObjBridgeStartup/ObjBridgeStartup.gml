@@ -7,6 +7,18 @@ function ObjBridgeStartup()
 	4. PostSprite,    default = spr_obj_bridge_post_template
 	*/
 	
+	// Set log and post sprites
+	switch room
+	{
+		case Stage_TZ:
+			SpriteData = [spr_obj_bridge_log_template, spr_obj_bridge_post_template];
+		break;
+		default:
+			SpriteData = [spr_tempobject, spr_tempobject];
+					  /* [log,		      post] */
+		break;
+	}
+	
 	// Set blank values
 	RecoveryAngle    = 0;
 	ActiveSegment    = 0;

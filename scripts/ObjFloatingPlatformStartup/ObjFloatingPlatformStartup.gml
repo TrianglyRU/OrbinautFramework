@@ -1,16 +1,32 @@
 function ObjFloatingPlatformStartup()
 {
 	/* Variable Definitions	
-	1. XRadius,      default = 32
-	2. YRadius,      default = 11
-	3. Speed,        default = 1
-	4. Distance,     default = 64
-	5. MovementType, default = "None"
-	6. InverseX,	 default = false
-	7. InverseY,	 default = false
-	8. DoFall,       default = false
-	9. Sprite,       default = spr_obj_platform_template
+	1. Speed,        default = 1
+	2. Distance,     default = 64
+	3. MovementType, default = "None"
+	4. InverseX,	 default = false
+	5. InverseY,	 default = false
+	6. DoFall,       default = false
 	*/
+	
+	// Set platform sprite and collision size
+	switch room
+	{
+		case Stage_TZ:
+		{
+			XRadius		 = 32;
+			YRadius		 = 11;
+			sprite_index = spr_obj_platform_tz;
+		}
+		break;
+		default:
+		{
+			XRadius		 = 0;
+			YRadius		 = 0;
+			sprite_index = spr_tempobject;
+		}
+		break;
+	}
 	
 	// Set blank values
 	Weight    = 0;
@@ -21,9 +37,6 @@ function ObjFloatingPlatformStartup()
 	// Set other variables
 	OriginX = x;
 	OriginY	= y;
-
-	// Set sprite
-	sprite_index = Sprite;
 	
 	// Set object solidbox
 	object_set_solidbox(XRadius, YRadius, false);

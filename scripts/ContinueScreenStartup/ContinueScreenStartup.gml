@@ -52,7 +52,7 @@ function ContinueScreenStartup()
 	}
 	
 	// Perform fade
-	fade_perform(FadeFrom, ColourBlack, 1);
+	fade_perform(ModeFrom, BlendBlack, 1);
 	
 	// Play music
 	audio_bgm_play(PriorityLow, Continue, 0, 0);

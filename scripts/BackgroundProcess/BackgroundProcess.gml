@@ -11,7 +11,7 @@ function BackgroundProcess()
 	var ViewY = Camera.ViewY;
 	
 	// Check if we should update autoscroll value
-	var UpdateAutoscroll = !(fade_check(FadeActive) or variable_check(Stage, "IsPaused"));
+	var UpdateAutoscroll = !(fade_check(StateActive) or variable_check(Stage, "IsPaused"));
 	
 	// Work with each layer individually
 	var Length = array_length(BGSprites);

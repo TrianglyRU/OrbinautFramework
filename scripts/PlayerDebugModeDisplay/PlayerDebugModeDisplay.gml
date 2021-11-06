@@ -44,9 +44,6 @@ function PlayerDebugModeDisplay()
 				case SpringRedDiagonal:      
 					sprite_index = spr_obj_spring_red_d;
 				break;
-				case SpringRamp:
-					sprite_index = spr_obj_springramp;
-				break;
 				case StarPost:				 
 					sprite_index = spr_obj_starpost;		  
 				break;

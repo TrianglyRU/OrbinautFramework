@@ -4,7 +4,7 @@ function SpecialStageProcess()
 	{
 		case 0:
 		{
-			if !fade_check(FadeActive)
+			if !fade_check(StateActive)
 			{
 				// Win
 				if Input.ABCPress
@@ -13,7 +13,7 @@ function SpecialStageProcess()
 					Game.SpecialState = 1;
 					Game.SpecialScore = 10000;
 			
-					fade_perform(FadeTo, ColourWhite, 1);
+					fade_perform(ModeInto, BlendWhite, 1);
 					Game.Emeralds++;
 			
 					// Stop music
@@ -28,7 +28,7 @@ function SpecialStageProcess()
 					Game.SpecialState = 2;
 					Game.SpecialScore = 1000;
 			
-					fade_perform(FadeTo, ColourWhite, 1);
+					fade_perform(ModeInto, BlendWhite, 1);
 			
 					// Stop music
 					audio_bgm_stop(PriorityLow,  0.5);
@@ -40,7 +40,7 @@ function SpecialStageProcess()
 		case 1:
 		{
 			// Return to SS Screen to display results
-			if fade_check(FadeMax)
+			if fade_check(StateMax)
 			{
 				room_goto(Screen_SStage);
 			}

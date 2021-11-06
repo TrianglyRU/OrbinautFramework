@@ -4,7 +4,7 @@ function BonusStageProcess()
 	{
 		case 0:
 		{
-			if !fade_check(FadeActive)
+			if !fade_check(StateActive)
 			{
 				// Give 10 rings
 				if Input.APress
@@ -48,7 +48,7 @@ function BonusStageProcess()
 				// Leave
 				else if Input.StartPress
 				{
-					fade_perform(FadeTo, ColourBlack, 1);
+					fade_perform(ModeInto, BlendBlack, 1);
 					State++;
 					
 					// Stop music
@@ -61,7 +61,7 @@ function BonusStageProcess()
 		case 1:
 		{
 			// Return back to stage
-			if fade_check(FadeMax)
+			if fade_check(StateMax)
 			{
 				room_goto(Game.StageRoom);
 			}

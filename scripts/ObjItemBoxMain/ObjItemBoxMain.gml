@@ -30,7 +30,7 @@ function ObjItemBoxMain()
 			if Check and (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id
 			{
 				// Destroy on overlap
-				if object_check_overlap(Hitbox)
+				if object_check_overlap(TypeHitbox)
 				{
 					// Inverse player's speed
 					if !Player.Grounded
@@ -60,7 +60,7 @@ function ObjItemBoxMain()
 				// Make itembox fall down
 				if !IsFalling and floor(Player.PosY) >= floor(y + 16)
 				{
-					if object_check_overlap(Hitbox)
+					if object_check_overlap(TypeHitbox)
 					{
 						IsFalling  = true;
 						Ysp        = -1.5;

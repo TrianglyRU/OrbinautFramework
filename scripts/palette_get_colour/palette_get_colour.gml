@@ -8,11 +8,11 @@ function palette_get_colour(paletteType, id)
 	}
 	
 	// Return colour
-	if paletteType == PaletteType1
+	if paletteType == TypePrimory
 	{
 		return Palette.IndexType1[id];
 	}
-	else if paletteType == PaletteType2
+	else if paletteType == TypeSecondary
 	{
 		return Palette.IndexType2[id];
 	}

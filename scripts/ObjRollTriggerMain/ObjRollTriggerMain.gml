@@ -1,7 +1,7 @@
 function ObjRollTriggerMain()
 {	
 	// Check for overlap
-	if object_check_overlap(Triggerbox) 
+	if object_check_overlap(TypeTrigger) 
 	{
 		if Player.Grounded
 		{
