@@ -26,7 +26,7 @@ function ObjPrisonMain()
 				// Restore stage music
 				if !audio_bgm_is_playing(Stage.StageMusic)
 				{
-					audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+					audio_bgm_play(PriorityLow, Stage.StageMusic);
 				}
 				
 				// Increment state
@@ -119,7 +119,7 @@ function ObjPrisonMain()
 			if Stage.IsFinished == 1 and !object_is_onscreen(TargetAnimal)
 			{
 				Stage.IsFinished = 3;
-				audio_bgm_play(PriorityLow, ActClear, 0, 0);
+				audio_bgm_play(PriorityLow, ActClear);
 			}
 		}
 		break;

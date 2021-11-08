@@ -66,12 +66,12 @@ function ObjScoreObjectMain()
 	if Player.Score >= LifeReward
 	{
 		Player.Lives++;
-		audio_bgm_play(PriorityHigh, ExtraLife, 0, 0);
+		audio_bgm_play(PriorityHigh, ExtraLife);
 	}
 	
 	// Move object
-	Ysp  += 0.09375;
 	PosY += Ysp;
+	Ysp  += 0.09375;
 	
 	// Update position
 	y = floor(PosY);

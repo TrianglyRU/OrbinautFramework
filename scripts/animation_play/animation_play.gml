@@ -35,5 +35,11 @@ function animation_play(spriteid,duration,startframe,loopframe)
 			image_timer    = abs(duration[image_index]);
 			image_duration = duration[image_index];
 		}
+		
+		// Update loopframe
+		if image_loopframe != loopframe
+		{
+			image_loopframe = loopframe;
+		}
 	}
 }

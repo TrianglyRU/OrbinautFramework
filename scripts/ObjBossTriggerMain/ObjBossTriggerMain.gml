@@ -44,7 +44,7 @@ function ObjBossTriggerMain()
 			// Play boss music
 			if !audio_bgm_is_playing(PriorityLow)
 			{
-				audio_bgm_play(PriorityLow, Boss, other, other); 
+				audio_bgm_play(PriorityLow, Boss); 
 			}		
 		}
 		else
@@ -58,7 +58,7 @@ function ObjBossTriggerMain()
 			Stage.IsBossfight = false;
 			
 			// Play stage music
-			audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+			audio_bgm_play(PriorityLow, Stage.StageMusic);
 			
 			// Destroy object
 			instance_destroy();

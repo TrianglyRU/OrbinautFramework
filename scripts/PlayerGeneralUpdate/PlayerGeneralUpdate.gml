@@ -13,7 +13,7 @@ function PlayerGeneralUpdate()
 		LivesRewards++;
 							
 		// Play jungle
-		audio_bgm_play(PriorityHigh, ExtraLife, 0, 0);
+		audio_bgm_play(PriorityHigh, ExtraLife);
 	}
 	
 	// Handle highspeed bonus
@@ -23,7 +23,7 @@ function PlayerGeneralUpdate()
 		{
 			if audio_bgm_is_playing(HighSpeed)
 			{
-				audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+				audio_bgm_play(PriorityLow, Stage.StageMusic);
 			}
 		}	
 	}
@@ -48,7 +48,7 @@ function PlayerGeneralUpdate()
 		{
 			if audio_bgm_is_playing(Invincibility)
 			{
-				audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+				audio_bgm_play(PriorityLow, Stage.StageMusic);
 			}
 		}
 	}

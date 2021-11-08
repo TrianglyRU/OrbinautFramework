@@ -61,7 +61,7 @@ function StageGameplayProcess()
 				{
 					IsGameOver = true;
 					audio_bgm_stop(PriorityHigh, 0);
-					audio_bgm_play(PriorityLow, GameOver, 0, 0);
+					audio_bgm_play(PriorityLow, GameOver);
 				}
 			}
 			

@@ -44,9 +44,11 @@ function PlayerGroundFloorCollision()
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Xsp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
-					// Restart animation...?
-					animation_reset(0);
-					
+					if Animation == AnimMove
+					{
+						// Restart animation...?
+						animation_reset(0);
+					}
 					Pushing  = false;
 					Grounded = false;
 					break;
@@ -78,9 +80,11 @@ function PlayerGroundFloorCollision()
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Ysp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
-					// Restart animation...?
-					animation_reset(0);
-					
+					if Animation == AnimMove
+					{
+						// Restart animation...?
+						animation_reset(0);
+					}
 					Pushing  = false;
 					Grounded = false;
 					break;
@@ -112,9 +116,11 @@ function PlayerGroundFloorCollision()
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Xsp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
-					// Restart animation...?
-					animation_reset(0);
-					
+					if Animation == AnimMove
+					{
+						// Restart animation...?
+						animation_reset(0);
+					}
 					Pushing  = false;
 					Grounded = false;
 					break;
@@ -146,9 +152,11 @@ function PlayerGroundFloorCollision()
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Ysp)), 14) : 14;
 				if  FloorDistance > Distance
 				{
-					// Restart animation...?
-					animation_reset(0);
-					
+					if Animation == AnimMove
+					{
+						// Restart animation...?
+						animation_reset(0);
+					}
 					Pushing  = false;
 					Grounded = false;
 					break;

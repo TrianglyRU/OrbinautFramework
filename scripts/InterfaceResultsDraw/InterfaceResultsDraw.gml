@@ -160,7 +160,7 @@ function InterfaceResultsDraw()
 				if Player.Score >= LifeReward
 				{
 					Player.Lives++;
-					audio_bgm_play(PriorityHigh, ExtraLife, 0, 0);
+					audio_bgm_play(PriorityHigh, ExtraLife);
 				}
 			
 				// Score tally

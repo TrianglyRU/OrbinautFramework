@@ -10,7 +10,7 @@ function ObjMotobugMain()
 			
 			// Collide tiles and check for if Motobug is 8 pixels away from the surface
 			var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, LayerA)[0];
-			if  FindFloor > 8
+			if  FindFloor > 12 or FindFloor < -8
 			{
 				// Stop animation
 				animation_set(sprite_index, 0);
@@ -33,11 +33,8 @@ function ObjMotobugMain()
 					Timer = 16;
 				}
 				
-				// Attach to the surface
-				if FindFloor > -16
-				{
-					PosY += FindFloor;
-				}
+				// Adhere to the surface
+				PosY += FindFloor;
 				
 				// Update position
 				x = floor(PosX);

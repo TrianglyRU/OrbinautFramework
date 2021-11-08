@@ -66,15 +66,15 @@ function PlayerSuperFormsProcess()
 				{
 					if Stage.IsBossfight
 					{
-						audio_bgm_play(PriorityLow, Boss, other, other);
+						audio_bgm_play(PriorityLow, Boss);
 					}
 					else if HighspeedBonus
 					{
-						audio_bgm_play(PriorityLow, HighSpeed, other, other);
+						audio_bgm_play(PriorityLow, HighSpeed);
 					}
 					else
 					{
-						audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+						audio_bgm_play(PriorityLow, Stage.StageMusic);
 					}					
 				}
 				SuperStateValue = false;

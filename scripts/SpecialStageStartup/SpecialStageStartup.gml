@@ -8,5 +8,5 @@ function SpecialStageStartup()
 	fade_perform(ModeFrom, BlendWhite, 1);
 	
 	// Play bgm
-	audio_bgm_play(PriorityLow, SpecialStageTheme, other, other);
+	audio_bgm_play(PriorityLow, SpecialStageTheme);
 }

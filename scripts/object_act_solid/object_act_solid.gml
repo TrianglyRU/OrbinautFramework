@@ -87,10 +87,15 @@ function object_act_solid(sides,top,bottom,resetActions)
 		var XComparison = floor(Player.PosX) - ObjectX + FallRadius;
 		if  XComparison <= 0 or XComparison >= FallRadius * 2 - 1
 		{
-			Player.OnObject = false;
-			
-			// Restart animation...?
-			animation_reset(0);
+			with Player
+			{
+				if Animation == AnimMove
+				{
+					// Restart animation...?
+					animation_reset(0);
+				}
+				OnObject = false;
+			}
 		}
 	}
 			

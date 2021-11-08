@@ -1,14 +1,15 @@
 function PlayerJumpStart()
 {	
 	// Exit if no action button is pressed or special ability is active
-	if !Input.ABCPress or SpindashRev != -1 or PeeloutRev != -1 or ForcedRoll
+	if !Input.ABCPress or SpindashRev != -1 or PeeloutRev != -1
 	{
 		exit;
 	}
 
-	// Exit if found low ceiling
+	// Check if there is a room between player's head and ceiling
 	if Angle <= 45 or Angle >= 315
 	{
+		// Check for ceiling directly above if on the ground
 		if tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer)[0] < 6
 		or tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer)[0] < 6
 		{
@@ -17,22 +18,16 @@ function PlayerJumpStart()
 	}
 	else if Angle >= 46.41 and Angle <= 133.59		
 	{
+		// Check for ceiling to the left if on the right wall
 		if tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, true, Layer)[0] < 6
 		or tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, true, Layer)[0] < 6
 		{
 			exit;
 		}
 	}
-	else if Angle >= 135 and Angle <= 225		
-	{
-		if tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, true, Layer)[0] < 6
-		or tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, true, Layer)[0] < 6
-		{
-			exit;
-		}
-	}
 	else if Angle >= 226.41 and Angle <= 313.59		
 	{
+		// Check for ceiling to the right if on the left wall
 		if tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, true, Layer)[0] < 6
 		or tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, true, Layer)[0] < 6
 		{
@@ -55,7 +50,7 @@ function PlayerJumpStart()
 	// Update collision radiuses
 	RadiusX	= SmallRadiusX;
 	RadiusY = SmallRadiusY;
-	PosY  += DefaultRadiusY - SmallRadiusY;
+	PosY   += DefaultRadiusY - SmallRadiusY;
 	
 	// Set spinning flag
 	if !Spinning
@@ -80,5 +75,5 @@ function PlayerJumpStart()
 	audio_sfx_play(sfxJump, false);
 			
 	// Return action result
-	return Jumping
+	return Jumping;
 }

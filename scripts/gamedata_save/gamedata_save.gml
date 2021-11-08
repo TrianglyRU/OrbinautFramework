@@ -2,7 +2,7 @@
 function gamedata_save(slot)
 {
 	/* It is not recommended to modify saveslot file to save/load additional data.
-	You'd want to create additional file for that case, like saveextra */
+	You'd want to create additional file in this case, like saveextra.bin */
 	
 	// Get savedata file name
 	var Filename = "saveslot" + string(slot + 1) + ".bin";

@@ -26,7 +26,7 @@ function ObjClearPlateMain()
 				if Player.SuperState
 				{
 					Player.SuperState = false;
-					audio_bgm_play(PriorityLow, Stage.StageMusic, other, other);
+					audio_bgm_play(PriorityLow, Stage.StageMusic);
 				}
 				
 				// Increment state
@@ -72,7 +72,7 @@ function ObjClearPlateMain()
 				if Player.Grounded
 				{
 					// Play results music
-					audio_bgm_play(PriorityLow, ActClear, 0, 0);
+					audio_bgm_play(PriorityLow, ActClear);
 				
 					// Update flags
 					Input.IgnoreInput  = true;

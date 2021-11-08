@@ -34,30 +34,23 @@ function InterfaceDebugScreenDraw()
 	// Define information to display
 	#region Display Info
 	{
-		/* AUDIO */
-		
-		if Audio.LowTrack[0]
+		if Audio.LowTrack[1]
 		{
-			var LowPlaying = audio_get_name(Audio.LowTrack[0]);
-			var LowLength  = string(audio_sound_length(Audio.LowTrack[0]));
+			var LowPlaying = audio_get_name(Audio.LowTrack[1]);
 		}
 		else
 		{
 			var LowPlaying = "NOT PLAYING";
-			var LowLength  = "NO DATA";
 		}
-		if Audio.HighTrack[0]
+		if Audio.HighTrack[1]
 		{
-			var HighPlaying = audio_get_name(Audio.HighTrack[0]);
-			var HighLength  = string(audio_sound_length(Audio.HighTrack[0]));
+			var HighPlaying = audio_get_name(Audio.HighTrack[1]);
 		}
 		else
 		{
 			var HighPlaying = "NOT PLAYING";
-			var HighLength  = "NO DATA";
-		}
-		
-		switch Audio.LowTrack[2]
+		}		
+		switch Audio.LowTrack[0]
 		{
 			case EventIdle:
 				var LowEvent = "IDLE";
@@ -72,7 +65,7 @@ function InterfaceDebugScreenDraw()
 				var LowEvent = "UNMUTE";
 			break;
 		}
-		switch Audio.HighTrack[2]
+		switch Audio.HighTrack[0]
 		{
 			case EventIdle:
 				var HighEvent = "IDLE";
@@ -87,25 +80,6 @@ function InterfaceDebugScreenDraw()
 				var HighEvent = "UNMUTE";
 			break;
 		}
-		
-		if Audio.LowTrack[1][1]
-		{
-			var LowLoop = "LOOP TO " + string(Audio.LowTrack[1][0]);
-		}
-		else
-		{
-			var LowLoop = "NO";
-		}
-		if Audio.HighTrack[1][1]
-		{
-			var HighLoop = "LOOP TO " + string(Audio.HighTrack[1][0]);
-		}
-		else
-		{
-			var HighLoop = "NO";
-		}
-		
-		/* */
 	}
 	#endregion
 	
@@ -200,18 +174,14 @@ function InterfaceDebugScreenDraw()
 				+ "\n"
 				+ "\n   LOW TRACK: "       + LowPlaying
 				+ "\n   LOW EVENT: "       + LowEvent
-				+ "\n   LOW EVENT TIME: "  + string(Audio.LowTrack[3])
-				+ "\n   LOW VOLUME: "      + string(audio_sound_get_gain(Audio.LowTrack[0]))
-				+ "\n   LOW POSITION: "    + string(audio_sound_get_track_position(Audio.LowTrack[0]))
-				+ "\n   LOW LENGTH: "      + LowLength
-				+ "\n   LOW LOOP: "        + LowLoop
+				+ "\n   LOW EVENT TIME: "  + string(Audio.LowTrack[2])
+				+ "\n   LOW VOLUME: "      + string(audio_sound_get_gain(Audio.LowTrack[1]))
+				+ "\n   LOW POSITION: "    + string(audio_sound_get_track_position(Audio.LowTrack[1]))
 				+ "\n   HIGH TRACK: "      + HighPlaying
 				+ "\n   HIGH EVENT: "      + HighEvent
-				+ "\n   HIGH EVENT TIME: " + string(Audio.HighTrack[3])
-				+ "\n   HIGH VOLUME: "     + string(audio_sound_get_gain(Audio.HighTrack[0]))
-				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[0]))
-				+ "\n   HIGH LENGTH: "     + HighLength
-				+ "\n   HIGH LOOP: "       + HighLoop,
+				+ "\n   HIGH EVENT TIME: " + string(Audio.HighTrack[2])
+				+ "\n   HIGH VOLUME: "     + string(audio_sound_get_gain(Audio.HighTrack[1]))
+				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[1])),
 				
 		8, 256, 0.28, 0.28, 0);
 	}
