@@ -297,6 +297,7 @@
     {"id":{"name":"spr_supersonic_balance","path":"sprites/spr_supersonic_balance/spr_supersonic_balance.yy",},"order":64,},
     {"id":{"name":"PaletteSurfaceProcess","path":"scripts/PaletteSurfaceProcess/PaletteSurfaceProcess.yy",},"order":5,},
     {"id":{"name":"PaletteUpdate","path":"scripts/PaletteUpdate/PaletteUpdate.yy",},"order":6,},
+    {"id":{"name":"AudioEnd","path":"scripts/AudioEnd/AudioEnd.yy",},"order":6,},
     {"id":{"name":"palette_handle","path":"scripts/palette_handle/palette_handle.yy",},"order":24,},
     {"id":{"name":"palette_load","path":"scripts/palette_load/palette_load.yy",},"order":25,},
     {"id":{"name":"PlayerGroundFloorCollision","path":"scripts/PlayerGroundFloorCollision/PlayerGroundFloorCollision.yy",},"order":1,},

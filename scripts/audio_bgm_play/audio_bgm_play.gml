@@ -21,7 +21,7 @@ function audio_bgm_play(priority,soundid)
 			// Set loopdata
 			if ds_map_exists(Audio.TrackLoop, soundid)
 			{
-				Audio.LowTrack[3] = [Audio.TrackLoop[? soundid][0], Audio.TrackLoop[? soundid][1]];
+				Audio.LowTrack[3] = Audio.TrackLoop[? soundid];
 			}
 			else
 			{

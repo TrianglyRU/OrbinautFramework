@@ -1,8 +1,5 @@
 function AudioStartup()
 {
-	// Stop all audio
-	audio_stop_all();
-	
 	/* Array Pointers
 	0 - Event
 	1 - TrackID
