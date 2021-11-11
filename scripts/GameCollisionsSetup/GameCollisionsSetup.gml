@@ -4,7 +4,7 @@ function GameCollisionsSetup()
 	{
 		// Test Stage
 		case Stage_TZ:
-			tile_data_set("TZ", 66, "CollisionLayerA", "CollisionLayerB");
+			tile_data_set("", 66, "CollisionLayerA", "CollisionLayerB");
 		break;
 		
 		// Do not load any tiledata by default

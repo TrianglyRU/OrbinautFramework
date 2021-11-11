@@ -84,7 +84,7 @@ function ObjClearPlateMain()
 					Player.PeeloutRev  = -1;
 				}
 			}
-		
+			
 			// Set player animation
 			else
 			{

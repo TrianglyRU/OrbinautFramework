@@ -5,8 +5,8 @@ function PaletteSetup()
 		// Load basic palette for Test Stage
 		case Stage_TZ:
 		{
-			palette_load(TypePrimary,   pal_default_dry);
-			palette_load(TypeSecondary, pal_default_wet);
+			palette_load(TypePrimary,   pal_default_type1);
+			palette_load(TypeSecondary, pal_default_type2);
 		}
 		break;
 		
