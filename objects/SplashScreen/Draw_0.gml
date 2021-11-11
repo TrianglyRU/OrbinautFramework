@@ -1,5 +1,5 @@
-/// @description Draw
+/// @description Visualisation Code
 // You can write your code in this editor
 	
-	// Draw Script
+	// Visualisation Script
 	SplashScreenDraw();

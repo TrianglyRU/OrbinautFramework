@@ -1,7 +1,7 @@
-/// @description Startup Initialisation
+/// @description Game Initialisation Code
 // You can write your code in this editor
 	
-	// Startup Initalization Scripts
+	// Game Initalization Scripts
 	GameMacro();
 	GameSetup();
 	GameFontsSetup();

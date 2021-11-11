@@ -1,7 +1,7 @@
-/// @description GUI Shader Visualization
+/// @description Shader Process Code
 // You can write your code in this editor
 
-	// GUI Shader Visualization Scripts
+	// Shader Process Scripts
 	PaletteFadeProcess();
 	PaletteUpdate();
 	PaletteSurfaceProcess();

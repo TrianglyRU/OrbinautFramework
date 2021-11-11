@@ -1,7 +1,7 @@
-/// @description Startup
+/// @description Initialisation Code
 // You can write your code in this editor
 
-	// Startup Scripts
+	// Initialisation Scripts
 	MenuFunctions();
 	MenuStartup();
 	MenuSaveDataLoad();

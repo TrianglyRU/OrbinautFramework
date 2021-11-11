@@ -1,7 +1,7 @@
-/// @description GUI Visualisation
+/// @description GUI Code
 // You can write your code in this editor
 	
-	// Visualization Scripts
+	// GUI Scripts
 	InterfaceRendererLowProcess();
 	InterfaceOverlayDraw();
 	InterfaceResultsDraw();

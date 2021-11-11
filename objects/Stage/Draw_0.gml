@@ -1,6 +1,6 @@
-/// @description Visualization
+/// @description Visualisation Code
 // You can write your code in this editor
 	
-	// Visualiaztion Script
+	// Visualisation Scripts
 	StagePaletteUpdate();
 	StageWaterSurfaceDraw();

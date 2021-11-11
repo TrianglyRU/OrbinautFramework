@@ -1,8 +1,6 @@
-/// @description Time Reset & VRAM Cleanup
+/// @description Room Unload Code
 // You can write your code in this editor
 	
-	// Global Time Reset Script
+	// Room Unload Scripts
 	GameTimeReset();
-	
-	// VRAM Cleanup Script
 	GameVideoMemoryClear();

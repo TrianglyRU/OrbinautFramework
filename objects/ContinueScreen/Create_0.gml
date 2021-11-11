@@ -1,5 +1,5 @@
-/// @description Startup
+/// @description Initialisation Code
 // You can write your code in this editor
 	
-	// Startup Script
+	// Initialisation Script
 	ContinueScreenStartup();

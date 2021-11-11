@@ -1,5 +1,5 @@
-/// @description Post-Visualization
+/// @description Post-Visualization Code
 // You can write your code in this editor
 	
-	// Post-Visualization Script
+	// Post-Visualisation Script
 	StageObjectsFreeze();
