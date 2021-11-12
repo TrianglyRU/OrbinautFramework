@@ -1,5 +1,8 @@
 function PlayerMovementGround()
 {	
+	// Initialise static variable
+	static SkidTime = 0;
+	
 	// Exit if charging a spindash or peelout
 	if SpindashRev != -1 or PeeloutRev != -1
 	{
@@ -27,7 +30,17 @@ function PlayerMovementGround()
 				{
 					if Animation != AnimSkid
 					{
+						if Game.Character != CharKnuckles
+						{
+							SkidTime = 32;
+						}
+						else
+						{
+							SkidTime = 16;
+						}
 						Animation = AnimSkid;
+						
+						// Play sound
 						audio_sfx_play(sfxSkid, false);
 						
 						// Create dust object
@@ -69,7 +82,17 @@ function PlayerMovementGround()
 				{
 					if Animation != AnimSkid
 					{
+						if Game.Character != CharKnuckles
+						{
+							SkidTime = 32;
+						}
+						else
+						{
+							SkidTime = 16;
+						}
 						Animation = AnimSkid;
+						
+						// Play sound
 						audio_sfx_play(sfxSkid, false);
 						
 						// Create dust object
@@ -150,9 +173,16 @@ function PlayerMovementGround()
 			}
 				
 			// Cancel skidding animation
-			else if Inertia and Input.Right or !Inertia and Input.Left
+			else 
 			{
-				Animation = AnimMove;
+				if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left or !SkidTime
+				{
+					Animation = AnimMove;
+				}
+				if SkidTime
+				{
+					SkidTime--;
+				}
 			}
 		}
 	}

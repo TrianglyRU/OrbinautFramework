@@ -87,11 +87,12 @@ function object_act_solid(sides,top,bottom,resetActions)
 		var XComparison = floor(Player.PosX) - ObjectX + FallRadius;
 		if  XComparison <= 0 or XComparison >= FallRadius * 2 - 1
 		{
+			var ThisObject = object_index;
 			with Player
 			{
-				if Animation == AnimMove
+				if Animation == AnimMove and ThisObject != Bridge
 				{
-					// Restart animation...?
+					// Restart animation...? (if not on the bridge)
 					animation_reset(0);
 				}
 				OnObject = false;
@@ -156,7 +157,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 			{
 				if PlayerY < ObjectY
 				{
-					if Player.Ysp >= 0 and !Player.Grounded
+					if Player.Ysp >= 0 and !Player.OnObject
 					{
 						// Exit if outside the object
 						var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;

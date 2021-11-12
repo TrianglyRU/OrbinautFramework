@@ -16,7 +16,7 @@ function GameSetup()
 	Game.RolljumpControl    = false;
 	Game.S3SlopePhysics		= false;
 	Game.S3WaterPhysics		= false;
-	Game.SKCrouch			= false;
+	Game.SKCrouch			= true;
 	Game.SKRollDeceleration	= false;
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;	

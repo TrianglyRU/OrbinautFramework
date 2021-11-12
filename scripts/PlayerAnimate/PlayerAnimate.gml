@@ -1,10 +1,9 @@
 function PlayerAnimate()
 {	
 	// Initialise static variables for certain animations
-	static AnimSpringTime  = 48;
-	static AnimBreatheTime = 24;
-	static AnimKnuxSkid    = 16;
-	static AnimKnuxGetUp   = 16;
+	static AnimSpringTime  = 0;
+	static AnimBreatheTime = 0;
+	static AnimStandTime   = 0;
 	
 	// Update statics
 	if Animation != AnimBreathe
@@ -15,13 +14,9 @@ function PlayerAnimate()
 	{
 		AnimSpringTime = 48;
 	}
-	if Animation != AnimSkid
-	{
-		AnimKnuxSkid = 16;
-	}
 	if Animation != AnimDropStand and Animation != AnimGlideStand
 	{
-		AnimKnuxGetUp = 16;
+		AnimStandTime = 16;
 	}
 	
 	// Animate character
@@ -436,16 +431,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_lookup, 6, 0, 1);
 				break;
 				case AnimSkid:
-				{
-					if !Input.Left and !Input.Right and !(--AnimKnuxSkid) or Inertia == 0
-					{
-						Animation = AnimMove;
-					}
-					else
-					{
-						animation_play(spr_knuckles_skid, 4, 0, 3);
-					}
-				}
+					animation_play(spr_knuckles_skid, 4, 0, 3);
 				break;
 				case AnimHurt:
 					animation_set(spr_knuckles_hurt, 0);
@@ -467,7 +453,7 @@ function PlayerAnimate()
 				break;
 				case AnimDropStand:
 				{
-					if !(--AnimKnuxGetUp)
+					if !(--AnimStandTime)
 					{
 						Animation = Input.Down ? AnimCrouch : AnimIdle;
 					}
@@ -479,7 +465,7 @@ function PlayerAnimate()
 				break;
 				case AnimGlideStand:
 				{
-					if !(--AnimKnuxGetUp)
+					if !(--AnimStandTime)
 					{
 						Animation = AnimIdle;
 					}

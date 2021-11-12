@@ -1,7 +1,7 @@
 function ObjDustPuffMain()
 {
 	// Check if player is skidding or sliding
-	if Player.Animation == AnimSkid or Player.GlideState > GlideFall
+	if Player.Animation == AnimSkid and Player.Grounded or Player.GlideState > GlideFall
 	{
 		if image_index == 1 and !State
 		{

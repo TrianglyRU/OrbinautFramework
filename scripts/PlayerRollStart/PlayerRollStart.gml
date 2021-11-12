@@ -44,5 +44,11 @@ function PlayerRollStart()
 			
 		// Play sound
 		audio_sfx_play(sfxRoll, false);
+		
+		// Set inertia if stopped
+		if abs(Inertia) < 0.5
+		{
+			Inertia = 4 * Facing;
+		}
 	}
 }
