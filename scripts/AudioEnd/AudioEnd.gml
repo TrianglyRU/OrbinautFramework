@@ -1,4 +1,4 @@
-function AudioReset()
+function AudioEnd()
 {
 	// Destroy datastructure
 	ds_map_destroy(TrackLoop);

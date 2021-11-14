@@ -22,8 +22,8 @@ function tile_check_nearest(data1,data2,objectAngle)
 		var Difference = abs(objectAngle mod 180 - ResultAngle mod 180);		
 		if  Difference > 45 and Difference < 135
 		{
-			/* Originals also check for a bit flag set for tiles with angle
-			0xFF, but we already handle it right when we get tile data */
+			/* Originals also check for flagged tiles here (tiles with angle
+			0xFF), but we already somewhat handle it right when we get tile data */
 			   
 			ResultAngle = round(objectAngle / 90) mod 4 * 90;
 			if !ResultAngle

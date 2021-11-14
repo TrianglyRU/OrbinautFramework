@@ -61,15 +61,22 @@ function PlayerRoll()
 	}
 
 	// Unroll
-	if !Game.SKCrouch and Inertia == 0 
-	or  Game.SKCrouch and abs(Inertia) < 0.5
+	if !ForcedRoll
 	{
-		// Reset collision radiuses
-		RadiusX = DefaultRadiusX;
-		RadiusY = DefaultRadiusY;
-		PosY   -= DefaultRadiusY - SmallRadiusY;
+		if !Game.SKCrouch and Inertia == 0 
+		or  Game.SKCrouch and abs(Inertia) < 0.5
+		{
+			// Reset collision radiuses
+			RadiusX = DefaultRadiusX;
+			RadiusY = DefaultRadiusY;
+			PosY   -= DefaultRadiusY - SmallRadiusY;
 			
-		Spinning  = false;
-		Animation = AnimIdle;
+			Spinning  = false;
+			Animation = AnimIdle;
+		}
+	}
+	else if Inertia == 0
+	{
+		Inertia = 4 * Facing;
 	}
 }

@@ -14,7 +14,7 @@ function ObjFloatingPlatformStartup()
 	{
 		case Stage_TZ:
 		{
-			var XRadius	 = 32;
+			var XRadius	 = 40;
 			var YRadius	 = 11;
 			sprite_index = spr_obj_platform_tz;
 		}

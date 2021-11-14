@@ -31,7 +31,7 @@ function SpecialScreenStartup()
 	{
 		/* Add redirection here */
 		default:
-			room_goto(Stage_SStageTemplate);
+			room_goto(SStage_Template);
 		break;
 	}
 }

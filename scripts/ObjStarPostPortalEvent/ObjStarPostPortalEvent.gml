@@ -14,6 +14,6 @@ function ObjStarPostPortalEvent()
 		Game.BonusStageData[1] = Player.BarrierType;
 		
 		// Send player to the Bonus Stage
-		room_goto(Stage_BonusStage);			
+		room_goto(BStage_Template);			
 	}	
 }
