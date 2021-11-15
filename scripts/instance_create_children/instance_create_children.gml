@@ -1,16 +1,16 @@
-/// @function instance_create_children(x,y,obj,array)
-function instance_create_children(x,y,obj,array)
+/// @function instance_create_children(x,y,obj)
+function instance_create_children(x,y,obj)
 {
 	// Create object
 	var NewObject = instance_create(x, y, obj);
 	
-	// Add to the list
-	if array != false
+	// Add to the array
+	if !variable_instance_exists(id, "Obj_ChildrenIDs")
 	{
-		array_push(array, NewObject);
-		Obj_ChildrenIDs = array;
+		Obj_ChildrenIDs = [];
 	}
+	array_push(Obj_ChildrenIDs, NewObject);
 	
-	// Return id of the created object
+	// Return ID of the created object
 	return NewObject;
 }

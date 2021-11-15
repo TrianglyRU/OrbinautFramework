@@ -25,7 +25,7 @@ function ObjOrbinautStartup()
 	{
 		var Ang = 90 * i;
 		
-		Orb[i] = instance_create_children(x + 16 * dsin(Ang), y + 16 * dcos(Ang), OrbinautOrb, Orb);
+		Orb[i] = instance_create_children(x + 16 * dsin(Ang), y + 16 * dcos(Ang), OrbinautOrb);
 		with Orb[i] 
 		{
 			// Set depth
