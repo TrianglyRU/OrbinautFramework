@@ -86,12 +86,13 @@ function GameMacro()
 	#macro AnimBreathe		 33
 	
 	// Collision macro
-	#macro SideTop	   0
-	#macro SideLeft	   1
-	#macro SideRight   2
-	#macro SideBottom  3
-	#macro TypeHitbox  0
-	#macro TypeTrigger 1
-	#macro LayerA	   0
-	#macro LayerB	   1
+	#macro SideTop	    0
+	#macro SideLeft	    1
+	#macro SideRight    2
+	#macro SideBottom   3
+	#macro TypeHitbox   0
+	#macro TypeSolidbox 1
+	#macro TypeTrigger  2
+	#macro LayerA	    0
+	#macro LayerB	    1
 }

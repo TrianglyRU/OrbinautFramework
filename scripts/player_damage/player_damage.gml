@@ -1,6 +1,12 @@
 /// @function player_damage(isFlame,isThunder,instantKill)
 function player_damage(isFlame,isThunder,instantKill)
 {	
+	// Exit if player is already dead
+	if Player.Death
+	{
+		exit;
+	}
+	
 	// Exit if player can't be damaged
 	if !instantKill and (Player.InvincibilityFrames or Player.InvincibleBonus or Player.SuperState)
 	{
@@ -25,7 +31,6 @@ function player_damage(isFlame,isThunder,instantKill)
 		// Set flags
 		Camera.Enabled			   = false;
 		Player.InvincibilityFrames = 0;
-		Player.InvincibleBonus	   = 0;
 		Player.DrawOrder	       = 0;
 		Player.Death               = true;
 		Player.AllowCollision      = false;

@@ -5,15 +5,21 @@ function StageWaterSurfaceDraw()
     {
         exit;
     }
+	
+	// Render only each second frame
+	if Game.GlobalTime mod 2
+	{
+		exit;
+	}
     
     // Render waves on-screen
-    var ScrnWater = WaterLevel - Camera.ViewY;
-    if  ScrnWater > -16 and ScrnWater < Game.Height + 16
-    {
-        var Length = ceil(Game.Width / 32) + 2;
-        for (var i = -1; i < Length; i++)
-        {
-			draw_animated_sprite(tex_water_surface, 4, Game.GlobalTime, (floor(Camera.ViewX / 32) + i) * 32, WaterLevel);
-        }
-    }
+	var LevelY = WaterLevel - Camera.ViewY;
+	if  LevelY > -16 and LevelY < Game.Height + 16
+	{
+	    var Length = ceil(Game.Width / 32) + 2;
+	    for (var i = -1; i < Length; i++)
+	    {
+			draw_animated_sprite(tex_water_surface, 16, Game.GlobalTime, (floor(Camera.ViewX / 32) + i) * 32, WaterLevel);
+	    }
+	}
 }

@@ -14,4 +14,7 @@ function ObjCollisionTriggerStartup()
 	
 	// Set object unload type
 	object_set_unload(TypePause);
+	
+	// Make object invisible
+	visible = false;
 }
