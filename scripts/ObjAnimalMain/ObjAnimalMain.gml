@@ -92,7 +92,7 @@ function ObjAnimalMain()
 			if !(--Delay)
 			{
 				State -= 2;
-				object_set_depth(EggPrison, true);
+				object_set_depth(EggPrison, 1);
 				
 				// Set direction
 				image_xscale = choose(-1, 1);

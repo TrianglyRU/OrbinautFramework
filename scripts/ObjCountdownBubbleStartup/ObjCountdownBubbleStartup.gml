@@ -12,7 +12,7 @@ function ObjCountdownBubbleStartup()
 	Ysp  = -0.53125;
 	
 	// Set object depth
-	object_set_depth(Player, true);
+	object_set_depth(Player, 1);
 	
 	// Set object unload type
 	object_set_unload(TypeDelete);

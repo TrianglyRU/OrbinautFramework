@@ -15,7 +15,7 @@ function ObjOrbinautStartup()
 	object_set_hitbox(8, 8);
 	
 	// Set object depth
-	object_set_depth(Player, false);
+	object_set_depth(Player, 0);
 	
 	// Set object unload type
 	object_set_unload(TypeReset);
@@ -29,7 +29,7 @@ function ObjOrbinautStartup()
 		with Orb[i] 
 		{
 			// Set depth
-			object_set_depth(ThisBadnik, true);
+			object_set_depth(ThisBadnik, 1);
 		}
 	}
 }

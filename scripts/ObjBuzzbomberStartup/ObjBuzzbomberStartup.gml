@@ -10,7 +10,7 @@ function ObjBuzzbomberStartup()
 	object_set_hitbox(24, 12);
 	
 	// Set object depth
-	object_set_depth(Player, false);
+	object_set_depth(Player, 0);
 	
 	// Set object unload type
 	object_set_unload(TypeReset);

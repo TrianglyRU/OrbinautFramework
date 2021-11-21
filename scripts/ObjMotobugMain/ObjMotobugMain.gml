@@ -28,7 +28,7 @@ function ObjMotobugMain()
 					var  NewObject  = instance_create(x - 19 * image_xscale, y - 1, MotobugSmoke);
 					with NewObject
 					{
-						object_set_depth(ThisObject, false);
+						object_set_depth(ThisObject, 0);
 					}
 					Timer = 16;
 				}

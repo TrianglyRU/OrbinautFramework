@@ -17,10 +17,10 @@ function ObjBumperMain()
 			if ScoreLimit
 			{
 				var  ThisObject = id;
-				var  Object = instance_create(x, y, ScoreObject);
+				var  Object     = instance_create(x, y, ScoreObject);
 				with Object
 				{
-					object_set_depth(ThisObject, id);
+					object_set_depth(ThisObject, 1);
 				}
 			}
 			ScoreLimit--;

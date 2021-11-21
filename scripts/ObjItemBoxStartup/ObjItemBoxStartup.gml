@@ -59,7 +59,7 @@ function ObjItemBoxStartup()
 	object_set_hitbox(16, 16);
 	
 	// Set object depth
-	object_set_depth(Player, false);
+	object_set_depth(Player, 0);
 	
 	// Set active range
 	object_set_unload(TypeReset);

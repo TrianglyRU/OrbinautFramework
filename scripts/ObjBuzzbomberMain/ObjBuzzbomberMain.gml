@@ -77,7 +77,7 @@ function ObjBuzzbomberMain()
 					sprite_index = spr_obj_projectile_buzzbomber;
 				
 					// Set object depth
-					object_set_depth(ThisObject, false);
+					object_set_depth(ThisObject, 0);
 				}
 			}
 		}

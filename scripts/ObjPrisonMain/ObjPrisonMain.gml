@@ -95,7 +95,7 @@ function ObjPrisonMain()
 							State = 2;
 							Delay = 154 - i * 8;
 							
-							object_set_depth(ThisObject, false);
+							object_set_depth(ThisObject, 0);
 						}
 					}
 				}
@@ -110,7 +110,7 @@ function ObjPrisonMain()
 						State = 2;
 						Delay = 12;
 						
-						object_set_depth(ThisObject, false);
+						object_set_depth(ThisObject, 0);
 					}
 				}
 			}

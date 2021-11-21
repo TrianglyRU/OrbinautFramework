@@ -13,7 +13,7 @@ function ObjBarrierMain()
 		// Update normal barrier
 		case BarrierNormal:
 		{
-			object_set_depth(Player, true);
+			object_set_depth(Player, 1);
 			animation_play(spr_obj_barrier_normal, 2, 0, 0);
 		}
 		break;
@@ -23,11 +23,11 @@ function ObjBarrierMain()
 		{
 			if image_index == 18
 			{
-				object_set_depth(Player, false);
+				object_set_depth(Player, 0);
 			}
 			else if image_index == 39
 			{
-				object_set_depth(Player, true);
+				object_set_depth(Player, 1);
 			}
 			animation_play(spr_obj_barrier_thunder, 2, 0, 0);
 		}
@@ -49,17 +49,17 @@ function ObjBarrierMain()
 					// Restore control
 					Player.AirLock = false;
 				}
-				object_set_depth(Player, true);
+				object_set_depth(Player, 1);
 			}
 			else
 			{
 				if (image_index + 1) mod 2 == 0
 				{
-					object_set_depth(Player, true);
+					object_set_depth(Player, 1);
 				}
 				else
 				{
-					object_set_depth(Player, false);
+					object_set_depth(Player, 0);
 				}
 				animation_play(spr_obj_barrier_flame, 2, 0, 0);
 			}
@@ -79,7 +79,7 @@ function ObjBarrierMain()
 			{
 				animation_play(spr_obj_barrier_water, 2, 0, 0);
 			}
-			object_set_depth(Player, true);
+			object_set_depth(Player, 1);
 		}
 		break;
 	}

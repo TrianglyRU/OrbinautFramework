@@ -17,5 +17,5 @@ function ObjShatteredRingStartup()
 	object_set_unload(TypeDelete);
 	
 	// Set object depth
-	object_set_depth(Player, false);
+	object_set_depth(Player, 0);
 }

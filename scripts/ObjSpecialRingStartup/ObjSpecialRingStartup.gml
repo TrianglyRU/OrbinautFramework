@@ -8,7 +8,7 @@ function ObjSpecialRingStartup()
 	object_set_hitbox(8, 16);
 	
 	// Set object depth
-	object_set_depth(Player, false);
+	object_set_depth(Player, 0);
 	
 	// Set animation
 	animation_play(spr_obj_specialring, 8, 0, 0);

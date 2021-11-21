@@ -119,7 +119,7 @@ function ObjBubbleControllerMain()
 				Direction  = Player.Facing;
 				
 				// Override depth
-				object_set_depth(Player, true);
+				object_set_depth(Player, 1);
 			}
 			DrownBubbles++;
 			DrownDelay = irandom_range(1, 8);

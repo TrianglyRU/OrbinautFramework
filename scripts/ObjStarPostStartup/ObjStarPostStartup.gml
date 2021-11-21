@@ -12,7 +12,7 @@ function ObjStarPostStartup()
 	object_set_triggerbox(-8, 8, -52, 52);
 	
 	// Set object depth
-	object_set_depth(Player, false);
+	object_set_depth(Player, 0);
 	
 	
 }

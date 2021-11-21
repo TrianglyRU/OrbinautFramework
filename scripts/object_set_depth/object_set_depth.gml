@@ -1,5 +1,5 @@
-/// @function object_set_depth(target,above)
-function object_set_depth(target,renderdepth)
+/// @function object_set_depth(target,depthFlag)
+function object_set_depth(target,depthFlag)
 {
 	// Apply depth relative to the player
 	if target == Player
@@ -14,12 +14,12 @@ function object_set_depth(target,renderdepth)
 			
 			default: var Tolerance = 50; break;
 		}
-		depth = Player.DrawOrder - (renderdepth ? Tolerance : -Tolerance);
+		depth = Player.DrawOrder - (depthFlag ? Tolerance : -Tolerance);
 	}
 	
 	// Apply depth relative to another object
 	else
 	{
-		depth = target.depth - (renderdepth ? 1 : -1);
+		depth = target.depth - (depthFlag ? 1 : -1);
 	}
 }

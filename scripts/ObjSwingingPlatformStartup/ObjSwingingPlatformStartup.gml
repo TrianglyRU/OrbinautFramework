@@ -38,5 +38,5 @@ function ObjSwingingPlatformStartup()
     object_set_solidbox(XRadius, YRadius, false);
 	
 	// Set object depth
-    object_set_depth(Player, false);
+    object_set_depth(Player, 0);
 }

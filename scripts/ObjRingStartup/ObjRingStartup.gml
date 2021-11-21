@@ -16,5 +16,5 @@ function ObjRingStartup()
 	object_set_unload(TypePause);
 	
 	// Set object depth
-	object_set_depth(Player, false);
+	object_set_depth(Player, 0);
 }

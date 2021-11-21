@@ -74,7 +74,7 @@ function ObjCrabmeatMain()
 							sprite_index = spr_obj_projectile_crabmeat;
 					  
 							// Set object depth
-							object_set_depth(ThisObject, false);
+							object_set_depth(ThisObject, 0);
 						}
 					}
 				}
