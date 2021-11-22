@@ -1,8 +1,9 @@
 function ObjProjectileStartup()
 {
 	// Set blank values
-	Xsp = 0;
-	Ysp = 0;
+	Xsp   = 0;
+	Ysp   = 0;
+	State = 0;
 	
 	// Set other variables
 	PosX = x;
