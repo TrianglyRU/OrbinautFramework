@@ -6,7 +6,7 @@
   "option_windows_product_info": "",
   "option_windows_copyright_info": "",
   "option_windows_description_info": "",
-  "option_windows_display_cursor": true,
+  "option_windows_display_cursor": false,
   "option_windows_icon": "icons/icon.ico",
   "option_windows_save_location": 0,
   "option_windows_splash_screen": "${base_options_dir}/windows/splash/splash.png",
