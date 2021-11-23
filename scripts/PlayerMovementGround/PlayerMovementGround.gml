@@ -175,7 +175,8 @@ function PlayerMovementGround()
 			// Cancel skidding animation
 			else 
 			{
-				if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left or !SkidTime
+				if Inertia > 0 and Input.Right
+				or Inertia < 0 and Input.Left or !SkidTime
 				{
 					Animation = AnimMove;
 				}

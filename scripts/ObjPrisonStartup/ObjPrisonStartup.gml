@@ -1,10 +1,12 @@
 function ObjPrisonStartup()
 {
 	// Set blank values
-	State	     = 0;
-	Timer	     = 0;
-	ExplDelay    = 0;
-	TargetAnimal = 0;
+	State	       = 0;
+	StateTimer	   = 0;
+	
+	// Set other variables
+	ExplosionTimer = irandom(32);
+	TargetAnimal   = noone;
 	
 	// Set object solidbox
 	object_set_solidbox(32, 25, false);

@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PlayerRoll",
+  "name": "PlayerMovementRoll",
   "tags": [],
   "resourceType": "GMScript",
 }

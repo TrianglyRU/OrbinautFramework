@@ -36,6 +36,12 @@ function player_damage(isFlame,isThunder,instantKill)
 		Player.AllowCollision      = false;
 		Player.Animation	       = AnimDeath;
 		Player.BarrierType		   = false;
+		
+		// Force-disable Tails' tail visibility in case the code somehow messes up with it
+		if Game.Character == CharTails
+		{
+			TailsObject.visible = false;
+		}
 				
 		// Perform movement
 		Player.Grv     = 0.21875;
@@ -70,16 +76,18 @@ function player_damage(isFlame,isThunder,instantKill)
 			{
 				audio_sfx_play(sfxRingLoss, false)
 			}
-			else
+			else switch object_index
 			{
-				if object_index == SpikesVertical or object_index == SpikesHorizontal
+				case SpikesVertical: case SpikesHorizontal:
 				{
-					audio_sfx_play(sfxHurtSpike, false)
+					audio_sfx_play(sfxHurtSpike, false);
 				}
-				else
+				break;
+				default:
 				{
 					audio_sfx_play(sfxHurt, false);
 				}
+				break;
 			}
 			
 			// Set default values we will use to spread rings

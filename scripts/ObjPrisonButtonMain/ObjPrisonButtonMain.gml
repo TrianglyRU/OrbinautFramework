@@ -8,8 +8,7 @@ function ObjPrisonButtonMain()
 		
 		// Check if player is standing on the object
 		if object_check_touch(SideTop)
-		{
-			Player.PosY += 8;	
+		{	
 			y           += 8;
 			image_index  = 0;
 			
@@ -18,8 +17,8 @@ function ObjPrisonButtonMain()
 		}
 	}
 	
-	// Disable collisions
-	else if Player.OnObject == id
+	// Release player
+	else if object_check_touch(SideTop)
 	{	
 		Player.Grounded = false;
 		Player.OnObject = false;

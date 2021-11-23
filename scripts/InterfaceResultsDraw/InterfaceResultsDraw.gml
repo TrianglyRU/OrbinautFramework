@@ -134,28 +134,18 @@ function InterfaceResultsDraw()
 				// Get 50000 score target
 				var LifeReward = max(ceil(Player.Score / 50000) * 50000, 50000);
 			
-				// Skip bonuses math
-				if Input.StartPress
-				{
-					Player.Score += ResultsValue[10] + ResultsValue[9];
-					ResultsValue[10] = 0; 
-					ResultsValue[9] = 0;
+				// Count bonuses
+				if ResultsValue[10]
+				{ 
+					ResultsValue[10] -= 100;
+					Player.Score     += 100;
 				}
-				else
+				if ResultsValue[9]
 				{
-					// Count bonuses
-					if ResultsValue[10]
-					{ 
-						ResultsValue[10]	 -= 100;
-						Player.Score += 100;
-					}
-					if ResultsValue[9]
-					{
-						ResultsValue[9]    -= 100;
-						Player.Score += 100;
-					}
+					ResultsValue[9] -= 100;
+					Player.Score    += 100;
 				}
-			
+				
 				// Grant extra life for exceeding 50000 points
 				if Player.Score >= LifeReward
 				{

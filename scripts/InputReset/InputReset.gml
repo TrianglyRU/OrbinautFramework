@@ -29,7 +29,7 @@ function InputReset()
 	}
 	
 	// Reset all buttons if we ignore all input
-	if IgnoreInput
+	if IgnoreInput == true
 	{
 		Up			= false;
 		Down		= false;
@@ -51,5 +51,8 @@ function InputReset()
 		ABCPress	= false;
 		StartPress  = false;
 		ModePress   = false;
+		
+		// Increment value
+		IgnoreInput = 2;
 	}
 }

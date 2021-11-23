@@ -1,8 +1,5 @@
-function PlayerRoll()
+function PlayerMovementRoll()
 {
-	// Set 'roll' animation
-	Animation = AnimSpin;
-	
 	// Decelerate
 	if !GroundLock
 	{

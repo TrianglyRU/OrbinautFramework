@@ -25,7 +25,7 @@ function PlayerMovementAir()
 	// Handle air movement
 	if !AirLock
 	{
-		if Input.Left 
+		if Input.Left
 		{	
 			// Decelerate
 			if Xsp > 0 
@@ -44,7 +44,7 @@ function PlayerMovementAir()
 			}
 			Facing = FlipLeft;
 		}
-		if Input.Right 
+		if Input.Right
 		{	
 			// Decelerate
 			if Xsp < 0 

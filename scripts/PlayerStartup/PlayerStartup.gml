@@ -59,7 +59,8 @@ function PlayerStartup()
 	DebugSpeed			= 0;
 	
 	// Set default values
-	AirTimer	   = 1800;
+	Grv			   = 0.21875;
+	AirTimer	   = 1800;	
 	AllowCollision = true;
 	AllowMovement  = true;
 	Grounded	   = true;
@@ -67,8 +68,7 @@ function PlayerStartup()
 	SpindashRev    = -1;
 	DropdashRev    = -1;
 	DropdashFlag   = -1;
-	Grv			   = 0.21875;
-	
+
 	// Set default sprite
 	switch Game.Character
 	{

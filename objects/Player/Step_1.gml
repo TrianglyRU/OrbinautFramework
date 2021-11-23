@@ -43,7 +43,7 @@
 		// Grounded, rolling
 		if PlayerJumpStart() exit;
 		PlayerSlopeResistRoll();	
-		PlayerRoll();
+		PlayerMovementRoll();
 		PlayerGroundWallCollision();
 		PlayerLevelBound();
 		PlayerPosition();

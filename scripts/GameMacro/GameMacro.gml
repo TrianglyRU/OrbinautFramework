@@ -18,12 +18,12 @@ function GameMacro()
 	#macro FlipRight   1
 
 	// Audio macro
-	#macro PriorityLow  0
-	#macro PriorityHigh 1
-	#macro EventIdle	0
-	#macro EventMute	1
-	#macro EventUnmute  2
-	#macro EventStop	3
+	#macro PriorityLow  -2
+	#macro PriorityHigh -1
+	#macro EventIdle	 0
+	#macro EventMute	 1
+	#macro EventUnmute   2
+	#macro EventStop	 3
 	
 	// Palette macro
 	#macro PaletteLimit  64

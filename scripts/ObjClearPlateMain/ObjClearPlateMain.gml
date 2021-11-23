@@ -22,10 +22,15 @@ function ObjClearPlateMain()
 				Stage.TimeEnabled = false;
 				Stage.IsFinished  = 1;
 				
-				// Make player exit out from super form
+				// Make player exit super form
 				if Player.SuperState
 				{
 					Player.SuperState = false;
+				}
+				
+				// Restore stage music
+				if !audio_bgm_is_playing(Stage.StageMusic)
+				{
 					audio_bgm_play(PriorityLow, Stage.StageMusic);
 				}
 				
@@ -67,28 +72,29 @@ function ObjClearPlateMain()
 		break;
 		case 2:
 		{
-			if Stage.IsFinished != 2
+			if Player.Grounded
 			{
-				if Player.Grounded
+				// Check if the player passed by the right boundary
+				if floor(Player.PosX + Player.Xsp) > Stage.RightBoundary - 24
 				{
-					// Play results music
+					if Stage.IsFinished < 2
+					{
+						Stage.IsFinished = 2;
+					}
 					audio_bgm_play(PriorityLow, ActClear);
-				
-					// Update flags
-					Input.IgnoreInput  = true;
-					Stage.IsFinished   = 2;	
-					Player.Xsp		   = 0;
-					Player.Ysp		   = 0;
-					Player.Inertia     = 0;
-					Player.SpindashRev = -1;
-					Player.PeeloutRev  = -1;
 				}
-			}
-			
-			// Set player animation
-			else
-			{
-				Player.Animation = AnimActEnd;
+				
+				// Take away control from the player
+				if !Input.IgnoreInput
+				{
+					Input.IgnoreInput = true;
+				}
+				
+				// Force player movement
+				else
+				{
+					Input.Right = true;
+				}
 			}
 		}
 	}

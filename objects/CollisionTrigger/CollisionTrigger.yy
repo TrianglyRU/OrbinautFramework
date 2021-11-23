@@ -28,13 +28,13 @@
     {"varType":3,"value":"False","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"GroundOnly","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "\"None\"",
-        "\"To LayerA\"",
-        "\"To LayerB\"",
+        "LayerA",
+        "LayerB",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"LeftDirection","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "\"None\"",
-        "\"To LayerA\"",
-        "\"To LayerB\"",
+        "LayerA",
+        "LayerB",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"RightDirection","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],

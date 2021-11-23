@@ -8,16 +8,14 @@ function ObjPrisonMain()
 			// Do collision
 			object_act_solid(true, true, true, false);
 				
-			// Check if button has been pressed
-			if ChildObject.State
+			// Check if the button has been pressed
+			if ChildObject.State > 0
 			{
-				Timer     = 60;
-				ExplDelay = irandom(32);
-				
 				Stage.TimeEnabled = false;
 				Stage.IsFinished  = 1;
+				Input.IgnoreInput = true;
 				
-				// Make player exit out from super form
+				// Make player exit super form
 				if Player.SuperState
 				{
 					Player.SuperState = false;
@@ -30,7 +28,8 @@ function ObjPrisonMain()
 				}
 				
 				// Increment state
-				State++;
+				State	  += 1;
+				StateTimer = 60;
 			}
 		}	
 		break;
@@ -38,35 +37,51 @@ function ObjPrisonMain()
 		// Explode
 		case 1: 
 		{
+			// Force player movement
+			Input.Right = true;
+			
 			// Do collision
 			object_act_solid(true, true, true, false);
 				
 			// Spawn explosions for 60 frames
-			if Timer
+			if (--StateTimer)
 			{
-				if !(--ExplDelay)
+				if !(--ExplosionTimer)
 				{
-					ExplDelay = irandom(32);
+					ExplosionTimer = irandom(32);
 					instance_create(x + irandom(64) - 32, y + irandom(64) - 32, FireExplosion);
 				}
 				
 				// Play sound each 8th frame
-				if Timer != 60 and (60 - Timer) mod 8 == 0 
+				if StateTimer mod 8 == 0 
 				{ 
 					audio_sfx_play(sfxExplosion, false);
 				}
-				Timer--;
 			}
-				
-			// Check if explode event has ended
 			else
 			{
+				// Destroy button
 				instance_destroy(ChildObject);
+				
+				// Spawn 8 animals
+				var ThisObject = id;
+				for (var i = 0; i < 8; i++)
+				{
+					var  NewObject = instance_create(x - 27 + 7 * i, y + 4, Animal);
+					with NewObject
+					{
+						State = 2;
+						Delay = 154 - i * 8;
+							
+						// Set depth
+						object_set_depth(ThisObject, 0);
+					}
+				}	
 				image_index = 1;
-				Timer       = 180;
 				
 				// Increment state
-				State++;
+				State	  += 1;
+				StateTimer = 180;
 			}
 		}
 		break;
@@ -74,52 +89,35 @@ function ObjPrisonMain()
 		// Destroyed
 		case 2:
 		{
-			// Disable collisions
-			if Player.OnObject == id
-			{
-				Player.Grounded = false;
-				Player.OnObject = false;
-			}
-				
-			if Timer
+			if (--StateTimer)
 			{ 
-				// Spawn initial animals
-				if Timer == 180
-				{
-					var ThisObject = id;
-					for (var i = 0; i < 8; i++)
-					{
-						TargetAnimal = instance_create(x - 27 + 7 * i, y + 4, Animal);
-						with TargetAnimal
-						{
-							State = 2;
-							Delay = 154 - i * 8;
-							
-							object_set_depth(ThisObject, 0);
-						}
-					}
-				}
-				
 				// Spawn additional animal each 8th frame
-				if (--Timer) mod 8 == 0 
+				if StateTimer mod 8 == 0 
 				{
 					var ThisObject = id;
-					TargetAnimal = instance_create(x - 27 + irandom(7) * 7, y + 4, Animal);
+					TargetAnimal   = instance_create(x - 27 + irandom(7) * 7, y + 4, Animal);
 					with TargetAnimal
 					{
 						State = 2;
 						Delay = 12;
 						
+						// Set depth
 						object_set_depth(ThisObject, 0);
 					}
 				}
 			}
 			
-			// Start results event if target animal is off-screen
-			if Stage.IsFinished == 1 and !object_is_onscreen(TargetAnimal)
+			// Start results event once target animal goes off-screen
+			if Stage.IsFinished == 1 and instance_exists(TargetAnimal)
 			{
-				Stage.IsFinished = 3;
-				audio_bgm_play(PriorityLow, ActClear);
+				if !object_is_onscreen(TargetAnimal)
+				{
+					// Update flag
+					Stage.IsFinished = 2;
+				
+					// Play resuts music
+					audio_bgm_play(PriorityLow, ActClear);
+				}
 			}
 		}
 		break;

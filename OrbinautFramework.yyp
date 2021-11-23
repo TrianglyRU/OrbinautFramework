@@ -328,7 +328,7 @@
     {"id":{"name":"ObjRingFlashStartup","path":"scripts/ObjRingFlashStartup/ObjRingFlashStartup.yy",},"order":117,},
     {"id":{"name":"tex_sstage_stage","path":"sprites/tex_sstage_stage/tex_sstage_stage.yy",},"order":6,},
     {"id":{"name":"PlayerMovementAir","path":"scripts/PlayerMovementAir/PlayerMovementAir.yy",},"order":21,},
-    {"id":{"name":"PlayerRoll","path":"scripts/PlayerRoll/PlayerRoll.yy",},"order":22,},
+    {"id":{"name":"PlayerMovementRoll","path":"scripts/PlayerMovementRoll/PlayerMovementRoll.yy",},"order":22,},
     {"id":{"name":"PlayerPhysicsHandle","path":"scripts/PlayerPhysicsHandle/PlayerPhysicsHandle.yy",},"order":23,},
     {"id":{"name":"PlayerGeneralUpdate","path":"scripts/PlayerGeneralUpdate/PlayerGeneralUpdate.yy",},"order":24,},
     {"id":{"name":"PlayerPositionRecord","path":"scripts/PlayerPositionRecord/PlayerPositionRecord.yy",},"order":25,},
