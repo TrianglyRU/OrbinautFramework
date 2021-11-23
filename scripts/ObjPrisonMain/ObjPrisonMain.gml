@@ -11,21 +11,17 @@ function ObjPrisonMain()
 			// Check if the button has been pressed
 			if ChildObject.State > 0
 			{
-				Stage.TimeEnabled = false;
-				Stage.IsFinished  = 1;
-				Input.IgnoreInput = true;
-				
-				// Make player exit super form
 				if Player.SuperState
 				{
+					// Restore stage music
+					audio_bgm_play(PriorityLow, Stage.StageMusic);
+					
+					// Make player exit super form
 					Player.SuperState = false;
 				}
-				
-				// Restore stage music
-				if !audio_bgm_is_playing(Stage.StageMusic)
-				{
-					audio_bgm_play(PriorityLow, Stage.StageMusic);
-				}
+				Stage.IsFinished  = 1;
+				Stage.TimeEnabled = false;
+				Input.IgnoreInput = true;
 				
 				// Increment state
 				State	  += 1;

@@ -15,27 +15,22 @@ function ObjClearPlateMain()
 		{
 			if object_check_overlap(TypeTrigger)
 			{
-				// Play sound 
-				audio_sfx_play(sfxClearPlate, false);
-				
-				// Set stage flags
+				if Player.SuperState
+				{
+					// Restore stage music
+					audio_bgm_play(PriorityLow, Stage.StageMusic);
+					
+					// Make player exit super form
+					Player.SuperState = false;
+				}
 				Stage.TimeEnabled = false;
 				Stage.IsFinished  = 1;
 				
-				// Make player exit super form
-				if Player.SuperState
-				{
-					Player.SuperState = false;
-				}
-				
-				// Restore stage music
-				if !audio_bgm_is_playing(Stage.StageMusic)
-				{
-					audio_bgm_play(PriorityLow, Stage.StageMusic);
-				}
-				
 				// Increment state
 				State++;
+				
+				// Play sound 
+				audio_sfx_play(sfxClearPlate, false);
 				
 				// Set animation
 				animation_play(SpriteData[0], 1, 0, 0);

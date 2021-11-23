@@ -81,9 +81,8 @@ function GameMacro()
 	#macro AnimBalancePanic  28
 	#macro AnimBalanceTurn   29
 	#macro AnimSpring		 30
-	#macro AnimActEnd		 31
-	#macro AnimTransform	 32
-	#macro AnimBreathe		 33
+	#macro AnimTransform	 31
+	#macro AnimBreathe		 32
 	
 	// Collision macro
 	#macro SideTop	    0
