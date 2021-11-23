@@ -210,7 +210,7 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_sonic_spin_fast;
 						}
-						animation_play(Sprite, round(max(1, 4 - abs(Inertia))), 0, 0);
+						animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0, 0);
 					}
 					break;
 					case AnimSpindash:
@@ -413,7 +413,7 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimSpin:
-					animation_play(spr_knuckles_roll, round(max(1, 4 - abs(Inertia))), 0, 0);
+					animation_play(spr_knuckles_roll, round(max(1, 5 - abs(Inertia))), 0, 0);
 				break;
 				case AnimSpindash:
 					animation_play(spr_knuckles_spindash, 1, 0, 0); 
