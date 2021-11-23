@@ -6,13 +6,23 @@ function PlayerGeneralUpdate()
 		InvincibilityFrames--;
 	}
 	
-	// Grant extra life
-	if Rings >= 100 and LivesRewards == 0 or Rings >= 200 and LivesRewards == 1
+	// Grant extra life for collecting 100 or 200 rings
+	if Rings >= LivesRewards[0] and LivesRewards[0] <= 200
 	{
-		Lives++;
-		LivesRewards++;
+		Lives			+= 1;
+		LivesRewards[0] += 100;
 							
 		// Play jungle
+		audio_bgm_play(PriorityHigh, ExtraLife);
+	}
+	
+	// Grant extra life for exceeding 50000 points
+	if Score >= LivesRewards[1]
+	{
+		Lives		    += 1;
+		LivesRewards[1] += 50000;
+		
+		// Play jingle
 		audio_bgm_play(PriorityHigh, ExtraLife);
 	}
 	

@@ -1,11 +1,13 @@
 function ObjMotobugStartup()
 {
-	// Set variables
-	PosX       = x;
-	PosY	   = y;
+	// Set blank values
 	Ysp		   = 0;
 	State	   = 0;
 	StateTimer = 0;
+	
+	// Set default position
+	PosX = x;
+	PosY = y;
 	
 	// Set object hitbox
 	object_set_hitbox(20, 17);

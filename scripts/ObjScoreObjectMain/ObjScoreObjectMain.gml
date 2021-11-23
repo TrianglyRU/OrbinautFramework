@@ -1,8 +1,5 @@
 function ObjScoreObjectMain()
 {
-	// Get 50000 score target
-	var LifeReward = max(ceil(Player.Score / 50000) * 50000, 50000);
-	
 	// Give points
 	switch State
 	{
@@ -61,13 +58,6 @@ function ObjScoreObjectMain()
 	
 	// Apply frame
 	image_index = SpriteFrame;
-	
-	// Grant extra life for exceeding 50000 points
-	if Player.Score >= LifeReward
-	{
-		Player.Lives++;
-		audio_bgm_play(PriorityHigh, ExtraLife);
-	}
 	
 	// Move object
 	PosY += Ysp;

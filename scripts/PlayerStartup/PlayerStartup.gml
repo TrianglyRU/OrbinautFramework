@@ -53,7 +53,6 @@ function PlayerStartup()
 	VisualAngle			= 0;
 	Animation			= 0;
 	Rings				= 0;
-	LivesRewards	    = 0;
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
@@ -108,18 +107,9 @@ function PlayerStartup()
 	RadiusW = 10;				// Wall radius. It is 10 for everyone by default
 	
 	// Load score and lives
-	Score = Game.Score;
-	Lives = Game.Lives;
-	
-	// Initialise recorded position datalist
-	RecordedPosX = ds_list_create();
-	RecordedPosY = ds_list_create();
-	
-	for (var Index = 0; Index < 32; Index++) 
-	{
-		RecordedPosX[| Index] = x;
-		RecordedPosY[| Index] = y;
-	}
+	Score		 = Game.Score;
+	Lives		 = Game.Lives;
+	LivesRewards = [(Rings & -100) + 100, (Score & -50000) + 50000];
 	
 	// If respawning on checkpoint, load saved player data
 	if array_length(Game.StarPostData)
@@ -157,6 +147,13 @@ function PlayerStartup()
 		Game.BonusStageData = [];
 	}
 	
-	// Update life reward counter if we have rings
-	LivesRewards = Rings div 100;
+	// Initialise recorded position datalist
+	RecordedPosX = ds_list_create();
+	RecordedPosY = ds_list_create();
+	
+	for (var Index = 0; Index < 32; Index++) 
+	{
+		RecordedPosX[| Index] = x;
+		RecordedPosY[| Index] = y;
+	}
 }

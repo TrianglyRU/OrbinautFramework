@@ -89,7 +89,7 @@ function PlayerAnimate()
 						{
 							var Sprite = spr_sonic_spin_fast;
 						}
-						animation_play(Sprite, round(max(1, 4 - abs(Inertia))), 0, 0);
+						animation_play(Sprite, round(max(1, 5 - abs(Inertia))), 0, 0);
 					}
 					break;
 					case AnimSpindash:
