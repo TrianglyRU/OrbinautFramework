@@ -88,7 +88,7 @@ function InterfaceDebugScreenDraw()
 	{
 		// Draw rectangle
 		draw_set_alpha(0.65);
-		draw_rectangle_colour(Game.Width - 90, 4, Game.Width - 4, Game.Height - 12, c_black, c_black, c_black, c_black, false)
+		draw_rectangle_colour(Game.Width - 90, 4, Game.Width - 4, Game.Height - 8, c_black, c_black, c_black, c_black, false)
 	
 		// Set font
 		draw_set_alpha(1);
@@ -168,7 +168,6 @@ function InterfaceDebugScreenDraw()
 				+ "\n   OVERVIEW DELAY: " + string(Camera.OverviewDelay)
 				+ "\n   OVERVIEW SHIFT: " + string(Camera.OverviewOffset)
 				+ "\n   CD SHIFT: "       + string(Camera.ExtendedOffset)
-				+ "\n   SPIN OFFSET: "    + string(Camera.SpinOffset)
 				+ "\n"
 				+ "\n              * AUDIO *"
 				+ "\n"
@@ -181,7 +180,15 @@ function InterfaceDebugScreenDraw()
 				+ "\n   HIGH EVENT: "      + HighEvent
 				+ "\n   HIGH EVENT TIME: " + string(Audio.HighTrack[2])
 				+ "\n   HIGH VOLUME: "     + string(audio_sound_get_gain(Audio.HighTrack[1]))
-				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[1])),
+				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[1]))
+				+ "\n"
+				+ "\n              * STAGE *"
+				+ "\n"
+				+ "\n   T BOUND: "  + string(Stage.TopBoundary) + " TARGET: " + string(Stage.TargetTopBoundary)
+				+ "\n   B BOUND: " + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
+				+ "\n   L BOUND: "  + string(Stage.LeftBoundary) + " TARGET: " + string(Stage.TargetLeftBoundary)
+				+ "\n   R BOUND: " + string(Stage.RightBoundary) + " TARGET: " + string(Stage.TargetRightBoundary)
+				+ "\n   OBJECTS LOADED: "  + string(instance_count - 9),
 				
 		8, 256, 0.28, 0.28, 0);
 	}

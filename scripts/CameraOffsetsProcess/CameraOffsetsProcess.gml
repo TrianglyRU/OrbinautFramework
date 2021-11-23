@@ -1,26 +1,5 @@
 function CameraOffsetsProcess()
 {	
-	// Exit if camera is disabled or target is not player
-	if !Enabled or Target != Player or !instance_exists(Target)
-	{
-		exit;
-	}
-	
-	// Set vertical spin offset
-	if Player.Spinning and Player.Grounded
-	{
-		SpinOffset = Player.DefaultRadiusY - Player.SmallRadiusY;
-	} 
-	else 
-	{
-		// Reset it
-		if !Player.Grounded and SpinOffset
-		{
-			PosY -= Player.DefaultRadiusY - Player.SmallRadiusY;
-		}
-		SpinOffset = 0;
-	}
-	
 	// Handle camera shake
 	if ShakeTime
 	{
@@ -35,6 +14,12 @@ function CameraOffsetsProcess()
 	{
 		ShakeX = 0;
 		ShakeY = 0;
+	}
+	
+	// Exit if camera is disabled target is not the player
+	if !Enabled or !(instance_exists(Target) and Target == Player)
+	{
+		exit;
 	}
 
 	// Offset camera horizontally, like in CD

@@ -18,7 +18,6 @@ function CameraStartup()
 	ShiftY	       = 0;
 	ScrollDelay    = 0;
 	OverviewDelay  = 0;
-	SpinOffset     = 0;
 	ExtendedOffset = 0;
 	OverviewOffset = 0;
 	ShakeTime      = 0;

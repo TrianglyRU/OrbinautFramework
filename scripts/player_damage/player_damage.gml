@@ -5,7 +5,7 @@ function player_damage(isFlame,isThunder,instantKill)
 	if Player.Death
 	{
 		exit;
-	}
+	}	
 	
 	// Exit if player can't be damaged
 	if !instantKill and (Player.InvincibilityFrames or Player.InvincibleBonus or Player.SuperState)
@@ -42,22 +42,12 @@ function player_damage(isFlame,isThunder,instantKill)
 		{
 			TailsObject.visible = false;
 		}
-				
+		
 		// Perform movement
 		Player.Grv     = 0.21875;
 		Player.Ysp	   = -7;
 		Player.Xsp	   = 0;
 		Player.Inertia = 0;
-		
-		// Play hurt sound
-		if object_index == SpikesVertical or object_index == SpikesHorizontal
-		{
-			audio_sfx_play(sfxHurtSpike, false);
-		}
-		else
-		{
-			audio_sfx_play(sfxHurt, false);
-		}
 	}
 		
 	// Check if player has rings or barrier
@@ -75,19 +65,6 @@ function player_damage(isFlame,isThunder,instantKill)
 			if Player.Rings > 0
 			{
 				audio_sfx_play(sfxRingLoss, false)
-			}
-			else switch object_index
-			{
-				case SpikesVertical: case SpikesHorizontal:
-				{
-					audio_sfx_play(sfxHurtSpike, false);
-				}
-				break;
-				default:
-				{
-					audio_sfx_play(sfxHurt, false);
-				}
-				break;
 			}
 			
 			// Set default values we will use to spread rings
@@ -120,22 +97,13 @@ function player_damage(isFlame,isThunder,instantKill)
 			}
 			
 			// Clear ring counter
-			Player.Rings		= 0;
-			Player.LivesRewards = 0;
+			Player.Rings		   = 0;
+			Player.LivesRewards[0] = 100;
 		}
 			
 		// Lose barrier
 		else
 		{
-			// Play sound
-			if object_index == SpikesVertical or object_index == SpikesHorizontal
-			{
-				audio_sfx_play(sfxHurtSpike, false)
-			}
-			else
-			{
-				audio_sfx_play(sfxHurt, false);
-			}
 			Player.BarrierType = false;
 		}
 		
@@ -173,4 +141,22 @@ function player_damage(isFlame,isThunder,instantKill)
 	Player.SpindashRev  = -1;
 	Player.DropdashRev  = -1;
 	Player.DropdashFlag = -1;
+	
+	// Play hurt sound
+	if !audio_is_playing(sfxRingLoss)
+	{
+		switch object_index
+		{
+			case SpikesVertical: case SpikesHorizontal:
+			{
+				audio_sfx_play(sfxHurtSpike, false);
+			}
+			break;
+			default:
+			{
+				audio_sfx_play(sfxHurt, false);
+			}
+			break;
+		}
+	}
 }
