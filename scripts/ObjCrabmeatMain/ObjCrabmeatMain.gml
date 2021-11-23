@@ -2,30 +2,64 @@ function ObjCrabmeatMain()
 {
 	switch State
 	{
-		// Walk
+		// Spawn
 		case 0:
+		{
+			// Fall to the ground
+			PosY += Ysp;
+			Ysp  += 0.21875;
+			
+			// Check for the floor
+			var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, LayerA)[0];
+			if  FindFloor < 0
+			{
+				// Adhere to the surface
+				PosY += FindFloor;
+				
+				// Increment state
+				State	  += 1;
+				StateTimer = 127;
+				
+				// Set animation
+				animation_play(sprite_index, 16, 0, 0);
+			}
+		}
+		break;
+		
+		// Walk
+		case 1:
 		{	
-			// Move and update position
-			if (--Timer)
+			// Move
+			if (--StateTimer)
 			{
 				PosX += 0.5 * image_xscale;
-				x     = floor(PosX);
 			}
 			
 			// Check for floor
-			var FindFloor = tile_check_collision_v(x, y + 16, true, false, LayerA);
-			var EdgeCheck = tile_check_collision_v(x + 16 * image_xscale, y + 16, true, false, LayerA)[0];
-			
-			// Change state
-			if EdgeCheck > 12 or EdgeCheck < -8 or !Timer
-			{	
-				PrevAnim = sprite_index;
-				Timer    = 59;
-				State++;
-				
-				// Stop animation
-				animation_set(sprite_index, 0);
+			if StateTimer mod 2 == 0
+			{
+				var FindFloor = tile_check_collision_v(x + 16 * image_xscale, y + 16, true, false, LayerA)[0]; 
 			}
+			else
+			{
+				var FindFloor = tile_check_collision_v(x, y + 16, true, false, LayerA);
+			}
+			
+			// Increment state
+			if StateTimer mod 2 == 0 or !StateTimer
+			{
+				if (FindFloor < -8 or FindFloor >= 12) or !StateTimer
+				{
+					PreviousSprite = sprite_index;
+					StateTimer     = 60;
+					State		  += 1;
+				
+					// Stop animation
+					animation_set(sprite_index, 0);
+				}
+			}
+			
+			// Adhere to the surface
 			else
 			{
 				// If surface is angled, update sprite
@@ -38,9 +72,7 @@ function ObjCrabmeatMain()
 				{
 					sprite_index = spr_obj_crabmeat_move;
 				}
-				
-				// Align to surface
-				y += FindFloor[0];
+				PosY += FindFloor[0];
 				
 				// Set animation
 				animation_play(sprite_index, 16, 0, 0);
@@ -48,16 +80,16 @@ function ObjCrabmeatMain()
 		}
 		break;
 		
-		// Fire or continue walking
-		case 1:
+		// Fire or turn around
+		case 2:
 		{
-			if !(--Timer)
+			if !(--StateTimer)
 			{
+				// Fire if on-screen
 				if object_is_onscreen(id)
 				{
-					State++;
-					Timer         = 59;
-					image_xscale *= -1;
+					StateTimer = 59;
+					State	  += 1;
 					
 					// Update animation
 					animation_set(spr_obj_crabmeat_fire, 0);
@@ -70,7 +102,7 @@ function ObjCrabmeatMain()
 						with NewObject
 						{
 							Xsp          = i;
-							Ysp		   = -4;
+							Ysp		     = -4;
 							sprite_index = spr_obj_projectile_crabmeat;
 					  
 							// Set object depth
@@ -78,32 +110,40 @@ function ObjCrabmeatMain()
 						}
 					}
 				}
+				
+				// Turn around and continue to walk
 				else
-				{
-					State -= 1;
-					Timer = 127;
+				{	
+					StateTimer    = 127;
+					State		 -=   1;
+					image_xscale *=  -1;
 					
 					// Update animation
-					animation_play(PrevAnim, 16, 1, 0);
+					animation_play(PreviousSprite, 16, 1, 0);
 				}
 			}
 		}
 		break;
 		
-		// Wait after firing, then start moving
-		case 2:
+		// Wait for a second after firing, then turn around and continue to walk
+		case 3:
 		{
-			if !(--Timer)
+			if !(--StateTimer)
 			{
-				State -= 2;
-				Timer  = 127;
+				StateTimer    = 127;
+				State		 -=   2;
+				image_xscale *=  -1;
 					
 				// Update animation
-				animation_play(PrevAnim, 16, 1, 0);
+				animation_play(PreviousSprite, 16, 1, 0);
 			}
 		}
 		break;	
 	}
+	
+	// Update position
+	x = floor(PosX);
+	y = floor(PosY);
 
 	// Act as badnik
 	object_act_enemy(TypeBadnik);

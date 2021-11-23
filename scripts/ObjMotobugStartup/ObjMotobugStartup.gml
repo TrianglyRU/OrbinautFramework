@@ -1,10 +1,11 @@
 function ObjMotobugStartup()
 {
 	// Set variables
-	PosX  = x;
-	PosY  = y;
-	State = 0;
-	Timer = 16;
+	PosX       = x;
+	PosY	   = y;
+	Ysp		   = 0;
+	State	   = 0;
+	StateTimer = 0;
 	
 	// Set object hitbox
 	object_set_hitbox(20, 17);
@@ -14,7 +15,4 @@ function ObjMotobugStartup()
 	
 	// Set object unload type
 	object_set_unload(TypeReset);
-	
-	// Set animation
-	animation_play(sprite_index, 8, 0, 0);
 }
