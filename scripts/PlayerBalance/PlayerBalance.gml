@@ -22,29 +22,30 @@ function PlayerBalance()
 		}
 		
 		// Check for floor
-		var FloorDistance = tile_check_collision_v(PosX, PosY + RadiusY, true, false, Layer)[0];	
-		if  FloorDistance < 12
+		var FindFloor = tile_find_v(PosX, PosY + RadiusY, true, false, Layer)[0];	
+		if  FindFloor < 12
 		{
 			exit;
 		}
 		
 		// Get floor angles
-		var LeftAngle  = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer)[1];
-		var RightAngle = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer)[1];
+		var FindAngle1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer)[1];
+		var FindAngle2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer)[1];
 		
 		// Continue if only one angle exists
-		if !(LeftAngle or RightAngle)
+		if !(FindAngle1 or FindAngle2)
 		{
 			exit;
 		}
 	
 		// Standing on the left edge
-		if !LeftAngle
+		if !FindAngle1
 		{	
 			if !SuperState and Game.Character == CharSonic
 			{
 				// Use "panic balance" animation
-				if tile_check_collision_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0] >= 12
+				var FindFloor  = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
+				if  FindFloor >= 12
 				{
 					if Facing == FlipRight
 					{
@@ -80,12 +81,13 @@ function PlayerBalance()
 		}
 		
 		// Standing on the right edge
-		else if !RightAngle
+		else if !FindAngle2
 		{
 			if !SuperState and Game.Character == CharSonic
 			{
 				// Use "panic balance" animation
-				if tile_check_collision_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0] >= 12
+				var FindFloor  = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
+				if  FindFloor >= 12
 				{
 					if Facing == FlipLeft
 					{

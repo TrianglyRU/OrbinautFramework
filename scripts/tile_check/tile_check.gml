@@ -1,5 +1,5 @@
-/// @function tile_check_presence(x,y,ignoreTop,tilelayer)
-function tile_check_presence(x,y,ignoreTop,tilelayer)
+/// @function tile_check(x,y,ignoreTop,tilelayer)
+function tile_check(x,y,ignoreTop,tilelayer)
 {
 	// Floor positions
 	x = floor(x);

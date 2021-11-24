@@ -9,40 +9,36 @@ function PlayerGroundFloorCollision()
 	// Get current angle quadrant (shallower on floor and ceiling, comparing to wall collision)
 	if Angle <= 45 or Angle >= 315
 	{
-		var CollisionMode = 0;
+		var Mode = 0;
 	}
 	else if Angle >= 46.41 and Angle <= 133.59
 	{
-		var CollisionMode = 1;
+		var Mode = 1;
 	}
 	else if Angle >= 135 and Angle <= 225
 	{
-		var CollisionMode = 2;
+		var Mode = 2;
 	}
 	else if Angle >= 226.41 and Angle <= 313.59
 	{
-		var CollisionMode = 3;
+		var Mode = 3;
 	}
 	
 	// Collide with floor
-	switch CollisionMode
+	switch Mode
 	{
 		case 0:
 		{		
 			// Get nearest tile below us
-			var TileLeft    = tile_check_collision_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-			var TileRight   = tile_check_collision_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-		    var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
-				
-			// Get data
-			var FloorDistance = NearestTile[0];
-			var FloorAngle    = NearestTile[1];
+			var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+			var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+		    var FindFloor3 = tile_compare(FindFloor1, FindFloor2, Angle);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Xsp)), 14) : 14;
-				if  FloorDistance > Distance
+				if  FindFloor3[0] > Distance
 				{
 					if Animation == AnimMove
 					{
@@ -56,29 +52,25 @@ function PlayerGroundFloorCollision()
 			}
 			
 			// Else collide
-			if FloorDistance >= -14
+			if FindFloor3[0] >= -14
 			{
-				PosY += FloorDistance;
-				Angle = FloorAngle;	
+				PosY += FindFloor3[0];
+				Angle = FindFloor3[1];	
 			}
 		}
 		break;
 		case 1:
 		{	
 			// Get nearest tile to our right
-			var TileLeft    = tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, false, Layer);
-			var TileRight   = tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, false, Layer);
-			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
-			
-			// Get data
-			var FloorDistance = NearestTile[0];
-			var FloorAngle    = NearestTile[1];
+			var FindFloor1 = tile_find_h(PosX + RadiusY, PosY + RadiusX, true, false, Layer);
+			var FindFloor2 = tile_find_h(PosX + RadiusY, PosY - RadiusX, true, false, Layer);
+			var FindFloor3 = tile_compare(FindFloor1, FindFloor2, Angle);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Ysp)), 14) : 14;
-				if  FloorDistance > Distance
+				if  FindFloor3[0] > Distance
 				{
 					if Animation == AnimMove
 					{
@@ -92,29 +84,25 @@ function PlayerGroundFloorCollision()
 			}
 			
 			// Else collide
-			if FloorDistance >= -14
+			if FindFloor3[0] >= -14
 			{
-				Angle = FloorAngle;
-				PosX += FloorDistance;
+				PosX += FindFloor3[0];
+				Angle = FindFloor3[1];	
 			}
 		}
 		break;
 		case 2:	
 		{	
 			// Get nearest tile above us
-			var TileLeft    = tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, false, Layer);
-			var TileRight   = tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, false, Layer);
-			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
-			
-			// Get data
-			var FloorDistance = NearestTile[0];
-			var FloorAngle    = NearestTile[1];
+			var FindFloor1 = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, false, Layer);
+			var FindFloor2 = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, false, Layer);
+			var FindFloor3 = tile_compare(FindFloor1, FindFloor2, Angle);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Xsp)), 14) : 14;
-				if  FloorDistance > Distance
+				if  FindFloor3[0] > Distance
 				{
 					if Animation == AnimMove
 					{
@@ -128,29 +116,25 @@ function PlayerGroundFloorCollision()
 			}
 			
 			// Else collide
-			if FloorDistance >= -14
-			{
-				Angle = FloorAngle;
-				PosY -= FloorDistance;
+			if FindFloor3[0] >= -14
+			{	
+				PosY -= FindFloor3[0];
+				Angle = FindFloor3[1];
 			}
 		}
 		break;
 		case 3:
 		{	
 			// Get nearest tile to our left
-			var TileLeft    = tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, false, Layer);
-			var TileRight   = tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, false, Layer);
-			var NearestTile = tile_check_nearest(TileLeft, TileRight, Angle);
-			
-			// Get data
-			var FloorDistance = NearestTile[0];
-			var FloorAngle    = NearestTile[1];
+			var FindFloor1 = tile_find_h(PosX - RadiusY, PosY - RadiusX, false, false, Layer);
+			var FindFloor2 = tile_find_h(PosX - RadiusY, PosY + RadiusX, false, false, Layer);
+			var FindFloor3 = tile_compare(FindFloor1, FindFloor2, Angle);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = Game.S2FloorCollision ? min(4 + abs(floor(Ysp)), 14) : 14;
-				if  FloorDistance > Distance
+				if  FindFloor3[0] > Distance
 				{
 					if Animation == AnimMove
 					{
@@ -164,10 +148,10 @@ function PlayerGroundFloorCollision()
 			}
 				
 			// Else collide
-		    if FloorDistance >= -14
+		    if FindFloor3[0] >= -14
 			{
-				Angle = FloorAngle;
-				PosX -= FloorDistance;
+				PosX -= FindFloor3[0];
+				Angle = FindFloor3[1];
 			}
 		}
 		break;

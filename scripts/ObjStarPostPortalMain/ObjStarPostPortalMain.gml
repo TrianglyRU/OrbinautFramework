@@ -28,8 +28,8 @@ function ObjStarPostPortalMain()
 				fade_perform(ModeInto, BlendBlack, 1);	
 				
 				// Stop music
-				audio_bgm_stop(PriorityLow,  0.5);
-				audio_bgm_stop(PriorityHigh, 0.5);
+				audio_bgm_stop(ChannelPrimary,  0.5);
+				audio_bgm_stop(ChannelSecondary, 0.5);
 			}
 		}
 	}

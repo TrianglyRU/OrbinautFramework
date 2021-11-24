@@ -1,19 +1,19 @@
-/// @function audio_bgm_unmute(priority,time)
-function audio_bgm_unmute(priority,time)
+/// @function audio_bgm_unmute(channelType,time)
+function audio_bgm_unmute(channelType,time)
 {	
 	// Unmute track
-	switch priority
+	switch channelType
 	{
-		case PriorityLow:
+		case ChannelPrimary:
 		{
-			Audio.LowTrack[0] = EventUnmute;
-			Audio.LowTrack[2] = time;
+			Audio.PrimaryTrack[0] = EventUnmute;
+			Audio.PrimaryTrack[2] = time;
 		}
 		break;
-		case PriorityHigh:
+		case ChannelSecondary:
 		{
-			Audio.HighTrack[0] = EventUnmute;
-			Audio.HighTrack[2] = time;
+			Audio.SecondaryTrack[0] = EventUnmute;
+			Audio.SecondaryTrack[2] = time;
 		}
 		break;
 	}

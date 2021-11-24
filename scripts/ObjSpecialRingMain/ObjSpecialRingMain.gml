@@ -97,8 +97,8 @@ function ObjSpecialRingMain()
 				State++;
 				
 				// Stop music instantly
-				audio_bgm_stop(PriorityLow,  0);
-				audio_bgm_stop(PriorityHigh, 0);
+				audio_bgm_stop(ChannelPrimary,  0);
+				audio_bgm_stop(ChannelSecondary, 0);
 			}
 		}
 		break;

@@ -16,7 +16,7 @@ function BonusStageProcess()
 					if Game.BonusStageData[0] >= RingState * 100
 					{
 						Game.Lives++;
-						audio_bgm_play(PriorityHigh, ExtraLife);
+						audio_bgm_play(ChannelSecondary, ExtraLife);
 						
 						// Increase amount of required rings
 						RingState++;
@@ -52,8 +52,8 @@ function BonusStageProcess()
 					State++;
 					
 					// Stop music
-					audio_bgm_stop(PriorityLow,  0.5);
-					audio_bgm_stop(PriorityHigh, 0.5);
+					audio_bgm_stop(ChannelPrimary,  0.5);
+					audio_bgm_stop(ChannelSecondary, 0.5);
 				}
 			}
 		}

@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_check_nearest",
+  "name": "tile_check",
   "tags": [],
   "resourceType": "GMScript",
 }

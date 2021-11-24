@@ -77,7 +77,7 @@ function ObjItemBoxMain()
 				PosY += Ysp;
 			
 				// Collide with floor
-				var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, Player.Layer)[0];
+				var FindFloor = tile_find_v(PosX, PosY + 15, true, false, Player.Layer)[0];
 				if  FindFloor < 0
 				{
 					PosY     += FindFloor;
@@ -138,7 +138,7 @@ function ObjItemBoxMain()
 					// Play music
 					if !Player.SuperState
 					{
-						audio_bgm_play(PriorityLow, HighSpeed);
+						audio_bgm_play(ChannelPrimary, HighSpeed);
 					}
 				}
 				break;
@@ -154,7 +154,7 @@ function ObjItemBoxMain()
 					Player.InvincibleBonus = 1200;
 						
 					// Play music
-					audio_bgm_play(PriorityLow, Invincibility);
+					audio_bgm_play(ChannelPrimary, Invincibility);
 				}
 				break;
 				case "Barrier":
@@ -223,20 +223,20 @@ function ObjItemBoxMain()
 						{
 							if Player.InvincibleBonus
 							{
-								audio_bgm_play(PriorityLow, Invincibility);
+								audio_bgm_play(ChannelPrimary, Invincibility);
 							}
 							else if Player.HighspeedBonus
 							{
-								audio_bgm_play(PriorityLow, HighSpeed);
+								audio_bgm_play(ChannelPrimary, HighSpeed);
 							}
 							else
 							{
-								audio_bgm_play(PriorityLow, Stage.StageMusic);
+								audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 							}
 						}
 						else
 						{
-							audio_bgm_play(PriorityLow, SuperTheme);
+							audio_bgm_play(ChannelPrimary, SuperTheme);
 						}
 					}
 			
@@ -250,7 +250,7 @@ function ObjItemBoxMain()
 					Player.Lives++;
 						
 					// Play jingle
-					audio_bgm_play(PriorityHigh, ExtraLife);
+					audio_bgm_play(ChannelSecondary, ExtraLife);
 				}
 				break;
 				case "Eggman":

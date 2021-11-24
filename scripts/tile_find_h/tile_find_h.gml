@@ -1,5 +1,5 @@
-/// @function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
-function tile_check_collision_h(x,y,toPositive,ignoreTop,tilelayer)
+/// @function tile_find_h(x,y,toPositive,ignoreTop,tilelayer)
+function tile_find_h(x,y,toPositive,ignoreTop,tilelayer)
 {	
 	// Floor positions
 	x = floor(x);

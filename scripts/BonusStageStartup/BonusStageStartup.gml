@@ -8,5 +8,5 @@ function BonusStageStartup()
 	fade_perform(ModeFrom, BlendBlack, 1);
 	
 	// Play bgm
-	audio_bgm_play(PriorityLow, BonusStageTheme);
+	audio_bgm_play(ChannelPrimary, BonusStageTheme);
 }

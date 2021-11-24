@@ -26,7 +26,7 @@ function InterfaceDebugScreenDraw()
 	}
 	
 	// Toggle variables debug
-	if keyboard_check_pressed(ord("T"))
+	if keyboard_check_pressed(ord("T")) and !fade_check(StateActive)
 	{
 		DebugVariables = !DebugVariables;
 	}
@@ -34,23 +34,23 @@ function InterfaceDebugScreenDraw()
 	// Define information to display
 	#region Display Info
 	{
-		if Audio.LowTrack[1]
+		if Audio.PrimaryTrack[1]
 		{
-			var LowPlaying = audio_get_name(Audio.LowTrack[1]);
+			var LowPlaying = audio_get_name(Audio.PrimaryTrack[1]);
 		}
 		else
 		{
 			var LowPlaying = "NOT PLAYING";
 		}
-		if Audio.HighTrack[1]
+		if Audio.SecondaryTrack[1]
 		{
-			var HighPlaying = audio_get_name(Audio.HighTrack[1]);
+			var HighPlaying = audio_get_name(Audio.SecondaryTrack[1]);
 		}
 		else
 		{
 			var HighPlaying = "NOT PLAYING";
 		}		
-		switch Audio.LowTrack[0]
+		switch Audio.PrimaryTrack[0]
 		{
 			case EventIdle:
 				var LowEvent = "IDLE";
@@ -65,7 +65,7 @@ function InterfaceDebugScreenDraw()
 				var LowEvent = "UNMUTE";
 			break;
 		}
-		switch Audio.HighTrack[0]
+		switch Audio.SecondaryTrack[0]
 		{
 			case EventIdle:
 				var HighEvent = "IDLE";
@@ -171,16 +171,16 @@ function InterfaceDebugScreenDraw()
 				+ "\n"
 				+ "\n              * AUDIO *"
 				+ "\n"
-				+ "\n   LOW TRACK: "       + LowPlaying
-				+ "\n   LOW EVENT: "       + LowEvent
-				+ "\n   LOW EVENT TIME: "  + string(Audio.LowTrack[2])
-				+ "\n   LOW VOLUME: "      + string(audio_sound_get_gain(Audio.LowTrack[1]))
-				+ "\n   LOW POSITION: "    + string(audio_sound_get_track_position(Audio.LowTrack[1]))
-				+ "\n   HIGH TRACK: "      + HighPlaying
-				+ "\n   HIGH EVENT: "      + HighEvent
-				+ "\n   HIGH EVENT TIME: " + string(Audio.HighTrack[2])
-				+ "\n   HIGH VOLUME: "     + string(audio_sound_get_gain(Audio.HighTrack[1]))
-				+ "\n   HIGH POSITION: "   + string(audio_sound_get_track_position(Audio.HighTrack[1]))
+				+ "\n   PRIMARY TRACK: "       + LowPlaying
+				+ "\n   PRIMARY EVENT: "       + LowEvent
+				+ "\n   PRIMARY EVENT TIME: "  + string(Audio.PrimaryTrack[2])
+				+ "\n   PRIMARY VOLUME: "      + string(audio_sound_get_gain(Audio.PrimaryTrack[1]))
+				+ "\n   PRIMARY POSITION: "    + string(audio_sound_get_track_position(Audio.PrimaryTrack[1]))
+				+ "\n   SECONDARY TRACK: "      + HighPlaying
+				+ "\n   SECONDARY EVENT: "      + HighEvent
+				+ "\n   SECONDARY EVENT TIME: " + string(Audio.SecondaryTrack[2])
+				+ "\n   SECONDARY VOLUME: "     + string(audio_sound_get_gain(Audio.SecondaryTrack[1]))
+				+ "\n   SECONDARY POSITION: "   + string(audio_sound_get_track_position(Audio.SecondaryTrack[1]))
 				+ "\n"
 				+ "\n              * STAGE *"
 				+ "\n"

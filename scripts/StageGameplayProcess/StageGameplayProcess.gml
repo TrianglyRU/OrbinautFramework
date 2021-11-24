@@ -60,8 +60,8 @@ function StageGameplayProcess()
 				if !Player.Lives or Time == 36000
 				{
 					IsGameOver = true;
-					audio_bgm_stop(PriorityHigh, 0);
-					audio_bgm_play(PriorityLow, GameOver);
+					audio_bgm_stop(ChannelSecondary, 0);
+					audio_bgm_play(ChannelPrimary, GameOver);
 				}
 			}
 			
@@ -75,8 +75,8 @@ function StageGameplayProcess()
 				fade_perform(ModeInto, BlendBlack, 1);
 				
 				// Stop all music
-				audio_bgm_stop(PriorityLow,  0.5);
-				audio_bgm_stop(PriorityHigh, 0.5);
+				audio_bgm_stop(ChannelPrimary,  0.5);
+				audio_bgm_stop(ChannelSecondary, 0.5);
 			}
 			
 			if fade_check(StateMax)

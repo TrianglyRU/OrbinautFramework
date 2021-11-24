@@ -1,16 +1,16 @@
 function AudioLowProcess()
 {
-	// Exit if no non-priority track is playing
-	if !LowTrack[1] 
+	// Exit if primary track is playing
+	if !PrimaryTrack[1] 
 	{
 		exit;
 	}
 	
 	// Get track data
-	var Event     = LowTrack[0];
-	var Track     = LowTrack[1];
-	var EventTime = LowTrack[2];
-	var LoopData  = LowTrack[3];
+	var Event     = PrimaryTrack[0];
+	var Track     = PrimaryTrack[1];
+	var EventTime = PrimaryTrack[2];
+	var LoopData  = PrimaryTrack[3];
 	
 	// Loop track
 	var TrackPosition = audio_sound_get_track_position(Track);
@@ -23,7 +23,7 @@ function AudioLowProcess()
 	}
 	else if TrackPosition >= audio_sound_length(Track)
 	{
-		audio_bgm_stop(PriorityLow, 0);
+		audio_bgm_stop(ChannelPrimary, 0);
 	}
 	
 	switch Event
@@ -34,8 +34,8 @@ function AudioLowProcess()
 			// Reset event
 			if audio_sound_get_gain(Track) == 1
 			{
-				LowTrack[0] = EventIdle;
-				LowTrack[2] = 0;
+				PrimaryTrack[0] = EventIdle;
+				PrimaryTrack[2] = 0;
 			}
 			
 			// Increase track volume
@@ -62,10 +62,10 @@ function AudioLowProcess()
 			// Stop and reset track
 			if audio_sound_get_gain(Track) == 0
 			{		
-				LowTrack[0] = EventIdle;
-				LowTrack[1] = noone;
-				LowTrack[2] = 0;
-				LowTrack[3]	= [];
+				PrimaryTrack[0] = EventIdle;
+				PrimaryTrack[1] = noone;
+				PrimaryTrack[2] = 0;
+				PrimaryTrack[3]	= [];
 				
 				audio_stop_sound(Track);
 				audio_sound_gain(Track, Game.MusicVolume, 0);

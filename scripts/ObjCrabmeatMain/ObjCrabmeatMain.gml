@@ -10,7 +10,7 @@ function ObjCrabmeatMain()
 			Ysp  += 0.21875;
 			
 			// Check for the floor
-			var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 15, true, false, LayerA)[0];
 			if  FindFloor < 0
 			{
 				// Adhere to the surface
@@ -38,11 +38,11 @@ function ObjCrabmeatMain()
 			// Check for floor
 			if StateTimer mod 2 == 0
 			{
-				var FindFloor = tile_check_collision_v(x + 16 * image_xscale, y + 16, true, false, LayerA)[0]; 
+				var FindFloor = tile_find_v(x + 16 * image_xscale, y + 16, true, false, LayerA)[0]; 
 			}
 			else
 			{
-				var FindFloor = tile_check_collision_v(x, y + 16, true, false, LayerA);
+				var FindFloor = tile_find_v(x, y + 16, true, false, LayerA);
 			}
 			
 			// Increment state

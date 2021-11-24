@@ -16,7 +16,7 @@ function CameraOffsetsProcess()
 		ShakeY = 0;
 	}
 	
-	// Exit if camera is disabled target is not the player
+	// Exit if camera is disabled or target is not the player
 	if !Enabled or !(instance_exists(Target) and Target == Player)
 	{
 		exit;

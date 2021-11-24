@@ -10,8 +10,8 @@ function PlayerJumpStart()
 	if Angle <= 45 or Angle >= 315
 	{
 		// Check for ceiling directly above if on the ground
-		if tile_check_collision_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer)[0] < 6
-		or tile_check_collision_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer)[0] < 6
+		if tile_find_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer)[0] < 6
+		or tile_find_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer)[0] < 6
 		{
 			exit;
 		}
@@ -19,8 +19,8 @@ function PlayerJumpStart()
 	else if Angle >= 46.41 and Angle <= 133.59		
 	{
 		// Check for ceiling to the left if on the right wall
-		if tile_check_collision_h(PosX - RadiusY, PosY - RadiusX, false, true, Layer)[0] < 6
-		or tile_check_collision_h(PosX - RadiusY, PosY + RadiusX, false, true, Layer)[0] < 6
+		if tile_find_h(PosX - RadiusY, PosY - RadiusX, false, true, Layer)[0] < 6
+		or tile_find_h(PosX - RadiusY, PosY + RadiusX, false, true, Layer)[0] < 6
 		{
 			exit;
 		}
@@ -28,8 +28,8 @@ function PlayerJumpStart()
 	else if Angle >= 226.41 and Angle <= 313.59		
 	{
 		// Check for ceiling to the right if on the left wall
-		if tile_check_collision_h(PosX + RadiusY, PosY - RadiusX, true, true, Layer)[0] < 6
-		or tile_check_collision_h(PosX + RadiusY, PosY + RadiusX, true, true, Layer)[0] < 6
+		if tile_find_h(PosX + RadiusY, PosY - RadiusX, true, true, Layer)[0] < 6
+		or tile_find_h(PosX + RadiusY, PosY + RadiusX, true, true, Layer)[0] < 6
 		{
 			exit;
 		}

@@ -1,19 +1,19 @@
-/// @function audio_bgm_mute(priority,time)
-function audio_bgm_mute(priority,time)
+/// @function audio_bgm_mute(channelType,time)
+function audio_bgm_mute(channelType,time)
 {	
 	// Mute track
-	switch priority
+	switch channelType
 	{
-		case PriorityLow:
+		case ChannelPrimary:
 		{
-			Audio.LowTrack[0] = EventMute;
-			Audio.LowTrack[2] = time;
+			Audio.PrimaryTrack[0] = EventMute;
+			Audio.PrimaryTrack[2] = time;
 		}
 		break;
-		case PriorityHigh:
+		case ChannelSecondary:
 		{
-			Audio.HighTrack[0] = EventMute;
-			Audio.HighTrack[2] = time;
+			Audio.SecondaryTrack[0] = EventMute;
+			Audio.SecondaryTrack[2] = time;
 		}
 		break;
 	}

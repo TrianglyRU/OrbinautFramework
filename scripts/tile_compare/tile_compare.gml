@@ -1,5 +1,5 @@
-/// @function tile_check_nearest(data1,data2,objectAngle)
-function tile_check_nearest(data1,data2,objectAngle)
+/// @function tile_compare(data1,data2,objectAngle)
+function tile_compare(data1,data2,objectAngle)
 {
 	// Use the left tile
 	if data1[0] <= data2[0]

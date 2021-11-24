@@ -26,8 +26,8 @@ function PlayerKnuxClimb()
 			}
 		
 			// Drop if no wall found in front of us
-			var WallDistance  = tile_check_collision_h(PosX + RadiusX * Facing, PosY + 10, Facing, true, Layer)[0];
-			if  WallDistance != 0
+			var FindWall  = tile_find_h(PosX + RadiusX * Facing, PosY + 10, Facing, true, Layer)[0];
+			if  FindWall != 0
 			{
 				ClimbState = false;
 				GlideState = GlideFall;
@@ -51,14 +51,14 @@ function PlayerKnuxClimb()
 			else
 			{
 				// If near the edge, start climbering
-				var EdgeDistance = tile_check_collision_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[0];
-				if  EdgeDistance > 3
+				var FindWall = tile_find_h(PosX + RadiusX * Facing, PosY - 10, Facing, true, Layer)[0];
+				if  FindWall > 3
 				{
 					Ysp		   = 0;
 					ClimbState = 2;
 					
 					// Align to the edge
-					while tile_check_collision_h(PosX + RadiusX * Facing, PosY - 9, Facing, true, Layer)[0]
+					while tile_find_h(PosX + RadiusX * Facing, PosY - 9, Facing, true, Layer)[0] > 0
 					{
 						PosY++;
 					}
@@ -93,23 +93,23 @@ function PlayerKnuxClimb()
 				else
 				{
 					// Collide with ceiling
-					var RoofDistance = tile_check_collision_v(PosX + RadiusX * Facing, PosY - DefaultRadiusY, false, true, Layer)[0];
-					if  RoofDistance < 0
+					var FindRoof = tile_find_v(PosX + RadiusX * Facing, PosY - DefaultRadiusY, false, true, Layer)[0];
+					if  FindRoof < 0
 					{			
-						PosY -= RoofDistance;
+						PosY -= FindRoof;
 					}
 	
 					// Collide with floor
-					var TileFloor = tile_check_collision_v(PosX + RadiusX * Facing, PosY + DefaultRadiusY, true, false, Layer);
-					if  TileFloor[0] < 0
+					var FindFloor = tile_find_v(PosX + RadiusX * Facing, PosY + DefaultRadiusY, true, false, Layer);
+					if  FindFloor[0] < 0
 					{
-						if TileFloor[1] <= 45 or TileFloor[1] >= 316.41
+						if FindFloor[1] <= 45 or FindFloor[1] >= 316.41
 						{
 							Grounded  = true;
 							Animation = AnimIdle;
 					
 							// Adjust position
-							PosY += TileFloor[0] + DefaultRadiusY - RadiusY;
+							PosY += FindFloor[0] + DefaultRadiusY - RadiusY;
 						}
 					}
 				}

@@ -16,7 +16,7 @@ function GameSetup()
 	Game.RolljumpControl    = false;
 	Game.S3SlopePhysics		= false;
 	Game.S3WaterPhysics		= false;
-	Game.SKCrouch			= true;
+	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;	
@@ -24,11 +24,11 @@ function GameSetup()
 	Game.CDStageTimer	    = false;
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = true;
+	Game.SmoothRotation	      = false;
 	Game.RichPresenceSupport  = false;
 	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = true;
-	Game.FlightCancel	      = true;
+	Game.NoRollSpeedLimit	  = false;
+	Game.FlightCancel	      = false;
 	
 	/* Video, audio and control settings below are overwritten by 
 	game settings if Developer Mode is disabled! */
@@ -37,7 +37,7 @@ function GameSetup()
 	Game.WindowFullscreen = false;
 	Game.Width            = 400;
 	Game.Height			  = 224;
-	Game.WindowSize	      = 3;
+	Game.WindowSize	      = 4;
 	
 	// Audio settings
 	Game.MusicVolume = 0;

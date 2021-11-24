@@ -18,36 +18,35 @@ function PlayerGroundWallCollision()
 	// Get current angle quadrant (shallower on walls, comparing to ground collision)
 	if Angle <= 43.59 or Angle >= 316.41			
 	{
-		var CollisionMode = 0;
+		var Mode = 0;
 	}
 	else if Angle >= 45 and Angle <= 135	
 	{
-		var CollisionMode = 1;
+		var Mode = 1;
 	}
 	else if Angle >= 136.41 and Angle <= 223.59
 	{
-		var CollisionMode = 2;
+		var Mode = 2;
 	}
 	else if Angle >= 225 and Angle <= 315	
 	{
-		var CollisionMode = 3;
+		var Mode = 3;
 	}
 	
 	// Collide with the wall to our left, frame ahead
 	if Inertia < 0
 	{
-		switch CollisionMode
+		switch Mode
 		{
 			case 0:
 			{	
 				// Lower wall sensors by 8 pixels on a flat floor
 				var YOffset = 8 * (Angle == 360);
 				
-				var Distance = tile_check_collision_h(PosX + Xsp - RadiusW, PosY + Ysp + YOffset, false, true, Layer)[0];
-				if  Distance < 0 
+				var FindWall = tile_find_h(PosX + Xsp - RadiusW, PosY + Ysp + YOffset, false, true, Layer)[0];
+				if  FindWall < 0 
 				{	
-					// Affect player speeds
-					Xsp    -= Distance;
+					Xsp    -= FindWall;
 					Inertia = 0;
 					
 					// Set pushing flag
@@ -60,33 +59,30 @@ function PlayerGroundWallCollision()
 			break;
 			case 1:
 			{
-				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp + RadiusW, true, true, Layer)[0];
-				if  Distance < 0
+				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp + RadiusW, true, true, Layer)[0];
+				if  FindWall < 0
 				{
-					// Affect player speeds
-					Ysp    += Distance;
+					Ysp    += FindWall;
 					Inertia = 0;
 				}
 			}
 			break;
 			case 2:
 			{	
-				var Distance = tile_check_collision_h(PosX + Xsp + RadiusW, PosY + Ysp, true, true, Layer)[0];
-				if  Distance < 0
+				var FindWall = tile_find_h(PosX + Xsp + RadiusW, PosY + Ysp, true, true, Layer)[0];
+				if  FindWall < 0
 				{	
-					// Affect player speeds
-					Xsp    += Distance;
+					Xsp    += FindWall;
 					Inertia = 0;
 				}
 			}
 			break;
 			case 3:
 			{
-				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp - RadiusW, false, true, Layer)[0];
-				if  Distance < 0
+				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp - RadiusW, false, true, Layer)[0];
+				if  FindWall < 0
 				{	
-					// Affect player speeds
-					Ysp    -= Distance;
+					Ysp    -= FindWall;
 					Inertia = 0;
 				}
 			}
@@ -97,15 +93,14 @@ function PlayerGroundWallCollision()
 	// Collide with the wall to our right, frame ahead
 	else if Inertia > 0
 	{
-		switch CollisionMode
+		switch Mode
 		{
 			case 0:
 			{	
-				var Distance = tile_check_collision_h(PosX + Xsp + RadiusW, PosY + Ysp + 8 * (Angle == 360), true, true, Layer)[0];
-				if  Distance < 0
+				var FindWall = tile_find_h(PosX + Xsp + RadiusW, PosY + Ysp + 8 * (Angle == 360), true, true, Layer)[0];
+				if  FindWall < 0
 				{	
-					// Affect player speeds
-					Xsp    += Distance;
+					Xsp    += FindWall;
 					Inertia = 0;
 					
 					// Set pushing flag
@@ -118,33 +113,30 @@ function PlayerGroundWallCollision()
 			break;
 			case 1:
 			{
-				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp - RadiusW, false, true, Layer)[0];
-				if  Distance < 0
+				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp - RadiusW, false, true, Layer)[0];
+				if  FindWall < 0
 				{	
-					// Affect player speeds
-					Ysp    -= Distance;
+					Ysp    -= FindWall;
 					Inertia = 0;
 				}
 			}
 			break;
 			case 2:
 			{	
-				var Distance = tile_check_collision_h(PosX + Xsp - RadiusW, PosY + Ysp, false, true, Layer)[0];
-				if  Distance < 0
+				var FindWall = tile_find_h(PosX + Xsp - RadiusW, PosY + Ysp, false, true, Layer)[0];
+				if  FindWall < 0
 				{	
-					// Affect player speeds
-					Xsp    -= Distance;
+					Xsp    -= FindWall;
 					Inertia = 0;
 				}
 			}
 			break;
 			case 3:
 			{
-				var Distance = tile_check_collision_v(PosX + Xsp, PosY + Ysp + RadiusW, true, true, Layer)[0];
-				if  Distance < 0
+				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp + RadiusW, true, true, Layer)[0];
+				if  FindWall < 0
 				{	
-					// Affect player speeds
-					Ysp    += Distance;
+					Ysp    += FindWall;
 					Inertia = 0;
 				}
 			}

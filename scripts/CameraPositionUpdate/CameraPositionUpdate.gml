@@ -8,8 +8,8 @@ function CameraPositionUpdate()
 	}
 	else
 	{
-		ViewX = clamp(PosX, 0, room_width  - Game.Width);
-		ViewY = clamp(PosY, 0, room_height - Game.Height);
+		ViewX = PosX;
+		ViewY = PosY;
 	}
 	
 	// Apply shake

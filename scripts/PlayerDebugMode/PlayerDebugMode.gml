@@ -58,9 +58,9 @@ function PlayerDebugMode()
 			// Reset air timer and restore music
 			if AirTimer <= 720
 			{
-				if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(PriorityLow)
+				if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(ChannelPrimary)
 				{
-					audio_bgm_play(PriorityLow, Stage.StageMusic);
+					audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 				}
 			}
 			AirTimer = 1800;

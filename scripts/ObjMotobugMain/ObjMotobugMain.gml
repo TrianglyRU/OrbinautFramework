@@ -10,7 +10,7 @@ function ObjMotobugMain()
 			Ysp  += 0.21875;
 			
 			// Check for the floor
-			var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 15, true, false, LayerA)[0];
 			if  FindFloor < 0
 			{
 				// Adhere to the surface
@@ -33,7 +33,7 @@ function ObjMotobugMain()
 			PosX += image_xscale;
 			
 			// Check for the floor
-			var FindFloor = tile_check_collision_v(PosX, PosY + 15, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 15, true, false, LayerA)[0];
 			if  FindFloor >= 12 or FindFloor < -8
 			{
 				// Stop animation

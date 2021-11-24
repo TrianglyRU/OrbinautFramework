@@ -14,7 +14,7 @@ function ObjPrisonMain()
 				if Player.SuperState
 				{
 					// Restore stage music
-					audio_bgm_play(PriorityLow, Stage.StageMusic);
+					audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 					
 					// Make player exit super form
 					Player.SuperState = false;
@@ -112,7 +112,7 @@ function ObjPrisonMain()
 					Stage.IsFinished = 2;
 				
 					// Play resuts music
-					audio_bgm_play(PriorityLow, ActClear);
+					audio_bgm_play(ChannelPrimary, ActClear);
 				}
 			}
 		}

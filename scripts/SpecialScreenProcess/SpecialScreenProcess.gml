@@ -50,7 +50,7 @@ function SpecialScreenProcess()
 				}
 			
 				// Start score count after audio stop playing
-				if !audio_bgm_is_playing(PriorityLow)
+				if !audio_bgm_is_playing(ChannelPrimary)
 				{		
 					if Game.SpecialScore
 					{
@@ -65,7 +65,7 @@ function SpecialScreenProcess()
 						if Game.Score mod 50000 == 0
 						{
 							Game.Lives++;
-							audio_bgm_play(PriorityHigh, ExtraLife);
+							audio_bgm_play(ChannelSecondary, ExtraLife);
 						}
 					}
 					else if Game.Emeralds != 7

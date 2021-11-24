@@ -1,8 +1,8 @@
 /// @function object_act_solid(sides,top,bottom,resetActions)
 function object_act_solid(sides,top,bottom,resetActions)
 {
-	/* The following is long and replicates originals method of colliding with object,
-	however it was tweaked in several places to make collision much more consistent */
+	/* The following is long and replicates the original method of colliding with an object, 
+	however, it was tweaked in several places to make collision much more consistent */
 	
 	// Clear flags
 	Obj_SolidTouchU	= false;
@@ -17,25 +17,26 @@ function object_act_solid(sides,top,bottom,resetActions)
 		exit;
 	}
 	
-	// Exit if no solid radiuses were initialized for this object
+	// Exit if no solid radiuses were initialised for this object
 	if !variable_instance_exists(id, "Obj_SolidStatus")
 	{
 		exit;
 	}
 	
-	// Exit if object can't be collided
+	
+	// Exit if the object's solid radiuses are null
 	if !Obj_SolidX or !Obj_SolidY
 	{
 		exit;	
 	}
 	
-	// Exit if there is no side to collide with 
+	// Exit if there is no side to collide with
 	if !sides and !top and !bottom
 	{
 		exit;
 	}
 	
-	// Exit if object is off-screen
+	// Exit if the object is off-screen
 	if !object_is_onscreen(id)
 	{
 		exit;
@@ -75,28 +76,33 @@ function object_act_solid(sides,top,bottom,resetActions)
 	// If player is standing on this object, collide only with its top side
 	if Player.OnObject == ObjectID
 	{	
-		Player.PosX += floor(x - xprevious);
-		Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
-			
-		// Tell the object player touches its top side
-		Obj_SolidTouchU = true;
-		
 		// Check if player is outside the object
 		var FallRadius = sides ? ObjectWidth : Obj_SolidX + 1;
 		
-		var XComparison = floor(Player.PosX) - ObjectX + FallRadius;
-		if  XComparison <= 0 or XComparison >= FallRadius * 2 - 1
+		// Lose the object
+		var XDiff  = floor(Player.PosX) - ObjectX + FallRadius;
+		if  XDiff <= 0 or XDiff >= FallRadius * 2 - 1
 		{
 			var ThisObject = object_index;
 			with Player
 			{
 				if Animation == AnimMove and ThisObject != Bridge
 				{
-					// Restart animation...? (if not on the bridge)
+					// Restart animation...?
 					animation_reset(0);
 				}
 				OnObject = false;
 			}
+		}
+		
+		// Else keep colliding with it
+		else
+		{
+			Player.PosX += floor(x - xprevious);
+			Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
+			
+			// Tell the object player touches its top side
+			Obj_SolidTouchU = true;
 		}
 	}
 			
@@ -104,20 +110,20 @@ function object_act_solid(sides,top,bottom,resetActions)
 	else
 	{	
 		// Check for overlap
-		var XDifference = PlayerX - ObjectX + ObjectWidth;
-		if  XDifference < 0 or XDifference > ObjectWidth * 2 - 1
+		var XClip = PlayerX - ObjectX + ObjectWidth;
+		if  XClip < 0 or XClip > ObjectWidth * 2 - 1
 		{
 			exit;
 		}
-		var YDifference = PlayerY - ObjectY - SlopeOffset + ObjectHeight + 4;
-		if  YDifference < 0 or YDifference > ObjectHeight * 2 + 3
+		var YClip = PlayerY - ObjectY - SlopeOffset + ObjectHeight + 4;
+		if  YClip < 0 or YClip > ObjectHeight * 2 + 3
 		{
 			exit;
 		}
 		
 		// Get distance differences
-		var XDistance = PlayerX > ObjectX ? XDifference - ObjectWidth  * 2 + 1 : XDifference;
-		var YDistance = PlayerY > ObjectY ? YDifference - ObjectHeight * 2 - 3 : YDifference;
+		var XDistance = PlayerX > ObjectX ? XClip - ObjectWidth  * 2 + 1 : XClip;
+		var YDistance = PlayerY > ObjectY ? YClip - ObjectHeight * 2 - 3 : YClip;
 		
 		// Collide vertically
 		if abs(XDistance) >= abs(YDistance)
@@ -162,8 +168,8 @@ function object_act_solid(sides,top,bottom,resetActions)
 						// Exit if outside the object
 						var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;
 					
-						var XDifference = PlayerX - ObjectX + LandRadius;
-						if  XDifference <= 0 or XDifference >= LandRadius * 2 - 1
+						var XDiff  = PlayerX - ObjectX + LandRadius;
+						if  XDiff <= 0 or XDiff >= LandRadius * 2 - 1
 						{
 							exit;
 						}

@@ -11,7 +11,7 @@ function ObjAnimalMain()
 			if Ysp > 0 
 			{
 				// Collide with floor
-				var FindFloor = tile_check_collision_v(PosX, PosY + 12, true, false, LayerA)[0];
+				var FindFloor = tile_find_v(PosX, PosY + 12, true, false, LayerA)[0];
 				if  FindFloor < 0
 				{
 					// Clip out
@@ -75,7 +75,7 @@ function ObjAnimalMain()
 			// Check for floor
 			if Ysp > 0
 			{
-				var FindFloor = tile_check_collision_v(PosX, PosY + 12, true, false, LayerA)[0]
+				var FindFloor = tile_find_v(PosX, PosY + 12, true, false, LayerA)[0]
 				if  FindFloor < 0
 				{
 					// Clip out

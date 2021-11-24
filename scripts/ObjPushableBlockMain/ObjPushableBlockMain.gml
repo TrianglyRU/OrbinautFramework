@@ -27,7 +27,7 @@ function ObjPushableBlockMain()
 			}
 			
 			// Check for floor collision
-			var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
 			if  FindFloor > 0
 			{
 				PosX     -= Direction;
@@ -39,16 +39,16 @@ function ObjPushableBlockMain()
 			}
 			
 			// Check for wall collision
-			var LeftDistance = tile_check_collision_h(PosX - 16, PosY, false, true, LayerA)[0];
-			if  LeftDistance < 0
+			var FindWall = tile_find_h(PosX - 16, PosY, false, true, LayerA)[0];
+			if  FindWall < 0
 			{
-				PosX  -= LeftDistance;
+				PosX  -= FindWall;
 				State += 2;
 			}
-			var RightDistance = tile_check_collision_h(PosX + 16, PosY, true, true, LayerA)[0];
-			if  RightDistance < 0
+			var FindWall = tile_find_h(PosX + 16, PosY, true, true, LayerA)[0];
+			if  FindWall < 0
 			{
-				PosX  += RightDistance;
+				PosX  += FindWall;
 				State += 2;
 			}
 		}
@@ -68,7 +68,7 @@ function ObjPushableBlockMain()
 			}
 		
 			// Check for floor collision
-			var FindFloor = tile_check_collision_v(PosX, PosY + 16, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
 			if  FindFloor < 0
 			{
 				PosY += FindFloor;

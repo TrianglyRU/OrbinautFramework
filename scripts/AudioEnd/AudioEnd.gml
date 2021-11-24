@@ -1,6 +1,6 @@
 function AudioEnd()
 {
-	// Destroy datastructure
+	// Destroy data structure
 	ds_map_destroy(TrackLoop);
 	
 	// Stop all sounds

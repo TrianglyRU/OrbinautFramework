@@ -1,19 +1,19 @@
-/// @function audio_bgm_stop(priority,time)
-function audio_bgm_stop(priority,time)
+/// @function audio_bgm_stop(channelType,time)
+function audio_bgm_stop(channelType,time)
 {	
 	// Stop track
-	switch priority
+	switch channelType
 	{
-		case PriorityLow:
+		case ChannelPrimary:
 		{
-			Audio.LowTrack[0] = EventStop;
-			Audio.LowTrack[2] = time;
+			Audio.PrimaryTrack[0] = EventStop;
+			Audio.PrimaryTrack[2] = time;
 		}
 		break;
-		case PriorityHigh:
+		case ChannelSecondary:
 		{
-			Audio.HighTrack[0] = EventStop;
-			Audio.HighTrack[2] = time;
+			Audio.SecondaryTrack[0] = EventStop;
+			Audio.SecondaryTrack[2] = time;
 		}
 		break;
 	}

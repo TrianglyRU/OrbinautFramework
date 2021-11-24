@@ -1,5 +1,5 @@
-/// @function audio_bgm_play(priority,soundid)
-function audio_bgm_play(priority,soundid)
+/// @function audio_bgm_play(channelType,soundid)
+function audio_bgm_play(channelType,soundid)
 {	
 	// Exit if no audio set
 	if !soundid
@@ -8,34 +8,34 @@ function audio_bgm_play(priority,soundid)
 	}
 	
 	// Play new track
-	switch priority
+	switch channelType
 	{
-		case PriorityLow:
+		case ChannelPrimary:
 		{
 			// Stop previous track
-			audio_stop_sound(Audio.LowTrack[1]);
+			audio_stop_sound(Audio.PrimaryTrack[1]);
 			
-			Audio.LowTrack[0] = EventIdle;
-			Audio.LowTrack[1] = audio_play_sound(soundid, 0, false);
+			Audio.PrimaryTrack[0] = EventIdle;
+			Audio.PrimaryTrack[1] = audio_play_sound(soundid, 0, false);
 			
 			// Set loopdata
 			if ds_map_exists(Audio.TrackLoop, soundid)
 			{
-				Audio.LowTrack[3] = Audio.TrackLoop[? soundid];
+				Audio.PrimaryTrack[3] = Audio.TrackLoop[? soundid];
 			}
 			else
 			{
-				Audio.LowTrack[3] = [];
+				Audio.PrimaryTrack[3] = [];
 			}
 		}
 		break;
-		case PriorityHigh:
+		case ChannelSecondary:
 		{
 			// Stop previous track
-			audio_stop_sound(Audio.HighTrack[1]);
+			audio_stop_sound(Audio.SecondaryTrack[1]);
 
-			Audio.HighTrack[0] = EventIdle;
-			Audio.HighTrack[1] = audio_play_sound(soundid, 0, false);
+			Audio.SecondaryTrack[0] = EventIdle;
+			Audio.SecondaryTrack[1] = audio_play_sound(soundid, 0, false);
 		}
 		break;
 	}

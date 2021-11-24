@@ -7,16 +7,16 @@ function AudioStartup()
 	3 - LoopData
 	*/
 	
-	// Set non-priority track data
-	LowTrack[0] = EventIdle;
-	LowTrack[1] = noone;
-	LowTrack[2] = 0;
-	LowTrack[3] = [];
+	// Set primary track data
+	PrimaryTrack[0] = EventIdle;
+	PrimaryTrack[1] = noone;
+	PrimaryTrack[2] = 0;
+	PrimaryTrack[3] = [];
 	
-	// Set priority track data
-	HighTrack[0] = EventIdle;
-	HighTrack[1] = noone;
-	HighTrack[2] = 0;
+	// Set secondary track data
+	SecondaryTrack[0] = EventIdle;
+	SecondaryTrack[1] = noone;
+	SecondaryTrack[2] = 0;
 	
 	// Create TrackLoop data structure
 	TrackLoop = ds_map_create();
