@@ -44,11 +44,11 @@
 	{
 		if (u_colour == 1)
 		{
-			return Val1 + max(Val2 - Val1 - u_step + 252., 0.);
+			return Val1 + max(Val2 - u_step - Val1 + 252., 0.);
 		}
 		else
 		{
-			return Val1 - max(Val2 + Val1 - u_step, 0.);
+			return Val1 - max(Val2 - u_step + Val1, 0.);
 		}
 	}
 
@@ -57,11 +57,11 @@
 	    float Diff = max(756. - u_step - Val2, 0.);
 		if (u_colour == 1)
 		{
-			return Val1 + Diff * 1.;
+			return Val1 + Diff;
 		}
 		else
 		{
-			return Val1 + Diff * -1.;
+			return Val1 - Diff;
 		}
 	}
 
