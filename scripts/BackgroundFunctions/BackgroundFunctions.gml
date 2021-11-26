@@ -6,10 +6,10 @@ function BackgroundFunctions()
 		BGSprites[id] = sprite;
 	}
 	
-	/// @function background_layer_setup(id,x,y,scrollx,scrolly,autoscrollx,inclHeight*,inclForce*,inclMode*)
-	function background_layer_setup(id,x,y,scrollx,scrolly,autoscrollx,inclHeight,inclForce,inclMode)
+	/// @function background_layer_setup(id,x,y,scrollX,scrollY,autoscrollX,inclHeight*,inclForce*,inclMode*)
+	function background_layer_setup(id,x,y,scrollX,scrollY,autoscrollX,inclHeight,inclForce,inclMode)
 	{
-		BGValues[id] = [x, y, scrollx, scrolly, autoscrollx, inclHeight, inclForce, inclMode];
+		BGValues[id] = [x, y, scrollX, scrollY, autoscrollX, inclHeight, inclForce, inclMode];
 	}
 	
 	/// @function background_colour_set(hex|in-built)

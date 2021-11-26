@@ -3,7 +3,7 @@ function CameraStartup()
 	// Enable camera
 	Enabled	= true;
 	
-	// Set maximum speed
+	// Set maximum possible speed
 	MaxShiftX = 16;
 	MaxShiftY = 16;
 	
@@ -45,7 +45,7 @@ function CameraStartup()
 				PosY = Game.SpecialRingData[1] - Game.Height / 2 + 16;
 			}
 	
-			/* If none of positions above exist, the camera will spawn
+			/* If none of the positions above exist, the camera will spawn
 			on checkpoint. It is handled from its side! */
 		}
 		break;

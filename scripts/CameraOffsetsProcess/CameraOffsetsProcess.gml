@@ -1,14 +1,12 @@
 function CameraOffsetsProcess()
 {	
-	// Handle camera shake
+	// Process camera shake. We do not guarantee this is accurate, 
+	// but the original engine does something similar
 	if ShakeTime
 	{
-		// We do not guarantee this is accurate, but this is somewhat original engine does
-		ShakeX = irandom_range(8, 15)    * choose(-1, 1) * (1 + ShakeTime / 6) / 128;
-		ShakeY = irandom_range(128, 255) * choose(-1, 1) * (1 + ShakeTime / 6) / 255;
-		
-		// Decrease timer
-		ShakeTime--;
+		ShakeX     = irandom_range(8, 15)    * choose(-1, 1) * (1 + ShakeTime / 6) / 128;
+		ShakeY     = irandom_range(128, 255) * choose(-1, 1) * (1 + ShakeTime / 6) / 255;
+		ShakeTime -= 1;
 	}
 	else
 	{

@@ -8,9 +8,9 @@ function AudioHighProcess()
 	
 	/* Array Pointers
 	0 - Event
-	1 - TrackID
-	2 - EventTime
-	3 - LoopData
+	1 - Track ID
+	2 - Event Time
+	3 - Loop Data
 	*/
 	
 	// Get secondary track data

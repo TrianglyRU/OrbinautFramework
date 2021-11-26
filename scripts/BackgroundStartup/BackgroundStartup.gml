@@ -1,6 +1,6 @@
 function BackgroundStartup()
 {
-	// Get background array
+	// Get background data
 	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
 	{
