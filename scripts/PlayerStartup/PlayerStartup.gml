@@ -118,25 +118,25 @@ function PlayerStartup()
 		PosY = Game.StarPostData[1];
 	}
 	
-	// If coming from special stage, load saved player data
+	// If coming back from special stage, load saved player data
 	if array_length(Game.SpecialRingData)
 	{
 		PosX  = Game.SpecialRingData[0];
 		PosY  = Game.SpecialRingData[1];
-		Rings = Game.SpecialRingData[2];
 		
-		// Restore barrier
+		// Load saved ring and barrier
 		if Game.SpecialRingData[3]
 		{
 			BarrierType = Game.SpecialRingData[3];
 			instance_create(PosX, PosY, Barrier);
-		}	
+		}
+		Rings = Game.SpecialRingData[2];
 	}
 	
-	/* If none of positions above exist, player will spawn
-	on checkpoint. It is handled from its side! */
+	/* If none of the positions above exist, player will spawn
+	on spawnpoint. It is handled from its side! */
 	
-	// If coming from bonus stage, load saved rings and barrier
+	// If coming back from bonus stage, load saved rings and barrier
 	if array_length(Game.BonusStageData)
 	{
 		Rings		= Game.BonusStageData[0];

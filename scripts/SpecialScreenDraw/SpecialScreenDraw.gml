@@ -9,8 +9,7 @@ function SpecialScreenDraw()
 	// Get screen centre
 	var CentreX	= Game.Width / 2;
 	var CentreY = Game.Height / 2;
-	
-	var ShiftY = floor(Offset[3]);
+	var ShiftY  = floor(Offset[3]);
 	
 	// Win messages
 	if Game.SpecialState == 1
