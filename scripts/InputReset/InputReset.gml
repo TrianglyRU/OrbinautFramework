@@ -3,32 +3,21 @@ function InputReset()
 	// Ignore double input
 	if Left and Right
 	{
-		Left  = false;
-		Right = false;
+		Left       = false;
+		LeftPress  = false;
+		Right      = false;
+		RightPress = false;
+		
 	}
 	if Up and Down
 	{
-		Up   = false;
-		Down = false;
-	}
-	if !Left and LeftPress
-	{
-		LeftPress = false;
-	}
-	if !Right and RightPress
-	{
-		RightPress = false;
-	}
-	if !Up and UpPress
-	{
-		UpPress = false;
-	}
-	if !Down and DownPress
-	{
+		Up        = false;
+		Down      = false;
+		UpPress   = false;
 		DownPress = false;
-	}
+	}	
 	
-	// Reset all buttons if we ignore all input
+	// Reset all buttons if we started to ignore input
 	if IgnoreInput == true
 	{
 		Up			= false;

@@ -32,16 +32,4 @@ function InputKeyboardProcess()
 	Mode  = keyboard_check(Key[7]);
 	Start = keyboard_check(Key[8]);
 	ABC   = A or B or C;
-		
-	// Ignore double input
-	if Left and Right
-	{
-		Left  = false;
-		Right = false;
-	}
-	if Up and Down
-	{
-		Up   = false;
-		Down = false;
-	}
 }

@@ -39,16 +39,4 @@ function InputGamepadProcess()
 	Mode  = gamepad_button_check(0, gp_select);
 	Start = gamepad_button_check(0, gp_start);
 	ABC   = A or B or C;
-	
-	// Ignore double input
-	if Left and Right
-	{
-		Left  = false;
-		Right = false;
-	}
-	if Up and Down
-	{
-		Up   = false;
-		Down = false;
-	}
 }

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_invstar_type1",
-    "path": "sprites/spr_obj_invstar_type1/spr_obj_invstar_type1.yy",
+    "name": "spr_obj_invstar",
+    "path": "sprites/spr_obj_invstar/spr_obj_invstar.yy",
   },
   "solid": false,
   "visible": true,

@@ -44,14 +44,10 @@ function PlayerGeneralUpdate()
 		// Create star particles
 		if InvincibleBonus == 1200 and !instance_exists(InvincibilityStar)
 		{
-			for (var i = 1; i < 9; i++)
+			for (var i = 0; i < 8; i++)
 			{
 				var Object = instance_create(PosX, PosY, InvincibilityStar);
-					Object.ID = i;
-			}
-			with InvincibilityStar 
-			{
-				animation_play(ID mod 2 ? spr_obj_invstar_type1 : spr_obj_invstar_type2, 1, ID, 0);
+				Object.ID  = i;
 			}
 		}
 		if !(--InvincibleBonus)
