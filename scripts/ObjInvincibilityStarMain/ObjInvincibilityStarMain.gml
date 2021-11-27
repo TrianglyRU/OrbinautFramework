@@ -7,7 +7,7 @@ function ObjInvincibilityStarMain()
 	}
 	
 	// Set rotation speed
-	RotationSpeed += 10;
+	RotationSpeed += 10 * Player.Facing;
 	
 	// Set angle
 	var Angle = 45 * ID - RotationSpeed;

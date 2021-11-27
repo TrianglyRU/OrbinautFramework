@@ -332,7 +332,6 @@
     {"id":{"name":"PlayerMovementRoll","path":"scripts/PlayerMovementRoll/PlayerMovementRoll.yy",},"order":22,},
     {"id":{"name":"PlayerPhysicsHandle","path":"scripts/PlayerPhysicsHandle/PlayerPhysicsHandle.yy",},"order":23,},
     {"id":{"name":"PlayerGeneralUpdate","path":"scripts/PlayerGeneralUpdate/PlayerGeneralUpdate.yy",},"order":24,},
-    {"id":{"name":"PlayerPositionRecord","path":"scripts/PlayerPositionRecord/PlayerPositionRecord.yy",},"order":25,},
     {"id":{"name":"PlayerResetOnFloor","path":"scripts/PlayerResetOnFloor/PlayerResetOnFloor.yy",},"order":26,},
     {"id":{"name":"ObjBubbleStartup","path":"scripts/ObjBubbleStartup/ObjBubbleStartup.yy",},"order":18,},
     {"id":{"name":"PlayerStartup","path":"scripts/PlayerStartup/PlayerStartup.yy",},"order":27,},

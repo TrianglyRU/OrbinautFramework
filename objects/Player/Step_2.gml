@@ -9,6 +9,5 @@
 	PlayerSuperFormsProcess();
 	PlayerWaterEvents();
 	PlayerPhysicsHandle();
-	PlayerPositionRecord();
 	PlayerAnimate();
 	PlayerRotation();
