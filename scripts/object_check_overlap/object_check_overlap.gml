@@ -28,7 +28,7 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-		
+			
 			// Get object's size
 			var ObjectTop    = floor(y - Obj_HitY - 0);
 			var ObjectLeft   = floor(x - Obj_HitX - 0);

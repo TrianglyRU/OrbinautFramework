@@ -1,7 +1,7 @@
 function PlayerDebugMode()
 {
-	// Exit if not in devmode or stage is paused
-	if !Game.DevMode or Stage.IsPaused
+	// Exit if not in devmode or stage is inactive
+	if !Game.DevMode or !Stage.DoUpdate
 	{
 		return false;
 	}

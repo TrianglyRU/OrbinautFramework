@@ -1,7 +1,7 @@
 /// @function object_act_enemy(enemyType)
 function object_act_enemy(enemyType)
 {
-	// Return nothing if no collision is happening yet
+	// Wait until collision occurs
 	if !object_check_overlap(TypeHitbox2)
 	{
 		return false;
