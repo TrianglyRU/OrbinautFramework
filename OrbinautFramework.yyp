@@ -462,6 +462,7 @@
     {"id":{"name":"spr_obj_barrier_water","path":"sprites/spr_obj_barrier_water/spr_obj_barrier_water.yy",},"order":11,},
     {"id":{"name":"spr_obj_bumper","path":"sprites/spr_obj_bumper/spr_obj_bumper.yy",},"order":39,},
     {"id":{"name":"spr_obj_chopper","path":"sprites/spr_obj_chopper/spr_obj_chopper.yy",},"order":21,},
+    {"id":{"name":"ObjBridgeDraw2","path":"scripts/ObjBridgeDraw2/ObjBridgeDraw2.yy",},"order":120,},
     {"id":{"name":"ObjBuzzbomberDraw","path":"scripts/ObjBuzzbomberDraw/ObjBuzzbomberDraw.yy",},"order":11,},
     {"id":{"name":"font_card","path":"sprites/font_card/font_card.yy",},"order":0,},
     {"id":{"name":"gui_card_ribbon","path":"sprites/gui_card_ribbon/gui_card_ribbon.yy",},"order":23,},

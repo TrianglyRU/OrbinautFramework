@@ -1,12 +1,5 @@
 function ObjBridgeDraw()
 {
-	// Draw posts
-	if GeneratePosts
-	{
-		draw_sprite(SpriteData[1],     0, x - BridgeLength / 2 * 16 - 18, NativeY - 15);
-		draw_sprite_ext(SpriteData[1], 0, x + BridgeLength / 2 * 16 + 18, NativeY - 15, -1, 1, 0, c_white, 1);
-	}
-	
 	// Draw logs
 	for (var i = 0; i < BridgeLength; i++)
     {   
@@ -32,4 +25,7 @@ function ObjBridgeDraw()
 		// Draw log
 		draw_sprite(SpriteData[0], 0, LogX, LogY);
     }
+	
+	// Update object depth
+	object_set_depth(Player, 1);
 }

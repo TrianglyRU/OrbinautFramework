@@ -38,7 +38,7 @@ function PlayerSonicDropdash()
 	else if DropdashRev < 20
 	{
 		// Set animaion once fully charged
-		if ++DropdashRev == 20
+		if (++DropdashRev) == 20
 		{
 			Animation = AnimDropdash;
 			

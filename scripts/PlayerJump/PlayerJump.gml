@@ -30,7 +30,7 @@ function PlayerJump()
 		}
 	}
 	
-	// Do not perform any actions if moving too fast or no input press has been registered
+	// Do not perform anything if action buttons weren't released yet
 	if Ysp < JumpMin or !Input.ABCPress
 	{
 		exit;
@@ -71,13 +71,12 @@ function PlayerJump()
 	// Perform character action
 	switch Game.Character
 	{
-		// Sonic
 		case CharSonic:
 		{	
-			if BarrierType <= BarrierNormal
-			{
-				// Perform double spin attack if enabled
-				if Game.DSpinAttackEnabled and !BarrierType and !SuperState and DoubleSpinAttack == -1
+			// Perform double spin attack if enabled
+			if !BarrierType
+			{	
+				if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != -1)
 				{
 					// Set flag
 					DoubleSpinAttack = 0;
@@ -86,17 +85,22 @@ function PlayerJump()
 					instance_create(PosX, PosY, DoubleSpinShield);
 					audio_sfx_play(sfxDoubleSpinAttack, false);
 				}
-				
-				// Perform dropdash if enabled
+			}
+			
+			// Perform dropdash if enabled
+			else if BarrierType <= BarrierNormal
+			{	
 				if Game.DropdashEnabled and DropdashFlag == 0
 				{
+					// Set flags
 					AirLock      = false;
 					DropdashFlag = 1;
 				}
 			}
-			else if !(InvincibleBonus or DropdashFlag or BarrierIsActive or SuperState)
-			{
-				// Perform barrier action		
+			
+			// Perform barrier action
+			else if !(InvincibleBonus or BarrierIsActive or SuperState)
+			{	
 				switch BarrierType
 				{
 					case BarrierFlame:
@@ -172,8 +176,6 @@ function PlayerJump()
 			}
 		}
 		break;
-		
-		// Start Tails flight
 		case CharTails:
 		{
 			// Reset collision radiuses
@@ -199,8 +201,6 @@ function PlayerJump()
 			Input.ABCPress = false;
 		}
 		break;
-			
-		// Start Knuckles glide
 		case CharKnuckles:
 		{
 			// Set collision radiuses
@@ -217,9 +217,9 @@ function PlayerJump()
 			Jumping        = false;
 			Spinning       = false;
 			GlideGrounded  = false;
+			GlideState     = GlideAir;
 			GlideDirection = Facing;
 			GlideValue     = Facing == FlipLeft ? 0 : 180;
-			GlideState     = GlideAir;
 				
 			// Set animation
 			Animation = AnimGlide;

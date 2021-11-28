@@ -1,12 +1,12 @@
 function PlayerDebugMode()
 {
-	// Exit if not in devmode or stage is inactive
-	if !Game.DevMode or !Stage.DoUpdate
+	// Exit if not in devmode or stage is inactive (but procees if player died)
+	if !Game.DevMode or !(Player.Death or Stage.DoUpdate) 
 	{
 		return false;
 	}
 	
-	// Exit if died and fell off-screen
+	// Exit if player has died and fell off-screen
 	if Player.Death and floor(Player.PosY) >= Camera.ViewY + Game.Height
 	{
 		return false;
