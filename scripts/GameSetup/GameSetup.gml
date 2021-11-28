@@ -10,6 +10,7 @@ function GameSetup()
 	Game.SpindashEnabled    = true;
 	Game.DropdashEnabled    = false;
 	Game.PeeloutEnabled		= false;
+	Game.DSpinAttackEnabled = true;
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
 	Game.CDCamera			= false;
@@ -21,7 +22,7 @@ function GameSetup()
 	Game.S2FloorCollision	= true;
 	Game.SKWallCollision	= true;	
 	Game.SKItemBoxBehaviour = false;
-	Game.CDStageTimer	    = false;
+	Game.CDStageTimer	    = false;	
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = false;

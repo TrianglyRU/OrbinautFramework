@@ -30,12 +30,18 @@ function InterfaceDebugHitboxDraw()
 				}
 				else
 				{
+					var pTop    = floor(PosY - RadiusY + 3);
 					var pLeft   = floor(PosX - 8);
-					var pRight  = floor(PosX + 8);			     
-					var pTop	= floor(PosY - RadiusY + 3);
-					var pBottom = floor(PosY + RadiusY - 3);
+					var pRight  = floor(PosX + 8);
+					var pBottom = floor(PosY + RadiusY - 3);	
 				}
-				draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
+				draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);	
+				
+				// Draw double spin attack hitbox
+				if DoubleSpinAttack
+				{
+					draw_rectangle_colour(floor(PosX - 24), floor(PosY - 24), floor(PosX + 24), floor(PosY + 24), $00ff00, $00ff00, $00ff00, $00ff00, false);
+				}
 			}
 			
 			// Object hitbox

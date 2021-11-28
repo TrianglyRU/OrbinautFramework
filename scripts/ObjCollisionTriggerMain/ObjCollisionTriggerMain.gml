@@ -1,7 +1,7 @@
 function ObjCollisionTriggerMain()
 {
 	// Check for GroundOnly flag
-	if GroundOnly and !Player.Grounded
+	if !State and GroundOnly and !Player.Grounded
 	{
 		exit;
 	}

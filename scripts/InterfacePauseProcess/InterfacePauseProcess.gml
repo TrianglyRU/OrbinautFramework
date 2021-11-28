@@ -65,8 +65,11 @@ function InterfacePauseProcess()
 				// Return to stage
 				case 0:
 				{
-					Stage.IsPaused = false;
 					Camera.Enabled = true;
+					Stage.IsPaused = false;	
+					
+					// Manually enable stage update to avoid 1 frame delay
+					Stage.DoUpdate = true;
 					
 					// Activate objects
 					instance_activate_range(Camera.ViewX);
@@ -115,7 +118,10 @@ function InterfacePauseProcess()
 		{
 			Input.StartPress = false;
 			Camera.Enabled   = false;
-			Stage.IsPaused	 = true;	
+			Stage.IsPaused	 = true;
+			
+			// Manually disable stage update to avoid 1 frame delay
+			Stage.DoUpdate = false;
 			
 			// Stop all audio
 			audio_pause_all();

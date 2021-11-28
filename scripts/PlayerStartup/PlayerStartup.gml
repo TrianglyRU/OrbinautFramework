@@ -58,15 +58,16 @@ function PlayerStartup()
 	DebugSpeed			= 0;
 	
 	// Set default values
-	Grv			   = 0.21875;
-	AirTimer	   = 1800;	
-	AllowCollision = true;
-	AllowMovement  = true;
-	Grounded	   = true;
-	PeeloutRev     = -1;
-	SpindashRev    = -1;
-	DropdashRev    = -1;
-	DropdashFlag   = -1;
+	Grv			     = 0.21875;
+	AirTimer	     = 1800;	
+	AllowCollision   = true;
+	AllowMovement    = true;
+	Grounded	     = true;
+	PeeloutRev       = -1;
+	SpindashRev      = -1;
+	DropdashRev      = -1;
+	DropdashFlag     = -1;
+	DoubleSpinAttack = -1;
 
 	// Set default sprite
 	switch Game.Character

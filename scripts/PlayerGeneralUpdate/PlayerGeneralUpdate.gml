@@ -1,9 +1,18 @@
 function PlayerGeneralUpdate()
 {
-	// Decrease invincibility frames timer
+	// Handle I-frames timer
 	if InvincibilityFrames and !Hurt
 	{
 		InvincibilityFrames--;
+	}
+	
+	// Handle double spin attack
+	if DoubleSpinAttack > -1
+	{
+		if (++DoubleSpinAttack) > 14
+		{
+			DoubleSpinAttack = -2;
+		}
 	}
 	
 	// Grant extra life for collecting 100 or 200 rings

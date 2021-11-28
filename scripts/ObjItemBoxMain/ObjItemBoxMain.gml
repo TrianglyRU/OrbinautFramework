@@ -14,7 +14,7 @@ function ObjItemBoxMain()
 			// Check if player is able to destroy it
 			if Game.SKItemBoxBehaviour
 			{
-				if Player.Ysp < 0
+				if Player.Ysp < 0 and !Player.DoubleSpinAttack
 				{
 					var Check = floor(Player.PosY + 16) >= y;
 				}
@@ -25,12 +25,12 @@ function ObjItemBoxMain()
 			}
 			else
 			{
-				var Check = Player.Ysp >= 0;
+				var Check = Player.Ysp >= 0 or Player.DoubleSpinAttack;
 			}
 			if Check and (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id
 			{
 				// Destroy on overlap
-				if object_check_overlap(TypeHitbox)
+				if object_check_overlap(TypeHitbox2)
 				{
 					// Inverse player's speed
 					if !Player.Grounded

@@ -6,7 +6,7 @@ function ObjBossTriggerMain()
 	// Check if player ran past the trigger
 	if Stage.IsBossfight == -1
 	{
-		if object_check_overlap(TypeTrigger)
+		if floor(Player.PosX) > x
 		{
 			// Play boss music
 			audio_bgm_play(ChannelPrimary, Boss); 

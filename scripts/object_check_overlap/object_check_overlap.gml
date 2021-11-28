@@ -1,14 +1,15 @@
 /// @function object_check_overlap(collisionType)
 function object_check_overlap(collisionType)
 {	
-	// Exit if hitbox collision is disabled
-	if collisionType == TypeHitbox and !Player.AllowCollision
+	// Exit if collision is disabled
+	if !Player.AllowCollision
 	{
 		return false;
 	}	
-	switch collisionType
+	else switch collisionType
 	{
 		case TypeHitbox:
+		case TypeHitbox2:
 		{
 			// Exit if this object hitbox isn't initialised
 			if !variable_instance_exists(id, "Obj_HitStatus")
@@ -25,7 +26,7 @@ function object_check_overlap(collisionType)
 			// Exit if object is off-screen
 			if !object_is_onscreen(id)
 			{
-				exit;
+				return false;
 			}
 		
 			// Get object's size
@@ -44,10 +45,20 @@ function object_check_overlap(collisionType)
 			}
 			else
 			{
-				var PlayerTop    = floor(Player.PosY - Player.RadiusY + 3);
-				var PlayerLeft   = floor(Player.PosX - 8);
-				var PlayerRight  = floor(Player.PosX + 8);
-				var PlayerBottom = floor(Player.PosY + Player.RadiusY - 3);	
+				if collisionType == TypeHitbox2 and Player.DoubleSpinAttack
+				{
+					var PlayerTop    = floor(Player.PosY - 24);
+					var PlayerLeft   = floor(Player.PosX - 24);
+					var PlayerRight  = floor(Player.PosX + 24);
+					var PlayerBottom = floor(Player.PosY + 24);
+				}
+				else
+				{
+					var PlayerTop    = floor(Player.PosY - Player.RadiusY + 3);
+					var PlayerLeft   = floor(Player.PosX - 8);
+					var PlayerRight  = floor(Player.PosX + 8);
+					var PlayerBottom = floor(Player.PosY + Player.RadiusY - 3);
+				}
 			}
 		
 			// Check for overlap

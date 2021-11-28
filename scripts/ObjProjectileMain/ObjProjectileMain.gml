@@ -9,16 +9,16 @@ function ObjProjectileMain()
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if object_check_overlap(TypeHitbox)
+	if object_check_overlap(TypeHitbox2)
 	{
 		// Check if projectile should be reflected
-		if Player.BarrierType > BarrierNormal
+		if Player.BarrierType > BarrierNormal or Player.DoubleSpinAttack
 		{
 			if !State
 			{
 				// Get angle
-				var X	  = floor(Player.PosX) - x;
-				var Y	  = floor(Player.PosY) - y;
+				var X	  = floor(Player.PosX - x);
+				var Y	  = floor(Player.PosY - y);
 				var Angle = darctan2(Y, X);
 			
 				// Reflect projectile

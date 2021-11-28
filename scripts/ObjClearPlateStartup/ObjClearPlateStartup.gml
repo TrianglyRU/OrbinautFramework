@@ -37,9 +37,6 @@ function ObjClearPlateStartup()
 	}
 	sprite_index = SpriteData[0];
 	
-	// Set object triggerbox
-	object_set_triggerbox(0, 32, -512, 512);
-		
 	// Set object depth
 	object_set_depth(Player, 0);
 }

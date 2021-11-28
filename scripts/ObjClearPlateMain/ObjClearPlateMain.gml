@@ -13,7 +13,7 @@ function ObjClearPlateMain()
 		// Idle
 		case 0:
 		{
-			if object_check_overlap(TypeTrigger)
+			if floor(Player.PosX) > x
 			{
 				if Player.SuperState
 				{

@@ -73,9 +73,20 @@ function PlayerJump()
 	{
 		// Sonic
 		case CharSonic:
-		{		
-			if BarrierType <= BarrierNormal or SuperState
+		{	
+			if BarrierType <= BarrierNormal
 			{
+				// Perform double spin attack if enabled
+				if Game.DSpinAttackEnabled and !BarrierType and !SuperState and DoubleSpinAttack == -1
+				{
+					// Set flag
+					DoubleSpinAttack = 0;
+					
+					// Create object and play sound
+					instance_create(PosX, PosY, DoubleSpinShield);
+					audio_sfx_play(sfxDoubleSpinAttack, false);
+				}
+				
 				// Perform dropdash if enabled
 				if Game.DropdashEnabled and DropdashFlag == 0
 				{
@@ -83,84 +94,81 @@ function PlayerJump()
 					DropdashFlag = 1;
 				}
 			}
-			else
+			else if !(InvincibleBonus or DropdashFlag or BarrierIsActive or SuperState)
 			{
-				// Perform barrier action
-				if !(InvincibleBonus or DropdashFlag or BarrierIsActive)
-				{			
-					switch BarrierType
+				// Perform barrier action		
+				switch BarrierType
+				{
+					case BarrierFlame:
 					{
-						case BarrierFlame:
+						// Freeze the screen for 16 frames
+						if !Game.CDCamera
 						{
-							// Freeze the screen for 16 frames
-							if !Game.CDCamera
-							{
-								Camera.ScrollDelay = 16;
-							}
-							
-							// Set barrier animation
-							with Barrier
-							{
-								animation_play(spr_obj_barrier_flame_dash, 2, 0, 0);
-							}
-						
-							// Set speeds
-							Xsp = 8 * Facing;
-							Ysp = 0;
-							
-							// Lock control
-							AirLock = true;
-						
-							// Play sound
-							audio_sfx_play(sfxFlameBarrierDash, false);
+							Camera.ScrollDelay = 16;
 						}
-						break;
-						case BarrierThunder:
+							
+						// Set barrier animation
+						with Barrier
 						{
-							// Create sparkles
-							for (var i = 0; i < 4; i++)
-							{
-								var  Object = instance_create(PosX, PosY, BarrierSparkle);
-								with Object
-								{
-									SparkleID = i;
-								}
-							}
-							
-							// Restore control
-							AirLock = false;
-						
-							// Set vertical speed
-							Ysp = -5.5;
-						
-							// Play sound
-							audio_sfx_play(sfxThunderBarrierJump, false);
+							animation_play(spr_obj_barrier_flame_dash, 2, 0, 0);
 						}
-						break;
-						case BarrierWater:
-						{						
-							// Set barrier animation
-							with Barrier
-							{
-								animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0, 0);
-							}
-							
-							// Restore control
-							AirLock = false;
 						
-							// Set speeds
-							Xsp = 0;
-							Ysp = 8;
+						// Set speeds
+						Xsp = 8 * Facing;
+						Ysp = 0;
 							
-							// Play sound
-							audio_sfx_play(sfxWaterBarrierBounce, false);
-						}
-						break;
+						// Lock control
+						AirLock = true;
+						
+						// Play sound
+						audio_sfx_play(sfxFlameBarrierDash, false);
 					}
-					
-					// Set flag
-					BarrierIsActive = true;
+					break;
+					case BarrierThunder:
+					{
+						// Create sparkles
+						for (var i = 0; i < 4; i++)
+						{
+							var  Object = instance_create(PosX, PosY, BarrierSparkle);
+							with Object
+							{
+								SparkleID = i;
+							}
+						}
+							
+						// Restore control
+						AirLock = false;
+						
+						// Set vertical speed
+						Ysp = -5.5;
+						
+						// Play sound
+						audio_sfx_play(sfxThunderBarrierJump, false);
+					}
+					break;
+					case BarrierWater:
+					{						
+						// Set barrier animation
+						with Barrier
+						{
+							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0, 0);
+						}
+							
+						// Restore control
+						AirLock = false;
+						
+						// Set speeds
+						Xsp = 0;
+						Ysp = 8;
+							
+						// Play sound
+						audio_sfx_play(sfxWaterBarrierBounce, false);
+					}
+					break;
 				}
+					
+				// Set flag
+				BarrierIsActive = true;
 			}
 		}
 		break;

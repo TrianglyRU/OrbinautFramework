@@ -18,12 +18,12 @@ function GameMacro()
 	#macro FlipRight   1
 
 	// Audio macro
-	#macro ChannelPrimary  -2
+	#macro ChannelPrimary   -2
 	#macro ChannelSecondary -1
-	#macro EventIdle	 0
-	#macro EventMute	 1
-	#macro EventUnmute   2
-	#macro EventStop	 3
+	#macro EventIdle	     0
+	#macro EventMute	     1
+	#macro EventUnmute       2
+	#macro EventStop	     3
 	
 	// Palette macro
 	#macro PaletteLimit  64
@@ -90,8 +90,9 @@ function GameMacro()
 	#macro SideRight    2
 	#macro SideBottom   3
 	#macro TypeHitbox   0
-	#macro TypeSolidbox 1
-	#macro TypeTrigger  2
+	#macro TypeHitbox2  1
+	#macro TypeSolidbox 2
+	#macro TypeTrigger  3
 	#macro LayerA	    0
 	#macro LayerB	    1
 }

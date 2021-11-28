@@ -46,15 +46,16 @@ function PlayerResetOnFloor()
 		}
 	
 		// Reset flags
-		Jumping			= false;
-		AirLock			= false;
-		Pushing			= false;
-		FlightState		= false;
-		GlideState		= false;
-		ClimbState		= false;
-		ScoreCombo		= false;
-		BarrierIsActive = false;
-		DropdashFlag	= -1;
+		Jumping			 = false;
+		AirLock			 = false;
+		Pushing			 = false;
+		FlightState		 = false;
+		GlideState		 = false;
+		ClimbState		 = false;
+		ScoreCombo		 = false;
+		BarrierIsActive  = false;
+		DropdashFlag	 = -1;
+		DoubleSpinAttack = -1;
 	
 		// Stop sounds
 		audio_sfx_stop(sfxFlying);
