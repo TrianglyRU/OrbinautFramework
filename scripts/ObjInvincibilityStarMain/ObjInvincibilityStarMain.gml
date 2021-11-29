@@ -25,7 +25,7 @@ function ObjInvincibilityStarMain()
 	
 	// Set rotation angle
 	Angle        = 45 * ID - AngleOffset;
-	AngleOffset += 11.25 * Player.Facing mod 360;
+	AngleOffset += real(11.25 * Player.Facing) mod 360;	// YYC can't compile if % is used with Double?
  
 	// Set delays
 	switch ID

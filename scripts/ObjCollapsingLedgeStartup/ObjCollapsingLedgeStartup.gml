@@ -25,7 +25,7 @@ function ObjCollapsingLedgeStartup()
 	// Set variables
 	State     = 0;
 	TimeDelay = 8;
-	OriginX   = floor(x - array_length(HeightMap));
+	OriginX   = floor(x - array_length(HeightMap) / 2);
     OriginY   = floor(y - sprite_get_yoffset(sprite_index));
     Width     = ceil(abs(sprite_get_width(sprite_index))  / 16) * 16;
     Height    = ceil(abs(sprite_get_height(sprite_index)) / 16) * 16;
@@ -33,7 +33,7 @@ function ObjCollapsingLedgeStartup()
 	// Set object solidbox
 	if array_length(HeightMap)
 	{
-		object_set_solidbox(array_length(HeightMap), sprite_get_height(sprite_index), HeightMap);
+		object_set_solidbox(array_length(HeightMap) / 2, sprite_get_height(sprite_index) / 2, HeightMap);
 	}
 	
 	// Set object depth

@@ -1,12 +1,12 @@
 function PlayerRollStart()
 {
-	// Eixt if can't roll up
+	// Exit if can't roll up
 	if !ForcedRoll and (Input.Left or Input.Right) or SpindashRev != -1
 	{
 		exit;
 	}
 
-	// Check for required inertia to manually roll up
+	// Check for required inertia to roll up manually 
 	var ManualRoll = false;
 	
 	if Input.Down

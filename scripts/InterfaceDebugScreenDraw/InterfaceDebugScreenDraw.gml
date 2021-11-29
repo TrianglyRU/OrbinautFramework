@@ -173,10 +173,10 @@ function InterfaceDebugScreenDraw()
 				+ "\n"
 				+ "\n              * STAGE *"
 				+ "\n"
-				+ "\n   T BOUND: "  + string(Stage.TopBoundary) + " TARGET: " + string(Stage.TargetTopBoundary)
-				+ "\n   B BOUND: " + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
-				+ "\n   L BOUND: "  + string(Stage.LeftBoundary) + " TARGET: " + string(Stage.TargetLeftBoundary)
-				+ "\n   R BOUND: " + string(Stage.RightBoundary) + " TARGET: " + string(Stage.TargetRightBoundary)
+				+ "\n   T BOUND: "		   + string(Stage.TopBoundary)    + " TARGET: " + string(Stage.TargetTopBoundary)
+				+ "\n   B BOUND: "		   + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
+				+ "\n   L BOUND: "		   + string(Stage.LeftBoundary)   + " TARGET: " + string(Stage.TargetLeftBoundary)
+				+ "\n   R BOUND: "		   + string(Stage.RightBoundary)  + " TARGET: " + string(Stage.TargetRightBoundary)
 				+ "\n   OBJECTS LOADED: "  + string(instance_count - 9),
 				
 		8, 256, 0.28, 0.28, 0);

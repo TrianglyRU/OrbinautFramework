@@ -12,7 +12,7 @@ function ObjSwingingPlatformStartup()
 		{
 			var XRadius	= 24;
 			var YRadius	= 8;
-			SpriteData  = [spr_obj_swingplatform_template, spr_tempobject, spr_tempobject];
+			SpriteData  = [spr_tempobject, spr_tempobject, spr_tempobject];
 		}
 		break;
 		default:

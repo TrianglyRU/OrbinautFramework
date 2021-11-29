@@ -1,28 +1,23 @@
 function InterfaceDebugTriggersDraw()
 {
-	// Exit if not allowed to display
-	if !Game.DevMode or !Stage.DoUpdate
+	// Exit if disabled
+	if !DebugTriggers
 	{
 		exit;
 	}
 	
-	// Toggle triggers debug
-	if keyboard_check_pressed(ord("R"))
+	// Set alpha
+	draw_set_alpha(0.5);
+	
+	// Draw triggers
+	with all
 	{
-		DebugTriggers = !DebugTriggers;
+		if variable_instance_exists(id, "Obj_TriggerStatus")
+		{
+			draw_rectangle_colour(x + Obj_TriggerLeft, y + Obj_TriggerTop, x + Obj_TriggerRight - 1, y + Obj_TriggerBottom - 1, $ffff00, $ffff00, $ffff00, $ffff00, false);
+		}
 	}
 	
-	// Display triggers
-	if DebugTriggers
-	{
-		draw_set_alpha(0.5);
-		with all
-		{
-			if variable_instance_exists(id, "Obj_TriggerStatus")
-			{
-				draw_rectangle_colour(x + Obj_TriggerLeft, y + Obj_TriggerTop, x + Obj_TriggerRight - 1, y + Obj_TriggerBottom - 1, $ffff00, $ffff00, $ffff00, $ffff00, false);
-			}
-		}
-		draw_set_alpha(1.0);
-	}	
+	// Restore alpha
+	draw_set_alpha(1.0);	
 }
