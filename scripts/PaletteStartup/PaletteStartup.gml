@@ -25,10 +25,10 @@ function PaletteStartup()
 	DoReset		= false;
 
 	// Setup fade
-	FadeMode   = 1;
-	FadeStep   = 756;
+	FadeMode  = 1;
+	FadeStep  = 756;
 	FadeBlend = 0;
-	FadeSpeed  = 0;
+	FadeSpeed = 0;
 	
 	// Enable surface draw
 	application_surface_draw_enable(false);

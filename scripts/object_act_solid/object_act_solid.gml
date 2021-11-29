@@ -76,6 +76,12 @@ function object_act_solid(sides,top,bottom,resetActions)
 	// If player is standing on this object, collide only with its top side
 	if Player.OnObject == ObjectID
 	{	
+		Player.PosX += floor(x - xprevious);
+		Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
+			
+		// Tell the object player touches its top side
+		Obj_SolidTouchU = true;
+		
 		// Check if player is outside the object
 		var FallRadius = sides ? ObjectWidth : Obj_SolidX + 1;
 		
@@ -94,18 +100,8 @@ function object_act_solid(sides,top,bottom,resetActions)
 				OnObject = false;
 			}
 		}
-		
-		// Else keep colliding with it
-		else
-		{
-			Player.PosX += floor(x - xprevious);
-			Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
-			
-			// Tell the object player touches its top side
-			Obj_SolidTouchU = true;
-		}
 	}
-			
+	
 	// If player is not standing on this object, collide with it
 	else
 	{	
