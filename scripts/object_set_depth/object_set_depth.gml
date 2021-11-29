@@ -7,12 +7,15 @@ function object_set_depth(target,depthFlag)
 		switch object_index
 		{
 			/* You can add your objects for more advanced depth 
-			manipulation
+			manipulation. Example: 
 			
-			Example: case FloatingPlatform: var Tolerance = 25; break;
-			*/
-			
-			default: var Tolerance = 50; break;
+			case FloatingPlatform:
+				var Tolerance = 25;
+			break; */	
+				
+			default:     
+				var Tolerance = 50; 
+			break;
 		}
 		depth = Player.DrawOrder - (depthFlag ? Tolerance : -Tolerance);
 	}

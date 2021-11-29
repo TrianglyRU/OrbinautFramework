@@ -1,91 +1,79 @@
 function InterfaceDebugScreenDraw()
 {	
-	// Exit if not in devmode or player doesn't exist
-	if !Game.DevMode or !instance_exists(Player)
+	// Display FPS if enabled
+	if DebugFPS
 	{
-		exit;
-	}
-	
-	// Toggle hotkeys on-screen guide
-	if keyboard_check_pressed(ord("Y"))
-	{
-		DebugHelp = !DebugHelp;
-	}
-	
-	// Set font
-	draw_set_font(game_font(font_default));
-	
-	// Display available hotkeys and game fps
-	if DebugHelp
-	{
-		draw_set_halign(fa_center);
-		draw_text_transformed(Game.Width / 2 - 44, Game.Height - 4, "POSITIONS: Q  SOLIDS: W  HITBOXES:E  TRIGGERS: R  VARIABLES: T  THIS HELP: Y", 0.5, 0.5, 0);
-		
+		// Set font
 		draw_set_halign(fa_left);
-		draw_text_transformed(Game.Width - 44, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
-	}
-	
-	// Toggle variables debug
-	if keyboard_check_pressed(ord("T")) and !fade_check(StateActive)
-	{
-		DebugVariables = !DebugVariables;
-	}
-	
-	// Define information to display
-	#region Display Info
-	{
-		if Audio.PrimaryTrack[1]
+		draw_set_font(game_font(font_default));
+		
+		// Show FPS
+		if !DebugVariables
 		{
-			var LowPlaying = audio_get_name(Audio.PrimaryTrack[1]);
+			draw_text_transformed(8, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
 		}
 		else
 		{
-			var LowPlaying = "NOT PLAYING";
-		}
-		if Audio.SecondaryTrack[1]
-		{
-			var HighPlaying = audio_get_name(Audio.SecondaryTrack[1]);
-		}
-		else
-		{
-			var HighPlaying = "NOT PLAYING";
-		}		
-		switch Audio.PrimaryTrack[0]
-		{
-			case EventIdle:
-				var LowEvent = "IDLE";
-			break;
-			case EventMute:
-				var LowEvent = "MUTE";
-			break;
-			case EventStop:
-				var LowEvent = "STOP";
-			break;
-			case EventUnmute:
-				var LowEvent = "UNMUTE";
-			break;
-		}
-		switch Audio.SecondaryTrack[0]
-		{
-			case EventIdle:
-				var HighEvent = "IDLE";
-			break;
-			case EventMute:
-				var HighEvent = "MUTE";
-			break;
-			case EventStop:
-				var HighEvent = "STOP";
-			break;
-			case EventUnmute:
-				var HighEvent = "UNMUTE";
-			break;
+			// We can't really tell actual FPS if variables debug is enabled. It reduces FPS amount by around 80%
+			draw_text_transformed(8, Game.Height - 4, "APPROXIMATE FPS: " + string(floor(fps_real * 1.8)), 0.5, 0.5, 0);
 		}
 	}
-	#endregion
 	
-	// Display variables
+	// Display variable info if enabled
 	if DebugVariables
 	{
+		// Define information to display
+		#region Display Info
+		{
+			if Audio.PrimaryTrack[1]
+			{
+				var LowPlaying = audio_get_name(Audio.PrimaryTrack[1]);
+			}
+			else
+			{
+				var LowPlaying = "NOT PLAYING";
+			}
+			if Audio.SecondaryTrack[1]
+			{
+				var HighPlaying = audio_get_name(Audio.SecondaryTrack[1]);
+			}
+			else
+			{
+				var HighPlaying = "NOT PLAYING";
+			}		
+			switch Audio.PrimaryTrack[0]
+			{
+				case EventIdle:
+					var LowEvent = "IDLE";
+				break;
+				case EventMute:
+					var LowEvent = "MUTE";
+				break;
+				case EventStop:
+					var LowEvent = "STOP";
+				break;
+				case EventUnmute:
+					var LowEvent = "UNMUTE";
+				break;
+			}
+			switch Audio.SecondaryTrack[0]
+			{
+				case EventIdle:
+					var HighEvent = "IDLE";
+				break;
+				case EventMute:
+					var HighEvent = "MUTE";
+				break;
+				case EventStop:
+					var HighEvent = "STOP";
+				break;
+				case EventUnmute:
+					var HighEvent = "UNMUTE";
+				break;
+			}
+		}
+		#endregion
+		
 		// Draw rectangle
 		draw_set_alpha(0.65);
 		draw_rectangle_colour(Game.Width - 90, 4, Game.Width - 4, Game.Height - 8, c_black, c_black, c_black, c_black, false)
@@ -93,8 +81,9 @@ function InterfaceDebugScreenDraw()
 		// Set font
 		draw_set_alpha(1);
 		draw_set_halign(fa_left);
+		draw_set_font(game_font(font_default));
 	
-		// Display debug screen
+		// Show variables
 		draw_text_ext_transformed(Game.Width - 86, 8,
 		
 					"         ORBINAUT  FRAMEWORK"

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_boundary_trigger",
-    "path": "sprites/spr_obj_boundary_trigger/spr_obj_boundary_trigger.yy",
+    "name": "spr_trigger",
+    "path": "sprites/spr_trigger/spr_trigger.yy",
   },
   "solid": false,
   "visible": true,

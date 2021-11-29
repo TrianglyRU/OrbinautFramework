@@ -1,140 +1,84 @@
 function InputHotkeysProcess()
 {	
-	// Exit if input device is gamepad
-	if Type != "Keyboard"
+	// Toggle fullscreen
+	if keyboard_check_pressed(vk_f4)
 	{
-		exit;
+		Game.WindowFullscreen = !Game.WindowFullscreen;
+		window_set_fullscreen(Game.WindowFullscreen);
 	}
 	
-	// Exit if not in dev mode
+	// Exit if not in devmode
 	if !Game.DevMode
 	{
 		exit;
 	}
 		
-	// Stage fresh load (F1)
+	// Restart game (F1)
 	if keyboard_check_pressed(vk_f1) 
-	{
-		Game.StarPostData	 = [];
-		Game.SpecialRingData = [];
-		Game.SpecialRingList = [];
-		
-		audio_stop_all();
-		room_restart();
-	}
-	
-	// Stage checkpoint restart (F2)
-	if keyboard_check_pressed(vk_f2)
-	{
-		Game.SpecialRingData = [];
-		
-		audio_stop_all();
-		room_restart();
-	}
-	
-	// Game restart (F3)
-	if keyboard_check_pressed(vk_f3) 
 	{
 		game_restart();
 	}
-
-	// Low FPS mode (F4)
-	if keyboard_check_pressed(vk_f4) 
+	
+	// Restart stage/room (F2, F3)
+	if instance_exists(Stage)
 	{
-		if game_get_speed(gamespeed_fps) != 2
+		if keyboard_check_pressed(vk_f2)
 		{
-			game_set_speed(2, gamespeed_fps);
+			Game.StarPostData	 = [];
+			Game.SpecialRingData = [];
+			Game.SpecialRingList = [];
+			room_restart();
+		}
+		else if keyboard_check_pressed(vk_f3) 
+		{
+			Game.SpecialRingData = [];
+			room_restart();
+		}
+	}
+	else if keyboard_check_pressed(vk_f2) or keyboard_check_pressed(vk_f3)
+	{
+		room_restart();
+	}
+	
+	// Debug overlay (F5 -> F10)
+	if instance_exists(Interface)
+	{
+		if keyboard_check_pressed(vk_f5)
+		{
+			Interface.DebugPositions = !Interface.DebugPositions;
+		}
+		else if keyboard_check_pressed(vk_f6)
+		{
+			Interface.DebugSolids = !Interface.DebugSolids;
+		}
+		else if keyboard_check_pressed(vk_f7)
+		{
+			Interface.DebugHitboxes = !Interface.DebugHitboxes;
+		}
+		else if keyboard_check_pressed(vk_f8)
+		{
+			Interface.DebugTriggers = !Interface.DebugTriggers;
+		}
+		else if keyboard_check_pressed(vk_f9)
+		{
+			Interface.DebugFPS = !Interface.DebugFPS;
+		}
+		else if keyboard_check_pressed(vk_f10)
+		{
+			Interface.DebugVariables = !Interface.DebugVariables;
+		}
+	}
+
+	// Frame-by-frame mode (F12)
+	if keyboard_check_pressed(vk_f12) 
+	{
+		if game_get_speed(gamespeed_fps) != 1
+		{
+			game_set_speed(1, gamespeed_fps);
 		}
 		else
 		{
 			game_set_speed(60, gamespeed_fps);
 		}
-	}
-	
-	// Turn fullscreen (F5)
-	if keyboard_check_pressed(vk_f5)
-	{
-		window_set_fullscreen(!window_get_fullscreen());
-	}
-	
-	// Give highspeed bonus (F6)
-	if keyboard_check_pressed(vk_f6)
-	{
-		Player.HighspeedBonus = 1200;
-		audio_bgm_play(ChannelPrimary, HighSpeed);
-	}
-	
-	// Give invincibility (F7)
-	if keyboard_check_pressed(vk_f7)
-	{
-		Player.InvincibleBonus = 1200;
-		audio_bgm_play(ChannelPrimary, Invincibility);
-	}
-	
-	// Give or update barrier (F8)
-	if keyboard_check_pressed(vk_f8)
-	{
-		// Create barrier if it doesn't exist
-		if !instance_exists(Barrier)
-		{
-			Player.BarrierType = BarrierNormal;
-			audio_sfx_play(sfxBarrier, false);
-			
-			instance_create(Player.PosX, Player.PosY, Barrier);
-		}
-		
-		// Update its type
-		else switch Player.BarrierType
-		{
-			case BarrierNormal:
-			{
-				Player.BarrierType = BarrierFlame;
-				audio_sfx_play(sfxFlameBarrier, false);
-			}
-			break;
-			case BarrierFlame:
-			{
-				Player.BarrierType = BarrierThunder;
-				audio_sfx_play(sfxThunderBarrier, false);
-			}
-			break;
-			case BarrierThunder:
-			{
-				Player.BarrierType = BarrierWater;
-				audio_sfx_play(sfxWaterBarrier, false);
-			}
-			break;
-			case BarrierWater:
-			{
-				Player.BarrierType = BarrierNormal;
-				audio_sfx_play(sfxBarrier, false);
-			}
-			break;
-		}
-	}
-	
-	// Grant extra life (F9)
-	if keyboard_check_pressed(vk_f9)
-	{
-		Player.Lives++;
-		audio_bgm_play(ChannelSecondary, ExtraLife);
-	}
-	
-	// Hurt player (F10)
-	if keyboard_check_pressed(vk_f10) 
-	{
-		player_damage(false, false, false);
-	}
-	
-	// Kill player (F11)
-	if keyboard_check_pressed(vk_f11) 
-	{
-		player_damage(false, false, true);
-	}
-	
-	// Add rings (F12 hold)
-	if keyboard_check(vk_f12)
-	{
-		Player.Rings++;
 	}
 }

@@ -30,9 +30,9 @@ function ObjInvincibilityStarMain()
 	// Set delays
 	switch ID
 	{
-		case 0: case 4: var Delay = 8; break;
+		case 0: case 4: var Delay = 9; break;
 		case 1: case 5: var Delay = 6; break;
-		case 2: case 6: var Delay = 4; break;
+		case 2: case 6: var Delay = 3; break;
 		case 3: case 7: var Delay = 0; break;
 	}
 

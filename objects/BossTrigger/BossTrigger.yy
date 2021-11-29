@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spr_trigger",
+    "path": "sprites/spr_trigger/spr_trigger.yy",
   },
   "solid": false,
   "visible": true,

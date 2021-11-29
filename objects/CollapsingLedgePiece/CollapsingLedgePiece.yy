@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_collapsingledge_template",
-    "path": "sprites/spr_obj_collapsingledge_template/spr_obj_collapsingledge_template.yy",
+    "name": "spr_obj_collapsingledge_editor",
+    "path": "sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",
   },
   "solid": false,
   "visible": true,

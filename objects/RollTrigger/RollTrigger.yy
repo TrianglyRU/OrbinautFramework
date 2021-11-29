@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_rolltrigger",
-    "path": "sprites/spr_obj_rolltrigger/spr_obj_rolltrigger.yy",
+    "name": "spr_trigger",
+    "path": "sprites/spr_trigger/spr_trigger.yy",
   },
   "solid": false,
   "visible": true,

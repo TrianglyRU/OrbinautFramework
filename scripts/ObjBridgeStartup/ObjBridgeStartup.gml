@@ -9,7 +9,7 @@ function ObjBridgeStartup()
 	switch room
 	{
 		case Stage_TZ:
-			SpriteData = [spr_obj_bridge_log_template, spr_obj_bridge_post_template];
+			SpriteData = [spr_obj_bridge_log_tz, spr_obj_bridge_post_tz];
 		break;
 		default:
 			SpriteData = [spr_tempobject, spr_tempobject];

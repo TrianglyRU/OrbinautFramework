@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_collision_trigger",
-    "path": "sprites/spr_obj_collision_trigger/spr_obj_collision_trigger.yy",
+    "name": "spr_trigger2",
+    "path": "sprites/spr_trigger2/spr_trigger2.yy",
   },
   "solid": false,
   "visible": true,
