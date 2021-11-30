@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_projectile_buzzbomber",
-    "path": "sprites/spr_obj_projectile_buzzbomber/spr_obj_projectile_buzzbomber.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,

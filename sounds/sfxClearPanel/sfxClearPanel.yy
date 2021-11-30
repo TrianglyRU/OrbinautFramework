@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 1,
   "volume": 1.0,
   "preload": false,
@@ -10,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxClearPlate.wav",
+  "soundFile": "sfxClearPanel.wav",
   "duration": 1.975805,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxClearPlate",
+  "name": "sfxClearPanel",
   "tags": [],
   "resourceType": "GMSound",
 }

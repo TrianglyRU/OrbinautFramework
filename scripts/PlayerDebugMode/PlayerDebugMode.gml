@@ -20,29 +20,30 @@ function PlayerDebugMode()
 		// Reset flags. A lot of it
 		if DebugMode
 		{
-			AllowCollision = false;
-			Grounded	   = false;
-			OnObject	   = false;
-			GroundLock     = false;
-			AirLock	       = false;
-			FlightState    = false;
-			FlightValue    = false;
-			ClimbState	   = false;
-			ClimbValue	   = false;
-			GlideState	   = false;
-			GlideGrounded  = false;
-			GlideValue     = false;
-			Jumping		   = false;
-			Spinning	   = false;
-			StickToConvex  = false;
-			IsUnderwater   = false;
-			DebugSpeed     = 0;
-			Xsp			   = 0;
-			Ysp			   = 0;
-			Inertia		   = 0;
-			SpindashRev    = -1;
-			PeeloutRev     = -1;
-			DropdashRev    = -1;
+			AllowCollision   = false;
+			Grounded	     = false;
+			OnObject	     = false;
+			GroundLock       = false;
+			AirLock	         = false;
+			FlightState      = false;
+			FlightValue      = false;
+			ClimbState	     = false;
+			ClimbValue	     = false;
+			GlideState	     = false;
+			GlideGrounded    = false;
+			GlideValue       = false;
+			Jumping		     = false;
+			Spinning	     = false;
+			StickToConvex    = false;
+			IsUnderwater     = false;
+			DebugSpeed       = 0;
+			Xsp			     = 0;
+			Ysp			     = 0;
+			Inertia		     = 0;
+			SpindashRev      = -1;
+			PeeloutRev       = -1;
+			DropdashRev      = -1;
+			DoubleSpinAttack = -1;
 			
 			// Cancel death event
 			if (Death or Drown) and floor(Player.PosY) < Camera.ViewY + Game.Height

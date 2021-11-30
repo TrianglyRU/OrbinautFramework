@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_clearplate_start_st",
-    "path": "sprites/spr_obj_clearplate_start_st/spr_obj_clearplate_start_st.yy",
+    "name": "spr_obj_clearpanel_start_st",
+    "path": "sprites/spr_obj_clearpanel_start_st/spr_obj_clearpanel_start_st.yy",
   },
   "solid": false,
   "visible": true,
@@ -37,7 +37,7 @@
     "path": "folders/Game Objects/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ClearPlate",
+  "name": "ClearPanel",
   "tags": [],
   "resourceType": "GMObject",
 }

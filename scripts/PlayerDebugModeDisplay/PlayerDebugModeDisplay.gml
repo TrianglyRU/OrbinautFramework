@@ -50,8 +50,8 @@ function PlayerDebugModeDisplay()
 				case Animal:				 
 					sprite_index = spr_obj_animal_flicky;   
 				break;	
-				case ClearPlate:				 
-					sprite_index = spr_obj_clearplate_start_st;   
+				case ClearPanel:				 
+					sprite_index = spr_obj_clearpanel_start_st;   
 				break;
 				case EggPrison:				 
 					sprite_index = spr_obj_eggprison;   

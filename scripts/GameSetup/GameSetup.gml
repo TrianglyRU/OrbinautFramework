@@ -26,7 +26,7 @@ function GameSetup()
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = false;
-	Game.RichPresenceSupport  = false;
+	Game.RichPresenceSupport  = true;
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;

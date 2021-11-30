@@ -137,20 +137,30 @@ function PlayerMovementGround()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
+	// Define which animations should be priority over Idle animation
+	switch Animation
+	{
+		case AnimDropStand:
+		case AnimGlideStand:
+			var AnimationPriority = true;
+		break;
+		default:
+			var AnimationPriority = false;
+		break;
+	}
+	
 	// Set pushing animation
 	if Pushing
 	{
 		Animation = AnimPush;
 	}
-	
-	// Check if we're not getting up as Knuckles
-	else if Animation != AnimDropStand and Animation != AnimGlideStand
+	else
 	{
 		if Angle <= 45 or Angle >= 316.41
 		{
-			// Set idle animation
-			if Inertia == 0
+			if Inertia == 0 and !AnimationPriority
 			{
+				// Set idle animation
 				Animation = AnimIdle;
 				
 				// Set crouch or lookup animation

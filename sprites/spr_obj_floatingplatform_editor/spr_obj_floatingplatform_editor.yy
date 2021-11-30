@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"4b93e5a3-efee-4782-9f76-1cbfca77fbe5","path":"sprites/spr_obj_platform_editor/spr_obj_platform_editor.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"4b93e5a3-efee-4782-9f76-1cbfca77fbe5","path":"sprites/spr_obj_platform_editor/spr_obj_platform_editor.yy",},"LayerId":{"name":"7d865e9e-fca7-48dc-8678-511a31a330dc","path":"sprites/spr_obj_platform_editor/spr_obj_platform_editor.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_platform_editor","path":"sprites/spr_obj_platform_editor/spr_obj_platform_editor.yy",},"resourceVersion":"1.0","name":"4b93e5a3-efee-4782-9f76-1cbfca77fbe5","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4b93e5a3-efee-4782-9f76-1cbfca77fbe5","path":"sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"4b93e5a3-efee-4782-9f76-1cbfca77fbe5","path":"sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",},"LayerId":{"name":"7d865e9e-fca7-48dc-8678-511a31a330dc","path":"sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_obj_floatingplatform_editor","path":"sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",},"resourceVersion":"1.0","name":"4b93e5a3-efee-4782-9f76-1cbfca77fbe5","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_obj_platform_editor","path":"sprites/spr_obj_platform_editor/spr_obj_platform_editor.yy",},
+    "spriteId": {"name":"spr_obj_floatingplatform_editor","path":"sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"cc92e2ee-e9b1-4292-8c15-73b8bbdacb6b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4b93e5a3-efee-4782-9f76-1cbfca77fbe5","path":"sprites/spr_obj_platform_editor/spr_obj_platform_editor.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"cc92e2ee-e9b1-4292-8c15-73b8bbdacb6b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4b93e5a3-efee-4782-9f76-1cbfca77fbe5","path":"sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_obj_platform_editor","path":"sprites/spr_obj_platform_editor/spr_obj_platform_editor.yy",},
+    "parent": {"name":"spr_obj_floatingplatform_editor","path":"sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_obj_platform_editor",
+    "name": "spr_obj_floatingplatform_editor",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Game Objects/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_obj_platform_editor",
+  "name": "spr_obj_floatingplatform_editor",
   "tags": [],
   "resourceType": "GMSprite",
 }

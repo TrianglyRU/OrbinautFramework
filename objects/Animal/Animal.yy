@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_animal_flicky",
-    "path": "sprites/spr_obj_animal_flicky/spr_obj_animal_flicky.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,

@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"7149bafc-77d5-451f-93b3-c231a5262061","path":"sprites/spr_obj_platform_tz/spr_obj_platform_tz.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"7149bafc-77d5-451f-93b3-c231a5262061","path":"sprites/spr_obj_platform_tz/spr_obj_platform_tz.yy",},"LayerId":{"name":"3c0e2ec1-ac3f-477c-8670-8b94f476aad7","path":"sprites/spr_obj_platform_tz/spr_obj_platform_tz.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_platform_tz","path":"sprites/spr_obj_platform_tz/spr_obj_platform_tz.yy",},"resourceVersion":"1.0","name":"7149bafc-77d5-451f-93b3-c231a5262061","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"7149bafc-77d5-451f-93b3-c231a5262061","path":"sprites/spr_obj_floatingplatform_tz/spr_obj_floatingplatform_tz.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"7149bafc-77d5-451f-93b3-c231a5262061","path":"sprites/spr_obj_floatingplatform_tz/spr_obj_floatingplatform_tz.yy",},"LayerId":{"name":"3c0e2ec1-ac3f-477c-8670-8b94f476aad7","path":"sprites/spr_obj_floatingplatform_tz/spr_obj_floatingplatform_tz.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_obj_floatingplatform_tz","path":"sprites/spr_obj_floatingplatform_tz/spr_obj_floatingplatform_tz.yy",},"resourceVersion":"1.0","name":"7149bafc-77d5-451f-93b3-c231a5262061","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_obj_platform_tz","path":"sprites/spr_obj_platform_tz/spr_obj_platform_tz.yy",},
+    "spriteId": {"name":"spr_obj_floatingplatform_tz","path":"sprites/spr_obj_floatingplatform_tz/spr_obj_floatingplatform_tz.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"3a4a2fb0-2a65-4908-b73d-6350fcd22042","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7149bafc-77d5-451f-93b3-c231a5262061","path":"sprites/spr_obj_platform_tz/spr_obj_platform_tz.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3a4a2fb0-2a65-4908-b73d-6350fcd22042","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7149bafc-77d5-451f-93b3-c231a5262061","path":"sprites/spr_obj_floatingplatform_tz/spr_obj_floatingplatform_tz.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 11,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_obj_platform_tz","path":"sprites/spr_obj_platform_tz/spr_obj_platform_tz.yy",},
+    "parent": {"name":"spr_obj_floatingplatform_tz","path":"sprites/spr_obj_floatingplatform_tz/spr_obj_floatingplatform_tz.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_obj_platform_tz",
+    "name": "spr_obj_floatingplatform_tz",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Game Objects/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_obj_platform_tz",
+  "name": "spr_obj_floatingplatform_tz",
   "tags": [],
   "resourceType": "GMSprite",
 }

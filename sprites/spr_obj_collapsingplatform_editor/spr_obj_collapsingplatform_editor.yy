@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"ad35b9f5-4a16-42f0-862e-19dd4c013abb","path":"sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ad35b9f5-4a16-42f0-862e-19dd4c013abb","path":"sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",},"LayerId":{"name":"2c0689ea-121a-4f77-a19e-c88df53160a5","path":"sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_collapsingledge_editor","path":"sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",},"resourceVersion":"1.0","name":"ad35b9f5-4a16-42f0-862e-19dd4c013abb","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ad35b9f5-4a16-42f0-862e-19dd4c013abb","path":"sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ad35b9f5-4a16-42f0-862e-19dd4c013abb","path":"sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",},"LayerId":{"name":"2c0689ea-121a-4f77-a19e-c88df53160a5","path":"sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_obj_collapsingplatform_editor","path":"sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",},"resourceVersion":"1.0","name":"ad35b9f5-4a16-42f0-862e-19dd4c013abb","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_obj_collapsingledge_editor","path":"sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",},
+    "spriteId": {"name":"spr_obj_collapsingplatform_editor","path":"sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"b3ad1a19-ded2-4932-9023-97b756d3a37b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ad35b9f5-4a16-42f0-862e-19dd4c013abb","path":"sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b3ad1a19-ded2-4932-9023-97b756d3a37b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ad35b9f5-4a16-42f0-862e-19dd4c013abb","path":"sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 40,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_obj_collapsingledge_editor","path":"sprites/spr_obj_collapsingledge_editor/spr_obj_collapsingledge_editor.yy",},
+    "parent": {"name":"spr_obj_collapsingplatform_editor","path":"sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_obj_collapsingledge_editor",
+    "name": "spr_obj_collapsingplatform_editor",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Game Objects/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_obj_collapsingledge_editor",
+  "name": "spr_obj_collapsingplatform_editor",
   "tags": [],
   "resourceType": "GMSprite",
 }

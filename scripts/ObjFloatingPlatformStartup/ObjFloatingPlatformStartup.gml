@@ -16,7 +16,7 @@ function ObjFloatingPlatformStartup()
 		{
 			var XRadius	 = 40;
 			var YRadius	 = 11;
-			sprite_index = spr_obj_platform_tz;
+			sprite_index = spr_obj_floatingplatform_tz;
 		}
 		break;
 		default:

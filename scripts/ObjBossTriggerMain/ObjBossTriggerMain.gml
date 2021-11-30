@@ -43,7 +43,7 @@ function ObjBossTriggerMain()
 		}
 		else
 		{
-			// Set right boundary to room_width. Normally, you have to place EggPrison or ClearPlate
+			// Set right boundary to room_width. Normally, you have to place Egg Prison or Clear Panel
 			// after the arena, so the game will automatically set new boundaries once again
 			Stage.TargetRightBoundary = room_width;
 			

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_bubble_disappear",
-    "path": "sprites/spr_obj_bubble_disappear/spr_obj_bubble_disappear.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,

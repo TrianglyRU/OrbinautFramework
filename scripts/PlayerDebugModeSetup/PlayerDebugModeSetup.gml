@@ -22,7 +22,7 @@ function PlayerDebugModeSetup()
 		SpringRedDiagonal,
 		StarPost,
 		Animal,
-		ClearPlate,
+		ClearPanel,
 		EggPrison,
 	];
 }

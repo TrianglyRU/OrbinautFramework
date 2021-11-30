@@ -9,10 +9,10 @@ function ObjShatteredRingMain()
 	Ysp  += 0.09375;
 		
 	// Collide with floor
-	if Ysp > 0
+	if Ysp >= 0
 	{
 		var FindFloor = tile_find_v(PosX, PosY + 8, true, false, Player.Layer)[0];
-		if  FindFloor < 0 and FindFloor > -15
+		if  FindFloor < 0
 		{
 			PosY += FindFloor;
 			Ysp  *= -0.75;

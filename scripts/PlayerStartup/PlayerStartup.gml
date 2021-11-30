@@ -110,7 +110,7 @@ function PlayerStartup()
 	// Load score and lives
 	Score		 = Game.Score;
 	Lives		 = Game.Lives;
-	LivesRewards = [(Rings & -100) + 100, (Score & -50000) + 50000];
+	LivesRewards = [(Rings div 100 * 100) + 100, (Score div 50000 * 50000) + 50000];
 	
 	// If respawning on checkpoint, load saved player data
 	if array_length(Game.StarPostData)

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_platform_editor",
-    "path": "sprites/spr_obj_platform_editor/spr_obj_platform_editor.yy",
+    "name": "spr_obj_floatingplatform_editor",
+    "path": "sprites/spr_obj_floatingplatform_editor/spr_obj_floatingplatform_editor.yy",
   },
   "solid": false,
   "visible": true,

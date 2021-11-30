@@ -1,4 +1,4 @@
-function ObjClearPlateMain()
+function ObjClearPanelMain()
 {
 	// Exit if playing as different character
 	if id.PlayerType == "Sonic & Tails" and Game.Character == CharKnuckles
@@ -30,7 +30,7 @@ function ObjClearPlateMain()
 				State++;
 				
 				// Play sound 
-				audio_sfx_play(sfxClearPlate, false);
+				audio_sfx_play(sfxClearPanel, false);
 				
 				// Set animation
 				animation_play(SpriteData[0], 1, 0, 0);
