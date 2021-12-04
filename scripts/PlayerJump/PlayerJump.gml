@@ -73,23 +73,23 @@ function PlayerJump()
 	{
 		case CharSonic:
 		{	
-			// Perform double spin attack if enabled
-			if !BarrierType
+			if BarrierType <= BarrierNormal
 			{	
-				if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != -1)
+				// Perform double spin attack if enabled
+				if !BarrierType
 				{
-					// Set flag
-					DoubleSpinAttack = 0;
+					if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != -1)
+					{
+						// Set flag
+						DoubleSpinAttack = 0;
 					
-					// Create object and play sound
-					instance_create(PosX, PosY, DoubleSpinShield);
-					audio_sfx_play(sfxDoubleSpinAttack, false);
+						// Create object and play sound
+						instance_create(PosX, PosY, DoubleSpinShield);
+						audio_sfx_play(sfxDoubleSpinAttack, false);
+					}
 				}
-			}
-			
-			// Perform dropdash if enabled
-			else if BarrierType <= BarrierNormal
-			{	
+				
+				// Perform dropdash if enabled
 				if Game.DropdashEnabled and DropdashFlag == 0
 				{
 					// Set flags
