@@ -26,12 +26,8 @@ function PlayerDebugMode()
 			GroundLock       = false;
 			AirLock	         = false;
 			FlightState      = false;
-			FlightValue      = false;
 			ClimbState	     = false;
-			ClimbValue	     = false;
 			GlideState	     = false;
-			GlideGrounded    = false;
-			GlideValue       = false;
 			Jumping		     = false;
 			Spinning	     = false;
 			StickToConvex    = false;
@@ -43,6 +39,7 @@ function PlayerDebugMode()
 			SpindashRev      = -1;
 			PeeloutRev       = -1;
 			DropdashRev      = -1;
+			DropdashFlag	 = -1;
 			DoubleSpinAttack = -1;
 			
 			// Cancel death event
