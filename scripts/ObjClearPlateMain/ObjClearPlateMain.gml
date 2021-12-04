@@ -75,8 +75,10 @@ function ObjClearPanelMain()
 					if Stage.IsFinished < 2
 					{
 						Stage.IsFinished = 2;
-					}
-					audio_bgm_play(ChannelPrimary, ActClear);
+						
+						// Play resuts music
+						audio_bgm_play(ChannelPrimary, ActClear);
+					}	
 				}
 				
 				// Take away control from the player
