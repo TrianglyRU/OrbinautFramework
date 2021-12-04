@@ -32,7 +32,7 @@ function PlayerAnimate()
 				{
 					case AnimIdle:
 					{
-						animation_play(spr_sonic_idle, [288, 48, 24, 24], 0, 2);
+						animation_play(spr_sonic_idle, [288, 24, 48, 24, 24], 0, 3);
 					}
 					break;
 					case AnimMove:	

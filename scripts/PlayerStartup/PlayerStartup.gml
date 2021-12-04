@@ -24,6 +24,7 @@ function PlayerStartup()
 	Spinning			= 0;
 	Jumping				= 0;
 	Pushing             = 0;
+	Grounded	        = 0;
 	OnObject			= 0;
 	PeeloutForce        = 0;
 	DropdashSide	    = 0;
@@ -62,7 +63,6 @@ function PlayerStartup()
 	AirTimer	     = 1800;	
 	AllowCollision   = true;
 	AllowMovement    = true;
-	Grounded	     = true;
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
 	DropdashRev      = -1;

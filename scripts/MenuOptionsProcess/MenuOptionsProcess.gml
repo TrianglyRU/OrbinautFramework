@@ -133,7 +133,9 @@ function MenuOptionsProcess()
 					case 0:
 						room_goto(Stage_TZ);
 					break;
-					default: break;
+					default: 
+						audio_sfx_play(sfxFail);
+					break;
 				}
 			}
 		}
