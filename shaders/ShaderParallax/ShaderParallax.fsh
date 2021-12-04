@@ -13,11 +13,26 @@
 	uniform float u_ilStep;	   
 	uniform float u_pixelSize; 
 	
+	vec2  CurPos;
+	vec2  OutPos;
+	float RowX;
+	float OutX;
+	
 	void main() 
 	{	
-		vec2  Crnt   = v_vPosition - u_pos;
-		float OutX   = mod(floor(u_offset * (u_ilHeight > 0. ? 1. + ceil((Crnt.y - 1.) / u_ilHeight / u_yScale) * u_ilStep : 1.)) + Crnt.x, u_width) - Crnt.x;
-		vec2  OutPos = vec2(v_vTexcoord.x + OutX * u_pixelSize, v_vTexcoord.y);
+		CurPos = v_vPosition - u_pos;
+		OutX   = u_offset;
+		if (u_ilHeight > 0.)
+		{
+			RowX = floor(CurPos.y / u_ilHeight / u_yScale);
+			if (u_ilStep < 0.)
+			{
+				RowX += 1.;
+			}
+			OutX *= RowX * u_ilStep + 1.;
+		}
+		OutX = mod(OutX + CurPos.x, u_width) - CurPos.x;
+		OutPos = vec2(v_vTexcoord.x + OutX * u_pixelSize, v_vTexcoord.y);
 
 	    gl_FragColor = v_vColour * texture2D(gm_BaseTexture, OutPos);
 	}
