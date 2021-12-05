@@ -16,14 +16,13 @@ function PaletteUpdate()
 		shader_set_uniform_i(Shader.ScreenMode,   FadeMode);
 		
 		// Get a render boundary between type 1 and type 2 palettes for playable stages
-		var Height = Game.Height;
-		if  variable_check(Stage, "WaterEnabled")
+		if variable_check(Stage, "WaterEnabled")
 		{
-			var Boundary = Height - clamp(Camera.ViewY - Stage.WaterLevel + Height, 0, Height);
+			var Boundary = Game.Height - clamp(Camera.ViewY - Stage.WaterLevel + Game.Height, 0, Game.Height);
 		}
 		else
 		{
-			var Boundary = Height;
+			var Boundary = Game.Height;
 		}
 	
 		// Transfer boundary data into the shader
@@ -39,7 +38,7 @@ function PaletteUpdate()
 		}
 		
 		// Render palette type 2
-		if Boundary < Height and ColourSet[TypeSecondary] != false
+		if Boundary < Game.Height and ColourSet[TypeSecondary] != false
 		{
 			texture_set_stage(Shader.ScreenWetTex,			  ColourSet[1][0]);
 			shader_set_uniform_f_array(Shader.ScreenWetIndex, IndexType2);

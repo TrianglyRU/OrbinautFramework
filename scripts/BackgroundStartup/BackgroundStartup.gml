@@ -7,7 +7,7 @@ function BackgroundStartup()
 		// Get sprite and pixel width of each parallax piece
 		BGValues[i][8]  = sprite_get_height(BGSprites[i]);
 		BGValues[i][9]  = sprite_get_width(BGSprites[i]);
-		BGValues[i][10] = texture_get_texel_width(sprite_get_texture(BGSprites[i], 0));
+		BGValues[i][10] = 1 / texture_get_texel_width(sprite_get_texture(BGSprites[i], 0));
 		
 		// Initialise autoscroll speed
 		BGValues[i][11] = 0;

@@ -1,6 +1,8 @@
 //
 // Parallax shader
 //
+	precision highp float;
+
 	varying vec2 v_vTexcoord;
 	varying vec2 v_vPosition;
 	varying vec4 v_vColour;
@@ -11,7 +13,7 @@
 	uniform float u_offset;	 
 	uniform float u_ilHeight; 
 	uniform float u_ilStep;	   
-	uniform float u_pixelSize; 
+	uniform float u_mapSize; 
 	
 	vec2  CurPos;
 	vec2  OutPos;
@@ -31,8 +33,8 @@
 			}
 			OutX *= RowX * u_ilStep + 1.;
 		}
-		OutX = mod(OutX + CurPos.x, u_width) - CurPos.x;
-		OutPos = vec2(v_vTexcoord.x + OutX * u_pixelSize, v_vTexcoord.y);
+		OutX = mod(floor(OutX) + CurPos.x, u_width) - CurPos.x;
+		OutPos = vec2(v_vTexcoord.x + OutX / u_mapSize, v_vTexcoord.y);
 
 	    gl_FragColor = v_vColour * texture2D(gm_BaseTexture, OutPos);
 	}

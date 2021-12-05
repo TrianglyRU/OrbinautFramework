@@ -23,5 +23,5 @@ function GameShadersStartup()
 	Shader.ParOffset	= shader_get_uniform(ShaderParallax, "u_offset");
 	Shader.ParILHeight  = shader_get_uniform(ShaderParallax, "u_ilHeight");
 	Shader.ParILStep    = shader_get_uniform(ShaderParallax, "u_ilStep");
-	Shader.ParPixelSize = shader_get_uniform(ShaderParallax, "u_pixelSize");
+	Shader.ParMapSize   = shader_get_uniform(ShaderParallax, "u_mapSize");
 }
