@@ -1,27 +1,25 @@
 function GameShadersStartup()
 {
-	// Setup fade shader
-	Shader.ScreenStep   = shader_get_uniform(ShaderPalette, "u_step");
-	Shader.ScreenMode   = shader_get_uniform(ShaderPalette, "u_mode");
-	Shader.ScreenColour = shader_get_uniform(ShaderPalette, "u_colour");
-	
 	// Setup palette shader
-	Shader.ScreenWaterHeight  = shader_get_uniform(ShaderPalette, "u_waterHeight");
-	Shader.ScreenDryTexelSize = shader_get_uniform(ShaderPalette, "u_dryPixelSize");
-	Shader.ScreenDryUVs		  = shader_get_uniform(ShaderPalette, "u_dryUvs");
-	Shader.ScreenDryIndex	  = shader_get_uniform(ShaderPalette, "u_dryPalId");
-	Shader.ScreenDryTex		  = shader_get_sampler_index(ShaderPalette, "u_dryPalTex");
-	Shader.ScreenWetTexelSize = shader_get_uniform(ShaderPalette, "u_wetPixelSize");
-	Shader.ScreenWetUVs       = shader_get_uniform(ShaderPalette, "u_wetUvs");
-	Shader.ScreenWetIndex	  = shader_get_uniform(ShaderPalette, "u_wetPalId");
-	Shader.ScreenWetTex       = shader_get_sampler_index(ShaderPalette, "u_wetPalTex");
+	Shader.PalStep       = shader_get_uniform(ShaderPalette,	   "u_step");
+	Shader.PalMode       = shader_get_uniform(ShaderPalette,	   "u_mode");
+	Shader.PalColour     = shader_get_uniform(ShaderPalette,	   "u_colour");
+	Shader.PalBoundary   = shader_get_uniform(ShaderPalette,	   "u_bound");
+	Shader.PalTexelSize1 = shader_get_uniform(ShaderPalette,	   "u_texSizeFst");
+	Shader.PalUVs1	     = shader_get_uniform(ShaderPalette,	   "u_UVsFst");
+	Shader.PalIndex1	 = shader_get_uniform(ShaderPalette,	   "u_indFst");
+	Shader.PalTex1		 = shader_get_sampler_index(ShaderPalette, "u_texFst");
+	Shader.PalTexelSize2 = shader_get_uniform(ShaderPalette,	   "u_texSizeSnd");
+	Shader.PalUVs2       = shader_get_uniform(ShaderPalette,	   "u_UVsSnd");
+	Shader.PalIndex2	 = shader_get_uniform(ShaderPalette,	   "u_indSnd");
+	Shader.PalTex2       = shader_get_sampler_index(ShaderPalette, "u_texSnd");
 
 	// Setup parallax shader
-	Shader.ParPos       = shader_get_uniform(ShaderParallax, "u_pos");
-	Shader.ParWidth     = shader_get_uniform(ShaderParallax, "u_width");
-	Shader.ParYScale    = shader_get_uniform(ShaderParallax, "u_yScale");
-	Shader.ParOffset	= shader_get_uniform(ShaderParallax, "u_offset");
-	Shader.ParILHeight  = shader_get_uniform(ShaderParallax, "u_ilHeight");
-	Shader.ParILStep    = shader_get_uniform(ShaderParallax, "u_ilStep");
-	Shader.ParMapSize   = shader_get_uniform(ShaderParallax, "u_mapSize");
+	Shader.PrlPos       = shader_get_uniform(ShaderParallax, "u_pos");
+	Shader.PrlWidth     = shader_get_uniform(ShaderParallax, "u_width");
+	Shader.PrlYScale    = shader_get_uniform(ShaderParallax, "u_yScale");
+	Shader.PrlOffset	= shader_get_uniform(ShaderParallax, "u_offset");
+	Shader.PrlIncHeight = shader_get_uniform(ShaderParallax, "u_ilHeight");
+	Shader.PrlIncStep   = shader_get_uniform(ShaderParallax, "u_ilStep");
+	Shader.PrlMapSize   = shader_get_uniform(ShaderParallax, "u_mapSize");
 }

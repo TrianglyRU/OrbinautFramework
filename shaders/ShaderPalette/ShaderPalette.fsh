@@ -7,17 +7,17 @@
 	
 	#define PaletteLimit 64
 	
-	uniform float u_waterHeight;
+	uniform float u_bound;
 	
-	uniform sampler2D u_dryPalTex;
-	uniform vec3	  u_dryUvs;
-	uniform vec2	  u_dryPixelSize;
-	uniform float     u_dryPalId[PaletteLimit];
+	uniform sampler2D u_texFst;
+	uniform vec3	  u_UVsFst;
+	uniform vec2	  u_texSizeFst;
+	uniform float     u_indFst[PaletteLimit];
 
-	uniform sampler2D u_wetPalTex;
-	uniform vec3      u_wetUvs;
-	uniform vec2      u_wetPixelSize;
-	uniform float     u_wetPalId[PaletteLimit];
+	uniform sampler2D u_texSnd;
+	uniform vec3      u_UVsSnd;
+	uniform vec2      u_texSizeSnd;
+	uniform float     u_indSnd[PaletteLimit];
 	
 	uniform float u_step;
 	uniform bool  u_mode;
@@ -73,13 +73,13 @@
 	void main() 
 	{
 		vec4 Col = texture2D(gm_BaseTexture, v_vTexcoord);
-		if  (u_waterHeight <= v_vPosition.y)
+		if  (u_bound <= v_vPosition.y)
 		{
-			Col = findAltColor(Col, u_wetUvs, u_wetPixelSize, u_wetPalTex, u_wetPalId);
+			Col = findAltColor(Col, u_UVsSnd, u_texSizeSnd, u_texSnd, u_indSnd);
 		}
 		else
 		{
-			Col = findAltColor(Col, u_dryUvs, u_dryPixelSize, u_dryPalTex, u_dryPalId);
+			Col = findAltColor(Col, u_UVsFst, u_texSizeFst, u_texFst, u_indFst);
 		}
     
 		Col.rgb *= 255.;

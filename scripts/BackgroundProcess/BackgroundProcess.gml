@@ -78,17 +78,17 @@ function BackgroundProcess()
 		}
 		
 		// Transfer data to the shader
-		shader_set_uniform_f(Shader.ParOffset,    DrawX * ScrollX - ScrollXAuto);
-		shader_set_uniform_f(Shader.ParPos,       DrawX + PosX, DrawY);
-		shader_set_uniform_f(Shader.ParWidth,     Width);
-		shader_set_uniform_f(Shader.ParMapSize, MapSize);
+		shader_set_uniform_f(Shader.PrlOffset,  DrawX * ScrollX - ScrollXAuto);
+		shader_set_uniform_f(Shader.PrlPos,     DrawX + PosX, DrawY);
+		shader_set_uniform_f(Shader.PrlWidth,   Width);
+		shader_set_uniform_f(Shader.PrlMapSize, MapSize);
 		
 		// Set incline height
 		if InclineHeight != 0 
 		{
-			shader_set_uniform_f(Shader.ParILStep,   InclineStep / ScrollX);
-			shader_set_uniform_f(Shader.ParILHeight, InclineHeight);
-			shader_set_uniform_f(Shader.ParYScale,   YScale);
+			shader_set_uniform_f(Shader.PrlIncStep,   InclineStep / ScrollX);
+			shader_set_uniform_f(Shader.PrlIncHeight, InclineHeight);
+			shader_set_uniform_f(Shader.PrlYScale,    YScale);
 		}
 		
 		// Draw parallax piece
@@ -104,7 +104,7 @@ function BackgroundProcess()
 		// Reset incline height
 		if InclineHeight != 0 
 		{
-			shader_set_uniform_f(Shader.ParILHeight, 0);
+			shader_set_uniform_f(Shader.PrlIncHeight, 0);
 		}
 	}
 	
