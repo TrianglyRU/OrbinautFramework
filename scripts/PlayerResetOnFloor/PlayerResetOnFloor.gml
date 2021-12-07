@@ -61,15 +61,10 @@ function PlayerResetOnFloor()
 		audio_sfx_stop(sfxFlying);
 		audio_sfx_stop(sfxTired);
 	
-		// Set visual angle
-		if !Game.SmoothRotation and (Angle >= 23.91 and Angle <= 337.50)
-		or  Game.SmoothRotation and (Angle >= 33.75 and Angle <= 326.25)
+		// Instantly set target visual angle if floor is steep enough
+		if Game.SmoothRotation and Angle > 33.75 and Angle < 326.25
 		{
 			VisualAngle = Angle;
-		}
-		else
-		{
-			VisualAngle = 360;
 		}
 		
 		// Clear hurt state
