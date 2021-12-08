@@ -29,7 +29,4 @@ function PaletteStartup()
 	FadeStep  = 756;
 	FadeBlend = 0;
 	FadeSpeed = 0;
-	
-	// Enable surface draw
-	application_surface_draw_enable(false);
 }

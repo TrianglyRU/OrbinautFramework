@@ -181,18 +181,24 @@ function PlayerMovementGround()
 			{
 				Animation = AnimMove;
 			}
-				
-			// Cancel skidding animation
 			else 
 			{
-				if Inertia > 0 and Input.Right
-				or Inertia < 0 and Input.Left or !SkidTime
+				// Cancel skid animation by pressing movement button
+				if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left
 				{
 					Animation = AnimMove;
 				}
-				if SkidTime
+				
+				// Reset skid timer
+				else if Inertia > 0 and Input.Left or Inertia < 0 and Input.Right
 				{
-					SkidTime--;
+					SkidTime = Game.Character != CharKnuckles ? 16 : 32;
+				}
+				
+				// Cancel skid animation automatically
+				if !(SkidTime--)
+				{
+					Animation = AnimMove;
 				}
 			}
 		}

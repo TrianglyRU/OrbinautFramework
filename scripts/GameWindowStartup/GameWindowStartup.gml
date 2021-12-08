@@ -9,9 +9,6 @@ function GameWindowStartup()
 	window_set_position((display_get_width() - Width) / 2, (display_get_height() - Height) / 2);
 	window_set_fullscreen(Game.WindowFullscreen);
 	
-	// Enable surface draw
-	application_surface_draw_enable(true);
-	
 	// Set window title
 	window_set_caption(Game.WindowTitle);
 }

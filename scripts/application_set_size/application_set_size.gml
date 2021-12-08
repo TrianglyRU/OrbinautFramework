@@ -21,7 +21,4 @@ function application_set_size(width,height)
 		room_width  = Game.Width;
 		room_height = Game.Height;
 	}
-	
-	// Re-enable surface rendering
-	application_surface_draw_enable(true);
 }
