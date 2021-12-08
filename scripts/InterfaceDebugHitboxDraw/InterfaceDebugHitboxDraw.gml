@@ -14,26 +14,13 @@ function InterfaceDebugHitboxDraw()
 		// Player hitbox
 		if object_index == Player
 		{
-			if Game.Character != CharTails and Animation == AnimCrouch and image_index + 1 == image_number
-			{
-				var pTop    = floor(PosY - 4);
-				var pLeft   = floor(PosX - 8);
-				var pRight  = floor(PosX + 8);
-				var pBottom = floor(PosY + 16);	
-			}
-			else
-			{
-				var pTop    = floor(PosY - RadiusY + 3);
-				var pLeft   = floor(PosX - 8);
-				var pRight  = floor(PosX + 8);
-				var pBottom = floor(PosY + RadiusY - 3);	
-			}
-			draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);	
+			// Draw regular hitbox
+			draw_rectangle_colour(HitboxData[0][0], HitboxData[0][1], HitboxData[0][2], HitboxData[0][3], $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);	
 				
 			// Draw double spin attack hitbox
 			if DoubleSpinAttack
 			{
-				draw_rectangle_colour(floor(PosX - 24), floor(PosY - 24), floor(PosX + 24), floor(PosY + 24), $00ff00, $00ff00, $00ff00, $00ff00, false);
+				draw_rectangle_colour(HitboxData[1][0], HitboxData[1][1], HitboxData[1][2], HitboxData[1][3], $00ff00, $00ff00, $00ff00, $00ff00, false);
 			}
 		}
 			

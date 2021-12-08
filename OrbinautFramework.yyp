@@ -203,6 +203,7 @@
     {"id":{"name":"ObjPrisonMain","path":"scripts/ObjPrisonMain/ObjPrisonMain.yy",},"order":50,},
     {"id":{"name":"ObjPrisonStartup","path":"scripts/ObjPrisonStartup/ObjPrisonStartup.yy",},"order":51,},
     {"id":{"name":"ObjCollisionTriggerMain","path":"scripts/ObjCollisionTriggerMain/ObjCollisionTriggerMain.yy",},"order":62,},
+    {"id":{"name":"PlayerHitboxUpdate","path":"scripts/PlayerHitboxUpdate/PlayerHitboxUpdate.yy",},"order":49,},
     {"id":{"name":"ObjCollisionTriggerStartup","path":"scripts/ObjCollisionTriggerStartup/ObjCollisionTriggerStartup.yy",},"order":63,},
     {"id":{"name":"ObjScoreObjectMain","path":"scripts/ObjScoreObjectMain/ObjScoreObjectMain.yy",},"order":42,},
     {"id":{"name":"ObjScoreObjectStartup","path":"scripts/ObjScoreObjectStartup/ObjScoreObjectStartup.yy",},"order":43,},

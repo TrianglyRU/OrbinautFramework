@@ -50,3 +50,4 @@
 		PlayerGroundFloorCollision();
 		PlayerSlopeRepel();
 	}
+	PlayerHitboxUpdate();

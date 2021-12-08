@@ -35,38 +35,24 @@ function object_check_overlap(collisionType)
 			var ObjectRight  = floor(x + Obj_HitX - 1);
 			var ObjectBottom = floor(y + Obj_HitY - 1);
 		
-			// Get player's hitbox
-			if Game.Character != CharTails and Player.Animation == AnimCrouch and Player.image_index + 1 == Player.image_number
+			// Get player's normal hitbox
+			if !(collisionType == TypeHitbox2 and Player.DoubleSpinAttack)
 			{
-				var PlayerTop    = floor(Player.PosY - 4);
-				var PlayerLeft   = floor(Player.PosX - 8);
-				var PlayerRight  = floor(Player.PosX + 8);
-				var PlayerBottom = floor(Player.PosY + 16);		
+				var HitboxData = Player.HitboxData[0];
 			}
+				
+			// Get double spin attack hitbox
 			else
 			{
-				if collisionType == TypeHitbox2 and Player.DoubleSpinAttack
-				{
-					var PlayerTop    = floor(Player.PosY - 24);
-					var PlayerLeft   = floor(Player.PosX - 24);
-					var PlayerRight  = floor(Player.PosX + 24);
-					var PlayerBottom = floor(Player.PosY + 24);
-				}
-				else
-				{
-					var PlayerTop    = floor(Player.PosY - Player.RadiusY + 3);
-					var PlayerLeft   = floor(Player.PosX - 8);
-					var PlayerRight  = floor(Player.PosX + 8);
-					var PlayerBottom = floor(Player.PosY + Player.RadiusY - 3);
-				}
+				var HitboxData = Player.HitboxData[1];
 			}
 		
 			// Check for overlap
-			if PlayerRight < ObjectLeft or PlayerLeft > ObjectRight
+			if HitboxData[2] < ObjectLeft or HitboxData[0] > ObjectRight
 			{
 				return false;
 			}
-			else if PlayerBottom < ObjectTop or PlayerTop > ObjectBottom
+			else if HitboxData[3] < ObjectTop or HitboxData[1] > ObjectBottom
 			{
 				return false;
 			}

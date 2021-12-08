@@ -57,6 +57,7 @@ function PlayerStartup()
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
+	HitboxData			= [];
 	
 	// Set default values
 	Grv			     = 0.21875;
