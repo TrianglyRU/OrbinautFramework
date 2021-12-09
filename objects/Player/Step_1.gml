@@ -20,7 +20,8 @@
 		PlayerAirLevelCollision();
 		PlayerKnuxClimb();
 		PlayerKnuxGlide();
-		PlayerResetOnFloor();	
+		PlayerResetOnFloor();
+		PlayerHitboxUpdate();
 	}
 	else if Grounded and !Spinning
 	{
@@ -37,6 +38,7 @@
 		PlayerPosition();
 		PlayerGroundFloorCollision();
 		PlayerSlopeRepel();
+		PlayerHitboxUpdate();
 	}
 	else if Grounded and Spinning
 	{
@@ -49,5 +51,5 @@
 		PlayerPosition();
 		PlayerGroundFloorCollision();
 		PlayerSlopeRepel();
+		PlayerHitboxUpdate();
 	}
-	PlayerHitboxUpdate();
