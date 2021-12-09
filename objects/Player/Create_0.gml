@@ -3,4 +3,5 @@
 	
 	// Initialisation Scripts
 	PlayerStartup();
+	PlayerHitboxUpdate();
 	PlayerDebugModeSetup();
