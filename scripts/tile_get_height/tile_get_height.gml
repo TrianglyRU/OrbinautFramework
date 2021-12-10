@@ -1,5 +1,5 @@
-/// @function tile_get_height(x,y,tiledata,index)
-function tile_get_height(x,y,tiledata,index)
+/// @function tile_get_height(x,tiledata,index)
+function tile_get_height(x,tiledata,index)
 {
 	// Get height to use
 	if tile_get_mirror(tiledata)

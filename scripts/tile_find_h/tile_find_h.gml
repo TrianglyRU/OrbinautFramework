@@ -5,122 +5,91 @@ function tile_find_h(x,y,toPositive,ignoreTop,tilelayer)
 	x = floor(x);
 	y = floor(y);
 	
-	// If checking to positvie side, subtract 1 from x and y if this object is not player
+	// If checking to positvie side, subtract 1 from x and y if this object is not the player
 	if toPositive and object_index != Player
 	{
 		x--;
 		y--;
 	}
 
-	// Return blank values if sensor is outside of the room
+	// Return blank values if position we're checking at is outside of the room
 	if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
 	{
-		return [32, 360];
+		return [32, noone];
 	}
 	
-	// Set search direction sign
+	// Get search direction sign
 	var SearchDirection = toPositive ? 1 : -1;
+	var SearchShift     = 0;
 	
 	// Get tilelayer ID
 	var Layer = Game.TileLayers[tilelayer];
 	
-	// Get first tile
-	var FirstTile      = tilemap_get(Layer, x div 16, y div 16);
-	var FirstTileIndex = tile_get_index(FirstTile);
-	var FirstTileWidth = tile_get_width(x, y, FirstTile, FirstTileIndex);
+	// Get tile at position
+	var Tile      = tilemap_get(Layer, x div 16, y div 16);
+	var TileIndex = tile_get_index(Tile);
+	var TileWidth = tile_get_width(y, Tile, TileIndex);
 	
-	// Ignore first tile if it is solidtop and we're ignoring them
-	if ignoreTop and FirstTileIndex > Game.TileData[1]
+	// If no tile found, get a tile away from the player
+	if !TileWidth
 	{
-		FirstTileWidth = 0;
+		SearchShift = 16;
+		Tile        = tilemap_get(Layer, (x + SearchShift * SearchDirection) div 16, y div 16);
+		TileIndex   = tile_get_index(Tile);
+		TileWidth   = tile_get_width(y, Tile, TileIndex);
 	}
 	
-	// If first tile width is in range of [1, 15], use this tile
-	if FirstTileWidth != 0 and FirstTileWidth != 16
+	// If tile found is the full one, try to find a tile closer to the player
+	else if TileWidth == 16
 	{
-		var SearchShift     = 0;
-		var ResultTile      = FirstTile;
-		var ResultTileIndex = FirstTileIndex;
-	}
-	
-	// If first tile width is 0, use a tile below
-	else if FirstTileWidth == 0
-	{
-		var SearchShift     = 16;
-		var ResultTile      = tilemap_get(Layer, (x + SearchShift * SearchDirection) div 16, y div 16);
-		var ResultTileIndex = tile_get_index(ResultTile);
-	}
-	
-	// If first tile width is 16, get a tile above
-	else
-	{
-		var SearchShift     = -16;
-		var SecondTile      = tilemap_get(Layer, (x + SearchShift * SearchDirection) div 16, y div 16);
-		var SecondTileIndex = tile_get_index(SecondTile);
-		var SecondTileWidth = tile_get_width(x, y, SecondTile, SecondTileIndex);
+		SearchShift = -16;
+		Tile        = tilemap_get(Layer, (x + SearchShift * SearchDirection) div 16, y div 16);
+		TileIndex   = tile_get_index(Tile);
+		TileWidth   = tile_get_width(y, Tile, TileIndex);
 		
-		// Ignore second tile if it is solidtop and we're ignoring them
-		if ignoreTop and SecondTileIndex > Game.TileData[1]
+		// If no tile has been found, revert back to the initial tile	
+		if !TileWidth
 		{
-			SecondTileWidth = 0;
-		}
-		
-		// Test if second tile height is 0
-		if SecondTileWidth == 0
-		{
-			// If it is, use first tile
-			var SearchShift     = 0
-			var ResultTile      = FirstTile;
-			var ResultTileIndex = FirstTileIndex;
-		}
-		else
-		{
-			// If it is not, use second tile
-			var ResultTile      = SecondTile;
-			var ResultTileIndex = SecondTileIndex;
+			SearchShift = 0;
+			Tile        = tilemap_get(Layer, x div 16, y div 16);
+			TileIndex   = tile_get_index(Tile);
+			TileWidth   = tile_get_width(y, Tile, TileIndex);
 		}
 	}
 	
-	// Get result tile width
-	var ResultWidth = tile_get_width(x, y, ResultTile, ResultTileIndex);
-	
-	// Ignore result tile if it is solidtop and we're ignoring them
-	if ignoreTop and ResultTileIndex > Game.TileData[1]
+	// Return blank values if target tile is top-collision tile and we're ignoring it
+	if ignoreTop and TileIndex > Game.TileData[1]
 	{
-		ResultWidth = 0;
+		return [32, noone];
 	}
 	
-	// Calculate distance to edge of the result tile
+	// Calculate distance to edge of the found tile
 	if toPositive
 	{
-		var TileDistance = ((x + SearchShift * SearchDirection) & -16) + (16 - ResultWidth - 1) - x;
+		var TileDistance = ((x + SearchShift * SearchDirection) & -16) + (16 - TileWidth - 1) - x;
 	}
 	else
 	{
-		var TileDistance = x - (((x + SearchShift * SearchDirection) & -16) + ResultWidth);
+		var TileDistance = x - (((x + SearchShift * SearchDirection) & -16) + TileWidth);
 	}
 	
-	// Get tile angle
-	var TileAngle = tile_get_angle(ResultTileIndex);
+	// Get found tile's angle
+	var TileAngle = tile_get_angle(TileIndex);
 
-	// Adjust angle if it is not 360 degrees
+	// Adjust the angle if it is not equal to 360 degrees
 	if TileAngle != 360
 	{
-		// Flip angle if tile is flipped
-		if tile_get_flip(ResultTile)
+		if tile_get_flip(Tile)
 		{
 			TileAngle = (540 - TileAngle) mod 360;
 		}
-		
-		// Mirror angle if tile is mirrored
-		if tile_get_mirror(ResultTile)
+		if tile_get_mirror(Tile)
 		{
 			TileAngle = 360 - TileAngle;
 		}
 	}
 	else
 	{
-		// Get cardinal angle based on direction
 		TileAngle = toPositive ? 90 : 270;
 	}
 	
