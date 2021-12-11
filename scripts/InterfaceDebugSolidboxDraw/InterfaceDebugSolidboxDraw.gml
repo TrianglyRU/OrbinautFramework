@@ -22,7 +22,7 @@ function InterfaceDebugSolidboxDraw()
 		}
 			
 		// Object solidbox
-		else if variable_instance_exists(id, "Obj_SolidStatus")
+		else if variable_instance_exists(id, "Obj_SolidX")
 		{	
 			// Display normal solidbox
 			if Obj_SolidMap == false

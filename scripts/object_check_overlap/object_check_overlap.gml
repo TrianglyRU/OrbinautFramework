@@ -12,7 +12,7 @@ function object_check_overlap(collisionType)
 		case TypeHitbox2:
 		{
 			// Exit if this object hitbox isn't initialised
-			if !variable_instance_exists(id, "Obj_HitStatus")
+			if !variable_instance_exists(id, "Obj_HitX")
 			{
 				return false;
 			}
@@ -64,7 +64,7 @@ function object_check_overlap(collisionType)
 		case TypeSolidbox:
 		{
 			// Exit if this object solidbox isn't initialised
-			if !variable_instance_exists(id, "Obj_SolidStatus")
+			if !variable_instance_exists(id, "Obj_SolidX")
 			{
 				return false;
 			}
@@ -110,7 +110,7 @@ function object_check_overlap(collisionType)
 		case TypeTrigger:
 		{
 			// Exit if this object triggerbox isn't initialised
-			if !variable_instance_exists(id, "Obj_TriggerStatus")
+			if !variable_instance_exists(id, "Obj_TriggerLeft")
 			{
 				return false;
 			}

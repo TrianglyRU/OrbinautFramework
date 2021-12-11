@@ -25,7 +25,7 @@ function InterfaceDebugHitboxDraw()
 		}
 			
 		// Object hitbox
-		else if variable_instance_exists(id, "Obj_HitStatus")
+		else if variable_instance_exists(id, "Obj_HitX")
 		{
 			draw_rectangle_colour(x - Obj_HitX, y - Obj_HitY, x + Obj_HitX - 1, y + Obj_HitY - 1, $ff00ff, $ff00ff, $ff00ff, $ff00ff, false);
 		}			

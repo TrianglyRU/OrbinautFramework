@@ -18,7 +18,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 	}
 	
 	// Exit if no solid radiuses were initialised for this object
-	if !variable_instance_exists(id, "Obj_SolidStatus")
+	if !variable_instance_exists(id, "Obj_SolidX")
 	{
 		exit;
 	}
