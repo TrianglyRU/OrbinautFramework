@@ -14,11 +14,11 @@ function tile_check(x,y,ignoreTop,tilelayer)
 	// Get tilelayer ID
 	var Layer = Game.TileLayers[tilelayer];
     
-    // Check for the tile
+    // Get tile at position
     var Tile      = tilemap_get(Layer, x div 16, y div 16);
     var TileIndex = tile_get_index(Tile);
 	
-    // Return false if it is solidtop and we're ignoring them
+   	// Return false if target tile is top-collision tile and we're ignoring it
     if ignoreTop and TileIndex > Game.TileData[1]
     {
         return false;
