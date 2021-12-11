@@ -11,7 +11,7 @@ function ObjCollapsingLedgeStartup()
 				69,69,69,69,70,70,70,70,71,71,71,71,72,72,72,72,73,73,73,73,74,74,74,74,75,75,75,75,76,76,76,76,
 				77,77,77,77,78,78,78,78,79,79,79,79,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80
 			];
-			sprite_index = spr_obj_collapsingledge_editor;
+			sprite_index = spr_obj_collapsingplatform_editor;
 		}
 		break;
 		default:

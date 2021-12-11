@@ -4,13 +4,13 @@ function ObjContinueIconStartup()
 	switch Game.Character
 	{
 		case CharSonic:
-			sprite_index = spr_obj_conticon_sonic;
+			sprite_index = spr_obj_cont_sonic_wait;
 		break;
 		case CharTails:
-			sprite_index = spr_obj_conticon_tails;
+			sprite_index = spr_obj_cont_tails_wait;
 		break;
 		case CharKnuckles:
-			sprite_index = spr_obj_conticon_knuckles;
+			sprite_index = spr_obj_cont_knux_wait;
 		break;
 	}
 	

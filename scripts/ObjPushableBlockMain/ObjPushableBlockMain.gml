@@ -57,7 +57,7 @@ function ObjPushableBlockMain()
 		// Airborne
 		case 1:
 		{
-			if ClipTimer--
+			if СlipTimer--
 			{
 				PosX += 4 * Direction;
 			}

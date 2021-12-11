@@ -4,7 +4,6 @@ function ObjPushableBlockStartup()
 	Ysp		  = 0;
 	Direction = 0;
 	ClipTimer = 0;
-	FoundWall = 0;
 	State	  = 0;
 	
 	// Set variables

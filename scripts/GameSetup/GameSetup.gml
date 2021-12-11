@@ -8,9 +8,9 @@ function GameSetup()
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
+	Game.PeeloutEnabled		= true;
 	Game.DropdashEnabled    = false;
-	Game.PeeloutEnabled		= false;
-	Game.DSpinAttackEnabled	= true;
+	Game.DSpinAttackEnabled	= false;
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
 	Game.CDCamera			= false;
@@ -19,14 +19,14 @@ function GameSetup()
 	Game.S3WaterPhysics		= false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
-	Game.S2FloorCollision	= true;
-	Game.SKWallCollision	= true;	
+	Game.S2FloorCollision	= false;
+	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;	
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = false;
-	Game.RichPresenceSupport  = true;
+	Game.SmoothRotation	      = true;
+	Game.RichPresenceSupport  = false;
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;

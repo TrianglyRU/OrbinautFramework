@@ -17,11 +17,11 @@ function MenuSetup()
 	menu_add_option(1, 5, "DELETE SAVE");
 	
 	// Game Start (delete data)
-	menu_add_header(10,    "SELECT A SAVE FILE TO DELETE");
-	menu_add_option(10, 0, "SLOT 1");
-	menu_add_option(10, 1, "SLOT 2");
-	menu_add_option(10, 2, "SLOT 3");
-	menu_add_option(10, 3, "SLOT 4");
+	menu_add_header(9,    "SELECT A SAVE FILE TO DELETE");
+	menu_add_option(9, 0, "SLOT 1");
+	menu_add_option(9, 1, "SLOT 2");
+	menu_add_option(9, 2, "SLOT 3");
+	menu_add_option(9, 3, "SLOT 4");
 	
 	// Game Start (character select)
 	menu_add_header(2,    "SELECT A PLAYER");
@@ -51,39 +51,29 @@ function MenuSetup()
 	
 	// Options
 	menu_add_header(5,    "GAME OPTIONS");
-	menu_add_option(5, 0, "GAMEPLAY");
-	menu_add_option(5, 1, "VIDEO");
-	menu_add_option(5, 2, "AUDIO");
-	menu_add_option(5, 3, "CONTROLS");
-	
-	// Options (gameplay)
-	menu_add_header(6,    "GAMEPLAY OPTIONS");
-	menu_add_option(6, 0, "SPINDASH: "   + string(menu_get_boolean(Game.SpindashEnabled)));
-	menu_add_option(6, 1, "PEELOUT: "    + string(menu_get_boolean(Game.PeeloutEnabled)));
-	menu_add_option(6, 2, "DROPDASH: "   + string(menu_get_boolean(Game.DropdashEnabled)));
-	menu_add_option(6, 3, "GRN SPDCAP: " + string(menu_get_boolean(Game.GroundSpeedcap)));
-	menu_add_option(6, 4, "AIR SPDCAP: " + string(menu_get_boolean(Game.AirSpeedcap)));
-	menu_add_option(6, 5, "CD CAMERA: "  + string(menu_get_boolean(Game.CDCamera)));
+	menu_add_option(5, 0, "VIDEO");
+	menu_add_option(5, 1, "AUDIO");
+	menu_add_option(5, 2, "CONTROLS");
 	
 	// Options (video)
-	menu_add_header(7,    "VIDEO OPTIONS");
-	menu_add_option(7, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");
-	menu_add_option(7, 1, "FULLSCREEN: "  + string(menu_get_boolean(Game.WindowFullscreen)));
+	menu_add_header(6,    "VIDEO OPTIONS");
+	menu_add_option(6, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");
+	menu_add_option(6, 1, "FULLSCREEN: "  + string(menu_get_boolean(Game.WindowFullscreen)));
 	
 	// Options (audio)
-	menu_add_header(8,    "AUDIO OPTIONS");
-	menu_add_option(8, 0, "SFX VOLUME: " + string(round(Game.SoundVolume * 100)));
-	menu_add_option(8, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
+	menu_add_header(7,    "AUDIO OPTIONS");
+	menu_add_option(7, 0, "SFX VOLUME: " + string(round(Game.SoundVolume * 100)));
+	menu_add_option(7, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
 	
 	// Options (controls)
-	menu_add_header(9,    "CONTROL OPTIONS");
-	menu_add_option(9, 0, "UP:"    + menu_get_keyname(Game.KeyboardControl[0]));
-	menu_add_option(9, 1, "DOWN:"  + menu_get_keyname(Game.KeyboardControl[1]));
-	menu_add_option(9, 2, "LEFT:"  + menu_get_keyname(Game.KeyboardControl[2]));
-	menu_add_option(9, 3, "RIGHT:" + menu_get_keyname(Game.KeyboardControl[3]));
-	menu_add_option(9, 4, "A:"     + menu_get_keyname(Game.KeyboardControl[4]));
-	menu_add_option(9, 5, "B:"     + menu_get_keyname(Game.KeyboardControl[5]));
-	menu_add_option(9, 6, "C:"	   + menu_get_keyname(Game.KeyboardControl[6]));
-	menu_add_option(9, 7, "MODE:"  + menu_get_keyname(Game.KeyboardControl[7]));
-	menu_add_option(9, 8, "START:" + menu_get_keyname(Game.KeyboardControl[8]));
+	menu_add_header(8,    "CONTROL OPTIONS");
+	menu_add_option(8, 0, "UP:"    + menu_get_keyname(Game.KeyboardControl[0]));
+	menu_add_option(8, 1, "DOWN:"  + menu_get_keyname(Game.KeyboardControl[1]));
+	menu_add_option(8, 2, "LEFT:"  + menu_get_keyname(Game.KeyboardControl[2]));
+	menu_add_option(8, 3, "RIGHT:" + menu_get_keyname(Game.KeyboardControl[3]));
+	menu_add_option(8, 4, "A:"     + menu_get_keyname(Game.KeyboardControl[4]));
+	menu_add_option(8, 5, "B:"     + menu_get_keyname(Game.KeyboardControl[5]));
+	menu_add_option(8, 6, "C:"	   + menu_get_keyname(Game.KeyboardControl[6]));
+	menu_add_option(8, 7, "MODE:"  + menu_get_keyname(Game.KeyboardControl[7]));
+	menu_add_option(8, 8, "START:" + menu_get_keyname(Game.KeyboardControl[8]));
 }

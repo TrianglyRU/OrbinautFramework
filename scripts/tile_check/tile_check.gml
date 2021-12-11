@@ -15,28 +15,22 @@ function tile_check(x,y,ignoreTop,tilelayer)
 	var Layer = Game.TileLayers[tilelayer];
     
     // Check for the tile
-    var Tile = tilemap_get(Layer, x div 16, y div 16);
-    
-    // Check for its index
-    var Index = tile_get_index(Tile);
+    var Tile      = tilemap_get(Layer, x div 16, y div 16);
+    var TileIndex = tile_get_index(Tile);
 	
     // Return false if it is solidtop and we're ignoring them
-    if ignoreTop and Index > Game.TileData[1]
+    if ignoreTop and TileIndex > Game.TileData[1]
     {
         return false;
     }
-        
-    // Get position within the tile and tile height
-    var TilePosition = y mod 16;
-    var TileHeight   = tile_get_height(x, y, Tile, Index);
-
+  
     // Return result
 	if tile_get_flip(Tile)
 	{
-		return TilePosition < TileHeight;
+		return y mod 16 < tile_get_height(x, Tile, TileIndex);
 	}
 	else
 	{
-		return 16 - 1 - TilePosition < TileHeight;
+		return 16 - 1 - y mod 16 < tile_get_height(x, Tile, TileIndex);
 	}
 }
