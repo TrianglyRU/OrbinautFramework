@@ -6,7 +6,7 @@ function DiscordStartup()
 	// Initialise Rich Presence
 	if !(os_type == os_windows or os_type == os_linux) or !np_initdiscord(DiscordAppID, true, "0")
 	{
-		Game.RichPresenceSupport = false;
+		Game.RichPresenceSupport = false; instance_destroy(); exit;
 	}
 	Game.DiscordTime = date_current_datetime();
 }

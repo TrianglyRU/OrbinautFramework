@@ -1,5 +1,11 @@
 function DiscordSetup()
 {
+	// Remove controller if Rich Presence is disabled
+	if !Game.RichPresenceSupport
+	{
+		instance_destroy(); exit;
+	}
+	
 	// Set initalisation flag
 	PresenceReady = false;
 	
@@ -7,10 +13,10 @@ function DiscordSetup()
 	switch room 
 	{
 		case Stage_TZ:
-			DetailsString = "TEST STAGE";
+			DetailsString = "TEST STAGE ZONE";
 		break;
 		default:
-			DetailsString = "";
+			DetailsString = "In Menus";
 		break;
 	}
 	
