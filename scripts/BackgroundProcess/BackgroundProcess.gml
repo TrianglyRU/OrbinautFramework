@@ -43,34 +43,7 @@ function BackgroundProcess()
 		// Set y-scale mode properties
 		if InclineModeY and variable_check(Stage, "WaterLevel")
 		{
-			var YScale = (Stage.WaterLevel - DrawY) / Height;
-			switch InclineModeY
-			{
-				// Classic-like
-				case 1:
-				{
-					var Min = -1; 
-					var Max =  1; 
-				}
-				break;
-					
-				// Adaptive limit
-				case 2:
-				{
-					var Min = (ViewY - DrawY) / Height;
-					var Max = (ViewY + Game.Height - DrawY) / Height;
-				}
-				break;
-					
-				// "Smart" limit
-				case 3:
-				{
-					var Min = min(-1, (ViewY - DrawY) / Height);
-					var Max = max( 1, (ViewY + Game.Height - DrawY) / Height);
-				}
-				break;
-			}
-			YScale = clamp(YScale, Min, Max);
+			var YScale = clamp((Stage.WaterLevel - DrawY) / Height, -1, 1);
 		} 
 		else 
 		{
@@ -107,7 +80,7 @@ function BackgroundProcess()
 			shader_set_uniform_f(Shader.PrlIncHeight, 0);
 		}
 	}
-	
+
 	// Reset shader
 	shader_reset();
 }
