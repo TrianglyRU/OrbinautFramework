@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Background",
-    "path": "folders/Game Code/Background.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "BackgroundFunctions",
+  "name": "background_layer_setup",
   "tags": [],
   "resourceType": "GMScript",
 }

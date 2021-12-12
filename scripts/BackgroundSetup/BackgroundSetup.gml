@@ -29,13 +29,5 @@ function BackgroundSetup()
 			background_colour_set($004400);
 		}
 		break;
-		
-		// Default
-		default: 
-		{
-			BGSprites = [];
-			BGColour  = c_gray;
-		}
-		break;
 	}	
 }
