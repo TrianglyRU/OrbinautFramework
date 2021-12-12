@@ -3,11 +3,11 @@
   "options": [],
   "exportToGame": true,
   "supportedTargets": -1,
-  "extensionVersion": "1.3.0",
+  "extensionVersion": "1.3.1",
   "packageId": "",
   "productId": "",
   "author": "",
-  "date": "2020-11-11T20:13:31.2571444+10:00",
+  "date": "2020-11-11T15:13:31.2571444+05:00",
   "license": "",
   "description": "",
   "helpfile": "",
@@ -21,7 +21,7 @@
             1,
             1,
           ],"resourceVersion":"1.0","name":"np_get_avatar_url","tags":[],"resourceType":"GMExtensionFunction",},
-      ],"constants":[],"ProxyFiles":[],"copyToTargets":192,"order":[
+      ],"constants":[],"ProxyFiles":[],"copyToTargets":194,"order":[
         {"name":"np_get_avatar_url","path":"extensions/DRPC/DRPC.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
     {"filename":"NekoPresence.dll","origname":"","init":"__np_initdll","final":"__np_shutdown","kind":1,"uncompress":false,"functions":[
@@ -96,7 +96,8 @@
       ],"ProxyFiles":[
         {"TargetMask":7,"resourceVersion":"1.0","name":"libnekopresence.so","tags":[],"resourceType":"GMProxyFile",},
         {"TargetMask":6,"resourceVersion":"1.0","name":"NekoPresence_x64.dll","tags":[],"resourceType":"GMProxyFile",},
-      ],"copyToTargets":192,"order":[
+        {"TargetMask":1,"resourceVersion":"1.0","name":"libnekopresenceMac.dylib","tags":[],"resourceType":"GMProxyFile",},
+      ],"copyToTargets":194,"order":[
         {"name":"__np_initdll","path":"extensions/DRPC/DRPC.yy",},
         {"name":"__np_shutdown","path":"extensions/DRPC/DRPC.yy",},
         {"name":"np_initdiscord","path":"extensions/DRPC/DRPC.yy",},
@@ -142,7 +143,7 @@
   "tvosThirdPartyFrameworkEntries": [],
   "IncludedResources": [],
   "androidPermissions": [],
-  "copyToTargets": 192,
+  "copyToTargets": 194,
   "iosCocoaPods": "",
   "tvosCocoaPods": "",
   "iosCocoaPodDependencies": "",
