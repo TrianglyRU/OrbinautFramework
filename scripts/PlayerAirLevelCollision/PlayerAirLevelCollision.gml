@@ -234,4 +234,28 @@ function PlayerAirLevelCollision()
 		}
 		break;
 	}
+	
+	// If landed, update custom collision mode
+	if Game.BetterPlayerTileGrip and Grounded
+	{
+		if Angle <= 45 or Angle >= 315
+		{
+			CollisionMode[0] = 0;
+		}
+		else if Angle >= 46.41 and Angle <= 133.59
+		{
+			CollisionMode[0] = 1;
+		}
+		else if Angle >= 135 and Angle <= 225
+		{
+			CollisionMode[0] = 2;
+		}
+		else if Angle >= 226.41 and Angle <= 313.59
+		{
+			CollisionMode[0] = 3;
+		}
+		
+		// This will disable mode check for one frame, allowing us to land on ceilings safely
+		CollisionMode[1] = true;
+	}
 }
