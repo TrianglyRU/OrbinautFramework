@@ -15,21 +15,21 @@ function GameSetup()
 	Game.AirSpeedcap	    = false;
 	Game.CDCamera			= false;
 	Game.RolljumpControl    = false;
-	Game.S3SlopePhysics		= false;
-	Game.S3WaterPhysics		= false;
+	Game.S3KSlopePhysics    = false;
+	Game.S3KWaterPhysics    = false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= false;
-	Game.S2FloorCollision	= false;
-	Game.SKWallCollision	= false;	
+	Game.S1FloorCollision	= false;
+	Game.S3KWallCollision	= true;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;	
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = true;
-	Game.BetterPlayerTileGrip = false;
-	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = false;
+	Game.BetterPlayerTileGrip = true;
+	Game.PreciseRingBehaviour = true;
+	Game.NoRollSpeedLimit	  = true;
 	Game.FlightCancel	      = false;
 	
 	/* Video, audio and control settings below are overwritten by 

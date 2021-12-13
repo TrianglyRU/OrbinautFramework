@@ -145,7 +145,7 @@ function PlayerWaterEvents()
 			// Reset gravity and double vertical speed
 			if !Hurt and GlideState != GlideAir
 			{
-				if Game.S3WaterPhysics
+				if Game.S3KWaterPhysics
 				{
 					if Ysp >= -4
 					{

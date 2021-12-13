@@ -13,7 +13,7 @@ function PlayerSlopeRepel()
 	}
 	else
 	{
-		if !Game.S3SlopePhysics
+		if !Game.S3KSlopePhysics
 		{	
 			// Check if we are on a steep slope and going slow
 			if Angle >= 46.41 and Angle <= 315 and abs(Inertia) < 2.5

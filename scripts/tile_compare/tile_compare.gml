@@ -16,14 +16,14 @@ function tile_compare(data1,data2,objectAngle)
 	}
 	
 	// Is object angle defined?
-	if objectAngle != noone
+	if objectAngle != noone and !Game.S1FloorCollision
 	{
 		// Use cardinal angle if difference is higher than 45
 		var Difference = abs(objectAngle mod 180 - ResultAngle mod 180);		
 		if  Difference > 45 and Difference < 135
 		{
-			/* Originals also check for flagged tiles here (tiles with angle
-			0xFF), but we already somewhat handle it right when we get tile data */
+			/* Originals also check for flagged tiles here (tiles with angle value equal 
+			to 0xFF), but we already somewhat handle it right when we get tile data */
 			   
 			ResultAngle = round(objectAngle / 90) mod 4 * 90;
 			if !ResultAngle
