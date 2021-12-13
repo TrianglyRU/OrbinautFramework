@@ -57,6 +57,7 @@ function PlayerStartup()
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
+	CollisionMode		= [];
 	HitboxData			= [];
 	
 	// Set default values
