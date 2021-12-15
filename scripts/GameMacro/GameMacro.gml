@@ -54,35 +54,34 @@ function GameMacro()
 	#macro AnimMove			 1
 	#macro AnimPeelout	     2
 	#macro AnimSpin			 3
-	#macro AnimAirSpin		 4
-	#macro AnimDropdash		 5
-	#macro AnimSpindash		 6
-	#macro AnimPush			 7
-	#macro AnimCrouch		 8
-	#macro AnimLookup		 9
-	#macro AnimFly			 10
-	#macro AnimFlyTired		 11
-	#macro AnimSwim			 22
-	#macro AnimSwimTired	 13
-	#macro AnimHurt			 14
-	#macro AnimDeath		 15
-	#macro AnimDrown		 16
-	#macro AnimGlide		 17
-	#macro AnimGlideFall     18    
-	#macro AnimSlide         19
-	#macro AnimDropStand	 20
-	#macro AnimGlideStand    21
-	#macro AnimClimb		 22
-	#macro AnimClimbLedge	 23
-	#macro AnimClimbFall     24
-	#macro AnimSkid			 25
-	#macro AnimBalance		 26
-	#macro AnimBalanceFlip	 27
-	#macro AnimBalancePanic  28
-	#macro AnimBalanceTurn   29
-	#macro AnimSpring		 30
-	#macro AnimTransform	 31
-	#macro AnimBreathe		 32
+	#macro AnimDropdash		 4
+	#macro AnimSpindash		 5
+	#macro AnimPush			 6
+	#macro AnimCrouch		 7
+	#macro AnimLookup		 8
+	#macro AnimFly			 9
+	#macro AnimFlyTired		 10
+	#macro AnimSwim			 11
+	#macro AnimSwimTired	 12
+	#macro AnimHurt			 13
+	#macro AnimDeath		 14
+	#macro AnimDrown		 15
+	#macro AnimGlide		 16
+	#macro AnimGlideFall     17    
+	#macro AnimSlide         18
+	#macro AnimDropStand	 19
+	#macro AnimGlideStand    20
+	#macro AnimClimb		 21
+	#macro AnimClimbLedge	 22
+	#macro AnimClimbFall     23
+	#macro AnimSkid			 24
+	#macro AnimBalance		 25
+	#macro AnimBalanceFlip	 26
+	#macro AnimBalancePanic  27
+	#macro AnimBalanceTurn   28
+	#macro AnimSpring		 29
+	#macro AnimTransform	 30
+	#macro AnimBreathe		 31
 	
 	// Collision macro
 	#macro SideTop	    0
