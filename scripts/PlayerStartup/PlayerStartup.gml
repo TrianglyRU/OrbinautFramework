@@ -57,8 +57,8 @@ function PlayerStartup()
 	DebugMode           = 0;
 	DebugItem			= 0;
 	DebugSpeed			= 0;
-	CollisionMode		= [];
 	HitboxData			= [];
+	CollisionMode       = [];
 	
 	// Set default values
 	Grv			     = 0.21875;
