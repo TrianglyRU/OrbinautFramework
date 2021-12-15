@@ -1,8 +1,5 @@
 function GameMacro()
 {	
-	/* Macro are basically replacement for digits in your code to
-	make it more readable. We could use emums in that case, but macros are easier */
-	
 	// Global framework macro
 	#macro Shader	   global
 	#macro Game		   global

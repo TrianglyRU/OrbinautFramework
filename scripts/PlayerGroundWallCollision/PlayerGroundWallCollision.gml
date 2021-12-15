@@ -15,31 +15,22 @@ function PlayerGroundWallCollision()
 		}
 	}
 	
-	// Get current angle quadrant (shallower on walls, comparing to ground collision)
-	if !Game.BetterPlayerTileGrip
+	// Get current angle quadrant (shallower on walls, comparing to default ground collision)
+	if Angle <= 43.59 or Angle >= 316.41			
 	{
-		if Angle <= 43.59 or Angle >= 316.41			
-		{
-			var WallMode = 0;
-		}
-		else if Angle >= 45 and Angle <= 135	
-		{
-			var WallMode = 1;
-		}
-		else if Angle >= 136.41 and Angle <= 223.59
-		{
-			var WallMode = 2;
-		}
-		else if Angle >= 225 and Angle <= 315	
-		{
-			var WallMode = 3;
-		}
+		var WallMode = 0;
 	}
-	
-	// Get custom collision mode
-	else
+	else if Angle >= 45 and Angle <= 135	
 	{
-		var WallMode = CollisionMode[0];
+		var WallMode = 1;
+	}
+	else if Angle >= 136.41 and Angle <= 223.59
+	{
+		var WallMode = 2;
+	}
+	else if Angle >= 225 and Angle <= 315	
+	{
+		var WallMode = 3;
 	}
 	
 	// Collide with the wall to our left, frame ahead

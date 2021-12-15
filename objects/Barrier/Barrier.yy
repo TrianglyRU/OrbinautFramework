@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_barrier_normal",
-    "path": "sprites/spr_obj_barrier_normal/spr_obj_barrier_normal.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,
