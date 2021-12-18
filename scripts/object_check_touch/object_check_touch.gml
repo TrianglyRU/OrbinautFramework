@@ -23,7 +23,7 @@ function object_check_touch(side)
 	switch side
 	{
 		case SideTop:
-			return Obj_SolidTouchU;
+			return Obj_SolidTouchU or Player.OnObject == id;
 		break;
 		case SideBottom:
 			return Obj_SolidTouchD;

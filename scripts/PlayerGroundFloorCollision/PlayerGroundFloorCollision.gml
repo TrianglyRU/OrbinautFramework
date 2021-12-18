@@ -9,7 +9,7 @@ function PlayerGroundFloorCollision()
 	// Update floor collision mode
 	#region Code
 	{
-		// Get current angle quadrant (shallower on floor and ceiling, comparing to wall collision)
+		// Get current angle quadrant (floor and ceiling are in priority, comparing to wall collision)
 		if !Game.BetterPlayerTileGrip
 		{
 			if Angle <= 45 or Angle >= 315

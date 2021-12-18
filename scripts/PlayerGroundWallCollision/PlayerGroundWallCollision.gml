@@ -15,7 +15,7 @@ function PlayerGroundWallCollision()
 		}
 	}
 	
-	// Get current angle quadrant (shallower on walls, comparing to default ground collision)
+	// Get current angle quadrant (walls are in priority, comparing to default ground collision)
 	if Angle <= 43.59 or Angle >= 316.41			
 	{
 		var WallMode = 0;
