@@ -27,6 +27,12 @@ function tile_compare(data1,data2,objectAngle)
 			{
 				ResultAngle = 360;
 			}
+			
+			// Additionally reset distance if better tile grip is enabled
+			if Game.BetterPlayerTileGrip and ResultDistance >= 4
+			{
+				ResultDistance = 32;
+			}
 		}
 	}
 	
