@@ -35,45 +35,36 @@ function PlayerAirLevelCollision()
 				Xsp   = 0;
 			}
 			
-			// Get nearest tile below us
-			var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-			var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-			var FindFloor3 = tile_compare(FindFloor1, FindFloor2, noone);
-			
 			// Collide with floor
-			if FindFloor3[0] < 0
+			var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+			if  FindFloor[0] < 0 and FindFloor[0] >= -(Ysp + 8)
 			{
-				// Make sure at least one distance is within the clip distance
-				var ClipDistance   = -(Ysp + 8)
-				if  FindFloor1[0] >= ClipDistance or FindFloor2[0] >= ClipDistance
+				// Convert speed to inertia
+				if FindFloor[1] >= 46.41 and FindFloor[1] <= 315
 				{
-					// Convert speed to inertia
-					if FindFloor3[1] >= 46.41 and FindFloor3[1] <= 315
+					// Limit ysp
+					if Ysp > 15.75
 					{
-						// Limit ysp
-						if Ysp > 15.75
-						{
-							Ysp = 15.75;
-						}
-						Xsp		= 0;
-						Inertia = FindFloor3[1] < 180 ? -Ysp : Ysp;
+						Ysp = 15.75;
 					}
-					else if FindFloor3[1] >= 23.91 and FindFloor3[1] <= 337.5
-					{
-						Inertia = FindFloor3[1] < 180 ? -Ysp / 2 : Ysp / 2;
-					}
-					else 
-					{	
-						Ysp     = 0;
-						Inertia = Xsp;	
-					}
-					
-					// Clip out and land
-					PosY    += FindFloor3[0];
-					Angle    = FindFloor3[1];
-					Grounded = true;
+					Xsp		= 0;
+					Inertia = FindFloor[1] < 180 ? -Ysp : Ysp;
 				}
-			}	
+				else if FindFloor[1] >= 23.91 and FindFloor[1] <= 337.5
+				{
+					Inertia = FindFloor[1] < 180 ? -Ysp / 2 : Ysp / 2;
+				}
+				else 
+				{	
+					Ysp     = 0;
+					Inertia = Xsp;	
+				}
+					
+				// Clip out and land
+				PosY    += FindFloor[0];
+				Angle    = FindFloor[1];
+				Grounded = true;
+			}
 		}
 		break;	
 		case "MoveUp":
@@ -94,19 +85,16 @@ function PlayerAirLevelCollision()
 				Xsp   = 0;
 			}
 			
-			// Get nearest tile above us
-			var FindRoof1 = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-			var FindRoof2 = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-			var FindRoof3 = tile_compare(FindRoof1, FindRoof2, noone);
-			
 			// Collide with ceiling
-			if FindRoof3[0] < 0
+			var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+			if  FindRoof[0] < 0
 			{	
-				if (FindRoof3[1] >= 91.41  and FindRoof3[1] <= 136.41 
-				or  FindRoof3[1] >= 226.41 and FindRoof3[1] <= 268.59) and !FlightState
+				// Land on it if steep enough
+				if (FindRoof[1] >= 91.41  and FindRoof[1] <= 136.41 
+				or  FindRoof[1] >= 226.41 and FindRoof[1] <= 268.59) and !FlightState
 				{
-					Angle    = FindRoof3[1];
-					Inertia  = FindRoof3[1] < 180 ? -Ysp : Ysp;
+					Angle    = FindRoof[1];
+					Inertia  = FindRoof[1] < 180 ? -Ysp : Ysp;
 					Grounded = true;
 				}
 				else 
@@ -117,7 +105,7 @@ function PlayerAirLevelCollision()
 					}	
 					Ysp = 0;
 				}				
-				PosY -= FindRoof3[0];
+				PosY -= FindRoof[0];
 			}
 		}
 		break;		
@@ -137,13 +125,8 @@ function PlayerAirLevelCollision()
 			// Try ceiling collision
 			else
 			{
-				// Get nearest tile above us
-				var FindRoof1 = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-				var FindRoof2 = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-				var FindRoof3 = tile_compare(FindRoof1, FindRoof2, noone);
-				
-				// Collide with ceiling
-				if FindRoof3[0] < 0
+				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+				if  FindRoof[0] < 0
 				{	
 					if Ysp < 0
 					{
@@ -153,22 +136,17 @@ function PlayerAirLevelCollision()
 					{
 						Grv	= 0.03125;
 					}
-					PosY -= FindRoof3[0];
+					PosY -= FindRoof[0];
 				}
 				
 				// Try floor collision
 				else if Ysp > 0
 				{
-					// Get nearest tile below us
-					var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-					var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-					var FindFloor3 = tile_compare(FindFloor1, FindFloor2, noone);
-					
-					// Collide with floor
-					if FindFloor3[0] < 0
+					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+					if  FindFloor[0] < 0
 					{
-						PosY	+= FindFloor3[0];
-						Angle    = FindFloor3[1];
+						PosY	+= FindFloor[0];
+						Angle    = FindFloor[1];
 						Inertia  = Xsp;
 						Ysp      = 0;
 						Grounded = true;
@@ -193,13 +171,8 @@ function PlayerAirLevelCollision()
 			// Try ceiling collision
 			else
 			{
-				// Get nearest tile above us
-				var FindRoof1 = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-				var FindRoof2 = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-				var FindRoof3 = tile_compare(FindRoof1, FindRoof2, noone);
-				
-				// Collide with ceiling
-				if FindRoof3[0] < 0
+				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+				if  FindRoof[0] < 0
 				{	
 					if Ysp < 0
 					{
@@ -209,22 +182,17 @@ function PlayerAirLevelCollision()
 					{
 						Grv	= 0.03125;
 					}
-					PosY -= FindRoof3[0];
+					PosY -= FindRoof[0];
 				}
 				
 				// Try floor collision
 				else if Ysp > 0
 				{
-					// Get nearest tile below us
-					var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-					var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-					var FindFloor3 = tile_compare(FindFloor1, FindFloor2, noone);
-					
-					// Collide with floor
-					if FindFloor3[0] < 0
+					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+					if  FindFloor[0] < 0
 					{
-						PosY	+= FindFloor3[0];
-						Angle    = FindFloor3[1];
+						PosY	+= FindFloor[0];
+						Angle    = FindFloor[1];
 						Inertia  = Xsp
 						Ysp      = 0;
 						Grounded = true;

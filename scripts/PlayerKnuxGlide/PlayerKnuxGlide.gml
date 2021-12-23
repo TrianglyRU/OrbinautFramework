@@ -222,34 +222,28 @@ function PlayerKnuxGlide()
 	{
 		exit;
 	}
-	
-	// Get nearest tile above us
-	var FindRoof1 = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, true, Layer);
-	var FindRoof2 = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, true, Layer);
-	var FindRoof3 = tile_compare(FindRoof1, FindRoof2, noone);
-			
+		
 	// Collide with ceiling
-	if FindRoof3[0] < 0
+	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+	if  FindRoof[0] < 0
 	{	
 		Ysp   = 0;			
-		PosY -= FindRoof3[0];
+		PosY -= FindRoof[0];
 	}
 	
 	// Try floor collision
 	else if Ysp >= 0
 	{
-		// Get nearest tile below us
-		var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-		var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-		var FindFloor3 = tile_compare(FindFloor1, FindFloor2, noone);
+		// Get tile below us
+		var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
 		
 		// Get angle
-		Angle = FindFloor3[1];
+		Angle = FindFloor[1];
 	
 		// Check if we're gliding and distance is negative
 		if GlideState != GlideGround 
 		{
-			if FindFloor3[0] < 0
+			if FindFloor[0] < 0
 			{
 				// If floor is shallow enough, change state
 				if Angle <= 45 or Angle >= 316.41
@@ -265,7 +259,7 @@ function PlayerKnuxGlide()
 						Ysp = 0;
 					
 						// Create dust object
-						instance_create(PosX, PosY + RadiusY + FindFloor3[0], DustPuff);
+						instance_create(PosX, PosY + RadiusY + FindFloor[0], DustPuff);
 					}
 					else if GlideState == GlideFall
 					{
@@ -287,13 +281,13 @@ function PlayerKnuxGlide()
 				}
 			
 				// Adhere to the surface
-				PosY += FindFloor3[0];
+				PosY += FindFloor[0];
 			}
 		}
 		else 
 		{
 			// If sliding and no ground found, fall
-			if FindFloor3[0] > 14
+			if FindFloor[0] > 14
 			{
 				GlideState = GlideFall;
 				Animation  = AnimGlideFall;
@@ -317,7 +311,7 @@ function PlayerKnuxGlide()
 			// Clip to the surface
 			else
 			{
-				PosY += FindFloor3[0];
+				PosY += FindFloor[0];
 			}
 		}
 	}

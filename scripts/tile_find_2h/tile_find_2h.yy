@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tile_compare",
+  "name": "tile_find_2h",
   "tags": [],
   "resourceType": "GMScript",
 }

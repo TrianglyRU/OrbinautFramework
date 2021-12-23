@@ -133,16 +133,14 @@ function PlayerGroundFloorCollision()
 	{
 		case 0:
 		{		
-			// Get nearest tile below us
-			var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-			var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
-		    var FindFloor3 = tile_compare(FindFloor1, FindFloor2, Angle);
+			// Get tile below us
+			var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, Angle, Layer);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
-				if  FindFloor3[0] > Distance
+				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
 					{
@@ -156,25 +154,23 @@ function PlayerGroundFloorCollision()
 			}
 			
 			// Else collide
-			if FindFloor3[0] >= -14
+			if FindFloor[0] >= -14
 			{
-				PosY += FindFloor3[0];
-				Angle = FindFloor3[1];	
+				PosY += FindFloor[0];
+				Angle = FindFloor[1];	
 			}
 		}
 		break;
 		case 1:
 		{	
-			// Get nearest tile to our right
-			var FindFloor1 = tile_find_h(PosX + RadiusY, PosY + RadiusX, true, false, Layer);
-			var FindFloor2 = tile_find_h(PosX + RadiusY, PosY - RadiusX, true, false, Layer);
-			var FindFloor3 = tile_compare(FindFloor1, FindFloor2, Angle);
+			// Get tile to our right
+			var FindFloor = tile_find_2h(PosX + RadiusY, PosY + RadiusX, PosX + RadiusY, PosY - RadiusX, true, false, Angle, Layer);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
-				if  FindFloor3[0] > Distance
+				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
 					{
@@ -188,25 +184,23 @@ function PlayerGroundFloorCollision()
 			}
 			
 			// Else collide
-			if FindFloor3[0] >= -14
+			if FindFloor[0] >= -14
 			{
-				PosX += FindFloor3[0];
-				Angle = FindFloor3[1];	
+				PosX += FindFloor[0];
+				Angle = FindFloor[1];	
 			}
 		}
 		break;
 		case 2:	
 		{	
-			// Get nearest tile above us
-			var FindFloor1 = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, false, Layer);
-			var FindFloor2 = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, false, Layer);
-			var FindFloor3 = tile_compare(FindFloor1, FindFloor2, Angle);
+			// Get tile above us
+			var FindFloor = tile_find_2v(PosX + RadiusX, PosY - RadiusY, PosX - RadiusX, PosY - RadiusY, false, false, Angle, Layer);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
-				if  FindFloor3[0] > Distance
+				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
 					{
@@ -220,25 +214,23 @@ function PlayerGroundFloorCollision()
 			}
 			
 			// Else collide
-			if FindFloor3[0] >= -14
+			if FindFloor[0] >= -14
 			{	
-				PosY -= FindFloor3[0];
-				Angle = FindFloor3[1];
+				PosY -= FindFloor[0];
+				Angle = FindFloor[1];
 			}
 		}
 		break;
 		case 3:
 		{	
-			// Get nearest tile to our left
-			var FindFloor1 = tile_find_h(PosX - RadiusY, PosY - RadiusX, false, false, Layer);
-			var FindFloor2 = tile_find_h(PosX - RadiusY, PosY + RadiusX, false, false, Layer);
-			var FindFloor3 = tile_compare(FindFloor1, FindFloor2, Angle);
+			// Get tile to our left
+			var FindFloor = tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, false, Angle, Layer); 
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
 				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
-				if  FindFloor3[0] > Distance
+				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
 					{
@@ -252,10 +244,10 @@ function PlayerGroundFloorCollision()
 			}
 				
 			// Else collide
-		    if FindFloor3[0] >= -14
+		    if FindFloor[0] >= -14
 			{
-				PosX -= FindFloor3[0];
-				Angle = FindFloor3[1];
+				PosX -= FindFloor[0];
+				Angle = FindFloor[1];
 			}
 		}
 		break;
