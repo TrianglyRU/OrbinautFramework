@@ -24,30 +24,6 @@ function PlayerMovementGround()
 				{
 					Inertia = -0.5;	
 				}
-				
-				// Perform skid
-				if (Angle <= 45 or Angle >= 316.41) and Inertia >= 4
-				{
-					if Animation != AnimSkid
-					{
-						if Game.Character != CharKnuckles
-						{
-							SkidTime = 32;
-						}
-						else
-						{
-							SkidTime = 16;
-						}
-						Animation = AnimSkid;
-						
-						// Play sound
-						audio_sfx_play(sfxSkid, false);
-						
-						// Create dust object
-						instance_create(PosX, PosY + RadiusY, DustPuff);
-					}
-				}
-
 			} 
 			
 			// Accelerate
@@ -76,29 +52,6 @@ function PlayerMovementGround()
 				{
 					Inertia = 0.5;
 				}
-				
-				// Perform skid
-				if (Angle <= 45 or Angle >= 316.41) and Inertia <= -4
-				{
-					if Animation != AnimSkid
-					{
-						if Game.Character != CharKnuckles
-						{
-							SkidTime = 32;
-						}
-						else
-						{
-							SkidTime = 16;
-						}
-						Animation = AnimSkid;
-						
-						// Play sound
-						audio_sfx_play(sfxSkid, false);
-						
-						// Create dust object
-						instance_create(PosX, PosY + RadiusY, DustPuff);
-					}
-				}
 			} 
 			
 			// Accelerate
@@ -114,6 +67,29 @@ function PlayerMovementGround()
 					Inertia = min(Inertia + Acc, TopAcc);
 				} 
 			}
+		}
+	}
+	
+	// Perform skid. Angle check here is different in comparison to collision mode checks
+	if (Angle <= 45 or Angle >= 316.41) and Animation != AnimSkid
+	{
+		if Input.Left and Inertia >= 4 or Input.Right and Inertia <= -4
+		{
+			if Game.Character != CharKnuckles
+			{
+				SkidTime = 32;
+			}
+			else
+			{
+				SkidTime = 16;
+			}
+			Animation = AnimSkid;
+						
+			// Play sound
+			audio_sfx_play(sfxSkid, false);
+						
+			// Create dust object
+			instance_create(PosX, PosY + RadiusY, DustPuff);
 		}
 	}
 	
@@ -133,7 +109,7 @@ function PlayerMovementGround()
 		Pushing = false;
 	}
 
-	// Convert inertia to speeds
+	// Convert inertia to speed
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
@@ -149,57 +125,59 @@ function PlayerMovementGround()
 		break;
 	}
 	
-	// Set pushing animation
+	// If pushing, set push animation
 	if Pushing
 	{
 		Animation = AnimPush;
 	}
-	else
+	
+	// Check which animation we should use when standing still
+	else if Inertia == 0
 	{
-		if Angle <= 45 or Angle >= 316.41
+		// Same unsymmetrical angle check, just like above...
+		if (Angle <= 45 or Angle >= 316.41) and !AnimationPriority
 		{
-			if Inertia == 0 and !AnimationPriority
+			if Input.Up
 			{
-				// Set idle animation
+				Animation = AnimLookup;
+			}
+			else if Input.Down
+			{
+				Animation = AnimCrouch;
+			}
+			else
+			{
 				Animation = AnimIdle;
-				
-				// Set crouch or lookup animation
-				if Input.Up
-				{
-					Animation = AnimLookup;
-				}
-				else if Input.Down
-				{
-					Animation = AnimCrouch;
-				}
 			}
 		}
-		if Inertia != 0
+	}
+	
+	// Check which animation we should use when moving
+	else
+	{
+		// If not skidding, use movement animation
+		if Animation != AnimSkid
 		{
-			// If not skidding, use movement animation
-			if Animation != AnimSkid
+			Animation = AnimMove;
+		}
+		else 
+		{
+			// Cancel skid animation by pressing movement button
+			if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left
 			{
 				Animation = AnimMove;
 			}
-			else 
+				
+			// Reset skid timer to keep skidding
+			else if Inertia > 0 and Input.Left or Inertia < 0 and Input.Right
 			{
-				// Cancel skid animation by pressing movement button
-				if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left
-				{
-					Animation = AnimMove;
-				}
+				SkidTime = Game.Character != CharKnuckles ? 16 : 32;
+			}
 				
-				// Reset skid timer
-				else if Inertia > 0 and Input.Left or Inertia < 0 and Input.Right
-				{
-					SkidTime = Game.Character != CharKnuckles ? 16 : 32;
-				}
-				
-				// Cancel skid animation automatically
-				if !(SkidTime--)
-				{
-					Animation = AnimMove;
-				}
+			// Cancel skid animation automatically
+			if !(SkidTime--)
+			{
+				Animation = AnimMove;
 			}
 		}
 	}

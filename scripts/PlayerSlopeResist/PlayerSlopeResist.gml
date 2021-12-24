@@ -1,6 +1,6 @@
 function PlayerSlopeResist()
 {	
-	// Exit if on ceiling
+	// Exit if on ceiling. Angle check here is different in comparison to collision mode checks
 	if Angle <= 225 and Angle >= 136.41
 	{
 		exit;

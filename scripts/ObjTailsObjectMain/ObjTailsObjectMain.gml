@@ -38,7 +38,7 @@ function ObjTailsObjectMain()
 	// In case we're rolling or jumping
 	else
 	{
-		// If airborne, get angle based on current and next frame position
+		// Get motion angle when airborne
 		if !Player.Grounded
 		{
 			if Player.Facing == FlipRight
@@ -50,17 +50,10 @@ function ObjTailsObjectMain()
 				Angle = point_direction(Player.PosX + Player.Xsp, Player.PosY + Player.Ysp, Player.PosX, Player.PosY);
 			}
 			
-			// If smooth rotation is disabled, use one of 8 angles
+			// If smooth rotation is disabled, 8-angle rotation
 			if !Game.SmoothRotation
 			{
-				if (Angle >= 338.91 or  Angle <= 22.5)  VisualAngle = 360;
-				if (Angle >= 23.91  and Angle <= 67.5)  VisualAngle = 45;
-				if (Angle >= 68.91  and Angle <= 112.5) VisualAngle = 90;
-				if (Angle >= 113.91 and Angle <= 157.5) VisualAngle = 135;
-				if (Angle >= 158.91 and Angle <= 202.5) VisualAngle = 180;
-				if (Angle >= 203.91 and Angle <= 247.5) VisualAngle = 225;
-				if (Angle >= 248.91 and Angle <= 292.5) VisualAngle = 270;
-				if (Angle >= 293.91 and Angle <= 337.5) VisualAngle = 305;
+				VisualAngle = ceil((Angle - 22.5) / 45) * 45;
 			}
 			
 			// Else use motion angle
@@ -69,24 +62,15 @@ function ObjTailsObjectMain()
 				VisualAngle = Angle;
 			}
 		}
-		
-		// If grounded, calculated angle based on ground angle
 		else
 		{	
-			// Get floor angle
+			// Get floor angle if grounded
 			Angle = Player.Angle;
 			
-			// If smooth rotation is disabled, use one of 8 angles
+			// If smooth rotation is disabled, 8-angle rotation
 			if !Game.SmoothRotation
 			{
-				if (Angle >= 338.91 or  Angle <= 22.5)  VisualAngle = 360;
-				if (Angle >= 23.91  and Angle <= 67.5)  VisualAngle = 45;
-				if (Angle >= 68.91  and Angle <= 112.5) VisualAngle = 90;
-				if (Angle >= 113.91 and Angle <= 157.5) VisualAngle = 135;
-				if (Angle >= 158.91 and Angle <= 202.5) VisualAngle = 180;
-				if (Angle >= 203.91 and Angle <= 247.5) VisualAngle = 225;
-				if (Angle >= 248.91 and Angle <= 292.5) VisualAngle = 270; 
-				if (Angle >= 293.91 and Angle <= 337.5) VisualAngle = 305;
+				VisualAngle = ceil((Angle - 22.5) / 45) * 45;
 			}
 			
 			// Else calculate visual angle

@@ -6,30 +6,33 @@ function PlayerJumpStart()
 		exit;
 	}
 
-	// Check if there is a room between player's head and ceiling
-	if Angle <= 45 or Angle >= 315
+	// Check if there is a room between player's head and ceiling (there is no check when on the ceiling)
+	switch CollisionMode[0]
 	{
-		// On the ground
-		if tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer)[0] < 6
+		case 0:
 		{
-			exit;
+			if tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer)[0] < 6
+			{
+				exit;
+			}
 		}
-	}
-	else if Angle >= 46.41 and Angle <= 133.59		
-	{
-		// On the right wall
-		if tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, true, noone, Layer)[0] < 6
+		break;
+		case 1:
 		{
-			exit;
+			if tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, true, noone, Layer)[0] < 6
+			{
+				exit;
+			}
 		}
-	}
-	else if Angle >= 226.41 and Angle <= 313.59		
-	{
-		// On the left wall
-		if tile_find_2h(PosX + RadiusY, PosY - RadiusX, PosX + RadiusY, PosY + RadiusX, true, true, noone, Layer)[0] < 6
+		break;
+		case 3:
 		{
-			exit;
+			if tile_find_2h(PosX + RadiusY, PosY - RadiusX, PosX + RadiusY, PosY + RadiusX, true, true, noone, Layer)[0] < 6
+			{
+				exit;
+			}
 		}
+		break;
 	}
 	
 	// Set speeds
