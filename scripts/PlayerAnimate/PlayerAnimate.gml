@@ -477,10 +477,10 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_climb, Speed, 0, 0);
 				}
 				break;
-				case AnimClimbLedge:
-					animation_play(spr_knuckles_climbering, 6, 0, 3);
+				case AnimClamber:
+					animation_play(spr_knuckles_clamber, 6, 0, 3);
 				break;
-				case AnimClimbFall:
+				case AnimDrop:
 					animation_set(spr_knuckles_drop, 1);
 				break;
 				case AnimPush:

@@ -188,6 +188,9 @@ function PlayerKnuxGlide()
 		// Clip out
 		PosX -= FindWall[0];
 		Xsp   = 0;
+		
+		// Exit the code
+		exit;
 	}
 			
 	// Collide with right wall
@@ -215,14 +218,11 @@ function PlayerKnuxGlide()
 		// Clip out
 		PosX += FindWall[0];
 		Xsp   = 0;
-	}
-	
-	// Exit the rest of the code if we've attached to the wall
-	if ClimbState
-	{
+		
+		// Exit the code
 		exit;
 	}
-		
+	
 	// Collide with ceiling
 	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
 	if  FindRoof[0] < 0
