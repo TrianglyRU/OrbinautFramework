@@ -97,7 +97,7 @@ function PlayerKnuxClimb()
 				{
 					// Collide with floor
 					var FindFloor = tile_find_v(PosX + RadiusX * Facing, PosY + DefaultRadiusY, true, false, Layer);
-					if  FindFloor[0] < 0 and FindFloor[0] >= -8
+					if  FindFloor[0] < 0
 					{
 						if FindFloor[1] <= 45 or FindFloor[1] >= 316.41
 						{
