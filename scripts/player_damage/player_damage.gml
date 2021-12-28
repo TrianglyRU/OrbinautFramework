@@ -37,7 +37,7 @@ function player_damage(isFlame,isThunder,instantKill)
 		Player.Animation	       = AnimDeath;
 		Player.BarrierType		   = false;
 		
-		// Force-disable Tails' tail visibility in case the code somehow messes up with it
+		// Force-disable Tails' tails visibility in case the code somehow will mess up with it
 		if Game.Character == CharTails
 		{
 			TailsObject.visible = false;
@@ -143,7 +143,7 @@ function player_damage(isFlame,isThunder,instantKill)
 	Player.DropdashFlag = -1;
 	
 	// Play hurt sound
-	if !audio_is_playing(sfxRingLoss)
+	if !audio_sfx_is_playing(sfxRingLoss)
 	{
 		switch object_index
 		{
