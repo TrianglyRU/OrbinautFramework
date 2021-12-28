@@ -21,7 +21,7 @@ function ObjBarrierMain()
 		// Update thunder barrier
 		case BarrierThunder:
 		{
-			if image_index == 18
+			if image_index == 19
 			{
 				object_set_depth(Player, 0);
 			}
