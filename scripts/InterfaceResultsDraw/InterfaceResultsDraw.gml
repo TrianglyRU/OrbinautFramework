@@ -185,13 +185,16 @@ function InterfaceResultsDraw()
 			{
 				if ResultsValue[0] == -1
 				{
-					// Play continue sound
-					if !audio_is_playing(sfxScoreTally)
+					if !audio_sfx_is_playing(sfxScoreTally)
 					{
+						// Play continue sound
 						audio_sfx_play(sfxContinue, false);
 					
 						// Grant continue
 						Game.Continues++;
+						
+						// Increment timer
+						ResultsValue[0] = 0;
 					}
 				}
 				else if (++ResultsValue[0]) == 260
