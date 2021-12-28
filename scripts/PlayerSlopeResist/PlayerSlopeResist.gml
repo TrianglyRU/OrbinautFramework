@@ -10,7 +10,7 @@ function PlayerSlopeResist()
 	SlopeGravity = 0.125 * dsin(Angle);
 	
 	// Apply it
-	if !Game.S3KSlopePhysics
+	if !Game.S3SlopePhysics
 	{
 		// Apply slope gravity only when moving
 		if Inertia != 0

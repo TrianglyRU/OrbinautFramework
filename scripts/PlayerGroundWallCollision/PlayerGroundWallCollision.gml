@@ -9,7 +9,7 @@ function PlayerGroundWallCollision()
 	// Exit if angle is too steep or not a cardinal one
 	if Angle >= 90 and Angle <= 270
 	{
-		if !Game.S3KWallCollision or Angle mod 90 != 0
+		if !Game.SKWallCollision or Angle mod 90 != 0
 		{
 			exit;
 		}
