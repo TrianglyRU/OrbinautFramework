@@ -15,7 +15,13 @@ function ObjPushableBlockMain()
 				Player.PosX   += 1;
 				
 				PosX	 += 1;
-				Direction = FlipRight;				
+				Direction = FlipRight;
+				
+				// Play sound
+				if !audio_sfx_is_playing(sfxPush)
+				{
+					audio_sfx_play(sfxPush, false);
+				}
 			}
 			else if object_check_push(SideRight)
 			{
@@ -24,11 +30,23 @@ function ObjPushableBlockMain()
 				
 				PosX	 -= 1;
 				Direction = FlipLeft;
+				
+				// Play sound
+				if !audio_sfx_is_playing(sfxPush)
+				{
+					audio_sfx_play(sfxPush, false);
+				}
+			}
+			
+			// Exit the code if not pushing
+			else
+			{
+				exit;
 			}
 			
 			// Check for floor collision
 			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
-			if  FindFloor > 0
+			if  FindFloor > 4
 			{
 				PosX     -= Direction;
 				State	 += 1;
@@ -36,6 +54,10 @@ function ObjPushableBlockMain()
 				
 				// Clear player push flag
 				Player.Pushing = false;
+			}
+			else
+			{
+				PosY += FindFloor;
 			}
 			
 			// Check for wall collision

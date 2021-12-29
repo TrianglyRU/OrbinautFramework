@@ -110,6 +110,7 @@
     {"id":{"name":"SplashScreenStartup","path":"scripts/SplashScreenStartup/SplashScreenStartup.yy",},"order":2,},
     {"id":{"name":"tex_tsz_bg03","path":"sprites/tex_tsz_bg03/tex_tsz_bg03.yy",},"order":2,},
     {"id":{"name":"sfxExplosion","path":"sounds/sfxExplosion/sfxExplosion.yy",},"order":30,},
+    {"id":{"name":"sfxPush","path":"sounds/sfxPush/sfxPush.yy",},"order":51,},
     {"id":{"name":"application_set_size","path":"scripts/application_set_size/application_set_size.yy",},"order":1,},
     {"id":{"name":"audio_bgm_mute","path":"scripts/audio_bgm_mute/audio_bgm_mute.yy",},"order":2,},
     {"id":{"name":"audio_bgm_play","path":"scripts/audio_bgm_play/audio_bgm_play.yy",},"order":3,},
