@@ -16,12 +16,6 @@ function ObjPushableBlockMain()
 				
 				PosX	 += 1;
 				Direction = FlipRight;
-				
-				// Play sound
-				if !audio_sfx_is_playing(sfxPush)
-				{
-					audio_sfx_play(sfxPush, false);
-				}
 			}
 			else if object_check_push(SideRight)
 			{
@@ -30,18 +24,18 @@ function ObjPushableBlockMain()
 				
 				PosX	 -= 1;
 				Direction = FlipLeft;
-				
-				// Play sound
-				if !audio_sfx_is_playing(sfxPush)
-				{
-					audio_sfx_play(sfxPush, false);
-				}
 			}
 			
 			// Exit the code if not pushing
 			else
 			{
 				exit;
+			}
+			
+			// Play sound
+			if !audio_sfx_is_playing(sfxPush)
+			{
+				audio_sfx_play(sfxPush, false);
 			}
 			
 			// Check for floor collision
