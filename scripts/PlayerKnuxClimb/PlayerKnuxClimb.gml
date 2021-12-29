@@ -47,24 +47,32 @@ function PlayerKnuxClimb()
 			}
 			else
 			{
-				// If near the edge, start clambering
-				var FindWall = tile_check(PosX + (RadiusX + 3) * Facing, PosY - 10, false, Layer);
-				if !FindWall
+				// Collide with ceiling
+				var FindRoof = tile_find_v(PosX + RadiusX * Facing, PosY - DefaultRadiusY, false, true, Layer)[0];
+				if  FindRoof < 0
 				{
-					Ysp		   = 0;
-					ClimbState = 2;
-					
-					// Align to the edge
-					while !tile_check(PosX + (RadiusX + 1) * Facing, PosY - 10, false, Layer)
+					PosY -= FindRoof;
+				}
+				else
+				{
+					// Collide with floor
+					var FindFloor = tile_find_v(PosX + RadiusX * Facing, PosY + DefaultRadiusY, true, false, Layer);
+					if  FindFloor[0] < 0
 					{
-						PosY++;
+						if FindFloor[1] <= 45 or FindFloor[1] >= 316.41
+						{
+							Grounded  = true;
+							Animation = AnimIdle;
+					
+							// Adjust position
+							PosY += FindFloor[0] + DefaultRadiusY - RadiusY; break;
+						}
 					}
-					break;
 				}
 				
-				// Drop if no wall found in front of us
-				var FindWall = tile_check(PosX + (RadiusX + 3) * Facing, PosY + 10, false, Layer);
-				if !FindWall
+				// Drop if no tile found in front of us or we're actually inside of it (like there is slope below us, for example)
+				var FindWall = tile_find_h(PosX + RadiusX * Facing, PosY + 10, Facing, false, Layer);
+				if  FindWall[0] < 0 or FindWall[1] == noone
 				{
 					ClimbState = false;
 					GlideState = GlideFall;
@@ -87,26 +95,17 @@ function PlayerKnuxClimb()
 					break;
 				}
 				
-				// Collide with ceiling
-				var FindRoof = tile_find_v(PosX + RadiusX * Facing, PosY - DefaultRadiusY, false, true, Layer)[0];
-				if  FindRoof < 0
+				// If no tile found above us, start clambering
+				var FindWall = tile_find_h(PosX + RadiusX * Facing, PosY - 10, Facing, false, Layer);
+				if  FindWall[1] == noone
 				{
-					PosY -= FindRoof;
-				}
-				else
-				{
-					// Collide with floor
-					var FindFloor = tile_find_v(PosX + RadiusX * Facing, PosY + DefaultRadiusY, true, false, Layer);
-					if  FindFloor[0] < 0
-					{
-						if FindFloor[1] <= 45 or FindFloor[1] >= 316.41
-						{
-							Grounded  = true;
-							Animation = AnimIdle;
+					Ysp		   = 0;
+					ClimbState = 2;
 					
-							// Adjust position
-							PosY += FindFloor[0] + DefaultRadiusY - RadiusY;
-						}
+					// Align to the edge
+					while !tile_check(PosX + (RadiusX + 1) * Facing, PosY - 10, false, Layer)
+					{
+						PosY++;
 					}
 				}
 			}
