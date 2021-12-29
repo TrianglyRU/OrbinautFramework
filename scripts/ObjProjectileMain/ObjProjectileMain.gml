@@ -12,8 +12,8 @@ function ObjProjectileMain()
 	if object_check_overlap(TypeHitbox)
 	{
 		// Check if projectile should be reflected
-		if Player.Animation == AnimFly   and floor(Player.PosY) > y
-		or Player.Animation == AnimGlide and sign(x - floor(Player.PosX)) == sign(Player.Facing)	
+		if Player.FlightState			 and floor(Player.PosY) > y
+		or Player.GlideState == GlideAir and sign(x - floor(Player.PosX)) == sign(Player.Facing)
 		or Player.BarrierType > BarrierNormal 
 		{
 			if !State

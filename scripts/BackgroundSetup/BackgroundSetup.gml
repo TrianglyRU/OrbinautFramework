@@ -16,14 +16,14 @@ function BackgroundSetup()
 			background_layer_add(7, tex_tsz_bg07);
 			
 			// Setup layers
-			background_layer_setup(0, 0, 0,   0.45, 0.05, -0.5, 0, 0,     false);
-			background_layer_setup(1, 0, 20,  0.35, 0.05, -0.3, 0, 0,     false);
-			background_layer_setup(2, 0, 41,  0.25, 0.05, -0.1, 0, 0,     false);
-			background_layer_setup(3, 0, 59,  0.13, 0.05, 0,    0, 0,     false);
-			background_layer_setup(4, 0, 116, 0.15, 0.05, 0,    0, 0,     false);
-			background_layer_setup(5, 0, 143, 0.19, 0.05, 0,    0, 0,     false);
-			background_layer_setup(6, 0, 164, 0.19, 0.05, 0,    1, 0.008, false);
-			background_layer_setup(7, 0, 189, 0.6,  0.05, 0,    0, 0,     false);
+			background_layer_setup(0, 0, 0,   0.45, 0.05, -0.5, 0, 0, 0,     false);
+			background_layer_setup(1, 0, 20,  0.35, 0.05, -0.3, 0, 0, 0,     false);
+			background_layer_setup(2, 0, 41,  0.25, 0.05, -0.1, 0, 0, 0,     false);
+			background_layer_setup(3, 0, 59,  0.13, 0.05, 0,    0, 0, 0,     false);
+			background_layer_setup(4, 0, 116, 0.15, 0.05, 0,    0, 0, 0,     false);
+			background_layer_setup(5, 0, 143, 0.19, 0.05, 0,    0, 0, 0,     false);
+			background_layer_setup(6, 0, 164, 0.19, 0.05, 0,    0, 1, 0.008, false);
+			background_layer_setup(7, 0, 189, 0.6,  0.05, 0,    0, 0, 0,     false);
 			
 			// Set colour
 			background_colour_set($004400);

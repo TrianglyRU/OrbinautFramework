@@ -20,7 +20,7 @@ function BackgroundProcess()
 		// Update autoscroll value
 		if UpdateAutoscroll
 		{
-			BGValues[i][11] += BGValues[i][4];
+			BGValues[i][12] += BGValues[i][4];
 		}
 		
 		// Get data
@@ -28,13 +28,14 @@ function BackgroundProcess()
 		var PosY	      = BGValues[i][1];
 		var ScrollX	      = BGValues[i][2];
 		var ScrollY	      = BGValues[i][3];
-		var ScrollXAuto	  = BGValues[i][11];
 		var InclineHeight = BGValues[i][5];
 		var InclineStep   = BGValues[i][6];
 		var InclineModeY  = BGValues[i][7];
-		var Height	      = BGValues[i][8];
-		var Width	      = BGValues[i][9];
-		var MapSize       = BGValues[i][10];
+		var AnimSpeed     = BGValues[i][8];
+		var Height	      = BGValues[i][9];
+		var Width	      = BGValues[i][10];
+		var MapSize       = BGValues[i][11];
+		var ScrollXAuto	  = BGValues[i][12];
 		
 		// Get screen position
 		var DrawX = ViewX;
@@ -64,14 +65,24 @@ function BackgroundProcess()
 			shader_set_uniform_f(Shader.PrlYScale,    YScale);
 		}
 		
-		// Draw parallax piece
-		if InclineModeY
+		// Get a frame to display
+		if !AnimSpeed
 		{
-			draw_sprite_ext(BGSprites[i], 0, DrawX + PosX, DrawY, 1, YScale, 0, c_white, 1);
+			var Frame = 0;
 		}
 		else
 		{
-			draw_sprite(BGSprites[i], 0, DrawX + PosX, DrawY);
+			var Frame = Game.GlobalTime div AnimSpeed mod sprite_get_number(BGSprites[i]);
+		}
+		
+		// Draw parallax piece
+		if InclineModeY
+		{
+			draw_sprite_ext(BGSprites[i], Frame, DrawX + PosX, DrawY, 1, YScale, 0, c_white, 1);
+		}
+		else
+		{
+			draw_sprite(BGSprites[i], Frame, DrawX + PosX, DrawY);
 		}
 		
 		// Reset incline height
