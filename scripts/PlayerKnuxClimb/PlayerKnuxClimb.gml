@@ -103,9 +103,10 @@ function PlayerKnuxClimb()
 					ClimbState = 2;
 					
 					// Align to the edge
-					while !tile_check(PosX + (RadiusX + 1) * Facing, PosY - 10, false, Layer)
+					var Align = tile_find_v(PosX + (RadiusX + 1) * Facing, PosY - 11, true, false, Layer)[0];
+					if  Align
 					{
-						PosY++;
+						PosY += Align; 
 					}
 				}
 			}
