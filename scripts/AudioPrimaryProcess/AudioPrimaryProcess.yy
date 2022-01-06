@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Audio.yy",
   },
   "resourceVersion": "1.0",
-  "name": "AudioLowProcess",
+  "name": "AudioPrimaryProcess",
   "tags": [],
   "resourceType": "GMScript",
 }

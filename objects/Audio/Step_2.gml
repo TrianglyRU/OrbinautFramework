@@ -2,5 +2,5 @@
 // You can write your code in this editor
 	
 	// Post-Objects Scripts
-	AudioLowProcess();
-	AudioHighProcess();
+	AudioPrimaryProcess();
+	AudioPriorityProcess();

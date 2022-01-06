@@ -127,7 +127,7 @@ function PlayerBalance()
 	else
 	{
 		/* In orginals, the widest balance range varies from object to object (2 to 4). We'll
-		use a range of 4 pixels */
+		use a range of 2 pixels */
 		
 		// Ignore specific objects
 		if OnObject.object_index == Bridge
@@ -140,7 +140,7 @@ function PlayerBalance()
 		var RightEdge = OnObject.Obj_SolidX * 2 - 1;
 		
 		// Standing on the left edge
-		if PlayerX < 4
+		if PlayerX < 2
 		{
 			if !SuperState and Game.Character == CharSonic
 			{
@@ -181,7 +181,7 @@ function PlayerBalance()
 		}
 		
 		// Standing on the right edge
-		else if PlayerX > RightEdge - 4
+		else if PlayerX > RightEdge - 2
 		{
 			if !SuperState and Game.Character == CharSonic
 			{

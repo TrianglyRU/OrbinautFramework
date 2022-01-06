@@ -1,4 +1,4 @@
-function AudioHighProcess()
+function AudioPriorityProcess()
 {
 	// Exit if no secondary track is playing
 	if !SecondaryTrack[1]
@@ -29,7 +29,7 @@ function AudioHighProcess()
 	}
 	
 	// Stop track once it finished playing
-	if audio_sound_get_track_position(Track) >= audio_sound_length(Track)
+	if audio_sound_get_track_position(Track) >= audio_sound_length(Track) - 0.1
 	{
 		audio_bgm_stop(ChannelSecondary, 0);
 	}

@@ -1,4 +1,4 @@
-function AudioLowProcess()
+function AudioPrimaryProcess()
 {
 	// Exit if primary track is playing
 	if !PrimaryTrack[1] 
@@ -21,7 +21,7 @@ function AudioLowProcess()
 			audio_sound_set_track_position(Track, LoopData[0] + (TrackPosition - LoopData[1]));
 		}
 	}
-	else if TrackPosition >= audio_sound_length(Track)
+	else if TrackPosition >= audio_sound_length(Track) - 0.1
 	{
 		audio_bgm_stop(ChannelPrimary, 0);
 	}
