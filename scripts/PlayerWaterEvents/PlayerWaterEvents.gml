@@ -29,7 +29,7 @@ function PlayerWaterEvents()
 			}
 				
 			// Create splash object
-			if !Grounded
+			if !Grounded and !ClimbState
 			{
 				audio_sfx_play(sfxWaterSplash, false);
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
@@ -174,7 +174,7 @@ function PlayerWaterEvents()
 			AirTimer     = 1800;
 			
 			// Create splash object
-			if !Grounded
+			if !Grounded and !ClimbState
 			{
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				audio_sfx_play(sfxWaterSplash, false);

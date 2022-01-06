@@ -109,11 +109,6 @@ function PlayerStartup()
 	RadiusY = DefaultRadiusY;
 	RadiusW = 10;				// Wall radius. It is 10 for everyone by default
 	
-	// Load score and lives
-	Score		 = Game.Score;
-	Lives		 = Game.Lives;
-	LivesRewards = [(Rings div 100 * 100) + 100, (Score div 50000 * 50000) + 50000];
-	
 	// If respawning on checkpoint, load saved player data
 	if array_length(Game.StarPostData)
 	{
@@ -149,6 +144,11 @@ function PlayerStartup()
 		// Clear array
 		Game.BonusStageData = [];
 	}
+	
+	// Load score and lives
+	Score		 = Game.Score;
+	Lives		 = Game.Lives;
+	LivesRewards = [(Rings div 100 * 100) + 100, (Score div 50000 * 50000) + 50000];
 	
 	// Initialise recorded position datalist
 	RecordedPosX = ds_list_create();

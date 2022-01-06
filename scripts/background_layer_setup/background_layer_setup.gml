@@ -26,7 +26,7 @@ function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animSpeed,inc
 		
 		// Set texel data
 		BGValues[id][9]  = sprite_get_height(BGSprites[id]);
-		BGValues[id][10]  = sprite_get_width(BGSprites[id]);
+		BGValues[id][10] = sprite_get_width(BGSprites[id]);
 		BGValues[id][11] = 1 / texture_get_texel_width(sprite_get_texture(BGSprites[id], 0));
 		
 		// Initialise autoscroll speed

@@ -6,7 +6,7 @@ function PaletteSetup()
 		case Stage_TZ:
 		{
 			palette_load(TypePrimary,   pal_default_type1);
-			palette_load(TypeSecondary, pal_default_type2);
+			palette_load(TypeSecondary, pal_tz_type2);
 		}
 		break;
 		
