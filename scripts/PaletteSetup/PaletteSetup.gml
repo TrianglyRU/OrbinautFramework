@@ -2,7 +2,7 @@ function PaletteSetup()
 {	
 	switch room 
 	{
-		// Load basic palette for Test Stage
+		// Load palette sheets for Test Stage
 		case Stage_TZ:
 		{
 			palette_load(TypePrimary,   pal_default_type1);
@@ -10,7 +10,7 @@ function PaletteSetup()
 		}
 		break;
 		
-		// Do not load any palettes by default
+		// Do not load any palette sheets by default
 		default:
 		{
 			palette_load(TypePrimary,   noone);

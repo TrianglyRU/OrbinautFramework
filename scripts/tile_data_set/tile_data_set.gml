@@ -1,5 +1,5 @@
-/// @function tile_data_set(name,amount,layerA,layerB)
-function tile_data_set(name,amount,layerA,layerB)
+/// @function tile_data_set(name,tileAmount,layerA,layerB)
+function tile_data_set(name,tileAmount,layerA,layerB)
 {
 	// Check if we should initialise tiledata
 	if name != noone
@@ -10,7 +10,7 @@ function tile_data_set(name,amount,layerA,layerB)
 		}
 		else
 		{
-			Game.TileData   = [name, amount];
+			Game.TileData   = [name, tileAmount];
 			Game.TileLayers = [layer_tilemap_get_id(layerA), layer_tilemap_get_id(layerB)];
 		}
 	}

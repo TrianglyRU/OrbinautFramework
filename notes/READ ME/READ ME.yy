@@ -4,7 +4,7 @@
     "path": "OrbinautFramework.yyp",
   },
   "resourceVersion": "1.1",
-  "name": "PLEASE READ!",
+  "name": "READ ME",
   "tags": [],
   "resourceType": "GMNotes",
 }

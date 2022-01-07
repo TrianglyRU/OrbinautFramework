@@ -1,0 +1,22 @@
+
+	Welcome to Orbinaut Framework!
+
+	We recommened to use the master version of Orbinaut (basically the code from GitHub) instead of the one 
+	provided in the release package as it can have a few fixes that aren't present in the release package version.
+
+	In any case, even if you have downloaded the master please, download the release package,
+	as it includes our Collision Editor and PDF documentation. It is always available at this link:
+	
+	https://github.com/TrianglyRU/OrbinautFramework/releases
+	
+	Thank you for choosing our framework <3
+	Make sure to join our Discord community for help: https://discord.gg/vyNr2MmjbJ
+
+	- Triangly, MicG
+	
+	QUICK START:
+	- If you get an error like "can't open the file" when trying to run the project, run GMS2 as Administrator;
+	- You can setup various framework flags in GameSetup();
+	- Do not create a new room for your stage, just dublicate Stage_Template room;
+	- When creating a new stage, you SHOULD initiaise a collision tileset for it in GameCollisionsSetup();
+	- When creating a new stage, you can also initialise a palette sheet for it, if needed, in PaletteSetup().
