@@ -3,21 +3,21 @@ Orbinaut Framework is an extremely accurate and, which is most important, a very
 
 # Features
 - 100% classic-accurate physics
-- Accurate object and stage collision (tiles) method based on distances.
-- Various toggable frameworks tweaks, including differences between classic trilogy games
+- Accurate object and stage collision (tile collision) method based on distances
+- Various toggleable frameworks tweaks, including differences between mainline classic games
 - Discord Rich Presence support
 - Solid optimisation
-- and much more!
+..and much more!
 
 # Documentation
-We're currently developing a detailed documentation for our framework, planned to release by the end of this year, please stay tuned!
+*placeholder*
 
-# Special Thanks
-- LapperDev
-- Mercury the Sonic Physics Guy
-- Nihil (NullSpace)
-- PixelatedPope
-- Nkrapivin (Discord RP plugin)
+# Credits
+- LapperDev -- for updates on SPG and help with S1 dissasembly
+- Mercury -- for breaking down the logic of bubble generation
+- Nihil (NullSpace) -- for player rotation code
+- PixelatedPope -- for the palette shader, from which we took a small part of it
+- Nkrapivin -- for Discord Rich Presence plugin
 
 # Terms of use
 - You are not allowed to re-release our framework with "features" added it (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.). Feel free to use it only for your own closed-source projects.
