@@ -24,6 +24,7 @@ function PlayerKnuxClimb()
 			{
 				Facing	  *= -1;
 				Jumping	   = true;
+				Spinning   = true;
 				ClimbState = false;
 				Animation  = AnimSpin;
 			

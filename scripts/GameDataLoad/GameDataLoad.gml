@@ -1,5 +1,11 @@
 function GameDataLoad()
 {
+	// Create sub-directory in OrbinautFramework folder
+	if !directory_exists(Game.FolderName)
+	{
+		directory_create(Game.FolderName);
+	}
+	
 	// Load saved data
 	for (var i = 0; i < 4; i++)
 	{

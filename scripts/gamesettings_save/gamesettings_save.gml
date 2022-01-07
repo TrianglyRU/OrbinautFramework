@@ -2,7 +2,7 @@
 function gamesettings_save(filename)
 {
 	// Open config file
-	ini_open(filename + ".ini");
+	ini_open(Game.FolderName + "/" + filename + ".ini");
 	
 	// Write data
 	ini_write_real("Control",  "Up",			 Game.KeyboardControl[0]);

@@ -5,7 +5,7 @@ function gamedata_load(slot)
 	You'd want to create additional file for that case, like saveextra */
 	
 	// Get savedata file name
-	var Filename = "saveslot" + string(slot + 1) + ".bin";
+	var Filename = Game.FolderName + "/" +  "saveslot" + string(slot + 1) + ".bin";
 	
 	// Check it if exists
 	if file_exists(Filename)
