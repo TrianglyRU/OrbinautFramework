@@ -1,7 +1,7 @@
 function StageSetup()
 {	
-	// Define last zone id. That will be used to mark savefile as completed one
-	FinalZoneID = 0;
+	// Define last zone id. That will be used to mark savefile as the completed one
+	FinalZoneID = -1;
 	
 	// Osillate angle to use for objects
 	OscillateAngle = 1.40625;

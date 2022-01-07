@@ -87,6 +87,14 @@ function StageObjectsProcess()
 							event_perform(ev_create, 0);
 							
 							// Deactivate
+							if IsParent
+							{
+								var Length = array_length(Obj_ChildrenIDs);
+								for (var i = 0; i < Length; i++)
+								{
+									instance_deactivate_object(Obj_ChildrenIDs[i]);
+								}
+							}
 							instance_deactivate_object(id);
 						}
 					}

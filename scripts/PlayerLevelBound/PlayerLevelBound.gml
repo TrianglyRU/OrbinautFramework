@@ -44,6 +44,12 @@ function PlayerLevelBound()
 		}
 	}
 	
+	// Prevent us from gliding above top boundary
+	if GlideState == GlideAir and floor(PosY) < Stage.TopBoundary + 10
+	{
+		Xsp = 0;
+	}
+	
 	// Kill us if we have fallen below death boundary
 	if !Death and !Drown
 	{

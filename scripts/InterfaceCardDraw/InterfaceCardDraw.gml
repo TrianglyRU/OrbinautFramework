@@ -133,7 +133,7 @@ function InterfaceCardDraw()
 	}
 		
 	// Draw act number
-	draw_sprite(gui_card_act, Stage.FinalActID ? Stage.ActID : 3, CardValue[6], Game.Height / 2 + 4);	
+	draw_sprite(gui_card_act, Stage.ActID, CardValue[6], Game.Height / 2 + 4);	
 		
 	// Draw ribbon
 	draw_sprite(gui_card_ribbon, 0, floor(CardValue[3]), floor(CardValue[2]));
