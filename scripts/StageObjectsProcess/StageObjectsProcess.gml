@@ -105,6 +105,6 @@ function StageObjectsProcess()
 		}
 	}
 	
-	// Activate objects (object's that were unloaded this frame WON'T activate)
+	// Activate objects (object's that were unloaded this frame before WON'T activate)
 	instance_activate_range(Camera.ViewX);
 }

@@ -32,6 +32,9 @@ function MenuFunctions()
 		// Update option
 		MenuID	 = listid;
 		OptionID = 0;
+		
+		// Play sound
+		audio_sfx_play(sfxPauseSelect, false);
 	}
 	
 	/// @function menu_update_option(listid,optionid,newname)

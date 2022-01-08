@@ -145,8 +145,6 @@ function ObjCrabmeatMain()
 		break;	
 	}
 	
-	show_debug_message(State);
-	
 	// Update position
 	x = floor(PosX);
 	y = floor(PosY);

@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "instance_create_children",
+  "name": "instance_create_child",
   "tags": [],
   "resourceType": "GMScript",
 }

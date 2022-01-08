@@ -31,41 +31,53 @@ function MenuOptionsProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
-				// Get current slot id
+				// Set active save (no-save slot will be -1)
 				Game.ActiveSave = OptionID - 1;
-		
-				// Check if there is data
-				if OptionID >= 1 and OptionID <= 4 and Game.SaveData[Game.ActiveSave] != 0
-				{
-					// Apply data
-					Game.Character = Game.SaveData[Game.ActiveSave][0];
-					Game.Stage	   = Game.SaveData[Game.ActiveSave][1];
-					Game.Emeralds  = Game.SaveData[Game.ActiveSave][2];
-					Game.Lives	   = Game.SaveData[Game.ActiveSave][3];
-					Game.Continues = Game.SaveData[Game.ActiveSave][4];
-					Game.SaveState = Game.SaveData[Game.ActiveSave][5];
-					Game.Score	   = Game.SaveData[Game.ActiveSave][6];
 				
-					// Load stage if the game is not completed
-					if !Game.SaveState
-					{
-						switch Game.Stage
-						{
-							default:
-								room_goto(Stage_TZ);
-							break;
-						}
-					}
-					else
-					{
-						/* You can add redirection to your in-game level select here */
-					}
-				}
-				
-				// Redirect to character select
-				else if OptionID != 5
+				// Redirect to character select if selected no-save slot
+				if !OptionID
 				{
 					menu_list_redirect(2, true, true);
+				}
+				else if OptionID < 5
+				{
+					// Get slot
+					var Slot  = Game.SaveData[Game.ActiveSave];
+					if  Slot != 0
+					{
+						// Apply data
+						Game.Character = Slot[0];
+						Game.Stage	   = Slot[1];
+						Game.Emeralds  = Slot[2];
+						Game.Lives	   = Slot[3];
+						Game.Continues = Slot[4];
+						Game.SaveState = Slot[5];
+						Game.Score	   = Slot[6];
+				
+						// Load stage if the game is not completed
+						if !Game.SaveState
+						{
+							// Game.Stage is a ZoneID you set in StageSetup()
+							switch Game.Stage
+							{
+								default:
+									room_goto(Stage_TZ);
+								break;
+							}
+						}
+						else
+						{
+							/* You can add redirection to your in-game level select here,
+							we'll play funny sound instead :P */	
+							audio_sfx_play(sfxScoreTally, false);
+						}
+					}
+					
+					// Redirect to character select if slot is empty
+					else
+					{
+						menu_list_redirect(2, true, true);
+					}
 				}
 				
 				// Redirect to save deletion
@@ -77,49 +89,42 @@ function MenuOptionsProcess()
 		}
 		break;
 	
-		// Game Start (character select with empty saveslot)
+		// Character Select
 		case 2:
+		case 3:
 		{
 			if Input.APress or Input.StartPress
 			{
-				// Load first zone
-				room_goto(Stage_TZ);
-		
 				// Set data
 				Game.Character = OptionID;
 				Game.Emeralds  = 0;
 				Game.Lives	   = 3;
 				Game.Continues = 0;
 				Game.Score	   = 0;	
-		
-				// Save data if starting the game not in "no save" slot
-				if Game.ActiveSave != -1
-				{
-					gamedata_save(Game.ActiveSave);
-				}
-			}
-		}
-		break;
-	
-		// Stage Select (character select)
-		case 3:
-		{
-			if Input.APress or Input.StartPress
-			{
-				// Set data
-				Game.Character = OptionID;	
-				Game.Emeralds  = 0;
-				Game.Lives	   = 3;
-				Game.Continues = 0;
-				Game.Score	   = 0;
 				
-				// Redirect to stage select
-				menu_list_redirect(4, false, true);
+				// Starting a new game
+				if MenuID == 2
+				{
+					// Load into the first zone
+					room_goto(Stage_TZ);
+					
+					// Save data if not in "no-save" mode
+					if Game.ActiveSave != -1
+					{
+						gamedata_save(Game.ActiveSave);
+					}
+				}
+				
+				// Redirecting to Stage Select
+				else
+				{
+					menu_list_redirect(4, false, true);
+				}			
 			}
 		}
 		break;
-	
-		// Stage Select (zone select)
+		
+		// Stage Select
 		case 4:
 		{
 			if Input.APress or Input.StartPress
@@ -271,7 +276,7 @@ function MenuOptionsProcess()
 		}
 		break;
 		
-		// Game Start (save deletetion)
+		// Game Start (save deletion)
 		case 9:
 		{
 			if Input.APress or Input.StartPress

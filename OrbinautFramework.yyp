@@ -526,7 +526,7 @@
     {"id":{"name":"spr_obj_bubble_number3","path":"sprites/spr_obj_bubble_number3/spr_obj_bubble_number3.yy",},"order":36,},
     {"id":{"name":"spr_obj_dustexplosion","path":"sprites/spr_obj_dustexplosion/spr_obj_dustexplosion.yy",},"order":46,},
     {"id":{"name":"tile_find_2h","path":"scripts/tile_find_2h/tile_find_2h.yy",},"order":72,},
-    {"id":{"name":"instance_create_children","path":"scripts/instance_create_children/instance_create_children.yy",},"order":44,},
+    {"id":{"name":"instance_create_child","path":"scripts/instance_create_child/instance_create_child.yy",},"order":44,},
     {"id":{"name":"spr_obj_dustpuff","path":"sprites/spr_obj_dustpuff/spr_obj_dustpuff.yy",},"order":43,},
     {"id":{"name":"spr_obj_fireexplosion","path":"sprites/spr_obj_fireexplosion/spr_obj_fireexplosion.yy",},"order":47,},
     {"id":{"name":"TSZTileset","path":"tilesets/TSZTileset/TSZTileset.yy",},"order":2,},
