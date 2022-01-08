@@ -236,7 +236,7 @@ function InterfaceResultsDraw()
 					var Icon = gui_icon_knuckles;
 				break;
 			}
-			draw_animated_sprite(Icon, 8, ResultsValue[0], CentreX + 96, CentreY + 11);
+			draw_animated_sprite(Icon, 8, false, CentreX + 96, CentreY + 11);
 		}
 	}
 	

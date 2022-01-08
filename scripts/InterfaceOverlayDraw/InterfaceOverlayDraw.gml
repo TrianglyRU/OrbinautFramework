@@ -31,7 +31,7 @@ function InterfaceOverlayDraw()
 	// Draw SCORE, TIME and RINGS graphics
 	if StageTime > 32400
 	{
-		draw_animated_sprite(gui_hud_time, 8, Game.GlobalTime, ScreenX + 31, ScreenY + 30);
+		draw_animated_sprite(gui_hud_time, 8, true, ScreenX + 31, ScreenY + 30);
 	}
 	else
 	{
@@ -39,7 +39,7 @@ function InterfaceOverlayDraw()
 	}
 	if !Player.Rings
 	{
-		draw_animated_sprite(gui_hud_rings, 8, Game.GlobalTime, ScreenX + 35, ScreenY + 46);
+		draw_animated_sprite(gui_hud_rings, 8, true, ScreenX + 35, ScreenY + 46);
 	}
 	else
 	{

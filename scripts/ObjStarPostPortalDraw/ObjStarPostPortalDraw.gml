@@ -17,7 +17,14 @@ function ObjStarPostPortalDraw()
 		var PosX = (SinX * Temp1) >> 21;
 		var PosY = (SinY * Temp1) >> 21;
 		
-		// Draw
-		draw_animated_sprite(spr_obj_starpost_portal, 2, Timer, floor(x + PosX), floor(y + PosY));
+		// Draw sprite
+		draw_animated_sprite(spr_obj_starpost_portal, 8, false, floor(x + PosX), floor(y + PosY));
+		
+		/* 8 here is actually equals to 2 frames, because we call the function FOUR times its timer
+		increased by 4 each frame instead of 1, so the duration should be 4 times greater as well 
+		
+		Obviously, this won't work correctly if there are two Star Posts nearby to each other. This
+		can be solved by making the stars instances, or by using global time
+		*/
 	}
 }

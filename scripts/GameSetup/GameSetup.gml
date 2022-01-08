@@ -51,6 +51,7 @@ function GameSetup()
 	// Initialise other variables
 	Game.Character		 = 0;
 	Game.GlobalTime		 = 0;
+	Game.SpriteTimers    = 0;
 	Game.ActiveSave      = 0;
 	Game.SaveData		 = 0;
 	Game.SaveState       = 0;
@@ -61,7 +62,7 @@ function GameSetup()
 	Game.Stage			 = 0;
 	Game.StageRoom       = 0;
 	Game.SpecialScore    = 0;
-	Game.SpecialState    = 0;	
+	Game.SpecialState    = 0;
 	Game.DiscordTime	 = 0;
 	Game.DiscordEvent	 = "";
 	Game.StarPostData    = [];
