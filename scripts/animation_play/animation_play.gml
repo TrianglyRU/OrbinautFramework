@@ -1,8 +1,8 @@
 /// @function animation_play(spriteid,duration,startframe,loopframe)
 function animation_play(spriteid,duration,startframe,loopframe)
 {
-	// Update animation
-	if sprite_index != spriteid or !variable_instance_exists(id, "image_duration")
+	// Update or set animation
+	if sprite_index != spriteid or event_type == ev_create
 	{
 		if !is_array(duration)
 		{

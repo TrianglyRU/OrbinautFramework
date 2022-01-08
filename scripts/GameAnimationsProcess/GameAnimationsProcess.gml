@@ -6,10 +6,16 @@ function GameAnimationsProcess()
 		sprite_set_speed(sprite_index, 0, spritespeed_framespergameframe);
 		
 		// Check if animation should be played for this object
-		if variable_instance_exists(id, "image_duration") and !variable_check(Stage, "IsPaused")
+		if !variable_instance_exists(id, "image_duration")
+		{
+			image_timer     = 0;
+			image_duration  = 0;
+			image_loopframe = 0;
+		}
+		else if image_duration != 0
 		{
 			// Handle subimage change
-			if image_duration != 0 and !fade_check(StateActive)
+			if !fade_check(StateActive) and !variable_check(Stage, "IsPaused")
 			{
 				if !(--image_timer)
 				{

@@ -43,9 +43,6 @@ function ObjAirBubblerMain()
 					
 					// Set object triggerbox
 					object_set_triggerbox(-16, 16, -16, 16);
-					
-					// Play animation
-					animation_play(sprite_index, 15, 2, 6);
 				}
 			}
 			else 
@@ -57,9 +54,6 @@ function ObjAirBubblerMain()
 					{
 						Direction  = FlipRight;
 						BubbleType = 0;
-						
-						// Play animation
-						animation_play(sprite_index, 15, 0, 2);
 					}
 				}
 			
@@ -70,9 +64,6 @@ function ObjAirBubblerMain()
 					{
 						Direction  = FlipRight;
 						BubbleType = 1;
-						
-						// Play animation
-						animation_play(sprite_index, 15, 1, 4);
 					}
 				}
 			}
