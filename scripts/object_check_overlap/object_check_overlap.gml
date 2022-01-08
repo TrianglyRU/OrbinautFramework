@@ -11,12 +11,6 @@ function object_check_overlap(collisionType)
 		case TypeHitbox:
 		case TypeHitbox2:
 		{
-			// Exit if this object hitbox isn't initialised
-			if !variable_instance_exists(id, "Obj_HitX")
-			{
-				return false;
-			}
-		
 			// Exit if object can't be overlapped
 			if !Obj_HitX or !Obj_HitY
 			{
@@ -25,6 +19,12 @@ function object_check_overlap(collisionType)
 		
 			// Exit if object is off-screen
 			if !object_is_onscreen(id)
+			{
+				return false;
+			}
+			
+			// Exit if this object hitbox isn't initialised
+			if !variable_instance_exists(id, "Obj_HitX")
 			{
 				return false;
 			}

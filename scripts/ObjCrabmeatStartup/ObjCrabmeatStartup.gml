@@ -7,8 +7,9 @@ function ObjCrabmeatStartup()
 	PreviousSprite = 0;
 	
 	// Set default position
-	PosX = x;
-	PosY = y;
+	PosX      = x;
+	PosY      = y;
+	Direction = image_xscale;
 
 	// Set object hitbox
 	object_set_hitbox(16, 16);

@@ -17,13 +17,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 		exit;
 	}
 	
-	// Exit if no solid radiuses were initialised for this object
-	if !variable_instance_exists(id, "Obj_SolidX")
-	{
-		exit;
-	}
-	
-	
 	// Exit if the object's solid radiuses are null
 	if !Obj_SolidX or !Obj_SolidY
 	{
@@ -38,6 +31,12 @@ function object_act_solid(sides,top,bottom,resetActions)
 	
 	// Exit if the object is off-screen
 	if !object_is_onscreen(id)
+	{
+		exit;
+	}
+	
+	// Exit if no solid radiuses were initialised for this object
+	if !variable_instance_exists(id, "Obj_SolidX")
 	{
 		exit;
 	}

@@ -32,7 +32,6 @@ function ObjBubbleMain()
 			// If reached last frame possible, pop the bubble
 			if image_index == 6
 			{
-				// Update animation
 				animation_play(spr_obj_bubble_disappear, 6, 0, 3);
 			}
 			
@@ -51,38 +50,13 @@ function ObjBubbleMain()
 	}
 	else
 	{
-		// Set animation
-		switch BubbleType
+		// Fix animation at certain frame
+		if BubbleType < 2
 		{
-			case 0:
+			if image_index >= 2 + BubbleType * 2
 			{
-				if image_index == 2
-				{
-					animation_set(sprite_index, 2);
-				}
-				else
-				{
-					animation_play(sprite_index, 15, 0, 2);
-				}
+				image_index = 2 + BubbleType * 2;
 			}
-			break;
-			case 1:
-			{
-				if image_index == 4
-				{
-					animation_set(sprite_index, 4);
-				}
-				else
-				{
-					animation_play(sprite_index, 15, 1, 4);
-				}
-			}
-			break;
-			case 2:
-			{
-				animation_play(sprite_index, 15, 2, 6);
-			}
-			break;
 		}
 		
 		// Move bubble	

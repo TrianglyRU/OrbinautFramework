@@ -66,6 +66,11 @@ function ObjBubbleControllerMain()
 					sprite_index = Sprite;
 					image_index  = 0;
 				}
+				else
+				{
+					// Play animation for the regular bubble
+					animation_play(sprite_index, 15, 0, 2);
+				}
 				Direction = Player.Facing;
 			}
 			if Type == CountdownBubble
@@ -88,6 +93,11 @@ function ObjBubbleControllerMain()
 					{
 						sprite_index = Sprite;
 						image_index  = 0;
+					}
+					else
+					{
+						// Play animation for the regular bubble
+						animation_play(sprite_index, 15, 0, 2);
 					}
 					Direction = Player.Facing;
 				}
@@ -115,7 +125,14 @@ function ObjBubbleControllerMain()
 			with Object
 			{
 				// Mark bubble as small with 75% chance
-				BubbleType = Random ? 0 : 1;
+				if Random
+				{
+					BubbleType = 0; animation_play(sprite_index, 15, 0, 2);
+				}
+				else
+				{
+					BubbleType = 1; animation_play(sprite_index, 15, 1, 4);
+				}
 				Direction  = Player.Facing;
 				
 				// Override depth

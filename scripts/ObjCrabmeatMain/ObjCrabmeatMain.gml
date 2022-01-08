@@ -10,7 +10,7 @@ function ObjCrabmeatMain()
 			Ysp  += 0.21875;
 			
 			// Check for the floor
-			var FindFloor = tile_find_v(PosX, PosY + 15, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
 			if  FindFloor < 0
 			{
 				// Adhere to the surface
@@ -32,31 +32,33 @@ function ObjCrabmeatMain()
 			// Move
 			if (--StateTimer)
 			{
-				PosX += 0.5 * image_xscale;
+				PosX += 0.5 * Direction;
 			}
 			
 			// Check for floor
 			if StateTimer mod 2 == 0
 			{
-				var FindFloor = tile_find_v(x + 16 * image_xscale, y + 16, true, false, LayerA)[0]; 
+				var FindFloor = tile_find_v(PosX + 16 * Direction, PosY + 16, true, false, LayerA)[0]; 
 			}
 			else
 			{
-				var FindFloor = tile_find_v(x, y + 16, true, false, LayerA);
+				var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA);
 			}
 			
 			// Increment state
 			if StateTimer mod 2 == 0 or !StateTimer
 			{
-				if (FindFloor < -8 or FindFloor >= 12) or !StateTimer
+				if StateTimer mod 2 == 0 and !(FindFloor < -8 or FindFloor >= 12)
 				{
-					PreviousSprite = sprite_index;
-					StateTimer     = 60;
-					State		  += 1;
-				
-					// Stop animation
-					animation_set(sprite_index, 0);
+					break;
 				}
+				
+				PreviousSprite = sprite_index;
+				StateTimer     = 60;
+				State		  += 1;
+				
+				// Stop animation
+				animation_set(sprite_index, 0);
 			}
 			
 			// Adhere to the surface
@@ -111,11 +113,12 @@ function ObjCrabmeatMain()
 					}
 				}
 				
-				// Turn around and continue to walk
+				// Else turn around and continue to walk
 				else
 				{	
 					StateTimer    = 127;
 					State		 -=   1;
+					Direction    *=  -1;
 					image_xscale *=  -1;
 					
 					// Update animation
@@ -132,6 +135,7 @@ function ObjCrabmeatMain()
 			{
 				StateTimer    = 127;
 				State		 -=   2;
+				Direction    *=  -1;
 				image_xscale *=  -1;
 					
 				// Update animation
@@ -140,6 +144,8 @@ function ObjCrabmeatMain()
 		}
 		break;	
 	}
+	
+	show_debug_message(State);
 	
 	// Update position
 	x = floor(PosX);

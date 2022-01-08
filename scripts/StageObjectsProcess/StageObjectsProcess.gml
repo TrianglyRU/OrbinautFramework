@@ -44,7 +44,7 @@ function StageObjectsProcess()
 								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
 								{				
-									instance_destroy(Obj_ChildrenIDs[i]);
+									instance_deactivate_object(Obj_ChildrenIDs[i]);
 								}
 								Obj_ChildrenIDs = [];
 							}

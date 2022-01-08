@@ -18,10 +18,9 @@ function animation_play(spriteid,duration,startframe,loopframe)
 		image_index		= startframe;
 		sprite_index    = spriteid;
 	}
-	
-	// Update duration
 	else 
 	{
+		// Update duration for non-array timing
 		if !is_array(duration) and image_duration != duration
 		{
 			if image_timer == 0
@@ -30,6 +29,8 @@ function animation_play(spriteid,duration,startframe,loopframe)
 			}
 			image_duration = duration;
 		}
+		
+		// Update duration for array timing
 		else if is_array(duration) and image_duration != duration[image_index]
 		{
 			image_timer    = abs(duration[image_index]);
