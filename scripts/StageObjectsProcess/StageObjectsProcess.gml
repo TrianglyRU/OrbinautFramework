@@ -43,9 +43,10 @@ function StageObjectsProcess()
 							{
 								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
-								{
-									instance_deactivate_object(Obj_ChildrenIDs[i]);
+								{				
+									instance_destroy(Obj_ChildrenIDs[i]);
 								}
+								Obj_ChildrenIDs = [];
 							}
 							instance_deactivate_object(id);
 						}
@@ -86,7 +87,7 @@ function StageObjectsProcess()
 							// Perform create event to re-initialise variables
 							event_perform(ev_create, 0);
 							
-							// Deactivate
+							// Deactivate object
 							if IsParent
 							{
 								var Length = array_length(Obj_ChildrenIDs);

@@ -1,5 +1,5 @@
-/// @function instance_create_children(x,y,obj)
-function instance_create_children(x,y,obj)
+/// @function instance_create_child(x,y,obj)
+function instance_create_child(x,y,obj)
 {
 	// Create object
 	var NewObject = instance_create(x, y, obj);
