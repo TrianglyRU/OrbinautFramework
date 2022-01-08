@@ -2,7 +2,6 @@ function GameSetup()
 {
 	// Game settings
 	Game.WindowTitle = "Orbinaut Framework";
-	Game.FolderName  = "OrbinautFramework";
 	Game.DevMode     = true;
 	Game.ShowSplash  = false;
 	Game.ForceLoad	 = false;	// If set to false the game will load into DevMenu, else into the room you choose

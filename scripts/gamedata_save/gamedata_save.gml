@@ -5,7 +5,7 @@ function gamedata_save(slot)
 	You'd want to create additional file in this case, like saveextra.bin */
 	
 	// Get savedata file name
-	var Filename = Game.FolderName + "/" +  "saveslot" + string(slot + 1) + ".bin";
+	var Filename = "saveslot" + string(slot + 1) + ".bin";
 	
 	// Open the file
 	var File = file_bin_open(Filename, 1);

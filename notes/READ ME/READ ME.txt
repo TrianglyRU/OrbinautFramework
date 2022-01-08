@@ -9,21 +9,23 @@
 	
 	https://github.com/TrianglyRU/OrbinautFramework/releases
 	
+	First of all, RENAME THE PROJECT! You can do that by going to File -> Save Project As. You have to do
+	that to avoid any conflicts between different projects running on Orbinaut.
+	
 	If you encounter any glitch/bug/inaccuracy and are familiar with GitHub:
-	- if you find the way to fix it, you may pull request to our repository
-	- if you can't fix it, please, create an Issue
+	- if you find the way to fix it, you may pull request to our repository;
+	- if you can't fix it, please, create an issue.
 	
 	QUICK START:
-	- You can setup various framework flags in GameSetup(). * Make sure to set "FolderName" first! *
-	- Do not create a new room for your stage, just dublicate Stage_Template room;
+	- You can setup various framework flags in GameSetup();
+	- Do not create a new room for your stage, just dublicate Stage_Template room and then rename it;
+	- Your new stage can be set up in StageSetup();
 	- When creating a new stage, you SHOULD initialise a collision tileset for it in GameCollisionsSetup();
 	- When creating a new stage, you can also initialise a palette sheet for it, if needed, in PaletteSetup();
 	- When in DevMode, you can use keys F1-F12. F4 is always enabled and toggles fullscreen.
 	- If you get an error like "can't open the file" when trying to run the project, run GMS2 as Administrator;
 	
-	All savefiles and config file are saved to LocalAppData/OrbinautFramework/"FolderName"
-	
 	Thank you for choosing our framework <3
-	Make sure to join our Discord community for help: https://discord.gg/vyNr2MmjbJ
+	Make sure to join our Discord community for more help: https://discord.gg/vyNr2MmjbJ
 	
 	- Triangly, MicG
