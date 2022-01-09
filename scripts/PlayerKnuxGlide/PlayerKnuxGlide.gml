@@ -134,8 +134,8 @@ function PlayerKnuxGlide()
 				Xsp = min(0, Xsp + AirAcc);
 			}	
 			
-			// Leave state if not moving anymore
-			if Xsp == 0 or !Input.ABC
+			// Stop sliding if not moving anymore or forced to roll
+			if Xsp == 0 or !Input.ABC or ForcedRoll
 			{
 				if !Input.ABC
 				{
@@ -240,10 +240,15 @@ function PlayerKnuxGlide()
 		// Get angle
 		Angle = FindFloor[1];
 	
-		// Check if we're gliding and distance is negative
+		// Check if we're gliding and should land
 		if GlideState != GlideGround 
 		{
-			if FindFloor[0] < 0
+			if ForcedRoll
+			{
+				PosY    += FindFloor[0];
+				Grounded = true;
+			}
+			else if FindFloor[0] < 0
 			{
 				// If floor is shallow enough, change state
 				if Angle <= 45 or Angle >= 316.41

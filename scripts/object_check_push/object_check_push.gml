@@ -14,10 +14,10 @@ function object_check_push(pushSide)
 	}
 	
 	// Exit if no solid radiuses were initialized for this object
-	if !variable_instance_exists(id, "Obj_SolidX")
+	/*if !variable_instance_exists(id, "Obj_SolidX")
 	{
 		return false;
-	}
+	}*/
 	
 	// Return push flag
 	if pushSide == SideLeft  and floor(Player.PosX) < x

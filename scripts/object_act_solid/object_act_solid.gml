@@ -17,16 +17,16 @@ function object_act_solid(sides,top,bottom,resetActions)
 		exit;
 	}
 	
-	// Exit if the object's solid radiuses are null
-	if !Obj_SolidX or !Obj_SolidY
-	{
-		exit;	
-	}
-	
 	// Exit if there is no side to collide with
 	if !sides and !top and !bottom
 	{
 		exit;
+	}
+	
+	// Exit if the object's solid radiuses are null
+	if !Obj_SolidX or !Obj_SolidY
+	{
+		exit;	
 	}
 	
 	// Exit if the object is off-screen
@@ -36,10 +36,10 @@ function object_act_solid(sides,top,bottom,resetActions)
 	}
 	
 	// Exit if no solid radiuses were initialised for this object
-	if !variable_instance_exists(id, "Obj_SolidX")
+	/*if !variable_instance_exists(id, "Obj_SolidX")
 	{
 		exit;
-	}
+	}*/
 	
 	// Get object and player data
 	var PlayerX      = floor(Player.PosX);

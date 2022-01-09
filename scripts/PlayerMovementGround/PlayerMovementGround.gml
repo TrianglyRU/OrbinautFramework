@@ -68,28 +68,28 @@ function PlayerMovementGround()
 				} 
 			}
 		}
-	}
-	
-	// Perform skid. Angle check here is different in comparison to collision mode checks
-	if (Angle <= 45 or Angle >= 316.41) and Animation != AnimSkid
-	{
-		if Input.Left and Inertia >= 4 or Input.Right and Inertia <= -4
+		
+		// Perform skid. Angle check here is different in comparison to collision mode checks
+		if (Angle <= 45 or Angle >= 316.41) and Animation != AnimSkid
 		{
-			if Game.Character != CharKnuckles
+			if Input.Left and Inertia >= 4 or Input.Right and Inertia <= -4
 			{
-				SkidTime = 32;
-			}
-			else
-			{
-				SkidTime = 16;
-			}
-			Animation = AnimSkid;
+				if Game.Character != CharKnuckles
+				{
+					SkidTime = 32;
+				}
+				else
+				{
+					SkidTime = 16;
+				}
+				Animation = AnimSkid;
 						
-			// Play sound
-			audio_sfx_play(sfxSkid, false);
+				// Play sound
+				audio_sfx_play(sfxSkid, false);
 						
-			// Create dust object
-			instance_create(PosX, PosY + RadiusY, DustPuff);
+				// Create dust object
+				instance_create(PosX, PosY + RadiusY, DustPuff);
+			}
 		}
 	}
 	

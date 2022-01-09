@@ -1,6 +1,8 @@
 /// @function variable_check(id,name)
 function variable_check(id,name)
 {
+	/* This function is slow and should not be overused! */
+	
 	// Return value of a variable from the target object
 	if instance_exists(id)
 	{

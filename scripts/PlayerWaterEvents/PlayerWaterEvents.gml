@@ -156,7 +156,12 @@ function PlayerWaterEvents()
 				{
 					Ysp *= 2;
 				}
-				Grv = 0.21875;
+				
+				// Reset gravity (if not flying)
+				if !FlightState
+				{
+					Grv = 0.21875;
+				}
 				
 				// Limit vertical speed
 				if Ysp < -16

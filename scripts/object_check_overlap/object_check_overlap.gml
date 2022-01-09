@@ -6,11 +6,17 @@ function object_check_overlap(collisionType)
 	{
 		return false;
 	}	
-	else switch collisionType
+	switch collisionType
 	{
 		case TypeHitbox:
 		case TypeHitbox2:
 		{
+			// Exit if this object hitbox isn't initialised
+			/*if !variable_instance_exists(id, "Obj_HitX")
+			{
+				return false;
+			}*/
+			
 			// Exit if object can't be overlapped
 			if !Obj_HitX or !Obj_HitY
 			{
@@ -19,12 +25,6 @@ function object_check_overlap(collisionType)
 		
 			// Exit if object is off-screen
 			if !object_is_onscreen(id)
-			{
-				return false;
-			}
-			
-			// Exit if this object hitbox isn't initialised
-			if !variable_instance_exists(id, "Obj_HitX")
 			{
 				return false;
 			}
@@ -52,7 +52,7 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-			else if HitboxData[3] < ObjectTop or HitboxData[1] > ObjectBottom
+			if HitboxData[3] < ObjectTop or HitboxData[1] > ObjectBottom
 			{
 				return false;
 			}
@@ -64,10 +64,10 @@ function object_check_overlap(collisionType)
 		case TypeSolidbox:
 		{
 			// Exit if this object solidbox isn't initialised
-			if !variable_instance_exists(id, "Obj_SolidX")
+			/*if !variable_instance_exists(id, "Obj_SolidX")
 			{
 				return false;
-			}
+			}*/
 		
 			// Exit if object can't be overlapped
 			if !Obj_SolidX or !Obj_SolidY
@@ -98,7 +98,7 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-			else if PlayerBottom < ObjectTop or PlayerTop > ObjectBottom
+			if PlayerBottom < ObjectTop or PlayerTop > ObjectBottom
 			{
 				return false;
 			}
@@ -110,10 +110,10 @@ function object_check_overlap(collisionType)
 		case TypeTrigger:
 		{
 			// Exit if this object triggerbox isn't initialised
-			if !variable_instance_exists(id, "Obj_TriggerLeft")
+			/*if !variable_instance_exists(id, "Obj_TriggerLeft")
 			{
 				return false;
-			}
+			}*/
 		
 			// Return check result
 			return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));

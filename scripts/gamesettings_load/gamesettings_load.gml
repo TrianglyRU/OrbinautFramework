@@ -1,20 +1,14 @@
 /// @function gamesettings_load(filename)
 function gamesettings_load(filename)
 {
-	// Exit if in devmode
-	if Game.DevMode
-	{
-		exit;
-	}
-	
 	// If no config exist, create a default one
 	if !file_exists(filename + ".ini")
 	{
 		gamesettings_save("config");
 	}
-	else
+	else if !Game.DevMode
 	{
-		// Else open config file
+		// Open config file
 		ini_open(filename + ".ini");
 		
 		// Load data
