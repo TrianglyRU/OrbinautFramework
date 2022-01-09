@@ -11,4 +11,8 @@ function GameWindowStartup()
 	
 	// Set window title
 	window_set_caption(Game.WindowTitle);
+	
+	// ...and some GPU magic which will increase game speed
+	gpu_set_alphatestenable(true);
+	gpu_set_alphatestref(0);
 }
