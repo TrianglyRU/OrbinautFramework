@@ -1,5 +1,5 @@
-/// @function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animSpeed,[inclineHeight],[inclineStep],[inclineModeY])
-function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animSpeed,inclineHeight,inclineStep,inclineModeY)
+/// @function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,[inclineHeight],[inclineStep],[inclineModeY])
+function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,inclineHeight,inclineStep,inclineModeY)
 {
 	with Background
 	{
@@ -22,7 +22,7 @@ function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animSpeed,inc
 		BGValues[id][5]  = inclineHeight;
 		BGValues[id][6]  = inclineStep;
 		BGValues[id][7]  = inclineModeY;
-		BGValues[id][8]  = animSpeed;
+		BGValues[id][8]  = animDuration;
 		
 		// Set texel data
 		BGValues[id][9]  = sprite_get_height(BGSprites[id]);

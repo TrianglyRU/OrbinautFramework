@@ -30,7 +30,7 @@ function BackgroundProcess()
 		var ScrollY	      = BGValues[i][3];
 		var InclineHeight = BGValues[i][5];
 		var InclineStep   = BGValues[i][6];
-		var InclineModeY  = BGValues[i][7];
+		var InclineY      = BGValues[i][7];
 		var AnimSpeed     = BGValues[i][8];
 		var Height	      = BGValues[i][9];
 		var Width	      = BGValues[i][10];
@@ -76,7 +76,7 @@ function BackgroundProcess()
 		}
 		
 		// Draw parallax piece
-		if InclineModeY
+		if InclineY
 		{
 			draw_sprite_ext(BGSprites[i], Frame, DrawX + PosX, DrawY, 1, YScale, 0, c_white, 1);
 		}
