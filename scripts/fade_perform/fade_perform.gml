@@ -2,7 +2,7 @@
 function fade_perform(fadeMode,fadeBlend,speed) 
 {
     // Clamp the speed value
-	 speed = clamp(floor(speed * 36), 0, 756);
+	speed = clamp(floor(speed * 36), 0, 756);
     
     // If speed is set to 0, perform instant fade
     var InstantFade = speed == 0;

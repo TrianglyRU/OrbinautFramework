@@ -66,6 +66,11 @@ function ObjBubbleControllerMain()
 					sprite_index = Sprite;
 					image_index  = 0;
 				}
+				else
+				{
+					// Set animation
+					animation_play(sprite_index, 15, 0, 6);
+				}
 				Direction = Player.Facing;
 			}
 			if Type == CountdownBubble
@@ -88,6 +93,11 @@ function ObjBubbleControllerMain()
 					{
 						sprite_index = Sprite;
 						image_index  = 0;
+					}
+					else
+					{
+						// Set animation
+						animation_play(sprite_index, 15, 0, 6);
 					}
 					Direction = Player.Facing;
 				}
@@ -120,6 +130,9 @@ function ObjBubbleControllerMain()
 				
 				// Override depth
 				object_set_depth(Player, 1);
+				
+				// Set animation
+				animation_play(sprite_index, 15, 0, 6);
 			}
 			DrownBubbles++;
 			DrownDelay = irandom_range(1, 8);

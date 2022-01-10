@@ -2,7 +2,7 @@
 function audio_sfx_play(soundid,loops)
 {	
 	// Play sound
-	if audio_is_playing(soundid)
+	if audio_sfx_is_playing(soundid)
 	{
 		audio_stop_sound(soundid);
 	}

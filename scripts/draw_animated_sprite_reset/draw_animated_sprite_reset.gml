@@ -1,6 +1,6 @@
-/// @function draw_animated_sprite_reset(sprite)
-function draw_animated_sprite_reset(sprite)
+/// @function draw_animated_sprite_reset(spriteid)
+function draw_animated_sprite_reset(spriteid)
 {
 	// Reset animation timer for that sprite
-	Game.SpriteTimers[? sprite] = 0;
+	Game.SpriteTimers[? spriteid] = 0;
 }

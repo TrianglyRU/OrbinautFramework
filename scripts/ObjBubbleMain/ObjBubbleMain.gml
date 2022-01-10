@@ -50,22 +50,14 @@ function ObjBubbleMain()
 	}
 	else
 	{
-		// Set animation
+		// Lock animation on certain frame for small and medium bubbles
 		if BubbleType < 2
 		{
 			var TargetFrame = 2 + BubbleType * 2;
-			if  image_index < TargetFrame
-			{
-				animation_play(sprite_index, 15, 0, TargetFrame);
-			}
-			else
+			if  image_index >= TargetFrame
 			{
 				animation_set(sprite_index, TargetFrame);
 			}
-		}
-		else
-		{
-			animation_play(sprite_index, 15, 2, 6);
 		}
 		
 		// Move bubble	

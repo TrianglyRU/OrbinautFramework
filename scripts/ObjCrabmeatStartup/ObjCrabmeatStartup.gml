@@ -19,6 +19,4 @@ function ObjCrabmeatStartup()
 	
 	// Set object unload type
 	object_set_unload(TypeReset);
-	
-	
 }

@@ -1,28 +1,25 @@
-/// @function palette_set_colour(paletteType,id,range,colourid)
-function palette_set_colour(paletteType,id,range,colourid)
+/// @function palette_set_colour(palType,iCol,rCol)
+function palette_set_colour(palType,iCol,rCol)
 {
-	// Exit if no pallete set
-	if Palette.ColourSet[paletteType] == false
+	// Exit if no pallete set, playable stage is paused or fade is active
+	if Palette.ColourSet[palType] == false or variable_check(Stage, "IsPaused") or fade_check(StateActive)
 	{
 		exit;
 	}
 	
-	// Update colour(-s)
-	for (var i = id; i < id + range; i++)
+	// Update colour
+	if palType == TypePrimary
 	{
-		if paletteType == TypePrimary
-		{
-			Palette.IndexType1[i] = colourid;
-		}
-		else if paletteType == TypeSecondary
-		{
-			Palette.IndexType2[i] = colourid;
-		}
+		Palette.IndexType1[iCol] = rCol;
+	}
+	else if palType == TypeSecondary
+	{
+		Palette.IndexType2[iCol] = rCol;
+	}
 		
-		// Reset swaptime
-		if Palette.Duration[paletteType,id] != noone
-		{
-			Palette.SwapTime[paletteType,id] = Palette.Duration[paletteType,id];
-		}
+	// Reset swaptime
+	if Palette.Duration[palType,iCol] != noone
+	{
+		Palette.SwapTime[palType,iCol] = Palette.Duration[palType,iCol];
 	}
 }

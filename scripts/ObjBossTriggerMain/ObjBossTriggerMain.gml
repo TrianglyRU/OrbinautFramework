@@ -43,16 +43,23 @@ function ObjBossTriggerMain()
 		}
 		else
 		{
-			// Set right boundary to room_width. Normally, you have to place Egg Prison or Clear Panel
-			// after the arena, so the game will automatically set new boundaries once again
+			/* Set right boundary to room_width. Normally, you have to place Egg Prison or Clear Panel
+			after the arena, so the game will automatically set new boundaries once again */
 			Stage.TargetRightBoundary = room_width;
 			
 			// Give 1000 points and cancel bossfight state
 			Player.Score     += 1000;
 			Stage.IsBossfight = false;
 			
-			// Play stage music
-			audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+			// Restore music
+			if Player.SuperState
+			{
+				audio_bgm_play(ChannelPrimary, SuperTheme);
+			}
+			else
+			{
+				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+			}
 			
 			// Destroy object
 			instance_destroy();

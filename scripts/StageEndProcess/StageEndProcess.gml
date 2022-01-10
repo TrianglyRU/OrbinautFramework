@@ -10,7 +10,7 @@ function StageEndProcess()
 	Game.Score = Player.Score;
 	Game.Lives = Player.Lives;
 	
-	// Reset data saved through out the stage
+	// Reset data saved throughout the stage
 	Game.StarPostData    = [];
 	Game.SpecialRingList = [];
 	
@@ -26,9 +26,10 @@ function StageEndProcess()
 		{
 			Game.SaveState = 1;
 		}
-		
-		// Save next zone but not the current one
-		Game.Stage++;
+		else
+		{
+			Game.Stage++;
+		}
 		
 		// Save our progress
 		gamedata_save(Game.ActiveSave);

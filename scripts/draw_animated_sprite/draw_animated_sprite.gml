@@ -1,20 +1,20 @@
-/// @function draw_animated_sprite(sprite,duration,useGlobalTime,x,y)
-function draw_animated_sprite(sprite,duration,useGlobalTime,x,y)
+/// @function draw_animated_sprite(spriteid,duration,useGlobalTime,x,y)
+function draw_animated_sprite(spriteid,duration,useGlobalTime,x,y)
 {
 	// Set duration timer for that sprite
 	if !useGlobalTime
 	{
-		if !ds_map_exists(Game.SpriteTimers, sprite)
+		if !ds_map_exists(Game.SpriteTimers, spriteid)
 		{
-			Game.SpriteTimers[? sprite] = 0;
+			Game.SpriteTimers[? spriteid] = 0;
 		}
 	
 		// Count timer
 		else if !fade_check(StateActive) and !variable_check(Stage, "IsPaused")
 		{
-			Game.SpriteTimers[? sprite]++;
+			Game.SpriteTimers[? spriteid]++;
 		}
-		var Timer = Game.SpriteTimers[? sprite];
+		var Timer = Game.SpriteTimers[? spriteid];
 	}
 	else
 	{
@@ -28,6 +28,6 @@ function draw_animated_sprite(sprite,duration,useGlobalTime,x,y)
 	}
 	else
 	{
-		draw_sprite(sprite, Timer div duration mod sprite_get_number(sprite), x, y);
+		draw_sprite(spriteid, Timer div duration mod sprite_get_number(spriteid), x, y);
 	}
 }

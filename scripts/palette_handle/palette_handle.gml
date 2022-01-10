@@ -1,49 +1,46 @@
-/// @function palette_handle(paletteType,id,range,last,goto,duration)
-function palette_handle(paletteType,id,range,last,goto,duration)
+/// @function palette_handle(paletteType,iCol,rCol1,rCol2,duration)
+function palette_handle(palType,iCol,rCol1,rCol2,duration)
 {
-	// Exit if no pallete set, if playable stage is paused or fade is active
-	if Palette.ColourSet[paletteType] == false or variable_check(Stage, "IsPaused") or fade_check(StateActive)
+	// Exit if no pallete set, playable stage is paused or fade is active
+	if Palette.ColourSet[palType] == false or variable_check(Stage, "IsPaused") or fade_check(StateActive)
 	{
 		exit;
 	}
 	
 	// Get unique ID for this palette sequence
-	var SequenceID = string(last) + "_" + string(goto);
+	var SequenceID = string(rCol1) + "_" + string(rCol2);
 	
 	// Initialise palette sequence
-	if Palette.Sequence[paletteType][id] != SequenceID
+	if Palette.Sequence[palType][id] != SequenceID
 	{
-		Palette.Sequence[paletteType][id] = SequenceID;
-		Palette.Duration[paletteType][id] = duration;
-		Palette.SwapTime[paletteType][id] = duration;
+		Palette.Sequence[palType][id] = SequenceID;
+		Palette.Duration[palType][id] = duration;
+		Palette.SwapTime[palType][id] = duration;
 	}
 	
 	// Update sequence
 	else if duration
 	{
-		if !(--Palette.SwapTime[paletteType,id])
+		if !(--Palette.SwapTime[palType,iCol])
 		{
-			// Update colour(-s)
-			for (var i = id; i < id + range; i++)
+			// Update colour
+			if palType == TypePrimary
 			{
-				if paletteType == TypePrimary
+				if (++Palette.IndexType1[iCol]) > rCol1
 				{
-					if (++Palette.IndexType1[i]) > last
-					{
-						Palette.IndexType1[i] = goto;
-					}
+					Palette.IndexType1[iCol] = rCol2;
 				}
-				else if paletteType == TypeSecondary
+			}
+			else if palType == TypeSecondary
+			{
+				if (++Palette.IndexType2[iCol]) > rCol1
 				{
-					if (++Palette.IndexType2[i]) > last
-					{
-						Palette.IndexType2[i] = goto;
-					}
+					Palette.IndexType2[iCol] = rCol2;
 				}
 			}
 			
 			// Reset duration
-			Palette.SwapTime[paletteType,id] = Palette.Duration[paletteType,id];
+			Palette.SwapTime[palType,iCol] = Palette.Duration[palType,iCol];
 		}
 	}
 }

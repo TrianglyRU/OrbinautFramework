@@ -1,135 +1,139 @@
 function PlayerSuperPalettesProcess()
 {
-	// Sonic palette
-	if Game.Character == CharSonic
+	switch Game.Character
 	{
-		// Get current colour
-		var Colour = palette_get_colour(TypePrimary, 0);
-				
-		// Regular form
-		if !Player.SuperState
+		// Sonic palette
+		case CharSonic:
 		{
-			if Colour == 1
+			// Get current colour
+			var Colour = palette_get_colour(TypePrimary, 0);
+				
+			// Regular form
+			if !Player.SuperState
 			{
-				palette_set_colour(TypePrimary,   0, 4, 1);
-				palette_set_colour(TypeSecondary, 0, 4, 1);
-			}
-			else
-			{
-				if Colour < 17
+				if Colour == 1
 				{
-					palette_set_colour(TypePrimary,   0, 4, 17);
-					palette_set_colour(TypeSecondary, 0, 4, 17);
-				}	
-				palette_handle(TypePrimary,   0, 4, 21, 1, 4);
-				palette_handle(TypeSecondary, 0, 4, 21, 1, 4);	
+					palette_set_colour_range(TypePrimary,   0, 3, 1);
+					palette_set_colour_range(TypeSecondary, 0, 3, 1);
+				}
+				else
+				{
+					if Colour < 17
+					{
+						palette_set_colour_range(TypePrimary,   0, 3, 17);
+						palette_set_colour_range(TypeSecondary, 0, 3, 17);
+					}	
+					palette_handle_range(TypePrimary,   0, 3, 21, 1, 4);
+					palette_handle_range(TypeSecondary, 0, 3, 21, 1, 4);	
+				}
 			}
-		}
 				
-		// Transforming into Super form
-		else if Player.SuperState == 1
-		{
-			if Colour == 1
+			// Transforming into Super form
+			else if Player.SuperState == 1
 			{
-				palette_handle(TypePrimary,   0, 4, 2, 2, 19);
-				palette_handle(TypeSecondary, 0, 4, 2, 2, 19);
+				if Colour == 1
+				{
+					palette_handle_range(TypePrimary,   0, 3, 1, 2, 19);
+					palette_handle_range(TypeSecondary, 0, 3, 1, 2, 19);
+				}
+				if Colour > 1
+				{
+					palette_handle_range(TypePrimary,   0, 3, 6, 6, 4);
+					palette_handle_range(TypeSecondary, 0, 3, 6, 6, 4);
+				}
 			}
-			if Colour > 1
-			{
-				palette_handle(TypePrimary,   0, 4, 6, 6, 4);
-				palette_handle(TypeSecondary, 0, 4, 6, 6, 4);
-			}
-		}
 					
-		// Super form
-		else if Player.SuperState == 2
-		{
-			if Colour < 7
+			// Super form
+			else if Player.SuperState == 2
 			{
-				palette_set_colour(TypePrimary,   0, 4, 7);
-				palette_set_colour(TypeSecondary, 0, 4, 7);
+				if Colour < 7
+				{
+					palette_set_colour_range(TypePrimary,   0, 3, 7);
+					palette_set_colour_range(TypeSecondary, 0, 3, 7);
+				}
+				palette_handle_range(TypePrimary,   0, 3, 16, 7, 8);
+				palette_handle_range(TypeSecondary, 0, 3, 16, 7, 8);
 			}
-			palette_handle(TypePrimary,   0, 4, 16, 7, 8);
-			palette_handle(TypeSecondary, 0, 4, 16, 7, 8);
 		}
-	}
+		break;
 		
-	// Tails palette
-	else if Game.Character == CharTails
-	{
-		// Get current colour
-		var Colour = palette_get_colour(TypePrimary, 4);
-				
-		// Regular form
-		if !Player.SuperState
-		{	
-			if Colour == 1
-			{
-				palette_set_colour(TypePrimary,   4, 4, 1);
-				palette_set_colour(TypeSecondary, 4, 4, 1);
-			}
-			else
-			{			
-				palette_handle(TypePrimary,   4, 4, 6, 1, 12);
-				palette_handle(TypeSecondary, 4, 4, 6, 1, 12);
-			}
-		}
-				
-		// Super form
-		else
+		// Tails palette
+		case CharTails:
 		{
-			if Colour == 1
-			{
-				palette_handle(TypePrimary,   4, 4, 1, 2, 28);
-				palette_handle(TypeSecondary, 4, 4, 1, 2, 28);
-			}
-			if Colour > 1
-			{
-				palette_handle(TypePrimary,   4, 4, 7, 2, 12);
-				palette_handle(TypeSecondary, 4, 4, 7, 2, 12);
-			}
-		}
-	}
-		
-	// Knuckles palette
-	else if Game.Character == CharKnuckles
-	{
-		// Get current colour
-		var Colour = palette_get_colour(TypePrimary, 8);
+			// Get current colour
+			var Colour = palette_get_colour(TypePrimary, 4);
 				
-		// Regular form
-		if !Player.SuperState
-		{
-			if Colour == 1
-			{
-				palette_set_colour(TypePrimary,   8, 3, 1);
-				palette_set_colour(TypeSecondary, 8, 3, 1);
+			// Regular form
+			if !Player.SuperState
+			{	
+				if Colour == 1
+				{
+					palette_set_colour_range(TypePrimary,   4, 7, 1);
+					palette_set_colour_range(TypeSecondary, 4, 7, 1);
+				}
+				else
+				{			
+					palette_handle_range(TypePrimary,   4, 7, 6, 1, 12);
+					palette_handle_range(TypeSecondary, 4, 7, 6, 1, 12);
+				}
 			}
+				
+			// Super form
 			else
-			{			
-				palette_handle(TypePrimary,   8, 3, 11, 1, 3);
-				palette_handle(TypeSecondary, 8, 3, 11, 1, 3);	
+			{
+				if Colour == 1
+				{
+					palette_handle_range(TypePrimary,   4, 7, 1, 2, 28);
+					palette_handle_range(TypeSecondary, 4, 7, 1, 2, 28);
+				}
+				if Colour > 1
+				{
+					palette_handle_range(TypePrimary,   4, 7, 7, 2, 12);
+					palette_handle_range(TypeSecondary, 4, 7, 7, 2, 12);
+				}
 			}
 		}
+		break;
+		case CharKnuckles:
+		{
+			// Get current colour
+			var Colour = palette_get_colour(TypePrimary, 8);
+				
+			// Regular form
+			if !Player.SuperState
+			{
+				if Colour == 1
+				{
+					palette_set_colour_range(TypePrimary,   8, 10, 1);
+					palette_set_colour_range(TypeSecondary, 8, 10, 1);
+				}
+				else
+				{			
+					palette_handle_range(TypePrimary,   8, 10, 11, 1, 3);
+					palette_handle_range(TypeSecondary, 8, 10, 11, 1, 3);	
+				}
+			}
 			
-		// Super form
-		else
-		{
-			if Colour == 1
+			// Super form
+			else
 			{
-				palette_handle(TypePrimary,   8, 3, 1, 3, 17);
-				palette_handle(TypeSecondary, 8, 3, 1, 3, 17);
-			}
-			if Colour == 2
-			{
-				palette_handle(TypePrimary,   8, 3, 2, 3, 15);
-				palette_handle(TypeSecondary, 8, 3, 2, 3, 15);
-			}
-			if Colour > 2
-			{
-				palette_handle(TypePrimary,   8, 3, 11, 2, 3);
-				palette_handle(TypeSecondary, 8, 3, 11, 2, 3);
-			}
-		}		
+				if Colour == 1
+				{
+					palette_handle_range(TypePrimary,   8, 10, 1, 2, 17);
+					palette_handle_range(TypeSecondary, 8, 10, 1, 2, 17);
+				}
+				if Colour == 2
+				{
+					palette_handle_range(TypePrimary,   8, 10, 2, 3, 15);
+					palette_handle_range(TypeSecondary, 8, 10, 2, 3, 15);
+				}
+				if Colour > 2
+				{
+					palette_handle_range(TypePrimary,   8, 10, 11, 2, 3);
+					palette_handle_range(TypeSecondary, 8, 10, 11, 2, 3);
+				}
+			}		
+		}
+		break;
 	}
 }

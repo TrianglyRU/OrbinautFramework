@@ -8,6 +8,6 @@ function animation_set(spriteid,frame)
 		image_loopframe = frame;
 		sprite_index    = spriteid;
 	}
-	image_duration = 0;	
+	image_duration = 0;
 	image_index	   = frame;
 }
