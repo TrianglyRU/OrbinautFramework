@@ -7,10 +7,11 @@ Orbinaut Framework is an extremely accurate and, which is most important, a very
 - Various toggleable frameworks tweaks, including differences between mainline classic games
 - Discord Rich Presence support
 - Solid optimisation
-..and much more!
+- ...and much more!
 
-# Documentation
-*placeholder*
+# Handbook
+We have a handbook to help you get started! Get it here:
+[Handbook.pdf](https://github.com/TrianglyRU/OrbinautFramework/files/7840480/Handbook.pdf)
 
 # Credits
 - LapperDev -- for updates on SPG and help with S1 dissasembly
@@ -18,6 +19,7 @@ Orbinaut Framework is an extremely accurate and, which is most important, a very
 - Nihil (NullSpace) -- for player rotation code
 - PixelatedPope -- for the palette shader, from which we took a small part of it
 - Nkrapivin -- for Discord Rich Presence plugin
+- and to all members of our Discord server who helped us finding bugs
 
 # Terms of use
 - You are not allowed to re-release our framework with "features" added it (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.). Feel free to use it only for your own closed-source projects.
