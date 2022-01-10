@@ -1,5 +1,5 @@
-/// @function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,[inclineHeight],[inclineStep],[inclineModeY])
-function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,inclineHeight,inclineStep,inclineModeY)
+/// @function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,[inclineHeight],[inclineStep],[inclineY])
+function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,inclineHeight,inclineStep,inclineY)
 {
 	with Background
 	{
@@ -21,7 +21,7 @@ function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,
 		BGValues[id][4]  = scrollXAuto;
 		BGValues[id][5]  = inclineHeight;
 		BGValues[id][6]  = inclineStep;
-		BGValues[id][7]  = inclineModeY;
+		BGValues[id][7]  = inclineY;
 		BGValues[id][8]  = animDuration;
 		
 		// Set texel data

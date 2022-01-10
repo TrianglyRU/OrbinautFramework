@@ -1,9 +1,9 @@
-/// @function loop_value(value,returnTo,resetAt)
-function loop_value(value,returnTo,resetAt)
+/// @function loop_value(value,lowerBound,upperBound)
+function loop_value(value,lowerBound,upperBound)
 {
 	// Loop the value through given boundaries
-	value = (value - returnTo) % (resetAt - returnTo);
+	value = (value - lowerBound) % (upperBound - lowerBound);
 	
 	// Return result
-	return (value >= 0 ? value + returnTo : resetAt + value);
+	return (value >= 0 ? value + lowerBound : upperBound + value);
 }
