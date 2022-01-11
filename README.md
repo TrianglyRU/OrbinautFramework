@@ -19,6 +19,9 @@ We have a handbook to help you get started! Get it here:
 - Nihil (NullSpace) -- for player rotation code
 - PixelatedPope -- for the palette shader, from which we took a small part of it
 - Nkrapivin -- for Discord Rich Presence plugin
+- Gingocat -- various assistance with graphics
+- Techokami -- Test Stage tileset graphics
+- DarkVampireDee - SAGE'21-exclusive Moonlight Quadrant stage graphics
 - and to all members of our Discord server who helped us finding bugs
 
 # Terms of use
