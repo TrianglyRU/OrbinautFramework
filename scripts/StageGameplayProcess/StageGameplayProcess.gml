@@ -68,7 +68,7 @@ function StageGameplayProcess()
 			// Count timer
 			EventTimer++;
 			
-			// Wai for 1 or 12 seconds
+			// Wait for 1 or 12 seconds
 			if !IsGameOver and EventTimer == 60 or IsGameOver and EventTimer == 720
 			{
 				// Fade out
@@ -78,7 +78,6 @@ function StageGameplayProcess()
 				audio_bgm_stop(ChannelPrimary,  0.5);
 				audio_bgm_stop(ChannelSecondary, 0.5);
 			}
-			
 			if fade_check(StateMax)
 			{	
 				// If we have lives, restart the stage

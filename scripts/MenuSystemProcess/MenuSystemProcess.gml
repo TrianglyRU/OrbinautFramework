@@ -4,16 +4,10 @@ function MenuSystemProcess()
 	if Input.DownPress
 	{
 		OptionID++;
-		
-		// Play sound
-		audio_sfx_play(sfxScoreCount, false);
 	}
 	else if Input.UpPress
 	{
 		OptionID--; 
-		
-		// Play sound
-		audio_sfx_play(sfxScoreCount, false);
 	}
 	OptionID = loop_value(OptionID, 0, MenuSize[MenuID]);
 
@@ -32,8 +26,5 @@ function MenuSystemProcess()
 		
 		// Back to previous menu
 		MenuID = PreviousMenuID[MenuID];
-		
-		// Play sound
-		audio_sfx_play(sfxPauseBack, false);
 	}
 }

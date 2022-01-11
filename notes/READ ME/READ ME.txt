@@ -5,7 +5,7 @@
 	provided in the release package as it can have a few fixes that aren't present in the release package version.
 
 	In any case, even if you have downloaded the master please, download the release package,
-	as it includes our Collision Editor and PDF Documentation. It is always available at this link:
+	as it includes our Tile Editor and PDF Handbook. It is always available at this link:
 	
 	https://github.com/TrianglyRU/OrbinautFramework/releases
 	
@@ -26,6 +26,6 @@
 	- If you get an error like "can't open the file" when trying to run the project, run GMS2 as Administrator;
 	
 	Thank you for choosing our framework <3
-	Make sure to join our Discord community for more help: https://discord.gg/vyNr2MmjbJ
+	Make sure to join our Discord community for more help & awesome guides: https://discord.gg/vyNr2MmjbJ
 	
 	- Triangly, MicG

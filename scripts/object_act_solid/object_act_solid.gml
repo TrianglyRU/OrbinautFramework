@@ -35,12 +35,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 		exit;
 	}
 	
-	// Exit if no solid radiuses were initialised for this object
-	/*if !variable_instance_exists(id, "Obj_SolidX")
-	{
-		exit;
-	}*/
-	
 	// Get object and player data
 	var PlayerX      = floor(Player.PosX);
 	var PlayerY      = floor(Player.PosY);

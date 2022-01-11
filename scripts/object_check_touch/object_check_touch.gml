@@ -13,12 +13,6 @@ function object_check_touch(side)
 		return false;
 	}
 	
-	// Exit if no solid radiuses were initialized for this object
-	/*if !variable_instance_exists(id, "Obj_SolidX")
-	{
-		return false;
-	}*/
-	
 	// Return touch flag
 	switch side
 	{
