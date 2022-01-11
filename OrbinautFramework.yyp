@@ -802,8 +802,8 @@
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles/tiledata","resourceVersion":"1.0","name":"heightmap.bin","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles/tiledata","resourceVersion":"1.0","name":"widthmap.bin","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/tiledata","resourceVersion":"1.0","name":"anglemap.bin","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/tiledata","resourceVersion":"1.0","name":"widthmap.bin","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.7.606",

@@ -13,21 +13,21 @@ function BonusStageProcess()
 					audio_sfx_play(choose(sfxRingLeft, sfxRingRight), false);
 						
 					// Grant extra life
-					if Game.BonusStageData[0] >= RingState * 100
+					if Game.BonusStageData[0] >= RingTarget
 					{
 						Game.Lives++;
 						audio_bgm_play(ChannelSecondary, ExtraLife);
 						
 						// Increase amount of required rings
-						RingState++;
+						RingTarget += 100;
 					}
 				}
 	
 				// Give random barrier
 				else if Input.BPress
 				{
-					var    RandomNumber = choose(BarrierFlame, BarrierThunder, BarrierWater, BarrierNormal);
-					switch RandomNumber
+					var    Random = choose(BarrierFlame, BarrierThunder, BarrierWater, BarrierNormal);
+					switch Random
 					{
 						case BarrierFlame:
 							audio_sfx_play(sfxFlameBarrier, false);
@@ -42,7 +42,7 @@ function BonusStageProcess()
 							audio_sfx_play(sfxBarrier, false);
 						break;	
 					}
-					Game.BonusStageData[1] = RandomNumber;
+					Game.BonusStageData[1] = Random;
 				}
 	
 				// Leave
