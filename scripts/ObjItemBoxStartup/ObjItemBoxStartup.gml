@@ -4,20 +4,18 @@ function ObjItemBoxStartup()
 	1. BoxType, default = "Empty"
 	*/
 	
-	// Set blank values
-	State	  = 0;
-	IsFalling = 0;
-	Ysp		  = 0;
-	
-	// Set other variables
+	// Initialise variables
 	PosX	  = x;
 	PosY	  = y;
 	CardX	  = x;
 	CardY	  = y - 3;
 	Timer     = 5;
 	CardSpeed = 3;
+	IsFalling = 0;
+	State	  = 0;
+	Ysp		  = 0;
 
-	// Define item card to display
+	// Set item card to display
 	switch BoxType
 	{
 		case "10 Rings":
@@ -52,18 +50,10 @@ function ObjItemBoxStartup()
 		break;
 	}
 	
-	// Set object solidbox
+	// Set object properties
 	object_set_solidbox(15, 15, false);
-
-	// Set object hitbox
 	object_set_hitbox(16, 16);
-	
-	// Set object depth
-	object_set_depth(Player, 0);
-	
-	// Set active range
 	object_set_unload(TypeReset);
-	
-	// Set animation
+	object_set_depth(Player, 0);
 	animation_play(sprite_index, 4, 0, 0);
 }

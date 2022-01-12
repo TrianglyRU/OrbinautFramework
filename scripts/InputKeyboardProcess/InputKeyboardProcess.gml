@@ -1,15 +1,13 @@
 function InputKeyboardProcess() 
 {
-	// Exit if we ignore input or gamepad input is active
+	// Check if we should exit
 	if IgnoreInput or Type != "Keyboard"
 	{
 		exit;
 	}
-	
-	// Get keyboard mappings
 	var Key = Game.KeyboardControl;
 		
-	// Process single press
+	// Key Pressed
 	UpPress    = keyboard_check_pressed(Key[0]);
 	DownPress  = keyboard_check_pressed(Key[1]);
 	LeftPress  = keyboard_check_pressed(Key[2]);
@@ -21,7 +19,7 @@ function InputKeyboardProcess()
 	StartPress = keyboard_check_pressed(Key[8]);	
 	ABCPress   = APress or BPress or CPress;
 		
-	// Process hold
+	// Key Down
 	Up    = keyboard_check(Key[0]);
 	Down  = keyboard_check(Key[1]);
 	Left  = keyboard_check(Key[2]);

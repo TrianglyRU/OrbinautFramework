@@ -66,7 +66,7 @@
             {"id":"3b0a40cb-037b-48c0-9a29-abe4fc606cd6","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8a368907-ad5e-4327-a4bb-11bcf37c28fb","path":"sprites/tex_sstage_reward/tex_sstage_reward.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"9f936efd-6483-48b8-a344-47afe3d4dd11","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d65c08bf-9e8d-48d3-8f66-7885211842b4","path":"sprites/tex_sstage_reward/tex_sstage_reward.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"7d8f52a3-9ddd-4f8c-a877-dd4f59793a55","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"849e6661-682f-430a-b955-1522f754e012","path":"sprites/tex_sstage_reward/tex_sstage_reward.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -94,7 +94,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Screens/Special Stage/Textures.yy",
+    "path": "folders/Rooms/Special Stage/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sstage_reward",

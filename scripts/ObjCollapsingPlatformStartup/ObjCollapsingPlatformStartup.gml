@@ -5,7 +5,8 @@ function ObjCollapsingPlatformStartup()
 	{
 		case Stage_TZ:
 		{
-			var HeightMap = [
+			var Heightmap = 
+			[
 				64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,
 				65,65,65,65,65,65,65,65,65,65,65,
 				66,66,66,66,66,66,
@@ -24,34 +25,36 @@ function ObjCollapsingPlatformStartup()
 				79,79,79,79,79,79,
 				80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80
 			];
-			sprite_index = spr_obj_collapsingplatform_tz;
+			var Solidbox  = [];
+			sprite_index  = spr_obj_collapsingplatform_tz;
 		}
 		break;
 		default:
 		{
-			var HeightMap = []; 
+			var Heightmap = [];
+			var Solidbox  = [];
 			sprite_index  = spr_tempobject;
 		}
 		break;
 	}
 	
-	// Set variables
-	State     = 0;
+	// Initialise variables
 	TimeDelay = 8;
-	OriginX   = floor(x - array_length(HeightMap) / 2);
+	State     = 0;
+	OriginX   = floor(x - sprite_get_xoffset(sprite_index))
     OriginY   = floor(y - sprite_get_yoffset(sprite_index));
-    Width     = ceil(abs(sprite_get_width(sprite_index))  / 16) * 16;
-    Height    = ceil(abs(sprite_get_height(sprite_index)) / 16) * 16;
+    Width     = ceil( abs(sprite_get_width(  sprite_index)) / 16) * 16;
+    Height    = ceil( abs(sprite_get_height( sprite_index)) / 16) * 16;
    
-	// Set object solidbox
-	if array_length(HeightMap)
+	// Set object properties
+	if array_length(Heightmap)
 	{
-		object_set_solidbox(array_length(HeightMap) div 2, sprite_get_height(sprite_index) div 2, HeightMap);
+		object_set_solidbox(array_length(Heightmap) div 2, sprite_get_height(sprite_index) div 2, Heightmap);
 	}
-	
-	// Set object depth
-	object_set_depth(Player, 0);
-	
-	// Set object unload type
+	else
+	{
+		object_set_solidbox(Solidbox[0], Solidbox[1], false);
+	}
 	object_set_unload(TypePause);
+	object_set_depth(Player, 0);
 }

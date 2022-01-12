@@ -1,6 +1,6 @@
 function StageStartup()
 {
-	// Set blank values
+	// Initialise variables
 	EventTimer	= 0;
 	IsFinished	= 0;
 	IsPaused	= 0;
@@ -8,6 +8,11 @@ function StageStartup()
 	Time		= 0;
 	TimeEnabled	= 0;
 	DoUpdate	= 0;
+	IsBossfight = -1;
+	
+	// Store current zone ID and room index
+	Game.Stage     = ZoneID;
+	Game.StageRoom = room;
 	
 	// Play stage music
 	audio_bgm_play(ChannelPrimary, StageMusic);
@@ -28,14 +33,12 @@ function StageStartup()
 		]
 	}
 	
-	// If player has respawned on checkpoint, load saved stage data
+	// Load saved data if loading into the stage from Bonus or Special Stage
 	if array_length(Game.StarPostData)
 	{
 		Time		   = Game.StarPostData[2];
 		BottomBoundary = Game.StarPostData[3];
 	}
-	
-	// If coming from special stage, load saved stage data
 	if array_length(Game.SpecialRingData)
 	{
 		Time		   = Game.SpecialRingData[4];
@@ -45,17 +48,10 @@ function StageStartup()
 		Game.SpecialRingData = [];
 	}
 	
-	// Store current zone ID and room index
-	Game.Stage     = ZoneID;
-	Game.StageRoom = room;
-	
 	// Set stage boundaries
 	TargetLeftBoundary   = LeftBoundary;
 	TargetRightBoundary  = RightBoundary;
 	TargetTopBoundary    = TopBoundary;
 	TargetBottomBoundary = BottomBoundary;
 	DeathBoundary        = BottomBoundary;
-	
-	// Set bossfight status
-	IsBossfight = -1;
 }

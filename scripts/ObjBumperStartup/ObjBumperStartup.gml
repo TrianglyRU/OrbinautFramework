@@ -1,18 +1,14 @@
 function ObjBumperStartup()
 {
-	// Set variables
-	State	   = 0;
+	// Initialise variables
 	ScoreLimit = 10;
+	State	   = 0;
 	
-	// Set object hitbox
+	// Set object properties
 	object_set_hitbox(8, 8);
-	
-	// Set object depth
 	object_set_depth(Player, 1);
-	
-	// Set object unload type
 	object_set_unload(TypePause);
 	
-	// Set animation to its last frame
+	// Set animation to its last frame so we can simply restart it
 	animation_play(sprite_index, 4, 5, 5);
 }

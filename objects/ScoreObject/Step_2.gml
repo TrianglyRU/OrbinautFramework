@@ -1,5 +1,5 @@
 /// @description Main
-// You can call your scripts in this editor
+// You can write your code in this editor
 	
 	// Call object script
 	ObjScoreObjectMain();

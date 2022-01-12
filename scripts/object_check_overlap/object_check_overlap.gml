@@ -50,19 +50,11 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-		
-			// If player overlaps object on both axis, they collided with it
 			return true;
 		}
 		break;
 		case TypeSolidbox:
 		{
-			// Exit if this object solidbox isn't initialised
-			/*if !variable_instance_exists(id, "Obj_SolidX")
-			{
-				return false;
-			}*/
-		
 			// Exit if object can't be overlapped
 			if !Obj_SolidX or !Obj_SolidY
 			{
@@ -96,20 +88,11 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-		
-			// If player overlaps object on both axis, they collided with it
 			return true;
 		}
 		break;
 		case TypeTrigger:
 		{
-			// Exit if this object triggerbox isn't initialised
-			/*if !variable_instance_exists(id, "Obj_TriggerLeft")
-			{
-				return false;
-			}*/
-		
-			// Return check result
 			return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));
 		}
 		break;

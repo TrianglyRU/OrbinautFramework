@@ -14,36 +14,28 @@ function ObjFloatingPlatformStartup()
 	{
 		case Stage_TZ:
 		{
-			var XRadius	 = 40;
-			var YRadius	 = 11;
+			var Solidbox = [40, 11];
 			sprite_index = spr_obj_floatingplatform_tz;
 		}
 		break;
 		default:
 		{
-			var XRadius	 = 0;
-			var YRadius	 = 0;
+			var Solidbox = [0, 0];
 			sprite_index = spr_tempobject;
 		}
 		break;
 	}
 	
-	// Set blank values
+	// Initialise variables
+	OriginX   = x;
+	OriginY	  = y;
 	Weight    = 0;
 	State     = 0;
 	Timer     = 0;
 	FallSpeed = 0;
 	
-	// Set other variables
-	OriginX = x;
-	OriginY	= y;
-	
-	// Set object solidbox
-	object_set_solidbox(XRadius, YRadius, false);
-	
-	// Set object unload type
+	// Set object properties
+	object_set_solidbox(Solidbox[0], Solidbox[1], false);
 	object_set_unload(TypePause);
-	
-	// Set object depth
 	object_set_depth(Player, 0);
 }

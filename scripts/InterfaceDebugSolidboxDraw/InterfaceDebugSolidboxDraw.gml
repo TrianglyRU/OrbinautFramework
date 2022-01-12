@@ -1,38 +1,35 @@
 function InterfaceDebugSolidboxDraw()
 {
-	// Exit if disabled
+	// Exit the code if disabled
 	if !DebugSolids
 	{
 		exit;
 	}
-	
-	// Set alpha
 	draw_set_alpha(0.5);
 	
 	with all
 	{
-		// Player solidbox
+		// Draw player's solidbox
 		if object_index == Player
 		{
 			var pTop    = floor(PosY - RadiusY);
 			var pLeft   = floor(PosX - 10);
 			var pRight  = floor(PosX + 10);
 			var pBottom = floor(PosY + RadiusY);
+			
 			draw_rectangle_colour(pLeft, pTop, pRight, pBottom, $00ffff, $00ffff, $00ffff, $00ffff, false);
 		}
 			
-		// Object solidbox
+		// Draw object's solidbox
 		else if variable_instance_exists(id, "Obj_SolidX")
 		{	
-			// Display normal solidbox
 			if Obj_SolidMap == false
 			{
 				draw_rectangle_colour(x - Obj_SolidX, y - Obj_SolidY, x + Obj_SolidX - 1, y + Obj_SolidY - 1, $00ffff, $00ffff, $00ffff, $00ffff, false);
 			}
-				
-			// Display sloped solidbox
 			else
 			{
+				// Draw sloped
 				for (var i = 0; i < array_length(Obj_SolidMap); i++)
 				{
 					var Height = image_xscale ? i : array_length(Obj_SolidMap) - 1 - i;
@@ -49,7 +46,5 @@ function InterfaceDebugSolidboxDraw()
 			}
 		}
 	}
-	
-	// Restore alpha
 	draw_set_alpha(1.0);
 }

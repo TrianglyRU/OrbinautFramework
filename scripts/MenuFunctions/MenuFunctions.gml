@@ -3,17 +3,13 @@ function MenuFunctions()
 	/// @function menu_add_option(listid,optionid,optionname)
 	function menu_add_option(listid,optionid,optionname)
 	{
-		// Increase menu size
 		MenuSize[listid]++;
-		
-		// Set option name and target menu
 		MenuOption[listid][optionid] = optionname;
 	}
 	
 	/// @function menu_list_redirect(listid,rememberOption,rememberMenu)
 	function menu_list_redirect(listid,rememberOption,rememberMenu)
 	{
-		// Remember highlighted option in current menu
 		if rememberOption
 		{	
 			PreviousOptionID[listid] = OptionID;
@@ -22,14 +18,10 @@ function MenuFunctions()
 		{
 			PreviousOptionID[listid] = noone;
 		}
-		
-		// Remember current menu
 		if rememberMenu
 		{
 			PreviousMenuID[listid] = MenuID;
 		}
-		
-		// Update option
 		MenuID	 = listid;
 		OptionID = 0;
 	}
@@ -37,21 +29,18 @@ function MenuFunctions()
 	/// @function menu_update_option(listid,optionid,newname)
 	function menu_update_option(listid,optionid,newname)
 	{
-		// Update option name
 		MenuOption[listid][optionid] = newname;
 	}
 	
 	/// @function menu_add_header(listid,header)
 	function menu_add_header(listid,header)
 	{
-		// Set header
 		MenuHeader[listid] = header;	
 	}
 	
 	/// @function menu_get_boolean(variable)
 	function menu_get_boolean(variable)
 	{
-		// Get variable value
 		if variable
 		{
 			return "TRUE";
@@ -65,7 +54,6 @@ function MenuFunctions()
 	/// @function menu_get_keyname(UTF8value)
 	function menu_get_keyname(UTF8value)
 	{
-		// Get keyname
 		switch UTF8value 
 		{
 			case 37:  return "LEFT"	 break;

@@ -70,7 +70,7 @@ function ObjClearPanelMain()
 			if Player.Grounded
 			{
 				// Check if the player passed by the right boundary
-				if floor(Player.PosX + Player.Xsp) > Stage.RightBoundary - 24
+				if floor(Player.PosX) > Stage.RightBoundary - 24
 				{
 					if Stage.IsFinished < 2
 					{
@@ -86,8 +86,6 @@ function ObjClearPanelMain()
 				{
 					Input.IgnoreInput = true;
 				}
-				
-				// Force player movement
 				else
 				{
 					Input.Right = true;

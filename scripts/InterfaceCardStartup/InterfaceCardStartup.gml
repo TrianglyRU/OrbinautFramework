@@ -1,11 +1,5 @@
 function InterfaceCardStartup()
 {
-	// Disable all input
-	Input.IgnoreInput = true;
-	
-	// Turn screen black
-	fade_perform(ModeInto, BlendBlack, 0);
-	
 	/* Value Table Reference
 	------------------------
 	Value[0] - Timer
@@ -19,7 +13,7 @@ function InterfaceCardStartup()
 	------------------------
 	*/
 	
-	// Set values
+	// Initialise variables
 	CardValue[0] = 0;
 	CardValue[1] = 0;	
 	CardValue[2] = Game.Height / 2;
@@ -28,4 +22,10 @@ function InterfaceCardStartup()
 	CardValue[5] = 1;
 	CardValue[6] = -48;
 	CardValue[7] = Game.Width * 2 + 128;
+	
+	// Disable all input
+	Input.IgnoreInput = true;
+	
+	// Turn screen into black
+	fade_perform(ModeInto, BlendBlack, 0);
 }

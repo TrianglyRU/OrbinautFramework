@@ -1,19 +1,22 @@
 function BackgroundProcess()
 {	
-	// Draw background colour
 	draw_clear(BGColour);
-	
-	// Use parallax shader
 	shader_set(ShaderParallax);
 	
 	// Get camera position
 	var ViewX = Camera.ViewX;
 	var ViewY = Camera.ViewY;
 	
-	// Check if we should update autoscroll value
-	var UpdateAutoscroll = !(fade_check(StateActive) or variable_check(Stage, "IsPaused"));
+	// Check if we should update the autoscroll value
+	if fade_check(StateActive) or variable_check(Stage, "IsPaused")
+	{
+		var UpdateAutoscroll = false;
+	}
+	else
+	{
+		var UpdateAutoscroll = true;
+	}
 	
-	// Work with each layer individually
 	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
 	{

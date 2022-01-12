@@ -1,24 +1,16 @@
 function ObjBarrierMain()
 {
-	// Set static animation value for flame barrier
+	// Flame Barrier animation duration
 	static FlameAnimationTime = 25;
 	
-	// Delete barrier if player doesn't have it anymore
 	if Player.BarrierType == false
 	{
 		instance_destroy();
 	}
+	
+	// Update barrier
 	else switch Player.BarrierType
 	{
-		// Update normal barrier
-		case BarrierNormal:
-		{
-			object_set_depth(Player, 1);
-			animation_play(spr_obj_barrier_normal, 2, 0, 0);
-		}
-		break;
-		
-		// Update thunder barrier
 		case BarrierThunder:
 		{
 			if image_index == 19
@@ -29,27 +21,21 @@ function ObjBarrierMain()
 			{
 				object_set_depth(Player, 1);
 			}
-			animation_play(spr_obj_barrier_thunder, 2, 0, 0);
 		}
 		break;
-		
-		// Update flame barrier depth and animation
 		case BarrierFlame:
 		{
 			if sprite_index == spr_obj_barrier_flame_dash
 			{
 				if !(--FlameAnimationTime)
 				{
-					// Reset to default animation after 24 frames
-					animation_play(spr_obj_barrier_flame, 2, 0, 0);
-					
-					// Reset timer
+					// Reset timer and restore player's control
 					FlameAnimationTime = 25;
+					Player.AirLock     = false;
 					
-					// Restore control
-					Player.AirLock = false;
+					// Reset animation
+					animation_play(spr_obj_barrier_flame, 2, 0, 0);
 				}
-				object_set_depth(Player, 1);
 			}
 			else
 			{
@@ -61,7 +47,6 @@ function ObjBarrierMain()
 				{
 					object_set_depth(Player, 0);
 				}
-				animation_play(spr_obj_barrier_flame, 2, 0, 0);
 			}
 		}
 		break;
@@ -72,12 +57,9 @@ function ObjBarrierMain()
 			{
 				if image_index == 2
 				{
+					// Reset animation
 					animation_play(spr_obj_barrier_water, 2, 0, 0);
 				}
-			}
-			else
-			{
-				animation_play(spr_obj_barrier_water, 2, 0, 0);
 			}
 			object_set_depth(Player, 1);
 		}

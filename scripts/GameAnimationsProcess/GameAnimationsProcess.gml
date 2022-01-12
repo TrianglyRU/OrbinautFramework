@@ -11,6 +11,7 @@ function GameAnimationsProcess()
 			image_timer     = 0;
 			image_duration  = 0;
 			image_loopframe = 0;
+			image_framedata = 0;
 		}
 		else if image_duration != 0
 		{
@@ -46,13 +47,13 @@ function GameAnimationsProcess()
 					}
 					
 					// Reset timer
-					if !is_array(image_duration)
+					if !is_array(image_framedata)
 					{
 						image_timer = abs(image_duration);
 					}
 					else
 					{
-						image_timer = abs(image_duration[image_index]);
+						image_timer = abs(image_framedata[image_index]);
 					}
 				}
 			}		

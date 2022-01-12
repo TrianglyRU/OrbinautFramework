@@ -31,20 +31,18 @@ function ObjAirBubblerMain()
 		case 1:
 		{
 			// Generate a bubble
-			var Object = instance_create(x + irandom_range(-8, 7), y, Bubble);
+			var Object = instance_create(x + irandom_range(-8, 7), y, Bubble);		
 			
-			// Mark bubble as large
 			if BubbleID == LargeID and !(Cycle mod GenerationSpeed)
 			{
 				with Object
 				{
+					// Mark bubble as large
 					Direction  = FlipRight;
 					BubbleType = 2;
 					
-					// Set object triggerbox
+					// Set object properties
 					object_set_triggerbox(-16, 16, -16, 16);
-					
-					// Set animation
 					animation_play(sprite_index, 15, 2, 6);
 				}
 			}
@@ -99,7 +97,6 @@ function ObjAirBubblerMain()
 			}
 			else if !(--Delay)
 			{
-				// Get next bubble to generate
 				BubbleID++;
 				
 				// Return to state 1

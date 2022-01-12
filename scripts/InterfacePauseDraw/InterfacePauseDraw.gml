@@ -1,12 +1,11 @@
 function InterfacePauseDraw()
 {	
-	// Exit if stage is not paused
 	if !Stage.IsPaused
 	{
 		exit;
 	}
 	
-	// Get pause position
+	// Get screen centre
 	var MenuX = Game.Width / 2;
 	var MenuY = Game.Height / 2;
 	

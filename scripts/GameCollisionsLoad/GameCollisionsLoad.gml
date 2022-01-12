@@ -16,10 +16,9 @@ function GameCollisionsLoad()
 	var HeightMap = "heightmap" + Game.TileData[0] + ".bin";
 	var WidthMap  = "widthmap"  + Game.TileData[0] + ".bin";
 	
-	// Load collision tiles binary data
+	// Load 3 data files
 	for (var k = 0; k < 3; k++)
 	{
-		// Define datafile to load
 		switch k
 		{
 			case 0:
@@ -33,7 +32,7 @@ function GameCollisionsLoad()
 			break;
 		}
 		
-		// Open file
+		// Load data file
 		var File = file_bin_open("tiledata/" + Name, 0);	
 		var Size = file_bin_size(File);
 		if  File 
@@ -70,8 +69,6 @@ function GameCollisionsLoad()
 					break;
 				}
 			}
-			
-			// Close file
 			file_bin_close(File);									 
 		}
 	}

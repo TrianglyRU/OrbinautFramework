@@ -4,16 +4,11 @@ function ObjClearPanelStartup()
 	1. PlayerType, default = "All"					
 	*/
 	
-	// Set blank values
+	// Initialsie variables
 	State	     = 0;
 	StateTimer   = 0;
 	SparkleToUse = 0;
 	
-	// Set sparkle position data
-	SparkleX = [-24, 8, -16, 24, 0, 16, -24, 24];
-	SparkleY = [-16, 8, 0, -8, -8, 0, 8, 16];
-	
-	// Set sprites
 	switch Game.Character
 	{
 		case CharSonic:
@@ -37,6 +32,10 @@ function ObjClearPanelStartup()
 	}
 	sprite_index = SpriteData[0];
 	
-	// Set object depth
+	// Sparkle position table
+	SparkleX = [-24, 8, -16, 24, 0, 16, -24, 24];
+	SparkleY = [-16, 8, 0, -8, -8, 0, 8, 16];
+	
+	// Set object properties
 	object_set_depth(Player, 0);
 }

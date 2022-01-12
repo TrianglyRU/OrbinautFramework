@@ -1,12 +1,12 @@
 function SpecialStageStartup()
 {
-	// Set blank values
+	// Initialise variables
 	State	   = 0;
 	StateTimer = 0;
 	
-	// Perform fade from white
+	// Fade in
 	fade_perform(ModeFrom, BlendWhite, 1);
 	
-	// Play bgm
+	// Play music
 	audio_bgm_play(ChannelPrimary, SpecialStageTheme);
 }

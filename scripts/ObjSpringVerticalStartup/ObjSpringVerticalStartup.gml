@@ -1,6 +1,6 @@
 function ObjSpringVerticalStartup()
 {
-	// Define spring force
+	// Set spring force
 	if object_index == SpringYellowVertical
 	{
 		LaunchForce = 10;
@@ -10,15 +10,11 @@ function ObjSpringVerticalStartup()
 		LaunchForce = 16;
 	}
 	
-	// Set object solidbox
+	// Set object properties
 	object_set_solidbox(16, 8, false);
-	
-	// Set object depth
-	object_set_depth(Player, 0);
-	
-	// Set object unload type
 	object_set_unload(TypePause);
-	
-	// Set animation
+	object_set_depth(Player, 0);
+
+	// Set animation to its last frame so we can simply restart it
 	animation_play(sprite_index, 3, 3, 3);
 }

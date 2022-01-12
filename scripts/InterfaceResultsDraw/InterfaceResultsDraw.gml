@@ -17,17 +17,14 @@ function InterfaceResultsDraw()
 	----------------------------
 	*/
 	
-	// Exit if act is not finished
 	if Stage.IsFinished < 2
 	{
 		exit;
 	}
-
 	if Stage.DoUpdate
 	{	
 		switch ResultsValue[8]
 		{
-			// State 0
 			case 0:
 			{
 				// Calculate ring bonus
@@ -128,7 +125,6 @@ function InterfaceResultsDraw()
 				}
 				else
 				{
-					// Play sound
 					if ResultsValue[0] == 300
 					{
 						audio_sfx_play(sfxScoreCount, true);
@@ -169,29 +165,24 @@ function InterfaceResultsDraw()
 				}
 			}
 			break;
-			
-			// State 2 (end, no continue)
 			case 2:
 			{
+				// No continue
 				if (++ResultsValue[0]) == 180
 				{
 					fade_perform(ModeInto, BlendBlack, 1);
 				}
 			}
 			break;
-			
-			// State 3 (end with continue earned)
 			case 3:
 			{
+				// Earned continue
 				if ResultsValue[0] == -1
 				{
 					if !audio_sfx_is_playing(sfxScoreTally)
 					{
-						// Play continue sound
-						audio_sfx_play(sfxContinue, false);
-					
-						// Grant continue
 						Game.Continues++;
+						audio_sfx_play(sfxContinue, false);
 						
 						// Increment timer
 						ResultsValue[0] = 0;

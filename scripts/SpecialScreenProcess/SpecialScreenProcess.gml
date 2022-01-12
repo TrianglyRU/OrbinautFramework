@@ -1,16 +1,15 @@
 function SpecialScreenProcess()
 {
-	// Exit if not coming from Special Stage, or fade is active
+	// Check if we should exit
 	if !Game.SpecialState or (!State and fade_check(StateActive))
 	{
 		exit;
 	}
-	
 	switch State
 	{
 		case 0:
 		{
-			// Shift large text offsets
+			// Shift main text
 			if Offset[0] < 0
 			{
 				Offset[0] += 15;
@@ -39,7 +38,7 @@ function SpecialScreenProcess()
 					Offset[5] -= 15;
 				}
 			
-				// Start rendering emeralds
+				// Render emeralds
 				if RenderFlag == -1
 				{
 					RenderFlag = true;
@@ -49,7 +48,7 @@ function SpecialScreenProcess()
 					RenderAlpha += 0.1;
 				}
 			
-				// Start score count after audio stop playing
+
 				if !audio_bgm_is_playing(ChannelPrimary)
 				{		
 					if Game.SpecialScore
@@ -89,7 +88,7 @@ function SpecialScreenProcess()
 		}
 		break;
 		
-		// Shift large text back to show "character can be super" message
+		// Shift main text back to show "character can be super" message
 		case -1:
 		{
 			if Offset[0] > -360
@@ -109,7 +108,7 @@ function SpecialScreenProcess()
 		break;
 		case 1:
 		{
-			// Shift "Character can be super" message
+			// Shift "character can be super" message
 			if Game.Emeralds == 7
 			{
 				if Offset[0] < 0
@@ -126,30 +125,27 @@ function SpecialScreenProcess()
 			if (++RoomTimer) == 180
 			{
 				State++
-				fade_perform(ModeInto, BlendWhite, 1);
 				
-				// Play warp sound
+				fade_perform(ModeInto, BlendWhite, 1);
 				audio_sfx_play(sfxSpecialWarp, false);
 			}
 		}
 		break;
 		case 2:
 		{
-			// Fade to black
+			// Fade to black and increment state
 			if fade_check(StateMax)
 			{
-				fade_perform(ModeInto, BlendBlack, 1);
-				
-				// Increment state
 				State++;
+				fade_perform(ModeInto, BlendBlack, 1);
 			}
 		}
 		break;
 		case 3:
-		{
-			// Return to stage
+		{			
 			if fade_check(StateMax) and !audio_sfx_is_playing(sfxSpecialWarp)
 			{
+				// Return to stage
 				room_goto(Game.StageRoom);
 				
 				// Clear Special Stage flag

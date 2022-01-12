@@ -5,22 +5,22 @@ function DiscordSetup()
 	{
 		instance_destroy(); exit;
 	}
-	
-	// Set initalisation flag
 	PresenceReady = false;
 	
-	// Set details
+	// Set stage data
 	switch room 
 	{
 		case Stage_TZ:
-			DetailsString = "TEST STAGE ZONE";
+			DetailsString = "TEST STAGE";
 		break;
 		default:
 			DetailsString = "In Menus";
 		break;
 	}
+	MainImage     = "orbinaut";
+	MainImageDesc = "";
 	
-	// Set data
+	// Set character data
 	if instance_exists(Player)
 	{
 		switch Game.Character
@@ -48,6 +48,4 @@ function DiscordSetup()
 		SmallImageDesc = "";
 		SmallImage     = "";
 	}
-	MainImage     = "orbinaut";
-	MainImageDesc = "";
 }

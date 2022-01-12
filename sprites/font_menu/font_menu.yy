@@ -17,8 +17,8 @@
   "width": 7,
   "height": 7,
   "textureGroupId": {
-    "name": "tgMenu",
-    "path": "texturegroups/tgMenu",
+    "name": "tgFonts",
+    "path": "texturegroups/tgFonts",
   },
   "swatchColours": null,
   "gridX": 0,

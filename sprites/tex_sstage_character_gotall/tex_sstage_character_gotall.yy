@@ -50,7 +50,7 @@
             {"id":"b69ecd42-3698-44cf-90ab-8ce483e5aaf8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"de1498ce-8da9-435a-85ad-fe343de41fb6","path":"sprites/tex_sstage_character_gotall/tex_sstage_character_gotall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"da94de22-08dd-401a-8d7d-5230b25d9269","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8f031a62-f109-4582-a39f-c2d6e44b49a5","path":"sprites/tex_sstage_character_gotall/tex_sstage_character_gotall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"b75036fd-65dc-4d64-a03b-0fc0e9cccd65","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"905730bd-7757-4c99-8ed5-716b17594c46","path":"sprites/tex_sstage_character_gotall/tex_sstage_character_gotall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Screens/Special Stage/Textures.yy",
+    "path": "folders/Rooms/Special Stage/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sstage_character_gotall",

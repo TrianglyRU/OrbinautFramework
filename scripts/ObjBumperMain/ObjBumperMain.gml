@@ -8,10 +8,17 @@ function ObjBumperMain()
 			// Set player speeds based on angle
 			var Angle = point_direction(x, y, floor(Player.PosX), floor(Player.PosY));
 			
-			Player.Xsp     = 7 *  dcos(Angle);
-			Player.Ysp     = 7 * -dsin(Angle);
-			Player.Jumping = false;
-			Player.AirLock = false;
+			if Player.Grounded
+			{
+				Player.Inertia = 7 *  dcos(Angle);
+			}
+			else
+			{
+				Player.Xsp     = 7 *  dcos(Angle);
+				Player.Ysp     = 7 * -dsin(Angle);
+				Player.Jumping = false;
+				Player.AirLock = false;
+			}
 			
 			// Add points to player's score
 			if ScoreLimit

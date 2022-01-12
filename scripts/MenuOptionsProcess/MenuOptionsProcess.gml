@@ -54,10 +54,9 @@ function MenuOptionsProcess()
 						Game.SaveState = Slot[5];
 						Game.Score	   = Slot[6];
 				
-						// Load stage if the game is not completed
+						// Load stage if the game is not completed. Game.Stage is a ZoneID you set in StageSetup()
 						if !Game.SaveState
 						{
-							// Game.Stage is a ZoneID you set in StageSetup()
 							switch Game.Stage
 							{
 								default:
@@ -95,27 +94,24 @@ function MenuOptionsProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
-				// Set data
 				Game.Character = OptionID;
 				Game.Emeralds  = 0;
 				Game.Lives	   = 3;
 				Game.Continues = 0;
 				Game.Score	   = 0;	
 				
-				// Starting a new game
+				// Start a new game
 				if MenuID == 2
 				{
-					// Load into the first zone
-					room_goto(Stage_TZ);
-					
 					// Save data if not in "no-save" mode
 					if Game.ActiveSave != -1
 					{
 						gamedata_save(Game.ActiveSave);
 					}
+					room_goto(Stage_TZ);
 				}
 				
-				// Redirecting to Stage Select
+				// Redirect to Stage Select
 				else
 				{
 					menu_list_redirect(4, false, true);

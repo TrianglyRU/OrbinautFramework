@@ -8,15 +8,16 @@ function SpecialStageProcess()
 			{
 				// Win
 				if Input.ABCPress
-				{
-					State++;
+				{				
+					Game.Emeralds++;
 					Game.SpecialState = 1;
 					Game.SpecialScore = 10000;
-			
+					
+					// Increment state
+					State++;
+					
 					fade_perform(ModeInto, BlendWhite, 1);
-					Game.Emeralds++;
 			
-					// Stop music
 					audio_bgm_stop(ChannelPrimary,   0.5);
 					audio_bgm_stop(ChannelSecondary, 0.5);
 				}
@@ -24,13 +25,14 @@ function SpecialStageProcess()
 				// Lose
 				else if Input.StartPress
 				{
-					State++;
 					Game.SpecialState = 2;
 					Game.SpecialScore = 1000;
+					
+					// Increment state
+					State++;
 			
 					fade_perform(ModeInto, BlendWhite, 1);
 			
-					// Stop music
 					audio_bgm_stop(ChannelPrimary,   0.5);
 					audio_bgm_stop(ChannelSecondary, 0.5);
 				}

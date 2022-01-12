@@ -1,14 +1,12 @@
 function ObjPlatformPieceStartup()
 {
-	// Set blank values
+	// Initialsie variables
+	PosY  = y;
 	Ysp   = 0;
 	Timer = 0;
 	DrawX = 0;
 	DrawY = 0;
 	
-	// Set default position
-	PosY = y;
-	
-	// Set object unload type
+	// Set object properties
 	object_set_unload(TypeDelete);
 }

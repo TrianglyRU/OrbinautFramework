@@ -44,16 +44,15 @@ function BonusStageProcess()
 					}
 					Game.BonusStageData[1] = Random;
 				}
-	
-				// Leave
 				else if Input.StartPress
 				{
 					fade_perform(ModeInto, BlendBlack, 1);
-					State++;
-					
-					// Stop music
-					audio_bgm_stop(ChannelPrimary,  0.5);
+	
+					audio_bgm_stop(ChannelPrimary,   0.5);
 					audio_bgm_stop(ChannelSecondary, 0.5);
+					
+					// Increment state
+					State++;
 				}
 			}
 		}

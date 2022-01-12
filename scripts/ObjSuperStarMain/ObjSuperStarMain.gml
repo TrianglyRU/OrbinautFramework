@@ -1,7 +1,7 @@
 function ObjSuperStarMain()
 {
 	// Follow player if flag is set (first star spawned)
-	if FollowPlayer
+	if State
 	{
 		x = floor(Player.PosX);
 		y = floor(Player.PosY);

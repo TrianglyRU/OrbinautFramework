@@ -1,12 +1,10 @@
 function ObjTailsObjectStartup()
 {
-	// Create variables
+	// Initialise variables
+	x			= Player.PosX;
+	y			= Player.PosY;
 	Angle		= 0;
 	VisualAngle = 0;
-	
-	// Move tails to player
-	x = floor(Player.PosX);
-	y = floor(Player.PosY);
 	
 	// Set sprite
 	sprite_index = spr_tails_tail_idle;

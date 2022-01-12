@@ -55,7 +55,7 @@ function PlayerSuperFormsProcess()
 				var  Object = instance_create(PosX, PosY, SuperStar);
 				with Object 
 				{
-					FollowPlayer = true;
+					State = true;
 				}
 			}
 			

@@ -49,7 +49,7 @@
   },
   "parent": {
     "name": "Bonus Stages",
-    "path": "folders/Rooms/Stages/Bonus Stages.yy",
+    "path": "folders/Rooms/Bonus Stages.yy",
   },
   "resourceVersion": "1.0",
   "name": "BStage_Template",

@@ -1,6 +1,6 @@
 function ObjInvincibilityStarStartup()
 {
-	// Set blank values
+	// Initialise variables
 	AngleOffset = 0;
 	Angle		= 0;
 	ID			= 0;
@@ -12,6 +12,6 @@ function ObjInvincibilityStarStartup()
 	FrameTable3 = [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2];
 	FrameTable4 = [6, 3, 5, 3, 3, 5, 3, 6, 3, 5, 5, 3];
 
-	// Set object depth
+	// Set object properties
 	object_set_depth(Player, 1);
 }

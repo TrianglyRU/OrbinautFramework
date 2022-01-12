@@ -1,14 +1,9 @@
 function ObjPrisonButtonStartup()
 {
-	// Set variable
+	// Initialise flag
 	State = 0;
 	
-	// Set object solidbox
+	// Set object properties
 	object_set_solidbox(12, 8, false);
-	
-	// Set object depth
-	object_set_depth(EggPrison, 0);
-	
-	// Set animation
 	animation_play(sprite_index, 3, 0, 0);
 }

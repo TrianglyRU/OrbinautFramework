@@ -1,13 +1,12 @@
 function InterfaceDebugScreenDraw()
 {	
-	// Display FPS if enabled
 	if DebugFPS
 	{
 		// Set font
 		draw_set_halign(fa_left);
 		draw_set_font(game_font(font_default));
 		
-		// Show FPS
+		// Draw FPS counter
 		if !DebugVariables
 		{
 			draw_text_transformed(8, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
@@ -18,11 +17,9 @@ function InterfaceDebugScreenDraw()
 			draw_text_transformed(8, Game.Height - 4, "APPROXIMATE FPS: " + string(floor(fps_real * 1.8)), 0.5, 0.5, 0);
 		}
 	}
-	
-	// Display variable info if enabled
 	if DebugVariables
 	{
-		// Define information to display
+		// Set information to display
 		#region Display Info
 		{
 			if array_length(Player.CollisionMode)
@@ -91,7 +88,7 @@ function InterfaceDebugScreenDraw()
 		draw_set_halign(fa_left);
 		draw_set_font(game_font(font_default));
 	
-		// Show variables
+		// Draw debug text
 		draw_text_ext_transformed(Game.Width - 86, 8,
 		
 					"         ORBINAUT  FRAMEWORK"

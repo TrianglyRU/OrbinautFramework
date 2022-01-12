@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Game Objects/Screen Objects/Scripts.yy",
+    "name": "OrbinautFramework",
+    "path": "OrbinautFramework.yyp",
   },
   "resourceVersion": "1.0",
-  "name": "ObjContinueIconStartup",
+  "name": "FastScriptAccess",
   "tags": [],
   "resourceType": "GMScript",
 }

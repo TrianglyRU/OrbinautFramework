@@ -17,8 +17,8 @@
   "width": 34,
   "height": 40,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgKnuckles",
+    "path": "texturegroups/tgKnuckles",
   },
   "swatchColours": null,
   "gridX": 0,

@@ -1,8 +1,5 @@
 function GameTimeReset()
 {
-	// Reset global time
-	Game.GlobalTime = 0;
-	
-	// Destroy data structure
-	ds_map_destroy(Game.SpriteTimers);
+	// Reset global time and destroy data structure
+	Game.GlobalTime = 0; ds_map_destroy(Game.SpriteTimers);
 }

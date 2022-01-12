@@ -5,6 +5,7 @@ function animation_set(spriteid,frame)
 	if sprite_index != spriteid or event_type == ev_create
 	{
 		image_timer     = 0;
+		image_framedata = 0;
 		image_loopframe = frame;
 		sprite_index    = spriteid;
 	}

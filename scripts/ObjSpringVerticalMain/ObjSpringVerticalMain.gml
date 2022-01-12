@@ -3,17 +3,14 @@ function ObjSpringVerticalMain()
 	// Do collision
 	object_act_solid(true, true, true, true);
 		
-	// Get collision side
-	var LaunchSide = image_yscale ? SideTop : SideBottom;
-		
-	// Is player touching launch side?
-	if object_check_touch(LaunchSide)
+	// Is player touching the launch side?
+	if object_check_touch(image_yscale ? SideTop : SideBottom)
 	{	
 		// Launch player
 		Player.Ysp = -LaunchForce * image_yscale;
 			
 		// Clear flags
-		if LaunchSide == SideTop
+		if image_yscale
 		{
 			Player.Animation = AnimSpring;
 		}

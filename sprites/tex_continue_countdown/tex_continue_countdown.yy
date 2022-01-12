@@ -17,8 +17,8 @@
   "width": 15,
   "height": 11,
   "textureGroupId": {
-    "name": "tgMenu",
-    "path": "texturegroups/tgMenu",
+    "name": "tgContinueScreen",
+    "path": "texturegroups/tgContinueScreen",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -82,7 +82,7 @@
             {"id":"96cebd7a-bee6-427a-8ffa-bd35da48499b","Key":8.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"62de91be-2c15-4702-8def-d98902a5b26b","path":"sprites/tex_continue_countdown/tex_continue_countdown.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"c0f41c22-ffca-454d-9f3f-a3acd3d2a0a8","Key":9.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"667fa161-5a33-4fdf-b8b5-c5cfe3d74272","path":"sprites/tex_continue_countdown/tex_continue_countdown.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"bc5b1cce-22b5-4363-ba33-92a41c34200d","Key":10.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"13ac885f-fcb9-4223-8c83-a470ca7c145a","path":"sprites/tex_continue_countdown/tex_continue_countdown.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -110,7 +110,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Screens/Continue Screen/Textures.yy",
+    "path": "folders/Rooms/Continue Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_continue_countdown",

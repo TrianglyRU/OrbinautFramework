@@ -114,6 +114,7 @@ function PlayerJump()
 						// Set barrier animation
 						with Barrier
 						{
+							object_set_depth(Player, 1);
 							animation_play(spr_obj_barrier_flame_dash, 2, 0, 0);
 						}
 						

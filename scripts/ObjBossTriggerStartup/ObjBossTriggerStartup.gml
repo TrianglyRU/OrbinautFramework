@@ -6,12 +6,10 @@ function ObjBossTriggerStartup()
 	3. Template,    default = true
 	*/
 	
-	// Set variable
+	// Initialise variables
 	BossDefeated = 0;
+	image_alpha  = 0;
 	
-	// Hide sprite
-	image_alpha = 0;
-	
-	// Set object unload type
+	// Set object properties
 	object_set_unload(TypePause);
 }

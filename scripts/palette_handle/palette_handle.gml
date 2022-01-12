@@ -11,11 +11,11 @@ function palette_handle(palType,iCol,rCol1,rCol2,duration)
 	var SequenceID = string(rCol1) + "_" + string(rCol2);
 	
 	// Initialise palette sequence
-	if Palette.Sequence[palType][id] != SequenceID
+	if Palette.Sequence[palType][iCol] != SequenceID
 	{
-		Palette.Sequence[palType][id] = SequenceID;
-		Palette.Duration[palType][id] = duration;
-		Palette.SwapTime[palType][id] = duration;
+		Palette.Sequence[palType][iCol] = SequenceID;
+		Palette.Duration[palType][iCol] = duration;
+		Palette.SwapTime[palType][iCol] = duration;
 	}
 	
 	// Update sequence

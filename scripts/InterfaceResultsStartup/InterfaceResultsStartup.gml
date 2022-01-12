@@ -17,7 +17,7 @@ function InterfaceResultsStartup()
 	----------------------------
 	*/
 	
-	// Set values
+	// Initialise variables
 	ResultsValue[0]  = 0;
 	ResultsValue[1]  = 400;
 	ResultsValue[2]  = 400;

@@ -11,9 +11,8 @@ function ObjSpikesVerticalMain()
 		object_act_solid(true, true, true, false);
 	}
 	
-	// Damage player if they're touching hurt side
-	var HurtSide = image_yscale == 1 ? SideTop : SideBottom;
-	if object_check_touch(HurtSide)
+	// Damage player if they're touching the hurt side
+	if object_check_touch(image_yscale == 1 ? SideTop : SideBottom)
 	{
 		player_damage(false, false, false);
 	}

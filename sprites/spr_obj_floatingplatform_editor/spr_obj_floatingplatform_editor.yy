@@ -17,8 +17,8 @@
   "width": 60,
   "height": 25,
   "textureGroupId": {
-    "name": "tgSystem",
-    "path": "texturegroups/tgSystem",
+    "name": "tgGlobalObj",
+    "path": "texturegroups/tgGlobalObj",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Objects/Sprites.yy",
+    "path": "folders/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_floatingplatform_editor",

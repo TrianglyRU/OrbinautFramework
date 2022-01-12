@@ -1,10 +1,18 @@
 function AudioPrimaryProcess()
 {
-	// Exit if primary track is playing
 	if !PrimaryTrack[1] 
 	{
 		exit;
 	}
+	
+	/* Value Table Reference
+	------------------------
+	[0] - Event
+	[1] - Track ID
+	[2] - Event Time
+	[3] - Loop Data
+	------------------------
+	*/
 	
 	// Get track data
 	var Event     = PrimaryTrack[0];

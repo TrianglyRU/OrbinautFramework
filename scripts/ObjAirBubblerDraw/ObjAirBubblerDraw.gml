@@ -1,11 +1,8 @@
 function ObjAirBubblerDraw()
 {
-	// Exit if above water
-	if !Stage.WaterEnabled or y < Stage.WaterLevel
+	// Draw if not above the water surface
+	if Stage.WaterEnabled and y >= Stage.WaterLevel
 	{
-		exit;
+		draw_self();
 	}
-	
-	// Draw
-	draw_self();
 }

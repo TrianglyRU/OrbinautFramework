@@ -1,6 +1,6 @@
 function InputStartup()
 {	
-	// Set blank values
+	// Initialise variables
 	IgnoreInput	= 0;
 	Up			= 0;
 	Down		= 0;
@@ -23,9 +23,14 @@ function InputStartup()
 	StartPress  = 0;
 	ModePress   = 0;
 	
-	// Set deadzone for gamepad
+	// Set default input controller and deadzone for gamepad
+	if gamepad_is_connected(0)
+	{
+		Type = "Gamepad";
+	}
+	else
+	{
+		Type = "Keyboard";
+	}
 	gamepad_set_axis_deadzone(0, 0.3);
-	
-	// Set default input method
-	Type = gamepad_is_connected(0) ? "Gamepad" : "Keyboard";
 }

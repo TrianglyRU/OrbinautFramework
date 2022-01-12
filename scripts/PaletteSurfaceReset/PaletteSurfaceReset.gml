@@ -1,6 +1,6 @@
 function PaletteSurfaceReset()
 {
-	// Perform only when room ends (calls automatically)
+	/* This script will be called on room end */
 	if !DoReset
 	{
 		exit;

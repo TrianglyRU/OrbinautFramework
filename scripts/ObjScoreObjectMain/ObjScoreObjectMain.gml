@@ -5,7 +5,7 @@ function ObjScoreObjectMain()
 	{
 		case 0:
 		{
-			if ComboTrigger
+			if IsChain
 			{	
 				// 1 Hit
 				if Player.ScoreCombo < 2
@@ -42,8 +42,6 @@ function ObjScoreObjectMain()
 					SpriteFrame   = 5;
 				}
 			}
-		
-			// Give 10 points if it is not combo score
 			else
 			{
 				Player.Score += 10;
@@ -64,11 +62,12 @@ function ObjScoreObjectMain()
 	Ysp  += 0.09375;
 	
 	// Update position
-	y = floor(PosY);
-	
-	// Delete object if its speed has reached 0
 	if Ysp == 0
 	{
 		instance_destroy();
+	}
+	else
+	{
+		y = floor(PosY);
 	}
 }

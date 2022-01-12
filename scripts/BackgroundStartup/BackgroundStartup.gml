@@ -1,6 +1,6 @@
 function BackgroundStartup()
 {
-	// Set default background properties
+	// Initialise variables
 	BGSprites = [];
 	BGValues  = [];
 	BGColour  = c_gray;

@@ -17,8 +17,8 @@
   "width": 16,
   "height": 64,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgGlobalObj",
+    "path": "texturegroups/tgGlobalObj",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Game Objects",
-    "path": "folders/Game Objects.yy",
+    "name": "Sprites",
+    "path": "folders/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_trigger2",

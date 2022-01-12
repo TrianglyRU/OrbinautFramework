@@ -1,8 +1,15 @@
 function StageGameplayProcess()
 {	
-	// Check if we should update the stage or not
-	DoUpdate = !(fade_check(StateActive) or IsPaused or Player.Death);
-	
+	// Should we update our stage?
+	if fade_check(StateActive) or IsPaused or Player.Death
+	{
+		DoUpdate = false;
+	}
+	else
+	{
+		DoUpdate = true;
+	}
+
 	// Process stage time
 	if DoUpdate and TimeEnabled
 	{
@@ -25,7 +32,7 @@ function StageGameplayProcess()
 		var Length = array_length(AnimatedGraphics);
 		for (var i = 0; i < Length; i += 2)
 		{
-			if fade_check(StateActive) and !Stage.IsPaused
+			if !fade_check(StateActive) and !Stage.IsPaused
 			{
 				var AnimSpeed = 1 / AnimatedGraphics[i + 1];
 			}
@@ -40,76 +47,62 @@ function StageGameplayProcess()
 	// Process player death
 	if Player.Death
 	{
-		// Disable camera and timer
-		Camera.Enabled = false;
-		TimeEnabled    = false;
-		
-		// Check if player has fallen below bottom boundary
 		if floor(Player.PosY) >= Stage.BottomBoundary + 32
 		{	
 			/* In Sonic 3 and later, the game checks if player has fallen below
-			Camera.ViewY + Game.Height + 32 instead. That's a quick change so we
-			didn't make a flag for it */
+			Camera.ViewY + Game.Height + 32 instead */
 			
+			// If ran out of lives or time, start GAME OVER or TIME OVER event
 			if !EventTimer
 			{
-				// Subtract a life
-				Player.Lives--;
-				
-				// If ran out of lives or time, start game/time over event
-				if !Player.Lives or Time == 36000
+				if !(--Player.Lives) or Time == 36000
 				{
 					IsGameOver = true;
+					
 					audio_bgm_stop(ChannelSecondary, 0);
 					audio_bgm_play(ChannelPrimary, GameOver);
 				}
 			}
-			
-			// Count timer
 			EventTimer++;
 			
-			// Wait for 1 or 12 seconds
+			// Wait for 1 second if GAME OVER event isn't triggered, else wait for 12 seconds
 			if !IsGameOver and EventTimer == 60 or IsGameOver and EventTimer == 720
 			{
-				// Fade out
 				fade_perform(ModeInto, BlendBlack, 1);
 				
-				// Stop all music
-				audio_bgm_stop(ChannelPrimary,  0.5);
+				audio_bgm_stop(ChannelPrimary,   0.5);
 				audio_bgm_stop(ChannelSecondary, 0.5);
 			}
 			if fade_check(StateMax)
 			{	
-				// If we have lives, restart the stage
 				if Player.Lives != 0
 				{
-					room_restart();
-					Game.Lives = Player.Lives;
-					
-					// Clear saved time on checkpoint if this event is time over
-					if IsGameOver and array_length(Game.StarPostData)
+					// Clear saved checkpoint time if we got TIME OVER
+					if array_length(Game.StarPostData) and IsGameOver
 					{
 						Game.StarPostData[2] = 0;
 					}
+					Game.Lives = Player.Lives;
+					
+					// Restart the stage
+					room_restart();
 				}
-				
-				// If ran out of lives, reset data
 				else
 				{
 					// Reset all saved data during the stage		
 					Game.StarPostData    = [];
 					Game.SpecialRingList = [];
 					
-					// If have continues, go to continue screen
+					// If we have continues, go to continue screen
 					if Game.Continues
 					{
 						room_goto(Screen_Continue);
 					}
 					
-					// If not, return to menu
+					// If not, return to DevMenu
 					else
 					{
-						// Override save file if not in "no save" mode
+						// Update game data of our save file
 						if Game.ActiveSave != -1
 						{
 							Game.Lives     = 3;
@@ -123,5 +116,7 @@ function StageGameplayProcess()
 				}
 			}	
 		}
+		Camera.Enabled = false;
+		TimeEnabled    = false;
 	}
 }		

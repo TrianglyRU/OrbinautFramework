@@ -11,8 +11,6 @@ function CameraPositionUpdate()
 		ViewX = PosX;
 		ViewY = PosY;
 	}
-	
-	// Apply shake
 	ViewX += ShakeX;
 	ViewY += ShakeY;
 	

@@ -2,12 +2,9 @@ function ObjSpringHorizontalMain()
 {
 	// Do collision
 	object_act_solid(true, true, true, false);
-		
-	// Get collision side
-	var LaunchSide = image_xscale ? SideRight : SideLeft;
-		
-	// Is player grounded and touching launch side?
-	if Player.Grounded and object_check_touch(LaunchSide)
+	
+	// Is player grounded and touching the launch side?
+	if Player.Grounded and object_check_touch(image_xscale ? SideRight : SideLeft)
 	{
 		// Lock controls for 16 frames
 		Player.GroundLock = 16;

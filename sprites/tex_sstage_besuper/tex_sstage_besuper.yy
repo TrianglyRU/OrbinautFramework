@@ -50,7 +50,7 @@
             {"id":"12e67abd-a127-45b9-97e3-d98e670e580f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8e71e8c7-2843-4789-8eea-46edbdb87e0c","path":"sprites/tex_sstage_besuper/tex_sstage_besuper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"ed39c70e-fc95-486c-8215-8aee21cad32b","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f2b01dff-6be5-406f-b394-c5743f6ab3d0","path":"sprites/tex_sstage_besuper/tex_sstage_besuper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"934a5fb4-f6c3-458d-821a-68bd51c105cf","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"56dd15d9-70bd-4ec8-90e9-34d3681cc100","path":"sprites/tex_sstage_besuper/tex_sstage_besuper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Screens/Special Stage/Textures.yy",
+    "path": "folders/Rooms/Special Stage/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sstage_besuper",

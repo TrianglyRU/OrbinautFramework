@@ -1,6 +1,5 @@
 function BonusStageDraw()
 {
-	// Get screen centre
 	var CentreX = Game.Width / 2;
 	var CentreY = Game.Height / 2;
 	
@@ -11,9 +10,7 @@ function BonusStageDraw()
 	// Draw text
 	draw_text(CentreX, CentreY - 74, "* BONUS STAGE *");
 	draw_text(CentreX, CentreY - 64, "TEMPLATE");
-	
 	draw_text(CentreX, CentreY - 24, "PRESS A TO GET 10 RINGS");
 	draw_text(CentreX, CentreY - 14, "PRESS B TO GET A RANDOM BARRIER");
-	
 	draw_text(CentreX, CentreY + 24, "PRESS START TO LEAVE BONUS STAGE");
 }

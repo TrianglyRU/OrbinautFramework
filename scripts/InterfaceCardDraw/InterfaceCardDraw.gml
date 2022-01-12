@@ -13,12 +13,10 @@ function InterfaceCardDraw()
 	------------------------
 	*/
 	
-	// Exit if title card is in state 3
 	if CardValue[1] == 3
 	{
 		exit;
 	}
-	
 	switch CardValue[1]
 	{
 		// Appear
@@ -77,7 +75,6 @@ function InterfaceCardDraw()
 					Input.IgnoreInput = false;
 					Stage.TimeEnabled = true;
 					
-					// Fade in
 					fade_perform(ModeFrom, BlendBlack, 1);
 				}
 				
@@ -132,13 +129,9 @@ function InterfaceCardDraw()
 		break;
 	}
 		
-	// Draw act number
+	// Draw assets
 	draw_sprite(gui_card_act, Stage.ActID, CardValue[6], Game.Height / 2 + 4);	
-		
-	// Draw ribbon
 	draw_sprite(gui_card_ribbon, 0, floor(CardValue[3]), floor(CardValue[2]));
-	
-	// Draw logo
 	draw_sprite_ext(gui_card_logo, 0, floor(CardValue[4]), Game.Height - 24, CardValue[5], CardValue[5], 0, c_white, 1);
 		
 	// Draw zone name

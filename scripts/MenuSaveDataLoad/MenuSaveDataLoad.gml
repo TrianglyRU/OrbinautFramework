@@ -8,10 +8,9 @@ function MenuSaveDataLoad()
 			DisplayData[i] = "SAVE " + string(i + 1) + " - NEW GAME";
 		}
 		
-		// If has data, setup information to display
+		// If has data, setup stuff
 		else
 		{
-			// Define character
 			switch Game.SaveData[i][0]
 			{
 				case 0:
@@ -27,22 +26,18 @@ function MenuSaveDataLoad()
 					var DataCharacter = "UNK";
 				break;
 			}
-			
-			// Define zone
 			switch Game.SaveData[i][1]
 			{
 				default:
 					var DataZone = "TSZ";
 				break;
 			}
-			
-			// Define emeralds, lives and continues amount
 			var DataEmeralds = Game.SaveData[i][2];
 			var DataLives    = Game.SaveData[i][3];
 			var DataConts    = Game.SaveData[i][4];
 			var GameCleared  = Game.SaveData[i][5];
 
-			// Set display info
+			// Set information to display
 			if !GameCleared
 			{
 				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " " + string(DataZone) + " L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);

@@ -1,13 +1,11 @@
 function ObjStarPostPortalStartup()
 {
-	// Set blank values
+	// Initialise variables
 	Timer    = 0;
 	State    = 0;
 	Diameter = 0;
 	
-	// Set object hitbox
+	// Set object properties
 	object_set_hitbox(16, 4);
-	
-	// Set object depth
 	object_set_depth(Player, 0);
 }

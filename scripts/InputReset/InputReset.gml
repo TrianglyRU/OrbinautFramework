@@ -1,6 +1,6 @@
 function InputReset()
 {	
-	// Ignore double input
+	// Ignore "double" input
 	if Left and Right
 	{
 		Left       = false;
@@ -17,7 +17,7 @@ function InputReset()
 		DownPress = false;
 	}	
 	
-	// Reset all buttons if we started to ignore input
+	// Reset all buttons once input is ignored
 	if IgnoreInput == true
 	{
 		Up			= false;
@@ -40,8 +40,6 @@ function InputReset()
 		ABCPress	= false;
 		StartPress  = false;
 		ModePress   = false;
-		
-		// Increment value
 		IgnoreInput = 2;
 	}
 }

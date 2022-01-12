@@ -1,10 +1,19 @@
 function PaletteStartup()
 {	
-	// Set blank values
-	ColourSet = [];
-	Duration  = [];
-	SwapTime  = [];
-	Sequence  = [];
+	// Initialise variables
+	ColourSet   = [];
+	Duration    = [];
+	SwapTime    = [];
+	Sequence    = [];
+	
+	SurfaceLow  = noone;
+	SurfaceHigh = noone;
+	DoReset		= false;
+	
+	FadeStep    = 756;
+	FadeMode    = 1;
+	FadeBlend   = 0;
+	FadeSpeed   = 0;
 	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)
@@ -18,15 +27,4 @@ function PaletteStartup()
 		IndexType1[i] = 1;
 		IndexType2[i] = 1;
 	}
-	
-	// Setup surfaces
-	SurfaceLow  = noone;
-	SurfaceHigh = noone;
-	DoReset		= false;
-
-	// Setup fade
-	FadeMode  = 1;
-	FadeStep  = 756;
-	FadeBlend = 0;
-	FadeSpeed = 0;
 }

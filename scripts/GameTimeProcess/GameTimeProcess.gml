@@ -6,7 +6,7 @@ function GameTimeProcess()
 		Game.GlobalTime++;
 	}
 	
-	// Create data structure
+	// Create data structure for animated sprites
 	if !ds_exists(Game.SpriteTimers, ds_type_map)
 	{
 		Game.SpriteTimers = ds_map_create();

@@ -1,22 +1,14 @@
 function InputGamepadProcess() 
-{
-	// Exit if gamepad isn't connected
-	if !gamepad_is_connected(0)
-	{
-		exit;
-	}
-	
-	// Exit if we ignore input or keyboard input is active
+{	
+	// Check if we should exit
 	if IgnoreInput or Type != "Gamepad"
 	{
 		exit;
 	}
-
-	// Get stick data
 	var LVAxisValue = gamepad_axis_value(0, gp_axislv);
 	var LHAxisValue = gamepad_axis_value(0, gp_axislh);
 	
-	// Process single press
+	// Key Press
 	UpPress    = (LVAxisValue < 0 and !Up)    or gamepad_button_check_pressed(0, gp_padu);
 	DownPress  = (LVAxisValue > 0 and !Down)  or gamepad_button_check_pressed(0, gp_padd);
 	LeftPress  = (LHAxisValue < 0 and !Left)  or gamepad_button_check_pressed(0, gp_padl);
@@ -28,7 +20,7 @@ function InputGamepadProcess()
 	StartPress = gamepad_button_check_pressed(0, gp_start);
 	ABCPress   = APress or BPress or CPress;
 	
-	// Process hold
+	// Key Down
 	Up	  = LVAxisValue < 0 or gamepad_button_check(0, gp_padu);
 	Down  = LVAxisValue > 0 or gamepad_button_check(0, gp_padd);
 	Left  = LHAxisValue < 0 or gamepad_button_check(0, gp_padl);

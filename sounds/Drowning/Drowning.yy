@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "Drowning.ogg",
-  "duration": 11.8089123,
+  "duration": 11.5973244,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",

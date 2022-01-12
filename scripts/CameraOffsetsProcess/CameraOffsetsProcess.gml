@@ -1,7 +1,6 @@
 function CameraOffsetsProcess()
 {	
-	// Process camera shake. We do not guarantee this is accurate, 
-	// but the original engine does something similar
+	// Shake the camera. Not quite accurate to originals, but somewhat close (we hope)
 	if ShakeTime
 	{
 		ShakeX     = irandom_range(8, 15)    * choose(-1, 1) * (1 + ShakeTime / 6) / 128;
@@ -14,7 +13,7 @@ function CameraOffsetsProcess()
 		ShakeY = 0;
 	}
 	
-	// Exit if camera is disabled or target is not the player
+	// Check if we should exit
 	if !Enabled or !(instance_exists(Target) and Target == Player)
 	{
 		exit;

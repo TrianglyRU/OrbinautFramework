@@ -47,6 +47,36 @@ function PlayerDebugModeDisplay()
 				case StarPost:				 
 					sprite_index = spr_obj_starpost;		  
 				break;
+				case Bridge:
+					sprite_index = spr_obj_bridge_editor;
+				break;
+				case FloatingPlatform:
+					sprite_index = spr_obj_floatingplatform_editor;
+				break;
+				case CollapsingPlatform:
+					sprite_index = spr_obj_collapsingplatform_editor;
+				break;
+				case SwingingPlatform:
+					sprite_index = spr_obj_swingplatform_editor;
+				break;
+				case Buzzbomber:
+					sprite_index = spr_obj_buzzbomber_idle;
+				break;
+				case Motobug:
+					sprite_index = spr_obj_motobug;
+				break;
+				case Crabmeat:
+					sprite_index = spr_obj_crabmeat_move;
+				break;
+				case Orbinaut:
+					sprite_index = spr_obj_orbinaut;
+				break;
+				case PushableBlock:
+					sprite_index = spr_obj_pushableblock;
+				break;
+				case Bumper:
+					sprite_index = spr_obj_bumper;
+				break;
 				case Animal:				 
 					sprite_index = spr_obj_animal_flicky;   
 				break;	

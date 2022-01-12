@@ -1,16 +1,14 @@
 function PaletteUpdate()
 {	
-	// Set application surface as targer surface
 	surface_set_target(application_surface);
 	draw_clear_alpha(c_white, 0);
 	
-	// Low surface render
 	if surface_exists(SurfaceLow) 
 	{
-		// Use screen shader
+		// Use shader
 		shader_set(ShaderPalette);
 		
-		// Render fade
+		// Render palette fade
 		shader_set_uniform_f(Shader.PalStep,   FadeBlend == BlendFlash ? FadeStep div 3 : FadeStep);
 		shader_set_uniform_i(Shader.PalColour, FadeBlend);
 		shader_set_uniform_i(Shader.PalMode,   FadeMode);
@@ -46,19 +44,15 @@ function PaletteUpdate()
 			shader_set_uniform_f(Shader.PalUVs2,		 ColourSet[1][3], ColourSet[1][4], ColourSet[1][5]);
 		}
 		
-		// Render low surface
+		// Render bottom surface
 		draw_surface(SurfaceLow, 0, 0);
-		
-		// Reset shader
 		shader_reset();
 	}
 	
-	// Render high surface
+	// Render top surface
 	if surface_exists(SurfaceHigh)
 	{
 		draw_surface(SurfaceHigh, 0, 0);
 	}
-	
-	// Reset target surface
 	surface_reset_target();
 }

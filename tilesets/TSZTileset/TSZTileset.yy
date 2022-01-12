@@ -11,8 +11,8 @@
   "tilevsep": 0,
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgTestZone",
+    "path": "texturegroups/tgTestZone",
   },
   "out_tilehborder": 2,
   "out_tilevborder": 2,
@@ -417,7 +417,7 @@
   },
   "parent": {
     "name": "_Test Zone",
-    "path": "folders/Rooms/Stages/_Test Zone.yy",
+    "path": "folders/Rooms/_Test Zone.yy",
   },
   "resourceVersion": "1.0",
   "name": "TSZTileset",

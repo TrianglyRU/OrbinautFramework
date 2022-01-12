@@ -31,9 +31,12 @@ function PlayerResetOnFloor()
 	else
 	{
 		// Set animation if landed on solid ground (do not interupt Knuckles' land animations)
-		if !OnObject and Animation != AnimDropStand and Animation != AnimGlideStand
+		if !OnObject and Animation != AnimIdle
 		{
-			Animation = AnimMove;
+			if Animation != AnimDropStand and Animation != AnimGlideStand
+			{
+				Animation = AnimMove;
+			}
 		}
 		
 		// Clear spinning flag

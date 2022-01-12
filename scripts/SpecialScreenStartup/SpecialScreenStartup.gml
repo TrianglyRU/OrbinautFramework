@@ -1,16 +1,10 @@
 function SpecialScreenStartup()
 {
-	// Set blank values
+	// Initialise variables
 	State       = 0;
 	RoomTimer   = 0;
 	RenderFlag  = 0;
 	RenderAlpha = 0;
-	
-	// Turn screen into white if not coming back from special stage
-	if !Game.SpecialState
-	{
-		fade_perform(ModeInto, BlendWhite, 0);
-	}
 	
 	// If coming back from special stage, set offsets and play music
 	if Game.SpecialState
@@ -27,11 +21,16 @@ function SpecialScreenStartup()
 	}
 	
 	// Else redirect to special stage
-	else switch Game.Emeralds
+	else 
 	{
-		/* Add redirection here */
-		default:
-			room_goto(SStage_Template);
-		break;
+		switch Game.Emeralds
+		{
+			default:
+				room_goto(SStage_Template);
+			break;
+		}
+		
+		// Turn screen into white
+		fade_perform(ModeInto, BlendWhite, 0);
 	}
 }

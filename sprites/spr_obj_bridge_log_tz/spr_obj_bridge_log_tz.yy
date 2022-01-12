@@ -17,8 +17,8 @@
   "width": 16,
   "height": 16,
   "textureGroupId": {
-    "name": "tgSystem",
-    "path": "texturegroups/tgSystem",
+    "name": "tgTestZone",
+    "path": "texturegroups/tgTestZone",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Objects/Sprites.yy",
+    "path": "folders/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_bridge_log_tz",

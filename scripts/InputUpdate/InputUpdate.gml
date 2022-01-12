@@ -1,6 +1,5 @@
 function InputUpdate() 
 {
-	// Update device
 	if keyboard_check(vk_anykey)
 	{
 		Type = "Keyboard";

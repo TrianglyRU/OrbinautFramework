@@ -1,8 +1,8 @@
 function DiscordProcess()
 {
-	// Update Rich Presence
 	if !PresenceReady and Game.DiscordEvent == "DiscordReady"
 	{	
+		// Update Rich Presence
 		np_clearpresence();
 		np_setpresence_timestamps(Game.DiscordTime, 0, false);
 		np_setpresence_more(SmallImageDesc, MainImageDesc, false);

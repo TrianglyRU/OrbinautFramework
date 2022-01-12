@@ -6,15 +6,14 @@ function ObjSpringDiagonalMain()
 	// Is player touching the launch side?
 	if (floor(Player.PosX + 4 * image_xscale) - x) * image_xscale >= 0 
 	{		
-		var LaunchSide = image_yscale ? SideTop : SideBottom;
-		if object_check_touch(LaunchSide)
+		if object_check_touch(image_yscale ? SideTop : SideBottom)
 		{
 			// Launch player
 			Player.Xsp =  LaunchForce * image_xscale;
 			Player.Ysp = -LaunchForce * image_yscale;	
 			
 			// Clear flags
-			if LaunchSide == SideTop
+			if image_yscale
 			{
 				Player.Animation  = AnimSpring;
 				Player.ClimbState = false;

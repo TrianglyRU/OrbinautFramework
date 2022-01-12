@@ -1,15 +1,14 @@
 function InterfaceDebugPositionsDraw()
 {
-	// Exit if disabled
+	// Exit the code if disabled
 	if !DebugPositions
 	{
 		exit;
 	}
 	
-	// Display position points
 	with all
 	{
-		// Player position
+		// Draw player's position
 		if object_index == Player
 		{
 			draw_point_colour(floor(PosX),	   floor(PosY),     c_black);
@@ -19,7 +18,7 @@ function InterfaceDebugPositionsDraw()
 			draw_point_colour(floor(PosX),     floor(PosY - 1), c_white);
 		}
 		
-		// Object position
+		// Draw object's position
 		else
 		{		
 			draw_point_colour(floor(x),	    floor(y),     c_black);

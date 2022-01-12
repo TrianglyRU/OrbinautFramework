@@ -1,6 +1,5 @@
 function ObjAnimalStartup()
 {
-	// Destroy the object if stage animal set is empty
 	if Stage.AnimalSet == noone
 	{
 		instance_destroy();
@@ -10,7 +9,7 @@ function ObjAnimalStartup()
 		// Choose random animal
 		AnimalType = Stage.AnimalSet[irandom(array_length(Stage.AnimalSet) - 1)];
 	
-		// Set default speeds based on animal type
+		// Set default speed
 		switch AnimalType
 		{
 		    case spr_obj_animal_flicky: 
@@ -57,28 +56,22 @@ function ObjAnimalStartup()
 			break;
 		}
 	
-		// Set blank values
-		State = 0;
-		Delay = 0;
-	
-		// Set other variables
+		// Initialise variables
 		PosX  = x;
 		PosY  = y;
-		Grv   = 0.21875;
-		Ysp   = -4;
 		Xsp   = DefaultXsp;
+		Ysp   = -4;
+		Grv   = 0.21875;
+		State = 0;
+		Delay = 0;
 	
 		// Set sprite
 		sprite_index = AnimalType;
 		image_xscale = -1;
 	
-		// Set object solidbox
+		// Set object properties
 		object_set_solidbox(8, 12, false);
-	
-		// Set object depth
-		object_set_depth(Player, 0);
-	
-		// Set object unload type
 		object_set_unload(TypeDelete);
+		object_set_depth(Player, 0);
 	}
 }

@@ -1,6 +1,6 @@
 function PlayerStartup()
 {	
-	// Set blank values
+	// Initialise variables
 	PosX				= 0;
 	PosY				= 0;
 	Acc					= 0;
@@ -24,6 +24,7 @@ function PlayerStartup()
 	Spinning			= 0;
 	Jumping				= 0;
 	Pushing             = 0;
+	Grounded		    = 0;
 	OnObject			= 0;
 	PeeloutForce        = 0;
 	DropdashSide	    = 0;
@@ -57,19 +58,20 @@ function PlayerStartup()
 	DebugItem			= 0;
 	DebugSpeed			= 0;
 	HitboxData			= [];
+	CollisionMode       = [];
 	
-	// Set default values
+	// Set defaults
+	DrawOrder		 = layer_get_depth("Objects");
+	Facing			 = FlipRight;
 	Grv			     = 0.21875;
 	AirTimer	     = 1800;
 	AllowCollision   = true;
 	AllowMovement    = true;
-	Grounded		 = true;
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
 	DropdashRev      = -1;
 	DropdashFlag     = -1;
 	DoubleSpinAttack = -1;
-	CollisionMode    = [0, 0];
 
 	// Set default sprite
 	switch Game.Character
@@ -84,8 +86,6 @@ function PlayerStartup()
 			sprite_index = spr_knuckles_idle;
 		break;
 	}
-	Facing	  = FlipRight;
-	DrawOrder = layer_get_depth("Objects");
 	
 	// Set collision radiuses
 	if Game.Character != CharTails

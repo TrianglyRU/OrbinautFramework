@@ -1,8 +1,6 @@
 function ObjExplosionSetup()
 {
-	// Set object depth
+	// Set object properties
 	object_set_depth(Player, 1);
-	
-	// Set animation
-	animation_play(sprite_index, 6, 0, 5);
+	animation_play(sprite_index, [6, 8, 8, 8, 8, 0], 0, 5);
 }

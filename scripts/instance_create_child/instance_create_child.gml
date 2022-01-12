@@ -12,6 +12,7 @@ function instance_create_child(x,y,obj)
 			image_timer     = 0;
 			image_duration  = 0;
 			image_loopframe = 0;
+			image_framedata = 0;
 		}
 	}
 	

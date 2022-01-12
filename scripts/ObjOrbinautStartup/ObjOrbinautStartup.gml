@@ -1,35 +1,23 @@
 function ObjOrbinautStartup()
 {
-	// Create variables
-	var ThisBadnik = id;
-	PosX  = 0;
-	PosY  = 0;
+	// Initialise variables
+	PosX  = x;
+	PosY  = y;
 	Angle = 0;
-	Orb   = [];
 	
-	// Set default position
-	PosX = x;
-	PosY = y;
-	
-	// Set object hitbox
+	// Set object properties
 	object_set_hitbox(8, 8);
-	
-	// Set object depth
+	object_set_unload(TypeReset);
 	object_set_depth(Player, 0);
 	
-	// Set object unload type
-	object_set_unload(TypeReset);
-	
-	// Spawn orbs
+	// Create orbs
+	var ThisObject = id; 
 	for (var i = 0; i < 4; i++)
 	{
-		var Ang = 90 * i;
-		
-		Orb[i] = instance_create_child(x + 16 * dsin(Ang), y + 16 * dcos(Ang), OrbinautOrb);
+		Orb[i] = instance_create_child(x + 16 * dsin(90 * i), y + 16 * dcos(90 * i), OrbinautOrb);
 		with Orb[i] 
 		{
-			// Set depth
-			object_set_depth(ThisBadnik, 1);
+			object_set_depth(ThisObject, 1);
 		}
 	}
 }

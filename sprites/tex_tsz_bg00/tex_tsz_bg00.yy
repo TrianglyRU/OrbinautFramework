@@ -17,8 +17,8 @@
   "width": 512,
   "height": 20,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgTestZone",
+    "path": "texturegroups/tgTestZone",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Stages/_Test Zone/Textures.yy",
+    "path": "folders/Rooms/_Test Zone/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_tsz_bg00",

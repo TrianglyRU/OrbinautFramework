@@ -40,7 +40,7 @@ function object_act_enemy(enemyType)
 				var  Object = instance_create(x, y, ScoreObject);
 				with Object
 				{
-					ComboTrigger = true;
+					IsChain = true;
 				}
 			
 				// Spawn animal and explosion

@@ -1,11 +1,7 @@
 function ObjSpikesHorizontalStartup()
 {
-	// Set object solidbox
+	// Set object properties
 	object_set_solidbox(16, 16, false);
-	
-	// Set object depth
-	object_set_depth(Player, 0);
-	
-	// Set object unload type
 	object_set_unload(TypePause);
+	object_set_depth(Player, 0);
 }

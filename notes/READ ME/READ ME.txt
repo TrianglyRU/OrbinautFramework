@@ -1,16 +1,13 @@
 
 	Welcome to Orbinaut Framework!
-
-	We recommened to use the master version of Orbinaut (basically the code from GitHub) instead of the one 
-	provided in the release package as it can have a few fixes that aren't present in the release package version.
-
-	In any case, even if you have downloaded the master please, download the release package,
+	
+	If you have downloaded the master branch only please, download the release package,
 	as it includes our Tile Editor and PDF Handbook. It is always available at this link:
 	
 	https://github.com/TrianglyRU/OrbinautFramework/releases
 	
-	First of all, RENAME THE PROJECT! You can do that by going to File -> Save Project As. You have to do
-	that to avoid any conflicts between different projects running on Orbinaut.
+	First of all, RENAME THE PROJECT if you didn't! You can do that by going to File -> Save Project As.
+	You have to do that to avoid any conflicts between different projects running on Orbinaut.
 	
 	If you encounter any glitch/bug/inaccuracy and are familiar with GitHub:
 	- if you find the way to fix it, you may pull request to our repository;

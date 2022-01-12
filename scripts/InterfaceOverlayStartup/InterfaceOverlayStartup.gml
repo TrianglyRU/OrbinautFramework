@@ -1,9 +1,7 @@
 function InterfaceOverlayStartup()
 {	
-	// Enable overlay
+	// Initialise variables
 	Enabled = true;
-	
-	// Set default offsets
 	OffsetX = 0;
 	OffsetY = 0;
 }

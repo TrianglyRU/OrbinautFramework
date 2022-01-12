@@ -1,8 +1,8 @@
 function SplashScreenStartup()
 {
-	// Set blank value
+	// Initialise variable
 	RoomTimer = 0;
 	
-	// Fade screen into black colour
+	// Turn screen into black
 	fade_perform(ModeInto, BlendBlack, 0);
 }

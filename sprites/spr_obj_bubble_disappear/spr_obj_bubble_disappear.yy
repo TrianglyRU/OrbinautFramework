@@ -17,8 +17,8 @@
   "width": 32,
   "height": 32,
   "textureGroupId": {
-    "name": "tgGlobal",
-    "path": "texturegroups/tgGlobal",
+    "name": "tgGlobalObj",
+    "path": "texturegroups/tgGlobalObj",
   },
   "swatchColours": null,
   "gridX": 0,
@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Game Objects/Stage Objects/Sprites.yy",
+    "path": "folders/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_bubble_disappear",
