@@ -10,8 +10,8 @@ Orbinaut Framework is an extremely accurate and, which is most important, a very
 - ...and much more!
 
 # Handbook
-We have a handbook to help you get started! Get it here:
-[Handbook.pdf](https://github.com/TrianglyRU/OrbinautFramework/files/7840480/Handbook.pdf)
+We have a handbook to help you get started!
+[OrbinautHandbook.pdf](https://github.com/TrianglyRU/OrbinautFramework/files/7854372/OrbinautHandbook.pdf)
 
 # Credits
 - LapperDev -- for updates on SPG and help with S1 dissasembly
