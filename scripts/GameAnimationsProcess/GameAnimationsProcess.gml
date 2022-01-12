@@ -11,17 +11,17 @@ function GameAnimationsProcess()
 			image_timer     = 0;
 			image_duration  = 0;
 			image_loopframe = 0;
-			image_framedata = 0;
 		}
-		else if image_duration != 0
+		else if !fade_check(StateActive) and !variable_check(Stage, "IsPaused")
 		{
 			// Handle subimage change
-			if !fade_check(StateActive) and !variable_check(Stage, "IsPaused")
+			var FrameDuration  = is_array(image_duration) ? image_duration[image_index] : image_duration;
+			if  FrameDuration != 0
 			{
 				if !(--image_timer)
 				{
 					// Switch to the previous subimage
-					if image_duration < 0
+					if FrameDuration < 0
 					{
 						if image_index > 0
 						{
@@ -47,13 +47,13 @@ function GameAnimationsProcess()
 					}
 					
 					// Reset timer
-					if !is_array(image_framedata)
+					if !is_array(image_duration)
 					{
 						image_timer = abs(image_duration);
 					}
 					else
 					{
-						image_timer = abs(image_framedata[image_index]);
+						image_timer = abs(image_duration[image_index]);
 					}
 				}
 			}		

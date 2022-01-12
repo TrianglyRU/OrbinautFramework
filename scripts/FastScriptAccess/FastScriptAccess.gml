@@ -11,4 +11,7 @@ function FastScriptAccess()
 	PaletteSetup();
 	StageSetup();
 	StagePaletteUpdate();
+	
+	MenuSetup();
+	MenuOptionsProcess();
 }

@@ -6,37 +6,36 @@ function animation_play(spriteid,duration,startframe,loopframe)
 	{
 		if !is_array(duration)
 		{
-			image_timer    = abs(duration);
-			image_duration = duration;
+			image_timer = abs(duration);
 		}
 		else
 		{
-			image_timer    = abs(duration[startframe]);
-			image_duration = duration[startframe];
+			image_timer = abs(duration[startframe]);	
 		}
-		image_framedata = duration;
+		image_duration  = duration;
 		image_loopframe = loopframe;
 		image_index		= startframe;
 		sprite_index    = spriteid;		
 	}
 	else 
 	{
-		// Update duration for non-array timing
+		// Update duration
 		if !is_array(duration) and image_duration != duration
+		or  is_array(duration) and !is_array(image_duration)
 		{
-			if image_timer == 0
+			if !is_array(duration)
 			{
-				image_timer = abs(duration);
+				if image_timer == 0
+				{
+					image_timer = abs(duration);
+				}
+				image_duration = duration;
 			}
-			image_duration = duration;
-		}
-		
-		// Update duration for array timing
-		else if is_array(duration) and image_framedata != duration
-		{
-			image_timer     = abs(duration[0]);
-			image_duration  = duration[0];
-			image_framedata = duration;
+			else
+			{
+				image_timer    = abs(duration[0]);
+				image_duration = duration;
+			}
 		}
 		
 		// Update loopframe
