@@ -22,14 +22,6 @@ function InterfaceDebugScreenDraw()
 		// Set information to display
 		#region Display Info
 		{
-			if array_length(Player.CollisionMode)
-			{
-				var ModeInfo = string(Player.CollisionMode[0]) + " : " + string(Player.CollisionMode[1]);
-			}
-			else
-			{
-				var ModeInfo = "UNKNOWN";
-			}
 			if Audio.PrimaryTrack[1]
 			{
 				var LowPlaying = audio_get_name(Audio.PrimaryTrack[1]);
@@ -107,7 +99,7 @@ function InterfaceDebugScreenDraw()
 				+ "\n   AIR LOCK: "       + string(Player.AirLock)
 				+ "\n   SLOPE GRAVITY: "  + string(Player.SlopeGravity)
 				+ "\n   ANGLE: "		  + string(Player.Angle)
-				+ "\n   COLLISION MODE: " + ModeInfo
+				+ "\n   COLLISION MODE: " + string(Player.CollisionMode[0]) + " : " + string(Player.CollisionMode[1])
 				+ "\n"
 				+ "\n         * PLAYER FLAGS *"
 				+ "\n"

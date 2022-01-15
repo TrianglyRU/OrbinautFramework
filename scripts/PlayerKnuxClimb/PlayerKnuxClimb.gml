@@ -22,15 +22,13 @@ function PlayerKnuxClimb()
 			// Check for jump
 			if Input.ABCPress
 			{
-				Facing	  *= -1;
+				Animation  = AnimSpin;
+				ClimbState = false;
 				Jumping	   = true;
 				Spinning   = true;
-				ClimbState = false;
-				Animation  = AnimSpin;
-			
-				// Set speeds
-				Ysp	= -4;
-				Xsp	= 3.5 * Facing;
+				Facing	  *= -1;
+				Ysp		   = -4;
+				Xsp		   = 3.5 * Facing;
 			
 				// Play sound
 				audio_sfx_play(sfxJump, false);
@@ -101,7 +99,7 @@ function PlayerKnuxClimb()
 				if  FindWall[1] == noone
 				{
 					Ysp		   = 0;
-					ClimbState = 2;
+					ClimbState = ClimbLedge;
 					
 					// Align to the edge
 					var Align = tile_find_v(PosX + (RadiusX + 1) * Facing, PosY - 11, true, false, Layer)[0];

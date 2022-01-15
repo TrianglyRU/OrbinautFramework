@@ -15,7 +15,8 @@ function animation_play(spriteid,duration,startframe,loopframe)
 		image_duration  = duration;
 		image_loopframe = loopframe;
 		image_index		= startframe;
-		sprite_index    = spriteid;		
+		sprite_index    = spriteid;	
+		image_speed     = 0;	
 	}
 	else 
 	{

@@ -54,8 +54,8 @@ function PlayerResetOnFloor()
 		ClimbState		 = false;
 		ScoreCombo		 = false;
 		BarrierIsActive  = false;
-		DropdashFlag	 = -1;
-		DoubleSpinAttack = -1;
+		DropdashFlag	 = DashLocked;
+		DoubleSpinAttack = SpinReady;
 	
 		// Stop sounds
 		audio_sfx_stop(sfxFlying);

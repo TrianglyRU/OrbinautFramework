@@ -9,7 +9,7 @@ function CameraFollowProcess()
 	// Get target's position relative to camera
 	if Target == Player
 	{
-		if Player.Spinning
+		if Player.Spinning and Player.ClimbState != ClimbJump
 		{
 			var Offset = (Player.DefaultRadiusY - Player.RadiusY);
 		}

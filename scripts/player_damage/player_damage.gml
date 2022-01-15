@@ -140,7 +140,7 @@ function player_damage(isFlame,isThunder,instantKill)
 	Player.PeeloutRev   = -1;
 	Player.SpindashRev  = -1;
 	Player.DropdashRev  = -1;
-	Player.DropdashFlag = -1;
+	Player.DropdashFlag = DashLocked;
 	
 	// Play hurt sound
 	if !audio_sfx_is_playing(sfxRingLoss)

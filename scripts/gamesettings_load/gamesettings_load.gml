@@ -1,10 +1,10 @@
 /// @function gamesettings_load(filename)
 function gamesettings_load(filename)
 {
-	// If no config exist, create a default one
+	// If no config exist, create one
 	if !file_exists(filename + ".ini")
 	{
-		gamesettings_save("config");
+		gamesettings_save(filename);
 	}
 	else if !Game.DevMode
 	{

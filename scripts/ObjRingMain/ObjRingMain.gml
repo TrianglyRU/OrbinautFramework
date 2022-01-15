@@ -8,10 +8,14 @@ function ObjRingMain()
 		// Check for being magnetised
 		case 0:
 		{
-			if Player.BarrierType == BarrierThunder and distance_to_object(Player) <= 64
+			if !Player.DebugMode
 			{
-				// Increment state
-				State++;
+				if Player.BarrierType == BarrierThunder and distance_to_object(Player) <= 64
+				{
+					// Increment state
+					State += 1;
+					depth  = 0;
+				}
 			}
 		}
 		break;
@@ -19,26 +23,43 @@ function ObjRingMain()
 		// Attract to the player
 		case 1:
 		{
-			// Set ring acceleration
-			var RingAcceleration = [0.75, 0.1875];
+			// If player has lost the barrier, replace the ring
+			if Player.BarrierType != BarrierThunder
+			{
+				var  ThisSpeed = [Xsp, Ysp];
+				var  NewObject = instance_create(x, y, ShatteredRing);
+				with NewObject
+				{
+					if !Player.Hurt
+					{
+						PickupTimeout = 0;
+					}
+					Xsp = ThisSpeed[0];
+					Ysp = ThisSpeed[1];
+				}
+				instance_destroy();
+			}
+			else
+			{
+				// Ring acceleration data
+				var RingAcceleration = [0.75, 0.1875];
 			
-			// Set relative positions
-			var RelativeX = sign(floor(Player.PosX) - x);
-			var RelativeY = sign(floor(Player.PosY) - y);
+				// Get relative position and movement
+				var RelativeX = sign(floor(Player.PosX) - x);
+				var RelativeY = sign(floor(Player.PosY) - y);
+				var MoveX     = (sign(Xsp) == RelativeX);
+				var MoveY     = (sign(Ysp) == RelativeY);
 	
-			// Check relative movement
-			var MoveX = (sign(Xsp) == RelativeX);
-			var MoveY = (sign(Ysp) == RelativeY);
-	
-			// Increase speed and move ring
-			Xsp  += (RingAcceleration[MoveX] * RelativeX);
-			Ysp  += (RingAcceleration[MoveY] * RelativeY);
-			PosX += Xsp;
-			PosY += Ysp;
+				// Increase speed and move the ring
+				Xsp  += (RingAcceleration[MoveX] * RelativeX);
+				Ysp  += (RingAcceleration[MoveY] * RelativeY);
+				PosX += Xsp;
+				PosY += Ysp;
 			
-			// Update position
-			x = floor(PosX);
-			y = floor(PosY);
+				// Update position
+				x = floor(PosX);
+				y = floor(PosY);
+			}
 		}
 		break;
 	}

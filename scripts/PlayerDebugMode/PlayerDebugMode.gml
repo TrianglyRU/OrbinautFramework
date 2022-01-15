@@ -32,15 +32,15 @@ function PlayerDebugMode()
 			Spinning	     = false;
 			StickToConvex    = false;
 			IsUnderwater     = false;
-			DebugSpeed       = 0;
-			Xsp			     = 0;
-			Ysp			     = 0;
-			Inertia		     = 0;
+			DoubleSpinAttack = SpinRecharge;
+			DropdashFlag	 = DashLocked;
+			DropdashRev      = -1;
 			SpindashRev      = -1;
 			PeeloutRev       = -1;
-			DropdashRev      = -1;
-			DropdashFlag	 = -1;
-			DoubleSpinAttack = -1;
+			DebugSpeed       =  0;
+			Xsp			     =  0;
+			Ysp			     =  0;
+			Inertia		     =  0;
 			
 			// Cancel death event
 			if (Death or Drown) and floor(Player.PosY) < Camera.ViewY + Game.Height

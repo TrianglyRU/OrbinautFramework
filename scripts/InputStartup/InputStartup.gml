@@ -24,7 +24,7 @@ function InputStartup()
 	ModePress   = 0;
 	
 	// Set default input controller and deadzone for gamepad
-	if gamepad_is_connected(0)
+	if gamepad_is_connected(0) or gamepad_is_connected(4)
 	{
 		Type = "Gamepad";
 	}
@@ -32,5 +32,5 @@ function InputStartup()
 	{
 		Type = "Keyboard";
 	}
-	gamepad_set_axis_deadzone(0, 0.3);
+	gamepad_set_axis_deadzone(0, 0.3); gamepad_set_axis_deadzone(4, 0.3);
 }

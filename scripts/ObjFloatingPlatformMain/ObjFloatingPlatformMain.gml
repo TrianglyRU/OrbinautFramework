@@ -93,6 +93,7 @@ function ObjFloatingPlatformMain()
 			// Make player lose the platform after 32 frames
 			if !(--Timer) and Player.OnObject == id
 			{
+				Player.PosY	   += FallSpeed;
 				Player.OnObject = false;
 			}
 			else

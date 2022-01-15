@@ -1,7 +1,7 @@
 function PlayerSonicDropdash()
 {
 	// Exit if dropdash isn't ready to be charged
-	if DropdashFlag != 1
+	if DropdashFlag != DashActive
 	{
 		exit;
 	}

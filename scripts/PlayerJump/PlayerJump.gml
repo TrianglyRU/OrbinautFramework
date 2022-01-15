@@ -15,16 +15,16 @@ function PlayerJump()
 		}
 		
 		// Reset dropdash
-		if DropdashFlag == -1
+		if DropdashFlag == DashLocked
 		{
-			DropdashFlag = 0;
+			DropdashFlag = DashReady;
 		}
-		else if DropdashFlag == 1
+		else if DropdashFlag == DashActive
 		{
 			if DropdashRev == 20
 			{
 				Animation    = AnimSpin;
-				DropdashFlag = 2;
+				DropdashFlag = DashRecharge;
 			}
 			DropdashRev  = -1;
 		}
@@ -78,10 +78,10 @@ function PlayerJump()
 				// Perform double spin attack if enabled
 				if !BarrierType
 				{
-					if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != -1)
+					if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != SpinReady)
 					{
 						// Set flag
-						DoubleSpinAttack = 0;
+						DoubleSpinAttack = SpinActive;
 					
 						// Create object and play sound
 						instance_create(PosX, PosY, DoubleSpinShield);
@@ -90,11 +90,11 @@ function PlayerJump()
 				}
 				
 				// Perform dropdash if enabled
-				if Game.DropdashEnabled and DropdashFlag == 0
+				if Game.DropdashEnabled and DropdashFlag == DashReady
 				{
 					// Set flags
 					AirLock      = false;
-					DropdashFlag = 1;
+					DropdashFlag = DashActive;
 				}
 			}
 			

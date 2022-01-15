@@ -167,80 +167,73 @@ function PlayerKnuxGlide()
 	var FindWall = tile_find_h(PosX - RadiusX, PosY, false, true, Layer);
 	if  FindWall[0] < 0
 	{
-		// Attach if wall is flat
-		if GlideState == GlideAir and Xsp <= 0
+		if !(Xsp > 0)
 		{
-			if FindWall[1] mod 90 == 0
+			// Clip out
+			PosX -= FindWall[0];
+			Xsp   = 0;
+		
+			// Attach to it
+			if GlideState == GlideAir and FindWall[1] mod 90 == 0
 			{
 				GlideState = false;
-				ClimbState = true;
+				ClimbState = ClimbWall;
 				ClimbValue = 0;
 				Ysp		   = 0;
-				
+				Animation  = AnimClimb;
+
 				// Play sound
-				audio_sfx_play(sfxGrab, false);
-				
-				// Set animation
-				Animation = AnimClimb;
-			}	
-		}
-		
-		// Clip out
-		PosX -= FindWall[0];
-		Xsp   = 0;
-		
-		// Exit the code
-		exit;
+				audio_sfx_play(sfxGrab, false); exit;
+			}
+		}	
 	}
 			
 	// Collide with right wall
 	var FindWall = tile_find_h(PosX + RadiusX, PosY, true, true, Layer);
 	if  FindWall[0] < 0
 	{
-		// Attach if wall is flat
-		if GlideState == GlideAir and Xsp >= 0
+		if !(Xsp < 0)
 		{
-			if FindWall[1] mod 90 == 0
+			// Clip out
+			PosX += FindWall[0];
+			Xsp   = 0;
+		
+			// Attach to it
+			if GlideState == GlideAir and FindWall[1] mod 90 == 0
 			{
 				GlideState = false;
-				ClimbState = true;
+				ClimbState = ClimbWall;
 				ClimbValue = 0;
 				Ysp		   = 0;
+				Animation  = AnimClimb;
 			
 				// Play sound
-				audio_sfx_play(sfxGrab, false);
-				
-				// Set animation
-				Animation = AnimClimb;
-			}
+				audio_sfx_play(sfxGrab, false); exit;
+			}	
 		}
-			
-		// Clip out
-		PosX += FindWall[0];
-		Xsp   = 0;
-		
-		// Exit the code
-		exit;
 	}
 	
-	// Collide with ceiling
+	// Collide with ceiling if not falling down
 	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
 	if  FindRoof[0] < 0
 	{	
-		Ysp   = 0;			
-		PosY -= FindRoof[0];
+		if GlideState != GlideFall
+		{
+			Ysp   = 0;			
+			PosY -= FindRoof[0];
+		}
 	}
 	
-	// Try floor collision
+	// Collid with floor if moving down
 	else if Ysp >= 0
 	{
 		// Get tile below us
 		var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
 		
-		// Get angle
+		// Update angle
 		Angle = FindFloor[1];
-	
-		// Check if we're gliding and should land
+		
+		// Are we airborne?
 		if GlideState != GlideGround 
 		{
 			if ForcedRoll
@@ -258,10 +251,8 @@ function PlayerKnuxGlide()
 						GlideState = GlideGround;
 						Animation  = AnimSlide;
 						GlideValue = 8;
-							
-						// Reset gravity
-						Grv = 0;
-						Ysp = 0;
+						Grv		   = 0;
+						Ysp		   = 0;
 					
 						// Create dust object
 						instance_create(PosX, PosY + RadiusY + FindFloor[0], DustPuff);
@@ -285,13 +276,15 @@ function PlayerKnuxGlide()
 					Inertia  = -Xsp;
 				}
 			
-				// Adhere to the surface
+				// Clip to the surface
 				PosY += FindFloor[0];
 			}
 		}
+		
+		// Are we sliding?
 		else 
 		{
-			// If sliding and no ground found, fall
+			// If no ground found, fall
 			if FindFloor[0] > 14
 			{
 				GlideState = GlideFall;
@@ -313,7 +306,7 @@ function PlayerKnuxGlide()
 				}
 			}
 			
-			// Clip to the surface
+			// Else clip to the surface
 			else
 			{
 				PosY += FindFloor[0];

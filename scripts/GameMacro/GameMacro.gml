@@ -40,9 +40,19 @@ function GameMacro()
 	#macro CharSonic		0
 	#macro CharTails	    1
 	#macro CharKnuckles	    2
+	#macro ClimbJump	   -1
+	#macro ClimbWall        1
+	#macro ClimbLedge		2
 	#macro GlideFall        1
 	#macro GlideAir         2
 	#macro GlideGround      3
+	#macro DashLocked      -1
+	#macro DashReady        0
+	#macro DashActive	    1
+	#macro DashRecharge     2
+	#macro SpinRecharge    -2
+	#macro SpinReady	   -1
+	#macro SpinActive       0
 	#macro BarrierNormal	1
 	#macro BarrierThunder	2
 	#macro BarrierWater     3

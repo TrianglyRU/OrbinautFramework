@@ -7,11 +7,11 @@ function PlayerGeneralUpdate()
 	}
 	
 	// Handle double spin attack
-	if DoubleSpinAttack > -1
+	if DoubleSpinAttack > SpinReady
 	{
 		if (++DoubleSpinAttack) > 14
 		{
-			DoubleSpinAttack = -2;
+			DoubleSpinAttack = SpinRecharge;
 		}
 	}
 	
