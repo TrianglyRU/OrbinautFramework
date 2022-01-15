@@ -17,8 +17,8 @@
   "width": 28,
   "height": 32,
   "textureGroupId": {
-    "name": "tgGlobalObj",
-    "path": "texturegroups/tgGlobalObj",
+    "name": "Default",
+    "path": "texturegroups/Default",
   },
   "swatchColours": null,
   "gridX": 0,

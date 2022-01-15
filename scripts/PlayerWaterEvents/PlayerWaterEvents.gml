@@ -66,6 +66,9 @@ function PlayerWaterEvents()
 		{
 			if !Drown
 			{
+				// Play sound
+				audio_sfx_play(sfxDrown, false);
+				
 				// Reset speeds
 				Xsp	= 0;
 				Ysp	= 0;
@@ -74,22 +77,26 @@ function PlayerWaterEvents()
 				// Set flags
 				Stage.TimeEnabled = false;
 				Camera.Enabled    = false;
-				ClimbState		  = false;
-				GlideState		  = false;
-				GlideValue		  = false;
-				FlightState       = false;
 				AllowCollision    = false;
-				Grounded		  = false;
-				OnObject		  = false;	
+				Grounded	      = false;
+				OnObject	      = false;
+				GroundLock        = false;
+				FlightState       = false;
+				ClimbState	      = false;
+				GlideState	      = false;
+				Jumping		      = false;
+				Spinning	      = false;
+				DropdashRev       = -1;
+				SpindashRev       = -1;
+				PeeloutRev        = -1;
+				DoubleSpinAttack  = SpinRecharge;
+				DropdashFlag	  = DashLocked;
 				Drown			  = true;
 				AirLock		      = true;
-				Animation		  = AnimDrown;	
+				Animation		  = AnimDrown;
 				
 				// Draw player above everything
 				DrawOrder = 0;
-				
-				// Play sound
-				audio_sfx_play(sfxDrowning, false);
 			}
 			
 			// Enter death state if off-screen

@@ -17,8 +17,8 @@
   "width": 80,
   "height": 32,
   "textureGroupId": {
-    "name": "tgTestZone",
-    "path": "texturegroups/tgTestZone",
+    "name": "Default",
+    "path": "texturegroups/Default",
   },
   "swatchColours": null,
   "gridX": 0,

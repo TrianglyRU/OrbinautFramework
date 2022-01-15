@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxDrowning.wav",
-  "duration": 1.665669,
+  "soundFile": "sfxDrown.wav",
+  "duration": 1.777234,
   "parent": {
     "name": "SFX",
     "path": "folders/Audio/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfxDrowning",
+  "name": "sfxDrown",
   "tags": [],
   "resourceType": "GMSound",
 }

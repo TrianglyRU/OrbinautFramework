@@ -12,7 +12,7 @@ function ObjChopperMain()
 		case 0:
 		{
 			// If near peak amplitude, speedup animation
-			if y < OriginY - 192
+			if y <= OriginY - 192
 			{
 				animation_play(sprite_index, 4, 0, 0);
 				
@@ -23,7 +23,8 @@ function ObjChopperMain()
 		break;
 		case 1:
 		{
-			if Ysp >= 0
+			// If falling down, stop animation
+			if y >= OriginY - 192
 			{
 				animation_set(sprite_index, 0);
 				
@@ -34,6 +35,7 @@ function ObjChopperMain()
 		break;
 		case 2:
 		{
+			// If fallen below initial position, restart
 			if y >= OriginY 
 			{ 
 				y = OriginY; Ysp = -7; 

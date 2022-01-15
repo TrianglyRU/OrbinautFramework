@@ -17,8 +17,8 @@
   "width": 22,
   "height": 12,
   "textureGroupId": {
-    "name": "tgSystem",
-    "path": "texturegroups/tgSystem",
+    "name": "Default",
+    "path": "texturegroups/Default",
   },
   "swatchColours": null,
   "gridX": 0,
