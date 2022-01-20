@@ -36,7 +36,7 @@ function ContinueScreenStartup()
 	CharObject = instance_create(RoomX, RoomY + 52, ContinueCharacter);
 	with CharObject
 	{
-		animation_play(StartData[0], StartData[1], 0, 0);
+		animation_play(StartData[0], StartData[1], 0);
 	}
 	
 	// Create continue objects

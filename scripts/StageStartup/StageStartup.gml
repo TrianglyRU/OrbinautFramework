@@ -1,21 +1,19 @@
 function StageStartup()
 {
 	// Initialise variables
-	EventTimer	= 0;
-	IsFinished	= 0;
-	IsPaused	= 0;
-	IsGameOver	= 0;
-	Time		= 0;
-	TimeEnabled	= 0;
-	DoUpdate	= 0;
-	IsBossfight = -1;
+	IsBossfight   = -1;
+	RestartTimer  =  0;
+	RestartEvent  =  0;
+	IsFinished	  =  0;
+	IsPaused	  =  0;
+	Time		  =  0;
+	TimeEnabled	  =  0;	
+	UpdateObjects = false;
+	DoUpdate      = true;
 	
 	// Store current zone ID and room index
 	Game.Stage     = ZoneID;
 	Game.StageRoom = room;
-	
-	// Play stage music
-	audio_bgm_play(ChannelPrimary, StageMusic);
 	
 	// Set bubble wobble data
 	if WaterEnabled
@@ -44,7 +42,7 @@ function StageStartup()
 		Time		   = Game.SpecialRingData[4];
 		BottomBoundary = Game.SpecialRingData[5];
 		
-		// Clear array (Player has already restored their rings and barrier atm.)
+		// Clear data (player has already restored their rings and barrier atm.)
 		Game.SpecialRingData = [];
 	}
 	
@@ -54,4 +52,7 @@ function StageStartup()
 	TargetTopBoundary    = TopBoundary;
 	TargetBottomBoundary = BottomBoundary;
 	DeathBoundary        = BottomBoundary;
+	
+	// Play stage music
+	audio_bgm_play(ChannelPrimary, StageMusic);
 }

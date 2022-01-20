@@ -10,5 +10,5 @@ function ObjBumperStartup()
 	object_set_unload(TypePause);
 	
 	// Set animation to its last frame so we can simply restart it
-	animation_play(sprite_index, 4, 5, 5);
+	animation_play(sprite_index, 4, 5); image_index = 5;
 }

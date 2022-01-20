@@ -1,55 +1,61 @@
-/// @description Pre-Objects Code
-// You can write your code in this editor
+/// @description Main 1
+// You can call your scripts in this editor
 
-	// Process debug mode
-	PlayerDebugMode();
+	/* This is called before object
+	scripts are processed */
 	
-	// Check if we should execute the code below
-	if !PlayerProcess() exit;
-
-	// Pre-Objects Scripts
-	if !Grounded
+	if PlayerDebugMode()
+	{
+		return;
+	}
+	else if PlayerProcess()
 	{
 		// Airborne
-		PlayerJump();
-		PlayerMovementAir();
-		PlayerLevelBound();
-		PlayerPosition();
-		PlayerSonicDropdash();
-		PlayerTailsFlight();
-		PlayerAirLevelCollision();
-		PlayerKnuxClimb();
-		PlayerKnuxGlide();
-		PlayerResetOnFloor();
-		PlayerHitboxUpdate();
-	}
-	else if Grounded and !Spinning
-	{
+		if !Grounded
+		{
+			PlayerJump();
+			PlayerMovementAir();
+			PlayerLevelBound();
+			PlayerPosition();
+			PlayerSonicDropdash();
+			PlayerTailsFlight();
+			PlayerAirLevelCollision();
+			PlayerKnuxClimb();
+			PlayerKnuxGlide();
+			PlayerResetOnFloor();
+			PlayerHitboxUpdate();
+		}
+		
 		// Grounded, not rolling	
-		if PlayerSpindash()  exit;
-		if PlayerPeelout()   exit;
-		if PlayerJumpStart() exit;
-		PlayerSlopeResist();
-		PlayerMovementGround();
-		PlayerBalance();
-		PlayerGroundWallCollision();	
-		PlayerRollStart();
-		PlayerLevelBound();
-		PlayerPosition();
-		PlayerGroundFloorCollision();
-		PlayerSlopeRepel();
-		PlayerHitboxUpdate();
-	}
-	else if Grounded and Spinning
-	{
+		else if Grounded and !Spinning
+		{
+			if PlayerSpindash()  return;
+			if PlayerPeelout()   return;
+			if PlayerJumpStart() return;
+			PlayerSlopeResist();
+			PlayerMovementGround();
+			PlayerBalance();
+			PlayerGroundWallCollision();	
+			PlayerRollStart();
+			PlayerLevelBound();
+			PlayerPosition();
+			PlayerGroundFloorCollision();
+			PlayerSlopeRepel();
+			PlayerHitboxUpdate();
+		}
+		
 		// Grounded, rolling
-		if PlayerJumpStart() exit;
-		PlayerSlopeResistRoll();	
-		PlayerMovementRoll();
-		PlayerGroundWallCollision();
-		PlayerLevelBound();
-		PlayerPosition();
-		PlayerGroundFloorCollision();
-		PlayerSlopeRepel();
-		PlayerHitboxUpdate();
+		else if Grounded and Spinning
+		{
+			if PlayerJumpStart() return;
+			PlayerSlopeResistRoll();	
+			PlayerMovementRoll();
+			PlayerGroundWallCollision();
+			PlayerLevelBound();
+			PlayerPosition();
+			PlayerGroundFloorCollision();
+			PlayerSlopeRepel();
+			PlayerHitboxUpdate();
+		}
 	}
+	

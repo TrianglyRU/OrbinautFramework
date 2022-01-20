@@ -416,8 +416,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "_Test Zone",
-    "path": "folders/Rooms/_Test Zone.yy",
+    "name": "> TEST ZONE",
+    "path": "folders/Rooms/> TEST ZONE.yy",
   },
   "resourceVersion": "1.0",
   "name": "TSZTileset",

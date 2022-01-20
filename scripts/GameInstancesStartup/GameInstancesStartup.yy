@@ -6,7 +6,7 @@
     "path": "folders/Game Code/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameTimeReset",
+  "name": "GameInstancesStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

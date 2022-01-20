@@ -69,7 +69,7 @@ function ObjBubbleControllerMain()
 				else
 				{
 					// Set animation
-					animation_play(sprite_index, 15, 0, 6);
+					animation_play(sprite_index, 15, 6);
 				}
 				Direction = Player.Facing;
 			}
@@ -97,7 +97,7 @@ function ObjBubbleControllerMain()
 					else
 					{
 						// Set animation
-						animation_play(sprite_index, 15, 0, 6);
+						animation_play(sprite_index, 15, 6);
 					}
 					Direction = Player.Facing;
 				}
@@ -132,7 +132,7 @@ function ObjBubbleControllerMain()
 				object_set_depth(Player, 1);
 				
 				// Set animation
-				animation_play(sprite_index, 15, 0, 6);
+				animation_play(sprite_index, 15, 6);
 			}
 			DrownBubbles++;
 			DrownDelay = irandom_range(1, 8);

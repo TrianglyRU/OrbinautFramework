@@ -24,7 +24,7 @@ function gamesettings_load(filename)
 		Game.Width				= ini_read_real("Video",	"Width",       400);
 		Game.Height				= ini_read_real("Video",	"Height",      224);
 		Game.WindowSize		    = ini_read_real("Video",	"Size",        3);
-		Game.WindowFullscreen   = ini_read_real("Video",	"Fullscreen",  false);
+		Game.FullscreenMode   = ini_read_real("Video",	"Fullscreen",  false);
 		Game.MusicVolume        = ini_read_real("Music",	"MusicVolume", 0.3);
 		Game.SoundVolume        = ini_read_real("Music",	"SoundVolume", 0.3);
 		

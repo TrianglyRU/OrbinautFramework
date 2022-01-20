@@ -48,8 +48,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "name": "Startup Screen",
+    "path": "folders/Rooms/Startup Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_Startup",

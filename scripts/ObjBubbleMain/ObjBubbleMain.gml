@@ -32,7 +32,7 @@ function ObjBubbleMain()
 			// If reached last frame possible, pop the bubble
 			if image_index == 6
 			{
-				animation_play(spr_obj_bubble_disappear, 6, 0, 3);
+				animation_play(spr_obj_bubble_disappear, 6, 3);
 			}
 			
 			// Else destroy instantly

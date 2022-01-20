@@ -21,7 +21,7 @@ function ObjMotobugMain()
 				StateTimer = 16;
 				
 				// Set animation
-				animation_play(sprite_index, 8, 0, 0);
+				animation_play(sprite_index, 8, 0);
 			}
 		}
 		break;
@@ -72,7 +72,7 @@ function ObjMotobugMain()
 				image_xscale *= -1;
 				
 				// Set animation
-				animation_play(sprite_index, 8, 0, 0);
+				animation_play(sprite_index, 8, 0);
 			}
 		}
 		break;

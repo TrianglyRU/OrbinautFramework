@@ -1,11 +1,13 @@
 function GameMacro()
 {	
 	// Global framework macro
+	#macro GlobalTime  -1
 	#macro Shader	   global
 	#macro Game		   global
 	#macro GameCamera  view_camera[0]
 
 	// Object macro
+	#macro TypeNone   -1
 	#macro TypeBadnik  0
 	#macro TypeBoss    1
 	#macro TypePause   1

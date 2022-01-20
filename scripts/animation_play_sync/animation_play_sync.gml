@@ -9,5 +9,5 @@ function animation_play_sync(spriteid,duration)
 	}
 	
 	// Play animation
-	image_index = Game.GlobalTime div duration mod image_number;
+	image_index = Game.AnimationTime[? GlobalTime] div duration mod image_number;
 }

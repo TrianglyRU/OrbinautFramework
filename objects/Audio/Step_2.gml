@@ -1,6 +1,5 @@
-/// @description Post-Objects Code
-// You can write your code in this editor
+/// @description Main
+// You can call your scripts in this editor
 	
-	// Post-Objects Scripts
 	AudioPrimaryProcess();
 	AudioPriorityProcess();

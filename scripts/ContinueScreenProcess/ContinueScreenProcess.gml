@@ -52,7 +52,7 @@ function ContinueScreenProcess()
 			var SpriteData = [CharSprite[1], round(max(1, 8 - abs(CharSpeed[1])))];
 			with CharObject 
 			{
-				animation_play(SpriteData[0], SpriteData[1], 0, 11);
+				animation_play(SpriteData[0], SpriteData[1], 11);
 			}
 		
 			// Flick continue object while charging

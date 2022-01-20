@@ -1,7 +1,6 @@
-/// @description Pre-Objects Code
+/// @description Main
 // You can call your scripts in this editor
 	
-	// Pre-Objects Scripts
 	InputUpdate();
 	InputGamepadProcess();
 	InputKeyboardProcess();

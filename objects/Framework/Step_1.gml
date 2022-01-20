@@ -1,6 +1,4 @@
-/// @description Process Code
-// You can write your code in this editor
+/// @description Main
+// You can call your scripts in this editor
 
-	// Process Scripts
-	GameTimeProcess();
 	GameAnimationsProcess();

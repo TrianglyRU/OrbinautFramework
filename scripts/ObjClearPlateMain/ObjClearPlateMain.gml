@@ -33,7 +33,7 @@ function ObjClearPanelMain()
 				audio_sfx_play(sfxClearPanel, false);
 				
 				// Set animation
-				animation_play(SpriteData[0], 1, 0, 0);
+				animation_play(SpriteData[0], 1, 0);
 			}
 		}
 		break;
@@ -45,7 +45,7 @@ function ObjClearPanelMain()
 			// Set animation
 			if StateTimer == 62
 			{
-				animation_play(SpriteData[1], 1, 0, 0);
+				animation_play(SpriteData[1], 1, 0);
 			}
 			
 			// Increment state after 124 frames

@@ -171,6 +171,9 @@ function InterfaceResultsDraw()
 				if (++ResultsValue[0]) == 180
 				{
 					fade_perform(ModeInto, BlendBlack, 1);
+					
+					Stage.UpdateObjects   = false;
+					Game.UpdateAnimations = false;
 				}
 			}
 			break;
@@ -191,6 +194,9 @@ function InterfaceResultsDraw()
 				else if (++ResultsValue[0]) == 260
 				{
 					fade_perform(ModeInto, BlendBlack, 1);
+					
+					Stage.UpdateObjects   = false;
+					Game.UpdateAnimations = false;
 				}
 			}
 			break;

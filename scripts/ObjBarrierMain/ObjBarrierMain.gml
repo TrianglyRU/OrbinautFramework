@@ -34,7 +34,7 @@ function ObjBarrierMain()
 					Player.AirLock     = false;
 					
 					// Reset animation
-					animation_play(spr_obj_barrier_flame, 2, 0, 0);
+					animation_play(spr_obj_barrier_flame, 2, 0);
 				}
 			}
 			else
@@ -58,7 +58,7 @@ function ObjBarrierMain()
 				if image_index == 2
 				{
 					// Reset animation
-					animation_play(spr_obj_barrier_water, 2, 0, 0);
+					animation_play(spr_obj_barrier_water, 2, 0);
 				}
 			}
 			object_set_depth(Player, 1);

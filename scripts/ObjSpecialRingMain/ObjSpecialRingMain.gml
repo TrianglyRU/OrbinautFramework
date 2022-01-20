@@ -92,6 +92,10 @@ function ObjSpecialRingMain()
 			{				
 				fade_perform(ModeInto, BlendWhite, 1);
 				
+				Stage.UpdateObjects   = false;
+				Stage.TimeEnabled     = false;
+				Game.UpdateAnimations = false;
+				
 				// Play sound and increment state
 				audio_play_sound(sfxSpecialWarp, 0, false);
 				State++;

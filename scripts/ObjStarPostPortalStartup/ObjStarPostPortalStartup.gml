@@ -7,5 +7,4 @@ function ObjStarPostPortalStartup()
 	
 	// Set object properties
 	object_set_hitbox(16, 4);
-	object_set_depth(Player, 0);
 }

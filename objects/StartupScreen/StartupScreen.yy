@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screen (Startup)",
-    "path": "folders/Game Code/Screen (Startup).yy",
+    "name": "Startup Screen",
+    "path": "folders/Rooms/Startup Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "StartupScreen",

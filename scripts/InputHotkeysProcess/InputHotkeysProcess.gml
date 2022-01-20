@@ -3,8 +3,8 @@ function InputHotkeysProcess()
 	// Toggle fullscreen
 	if keyboard_check_pressed(vk_f4)
 	{
-		Game.WindowFullscreen = !Game.WindowFullscreen;
-		window_set_fullscreen(Game.WindowFullscreen);
+		Game.FullscreenMode = !Game.FullscreenMode;
+		window_set_fullscreen(Game.FullscreenMode);
 	}
 	
 	// Exit if not in devmode

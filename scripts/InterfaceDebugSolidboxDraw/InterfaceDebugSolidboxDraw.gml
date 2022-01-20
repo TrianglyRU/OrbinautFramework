@@ -21,7 +21,7 @@ function InterfaceDebugSolidboxDraw()
 		}
 			
 		// Draw object's solidbox
-		else if variable_instance_exists(id, "Obj_SolidX")
+		else
 		{	
 			if Obj_SolidMap == false
 			{

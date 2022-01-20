@@ -58,7 +58,7 @@ function MenuSetup()
 	// Options (video)
 	menu_add_header(6,    "VIDEO OPTIONS");
 	menu_add_option(6, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");
-	menu_add_option(6, 1, "FULLSCREEN: "  + string(menu_get_boolean(Game.WindowFullscreen)));
+	menu_add_option(6, 1, "FULLSCREEN: "  + string(menu_get_boolean(Game.FullscreenMode)));
 	
 	// Options (audio)
 	menu_add_header(7,    "AUDIO OPTIONS");

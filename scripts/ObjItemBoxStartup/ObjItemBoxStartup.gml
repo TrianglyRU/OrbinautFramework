@@ -55,5 +55,5 @@ function ObjItemBoxStartup()
 	object_set_hitbox(16, 16);
 	object_set_unload(TypeReset);
 	object_set_depth(Player, 0);
-	animation_play(sprite_index, 4, 0, 0);
+	animation_play(sprite_index, 4, 0);
 }

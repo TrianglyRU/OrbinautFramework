@@ -194,11 +194,11 @@ function MenuOptionsProcess()
 					// Fullscreen toggle
 					case 1:	
 					{
-						Game.WindowFullscreen = !Game.WindowFullscreen;
-						window_set_fullscreen(Game.WindowFullscreen);
+						Game.FullscreenMode = !Game.FullscreenMode;
+						window_set_fullscreen(Game.FullscreenMode);
 				
 						// Update option
-						menu_update_option(6, 1, "FULLSCREEN: " + menu_get_boolean(Game.WindowFullscreen));
+						menu_update_option(6, 1, "FULLSCREEN: " + menu_get_boolean(Game.FullscreenMode));
 					}
 					break;
 				}

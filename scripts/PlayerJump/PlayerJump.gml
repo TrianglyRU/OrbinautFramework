@@ -115,7 +115,7 @@ function PlayerJump()
 						with Barrier
 						{
 							object_set_depth(Player, 1);
-							animation_play(spr_obj_barrier_flame_dash, 2, 0, 0);
+							animation_play(spr_obj_barrier_flame_dash, 2, 0);
 						}
 						
 						// Set speeds
@@ -156,7 +156,7 @@ function PlayerJump()
 						// Set barrier animation
 						with Barrier
 						{
-							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0, 0);
+							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0);
 						}
 							
 						// Restore control

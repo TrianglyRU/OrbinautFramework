@@ -47,11 +47,11 @@ function InterfacePauseProcess()
 				// Return to stage
 				case 0:
 				{
-					Camera.Enabled = true;
-					Stage.IsPaused = false;	
-					
-					// Manually enable stage update to avoid 1 frame delay
-					Stage.DoUpdate = true;
+					Stage.IsPaused	      = false;
+					Stage.TimeEnabled     = true;
+					Stage.UpdateObjects   = true;
+					Camera.Enabled        = true;
+					Game.UpdateAnimations = true;
 					
 					// Activate objects
 					instance_activate_range(Camera.ViewX);
@@ -115,13 +115,13 @@ function InterfacePauseProcess()
 	{
 		// If we pressed start button and are allowed to pause, then pause!
 		if CardValue[1] == 3 and Stage.DoUpdate and !Stage.IsFinished
-		{
-			Input.StartPress = false;
-			Camera.Enabled   = false;
-			Stage.IsPaused	 = true;
-			
-			// Manually disable stage update to avoid 1 frame delay
-			Stage.DoUpdate = false;
+		{	
+			Stage.IsPaused	      = true;
+			Stage.TimeEnabled     = false;
+			Stage.UpdateObjects   = false;
+			Input.StartPress      = false;
+			Camera.Enabled        = false;
+			Game.UpdateAnimations = false;
 			
 			audio_pause_all();
 			audio_sfx_play(sfxPauseSelect, false);

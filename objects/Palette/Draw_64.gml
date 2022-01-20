@@ -1,7 +1,6 @@
-/// @description Shader Process Code
-// You can write your code in this editor
+/// @description Draw 2
+// You can call your scripts in this editor
 
-	// Shader Process Scripts
 	PaletteFadeProcess();
 	PaletteUpdate();
 	PaletteSurfaceProcess();

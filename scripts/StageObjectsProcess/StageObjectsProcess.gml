@@ -1,6 +1,6 @@
 function StageObjectsProcess() 
 {	
-	if DoUpdate
+	if UpdateObjects
 	{
 		// Get active bounds
 		var LeftBound  = (Camera.ViewX - 128) & -128;
@@ -8,11 +8,7 @@ function StageObjectsProcess()
 	
 		with all 
 		{	
-			if variable_instance_exists(id, "Obj_UnloadType")
 			{
-				// Check if object is a parent
-				var IsParent = variable_instance_exists(id, "Obj_ChildrenIDs");
-				
 				switch Obj_UnloadType
 				{
 					// Destroy object
@@ -20,9 +16,9 @@ function StageObjectsProcess()
 					{
 						if x < LeftBound or x > RightBound or y > Stage.BottomBoundary or y < Stage.TopBoundary
 						{
-							if IsParent
+							var Length = array_length(Obj_ChildrenIDs);
+							if  Length
 							{
-								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
 								{				
 									instance_destroy(Obj_ChildrenIDs[i]);
@@ -39,9 +35,9 @@ function StageObjectsProcess()
 					{
 						if x < LeftBound or x > RightBound
 						{
-							if IsParent
+							var Length = array_length(Obj_ChildrenIDs);
+							if  Length
 							{
-								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
 								{				
 									instance_destroy(Obj_ChildrenIDs[i]);
@@ -58,9 +54,9 @@ function StageObjectsProcess()
 					{
 						if (x < LeftBound or x > RightBound) and (Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound)
 						{
-							if IsParent
+							var Length = array_length(Obj_ChildrenIDs);
+							if  Length
 							{
-								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
 								{
 									instance_destroy(Obj_ChildrenIDs[i]);
@@ -78,19 +74,15 @@ function StageObjectsProcess()
 							visible      = Obj_UnloadData[6];
 							
 							// Reset animation data
-							if variable_instance_exists(id, "image_duration")
-							{
-								image_duration = 0;
-								image_timer    = 0;
-							}
+							Obj_AnimDuration = 0;
+							Obj_AnimTimer    = 0;
 									
 							// Perform create event to re-initialise variables
 							event_perform(ev_create, 0);
 							
 							// Deactivate object
-							if IsParent
+							if Length
 							{
-								var Length = array_length(Obj_ChildrenIDs);
 								for (var i = 0; i < Length; i++)
 								{
 									instance_deactivate_object(Obj_ChildrenIDs[i]);
@@ -100,6 +92,7 @@ function StageObjectsProcess()
 						}
 					}
 					break;
+					default: break;
 				}
 			}
 		}

@@ -1,10 +1,14 @@
-/// @description Post-Objects Code
+/// @description Main 2
 // You can write your code in this editor
 
-	// Check if we should execute the code below
-	if !PlayerProcess() exit;
+	/* This is called after object
+	scripts are processed */
 	
-	// Post-Objects Scripts
+	// Check if we should execute the code below
+	if !PlayerProcess()
+	{
+		return;
+	}
 	PlayerGeneralUpdate();
 	PlayerSuperFormsProcess();
 	PlayerWaterEvents();

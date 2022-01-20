@@ -5,5 +5,5 @@ function ObjDropdashDustStartup()
 	
 	// Set object properties
 	object_set_depth(Player, 1);
-	animation_play(sprite_index, 2, 0, 7);
+	animation_play(sprite_index, 2, 7);
 }

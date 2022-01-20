@@ -1,25 +1,20 @@
 function PlayerDebugMode()
 {
-	// Exit if not in devmode or stage is inactive (but procees if player died)
-	if !Game.DevMode or !(Player.Death or Stage.DoUpdate) 
+	if !Game.DevMode or Stage.IsPaused or fade_check(StateActive)
 	{
 		return false;
 	}
-	
-	// Exit if player has died and fell off-screen
-	if Player.Death and floor(Player.PosY) >= Camera.ViewY + Game.Height
+	if (Death or Drown) and floor(PosY) > Camera.ViewY + Game.Height 
 	{
 		return false;
 	}
 
+	// Toggle Edit Mode
 	if Input.BPress
 	{
-		// Toggle debug mode upon pressing B key
-		DebugMode = !DebugMode;
-		
-		// Reset flags. A lot of it
-		if DebugMode
+		if !DebugMode
 		{
+			DebugMode        = true;
 			AllowCollision   = false;
 			Grounded	     = false;
 			OnObject	     = false;
@@ -32,8 +27,9 @@ function PlayerDebugMode()
 			Spinning	     = false;
 			StickToConvex    = false;
 			IsUnderwater     = false;
-			DoubleSpinAttack = SpinRecharge;
-			DropdashFlag	 = DashLocked;
+			Death		     = false;
+			Drown            = false;
+			AirTimer		 = 1800;
 			DropdashRev      = -1;
 			SpindashRev      = -1;
 			PeeloutRev       = -1;
@@ -41,27 +37,33 @@ function PlayerDebugMode()
 			Xsp			     =  0;
 			Ysp			     =  0;
 			Inertia		     =  0;
+			DoubleSpinAttack = SpinRecharge;
+			DropdashFlag	 = DashLocked;
+			DrawOrder		 = layer_get_depth("Objects");
 			
-			// Cancel death event
-			if (Death or Drown) and floor(Player.PosY) < Camera.ViewY + Game.Height
+			// If we died, resume the stage
+			Camera.Enabled    = true;
+			Stage.DoUpdate    = true;
+			Stage.TimeEnabled = true;
+			
+			// Reset music
+			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(ChannelPrimary)
 			{
-				DrawOrder		  = layer_get_depth("Objects");
-				Death		      = false;
-				Drown             = false;
-				Camera.Enabled    = true;
-				Stage.DoUpdate    = true;
-				Stage.TimeEnabled = true;
+				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
 			}
 			
-			// Reset air timer and restore music
-			if AirTimer <= 720
-			{
-				if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(ChannelPrimary)
-				{
-					audio_bgm_play(ChannelPrimary, Stage.StageMusic);
-				}
-			}
-			AirTimer = 1800;
+			// Stop player sfx
+			audio_sfx_stop(sfxFlying);
+			audio_sfx_stop(sfxTired);
+		}
+		else
+		{
+			RadiusX		   = DefaultRadiusX;
+			RadiusY		   = DefaultRadiusY;
+			Animation      = AnimMove;
+			AllowCollision = true;
+			DebugMode	   = false;
+			image_alpha    = 1;
 			
 			// Reset gravity
 			if !IsUnderwater
@@ -73,31 +75,14 @@ function PlayerDebugMode()
 				// Lower by 0x28 (0.15625) if underwater
 				Grv = 0.0625
 			}
-			
-			// Set animation
-			Animation   = AnimMove;
-			image_alpha = 1;
-			
-			// Stop player sfx
-			audio_sfx_stop(sfxFlying);
-			audio_sfx_stop(sfxTired);
-		}
-		else
-		{
-			// Reset collision
-			RadiusX	= DefaultRadiusX;
-			RadiusY = DefaultRadiusY;
-			AllowCollision = true;
 		}
 	}
-	
-	// Check if we're in debug state
-	if !DebugMode
+	else if !DebugMode
 	{
-		exit;
+		return false;
 	}
 	
-	// Update speed
+	// Update speed and position
 	if Input.Left or Input.Down or Input.Right or Input.Up
 	{
 		DebugSpeed = min(DebugSpeed + 0.046875, 16);
@@ -106,8 +91,6 @@ function PlayerDebugMode()
 	{
 		DebugSpeed = 0;
 	}
-	
-	// Update position
 	if Input.Left
 	{
 		PosX -= DebugSpeed;
@@ -130,24 +113,24 @@ function PlayerDebugMode()
 	{
 		DebugItem = loop_value(DebugItem + 1, 0, array_length(DebugList));
 	}
-	if Input.CPress
+	
+	// Spawn current object
+	else if Input.CPress
 	{
-		// Spawn current object
 		if !Input.A
 		{
 			var  ThisObject = image_xscale;
 			var  Object     = instance_create(PosX, PosY, DebugList[DebugItem]);
 			with Object
 			{
-				// Spawn with the same xscale
 				image_xscale = ThisObject;
-					
-				// Delete object onc off-screen
+				
+				// Object should be deleted once it goes off-screen
 				object_set_unload(TypeDelete);
 			}
 		}
 		
-		// Switch to previous object in the list
+		// If held A button, switch to the previous object in the list
 		else
 		{
 			DebugItem = loop_value(DebugItem - 1, 0, array_length(DebugList));

@@ -21,7 +21,7 @@ function ObjCrabmeatMain()
 				StateTimer = 127;
 				
 				// Set animation
-				animation_play(sprite_index, 16, 0, 0);
+				animation_play(sprite_index, 16, 0);
 			}
 		}
 		break;
@@ -77,7 +77,7 @@ function ObjCrabmeatMain()
 				PosY += FindFloor[0];
 				
 				// Set animation
-				animation_play(sprite_index, 16, 0, 0);
+				animation_play(sprite_index, 16, 0);
 			}
 		}
 		break;
@@ -122,7 +122,7 @@ function ObjCrabmeatMain()
 					image_xscale *=  -1;
 					
 					// Update animation
-					animation_play(PreviousSprite, 16, 1, 0);
+					animation_play(PreviousSprite, 16, 0); image_index = 1;
 				}
 			}
 		}
@@ -139,7 +139,7 @@ function ObjCrabmeatMain()
 				image_xscale *=  -1;
 					
 				// Update animation
-				animation_play(PreviousSprite, 16, 1, 0);
+				animation_play(PreviousSprite, 16, 0); image_index = 1;
 			}
 		}
 		break;	

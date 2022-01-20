@@ -11,5 +11,5 @@ function ObjProjectileStartup()
 	// Set object properties
 	object_set_hitbox(6, 6);
 	object_set_unload(TypeDelete);
-	animation_play(sprite_index, 2, 0, 0);
+	animation_play(sprite_index, 2, 0);
 }

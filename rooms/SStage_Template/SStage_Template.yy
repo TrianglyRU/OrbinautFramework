@@ -48,8 +48,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Special Stages",
-    "path": "folders/Rooms/Special Stages.yy",
+    "name": "Special Stage",
+    "path": "folders/Rooms/Special Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "SStage_Template",

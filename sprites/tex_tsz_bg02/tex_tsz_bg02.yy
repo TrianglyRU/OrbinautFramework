@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/_Test Zone/Textures.yy",
+    "path": "folders/Rooms/> TEST ZONE/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_tsz_bg02",

@@ -1,8 +1,7 @@
-/// @description Window GUI Code
+/// @description Draw 3
 // You can call your scripts in this editor
 	
-	/* Draw GUI scripts called here will render
+	/* Anything called here will be rendered
 	using window resolution */
 	
-	// Window GUI Code
 	InterfaceDebugScreenDraw();

@@ -1,10 +1,9 @@
-/// @description Game GUI Code
-// You can write your code in this editor
+/// @description Draw 2
+// You can call your scripts in this editor
 	
-	/* Draw GUI scripts called here will render
+	/* Anything called here will be rendered
 	using game resolution */
 	
-	// Game GUI Scripts
 	InterfaceRendererLowProcess();
 	InterfaceOverlayDraw();
 	InterfaceResultsDraw();

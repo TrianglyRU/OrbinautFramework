@@ -6,7 +6,7 @@ function GameWindowStartup()
 	
 	window_set_size(Width, Height);
 	window_set_position((display_get_width() - Width) / 2, (display_get_height() - Height) / 2);
-	window_set_fullscreen(Game.WindowFullscreen);
+	window_set_fullscreen(Game.FullscreenMode);
 	window_set_caption(Game.WindowTitle);
 	
 	// ...and apply some GPU magic that will increase game speed!

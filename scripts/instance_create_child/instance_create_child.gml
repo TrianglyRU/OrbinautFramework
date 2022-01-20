@@ -1,23 +1,15 @@
 /// @function instance_create_child(x,y,obj)
 function instance_create_child(x,y,obj)
 {
-	// Create object
-	var NewObject = instance_create(x, y, obj);
-	
-	// Initialise animation varaibles for it
+	// Create the object
+	var  NewObject = instance_create_depth(floor(x), floor(y), depth, obj);
 	with NewObject
 	{
-		if !variable_instance_exists(id, "image_duration")
-		{
-			image_timer     = 0;
-			image_duration  = 0;
-			image_loopframe = 0;
-		}
+		instance_initialise();
 	}
-	
-	// Mark this object as a parent and add child object to the list
 	if !variable_instance_exists(id, "Obj_ChildrenIDs")
 	{
+		// For some reason the same thing from the instance_initialise() doesn't work for this frame...
 		Obj_ChildrenIDs = [];
 	}
 	array_push(Obj_ChildrenIDs, NewObject);

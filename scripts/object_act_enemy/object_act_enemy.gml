@@ -48,12 +48,12 @@ function object_act_enemy(enemyType)
 				instance_create(x, y, DustExplosion);
 			
 				// Destroy children
-				if variable_instance_exists(id, "Obj_ChildrenIDs")
+				var Length = array_length(Obj_ChildrenIDs);
+				if  Length
 				{
-					var Length = array_length(Obj_ChildrenIDs);
 					for (var i = 0; i < Length; i++)
 					{
-						with Obj_ChildrenIDs[i]
+						with Obj_ChildrenIDs[i] 
 						{
 							instance_destroy();
 						}

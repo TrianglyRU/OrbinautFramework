@@ -14,4 +14,4 @@
 			sprite_index = gui_icon_knuckles;
 		break;
 	}
-	animation_play(sprite_index, 16, 0, 0);
+	animation_play(sprite_index, 16, 0);

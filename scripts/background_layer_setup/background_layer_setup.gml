@@ -1,5 +1,5 @@
-/// @function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,[inclineHeight],[inclineStep],[inclineY])
-function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,inclineHeight,inclineStep,inclineY)
+/// @function background_layer_setup(id,x,y,scrollX,scrollY,autoXSpeed,animDuration,[inclineHeight],[inclineStep],[inclineY])
+function background_layer_setup(id,x,y,scrollX,scrollY,autoXSpeed,animDuration,inclineHeight,inclineStep,inclineY)
 {
 	with Background
 	{
@@ -18,7 +18,7 @@ function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,
 		BGValues[id][1]  = y + (inclineStep < 0) * sprite_get_height(BGSprites[id]);
 		BGValues[id][2]  = scrollX;
 		BGValues[id][3]  = scrollY;
-		BGValues[id][4]  = scrollXAuto;
+		BGValues[id][4]  = autoXSpeed;
 		BGValues[id][5]  = inclineHeight;
 		BGValues[id][6]  = inclineStep;
 		BGValues[id][7]  = inclineY;
@@ -29,7 +29,7 @@ function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,
 		BGValues[id][10] = sprite_get_width(BGSprites[id]);
 		BGValues[id][11] = 1 / texture_get_texel_width(sprite_get_texture(BGSprites[id], 0));
 		
-		// Initialise autoscroll speed
+		// Initialise autoscroll offset value
 		BGValues[id][12] = 0;
 	}
 }

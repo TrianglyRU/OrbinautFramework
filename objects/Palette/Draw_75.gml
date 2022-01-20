@@ -1,5 +1,4 @@
-/// @description Surface Reset Code
-// You can write your code in this editor
+/// @description Draw 3
+// You can call your scripts in this editor
 	
-	// Surface Reset Script
 	PaletteSurfaceReset();

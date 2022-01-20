@@ -1,5 +1,4 @@
-/// @description Surface Initialisation Code
-// You can write your code in this editord
+/// @description Draw 1
+// You can call your scripts in this editor
 
-	// Surface Initialisation Script
 	PaletteSurfaceStartup();

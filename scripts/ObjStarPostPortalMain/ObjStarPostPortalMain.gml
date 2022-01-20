@@ -27,6 +27,10 @@ function ObjStarPostPortalMain()
 				State++;
 				fade_perform(ModeInto, BlendBlack, 1);	
 				
+				Stage.UpdateObjects   = false;
+				Stage.TimeEnabled     = false;
+				Game.UpdateAnimations = false;
+				
 				// Stop music
 				audio_bgm_stop(ChannelPrimary,  0.5);
 				audio_bgm_stop(ChannelSecondary, 0.5);

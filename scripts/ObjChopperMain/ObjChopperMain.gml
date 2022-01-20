@@ -14,7 +14,7 @@ function ObjChopperMain()
 			// If near peak amplitude, speedup animation
 			if y <= OriginY - 192
 			{
-				animation_play(sprite_index, 4, 0, 0);
+				animation_play(sprite_index, 4, 0);
 				
 				// Increment state
 				State++;
@@ -39,7 +39,7 @@ function ObjChopperMain()
 			if y >= OriginY 
 			{ 
 				y = OriginY; Ysp = -7; 
-				animation_play(sprite_index, 8, 0, 0);
+				animation_play(sprite_index, 8, 0);
 				
 				// Go back to state 0
 				State -= 2;

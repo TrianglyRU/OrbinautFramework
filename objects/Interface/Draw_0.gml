@@ -1,7 +1,6 @@
-/// @description Debug Visualisation Code
-// You can write your code in this editor
+/// @description Draw 1
+// You can call your scripts in this editor
 	
-	// Debug Visualisation Scripts
 	InterfaceDebugSolidboxDraw();
 	InterfaceDebugHitboxDraw();
 	InterfaceDebugTriggersDraw();

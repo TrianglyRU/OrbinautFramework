@@ -48,8 +48,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Bonus Stages",
-    "path": "folders/Rooms/Bonus Stages.yy",
+    "name": "Bonus Stage",
+    "path": "folders/Rooms/Bonus Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "BStage_Template",

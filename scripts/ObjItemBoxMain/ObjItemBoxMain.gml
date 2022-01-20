@@ -121,42 +121,40 @@ function ObjItemBoxMain()
 			// Give bonus
 			switch BoxType
 			{
+				// Give 10 rings
 				case "10 Rings":
 				{
-					// Give 10 rings
-					Player.Rings += 10;
-						
-					// Play ring sound
+					Player.Rings += 10;	
+					
 					audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
 				}
 				break;
+				
+				// Temporary increase speed
 				case "High Speed":
 				{
-					// Give highspeed bonus for 20 seconds
-					Player.HighspeedBonus = 1200;
-						
-					// Play music
 					if !Player.SuperState
 					{
 						audio_bgm_play(ChannelPrimary, HighSpeed);
 					}
+					Player.HighspeedBonus = 1200;
 				}
 				break;
+				
+				// Grant temporary invincibility
 				case "Invincibility":
 				{
-					// If in super form, exit
 					if Player.SuperState
 					{
 						break;
 					}
-					
-					// Give invincibility bonus for 20 seconds
 					Player.InvincibleBonus = 1200;
-						
-					// Play music
+					
 					audio_bgm_play(ChannelPrimary, Invincibility);
 				}
 				break;
+				
+				// Grant regular Barrier
 				case "Barrier":
 				{
 					Player.BarrierType = BarrierNormal;
@@ -167,14 +165,14 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						// If barrier exists, update properties
-						object_set_depth(Player, 1); animation_play(spr_obj_barrier_normal, 2, 0, 0);
+						object_set_depth(Player, 1); 
+						animation_play(spr_obj_barrier_normal, 2, 0);
 					}
-					
-					// Play sound
 					audio_sfx_play(sfxBarrier, false);
 				}
 				break;
+				
+				// Grant Flame Barrier
 				case "Flame Barrier":
 				{
 					Player.BarrierType = BarrierFlame;
@@ -185,14 +183,13 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						// If barrier exists, update animation
-						animation_play(spr_obj_barrier_flame, 2, 0, 0);
+						animation_play(spr_obj_barrier_flame, 2, 0);
 					}
-					
-					// Play sound
 					audio_sfx_play(sfxFlameBarrier, false);
 				}
 				break;
+				
+				// Grant Thunder Barrier
 				case "Thunder Barrier":
 				{
 					Player.BarrierType = BarrierThunder;
@@ -203,14 +200,13 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						// If barrier exists, update animation
-						animation_play(spr_obj_barrier_thunder, 2, 0, 0);
+						animation_play(spr_obj_barrier_thunder, 2, 0);
 					}
-					
-					// Play sound
 					audio_sfx_play(sfxThunderBarrier, false);
 				}
 				break;
+				
+				// Grant Water Barrier
 				case "Water Barrier":
 				{
 					Player.BarrierType = BarrierWater;
@@ -221,16 +217,14 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						// If barrier exists, update properties
-						object_set_depth(Player, 1); animation_play(spr_obj_barrier_water, 2, 0, 0);
+						object_set_depth(Player, 1); 
+						animation_play(spr_obj_barrier_water, 2, 0);
 					}
-					
-					// Play sound
 					audio_sfx_play(sfxWaterBarrier, false);
 						
-					// Play previous track if running out of air
 					if Player.AirTimer <= 720
 					{	
+						// Play previous track if player was running out of air
 						if !Player.SuperState
 						{
 							if Player.InvincibleBonus
@@ -251,23 +245,21 @@ function ObjItemBoxMain()
 							audio_bgm_play(ChannelPrimary, SuperTheme);
 						}
 					}
-			
-					// Reset air timer
 					Player.AirTimer = 1800;
 				}
 				break;
+				
+				// Grant 1-up
 				case "Extra Life":
 				{
-					// Give player 1 extra life
 					Player.Lives++;
-						
-					// Play jingle
 					audio_bgm_play(ChannelSecondary, ExtraLife);
 				}
 				break;
+				
+				// Damage player
 				case "Eggman":
 				{
-					// Damage player
 					player_damage(false, false, false);
 				}
 				break;
@@ -275,16 +267,13 @@ function ObjItemBoxMain()
 		}
 		break;
 		
-		// Display card for 30 more frames
+		// Display item card for 30 frames
 		case 2:
 		{
 			if !(--Timer)
 			{
-				// Increment state
 				State++;
 			}
-			
-			// Set object unload type
 			object_set_unload(TypePause);
 		}
 		break;

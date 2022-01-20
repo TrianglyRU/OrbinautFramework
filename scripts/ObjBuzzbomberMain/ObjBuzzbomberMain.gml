@@ -26,7 +26,7 @@ function ObjBuzzbomberMain()
 					Timer = 29;
 					
 					// Set animation
-					animation_play(spr_obj_buzzbomber_idle, 1, 0, 0);
+					animation_play(spr_obj_buzzbomber_idle, 1, 0);
 				}
 				else
 				{
@@ -45,7 +45,7 @@ function ObjBuzzbomberMain()
 				Timer = 73;
 				
 				// Set animation
-				animation_play(spr_obj_buzzbomber_fire, 1, 0, 0);
+				animation_play(spr_obj_buzzbomber_fire, 1, 0);
 			}
 		}
 		break;
@@ -60,7 +60,7 @@ function ObjBuzzbomberMain()
 				Timer = 127;
 				
 				// Set animation
-				animation_play(spr_obj_buzzbomber_fly, 1, 0, 0);
+				animation_play(spr_obj_buzzbomber_fly, 1, 0);
 			}
 			
 			// Create a projectile after 14 (+16) frames

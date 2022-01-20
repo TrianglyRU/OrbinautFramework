@@ -1,6 +1,6 @@
-/// @description Collision Initialisation Code
-// You can write your code in this editor
+/// @description Startup 3
+// You can call your scripts in this editor
 	
-	// Collision Initialisation Scripts
 	GameCollisionsSetup();
 	GameCollisionsLoad();
+	GameInstancesStartup();

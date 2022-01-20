@@ -1,7 +1,6 @@
-/// @description Initialisation Code
+/// @description Startup
 // You can call your scripts in this editor
 	
-	// Initialisation Scripts
 	InterfaceDebugStartup();
 	InterfaceOverlayStartup();
 	InterfaceGameOverStartup();

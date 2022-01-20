@@ -1,18 +1,11 @@
 /// @function instance_create(x,y,obj)
 function instance_create(x,y,obj)
 {
-	// Create a new object
-	var NewObject = instance_create_depth(floor(x), floor(y), depth, obj);
-	
-	// Initialise animation varaibles for it
+	// Create the object
+	var  NewObject = instance_create_depth(floor(x), floor(y), depth, obj);
 	with NewObject
 	{
-		if !variable_instance_exists(id, "image_duration")
-		{
-			image_timer     = 0;
-			image_duration  = 0;
-			image_loopframe = 0;
-		}
+		instance_initialise();
 	}
 	
 	// Return ID of the created object

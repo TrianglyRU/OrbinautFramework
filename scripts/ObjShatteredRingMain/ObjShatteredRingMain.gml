@@ -1,7 +1,7 @@
 function ObjShatteredRingMain()
 {
 	// Set animation
-	animation_play(sprite_index, floor((256 * 2) / Timer), 0, 0);
+	animation_play(sprite_index, floor((256 * 2) / Timer), 0);
 	
 	// Move ring
 	PosX += Xsp;

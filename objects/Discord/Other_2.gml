@@ -1,5 +1,4 @@
-/// @description Game Initialisation Code
-// You can write your code in this editor
+/// @description Startup 1
+// You can call your scripts in this editor
 	
-	// Game Initialisation Script
 	DiscordStartup();

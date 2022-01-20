@@ -43,7 +43,8 @@ function ObjAirBubblerMain()
 					
 					// Set object properties
 					object_set_triggerbox(-16, 16, -16, 16);
-					animation_play(sprite_index, 15, 2, 6);
+					animation_play(sprite_index, 15, 6); 
+					image_index = 2;
 				}
 			}
 			else 
@@ -57,7 +58,7 @@ function ObjAirBubblerMain()
 						BubbleType = 0;
 						
 						// Set animation
-						animation_play(sprite_index, 15, 0, 6);
+						animation_play(sprite_index, 15, 6);
 					}
 				}
 			
@@ -70,7 +71,7 @@ function ObjAirBubblerMain()
 						BubbleType = 1;
 						
 						// Set animation
-						animation_play(sprite_index, 15, 0, 6);
+						animation_play(sprite_index, 15, 6);
 					}
 				}
 			}
