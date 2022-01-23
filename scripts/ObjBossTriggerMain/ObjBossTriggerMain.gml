@@ -9,7 +9,7 @@ function ObjBossTriggerMain()
 		if floor(Player.PosX) > x
 		{
 			// Play boss music
-			audio_bgm_play(ChannelPrimary, Boss); 
+			audio_bgm_play(TypePrimary, Boss); 
 			
 			// Set new top boundary
 			if ArenaHeight != -1
@@ -54,11 +54,11 @@ function ObjBossTriggerMain()
 			// Restore music
 			if Player.SuperState
 			{
-				audio_bgm_play(ChannelPrimary, SuperTheme);
+				audio_bgm_play(TypePrimary, SuperTheme);
 			}
 			else
 			{
-				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+				audio_bgm_play(TypePrimary, Stage.StageMusic);
 			}
 			
 			// Destroy object

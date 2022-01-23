@@ -54,5 +54,5 @@ function StageStartup()
 	DeathBoundary        = BottomBoundary;
 	
 	// Play stage music
-	audio_bgm_play(ChannelPrimary, StageMusic);
+	audio_bgm_play(TypePrimary, StageMusic);
 }

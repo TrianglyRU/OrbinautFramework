@@ -22,7 +22,7 @@ function PlayerGeneralUpdate()
 		LivesRewards[0] += 100;
 							
 		// Play jungle
-		audio_bgm_play(ChannelSecondary, ExtraLife);
+		audio_bgm_play(TypeSecondary, ExtraLife);
 	}
 	
 	// Grant extra life for exceeding 50000 points
@@ -32,7 +32,7 @@ function PlayerGeneralUpdate()
 		LivesRewards[1] += 50000;
 		
 		// Play jingle
-		audio_bgm_play(ChannelSecondary, ExtraLife);
+		audio_bgm_play(TypeSecondary, ExtraLife);
 	}
 	
 	// Handle highspeed bonus
@@ -42,7 +42,7 @@ function PlayerGeneralUpdate()
 		{
 			if audio_bgm_is_playing(HighSpeed)
 			{
-				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+				audio_bgm_play(TypePrimary, Stage.StageMusic);
 			}
 		}	
 	}
@@ -63,7 +63,7 @@ function PlayerGeneralUpdate()
 		{
 			if audio_bgm_is_playing(Invincibility)
 			{
-				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+				audio_bgm_play(TypePrimary, Stage.StageMusic);
 			}
 		}
 	}

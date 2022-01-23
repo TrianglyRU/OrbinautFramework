@@ -1,22 +1,12 @@
 function GameSetup()
 {
-	/* If set to false the game will load into the DevMenu, else into the room
-	set in the ScreenStartupProcess() script. This won't work if Game.ShowSplash is enabled */
-	Game.ForceLoad = false;	
-	
-	/* Video, audio and control settings are overwritten by 
-	game settings if Developer Mode is disabled! */
-	
 	// Game settings
 	Game.WindowTitle     = "Orbinaut Framework";
+	Game.StartRoom		 = Screen_DevMenu;	
 	Game.DevMode         = true;
 	Game.ShowSplash      = true;
-	Game.FullscreenMode  = false;
 	Game.Width           = 400;
 	Game.Height			 = 224;
-	Game.WindowSize	     = 3;
-	Game.MusicVolume	 = 0.5;
-	Game.SoundVolume     = 0.5;
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
 	// Originals differences
@@ -50,6 +40,10 @@ function GameSetup()
 	Game.ActiveSave       = 0;
 	Game.SaveData		  = 0;
 	Game.SaveState        = 0;
+	Game.FullscreenMode   = 0;
+	Game.WindowSize	      = 0;
+	Game.MusicVolume	  = 0;
+	Game.SoundVolume      = 0;
 	Game.Score		      = 0;
 	Game.Lives		      = 0;
 	Game.Continues	      = 0;

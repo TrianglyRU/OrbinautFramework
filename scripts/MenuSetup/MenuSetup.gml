@@ -1,79 +1,62 @@
 function MenuSetup()
 {
-	// Main Menu
-	menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEV MENU");
-	menu_add_option(0, 0, "GAME START");
-	menu_add_option(0, 1, "STAGE SELECT");
-	menu_add_option(0, 2, "OPTIONS");
-	menu_add_option(0, 3, "EXIT GAME");
-
-	// Game Start
-	menu_add_header(1,    "SELECT A SAVE FILE");
-	menu_add_option(1, 0, "NO SAVE MODE");
-	menu_add_option(1, 1, string(DisplayData[0]));
-	menu_add_option(1, 2, string(DisplayData[1]));
-	menu_add_option(1, 3, string(DisplayData[2]));
-	menu_add_option(1, 4, string(DisplayData[3]));
-	menu_add_option(1, 5, "DELETE SAVE");
+	// Set stage list / data here
+	ZoneOrder =
+	[
+		Stage_TZ
+	];
+	StartStage = Stage_TZ;
 	
-	// Game Start (delete data)
-	menu_add_header(9,    "SELECT A SAVE FILE TO DELETE");
-	menu_add_option(9, 0, "SLOT 1");
-	menu_add_option(9, 1, "SLOT 2");
-	menu_add_option(9, 2, "SLOT 3");
-	menu_add_option(9, 3, "SLOT 4");
+	// Scene Select
+	menu_add_header(5,    "SELECT A STAGE");
+	menu_add_option(5, 0, "TEST STAGE 1", Stage_TZ);
 	
-	// Game Start (character select)
-	menu_add_header(2,    "SELECT A PLAYER");
-	menu_add_option(2, 0, "SONIC");
-	menu_add_option(2, 1, "TAILS");
-	menu_add_option(2, 2, "KNUCKLES");
+	// Screen select
+	menu_add_header(6,    "SELECT A SCREEN");
+	menu_add_option(6, 0, "- -", Screen_DevMenu);
 	
-	// Stage Select (character select)
-	menu_add_header(3,    "SELECT A PLAYER");
-	menu_add_option(3, 0, "SONIC");
-	menu_add_option(3, 1, "TAILS");
-	menu_add_option(3, 2, "KNUCKLES");
+	#region Other
+	{
+		// Main Menu
+		menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEVELOPER MENU");
+		menu_add_option(0, 0, "GAME START",   1);
+		menu_add_option(0, 1, "SCENE SELECT", 2);
+		menu_add_option(0, 2, "OPTIONS",      7);	
+		menu_add_option(0, 3, "EXIT GAME",    noone);
 	
-	// Stage Select
-	menu_add_header(4,    "SELECT A STAGE");
-	menu_add_option(4, 0, "TEST STAGE");
-	menu_add_option(4, 1,  "- -");
-	menu_add_option(4, 2,  "- -");
-	menu_add_option(4, 3,  "- -");
-	menu_add_option(4, 4,  "- -");
-	menu_add_option(4, 5,  "- -");
-	menu_add_option(4, 6,  "- -");
-	menu_add_option(4, 7,  "- -");
-	menu_add_option(4, 8,  "- -");
-	menu_add_option(4, 9,  "- -");
-	menu_add_option(4, 10, "- -");
+		// Game Start
+		menu_add_header(1,    "SELECT A SAVE FILE");
+		menu_add_option(1, 0, "NO SAVE MODE",		  3);
+		menu_add_option(1, 1, string(DisplayData[0]), 3);
+		menu_add_option(1, 2, string(DisplayData[1]), 3);
+		menu_add_option(1, 3, string(DisplayData[2]), 3);
+		menu_add_option(1, 4, string(DisplayData[3]), 3);
+		menu_add_option(1, 5, "DELETE SAVE",		  8);
 	
-	// Options
-	menu_add_header(5,    "GAME OPTIONS");
-	menu_add_option(5, 0, "VIDEO");
-	menu_add_option(5, 1, "AUDIO");
-	menu_add_option(5, 2, "CONTROLS");
+		// Scene Select
+		menu_add_header(2,    "SELECT SCENE TYPE");
+		menu_add_option(2, 0, "STAGE",  4);
+		menu_add_option(2, 1, "SCREEN", 6);
 	
-	// Options (video)
-	menu_add_header(6,    "VIDEO OPTIONS");
-	menu_add_option(6, 0, "WINDOW SIZE: " + string(Game.WindowSize) + "X");
-	menu_add_option(6, 1, "FULLSCREEN: "  + string(menu_get_boolean(Game.FullscreenMode)));
+		// Character Select (Game Start and Stage Select)
+		menu_add_header(3,    "SELECT A PLAYER");		menu_add_header(4,    "SELECT A PLAYER");
+		menu_add_option(3, 0, "SONIC",	  StartStage);	menu_add_option(4, 0, "SONIC",	  5);
+		menu_add_option(3, 1, "TAILS",	  StartStage);	menu_add_option(4, 1, "TAILS",	  5);
+		menu_add_option(3, 2, "KNUCKLES", StartStage);	menu_add_option(4, 2, "KNUCKLES", 5);
 	
-	// Options (audio)
-	menu_add_header(7,    "AUDIO OPTIONS");
-	menu_add_option(7, 0, "SFX VOLUME: " + string(round(Game.SoundVolume * 100)));
-	menu_add_option(7, 1, "BGM VOLUME: " + string(round(Game.MusicVolume * 100)));
+		// Options
+		menu_add_header(7,    "OPTIONS");
+		menu_add_option(7, 0, "FULLSCREEN:",   noone);
+		menu_add_option(7, 1, "WINDOW SIZE:",  noone);
+		menu_add_option(7, 2, "SOUND VOLUME:", noone);
+		menu_add_option(7, 3, "MUSIC VOLUME:", noone);
 	
-	// Options (controls)
-	menu_add_header(8,    "CONTROL OPTIONS");
-	menu_add_option(8, 0, "UP:"    + menu_get_keyname(Game.KeyboardControl[0]));
-	menu_add_option(8, 1, "DOWN:"  + menu_get_keyname(Game.KeyboardControl[1]));
-	menu_add_option(8, 2, "LEFT:"  + menu_get_keyname(Game.KeyboardControl[2]));
-	menu_add_option(8, 3, "RIGHT:" + menu_get_keyname(Game.KeyboardControl[3]));
-	menu_add_option(8, 4, "A:"     + menu_get_keyname(Game.KeyboardControl[4]));
-	menu_add_option(8, 5, "B:"     + menu_get_keyname(Game.KeyboardControl[5]));
-	menu_add_option(8, 6, "C:"	   + menu_get_keyname(Game.KeyboardControl[6]));
-	menu_add_option(8, 7, "MODE:"  + menu_get_keyname(Game.KeyboardControl[7]));
-	menu_add_option(8, 8, "START:" + menu_get_keyname(Game.KeyboardControl[8]));
+		// Game Start (delete data)
+		menu_add_header(8,    "SELECT A SAVE FILE TO DELETE");
+		menu_add_option(8, 0, "SLOT 1", noone);
+		menu_add_option(8, 1, "SLOT 2", noone);
+		menu_add_option(8, 2, "SLOT 3", noone);
+		menu_add_option(8, 3, "SLOT 4", noone);
+	}
+	#endregion
 }

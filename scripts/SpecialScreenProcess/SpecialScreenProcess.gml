@@ -49,7 +49,7 @@ function SpecialScreenProcess()
 				}
 			
 
-				if !audio_bgm_is_playing(ChannelPrimary)
+				if !audio_bgm_is_playing(TypePrimary)
 				{		
 					if Game.SpecialScore
 					{
@@ -64,7 +64,7 @@ function SpecialScreenProcess()
 						if Game.Score mod 50000 == 0
 						{
 							Game.Lives++;
-							audio_bgm_play(ChannelSecondary, ExtraLife);
+							audio_bgm_play(TypeSecondary, ExtraLife);
 						}
 					}
 					else if Game.Emeralds != 7

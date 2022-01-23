@@ -16,7 +16,7 @@ function BonusStageProcess()
 					if Game.BonusStageData[0] >= RingTarget
 					{
 						Game.Lives++;
-						audio_bgm_play(ChannelSecondary, ExtraLife);
+						audio_bgm_play(TypeSecondary, ExtraLife);
 						
 						// Increase amount of required rings
 						RingTarget += 100;
@@ -48,8 +48,8 @@ function BonusStageProcess()
 				{
 					fade_perform(ModeInto, BlendBlack, 1);
 	
-					audio_bgm_stop(ChannelPrimary,   0.5);
-					audio_bgm_stop(ChannelSecondary, 0.5);
+					audio_bgm_stop(TypePrimary,   0.5);
+					audio_bgm_stop(TypeSecondary, 0.5);
 					
 					// Increment state
 					State++;

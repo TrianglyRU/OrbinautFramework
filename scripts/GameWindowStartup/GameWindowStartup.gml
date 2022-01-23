@@ -2,7 +2,7 @@ function GameWindowStartup()
 {	
 	// Set window properties
 	var Width  = Game.Width  * Game.WindowSize;
-	var Height = Game.Height * Game.WindowSize;
+	var Height = Game.Height * Game.WindowSize;	
 	
 	window_set_size(Width, Height);
 	window_set_position((display_get_width() - Width) / 2, (display_get_height() - Height) / 2);

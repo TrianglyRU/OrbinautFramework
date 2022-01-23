@@ -57,7 +57,7 @@ function InterfaceOverlayDraw()
 	{
 		TimeString += ";" + (MilliSeconds > 9 ? "" : "0") + string(MilliSeconds);
 	}
-	draw_text(ScreenX + Game.CDStageTimer ? 114 : 91, ScreenY + 30, TimeString);
+	draw_text(ScreenX + Game.CDStageTimer ? 115 : 91, ScreenY + 30, TimeString);
 	
 	// Draw RINGS counter
 	draw_text(ScreenX + 91, ScreenY + 46, Player.Rings);

@@ -17,7 +17,7 @@ function StageSetup()
 			FinalActID       = 0;
 			WaterEnabled     = true;
 			WaterLevel       = 1376;
-			StageMusic       = TestZone;
+			StageMusic       = TestStage;
 			LeftBoundary     = 0;
 			TopBoundary      = 0;
 			RightBoundary    = room_width;

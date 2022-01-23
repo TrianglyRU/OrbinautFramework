@@ -18,7 +18,7 @@ function ObjClearPanelMain()
 				if Player.SuperState
 				{
 					// Restore stage music
-					audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+					audio_bgm_play(TypePrimary, Stage.StageMusic);
 					
 					// Make player exit super form
 					Player.SuperState = false;
@@ -77,7 +77,7 @@ function ObjClearPanelMain()
 						Stage.IsFinished = 2;
 						
 						// Play resuts music
-						audio_bgm_play(ChannelPrimary, ActClear);
+						audio_bgm_play(TypePrimary, ActClear);
 					}	
 				}
 				

@@ -92,6 +92,7 @@ function ObjSpecialRingMain()
 			{				
 				fade_perform(ModeInto, BlendWhite, 1);
 				
+				Camera.Enabled		  = false;
 				Stage.UpdateObjects   = false;
 				Stage.TimeEnabled     = false;
 				Game.UpdateAnimations = false;
@@ -101,8 +102,8 @@ function ObjSpecialRingMain()
 				State++;
 				
 				// Stop music instantly
-				audio_bgm_stop(ChannelPrimary,  0);
-				audio_bgm_stop(ChannelSecondary, 0);
+				audio_bgm_stop(TypePrimary,  0);
+				audio_bgm_stop(TypeSecondary, 0);
 			}
 		}
 		break;

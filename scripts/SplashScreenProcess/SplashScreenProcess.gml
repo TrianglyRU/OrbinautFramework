@@ -10,7 +10,7 @@ function SplashScreenProcess()
 		break;
 		case 180:
 		{
-			room_goto(Screen_DevMenu);
+			room_goto(Game.StartRoom);
 		}
 		break;
 	}

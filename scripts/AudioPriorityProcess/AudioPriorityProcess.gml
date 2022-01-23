@@ -2,7 +2,7 @@ function AudioPriorityProcess()
 {
 	if !SecondaryTrack[1]
 	{
-		exit;
+		return;
 	}
 	
 	/* Value Table Reference
@@ -10,29 +10,34 @@ function AudioPriorityProcess()
 	[0] - Event
 	[1] - Track ID
 	[2] - Event Time
-	[3] - Loop Data
+	[3] - 2nd Channel
 	------------------------
 	*/
 	
 	// Get secondary track data
-	var Event     = SecondaryTrack[0];
-	var Track     = SecondaryTrack[1];
-	var EventTime = SecondaryTrack[2];
+	var Event      = SecondaryTrack[0];
+	var Track      = SecondaryTrack[1];
+	var EventTime  = SecondaryTrack[2];
+	var SndChannel = SecondaryTrack[3];
 	
 	// Automatically mute and unmute primary track
 	if Track and Event != EventMute and Event != EventStop
 	{
-		audio_bgm_mute(ChannelPrimary, 0);
+		audio_bgm_mute(TypePrimary, 0);
 	}
 	else if PrimaryTrack[0] == EventMute
 	{
-		audio_bgm_unmute(ChannelPrimary, 1);
+		audio_bgm_unmute(TypePrimary, 1);
 	}
 	
 	// Stop track once it finished playing
 	if audio_sound_get_track_position(Track) >= audio_sound_length(Track) - 0.1
 	{
-		audio_bgm_stop(ChannelSecondary, 0);
+		if SndChannel
+		{
+			audio_stop_sound(SndChannel);
+		}
+		audio_bgm_stop(TypeSecondary, 0);
 	}
 	
 	switch Event
@@ -43,6 +48,10 @@ function AudioPriorityProcess()
 			// Reset event
 			if audio_sound_get_gain(Track) == 1
 			{
+				if SndChannel
+				{
+					audio_sound_gain(SndChannel, 1, 0);
+				}
 				SecondaryTrack[0] = EventIdle;
 				SecondaryTrack[2] = 0;
 			}
@@ -63,6 +72,10 @@ function AudioPriorityProcess()
 			var VolumeStep  = 1 / (EventTime * 60);
 			var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 			
+			if SndChannel
+			{
+				audio_sound_gain(SndChannel, 0, 0);
+			}
 			audio_sound_gain(Track, VolumeLevel, 0);
 		}
 		break;
@@ -74,6 +87,7 @@ function AudioPriorityProcess()
 				SecondaryTrack[0] = EventIdle;
 				SecondaryTrack[1] = noone;
 				SecondaryTrack[2] = 0;
+				SecondaryTrack[3] = noone;
 				
 				audio_stop_sound(Track);
 				audio_sound_gain(Track, Game.MusicVolume, 0);
@@ -85,6 +99,11 @@ function AudioPriorityProcess()
 				var VolumeStep  = 1 / (EventTime * 60);
 				var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 				
+				if SndChannel
+				{
+					audio_stop_sound(SndChannel);
+					audio_sound_gain(SndChannel, Game.MusicVolume, 0);
+				}
 				audio_sound_gain(Track, VolumeLevel, 0);
 			}
 		}

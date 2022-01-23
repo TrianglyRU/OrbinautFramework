@@ -49,14 +49,14 @@ function ObjAnimalMain()
 				// Flicky
 				case spr_obj_animal_flicky:
 				{
-					animation_play(sprite_index, 4, 1); image_index = 1;
+					animation_play(sprite_index, 4, 1);
 				}
 				break;
 			
 				// Cucky
 				case spr_obj_animal_cucky:
 				{
-					animation_play(sprite_index, 2, 1); image_index = 1;
+					animation_play(sprite_index, 2, 1);
 				}
 				break;
 			

@@ -43,6 +43,7 @@ function StageGameplayProcess()
 	if Player.Death
 	{
 		Camera.Enabled = false;
+		UpdateObjects  = false;
 		TimeEnabled    = false;
 		
 		if floor(Player.PosY) < Stage.BottomBoundary + 32
@@ -56,19 +57,22 @@ function StageGameplayProcess()
 			{
 				RestartEvent = true;
 					
-				audio_bgm_stop(ChannelSecondary, 0);
-				audio_bgm_play(ChannelPrimary, GameOver);
+				audio_bgm_stop(TypeSecondary, 0);
+				audio_bgm_play(TypePrimary, GameOver);
 			}
 		}
 		RestartTimer++;
 			
-		// Wait for 1 (or 12 if event was triggered) seconds
-		if RestartTimer == RestartEvent * 11 + 60
+		// Wait for 1 (or 12 if the event was triggered) seconds
+		if RestartTimer == RestartEvent * 660 + 60
 		{
 			fade_perform(ModeInto, BlendBlack, 1);
 				
-			audio_bgm_stop(ChannelPrimary,   0.5);
-			audio_bgm_stop(ChannelSecondary, 0.5);
+			audio_bgm_stop(TypePrimary,   0.5);
+			audio_bgm_stop(TypeSecondary, 0.5);
+			
+			// Stop animations
+			Game.UpdateAnimations = false;
 		}
 		if fade_check(StateMax)
 		{	

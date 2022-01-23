@@ -4,10 +4,10 @@ function audio_bgm_is_playing(check)
 	// Check if specific track or something on the channel is playing
 	switch check
 	{
-		case ChannelPrimary:
+		case TypePrimary:
 			return Audio.PrimaryTrack[1];
 		break;
-		case ChannelSecondary:
+		case TypeSecondary:
 			return Audio.SecondaryTrack[1];
 		break;
 		default:

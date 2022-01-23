@@ -2,7 +2,7 @@ function AudioPrimaryProcess()
 {
 	if !PrimaryTrack[1] 
 	{
-		exit;
+		return;
 	}
 	
 	/* Value Table Reference
@@ -11,27 +11,37 @@ function AudioPrimaryProcess()
 	[1] - Track ID
 	[2] - Event Time
 	[3] - Loop Data
+	[4] - 2nd Channel
 	------------------------
 	*/
 	
 	// Get track data
-	var Event     = PrimaryTrack[0];
-	var Track     = PrimaryTrack[1];
-	var EventTime = PrimaryTrack[2];
-	var LoopData  = PrimaryTrack[3];
-	
+	var Event      = PrimaryTrack[0];
+	var Track      = PrimaryTrack[1];
+	var EventTime  = PrimaryTrack[2];
+	var LoopData   = PrimaryTrack[3];
+	var SndChannel = PrimaryTrack[4];
+
 	// Loop track
 	var TrackPosition = audio_sound_get_track_position(Track);
 	if  array_length(LoopData)
 	{
 		if TrackPosition >= LoopData[1]
 		{
+			if SndChannel
+			{
+				audio_sound_set_track_position(SndChannel, LoopData[0] + (TrackPosition - LoopData[1]));
+			}
 			audio_sound_set_track_position(Track, LoopData[0] + (TrackPosition - LoopData[1]));
 		}
 	}
 	else if TrackPosition >= audio_sound_length(Track) - 0.1
 	{
-		audio_bgm_stop(ChannelPrimary, 0);
+		if SndChannel
+		{
+			audio_stop_sound(SndChannel);
+		}
+		audio_bgm_stop(TypePrimary, 0);
 	}
 	
 	switch Event
@@ -42,6 +52,10 @@ function AudioPrimaryProcess()
 			// Reset event
 			if audio_sound_get_gain(Track) == 1
 			{
+				if SndChannel
+				{
+					audio_sound_gain(SndChannel, 1, 0);
+				}
 				PrimaryTrack[0] = EventIdle;
 				PrimaryTrack[2] = 0;
 			}
@@ -62,6 +76,10 @@ function AudioPrimaryProcess()
 			var VolumeStep  = 1 / (EventTime * 60);
 			var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 			
+			if SndChannel
+			{
+				audio_sound_gain(SndChannel, 0, 0);
+			}
 			audio_sound_gain(Track, VolumeLevel, 0);
 		}
 		break;
@@ -74,6 +92,7 @@ function AudioPrimaryProcess()
 				PrimaryTrack[1] = noone;
 				PrimaryTrack[2] = 0;
 				PrimaryTrack[3]	= [];
+				PrimaryTrack[4] = noone;
 				
 				audio_stop_sound(Track);
 				audio_sound_gain(Track, Game.MusicVolume, 0);
@@ -83,7 +102,12 @@ function AudioPrimaryProcess()
 				// Decrease track volume
 				var VolumeStep  = 1 / (EventTime * 60);
 				var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
-			
+				
+				if SndChannel
+				{
+					audio_stop_sound(SndChannel);
+					audio_sound_gain(SndChannel, Game.MusicVolume, 0);
+				}
 				audio_sound_gain(Track, VolumeLevel, 0);
 			}
 		}

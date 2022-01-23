@@ -1,6 +1,5 @@
-/// @description Process Code
-// You can write your code in this editor
-	
-	// Process Scripts
-	MenuOptionsProcess();
-	MenuSystemProcess();
+/// @description Main
+// You can call your scripts in this editor
+
+	MenuManualProcess();
+	MenuAutomaticProcess();

@@ -47,9 +47,9 @@ function PlayerDebugMode()
 			Stage.TimeEnabled = true;
 			
 			// Reset music
-			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(ChannelPrimary)
+			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(TypePrimary)
 			{
-				audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+				audio_bgm_play(TypePrimary, Stage.StageMusic);
 			}
 			
 			// Stop player sfx

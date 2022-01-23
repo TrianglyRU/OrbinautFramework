@@ -135,7 +135,7 @@ function ObjItemBoxMain()
 				{
 					if !Player.SuperState
 					{
-						audio_bgm_play(ChannelPrimary, HighSpeed);
+						audio_bgm_play(TypePrimary, HighSpeed);
 					}
 					Player.HighspeedBonus = 1200;
 				}
@@ -150,7 +150,7 @@ function ObjItemBoxMain()
 					}
 					Player.InvincibleBonus = 1200;
 					
-					audio_bgm_play(ChannelPrimary, Invincibility);
+					audio_bgm_play(TypePrimary, Invincibility);
 				}
 				break;
 				
@@ -229,20 +229,20 @@ function ObjItemBoxMain()
 						{
 							if Player.InvincibleBonus
 							{
-								audio_bgm_play(ChannelPrimary, Invincibility);
+								audio_bgm_play(TypePrimary, Invincibility);
 							}
 							else if Player.HighspeedBonus
 							{
-								audio_bgm_play(ChannelPrimary, HighSpeed);
+								audio_bgm_play(TypePrimary, HighSpeed);
 							}
 							else
 							{
-								audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+								audio_bgm_play(TypePrimary, Stage.StageMusic);
 							}
 						}
 						else
 						{
-							audio_bgm_play(ChannelPrimary, SuperTheme);
+							audio_bgm_play(TypePrimary, SuperTheme);
 						}
 					}
 					Player.AirTimer = 1800;
@@ -253,7 +253,7 @@ function ObjItemBoxMain()
 				case "Extra Life":
 				{
 					Player.Lives++;
-					audio_bgm_play(ChannelSecondary, ExtraLife);
+					audio_bgm_play(TypeSecondary, ExtraLife);
 				}
 				break;
 				

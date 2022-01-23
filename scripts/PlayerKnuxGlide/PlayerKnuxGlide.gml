@@ -263,7 +263,7 @@ function PlayerKnuxGlide()
 						Xsp		   = 0;
 						GroundLock = 16;
 						Animation  = AnimDropStand;
-					
+						
 						// Play sound
 						audio_sfx_play(sfxLand, false);
 					}

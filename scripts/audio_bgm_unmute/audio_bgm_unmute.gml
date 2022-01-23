@@ -4,13 +4,13 @@ function audio_bgm_unmute(channelType,time)
 	// Unmute track
 	switch channelType
 	{
-		case ChannelPrimary:
+		case TypePrimary:
 		{
 			Audio.PrimaryTrack[0] = EventUnmute;
 			Audio.PrimaryTrack[2] = time;
 		}
 		break;
-		case ChannelSecondary:
+		case TypeSecondary:
 		{
 			Audio.SecondaryTrack[0] = EventUnmute;
 			Audio.SecondaryTrack[2] = time;

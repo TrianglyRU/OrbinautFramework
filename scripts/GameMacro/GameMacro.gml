@@ -1,10 +1,13 @@
 function GameMacro()
 {	
 	// Global framework macro
-	#macro GlobalTime  -1
-	#macro Shader	   global
-	#macro Game		   global
-	#macro GameCamera  view_camera[0]
+	#macro TypePrimary    0
+	#macro TypeSecondary  1
+	#macro GlobalTime    -1
+	#macro Shader		 global
+	#macro Game			 global
+	#macro GameCamera	view_camera[0]
+	
 
 	// Object macro
 	#macro TypeNone   -1
@@ -17,17 +20,13 @@ function GameMacro()
 	#macro FlipRight   1
 
 	// Audio macro
-	#macro ChannelPrimary   -2
-	#macro ChannelSecondary -1
-	#macro EventIdle	     0
-	#macro EventMute	     1
-	#macro EventUnmute       2
-	#macro EventStop	     3
+	#macro EventIdle   0
+	#macro EventMute   1
+	#macro EventUnmute 2
+	#macro EventStop   3
 	
 	// Palette macro
 	#macro PaletteLimit  64
-	#macro TypePrimary   0
-	#macro TypeSecondary 1
 	
 	// Fade macro
 	#macro StateActive   0
