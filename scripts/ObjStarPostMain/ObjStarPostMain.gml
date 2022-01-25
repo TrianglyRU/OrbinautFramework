@@ -9,9 +9,11 @@ function ObjStarPostMain()
 			{
 				if instance_exists(Game.StarPostData[4]) and Game.StarPostData[4].ID >= ID
 				{
-					// Increment state by 2
-					State = 2;
+					// Increment state by 3
+					State = 3;
 					Angle = 900;
+					
+					animation_play(spr_obj_starpost_active, 4, 0);
 					
 					// Exit
 					break;
@@ -75,6 +77,7 @@ function ObjStarPostMain()
 			else
 			{
 				animation_play(spr_obj_starpost_active, 4, 0);
+				State++;
 			}
 		}
 		break;

@@ -17,17 +17,17 @@ function MenuManualProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
-				// Set active save (no-save slot will be -1)
+				// Set active saveslot (no-save slot will be -1)
 				Game.ActiveSave = OptionID - 1;
 				
-				// Get data is selected not a "no-save" slot
-				if OptionID and OptionID < 5
+				// Read saveslot1-saveslot4 data
+				if OptionID > 0 and OptionID < 5
 				{
-					// Get slot
-					var Slot  = Game.SaveData[Game.ActiveSave];
+					var Slot = Game.SaveData[Game.ActiveSave];
+					
+					// If file isn't empty, load into the game
 					if  Slot != 0
 					{
-						// Apply data
 						Game.Character = Slot[0];
 						Game.Stage	   = Slot[1];
 						Game.Emeralds  = Slot[2];
@@ -35,8 +35,7 @@ function MenuManualProcess()
 						Game.Continues = Slot[4];
 						Game.SaveState = Slot[5];
 						Game.Score	   = Slot[6];
-				
-						// Load stage if the game is not completed. Game.Stage is a ZoneID you set in StageSetup()
+						
 						if !Game.SaveState
 						{
 							room_goto(ZoneOrder[Game.Stage]);	
@@ -44,7 +43,7 @@ function MenuManualProcess()
 						
 						// Cancel MenuAutomaticProcess()
 						return true;
-					}
+					}					
 				}
 			}
 		}
@@ -52,44 +51,52 @@ function MenuManualProcess()
 	
 		// Character Select
 		case 3:
-		case 4:
 		{
 			if Input.APress or Input.StartPress
 			{
-				Game.Character = OptionID;
-				Game.Emeralds  = 0;
-				Game.Lives	   = 3;
-				Game.Continues = 0;
-				Game.Score	   = 0;	
-				
+				Game.Character		 = OptionID;
 				Game.StarPostData	 = [];
 				Game.SpecialRingData = [];
 				Game.SpecialRingList = [];
 				
-				// If starting a new game, save data if we're not in "no-save" mode
-				if MenuID == 3
+				// If we're here from the Game Start menu, load into the first stage
+				if PreviousMenuID[MenuID] == 1
 				{
+					Game.Lives	   = 3;
+					Game.Continues = 0;
+					Game.Emeralds  = 0;
+					Game.Score	   = 0;
+					
 					if Game.ActiveSave != -1
 					{
 						gamedata_save(Game.ActiveSave);
 					}
-					room_goto(MenuRedirect[MenuID][OptionID]);
+					room_goto(StartStage);
 					
 					// Cancel MenuAutomaticProcess()
 					return true;
-				}	
+				}
 			}
 		}
 		break;
 		
 		// Stage / Screen Select
+		case 4:
 		case 5:
-		case 6:
 		{
 			if Input.APress or Input.StartPress
-			{
-				// Load into the room in "no-save" mode
-				Game.ActiveSave = -1; room_goto(MenuRedirect[MenuID][OptionID]);
+			{	
+				Game.Lives	   = 3;
+				Game.Continues = 2;
+				Game.Emeralds  = 7;
+				Game.Score	   = 0;
+				
+				// Load into the game in "no-save" mode
+				if MenuRedirect[MenuID][OptionID] != noone
+				{
+					room_goto(MenuRedirect[MenuID][OptionID]);
+				}
+				Game.ActiveSave = -1;
 				
 				// Cancel MenuAutomaticProcess()
 				return true;
@@ -98,7 +105,7 @@ function MenuManualProcess()
 		break;
 		
 		// Options
-		case 7:
+		case 6:
 		{	
 			if Input.LeftPress or Input.RightPress
 			{
@@ -139,7 +146,7 @@ function MenuManualProcess()
 			// Update config file
 			else if Input.BPress
 			{
-				gamesettings_save("config");
+				gamesettings_save();
 			}
 			
 			menu_update_option(MenuID, 0, "FULLSCREEN: "   + menu_get_boolean(window_get_fullscreen()));
@@ -150,7 +157,7 @@ function MenuManualProcess()
 		break;
 		
 		// Save Deletion
-		case 8:
+		case 7:
 		{
 			if Input.APress or Input.StartPress
 			{

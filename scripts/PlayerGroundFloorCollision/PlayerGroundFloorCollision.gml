@@ -1,9 +1,8 @@
 function PlayerGroundFloorCollision()
 {	
-	// Exit if collisions are disabled or we are standing on the object
 	if !AllowCollision or OnObject
 	{
-		exit;
+		return;
 	}
 	
 	// Update floor collision mode
@@ -30,7 +29,7 @@ function PlayerGroundFloorCollision()
 			}
 		}
 	
-		// Update collision mode using custom method
+		// ...or update collision mode using a custom method
 		else if !CollisionMode[1]
 		{
 			switch CollisionMode[0]
@@ -128,7 +127,6 @@ function PlayerGroundFloorCollision()
 	}
 	#endregion
 	
-	// Collide with floor
 	switch CollisionMode[0]
 	{
 		case 0:
@@ -144,11 +142,11 @@ function PlayerGroundFloorCollision()
 				{
 					if Animation == AnimMove
 					{
-						// Restart animation...?
 						animation_reset(0);
 					}
 					Pushing  = false;
 					Grounded = false;
+					
 					break;
 				}		
 			}
@@ -174,11 +172,11 @@ function PlayerGroundFloorCollision()
 				{
 					if Animation == AnimMove
 					{
-						// Restart animation...?
 						animation_reset(0);
 					}
 					Pushing  = false;
 					Grounded = false;
+					
 					break;
 				}	
 			}
@@ -204,11 +202,11 @@ function PlayerGroundFloorCollision()
 				{
 					if Animation == AnimMove
 					{
-						// Restart animation...?
 						animation_reset(0);
 					}
 					Pushing  = false;
 					Grounded = false;
+					
 					break;
 				}
 			}
@@ -234,11 +232,11 @@ function PlayerGroundFloorCollision()
 				{
 					if Animation == AnimMove
 					{
-						// Restart animation...?
 						animation_reset(0);
 					}
 					Pushing  = false;
 					Grounded = false;
+					
 					break;
 				}
 			}

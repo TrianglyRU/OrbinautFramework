@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Debug",
-    "path": "folders/Game Code/Interface/Debug.yy",
+    "path": "folders/Game Logic/Interface/Debug.yy",
   },
   "resourceVersion": "1.0",
   "name": "InterfaceDebugStartup",

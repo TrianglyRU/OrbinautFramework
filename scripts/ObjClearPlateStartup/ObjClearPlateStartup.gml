@@ -38,4 +38,5 @@ function ObjClearPanelStartup()
 	
 	// Set object properties
 	object_set_depth(Player, 0);
+	object_set_unload(TypePause);
 }

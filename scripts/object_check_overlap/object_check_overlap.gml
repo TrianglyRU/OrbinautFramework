@@ -1,11 +1,11 @@
 /// @function object_check_overlap(collisionType)
 function object_check_overlap(collisionType)
 {	
-	// Exit if collision is disabled
 	if !Player.AllowCollision
 	{
 		return false;
 	}	
+	
 	switch collisionType
 	{
 		case TypeHitbox:
@@ -16,8 +16,6 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-		
-			// Exit if object is off-screen
 			if !object_is_onscreen(id)
 			{
 				return false;
@@ -60,11 +58,9 @@ function object_check_overlap(collisionType)
 			{
 				return false;
 			}
-		
-			// Exit if object is off-screen
 			if !object_is_onscreen(id)
 			{
-				exit;
+				return false;
 			}
 		
 			// Get object's size

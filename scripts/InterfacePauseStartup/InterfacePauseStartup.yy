@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Interface",
-    "path": "folders/Game Code/Interface.yy",
+    "path": "folders/Game Logic/Interface.yy",
   },
   "resourceVersion": "1.0",
   "name": "InterfacePauseStartup",

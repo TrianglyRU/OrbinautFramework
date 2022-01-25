@@ -8,8 +8,7 @@ function StageStartup()
 	IsPaused	  =  0;
 	Time		  =  0;
 	TimeEnabled	  =  0;	
-	UpdateObjects = false;
-	DoUpdate      = true;
+	UpdateObjects =  false;
 	
 	// Store current zone ID and room index
 	Game.Stage     = ZoneID;

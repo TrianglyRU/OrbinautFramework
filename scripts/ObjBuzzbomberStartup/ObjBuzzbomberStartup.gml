@@ -7,8 +7,8 @@ function ObjBuzzbomberStartup()
 	Timer = 127;
 	
 	// Set object properties
-	object_set_hitbox(24, 12);
 	object_set_unload(TypeReset);
-	object_set_depth(Player, 0);
+	object_set_hitbox(24, 12);
+	object_set_depth(Player, 0);	
 	animation_play(spr_obj_buzzbomber_fly, 1, 0);
 }

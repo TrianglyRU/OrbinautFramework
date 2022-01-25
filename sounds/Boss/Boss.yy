@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "Boss.ogg",
-  "duration": 29.8272781,
+  "duration": 34.22,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",

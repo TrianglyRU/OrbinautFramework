@@ -7,6 +7,6 @@ function GameDataLoad()
 	}
 	
 	// Load config file and generate random seed
-	gamesettings_load("config");
+	gamesettings_load();
 	random_set_seed(randomise());
 }

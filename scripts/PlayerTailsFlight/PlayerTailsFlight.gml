@@ -13,7 +13,7 @@ function PlayerTailsFlight()
 		{
 			Grv = -0.125;
 		}
-		else if Ysp < -1 or Ysp == 0
+		else if Ysp < -1
 		{
 			Grv = 0.03125;
 		}

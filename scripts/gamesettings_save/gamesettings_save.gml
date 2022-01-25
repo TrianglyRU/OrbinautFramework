@@ -1,7 +1,7 @@
-/// @function gamesettings_save(filename)
-function gamesettings_save(filename)
+/// @function gamesettings_save()
+function gamesettings_save()
 {
-	ini_open(filename + ".ini");
+	ini_open("config.ini");
 	
 	ini_write_real("Music", "MusicVolume", Game.MusicVolume);
 	ini_write_real("Music", "SoundVolume", Game.SoundVolume);

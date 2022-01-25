@@ -1,7 +1,7 @@
 /// @description Main 1
 // You can call your scripts in this editor
 
-	/* This is called before object
+	/* This is called before stage object
 	scripts are processed */
 	
 	if PlayerDebugMode()
@@ -10,7 +10,6 @@
 	}
 	else if PlayerProcess()
 	{
-		// Airborne
 		if !Grounded
 		{
 			PlayerJump();
@@ -25,8 +24,6 @@
 			PlayerResetOnFloor();
 			PlayerHitboxUpdate();
 		}
-		
-		// Grounded, not rolling	
 		else if Grounded and !Spinning
 		{
 			if PlayerSpindash()  return;
@@ -43,8 +40,6 @@
 			PlayerSlopeRepel();
 			PlayerHitboxUpdate();
 		}
-		
-		// Grounded, rolling
 		else if Grounded and Spinning
 		{
 			if PlayerJumpStart() return;

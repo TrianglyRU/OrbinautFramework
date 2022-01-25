@@ -1,7 +1,7 @@
 function PaletteSurfaceReset()
 {
 	/* This script will be called on room end */
-	if !DoReset
+	if !SurfaceReset
 	{
 		exit;
 	}

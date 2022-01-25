@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "ExtraLife.ogg",
-  "duration": 3.578776,
+  "duration": 4.031125,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",

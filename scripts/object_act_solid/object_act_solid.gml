@@ -11,43 +11,36 @@ function object_act_solid(sides,top,bottom,resetActions)
 	Obj_SolidTouchR	= false;
 	Obj_SolidPush   = false;
 	
-	// Exit if collisions are disabled
+	// Exit if can't be collided
 	if !Player.AllowCollision
 	{
-		exit;
+		return false;
 	}
-	
-	// Exit if there is no side to collide with
 	if !sides and !top and !bottom
 	{
-		exit;
+		return false;
 	}
-	
-	// Exit if the object's solid radiuses are null
 	if !Obj_SolidX or !Obj_SolidY
 	{
-		exit;	
+		return false;	
 	}
-	
-	// Exit if the object is off-screen
 	if !object_is_onscreen(id)
 	{
-		exit;
+		return false;
 	}
 	
 	// Get object and player data
-	var PlayerX      = floor(Player.PosX);
-	var PlayerY      = floor(Player.PosY);
-	var ObjectID	 = id;
-	var ObjectX		 = x;
-	var ObjectY      = y;
-	var ObjectWidth  = Obj_SolidX + Player.RadiusW + 1;
-	var ObjectHeight = Obj_SolidY + Player.RadiusY + 1;
+	var PlayerX         = floor(Player.PosX);
+	var PlayerY         = floor(Player.PosY);
+	var ObjectID	    = id;
+	var ObjectX		    = x;
+	var ObjectY         = y;
+	var ObjectAddWidth  = Obj_SolidX + Player.RadiusW + 1;
+	var ObjectAddHeight = Obj_SolidY + Player.RadiusY + 1;
 	
 	// Get height array
 	if Obj_SolidMap != false
 	{
-		// Get a height to use
 		if image_xscale
 		{
 			var ArrayHeight = PlayerX - (x - Obj_SolidX);
@@ -66,19 +59,17 @@ function object_act_solid(sides,top,bottom,resetActions)
 		var SlopeOffset = 0;
 	}
 	
-	// If player is standing on this object, collide only with its top side
+	// Attach to the object
 	if Player.OnObject == ObjectID
 	{	
-		Player.PosX += floor(x - xprevious);
-		Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
-			
-		// Tell the object player touches its top side
 		Obj_SolidTouchU = true;
 		
-		// Check if player is outside the object
-		var FallRadius = sides ? ObjectWidth : Obj_SolidX + 1;
+		Player.PosX += floor(x - xprevious);
+		Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
 		
-		// Lose the object
+		// Lose the object if the player is outside its boundaries
+		var FallRadius = sides ? ObjectAddWidth : Obj_SolidX + 1;
+		
 		var XDiff  = floor(Player.PosX) - ObjectX + FallRadius;
 		if  XDiff <= 0 or XDiff >= FallRadius * 2 - 1
 		{
@@ -87,7 +78,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 			{
 				if Animation == AnimMove and ThisObject != Bridge
 				{
-					// Restart animation...?
 					animation_reset(0);
 				}
 				OnObject = false;
@@ -95,34 +85,33 @@ function object_act_solid(sides,top,bottom,resetActions)
 		}
 	}
 	
-	// If player is not standing on this object, collide with it
+	// Collide with the object
 	else
-	{	
-		// Check for overlap
-		var XClip = PlayerX - ObjectX + ObjectWidth;
-		if  XClip < 0 or XClip > ObjectWidth * 2 - 1
-		{
-			exit;
-		}
-		var YClip = PlayerY - ObjectY - SlopeOffset + ObjectHeight + 4;
-		if  YClip < 0 or YClip > ObjectHeight * 2 + 3
-		{
-			exit;
-		}
+	{		
+		var VGrip = 4; // <- This allows us to grip to the object even if we're 4 pixels above it
 		
-		// Get distance differences
-		var XDistance = PlayerX > ObjectX ? XClip - ObjectWidth  * 2 + 1 : XClip;
-		var YDistance = PlayerY > ObjectY ? YClip - ObjectHeight * 2 - 3 : YClip;
+		// Check for overlap
+		var XClip = PlayerX - ObjectX + ObjectAddWidth;
+		if  XClip < 0 or XClip > ObjectAddWidth * 2 - 1
+		{
+			return;
+		}
+		var YClip = PlayerY - ObjectY - SlopeOffset + ObjectAddHeight + VGrip;
+		if  YClip < 0 or YClip > ObjectAddHeight * 2 + VGrip - 1
+		{
+			return;
+		}
+		var XDistance = PlayerX > ObjectX ? XClip - ObjectAddWidth  * 2 + 1			: XClip;
+		var YDistance = PlayerY > ObjectY ? YClip - ObjectAddHeight * 2 - VGrip + 1 : YClip;
 		
 		// Collide vertically
 		if abs(XDistance) >= abs(YDistance)
 		{	
-			// Collide below
+			// Collide from below
 			if bottom and YDistance < 0
 			{
 				if PlayerY > ObjectY
 				{
-					// Kill player
 					if Player.Grounded
 					{
 						if abs(XDistance) >= 16 and Player.Ysp == 0
@@ -130,8 +119,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 							player_damage(false, false, true);
 						}
 					}
-				
-					// Clip out
 					else if Player.Ysp < 0
 					{
 						if Player.FlightState
@@ -141,54 +128,42 @@ function object_act_solid(sides,top,bottom,resetActions)
 						Player.PosY -= YDistance;
 						Player.Ysp   = 0;
 					}
-				
-					// Tell the object player touches its bottom side
 					Obj_SolidTouchD = true;
 				}
 			}
 			
-			// Collide above
+			// Collide from above
 			else if top and YDistance >= 0 and YDistance < 16
 			{
-				if PlayerY < ObjectY
+				if PlayerY < ObjectY and Player.Ysp >= 0 and !Player.OnObject
 				{
-					if Player.Ysp >= 0 and !Player.OnObject
+					// Exit if the player is outside object's boundaries
+					var LandRadius = sides ? ObjectAddWidth : Obj_SolidX + 1;
+					
+					var XDiff  = PlayerX - ObjectX + LandRadius;
+					if  XDiff <= 0 or XDiff >= LandRadius * 2 - 1
 					{
-						// Exit if outside the object
-						var LandRadius = sides ? ObjectWidth : Obj_SolidX + 1;
-					
-						var XDiff  = PlayerX - ObjectX + LandRadius;
-						if  XDiff <= 0 or XDiff >= LandRadius * 2 - 1
-						{
-							exit;
-						}
-						with Player
-						{
-							// Attach player to the object's top boundary
-							PosY -= YDistance - 4;
-					
-							// Become grounded
-							Grounded = true;
-							OnObject = ObjectID;
-					
-							// Update horizontal speed and angle
-							Inertia = Xsp;
-							Angle   = 360;
-						
-							// If interactable, cancel barrier ability and dropdash
-							if resetActions
-							{
-								BarrierIsActive = false;
-								DropdashRev		= -1;
-							}
-						
-							// Land
-							PlayerResetOnFloor();
-						}
-					
-						// Tell the object player touches its top side
-						Obj_SolidTouchU = true;
+						return;
 					}
+					
+					// Land on the object
+					with Player
+					{
+						if resetActions
+						{
+							BarrierIsActive = false;
+							DropdashRev		= -1;
+						}
+						PosY    -= YDistance - 4;
+						OnObject = ObjectID;
+						Inertia  = Xsp;
+						Angle    = 360;
+						Grounded = true;
+						
+						// Call player script
+						PlayerResetOnFloor();
+					}
+					Obj_SolidTouchU = true;
 				}
 			}		
 		}
@@ -196,7 +171,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 		// Collide horizontally
 		else if sides and abs(YDistance) > 4
 		{	
-			// Tell the object it is being touched, and set push flag for the player
+			// Tell the object it is being pushed
 			if PlayerX < ObjectX
 			{
 				if Player.Xsp > 0 and Player.Facing == FlipRight
@@ -214,14 +189,12 @@ function object_act_solid(sides,top,bottom,resetActions)
 				Obj_SolidTouchR = true;
 			}
 			
-			// Reset speeds and clip outside
+			// Push player outside of the object
 			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
 			{
 				Player.Inertia = 0;
 				Player.Xsp	   = 0;
-				
-				// Tell the object it is being pushed
-				Obj_SolidPush = true;
+				Obj_SolidPush  = true;
 			}
 			Player.PosX -= XDistance;
 		}

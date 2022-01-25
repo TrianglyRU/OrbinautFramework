@@ -6,7 +6,7 @@ function GameVideoMemoryClear()
 	// Clear palette surfaces
 	with Palette
 	{
-		DoReset = true;
+		SurfaceReset = true;
 		event_perform(ev_gui_end, 0);
 	}
 	

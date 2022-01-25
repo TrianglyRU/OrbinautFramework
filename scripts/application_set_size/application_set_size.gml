@@ -2,18 +2,21 @@
 function application_set_size(width,height)
 {	
 	// Set camera and surface size
+	window_set_size(width * Game.WindowSize, height * Game.WindowSize);
 	camera_set_view_size(GameCamera, width, height);
-	surface_resize(application_surface, width, height);
 
-	// Resize palette surfaces
+	// Clear palette surfaces. They will be created automatically once again
 	if surface_exists(Palette.SurfaceLow)
 	{
-		surface_resize(Palette.SurfaceLow, width, height);
+		surface_free(Palette.SurfaceLow);
 	}
 	if surface_exists(Palette.SurfaceHigh)
 	{
-		surface_resize(Palette.SurfaceHigh, width, height);
+		surface_free(Palette.SurfaceHigh);
 	}
+	
+	// Resize main surface
+	surface_resize(application_surface, width, height);
 	
 	// Update room size
 	if !instance_exists(Stage)

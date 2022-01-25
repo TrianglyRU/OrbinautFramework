@@ -1,19 +1,17 @@
 function PaletteStartup()
 {	
 	// Initialise variables
-	ColourSet   = [];
-	Duration    = [];
-	SwapTime    = [];
-	Sequence    = [];
-	
-	SurfaceLow  = noone;
-	SurfaceHigh = noone;
-	DoReset		= false;
-	
-	FadeStep    = 756;
-	FadeMode    = 1;
-	FadeBlend   = 0;
-	FadeSpeed   = 0;
+	ColourSet    = [];
+	Duration     = [];
+	SwapTime     = [];
+	Sequence     = [];
+	SurfaceLow   = noone;
+	SurfaceHigh  = noone;
+	SurfaceReset = false;
+	FadeStep     = 756;
+	FadeMode     = 1;
+	FadeBlend    = 0;
+	FadeSpeed    = 0;
 	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)

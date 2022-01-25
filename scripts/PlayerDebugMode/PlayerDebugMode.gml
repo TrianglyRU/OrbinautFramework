@@ -42,9 +42,9 @@ function PlayerDebugMode()
 			DrawOrder		 = layer_get_depth("Objects");
 			
 			// If we died, resume the stage
-			Camera.Enabled    = true;
-			Stage.DoUpdate    = true;
-			Stage.TimeEnabled = true;
+			Camera.Enabled      = true;
+			Stage.TimeEnabled   = true;
+			Stage.UpdateObjects = true;
 			
 			// Reset music
 			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(TypePrimary)

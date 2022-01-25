@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Input",
-    "path": "folders/Game Code/Input.yy",
+    "path": "folders/Game Logic/Input.yy",
   },
   "resourceVersion": "1.0",
   "name": "InputHotkeysProcess",

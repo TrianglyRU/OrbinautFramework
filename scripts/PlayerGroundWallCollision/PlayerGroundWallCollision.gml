@@ -1,17 +1,14 @@
 function PlayerGroundWallCollision()
 {	
-	// Exit if collisions are disabled
 	if !AllowCollision
 	{
-		exit;
+		return;
 	}
-	
-	// Exit if angle is too steep or not a cardinal one
 	if Angle >= 90 and Angle <= 270
 	{
 		if !Game.SKWallCollision or Angle mod 90 != 0
 		{
-			exit;
+			return;
 		}
 	}
 	
@@ -33,6 +30,9 @@ function PlayerGroundWallCollision()
 		var WallMode = 3;
 	}
 	
+	// Lower wall sensors by 8 pixels on a flat floor
+	var YOffset = 8 * (Angle == 360);
+	
 	// Collide with the wall to our left, frame ahead
 	if Inertia < 0
 	{
@@ -40,9 +40,6 @@ function PlayerGroundWallCollision()
 		{
 			case 0:
 			{	
-				// Lower wall sensors by 8 pixels on a flat floor
-				var YOffset = 8 * (Angle == 360);
-				
 				var FindWall = tile_find_h(PosX + Xsp - RadiusW, PosY + Ysp + YOffset, false, true, Layer)[0];
 				if  FindWall < 0 
 				{	
@@ -97,7 +94,7 @@ function PlayerGroundWallCollision()
 		{
 			case 0:
 			{	
-				var FindWall = tile_find_h(PosX + Xsp + RadiusW, PosY + Ysp + 8 * (Angle == 360), true, true, Layer)[0];
+				var FindWall = tile_find_h(PosX + Xsp + RadiusW, PosY + Ysp + YOffset, true, true, Layer)[0];
 				if  FindWall < 0
 				{	
 					Xsp    += FindWall;

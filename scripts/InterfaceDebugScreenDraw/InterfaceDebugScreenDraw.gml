@@ -2,20 +2,10 @@ function InterfaceDebugScreenDraw()
 {	
 	if DebugFPS
 	{
-		// Set font
 		draw_set_halign(fa_left);
 		draw_set_font(game_font(font_default));
 		
-		// Draw FPS counter
-		if !DebugVariables
-		{
-			draw_text_transformed(8, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
-		}
-		else
-		{
-			// We can't really tell actual FPS if variables debug is enabled. It reduces FPS amount by around 80%
-			draw_text_transformed(8, Game.Height - 4, "APPROXIMATE FPS: " + string(floor(fps_real * 1.8)), 0.5, 0.5, 0);
-		}
+		draw_text_transformed(8, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
 	}
 	if DebugVariables
 	{
@@ -175,7 +165,7 @@ function InterfaceDebugScreenDraw()
 				+ "\n   B BOUND: "		   + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
 				+ "\n   L BOUND: "		   + string(Stage.LeftBoundary)   + " TARGET: " + string(Stage.TargetLeftBoundary)
 				+ "\n   R BOUND: "		   + string(Stage.RightBoundary)  + " TARGET: " + string(Stage.TargetRightBoundary)
-				+ "\n   OBJECTS LOADED: "  + string(instance_count - 9),
+				+ "\n   OBJECTS LOADED: "  + string(instance_count - (9 + Game.RichPresenceSupport)),
 				
 		8, 256, 0.28, 0.28, 0);
 	}

@@ -51,11 +51,20 @@ function ObjCrabmeatMain()
 				if StateTimer mod 2 == 0 and !(FindFloor < -8 or FindFloor >= 12)
 				{
 					break;
-				}
+				}	
 				
+				if object_is_onscreen(id)
+				{
+					// Crabmeat should fire
+					State += 2;
+				}
+				else
+				{
+					// Crabmeat should turn around
+					State += 1;
+				}
 				PreviousSprite = sprite_index;
-				StateTimer     = 60;
-				State		  += 1;
+				StateTimer     = 59;
 				
 				// Stop animation
 				animation_set(sprite_index, 0);
@@ -82,13 +91,14 @@ function ObjCrabmeatMain()
 		}
 		break;
 		
-		// Fire or turn around
+		// Wait until next action...
 		case 2:
+		case 3:
 		{
 			if !(--StateTimer)
 			{
-				// Fire if on-screen
-				if object_is_onscreen(id)
+				// Fire!
+				if State == 3
 				{
 					StateTimer = 59;
 					State	  += 1;
@@ -129,12 +139,12 @@ function ObjCrabmeatMain()
 		break;
 		
 		// Wait for a second after firing, then turn around and continue to walk
-		case 3:
+		case 4:
 		{
 			if !(--StateTimer)
 			{
 				StateTimer    = 127;
-				State		 -=   2;
+				State		 -=   3;
 				Direction    *=  -1;
 				image_xscale *=  -1;
 					

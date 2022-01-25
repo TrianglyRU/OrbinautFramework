@@ -90,10 +90,14 @@ function PlayerStartup()
 	// Set collision radiuses
 	if Game.Character != CharTails
 	{
-		DefaultRadiusY = 19;
+		DefaultRadiusY = 13;
+        DefaultRadiusX = 9;
+        SmallRadiusY   = 9;
+        SmallRadiusX   = 7;
+		/*DefaultRadiusY = 19;
 		DefaultRadiusX = 9;
 		SmallRadiusY   = 14;
-		SmallRadiusX   = 7;
+		SmallRadiusX   = 7;*/
 	}
 	else
 	{
@@ -107,7 +111,7 @@ function PlayerStartup()
 	}
 	RadiusX = DefaultRadiusX;
 	RadiusY = DefaultRadiusY;
-	RadiusW = 10;				// Wall radius. It is 10 for everyone by default
+	RadiusW = 10; // Wall radius. It is 10 for everyone by default. Should be 1 pixel longer than DefaultRadiusX
 	
 	// If respawning on checkpoint, load saved player data
 	if array_length(Game.StarPostData)

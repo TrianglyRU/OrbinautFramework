@@ -10,4 +10,5 @@ function ObjBoundaryTriggerStartup()
 	
 	// Set object properties
 	object_set_triggerbox(-16, 16, TriggerTop - y, TriggerBottom - y);
+	object_set_unload(TypePause);
 }

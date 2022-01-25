@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "SuperTheme.ogg",
-  "duration": 55.1,
+  "duration": 24.55,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",

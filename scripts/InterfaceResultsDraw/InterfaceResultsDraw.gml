@@ -21,7 +21,7 @@ function InterfaceResultsDraw()
 	{
 		exit;
 	}
-	if Stage.DoUpdate
+	if !fade_check(StateActive)
 	{	
 		switch ResultsValue[8]
 		{

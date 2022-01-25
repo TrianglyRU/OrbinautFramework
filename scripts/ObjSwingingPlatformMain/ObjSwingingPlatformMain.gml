@@ -14,7 +14,7 @@ function ObjSwingingPlatformMain()
 	// Exit if object is unloaded
 	if !ProcessObject
 	{
-		exit;
+		return;
 	}
 	
 	// Update oscillate angle

@@ -1,10 +1,9 @@
 /// @description Main 2
-// You can write your code in this editor
+// You can call your scripts in this editor
 
-	/* This is called after object
+	/* This is called after stage object
 	scripts are processed */
 	
-	// Check if we should execute the code below
 	if !PlayerProcess()
 	{
 		return;

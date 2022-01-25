@@ -4,6 +4,7 @@
 	/* Anything called here will be rendered
 	using game resolution */
 	
+	// Anything here will be drawn BELOW fade
 	InterfaceRendererLowProcess();
 	InterfaceOverlayDraw();
 	InterfaceResultsDraw();
@@ -11,6 +12,8 @@
 	InterfacePauseProcess();
 	InterfacePauseDraw();
 	InterfaceRendererUpdate();
+	
+	// Anything here will be drawn ABOVE fade
 	InterfaceRendererHighProcess();
 	InterfaceCardDraw();
 	InterfaceRendererUpdate();

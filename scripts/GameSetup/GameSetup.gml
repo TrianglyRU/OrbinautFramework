@@ -4,7 +4,7 @@ function GameSetup()
 	Game.WindowTitle     = "Orbinaut Framework";
 	Game.StartRoom		 = Screen_DevMenu;	
 	Game.DevMode         = true;
-	Game.ShowSplash      = true;
+	Game.ShowSplash      = false;
 	Game.Width           = 400;
 	Game.Height			 = 224;
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
@@ -25,7 +25,7 @@ function GameSetup()
 	Game.S1FloorCollision	= false;
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
-	Game.CDStageTimer	    = false;	
+	Game.CDStageTimer	    = true;	
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = true;
