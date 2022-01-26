@@ -30,12 +30,14 @@ function player_damage(isFlame,isThunder,instantKill)
 	{	
 		// Set flags
 		Camera.Enabled			   = false;
-		Player.InvincibilityFrames = 0;
-		Player.DrawOrder	       = 0;
-		Player.Death               = true;
 		Player.AllowCollision      = false;
-		Player.Animation	       = AnimDeath;
 		Player.BarrierType		   = false;
+		Player.InvincibilityFrames = 0;
+		Player.Death               = true;
+		Player.Animation	       = AnimDeath;
+		
+		// Draw player above everything
+		Player.depth = 0;
 		
 		// Force-disable Tails' tails visibility in case the code somehow will mess up with it
 		if Game.Character == CharTails

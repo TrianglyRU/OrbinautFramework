@@ -60,7 +60,6 @@ function PlayerStartup()
 	HitboxData			= [];
 	
 	// Set defaults
-	DrawOrder		 = layer_get_depth("Objects");
 	Facing			 = FlipRight;
 	Grv			     = 0.21875;
 	AirTimer	     = 1800;
@@ -73,7 +72,7 @@ function PlayerStartup()
 	SpindashRev      = -1;
 	CollisionMode    = [0, 0];
 
-	// Set default sprite
+	// Set default sprite and depth
 	switch Game.Character
 	{
 		case CharSonic:
@@ -86,18 +85,16 @@ function PlayerStartup()
 			sprite_index = spr_knuckles_idle;
 		break;
 	}
+	depth = layer_get_depth("Objects");
 	
-	// Set collision radiuses
+	// Set collision radiuses (RadiusW is usually 1 pixel longer than DefaultRadiusX)
 	if Game.Character != CharTails
 	{
-		DefaultRadiusY = 13;
-        DefaultRadiusX = 9;
-        SmallRadiusY   = 9;
-        SmallRadiusX   = 7;
-		/*DefaultRadiusY = 19;
+		DefaultRadiusY = 19;
 		DefaultRadiusX = 9;
 		SmallRadiusY   = 14;
-		SmallRadiusX   = 7;*/
+		SmallRadiusX   = 7;
+		RadiusW		   = 10;
 	}
 	else
 	{
@@ -105,13 +102,13 @@ function PlayerStartup()
 		DefaultRadiusX = 9;
 		SmallRadiusY   = 14;
 		SmallRadiusX   = 7;
+		RadiusW		   = 10;
 		
 		// Also create Tails' tails
 		instance_create(x, y, TailsObject);
 	}
 	RadiusX = DefaultRadiusX;
 	RadiusY = DefaultRadiusY;
-	RadiusW = 10; // Wall radius. It is 10 for everyone by default. Should be 1 pixel longer than DefaultRadiusX
 	
 	// If respawning on checkpoint, load saved player data
 	if array_length(Game.StarPostData)

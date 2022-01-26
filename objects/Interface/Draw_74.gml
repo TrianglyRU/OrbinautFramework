@@ -4,7 +4,8 @@
 	/* Anything called here will be rendered
 	using game resolution */
 	
-	// Anything here will be drawn BELOW fade
+	/* Low plane is rendered below the fade
+	and is affected by palette functions */
 	InterfaceRendererLowProcess();
 	InterfaceOverlayDraw();
 	InterfaceResultsDraw();
@@ -13,7 +14,8 @@
 	InterfacePauseDraw();
 	InterfaceRendererUpdate();
 	
-	// Anything here will be drawn ABOVE fade
+	/* High plane is rendered above the fade
+	and isn't affected by palette functions */
 	InterfaceRendererHighProcess();
 	InterfaceCardDraw();
 	InterfaceRendererUpdate();

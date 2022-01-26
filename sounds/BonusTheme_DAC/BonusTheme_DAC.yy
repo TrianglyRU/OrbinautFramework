@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "BonusStageTheme.ogg",
-  "duration": 33.5539,
+  "soundFile": "BonusTheme_DAC.ogg",
+  "duration": 42.77,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "BonusStageTheme",
+  "name": "BonusTheme_DAC",
   "tags": [],
   "resourceType": "GMSound",
 }

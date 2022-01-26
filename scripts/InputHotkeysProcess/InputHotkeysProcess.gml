@@ -1,11 +1,5 @@
 function InputHotkeysProcess()
 {	
-	// Toggle fullscreen
-	if keyboard_check_pressed(vk_f4)
-	{
-		window_set_fullscreen(!window_get_fullscreen());
-	}
-	
 	// Exit if not in devmode
 	if !Game.DevMode
 	{
@@ -24,23 +18,8 @@ function InputHotkeysProcess()
 		game_restart();
 	}
 	
-	// Restart stage/room (F2, F3)
-	if instance_exists(Stage)
-	{
-		if keyboard_check_pressed(vk_f2)
-		{
-			Game.StarPostData	 = [];
-			Game.SpecialRingData = [];
-			Game.SpecialRingList = [];
-			room_restart();
-		}
-		else if keyboard_check_pressed(vk_f3) 
-		{
-			Game.SpecialRingData = [];
-			room_restart();
-		}
-	}
-	else if keyboard_check_pressed(vk_f2) or keyboard_check_pressed(vk_f3)
+	// Restart room (F2)
+	if keyboard_check_pressed(vk_f2)
 	{
 		room_restart();
 	}
@@ -77,9 +56,9 @@ function InputHotkeysProcess()
 	// Frame-by-frame mode (F12)
 	if keyboard_check_pressed(vk_f12) 
 	{
-		if game_get_speed(gamespeed_fps) != 1
+		if game_get_speed(gamespeed_fps) == 60
 		{
-			game_set_speed(1, gamespeed_fps);
+			game_set_speed(2, gamespeed_fps);
 		}
 		else
 		{

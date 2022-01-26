@@ -35,10 +35,7 @@ function StageGameplayProcess()
 			sprite_set_speed(AnimatedGraphics[i], AnimSpeed, spritespeed_framespergameframe);
 		}
 	}
-	
-	/* In Sonic 3, the game checks if player has fallen
-	below Camera.ViewY + Game.Height + 32 instead */
-	
+
 	// Process player's death event
 	if Player.Death
 	{
@@ -46,7 +43,8 @@ function StageGameplayProcess()
 		UpdateObjects  = false;
 		TimeEnabled    = false;
 		
-		if floor(Player.PosY) < Stage.BottomBoundary + 32
+		if !Game.S3DeathRestart and floor(Player.PosY) < Stage.BottomBoundary + 32
+		or  Game.S3DeathRestart and floor(Player.PosY) < Camera.ViewY + Game.Height + 32
 		{
 			return;
 		}
@@ -71,9 +69,11 @@ function StageGameplayProcess()
 			audio_bgm_stop(TypePrimary,   0.5);
 			audio_bgm_stop(TypeSecondary, 0.5);
 			
-			// Stop animations
+			// Stop animations and background autoscrolling
 			Game.UpdateAnimations = false;
 		}
+		
+		// Wait until we fade out
 		if fade_check(StateMax)
 		{	
 			if Player.Lives != 0
@@ -88,7 +88,10 @@ function StageGameplayProcess()
 				room_restart();
 			}
 			else
-			{		
+			{	
+				Game.SpecialRingList = [];
+				Game.StarPostData	 = [];
+				
 				if Game.Continues
 				{
 					room_goto(Screen_Continue);
@@ -106,10 +109,6 @@ function StageGameplayProcess()
 					}
 					room_goto(Screen_DevMenu);
 				}
-					
-				// Clear data saved during the stage
-				Game.StarPostData    = [];
-				Game.SpecialRingList = [];
 			}
 		}	
 	}

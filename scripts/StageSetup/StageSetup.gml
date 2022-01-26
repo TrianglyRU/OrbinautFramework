@@ -1,18 +1,19 @@
 function StageSetup()
 {	
-	/* Set here the ID of your last zone. It will be used to mark 
-	the savefile as the complete one */
-	FinalZoneID = -1;
+	/* Set here the ID of your last zone. It will be 
+	used to mark the savefile as the complete one */
+	FinalZoneID = 3;
 	
 	// Osillate angle value. Do not edit unless really needed!
 	OscillateAngle = 1.40625;
 	
 	switch room 
 	{	
+		// Make sure to change the zone ID!
 		case Stage_TZ:
 		{
 			ZoneName         = "TEST STAGE";
-			ZoneID           = -1;
+			ZoneID           = 0;
 			ActID            = 0;
 			FinalActID       = 0;
 			WaterEnabled     = true;

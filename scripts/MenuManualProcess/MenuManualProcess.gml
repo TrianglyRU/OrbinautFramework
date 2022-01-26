@@ -38,7 +38,18 @@ function MenuManualProcess()
 						
 						if !Game.SaveState
 						{
-							room_goto(ZoneOrder[Game.Stage]);	
+							if ZoneOrder[Game.Stage] != noone
+							{
+								room_goto(ZoneOrder[Game.Stage]);
+							}
+							else
+							{
+								audio_sfx_play(sfxFail, false);
+							}
+						}
+						else
+						{
+							// Load into the in-game stage select
 						}
 						
 						// Cancel MenuAutomaticProcess()
@@ -54,10 +65,7 @@ function MenuManualProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
-				Game.Character		 = OptionID;
-				Game.StarPostData	 = [];
-				Game.SpecialRingData = [];
-				Game.SpecialRingList = [];
+				Game.Character = OptionID;
 				
 				// If we're here from the Game Start menu, load into the first stage
 				if PreviousMenuID[MenuID] == 1

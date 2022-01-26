@@ -1,5 +1,7 @@
 /// @description Main
 // You can call your scripts in this editor
 
-	MenuManualProcess();
-	MenuAutomaticProcess();
+	if !MenuManualProcess()
+	{
+		MenuAutomaticProcess();
+	}

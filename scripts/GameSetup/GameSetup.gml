@@ -16,16 +16,17 @@ function GameSetup()
 	Game.DSpinAttackEnabled	= false;
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
-	Game.CDCamera			= false;
 	Game.RolljumpControl    = false;
+	Game.S1FloorCollision	= true;
 	Game.S3SlopePhysics		= false;
 	Game.S3WaterPhysics		= false;
+	Game.S3DeathRestart     = false;
 	Game.SKCrouch			= false;
-	Game.SKRollDeceleration	= false;
-	Game.S1FloorCollision	= false;
+	Game.SKRollDeceleration	= true;
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = true;	
+	Game.CDCamera			= false;
 	
 	// Orbinaut improvements
 	Game.SmoothRotation	      = true;

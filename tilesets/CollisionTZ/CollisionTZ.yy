@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_collision_default",
-    "path": "sprites/spr_collision_default/spr_collision_default.yy",
+    "name": "spr_collision_tz",
+    "path": "sprites/spr_collision_tz/spr_collision_tz.yy",
   },
   "tileWidth": 16,
   "tileHeight": 16,
@@ -170,7 +170,7 @@
     "path": "folders/Collisions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "CollisionDefault",
+  "name": "CollisionTZ",
   "tags": [],
   "resourceType": "GMTileSet",
 }

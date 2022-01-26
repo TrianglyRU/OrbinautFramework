@@ -71,11 +71,10 @@ function InterfacePauseProcess()
 			// Exit to DevMenu
 			else if PauseValue == 2
 			{
-				room_goto(Screen_DevMenu);
-						
-				// Reset all data saved during the stage		
-				Game.StarPostData    = [];
 				Game.SpecialRingList = [];
+				Game.StarPostData	 = [];
+				
+				room_goto(Screen_DevMenu);
 			}
 		}
 	}

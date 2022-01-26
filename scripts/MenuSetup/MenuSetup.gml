@@ -1,9 +1,12 @@
 function MenuSetup()
 {
-	// List of the first acts of each zone in their order
+	// List of the first acts of each zone in their order. Use 'noone' to fill the blank zones
 	ZoneOrder =
 	[
-		Stage_TZ
+		Stage_TZ,
+		noone,
+		noone,
+		noone
 	];
 	StartStage = Stage_TZ;
 	
@@ -39,7 +42,7 @@ function MenuSetup()
 		menu_add_option(1, 2, string(DisplayData[1]), 3);
 		menu_add_option(1, 3, string(DisplayData[2]), 3);
 		menu_add_option(1, 4, string(DisplayData[3]), 3);
-		menu_add_option(1, 5, "DELETE SAVE",		  8);
+		menu_add_option(1, 5, "DELETE SAVE",		  7);
 	
 		// Scene Select
 		menu_add_header(2,    "SELECT SCENE TYPE");

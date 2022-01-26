@@ -39,12 +39,17 @@ function PlayerDebugMode()
 			Inertia		     =  0;
 			DoubleSpinAttack = SpinRecharge;
 			DropdashFlag	 = DashLocked;
-			DrawOrder		 = layer_get_depth("Objects");
-			
+
 			// If we died, resume the stage
-			Camera.Enabled      = true;
-			Stage.TimeEnabled   = true;
-			Stage.UpdateObjects = true;
+			if !Camera.Enabled
+			{
+				Camera.Enabled      = true;
+				Stage.TimeEnabled   = true;
+				Stage.UpdateObjects = true;
+				
+				// Restore depth
+				depth = layer_get_depth("Objects");
+			}
 			
 			// Reset music
 			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(TypePrimary)

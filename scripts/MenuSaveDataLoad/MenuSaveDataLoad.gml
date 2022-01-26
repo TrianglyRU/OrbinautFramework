@@ -26,12 +26,7 @@ function MenuSaveDataLoad()
 					var DataCharacter = "UNK";
 				break;
 			}
-			switch Game.SaveData[i][1]
-			{
-				default:
-					var DataZone = "TSZ";
-				break;
-			}
+			var DataZone     = Game.SaveData[i][1];
 			var DataEmeralds = Game.SaveData[i][2];
 			var DataLives    = Game.SaveData[i][3];
 			var DataConts    = Game.SaveData[i][4];
@@ -40,11 +35,11 @@ function MenuSaveDataLoad()
 			// Set information to display
 			if !GameCleared
 			{
-				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " " + string(DataZone) + " L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
+				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " ZONE " + string(DataZone) + " - " + "L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
 			}
 			else
 			{
-				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " CLEAR " + "L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
+				DisplayData[i] = "SAVE " + string(i + 1) + " - " + string(DataCharacter) + " CLEAR " + " - " + "L" + string(DataLives) + " C"  + string(DataConts) + " E" + string(DataEmeralds);
 			}
 		}
 	}

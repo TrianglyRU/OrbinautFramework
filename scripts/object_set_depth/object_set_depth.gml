@@ -17,7 +17,7 @@ function object_set_depth(target,depthFlag)
 				var Tolerance = 50; 
 			break;
 		}
-		depth = Player.DrawOrder - (depthFlag ? Tolerance : -Tolerance);
+		depth = Player.depth - (depthFlag ? Tolerance : -Tolerance);
 	}
 	
 	// Apply depth relative to another object

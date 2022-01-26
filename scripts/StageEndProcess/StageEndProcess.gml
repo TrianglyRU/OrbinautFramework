@@ -6,11 +6,10 @@ function StageEndProcess()
 		exit;
 	}
 	
-	// Buffer and reset data
 	Game.Score			 = Player.Score;
 	Game.Lives			 = Player.Lives;
-	Game.StarPostData    = [];
 	Game.SpecialRingList = [];
+	Game.StarPostData	 = [];
 	
 	ds_list_destroy(Player.RecordedPosX);
 	ds_list_destroy(Player.RecordedPosY);

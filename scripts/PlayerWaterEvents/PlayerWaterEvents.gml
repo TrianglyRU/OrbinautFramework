@@ -96,7 +96,7 @@ function PlayerWaterEvents()
 				Animation		  = AnimDrown;
 				
 				// Draw player above everything
-				DrawOrder = 0;
+				depth = 0;
 			}
 			
 			// Enter death state if off-screen

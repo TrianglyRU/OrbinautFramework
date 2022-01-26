@@ -3,7 +3,7 @@ function DiscordSetup()
 	// Remove controller if Rich Presence is disabled
 	if !Game.RichPresenceSupport
 	{
-		instance_destroy(); exit;
+		instance_destroy(); return;
 	}
 	PresenceReady = false;
 	
@@ -11,41 +11,54 @@ function DiscordSetup()
 	switch room 
 	{
 		case Stage_TZ:
-			DetailsString = "TEST STAGE";
+			DetailsString = "Test Stage Act 1";
+		break;
+		case SStage_Template:
+		case Screen_SStage:
+			DetailsString = "Special Stage";
+		break;
+		case BStage_Template:
+			DetailsString = "Bonus Stage";
 		break;
 		default:
 			DetailsString = "In Menus";
 		break;
 	}
-	MainImage     = "orbinaut";
-	MainImageDesc = "";
 	
-	// Set character data
-	if instance_exists(Player)
+	if DetailsString != "In Menus"
 	{
 		switch Game.Character
 		{
 			case CharSonic:    
-				var Char = "sonic";
+				var Char = "Sonic";
 			break;
 			case CharTails:	   
-				var Char = "tails";   
+				var Char = "Tails";   
 			break;
 			case CharKnuckles: 
-				var Char = "knuckles";
+				var Char = "Knuckles";
 			break;
 			default:		  
-				var Char = "?";
+				var Char = "";
 			break;
 		}
-		StateString    = "Playing as: " + string_upper(Char);
-		SmallImageDesc = "";
-		SmallImage     = Char;
+		if Game.Emeralds != 1
+		{
+			DetailsString += " (" + string(Game.Emeralds) + " Chaos Emeralds)";
+		}
+		else
+		{
+			DetailsString += " (" + string(Game.Emeralds) + " Chaos Emerald)";
+		}
+		StateString = Char;	
 	}
 	else
 	{
-		StateString    = "";
-		SmallImageDesc = "";
-		SmallImage     = "";
+		StateString = "";
 	}
+	
+	MainImage      = "orbinaut";
+	MainImageDesc  = "";
+	SmallImageDesc = "";
+	SmallImage     = "";
 }
