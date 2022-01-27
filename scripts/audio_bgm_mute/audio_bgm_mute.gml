@@ -1,7 +1,6 @@
 /// @function audio_bgm_mute(channelType,time)
 function audio_bgm_mute(channelType,time)
 {	
-	// Mute track
 	switch channelType
 	{
 		case TypePrimary:

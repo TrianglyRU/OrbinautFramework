@@ -7,15 +7,12 @@ function gamedata_save(slot)
 	// Get savedata file name
 	var Filename = "saveslot" + string(slot + 1) + ".bin";
 	
-	// Open the file
 	var File = file_bin_open(Filename, 1);
 	if  File
 	{
-		// Rewrite data
 		file_bin_rewrite(File);
 		
-		/* The function saves the data in following order:
-		- Version (used to check for savefile compatibility)
+		/* The function saves data in the following order:
 		- Character
 		- Stage (ZoneID)
 		- Emeralds
@@ -25,7 +22,6 @@ function gamedata_save(slot)
 		- Score (split into 4 values)
 		*/
 		
-		// Save data
 		file_bin_write_byte(File, Game.Character); 
 		file_bin_write_byte(File, Game.Stage);	  
 		file_bin_write_byte(File, Game.Emeralds); 
@@ -37,7 +33,6 @@ function gamedata_save(slot)
 		file_bin_write_byte(File, Game.Score div 10000   mod 100);
 		file_bin_write_byte(File, Game.Score div 1000000 mod 100);
 		
-		// Close the file
 		file_bin_close(File);
 	}
 	

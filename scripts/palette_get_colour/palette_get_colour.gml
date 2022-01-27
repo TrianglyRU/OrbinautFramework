@@ -7,7 +7,7 @@ function palette_get_colour(palType,iCol)
 		return 0;
 	}
 	
-	// Return colour
+	// Else return current colour
 	if palType == TypePrimary
 	{
 		return Palette.IndexType1[iCol];

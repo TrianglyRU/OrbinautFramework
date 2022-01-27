@@ -60,8 +60,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "name": "Rooms (Stages)",
+    "path": "folders/Rooms (Stages).yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage_Template",

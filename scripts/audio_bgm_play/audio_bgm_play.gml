@@ -1,13 +1,10 @@
 /// @function audio_bgm_play(channelType,soundid)
 function audio_bgm_play(channelType,soundid)
 {	
-	// Exit if no audio set
 	if !soundid
 	{
 		return;
 	}
-	
-	// Play new track
 	switch channelType
 	{
 		case TypePrimary:

@@ -116,7 +116,7 @@ function PlayerDebugMode()
 	// Switch to next object in the list
 	if Input.APress
 	{
-		DebugItem = loop_value(DebugItem + 1, 0, array_length(DebugList));
+		DebugItem = loop_value(DebugItem + 1, 0, array_length(DebugList) - 1);
 	}
 	
 	// Spawn current object
@@ -138,7 +138,7 @@ function PlayerDebugMode()
 		// If held A button, switch to the previous object in the list
 		else
 		{
-			DebugItem = loop_value(DebugItem - 1, 0, array_length(DebugList));
+			DebugItem = loop_value(DebugItem - 1, 0, array_length(DebugList) - 1);
 		}
 	}
 }

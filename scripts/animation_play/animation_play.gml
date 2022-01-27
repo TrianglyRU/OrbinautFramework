@@ -1,7 +1,7 @@
 /// @function animation_play(spriteid,duration,loopframe)
 function animation_play(spriteid,duration,loopframe)
 {
-	// Update or set animation
+	// Update or set animation for the instance
 	if sprite_index != spriteid or event_type == ev_create
 	{
 		if !is_array(duration)
@@ -19,7 +19,7 @@ function animation_play(spriteid,duration,loopframe)
 	}
 	else 
 	{
-		// Update duration
+		// Update frame duration
 		if !is_array(duration) and Obj_AnimDuration != duration
 		or  is_array(duration) and !is_array(Obj_AnimDuration)
 		{
@@ -38,7 +38,7 @@ function animation_play(spriteid,duration,loopframe)
 			}
 		}
 		
-		// Update loopframe
+		// Update looping frame
 		if Obj_AnimLoopframe != loopframe
 		{
 			Obj_AnimLoopframe = loopframe;

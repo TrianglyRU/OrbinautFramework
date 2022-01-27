@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Special Stage",
-    "path": "folders/Rooms/Special Stage.yy",
+    "path": "folders/Rooms (Stages)/Special Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpecialStage",

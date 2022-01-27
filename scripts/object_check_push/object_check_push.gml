@@ -1,19 +1,12 @@
 /// @function object_check_push(pushSide)
 function object_check_push(pushSide)
 {
-	// Exit if collisions are disabled
-	if !Player.AllowCollision
+	// Exit if can't be pushed
+	if !Player.AllowCollision or !object_is_onscreen(id)
 	{
 		return false;
 	}
 	
-	// Exit if object is off-screen
-	if !object_is_onscreen(id)
-	{
-		return false;
-	}
-	
-	// Return push flag
 	if pushSide == SideLeft  and floor(Player.PosX) < x
 	or pushSide == SideRight and floor(Player.PosX) > x
 	{

@@ -1,10 +1,9 @@
 /// @function palette_handle_range(palType,iCol1,iCol2,rCol1,rCol2,duration)
 function palette_handle_range(palType,iCol1,iCol2,rCol1,rCol2,duration)
 {
-	// Exit if no pallete set, playable stage is paused or fade is active
-	if Palette.ColourSet[palType] == false or variable_check(Stage, "IsPaused") or fade_check(StateActive)
+	if Palette.ColourSet[palType] == false or !Game.UpdateAnimations
 	{
-		exit;
+		return;
 	}
 	
 	// Get unique ID for this palette sequence

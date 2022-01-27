@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "SpecialStageTheme.ogg",
-  "duration": 50.6145134,
+  "soundFile": "BossTheme_DAC.ogg",
+  "duration": 34.22,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SpecialStageTheme",
+  "name": "BossTheme_DAC",
   "tags": [],
   "resourceType": "GMSound",
 }

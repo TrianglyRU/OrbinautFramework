@@ -1,7 +1,6 @@
 /// @function object_act_enemy(enemyType)
 function object_act_enemy(enemyType)
 {
-	// Wait until collision occurs
 	if !object_check_overlap(TypeHitbox2)
 	{
 		return false;
@@ -61,23 +60,19 @@ function object_act_enemy(enemyType)
 				}
 			
 				// Destroy badnik and play sound
-				audio_sfx_play(sfxDestroy, false);
-				instance_destroy();
+				audio_sfx_play(sfxDestroy, false); instance_destroy();
 			}
 			break;
 			case TypeBoss:
 			{
 				if !Player.Grounded
 				{
-					// If gliding, stop
 					if Player.GlideState
 					{
 						Player.GlideState = GlideFall;
 						Player.Animation  = AnimGlideFall;
-					
-						// Reset collision radiuses
-						Player.RadiusX = Player.DefaultRadiusX;
-						Player.RadiusY = Player.DefaultRadiusY;
+						Player.RadiusX	  = Player.DefaultRadiusX;
+						Player.RadiusY    = Player.DefaultRadiusY;
 					
 						// Reset gravity
 						if !Player.IsUnderwater
@@ -90,25 +85,19 @@ function object_act_enemy(enemyType)
 							Player.Grv = 0.0625
 						}
 					}
-				
-					// Reverse speeds
+					
 					Player.Xsp *= -0.5;
 					Player.Ysp *= -0.5;
 				}
 				
-				// Play sound
 				audio_sfx_play(sfxBossHit, false);
 			}
 			break;
 		}
 		
-		// Return successful hit
 		return true;
 	}
 	
 	// Damage player
-	player_damage(false, false, false);
-	
-	// Return nothing
-	return false;
+	player_damage(false, false, false); return false;
 }

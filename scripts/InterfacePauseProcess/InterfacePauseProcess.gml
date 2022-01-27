@@ -5,11 +5,11 @@ function InterfacePauseProcess()
 		// Loop through options
 		if Input.DownPress
 		{
-			PauseValue = loop_value(PauseValue + 1, 0, 3); audio_sfx_play(sfxPauseSwitch, false);
+			PauseValue = loop_value(PauseValue + 1, 0, 2); audio_sfx_play(sfxPauseSwitch, false);
 		}
 		else if Input.UpPress
 		{
-			PauseValue = loop_value(PauseValue - 1, 0, 3); audio_sfx_play(sfxPauseSwitch, false);
+			PauseValue = loop_value(PauseValue - 1, 0, 2); audio_sfx_play(sfxPauseSwitch, false);
 		}
 		
 		if !fade_check(StateActive)

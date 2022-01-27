@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "Boss.ogg",
-  "duration": 34.22,
+  "soundFile": "SpecialTheme.ogg",
+  "duration": 51.74,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Boss",
+  "name": "SpecialTheme",
   "tags": [],
   "resourceType": "GMSound",
 }

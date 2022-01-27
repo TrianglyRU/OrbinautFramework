@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Developer Menu",
-    "path": "folders/Rooms/Developer Menu.yy",
+    "path": "folders/Rooms (Screens & Menus)/Developer Menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "DeveloperMenu",

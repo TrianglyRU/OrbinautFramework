@@ -66,7 +66,7 @@ function PlayerSuperFormsProcess()
 				{
 					if Stage.IsBossfight
 					{
-						audio_bgm_play(TypePrimary, Boss);
+						audio_bgm_play(TypePrimary, BossTheme);
 					}
 					else if HighspeedBonus
 					{

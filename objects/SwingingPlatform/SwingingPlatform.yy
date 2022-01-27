@@ -31,8 +31,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage Objects",
-    "path": "folders/Stage Objects.yy",
+    "name": "Room Objects",
+    "path": "folders/Room Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "SwingingPlatform",

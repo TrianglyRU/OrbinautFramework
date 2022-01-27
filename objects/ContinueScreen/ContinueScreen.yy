@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Continue Screen",
-    "path": "folders/Rooms/Continue Screen.yy",
+    "path": "folders/Rooms (Screens & Menus)/Continue Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueScreen",

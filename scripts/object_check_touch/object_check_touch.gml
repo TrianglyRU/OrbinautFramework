@@ -1,14 +1,8 @@
 /// @function object_check_touch(side)
 function object_check_touch(side)
 {
-	// Exit if collisions are disabled
-	if !Player.AllowCollision
-	{
-		return false;
-	}
-	
-	// Exit if object is off-screen
-	if !object_is_onscreen(id)
+	// Exit if can't be touched
+	if !Player.AllowCollision or !object_is_onscreen(id)
 	{
 		return false;
 	}

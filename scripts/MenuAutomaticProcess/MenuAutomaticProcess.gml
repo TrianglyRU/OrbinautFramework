@@ -9,7 +9,7 @@ function MenuAutomaticProcess()
 	{
 		OptionID--; 
 	}
-	OptionID = loop_value(OptionID, 0, MenuSize[MenuID]);
+	OptionID = loop_value(OptionID, 0, MenuSize[MenuID] - 1);
 	
 	// Select
 	if Input.APress or Input.StartPress

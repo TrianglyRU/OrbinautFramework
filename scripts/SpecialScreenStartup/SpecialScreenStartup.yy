@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Special Stage",
-    "path": "folders/Rooms/Special Stage.yy",
+    "name": "Special Screen",
+    "path": "folders/Rooms (Screens & Menus)/Special Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "SpecialScreenStartup",

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Scripts",
-    "path": "folders/Stage Objects/Scripts.yy",
+    "path": "folders/Room Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjSpindashDustMain",

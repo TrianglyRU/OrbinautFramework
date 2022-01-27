@@ -32,7 +32,7 @@ function BackgroundProcess()
 		var DrawY = floor(Camera.ViewY * (1 - ScrollY)) + PosY;
 		
 		// Set y-scale mode properties
-		if InclineY and variable_check(Stage, "WaterLevel")
+		if InclineY and instance_exists(Stage) and Stage.WaterEnabled
 		{
 			var YScale = clamp((Stage.WaterLevel - DrawY) / Height, -1, 1);
 		} 

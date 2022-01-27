@@ -129,7 +129,7 @@ function MenuManualProcess()
 					// Window size toggle
 					case 1:
 					{
-						Game.WindowSize = loop_value(Game.WindowSize + (Input.RightPress ? 1 : -1), 1, 5);
+						Game.WindowSize = loop_value(Game.WindowSize + (Input.RightPress ? 1 : -1), 1, 4);
 						
 						window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
 					}
@@ -138,14 +138,14 @@ function MenuManualProcess()
 					// SFX volume
 					case 2:
 					{
-						Game.SoundVolume = loop_value(Game.SoundVolume * 10 + (Input.RightPress ? 1 : -1), 0, 11) / 10;
+						Game.SoundVolume = loop_value(Game.SoundVolume * 10 + (Input.RightPress ? 1 : -1), 0, 10) / 10;
 					}
 					break;
 		
 					// BGM volume
 					case 3:
 					{
-						Game.MusicVolume = loop_value(Game.MusicVolume * 10 + (Input.RightPress ? 1 : -1), 0, 11) / 10;
+						Game.MusicVolume = loop_value(Game.MusicVolume * 10 + (Input.RightPress ? 1 : -1), 0, 10) / 10;
 					}
 					break;
 				}

@@ -1,24 +1,22 @@
 /// @function player_damage(isFlame,isThunder,instantKill)
 function player_damage(isFlame,isThunder,instantKill)
 {	
-	// Exit if player is already dead
+	// Exit if player can't be damaged
 	if Player.Death
 	{
-		exit;
+		return;
 	}	
-	
-	// Exit if player can't be damaged
 	if !instantKill and (Player.InvincibilityFrames or Player.InvincibleBonus or Player.SuperState)
 	{
-		exit;
+		return;
 	}
 	if isFlame and Player.BarrierType == BarrierFlame
 	{
-		exit;
+		return;
 	}
 	if isThunder and Player.BarrierType == BarrierThunder
 	{
-		exit;
+		return;
 	}
 	
 	// Stop sounds

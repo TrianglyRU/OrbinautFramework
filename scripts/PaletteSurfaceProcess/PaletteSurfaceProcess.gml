@@ -14,7 +14,7 @@ function PaletteSurfaceProcess()
 		shader_set_uniform_i(Shader.PalMode,   FadeMode);
 		
 		// Define a render boundary between type 1 and type 2 palettes
-		if variable_check(Stage, "WaterEnabled")
+		if instance_exists(Stage) and Stage.WaterEnabled
 		{
 			var Boundary = Game.Height - clamp(Camera.ViewY - Stage.WaterLevel + Game.Height, 0, Game.Height);
 		}

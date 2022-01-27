@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Splash Screen",
-    "path": "folders/Rooms/Splash Screen.yy",
+    "path": "folders/Rooms (Screens & Menus)/Splash Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "SplashScreenProcess",

@@ -1,7 +1,6 @@
 /// @function audio_bgm_unmute(channelType,time)
 function audio_bgm_unmute(channelType,time)
 {	
-	// Unmute track
 	switch channelType
 	{
 		case TypePrimary:

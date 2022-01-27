@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "name": "Rooms (Stages)",
+    "path": "folders/Rooms (Stages).yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_water_surface",

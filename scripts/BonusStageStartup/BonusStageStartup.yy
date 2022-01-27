@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Bonus Stage",
-    "path": "folders/Rooms/Bonus Stage.yy",
+    "path": "folders/Rooms (Stages)/Bonus Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "BonusStageStartup",

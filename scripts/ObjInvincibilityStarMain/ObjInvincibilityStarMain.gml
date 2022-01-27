@@ -7,8 +7,8 @@ function ObjInvincibilityStarMain()
 	}
 	
 	// Loop through frames
-	FrameValue[0] = loop_value(FrameValue[0] + 1, 0, 12);
-	FrameValue[1] = loop_value(FrameValue[1] + 1, 0, 10);
+	FrameValue[0] = loop_value(FrameValue[0] + 1, 0, 11);
+	FrameValue[1] = loop_value(FrameValue[1] + 1, 0, 9);
 	
 	// Define a specific frame for each star
 	switch ID

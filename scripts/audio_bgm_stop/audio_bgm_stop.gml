@@ -1,7 +1,6 @@
 /// @function audio_bgm_stop(channelType,time)
 function audio_bgm_stop(channelType,time)
 {	
-	// Stop track
 	switch channelType
 	{
 		case TypePrimary:

@@ -1,7 +1,7 @@
 /// @function instance_create(x,y,obj)
 function instance_create(x,y,obj)
 {
-	// Create the object
+	// Create object
 	var  NewObject = instance_create_depth(floor(x), floor(y), depth, obj);
 	with NewObject
 	{
