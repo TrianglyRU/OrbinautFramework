@@ -7,8 +7,7 @@ function BackgroundProcess()
 	for (var i = 0; i < Length; i++)
 	{
 		// Update autoscroll value
-		var PlayerCheck = instance_exists(Player) ? Player.Death : false;
-		if Game.UpdateAnimations and !PlayerCheck
+		if Game.UpdateAnimations
 		{
 			BGValues[i][12] += BGValues[i][4];
 		}

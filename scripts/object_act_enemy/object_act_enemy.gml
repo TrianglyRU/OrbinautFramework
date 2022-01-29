@@ -81,7 +81,7 @@ function object_act_enemy(enemyType)
 						}
 						else
 						{
-							// Lower by 0x28 (0.15625) if underwater
+							// Reduce by 0x28 (0.15625) if underwater
 							Player.Grv = 0.0625
 						}
 					}

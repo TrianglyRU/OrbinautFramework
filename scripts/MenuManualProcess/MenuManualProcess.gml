@@ -67,7 +67,7 @@ function MenuManualProcess()
 			{
 				Game.Character = OptionID;
 				
-				// If we're here from the Game Start menu, load into the first stage
+				// If starting a new game, load into the first stage
 				if PreviousMenuID[MenuID] == 1
 				{
 					Game.Lives	   = 3;
@@ -84,6 +84,8 @@ function MenuManualProcess()
 					// Cancel MenuAutomaticProcess()
 					return true;
 				}
+				
+				/* Else automatic sredirection will happen here */
 			}
 		}
 		break;

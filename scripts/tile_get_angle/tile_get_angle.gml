@@ -1,7 +1,7 @@
 /// @function tile_get_angle(index)
 function tile_get_angle(index)
 {
-	// Get angle to use
+	// Return found angle
 	var Tile = (index - 1) mod Game.TileData[1] + 1;
 	if  Tile
 	{

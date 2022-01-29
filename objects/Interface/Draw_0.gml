@@ -5,3 +5,4 @@
 	InterfaceDebugHitboxDraw();
 	InterfaceDebugTriggersDraw();
 	InterfaceDebugPositionsDraw();
+	//InterfaceDebugSensorsDraw();

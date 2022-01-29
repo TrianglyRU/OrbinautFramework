@@ -23,7 +23,7 @@ function PlayerKnuxClimb()
 			if Input.ABCPress
 			{
 				Animation  = AnimSpin;
-				ClimbState = false;
+				ClimbState = ClimbJump;
 				Jumping	   = true;
 				Spinning   = true;
 				Facing	  *= -1;
@@ -40,7 +40,7 @@ function PlayerKnuxClimb()
 				}
 				else
 				{
-					// Lower by 0x28 (0.15625) if underwater
+					// Reduce by 0x28 (0.15625) if underwater
 					Grv = 0.0625
 				}
 			}
@@ -88,7 +88,7 @@ function PlayerKnuxClimb()
 					}
 					else
 					{
-						// Lower by 0x28 (0.15625) if underwater
+						// Reduce by 0x28 (0.15625) if underwater
 						Grv = 0.0625
 					}
 					break;

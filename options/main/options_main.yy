@@ -9,7 +9,7 @@
   "option_sci_usesci": false,
   "option_author": "",
   "option_collision_compatibility": true,
-  "option_lastchanged": "27 January 2021 13:11:49",
+  "option_lastchanged": "28 January 2022 12:40:05",
   "option_spine_licence": false,
   "option_template_image": "${base_options_dir}/main/template_image.png",
   "option_template_icon": "template_icon.png",

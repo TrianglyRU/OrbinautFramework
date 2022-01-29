@@ -3,14 +3,19 @@ function ContinueScreenProcess()
 	// Check if we should exit
 	if Countdown == 659 and fade_check(StateActive)
 	{
-		exit;
+		return;
 	}
+
 	switch State
 	{
 		case 0:
 		{
-			if (Countdown--) >= 60
+			if (Countdown--) > 0
 			{	
+				if !fade_check(StateActive)
+				{
+					Game.UpdateAnimations = true;
+				}
 				if Input.StartPress or Input.ABCPress
 				{	
 					audio_sfx_play(sfxCharge, false);
@@ -18,7 +23,15 @@ function ContinueScreenProcess()
 					// Increment state
 					State++;
 				}
-				CountFrame = 9 - (Countdown - 60) div 60;
+				
+				if Countdown > 60
+				{
+					CountFrame = 9 - (Countdown - 60) div 60;
+				}
+				else
+				{
+					CountFrame = 10;
+				}
 			}
 			else
 			{
@@ -34,12 +47,13 @@ function ContinueScreenProcess()
 						gamedata_save(Game.ActiveSave);
 					}
 					fade_perform(ModeInto, BlendBlack, 1);
+					
+					Game.UpdateAnimations = false;
 				}
 				else if fade_check(StateMax)
 				{
 					room_goto(Screen_DevMenu);
 				}
-				CountFrame = 10;
 			}
 		}
 		break;
@@ -75,7 +89,11 @@ function ContinueScreenProcess()
 				CharObject.x += 16; if CharObject.x - Game.Width >= 64
 				{
 					State++;
+					
 					fade_perform(ModeInto, BlendBlack, 1);
+					audio_bgm_stop(TypePrimary, 0.5);
+					
+					Game.UpdateAnimations = false;
 				}
 			}
 		}

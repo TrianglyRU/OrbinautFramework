@@ -34,6 +34,16 @@ function PlayerWaterEvents()
 				audio_sfx_play(sfxWaterSplash, false);
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 			}
+			
+			// Destroy barrier
+			if BarrierType == BarrierFlame or BarrierType == BarrierThunder
+			{	
+				if BarrierType == BarrierThunder
+				{
+					fade_perform(ModeFrom, BlendFlash, 4);
+				}
+				BarrierType = false;			
+			}
 		}
 	}
 	else
@@ -104,18 +114,14 @@ function PlayerWaterEvents()
 			{
 				Death = true;
 			}
-		}
-		
-		// Destroy barrier
-		if BarrierType == BarrierFlame or BarrierType == BarrierThunder
-		{	
-			if BarrierType == BarrierThunder
-			{
-				fade_perform(ModeFrom, BlendFlash, 8);
-			}
-			BarrierType = false;			
-		}
 			
+			// If we have a barrier, destroy it
+			if BarrierType == BarrierFlame or BarrierType == BarrierThunder
+			{
+				BarrierType = false;
+			}
+		}
+	
 		// Check for leaving the water
 		if PosY < Stage.WaterLevel and !Death
 		{

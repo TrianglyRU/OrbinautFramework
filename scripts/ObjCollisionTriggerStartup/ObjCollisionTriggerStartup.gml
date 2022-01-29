@@ -11,6 +11,13 @@ function ObjCollisionTriggerStartup()
 	visible = false;
 	
 	// Set object properties
-	object_set_triggerbox(-12, 12, -32, 32);
+	if object_index == CollisionTriggerV
+	{
+		object_set_triggerbox(-12, 12, -32, 32);
+	}
+	else if object_index == CollisionTriggerH
+	{
+		object_set_triggerbox(-32, 32, -12, 12);
+	}
 	object_set_unload(TypePause);
 }

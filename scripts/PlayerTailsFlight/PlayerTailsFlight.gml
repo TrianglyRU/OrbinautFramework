@@ -79,7 +79,7 @@ function PlayerTailsFlight()
 		}
 		else
 		{
-			// Lower by 0x28 (0.15625) if underwater
+			// Reduce by 0x28 (0.15625) if underwater
 			Grv = 0.0625
 		}
 	}	

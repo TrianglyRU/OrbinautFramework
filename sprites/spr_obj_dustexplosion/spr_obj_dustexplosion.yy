@@ -17,8 +17,8 @@
   "width": 38,
   "height": 38,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgGameplay",
+    "path": "texturegroups/tgGameplay",
   },
   "swatchColours": null,
   "gridX": 0,

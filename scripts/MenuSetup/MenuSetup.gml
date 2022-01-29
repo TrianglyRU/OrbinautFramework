@@ -20,18 +20,18 @@ function MenuSetup()
 	
 	// Screen select
 	menu_add_header(5,    "SELECT A SCREEN");
-	menu_add_option(5, 0, "SPLASH", Screen_Splash);
-	menu_add_option(5, 1, "- -",	noone);
-	menu_add_option(5, 2, "- -",	noone);
-	menu_add_option(5, 3, "- -",	noone);
-	menu_add_option(5, 4, "- -",	noone);
+	menu_add_option(5, 0, "SPLASH",   Screen_Splash);
+	menu_add_option(5, 1, "CONTINUE", Screen_Continue);
+	menu_add_option(5, 2, "- -",	  noone);
+	menu_add_option(5, 3, "- -",	  noone);
+	menu_add_option(5, 4, "- -",	  noone);
 	
 	#region Other
 	{
 		// Main Menu
 		menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEVELOPER MENU");
 		menu_add_option(0, 0, "GAME START",   1);
-		menu_add_option(0, 1, "SCENE SELECT", 2);
+		menu_add_option(0, 1, "SCENE SELECT", 3);
 		menu_add_option(0, 2, "OPTIONS",      6);	
 		menu_add_option(0, 3, "EXIT GAME",    noone);
 	
@@ -46,14 +46,14 @@ function MenuSetup()
 	
 		// Scene Select
 		menu_add_header(2,    "SELECT SCENE TYPE");
-		menu_add_option(2, 0, "STAGE",  3);
+		menu_add_option(2, 0, "STAGE",  4);
 		menu_add_option(2, 1, "SCREEN", 5);
 	
 		// Character Select (automatically, it should redirect to Stage Select)
 		menu_add_header(3,    "SELECT A PLAYER");
-		menu_add_option(3, 0, "SONIC",	  4);
-		menu_add_option(3, 1, "TAILS",	  4);
-		menu_add_option(3, 2, "KNUCKLES", 4);
+		menu_add_option(3, 0, "SONIC",	  2);
+		menu_add_option(3, 1, "TAILS",	  2);
+		menu_add_option(3, 2, "KNUCKLES", 2);
 	
 		// Options
 		menu_add_header(6,    "OPTIONS");

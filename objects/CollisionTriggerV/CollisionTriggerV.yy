@@ -36,6 +36,16 @@
         "LayerA",
         "LayerB",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"RightDirection","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"None\"",
+        "LayerA",
+        "LayerB",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"DownDirection","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"None\"",
+        "LayerA",
+        "LayerB",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"UpDirection","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {
@@ -43,7 +53,7 @@
     "path": "folders/Room Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "CollisionTrigger",
+  "name": "CollisionTriggerV",
   "tags": [],
   "resourceType": "GMObject",
 }

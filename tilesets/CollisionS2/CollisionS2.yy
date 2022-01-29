@@ -11,8 +11,8 @@
   "tilevsep": 4,
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "tgGameplay",
+    "path": "texturegroups/tgGameplay",
   },
   "out_tilehborder": 2,
   "out_tilevborder": 2,

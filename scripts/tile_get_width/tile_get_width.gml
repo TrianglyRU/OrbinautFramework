@@ -1,7 +1,6 @@
 /// @function tile_get_width(y,tiledata,index)
 function tile_get_width(y,tiledata,index)
 {
-	// Get width to use
 	if tile_get_flip(tiledata)
 	{
 		var WidthToUse = 16 - 1 - y mod 16;
@@ -10,8 +9,8 @@ function tile_get_width(y,tiledata,index)
 	{
 		var WidthToUse = y mod 16;
 	}	
-	
-	// Return width
 	var Tile = (index - 1) mod Game.TileData[1] + 1;
+	
+	// Return found width
 	return Game.TileWidths[Tile][WidthToUse];
 }

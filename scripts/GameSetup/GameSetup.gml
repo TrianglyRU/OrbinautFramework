@@ -25,7 +25,7 @@ function GameSetup()
 	Game.SKRollDeceleration	= true;
 	Game.SKWallCollision	= false;	
 	Game.SKItemBoxBehaviour = false;
-	Game.CDStageTimer	    = true;	
+	Game.CDStageTimer	    = false;	
 	Game.CDCamera			= false;
 	
 	// Orbinaut improvements

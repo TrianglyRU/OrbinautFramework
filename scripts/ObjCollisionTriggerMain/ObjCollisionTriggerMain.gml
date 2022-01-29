@@ -3,7 +3,7 @@ function ObjCollisionTriggerMain()
 	// Check for GroundOnly flag
 	if !State and GroundOnly and !Player.Grounded
 	{
-		exit;
+		return;
 	}
 	
 	// Change layer if we passed through the object
@@ -15,9 +15,17 @@ function ObjCollisionTriggerMain()
 			{
 				Player.Layer = RightDirection;
 			}
-			else if floor(Player.PosX) <= x and LeftDirection != "None"
+			else if floor(Player.PosX) < x and LeftDirection != "None"
 			{
 				Player.Layer = LeftDirection;
+			}
+			else if floor(Player.PosY) > y and DownDirection != "None"
+			{
+				Player.Layer = DownDirection;
+			}
+			else if floor(Player.PosY) < y and UpDirection != "None"
+			{
+				Player.Layer = UpDirection;
 			}
 			State = 0;
 		}

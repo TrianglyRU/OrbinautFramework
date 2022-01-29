@@ -3,7 +3,11 @@ function ObjPushableBlockMain()
 	// Do collision
 	object_act_solid(true, true, true, false);
 	
-	switch State
+	if State == 0 and !Player.Grounded
+	{
+		return;
+	}
+	else switch State
 	{
 		// Grounded
 		case 0:
@@ -29,7 +33,7 @@ function ObjPushableBlockMain()
 			// Exit the code if not pushing
 			else
 			{
-				exit;
+				return;
 			}
 			
 			// Play sound
@@ -42,7 +46,10 @@ function ObjPushableBlockMain()
 			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
 			if  FindFloor > 4
 			{
-				PosX     -= Direction;
+				if Direction == FlipRight
+				{
+					PosX--;
+				}
 				State	 += 1;
 				ClipTimer = 4;
 				

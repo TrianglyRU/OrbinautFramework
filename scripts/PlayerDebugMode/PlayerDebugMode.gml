@@ -39,17 +39,10 @@ function PlayerDebugMode()
 			Inertia		     =  0;
 			DoubleSpinAttack = SpinRecharge;
 			DropdashFlag	 = DashLocked;
-
-			// If we died, resume the stage
-			if !Camera.Enabled
-			{
-				Camera.Enabled      = true;
-				Stage.TimeEnabled   = true;
-				Stage.UpdateObjects = true;
+			Camera.Enabled   = true;
 				
-				// Restore depth
-				depth = layer_get_depth("Objects");
-			}
+			// Reset depth
+			depth = layer_get_depth("Objects");
 			
 			// Reset music
 			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(TypePrimary)
@@ -70,6 +63,9 @@ function PlayerDebugMode()
 			DebugMode	   = false;
 			image_alpha    = 1;
 			
+			Stage.UpdateObjects = true;
+			Stage.TimeEnabled   = true;
+			
 			// Reset gravity
 			if !IsUnderwater
 			{
@@ -77,7 +73,7 @@ function PlayerDebugMode()
 			}
 			else
 			{
-				// Lower by 0x28 (0.15625) if underwater
+				// Reduce by 0x28 (0.15625) if underwater
 				Grv = 0.0625
 			}
 		}
