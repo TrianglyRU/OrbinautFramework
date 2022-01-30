@@ -4,7 +4,7 @@ function ObjBridgeMain()
 	var PlayerPos = (floor(Player.PosX) - (x - BridgeLength / 2 * 16 - 16)) div 16;
 
 	// Set a recovery angle
-    if object_check_touch(SideTop)
+    if object_check_touch(TypeSolidU)
     {   
         if RecoveryAngle < 90
 		{

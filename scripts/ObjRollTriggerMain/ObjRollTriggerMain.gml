@@ -1,7 +1,7 @@
 function ObjRollTriggerMain()
 {	
 	// Check for overlap
-	if object_check_overlap(TypeTrigger) 
+	if object_check_touch(TypeTrigger) 
 	{
 		// Force player to roll
 		if Player.Grounded or Player.GlideState

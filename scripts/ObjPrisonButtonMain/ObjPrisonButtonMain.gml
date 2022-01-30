@@ -7,7 +7,7 @@ function ObjPrisonButtonMain()
 		object_act_solid(true, true, true, true);
 		
 		// Check if player is standing on the object
-		if object_check_touch(SideTop)
+		if object_check_touch(TypeSolidU)
 		{	
 			y           += 8;
 			image_index  = 0;
@@ -18,7 +18,7 @@ function ObjPrisonButtonMain()
 	}
 	
 	// Release player
-	else if object_check_touch(SideTop)
+	else if object_check_touch(TypeSolidU)
 	{	
 		Player.Grounded = false;
 		Player.OnObject = false;

@@ -1,7 +1,7 @@
 function ObjBackgroundTriggerMain()
 {
 	// Check for overlap
-	if object_check_overlap(TypeTrigger)
+	if object_check_touch(TypeTrigger)
 	{
 		if !State
 		{

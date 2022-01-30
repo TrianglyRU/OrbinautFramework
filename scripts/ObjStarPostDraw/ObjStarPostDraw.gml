@@ -4,7 +4,7 @@ function ObjStarPostDraw()
 	draw_self();
 	
 	// Draw lamp
-	if State == 2 and Angle < 900
+	if State == 1 and Angle < 900
 	{
 		draw_sprite(spr_obj_starpost_lamp, image_index, x + dsin(Angle) * 12, y + dcos(Angle) * 12 - 12);
 	}

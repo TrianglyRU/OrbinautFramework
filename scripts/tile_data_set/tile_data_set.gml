@@ -10,7 +10,7 @@ function tile_data_set(name,tileAmount,layerA,layerB)
 		else
 		{
 			Game.TileData   = [name, tileAmount];
-			Game.TileLayers = [layer_tilemap_get_id(layerA), layer_tilemap_get_id(layerB)];
+			Game.TileLayers = [layer_tilemap_get_id(layerA), layer_tilemap_get_id(layerB), layerA, layerB];
 		}
 	}
 	else

@@ -1,5 +1,8 @@
 function ObjBuzzbomberMain()
 {
+	// Act as badnik
+	object_act_enemy(TypeBadnik);
+	
 	switch State
 	{
 		// Move
@@ -86,7 +89,4 @@ function ObjBuzzbomberMain()
 	
 	// Update position
 	x = floor(PosX);
-	
-	// Act as badnik
-	object_act_enemy(TypeBadnik)
 }

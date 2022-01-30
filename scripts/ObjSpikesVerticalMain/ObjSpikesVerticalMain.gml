@@ -12,7 +12,7 @@ function ObjSpikesVerticalMain()
 	}
 	
 	// Damage player if they're touching the hurt side
-	if object_check_touch(image_yscale == 1 ? SideTop : SideBottom)
+	if object_check_touch(image_yscale == 1 ? TypeSolidU : TypeSolidD)
 	{
 		player_damage(false, false, false);
 	}

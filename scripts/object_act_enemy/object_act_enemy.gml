@@ -1,7 +1,7 @@
 /// @function object_act_enemy(enemyType)
 function object_act_enemy(enemyType)
 {
-	if !object_check_overlap(TypeHitbox2)
+	if !object_check_touch(TypeHitbox2)
 	{
 		return false;
 	}

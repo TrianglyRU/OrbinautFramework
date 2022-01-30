@@ -383,7 +383,11 @@ function PlayerAnimate()
 				{
 					if !(--AnimStandTime)
 					{
-						Animation = Input.Down ? AnimCrouch : AnimIdle;
+						Animation = AnimIdle;
+					}
+					else if Input.Down
+					{
+						Animation = AnimCrouch;
 					}
 					else
 					{

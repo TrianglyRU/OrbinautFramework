@@ -1,5 +1,8 @@
 function ObjChopperMain()
 {
+	// Act as badnik
+	object_act_enemy(TypeBadnik);
+	
 	// Move Chopper
 	PosY += Ysp;
 	Ysp  += 0.09375;
@@ -47,7 +50,4 @@ function ObjChopperMain()
 		}
 		break;
 	}
-
-	// Act as badnik
-	object_act_enemy(TypeBadnik);
 }

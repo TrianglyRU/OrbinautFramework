@@ -3,6 +3,32 @@ function ObjShatteredRingMain()
 	// Set animation
 	animation_play(sprite_index, floor((256 * 2) / Timer), 0);
 	
+	// Check if it is time for ring to disappear
+	if !(--Timer)
+	{
+		instance_destroy();
+	}
+	else
+	{		
+		// Check for hitbox collision
+		if PickupTimeout
+		{
+			PickupTimeout--;
+		}
+		else if object_check_touch(TypeHitbox)
+		{
+			// Add 1 to ring counter
+			Player.Rings++;
+		
+			// Play sound
+			audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
+	
+			// Create sparkle object in place of ring
+			instance_create(x, y, RingSparkle);	
+			instance_destroy();
+		}
+	}
+	
 	// Move ring
 	PosX += Xsp;
 	PosY += Ysp;
@@ -56,30 +82,4 @@ function ObjShatteredRingMain()
 	// Update position
 	x = floor(PosX);
 	y = floor(PosY);
-	
-	// Check if it is time for ring to disappear
-	if !(--Timer)
-	{
-		instance_destroy();
-	}
-	else
-	{		
-		// Check for hitbox collision
-		if PickupTimeout
-		{
-			PickupTimeout--;
-		}
-		else if object_check_overlap(TypeHitbox)
-		{
-			// Add 1 to ring counter
-			Player.Rings++;
-		
-			// Play sound
-			audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
-	
-			// Create sparkle object in place of ring
-			instance_create(x, y, RingSparkle);	
-			instance_destroy();
-		}
-	}
 }

@@ -24,12 +24,16 @@ function InputHotkeysProcess()
 		room_restart();
 	}
 	
-	// Debug overlay (F5 -> F10)
+	// Debug overlay (F4 -> F10)
 	if instance_exists(Interface)
 	{
-		if keyboard_check_pressed(vk_f5)
+		if keyboard_check_pressed(vk_f4)
 		{
 			Interface.DebugPositions = !Interface.DebugPositions;
+		}
+		else if keyboard_check_pressed(vk_f5)
+		{
+			Interface.DebugSensors = !Interface.DebugSensors;
 		}
 		else if keyboard_check_pressed(vk_f6)
 		{

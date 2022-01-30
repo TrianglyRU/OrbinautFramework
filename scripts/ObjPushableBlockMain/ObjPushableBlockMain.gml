@@ -13,27 +13,30 @@ function ObjPushableBlockMain()
 		case 0:
 		{
 			// Check for being pushed
-			if object_check_push(SideLeft)
+			if object_check_touch(TypeSolidP)
 			{
-				Player.Inertia = 0.25;
-				Player.PosX   += 1;
+				if floor(Player.PosX) < x
+				{
+					Player.Inertia = 0.25;
+					Player.PosX   += 1;
 				
-				PosX	 += 1;
-				Direction = FlipRight;
-			}
-			else if object_check_push(SideRight)
-			{
-				Player.Inertia = -0.25;
-				Player.PosX   -= 1;
+					PosX	 += 1;
+					Direction = FlipRight;
+				}
+				if floor(Player.PosX) > x
+				{
+					Player.Inertia = -0.25;
+					Player.PosX   -= 1;
 				
-				PosX	 -= 1;
-				Direction = FlipLeft;
+					PosX	 -= 1;
+					Direction = FlipLeft;
+				}
 			}
 			
 			// Exit the code if not pushing
 			else
 			{
-				return;
+				break;
 			}
 			
 			// Play sound
@@ -48,12 +51,14 @@ function ObjPushableBlockMain()
 			{
 				if Direction == FlipRight
 				{
-					PosX--;
+					PosX	    -= 1;
+					Player.PosX -= 1;
 				}
-				State	 += 1;
 				ClipTimer = 4;
+				State	 += 1;
 				
-				// Clear player push flag
+				Player.Xsp	   = 0;
+				Player.Inertia = 0;
 				Player.Pushing = false;
 			}
 			else

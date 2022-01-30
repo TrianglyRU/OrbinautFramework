@@ -24,15 +24,6 @@ function PlayerDebugModeDisplay()
 			case SpikesHorizontal:	    
 				sprite_index = spr_obj_spikeshorizontal;  
 			break;
-			case SpringYellowVertical:   
-				sprite_index = spr_obj_spring_yellow_v; 
-			break;
-			case SpringYellowHorizontal:
-				sprite_index = spr_obj_spring_yellow_h; 
-			break;
-			case SpringYellowDiagonal:   
-				sprite_index = spr_obj_spring_yellow_d; 
-			break;
 			case SpringRedVertical:      
 				sprite_index = spr_obj_spring_red_v;	  
 			break;
@@ -41,48 +32,6 @@ function PlayerDebugModeDisplay()
 			break;
 			case SpringRedDiagonal:      
 				sprite_index = spr_obj_spring_red_d;
-			break;
-			case StarPost:				 
-				sprite_index = spr_obj_starpost;		  
-			break;
-			case Bridge:
-				sprite_index = spr_obj_bridge_editor;
-			break;
-			case FloatingPlatform:
-				sprite_index = spr_obj_floatingplatform_editor;
-			break;
-			case CollapsingPlatform:
-				sprite_index = spr_obj_collapsingplatform_editor;
-			break;
-			case SwingingPlatform:
-				sprite_index = spr_obj_swingplatform_editor;
-			break;
-			case Buzzbomber:
-				sprite_index = spr_obj_buzzbomber_idle;
-			break;
-			case Motobug:
-				sprite_index = spr_obj_motobug;
-			break;
-			case Crabmeat:
-				sprite_index = spr_obj_crabmeat_move;
-			break;
-			case Orbinaut:
-				sprite_index = spr_obj_orbinaut;
-			break;
-			case PushableBlock:
-				sprite_index = spr_obj_pushableblock;
-			break;
-			case Bumper:
-				sprite_index = spr_obj_bumper;
-			break;
-			case Animal:				 
-				sprite_index = spr_obj_animal_flicky;   
-			break;	
-			case ClearPanel:				 
-				sprite_index = spr_obj_clearpanel_start_st;   
-			break;
-			case EggPrison:				 
-				sprite_index = spr_obj_eggprison;   
 			break;
 		}
 		

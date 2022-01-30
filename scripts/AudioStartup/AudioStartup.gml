@@ -3,10 +3,10 @@ function AudioStartup()
 	/* Value Table Reference
 	------------------------
 	[0] - Event
-	[1] - Track ID
+	[1] - Track ID - Not asset ID!
 	[2] - Event Time
 	[3] - Loop Data (Primary) / 2nd Channel (Secondary)
-	[4] - 2nd Channel
+	[4] - 2nd Channel ID - Not asset ID!
 	------------------------
 	*/
 	

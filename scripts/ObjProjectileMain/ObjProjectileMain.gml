@@ -9,7 +9,7 @@ function ObjProjectileMain()
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if object_check_overlap(TypeHitbox)
+	if object_check_touch(TypeHitbox)
 	{
 		// Check if projectile should be reflected
 		if Player.FlightState			 and floor(Player.PosY) > y

@@ -1,9 +1,8 @@
 function CameraFollowProcess() 
 {	
-	// Check if we should exit
 	if !Enabled or !instance_exists(Target)
 	{
-		exit;
+		return;
 	}
 	
 	// Get target's position relative to camera

@@ -1,5 +1,8 @@
 function ObjOrbinautMain()
 {
+	// Act as enemy
+	object_act_enemy(TypeBadnik);
+	
 	// Move Orbinaut
 	PosX += image_xscale / 4;
 	x     = floor(PosX);
@@ -18,7 +21,4 @@ function ObjOrbinautMain()
 			y = ThisObject.y + 16 * dcos(NewAngle);
 		}
 	}
-	
-	// Act as enemy
-	object_act_enemy(TypeBadnik);
 }

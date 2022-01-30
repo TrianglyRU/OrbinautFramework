@@ -27,7 +27,7 @@ function ObjSpecialRingMain()
 		case 1:
 		{
 			// Check for overlap
-			if object_check_overlap(TypeHitbox)
+			if object_check_touch(TypeHitbox)
 			{	
 				// Play sound
 				audio_sfx_play(sfxSpecialRing, false);

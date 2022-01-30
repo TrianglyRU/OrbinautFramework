@@ -1,9 +1,8 @@
 function PlayerJumpStart()
 {	
-	// Exit if no action button is pressed or special ability is active
 	if !Input.ABCPress or SpindashRev != -1 or PeeloutRev != -1
 	{
-		exit;
+		return;
 	}
 
 	// Check if there is a room between player's head and ceiling (there is no check when on the ceiling)
@@ -13,7 +12,7 @@ function PlayerJumpStart()
 		{
 			if tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer)[0] < 6
 			{
-				exit;
+				return;
 			}
 		}
 		break;
@@ -21,7 +20,7 @@ function PlayerJumpStart()
 		{
 			if tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, true, noone, Layer)[0] < 6
 			{
-				exit;
+				return;
 			}
 		}
 		break;
@@ -29,7 +28,7 @@ function PlayerJumpStart()
 		{
 			if tile_find_2h(PosX + RadiusY, PosY - RadiusX, PosX + RadiusY, PosY + RadiusX, true, true, noone, Layer)[0] < 6
 			{
-				exit;
+				return;
 			}
 		}
 		break;

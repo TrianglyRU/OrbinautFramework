@@ -22,7 +22,7 @@ function ObjStarPostPortalMain()
 		}
 		else if Timer > 60
 		{
-			if !State and object_check_overlap(TypeHitbox)
+			if !State and object_check_touch(TypeHitbox)
 			{
 				State++;
 				fade_perform(ModeInto, BlendBlack, 1);	

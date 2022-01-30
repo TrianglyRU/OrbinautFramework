@@ -1,6 +1,6 @@
 function StageBoundariesProcess()
 {	
-	if Player.Death or Player.Drown or fade_check(StateActive)
+	if !Stage.UpdateObjects
 	{
 		return;
 	}

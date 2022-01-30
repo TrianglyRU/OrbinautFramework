@@ -5,18 +5,16 @@ function GameCollisionsLoad()
 	Game.TileWidths  = [];
 	Game.TileHeights = [];
 	
-	// Exit if we do not need to load any tiledata
 	if !array_length(Game.TileData)
 	{
-		exit;
+		return;
 	}
-	
-	// Get filenames
+
 	var AngleMap  = "anglemap"  + Game.TileData[0] + ".bin";
 	var HeightMap = "heightmap" + Game.TileData[0] + ".bin";
 	var WidthMap  = "widthmap"  + Game.TileData[0] + ".bin";
 	
-	// Load 3 data files
+	// Load data files
 	for (var k = 0; k < 3; k++)
 	{
 		switch k

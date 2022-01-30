@@ -10,9 +10,9 @@ function instance_initialise()
 	}
 	if !variable_instance_exists(id, "Obj_SolidX")
 	{
-		Obj_SolidX      = 0;
-		Obj_SolidY      = 0;
-		Obj_SolidMap    = false;
+		Obj_SolidX		= 0;
+		Obj_SolidY		= 0;
+		Obj_SolidMap	= false;
 		Obj_SolidTouchU = false;
 		Obj_SolidTouchD = false;
 		Obj_SolidTouchL = false;

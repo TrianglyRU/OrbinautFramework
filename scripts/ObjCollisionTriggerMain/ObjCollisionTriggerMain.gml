@@ -7,7 +7,7 @@ function ObjCollisionTriggerMain()
 	}
 	
 	// Change layer if we passed through the object
-	if !object_check_overlap(TypeTrigger)
+	if !object_check_touch(TypeTrigger)
 	{
 		if State
 		{

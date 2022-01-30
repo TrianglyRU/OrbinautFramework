@@ -3,6 +3,20 @@ function ObjRingMain()
 	// Play animation (sync for all rings)
 	animation_play_sync(sprite_index, 8);
 	
+	// Check for hitbox collision
+	if !Player.Hurt and Player.InvincibilityFrames < 90 and object_check_touch(TypeHitbox)
+	{	
+		// Add 1 to ring counter
+		Player.Rings++;
+		
+		// Play sound
+		audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
+	
+		// Create sparkle object in place of the ring
+		instance_create(x, y, RingSparkle);	
+		instance_destroy();	
+	}
+	
 	switch State
 	{
 		// Check for being magnetised
@@ -62,19 +76,5 @@ function ObjRingMain()
 			}
 		}
 		break;
-	}
-	
-	// Check for hitbox collision
-	if !Player.Hurt and Player.InvincibilityFrames < 90 and object_check_overlap(TypeHitbox)
-	{	
-		// Add 1 to ring counter
-		Player.Rings++;
-		
-		// Play sound
-		audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
-	
-		// Create sparkle object in place of the ring
-		instance_create(x, y, RingSparkle);	
-		instance_destroy();	
 	}
 }

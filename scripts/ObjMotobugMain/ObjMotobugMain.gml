@@ -1,5 +1,8 @@
 function ObjMotobugMain()
 {
+	// Act as badnik
+	object_act_enemy(TypeBadnik);
+	
 	switch State
 	{
 		// Spawn
@@ -81,7 +84,4 @@ function ObjMotobugMain()
 	// Update position
 	x = floor(PosX);
 	y = floor(PosY);
-	
-	// Act as badnik
-	object_act_enemy(TypeBadnik);
 }

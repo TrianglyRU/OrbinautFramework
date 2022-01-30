@@ -1,11 +1,9 @@
 function PlayerKnuxGlide()
 {
-	// Exit if not in glide state
 	if !GlideState
 	{
-		exit;
+		return;
 	}
-	
 	switch GlideState
 	{
 		case GlideAir:
@@ -70,7 +68,7 @@ function PlayerKnuxGlide()
 					}
 				}
 		
-				// Set facing direction
+				// Set direction
 				Facing = GlideValue > 90 ? FlipRight : FlipLeft;
 		
 				// Define animation frame
@@ -100,11 +98,9 @@ function PlayerKnuxGlide()
 			}
 			else
 			{
-				// Reset collision radiuses
-				RadiusX	= DefaultRadiusX;
-				RadiusY	= DefaultRadiusY;
-			
 				// Enter fall state
+				RadiusX	   = DefaultRadiusX;
+				RadiusY	   = DefaultRadiusY;
 				GlideState = GlideFall;
 				Animation  = AnimGlideFall;
 		
@@ -141,11 +137,11 @@ function PlayerKnuxGlide()
 				{
 					Xsp	= 0;
 				}
+				
 				Animation  = AnimGlideStand;
 				Grounded   = true;
 				GroundLock = 16;
 			
-				// Reset collision radiuses
 				PosY   -= DefaultRadiusY - RadiusY;
 				RadiusX = DefaultRadiusX;
 				RadiusY = DefaultRadiusY;
@@ -169,21 +165,20 @@ function PlayerKnuxGlide()
 	{
 		if !(Xsp > 0)
 		{
-			// Clip out
 			PosX -= FindWall[0];
 			Xsp   = 0;
 		
 			// Attach to it
-			if GlideState == GlideAir and FindWall[1] mod 90 == 0
+			if GlideState == GlideAir and Facing == FlipLeft and FindWall[1] mod 90 == 0
 			{
+				Ysp		   = 0;
+				ClimbValue = 0;
 				GlideState = false;
 				ClimbState = ClimbWall;
-				ClimbValue = 0;
-				Ysp		   = 0;
 				Animation  = AnimClimb;
 
-				// Play sound
-				audio_sfx_play(sfxGrab, false); exit;
+				audio_sfx_play(sfxGrab, false); 
+				return;
 			}
 		}	
 	}
@@ -194,26 +189,25 @@ function PlayerKnuxGlide()
 	{
 		if !(Xsp < 0)
 		{
-			// Clip out
 			PosX += FindWall[0];
 			Xsp   = 0;
 		
 			// Attach to it
-			if GlideState == GlideAir and FindWall[1] mod 90 == 0
+			if GlideState == GlideAir and Facing == FlipRight and FindWall[1] mod 90 == 0
 			{
+				Ysp		   = 0;
+				ClimbValue = 0;
 				GlideState = false;
 				ClimbState = ClimbWall;
-				ClimbValue = 0;
-				Ysp		   = 0;
 				Animation  = AnimClimb;
 			
-				// Play sound
-				audio_sfx_play(sfxGrab, false); exit;
+				audio_sfx_play(sfxGrab, false); 
+				return;
 			}	
 		}
 	}
 	
-	// Collide with ceiling if not falling down
+	// Collide with ceiling
 	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
 	if  FindRoof[0] < 0
 	{	
@@ -224,14 +218,13 @@ function PlayerKnuxGlide()
 		}
 	}
 	
-	// Collid with floor if moving down
+	// Collide with floor
 	else if Ysp >= 0
 	{
-		// Get tile below us
-		var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
-		
-		// Update angle
-		Angle = FindFloor[1];
+		var X1 = PosX - RadiusX;
+		var X2 = PosX + RadiusX;
+		var Y1 = PosY + RadiusY;
+		var FindFloor = tile_find_2v(X1, Y1, X2, Y1, true, false, noone, Layer);
 		
 		// Are we airborne?
 		if GlideState != GlideGround 
@@ -241,11 +234,11 @@ function PlayerKnuxGlide()
 				PosY    += FindFloor[0];
 				Grounded = true;
 			}
-			else if FindFloor[0] < 0
+			else if FindFloor[0] < 0 and FindFloor[0] >= -14
 			{
-				// If floor is shallow enough, change state
-				if Angle <= 45 or Angle >= 316.41
+				if FindFloor[1] <= 45 or FindFloor[1] >= 316.41
 				{
+					// If floor is shallow enough, change state
 					if GlideState == GlideAir
 					{
 						GlideState = GlideGround;
@@ -254,29 +247,28 @@ function PlayerKnuxGlide()
 						Grv		   = 0;
 						Ysp		   = 0;
 					
-						// Create dust object
 						instance_create(PosX, PosY + RadiusY + FindFloor[0], DustPuff);
 					}
 					else if GlideState == GlideFall
 					{
+						Angle      = FindFloor[1];
 						Grounded   = true;
 						Xsp		   = 0;
+						Ysp		   = 0;
 						GroundLock = 16;
 						Animation  = AnimDropStand;
 						
-						// Play sound
 						audio_sfx_play(sfxLand, false);
 					}
 				}
-			
-				// Else just land
 				else
 				{
-					Grounded = true;
-					Inertia  = -Xsp;
+					Angle	 =  FindFloor[1];
+					Inertia	 = -Xsp;	
+					Grounded =  true;	
 				}
-			
-				// Clip to the surface
+				
+				// Adhere to the surface
 				PosY += FindFloor[0];
 			}
 		}
@@ -284,15 +276,12 @@ function PlayerKnuxGlide()
 		// Are we sliding?
 		else 
 		{
-			// If no ground found, fall
 			if FindFloor[0] > 14
 			{
 				GlideState = GlideFall;
 				Animation  = AnimGlideFall;
-			
-				// Reset collision radiuses
-				RadiusX	= DefaultRadiusX;
-				RadiusY	= DefaultRadiusY;
+				RadiusX    = DefaultRadiusX;
+				RadiusY	   = DefaultRadiusY;
 					
 				// Reset gravity
 				if !IsUnderwater
@@ -305,10 +294,9 @@ function PlayerKnuxGlide()
 					Grv = 0.0625
 				}
 			}
-			
-			// Else clip to the surface
 			else
 			{
+				// Adhere to the surface
 				PosY += FindFloor[0];
 			}
 		}

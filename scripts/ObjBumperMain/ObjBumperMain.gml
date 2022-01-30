@@ -1,7 +1,7 @@
 function ObjBumperMain()
 {
 	// Bounce on collision
-	if object_check_overlap(TypeHitbox)
+	if object_check_touch(TypeHitbox)
 	{
 		if !State
 		{

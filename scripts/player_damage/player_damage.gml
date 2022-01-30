@@ -68,7 +68,7 @@ function player_damage(isFlame,isThunder,instantKill)
 				var Angle     = 168.75;
 				var Speed     = 4;
 			
-				for (var i = 0; i < min(Rings, 32); i++) 
+				for (var i = 0; i < min(Rings, 10); i++) 
 				{
 					// Spawn ring
 					var NewObject = instance_create(PosX, PosY, ShatteredRing);
@@ -90,7 +90,7 @@ function player_damage(isFlame,isThunder,instantKill)
 					Direction *= -1
 				}
 			
-				Rings		   = 0;
+				Rings		    = 0;
 				LivesRewards[0] = 100;
 			}
 			

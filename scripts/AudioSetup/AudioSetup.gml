@@ -11,7 +11,7 @@ function AudioSetup()
 	audio_bgm_setloop(HighSpeed,		 1.4,   27.37);
 	audio_bgm_setloop(Invincibility,     1.13,  12.10);
 	
-	/* The game will refer to data stored here to add play an additional channel. 
+	/* The game will refer to data stored here to play an additional channel. 
 	If no data set here for the track, nothing will happen. You are not forced to do this */
 	
 	audio_bgm_add_channel(TestStage,     TestStage_DAC);

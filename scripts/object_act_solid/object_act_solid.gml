@@ -5,11 +5,11 @@ function object_act_solid(sides,top,bottom,resetActions)
 	however, it was tweaked in several places to make collision much more consistent */
 	
 	// Clear flags
+	Obj_SolidPush   = false;
 	Obj_SolidTouchU	= false;
 	Obj_SolidTouchD	= false;
 	Obj_SolidTouchL	= false;
 	Obj_SolidTouchR	= false;
-	Obj_SolidPush   = false;
 	
 	// Exit if can't be collided
 	if !Player.AllowCollision
@@ -171,32 +171,24 @@ function object_act_solid(sides,top,bottom,resetActions)
 		// Collide horizontally
 		else if sides and abs(YDistance) > 4
 		{	
-			// Tell the object it is being pushed
+			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
+			{
+				Player.Inertia = 0;
+				Player.Xsp	   = 0;					
+				Player.Pushing = true;
+				Obj_SolidPush  = true;
+			}
+			Player.PosX -= XDistance;
+			
+			// Tell the object it is being touched
 			if PlayerX < ObjectX
 			{
-				if Player.Xsp > 0 and Player.Facing == FlipRight
-				{
-					Player.Pushing = true;
-				}
 				Obj_SolidTouchL = true;
 			}
 			else
 			{
-				if Player.Xsp < 0 and Player.Facing == FlipLeft
-				{
-					Player.Pushing = true;
-				}
 				Obj_SolidTouchR = true;
-			}
-			
-			// Push player outside of the object
-			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
-			{
-				Player.Inertia = 0;
-				Player.Xsp	   = 0;
-				Obj_SolidPush  = true;
-			}
-			Player.PosX -= XDistance;
+			}	
 		}
 	}
 }

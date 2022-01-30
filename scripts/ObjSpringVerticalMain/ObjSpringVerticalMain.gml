@@ -4,7 +4,7 @@ function ObjSpringVerticalMain()
 	object_act_solid(true, true, true, true);
 		
 	// Is player touching the launch side?
-	if object_check_touch(image_yscale ? SideTop : SideBottom)
+	if object_check_touch(image_yscale ? TypeSolidU : TypeSolidD)
 	{	
 		// Launch player
 		Player.Ysp = -LaunchForce * image_yscale;
