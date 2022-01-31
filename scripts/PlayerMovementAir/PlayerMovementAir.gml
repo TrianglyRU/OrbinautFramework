@@ -10,19 +10,17 @@ function PlayerMovementAir()
 		Angle = min(Angle + 2.8125, 360);
 	}
 	
-	// Limit negative vertical speed if not jumping
+	// Limit vertical speed if not jumping
 	if Ysp < -15.75 and !Jumping
 	{
 		Ysp = -15.75;
 	}
 	
-	// Exit if gliding or climbing
 	if GlideState > GlideFall or ClimbState
 	{
-		exit;
+		return;
 	}
 	
-	// Handle air movement
 	if !AirLock
 	{
 		if Input.Left

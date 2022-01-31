@@ -6,7 +6,6 @@ function PlayerDebugModeDisplay()
 	}
 	else
 	{
-		// Switch between objects
 		switch DebugList[DebugItem]
 		{
 			case Ring:
@@ -35,7 +34,6 @@ function PlayerDebugModeDisplay()
 			break;
 		}
 		
-		// Update player
 		x			 = floor(PosX);
 		y			 = floor(PosY);
 		image_index  = 0;

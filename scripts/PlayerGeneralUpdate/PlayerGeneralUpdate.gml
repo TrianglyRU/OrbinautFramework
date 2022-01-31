@@ -1,12 +1,12 @@
 function PlayerGeneralUpdate()
 {
-	// Handle I-frames timer
+	// Handle inv-frames timer
 	if InvincibilityFrames and !Hurt
 	{
 		InvincibilityFrames--;
 	}
 	
-	// Handle double spin attack
+	// Handle double spin attack timer
 	if DoubleSpinAttack > SpinReady
 	{
 		if (++DoubleSpinAttack) > 14
@@ -15,27 +15,7 @@ function PlayerGeneralUpdate()
 		}
 	}
 	
-	// Grant extra life for collecting 100 or 200 rings
-	if Rings >= LivesRewards[0] and LivesRewards[0] <= 200
-	{
-		Lives			+= 1;
-		LivesRewards[0] += 100;
-							
-		// Play jungle
-		audio_bgm_play(TypeSecondary, ExtraLife);
-	}
-	
-	// Grant extra life for exceeding 50000 points
-	if Score >= LivesRewards[1]
-	{
-		Lives		    += 1;
-		LivesRewards[1] += 50000;
-		
-		// Play jingle
-		audio_bgm_play(TypeSecondary, ExtraLife);
-	}
-	
-	// Handle highspeed bonus
+	// Handle highspeed bonus timer
 	if HighspeedBonus
 	{	
 		if !(--HighspeedBonus)
@@ -47,7 +27,7 @@ function PlayerGeneralUpdate()
 		}	
 	}
 	
-	// Handle invincibility bonus
+	// Handle invincibility bonus timer
 	if InvincibleBonus 
 	{
 		// Create star particles
@@ -66,5 +46,23 @@ function PlayerGeneralUpdate()
 				audio_bgm_play(TypePrimary, Stage.StageMusic);
 			}
 		}
+	}
+	
+	// Grant extra life for collecting 100 or 200 rings
+	if Rings >= LivesRewards[0] and LivesRewards[0] <= 200
+	{
+		Lives			+= 1;
+		LivesRewards[0] += 100;
+							
+		audio_bgm_play(TypeSecondary, ExtraLife);
+	}
+	
+	// Grant extra life for exceeding 50000 points
+	if Score >= LivesRewards[1]
+	{
+		Lives		    += 1;
+		LivesRewards[1] += 50000;
+		
+		audio_bgm_play(TypeSecondary, ExtraLife);
 	}
 }

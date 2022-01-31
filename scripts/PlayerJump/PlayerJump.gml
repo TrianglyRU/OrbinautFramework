@@ -1,14 +1,13 @@
 function PlayerJump()
 {
-	// If not jumping, exit
 	if !Jumping
 	{
-		exit;
+		return;
 	}
 	
-	// If action button is not held, shorten jump force
 	if !Input.ABC
 	{
+		// Shorten jump force
 		if Ysp < JumpMin
 		{
 			Ysp = JumpMin;
@@ -30,10 +29,12 @@ function PlayerJump()
 		}
 	}
 	
-	// Do not perform anything if action buttons weren't released yet
+	/* Everything below are special mid-jump actions */
+	
+	// Do not perform anything if action button hasn't been released just yet
 	if Ysp < JumpMin or !Input.ABCPress
 	{
-		exit;
+		return;
 	}
 	
 	// Transform into super form
@@ -44,27 +45,22 @@ function PlayerJump()
 		or Game.Character != CharSonic
 		{
 			// Set animation
-			Animation = AnimTransform;
-		
-			// Set flags
+			Animation		    = AnimTransform;
 			InvincibilityFrames = 0;
-			Jumping		    = false;
-			Spinning	    = false;
-			InvincibleBonus = false;
-			SuperStateValue = false;
-			SuperState      = true;
-			AirLock			= true;
+			Jumping				= false;
+			Spinning			= false;
+			InvincibleBonus		= false;
+			SuperStateValue		= false;
+			SuperState			= true;
+			AirLock				= true;
 			
-			// Reset collision radiuses
 			RadiusX = DefaultRadiusX;
 			RadiusY = DefaultRadiusY;
 		
-			// Play sound and music
 			audio_sfx_play(sfxTransform, false);		
 			audio_bgm_play(TypePrimary, SuperTheme);
-				
-			// Exit the code
-			exit;
+			
+			return;
 		}
 	}
 
@@ -75,24 +71,21 @@ function PlayerJump()
 		{	
 			if BarrierType <= BarrierNormal
 			{	
-				// Perform double spin attack if enabled
+				// Perform double spin attack
 				if !BarrierType
 				{
 					if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != SpinReady)
 					{
-						// Set flag
 						DoubleSpinAttack = SpinActive;
-					
-						// Create object and play sound
+						
 						instance_create(PosX, PosY, DoubleSpinShield);
 						audio_sfx_play(sfxDoubleSpinAttack, false);
 					}
 				}
 				
-				// Perform dropdash if enabled
+				// Perform dropdash
 				if Game.DropdashEnabled and DropdashFlag == DashReady
 				{
-					// Set flags
 					AirLock      = false;
 					DropdashFlag = DashActive;
 				}
@@ -105,32 +98,30 @@ function PlayerJump()
 				{
 					case BarrierFlame:
 					{
-						// Freeze the screen for 16 frames
 						if !Game.CDCamera
 						{
 							Camera.ScrollDelay = 16;
 						}
-							
-						// Set barrier animation
+						
+						AirLock = true;
+						Xsp		= 8 * Facing;
+						Ysp		= 0;
+												
+						// Update barrier animation
 						with Barrier
 						{
 							object_set_depth(Player, 1);
 							animation_play(spr_obj_barrier_flame_dash, 2, 0);
 						}
 						
-						// Set speeds
-						Xsp = 8 * Facing;
-						Ysp = 0;
-							
-						// Lock control
-						AirLock = true;
-						
-						// Play sound
 						audio_sfx_play(sfxFlameBarrierDash, false);
 					}
 					break;
 					case BarrierThunder:
-					{
+					{	
+						AirLock = false;
+						Ysp		= -5.5;
+						
 						// Create sparkles
 						for (var i = 0; i < 4; i++)
 						{
@@ -140,33 +131,22 @@ function PlayerJump()
 								SparkleID = i;
 							}
 						}
-							
-						// Restore control
-						AirLock = false;
 						
-						// Set vertical speed
-						Ysp = -5.5;
-						
-						// Play sound
 						audio_sfx_play(sfxThunderBarrierJump, false);
 					}
 					break;
 					case BarrierWater:
 					{						
-						// Set barrier animation
+						AirLock = false;
+						Xsp		= 0;
+						Ysp		= 8;
+						
+						// Update barrier animation
 						with Barrier
 						{
 							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0);
 						}
-							
-						// Restore control
-						AirLock = false;
-						
-						// Set speeds
-						Xsp = 0;
-						Ysp = 8;
-							
-						// Play sound
+
 						audio_sfx_play(sfxWaterBarrierBounce, false);
 					}
 					break;

@@ -17,7 +17,7 @@ function GameSetup()
 	Game.GroundSpeedcap	    = false;
 	Game.AirSpeedcap	    = false;
 	Game.RolljumpControl    = false;
-	Game.S1FloorCollision	= true;
+	Game.S1FloorCollision	= false;
 	Game.S3SlopePhysics		= false;
 	Game.S3WaterPhysics		= false;
 	Game.S3DeathRestart     = false;
@@ -32,6 +32,7 @@ function GameSetup()
 	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = true;
 	Game.BetterPlayerTileGrip = false;
+	Game.PreciseRollJump	  = false;
 	Game.PreciseRingBehaviour = false;
 	Game.NoRollSpeedLimit	  = true;
 	Game.FlightCancel	      = false;

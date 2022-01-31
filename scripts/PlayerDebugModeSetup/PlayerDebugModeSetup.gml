@@ -1,9 +1,8 @@
 function PlayerDebugModeSetup()
 {
-	// Exit the code if dev mode is disabled
 	if !Game.DevMode
 	{
-		exit;
+		return;
 	}
 
 	// Define debug objects list

@@ -1,44 +1,39 @@
 function PlayerBalance()
 {
-	// Exit moving or getting up
 	if Inertia != 0 or Animation == AnimDropStand or Animation == AnimGlideStand
 	{
-		exit;
+		return;
 	}
 	
 	// Balance on floor
 	if !OnObject
 	{
-		// Exit if holding down when S&K crouching is enabled
 		if Game.SKCrouch and Input.Down
 		{
-			exit;
+			return;
 		}
-		
-		// Exit if angle is too steep
 		if Angle >= 46.41 and Angle <= 313.59
 		{
-			exit;
+			return;
 		}
 		
 		// Check for floor
 		var FindFloor = tile_find_v(PosX, PosY + RadiusY, true, false, Layer)[0];	
 		if  FindFloor < 12
 		{
-			exit;
+			return;
 		}
 		
-		// Get floor angles
+		// Get floor angles and continue if only one exists
 		var FindAngle1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer)[1];
 		var FindAngle2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer)[1];
 		
-		// Continue if only one angle exists
 		if !(FindAngle1 or FindAngle2)
 		{
-			exit;
+			return;
 		}
 	
-		// Standing on the left edge
+		// Balance on the left side
 		if !FindAngle1
 		{	
 			if !SuperState and Game.Character == CharSonic
@@ -80,7 +75,7 @@ function PlayerBalance()
 			}
 		}
 		
-		// Standing on the right edge
+		// Balance on the right side
 		else if !FindAngle2
 		{
 			if !SuperState and Game.Character == CharSonic
@@ -123,23 +118,23 @@ function PlayerBalance()
 		}
 	}
 	
-	// Balance on object
+	// Balance on the object
 	else
 	{
-		/* In orginals, the widest balance range varies from object to object (2 to 4). We'll
-		use a range of 2 pixels */
+		/* In orginals, the widest balance range varies from 
+		object to object (2 to 4). We'll use a range of 2 pixels */
 		
 		// Ignore specific objects
 		if OnObject.object_index == Bridge
 		{
-			exit;
+			return;
 		}
 		
 		// Get balance range
 		var PlayerX   = OnObject.Obj_SolidX - OnObject.x + floor(PosX);
 		var RightEdge = OnObject.Obj_SolidX * 2 - 1;
 		
-		// Standing on the left edge
+		// Balance on the left side
 		if PlayerX < 2
 		{
 			if !SuperState and Game.Character == CharSonic
@@ -180,7 +175,7 @@ function PlayerBalance()
 			}
 		}
 		
-		// Standing on the right edge
+		// Balance on the right side
 		else if PlayerX > RightEdge - 2
 		{
 			if !SuperState and Game.Character == CharSonic

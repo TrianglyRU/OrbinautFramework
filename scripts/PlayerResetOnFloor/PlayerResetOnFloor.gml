@@ -1,36 +1,35 @@
 function PlayerResetOnFloor()
 {	
-	// Grounded flag set when airborne means we've landed
+	// Wait until grounded flag is set. That means player has landed
 	if !Grounded
 	{
-		exit;
+		return;
 	}
 	
 	// Is water barrier active?
 	if BarrierIsActive and BarrierType == BarrierWater 
 	{
-		// Set speeds
 		var Force = IsUnderwater ? -4 : -7.5;
-		Ysp = Force * dcos(Angle);
-		Xsp = Force * dsin(Angle);
+		Ysp		  = Force * dcos(Angle);
+		Xsp       = Force * dsin(Angle);
 		
-		// Reset flags
 		BarrierIsActive = false;
 		Grounded        = false;
 		OnObject	    = false;
 
-		// Set barrier animation
+		// Update barrier animation
 		with Barrier
 		{
 			animation_play(spr_obj_barrier_water_bounce, [7, 13, 0], 0);
 		}
 		
-		// Play sound
 		audio_sfx_play(sfxWaterBarrierBounce, false);
 	}
 	else
 	{
-		// Set animation if landed on solid ground (do not interupt Knuckles' land animations)
+		var SpinFlag = Spinning;
+		
+		// Update player animation
 		if !OnObject and Animation != AnimIdle
 		{
 			if Animation != AnimDropStand and Animation != AnimGlideStand
@@ -39,13 +38,20 @@ function PlayerResetOnFloor()
 			}
 		}
 		
-		// Clear spinning flag
+		// Reset flags
 		if !(OnObject and Ysp == 0)
 		{
 			Spinning = false;
 		}
-	
-		// Reset flags
+		if OnObject
+		{
+			Ysp = 0;
+		}
+		if Hurt
+		{
+			Hurt	= false;	
+			Inertia = 0;
+		}
 		Jumping			 = false;
 		AirLock			 = false;
 		Pushing			 = false;
@@ -56,24 +62,22 @@ function PlayerResetOnFloor()
 		BarrierIsActive  = false;
 		DropdashFlag	 = DashLocked;
 		DoubleSpinAttack = SpinReady;
-	
-		// Stop sounds
+		
+		// We shouldn't reset spin flag if we've rolled onto the bridge
+		if OnObject and OnObject.object_index == Bridge
+		{
+			Spinning = SpinFlag;
+		}
+		
 		audio_sfx_stop(sfxFlying);
 		audio_sfx_stop(sfxTired);
 	
-		// Instantly set target visual angle if floor is steep enough
+		// Update visual angle if floor is steep enough
 		if Game.SmoothRotation and Angle > 33.75 and Angle < 326.25
 		{
 			VisualAngle = Angle;
 		}
 		
-		// Clear hurt state
-		if Hurt
-		{
-			Hurt	= false;	
-			Inertia = 0;
-		}
-	
 		// Reset gravity
 		if !IsUnderwater
 		{
@@ -85,18 +89,15 @@ function PlayerResetOnFloor()
 			Grv = 0.0625
 		}
 		
-		// Release dropdash if charged, else reset
+		// Release/reset dropdash
 		if DropdashRev == 20
 		{	
-			// Update collision radiuses
 			if RadiusY != SmallRadiusY
 			{
 				PosY   -= SmallRadiusY - RadiusY;
 				RadiusX = SmallRadiusX;
 				RadiusY = SmallRadiusY;
 			}
-			
-			// Get dropdash force
 			if SuperState
 			{
 				var DropForce = 12;
@@ -108,7 +109,7 @@ function PlayerResetOnFloor()
 				var MaxForce  = 12;
 			}
 		
-			// Set dropspeed
+			// Define dropspeed
 			if DropdashSide == FlipRight
 			{
 				var Dropspeed = Inertia / 4 + DropForce * Facing;
@@ -126,42 +127,32 @@ function PlayerResetOnFloor()
 			}
 			Dropspeed = clamp(Dropspeed, -MaxForce, MaxForce);
 			
-			// Apply dropspeed to inertia
-			Inertia	    = Dropspeed;
-			DropdashRev = -1;
-			Spinning    = true;
-			Animation   = AnimSpin;
-			
-			// Freeze the screen for 16 frames
+			// Shake and/or delay camera
 			if !Game.CDCamera
 			{
 				Camera.ScrollDelay = 16;
 			}
-			
-			// Play sound
-			audio_sfx_stop(sfxDropDash);
-			audio_sfx_play(sfxRelease, false);
-			
-			// Shake camera for 30 frames if Super Sonic
 			if SuperState
 			{
 				Camera.ShakeTime = 30;
 			}
 			
-			// Create dust effect
+			// Apply dropspeed
+			Inertia	    = Dropspeed;
+			DropdashRev = -1;
+			Spinning    = true;
+			Animation   = AnimSpin;
+			
+			audio_sfx_stop(sfxDropDash);
+			audio_sfx_play(sfxRelease, false);
+			
 			instance_create(PosX, PosY + RadiusY, DropdashDust);
 		}
 		else
 		{
 			DropdashRev = -1;
 		}
-		
-		// Reset vertical speed if landed on the object
-		if OnObject
-		{
-			Ysp = 0;
-		}
-		
+	
 		// Reset collision radiuses if not rolling
 		if !Spinning
 		{

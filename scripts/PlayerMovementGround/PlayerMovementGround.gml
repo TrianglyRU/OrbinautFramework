@@ -1,24 +1,19 @@
 function PlayerMovementGround()
 {	
-	// Initialise static variable
 	static SkidTime = 0;
 	
-	// Exit if charging a spindash or peelout
 	if SpindashRev != -1 or PeeloutRev != -1
 	{
-		exit;
+		return;
 	}
 	
-	// Perform movement
 	if !GroundLock 
 	{
-		// Move left
 		if Input.Left
 		{	
 			// Decelerate
 			if Inertia > 0 
 			{
-				// Decelerate
 				Inertia -= Dec;
 				if Inertia <= 0
 				{
@@ -40,8 +35,6 @@ function PlayerMovementGround()
 				} 
 			}
 		}
-		
-		// Move right
 		else if Input.Right
 		{			
 			// Decelerate
@@ -84,10 +77,7 @@ function PlayerMovementGround()
 				}
 				Animation = AnimSkid;
 						
-				// Play sound
 				audio_sfx_play(sfxSkid, false);
-						
-				// Create dust object
 				instance_create(PosX, PosY + RadiusY, DustPuff);
 			}
 		}
@@ -104,8 +94,6 @@ function PlayerMovementGround()
 		{
 			Inertia = min(Inertia + Frc, 0);
 		}
-		
-		// Clear push flag
 		Pushing = false;
 	}
 
@@ -113,7 +101,7 @@ function PlayerMovementGround()
 	Xsp = Inertia *  dcos(Angle);
 	Ysp = Inertia * -dsin(Angle);
 	
-	// Define which animations should be priority over Idle animation
+	// Define which animations should be in priority over the idle animation
 	switch Animation
 	{
 		case AnimDropStand:
@@ -125,13 +113,11 @@ function PlayerMovementGround()
 		break;
 	}
 	
-	// If pushing, set push animation
+	// Set animation
 	if Pushing
 	{
 		Animation = AnimPush;
 	}
-	
-	// Check which animation we should use when standing still
 	else if Inertia == 0
 	{
 		// Same unsymmetrical angle check, just like above...
@@ -151,30 +137,22 @@ function PlayerMovementGround()
 			}
 		}
 	}
-	
-	// Check which animation we should use when moving
 	else
 	{
-		// If not skidding, use movement animation
 		if Animation != AnimSkid
 		{
 			Animation = AnimMove;
 		}
 		else 
 		{
-			// Cancel skid animation by pressing movement button
 			if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left
 			{
 				Animation = AnimMove;
 			}
-				
-			// Reset skid timer to keep skidding
 			else if Inertia > 0 and Input.Left or Inertia < 0 and Input.Right
 			{
 				SkidTime = Game.Character != CharKnuckles ? 16 : 32;
 			}
-				
-			// Cancel skid animation automatically
 			if !(SkidTime--)
 			{
 				Animation = AnimMove;

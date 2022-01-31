@@ -2,10 +2,8 @@ function PlayerKnuxClimb()
 {
 	switch ClimbState
 	{
-		// Climb on walls
-		case 1:
+		case ClimbWall:
 		{
-			// Move up and down and all around
 			if Input.Up
 			{
 				Ysp = -ClimbSpeed;
@@ -29,8 +27,7 @@ function PlayerKnuxClimb()
 				Facing	  *= -1;
 				Ysp		   = -4;
 				Xsp		   = 3.5 * Facing;
-			
-				// Play sound
+				
 				audio_sfx_play(sfxJump, false);
 				
 				// Reset gravity
@@ -63,23 +60,22 @@ function PlayerKnuxClimb()
 							Grounded  = true;
 							Animation = AnimIdle;
 					
-							// Adjust position
-							PosY += FindFloor[0] + DefaultRadiusY - RadiusY; break;
+							// Adhere to the surface
+							PosY += FindFloor[0] + DefaultRadiusY - RadiusY; 
+							break;
 						}
 					}
 				}
 				
-				// Drop if no tile found in front of us or we're actually inside of it (like there is slope below us, for example)
+				// Drop if no tile found in front of us or we're actually inside of it
 				var FindWall = tile_find_h(PosX + RadiusX * Facing, PosY + 10, Facing, false, Layer);
 				if  FindWall[0] < 0 or FindWall[1] == noone
 				{
-					ClimbState = false;
-					GlideState = GlideFall;
 					Animation  = AnimDrop;
-					
-					// Reset collision radiuses
-					RadiusX = DefaultRadiusX;
-					RadiusY = DefaultRadiusY;
+					GlideState = GlideFall;
+					ClimbState = false;
+					RadiusX    = DefaultRadiusX;
+					RadiusY    = DefaultRadiusY;
 			
 					// Reset gravity
 					if !IsUnderwater
@@ -111,7 +107,7 @@ function PlayerKnuxClimb()
 			}
 		}
 		break;
-		case 2:
+		case ClimbLedge:
 		{	
 			// Set vertical speed and animation
 			if ClimbValue < 25

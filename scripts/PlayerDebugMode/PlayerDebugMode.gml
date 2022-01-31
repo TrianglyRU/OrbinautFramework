@@ -40,6 +40,9 @@ function PlayerDebugMode()
 			DoubleSpinAttack = SpinRecharge;
 			DropdashFlag	 = DashLocked;
 			Camera.Enabled   = true;
+			
+			audio_sfx_stop(sfxFlying);
+			audio_sfx_stop(sfxTired);
 				
 			// Reset depth
 			depth = layer_get_depth("Objects");
@@ -49,10 +52,6 @@ function PlayerDebugMode()
 			{
 				audio_bgm_play(TypePrimary, Stage.StageMusic);
 			}
-			
-			// Stop player sfx
-			audio_sfx_stop(sfxFlying);
-			audio_sfx_stop(sfxTired);
 		}
 		else
 		{

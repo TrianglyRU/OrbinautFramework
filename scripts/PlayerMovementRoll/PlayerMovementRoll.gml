@@ -63,11 +63,9 @@ function PlayerMovementRoll()
 		if !Game.SKCrouch and Inertia == 0 
 		or  Game.SKCrouch and abs(Inertia) < 0.5
 		{
-			// Reset collision radiuses
-			RadiusX = DefaultRadiusX;
-			RadiusY = DefaultRadiusY;
-			PosY   -= DefaultRadiusY - SmallRadiusY;
-			
+			PosY     -= DefaultRadiusY - SmallRadiusY;
+			RadiusX   = DefaultRadiusX;
+			RadiusY   = DefaultRadiusY;		
 			Spinning  = false;
 			Animation = AnimIdle;
 		}

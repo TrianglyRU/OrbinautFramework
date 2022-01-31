@@ -53,7 +53,7 @@ function PlayerPhysicsHandle()
 			}
 		}
 		
-		// High-speed shoes
+		// High-speed bonus physics
 		if HighspeedBonus
 		{
 			Acc	    = 0.09375;

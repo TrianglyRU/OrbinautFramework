@@ -1,12 +1,11 @@
 function PlayerAirLevelCollision()
 {
-	// Exit if collision is not allowed
 	if !AllowCollision or ClimbState or GlideState
 	{
-		exit;
+		return;
 	}
 	
-	// Get movement angle quadrant
+	// Define direction of our movement
 	if abs(Xsp) >= abs(Ysp)
 	{
 		var MoveDirection = Xsp > 0 ? "MoveRight" : "MoveLeft";
@@ -15,6 +14,7 @@ function PlayerAirLevelCollision()
 	{
 		var MoveDirection = Ysp > 0 ? "MoveDown" : "MoveUp";
 	}
+	
 	switch MoveDirection
 	{
 		case "MoveDown":
@@ -39,10 +39,8 @@ function PlayerAirLevelCollision()
 			var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
 			if  FindFloor[0] < 0 and FindFloor[0] >= -(Ysp + 8)
 			{
-				// Convert speed to inertia
 				if FindFloor[1] >= 46.41 and FindFloor[1] <= 315
 				{
-					// Limit ysp
 					if Ysp > 15.75
 					{
 						Ysp = 15.75;
@@ -60,7 +58,7 @@ function PlayerAirLevelCollision()
 					Inertia = Xsp;	
 				}
 					
-				// Clip out and land
+				// Adhere to the surface and land
 				PosY    += FindFloor[0];
 				Angle    = FindFloor[1];
 				Grounded = true;
@@ -89,10 +87,10 @@ function PlayerAirLevelCollision()
 			var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
 			if  FindRoof[0] < 0
 			{	
-				// Land on it if steep enough
 				if (FindRoof[1] >= 91.41  and FindRoof[1] <= 136.41 
 				or  FindRoof[1] >= 226.41 and FindRoof[1] <= 268.59) and !FlightState
 				{
+					// Land on it if its angle steep enough
 					Angle    = FindRoof[1];
 					Inertia  = FindRoof[1] < 180 ? -Ysp : Ysp;
 					Grounded = true;
@@ -115,16 +113,13 @@ function PlayerAirLevelCollision()
 			var FindWall = tile_find_h(PosX - RadiusW, PosY, false, true, Layer)[0];
 			if  FindWall < 0
 			{
-				PosX -= FindWall;
-				Xsp   = 0;
-				
-				// Set inertia to... ysp?
+				PosX   -= FindWall;
 				Inertia = Ysp;
+				Xsp     = 0;
 			}
-			
-			// Try ceiling collision
 			else
 			{
+				// Collide with ceiling
 				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
 				if  FindRoof[0] < 0
 				{	
@@ -138,10 +133,9 @@ function PlayerAirLevelCollision()
 					}
 					PosY -= FindRoof[0];
 				}
-				
-				// Try floor collision
 				else if Ysp > 0
 				{
+					// Collide with floor
 					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
 					if  FindFloor[0] < 0
 					{
@@ -161,16 +155,13 @@ function PlayerAirLevelCollision()
 			var FindWall = tile_find_h(PosX + RadiusW, PosY, true, true, Layer)[0];
 			if  FindWall < 0
 			{
-				PosX += FindWall;
-				Xsp   = 0;
-				
-				// Also set inertia to... ysp?
+				PosX   += FindWall;
 				Inertia = Ysp;
+				Xsp     = 0;	
 			}
-			
-			// Try ceiling collision
 			else
 			{
+				// Collide with ceiling
 				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
 				if  FindRoof[0] < 0
 				{	
@@ -184,10 +175,9 @@ function PlayerAirLevelCollision()
 					}
 					PosY -= FindRoof[0];
 				}
-				
-				// Try floor collision
 				else if Ysp > 0
 				{
+					// Collide with floor
 					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
 					if  FindFloor[0] < 0
 					{
@@ -203,7 +193,7 @@ function PlayerAirLevelCollision()
 		break;
 	}
 	
-	// If landed, update custom collision mode
+	// If landed, update our custom collision mode
 	if Game.BetterPlayerTileGrip and Grounded
 	{
 		if Angle <= 45 or Angle >= 315
@@ -223,7 +213,7 @@ function PlayerAirLevelCollision()
 			CollisionMode[0] = 3;
 		}
 		
-		// This will disable mode check for one frame, allowing us to land on ceilings safely
+		// This will disable mode check for one frame, allowing us to land on the ceilings safely
 		CollisionMode[1] = true;
 	}
 }

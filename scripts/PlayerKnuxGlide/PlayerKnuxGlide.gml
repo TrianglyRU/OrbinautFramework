@@ -234,7 +234,7 @@ function PlayerKnuxGlide()
 				PosY    += FindFloor[0];
 				Grounded = true;
 			}
-			else if FindFloor[0] < 0 and FindFloor[0] >= -14
+			else if FindFloor[0] < 0
 			{
 				if FindFloor[1] <= 45 or FindFloor[1] >= 316.41
 				{
@@ -263,9 +263,17 @@ function PlayerKnuxGlide()
 				}
 				else
 				{
-					Angle	 =  FindFloor[1];
-					Inertia	 = -Xsp;	
-					Grounded =  true;	
+					if GlideState == GlideAir
+					{
+						Inertia	= FindFloor[1] > 180 ? -Xsp : Xsp;
+					}
+					else if GlideState == GlideFall
+					{
+						Inertia = -Xsp;
+					}
+					Angle	   = FindFloor[1];						
+					GroundLock = 16;
+					Grounded   = true;
 				}
 				
 				// Adhere to the surface

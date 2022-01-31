@@ -1,22 +1,20 @@
 function PlayerPeelout()
 {
-	// Exit if peelout is disabled or we're not Sonic
 	if !Game.PeeloutEnabled or Game.Character != CharSonic
 	{
-		exit;
+		return;
 	}
 	
 	// Process peelout
 	if Input.Up
 	{
-		// Start it
 		if PeeloutRev == -1
 		{
 			if Animation == AnimLookup and Input.ABCPress
 			{
-				// Set our target peelout force
 				if !IsUnderwater
 				{
+					// Set our target peelout force
 					PeeloutForce = !HighspeedBonus ? 12 : 9;
 					if SuperState
 					{
@@ -29,12 +27,9 @@ function PlayerPeelout()
 				}
 				PeeloutRev = 0;
 				
-				// Play sound
 				audio_sfx_play(sfxPeeloutCharge, false);
 			}
 		}
-		
-		// Charge it
 		else 
 		{
 			if PeeloutRev < PeeloutForce
@@ -47,22 +42,18 @@ function PlayerPeelout()
 	// Release peelout
 	else if PeeloutRev == PeeloutForce
 	{	
-		// Launch player
-		Inertia      = PeeloutForce * Facing;
-		PeeloutRev   = -1;
-		PeeloutForce = 0;
-		Animation    = AnimMove;
-			
-		// Freeze the screen for 16 frames
 		if !Game.CDCamera
 		{
 			Camera.ScrollDelay = 16;
 		}
-			
-		// Play sound
+		
+		Inertia      =  PeeloutForce * Facing;
+		PeeloutRev   = -1;
+		PeeloutForce =  0;
+		Animation    =  AnimMove;
+		
 		audio_sfx_play(sfxPeeloutRelease, false);
 		
-		// Return success action
 		return true;
 	}
 	
@@ -72,7 +63,6 @@ function PlayerPeelout()
 		PeeloutRev   = -1;
 		PeeloutForce = 0;
 		
-		// Stop sound
 		audio_sfx_stop(sfxPeeloutCharge);
 	}
 	
@@ -81,5 +71,6 @@ function PlayerPeelout()
 	{
 		Animation = AnimPeelout;
 	}
+	
 	return false;
 }

@@ -1,6 +1,5 @@
 function PlayerDisplay()
 {	
-	// Update player
 	x			 = floor(PosX);
 	y		     = floor(PosY);
 	image_xscale = Facing;
