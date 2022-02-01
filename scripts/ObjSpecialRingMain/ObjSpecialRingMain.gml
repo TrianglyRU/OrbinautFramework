@@ -43,6 +43,8 @@ function ObjSpecialRingMain()
 				}
 				else
 				{
+					Input.IgnoreInput = true;
+					
 					// Remember player and stage data
 					Game.SpecialRingData[0] = x;
 					Game.SpecialRingData[1] = y;
@@ -62,22 +64,16 @@ function ObjSpecialRingMain()
 					// Stop player
 					with Player
 					{
+						visible		  = 0;
 						Xsp		      = 0;
 						Ysp			  = 0;
 						Inertia		  = 0;
 						AllowMovement = 0;
-						visible		  = 0;
-					}
-			
-					// If playing as Tails, stop his sounds
-					if Game.Character == CharTails
-					{
-						audio_sfx_stop(sfxTired);
-						audio_sfx_stop(sfxFlying);
+						BarrierType   = false;
 					}
 					
-					// Destroy barrier (in S3/SK they don't do this, but it is stupid)
-					Player.BarrierType = false;
+					audio_sfx_stop(sfxTired);
+					audio_sfx_stop(sfxFlying);
 					
 					// Increment state
 					State++;

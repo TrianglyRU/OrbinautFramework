@@ -31,6 +31,8 @@ function ObjStarPostPortalMain()
 				Stage.TimeEnabled     = false;
 				Game.UpdateAnimations = false;
 				
+				Input.IgnoreInput = true;
+				
 				// Stop music
 				audio_bgm_stop(TypePrimary,  0.5);
 				audio_bgm_stop(TypeSecondary, 0.5);

@@ -40,19 +40,20 @@ function ObjBubbleControllerMain()
 				IsCountBubble = true;
 			}
 		
-			// Generate a second bubble with 50% chance	
+			// Generate a second bubble with 50% chance, with delay in range of [1-16]
 			if irandom(1)
 			{
 				BubbleDelay = irandom_range(1, 16);
 			}
 		
 			// Set type of the first bubble
-			if !BubbleDelay
+			if BubbleDelay == -1
 			{
 				var Type = IsCountBubble ? CountdownBubble : Bubble;
 			}
 			else
 			{
+				// Spawn as Countdown Bubble with 25% chance, else spawn a normal bubble
 				var Type = IsCountBubble and !irandom(3) ? CountdownBubble : Bubble;
 			}
 		
@@ -73,6 +74,8 @@ function ObjBubbleControllerMain()
 				}
 				Direction = Player.Facing;
 			}
+			
+			// If the 1st bubble was a countdown one and we should spawn another, it should be the normal one
 			if Type == CountdownBubble
 			{
 				IsCountBubble = false;
@@ -114,10 +117,12 @@ function ObjBubbleControllerMain()
 	// Emit a bubble when drown
 	else if DrownBubbles < 12
 	{
+		// Initial delay
 		if !DrownBubbles and DrownDelay == -1
 		{
 			DrownDelay = irandom(15);
 		}
+		
 		if !(DrownDelay--)
 		{
 			var  Random = irandom(3);

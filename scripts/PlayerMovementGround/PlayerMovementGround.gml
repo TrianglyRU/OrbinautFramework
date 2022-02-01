@@ -1,7 +1,5 @@
 function PlayerMovementGround()
 {	
-	static SkidTime = 0;
-	
 	if SpindashRev != -1 or PeeloutRev != -1
 	{
 		return;
@@ -67,14 +65,6 @@ function PlayerMovementGround()
 		{
 			if Input.Left and Inertia >= 4 or Input.Right and Inertia <= -4
 			{
-				if Game.Character != CharKnuckles
-				{
-					SkidTime = 32;
-				}
-				else
-				{
-					SkidTime = 16;
-				}
 				Animation = AnimSkid;
 						
 				audio_sfx_play(sfxSkid, false);
@@ -143,20 +133,9 @@ function PlayerMovementGround()
 		{
 			Animation = AnimMove;
 		}
-		else 
+		else if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left
 		{
-			if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left
-			{
-				Animation = AnimMove;
-			}
-			else if Inertia > 0 and Input.Left or Inertia < 0 and Input.Right
-			{
-				SkidTime = Game.Character != CharKnuckles ? 16 : 32;
-			}
-			if !(SkidTime--)
-			{
-				Animation = AnimMove;
-			}
+			Animation = AnimMove;
 		}
 	}
 }

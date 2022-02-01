@@ -3,7 +3,7 @@ function ObjBumperMain()
 	// Bounce on collision
 	if object_check_touch(TypeHitbox)
 	{
-		if !State
+		if !State and !Player.Hurt
 		{
 			// Set player speeds based on angle
 			var Angle = point_direction(x, y, floor(Player.PosX), floor(Player.PosY));
@@ -14,26 +14,10 @@ function ObjBumperMain()
 			}
 			else with Player
 			{
-				if GlideState
+				if !GlideState
 				{
-					// Enter fall state
-					RadiusX	   = DefaultRadiusX;
-					RadiusY	   = DefaultRadiusY;
-					GlideState = GlideFall;
-					Animation  = AnimGlideFall;
-		
-					// Reset gravity
-					if !IsUnderwater
-					{
-						Grv	= 0.21875;
-					}
-					else
-					{
-						// Reduce by 0x28 (0.15625) if underwater
-						Grv = 0.0625
-					}
+					Xsp = 7 * dcos(Angle);
 				}
-				Xsp     = 7 *  dcos(Angle);
 				Ysp     = 7 * -dsin(Angle);
 				Jumping = false;
 				AirLock = false;

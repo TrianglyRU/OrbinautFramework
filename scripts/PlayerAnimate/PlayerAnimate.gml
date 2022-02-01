@@ -3,6 +3,7 @@ function PlayerAnimate()
 	static AnimSpringTime  = 0;
 	static AnimBreatheTime = 0;
 	static AnimStandTime   = 0;
+	static AnimSkidTime    = 0;
 	
 	// Update statics
 	if Animation != AnimBreathe
@@ -17,10 +18,16 @@ function PlayerAnimate()
 	{
 		AnimStandTime = 16;
 	}
+	if Inertia > 0 and Input.Left or Inertia < 0 and Input.Right
+	{
+		AnimSkidTime = Game.Character == CharKnuckles ? 16 : 32;
+	}
 	
 	// Animate character
 	switch Game.Character
 	{	
+		// Sonic
+		#region Sonic
 		case CharSonic:
 		{
 			if !SuperState
@@ -82,7 +89,16 @@ function PlayerAnimate()
 						animation_play(spr_sonic_lookup, 4, 1);
 					break;
 					case AnimSkid:
-						animation_play(spr_sonic_skid, 6, 2);
+					{
+						if !(--AnimSkidTime)
+						{
+							Animation = AnimMove;
+						}
+						else
+						{
+							animation_play(spr_sonic_skid, 6, 2);
+						}
+					}
 					break;
 					case AnimPush:
 						animation_play(spr_sonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
@@ -175,7 +191,16 @@ function PlayerAnimate()
 					animation_play(spr_supersonic_lookup, [4, 8, 8, 8, 8], 1);
 				break;
 				case AnimSkid:
-					animation_play(spr_supersonic_skid, 3, 4);
+				{
+					if !(--AnimSkidTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_supersonic_skid, 3, 4);
+					}
+				}
 				break;
 				case AnimPush:
 					animation_play(spr_supersonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
@@ -223,6 +248,10 @@ function PlayerAnimate()
 			}
 		}
 		break;
+		#endregion
+		
+		// Tails
+		#region Tails
 		case CharTails:
 		{
 			switch Animation
@@ -261,7 +290,16 @@ function PlayerAnimate()
 					animation_set(spr_tails_lookup, 0);
 				break;
 				case AnimSkid:
-					animation_play(spr_tails_skid, 8, 0);
+				{
+					if !(--AnimSkidTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_tails_skid, 8, 0);
+					}
+				}
 				break;
 				case AnimFly:
 					animation_set(spr_tails_fly, 0);
@@ -319,6 +357,10 @@ function PlayerAnimate()
 			}	
 		}
 		break;
+		#endregion
+		
+		// Knuckles
+		#region Knuckles
 		case CharKnuckles:
 		{
 			switch Animation
@@ -359,7 +401,16 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_lookup, 6, 1);
 				break;
 				case AnimSkid:
-					animation_play(spr_knuckles_skid, 4, 3);
+				{
+					if !(--AnimSkidTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_knuckles_skid, 4, 3);
+					}
+				}
 				break;
 				case AnimHurt:
 					animation_set(spr_knuckles_hurt, 0);
@@ -467,5 +518,6 @@ function PlayerAnimate()
 			}
 		}
 		break;
+		#endregion
 	}
 }
