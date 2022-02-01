@@ -12,12 +12,31 @@ function ObjBumperMain()
 			{
 				Player.Inertia = 7 *  dcos(Angle);
 			}
-			else
+			else with Player
 			{
-				Player.Xsp     = 7 *  dcos(Angle);
-				Player.Ysp     = 7 * -dsin(Angle);
-				Player.Jumping = false;
-				Player.AirLock = false;
+				if GlideState
+				{
+					// Enter fall state
+					RadiusX	   = DefaultRadiusX;
+					RadiusY	   = DefaultRadiusY;
+					GlideState = GlideFall;
+					Animation  = AnimGlideFall;
+		
+					// Reset gravity
+					if !IsUnderwater
+					{
+						Grv	= 0.21875;
+					}
+					else
+					{
+						// Reduce by 0x28 (0.15625) if underwater
+						Grv = 0.0625
+					}
+				}
+				Xsp     = 7 *  dcos(Angle);
+				Ysp     = 7 * -dsin(Angle);
+				Jumping = false;
+				AirLock = false;
 			}
 			
 			// Add points to player's score

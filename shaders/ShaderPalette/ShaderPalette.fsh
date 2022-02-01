@@ -80,7 +80,6 @@
 	{
 		vec4 Col = texture2D(gm_BaseTexture, parallax());
 		
-		//if  (u_bound <= v_vPosition.y)
 		if  (u_bound <= gl_FragCoord.y)
 		{
 			Col = findAltColor(Col, u_UVsSnd, u_texSizeSnd, u_texSnd, u_indSnd);

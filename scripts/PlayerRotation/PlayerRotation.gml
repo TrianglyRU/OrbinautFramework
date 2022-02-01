@@ -1,6 +1,5 @@
 function PlayerRotation()
 {
-	// Force visual angle of 360 degrees for all animations but AnimMove
 	if Animation != AnimMove
 	{
 		VisualAngle = 360;
@@ -30,13 +29,11 @@ function PlayerRotation()
 			}
 			else
 			{
-				// Keep visual angle positive
+				// Rotate back to 360
 				if VisualAngle <= 0
 				{
 					VisualAngle += 360;
 				}
-				
-				// Rotate back to 360
 				if VisualAngle < 180
 				{
 					VisualAngle = max(VisualAngle - 2.8125, 0);
@@ -48,7 +45,7 @@ function PlayerRotation()
 			}
 		}
 	
-		// Apply regular rotation
+		// Apply regular classic-like rotation
 		else if Angle > 22.5 and Angle < 338.91
 		{	
 			VisualAngle = ceil((Angle - 22.5) / 45) * 45;

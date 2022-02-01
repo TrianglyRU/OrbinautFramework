@@ -27,8 +27,6 @@ function PlayerResetOnFloor()
 	}
 	else
 	{
-		var SpinFlag = Spinning;
-		
 		// Update player animation
 		if !OnObject and Animation != AnimIdle
 		{
@@ -62,12 +60,6 @@ function PlayerResetOnFloor()
 		BarrierIsActive  = false;
 		DropdashFlag	 = DashLocked;
 		DoubleSpinAttack = SpinReady;
-		
-		// We shouldn't reset spin flag if we've rolled onto the bridge
-		if OnObject and OnObject.object_index == Bridge
-		{
-			Spinning = SpinFlag;
-		}
 		
 		audio_sfx_stop(sfxFlying);
 		audio_sfx_stop(sfxTired);
