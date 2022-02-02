@@ -1,9 +1,8 @@
 function ObjAirBubblerMain()
 {
-	// Exit if above water
 	if !Stage.WaterEnabled or y < Stage.WaterLevel
 	{
-		exit;
+		return;
 	}
 	
 	switch State
@@ -11,9 +10,9 @@ function ObjAirBubblerMain()
 		// Idle
 		case 0:
 		{
-			// Once delay timer runs out, set generation properties
 			if !(--Delay)
 			{
+				// Once delay timer runs out, set generation properties
 				Delay		 = irandom_range(1, 32);			
 				ChosenSet    = irandom_range(0, 3);
 				BubbleAmount = irandom_range(1, 6);
@@ -27,56 +26,47 @@ function ObjAirBubblerMain()
 		}
 		break;
 		
-		// Bubble making
+		// Bubble Generation
 		case 1:
 		{
-			// Generate a bubble
-			var Object = instance_create(x + irandom_range(-8, 7), y, Bubble);		
+			var NewObject = instance_create(x + irandom_range(-8, 7), y, Bubble);
 			
+			// Mark bubble as large
 			if BubbleID == LargeID and !(Cycle mod GenerationSpeed)
 			{
-				with Object
+				with NewObject
 				{
-					// Mark bubble as large
 					Direction  = FlipRight;
 					BubbleType = 2;
 					
-					// Set object properties
 					object_set_triggerbox(-16, 16, -16, 16);
-					animation_play(sprite_index, 15, 6); 
-					image_index = 2;
+					
+					animation_play(sprite_index, 15, 6); image_index = 2;
 				}
 			}
-			else 
+			
+			// Mark bubble as small
+			else if !BubbleSet[ChosenSet][BubbleID]
 			{
-				// Mark bubble as small
-				if !BubbleSet[ChosenSet][BubbleID]
+				with NewObject
 				{
-					with Object
-					{
-						Direction  = FlipRight;
-						BubbleType = 0;
+					Direction  = FlipRight;
+					BubbleType = 0;
 						
-						// Set animation
-						animation_play(sprite_index, 15, 6);
-					}
-				}
-			
-				// Mark bubble as medium
-				else
-				{
-					with Object
-					{
-						Direction  = FlipRight;
-						BubbleType = 1;
-						
-						// Set animation
-						animation_play(sprite_index, 15, 6);
-					}
+					animation_play(sprite_index, 15, 6);
 				}
 			}
 			
-			// Decrease amount of bubbles left to generate
+			// Mark bubble as medium
+			else with NewObject
+			{
+				Direction  = FlipRight;
+				BubbleType = 1;
+					
+				animation_play(sprite_index, 15, 6);
+			}
+			
+			// Decrease amount of bubbles left
 			BubbleAmount--;
 			Delay = irandom_range(0, 31);
 			
@@ -85,7 +75,7 @@ function ObjAirBubblerMain()
 		}
 		break;
 		
-		// Continue to generate bubbles, or switch to idle state
+		// Continue or Switch Back
 		case 2:
 		{
 			if !BubbleAmount
