@@ -1,6 +1,7 @@
 function BackgroundProcess()
 {	
 	draw_clear(BGColour);
+	
 	//shader_set(ShaderParallax);
 	shader_set(ShaderPalette);
 	
@@ -35,8 +36,8 @@ function BackgroundProcess()
 		shader_set_uniform_f(Shader.PalUVs2,		 Palette.ColourSet[1][3], Palette.ColourSet[1][4], Palette.ColourSet[1][5]);
 	}
 	
-	
 	shader_set_uniform_i(Shader.PrlActive, true);
+	
 	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
 	{

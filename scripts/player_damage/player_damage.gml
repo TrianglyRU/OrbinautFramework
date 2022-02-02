@@ -2,7 +2,7 @@
 function player_damage(isFlame,isThunder,instantKill)
 {	
 	// Exit if player can't be damaged
-	if Player.Death
+	if Player.Death or Player.DebugMode
 	{
 		return;
 	}	

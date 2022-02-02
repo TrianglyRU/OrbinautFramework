@@ -148,6 +148,15 @@ function ObjItemBoxMain()
 					{
 						break;
 					}
+					if !Player.InvincibleBonus
+					{
+						// Create particles
+						for (var i = 0; i < 8; i++)
+						{
+							var Object = instance_create(PosX, PosY, InvincibilityStar);
+							Object.ID  = i;
+						}
+					}
 					Player.InvincibleBonus = 1200;
 					
 					audio_bgm_play(TypePrimary, Invincibility);
@@ -166,7 +175,7 @@ function ObjItemBoxMain()
 					else with Barrier
 					{
 						object_set_depth(Player, 1); 
-						animation_play(spr_obj_barrier_normal, 2, 0);
+						animation_play(spr_obj_barrier_normal, 4, 0);
 					}
 					audio_sfx_play(sfxBarrier, false);
 				}

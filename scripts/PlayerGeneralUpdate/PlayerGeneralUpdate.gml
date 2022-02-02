@@ -30,15 +30,6 @@ function PlayerGeneralUpdate()
 	// Handle invincibility bonus timer
 	if InvincibleBonus 
 	{
-		// Create star particles
-		if InvincibleBonus == 1200 and !instance_exists(InvincibilityStar)
-		{
-			for (var i = 0; i < 8; i++)
-			{
-				var Object = instance_create(PosX, PosY, InvincibilityStar);
-				Object.ID  = i;
-			}
-		}
 		if !(--InvincibleBonus)
 		{
 			if audio_bgm_is_playing(Invincibility)

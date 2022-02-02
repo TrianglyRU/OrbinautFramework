@@ -1,5 +1,5 @@
 function InterfaceRendererLowProcess()
 {
-	// Set target surface
+	shader_set(ShaderPalette);
 	surface_set_target(Palette.SurfaceLow);
 }

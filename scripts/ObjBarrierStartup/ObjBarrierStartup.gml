@@ -4,7 +4,7 @@ function ObjBarrierStartup()
 	switch Player.BarrierType
 	{
 		case BarrierNormal:
-			animation_play(spr_obj_barrier_normal, 2, 0);
+			animation_play(spr_obj_barrier_normal, 4, 0);
 		break;
 		case BarrierFlame:
 			animation_play(spr_obj_barrier_flame, 2, 0);
