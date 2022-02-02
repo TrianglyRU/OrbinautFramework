@@ -10,6 +10,7 @@ function GameWindowStartup()
 	window_set_caption(Game.WindowTitle);
 	
 	// ...and apply some GPU magic that will increase game speed!
+	surface_depth_disable(true);
 	gpu_set_alphatestenable(true);
 	gpu_set_alphatestref(0);
 }
