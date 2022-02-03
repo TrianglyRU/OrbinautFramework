@@ -1,8 +1,9 @@
 function ObjWaterSplashMain()
 {
-	// Destroy on animation end
 	if image_index == 7
 	{
+		// Destroy on animation end
 		instance_destroy();
 	}
+	y = Stage.WaterLevel;
 }

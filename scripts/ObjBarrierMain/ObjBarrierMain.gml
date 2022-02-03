@@ -76,7 +76,7 @@ function ObjBarrierMain()
 	}
 	else
 	{
-		image_alpha = Player.BarrierType == BarrierNormal ? 0.5 : 1;
+		image_alpha = 1;
 	}
 
 	// Update position
