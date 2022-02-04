@@ -1,19 +1,15 @@
 function ObjPushableBlockMain()
 {
-	// Do collision
-	object_act_solid(true, true, true, false);
-	
-	if State == 0 and !Player.Grounded
-	{
-		return;
-	}
-	else switch State
+	switch State
 	{
 		// Grounded
 		case 0:
 		{
+			// Do collision
+			object_act_solid(true, true, true, false);
+			
 			// Check for being pushed
-			if object_check_touch(TypeSolidP)
+			if Player.Grounded and object_check_touch(TypeSolidP)
 			{
 				if floor(Player.PosX) < x
 				{

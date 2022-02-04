@@ -9,7 +9,7 @@ function PlayerSuperFormsProcess()
 			// Count timer
 			SuperStateValue++
 			
-			// Reset speeds for 16 frames
+			// Reset speeds for 15 frames
 			if SuperStateValue < 16
 			{
 				Inertia = 0;

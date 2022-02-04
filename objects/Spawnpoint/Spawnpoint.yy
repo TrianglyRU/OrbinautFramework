@@ -4,7 +4,7 @@
     "path": "sprites/spr_obj_spawnpoint/spr_obj_spawnpoint.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

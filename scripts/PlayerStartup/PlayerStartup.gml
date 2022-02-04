@@ -1,5 +1,5 @@
 function PlayerStartup()
-{	
+{		
 	// Initialise variables
 	PosX				= 0;
 	PosY				= 0;
@@ -152,8 +152,8 @@ function PlayerStartup()
 	LivesRewards = [(Rings div 100 * 100) + 100, (Score div 50000 * 50000) + 50000];
 	
 	// Initialise recorded position datalist
-	RecordedPosX = ds_list_create();
-	RecordedPosY = ds_list_create();
+	RecordedPosX  = ds_list_create();
+	RecordedPosY  = ds_list_create();
 	
 	for (var Index = 0; Index < 32; Index++) 
 	{

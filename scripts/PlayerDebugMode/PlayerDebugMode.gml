@@ -43,9 +43,9 @@ function PlayerDebugMode()
 			
 			audio_sfx_stop(sfxFlying);
 			audio_sfx_stop(sfxTired);
-				
-			// Reset depth
-			depth = layer_get_depth("Objects");
+			
+			image_alpha = 1;
+			depth		= layer_get_depth("Objects");
 			
 			// Reset music
 			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(TypePrimary)

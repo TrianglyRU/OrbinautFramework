@@ -12,7 +12,13 @@ function object_set_depth(target,depthFlag)
 			case FloatingPlatform:
 				var Tolerance = 25;
 			break; */	
-				
+			
+			case Bridge:
+				var Tolerance = 40;
+			break;
+			case BridgePost:
+				var Tolerance = 60;
+			break;
 			default:     
 				var Tolerance = 50; 
 			break;

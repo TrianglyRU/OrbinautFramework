@@ -1,24 +1,14 @@
 function ObjBackgroundTriggerMain()
 {
-	// Check for overlap
 	if object_check_touch(TypeTrigger)
 	{
 		if !State
 		{
-			// Switch to a new background
-			if !BGType
+			// Update background based on BGType
+			switch BGType
 			{
-				
+				case "None": break;
 			}
-			
-			// Switch to previous background
-			else
-			{
-				
-			}
-			
-			// Update flags
-			BGType = !BGType;
 			State += 1;
 		}
 	}

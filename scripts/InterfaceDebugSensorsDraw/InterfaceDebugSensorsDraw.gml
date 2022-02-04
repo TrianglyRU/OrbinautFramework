@@ -16,7 +16,7 @@ function InterfaceDebugSensorsDraw()
 		return;
 	}
 	
-	draw_set_alpha(0.15);
+	draw_set_alpha(0.5);
 	draw_rectangle_colour(Camera.ViewX, Camera.ViewY, Camera.ViewX + Game.Width, Camera.ViewY + Game.Height,
 						  c_black,		c_black,	  c_black,					 c_black,		false);
 	draw_set_alpha(1.0);

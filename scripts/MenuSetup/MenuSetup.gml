@@ -57,10 +57,10 @@ function MenuSetup()
 	
 		// Options
 		menu_add_header(6,    "OPTIONS");
-		menu_add_option(6, 0, "FULLSCREEN:",   noone);
-		menu_add_option(6, 1, "WINDOW SIZE:",  noone);
-		menu_add_option(6, 2, "SOUND VOLUME:", noone);
-		menu_add_option(6, 3, "MUSIC VOLUME:", noone);
+		menu_add_option(6, 0, "FULLSCREEN: ",   noone);
+		menu_add_option(6, 1, "WINDOW SIZE: ",  noone);
+		menu_add_option(6, 2, "SOUND VOLUME: ", noone);
+		menu_add_option(6, 3, "MUSIC VOLUME: ", noone);
 	
 		// Game Start (delete data)
 		menu_add_header(7,    "SELECT A SAVE FILE TO DELETE");

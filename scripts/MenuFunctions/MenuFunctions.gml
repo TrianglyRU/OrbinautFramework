@@ -5,6 +5,7 @@ function MenuFunctions()
 	{
 		MenuSize[listid]++;
 		MenuOption[listid][optionid]   = optionname;
+		MenuOption2[listid][optionid]  = optionname;
 		MenuRedirect[listid][optionid] = redirect;
 	}
 	
@@ -12,6 +13,12 @@ function MenuFunctions()
 	function menu_update_option(listid,optionid,newname)
 	{
 		MenuOption[listid][optionid] = newname;
+	}
+	
+	/// @function menu_get_initial_string(listid,optionid)
+	function menu_get_initial_string(listid,optionid)
+	{
+		return MenuOption2[listid][optionid];
 	}
 	
 	/// @function menu_add_header(listid,header)

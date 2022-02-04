@@ -159,10 +159,15 @@ function MenuManualProcess()
 				gamesettings_save();
 			}
 			
-			menu_update_option(MenuID, 0, "FULLSCREEN: "   + menu_get_boolean(window_get_fullscreen()));
-			menu_update_option(MenuID, 1, "WINDOW SIZE: "  + string(Game.WindowSize) + "X");
-			menu_update_option(MenuID, 2, "SOUND VOLUME: " + string(round(Game.SoundVolume * 100)));
-			menu_update_option(MenuID, 3, "MUSIC VOLUME: " + string(round(Game.MusicVolume * 100)));
+			var Option0 = menu_get_initial_string(MenuID, 0);
+			var Option1 = menu_get_initial_string(MenuID, 1);
+			var Option2 = menu_get_initial_string(MenuID, 2);
+			var Option3 = menu_get_initial_string(MenuID, 3);
+			
+			menu_update_option(MenuID, 0, Option0 + menu_get_boolean(window_get_fullscreen()));
+			menu_update_option(MenuID, 1, Option1 + string(Game.WindowSize) + "X");
+			menu_update_option(MenuID, 2, Option2 + string(round(Game.SoundVolume * 100)));
+			menu_update_option(MenuID, 3, Option3 + string(round(Game.MusicVolume * 100)));
 		}
 		break;
 		
@@ -181,7 +186,7 @@ function MenuManualProcess()
 			{
 				for (var i = 0; i < 4; i++)
 				{
-					menu_update_option(MenuID, i, "SLOT " + string_upper(i));
+					menu_update_option(MenuID, i, menu_get_initial_string(MenuID, i));
 				}
 			}
 		}

@@ -175,7 +175,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 			{
 				Player.Inertia = 0;
 				Player.Xsp	   = 0;					
-				Player.Pushing = true;
 				Obj_SolidPush  = true;
 			}
 			Player.PosX -= XDistance;
@@ -183,12 +182,20 @@ function object_act_solid(sides,top,bottom,resetActions)
 			// Tell the object it is being touched
 			if PlayerX < ObjectX
 			{
+				if Player.Facing == FlipRight
+				{
+					Player.Pushing = true;
+				}
 				Obj_SolidTouchL = true;
 			}
 			else
 			{
+				if Player.Facing == FlipLeft
+				{
+					Player.Pushing = true;
+				}
 				Obj_SolidTouchR = true;
-			}	
+			}
 		}
 	}
 }

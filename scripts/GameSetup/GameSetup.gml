@@ -34,7 +34,7 @@ function GameSetup()
 	Game.BetterPlayerTileGrip = false;
 	Game.PreciseRollJump	  = false;
 	Game.PreciseRingBehaviour = false;
-	Game.NoRollSpeedLimit	  = true;
+	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
 	
 	// Initialise other variables
