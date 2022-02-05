@@ -1,10 +1,6 @@
 /// @function audio_bgm_play(channelType,soundid)
 function audio_bgm_play(channelType,soundid)
 {	
-	if !soundid
-	{
-		return;
-	}
 	switch channelType
 	{
 		case TypePrimary:

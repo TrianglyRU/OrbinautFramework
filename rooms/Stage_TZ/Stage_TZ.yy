@@ -695,9 +695,6 @@
         {"properties":[
             {"propertyId":{"name":"PlayerType","path":"objects/SpawnPoint/SpawnPoint.yy",},"objectId":{"name":"SpawnPoint","path":"objects/SpawnPoint/SpawnPoint.yy",},"value":"\"All\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"SpawnPoint","path":"objects/SpawnPoint/SpawnPoint.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":112.0,"y":944.0,"resourceVersion":"1.0","name":"inst_3EB34C84","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[
-            {"propertyId":{"name":"BoxType","path":"objects/ItemBox/ItemBox.yy",},"objectId":{"name":"ItemBox","path":"objects/ItemBox/ItemBox.yy",},"value":"\"Barrier\"","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-          ],"isDnd":false,"objectId":{"name":"ItemBox","path":"objects/ItemBox/ItemBox.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":196.0,"y":929.0,"resourceVersion":"1.0","name":"inst_12921B11","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"tex_tsz_anitile00","path":"sprites/tex_tsz_anitile00/tex_tsz_anitile00.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":302.0,"y":934.0,"resourceVersion":"1.0","name":"graphic_51C8CF6D","tags":[],"resourceType":"GMRSpriteGraphic",},
@@ -1051,7 +1048,6 @@
     {"name":"inst_39608B27","path":"rooms/Stage_TZ/Stage_TZ.yy",},
     {"name":"inst_2847292E","path":"rooms/Stage_TZ/Stage_TZ.yy",},
     {"name":"inst_3EB34C84","path":"rooms/Stage_TZ/Stage_TZ.yy",},
-    {"name":"inst_12921B11","path":"rooms/Stage_TZ/Stage_TZ.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

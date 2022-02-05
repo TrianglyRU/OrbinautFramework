@@ -13,7 +13,6 @@ function ObjAirBubblerStartup()
 	ChosenSet    = 0;
 	State        = 0;
 	
-	// Initailise bubble sets
 	BubbleSet[0] = [0,0,0,0,1,0];
 	BubbleSet[1] = [0,0,0,1,0,0];
 	BubbleSet[2] = [1,0,1,0,0,0];
@@ -21,5 +20,6 @@ function ObjAirBubblerStartup()
 	
 	// Set object properties
 	object_set_unload(TypeReset);
+	
 	animation_play(sprite_index, 16, 0);
 }

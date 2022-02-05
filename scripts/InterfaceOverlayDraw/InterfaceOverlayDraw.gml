@@ -5,8 +5,7 @@ function InterfaceOverlayDraw()
 		return;
 	}
 	
-	// Set text align
-	draw_set_halign(fa_right); draw_set_font(game_font(font_counter));
+	draw_set_font(game_font(font_counter));
 	
 	// Handle stage timer
 	if Stage.Time < 35999
@@ -23,7 +22,9 @@ function InterfaceOverlayDraw()
 	}
 		
 	// Draw SCORE
-	draw_sprite(gui_hud_score, 0, OffsetX + 36, OffsetY + 14); 
+	draw_sprite(gui_hud_score, 0, OffsetX + 36, OffsetY + 14);
+	
+	draw_set_halign(fa_right);	
 	draw_text(OffsetX + 116, OffsetY + 14, Player.Score);
 	
 	// Draw TIME
@@ -43,7 +44,9 @@ function InterfaceOverlayDraw()
 	{
 		var TimeString = string(Min) + "'" + (Sec > 9 ? "" : "0") + string(Sec) + ";" + (Msc > 9 ? "" : "0") + string(Msc);
 	}
-	draw_text(OffsetX + Game.CDStageTimer ? 116 : 92, OffsetY + 30, TimeString);
+	draw_set_halign(fa_left);
+	
+	draw_text(OffsetX + 60, OffsetY + 30, TimeString);
 	
 	// Draw RINGS
 	if !Player.Rings
@@ -53,7 +56,9 @@ function InterfaceOverlayDraw()
 	else
 	{
 		draw_sprite(gui_hud_rings, 0, OffsetX + 36, OffsetY + 46);
-	}
+	}	
+	draw_set_halign(fa_right);
+	
 	draw_text(OffsetX + 92, OffsetY + 46, Player.Rings);
 
 	// Draw LIVES

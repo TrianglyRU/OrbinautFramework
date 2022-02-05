@@ -29,7 +29,7 @@ function PlayerJump()
 		}
 	}
 	
-	/* Everything below are special mid-jump actions */
+	/* Everything below is special mid-jump actions */
 	
 	// Do not perform anything if action button hasn't been released just yet
 	if Ysp < JumpMin or !Input.ABCPress

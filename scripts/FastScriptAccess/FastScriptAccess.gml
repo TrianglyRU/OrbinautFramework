@@ -15,4 +15,6 @@ function FastScriptAccess()
 	
 	MenuSetup();
 	MenuManualProcess();
+	
+	/* Also, search bar in the Asset Browser is your BEST friend! */
 }

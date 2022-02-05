@@ -3,13 +3,13 @@ function AudioSetup()
 	/* The game will refer to data stored here to loop the tracks. 
 	If no data set here for the track, it won't be looped */
 	
-	audio_bgm_setloop(TestStage,	     0.44,  81.29);
-	audio_bgm_setloop(SuperTheme,		 3.45,  23.12);
-	audio_bgm_setloop(BossTheme,		 6.33,  31.93);
-	audio_bgm_setloop(SpecialTheme,		 11.21, 49.76);
-	audio_bgm_setloop(BonusTheme,		 10.85, 39.85);
-	audio_bgm_setloop(HighSpeed,		 1.4,   27.37);
-	audio_bgm_setloop(Invincibility,     1.13,  12.10);
+	audio_bgm_setloop(TestStage,	 0.44,  81.29);
+	audio_bgm_setloop(SuperTheme,	 3.45,  23.12);
+	audio_bgm_setloop(BossTheme,	 6.33,  31.93);
+	audio_bgm_setloop(SpecialTheme,	 11.21, 49.76);
+	audio_bgm_setloop(BonusTheme,	 10.85, 39.85);
+	audio_bgm_setloop(HighSpeed,	 1.4,   27.37);
+	audio_bgm_setloop(Invincibility, 1.13,  12.10);
 	
 	/* The game will refer to data stored here to play an additional channel. 
 	If no data set here for the track, nothing will happen. You are not forced to do this */

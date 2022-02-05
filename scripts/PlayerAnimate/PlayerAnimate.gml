@@ -26,7 +26,6 @@ function PlayerAnimate()
 	// Animate character
 	switch Game.Character
 	{	
-		// Sonic
 		#region Sonic
 		case CharSonic:
 		{
@@ -249,8 +248,6 @@ function PlayerAnimate()
 		}
 		break;
 		#endregion
-		
-		// Tails
 		#region Tails
 		case CharTails:
 		{
@@ -358,8 +355,6 @@ function PlayerAnimate()
 		}
 		break;
 		#endregion
-		
-		// Knuckles
 		#region Knuckles
 		case CharKnuckles:
 		{

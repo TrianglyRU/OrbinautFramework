@@ -66,7 +66,7 @@ function PlayerJumpStart()
 		}
 		
 		// Sonic Team :|
-		if Game.PreciseRollJump
+		if Game.FixRollJump
 		{
 			RadiusX	= SmallRadiusX;
 			RadiusY = SmallRadiusY;

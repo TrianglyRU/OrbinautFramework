@@ -1,7 +1,10 @@
 function ObjChopperMain()
 {
-	// Act as badnik
-	object_act_enemy(TypeBadnik);
+	// Act as badnik and exit if it was destroyed
+	if object_act_enemy(TypeBadnik)
+	{
+		return;
+	}
 	
 	// Move Chopper
 	PosY += Ysp;

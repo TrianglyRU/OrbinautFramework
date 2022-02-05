@@ -47,8 +47,7 @@ function SpecialScreenProcess()
 				{
 					RenderAlpha += 0.1;
 				}
-			
-
+				
 				if !audio_bgm_is_playing(TypePrimary)
 				{		
 					if Game.SpecialScore

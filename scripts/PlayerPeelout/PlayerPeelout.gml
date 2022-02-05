@@ -54,6 +54,13 @@ function PlayerPeelout()
 		
 		audio_sfx_play(sfxPeeloutRelease, false);
 		
+		// Same story as with the spindash, so...
+		if Game.FixDashRelease
+		{
+			Xsp = Inertia *  dcos(Angle);
+			Ysp = Inertia * -dsin(Angle);
+		}
+		
 		return true;
 	}
 	

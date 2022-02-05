@@ -2,12 +2,15 @@ function GameSetup()
 {
 	// Game settings
 	Game.WindowTitle     = "Orbinaut Framework";
-	Game.StartRoom		 = Screen_DevMenu;	
+	Game.StartRoom		 = Screen_DevMenu;
 	Game.DevMode         = true;
 	Game.ShowSplash      = false;
 	Game.Width           = 400;
 	Game.Height			 = 224;
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
+	
+	/* Default volume, screen size and fullscreen mode 
+	are set in gamesettings_load() script */
 	
 	// Originals differences
 	Game.SpindashEnabled    = true;
@@ -23,7 +26,7 @@ function GameSetup()
 	Game.S3DeathRestart     = false;
 	Game.SKCrouch			= false;
 	Game.SKRollDeceleration	= true;
-	Game.SKWallCollision	= false;	
+	Game.SKWallCollision	= false;
 	Game.SKItemBoxBehaviour = false;
 	Game.CDStageTimer	    = false;
 	Game.CDCamera			= false;
@@ -32,8 +35,9 @@ function GameSetup()
 	Game.SmoothRotation	      = true;
 	Game.RichPresenceSupport  = true;
 	Game.BetterPlayerTileGrip = false;
-	Game.PreciseRollJump	  = false;
 	Game.PreciseRingBehaviour = false;
+	Game.FixRollJump		  = true;
+	Game.FixDashRelease		  = true;
 	Game.NoRollSpeedLimit	  = false;
 	Game.FlightCancel	      = false;
 	
