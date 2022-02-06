@@ -32,6 +32,12 @@ function PlayerSpindash()
 		{
 			SpindashRev -= floor(SpindashRev / 0.125) / 256;
 		}
+		
+		// Spawn dust object once again if it was deleted
+		if Player.Grounded and !instance_exists(SpindashDust)
+		{
+			instance_create(PosX, PosY + RadiusY, SpindashDust);
+		}
 	}
 	
 	// Release spindash

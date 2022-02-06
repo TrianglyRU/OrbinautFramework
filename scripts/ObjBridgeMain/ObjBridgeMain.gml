@@ -1,6 +1,6 @@
 function ObjBridgeMain()
 {
-	// Get player position within the bridge
+	// Get log number player is standing on
 	var PlayerPos = (floor(Player.PosX) - (x - BridgeLength / 2 * 16 - 16)) div 16;
 
 	// Set a recovery angle
@@ -23,6 +23,6 @@ function ObjBridgeMain()
 	// Update bridge position
 	y = NativeY + floor(ActiveDepression * dsin(RecoveryAngle));
 	
-	// Do solid collision
+	// Do collision
 	object_act_solid(false, true, false, false);
 }

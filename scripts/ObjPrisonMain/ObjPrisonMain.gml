@@ -1,27 +1,27 @@
 function ObjPrisonMain()
 {
+	// Do collision
+	object_act_solid(true, true, true, false);
+			
 	switch State 
 	{
-		// Waiting for player to press the button
 		case 0:
-		{
-			// Do collision
-			object_act_solid(true, true, true, false);
-				
+		{		
 			// Check if the button has been pressed
-			if ChildObject.State > 0
+			if ButtonObj.State > 0
 			{
 				if Player.SuperState
 				{
-					// Restore stage music
-					audio_bgm_play(TypePrimary, Stage.StageMusic);
-					
-					// Make player exit super form
+					// Make player exit their super form
 					Player.SuperState = false;
+					
+					audio_bgm_play(TypePrimary, Stage.StageMusic);					
 				}
-				Stage.IsFinished  = 1;
 				Stage.TimeEnabled = false;
 				Input.IgnoreInput = true;
+				
+				// Increment stage state
+				Stage.IsFinished = 1;
 				
 				// Increment state
 				State	  += 1;
@@ -29,16 +29,11 @@ function ObjPrisonMain()
 			}
 		}	
 		break;
-			
-		// Explode
 		case 1: 
 		{
 			// Force player movement
 			Input.Right = true;
-			
-			// Do collision
-			object_act_solid(true, true, true, false);
-				
+
 			// Spawn explosions for 60 frames
 			if (--StateTimer)
 			{
@@ -56,8 +51,8 @@ function ObjPrisonMain()
 			}
 			else
 			{
-				// Destroy button
-				instance_destroy(ChildObject);
+				// Destroy the button
+				instance_destroy(ButtonObj);
 				
 				// Spawn 8 animals
 				var ThisObject = id;
@@ -68,8 +63,8 @@ function ObjPrisonMain()
 					{
 						State = 2;
 						Delay = 154 - i * 8;
-							
-						// Set depth
+						
+						// Update object depth
 						object_set_depth(ThisObject, 0);
 					}
 				}	
@@ -81,8 +76,6 @@ function ObjPrisonMain()
 			}
 		}
 		break;
-			
-		// Destroyed
 		case 2:
 		{
 			if (--StateTimer)
@@ -92,35 +85,31 @@ function ObjPrisonMain()
 				{
 					var ThisObject = id;
 					TargetAnimal   = instance_create(x - 27 + irandom(7) * 7, y + 4, Animal);
+					
 					with TargetAnimal
 					{
 						State = 2;
 						Delay = 12;
 						
-						// Set depth
+						// Update object depth
 						object_set_depth(ThisObject, 0);
 					}
 				}
 			}
-			
-			// Start results event once target animal goes off-screen
-			if Stage.IsFinished == 1 and instance_exists(TargetAnimal)
+			else if !object_is_onscreen(TargetAnimal)
 			{
-				if !object_is_onscreen(TargetAnimal)
-				{
-					// Update flag
-					Stage.IsFinished = 2;
+				audio_bgm_play(TypePrimary, ActClear);
 				
-					// Play resuts music
-					audio_bgm_play(TypePrimary, ActClear);
-				}
+				// Increment stage & object state
+				Stage.IsFinished = 2;
+				State			+= 1;
 			}
 		}
 		break;
 	}
 	
 	// Update stage boundaries
-	if !Stage.IsBossfight
+	if !Stage.IsBossfight and x - floor(Player.PosX) < Game.Width * 2
 	{
 		if floor(Player.PosX) >= Camera.ViewX + Game.Width / 2
 		{

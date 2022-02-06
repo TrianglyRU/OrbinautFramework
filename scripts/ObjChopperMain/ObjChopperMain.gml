@@ -6,12 +6,9 @@ function ObjChopperMain()
 		return;
 	}
 	
-	// Move Chopper
 	PosY += Ysp;
 	Ysp  += 0.09375;
-	
-	// Update its position
-	y = floor(PosY);
+	y	  = floor(PosY);
 	
 	switch State
 	{
@@ -44,7 +41,9 @@ function ObjChopperMain()
 			// If fallen below initial position, restart
 			if y >= OriginY 
 			{ 
-				y = OriginY; Ysp = -7; 
+				y   = OriginY; 
+				Ysp = -7;
+				
 				animation_play(sprite_index, 8, 0);
 				
 				// Go back to state 0

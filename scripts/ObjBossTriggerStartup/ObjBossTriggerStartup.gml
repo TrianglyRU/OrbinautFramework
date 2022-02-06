@@ -6,7 +6,6 @@ function ObjBossTriggerStartup()
 	3. Template,    default = true
 	*/
 	
-	// Initialise variables
 	BossDefeated = 0;
 	image_alpha  = 0;
 	

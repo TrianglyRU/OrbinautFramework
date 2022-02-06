@@ -1,22 +1,20 @@
-function ObjBossTriggerMain()
+   function ObjBossTriggerMain()
 {
-	// Set right boundary if object exist
+	// Set right boundary if object is active
 	Stage.TargetRightBoundary = x + max(Game.Width / 2, ArenaWidth / 2);
 	
-	// Check if player ran past the trigger
 	if Stage.IsBossfight == -1
 	{
 		if floor(Player.PosX) > x
 		{
-			// Play boss music
-			audio_bgm_play(TypePrimary, BossTheme); 
-			
 			// Set new top boundary
 			if ArenaHeight != -1
 			{
 				Stage.TargetTopBoundary = Stage.BottomBoundary - ArenaHeight;
 			}
 			
+			audio_bgm_play(TypePrimary, BossTheme); 
+
 			/* SPAWN YOUR BOSS HERE. Do not forget to set BossTrigger.BossDefeated to
 			'true' once you want your stage to exit boss state! */
 			switch room
@@ -26,28 +24,25 @@ function ObjBossTriggerMain()
 			Stage.IsBossfight = true;
 		}
 	}
-	
-	// Check if boss is active
 	else if Stage.IsBossfight == true
 	{
 		if !BossDefeated
 		{
+			// Set left boundary
+			Stage.TargetLeftBoundary = x - max(Game.Width / 2, ArenaWidth / 2);	
+			
 			// Check for a key to be pressed if it is example bossfight
 			if Template and keyboard_check_pressed(ord("K"))
 			{
 				BossDefeated = true;
 			}
-			
-			// Set new left boundary
-			Stage.TargetLeftBoundary = x - max(Game.Width / 2, ArenaWidth / 2);	
 		}
 		else
 		{
-			/* Set right boundary to room_width. Normally, you have to place Egg Prison or Clear Panel
+			/* Set right boundary. Normally, you have to place Egg Prison or Clear Panel
 			after the arena, so the game will automatically set new boundaries once again */
 			Stage.TargetRightBoundary = room_width;
 			
-			// Give 1000 points and cancel bossfight state
 			Player.Score     += 1000;
 			Stage.IsBossfight = false;
 			
@@ -61,7 +56,6 @@ function ObjBossTriggerMain()
 				audio_bgm_play(TypePrimary, Stage.StageMusic);
 			}
 			
-			// Destroy object
 			instance_destroy();
 		}
 	}

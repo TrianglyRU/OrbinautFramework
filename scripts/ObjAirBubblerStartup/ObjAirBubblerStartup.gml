@@ -4,7 +4,6 @@ function ObjAirBubblerStartup()
 	1. GenerationSpeed, default = 1
 	*/
 	
-	// Initalise variables
 	Delay		 = irandom_range(128, 255);
 	Cycle		 = 1;
 	BubbleAmount = 0;
@@ -20,6 +19,5 @@ function ObjAirBubblerStartup()
 	
 	// Set object properties
 	object_set_unload(TypeReset);
-	
 	animation_play(sprite_index, 16, 0);
 }

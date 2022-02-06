@@ -1,11 +1,10 @@
 function ObjBumperMain()
 {
-	// Bounce on collision
 	if object_check_touch(TypeHitbox)
 	{
 		if !State and !Player.Hurt
 		{
-			// Set player speeds based on angle
+			// Set player speeds based on collision angle
 			var Angle = point_direction(x, y, floor(Player.PosX), floor(Player.PosY));
 			
 			if Player.Grounded
@@ -23,7 +22,7 @@ function ObjBumperMain()
 				AirLock = false;
 			}
 			
-			// Add points to player's score
+			// Add points to the score
 			if ScoreLimit
 			{
 				var  ThisObject = id;
@@ -35,20 +34,16 @@ function ObjBumperMain()
 			}
 			ScoreLimit--;
 			
-			// Play sound
 			audio_sfx_play(sfxBumper, false);
-			
-			// Reset animation
 			animation_reset(1);
 			
 			// Increment state
 			State++;
 		}
 	}
-	
-	// Back to normal state
 	else if State
 	{
+		// Decrement state
 		State--;
 	}
 }

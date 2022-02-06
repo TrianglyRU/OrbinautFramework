@@ -2,16 +2,15 @@ function ObjItemBoxMain()
 {
 	switch State
 	{
-		// Not destroyed
 		case 0:
 		{
-			// Handle item card flick
+			// Flick item card
 			if !(--Timer)
 			{
 				Timer = 5;
 			}
 
-			// Check if player is able to destroy it
+			// Check if player is able to destroy the object
 			if Game.SKItemBoxBehaviour
 			{
 				if Player.Ysp < 0 and !Player.DoubleSpinAttack
@@ -27,18 +26,17 @@ function ObjItemBoxMain()
 			{
 				var Check = Player.Ysp >= 0 or Player.DoubleSpinAttack;
 			}
+			
+			// If so, destroy
 			if Check and (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id
 			{
-				// Destroy on overlap
 				if object_check_touch(TypeHitbox2)
 				{
-					// Inverse player's speed
 					if !Player.Grounded
 					{
 						Player.Ysp = -Player.Ysp;
 					}
 					
-					// Create explosion
 					instance_create(PosX, PosY, DustExplosion);
 					audio_sfx_play(sfxDestroy, false);
 				
@@ -50,14 +48,10 @@ function ObjItemBoxMain()
 					State++;
 				}
 			}
-				
-			// If not, just collide
+			
+			// Else act as solid
 			else
-			{
-				// Do collision
-				object_act_solid(true, true, false, false);
-					
-				// Make itembox fall down
+			{	
 				if !IsFalling and floor(Player.PosY) >= floor(y + 16)
 				{
 					if object_check_touch(TypeHitbox)
@@ -67,38 +61,36 @@ function ObjItemBoxMain()
 						Player.Ysp = -Player.Ysp;
 					}
 				}
+				
+				// Do collision
+				object_act_solid(true, true, false, false);
 			}
 		
-			// Check if itembox is airborne
+			// Check if itembox is falling
 			if IsFalling
 			{
-				// Move
 				Ysp  += 0.21875;
 				PosY += Ysp;
 			
-				// Collide with floor
+				// Check for floor
 				var FindFloor = tile_find_v(PosX, PosY + 15, true, false, Player.Layer)[0];
 				if  FindFloor < 0
 				{
 					PosY     += FindFloor;
 					IsFalling = false;
 				}
-			
+				
 				// Update position
 				x = floor(PosX);
 				y = floor(PosY);
 			}
 			
-			// Update card position
 			CardX = x;
 			CardY = y - 3;
 		}
 		break;
-		
-		// Destroyed
 		case 1:
-		{	
-			// Update animation
+		{
 			if (++Timer) == 12
 			{
 				animation_set(spr_obj_itembox_destroyed, 0);
@@ -108,20 +100,19 @@ function ObjItemBoxMain()
 			CardSpeed = max(CardSpeed - 0.09375, 0);
 			CardY	 -= CardSpeed;
 			
-			// If card is moving, exit
+			// If itemcard is moving, exit
 			if CardSpeed 
 			{
 				break;
 			}
 			
 			// Increment state
-			Timer = 30;
-			State++;
+			Timer  = 30;
+			State += 1;
 			
 			// Give bonus
 			switch BoxType
 			{
-				// Give 10 rings
 				case "10 Rings":
 				{
 					Player.Rings += 10;	
@@ -129,8 +120,6 @@ function ObjItemBoxMain()
 					audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
 				}
 				break;
-				
-				// Temporary increase speed
 				case "High Speed":
 				{
 					if !Player.SuperState
@@ -140,8 +129,6 @@ function ObjItemBoxMain()
 					Player.HighspeedBonus = 1200;
 				}
 				break;
-				
-				// Grant temporary invincibility
 				case "Invincibility":
 				{
 					if Player.SuperState
@@ -162,8 +149,6 @@ function ObjItemBoxMain()
 					audio_bgm_play(TypePrimary, Invincibility);
 				}
 				break;
-				
-				// Grant regular Barrier
 				case "Barrier":
 				{
 					Player.BarrierType = BarrierNormal;
@@ -180,8 +165,6 @@ function ObjItemBoxMain()
 					audio_sfx_play(sfxBarrier, false);
 				}
 				break;
-				
-				// Grant Flame Barrier
 				case "Flame Barrier":
 				{
 					Player.BarrierType = BarrierFlame;
@@ -197,8 +180,6 @@ function ObjItemBoxMain()
 					audio_sfx_play(sfxFlameBarrier, false);
 				}
 				break;
-				
-				// Grant Thunder Barrier
 				case "Thunder Barrier":
 				{
 					Player.BarrierType = BarrierThunder;
@@ -214,8 +195,6 @@ function ObjItemBoxMain()
 					audio_sfx_play(sfxThunderBarrier, false);
 				}
 				break;
-				
-				// Grant Water Barrier
 				case "Water Barrier":
 				{
 					Player.BarrierType = BarrierWater;
@@ -257,16 +236,12 @@ function ObjItemBoxMain()
 					Player.AirTimer = 1800;
 				}
 				break;
-				
-				// Grant 1-up
 				case "Extra Life":
 				{
 					Player.Lives++;
 					audio_bgm_play(TypeSecondary, ExtraLife);
 				}
 				break;
-				
-				// Damage player
 				case "Eggman":
 				{
 					player_damage(false, false, false);
@@ -275,10 +250,9 @@ function ObjItemBoxMain()
 			}
 		}
 		break;
-		
-		// Display item card for 30 frames
 		case 2:
 		{
+			// Display the item card for 30 frames
 			if !(--Timer)
 			{
 				State++;

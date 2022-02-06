@@ -38,8 +38,7 @@ function ObjCollapsingPlatformStartup()
 		break;
 	}
 	
-	// Initialise variables
-	TimeDelay = 8;
+	TimeDelay = 0;
 	State     = 0;
 	OriginX   = floor(x - sprite_get_xoffset(sprite_index))
     OriginY   = floor(y - sprite_get_yoffset(sprite_index));

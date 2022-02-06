@@ -6,7 +6,6 @@ function ObjBackgroundTriggerStartup()
 	3. YSize,  default = 4
 	*/
 	
-	// Initialise variables
 	State   = 0;
 	BGType  = 0;
 	visible = false;

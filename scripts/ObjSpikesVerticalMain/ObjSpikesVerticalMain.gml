@@ -7,11 +7,11 @@ function ObjSpikesVerticalMain()
 	}
 	else
 	{
-		// Allow to bounce and dropdash on the spikes
+		// Allow player to bounce and perform dropdash on the spikes if they're invincible
 		object_act_solid(true, true, true, false);
 	}
 	
-	// Damage player if they're touching the hurt side
+	// Damage player
 	if object_check_touch(image_yscale == 1 ? TypeSolidU : TypeSolidD)
 	{
 		player_damage(false, false, false);

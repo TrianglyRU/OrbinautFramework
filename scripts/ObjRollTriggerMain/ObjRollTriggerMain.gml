@@ -1,6 +1,5 @@
 function ObjRollTriggerMain()
 {	
-	// Check for overlap
 	if object_check_touch(TypeTrigger) 
 	{
 		// Force player to roll
@@ -13,11 +12,9 @@ function ObjRollTriggerMain()
 			Player.ForcedRoll = true;
 		
 			// Increment state
-			State = 1;
+			State++;
 		}
 	}
-	
-	// Reset
 	else if State
 	{
 		State			  = false;

@@ -6,18 +6,18 @@ function ObjOrbinautMain()
 		return;
 	}
 	
-	// Move Orbinaut
+	// Move
 	PosX += image_xscale / 4;
 	x     = floor(PosX);
 	
-	// Update orbs angle
+	// Update orbs angle and position
 	Angle = (Angle + 4 * image_xscale) mod 360;
-	
-	// Update orbs position
+
 	for (var i = 0; i < 4; i++)
 	{
 		var ThisObject = id;
 		var NewAngle   = Angle + 90 * i;
+		
 		with Orb[i]
 		{
 			x = ThisObject.x + 16 * dsin(NewAngle);

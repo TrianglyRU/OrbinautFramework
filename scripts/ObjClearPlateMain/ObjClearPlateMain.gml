@@ -1,11 +1,9 @@
 function ObjClearPanelMain()
 {
-	// Exit if playing as different character
 	if id.PlayerType == "Sonic & Tails" and Game.Character == CharKnuckles
 	or id.PlayerType == "Knuckles"		and Game.Character != CharKnuckles
 	{
-		visible = false;
-		exit;
+		visible = false; return;
 	}
 	
 	switch State
@@ -17,51 +15,44 @@ function ObjClearPanelMain()
 			{
 				if Player.SuperState
 				{
-					// Restore stage music
-					audio_bgm_play(TypePrimary, Stage.StageMusic);
-					
-					// Make player exit super form
+					// Make player exit their super form
 					Player.SuperState = false;
+					
+					audio_bgm_play(TypePrimary, Stage.StageMusic);
 				}
 				Stage.TimeEnabled = false;
+
+				audio_sfx_play(sfxClearPanel, false);
+				animation_play(SpriteData[0], 1, 0);
+				
+				// Increment stage state
 				Stage.IsFinished  = 1;
 				
 				// Increment state
 				State++;
-				
-				// Play sound 
-				audio_sfx_play(sfxClearPanel, false);
-				
-				// Set animation
-				animation_play(SpriteData[0], 1, 0);
 			}
 		}
 		break;
 		case 1:
 		{
-			// Count timer
-			StateTimer++;
-		
-			// Set animation
-			if StateTimer == 62
+			if (++StateTimer) == 62
 			{
+				// Switch to second animation
 				animation_play(SpriteData[1], 1, 0);
 			}
-			
-			// Increment state after 124 frames
 			else if StateTimer == 123
-			{
-				State++;
-				
-				// Stop animation
+			{		
 				animation_set(sprite_index, 0);
+				
+				// Increment state
+				State++;
 			}
 		
-			// Create sparkles every 12 frames
-			if StateTimer mod 12 == 0 and SparkleToUse < 8
+			// Create as sparkle every 12th frame
+			if StateTimer mod 12 == 0 and SparkleID < 8
 			{
-				instance_create(x + SparkleX[SparkleToUse], y + SparkleY[SparkleToUse], RingSparkle);
-				SparkleToUse++;
+				instance_create(x + SparkleX[SparkleID], y + SparkleY[SparkleID], RingSparkle);
+				SparkleID++;
 			}
 		}
 		break;
@@ -74,14 +65,14 @@ function ObjClearPanelMain()
 				{
 					if Stage.IsFinished < 2
 					{
+						// Increment stage state
 						Stage.IsFinished = 2;
-						
-						// Play resuts music
+					
 						audio_bgm_play(TypePrimary, ActClear);
 					}	
 				}
 				
-				// Take away control from the player
+				// Take control away from the player
 				if !Input.IgnoreInput
 				{
 					Input.IgnoreInput = true;
@@ -102,7 +93,7 @@ function ObjClearPanelMain()
 			Stage.TargetLeftBoundary  = x - Game.Width * 1.5 + 64;
 			Stage.TargetRightBoundary = x + Game.Width / 2;
 		
-			if State
+			if State > 0
 			{
 				Stage.TargetLeftBoundary = x - (Game.Width / 2);
 			}

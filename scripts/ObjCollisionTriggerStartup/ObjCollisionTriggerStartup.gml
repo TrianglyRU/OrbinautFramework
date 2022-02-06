@@ -6,7 +6,6 @@ function ObjCollisionTriggerStartup()
 	3. RightDirection, default = "None"			
 	*/
 	
-	// Initialise variables
 	State   = 0;
 	visible = false;
 	

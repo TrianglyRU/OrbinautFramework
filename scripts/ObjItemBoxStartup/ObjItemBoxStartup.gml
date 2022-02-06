@@ -4,7 +4,6 @@ function ObjItemBoxStartup()
 	1. BoxType, default = "Empty"
 	*/
 	
-	// Initialise variables
 	PosX	  = x;
 	PosY	  = y;
 	CardX	  = x;
@@ -15,7 +14,6 @@ function ObjItemBoxStartup()
 	State	  = 0;
 	Ysp		  = 0;
 
-	// Set item card to display
 	switch BoxType
 	{
 		case "10 Rings":
@@ -51,9 +49,10 @@ function ObjItemBoxStartup()
 	}
 	
 	// Set object properties
-	object_set_solidbox(15, 15, false);
-	object_set_hitbox(16, 16);
 	object_set_unload(TypeReset);
 	object_set_depth(Player, 0);
+	object_set_hitbox(16, 16);
+	object_set_solidbox(15, 15, false);
+	
 	animation_play(sprite_index, 4, 0);
 }

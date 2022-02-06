@@ -31,11 +31,11 @@ function ObjBridgeStartup()
 	}
 	
 	// Set object properties
-	object_set_solidbox(BridgeLength / 2 * 16, 7, false);
 	object_set_unload(TypePause);
 	object_set_depth(Player, 0);
+	object_set_solidbox(BridgeLength / 2 * 16, 7, false);
 	
-	// Create posts
+	// Create bridge posts
 	if SpawnPosts
 	{
 		var ThisObject = id;
@@ -44,6 +44,8 @@ function ObjBridgeStartup()
 			var  NewObject = instance_create(x - (BridgeLength / 2 * 16) * i - 18 * i, NativeY - 15, BridgePost);
 			with NewObject
 			{
+				// Set object properties
+				object_set_unload(TypePause);
 				object_set_depth(Player, 1); 
 				
 				animation_set(ThisObject.SpriteData[1], 0); image_xscale = i;

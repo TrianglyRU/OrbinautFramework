@@ -2,7 +2,7 @@ function ObjSpawnPointSetup()
 {
 	instance_destroy();
 	
-	// Check if player should use spawnpoint to spawn
+	// Spawn player on the object if they should use it
 	if !Player.PosX and !Player.PosY
 	{
 		switch PlayerType

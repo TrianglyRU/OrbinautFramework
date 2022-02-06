@@ -2,7 +2,6 @@ function ObjPushableBlockMain()
 {
 	switch State
 	{
-		// Grounded
 		case 0:
 		{
 			// Do collision
@@ -28,20 +27,17 @@ function ObjPushableBlockMain()
 					Direction = FlipLeft;
 				}
 			}
-			
-			// Exit the code if not pushing
 			else
 			{
 				break;
 			}
 			
-			// Play sound
 			if !audio_sfx_is_playing(sfxPush)
 			{
 				audio_sfx_play(sfxPush, false);
 			}
 			
-			// Check for floor collision
+			// Check for floor
 			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
 			if  FindFloor > 4
 			{
@@ -50,19 +46,21 @@ function ObjPushableBlockMain()
 					PosX	    -= 1;
 					Player.PosX -= 1;
 				}
-				ClipTimer = 4;
-				State	 += 1;
 				
 				Player.Xsp	   = 0;
 				Player.Inertia = 0;
 				Player.Pushing = false;
+				
+				// Increment state
+				ClipTimer = 4;
+				State	 += 1;
 			}
 			else
 			{
 				PosY += FindFloor;
 			}
 			
-			// Check for wall collision
+			// Check for walls and increment state if the wall was found
 			var FindWall = tile_find_h(PosX - 16, PosY, false, true, LayerA)[0];
 			if  FindWall < 0
 			{
@@ -77,10 +75,9 @@ function ObjPushableBlockMain()
 			}
 		}
 		break;
-		
-		// Airborne
 		case 1:
 		{
+			// Move and fall
 			if ClipTimer--
 			{
 				PosX += 4 * Direction;
@@ -91,13 +88,15 @@ function ObjPushableBlockMain()
 				PosY += Ysp;
 			}
 		
-			// Check for floor collision
+			// Check for floor
 			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
 			if  FindFloor < 0
 			{
 				PosY += FindFloor;
-				State = 0;
 				Ysp	  = 0;
+				
+				// Decrement state
+				State = 0;
 			}
 		}
 	}

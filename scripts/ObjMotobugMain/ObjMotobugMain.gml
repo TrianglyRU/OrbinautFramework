@@ -8,52 +8,45 @@ function ObjMotobugMain()
 	
 	switch State
 	{
-		// Spawn
 		case 0:
 		{
 			// Fall to the ground
 			PosY += Ysp;
 			Ysp  += 0.21875;
 			
-			// Check for the floor
+			// Check for floor
 			var FindFloor = tile_find_v(PosX, PosY + 15, true, false, LayerA)[0];
 			if  FindFloor < 0
 			{
-				// Adhere to the surface
 				PosY += FindFloor;
+				animation_play(sprite_index, 8, 0);
 				
 				// Increment state
-				State	  += 1;
 				StateTimer = 16;
-				
-				// Set animation
-				animation_play(sprite_index, 8, 0);
+				State	  += 1;
 			}
 		}
 		break;
-		
-		// Moving
 		case 1:
 		{
-			// Move Motobug
+			// Move
 			PosX += image_xscale;
 			
-			// Check for the floor
+			// Check for floor
 			var FindFloor = tile_find_v(PosX, PosY + 15, true, false, LayerA)[0];
 			if  FindFloor >= 12 or FindFloor < -8
 			{
-				// Stop animation
 				animation_set(sprite_index, 0);
 				
 				// Increment state
-				State	  += 1;
 				StateTimer = 60;
+				State	  += 1;
 			}
 			else
 			{
-				// Create smoke object every 16 frames
 				if !(--StateTimer)
 				{
+					// Create smoke object every 16th frame
 					var  ThisObject = id;
 					var  NewObject  = instance_create(x - 19 * image_xscale, y - 1, MotobugSmoke);
 					with NewObject
@@ -62,22 +55,18 @@ function ObjMotobugMain()
 					}
 					StateTimer = 16;
 				}
-				
-				// Adhere to the surface
 				PosY += FindFloor;
 			}
 		}
 		break;
-		
-		// Idle
 		case 2:
 		{
 			if !(--StateTimer)
 			{
-				State		 -= 1
+				// Decrement state
+				State		 -=  1
 				image_xscale *= -1;
 				
-				// Set animation
 				animation_play(sprite_index, 8, 0);
 			}
 		}

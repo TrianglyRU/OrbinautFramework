@@ -30,7 +30,9 @@ function PlayerResetOnFloor()
 		// Update player animation
 		if !OnObject and Animation != AnimIdle
 		{
-			if Animation != AnimDropStand and Animation != AnimGlideStand
+			if  Animation != AnimSpindash 
+			and Animation != AnimDropStand 
+			and Animation != AnimGlideStand
 			{
 				Animation = AnimMove;
 			}

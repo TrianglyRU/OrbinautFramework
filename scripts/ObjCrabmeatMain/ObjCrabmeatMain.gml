@@ -8,31 +8,24 @@ function ObjCrabmeatMain()
 	
 	switch State
 	{
-		// Spawn
 		case 0:
 		{
-			// Fall to the ground
 			PosY += Ysp;
 			Ysp  += 0.21875;
 			
-			// Check for the floor
+			// Check for floor
 			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
 			if  FindFloor < 0
 			{
-				// Adhere to the surface
 				PosY += FindFloor;
+				animation_play(sprite_index, 16, 0);
 				
 				// Increment state
-				State	  += 1;
 				StateTimer = 127;
-				
-				// Set animation
-				animation_play(sprite_index, 16, 0);
+				State	  += 1;
 			}
 		}
 		break;
-		
-		// Walk
 		case 1:
 		{	
 			// Move
@@ -72,16 +65,15 @@ function ObjCrabmeatMain()
 				PreviousSprite = sprite_index;
 				StateTimer     = 59;
 				
-				// Stop animation
 				animation_set(sprite_index, 0);
 			}
 			
 			// Adhere to the surface
 			else
-			{
-				// If surface is angled, update sprite
+			{	
 				if FindFloor[1] >= 8.44 and FindFloor[1] <= 351.56
 				{
+					// If surface is angled, update sprite
 					image_xscale = FindFloor[1] > 180 ? -1 : 1;
 					sprite_index = spr_obj_crabmeat_move_angled;
 				}
@@ -89,9 +81,8 @@ function ObjCrabmeatMain()
 				{
 					sprite_index = spr_obj_crabmeat_move;
 				}
-				PosY += FindFloor[0];
 				
-				// Set animation
+				PosY += FindFloor[0];				
 				animation_play(sprite_index, 16, 0);
 			}
 		}
@@ -103,13 +94,9 @@ function ObjCrabmeatMain()
 		{
 			if !(--StateTimer)
 			{
-				// Fire!
+				// Fire!..
 				if State == 3
 				{
-					StateTimer = 59;
-					State	  += 1;
-					
-					// Update animation
 					animation_set(spr_obj_crabmeat_fire, 0);
 				
 					// Create bullets
@@ -127,24 +114,27 @@ function ObjCrabmeatMain()
 							object_set_depth(ThisObject, 0);
 						}
 					}
+					
+					// Increment state
+					StateTimer = 59;
+					State	  += 1;
 				}
 				
-				// Else turn around and continue to walk
+				// ...or turn around and continue to walk
 				else
 				{	
 					StateTimer    = 127;
 					State		 -=   1;
 					Direction    *=  -1;
 					image_xscale *=  -1;
-					
-					// Update animation
+				
 					animation_play(PreviousSprite, 16, 0); image_index = 1;
 				}
 			}
 		}
 		break;
 		
-		// Wait for a second after firing, then turn around and continue to walk
+		// If performed fire action, wait for a second and then continue to walk
 		case 4:
 		{
 			if !(--StateTimer)
@@ -154,7 +144,6 @@ function ObjCrabmeatMain()
 				Direction    *=  -1;
 				image_xscale *=  -1;
 					
-				// Update animation
 				animation_play(PreviousSprite, 16, 0); image_index = 1;
 			}
 		}

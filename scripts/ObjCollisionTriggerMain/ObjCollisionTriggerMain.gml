@@ -6,7 +6,7 @@ function ObjCollisionTriggerMain()
 		return;
 	}
 	
-	// Change layer if we passed through the object
+	// Update active collision layer if player passed through the object
 	if !object_check_touch(TypeTrigger)
 	{
 		if State
@@ -31,7 +31,7 @@ function ObjCollisionTriggerMain()
 		}
 	}
 	
-	// Increment state on overlap
+	// Increment state
 	else
 	{
 		State = min(State + 1, 1);
