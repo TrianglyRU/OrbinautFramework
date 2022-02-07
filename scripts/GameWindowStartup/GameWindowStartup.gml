@@ -13,4 +13,10 @@ function GameWindowStartup()
 	surface_depth_disable(true);
 	gpu_set_alphatestenable(true);
 	gpu_set_alphatestref(0);
+	
+	// Show alert about incorrect Game.Width
+	if (Game.Width / 2) mod 2 or (Game.Height / 2) mod 2 != 0
+	{
+		show_message("Halved game width or height isn't an even number. You may experience some issues because of that!");
+	}
 }

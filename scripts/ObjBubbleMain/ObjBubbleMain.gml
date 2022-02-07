@@ -24,25 +24,20 @@ function ObjBubbleMain()
 		}
 	}
 	
-	// Destroy when out of water
+	// Destroy if above the water level or collected
 	if y < Stage.WaterLevel or Collected
 	{
 		if sprite_index != spr_obj_bubble_disappear
 		{
-			// If reached last frame possible, pop the bubble
 			if image_index == 6
 			{
 				animation_play(spr_obj_bubble_disappear, 6, 3);
 			}
-			
-			// Else destroy instantly
 			else
 			{
 				instance_destroy();
 			}
 		}
-		
-		// Destroy on animation end
 		else if image_index == 3
 		{
 			instance_destroy();
@@ -50,7 +45,7 @@ function ObjBubbleMain()
 	}
 	else
 	{
-		// Lock animation on certain frame for small and medium bubbles
+		// Lockthe  animation on a certain frame for small and medium bubbles
 		if BubbleType < 2
 		{
 			var TargetFrame = 2 + BubbleType * 2;
@@ -60,11 +55,10 @@ function ObjBubbleMain()
 			}
 		}
 		
-		// Move bubble	
+		// Move the bubble
 		FinalX = PosX + Stage.WobbleData[WobbleOffset];	
 		PosY  += Ysp;
 		
-		// Update position
 		x = floor(FinalX);
 		y = floor(PosY);
 	}
@@ -98,14 +92,15 @@ function ObjBubbleMain()
 				}
 			}
 			
-			// Reset collision radiuses
 			if Player.Spinning
 			{
 				Player.RadiusX = Player.DefaultRadiusX;
 				Player.RadiusY = Player.DefaultRadiusY;
 			}
-			
-			// Reset flags
+			if !Player.FlightState and Player.GlideState != GlideAir
+			{
+				Player.Animation = AnimBreathe;
+			}
 			Player.AirTimer   = 1800;
 			Player.GroundLock = 35;
 			Player.Xsp		  = 0;
@@ -114,17 +109,10 @@ function ObjBubbleMain()
 			Player.Jumping    = false;
 			Player.Spinning	  = false;
 			
-			// Play animation
-			if !Player.FlightState and Player.GlideState != GlideAir
-			{
-				Player.Animation = AnimBreathe;
-			}
-			
-			// Set bubble flag
-			Collected = true;
-			
-			// Play sound
 			audio_sfx_play(sfxBreathe, false);
+			
+			// Set flag
+			Collected = true;
 		}
 	}
 }

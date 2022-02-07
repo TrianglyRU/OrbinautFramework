@@ -1,15 +1,12 @@
 function ObjStarPostPortalEvent()
 {
-	// Exit if in state 0
 	if !State
 	{
-		exit;
+		return;
 	}
 	
-	// Check if screen is full black
 	if fade_check(StateMax)
 	{
-		// Remember ring amount and barrier
 		Game.BonusStageData[0] = Player.Rings;
 		Game.BonusStageData[1] = Player.BarrierType;
 		

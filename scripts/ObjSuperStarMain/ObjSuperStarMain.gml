@@ -7,7 +7,7 @@ function ObjSuperStarMain()
 		y = floor(Player.PosY);
 	}
 	
-	// Destroy and create new object on animation end
+	// Destroy and create a new object on animation end
 	if image_index == 5
 	{
 		if Player.SuperState

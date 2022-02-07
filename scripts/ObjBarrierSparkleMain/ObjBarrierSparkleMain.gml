@@ -1,8 +1,14 @@
 function ObjBarrierSparkleMain()
 {
-	if State
+	if !State
 	{
-		// Perform movement
+		// Increment state
+		State++;
+	}
+	
+	// Start movement on the second frame
+	else
+	{
 		if (++Timer) < 22
 		{
 			switch SparkleID
@@ -33,17 +39,9 @@ function ObjBarrierSparkleMain()
 				break;
 			}
 		}
-		
-		// Destroy object after 21 frames
 		else
 		{
 			instance_destroy();
 		}
-	}
-	
-	// Start movement on the second frame
-	else
-	{
-		State++;
 	}
 }

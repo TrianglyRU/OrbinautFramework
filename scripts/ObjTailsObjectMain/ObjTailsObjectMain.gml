@@ -29,18 +29,15 @@ function ObjTailsObjectMain()
 		break;
 	}
 	
-	// If we're not rolling or jumping, use player's current visual angle
 	if !Player.Spinning
 	{
 		VisualAngle = Player.VisualAngle;
 	}
-		
-	// In case we're rolling or jumping
 	else
 	{
-		// Get motion angle when airborne
 		if !Player.Grounded
 		{
+			// Get motion angle if airborne
 			if Player.Facing == FlipRight
 			{
 				Angle = point_direction(Player.PosX, Player.PosY, Player.PosX + Player.Xsp, Player.PosY + Player.Ysp);
@@ -50,30 +47,28 @@ function ObjTailsObjectMain()
 				Angle = point_direction(Player.PosX + Player.Xsp, Player.PosY + Player.Ysp, Player.PosX, Player.PosY);
 			}
 			
-			// If smooth rotation is disabled, 8-angle rotation
 			if !Game.SmoothRotation
 			{
+				
 				VisualAngle = ceil((Angle - 22.5) / 45) * 45;
 			}
-			
-			// Else use motion angle
 			else
 			{
+				// Apply motion angle
 				VisualAngle = Angle;
 			}
 		}
 		else
 		{	
-			// Get floor angle if grounded
 			Angle = Player.Angle;
 			
-			// If smooth rotation is disabled, 8-angle rotation
+			// Apply regular classic-like rotation
 			if !Game.SmoothRotation
 			{
 				VisualAngle = ceil((Angle - 22.5) / 45) * 45;
 			}
 			
-			// Else calculate visual angle
+			// Apply smooth rotation
 			else
 			{
 				/* Smooth rotation code by Nihil (NullSpace)
@@ -93,7 +88,4 @@ function ObjTailsObjectMain()
 			}
 		}
 	}
-	
-	// If player is not visibile, make us invisible too (is not for invincibility frames!)
-	visible = Player.visible;
 }

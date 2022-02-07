@@ -1,6 +1,5 @@
 function ObjPrisonButtonStartup()
 {
-	// Initialise flag
 	State = 0;
 	
 	// Set object properties

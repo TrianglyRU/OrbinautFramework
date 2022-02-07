@@ -1,6 +1,5 @@
 function ObjDustPuffStartup()
 {
-	// Initialise flag
 	State = 0;
 	
 	// Set object properties

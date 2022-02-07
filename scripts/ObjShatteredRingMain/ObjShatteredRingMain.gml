@@ -1,40 +1,14 @@
 function ObjShatteredRingMain()
 {
-	// Set animation
+	// Update animation
 	animation_play(sprite_index, floor((256 * 2) / Timer), 0);
-	
-	// Check if it is time for ring to disappear
-	if !(--Timer)
-	{
-		instance_destroy();
-	}
-	else
-	{		
-		// Check for hitbox collision
-		if PickupTimeout
-		{
-			PickupTimeout--;
-		}
-		else if object_check_touch(TypeHitbox)
-		{
-			// Add 1 to ring counter
-			Player.Rings++;
-		
-			// Play sound
-			audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
-	
-			// Create sparkle object in place of ring
-			instance_create(x, y, RingSparkle);	
-			instance_destroy();
-		}
-	}
 	
 	// Move ring
 	PosX += Xsp;
 	PosY += Ysp;
 	Ysp  += 0.09375;
 		
-	// Collide with floor
+	// Check for floor
 	if Ysp >= 0
 	{
 		var FindFloor = tile_find_v(PosX, PosY + 8, true, false, Player.Layer)[0];
@@ -48,7 +22,7 @@ function ObjShatteredRingMain()
 	// Perform additional collision checks
 	if Game.PreciseRingBehaviour
 	{
-		// Collide with ceiling
+		// Check for ceiling
 		if Ysp < 0 
 		{
 			var FindRoof = tile_find_v(PosX, PosY - 8, false, true, Player.Layer)[0];
@@ -58,7 +32,7 @@ function ObjShatteredRingMain()
 			}
 		}
 				
-		// Collide with left wall
+		// Check for left wall
 		if Xsp < 0
 		{
 			var FindWall = tile_find_h(PosX - 8, PosY, false, true, Player.Layer)[0];
@@ -68,7 +42,7 @@ function ObjShatteredRingMain()
 			}
 		}
 				
-		// Collide with right wall
+		// Check for right wall
 		else if Xsp > 0
 		{
 			var FindWall = tile_find_h(PosX + 8, PosY, false, true, Player.Layer)[0];
@@ -82,4 +56,25 @@ function ObjShatteredRingMain()
 	// Update position
 	x = floor(PosX);
 	y = floor(PosY);
+	
+	if !(--Timer)
+	{
+		instance_destroy();
+	}
+	else
+	{		
+		// Collect ring
+		if PickupTimeout
+		{
+			PickupTimeout--;
+		}
+		else if object_check_touch(TypeHitbox)
+		{
+			Player.Rings++;
+			audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
+	
+			instance_create(x, y, RingSparkle);	
+			instance_destroy();
+		}
+	}
 }

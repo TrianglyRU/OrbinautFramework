@@ -2,11 +2,9 @@ function ObjPlatformPieceMain()
 {
 	if !(--Timer)
 	{
-		// Fall
+		// Move and fall
 		Ysp  += 0.21875;
 		PosY += Ysp;
-		
-		// Update position
-		y = floor(PosY);
+		y	  = floor(PosY);
 	}
 }

@@ -1,6 +1,5 @@
 function ObjSuperStarStartup()
 {
-	// Intialsie flag
 	State = 0;
 	
 	// Set object properties

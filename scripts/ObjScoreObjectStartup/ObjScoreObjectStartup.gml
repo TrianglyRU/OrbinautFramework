@@ -1,6 +1,5 @@
 function ObjScoreObjectStartup()
 {
-	// Initialise variables
 	PosY		 =  y;
 	Ysp			 = -3;
 	IsChain      =  0;

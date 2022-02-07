@@ -1,6 +1,5 @@
 function ObjBarrierStartup()
 {
-	// Set default sprite
 	switch Player.BarrierType
 	{
 		case BarrierNormal:

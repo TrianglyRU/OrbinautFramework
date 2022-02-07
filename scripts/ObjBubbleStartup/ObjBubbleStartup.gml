@@ -1,6 +1,5 @@
 function ObjBubbleStartup()
 {
-	// Initialise variables
 	PosX		 =  x;
 	PosY		 =  y;
 	Ysp			 = -0.53125;

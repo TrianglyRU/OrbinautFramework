@@ -73,7 +73,7 @@ function ObjCollapsingPlatformMain()
 			{
 				instance_destroy();
 				
-				// Player should be airbone now
+				// Player should be airborne now
 				Player.OnObject = false;
 				Player.Grounded = false;
 			}

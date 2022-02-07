@@ -1,8 +1,8 @@
 function ObjBarrierMain()
 {
-	// Flame Barrier animation duration
 	static FlameAnimationTime = 25;
 	
+	// Destroy if player has no barrier
 	if Player.BarrierType == false
 	{
 		instance_destroy();
@@ -29,7 +29,6 @@ function ObjBarrierMain()
 			{
 				if !(--FlameAnimationTime)
 				{
-					// Reset timer and restore player's control
 					FlameAnimationTime = 25;
 					Player.AirLock     = false;
 					
@@ -66,10 +65,7 @@ function ObjBarrierMain()
 		break;
 	}
 	
-	// Match scale to player's facing direction
-	image_xscale = Player.Facing;
-	
-	// Hide the barrier
+	// Update visuals
 	if Player.InvincibleBonus or Player.SuperState
 	{
 		image_alpha = 0;
@@ -78,6 +74,7 @@ function ObjBarrierMain()
 	{
 		image_alpha = 1;
 	}
+	image_xscale = Player.Facing;
 
 	// Update position
 	x = floor(Player.PosX);

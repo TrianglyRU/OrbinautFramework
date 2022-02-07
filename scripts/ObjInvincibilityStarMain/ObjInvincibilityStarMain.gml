@@ -1,9 +1,8 @@
 function ObjInvincibilityStarMain()
 {
-	// Destroy if player is not under invincibility bonus
 	if !Player.InvincibleBonus or Player.SuperState
 	{
-		instance_destroy();
+		instance_destroy(); return;
 	}
 	
 	// Loop through frames
@@ -13,21 +12,16 @@ function ObjInvincibilityStarMain()
 	// Define a specific frame for each star
 	switch ID
 	{
-		case 0: image_index = FrameTable1[FrameValue[0]];	  break;
-		case 1: image_index = FrameTable1[FrameValue[0] + 6]; break;
-		case 2: image_index = FrameTable2[FrameValue[0]];	  break;
-		case 3: image_index = FrameTable2[FrameValue[0] + 6]; break;
-		case 4: image_index = FrameTable3[FrameValue[1]];     break;
-		case 5: image_index = FrameTable3[FrameValue[1] + 5]; break;
-		case 6: 
-		case 7: image_index = FrameTable4[FrameValue[0]];	  break;
+		case 0:  image_index = FrameTable1[FrameValue[0]];	   break;
+		case 1:  image_index = FrameTable1[FrameValue[0] + 6]; break;
+		case 2:  image_index = FrameTable2[FrameValue[0]];	   break;
+		case 3:  image_index = FrameTable2[FrameValue[0] + 6]; break;
+		case 4:  image_index = FrameTable3[FrameValue[1]];     break;
+		case 5:  image_index = FrameTable3[FrameValue[1] + 5]; break;
+		default: image_index = FrameTable4[FrameValue[0]];	   break;	// 6, 7
 	}
 	
-	// Set rotation angle
-	Angle        = 45 * ID - AngleOffset;
-	AngleOffset += real(11.25 * Player.Facing) mod 360;	// YYC can't compile if % is used with Double?
- 
-	// Set delays
+	// Set rotation data
 	switch ID
 	{
 		case 0: case 4: var Delay = 9; break;
@@ -35,7 +29,9 @@ function ObjInvincibilityStarMain()
 		case 2: case 6: var Delay = 3; break;
 		case 3: case 7: var Delay = 0; break;
 	}
-
+	Angle        = 45 * ID - AngleOffset;
+	AngleOffset += real(11.25 * Player.Facing) mod 360;	// YYC can't process mod operator (%) used with a double?
+ 
 	// Rotate
 	x = Player.RecordedPosX[| Delay] + dsin(Angle) * 16;
 	y = Player.RecordedPosY[| Delay] + dcos(Angle) * 16;

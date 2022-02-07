@@ -1,6 +1,5 @@
 function ObjBarrierSparkleStartup()
 {
-	// Initialise variables
 	Timer	  = 0;
 	State     = 0;
 	SparkleID = 0;

@@ -1,11 +1,8 @@
 function ObjInvincibilityStarStartup()
 {
-	// Initialise variables
-	AngleOffset = 0;
-	Angle		= 0;
 	ID			= 0;
-	
-	// Set frame data
+	Angle		= 0;
+	AngleOffset = 0;
 	FrameValue  = [0, 0];
 	FrameTable1 = [0, 0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0, 0, 0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0];
 	FrameTable2 = [0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1];

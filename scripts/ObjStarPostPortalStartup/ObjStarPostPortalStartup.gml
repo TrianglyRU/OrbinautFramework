@@ -1,6 +1,5 @@
 function ObjStarPostPortalStartup()
 {
-	// Initialise variables
 	Timer    = 0;
 	State    = 0;
 	Diameter = 0;

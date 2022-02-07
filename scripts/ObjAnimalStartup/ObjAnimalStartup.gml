@@ -65,13 +65,11 @@ function ObjAnimalStartup()
 		State = 0;
 		Delay = 0;
 	
-		// Set sprite
-		sprite_index = AnimalType;
-		image_xscale = -1;
-	
 		// Set object properties
-		object_set_solidbox(8, 12, false);
 		object_set_unload(TypeDelete);
 		object_set_depth(Player, 0);
+		object_set_solidbox(8, 12, false);
+		
+		animation_set(AnimalType, 0); image_xscale = -1;
 	}
 }

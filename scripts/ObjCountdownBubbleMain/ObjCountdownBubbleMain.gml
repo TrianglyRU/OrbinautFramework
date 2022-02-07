@@ -24,7 +24,7 @@ function ObjCountdownBubbleMain()
 		}
 	}
 	
-	// Destroy object once animation reaches last frame
+	// Destroy on animation end
 	if image_index == 12
 	{
 		instance_destroy();
@@ -35,13 +35,13 @@ function ObjCountdownBubbleMain()
 	{
 		FinalX = PosX + Stage.WobbleData[WobbleOffset];	
 		PosY  += Ysp;
-		
-		// Update position
+
 		x = floor(FinalX);
 		y = floor(PosY);
 	}
 	else if !array_length(ScreenPosition)
 	{
+		// Lock position on-screen
 		ScreenPosition[0] = x - Camera.ViewX;
 		ScreenPosition[1] = y - Camera.ViewY;
 	}

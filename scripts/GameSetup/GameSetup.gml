@@ -5,8 +5,8 @@ function GameSetup()
 	Game.StartRoom		 = Screen_DevMenu;
 	Game.DevMode         = true;
 	Game.ShowSplash      = false;
-	Game.Width           = 400;
-	Game.Height			 = 224;
+	Game.Width           = 424;
+	Game.Height			 = 240;
 	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
 	/* Default volume, screen size and fullscreen mode 

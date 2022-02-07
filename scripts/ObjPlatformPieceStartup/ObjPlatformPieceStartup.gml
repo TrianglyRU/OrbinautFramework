@@ -1,6 +1,5 @@
 function ObjPlatformPieceStartup()
 {
-	// Initialsie variables
 	PosY  = y;
 	Ysp   = 0;
 	Timer = 0;

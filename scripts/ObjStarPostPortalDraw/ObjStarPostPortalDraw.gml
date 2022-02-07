@@ -1,30 +1,29 @@
 function ObjStarPostPortalDraw()
 {	
-	// Set temp values
 	var Temp1 = Diameter >> 2;
 	var Temp2 = Timer * 12.65625;
 	var Temp3 = dsin(Timer * 2.8125) * 512 * 3;
 	
-	// Rotate and draw stars
+	// Math time!
 	for (var i = 0; i < 4; i++)
 	{
 		var Temp4 = Temp2 + 90 * i;
 		
-		var SinX = dsin(Temp4) * 512;
-		var SinY = ((dcos(Temp4) * 512) << 10) + SinX * Temp3;
-		var SinX = SinX << 12;
+		var X =   dsin(Temp4) * 512;
+		var Y = ((dcos(Temp4) * 512) << 10) + X * Temp3;
+		var X = X << 12;
 		
-		var PosX = (SinX * Temp1) >> 21;
-		var PosY = (SinY * Temp1) >> 21;
+		var PosX = (X * Temp1) >> 21;
+		var PosY = (Y * Temp1) >> 21;
 		
 		// Draw sprite
 		draw_animated_sprite(spr_obj_starpost_portal, 8, false, floor(x + PosX), floor(y + PosY));
-		
-		/* 8 here is actually equals to 2 frames, because we call the function FOUR times its timer
-		increased by 4 each frame instead of 1, so the duration should be 4 times greater as well 
+
+		/* 8 here is actually equals to 2, because we call the function FOUR times per frame so the timer
+		is increased by 4 instead of 1, and therefore the duration should be 4 times greater as well 
 		
 		Obviously, this won't work correctly if there are two Star Posts nearby to each other. This
-		can be solved by making the stars instances, or by using global time
+		can be solved by making the stars as instances or by using the global animation timer
 		*/
 	}
 }

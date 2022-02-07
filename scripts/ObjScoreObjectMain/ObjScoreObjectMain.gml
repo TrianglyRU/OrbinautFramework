@@ -53,21 +53,19 @@ function ObjScoreObjectMain()
 		}
 		break;
 	}
-	
-	// Apply frame
 	image_index = SpriteFrame;
 	
 	// Move object
 	PosY += Ysp;
 	Ysp  += 0.09375;
 	
-	// Update position
 	if Ysp == 0
 	{
 		instance_destroy();
 	}
 	else
 	{
+		// Update position
 		y = floor(PosY);
 	}
 }

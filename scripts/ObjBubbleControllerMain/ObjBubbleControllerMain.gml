@@ -1,17 +1,16 @@
 function ObjBubbleControllerMain()
 {
-	// Exit if any of this is happening
 	if Player.BarrierType == BarrierWater or Player.DebugMode or Stage.IsFinished
 	{
-		exit;
+		return;
 	}
 	
-	// Emit a bubble normally each second
+	// Emit a bubble each second
 	if Player.AirTimer
 	{
 		if !(Player.AirTimer mod 60) and Player.AirTimer != 1800
 		{
-			// Check if bubble should be the countdown one
+			// Mark bubble as the countdown one at certain moments
 			if Player.AirTimer <= 720 and !(Player.AirTimer mod 120)
 			{
 				switch Player.AirTimer div 120
@@ -35,12 +34,10 @@ function ObjBubbleControllerMain()
 						CountdownSprite = spr_obj_bubble_number0;
 					break;
 				}
-				
-				// If so, set flag
 				IsCountBubble = true;
 			}
 		
-			// Generate a second bubble with 50% chance, with delay in range of [1-16]
+			// Set a delay for a second bubble with 50% chance (allowing it to be generated)
 			if irandom(1)
 			{
 				BubbleDelay = irandom_range(1, 16);
@@ -49,57 +46,55 @@ function ObjBubbleControllerMain()
 			// Set type of the first bubble
 			if BubbleDelay == -1
 			{
-				var Type = IsCountBubble ? CountdownBubble : Bubble;
+				var ObjectType = IsCountBubble ? CountdownBubble : Bubble;
 			}
 			else
 			{
-				// Spawn as Countdown Bubble with 25% chance, else spawn a normal bubble
-				var Type = IsCountBubble and !irandom(3) ? CountdownBubble : Bubble;
+				// Spawn as the countdown bubble with 25% chance, else spawn as a normal bubble
+				var ObjectType = IsCountBubble and !irandom(3) ? CountdownBubble : Bubble;
 			}
 		
-			// Create first bubble
-			var  Sprite = CountdownSprite;
-			var  Object = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY, Type);
-			with Object
+			// Generate the first bubble
+			var  CountSprite = CountdownSprite;
+			var  NewObject   = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY, ObjectType);
+			with NewObject
 			{
-				if Type == CountdownBubble
+				if ObjectType == CountdownBubble
 				{
-					sprite_index = Sprite;
+					sprite_index = CountSprite;
 					image_index  = 0;
 				}
 				else
 				{
-					// Set animation
 					animation_play(sprite_index, 15, 6);
 				}
 				Direction = Player.Facing;
 			}
 			
-			// If the 1st bubble was a countdown one and we should spawn another, it should be the normal one
-			if Type == CountdownBubble
+			// Reset type
+			if ObjectType == CountdownBubble
 			{
 				IsCountBubble = false;
 			}
 		}
 	
-		// Create second bubble
+		// Generate the second bubble
 		if BubbleDelay != -1
 		{
 			if !BubbleDelay
 			{
-				var  Sprite = CountdownSprite;
-				var  Type   = IsCountBubble ? CountdownBubble : Bubble;
-				var  Object = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY, Type);
-				with Object
+				var  CountSprite = CountdownSprite;
+				var  ObjectType  = IsCountBubble ? CountdownBubble : Bubble;
+				var  NewObject   = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY, ObjectType);
+				with NewObject
 				{
-					if Type == CountdownBubble
+					if ObjectType == CountdownBubble
 					{
-						sprite_index = Sprite;
+						sprite_index = CountSprite;
 						image_index  = 0;
 					}
 					else
 					{
-						// Set animation
 						animation_play(sprite_index, 15, 6);
 					}
 					Direction = Player.Facing;
@@ -114,7 +109,7 @@ function ObjBubbleControllerMain()
 		}
 	}
 	
-	// Emit a bubble when drown
+	// Emit bubbles when the player has drowned
 	else if DrownBubbles < 12
 	{
 		// Initial delay
@@ -125,18 +120,15 @@ function ObjBubbleControllerMain()
 		
 		if !(DrownDelay--)
 		{
-			var  Random = irandom(3);
-			var  Object = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY - 12, Bubble);
-			with Object
+			var  Random    = irandom(3);
+			var  NewObject = instance_create(Player.PosX + 6 * Player.Facing, Player.PosY - 12, Bubble);
+			with NewObject
 			{
 				// Mark bubble as small with 75% chance
 				BubbleType = Random ? 0 : 1;
 				Direction  = Player.Facing;
 				
-				// Override depth
 				object_set_depth(Player, 1);
-				
-				// Set animation
 				animation_play(sprite_index, 15, 6);
 			}
 			DrownBubbles++;

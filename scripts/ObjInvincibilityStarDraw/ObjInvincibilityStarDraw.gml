@@ -1,8 +1,8 @@
 function ObjInvincibilityStarDraw()
 {
-	// Draw if not dead
-	if !Player.Death and !Player.Drown
+	if Player.Death or Player.Drown
 	{
-		draw_self();
+		return;
 	}
+	draw_self();
 }

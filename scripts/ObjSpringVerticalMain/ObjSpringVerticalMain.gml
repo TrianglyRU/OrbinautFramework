@@ -20,7 +20,7 @@ function ObjSpringVerticalMain()
 		animation_reset(1);
 		audio_sfx_play(sfxSpring, false);
 		
-		// Player should be airbone now
+		// Player should be airborne now
 		Player.Grounded = false;
 		Player.OnObject = false;
 	}

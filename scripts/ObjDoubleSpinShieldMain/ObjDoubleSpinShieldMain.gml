@@ -9,10 +9,8 @@ function ObjDoubleSpinShieldMain()
 	// Follow player
 	else
 	{
-		x = floor(Player.PosX);
-		y = floor(Player.PosY);
-		
-		// Check for player's direction
+		x		     = floor(Player.PosX);
+		y			 = floor(Player.PosY);
 		image_xscale = Player.Facing;
 	}
 }

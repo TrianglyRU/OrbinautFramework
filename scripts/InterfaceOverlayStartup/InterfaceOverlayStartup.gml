@@ -2,6 +2,6 @@ function InterfaceOverlayStartup()
 {	
 	// Initialise variables
 	Enabled = true;
-	OffsetX = Game.Width / 2 - 160;
+	OffsetX = 0;
 	OffsetY = 0;
 }

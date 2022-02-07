@@ -1,6 +1,5 @@
 function ObjSpindashDustStartup()
 {
-	// Match player's facing direction
 	image_xscale = Player.Facing;
 	
 	// Set object properties
