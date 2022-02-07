@@ -31,6 +31,6 @@ function ObjSwingingPlatformStartup()
     Amplitude = (ChainCount + 2) * 16 + sprite_get_width(SpriteData[0]) div 2;
     
 	// Set object properties
-    object_set_solidbox(Solidbox[0], Solidbox[1], false);
-    object_set_depth(Player, 0);
+	object_set_depth(Player, 0);
+    object_set_solidbox(Solidbox[0], Solidbox[1], false); 
 }

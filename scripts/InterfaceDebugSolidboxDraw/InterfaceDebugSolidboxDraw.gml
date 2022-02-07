@@ -1,12 +1,11 @@
 function InterfaceDebugSolidboxDraw()
 {
-	// Exit the code if disabled
 	if !DebugSolids
 	{
-		exit;
+		return;
 	}
+
 	draw_set_alpha(0.5);
-	
 	with all
 	{
 		// Draw player's solidbox

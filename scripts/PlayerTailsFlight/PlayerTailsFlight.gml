@@ -1,9 +1,8 @@
 function PlayerTailsFlight()
 {
-	// Exit if not flying
 	if !FlightState
 	{
-		exit;
+		return;
 	}
 	
 	if (FlightValue--)
@@ -44,7 +43,7 @@ function PlayerTailsFlight()
 		// Set lower gravity
 		Grv = 0.03125;
 		
-		// Play animation
+		// Update animation
 		if !IsUnderwater
 		{
 			Animation = AnimFlyTired;	
@@ -58,19 +57,15 @@ function PlayerTailsFlight()
 	// Cancel flight
 	if Game.FlightCancel and Input.Down and Input.ABCPress
 	{
-		// Stop sounds
 		audio_sfx_stop(sfxFlying);
 		audio_sfx_stop(sfxTired);
 		
-		// Update collision radiuses and shift camera
+		FlightState	  = false;
+		Spinning	  = true;
+		Animation	  = AnimSpin;
 		RadiusX	      = SmallRadiusX;
 		RadiusY		  = SmallRadiusY;
 		Camera.ViewY += DefaultRadiusX - SmallRadiusX;
-		
-		// Set flags
-		FlightState	= false;
-		Spinning	= true;
-		Animation	= AnimSpin;
 		
 		// Reset gravity
 		if !IsUnderwater

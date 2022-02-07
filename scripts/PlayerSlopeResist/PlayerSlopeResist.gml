@@ -3,7 +3,7 @@ function PlayerSlopeResist()
 	// Exit if on ceiling. Angle check here is different in comparison to collision mode checks
 	if Angle <= 225 and Angle >= 136.41
 	{
-		exit;
+		return;
 	}
 	
 	// Set slope gravity
@@ -12,7 +12,6 @@ function PlayerSlopeResist()
 	// Apply it
 	if !Game.S3SlopePhysics
 	{
-		// Apply slope gravity only when moving
 		if Inertia != 0
 		{
 			Inertia -= SlopeGravity;

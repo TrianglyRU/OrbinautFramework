@@ -19,7 +19,7 @@ function InterfaceResultsDraw()
 	
 	if Stage.IsFinished < 2
 	{
-		exit;
+		return;
 	}
 	if !fade_check(StateActive)
 	{	

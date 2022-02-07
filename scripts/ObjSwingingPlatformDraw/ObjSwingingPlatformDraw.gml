@@ -1,21 +1,19 @@
 function ObjSwingingPlatformDraw()
 {
-	// Exit if object is unloaded
 	if !ProcessObject
 	{
-		exit;
+		return;
 	}
 	
 	// Draw origin sprite
     draw_sprite(SpriteData[2], 0, OriginX, OriginY);
     
-	// Calculate chain position
+	// Calculate chain sprites
     for (var i = 1; i < ChainCount + 1; i++)
     {
         var X = floor(OriginX + DistanceX * i);
         var Y = floor(OriginY + DistanceY * i);
 		
-		// Draw sprite
         draw_sprite(SpriteData[1], 0, X, Y);
     }
     

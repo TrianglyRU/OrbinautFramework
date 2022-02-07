@@ -10,17 +10,14 @@ function ObjSwingingPlatformMain()
 	{
 		ProcessObject = true;
 	}
-     
-	// Exit if object is unloaded
+	
 	if !ProcessObject
 	{
 		return;
 	}
 	
-	// Update oscillate angle
+	// Calculate distances
 	var Angle = dsin((abs(Speed * Stage.OscillateAngle) * Stage.Time) mod 360);
-	
-	// Calculate distance
 	DistanceX = dcos(90 + Angle * 90) * 16;
 	DistanceY = dsin(90 + Angle * 90) * 16;
 	

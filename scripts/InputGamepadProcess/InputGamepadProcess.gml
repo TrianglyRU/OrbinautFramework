@@ -1,9 +1,8 @@
 function InputGamepadProcess() 
 {	
-	// Check if we should exit
 	if IgnoreInput or Type != "Gamepad"
 	{
-		exit;
+		return;
 	}
 	
 	// Choose between XInput and DirectInput. XInput is priority

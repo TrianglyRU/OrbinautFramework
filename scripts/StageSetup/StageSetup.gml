@@ -12,7 +12,7 @@ function StageSetup()
 		// Make sure to change the zone ID!
 		case Stage_TZ:
 		{
-			ZoneName         = "TEST STAGE";
+			ZoneName         = "GREEN HILL";
 			ZoneID           = 0;
 			ActID            = 0;
 			FinalActID       = 0;

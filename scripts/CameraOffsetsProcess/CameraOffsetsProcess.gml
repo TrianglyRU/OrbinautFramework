@@ -16,7 +16,7 @@ function CameraOffsetsProcess()
 	// Check if we should exit
 	if !Enabled or !(instance_exists(Target) and Target == Player)
 	{
-		exit;
+		return;
 	}
 
 	// Offset camera horizontally, like in CD

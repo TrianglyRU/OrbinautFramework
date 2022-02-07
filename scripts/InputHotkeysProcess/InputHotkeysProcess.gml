@@ -1,6 +1,5 @@
 function InputHotkeysProcess()
 {	
-	// Exit if not in devmode
 	if !Game.DevMode
 	{
 		return;
