@@ -1,9 +1,8 @@
 function ObjBossTriggerDraw()
 {
-	// Exit if not a template bossfight and boss isn't triggered
 	if !(Template and Stage.IsBossfight)
 	{
-		exit;
+		return;
 	}
 	
 	// Draw text

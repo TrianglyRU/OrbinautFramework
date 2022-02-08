@@ -3,7 +3,7 @@ function PaletteSurfaceReset()
 	/* This script will be called on room end */
 	if !SurfaceReset
 	{
-		exit;
+		return;
 	}
 	
 	// Reset surfaces

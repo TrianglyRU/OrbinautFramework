@@ -1,9 +1,8 @@
 function InterfaceDebugPositionsDraw()
 {
-	// Exit the code if disabled
 	if !DebugPositions
 	{
-		exit;
+		return;
 	}
 	
 	with all

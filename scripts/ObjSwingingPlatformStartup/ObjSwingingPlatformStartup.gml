@@ -8,10 +8,10 @@ function ObjSwingingPlatformStartup()
 	// Setup object
 	switch room
 	{
-		case Stage_TZ:
+		case Stage_TVZ:
 		{
 			var Solidbox = [24, 8];
-			SpriteData   = [spr_obj_swing_tz_platform, spr_obj_swing_tz_chain, spr_obj_swing_tz_pendulum];
+			SpriteData   = [spr_obj_swing_tvz_platform, spr_obj_swing_tvz_chain, spr_obj_swing_tvz_pendulum];
 		}
 		break;
 		default:

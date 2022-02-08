@@ -3,17 +3,17 @@ function BackgroundSetup()
 	switch room
 	{	
 		// Test Stage
-		case Stage_TZ:
+		case Stage_TVZ:
 		{
 			// Add layers
-			background_layer_add(0, tex_tsz_bg00);
-			background_layer_add(1, tex_tsz_bg01);
-			background_layer_add(2, tex_tsz_bg02);
-			background_layer_add(3, tex_tsz_bg03);
-			background_layer_add(4, tex_tsz_bg04);
-			background_layer_add(5, tex_tsz_bg05);
-			background_layer_add(6, tex_tsz_bg06);
-			background_layer_add(7, tex_tsz_bg07);
+			background_layer_add(0, tex_tvz_bg00);
+			background_layer_add(1, tex_tvz_bg01);
+			background_layer_add(2, tex_tvz_bg02);
+			background_layer_add(3, tex_tvz_bg03);
+			background_layer_add(4, tex_tvz_bg04);
+			background_layer_add(5, tex_tvz_bg05);
+			background_layer_add(6, tex_tvz_bg06);
+			background_layer_add(7, tex_tvz_bg07);
 			
 			// Setup layers
 			background_layer_setup(0, 0, 0,   0.45, 0.05, -0.5, 0, 0, 0,     false);

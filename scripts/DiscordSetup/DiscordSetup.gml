@@ -10,7 +10,7 @@ function DiscordSetup()
 	// Set stage data
 	switch room 
 	{
-		case Stage_TZ:
+		case Stage_TVZ:
 			DetailsString = "Test Stage Act 1";
 		break;
 		case SStage_Template:

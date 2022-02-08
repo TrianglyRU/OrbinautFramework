@@ -1,9 +1,8 @@
 function ObjSpecialRingEvent()
 {
-	// Exit if not in state 3
 	if State != 3
 	{
-		exit;
+		return;
 	}
 	
 	// Send player to the Special Stage Screen

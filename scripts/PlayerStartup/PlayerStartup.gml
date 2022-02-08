@@ -60,16 +60,16 @@ function PlayerStartup()
 	HitboxData			= [];
 	
 	// Set defaults
-	Facing			 = FlipRight;
-	Grv			     = 0.21875;
-	AirTimer	     = 1800;
 	AllowCollision   = true;
 	AllowMovement    = true;
-	DoubleSpinAttack = SpinReady;
-	DropdashFlag     = DashLocked;
 	DropdashRev      = -1;
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
+	Grv			     =  0.21875;
+	AirTimer	     =  1800;
+	Facing			 =  FlipRight;
+	DoubleSpinAttack =  SpinReady;
+	DropdashFlag     =  DashLocked;
 	CollisionMode    = [0, 0];
 
 	// Set default sprite and depth

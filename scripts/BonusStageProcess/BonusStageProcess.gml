@@ -15,11 +15,10 @@ function BonusStageProcess()
 					// Grant extra life
 					if Game.BonusStageData[0] >= RingTarget
 					{
-						Game.Lives++;
-						audio_bgm_play(TypeSecondary, ExtraLife);
-						
-						// Increase amount of required rings
+						Game.Lives += 1;
 						RingTarget += 100;
+						
+						audio_bgm_play(TypeSecondary, ExtraLife);	
 					}
 				}
 	
@@ -59,7 +58,7 @@ function BonusStageProcess()
 		break;
 		case 1:
 		{
-			// Return back to stage
+			// Return back to the stage
 			if fade_check(StateMax)
 			{
 				room_goto(Game.StageRoom);

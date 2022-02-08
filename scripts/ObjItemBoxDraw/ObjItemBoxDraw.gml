@@ -8,11 +8,11 @@ function ObjItemBoxDraw()
 	{
 		if CardSprite != 11
 		{
-			draw_sprite(spr_obj_itembox_powerup, CardSprite, floor(CardX), floor(CardY));
+			draw_sprite(spr_obj_itembox_card, CardSprite, floor(CardX), floor(CardY));
 		}
 	}
 	else if State and State < 3
 	{
-		draw_sprite(spr_obj_itembox_powerup, CardSprite, floor(CardX), floor(CardY));
+		draw_sprite(spr_obj_itembox_card, CardSprite, floor(CardX), floor(CardY));
 	}
 }

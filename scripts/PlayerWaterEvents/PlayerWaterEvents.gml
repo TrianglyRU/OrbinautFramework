@@ -1,9 +1,8 @@
 function PlayerWaterEvents()
 {
-	// If there is no water in the stage, exit
 	if !Stage.WaterEnabled
 	{
-		exit;
+		return;
 	}
 	
 	// Check for falling into the water
@@ -11,6 +10,9 @@ function PlayerWaterEvents()
 	{
 		if floor(PosY) > Stage.WaterLevel and !Death
 		{
+			audio_sfx_stop(sfxFlying);
+			audio_sfx_stop(sfxTired);
+				
 			Xsp			*= 0.5;
 			Ysp			*= 0.25;
 			IsUnderwater = true;
@@ -19,13 +21,6 @@ function PlayerWaterEvents()
 			if !Hurt and !FlightState and GlideState != GlideAir
 			{
 				Grv = 0.0625;
-			}
-				
-			// Stop sound
-			if FlightState
-			{
-				audio_sfx_stop(sfxFlying);
-				audio_sfx_stop(sfxTired);
 			}
 				
 			// Create splash object
@@ -48,7 +43,6 @@ function PlayerWaterEvents()
 	}
 	else
 	{ 
-		// Create player bubble maker object
 		if !instance_exists(BubbleController)
 		{
 			instance_create(-16, -16, BubbleController);
@@ -76,15 +70,12 @@ function PlayerWaterEvents()
 		{
 			if !Drown
 			{
-				// Play sound
 				audio_sfx_play(sfxDrown, false);
 				
-				// Reset speeds
 				Xsp	= 0;
 				Ysp	= 0;
 				Grv = 0.0625;
 				
-				// Set flags
 				Stage.TimeEnabled = false;
 				Camera.Enabled    = false;
 				AllowCollision    = false;
@@ -101,15 +92,13 @@ function PlayerWaterEvents()
 				PeeloutRev        = -1;
 				DoubleSpinAttack  = SpinRecharge;
 				DropdashFlag	  = DashLocked;
-				Drown			  = true;
-				AirLock		      = true;
 				Animation		  = AnimDrown;
+				Drown			  = true;
+				AirLock		      = true;	
 				
 				// Draw player above everything
 				depth = 0;
 			}
-			
-			// Enter death state if off-screen
 			else if floor(PosY) >= Camera.ViewY + Game.Height + 276
 			{
 				Death = true;
@@ -125,7 +114,9 @@ function PlayerWaterEvents()
 		// Check for leaving the water
 		if PosY < Stage.WaterLevel and !Death
 		{
-			// Destroy player bubble maker object
+			IsUnderwater = false;	
+			AirTimer     = 1800;
+			
 			if instance_exists(BubbleController)
 			{
 				instance_destroy(BubbleController);
@@ -170,26 +161,21 @@ function PlayerWaterEvents()
 					Ysp *= 2;
 				}
 				
-				// Reset gravity (if not flying)
-				if !FlightState
-				{
-					Grv = 0.21875;
-				}
-				
-				// Limit vertical speed
 				if Ysp < -16
 				{
 					Ysp = -16;
 				}
+				
+				if !FlightState
+				{
+					Grv = 0.21875;
+				}
 			}
 			
-			// Play sound
 			if FlightState
 			{
 				audio_sfx_play(sfxFlying, true);
 			}
-			IsUnderwater = false;	
-			AirTimer     = 1800;
 			
 			// Create splash object
 			if !Grounded and !ClimbState

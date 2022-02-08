@@ -1,6 +1,5 @@
 function SpecialScreenStartup()
 {
-	// Initialise variables
 	State       = 0;
 	RoomTimer   = 0;
 	RenderFlag  = 0;
@@ -20,7 +19,7 @@ function SpecialScreenStartup()
 		audio_bgm_play(TypePrimary, ActClear);
 	}
 	
-	// Else redirect to special stage
+	// Else redirect to Special Stage
 	else 
 	{
 		switch Game.Emeralds
@@ -29,8 +28,6 @@ function SpecialScreenStartup()
 				room_goto(SStage_Template);
 			break;
 		}
-		
-		// Turn screen into white
 		fade_perform(ModeInto, BlendWhite, 0);
 	}
 }

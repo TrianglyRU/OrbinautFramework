@@ -1,9 +1,8 @@
 function StageEndProcess()
 {
-	// Check if we should exit
 	if !(IsFinished and fade_check(StateMax))
 	{
-		exit;
+		return;
 	}
 	
 	Game.Score			 = Player.Score;
@@ -13,9 +12,8 @@ function StageEndProcess()
 	
 	ds_list_destroy(Player.RecordedPosX);
 	ds_list_destroy(Player.RecordedPosY);
-		
-	// Check if this is the final act of the zone
-	if ActID == FinalActID and Game.ActiveSave != -1
+	
+	if IsLastZoneAct = true and Game.ActiveSave != -1
 	{
 		if ZoneID == FinalZoneID
 		{

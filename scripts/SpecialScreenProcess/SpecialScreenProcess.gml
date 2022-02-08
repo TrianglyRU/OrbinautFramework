@@ -1,9 +1,8 @@
 function SpecialScreenProcess()
 {
-	// Check if we should exit
 	if !Game.SpecialState or (!State and fade_check(StateActive))
 	{
-		exit;
+		return;
 	}
 	switch State
 	{

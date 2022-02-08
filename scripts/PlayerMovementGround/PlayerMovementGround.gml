@@ -15,7 +15,8 @@ function PlayerMovementGround()
 				Inertia -= Dec;
 				if Inertia <= 0
 				{
-					Inertia = -0.5;	
+					Inertia = -0.5;
+					animation_reset(0);
 				}
 			} 
 			
@@ -42,6 +43,7 @@ function PlayerMovementGround()
 				if Inertia >= 0
 				{
 					Inertia = 0.5;
+					animation_reset(0);
 				}
 			} 
 			

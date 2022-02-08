@@ -12,10 +12,10 @@ function ObjFloatingPlatformStartup()
 	// Setup object
 	switch room
 	{
-		case Stage_TZ:
+		case Stage_TVZ:
 		{
 			var Solidbox = [40, 11];
-			sprite_index = spr_obj_floatingplatform_tz;
+			sprite_index = spr_obj_floatingplatform_tvz;
 		}
 		break;
 		default:

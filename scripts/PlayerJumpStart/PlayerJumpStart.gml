@@ -55,8 +55,8 @@ function PlayerJumpStart()
 		RadiusY  = SmallRadiusY;
 		Spinning = true;
 		
-		/* Yes, they do reset radiuses first and then set them once again. This leads
-		to an oversight few lines below, fixed with the Game.PreciseRollJump flag */			
+		/* Yes, originals seems to reset radiuses first and then set them once again. This
+		leads to an oversight few lines below, fixed with the Game.FixRollJump flag */		
 	}
 	else
 	{

@@ -15,7 +15,7 @@ function InterfaceCardDraw()
 	
 	if CardValue[1] == 3
 	{
-		exit;
+		return;
 	}
 	switch CardValue[1]
 	{

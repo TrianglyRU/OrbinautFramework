@@ -1,7 +1,6 @@
 /// @description Startup
 // You can write your code in this editor
 	
-	// Define animation
 	switch Game.Character
 	{
 		case CharSonic:

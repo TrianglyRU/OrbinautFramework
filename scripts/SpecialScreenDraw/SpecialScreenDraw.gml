@@ -1,12 +1,10 @@
 function SpecialScreenDraw()
 {
-	// Check if we should exit
 	if !Game.SpecialState or State == 3
 	{
-		exit;
+		return;
 	}
 	
-	// Get screen centre
 	var CentreX	= Game.Width / 2;
 	var CentreY = Game.Height / 2;
 	var ShiftY  = floor(Offset[3]);

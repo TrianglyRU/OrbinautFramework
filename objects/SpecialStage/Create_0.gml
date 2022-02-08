@@ -1,5 +1,4 @@
-/// @description Initialisation Code
-// You can write your code in this editor
-	
-	// Startup Script
+/// @description Startup
+// You can call your scripts in this editor
+
 	SpecialStageStartup();

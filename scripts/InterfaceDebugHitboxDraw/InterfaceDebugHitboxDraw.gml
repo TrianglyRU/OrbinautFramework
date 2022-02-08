@@ -1,12 +1,11 @@
 function InterfaceDebugHitboxDraw()
 {
-	// Exit the code if disabled
 	if !DebugHitboxes
 	{
-		exit;
+		return;
 	}
-	draw_set_alpha(0.5);
 	
+	draw_set_alpha(0.5);
 	with all
 	{			
 		// Draw player's hitbox

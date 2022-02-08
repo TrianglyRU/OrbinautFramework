@@ -1,5 +1,4 @@
-/// @description Initialisation Code
-// You can write your code in this editor
+/// @description Startup
+// You can call your scripts in this editor
 	
-	// Initialisation Script
 	SpecialScreenStartup();

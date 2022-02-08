@@ -1,6 +1,5 @@
 function ContinueScreenStartup()
 {
-	// Initialise variables
 	RoomX      = Game.Width  / 2;
 	RoomY      = Game.Height / 2;
 	Countdown  = 659;
@@ -45,9 +44,6 @@ function ContinueScreenStartup()
 		ContObject[i] = instance_create(RoomX + 21 * i - max(Game.Continues - 1, 0) * 11, RoomY - 20, ContinueIcon);
 	}
 	
-	// Perform fade
 	fade_perform(ModeFrom, BlendBlack, 1);
-	
-	// Play music
 	audio_bgm_play(TypePrimary, Continue);
 }

@@ -84,13 +84,16 @@ function ObjFloatingPlatformMain()
 			y = floor(OriginY);
 		
 			// Make player lose the platform after 32 frames
-			if !(--Timer) and object_check_touch(TypeSolidU)
+			if (--Timer) == 0
 			{
-				Player.PosY	   += FallSpeed;
-				Player.OnObject = false;
-				Player.Grounded = false;
+				if object_check_touch(TypeSolidU)
+				{
+					//Player.PosY	   += FallSpeed;
+					Player.OnObject = false;
+					Player.Grounded = false;
+				}
 			}
-			else
+			else if Timer > 0
 			{
 				// Do collision
 				object_act_solid(false, true, false, false);

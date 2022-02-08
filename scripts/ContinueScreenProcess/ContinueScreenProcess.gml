@@ -1,6 +1,5 @@
 function ContinueScreenProcess()
 {
-	// Check if we should exit
 	if Countdown == 659 and fade_check(StateActive)
 	{
 		return;

@@ -1,29 +1,30 @@
 function StageSetup()
 {	
-	/* Set here the ID of your last zone. It will be 
-	used to mark the savefile as the complete one */
-	FinalZoneID = 3;
+	/* Assign ZoneID (starting from 0) for your stages in the
+	order they're gonna be played. It is used for save files */
 	
-	// Osillate angle value. Do not edit unless really needed!
-	OscillateAngle = 1.40625;
+	/* Set here the ID of your last zone. It will be 
+	used to mark the save file as the complete one */
+	FinalZoneID = 99;
 	
 	switch room 
 	{	
-		// Make sure to change the zone ID!
-		case Stage_TZ:
+		/* When you start adding your stages, make sure to remove this stage
+		from this list or set its ZoneID to a high value (like 98)*/
+		case Stage_TVZ:
 		{
-			ZoneName         = "GREEN HILL";
+			ZoneName         = "WIREFRAME VALLEY";
 			ZoneID           = 0;
 			ActID            = 0;
-			FinalActID       = 0;
+			IsLastZoneAct    = true;
 			WaterEnabled     = true;
 			WaterLevel       = 1384;
-			StageMusic       = TestStage;
+			StageMusic       = TestValley;
 			LeftBoundary     = 0;
 			TopBoundary      = 0;
 			RightBoundary    = room_width;
 			BottomBoundary   = 1016;
-			AnimatedGraphics = [tex_tsz_anitile00, 24];
+			AnimatedGraphics = [tex_tvz_anitile00, 24];
 			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
 			NextStage		 = Screen_DevMenu;
 		}
@@ -33,7 +34,7 @@ function StageSetup()
 			ZoneName	     = "UNKNOWN";
 			ZoneID		     = 0;
 			ActID		     = 0;
-			FinalActID       = 0;
+			IsLastZoneAct    = true;
 			WaterEnabled     = false;
 			WaterLevel	     = 0;
 			StageMusic       = noone;

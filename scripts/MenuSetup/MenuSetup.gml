@@ -1,22 +1,23 @@
 function MenuSetup()
 {
-	// List of the first acts of each zone in their order. Use 'noone' to fill the blank zones
+	/* List of the first acts of each zone in their gameplay order. 
+	Use 'noone' to fill the blank zones */
 	ZoneOrder =
 	[
-		Stage_TZ,
+		Stage_TVZ,
 		noone,
 		noone,
 		noone
 	];
-	StartStage = Stage_TZ;
+	StartStage = Stage_TVZ;
 	
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
-	menu_add_option(4, 0, "TEST STAGE 1", Stage_TZ);
-	menu_add_option(4, 1, "- -",		  noone);
-	menu_add_option(4, 2, "- -",		  noone);
-	menu_add_option(4, 3, "- -",		  noone);
-	menu_add_option(4, 4, "- -",		  noone);
+	menu_add_option(4, 0, "TEST VALLEY", Stage_TVZ);
+	menu_add_option(4, 1, "- -",		 noone);
+	menu_add_option(4, 2, "- -",		 noone);
+	menu_add_option(4, 3, "- -",		 noone);
+	menu_add_option(4, 4, "- -",		 noone);
 	
 	// Screen select
 	menu_add_header(5,    "SELECT A SCREEN");

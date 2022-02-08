@@ -1,8 +1,5 @@
 function ObjPrisonMain()
-{
-	// Do collision
-	object_act_solid(true, true, true, false);
-			
+{		
 	switch State 
 	{
 		case 0:
@@ -26,6 +23,11 @@ function ObjPrisonMain()
 				// Increment state
 				State	  += 1;
 				StateTimer = 60;
+			}
+			else
+			{
+				// Do collision
+				object_act_solid(true, true, true, false);
 			}
 		}	
 		break;
