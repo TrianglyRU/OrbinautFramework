@@ -10,6 +10,7 @@ function GameControllersLoad()
 		instance_create(x, y, Audio);
 		instance_create(x, y, Input);
 		instance_create(x, y, Palette);
+		instance_create(x, y, Renderer);
 		instance_create(x, y, Camera);
 	}
 }

@@ -4,7 +4,7 @@ function LayerShaderStart()
 	if event_type == ev_draw and event_number == 0
     {
 		// Use shader
-		shader_set(ShaderPalette);
+		shader_set(ShaderMain);
 
 		// Render palette fade
 		shader_set_uniform_f(Shader.PalStep,   Palette.FadeBlend == BlendFlash ? Palette.FadeStep div 3 : Palette.FadeStep);

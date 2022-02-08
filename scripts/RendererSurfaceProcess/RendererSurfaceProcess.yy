@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Palette",
-    "path": "folders/Game Logic/Palette.yy",
+    "name": "Renderer",
+    "path": "folders/Game Logic/Renderer.yy",
   },
   "resourceVersion": "1.0",
-  "name": "PaletteSonicSans",
+  "name": "RendererSurfaceProcess",
   "tags": [],
   "resourceType": "GMScript",
 }

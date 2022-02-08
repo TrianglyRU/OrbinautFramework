@@ -5,13 +5,13 @@ function application_set_size(width,height)
 	window_set_size(width * Game.WindowSize, height * Game.WindowSize);
 
 	// Update surfaces
-	if surface_exists(Palette.SurfaceLow)
+	if surface_exists(Renderer.SurfaceLow)
 	{
-		surface_free(Palette.SurfaceLow);
+		surface_free(Renderer.SurfaceLow);
 	}
-	if surface_exists(Palette.SurfaceHigh)
+	if surface_exists(Renderer.SurfaceHigh)
 	{
-		surface_free(Palette.SurfaceHigh);
+		surface_free(Renderer.SurfaceHigh);
 	}
 	surface_resize(application_surface, width, height);
 	

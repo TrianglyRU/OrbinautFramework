@@ -2,6 +2,7 @@ function BackgroundProcess()
 {	
 	draw_clear(BGColour);
 	
+	// Enable parallax
 	shader_set_uniform_i(Shader.PrlActive, true);
 	
 	var Length = array_length(BGSprites);
@@ -77,7 +78,7 @@ function BackgroundProcess()
 			shader_set_uniform_f(Shader.PrlIncHeight, 0);
 		}
 	}
-	//shader_reset();
-	shader_set_uniform_i(Shader.PrlActive, false);
 	
+	// Disable parallax
+	shader_set_uniform_i(Shader.PrlActive, false);
 }

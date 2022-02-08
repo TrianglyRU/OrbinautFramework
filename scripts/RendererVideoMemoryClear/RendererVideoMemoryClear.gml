@@ -1,14 +1,11 @@
-function GameVideoMemoryClear()
+function RendererSurfaceClear()
 {
 	// You might want not to perform this between acts if you're doing S3K-like act transitions
 	draw_texture_flush();
 	
 	// Clear palette surfaces
-	with Palette
-	{
-		SurfaceReset = true;
-		event_perform(ev_gui_end, 0);
-	}
+	SurfaceReset = true;
+	event_perform(ev_gui_end, 0);
 	
 	/* Now this one is interesting. We found out there is a bug on NVIDIA GPUs which causes the surface not 
 	to be cleared correctly in rare cases. To fix that, the surface should be cleared when the room unloads, 

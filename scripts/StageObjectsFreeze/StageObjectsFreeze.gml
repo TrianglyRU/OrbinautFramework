@@ -19,7 +19,9 @@ function StageObjectsFreeze()
 			Interface,
 			Camera, 
 			Discord, 
-			Palette, 
+			Palette,
+			Renderer,
+			Layers,
 			Background, 
 			Audio
 		];

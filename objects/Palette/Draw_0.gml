@@ -1,4 +1,5 @@
-/// @description Draw 2
+/// @description Draw
 // You can write your code in this editor
 	
-	PaletteSonicSans();
+	PaletteProcess();
+	PaletteFadeProcess();

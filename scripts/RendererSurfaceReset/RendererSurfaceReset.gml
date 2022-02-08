@@ -1,4 +1,4 @@
-function PaletteSurfaceReset()
+function RendererSurfaceReset()
 {
 	/* This script will be called on room end */
 	if !SurfaceReset

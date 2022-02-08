@@ -5,9 +5,6 @@ function PaletteStartup()
 	Duration     = [];
 	SwapTime     = [];
 	Sequence     = [];
-	SurfaceLow   = noone;
-	SurfaceHigh  = noone;
-	SurfaceReset = false;
 	FadeStep     = 756;
 	FadeMode     = 1;
 	FadeBlend    = 0;
