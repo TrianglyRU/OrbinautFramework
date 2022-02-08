@@ -12,6 +12,7 @@ function PaletteStartup()
 	FadeMode     = 1;
 	FadeBlend    = 0;
 	FadeSpeed    = 0;
+	depth		 = 10000; // This is used to perform Draw event earlier than Background Draw event
 	
 	// Initialise palette animation storage
 	for (var i = 0; i < PaletteLimit; i++)

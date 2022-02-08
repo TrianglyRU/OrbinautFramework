@@ -3,7 +3,6 @@ function PaletteSurfaceProcess()
 	gpu_set_blendenable(false);
 	{
 		surface_set_target(application_surface);
-		//draw_clear_alpha(c_white, 1);
 	
 		if surface_exists(SurfaceLow) 
 		{
@@ -15,7 +14,6 @@ function PaletteSurfaceProcess()
 			shader_set_uniform_i(Shader.PalColour, FadeBlend);
 			shader_set_uniform_i(Shader.PalMode,   FadeMode);
 			
-			/*
 			// Define a render boundary between type 1 and type 2 palettes
 			if instance_exists(Stage) and Stage.WaterEnabled
 			{
@@ -46,7 +44,6 @@ function PaletteSurfaceProcess()
 				shader_set_uniform_f(Shader.PalTexelSize2,   ColourSet[1][1], ColourSet[1][2]);
 				shader_set_uniform_f(Shader.PalUVs2,		 ColourSet[1][3], ColourSet[1][4], ColourSet[1][5]);
 			}
-			*/
 			
 			// Render first palette surface
 			draw_surface(SurfaceLow, 0, 0);

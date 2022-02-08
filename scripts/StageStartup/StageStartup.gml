@@ -1,5 +1,6 @@
 function StageStartup()
 {
+	// Initialise variables
 	RestartTimer   =  0;
 	RestartEvent   =  0;
 	IsFinished	   =  0;

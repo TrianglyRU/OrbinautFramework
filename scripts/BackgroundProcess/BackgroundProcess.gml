@@ -3,7 +3,7 @@ function BackgroundProcess()
 	draw_clear(BGColour);
 	
 	//shader_set(ShaderParallax);
-	shader_set(ShaderPalette);
+	/*shader_set(ShaderPalette);
 	
 	// Define a render boundary between type 1 and type 2 palettes
 	if instance_exists(Stage) and Stage.WaterEnabled
@@ -36,7 +36,7 @@ function BackgroundProcess()
 		shader_set_uniform_f(Shader.PalUVs2,		 Palette.ColourSet[1][3], Palette.ColourSet[1][4], Palette.ColourSet[1][5]);
 	}
 	
-	shader_set_uniform_i(Shader.PrlActive, true);
+	shader_set_uniform_i(Shader.PrlActive, true);*/
 	
 	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
