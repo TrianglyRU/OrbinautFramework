@@ -1,4 +1,4 @@
-function RenderVideoMemoryClear()
+function RendererVideoMemoryClear()
 {
 	// You might want not to perform this between acts if you're doing S3K-like act transitions
 	draw_texture_flush();
