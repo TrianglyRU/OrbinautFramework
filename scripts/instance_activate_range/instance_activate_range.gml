@@ -1,18 +1,25 @@
 /// @function instance_activate_range(anchorX)
 function instance_activate_range(anchorX)
 {
+	static CurrentRegion = -1;
+	
+	// Activate region
 	instance_activate_region((anchorX - 128) & -128, 0, ((Game.Width + 128) & -128) + 256, room_height, true);
 	
-	// If there are children for the object, activate them as well
-	with all
+	// If we loaded a new region, load children objects
+	if (anchorX - 128) & -128 != CurrentRegion
 	{
-		var Length = array_length(Obj_ChildrenIDs);
-		if  Length
+		with all
 		{
-			for (var i = 0; i < Length; i++)
+			var Length = array_length(Obj_ChildrenIDs);
+			if  Length
 			{
-				instance_activate_object(Obj_ChildrenIDs[i]);
+				for (var i = 0; i < Length; i++)
+				{
+					instance_activate_object(Obj_ChildrenIDs[i]);
+				}
 			}
 		}
 	}
+	CurrentRegion = (anchorX - 128) & -128;
 }

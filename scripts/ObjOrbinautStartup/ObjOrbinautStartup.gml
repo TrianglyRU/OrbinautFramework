@@ -1,7 +1,5 @@
 function ObjOrbinautStartup()
 {
-	show_debug_message("Orbinaut Re-Initialised!");
-	
 	PosX  = x;
 	PosY  = y;
 	Angle = 0;
