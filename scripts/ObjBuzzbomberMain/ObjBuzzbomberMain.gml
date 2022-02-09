@@ -26,13 +26,16 @@ function ObjBuzzbomberMain()
 				var FoundTarget = abs(x - PlayerX) <= 96 and sign(PlayerX - x) == sign(image_xscale);
 				
 				// Stop and fire, else move
-				if !State and FoundTarget and object_is_onscreen(id)
+				if !State and FoundTarget
 				{
-					State++;
-					Timer = 29;
+					if object_is_onscreen(id)
+					{
+						State++;
+						Timer = 29;
 					
-					// Set animation
-					animation_play(spr_obj_buzzbomber_idle, 1, 0);
+						// Set animation
+						animation_play(spr_obj_buzzbomber_idle, 1, 0);
+					}
 				}
 				else
 				{
@@ -59,7 +62,6 @@ function ObjBuzzbomberMain()
 		// Fire
 		case 2:
 		{
-			// Wait for 60 + 14 frames
 			if !(--Timer)
 			{
 				State++;
@@ -69,7 +71,7 @@ function ObjBuzzbomberMain()
 				animation_play(spr_obj_buzzbomber_fly, 1, 0);
 			}
 			
-			// Create a projectile after 14 (+16) frames
+			// Create a projectile
 			if Timer == 43
 			{
 				var  ThisObject = id;

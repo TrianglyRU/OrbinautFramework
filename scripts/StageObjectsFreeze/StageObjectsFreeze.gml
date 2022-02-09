@@ -10,11 +10,12 @@ function StageObjectsFreeze()
 	if !UpdateObjects
 	{
 		instance_deactivate_all(true);
+		
+		// Activate controllers back, we need them!
 		var IgnoreList = 
 		[
 			Framework, 
-			Player, 
-			Stage, 
+			Player,
 			Input, 
 			Interface,
 			Camera, 
@@ -25,8 +26,8 @@ function StageObjectsFreeze()
 			Background, 
 			Audio
 		];
-		var Length = array_length(IgnoreList);
 		
+		var Length = array_length(IgnoreList);
 		for (var i = 0; i < Length; i++)
 		{
 			instance_activate_object(IgnoreList[i]);

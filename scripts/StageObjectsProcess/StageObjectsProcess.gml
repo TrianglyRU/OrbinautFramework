@@ -81,7 +81,8 @@ function StageObjectsProcess()
 							event_perform(ev_create, 0);
 							
 							// Deactivate object
-							if Length
+							var Length = array_length(Obj_ChildrenIDs);
+							if  Length
 							{
 								for (var i = 0; i < Length; i++)
 								{
@@ -98,6 +99,6 @@ function StageObjectsProcess()
 		}
 	}
 	
-	// Activate objects (object's that were unloaded this frame before WON'T be activated)
+	// Activate objects (objects that were unloaded this frame before won't be activated)
 	instance_activate_range(Camera.ViewX);
 }
