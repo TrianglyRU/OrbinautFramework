@@ -1,10 +1,10 @@
-function StageObjectsUnload() 
+function StageObjectsProcess() 
 {	
 	if UpdateObjects
 	{
 		// Get active bounds
 		var LeftBound  = (Camera.ViewX - 128) & -128;
-		var RightBound = LeftBound + (((400 + 128) & -128) + 256);
+		var RightBound = LeftBound + (((Game.Width + 128) & -128) + 256);
 	
 		with all 
 		{	

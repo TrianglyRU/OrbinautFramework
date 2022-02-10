@@ -1,12 +1,29 @@
 /// @function instance_activate_range(anchorX)
 function instance_activate_range(anchorX)
 {
-	// Activate region
-	instance_activate_region((anchorX - 128) & -128, 0, ((400 + 128) & -128) + 256, room_height, true);	
+	static CurrentRegion = -1;
+	static LeftBound	 = -1;
+	static StagePaused   = false;
 	
-	// Force-load children objects
-	with Stage
+	// If we loaded a new region, load children objects (frame later, thanks GameMaker!)
+	if LeftBound != CurrentRegion or Stage.IsPaused != StagePaused
 	{
-		event_perform(ev_other, ev_user0);
+		with all
+		{
+			var Length = array_length(Obj_ChildrenIDs);
+			if  Length
+			{
+				for (var i = 0; i < Length; i++)
+				{
+					instance_activate_object(Obj_ChildrenIDs[i]);
+				}
+			}
+		}
+		StagePaused   = Stage.IsPaused;
+		CurrentRegion = LeftBound;
 	}
+	
+	// Activate region
+	LeftBound = (anchorX - 128) & -128;
+	instance_activate_region(LeftBound, 0, ((Game.Width + 128) & -128) + 256, room_height, true);	
 }
