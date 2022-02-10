@@ -2,6 +2,6 @@
 // You can call your scripts in this editor
 	
 	StageGameplayProcess();
-	StageObjectsProcess();
+	StageObjectsUnload();
 	StageBoundariesProcess();
 	StageEndProcess();

@@ -8,6 +8,7 @@ function StageStartup()
 	Time		   =  0;
 	TimeEnabled	   =  0;
 	IsBossfight    = -1;
+	ObjectRegion   = -1;
 	OscillateAngle =  1.40625;
 	UpdateObjects  =  false;
 	

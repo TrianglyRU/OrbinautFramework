@@ -1,10 +1,10 @@
-function StageObjectsProcess() 
+function StageObjectsUnload() 
 {	
 	if UpdateObjects
 	{
 		// Get active bounds
 		var LeftBound  = (Camera.ViewX - 128) & -128;
-		var RightBound = LeftBound + (((Game.Width + 128) & -128) + 256);
+		var RightBound = LeftBound + (((400 + 128) & -128) + 256);
 	
 		with all 
 		{	
@@ -99,6 +99,6 @@ function StageObjectsProcess()
 		}
 	}
 	
-	// Activate objects (objects that were unloaded this frame before won't be activated)
+	// Load objects (objects that were deactivated this frame won't activate!)
 	instance_activate_range(Camera.ViewX);
 }
