@@ -1,8 +1,5 @@
 function PaletteProcess()
 {
-	// Use shader
-	shader_set(ShaderMain);
-	
 	// Define a render boundary between type 1 and type 2 palettes
 	if instance_exists(Stage) and Stage.WaterEnabled
 	{

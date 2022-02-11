@@ -1,19 +1,19 @@
 function InterfacePauseProcess()
 {
 	if Stage.IsPaused
-	{	
-		// Loop through options
-		if Input.DownPress
-		{
-			PauseValue = loop_value(PauseValue + 1, 0, 2); audio_sfx_play(sfxPauseSwitch, false);
-		}
-		else if Input.UpPress
-		{
-			PauseValue = loop_value(PauseValue - 1, 0, 2); audio_sfx_play(sfxPauseSwitch, false);
-		}
-		
+	{		
 		if !fade_check(StateActive)
 		{
+			// Loop through options
+			if Input.DownPress
+			{
+				PauseValue = loop_value(PauseValue + 1, 0, 2); audio_sfx_play(sfxPauseSwitch, false);
+			}
+			else if Input.UpPress
+			{
+				PauseValue = loop_value(PauseValue - 1, 0, 2); audio_sfx_play(sfxPauseSwitch, false);
+			}
+			
 			PauseTimer++;
 			PauseTimer = PauseTimer mod 16;
 			
@@ -82,7 +82,7 @@ function InterfacePauseProcess()
 	// Pause the game
 	else if Input.StartPress
 	{
-		if /*CardValue[1] == 3 and*/ !Stage.IsFinished and !Player.Death
+		if CardValue[1] == 3 and !Stage.IsFinished and !Player.Death
 		{
 			Game.UpdateAnimations = false;
 			Camera.Enabled        = false;

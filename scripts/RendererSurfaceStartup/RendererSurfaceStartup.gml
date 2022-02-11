@@ -19,4 +19,7 @@ function RendererSurfaceStartup()
         draw_clear_alpha(c_black, 0);
         surface_reset_target();
     }
+	
+	// Call main shader
+	shader_set(ShaderMain);
 }
