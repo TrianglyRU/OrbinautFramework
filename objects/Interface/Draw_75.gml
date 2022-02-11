@@ -3,5 +3,4 @@
 	
 	/* Anything called here will be rendered
 	using window resolution */
-	
 	InterfaceDebugScreenDraw();

@@ -16,5 +16,6 @@ function fade_check(fadeState)
 		case StateMax:
 			return Palette.FadeStep == 0;
 		break;
-	}	
+	}
+	return false;
 }

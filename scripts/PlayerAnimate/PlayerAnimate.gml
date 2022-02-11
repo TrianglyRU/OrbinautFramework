@@ -150,7 +150,6 @@ function PlayerAnimate()
 					case AnimDropdash:
 						animation_play(spr_sonic_dropdash, 1, 0);
 					break;
-					default: break;
 				}
 			}
 			else switch Animation
@@ -243,7 +242,6 @@ function PlayerAnimate()
 				case AnimDropdash:
 					animation_play(spr_sonic_dropdash, 1, 0);
 				break;
-				default: break;
 			}
 		}
 		break;
@@ -350,7 +348,6 @@ function PlayerAnimate()
 					}
 				}
 				break;
-				default: break;
 			}	
 		}
 		break;
@@ -509,7 +506,6 @@ function PlayerAnimate()
 					}
 				}
 				break;
-				default: break;
 			}
 		}
 		break;

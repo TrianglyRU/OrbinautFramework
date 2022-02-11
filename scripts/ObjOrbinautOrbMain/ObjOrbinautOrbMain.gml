@@ -5,7 +5,7 @@ function ObjOrbinautOrbMain()
 		return;
 	}
 	
-	if object_check_touch(TypeHitbox)
+	if object_check_touch(ColHitbox)
 	{
 		player_damage(false, false, false);
 	}

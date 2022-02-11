@@ -1,4 +1,4 @@
-/// @function palette_handle(paletteType,iCol,rCol1,rCol2,duration)
+/// @function palette_handle(Pal?,iCol,rCol1,rCol2,duration)
 function palette_handle(palType,iCol,rCol1,rCol2,duration)
 {
 	if Palette.ColourSet[palType] == false or !Game.UpdateAnimations
@@ -23,14 +23,14 @@ function palette_handle(palType,iCol,rCol1,rCol2,duration)
 		if !(--Palette.SwapTime[palType,iCol])
 		{
 			// Update colour
-			if palType == TypePrimary
+			if palType == PalPrimary
 			{
 				if (++Palette.IndexType1[iCol]) > rCol1
 				{
 					Palette.IndexType1[iCol] = rCol2;
 				}
 			}
-			else if palType == TypeSecondary
+			else if palType == PalSecondary
 			{
 				if (++Palette.IndexType2[iCol]) > rCol1
 				{

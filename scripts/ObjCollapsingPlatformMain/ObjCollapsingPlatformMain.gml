@@ -7,7 +7,7 @@ function ObjCollapsingPlatformMain()
 	{
 		case 0:
 		{
-			if object_check_touch(TypeSolidU)
+			if object_check_touch(ColSolidU)
 			{
 				// Increment state
 				TimeDelay = 8;

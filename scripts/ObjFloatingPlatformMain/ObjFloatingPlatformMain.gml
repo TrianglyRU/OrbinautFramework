@@ -7,7 +7,7 @@ function ObjFloatingPlatformMain()
 			var PosX = OriginX;
 			var PosY = OriginY;
 			
-			if object_check_touch(TypeSolidU)
+			if object_check_touch(ColSolidU)
 			{
 				if DoFall == 1
 				{
@@ -33,7 +33,7 @@ function ObjFloatingPlatformMain()
 					Timer   = 32;
 					OriginY = OriginY + Weight;
 					
-					object_set_unload(TypeDelete);
+					object_set_unload(FlagDelete);
 				}
 			}
 			
@@ -86,7 +86,7 @@ function ObjFloatingPlatformMain()
 			// Make player lose the platform after 32 frames
 			if (--Timer) == 0
 			{
-				if object_check_touch(TypeSolidU)
+				if object_check_touch(ColSolidU)
 				{
 					//Player.PosY	   += FallSpeed;
 					Player.OnObject = false;

@@ -1,6 +1,6 @@
 function ObjBoundaryTriggerMain()
 {
-	if object_check_touch(TypeTrigger)
+	if object_check_touch(ColTrigger)
 	{
 		Stage.TargetBottomBoundary = y;
 	}

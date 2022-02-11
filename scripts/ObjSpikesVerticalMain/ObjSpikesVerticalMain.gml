@@ -12,7 +12,7 @@ function ObjSpikesVerticalMain()
 	}
 	
 	// Damage player
-	if object_check_touch(image_yscale == 1 ? TypeSolidU : TypeSolidD)
+	if object_check_touch(image_yscale == 1 ? ColSolidU : ColSolidD)
 	{
 		player_damage(false, false, false);
 	}

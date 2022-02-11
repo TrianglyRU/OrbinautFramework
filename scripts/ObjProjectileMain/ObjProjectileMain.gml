@@ -8,7 +8,7 @@ function ObjProjectileMain()
 	x = floor(PosX);
 	y = floor(PosY);
 	
-	if object_check_touch(TypeHitbox)
+	if object_check_touch(ColHitbox)
 	{
 		var BasicCheck = Player.BarrierType > BarrierNormal;
 		var TailsCheck = Player.FlightState	and floor(Player.PosY) > y;

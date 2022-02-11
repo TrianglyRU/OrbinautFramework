@@ -1,4 +1,4 @@
-/// @function palette_get_colour(palType,iCol)
+/// @function palette_get_colour(Pal?,iCol)
 function palette_get_colour(palType,iCol)
 {
 	// Return first colour if no pallete set
@@ -8,11 +8,11 @@ function palette_get_colour(palType,iCol)
 	}
 	
 	// Else return current colour
-	if palType == TypePrimary
+	if palType == PalPrimary
 	{
 		return Palette.IndexType1[iCol];
 	}
-	else if palType == TypeSecondary
+	else if palType == PalSecondary
 	{
 		return Palette.IndexType2[iCol];
 	}

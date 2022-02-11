@@ -28,7 +28,7 @@ function PlayerBalance()
 		var FindAngle1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer)[1];
 		var FindAngle2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer)[1];
 		
-		if !(FindAngle1 or FindAngle2)
+		if !(FindAngle1 and !FindAngle2 or !FindAngle1 and FindAngle2)
 		{
 			return;
 		}

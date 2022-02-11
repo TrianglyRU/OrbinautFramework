@@ -18,5 +18,5 @@ function ObjCollisionTriggerStartup()
 	{
 		object_set_triggerbox(-32, 32, -12, 12);
 	}
-	object_set_unload(TypePause);
+	object_set_unload(FlagPause);
 }

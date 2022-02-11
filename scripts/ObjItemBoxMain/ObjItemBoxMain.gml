@@ -30,7 +30,7 @@ function ObjItemBoxMain()
 			// If so, destroy
 			if Check and (Player.Spinning or Player.GlideState > GlideFall) and Player.OnObject != id
 			{
-				if object_check_touch(TypeHitbox2)
+				if object_check_touch(ColHitbox2)
 				{
 					if !Player.Grounded
 					{
@@ -54,7 +54,7 @@ function ObjItemBoxMain()
 			{	
 				if !IsFalling and floor(Player.PosY) >= floor(y + 16)
 				{
-					if object_check_touch(TypeHitbox)
+					if object_check_touch(ColHitbox)
 					{
 						IsFalling  = true;
 						Ysp        = -1.5;
@@ -257,7 +257,7 @@ function ObjItemBoxMain()
 			{
 				State++;
 			}
-			object_set_unload(TypePause);
+			object_set_unload(FlagPause);
 		}
 		break;
 	}

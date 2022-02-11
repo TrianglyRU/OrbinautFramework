@@ -4,14 +4,14 @@ function PaletteSetup()
 	{
 		case Stage_TVZ:
 		{
-			palette_load(TypePrimary,   pal_tz_type1);
-			palette_load(TypeSecondary, pal_tz_type2);
+			palette_load(PalPrimary,   pal_tz_type1);
+			palette_load(PalSecondary, pal_tz_type2);
 		}
 		break;
 		default:
 		{
-			palette_load(TypePrimary,   noone);
-			palette_load(TypeSecondary, noone);
+			palette_load(PalPrimary,   noone);
+			palette_load(PalSecondary, noone);
 		}
 		break;
 	}

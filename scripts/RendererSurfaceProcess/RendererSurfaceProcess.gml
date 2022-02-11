@@ -7,12 +7,13 @@ function RendererSurfaceProcess()
 	if surface_exists(SurfaceLow)
 	{
 		shader_set(ShaderFade);
-		
-		shader_set_uniform_f(Shader.PalStep,   Palette.FadeBlend == BlendFlash ? Palette.FadeStep div 3 : Palette.FadeStep);
-		shader_set_uniform_i(Shader.PalColour, Palette.FadeBlend);
-		shader_set_uniform_i(Shader.PalMode,   Palette.FadeMode);
+		{
+			shader_set_uniform_f(Shader.PalStep,   Palette.FadeBlend == BlendFlash ? Palette.FadeStep div 3 : Palette.FadeStep);
+			shader_set_uniform_i(Shader.PalColour, Palette.FadeBlend);
+			shader_set_uniform_i(Shader.PalMode,   Palette.FadeMode);
 			
-		draw_surface(SurfaceLow, 0, 0);
+			draw_surface(SurfaceLow, 0, 0);
+		}
 		shader_reset();
 	}
 	

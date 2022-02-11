@@ -7,7 +7,7 @@ function ObjCollisionTriggerMain()
 	}
 	
 	// Update active collision layer if player passed through the object
-	if !object_check_touch(TypeTrigger)
+	if !object_check_touch(ColTrigger)
 	{
 		if State
 		{

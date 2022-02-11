@@ -22,7 +22,7 @@ function ObjStarPostPortalMain()
 		}
 		else if Timer > 60
 		{
-			if !State and object_check_touch(TypeHitbox)
+			if !State and object_check_touch(ColHitbox)
 			{
 				fade_perform(ModeInto, BlendBlack, 1);
 				audio_bgm_stop(TypePrimary,  0.5);

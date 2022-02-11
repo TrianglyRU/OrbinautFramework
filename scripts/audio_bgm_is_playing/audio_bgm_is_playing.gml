@@ -9,8 +9,6 @@ function audio_bgm_is_playing(check)
 		case TypeSecondary:
 			return Audio.SecondaryTrack[1];
 		break;
-		default:
-			return audio_is_playing(check);
-		break;
 	}
+	return audio_is_playing(check);
 }

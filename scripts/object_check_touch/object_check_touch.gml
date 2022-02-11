@@ -1,4 +1,4 @@
-/// @function object_check_touch(collisionType)
+/// @function object_check_touch(Col?)
 function object_check_touch(collisionType)
 {	
 	if !Player.AllowCollision
@@ -8,7 +8,7 @@ function object_check_touch(collisionType)
 	
 	switch collisionType
 	{
-		case TypeHitbox: case TypeHitbox2:
+		case ColHitbox: case ColHitbox2:
 		{	
 			// Exit if object can't be touched
 			if !Obj_HitX or !Obj_HitY
@@ -27,7 +27,7 @@ function object_check_touch(collisionType)
 			var ObjectBottom = floor(y + Obj_HitY - 1);
 		
 			// Get player's normal hitbox
-			if !(collisionType == TypeHitbox2 and Player.DoubleSpinAttack)
+			if !(collisionType == ColHitbox2 and Player.DoubleSpinAttack)
 			{
 				var HitboxData = Player.HitboxData[0];
 			}
@@ -50,7 +50,7 @@ function object_check_touch(collisionType)
 			return true;
 		}
 		break;
-		case TypeSolidU: case TypeSolidD: case TypeSolidL: case TypeSolidR:
+		case ColSolidU: case ColSolidD: case ColSolidL: case ColSolidR:
 		{
 			// Exit if object can't be touched
 			if !object_is_onscreen(id)
@@ -61,22 +61,22 @@ function object_check_touch(collisionType)
 			// Return touch flag
 			switch collisionType
 			{
-				case TypeSolidU:
+				case ColSolidU:
 					return Obj_SolidTouchU or Player.OnObject == id;
 				break;
-				case TypeSolidD:
+				case ColSolidD:
 					return Obj_SolidTouchD;
 				break;
-				case TypeSolidL:
+				case ColSolidL:
 					return Obj_SolidTouchL;
 				break;
-				case TypeSolidR:
+				case ColSolidR:
 					return Obj_SolidTouchR;
 				break;
 			}
 		}
 		break;
-		case TypeSolidP:
+		case ColSolidP:
 		{
 			// Exit if object can't be touched
 			if !object_is_onscreen(id)
@@ -87,7 +87,7 @@ function object_check_touch(collisionType)
 			return Obj_SolidPush;
 		}
 		break;
-		case TypeTrigger:
+		case ColTrigger:
 		{
 			return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));
 		}

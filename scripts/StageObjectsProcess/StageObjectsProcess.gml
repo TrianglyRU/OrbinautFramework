@@ -12,7 +12,7 @@ function StageObjectsProcess()
 				switch Obj_UnloadType
 				{
 					// Destroy object
-					case TypeDelete:
+					case FlagDelete:
 					{
 						if x < LeftBound or x > RightBound or y > Stage.BottomBoundary or y < Stage.TopBoundary
 						{
@@ -31,7 +31,7 @@ function StageObjectsProcess()
 					break;
 					
 					// Deactivate object
-					case TypePause:
+					case FlagPause:
 					{
 						if x < LeftBound or x > RightBound
 						{
@@ -50,7 +50,7 @@ function StageObjectsProcess()
 					break;
 					
 					// Reset object
-					case TypeReset:
+					case FlagReset:
 					{
 						if (x < LeftBound or x > RightBound) and (Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound)
 						{
@@ -93,7 +93,6 @@ function StageObjectsProcess()
 						}
 					}
 					break;
-					default: break;
 				}
 			}
 		}

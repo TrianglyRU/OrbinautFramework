@@ -1,6 +1,12 @@
 function SpecialScreenProcess()
 {
-	if !Game.SpecialState or (!State and fade_check(StateActive))
+	// We should come back from the special stage to run this code!
+	if !Game.SpecialState
+	{
+		return;
+	}
+	
+	if (!State and fade_check(StateActive))
 	{
 		return;
 	}

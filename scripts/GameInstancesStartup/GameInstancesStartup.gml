@@ -7,9 +7,6 @@ function GameInstancesStartup()
 	}
 	
 	// Create data structure for animation timers
-	if !ds_exists(Game.AnimationTime, ds_type_map)
-	{
-		Game.AnimationTime = ds_map_create();
-	}
-	ds_map_add(Game.AnimationTime, GlobalTime, 0);
+	Game.AnimationTime = ds_map_create();
+	Game.AnimationTime[? GlobalTime] = 0;
 }

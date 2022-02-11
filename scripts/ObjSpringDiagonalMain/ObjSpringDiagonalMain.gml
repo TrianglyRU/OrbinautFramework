@@ -6,7 +6,7 @@ function ObjSpringDiagonalMain()
 	if (floor(Player.PosX + 4 * image_xscale) - x) * image_xscale >= 0 
 	{	
 		// Launch player
-		if object_check_touch(image_yscale ? TypeSolidU : TypeSolidD)
+		if object_check_touch(image_yscale ? ColSolidU : ColSolidD)
 		{
 			if image_yscale
 			{

@@ -1,7 +1,7 @@
 function ObjOrbinautMain()
 {
 	// Act as badnik and exit if it was destroyed
-	if object_act_enemy(TypeBadnik)
+	if object_act_enemy(EnemyBadnik)
 	{
 		return;
 	}

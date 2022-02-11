@@ -1,6 +1,6 @@
 function ObjBackgroundTriggerMain()
 {
-	if object_check_touch(TypeTrigger)
+	if object_check_touch(ColTrigger)
 	{
 		if !State
 		{

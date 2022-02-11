@@ -12,9 +12,9 @@ function PaletteStartup()
 	depth		 = 10000; // This is used to perform Draw event earlier than Background Draw event
 	
 	// Initialise palette animation storage
-	for (var i = 0; i < PaletteLimit; i++)
+	for (var i = 0; i < PalLimit; i++)
 	{
-		for (var j = 0; j < PaletteLimit; j++)
+		for (var j = 0; j < PalLimit; j++)
 		{
 			Duration[i, j] = noone;
 			Sequence[i, j] = noone;

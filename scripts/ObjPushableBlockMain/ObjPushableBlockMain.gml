@@ -8,7 +8,7 @@ function ObjPushableBlockMain()
 			object_act_solid(true, true, true, false);
 			
 			// Check for being pushed
-			if Player.Grounded and object_check_touch(TypeSolidP)
+			if Player.Grounded and object_check_touch(ColSolidP)
 			{
 				if floor(Player.PosX) < x
 				{

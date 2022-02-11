@@ -35,6 +35,6 @@ function ObjClearPanelStartup()
 	sprite_index = SpriteData[0];
 	
 	// Set object properties
-	object_set_unload(TypePause);
+	object_set_unload(FlagPause);
 	object_set_depth(Player, 0);
 }

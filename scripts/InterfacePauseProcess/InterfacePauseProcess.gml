@@ -82,7 +82,7 @@ function InterfacePauseProcess()
 	// Pause the game
 	else if Input.StartPress
 	{
-		if CardValue[1] == 3 and !Stage.IsFinished and !Player.Death
+		if /*CardValue[1] == 3 and*/ !Stage.IsFinished and !Player.Death
 		{
 			Game.UpdateAnimations = false;
 			Camera.Enabled        = false;

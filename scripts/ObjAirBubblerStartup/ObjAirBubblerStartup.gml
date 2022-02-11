@@ -18,6 +18,6 @@ function ObjAirBubblerStartup()
 	BubbleSet[3] = [0,1,0,0,1,0];
 	
 	// Set object properties
-	object_set_unload(TypeReset);
+	object_set_unload(FlagReset);
 	animation_play(sprite_index, 16, 0);
 }

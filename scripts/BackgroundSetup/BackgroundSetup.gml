@@ -29,6 +29,5 @@ function BackgroundSetup()
 			background_colour_set($004400);
 		}
 		break;
-		default: break;
 	}	
 }

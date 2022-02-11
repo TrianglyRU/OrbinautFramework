@@ -1,7 +1,7 @@
-/// @function object_act_enemy(enemyType)
+/// @function object_act_enemy(Enemy?)
 function object_act_enemy(enemyType)
 {
-	if !object_check_touch(TypeHitbox2)
+	if !object_check_touch(ColHitbox2)
 	{
 		return false;
 	}
@@ -16,7 +16,7 @@ function object_act_enemy(enemyType)
 	{	
 		switch enemyType
 		{
-			case TypeBadnik:
+			case EnemyBadnik:
 			{
 				// Make player bounce if they are airborne
 				if !Player.Grounded
@@ -63,7 +63,7 @@ function object_act_enemy(enemyType)
 				audio_sfx_play(sfxDestroy, false); instance_destroy();
 			}
 			break;
-			case TypeBoss:
+			case EnemyBoss:
 			{
 				if !Player.Grounded
 				{

@@ -126,7 +126,7 @@ function PlayerDebugMode()
 				image_xscale = ThisObject;
 				
 				// Object should be deleted once it goes off-screen
-				object_set_unload(TypeDelete);
+				object_set_unload(FlagDelete);
 			}
 		}
 		

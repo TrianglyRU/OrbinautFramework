@@ -1,30 +1,32 @@
 function GameMacro()
 {	
 	// Global framework macro
-	#macro TypePrimary    0
-	#macro TypeSecondary  1
-	#macro GlobalTime    -1
-	#macro Shader		 global
-	#macro Game			 global
-	#macro GameCamera	 view_camera[0]
+	#macro GlobalTime -1
+	#macro Shader	   global
+	#macro Game		   global
+	#macro GameCamera  view_camera[0]
 	
 	// Object macro
-	#macro TypePause  1
-	#macro TypeReset  2
-	#macro TypeDelete 3
-	#macro TypeBadnik 0
-	#macro TypeBoss   1
-	#macro FlipLeft	 -1
-	#macro FlipRight  1
+	#macro FlagPause   1
+	#macro FlagReset   2
+	#macro FlagDelete  3
+	#macro EnemyBadnik 0
+	#macro EnemyBoss   1
+	#macro FlipLeft	  -1
+	#macro FlipRight   1
 
 	// Audio macro
-	#macro EventIdle   0
-	#macro EventMute   1
-	#macro EventUnmute 2
-	#macro EventStop   3
+	#macro EventIdle      0
+	#macro EventMute      1
+	#macro EventUnmute    2
+	#macro EventStop      3
+	#macro TypePrimary   -1
+	#macro TypeSecondary -2
 	
 	// Palette macro
-	#macro PaletteLimit 64
+	#macro PalLimit	    64
+	#macro PalPrimary	0
+	#macro PalSecondary 1
 	
 	// Fade macro
 	#macro StateActive 0
@@ -90,14 +92,14 @@ function GameMacro()
 	#macro AnimBreathe		31
 	
 	// Collision macro
-	#macro TypeHitbox  0
-	#macro TypeHitbox2 1
-	#macro TypeTrigger 2
-	#macro TypeSolidU  3
-	#macro TypeSolidD  4
-	#macro TypeSolidL  5
-	#macro TypeSolidR  6
-	#macro TypeSolidP  7
-	#macro LayerA	   0
-	#macro LayerB	   1
+	#macro ColHitbox  0
+	#macro ColHitbox2 1
+	#macro ColTrigger 2
+	#macro ColSolidU  3
+	#macro ColSolidD  4
+	#macro ColSolidL  5
+	#macro ColSolidR  6
+	#macro ColSolidP  7
+	#macro LayerA	  0
+	#macro LayerB	  1
 }

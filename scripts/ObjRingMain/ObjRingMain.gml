@@ -57,7 +57,7 @@ function ObjRingMain()
 	// Collect ring
 	if !Player.Hurt and Player.InvincibilityFrames < 90
 	{	
-		if object_check_touch(TypeHitbox)
+		if object_check_touch(ColHitbox)
 		{
 			Player.Rings++;
 			audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);

@@ -66,7 +66,7 @@ function ObjAnimalStartup()
 		Delay = 0;
 	
 		// Set object properties
-		object_set_unload(TypeDelete);
+		object_set_unload(FlagDelete);
 		object_set_depth(Player, 0);
 		object_set_solidbox(8, 12, false);
 		

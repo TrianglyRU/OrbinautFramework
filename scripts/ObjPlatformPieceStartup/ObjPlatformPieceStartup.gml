@@ -7,5 +7,5 @@ function ObjPlatformPieceStartup()
 	DrawY = 0;
 	
 	// Set object properties
-	object_set_unload(TypeDelete);
+	object_set_unload(FlagDelete);
 }

@@ -42,7 +42,7 @@ function PlayerSpindash()
 			Camera.ScrollDelay = 16;
 		}
 		
-		Gsp	    = ((SuperState ? 11 : 8) + round(SpindashRev) / 2) * Facing;
+		Gsp	        = ((SuperState ? 11 : 8) + round(SpindashRev) / 2) * Facing;
 		Spinning    = true;
 		SpindashRev = -1;
 		Animation   = AnimSpin;

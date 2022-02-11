@@ -15,7 +15,7 @@ function PaletteProcess()
 	shader_set_uniform_f(Shader.PalBoundary, Boundary);
 		
 	// Render palette type 1
-	if Boundary > 0 and ColourSet[TypePrimary] != false
+	if Boundary > 0 and ColourSet[PalPrimary] != false
 	{
 		shader_set_uniform_f_array(Shader.PalIndex1, IndexType1);
 		texture_set_stage(Shader.PalTex1,			 ColourSet[0][0]);
@@ -24,7 +24,7 @@ function PaletteProcess()
 	}
 		
 	// Render palette type 2
-	if Boundary < Game.Height and ColourSet[TypeSecondary] != false
+	if Boundary < Game.Height and ColourSet[PalSecondary] != false
 	{
 		texture_set_stage(Shader.PalTex2,			 ColourSet[1][0]);
 		shader_set_uniform_f_array(Shader.PalIndex2, IndexType2);

@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Audio",
-    "path": "folders/Game Logic/Audio.yy",
+    "name": "Player",
+    "path": "folders/Game Logic/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "AudioPriorityProcess",
+  "name": "PlayerEnd",
   "tags": [],
   "resourceType": "GMScript",
 }

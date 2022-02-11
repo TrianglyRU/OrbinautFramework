@@ -4,7 +4,7 @@ function ObjSpringHorizontalMain()
 	object_act_solid(true, true, true, false);
 	
 	// Launch player
-	if Player.Grounded and object_check_touch(image_xscale ? TypeSolidR : TypeSolidL)
+	if Player.Grounded and object_check_touch(image_xscale ? ColSolidR : ColSolidL)
 	{
 		Player.Xsp	      = image_xscale * LaunchForce;
 		Player.Facing     = image_xscale;	

@@ -10,9 +10,6 @@ function StageEndProcess()
 	Game.SpecialRingList = [];
 	Game.StarPostData	 = [];
 	
-	ds_list_destroy(Player.RecordedPosX);
-	ds_list_destroy(Player.RecordedPosY);
-	
 	if IsLastZoneAct = true and Game.ActiveSave != -1
 	{
 		if ZoneID == FinalZoneID

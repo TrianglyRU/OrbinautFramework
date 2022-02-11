@@ -10,6 +10,6 @@ function ObjBubbleStartup()
 	Direction    =  0;
 	
 	// Set object properties
-	object_set_unload(TypeDelete);
+	object_set_unload(FlagDelete);
 	object_set_depth(Player, 1);
 }

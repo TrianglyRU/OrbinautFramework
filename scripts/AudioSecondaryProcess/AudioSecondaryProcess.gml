@@ -1,4 +1,4 @@
-function AudioPriorityProcess()
+function AudioSecondaryProcess()
 {
 	if !SecondaryTrack[1]
 	{

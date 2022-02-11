@@ -6,7 +6,6 @@ function GameControllersLoad()
 	// If not in initialisation room, load other controllers
 	if room != Screen_Startup
 	{
-		instance_create(x, y, Layers);
 		instance_create(x, y, Audio);
 		instance_create(x, y, Input);
 		instance_create(x, y, Palette);

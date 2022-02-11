@@ -68,7 +68,7 @@ function ObjShatteredRingMain()
 		{
 			PickupTimeout--;
 		}
-		else if object_check_touch(TypeHitbox)
+		else if object_check_touch(ColHitbox)
 		{
 			Player.Rings++;
 			audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);

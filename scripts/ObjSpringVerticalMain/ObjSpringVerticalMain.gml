@@ -4,7 +4,7 @@ function ObjSpringVerticalMain()
 	object_act_solid(true, true, true, true);
 		
 	// Launch player
-	if object_check_touch(image_yscale ? TypeSolidU : TypeSolidD)
+	if object_check_touch(image_yscale ? ColSolidU : ColSolidD)
 	{	
 		if image_yscale
 		{

@@ -156,7 +156,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 						}
 						PosY    -= YDistance - 4;
 						OnObject = ObjectID;
-						Gsp  = Xsp;
+						Gsp		 = Xsp;
 						Angle    = 360;
 						Grounded = true;
 						

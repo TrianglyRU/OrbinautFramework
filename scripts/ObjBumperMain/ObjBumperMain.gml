@@ -1,6 +1,6 @@
 function ObjBumperMain()
 {
-	if object_check_touch(TypeHitbox)
+	if object_check_touch(ColHitbox)
 	{
 		if !State and !Player.Hurt
 		{

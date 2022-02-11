@@ -1,6 +1,6 @@
 function ObjRollTriggerMain()
 {	
-	if object_check_touch(TypeTrigger) 
+	if object_check_touch(ColTrigger) 
 	{
 		// Force player to roll
 		if Player.Grounded or Player.GlideState

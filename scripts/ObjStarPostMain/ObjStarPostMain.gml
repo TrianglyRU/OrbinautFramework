@@ -11,7 +11,7 @@ function ObjStarPostMain()
 				Angle = 900;
 				animation_play(spr_obj_starpost_active, 4, 0);
 			}
-			else if object_check_touch(TypeTrigger) 
+			else if object_check_touch(ColTrigger) 
 			{
 				// Remember data
 				Game.StarPostData[0] = x;

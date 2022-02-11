@@ -15,7 +15,7 @@ function PlayerStartup()
 	TopAcc				= 0;
 	Xsp					= 0;
 	Ysp					= 0;
-	Gsp				= 0;
+	Gsp					= 0;
 	SlopeGravity        = 0;
 	Angle				= 0;	
 	GroundLock			= 0;
@@ -24,7 +24,6 @@ function PlayerStartup()
 	Spinning			= 0;
 	Jumping				= 0;
 	Pushing             = 0;
-	Grounded		    = 0;
 	OnObject			= 0;
 	PeeloutForce        = 0;
 	DropdashSide	    = 0;
@@ -60,6 +59,7 @@ function PlayerStartup()
 	HitboxData			= [];
 	
 	// Set defaults
+	Grounded		 = true;
 	AllowCollision   = true;
 	AllowMovement    = true;
 	DropdashRev      = -1;

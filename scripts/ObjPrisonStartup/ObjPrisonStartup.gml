@@ -6,7 +6,7 @@ function ObjPrisonStartup()
 	StateTimer	   = 0;
 	
 	// Set object properties
-	object_set_unload(TypePause);
+	object_set_unload(FlagPause);
 	object_set_depth(Player, 0);
 	object_set_solidbox(32, 25, false);
 	

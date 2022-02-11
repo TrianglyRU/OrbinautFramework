@@ -1,4 +1,4 @@
-/// @function palette_set_colour_range(palType,iCol1,iCol2,rCol)
+/// @function palette_set_colour_range(Pal?,iCol1,iCol2,rCol)
 function palette_set_colour_range(palType,iCol1,iCol2,rCol)
 {
 	if Palette.ColourSet[palType] == false or !Game.UpdateAnimations
@@ -9,11 +9,11 @@ function palette_set_colour_range(palType,iCol1,iCol2,rCol)
 	// Update colours
 	for (var i = iCol1; i <= iCol2; i++)
 	{
-		if palType == TypePrimary
+		if palType == PalPrimary
 		{
 			Palette.IndexType1[i] = rCol;
 		}
-		else if palType == TypeSecondary
+		else if palType == PalSecondary
 		{
 			Palette.IndexType2[i] = rCol;
 		}

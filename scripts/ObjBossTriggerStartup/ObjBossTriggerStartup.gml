@@ -10,5 +10,5 @@ function ObjBossTriggerStartup()
 	image_alpha  = 0;
 	
 	// Set object properties
-	object_set_unload(TypePause);
+	object_set_unload(FlagPause);
 }

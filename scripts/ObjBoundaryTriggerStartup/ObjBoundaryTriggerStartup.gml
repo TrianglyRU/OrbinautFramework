@@ -8,6 +8,6 @@ function ObjBoundaryTriggerStartup()
 	visible = false;
 	
 	// Set object properties
-	object_set_unload(TypePause);
+	object_set_unload(FlagPause);
 	object_set_triggerbox(-16, 16, TriggerTop - y, TriggerBottom - y);
 }

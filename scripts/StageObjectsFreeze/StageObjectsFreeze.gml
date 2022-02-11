@@ -22,7 +22,6 @@ function StageObjectsFreeze()
 			Discord, 
 			Palette,
 			Renderer,
-			Layers,
 			Background, 
 			Audio
 		];
