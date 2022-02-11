@@ -45,17 +45,17 @@ function PlayerAirLevelCollision()
 					{
 						Ysp = 15.75;
 					}
-					Xsp		= 0;
-					Inertia = FindFloor[1] < 180 ? -Ysp : Ysp;
+					Xsp = 0;
+					Gsp = FindFloor[1] < 180 ? -Ysp : Ysp;
 				}
 				else if FindFloor[1] >= 23.91 and FindFloor[1] <= 337.5
 				{
-					Inertia = FindFloor[1] < 180 ? -Ysp / 2 : Ysp / 2;
+					Gsp = FindFloor[1] < 180 ? -Ysp / 2 : Ysp / 2;
 				}
 				else 
 				{	
-					Ysp     = 0;
-					Inertia = Xsp;	
+					Ysp = 0;
+					Gsp = Xsp;	
 				}
 					
 				// Adhere to the surface and land
@@ -92,7 +92,7 @@ function PlayerAirLevelCollision()
 				{
 					// Land on it if its angle steep enough
 					Angle    = FindRoof[1];
-					Inertia  = FindRoof[1] < 180 ? -Ysp : Ysp;
+					Gsp      = FindRoof[1] < 180 ? -Ysp : Ysp;
 					Grounded = true;
 				}
 				else 
@@ -113,9 +113,9 @@ function PlayerAirLevelCollision()
 			var FindWall = tile_find_h(PosX - RadiusW, PosY, false, true, Layer)[0];
 			if  FindWall < 0
 			{
-				PosX   -= FindWall;
-				Inertia = Ysp;
-				Xsp     = 0;
+				PosX -= FindWall;
+				Gsp   = Ysp;
+				Xsp   = 0;
 			}
 			else
 			{
@@ -141,7 +141,7 @@ function PlayerAirLevelCollision()
 					{
 						PosY	+= FindFloor[0];
 						Angle    = FindFloor[1];
-						Inertia  = Xsp;
+						Gsp  = Xsp;
 						Ysp      = 0;
 						Grounded = true;
 					}
@@ -155,9 +155,9 @@ function PlayerAirLevelCollision()
 			var FindWall = tile_find_h(PosX + RadiusW, PosY, true, true, Layer)[0];
 			if  FindWall < 0
 			{
-				PosX   += FindWall;
-				Inertia = Ysp;
-				Xsp     = 0;	
+				PosX += FindWall;
+				Gsp   = Ysp;
+				Xsp   = 0;	
 			}
 			else
 			{
@@ -183,7 +183,7 @@ function PlayerAirLevelCollision()
 					{
 						PosY	+= FindFloor[0];
 						Angle    = FindFloor[1];
-						Inertia  = Xsp
+						Gsp  = Xsp
 						Ysp      = 0;
 						Grounded = true;
 					}

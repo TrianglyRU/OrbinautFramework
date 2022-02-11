@@ -10,12 +10,12 @@ function PlayerMovementGround()
 		if Input.Left
 		{	
 			// Decelerate
-			if Inertia > 0 
+			if Gsp > 0 
 			{
-				Inertia -= Dec;
-				if Inertia <= 0
+				Gsp -= Dec;
+				if Gsp <= 0
 				{
-					Inertia = -0.5;
+					Gsp = -0.5;
 					animation_reset(0);
 				}
 			} 
@@ -28,21 +28,21 @@ function PlayerMovementGround()
 					Facing  = FlipLeft;
 					Pushing = false;
 				}
-				if !Game.GroundSpeedcap and Inertia > -TopAcc or Game.GroundSpeedcap
+				if !Game.GroundSpeedcap and Gsp > -TopAcc or Game.GroundSpeedcap
 				{
-					Inertia = max(Inertia - Acc, -TopAcc);
+					Gsp = max(Gsp - Acc, -TopAcc);
 				} 
 			}
 		}
 		else if Input.Right
 		{			
 			// Decelerate
-			if Inertia < 0 
+			if Gsp < 0 
 			{
-				Inertia += Dec;
-				if Inertia >= 0
+				Gsp += Dec;
+				if Gsp >= 0
 				{
-					Inertia = 0.5;
+					Gsp = 0.5;
 					animation_reset(0);
 				}
 			} 
@@ -55,9 +55,9 @@ function PlayerMovementGround()
 					Facing  = FlipRight;
 					Pushing = false;
 				}
-				if !Game.GroundSpeedcap and Inertia < TopAcc or Game.GroundSpeedcap
+				if !Game.GroundSpeedcap and Gsp < TopAcc or Game.GroundSpeedcap
 				{
-					Inertia = min(Inertia + Acc, TopAcc);
+					Gsp = min(Gsp + Acc, TopAcc);
 				} 
 			}
 		}
@@ -65,7 +65,7 @@ function PlayerMovementGround()
 		// Perform skid. Angle check here is different in comparison to collision mode checks
 		if (Angle <= 45 or Angle >= 316.41) and Animation != AnimSkid
 		{
-			if Input.Left and Inertia >= 4 or Input.Right and Inertia <= -4
+			if Input.Left and Gsp >= 4 or Input.Right and Gsp <= -4
 			{
 				Animation = AnimSkid;
 						
@@ -78,20 +78,20 @@ function PlayerMovementGround()
 	// Apply friction
 	if !Input.Left and !Input.Right
 	{
-		if Inertia > 0
+		if Gsp > 0
 		{
-			Inertia = max(Inertia - Frc, 0);
+			Gsp = max(Gsp - Frc, 0);
 		}
 		else
 		{
-			Inertia = min(Inertia + Frc, 0);
+			Gsp = min(Gsp + Frc, 0);
 		}
 		Pushing = false;
 	}
 
-	// Convert inertia to speed
-	Xsp = Inertia *  dcos(Angle);
-	Ysp = Inertia * -dsin(Angle);
+	// Convert Gsp to speed
+	Xsp = Gsp *  dcos(Angle);
+	Ysp = Gsp * -dsin(Angle);
 	
 	// Define which animations should be in priority over the idle animation
 	switch Animation
@@ -110,7 +110,7 @@ function PlayerMovementGround()
 	{
 		Animation = AnimPush;
 	}
-	else if Inertia == 0
+	else if Gsp == 0
 	{
 		// Same unsymmetrical angle check, just like above...
 		if (Angle <= 45 or Angle >= 316.41) and !AnimationPriority
@@ -135,7 +135,7 @@ function PlayerMovementGround()
 		{
 			Animation = AnimMove;
 		}
-		else if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left
+		else if Gsp > 0 and Input.Right or Gsp < 0 and Input.Left
 		{
 			Animation = AnimMove;
 		}

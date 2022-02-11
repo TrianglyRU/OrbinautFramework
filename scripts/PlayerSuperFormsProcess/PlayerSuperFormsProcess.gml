@@ -7,9 +7,9 @@ function PlayerSuperFormsProcess()
 			// Reset speeds for 15 frames
 			if (++SuperStateValue) < 16
 			{
-				Inertia = 0;
-				Xsp		= 0;
-				Ysp		= 0;	
+				Gsp = 0;
+				Xsp	= 0;
+				Ysp	= 0;	
 			}
 			
 			// Restore control on 16th frame
@@ -42,7 +42,7 @@ function PlayerSuperFormsProcess()
 				}
 			}
 			
-			if abs(Inertia) >= TopAcc and !instance_exists(SuperStar)
+			if abs(Gsp) >= TopAcc and !instance_exists(SuperStar)
 			{
 				// Create star particle
 				var  NewObject = instance_create(PosX, PosY, SuperStar);

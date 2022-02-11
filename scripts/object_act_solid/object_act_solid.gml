@@ -156,7 +156,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 						}
 						PosY    -= YDistance - 4;
 						OnObject = ObjectID;
-						Inertia  = Xsp;
+						Gsp  = Xsp;
 						Angle    = 360;
 						Grounded = true;
 						
@@ -173,9 +173,9 @@ function object_act_solid(sides,top,bottom,resetActions)
 		{	
 			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
 			{
-				Player.Inertia = 0;
-				Player.Xsp	   = 0;					
-				Obj_SolidPush  = true;
+				Player.Gsp    = 0;
+				Player.Xsp	  = 0;					
+				Obj_SolidPush = true;
 			}
 			Player.PosX -= XDistance;
 			

@@ -77,12 +77,12 @@ function ObjTailsObjectMain()
 				if Angle >= 33.75 and Angle <= 326.25
 				{
 					var TargetAngle  = Angle;
-					var RotationStep = (abs(Player.Inertia) / 16 + abs(Player.Inertia) / 32 - 2) * -1
+					var RotationStep = (abs(Player.Gsp) / 16 + abs(Player.Gsp) / 32 - 2) * -1
 				}
 				else
 				{
 					var TargetAngle  = 360;
-					var RotationStep = (abs(Player.Inertia) / 16 - 2) * -1
+					var RotationStep = (abs(Player.Gsp) / 16 - 2) * -1
 				}
 				VisualAngle = darctan2(dsin(TargetAngle) + dsin(VisualAngle) * RotationStep, dcos(TargetAngle) + dcos(VisualAngle) * RotationStep);
 			}

@@ -18,12 +18,12 @@ function PlayerRotation()
 				if Angle > 33.75 and Angle < 326.25
 				{
 					var TargetAngle  = Angle;
-					var RotationStep = (abs(Inertia) / 16 + abs(Inertia) / 32 - 2) * -1
+					var RotationStep = (abs(Gsp) / 16 + abs(Gsp) / 32 - 2) * -1
 				}
 				else
 				{
 					var TargetAngle  = 360;
-					var RotationStep = (abs(Inertia) / 16 - 2) * -1
+					var RotationStep = (abs(Gsp) / 16 - 2) * -1
 				}
 				VisualAngle = darctan2(dsin(TargetAngle) + dsin(VisualAngle) * RotationStep, dcos(TargetAngle) + dcos(VisualAngle) * RotationStep);	
 			}

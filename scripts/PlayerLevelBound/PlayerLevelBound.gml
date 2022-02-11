@@ -3,25 +3,25 @@ function PlayerLevelBound()
 	// Keep us inside of stage boundaries using our next position	
 	if floor(PosX + Xsp) < Stage.LeftBoundary + 16
 	{
-		Inertia = 0;
-		Xsp     = 0;
-		PosX    = Stage.LeftBoundary + 16;
+		Gsp   = 0;
+		Xsp  = 0;
+		PosX = Stage.LeftBoundary + 16;
 		
 	}
 	if !Stage.IsFinished
 	{
 		if floor(PosX + Xsp) > Stage.RightBoundary - 24 
 		{
-			Inertia = 0;
-			Xsp     = 0;
-			PosX    = Stage.RightBoundary - 24;
+			Gsp  = 0;
+			Xsp  = 0;
+			PosX = Stage.RightBoundary - 24;
 		}
 	}
 	else if floor(PosX + Xsp) > Stage.RightBoundary + 40
 	{
-		Inertia = 0;
-		Xsp     = 0;
-		PosX    = Stage.RightBoundary + 40;
+		Gsp  = 0;
+		Xsp  = 0;
+		PosX = Stage.RightBoundary + 40;
 	}
 	
 	// Prevent us from leaving top boundary if flying or climbing

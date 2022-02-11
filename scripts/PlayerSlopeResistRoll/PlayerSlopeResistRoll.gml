@@ -7,7 +7,7 @@ function PlayerSlopeResistRoll()
 	}
 	
 	// Set slope gravity and then apply it
-	if sign(Inertia) != sign(dsin(Angle))
+	if sign(Gsp) != sign(dsin(Angle))
 	{
 		SlopeGravity = 0.3125 * dsin(Angle);
 	}
@@ -15,5 +15,5 @@ function PlayerSlopeResistRoll()
 	{
 		SlopeGravity = 0.078125 * dsin(Angle);
 	}
-	Inertia -= SlopeGravity;
+	Gsp -= SlopeGravity;
 }

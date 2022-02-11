@@ -18,7 +18,7 @@ function PlayerAnimate()
 	{
 		AnimStandTime = 16;
 	}
-	if Inertia > 0 and Input.Left or Inertia < 0 and Input.Right
+	if Gsp > 0 and Input.Left or Gsp < 0 and Input.Right
 	{
 		AnimSkidTime = Game.Character == CharKnuckles ? 16 : 32;
 	}
@@ -40,21 +40,21 @@ function PlayerAnimate()
 					break;
 					case AnimMove:	
 					{
-						if abs(Inertia) < 6
+						if abs(Gsp) < 6
 						{
-							animation_play(spr_sonic_walk, round(max(1, 8 - abs(Inertia))), 0);
+							animation_play(spr_sonic_walk, round(max(1, 8 - abs(Gsp))), 0);
 						}
 						else
 						{
 							if Game.PeeloutEnabled
 							{
-								var Sprite = abs(Inertia) < 10 ? spr_sonic_run : spr_sonic_peelout;
+								var Sprite = abs(Gsp) < 10 ? spr_sonic_run : spr_sonic_peelout;
 							}
 							else
 							{
 								var Sprite = spr_sonic_run;
 							}
-							animation_play(Sprite, round(max(1, 9 - abs(Inertia))), 0);
+							animation_play(Sprite, round(max(1, 9 - abs(Gsp))), 0);
 						}
 					}
 					break;
@@ -76,7 +76,7 @@ function PlayerAnimate()
 					}
 					break;
 					case AnimSpin:
-						animation_play(abs(Inertia) < 6 ? spr_sonic_spin : spr_sonic_spin_fast, round(max(1, 5 - abs(Inertia))), 0);
+						animation_play(abs(Gsp) < 6 ? spr_sonic_spin : spr_sonic_spin_fast, round(max(1, 5 - abs(Gsp))), 0);
 					break;
 					case AnimSpindash:
 						animation_play(spr_sonic_spindash, 1, 0);
@@ -100,7 +100,7 @@ function PlayerAnimate()
 					}
 					break;
 					case AnimPush:
-						animation_play(spr_sonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
+						animation_play(spr_sonic_push, round(max(1, 8 - abs(Gsp)) * 4), 0);
 					break;
 					case AnimHurt:
 						animation_set(spr_sonic_hurt, 0);
@@ -163,7 +163,7 @@ function PlayerAnimate()
 				break;
 				case AnimMove:	
 				{
-					if abs(Inertia) < (IsUnderwater ? 6 : 8)
+					if abs(Gsp) < (IsUnderwater ? 6 : 8)
 					{
 						var Sprite = spr_supersonic_walk;
 					}
@@ -171,14 +171,14 @@ function PlayerAnimate()
 					{
 						var Sprite = spr_supersonic_fly;
 					}
-					animation_play(Sprite, round(max(1, 8 - abs(Inertia))), 0);
+					animation_play(Sprite, round(max(1, 8 - abs(Gsp))), 0);
 				}
 				break;
 				case AnimPeelout: 
 					animation_play(abs(PeeloutRev) < 6 ? spr_supersonic_walk : spr_supersonic_fly, round(max(1, 8 - abs(PeeloutRev))), 0);
 				break;
 				case AnimSpin:
-					animation_play(abs(Inertia) < 6 ? spr_sonic_spin : spr_sonic_spin_fast, round(max(1, 5 - abs(Inertia))), 0);
+					animation_play(abs(Gsp) < 6 ? spr_sonic_spin : spr_sonic_spin_fast, round(max(1, 5 - abs(Gsp))), 0);
 				break;
 				case AnimSpindash:
 					animation_play(spr_sonic_spindash, 1, 0); 
@@ -202,7 +202,7 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimPush:
-					animation_play(spr_supersonic_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
+					animation_play(spr_supersonic_push, round(max(1, 8 - abs(Gsp)) * 4), 0);
 				break;
 				case AnimHurt:
 					animation_set(spr_supersonic_hurt, 0);
@@ -264,13 +264,13 @@ function PlayerAnimate()
 				break;
 				case AnimMove:	
 				{
-					if abs(Inertia) < 6
+					if abs(Gsp) < 6
 					{
-						animation_play(spr_tails_walk, round(max(1, 8 - abs(Inertia))), 0);
+						animation_play(spr_tails_walk, round(max(1, 8 - abs(Gsp))), 0);
 					}
 					else 
 					{
-						animation_play(abs(Inertia) < 10 ? spr_tails_run : spr_tails_dash, round(max(1, 9 - abs(Inertia))), 0);
+						animation_play(abs(Gsp) < 10 ? spr_tails_run : spr_tails_dash, round(max(1, 9 - abs(Gsp))), 0);
 					}
 				}
 				break;
@@ -330,7 +330,7 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimPush:
-					animation_play(spr_tails_push, round(max(1, 8 - abs(Inertia)) * 4), 0);
+					animation_play(spr_tails_push, round(max(1, 8 - abs(Gsp)) * 4), 0);
 				break;
 				case AnimBalance:
 					animation_play(spr_tails_balance, 20, 0);
@@ -373,18 +373,18 @@ function PlayerAnimate()
 				break;
 				case AnimMove:	
 				{
-					if abs(Inertia) < 6
+					if abs(Gsp) < 6
 					{
-						animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Inertia))), 0);
+						animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Gsp))), 0);
 					}
 					else
 					{
-						animation_play(spr_knuckles_run, round(max(1, 9 - abs(Inertia))), 0);
+						animation_play(spr_knuckles_run, round(max(1, 9 - abs(Gsp))), 0);
 					}
 				}
 				break;
 				case AnimSpin:
-					animation_play(spr_knuckles_roll, round(max(1, 5 - abs(Inertia))), 0);
+					animation_play(spr_knuckles_roll, round(max(1, 5 - abs(Gsp))), 0);
 				break;
 				case AnimSpindash:
 					animation_play(spr_knuckles_spindash, 1, 0); 
@@ -477,7 +477,7 @@ function PlayerAnimate()
 					animation_set(spr_knuckles_drop, 1);
 				break;
 				case AnimPush:
-					animation_play(spr_knuckles_push, round(max(1, 8 - abs(Inertia))), 0);
+					animation_play(spr_knuckles_push, round(max(1, 8 - abs(Gsp))), 0);
 				break;
 				case AnimSpring:
 				{

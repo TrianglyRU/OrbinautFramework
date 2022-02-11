@@ -11,7 +11,7 @@ function PlayerRollStart()
 	{
 		if Game.SKCrouch
 		{
-			if abs(Inertia) >= 1
+			if abs(Gsp) >= 1
 			{
 				ManualRoll = true;
 			}
@@ -20,7 +20,7 @@ function PlayerRollStart()
 				Animation = AnimCrouch;
 			}
 		}
-		else if abs(Inertia) >= 0.5
+		else if abs(Gsp) >= 0.5
 		{
 			ManualRoll = true;
 		}

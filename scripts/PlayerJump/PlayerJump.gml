@@ -189,9 +189,9 @@ function PlayerJump()
 			RadiusY = 10;
 				
 			// Set speeds
-			Inertia = 0;
-			Xsp     = 4 * Facing;
-			Ysp     = Ysp <= 0 ? 0 : Ysp + 2;
+			Gsp = 0;
+			Xsp = 4 * Facing;
+			Ysp = Ysp <= 0 ? 0 : Ysp + 2;
 				
 			// Set flags
 			AirLock        = false;

@@ -12,7 +12,7 @@ function ObjSuperStarMain()
 	{
 		if Player.SuperState
 		{
-			if abs(Player.Inertia) >= Player.TopAcc
+			if abs(Player.Gsp) >= Player.TopAcc
 			{
 				instance_create(Player.PosX, Player.PosY, SuperStar);
 			}

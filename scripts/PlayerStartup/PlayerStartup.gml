@@ -15,7 +15,7 @@ function PlayerStartup()
 	TopAcc				= 0;
 	Xsp					= 0;
 	Ysp					= 0;
-	Inertia				= 0;
+	Gsp				= 0;
 	SlopeGravity        = 0;
 	Angle				= 0;	
 	GroundLock			= 0;

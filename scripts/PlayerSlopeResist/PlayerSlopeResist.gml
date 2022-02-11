@@ -12,22 +12,22 @@ function PlayerSlopeResist()
 	// Apply it
 	if !Game.S3SlopePhysics
 	{
-		if Inertia != 0
+		if Gsp != 0
 		{
-			Inertia -= SlopeGravity;
+			Gsp -= SlopeGravity;
 		}
 	}
 	else
 	{
-		if Inertia != 0
+		if Gsp != 0
 		{
-			Inertia -= SlopeGravity;
+			Gsp -= SlopeGravity;
 		}
 		
 		// If moving, subtract slope gravity only if it is greater than 0.05078125
 		else if abs(SlopeGravity) > 0.05078125
 		{
-			Inertia -= SlopeGravity;
+			Gsp -= SlopeGravity;
 		}
 	}
 }

@@ -8,7 +8,7 @@ function ObjSpringHorizontalMain()
 	{
 		Player.Xsp	      = image_xscale * LaunchForce;
 		Player.Facing     = image_xscale;	
-		Player.Inertia    = Player.Xsp;
+		Player.Gsp    = Player.Xsp;
 		Player.Pushing    = false;
 		Player.GroundLock = 16;
 		Player.Animation  = Player.Spinning ? AnimSpin : AnimMove;

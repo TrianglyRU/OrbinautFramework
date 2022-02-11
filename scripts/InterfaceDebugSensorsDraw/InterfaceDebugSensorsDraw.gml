@@ -37,11 +37,11 @@ function InterfaceDebugSensorsDraw()
 			{
 				case 0:
 				{
-					if Inertia < 0
+					if Gsp < 0
 					{
 						draw_point_colour(floor(PosX - RadiusW), floor(PosY + (Angle == 360) * 8), Colour);
 					}
-					else if Inertia > 0
+					else if Gsp > 0
 					{
 						draw_point_colour(floor(PosX + RadiusW), floor(PosY + (Angle == 360) * 8), Colour);
 					}
@@ -64,11 +64,11 @@ function InterfaceDebugSensorsDraw()
 							break;
 						}
 					}
-					if Inertia < 0
+					if Gsp < 0
 					{
 						draw_point_colour(floor(PosX), floor(PosY + RadiusW), Colour);
 					}
-					else if Inertia > 0
+					else if Gsp > 0
 					{
 						draw_point_colour(floor(PosX), floor(PosY - RadiusW), Colour);
 					}	
@@ -86,11 +86,11 @@ function InterfaceDebugSensorsDraw()
 							break;
 						}
 					}
-					if Inertia < 0
+					if Gsp < 0
 					{
 						draw_point_colour(floor(PosX + RadiusW), floor(PosY), Colour);
 					}
-					else if Inertia > 0
+					else if Gsp > 0
 					{
 						draw_point_colour(floor(PosX - RadiusW), floor(PosY), Colour);
 					}
@@ -108,11 +108,11 @@ function InterfaceDebugSensorsDraw()
 							break;
 						}
 					}
-					if Inertia < 0
+					if Gsp < 0
 					{
 						draw_point_colour(floor(PosX), floor(PosY - RadiusW), Colour);
 					}
-					else if Inertia > 0
+					else if Gsp > 0
 					{
 						draw_point_colour(floor(PosX), floor(PosY + RadiusW), Colour);
 					}	

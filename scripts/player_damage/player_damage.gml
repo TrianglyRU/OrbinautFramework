@@ -41,11 +41,11 @@ function player_damage(isFlame,isThunder,instantKill)
 			InvincibilityFrames = 0;		
 			Animation	        = AnimDeath;
 
-			Grv     =  0.21875;
-			Ysp	    = -7;
-			Xsp	    =  0;
-			Inertia =  0;
-			depth	= 0;
+			Grv   =  0.21875;
+			Ysp	  = -7;
+			Xsp	  =  0;
+			Gsp   =  0;
+			depth =  0;
 		}
 		
 		// Make player lose their rings or barrier

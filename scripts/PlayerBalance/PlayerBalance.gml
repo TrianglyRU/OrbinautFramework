@@ -1,6 +1,6 @@
 function PlayerBalance()
 {
-	if Inertia != 0 or Animation == AnimDropStand or Animation == AnimGlideStand
+	if Gsp != 0 or Animation == AnimDropStand or Animation == AnimGlideStand
 	{
 		return;
 	}

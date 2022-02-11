@@ -25,11 +25,11 @@ function CameraOffsetsProcess()
 		var ScreenShift = 64;
 		var ScreenSpeed = floor(ScreenShift / 32);
 		
-		if abs(Player.Inertia) >= 6 or Player.PeeloutRev >= 6 or Player.SpindashRev >= 0
+		if abs(Player.Gsp) >= 6 or Player.PeeloutRev >= 6 or Player.SpindashRev >= 0
 		{
 			if !ScrollDelay and abs(ExtendedOffset) < ScreenShift
 			{
-				if Player.Inertia == 0
+				if Player.Gsp == 0
 				{
 					ExtendedOffset += ScreenSpeed * Player.Facing;
 				}

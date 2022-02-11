@@ -12,16 +12,16 @@ function ObjPushableBlockMain()
 			{
 				if floor(Player.PosX) < x
 				{
-					Player.Inertia = 0.25;
-					Player.PosX   += 1;
+					Player.Gsp   = 0.25;
+					Player.PosX += 1;
 				
 					PosX	 += 1;
 					Direction = FlipRight;
 				}
 				if floor(Player.PosX) > x
 				{
-					Player.Inertia = -0.25;
-					Player.PosX   -= 1;
+					Player.Gsp   = -0.25;
+					Player.PosX -= 1;
 				
 					PosX	 -= 1;
 					Direction = FlipLeft;
@@ -48,7 +48,7 @@ function ObjPushableBlockMain()
 				}
 				
 				Player.Xsp	   = 0;
-				Player.Inertia = 0;
+				Player.Gsp     = 0;
 				Player.Pushing = false;
 				
 				// Increment state

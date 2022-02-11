@@ -47,7 +47,7 @@ function PlayerPeelout()
 			Camera.ScrollDelay = 16;
 		}
 		
-		Inertia      =  PeeloutForce * Facing;
+		Gsp      =  PeeloutForce * Facing;
 		PeeloutRev   = -1;
 		PeeloutForce =  0;
 		Animation    =  AnimMove;
@@ -57,8 +57,8 @@ function PlayerPeelout()
 		// Same story as with the spindash, so...
 		if Game.FixDashRelease
 		{
-			Xsp = Inertia *  dcos(Angle);
-			Ysp = Inertia * -dsin(Angle);
+			Xsp = Gsp *  dcos(Angle);
+			Ysp = Gsp * -dsin(Angle);
 		}
 		
 		return true;

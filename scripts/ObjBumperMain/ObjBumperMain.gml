@@ -9,7 +9,7 @@ function ObjBumperMain()
 			
 			if Player.Grounded
 			{
-				Player.Inertia = 7 *  dcos(Angle);
+				Player.Gsp = 7 * dcos(Angle);
 			}
 			else with Player
 			{

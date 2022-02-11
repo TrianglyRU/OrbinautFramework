@@ -49,8 +49,8 @@ function PlayerResetOnFloor()
 		}
 		if Hurt
 		{
-			Hurt	= false;	
-			Inertia = 0;
+			Hurt = false;	
+			Gsp  = 0;
 		}
 		Jumping			 = false;
 		AirLock			 = false;
@@ -106,7 +106,7 @@ function PlayerResetOnFloor()
 			// Define dropspeed
 			if DropdashSide == FlipRight
 			{
-				var Dropspeed = Inertia / 4 + DropForce * Facing;
+				var Dropspeed = Gsp / 4 + DropForce * Facing;
 			}
 			else if DropdashSide == FlipLeft
 			{
@@ -116,7 +116,7 @@ function PlayerResetOnFloor()
 				}
 				else
 				{
-					var Dropspeed = Inertia / 2 + DropForce * Facing;
+					var Dropspeed = Gsp / 2 + DropForce * Facing;
 				}
 			}
 			Dropspeed = clamp(Dropspeed, -MaxForce, MaxForce);
@@ -132,7 +132,7 @@ function PlayerResetOnFloor()
 			}
 			
 			// Apply dropspeed
-			Inertia	    = Dropspeed;
+			Gsp	    = Dropspeed;
 			DropdashRev = -1;
 			Spinning    = true;
 			Animation   = AnimSpin;

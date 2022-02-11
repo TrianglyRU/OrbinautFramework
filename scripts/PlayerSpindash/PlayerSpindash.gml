@@ -42,7 +42,7 @@ function PlayerSpindash()
 			Camera.ScrollDelay = 16;
 		}
 		
-		Inertia	    = ((SuperState ? 11 : 8) + round(SpindashRev) / 2) * Facing;
+		Gsp	    = ((SuperState ? 11 : 8) + round(SpindashRev) / 2) * Facing;
 		Spinning    = true;
 		SpindashRev = -1;
 		Animation   = AnimSpin;
@@ -54,11 +54,11 @@ function PlayerSpindash()
 		audio_sfx_stop(sfxCharge);
 		audio_sfx_play(sfxRelease, false);
 		
-		// Convert inertia to speed. Originals don't do this, so you could jump straight upwards there!
+		// Convert Gsp to speed. Originals don't do this, so you could jump straight upwards there!
 		if Game.FixDashRelease
 		{
-			Xsp = Inertia *  dcos(Angle);
-			Ysp = Inertia * -dsin(Angle);
+			Xsp = Gsp *  dcos(Angle);
+			Ysp = Gsp * -dsin(Angle);
 		}
 	}
 	

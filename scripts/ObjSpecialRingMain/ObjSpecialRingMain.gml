@@ -67,7 +67,7 @@ function ObjSpecialRingMain()
 						visible		  = 0;
 						Xsp		      = 0;
 						Ysp			  = 0;
-						Inertia		  = 0;
+						Gsp		  = 0;
 						AllowMovement = 0;
 						BarrierType   = false;
 					}

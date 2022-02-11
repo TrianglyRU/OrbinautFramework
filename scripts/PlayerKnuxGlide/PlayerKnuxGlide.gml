@@ -262,11 +262,11 @@ function PlayerKnuxGlide()
 				{
 					if GlideState == GlideAir
 					{
-						Inertia	= FindFloor[1] > 180 ? -Xsp : Xsp;
+						Gsp	= FindFloor[1] > 180 ? -Xsp : Xsp;
 					}
 					else if GlideState == GlideFall
 					{
-						Inertia = -Xsp;
+						Gsp = -Xsp;
 					}
 					Angle	   = FindFloor[1];						
 					GroundLock = 16;
