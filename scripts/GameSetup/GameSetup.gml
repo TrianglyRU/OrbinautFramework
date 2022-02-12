@@ -14,7 +14,7 @@ function GameSetup()
 	
 	// Originals differences
 	global.SpindashEnabled    = true;
-	global.PeeloutEnabled	  = true;
+	global.PeeloutEnabled	  = false;
 	global.DropdashEnabled    = false;
 	global.DSpinAttackEnabled = false;
 	global.GroundSpeedcap	  = false;
@@ -25,7 +25,7 @@ function GameSetup()
 	global.S3WaterPhysics     = false;
 	global.S3DeathRestart     = false;
 	global.SKCrouch			  = false;
-	global.SKRollDeceleration = true;
+	global.SKRollDeceleration = false;
 	global.SKWallCollision	  = false;
 	global.SKItemBoxBehaviour = false;
 	global.CDStageTimer	      = false;
@@ -33,7 +33,7 @@ function GameSetup()
 	
 	// Orbinaut improvements
 	global.SmoothRotation	    = true;
-	global.RichPresenceSupport  = false;
+	global.RichPresenceSupport  = true;
 	global.BetterPlayerTileGrip = false;
 	global.PreciseRingBehaviour = false;
 	global.FixRollJump		    = false;

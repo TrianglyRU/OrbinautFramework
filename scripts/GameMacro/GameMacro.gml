@@ -3,6 +3,7 @@ function GameMacro()
 	// Global framework macro
 	#macro GlobalTime -1
 	#macro Shader	   global
+	#macro Font		   global
 	#macro GameCamera  view_camera[0]
 	
 	// Object macro

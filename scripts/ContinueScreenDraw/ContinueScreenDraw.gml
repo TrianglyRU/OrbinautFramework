@@ -1,13 +1,13 @@
 function ContinueScreenDraw()
 {
 	// Draw text
-	draw_set_font(game_font(font_card)); 
+	draw_set_font(Font.FontCard); 
 	draw_set_halign(fa_center);
 	
 	draw_text(RoomX + 7, RoomY - 49, "CONTINUE");
 	
 	// Draw countdown
-	draw_set_font(game_font(font_counter)); 
+	draw_set_font(Font.FontDigits1); 
 	draw_set_halign(fa_center);
 	
 	draw_text(RoomX + 3, RoomY + 12, (Countdown > 599) ? "10" : "0" + string(Countdown div 60));

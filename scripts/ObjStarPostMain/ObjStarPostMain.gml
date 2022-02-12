@@ -9,6 +9,7 @@ function ObjStarPostMain()
 				// Instantly activate if ID of this starpost is lower than the ID of activated one
 				State = 2;
 				Angle = 900;
+				
 				animation_play(spr_obj_starpost_active, 4, 0);
 			}
 			else if object_check_touch(ColTrigger) 
@@ -19,14 +20,15 @@ function ObjStarPostMain()
 				global.StarPostData[2] = Stage.Time;
 				global.StarPostData[3] = Stage.TargetBottomBoundary;
 				global.StarPostData[4] = ID;
-				global.Score			 = Player.Score;
+				global.Score		   = Player.Score;
 				
 				// Increment state
 				State       = 1;
 				image_index = 1;
+				
 				audio_sfx_play(sfxStarPost, false);
 			
-				// Create Bonus Stage portal if we have more than 20 rings
+				// Create Bonus Stage portal
 				if Player.Rings >= 20
 				{
 					var  ThisObject = id;

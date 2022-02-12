@@ -140,6 +140,6 @@ function InterfaceCardDraw()
 		
 	// Draw zone name
 	draw_set_halign(fa_right);
-	draw_set_font(game_font(font_card));
+	draw_set_font(Font.FontCard);
 	draw_text(CardValue[7], global.Height / 2 - 32, Stage.ZoneName);
 }

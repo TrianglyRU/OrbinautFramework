@@ -72,7 +72,7 @@ function InterfacePauseProcess()
 			else if PauseValue == 2
 			{
 				global.SpecialRingList = [];
-				global.StarPostData	 = [];
+				global.StarPostData	   = [];
 				
 				room_goto(Screen_DevMenu);
 			}

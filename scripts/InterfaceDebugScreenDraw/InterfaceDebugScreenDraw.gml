@@ -3,7 +3,7 @@ function InterfaceDebugScreenDraw()
 	if DebugFPS
 	{
 		draw_set_halign(fa_left);
-		draw_set_font(game_font(font_default));
+		draw_set_font(Font.FontDefault);
 		
 		draw_text_transformed(8, global.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
 	}
@@ -68,7 +68,7 @@ function InterfaceDebugScreenDraw()
 		// Set font
 		draw_set_alpha(1);
 		draw_set_halign(fa_left);
-		draw_set_font(game_font(font_default));
+		draw_set_font(Font.FontDefault);
 	
 		// Draw debug text
 		draw_text_ext_transformed(global.Width - 86, 8,

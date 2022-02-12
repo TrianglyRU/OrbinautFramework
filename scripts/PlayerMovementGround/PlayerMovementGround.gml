@@ -16,7 +16,6 @@ function PlayerMovementGround()
 				if Gsp <= 0
 				{
 					Gsp = -0.5;
-					animation_reset(0);
 				}
 			} 
 			
@@ -27,6 +26,8 @@ function PlayerMovementGround()
 				{
 					Facing  = FlipLeft;
 					Pushing = false;
+					
+					animation_reset(0);
 				}
 				if !global.GroundSpeedcap and Gsp > -TopAcc or global.GroundSpeedcap
 				{
@@ -43,7 +44,6 @@ function PlayerMovementGround()
 				if Gsp >= 0
 				{
 					Gsp = 0.5;
-					animation_reset(0);
 				}
 			} 
 			
@@ -54,6 +54,8 @@ function PlayerMovementGround()
 				{
 					Facing  = FlipRight;
 					Pushing = false;
+					
+					animation_reset(0);
 				}
 				if !global.GroundSpeedcap and Gsp < TopAcc or global.GroundSpeedcap
 				{

@@ -5,10 +5,10 @@ function StageEndProcess()
 		return;
 	}
 	
-	global.Score			 = Player.Score;
-	global.Lives			 = Player.Lives;
+	global.Score		   = Player.Score;
+	global.Lives		   = Player.Lives;
 	global.SpecialRingList = [];
-	global.StarPostData	 = [];
+	global.StarPostData	   = [];
 	
 	if IsLastZoneAct = true and global.ActiveSave != -1
 	{

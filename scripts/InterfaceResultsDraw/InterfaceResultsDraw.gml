@@ -210,11 +210,11 @@ function InterfaceResultsDraw()
 	// Draw assets
 	draw_sprite(gui_results_head,	   global.Character, CentreX + 53 + ResultsValue[1], CentreY - 25);
 	draw_sprite(gui_results_char,	   global.Character, CentreX - 14 - ResultsValue[2], CentreY - 52);
-	draw_sprite(gui_results_act,	   Stage.ActID,    CentreX + 46 + ResultsValue[7], CentreY - 23);	
-	draw_sprite(gui_results_through,   0,			   CentreX - 15 - ResultsValue[3], CentreY - 32);
-	draw_sprite(gui_results_score,	   0,			   CentreX - 58 + ResultsValue[4], CentreY + 15);
-	draw_sprite(gui_results_timebonus, 0,			   CentreX - 38 + ResultsValue[5], CentreY + 31);
-	draw_sprite(gui_results_ringbonus, 0,			   CentreX - 38 + ResultsValue[6], CentreY + 47);
+	draw_sprite(gui_results_act,	   Stage.ActID,      CentreX + 46 + ResultsValue[7], CentreY - 23);	
+	draw_sprite(gui_results_through,   0,			     CentreX - 15 - ResultsValue[3], CentreY - 32);
+	draw_sprite(gui_results_score,	   0,			     CentreX - 58 + ResultsValue[4], CentreY + 15);
+	draw_sprite(gui_results_timebonus, 0,			     CentreX - 38 + ResultsValue[5], CentreY + 31);
+	draw_sprite(gui_results_ringbonus, 0,			     CentreX - 38 + ResultsValue[6], CentreY + 47);
 	
 	// Draw continue icon
 	if ResultsValue[8] == 3 and ResultsValue[0] >= 0
@@ -238,7 +238,7 @@ function InterfaceResultsDraw()
 	}
 	
 	// Draw counters
-	draw_set_font(game_font(font_counter));
+	draw_set_font(Font.FontDigits1);
 	draw_set_halign(fa_right);
 	
 	draw_text(CentreX + 83 + ResultsValue[4], CentreY + 13, Player.Score);

@@ -6,7 +6,7 @@ function ObjDustPuffMain()
 		instance_destroy();
 	}
 	
-	if Player.DebugMode or !Player.Grounded
+	if Player.DebugMode
 	{
 		return;
 	}

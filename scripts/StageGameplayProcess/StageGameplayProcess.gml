@@ -90,7 +90,7 @@ function StageGameplayProcess()
 			else
 			{	
 				global.SpecialRingList = [];
-				global.StarPostData	 = [];
+				global.StarPostData	   = [];
 				
 				if global.Continues
 				{

@@ -5,7 +5,7 @@ function InterfaceOverlayDraw()
 		return;
 	}
 	
-	draw_set_font(game_font(font_counter));
+	draw_set_font(Font.FontDigits1);
 	
 	// Handle stage timer
 	if Stage.Time < 35999
@@ -62,7 +62,7 @@ function InterfaceOverlayDraw()
 	draw_text(OffsetX + 92, OffsetY + 46, Player.Rings);
 
 	// Draw LIVES
-	draw_set_font(game_font(font_counter_small));
+	draw_set_font(Font.FontDigits2);
 	
 	draw_sprite(gui_hud_lives, global.Character, OffsetX + 40, OffsetY + global.Height - 16);
 	draw_text(OffsetX + 68, OffsetY + global.Height - 12, Player.Lives);

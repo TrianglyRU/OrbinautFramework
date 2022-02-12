@@ -24,6 +24,7 @@ function PlayerStartup()
 	Spinning			= 0;
 	Jumping				= 0;
 	Pushing             = 0;
+	Grounded		    = 0;
 	OnObject			= 0;
 	PeeloutForce        = 0;
 	DropdashSide	    = 0;
@@ -59,7 +60,6 @@ function PlayerStartup()
 	HitboxData			= [];
 	
 	// Set defaults
-	Grounded		 = true;
 	AllowCollision   = true;
 	AllowMovement    = true;
 	DropdashRev      = -1;
@@ -120,8 +120,8 @@ function PlayerStartup()
 	// If coming back from special stage, load saved player data
 	if array_length(global.SpecialRingData)
 	{
-		PosX  = global.SpecialRingData[0];
-		PosY  = global.SpecialRingData[1];
+		PosX = global.SpecialRingData[0];
+		PosY = global.SpecialRingData[1];
 		
 		// Load saved ring and barrier
 		if global.SpecialRingData[3]
@@ -151,9 +151,9 @@ function PlayerStartup()
 	Lives		 = global.Lives;
 	LivesRewards = [(Rings div 100 * 100) + 100, (Score div 50000 * 50000) + 50000];
 	
-	// Initialise recorded position datalist
-	RecordedPosX  = ds_list_create();
-	RecordedPosY  = ds_list_create();
+	// Initialise datalist
+	RecordedPosX = ds_list_create();
+	RecordedPosY = ds_list_create();
 	
 	for (var Index = 0; Index < 32; Index++) 
 	{

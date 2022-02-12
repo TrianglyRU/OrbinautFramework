@@ -45,7 +45,7 @@ function SpecialScreenDraw()
 	draw_sprite(gui_results_ringbonus, 0, CentreX - 80 + 42 + Offset[5], CentreY + 51);
 	
 	// Display counters
-	draw_set_font(game_font(font_counter));
+	draw_set_font(Font.FontDigits1);
 	draw_set_halign(fa_right);
 
 	draw_text(CentreX + 80 + Offset[4], CentreY + 33, global.Score);
