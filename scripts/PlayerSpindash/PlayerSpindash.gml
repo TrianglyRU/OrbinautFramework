@@ -1,6 +1,6 @@
 function PlayerSpindash()
 {
-	if !Game.SpindashEnabled
+	if !global.SpindashEnabled
 	{
 		return;
 	}
@@ -37,7 +37,7 @@ function PlayerSpindash()
 	// Release spindash
 	else
 	{
-		if !Game.CDCamera
+		if !global.CDCamera
 		{
 			Camera.ScrollDelay = 16;
 		}
@@ -55,7 +55,7 @@ function PlayerSpindash()
 		audio_sfx_play(sfxRelease, false);
 		
 		// Convert Gsp to speed. Originals don't do this, so you could jump straight upwards there!
-		if Game.FixDashRelease
+		if global.FixDashRelease
 		{
 			Xsp = Gsp *  dcos(Angle);
 			Ysp = Gsp * -dsin(Angle);

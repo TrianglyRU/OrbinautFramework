@@ -1,7 +1,7 @@
 function SpecialScreenProcess()
 {
 	// We should come back from the special stage to run this code!
-	if !Game.SpecialState
+	if !global.SpecialState
 	{
 		return;
 	}
@@ -55,23 +55,23 @@ function SpecialScreenProcess()
 				
 				if !audio_bgm_is_playing(TypePrimary)
 				{		
-					if Game.SpecialScore
+					if global.SpecialScore
 					{
 						if !audio_sfx_is_playing(sfxScoreCount)
 						{
 							audio_sfx_play(sfxScoreCount, true);
 						}
-						Game.SpecialScore -= 100;
-						Game.Score		  += 100;
+						global.SpecialScore -= 100;
+						global.Score		  += 100;
 					
 						// Grant extra life for exceeding 50000 points
-						if Game.Score mod 50000 == 0
+						if global.Score mod 50000 == 0
 						{
-							Game.Lives++;
+							global.Lives++;
 							audio_bgm_play(TypeSecondary, ExtraLife);
 						}
 					}
-					else if Game.Emeralds != 7
+					else if global.Emeralds != 7
 					{
 						audio_sfx_stop(sfxScoreCount);
 						audio_sfx_play(sfxScoreTally, false);
@@ -113,7 +113,7 @@ function SpecialScreenProcess()
 		case 1:
 		{
 			// Shift "character can be super" message
-			if Game.Emeralds == 7
+			if global.Emeralds == 7
 			{
 				if Offset[0] < 0
 				{
@@ -150,10 +150,10 @@ function SpecialScreenProcess()
 			if fade_check(StateMax) and !audio_sfx_is_playing(sfxSpecialWarp)
 			{
 				// Return to stage
-				room_goto(Game.StageRoom);
+				room_goto(global.StageRoom);
 				
 				// Clear Special Stage flag
-				Game.SpecialState = 0;
+				global.SpecialState = 0;
 			}
 		}
 		break;

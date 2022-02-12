@@ -33,12 +33,12 @@ function StageBoundariesProcess()
 	}
 	else if RightBoundary > TargetRightBoundary
 	{
-		if Camera.ViewX + Game.Width >= TargetRightBoundary
+		if Camera.ViewX + global.Width >= TargetRightBoundary
 		{
-			RightBoundary = Camera.ViewX + Game.Width;
+			RightBoundary = Camera.ViewX + global.Width;
 			RightBoundary = max(TargetRightBoundary, RightBoundary - 2);
 		}
-		else if Camera.ViewX + Game.Width <= TargetRightBoundary
+		else if Camera.ViewX + global.Width <= TargetRightBoundary
 		{
 			RightBoundary = TargetRightBoundary
 		}
@@ -73,12 +73,12 @@ function StageBoundariesProcess()
 	}
 	else if BottomBoundary > TargetBottomBoundary
 	{
-		if Camera.ViewY + Game.Height >= TargetBottomBoundary
+		if Camera.ViewY + global.Height >= TargetBottomBoundary
 		{
-			BottomBoundary = Camera.ViewY + Game.Height
+			BottomBoundary = Camera.ViewY + global.Height
 			BottomBoundary = max(TargetBottomBoundary, BottomBoundary - 2);
 		}
-		else if Camera.ViewY + Game.Height <= TargetBottomBoundary
+		else if Camera.ViewY + global.Height <= TargetBottomBoundary
 		{
 			BottomBoundary = TargetBottomBoundary;
 		}

@@ -1,7 +1,7 @@
 function BonusStageDraw()
 {
-	var CentreX = Game.Width / 2;
-	var CentreY = Game.Height / 2;
+	var CentreX = global.Width / 2;
+	var CentreY = global.Height / 2;
 	
 	// Set font
 	draw_set_font(game_font(font_default));

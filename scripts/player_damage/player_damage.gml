@@ -29,7 +29,7 @@ function player_damage(isFlame,isThunder,instantKill)
 		// Kill player
 		if !Rings and !BarrierType or instantKill
 		{	
-			if Game.Character == CharTails
+			if global.Character == CharTails
 			{
 				TailsObject.visible = false;
 			}

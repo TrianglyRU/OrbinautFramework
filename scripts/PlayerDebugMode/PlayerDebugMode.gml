@@ -1,10 +1,10 @@
 function PlayerDebugMode()
 {
-	if !Game.DevMode or Stage.IsPaused or fade_check(StateActive)
+	if !global.DevMode or Stage.IsPaused or fade_check(StateActive)
 	{
 		return false;
 	}
-	if (Death or Drown) and floor(PosY) > Camera.ViewY + Game.Height 
+	if (Death or Drown) and floor(PosY) > Camera.ViewY + global.Height 
 	{
 		return false;
 	}

@@ -47,7 +47,7 @@ function ObjTailsObjectMain()
 				Angle = point_direction(Player.PosX + Player.Xsp, Player.PosY + Player.Ysp, Player.PosX, Player.PosY);
 			}
 			
-			if !Game.SmoothRotation
+			if !global.SmoothRotation
 			{
 				
 				VisualAngle = ceil((Angle - 22.5) / 45) * 45;
@@ -63,7 +63,7 @@ function ObjTailsObjectMain()
 			Angle = Player.Angle;
 			
 			// Apply regular classic-like rotation
-			if !Game.SmoothRotation
+			if !global.SmoothRotation
 			{
 				VisualAngle = ceil((Angle - 22.5) / 45) * 45;
 			}

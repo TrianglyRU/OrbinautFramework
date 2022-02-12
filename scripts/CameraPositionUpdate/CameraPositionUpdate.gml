@@ -3,8 +3,8 @@ function CameraPositionUpdate()
 	// Calculate final view position
 	if instance_exists(Stage)
 	{
-		ViewX = clamp(PosX + ExtendedOffset, Stage.LeftBoundary, Stage.RightBoundary  - Game.Width);
-		ViewY = clamp(PosY + OverviewOffset, Stage.TopBoundary,  Stage.BottomBoundary - Game.Height);
+		ViewX = clamp(PosX + ExtendedOffset, Stage.LeftBoundary, Stage.RightBoundary  - global.Width);
+		ViewY = clamp(PosY + OverviewOffset, Stage.TopBoundary,  Stage.BottomBoundary - global.Height);
 	}
 	else
 	{

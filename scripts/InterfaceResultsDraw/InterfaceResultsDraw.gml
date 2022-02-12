@@ -172,8 +172,8 @@ function InterfaceResultsDraw()
 				{
 					fade_perform(ModeInto, BlendBlack, 1);
 					
-					Stage.UpdateObjects   = false;
-					Game.UpdateAnimations = false;
+					Stage.UpdateObjects       = false;
+					Renderer.UpdateAnimations = false;
 				}
 			}
 			break;
@@ -184,7 +184,7 @@ function InterfaceResultsDraw()
 				{
 					if !audio_sfx_is_playing(sfxScoreTally)
 					{
-						Game.Continues++;
+						global.Continues++;
 						audio_sfx_play(sfxContinue, false);
 						
 						// Increment timer
@@ -195,8 +195,8 @@ function InterfaceResultsDraw()
 				{
 					fade_perform(ModeInto, BlendBlack, 1);
 					
-					Stage.UpdateObjects   = false;
-					Game.UpdateAnimations = false;
+					Stage.UpdateObjects       = false;
+					Renderer.UpdateAnimations = false;
 				}
 			}
 			break;
@@ -204,12 +204,12 @@ function InterfaceResultsDraw()
 	}
 	
 	// Get screen centre
-	var CentreX = Game.Width  / 2;
-	var CentreY = Game.Height / 2;
+	var CentreX = global.Width  / 2;
+	var CentreY = global.Height / 2;
 	
 	// Draw assets
-	draw_sprite(gui_results_head,	   Game.Character, CentreX + 53 + ResultsValue[1], CentreY - 25);
-	draw_sprite(gui_results_char,	   Game.Character, CentreX - 14 - ResultsValue[2], CentreY - 52);
+	draw_sprite(gui_results_head,	   global.Character, CentreX + 53 + ResultsValue[1], CentreY - 25);
+	draw_sprite(gui_results_char,	   global.Character, CentreX - 14 - ResultsValue[2], CentreY - 52);
 	draw_sprite(gui_results_act,	   Stage.ActID,    CentreX + 46 + ResultsValue[7], CentreY - 23);	
 	draw_sprite(gui_results_through,   0,			   CentreX - 15 - ResultsValue[3], CentreY - 32);
 	draw_sprite(gui_results_score,	   0,			   CentreX - 58 + ResultsValue[4], CentreY + 15);
@@ -221,7 +221,7 @@ function InterfaceResultsDraw()
 	{
 		if (ResultsValue[0] mod 32) <= 15
 		{
-			switch Game.Character
+			switch global.Character
 			{
 				case CharSonic:
 					var Icon = gui_icon_sonic;

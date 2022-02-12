@@ -36,7 +36,7 @@ function InterfaceOverlayDraw()
 	{
 		draw_sprite(gui_hud_time, 0, OffsetX + 32, OffsetY + 30);
 	}
-	if !Game.CDStageTimer
+	if !global.CDStageTimer
 	{
 		var TimeString = string(Min) + ":" + (Sec > 9 ? "" : "0") + string(Sec);
 	}
@@ -64,6 +64,6 @@ function InterfaceOverlayDraw()
 	// Draw LIVES
 	draw_set_font(game_font(font_counter_small));
 	
-	draw_sprite(gui_hud_lives, Game.Character, OffsetX + 40, OffsetY + Game.Height - 16);
-	draw_text(OffsetX + 68, OffsetY + Game.Height - 12, Player.Lives);
+	draw_sprite(gui_hud_lives, global.Character, OffsetX + 40, OffsetY + global.Height - 16);
+	draw_text(OffsetX + 68, OffsetY + global.Height - 12, Player.Lives);
 }

@@ -9,9 +9,9 @@ function SpecialStageProcess()
 				// Win
 				if Input.ABCPress
 				{				
-					Game.Emeralds++;
-					Game.SpecialState = 1;
-					Game.SpecialScore = 10000;
+					global.Emeralds++;
+					global.SpecialState = 1;
+					global.SpecialScore = 10000;
 					
 					fade_perform(ModeInto, BlendWhite, 1);
 			
@@ -25,8 +25,8 @@ function SpecialStageProcess()
 				// Lose
 				else if Input.StartPress
 				{
-					Game.SpecialState = 2;
-					Game.SpecialScore = 1000;
+					global.SpecialState = 2;
+					global.SpecialScore = 1000;
 					
 					fade_perform(ModeInto, BlendWhite, 1);
 			

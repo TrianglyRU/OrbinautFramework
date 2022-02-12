@@ -46,13 +46,13 @@ function InterfaceCardDraw()
 				// Move act number
 				if CardValue[0] > 32
 				{
-					CardValue[6] = min(Game.Width - 96, CardValue[6] + 24);
+					CardValue[6] = min(global.Width - 96, CardValue[6] + 24);
 				}
 				
 				// Move zone name
 				if CardValue[0] > 24
 				{
-					CardValue[7] = max(Game.Width - 48, CardValue[7] - 24);
+					CardValue[7] = max(global.Width - 48, CardValue[7] - 24);
 				}
 			}
 		}
@@ -76,10 +76,10 @@ function InterfaceCardDraw()
 				}
 				if !fade_check(StateActive)
 				{
-					Input.IgnoreInput     = false;
-					Stage.TimeEnabled     = true;
-					Stage.UpdateObjects   = true;
-					Game.UpdateAnimations = true;
+					Input.IgnoreInput         = false;
+					Stage.TimeEnabled         = true;
+					Stage.UpdateObjects       = true;
+					Renderer.UpdateAnimations = true;
 				}
 				
 				// Move ribbon
@@ -134,12 +134,12 @@ function InterfaceCardDraw()
 	}
 		
 	// Draw assets
-	draw_sprite(gui_card_act, Stage.ActID, CardValue[6], Game.Height / 2 + 4);	
+	draw_sprite(gui_card_act, Stage.ActID, CardValue[6], global.Height / 2 + 4);	
 	draw_sprite(gui_card_ribbon, 0, floor(CardValue[3]), floor(CardValue[2]));
-	draw_sprite_ext(gui_card_logo, 0, floor(CardValue[4]), Game.Height - 24, CardValue[5], CardValue[5], 0, c_white, 1);
+	draw_sprite_ext(gui_card_logo, 0, floor(CardValue[4]), global.Height - 24, CardValue[5], CardValue[5], 0, c_white, 1);
 		
 	// Draw zone name
 	draw_set_halign(fa_right);
 	draw_set_font(game_font(font_card));
-	draw_text(CardValue[7], Game.Height / 2 - 32, Stage.ZoneName);
+	draw_text(CardValue[7], global.Height / 2 - 32, Stage.ZoneName);
 }

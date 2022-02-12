@@ -5,5 +5,5 @@ function audio_sfx_play(soundid,loops)
 	{
 		audio_stop_sound(soundid);
 	}
-	audio_play_sound(soundid, 0, loops); audio_sound_gain(soundid, Game.SoundVolume, 0);
+	audio_play_sound(soundid, 0, loops); audio_sound_gain(soundid, global.SoundVolume, 0);
 }

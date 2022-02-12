@@ -1,69 +1,67 @@
 function GameSetup()
 {
 	// Game settings
-	Game.WindowTitle     = "Orbinaut Framework";
-	Game.StartRoom		 = Screen_DevMenu;
-	Game.DevMode         = true;
-	Game.ShowSplash      = false;
-	Game.Width           = 400;
-	Game.Height			 = 224;
-	Game.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
+	global.WindowTitle     = "Orbinaut Framework";
+	global.StartRoom	   = Screen_DevMenu;
+	global.DevMode         = true;
+	global.ShowSplash      = false;
+	global.Width           = 400;
+	global.Height		   = 224;
+	global.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
 	/* Default volume, screen size and fullscreen mode 
 	are set in gamesettings_load() script */
 	
 	// Originals differences
-	Game.SpindashEnabled    = true;
-	Game.PeeloutEnabled		= true;
-	Game.DropdashEnabled    = false;
-	Game.DSpinAttackEnabled	= false;
-	Game.GroundSpeedcap	    = false;
-	Game.AirSpeedcap	    = false;
-	Game.RolljumpControl    = false;
-	Game.S1FloorCollision	= false;
-	Game.S3SlopePhysics		= false;
-	Game.S3WaterPhysics		= false;
-	Game.S3DeathRestart     = false;
-	Game.SKCrouch			= false;
-	Game.SKRollDeceleration	= true;
-	Game.SKWallCollision	= false;
-	Game.SKItemBoxBehaviour = false;
-	Game.CDStageTimer	    = false;
-	Game.CDCamera			= false;
+	global.SpindashEnabled    = true;
+	global.PeeloutEnabled	  = true;
+	global.DropdashEnabled    = false;
+	global.DSpinAttackEnabled = false;
+	global.GroundSpeedcap	  = false;
+	global.AirSpeedcap	      = false;
+	global.RolljumpControl    = false;
+	global.S1FloorCollision	  = false;
+	global.S3SlopePhysics	  = false;
+	global.S3WaterPhysics     = false;
+	global.S3DeathRestart     = false;
+	global.SKCrouch			  = false;
+	global.SKRollDeceleration = true;
+	global.SKWallCollision	  = false;
+	global.SKItemBoxBehaviour = false;
+	global.CDStageTimer	      = false;
+	global.CDCamera			  = false;
 	
 	// Orbinaut improvements
-	Game.SmoothRotation	      = true;
-	Game.RichPresenceSupport  = false;
-	Game.BetterPlayerTileGrip = false;
-	Game.PreciseRingBehaviour = false;
-	Game.FixRollJump		  = false;
-	Game.FixDashRelease		  = true;
-	Game.NoRollSpeedLimit	  = false;
-	Game.FlightCancel	      = false;
+	global.SmoothRotation	    = true;
+	global.RichPresenceSupport  = false;
+	global.BetterPlayerTileGrip = false;
+	global.PreciseRingBehaviour = false;
+	global.FixRollJump		    = false;
+	global.FixDashRelease		= true;
+	global.NoRollSpeedLimit	    = false;
+	global.FlightCancel	        = false;
 	
 	// Initialise other variables
-	Game.Character		  = 0;
-	Game.ActiveSave       = 0;
-	Game.SaveData		  = 0;
-	Game.SaveState        = 0;
-	Game.FullscreenMode   = 0;
-	Game.WindowSize	      = 0;
-	Game.MusicVolume	  = 0;
-	Game.SoundVolume      = 0;
-	Game.Score		      = 0;
-	Game.Lives		      = 0;
-	Game.Continues	      = 0;
-	Game.Emeralds	      = 0;
-	Game.Stage			  = 0;
-	Game.StageRoom        = 0;
-	Game.SpecialScore     = 0;
-	Game.SpecialState     = 0;
-	Game.AnimationTime	  = 0;
-	Game.UpdateAnimations = 0;
-	Game.DiscordTime	  = 0;	
-	Game.DiscordEvent	  = "";
-	Game.StarPostData     = [];
-	Game.BonusStageData   = [];
-	Game.SpecialRingData  = [];
-	Game.SpecialRingList  = [];
+	global.Character	   = 0;
+	global.ActiveSave      = 0;
+	global.SaveData		   = 0;
+	global.SaveState       = 0;
+	global.FullscreenMode  = 0;
+	global.WindowSize	   = 0;
+	global.MusicVolume	   = 0;
+	global.SoundVolume     = 0;
+	global.Score		   = 0;
+	global.Lives		   = 0;
+	global.Continues	   = 0;
+	global.Emeralds	       = 0;
+	global.Stage		   = 0;
+	global.StageRoom       = 0;
+	global.SpecialScore    = 0;
+	global.SpecialState    = 0;
+	global.DiscordTime	   = 0;	
+	global.DiscordEvent	   = "";
+	global.StarPostData    = [];
+	global.BonusStageData  = [];
+	global.SpecialRingData = [];
+	global.SpecialRingList = [];
 }

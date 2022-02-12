@@ -22,7 +22,7 @@ function tile_find_h(x,y,toPositive,ignoreTop,tilelayer)
 	var Shift     = 0;
 	
 	// Get tile at position
-	var Layer	  = Game.TileLayers[tilelayer];
+	var Layer	  = global.TileLayers[tilelayer];
 	var Tile      = tilemap_get(Layer, x div 16, y div 16);
 	var TileIndex = tile_get_index(Tile);
 	var TileWidth = tile_get_width(y, Tile, TileIndex);
@@ -55,7 +55,7 @@ function tile_find_h(x,y,toPositive,ignoreTop,tilelayer)
 	}
 	
 	// Exit if tile is top-only and we're ignoring them
-	if ignoreTop and TileIndex > Game.TileData[1]
+	if ignoreTop and TileIndex > global.TileData[1]
 	{
 		return [32, noone];
 	}

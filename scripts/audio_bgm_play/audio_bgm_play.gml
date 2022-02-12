@@ -6,7 +6,7 @@ function audio_bgm_play(channelType,soundid)
 		case TypePrimary:
 		{
 			audio_stop_sound(Audio.PrimaryTrack[1]);
-			audio_sound_gain(soundid, Game.MusicVolume, 0);
+			audio_sound_gain(soundid, global.MusicVolume, 0);
 			
 			// Play track
 			Audio.PrimaryTrack[0] = EventIdle;
@@ -31,7 +31,7 @@ function audio_bgm_play(channelType,soundid)
 			{
 				Audio.PrimaryTrack[4] = audio_play_sound(Audio.SecondChannel[? soundid], 0, false);
 				
-				audio_sound_gain(Audio.SecondChannel[? soundid], Game.MusicVolume, 0);
+				audio_sound_gain(Audio.SecondChannel[? soundid], global.MusicVolume, 0);
 			}
 			else
 			{
@@ -42,7 +42,7 @@ function audio_bgm_play(channelType,soundid)
 		case TypeSecondary:
 		{
 			audio_stop_sound(Audio.SecondaryTrack[1]);
-			audio_sound_gain(soundid, Game.MusicVolume, 0);
+			audio_sound_gain(soundid, global.MusicVolume, 0);
 
 			// Play track
 			Audio.SecondaryTrack[0] = EventIdle;
@@ -57,7 +57,7 @@ function audio_bgm_play(channelType,soundid)
 			{
 				Audio.SecondaryTrack[3] = audio_play_sound(Audio.SecondChannel[? soundid], 0, false);
 				
-				audio_sound_gain(Audio.SecondChannel[? soundid], Game.MusicVolume, 0);
+				audio_sound_gain(Audio.SecondChannel[? soundid], global.MusicVolume, 0);
 			}
 			else
 			{

@@ -9,7 +9,7 @@ function PlayerGroundFloorCollision()
 	#region Code
 	{
 		// Get current angle quadrant (floor and ceiling are in priority, comparing to wall collision)
-		if !Game.BetterPlayerTileGrip
+		if !global.BetterPlayerTileGrip
 		{
 			if Angle <= 45 or Angle >= 315
 			{
@@ -137,7 +137,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
+				var Distance = global.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
@@ -167,7 +167,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
+				var Distance = global.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
@@ -197,7 +197,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
+				var Distance = global.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
@@ -227,7 +227,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
+				var Distance = global.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove

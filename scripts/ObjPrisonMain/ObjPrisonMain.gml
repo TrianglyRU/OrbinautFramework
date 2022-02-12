@@ -111,16 +111,16 @@ function ObjPrisonMain()
 	}
 	
 	// Update stage boundaries
-	if !Stage.IsBossfight and x - floor(Player.PosX) < Game.Width * 2
+	if !Stage.IsBossfight and x - floor(Player.PosX) < global.Width * 2
 	{
-		if floor(Player.PosX) >= Camera.ViewX + Game.Width / 2
+		if floor(Player.PosX) >= Camera.ViewX + global.Width / 2
 		{
 			Stage.TargetLeftBoundary = Camera.ViewX;
 		}
 		else if State
 		{
-			Stage.TargetLeftBoundary = x - Game.Width / 2;
+			Stage.TargetLeftBoundary = x - global.Width / 2;
 		}
-		Stage.TargetRightBoundary = x + Game.Width / 2;
+		Stage.TargetRightBoundary = x + global.Width / 2;
 	}
 }

@@ -12,8 +12,8 @@ function StageStartup()
 	UpdateObjects  =  false;
 	
 	// Store current zone ID and room index
-	Game.Stage     = ZoneID;
-	Game.StageRoom = room;
+	global.Stage     = ZoneID;
+	global.StageRoom = room;
 	
 	// Set bubble wobble data
 	if WaterEnabled
@@ -32,18 +32,18 @@ function StageStartup()
 	}
 	
 	// Load saved data if loading into the stage from Bonus or Special Stage
-	if array_length(Game.StarPostData)
+	if array_length(global.StarPostData)
 	{
-		Time		   = Game.StarPostData[2];
-		BottomBoundary = Game.StarPostData[3];
+		Time		   = global.StarPostData[2];
+		BottomBoundary = global.StarPostData[3];
 	}
-	if array_length(Game.SpecialRingData)
+	if array_length(global.SpecialRingData)
 	{
-		Time		   = Game.SpecialRingData[4];
-		BottomBoundary = Game.SpecialRingData[5];
+		Time		   = global.SpecialRingData[4];
+		BottomBoundary = global.SpecialRingData[5];
 		
 		// Clear data (player has already restored their rings and barrier atm.)
-		Game.SpecialRingData = [];
+		global.SpecialRingData = [];
 	}
 	
 	// Set stage boundaries

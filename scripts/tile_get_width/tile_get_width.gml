@@ -9,8 +9,8 @@ function tile_get_width(y,tiledata,index)
 	{
 		var WidthToUse = y mod 16;
 	}	
-	var Tile = (index - 1) mod Game.TileData[1] + 1;
+	var Tile = (index - 1) mod global.TileData[1] + 1;
 	
 	// Return found width
-	return Game.TileWidths[Tile][WidthToUse];
+	return global.TileWidths[Tile][WidthToUse];
 }

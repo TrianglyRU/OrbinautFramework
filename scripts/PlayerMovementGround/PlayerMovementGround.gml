@@ -28,7 +28,7 @@ function PlayerMovementGround()
 					Facing  = FlipLeft;
 					Pushing = false;
 				}
-				if !Game.GroundSpeedcap and Gsp > -TopAcc or Game.GroundSpeedcap
+				if !global.GroundSpeedcap and Gsp > -TopAcc or global.GroundSpeedcap
 				{
 					Gsp = max(Gsp - Acc, -TopAcc);
 				} 
@@ -55,7 +55,7 @@ function PlayerMovementGround()
 					Facing  = FlipRight;
 					Pushing = false;
 				}
-				if !Game.GroundSpeedcap and Gsp < TopAcc or Game.GroundSpeedcap
+				if !global.GroundSpeedcap and Gsp < TopAcc or global.GroundSpeedcap
 				{
 					Gsp = min(Gsp + Acc, TopAcc);
 				} 

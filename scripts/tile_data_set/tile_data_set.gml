@@ -9,13 +9,13 @@ function tile_data_set(name,tileAmount,layerA,layerB)
 		}
 		else
 		{
-			Game.TileData   = [name, tileAmount];
-			Game.TileLayers = [layer_tilemap_get_id(layerA), layer_tilemap_get_id(layerB), layerA, layerB];
+			global.TileData   = [name, tileAmount];
+			global.TileLayers = [layer_tilemap_get_id(layerA), layer_tilemap_get_id(layerB), layerA, layerB];
 		}
 	}
 	else
 	{
-		Game.TileData   = [];
-		Game.TileLayers = [];
+		global.TileData   = [];
+		global.TileLayers = [];
 	}
 }

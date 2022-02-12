@@ -1,6 +1,6 @@
 function PlayerSuperPalettesProcess()
 {
-	switch Game.Character
+	switch global.Character
 	{
 		// Sonic palette
 		case CharSonic:

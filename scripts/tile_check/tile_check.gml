@@ -11,12 +11,12 @@ function tile_check(x,y,ignoreTop,tilelayer)
     }
 	
 	// Get tile at position
-	var Layer	  = Game.TileLayers[tilelayer];
+	var Layer	  = global.TileLayers[tilelayer];
     var Tile      = tilemap_get(Layer, x div 16, y div 16);
     var TileIndex = tile_get_index(Tile);
 	
    	// Exit if tile is top-only and we're ignoring them
-    if ignoreTop and TileIndex > Game.TileData[1]
+    if ignoreTop and TileIndex > global.TileData[1]
     {
         return false;
     }

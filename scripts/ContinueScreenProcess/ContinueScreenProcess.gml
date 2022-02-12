@@ -13,7 +13,7 @@ function ContinueScreenProcess()
 			{	
 				if !fade_check(StateActive)
 				{
-					Game.UpdateAnimations = true;
+					Renderer.UpdateAnimations = true;
 				}
 				if Input.StartPress or Input.ABCPress
 				{	
@@ -37,17 +37,17 @@ function ContinueScreenProcess()
 				// Return back to DevMenu
 				if !fade_check(StateActive)
 				{
-					if Game.ActiveSave != -1
+					if global.ActiveSave != -1
 					{
-						Game.Lives     = 3;
-						Game.Score     = 0;
-						Game.Continues = 0;
+						global.Lives     = 3;
+						global.Score     = 0;
+						global.Continues = 0;
 				
-						gamedata_save(Game.ActiveSave);
+						gamedata_save(global.ActiveSave);
 					}
 					fade_perform(ModeInto, BlendBlack, 1);
 					
-					Game.UpdateAnimations = false;
+					Renderer.UpdateAnimations = false;
 				}
 				else if fade_check(StateMax)
 				{
@@ -71,28 +71,28 @@ function ContinueScreenProcess()
 			// Flick continue object while charging
 			if CharSpeed[1] != 8
 			{
-				ContObject[Game.Continues - 1].visible = !ContObject[Game.Continues - 1].visible;
+				ContObject[global.Continues - 1].visible = !ContObject[global.Continues - 1].visible;
 			}
 			else 
 			{
 				// Shift continue objects
 				if (++RoomTimer) < 11
 				{
-					for (var i = 0; i < Game.Continues; i++)
+					for (var i = 0; i < global.Continues; i++)
 					{
 						ContObject[i].x++;
 					}
 				}
 			
 				// If character is 64 pixels off-screen, increment state
-				CharObject.x += 16; if CharObject.x - Game.Width >= 64
+				CharObject.x += 16; if CharObject.x - global.Width >= 64
 				{
 					State++;
 					
 					fade_perform(ModeInto, BlendBlack, 1);
 					audio_bgm_stop(TypePrimary, 0.5);
 					
-					Game.UpdateAnimations = false;
+					Renderer.UpdateAnimations = false;
 				}
 			}
 		}
@@ -101,18 +101,18 @@ function ContinueScreenProcess()
 		{
 			if fade_check(StateMax)
 			{
-				Game.Continues--;
-				Game.Lives = 3;
-				Game.Score = 0;
+				global.Continues--;
+				global.Lives = 3;
+				global.Score = 0;
 			
 				// Overwrite savedata if not playing in 'no save' slot
-				if Game.ActiveSave != -1
+				if global.ActiveSave != -1
 				{
-					gamedata_save(Game.ActiveSave);
+					gamedata_save(global.ActiveSave);
 				}
 			
 				// Head back to our stage
-				room_goto(Game.StageRoom);
+				room_goto(global.StageRoom);
 			}
 		}
 		break;

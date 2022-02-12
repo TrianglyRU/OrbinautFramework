@@ -52,7 +52,7 @@ function PlayerMovementRoll()
 	Ysp = Gsp * -dsin(Angle);
 	
 	// Limit rolling speed
-	if !Game.NoRollSpeedLimit
+	if !global.NoRollSpeedLimit
 	{
 		Xsp = clamp(Xsp, -16, 16);
 	}
@@ -60,8 +60,8 @@ function PlayerMovementRoll()
 	// Unroll
 	if !ForcedRoll
 	{
-		if !Game.SKCrouch and Gsp == 0 
-		or  Game.SKCrouch and abs(Gsp) < 0.5
+		if !global.SKCrouch and Gsp == 0 
+		or  global.SKCrouch and abs(Gsp) < 0.5
 		{
 			PosY     -= DefaultRadiusY - SmallRadiusY;
 			RadiusX   = DefaultRadiusX;

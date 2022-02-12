@@ -23,15 +23,15 @@ function CameraStartup()
 	// Set start position to Star Post or Special Ring
 	if instance_exists(Stage)
 	{
-		if array_length(Game.StarPostData)
+		if array_length(global.StarPostData)
 		{
-			PosX = Game.StarPostData[0] - Game.Width  / 2;
-			PosY = Game.StarPostData[1] - Game.Height / 2 + 16;
+			PosX = global.StarPostData[0] - global.Width  / 2;
+			PosY = global.StarPostData[1] - global.Height / 2 + 16;
 		}
-		if array_length(Game.SpecialRingData)
+		if array_length(global.SpecialRingData)
 		{
-			PosX = Game.SpecialRingData[0] - Game.Width  / 2;
-			PosY = Game.SpecialRingData[1] - Game.Height / 2 + 16;
+			PosX = global.SpecialRingData[0] - global.Width  / 2;
+			PosY = global.SpecialRingData[1] - global.Height / 2 + 16;
 		}
 	}
 	
@@ -40,5 +40,5 @@ function CameraStartup()
 	view_visible[0] = true;	
 	
 	// Adjust surfaces and camera view to game resolution	
-	application_set_size(Game.Width, Game.Height);
+	application_set_size(global.Width, global.Height);
 }

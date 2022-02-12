@@ -9,7 +9,7 @@ function PlayerRollStart()
 	var ManualRoll = false;
 	if  Input.Down
 	{
-		if Game.SKCrouch
+		if global.SKCrouch
 		{
 			if abs(Gsp) >= 1
 			{

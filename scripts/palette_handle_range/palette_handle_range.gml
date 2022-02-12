@@ -1,7 +1,7 @@
 /// @function palette_handle_range(Pal?,iCol1,iCol2,rCol1,rCol2,duration)
 function palette_handle_range(palType,iCol1,iCol2,rCol1,rCol2,duration)
 {
-	if Palette.ColourSet[palType] == false or !Game.UpdateAnimations
+	if Palette.ColourSet[palType] == false or !Renderer.UpdateAnimations
 	{
 		return;
 	}

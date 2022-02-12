@@ -5,7 +5,7 @@ function InterfaceDebugScreenDraw()
 		draw_set_halign(fa_left);
 		draw_set_font(game_font(font_default));
 		
-		draw_text_transformed(8, Game.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
+		draw_text_transformed(8, global.Height - 4, "FPS: " + string(floor(fps_real)), 0.5, 0.5, 0);
 	}
 	if DebugVariables
 	{
@@ -63,7 +63,7 @@ function InterfaceDebugScreenDraw()
 		
 		// Draw rectangle
 		draw_set_alpha(0.65);
-		draw_rectangle_colour(Game.Width - 90, 4, Game.Width - 4, Game.Height - 4, c_black, c_black, c_black, c_black, false)
+		draw_rectangle_colour(global.Width - 90, 4, global.Width - 4, global.Height - 4, c_black, c_black, c_black, c_black, false)
 	
 		// Set font
 		draw_set_alpha(1);
@@ -71,7 +71,7 @@ function InterfaceDebugScreenDraw()
 		draw_set_font(game_font(font_default));
 	
 		// Draw debug text
-		draw_text_ext_transformed(Game.Width - 86, 8,
+		draw_text_ext_transformed(global.Width - 86, 8,
 		
 					"         ORBINAUT  FRAMEWORK"
 				+ "\n           STANDALONE VER."
@@ -165,7 +165,7 @@ function InterfaceDebugScreenDraw()
 				+ "\n   B BOUND: "		   + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
 				+ "\n   L BOUND: "		   + string(Stage.LeftBoundary)   + " TARGET: " + string(Stage.TargetLeftBoundary)
 				+ "\n   R BOUND: "		   + string(Stage.RightBoundary)  + " TARGET: " + string(Stage.TargetRightBoundary)
-				+ "\n   OBJECTS LOADED: "  + string(instance_count - (9 + Game.RichPresenceSupport)),
+				+ "\n   OBJECTS LOADED: "  + string(instance_count - (9 + global.RichPresenceSupport)),
 				
 		8, 256, 0.28, 0.28, 0);
 	}

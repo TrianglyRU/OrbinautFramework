@@ -3,13 +3,13 @@ function InterfaceDebugSensorsDraw()
 	/* This code is handled manually. If you make changes to player
 	collision code, it won't be reflected here! */
 	
-	if !Game.DevMode
+	if !global.DevMode
 	{
 		return;
 	}
 	
-	layer_set_visible(layer_get_id(Game.TileLayers[2]), DebugSensors and Player.Layer == LayerA);
-	layer_set_visible(layer_get_id(Game.TileLayers[3]), DebugSensors and Player.Layer == LayerB);
+	layer_set_visible(layer_get_id(global.TileLayers[2]), DebugSensors and Player.Layer == LayerA);
+	layer_set_visible(layer_get_id(global.TileLayers[3]), DebugSensors and Player.Layer == LayerB);
 	
 	if !DebugSensors
 	{
@@ -17,7 +17,7 @@ function InterfaceDebugSensorsDraw()
 	}
 	
 	draw_set_alpha(0.5);
-	draw_rectangle_colour(Camera.ViewX, Camera.ViewY, Camera.ViewX + Game.Width, Camera.ViewY + Game.Height,
+	draw_rectangle_colour(Camera.ViewX, Camera.ViewY, Camera.ViewX + global.Width, Camera.ViewY + global.Height,
 						  c_black,		c_black,	  c_black,					 c_black,		false);
 	draw_set_alpha(1.0);
 	
@@ -59,7 +59,7 @@ function InterfaceDebugSensorsDraw()
 					
 					if Angle >= 90 and Angle <= 270
 					{
-						if !Game.SKWallCollision or Angle mod 90 != 0
+						if !global.SKWallCollision or Angle mod 90 != 0
 						{
 							break;
 						}
@@ -81,7 +81,7 @@ function InterfaceDebugSensorsDraw()
 					
 					if Angle >= 90 and Angle <= 270
 					{
-						if !Game.SKWallCollision or Angle mod 90 != 0
+						if !global.SKWallCollision or Angle mod 90 != 0
 						{
 							break;
 						}
@@ -103,7 +103,7 @@ function InterfaceDebugSensorsDraw()
 					
 					if Angle >= 90 and Angle <= 270
 					{
-						if !Game.SKWallCollision or Angle mod 90 != 0
+						if !global.SKWallCollision or Angle mod 90 != 0
 						{
 							break;
 						}

@@ -7,7 +7,7 @@ function PlayerRotation()
 	else
 	{
 		// Apply smooth rotation
-		if Game.SmoothRotation
+		if global.SmoothRotation
 		{
 			if Grounded
 			{

@@ -67,7 +67,7 @@ function PlayerResetOnFloor()
 		audio_sfx_stop(sfxTired);
 	
 		// Update visual angle if floor is steep enough
-		if Game.SmoothRotation and Angle > 33.75 and Angle < 326.25
+		if global.SmoothRotation and Angle > 33.75 and Angle < 326.25
 		{
 			VisualAngle = Angle;
 		}
@@ -122,7 +122,7 @@ function PlayerResetOnFloor()
 			Dropspeed = clamp(Dropspeed, -MaxForce, MaxForce);
 			
 			// Shake and/or delay camera
-			if !Game.CDCamera
+			if !global.CDCamera
 			{
 				Camera.ScrollDelay = 16;
 			}

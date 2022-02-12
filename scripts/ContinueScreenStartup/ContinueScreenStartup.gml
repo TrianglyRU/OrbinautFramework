@@ -1,14 +1,14 @@
 function ContinueScreenStartup()
 {
-	RoomX      = Game.Width  / 2;
-	RoomY      = Game.Height / 2;
+	RoomX      = global.Width  / 2;
+	RoomY      = global.Height / 2;
 	Countdown  = 659;
 	State      = 0;
 	RoomTimer  = 0;
 	CountFrame = 0;
 	
 	// Set character's sprite data
-	switch Game.Character
+	switch global.Character
 	{
 		case CharSonic:
 		{		
@@ -39,9 +39,9 @@ function ContinueScreenStartup()
 	}
 	
 	// Create continue objects
-	for (var i = 0; i < Game.Continues; i++)
+	for (var i = 0; i < global.Continues; i++)
 	{
-		ContObject[i] = instance_create(RoomX + 21 * i - max(Game.Continues - 1, 0) * 11, RoomY - 20, ContinueIcon);
+		ContObject[i] = instance_create(RoomX + 21 * i - max(global.Continues - 1, 0) * 11, RoomY - 20, ContinueIcon);
 	}
 	
 	fade_perform(ModeFrom, BlendBlack, 1);

@@ -56,17 +56,17 @@ function PlayerJumpStart()
 		Spinning = true;
 		
 		/* Yes, originals seems to reset radiuses first and then set them once again. This
-		leads to an oversight few lines below, fixed with the Game.FixRollJump flag */		
+		leads to an oversight few lines below, fixed with the global.FixRollJump flag */		
 	}
 	else
 	{
-		if !Game.RolljumpControl
+		if !global.RolljumpControl
 		{
 			AirLock = true;
 		}
 		
 		// Sonic Team :|
-		if Game.FixRollJump
+		if global.FixRollJump
 		{
 			RadiusX	= SmallRadiusX;
 			RadiusY = SmallRadiusY;

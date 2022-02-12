@@ -9,13 +9,13 @@ function BonusStageProcess()
 				// Give 10 rings
 				if Input.APress
 				{
-					Game.BonusStageData[0] += 10;
+					global.BonusStageData[0] += 10;
 					audio_sfx_play(choose(sfxRingLeft, sfxRingRight), false);
 						
 					// Grant extra life
-					if Game.BonusStageData[0] >= RingTarget
+					if global.BonusStageData[0] >= RingTarget
 					{
-						Game.Lives += 1;
+						global.Lives += 1;
 						RingTarget += 100;
 						
 						audio_bgm_play(TypeSecondary, ExtraLife);	
@@ -41,7 +41,7 @@ function BonusStageProcess()
 							audio_sfx_play(sfxBarrier, false);
 						break;	
 					}
-					Game.BonusStageData[1] = Random;
+					global.BonusStageData[1] = Random;
 				}
 				else if Input.StartPress
 				{
@@ -61,7 +61,7 @@ function BonusStageProcess()
 			// Return back to the stage
 			if fade_check(StateMax)
 			{
-				room_goto(Game.StageRoom);
+				room_goto(global.StageRoom);
 			}
 		}
 	}

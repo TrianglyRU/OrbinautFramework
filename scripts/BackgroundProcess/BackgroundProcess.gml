@@ -9,7 +9,7 @@ function BackgroundProcess()
 	for (var i = 0; i < Length; i++)
 	{
 		// Update autoscroll value
-		if Game.UpdateAnimations
+		if Renderer.UpdateAnimations
 		{
 			BGValues[i][12] += BGValues[i][4];
 		}
@@ -49,7 +49,7 @@ function BackgroundProcess()
 		}
 		else
 		{
-			var Frame = Game.AnimationTime[? GlobalTime] div AnimSpeed mod sprite_get_number(BGSprites[i]);
+			var Frame = Renderer.AnimationTime[? GlobalTime] div AnimSpeed mod sprite_get_number(BGSprites[i]);
 		}
 		
 		// Transfer data to the shader

@@ -18,29 +18,29 @@ function MenuManualProcess()
 			if Input.APress or Input.StartPress
 			{
 				// Set active saveslot (no-save slot will be -1)
-				Game.ActiveSave = OptionID - 1;
+				global.ActiveSave = OptionID - 1;
 				
 				// Read saveslot1-saveslot4 data
 				if OptionID > 0 and OptionID < 5
 				{
-					var Slot = Game.SaveData[Game.ActiveSave];
+					var Slot = global.SaveData[global.ActiveSave];
 					
 					// If file isn't empty, load into the game
 					if  Slot != 0
 					{
-						Game.Character = Slot[0];
-						Game.Stage	   = Slot[1];
-						Game.Emeralds  = Slot[2];
-						Game.Lives	   = Slot[3];
-						Game.Continues = Slot[4];
-						Game.SaveState = Slot[5];
-						Game.Score	   = Slot[6];
+						global.Character = Slot[0];
+						global.Stage	   = Slot[1];
+						global.Emeralds  = Slot[2];
+						global.Lives	   = Slot[3];
+						global.Continues = Slot[4];
+						global.SaveState = Slot[5];
+						global.Score	   = Slot[6];
 						
-						if !Game.SaveState
+						if !global.SaveState
 						{
-							if ZoneOrder[Game.Stage] != noone
+							if ZoneOrder[global.Stage] != noone
 							{
-								room_goto(ZoneOrder[Game.Stage]);
+								room_goto(ZoneOrder[global.Stage]);
 							}
 							else
 							{
@@ -65,19 +65,19 @@ function MenuManualProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
-				Game.Character = OptionID;
+				global.Character = OptionID;
 				
 				// If starting a new game, load into the first stage
 				if PreviousMenuID[MenuID] == 1
 				{
-					Game.Lives	   = 3;
-					Game.Continues = 0;
-					Game.Emeralds  = 0;
-					Game.Score	   = 0;
+					global.Lives	   = 3;
+					global.Continues = 0;
+					global.Emeralds  = 0;
+					global.Score	   = 0;
 					
-					if Game.ActiveSave != -1
+					if global.ActiveSave != -1
 					{
-						gamedata_save(Game.ActiveSave);
+						gamedata_save(global.ActiveSave);
 					}
 					room_goto(StartStage);
 					
@@ -96,17 +96,17 @@ function MenuManualProcess()
 		{
 			if Input.APress or Input.StartPress
 			{	
-				Game.Lives	   = 3;
-				Game.Continues = 2;
-				Game.Emeralds  = 7;
-				Game.Score	   = 0;
+				global.Lives	   = 3;
+				global.Continues = 2;
+				global.Emeralds  = 7;
+				global.Score	   = 0;
 				
 				// Load into the game in "no-save" mode
 				if MenuRedirect[MenuID][OptionID] != noone
 				{
 					room_goto(MenuRedirect[MenuID][OptionID]);
 				}
-				Game.ActiveSave = -1;
+				global.ActiveSave = -1;
 				
 				// Cancel MenuAutomaticProcess()
 				return true;
@@ -131,23 +131,23 @@ function MenuManualProcess()
 					// Window size toggle
 					case 1:
 					{
-						Game.WindowSize = loop_value(Game.WindowSize + (Input.RightPress ? 1 : -1), 1, 4);
+						global.WindowSize = loop_value(global.WindowSize + (Input.RightPress ? 1 : -1), 1, 4);
 						
-						window_set_size(Game.Width * Game.WindowSize, Game.Height * Game.WindowSize);
+						window_set_size(global.Width * global.WindowSize, global.Height * global.WindowSize);
 					}
 					break;
 					
 					// SFX volume
 					case 2:
 					{
-						Game.SoundVolume = loop_value(Game.SoundVolume * 10 + (Input.RightPress ? 1 : -1), 0, 10) / 10;
+						global.SoundVolume = loop_value(global.SoundVolume * 10 + (Input.RightPress ? 1 : -1), 0, 10) / 10;
 					}
 					break;
 		
 					// BGM volume
 					case 3:
 					{
-						Game.MusicVolume = loop_value(Game.MusicVolume * 10 + (Input.RightPress ? 1 : -1), 0, 10) / 10;
+						global.MusicVolume = loop_value(global.MusicVolume * 10 + (Input.RightPress ? 1 : -1), 0, 10) / 10;
 					}
 					break;
 				}
@@ -165,9 +165,9 @@ function MenuManualProcess()
 			var Option3 = menu_get_initial_string(MenuID, 3);
 			
 			menu_update_option(MenuID, 0, Option0 + menu_get_boolean(window_get_fullscreen()));
-			menu_update_option(MenuID, 1, Option1 + string(Game.WindowSize) + "X");
-			menu_update_option(MenuID, 2, Option2 + string(round(Game.SoundVolume * 100)));
-			menu_update_option(MenuID, 3, Option3 + string(round(Game.MusicVolume * 100)));
+			menu_update_option(MenuID, 1, Option1 + string(global.WindowSize) + "X");
+			menu_update_option(MenuID, 2, Option2 + string(round(global.SoundVolume * 100)));
+			menu_update_option(MenuID, 3, Option3 + string(round(global.MusicVolume * 100)));
 		}
 		break;
 		
@@ -176,7 +176,7 @@ function MenuManualProcess()
 		{
 			if Input.APress or Input.StartPress
 			{
-				Game.SaveData[OptionID] = 0;
+				global.SaveData[OptionID] = 0;
 				file_delete("saveslot" + string(OptionID + 1) + ".bin");	
 		
 				menu_update_option(1, OptionID + 1, "SAVE " + string(OptionID + 1) + " - NEW GAME");

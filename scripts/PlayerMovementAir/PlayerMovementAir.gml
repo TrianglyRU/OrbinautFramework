@@ -32,7 +32,7 @@ function PlayerMovementAir()
 			} 
 			
 			// Accelerate
-			else if !Game.AirSpeedcap and Xsp > -TopAcc or Game.AirSpeedcap
+			else if !global.AirSpeedcap and Xsp > -TopAcc or global.AirSpeedcap
 			{
 				Xsp -= AirAcc;
 				if Xsp <= -TopAcc
@@ -51,7 +51,7 @@ function PlayerMovementAir()
 			} 
 			
 			// Accelerate
-			else if (!Game.AirSpeedcap and Xsp < TopAcc) or Game.AirSpeedcap
+			else if (!global.AirSpeedcap and Xsp < TopAcc) or global.AirSpeedcap
 			{
 				Xsp += AirAcc;
 				if Xsp >= TopAcc

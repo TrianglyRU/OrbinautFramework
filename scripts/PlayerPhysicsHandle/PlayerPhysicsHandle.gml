@@ -16,14 +16,14 @@ function PlayerPhysicsHandle()
 			TopAcc		  = 6;	
 			ClimbSpeed    = 1;
 			JumpMin		  = -4;
-			Jump		  = Game.Character == CharKnuckles ? -6 : -6.5;
+			Jump		  = global.Character == CharKnuckles ? -6 : -6.5;
 		}
 		
 		// Super physics
 		else
 		{
 			// Sonic
-			if Game.Character == CharSonic
+			if global.Character == CharSonic
 			{
 				Acc     = 0.1875;
 				AirAcc  = 0.375;
@@ -49,7 +49,7 @@ function PlayerPhysicsHandle()
 				TopAcc		  = 8;
 				ClimbSpeed    = 2;
 				JumpMin		  = -4;
-				Jump          = Game.Character == CharKnuckles ? -6 : -6.5;
+				Jump          = global.Character == CharKnuckles ? -6 : -6.5;
 			}
 		}
 		
@@ -80,14 +80,14 @@ function PlayerPhysicsHandle()
 			TopAcc		  = 3;	
 			ClimbSpeed    = 1;
 			JumpMin		  = -2;
-			Jump		  = Game.Character == CharKnuckles ? -3 : -3.5;
+			Jump		  = global.Character == CharKnuckles ? -3 : -3.5;
 		}
 		
 		// Super physics
 		else
 		{
 			// Sonic
-			if Game.Character == CharSonic
+			if global.Character == CharSonic
 			{
 				Acc     = 0.09375;
 				AirAcc  = 0.1875;
@@ -113,15 +113,15 @@ function PlayerPhysicsHandle()
 				TopAcc		  = 4;
 				ClimbSpeed    = 2;
 				JumpMin		  = -2;
-				Jump		  = Game.Character == CharKnuckles ? -3 : -3.5;
+				Jump		  = global.Character == CharKnuckles ? -3 : -3.5;
 			}
 		}
 	}
 	
 	// Overwrite RollDec for Tails
-	if !Game.SKRollDeceleration
+	if !global.SKRollDeceleration
 	{
-		if Game.Character == CharTails
+		if global.Character == CharTails
 		{
 			RollDec = Dec / 4;
 		}

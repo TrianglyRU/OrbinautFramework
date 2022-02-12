@@ -73,7 +73,7 @@ function PlayerStartup()
 	CollisionMode    = [0, 0];
 
 	// Set default sprite and depth
-	switch Game.Character
+	switch global.Character
 	{
 		case CharSonic:
 			sprite_index = spr_sonic_idle;
@@ -88,7 +88,7 @@ function PlayerStartup()
 	depth = layer_get_depth("Objects");
 	
 	// Set collision radiuses (RadiusW is usually 1 pixel longer than DefaultRadiusX)
-	if Game.Character != CharTails
+	if global.Character != CharTails
 	{
 		DefaultRadiusY = 19;
 		DefaultRadiusX = 9;
@@ -111,44 +111,44 @@ function PlayerStartup()
 	RadiusY = DefaultRadiusY;
 	
 	// If respawning on checkpoint, load saved player data
-	if array_length(Game.StarPostData)
+	if array_length(global.StarPostData)
 	{
-		PosX = Game.StarPostData[0];
-		PosY = Game.StarPostData[1];
+		PosX = global.StarPostData[0];
+		PosY = global.StarPostData[1];
 	}
 	
 	// If coming back from special stage, load saved player data
-	if array_length(Game.SpecialRingData)
+	if array_length(global.SpecialRingData)
 	{
-		PosX  = Game.SpecialRingData[0];
-		PosY  = Game.SpecialRingData[1];
+		PosX  = global.SpecialRingData[0];
+		PosY  = global.SpecialRingData[1];
 		
 		// Load saved ring and barrier
-		if Game.SpecialRingData[3]
+		if global.SpecialRingData[3]
 		{
-			BarrierType = Game.SpecialRingData[3];
+			BarrierType = global.SpecialRingData[3];
 			instance_create(PosX, PosY, Barrier);
 		}
-		Rings = Game.SpecialRingData[2];
+		Rings = global.SpecialRingData[2];
 	}
 	
 	/* If none of the positions above exist, player will spawn
 	on spawnpoint. It is handled from its side! */
 	
 	// If coming back from bonus stage, load saved rings and barrier
-	if array_length(Game.BonusStageData)
+	if array_length(global.BonusStageData)
 	{
-		Rings		= Game.BonusStageData[0];
-		BarrierType = Game.BonusStageData[1];
+		Rings		= global.BonusStageData[0];
+		BarrierType = global.BonusStageData[1];
 		instance_create(PosX, PosY, Barrier);
 		
 		// Clear array
-		Game.BonusStageData = [];
+		global.BonusStageData = [];
 	}
 	
 	// Load score and lives
-	Score		 = Game.Score;
-	Lives		 = Game.Lives;
+	Score		 = global.Score;
+	Lives		 = global.Lives;
 	LivesRewards = [(Rings div 100 * 100) + 100, (Score div 50000 * 50000) + 50000];
 	
 	// Initialise recorded position datalist

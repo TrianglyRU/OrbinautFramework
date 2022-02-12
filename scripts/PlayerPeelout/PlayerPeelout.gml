@@ -1,6 +1,6 @@
 function PlayerPeelout()
 {
-	if !Game.PeeloutEnabled or Game.Character != CharSonic
+	if !global.PeeloutEnabled or global.Character != CharSonic
 	{
 		return;
 	}
@@ -42,7 +42,7 @@ function PlayerPeelout()
 	// Release peelout
 	else if PeeloutRev == PeeloutForce
 	{	
-		if !Game.CDCamera
+		if !global.CDCamera
 		{
 			Camera.ScrollDelay = 16;
 		}
@@ -55,7 +55,7 @@ function PlayerPeelout()
 		audio_sfx_play(sfxPeeloutRelease, false);
 		
 		// Same story as with the spindash, so...
-		if Game.FixDashRelease
+		if global.FixDashRelease
 		{
 			Xsp = Gsp *  dcos(Angle);
 			Ysp = Gsp * -dsin(Angle);

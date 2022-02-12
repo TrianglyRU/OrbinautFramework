@@ -13,7 +13,7 @@ function PlayerSlopeRepel()
 	else
 	{
 		// Check if we are on a steep slope and going slow
-		if !Game.S3SlopePhysics
+		if !global.S3SlopePhysics
 		{	
 			// Angle check here is different in comparison to collision mode checks
 			if Angle >= 46.41 and Angle <= 315 and abs(Gsp) < 2.5

@@ -9,7 +9,7 @@ function SplashScreenProcess()
 			fade_perform(ModeInto, BlendBlack, 1);
 		break;
 		case 180:
-			room_goto(Game.StartRoom);
+			room_goto(global.StartRoom);
 		break;
 	}
 }

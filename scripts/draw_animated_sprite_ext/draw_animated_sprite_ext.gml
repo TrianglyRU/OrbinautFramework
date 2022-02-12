@@ -4,19 +4,19 @@ function draw_animated_sprite_ext(spriteid,duration,useGlobalTime,x,y,xscale,ysc
 	// Define a timer for the sprite
 	if !useGlobalTime
 	{
-		if !ds_map_exists(Game.AnimationTime, spriteid)
+		if !ds_map_exists(Renderer.AnimationTime, spriteid)
 		{
-			ds_map_add(Game.AnimationTime, spriteid, 0);
+			ds_map_add(Renderer.AnimationTime, spriteid, 0);
 		}
-		else if Game.UpdateAnimations
+		else if Renderer.UpdateAnimations
 		{
-			Game.AnimationTime[? spriteid]++;
+			Renderer.AnimationTime[? spriteid]++;
 		}
-		var Timer = Game.AnimationTime[? spriteid];
+		var Timer = Renderer.AnimationTime[? spriteid];
 	}
 	else
 	{
-		var Timer = Game.AnimationTime[? GlobalTime];
+		var Timer = Renderer.AnimationTime[? GlobalTime];
 	}
 	
 	// Draw it

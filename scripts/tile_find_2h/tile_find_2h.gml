@@ -18,7 +18,7 @@ function tile_find_2h(x1,y1,x2,y2,toPositive,ignoreTop,objectAngle,tilelayer)
 	}
 	
 	// If object angle is defined, reset angle to cardinal one if difference is higher than 45 degrees
-	if objectAngle != noone and !Game.S1FloorCollision
+	if objectAngle != noone and !global.S1FloorCollision
 	{
 		var Difference = abs(objectAngle mod 180 - ResultAngle mod 180);		
 		if  Difference > 45 and Difference < 135

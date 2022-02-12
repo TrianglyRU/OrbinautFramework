@@ -4,7 +4,7 @@ function ObjStarPostMain()
 	{
 		case 0:
 		{		
-			if array_length(Game.StarPostData) and Game.StarPostData[4] >= ID
+			if array_length(global.StarPostData) and global.StarPostData[4] >= ID
 			{
 				// Instantly activate if ID of this starpost is lower than the ID of activated one
 				State = 2;
@@ -14,12 +14,12 @@ function ObjStarPostMain()
 			else if object_check_touch(ColTrigger) 
 			{
 				// Remember data
-				Game.StarPostData[0] = x;
-				Game.StarPostData[1] = y + sprite_get_height(sprite_index) div 2 - Player.DefaultRadiusY - 1;
-				Game.StarPostData[2] = Stage.Time;
-				Game.StarPostData[3] = Stage.TargetBottomBoundary;
-				Game.StarPostData[4] = ID;
-				Game.Score			 = Player.Score;
+				global.StarPostData[0] = x;
+				global.StarPostData[1] = y + sprite_get_height(sprite_index) div 2 - Player.DefaultRadiusY - 1;
+				global.StarPostData[2] = Stage.Time;
+				global.StarPostData[3] = Stage.TargetBottomBoundary;
+				global.StarPostData[4] = ID;
+				global.Score			 = Player.Score;
 				
 				// Increment state
 				State       = 1;

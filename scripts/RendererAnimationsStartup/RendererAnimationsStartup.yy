@@ -6,7 +6,7 @@
     "path": "folders/Game Logic/Renderer.yy",
   },
   "resourceVersion": "1.0",
-  "name": "RendererStartup",
+  "name": "RendererAnimationsStartup",
   "tags": [],
   "resourceType": "GMScript",
 }

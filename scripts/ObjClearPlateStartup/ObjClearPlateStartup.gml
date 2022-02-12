@@ -11,7 +11,7 @@ function ObjClearPanelStartup()
 	SparkleY   = [-16, 8, 0, -8, -8, 0, 8, 16];
 	
 	// Define sprites to use
-	switch Game.Character
+	switch global.Character
 	{
 		case CharSonic:
 		{

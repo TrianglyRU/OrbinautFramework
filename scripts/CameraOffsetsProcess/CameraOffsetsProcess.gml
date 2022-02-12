@@ -20,7 +20,7 @@ function CameraOffsetsProcess()
 	}
 
 	// Offset camera horizontally, like in CD
-	if Game.CDCamera
+	if global.CDCamera
 	{
 		var ScreenShift = 64;
 		var ScreenSpeed = floor(ScreenShift / 32);
@@ -56,7 +56,7 @@ function CameraOffsetsProcess()
 			OverviewDelay--;
 		}
 	}
-	else if Game.SpindashEnabled or Game.PeeloutEnabled
+	else if global.SpindashEnabled or global.PeeloutEnabled
 	{
 		OverviewDelay = 120;
 	}

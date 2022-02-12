@@ -5,7 +5,7 @@ function InputKeyboardProcess()
 	{
 		return;
 	}
-	var Key = Game.KeyboardControl;
+	var Key = global.KeyboardControl;
 		
 	// Key Pressed
 	UpPress    = keyboard_check_pressed(Key[0]);

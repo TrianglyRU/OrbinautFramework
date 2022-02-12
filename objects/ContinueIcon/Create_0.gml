@@ -1,7 +1,7 @@
 /// @description Startup
 // You can write your code in this editor
 	
-	switch Game.Character
+	switch global.Character
 	{
 		case CharSonic:
 			sprite_index = gui_icon_sonic;

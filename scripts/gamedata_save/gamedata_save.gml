@@ -22,20 +22,20 @@ function gamedata_save(slot)
 		- Score (split into 4 values)
 		*/
 		
-		file_bin_write_byte(File, Game.Character); 
-		file_bin_write_byte(File, Game.Stage);	  
-		file_bin_write_byte(File, Game.Emeralds); 
-		file_bin_write_byte(File, Game.Lives);
-		file_bin_write_byte(File, Game.Continues); 
-		file_bin_write_byte(File, Game.SaveState);
-		file_bin_write_byte(File, Game.Score             mod 100);
-		file_bin_write_byte(File, Game.Score div 100     mod 100);
-		file_bin_write_byte(File, Game.Score div 10000   mod 100);
-		file_bin_write_byte(File, Game.Score div 1000000 mod 100);
+		file_bin_write_byte(File, global.Character); 
+		file_bin_write_byte(File, global.Stage);	  
+		file_bin_write_byte(File, global.Emeralds); 
+		file_bin_write_byte(File, global.Lives);
+		file_bin_write_byte(File, global.Continues); 
+		file_bin_write_byte(File, global.SaveState);
+		file_bin_write_byte(File, global.Score             mod 100);
+		file_bin_write_byte(File, global.Score div 100     mod 100);
+		file_bin_write_byte(File, global.Score div 10000   mod 100);
+		file_bin_write_byte(File, global.Score div 1000000 mod 100);
 		
 		file_bin_close(File);
 	}
 	
 	// Update slot
-	Game.SaveData[slot] = gamedata_load(slot);
+	global.SaveData[slot] = gamedata_load(slot);
 }

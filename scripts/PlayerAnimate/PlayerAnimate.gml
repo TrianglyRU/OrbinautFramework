@@ -20,11 +20,11 @@ function PlayerAnimate()
 	}
 	if Gsp > 0 and Input.Left or Gsp < 0 and Input.Right
 	{
-		AnimSkidTime = Game.Character == CharKnuckles ? 16 : 32;
+		AnimSkidTime = global.Character == CharKnuckles ? 16 : 32;
 	}
 	
 	// Animate character
-	switch Game.Character
+	switch global.Character
 	{	
 		#region Sonic
 		case CharSonic:
@@ -46,7 +46,7 @@ function PlayerAnimate()
 						}
 						else
 						{
-							if Game.PeeloutEnabled
+							if global.PeeloutEnabled
 							{
 								var Sprite = abs(Gsp) < 10 ? spr_sonic_run : spr_sonic_peelout;
 							}

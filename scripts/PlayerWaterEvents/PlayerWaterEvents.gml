@@ -99,7 +99,7 @@ function PlayerWaterEvents()
 				// Draw player above everything
 				depth = 0;
 			}
-			else if floor(PosY) >= Camera.ViewY + Game.Height + 276
+			else if floor(PosY) >= Camera.ViewY + global.Height + 276
 			{
 				Death = true;
 			}
@@ -149,7 +149,7 @@ function PlayerWaterEvents()
 			// Reset gravity and double vertical speed
 			if !Hurt and GlideState != GlideAir
 			{
-				if Game.S3WaterPhysics
+				if global.S3WaterPhysics
 				{
 					if Ysp >= -4
 					{

@@ -26,13 +26,13 @@ function CameraFollowProcess()
 	}
 	
 	// Set horizontal shift speed
-	if TargetX <= Game.Width / 2 - 16 
+	if TargetX <= global.Width / 2 - 16 
 	{ 
-		ShiftX = clamp(TargetX - (Game.Width / 2 - 16), -MaxShiftX, 0);  
+		ShiftX = clamp(TargetX - (global.Width / 2 - 16), -MaxShiftX, 0);  
 	}
-	else if TargetX >= Game.Width / 2
+	else if TargetX >= global.Width / 2
 	{ 
-		ShiftX = clamp(TargetX - (Game.Width / 2), 0, MaxShiftX);    
+		ShiftX = clamp(TargetX - (global.Width / 2), 0, MaxShiftX);    
 	}
 	else
 	{
@@ -50,17 +50,17 @@ function CameraFollowProcess()
 		{
 			var Limit = 6;
 		}
-		ShiftY = clamp(TargetY - (Game.Height / 2 - 16), -Limit, Limit);
+		ShiftY = clamp(TargetY - (global.Height / 2 - 16), -Limit, Limit);
 	} 
 	else 
 	{
-		if TargetY <= Game.Height / 2 - 48 
+		if TargetY <= global.Height / 2 - 48 
 		{ 
-			ShiftY = clamp(TargetY - (Game.Height / 2 - 48), -MaxShiftY, 0);  
+			ShiftY = clamp(TargetY - (global.Height / 2 - 48), -MaxShiftY, 0);  
 		} 
-		else if TargetY >= Game.Height / 2 + 16 
+		else if TargetY >= global.Height / 2 + 16 
 		{ 
-			ShiftY = clamp(TargetY - (Game.Height / 2 + 16), 0, MaxShiftY);  
+			ShiftY = clamp(TargetY - (global.Height / 2 + 16), 0, MaxShiftY);  
 		}
 		else
 		{

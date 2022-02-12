@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Game",
-    "path": "folders/Game Logic/Game.yy",
+    "name": "Renderer",
+    "path": "folders/Game Logic/Renderer.yy",
   },
   "resourceVersion": "1.0",
-  "name": "GameAnimationsProcess",
+  "name": "RendererAnimationsProcess",
   "tags": [],
   "resourceType": "GMScript",
 }

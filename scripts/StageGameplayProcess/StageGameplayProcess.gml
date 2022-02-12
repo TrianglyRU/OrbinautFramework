@@ -5,7 +5,7 @@ function StageGameplayProcess()
 	{
 		if (++Time) == 36000
 		{
-			if Game.DevMode
+			if global.DevMode
 			{
 				Time = 32400;
 			}
@@ -19,7 +19,7 @@ function StageGameplayProcess()
 	// Process animated graphics
 	if AnimatedGraphics != noone
 	{	
-		var Update = Game.UpdateAnimations; 
+		var Update = Renderer.UpdateAnimations; 
 		var Length = array_length(AnimatedGraphics);
 		
 		for (var i = 0; i < Length; i += 2)
@@ -43,8 +43,8 @@ function StageGameplayProcess()
 		UpdateObjects  = false;
 		TimeEnabled    = false;
 		
-		if !Game.S3DeathRestart and floor(Player.PosY) < Stage.BottomBoundary + 32
-		or  Game.S3DeathRestart and floor(Player.PosY) < Camera.ViewY + Game.Height + 32
+		if !global.S3DeathRestart and floor(Player.PosY) < Stage.BottomBoundary + 32
+		or  global.S3DeathRestart and floor(Player.PosY) < Camera.ViewY + global.Height + 32
 		{
 			return;
 		}
@@ -70,7 +70,7 @@ function StageGameplayProcess()
 			audio_bgm_stop(TypeSecondary, 0.5);
 			
 			// Stop animations and background autoscrolling
-			Game.UpdateAnimations = false;
+			Renderer.UpdateAnimations = false;
 		}
 		
 		// Wait until we fade out
@@ -78,34 +78,34 @@ function StageGameplayProcess()
 		{	
 			if Player.Lives != 0
 			{
-				if array_length(Game.StarPostData) and RestartEvent
+				if array_length(global.StarPostData) and RestartEvent
 				{
 					// Clear saved time on the Star Post if we got time over'ed
-					Game.StarPostData[2] = 0;
+					global.StarPostData[2] = 0;
 				}
-				Game.Lives = Player.Lives;
+				global.Lives = Player.Lives;
 					
 				room_restart();
 			}
 			else
 			{	
-				Game.SpecialRingList = [];
-				Game.StarPostData	 = [];
+				global.SpecialRingList = [];
+				global.StarPostData	 = [];
 				
-				if Game.Continues
+				if global.Continues
 				{
 					room_goto(Screen_Continue);
 				}
 				else
 				{
-					if Game.ActiveSave != -1
+					if global.ActiveSave != -1
 					{
 						// Re-write game data
-						Game.Lives     = 3;
-						Game.Score     = 0;
-						Game.Continues = 0;
+						global.Lives     = 3;
+						global.Score     = 0;
+						global.Continues = 0;
 							
-						gamedata_save(Game.ActiveSave);
+						gamedata_save(global.ActiveSave);
 					}
 					room_goto(Screen_DevMenu);
 				}

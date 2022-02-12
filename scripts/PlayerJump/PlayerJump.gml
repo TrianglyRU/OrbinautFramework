@@ -38,11 +38,11 @@ function PlayerJump()
 	}
 	
 	// Transform into super form
-	if Game.Emeralds == 7 and !SuperState and Rings >= 50 and !Stage.IsFinished
+	if global.Emeralds == 7 and !SuperState and Rings >= 50 and !Stage.IsFinished
 	{
 		// Make sure we don't have elemental barrier if we're Sonic
-		if Game.Character == CharSonic and BarrierType <= BarrierNormal
-		or Game.Character != CharSonic
+		if global.Character == CharSonic and BarrierType <= BarrierNormal
+		or global.Character != CharSonic
 		{
 			// Set animation
 			Animation		    = AnimTransform;
@@ -65,7 +65,7 @@ function PlayerJump()
 	}
 
 	// Perform character action
-	switch Game.Character
+	switch global.Character
 	{
 		case CharSonic:
 		{	
@@ -74,7 +74,7 @@ function PlayerJump()
 				// Perform double spin attack
 				if !BarrierType
 				{
-					if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != SpinReady)
+					if global.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != SpinReady)
 					{
 						DoubleSpinAttack = SpinActive;
 						
@@ -84,7 +84,7 @@ function PlayerJump()
 				}
 				
 				// Perform dropdash
-				if Game.DropdashEnabled and DropdashFlag == DashReady
+				if global.DropdashEnabled and DropdashFlag == DashReady
 				{
 					AirLock      = false;
 					DropdashFlag = DashActive;
@@ -98,7 +98,7 @@ function PlayerJump()
 				{
 					case BarrierFlame:
 					{
-						if !Game.CDCamera
+						if !global.CDCamera
 						{
 							Camera.ScrollDelay = 16;
 						}

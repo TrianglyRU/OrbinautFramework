@@ -1,8 +1,8 @@
 function ObjSwingingPlatformMain()
 {
 	// Use custom unload boundaries
-	if OriginX + Amplitude < Camera.ViewX or OriginX - Amplitude > Camera.ViewX + Game.Width 
-	or OriginY + Amplitude < Camera.ViewY or OriginY - Amplitude > Camera.ViewY + Game.Height
+	if OriginX + Amplitude < Camera.ViewX or OriginX - Amplitude > Camera.ViewX + global.Width 
+	or OriginY + Amplitude < Camera.ViewY or OriginY - Amplitude > Camera.ViewY + global.Height
 	{
 		ProcessObject = false;
 	}

@@ -194,7 +194,7 @@ function PlayerAirLevelCollision()
 	}
 	
 	// If landed, update our custom collision mode
-	if Game.BetterPlayerTileGrip and Grounded
+	if global.BetterPlayerTileGrip and Grounded
 	{
 		if Angle <= 45 or Angle >= 315
 		{

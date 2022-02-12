@@ -20,7 +20,7 @@ function ObjShatteredRingMain()
 	}
 	
 	// Perform additional collision checks
-	if Game.PreciseRingBehaviour
+	if global.PreciseRingBehaviour
 	{
 		// Check for ceiling
 		if Ysp < 0 

@@ -8,7 +8,7 @@ function PlayerBalance()
 	// Balance on floor
 	if !OnObject
 	{
-		if Game.SKCrouch and Input.Down
+		if global.SKCrouch and Input.Down
 		{
 			return;
 		}
@@ -36,7 +36,7 @@ function PlayerBalance()
 		// Balance on the left side
 		if !FindAngle1
 		{	
-			if !SuperState and Game.Character == CharSonic
+			if !SuperState and global.Character == CharSonic
 			{
 				// Use "panic balance" animation
 				var FindFloor  = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
@@ -78,7 +78,7 @@ function PlayerBalance()
 		// Balance on the right side
 		else if !FindAngle2
 		{
-			if !SuperState and Game.Character == CharSonic
+			if !SuperState and global.Character == CharSonic
 			{
 				// Use "panic balance" animation
 				var FindFloor  = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
@@ -137,7 +137,7 @@ function PlayerBalance()
 		// Balance on the left side
 		if PlayerX < 2
 		{
-			if !SuperState and Game.Character == CharSonic
+			if !SuperState and global.Character == CharSonic
 			{
 				// Use "panic balance" animation
 				if PlayerX < -2
@@ -178,7 +178,7 @@ function PlayerBalance()
 		// Balance on the right side
 		else if PlayerX > RightEdge - 2
 		{
-			if !SuperState and Game.Character == CharSonic
+			if !SuperState and global.Character == CharSonic
 			{
 				// Use "panic balance" animation
 				if PlayerX > RightEdge + 2

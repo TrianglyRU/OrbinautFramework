@@ -23,11 +23,11 @@ function InterfacePauseProcess()
 				// Continue
 				case 0:
 				{
-					Stage.IsPaused        = false;
-					Stage.UpdateObjects   = true;
-					Stage.TimeEnabled     = true;
-					Camera.Enabled        = true;
-					Game.UpdateAnimations = true;
+					Stage.IsPaused            = false;
+					Stage.UpdateObjects		  = true;
+					Stage.TimeEnabled		  = true;
+					Camera.Enabled			  = true;
+					Renderer.UpdateAnimations = true;
 					
 					instance_activate_range(Camera.ViewX);
 					
@@ -65,14 +65,14 @@ function InterfacePauseProcess()
 			// Restart the Stage
 			if PauseValue == 1
 			{
-				Game.Lives -= 1; room_restart();						
+				global.Lives -= 1; room_restart();						
 			}
 					
 			// Exit to DevMenu
 			else if PauseValue == 2
 			{
-				Game.SpecialRingList = [];
-				Game.StarPostData	 = [];
+				global.SpecialRingList = [];
+				global.StarPostData	 = [];
 				
 				room_goto(Screen_DevMenu);
 			}
@@ -84,12 +84,12 @@ function InterfacePauseProcess()
 	{
 		if CardValue[1] == 3 and !Stage.IsFinished and !Player.Death
 		{
-			Game.UpdateAnimations = false;
-			Camera.Enabled        = false;
-			Input.StartPress	  = false;
-			Stage.UpdateObjects   = false;
-			Stage.TimeEnabled     = false;
-			Stage.IsPaused	      = true;
+			Renderer.UpdateAnimations = false;
+			Camera.Enabled            = false;
+			Input.StartPress	      = false;
+			Stage.UpdateObjects       = false;
+			Stage.TimeEnabled         = false;
+			Stage.IsPaused	          = true;
 			
 			audio_pause_all();
 			audio_sfx_play(sfxPauseSelect, false);

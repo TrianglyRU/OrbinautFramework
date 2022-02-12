@@ -1,12 +1,12 @@
-function GameAnimationsProcess()
+function RendererAnimationsProcess()
 {
-	if !Game.UpdateAnimations
+	if !UpdateAnimations
 	{
 		return;
 	}
 	
 	// Process global animation timer
-	Game.AnimationTime[? GlobalTime]++;
+	AnimationTime[? GlobalTime]++;
 	
 	// Process animations for all instances
 	with all 

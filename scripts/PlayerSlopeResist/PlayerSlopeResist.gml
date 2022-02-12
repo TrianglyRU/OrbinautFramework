@@ -10,7 +10,7 @@ function PlayerSlopeResist()
 	SlopeGravity = 0.125 * dsin(Angle);
 	
 	// Apply it
-	if !Game.S3SlopePhysics
+	if !global.S3SlopePhysics
 	{
 		if Gsp != 0
 		{

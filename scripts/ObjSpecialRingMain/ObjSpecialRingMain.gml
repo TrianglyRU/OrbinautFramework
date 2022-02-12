@@ -5,12 +5,12 @@ function ObjSpecialRingMain()
 		case 0:
 		{
 			// Delete this ring if it was used before
-			var Length = array_length(Game.SpecialRingList);
+			var Length = array_length(global.SpecialRingList);
 			if  Length
 			{
 				for (var i = 0; i < Length; i++)
 				{
-					if id == Game.SpecialRingList[i]
+					if id == global.SpecialRingList[i]
 					{
 						instance_destroy();
 					}
@@ -33,10 +33,10 @@ function ObjSpecialRingMain()
 				audio_sfx_play(sfxSpecialRing, false);
 				
 				// Remember this ring
-				Game.SpecialRingList[array_length(Game.SpecialRingList)] = id;
+				global.SpecialRingList[array_length(global.SpecialRingList)] = id;
 				
 				// If we have all emeralds, give 50 rings
-				if Game.Emeralds == 7
+				if global.Emeralds == 7
 				{
 					Player.Rings += 50;
 					instance_destroy();
@@ -46,16 +46,16 @@ function ObjSpecialRingMain()
 					Input.IgnoreInput = true;
 					
 					// Remember player and stage data
-					Game.SpecialRingData[0] = x;
-					Game.SpecialRingData[1] = y;
-					Game.SpecialRingData[2] = Player.Rings;
-					Game.SpecialRingData[3] = Player.BarrierType;
-					Game.SpecialRingData[4] = Stage.Time;
-					Game.SpecialRingData[5] = Stage.TargetBottomBoundary;
+					global.SpecialRingData[0] = x;
+					global.SpecialRingData[1] = y;
+					global.SpecialRingData[2] = Player.Rings;
+					global.SpecialRingData[3] = Player.BarrierType;
+					global.SpecialRingData[4] = Stage.Time;
+					global.SpecialRingData[5] = Stage.TargetBottomBoundary;
 						
 					// Buffer score and lives into their global variables
-					Game.Score = Player.Score;
-					Game.Lives = Player.Lives;
+					global.Score = Player.Score;
+					global.Lives = Player.Lives;
 					
 					// Create flash object
 					instance_create(x, y, SpecialRingFlash);
@@ -88,10 +88,10 @@ function ObjSpecialRingMain()
 			{				
 				fade_perform(ModeInto, BlendWhite, 1);
 				
-				Camera.Enabled		  = false;
-				Stage.UpdateObjects   = false;
-				Stage.TimeEnabled     = false;
-				Game.UpdateAnimations = false;
+				Camera.Enabled		      = false;
+				Stage.UpdateObjects       = false;
+				Stage.TimeEnabled         = false;
+				Renderer.UpdateAnimations = false;
 				
 				// Play sound and increment state
 				audio_play_sound(sfxSpecialWarp, 0, false);

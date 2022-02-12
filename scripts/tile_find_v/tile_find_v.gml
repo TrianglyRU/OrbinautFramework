@@ -21,7 +21,7 @@ function tile_find_v(x,y,toPositive,ignoreTop,tilelayer)
 	var Shift     = 0;
 	
 	// Get tile at position
-	var Layer	   = Game.TileLayers[tilelayer];
+	var Layer	   = global.TileLayers[tilelayer];
 	var Tile       = tilemap_get(Layer, x div 16, y div 16);
 	var TileIndex  = tile_get_index(Tile);
 	var TileHeight = tile_get_height(x, Tile, TileIndex);
@@ -54,7 +54,7 @@ function tile_find_v(x,y,toPositive,ignoreTop,tilelayer)
 	}
 	
 	// Exit if tile is top-only and we're ignoring them or it is below the room
-	if ignoreTop and TileIndex > Game.TileData[1] or (y + Shift * Direction) & -16 >= room_height
+	if ignoreTop and TileIndex > global.TileData[1] or (y + Shift * Direction) & -16 >= room_height
 	{
 		return [32, noone];
 	}

@@ -38,7 +38,7 @@ function ObjItemBoxStartup()
 			CardSprite = 6;
 		break;
 		case "Extra Life":
-			CardSprite = 7 + Game.Character;
+			CardSprite = 7 + global.Character;
 		break;
 		case "Eggman":
 			CardSprite = 10;

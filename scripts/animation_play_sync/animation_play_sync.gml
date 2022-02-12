@@ -6,5 +6,5 @@ function animation_play_sync(spriteid,duration)
 		sprite_index = spriteid;
 		image_speed  = 0;
 	}
-	image_index = Game.AnimationTime[? GlobalTime] div duration mod image_number;
+	image_index = Renderer.AnimationTime[? GlobalTime] div duration mod image_number;
 }

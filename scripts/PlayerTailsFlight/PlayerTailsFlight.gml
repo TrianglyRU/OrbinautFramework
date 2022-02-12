@@ -55,7 +55,7 @@ function PlayerTailsFlight()
 	}
 	
 	// Cancel flight
-	if Game.FlightCancel and Input.Down and Input.ABCPress
+	if global.FlightCancel and Input.Down and Input.ABCPress
 	{
 		audio_sfx_stop(sfxFlying);
 		audio_sfx_stop(sfxTired);

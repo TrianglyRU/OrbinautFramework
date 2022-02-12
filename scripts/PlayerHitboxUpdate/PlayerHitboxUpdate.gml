@@ -7,7 +7,7 @@ function PlayerHitboxUpdate()
 	}
 	
 	// Crouched hitbox (ignores Tails)
-	else if Game.Character != CharTails
+	else if global.Character != CharTails
 	{
 		HitboxData[0] = [floor(PosX - 8), floor(PosY - 4), floor(PosX + 8), floor(PosY + 16)];
 	}

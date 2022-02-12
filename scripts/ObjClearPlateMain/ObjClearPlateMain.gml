@@ -1,7 +1,7 @@
 function ObjClearPanelMain()
 {
-	if id.PlayerType == "Sonic & Tails" and Game.Character == CharKnuckles
-	or id.PlayerType == "Knuckles"		and Game.Character != CharKnuckles
+	if id.PlayerType == "Sonic & Tails" and global.Character == CharKnuckles
+	or id.PlayerType == "Knuckles"		and global.Character != CharKnuckles
 	{
 		visible = false; return;
 	}
@@ -88,14 +88,14 @@ function ObjClearPanelMain()
 	// Update stage boundaries
 	if !Stage.IsBossfight
 	{
-		if floor(Player.PosX) > (x - Game.Width * 1.5 + 64) + Game.Width / 2
+		if floor(Player.PosX) > (x - global.Width * 1.5 + 64) + global.Width / 2
 		{
-			Stage.TargetLeftBoundary  = x - Game.Width * 1.5 + 64;
-			Stage.TargetRightBoundary = x + Game.Width / 2;
+			Stage.TargetLeftBoundary  = x - global.Width * 1.5 + 64;
+			Stage.TargetRightBoundary = x + global.Width / 2;
 		
 			if State > 0
 			{
-				Stage.TargetLeftBoundary = x - (Game.Width / 2);
+				Stage.TargetLeftBoundary = x - (global.Width / 2);
 			}
 		}
 	}

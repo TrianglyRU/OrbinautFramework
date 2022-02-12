@@ -90,7 +90,7 @@ function AudioSecondaryProcess()
 				SecondaryTrack[3] = noone;
 				
 				audio_stop_sound(Track);
-				audio_sound_gain(Track, Game.MusicVolume, 0);
+				audio_sound_gain(Track, global.MusicVolume, 0);
 			}
 			
 			// Decrease track volume
@@ -102,7 +102,7 @@ function AudioSecondaryProcess()
 				if SndChannel
 				{
 					audio_stop_sound(SndChannel);
-					audio_sound_gain(SndChannel, Game.MusicVolume, 0);
+					audio_sound_gain(SndChannel, global.MusicVolume, 0);
 				}
 				audio_sound_gain(Track, VolumeLevel, 0);
 			}

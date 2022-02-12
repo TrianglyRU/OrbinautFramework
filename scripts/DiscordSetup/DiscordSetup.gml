@@ -1,7 +1,7 @@
 function DiscordSetup()
 {
 	// Remove controller if Rich Presence is disabled
-	if !Game.RichPresenceSupport
+	if !global.RichPresenceSupport
 	{
 		instance_destroy(); return;
 	}
@@ -27,7 +27,7 @@ function DiscordSetup()
 	
 	if DetailsString != "In Menus"
 	{
-		switch Game.Character
+		switch global.Character
 		{
 			case CharSonic:    
 				var Char = "Sonic";
@@ -42,13 +42,13 @@ function DiscordSetup()
 				var Char = "";
 			break;
 		}
-		if Game.Emeralds != 1
+		if global.Emeralds != 1
 		{
-			DetailsString += " (" + string(Game.Emeralds) + " Chaos Emeralds)";
+			DetailsString += " (" + string(global.Emeralds) + " Chaos Emeralds)";
 		}
 		else
 		{
-			DetailsString += " (" + string(Game.Emeralds) + " Chaos Emerald)";
+			DetailsString += " (" + string(global.Emeralds) + " Chaos Emerald)";
 		}
 		StateString = Char;	
 	}

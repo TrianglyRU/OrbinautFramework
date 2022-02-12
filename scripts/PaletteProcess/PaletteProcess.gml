@@ -3,11 +3,11 @@ function PaletteProcess()
 	// Define a render boundary between type 1 and type 2 palettes
 	if instance_exists(Stage) and Stage.WaterEnabled
 	{
-		var Boundary = Game.Height - clamp(Camera.ViewY - Stage.WaterLevel + Game.Height, 0, Game.Height);
+		var Boundary = global.Height - clamp(Camera.ViewY - Stage.WaterLevel + global.Height, 0, global.Height);
 	}
 	else
 	{
-		var Boundary = Game.Height;
+		var Boundary = global.Height;
 	}
 	shader_set_uniform_f(Shader.PalBoundary, Boundary);
 		
@@ -21,7 +21,7 @@ function PaletteProcess()
 	}
 		
 	// Render palette type 2
-	if Boundary < Game.Height and ColourSet[PalSecondary] != false
+	if Boundary < global.Height and ColourSet[PalSecondary] != false
 	{
 		texture_set_stage(Shader.PalTex2,			 ColourSet[1][0]);
 		shader_set_uniform_f_array(Shader.PalIndex2, IndexType2);

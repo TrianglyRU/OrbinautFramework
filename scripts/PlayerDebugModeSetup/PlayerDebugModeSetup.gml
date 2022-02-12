@@ -1,6 +1,6 @@
 function PlayerDebugModeSetup()
 {
-	if !Game.DevMode
+	if !global.DevMode
 	{
 		return;
 	}

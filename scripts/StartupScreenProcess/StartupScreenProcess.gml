@@ -2,13 +2,13 @@ function StartupScreenProcess()
 {
 	if !(--RoomTimer)
 	{
-		if Game.ShowSplash
+		if global.ShowSplash
 		{
 			room_goto(Screen_Splash);
 		}
 		else
 		{
-			room_goto(Game.StartRoom);
+			room_goto(global.StartRoom);
 		}
 	}
 }

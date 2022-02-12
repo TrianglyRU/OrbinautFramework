@@ -6,7 +6,7 @@ function PlayerGroundWallCollision()
 	}
 	if Angle >= 90 and Angle <= 270
 	{
-		if !Game.SKWallCollision or Angle mod 90 != 0
+		if !global.SKWallCollision or Angle mod 90 != 0
 		{
 			return;
 		}

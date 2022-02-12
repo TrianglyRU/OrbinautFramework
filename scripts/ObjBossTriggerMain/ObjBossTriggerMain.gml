@@ -1,7 +1,7 @@
    function ObjBossTriggerMain()
 {
 	// Set right boundary if object is active
-	Stage.TargetRightBoundary = x + max(Game.Width / 2, ArenaWidth / 2);
+	Stage.TargetRightBoundary = x + max(global.Width / 2, ArenaWidth / 2);
 	
 	if Stage.IsBossfight == -1
 	{
@@ -29,7 +29,7 @@
 		if !BossDefeated
 		{
 			// Set left boundary
-			Stage.TargetLeftBoundary = x - max(Game.Width / 2, ArenaWidth / 2);	
+			Stage.TargetLeftBoundary = x - max(global.Width / 2, ArenaWidth / 2);	
 			
 			// Check for a key to be pressed if it is example bossfight
 			if Template and keyboard_check_pressed(ord("K"))

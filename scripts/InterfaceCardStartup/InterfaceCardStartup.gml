@@ -16,12 +16,12 @@ function InterfaceCardStartup()
 	// Initialise variables
 	CardValue[0] = 0;
 	CardValue[1] = 0;	
-	CardValue[2] = Game.Height / 2;
+	CardValue[2] = global.Height / 2;
 	CardValue[3] = -108;
 	CardValue[4] = -100;
 	CardValue[5] = 1;
 	CardValue[6] = -48;
-	CardValue[7] = Game.Width * 2 + 128;
+	CardValue[7] = global.Width * 2 + 128;
 	
 	// Disable all input
 	Input.IgnoreInput = true;

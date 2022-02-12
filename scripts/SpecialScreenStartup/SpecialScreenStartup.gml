@@ -6,7 +6,7 @@ function SpecialScreenStartup()
 	RenderAlpha = 0;
 	
 	// If coming back from special stage, set offsets and play music
-	if Game.SpecialState
+	if global.SpecialState
 	{
 		Offset[0]  = -330;
 		Offset[1]  =  330;
@@ -22,7 +22,7 @@ function SpecialScreenStartup()
 	// Else redirect to Special Stage
 	else 
 	{
-		switch Game.Emeralds
+		switch global.Emeralds
 		{
 			default:
 				room_goto(SStage_Template);

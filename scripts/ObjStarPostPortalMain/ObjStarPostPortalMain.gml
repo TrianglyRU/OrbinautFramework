@@ -28,10 +28,10 @@ function ObjStarPostPortalMain()
 				audio_bgm_stop(TypePrimary,  0.5);
 				audio_bgm_stop(TypeSecondary, 0.5);
 				
-				Input.IgnoreInput		= true;
-				Stage.UpdateObjects   = false;
-				Stage.TimeEnabled     = false;
-				Game.UpdateAnimations = false;
+				Input.IgnoreInput		  = true;
+				Stage.UpdateObjects       = false;
+				Stage.TimeEnabled         = false;
+				Renderer.UpdateAnimations = false;
 				
 				// Increment state
 				State++;

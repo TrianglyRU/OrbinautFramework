@@ -11,7 +11,7 @@ function ObjItemBoxMain()
 			}
 
 			// Check if player is able to destroy the object
-			if Game.SKItemBoxBehaviour
+			if global.SKItemBoxBehaviour
 			{
 				if Player.Ysp < 0 and !Player.DoubleSpinAttack
 				{
