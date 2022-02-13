@@ -5,5 +5,6 @@ function ObjStarPostPortalStartup()
 	Diameter = 0;
 	
 	// Set object properties
+	object_set_unload(FlagDelete);
 	object_set_hitbox(16, 4);
 }

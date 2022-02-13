@@ -32,7 +32,7 @@ function ObjStarPostMain()
 				if Player.Rings >= 20
 				{
 					var  ThisObject = id;
-					var  NewObject  = instance_create_child(x, y - sprite_get_height(sprite_index) div 2 - 10, StarPostPortal);
+					var  NewObject  = instance_create(x, y - sprite_get_height(sprite_index) div 2 - 10, StarPostPortal);
 					with NewObject
 					{
 						object_set_depth(ThisObject, 1);

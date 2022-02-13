@@ -22,9 +22,10 @@ function CameraOffsetsProcess()
 	// Offset camera horizontally, like in CD
 	if global.CDCamera
 	{
-		var ShiftDirection = Player.Gsp != 0 ? sign(Player.Gsp) : Player.Facing;
-		var ScreenShift	   = 64;
+		var ScreenShift	= 64;	// <- default value for 320px width, which is floor(global.Width / 5)
+		
 		var ScreenSpeed    = floor(ScreenShift / 32);
+		var ShiftDirection = Player.Gsp != 0 ? sign(Player.Gsp) : Player.Facing;
 		
 		if abs(Player.Gsp) >= 6 or Player.PeeloutRev >= 6 or Player.SpindashRev >= 0
 		{

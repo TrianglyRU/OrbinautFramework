@@ -159,8 +159,7 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						object_set_depth(Player, 1); 
-						animation_play(spr_obj_barrier_normal, 4, 0);
+						object_set_depth(Player, 1);
 					}
 					audio_sfx_play(sfxBarrier, false);
 				}
