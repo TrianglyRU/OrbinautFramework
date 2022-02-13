@@ -13,8 +13,9 @@ function ObjSpringDiagonalMain()
 				Player.Animation  = AnimSpring;
 				Player.ClimbState = false;
 			}
-			Player.Xsp =  LaunchForce * image_xscale;
-			Player.Ysp = -LaunchForce * image_yscale;	
+			Player.Xsp    =  LaunchForce * image_xscale;
+			Player.Ysp	  = -LaunchForce * image_yscale;	
+			Player.Facing = image_xscale;
 			
 			animation_reset(1);
 			audio_sfx_play(sfxSpring, false);	

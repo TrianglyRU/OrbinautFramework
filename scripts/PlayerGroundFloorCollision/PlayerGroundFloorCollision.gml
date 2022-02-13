@@ -127,6 +127,7 @@ function PlayerGroundFloorCollision()
 	}
 	#endregion
 	
+	// Perform collision!
 	switch CollisionMode[0]
 	{
 		case 0:

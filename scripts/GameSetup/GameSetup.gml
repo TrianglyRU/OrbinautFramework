@@ -58,8 +58,7 @@ function GameSetup()
 	global.StageRoom       = 0;
 	global.SpecialScore    = 0;
 	global.SpecialState    = 0;
-	global.DiscordTime	   = 0;	
-	global.DiscordEvent	   = "";
+	global.GameStartTime   = 0;	
 	global.StarPostData    = [];
 	global.BonusStageData  = [];
 	global.SpecialRingData = [];

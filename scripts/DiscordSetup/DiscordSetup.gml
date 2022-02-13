@@ -1,13 +1,13 @@
 function DiscordSetup()
 {
-	// Remove controller if Rich Presence is disabled
 	if !global.RichPresenceSupport
 	{
+		// Remove controller if Rich Presence is disabled
 		instance_destroy(); return;
 	}
-	PresenceReady = false;
+	np_clearpresence();
 	
-	// Set stage data
+	// Set details
 	switch room 
 	{
 		case Stage_TVZ:
@@ -24,7 +24,6 @@ function DiscordSetup()
 			DetailsString = "In Menus";
 		break;
 	}
-	
 	if DetailsString != "In Menus"
 	{
 		switch global.Character
@@ -57,6 +56,7 @@ function DiscordSetup()
 		StateString = "";
 	}
 	
+	// Images
 	MainImage      = "orbinaut";
 	MainImageDesc  = "";
 	SmallImageDesc = "";
