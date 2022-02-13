@@ -5,14 +5,7 @@ function StageGameplayProcess()
 	{
 		if (++Time) == 36000
 		{
-			if global.DevMode
-			{
-				Time = 32400;
-			}
-			else
-			{
-				player_damage(false, false, true);
-			}
+			player_damage(false, false, true);
 		}	
 	}
 	

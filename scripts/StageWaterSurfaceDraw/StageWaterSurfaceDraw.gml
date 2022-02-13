@@ -21,7 +21,7 @@ function StageWaterSurfaceDraw()
 	    var Length = ceil(global.Width / Width) + 2;
 	    for (var i = -1; i < Length; i++)
 	    {
-			draw_animated_sprite(i mod 2 == 0 ? tex_water_surface : tex_water_surface2, 8, true, (floor(Camera.ViewX / Width) + i) * Width + XOffset, WaterLevel);
+			draw_animated_sprite(tex_water_surface, 8, true, (floor(Camera.ViewX / Width) + i) * Width + XOffset, WaterLevel);
 	    }
 	}
 }

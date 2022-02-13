@@ -14,7 +14,7 @@ function GameSetup()
 	
 	// Originals differences
 	global.SpindashEnabled    = true;
-	global.PeeloutEnabled	  = false;
+	global.PeeloutEnabled	  = true;
 	global.DropdashEnabled    = false;
 	global.DSpinAttackEnabled = false;
 	global.GroundSpeedcap	  = false;

@@ -35,10 +35,6 @@ function CameraStartup()
 		}
 	}
 	
-	// Enable room viewport 0 and make it visible
-	view_enabled[0] = true;
-	view_visible[0] = true;	
-	
-	// Adjust surfaces and camera view to game resolution	
+	// Update application and camera size to game resolution	
 	application_set_size(global.Width, global.Height);
 }

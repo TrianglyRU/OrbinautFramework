@@ -63,7 +63,15 @@ function InterfaceOverlayDraw()
 
 	// Draw LIVES
 	draw_set_font(Font.FontDigits2);
-	
-	draw_sprite(gui_hud_lives, global.Character, OffsetX + 40, OffsetY + global.Height - 16);
 	draw_text(OffsetX + 68, OffsetY + global.Height - 12, Player.Lives);
+	
+	if global.Character == CharSonic
+	{
+		var SpriteFrame = Player.SuperState ? 3 : global.Character;
+	}
+	else
+	{
+		var SpriteFrame = global.Character;
+	}
+	draw_sprite(gui_hud_lives, SpriteFrame, OffsetX + 40, OffsetY + global.Height - 16);
 }
