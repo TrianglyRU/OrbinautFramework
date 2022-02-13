@@ -20,7 +20,7 @@ function PlayerAnimate()
 	}
 	if Gsp > 0 and Input.Left or Gsp < 0 and Input.Right
 	{
-		AnimSkidTime = global.Character == CharKnuckles ? 16 : 32;
+		AnimSkidTime = global.Character == CharKnuckles ? 16 : 24;
 	}
 	
 	// Animate character

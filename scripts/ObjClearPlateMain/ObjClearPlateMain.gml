@@ -15,13 +15,11 @@ function ObjClearPanelMain()
 			{
 				if Player.SuperState
 				{
-					// Make player exit their super form
 					Player.SuperState = false;
-					
-					audio_bgm_play(TypePrimary, Stage.StageMusic);
 				}
 				Stage.TimeEnabled = false;
-
+				
+				audio_bgm_stop(TypePrimary, 1);
 				audio_sfx_play(sfxClearPanel, false);
 				animation_play(SpriteData[0], 1, 0);
 				
@@ -58,29 +56,26 @@ function ObjClearPanelMain()
 		break;
 		case 2:
 		{
-			if Player.Grounded
+			// Check if the player passed by the right boundary
+			if floor(Player.PosX) > Stage.RightBoundary - 24
 			{
-				// Check if the player passed by the right boundary
-				if floor(Player.PosX) > Stage.RightBoundary - 24
+				if Stage.IsFinished < 2
 				{
-					if Stage.IsFinished < 2
-					{
-						// Increment stage state
-						Stage.IsFinished = 2;
+					// Increment stage state
+					Stage.IsFinished  = 2;
 					
-						audio_bgm_play(TypePrimary, ActClear);
-					}	
-				}
+					audio_bgm_play(TypePrimary, ActClear);
+				}	
+			}
 				
-				// Take control away from the player
-				if !Input.IgnoreInput
-				{
-					Input.IgnoreInput = true;
-				}
-				else
-				{
-					Input.Right = true;
-				}
+			// Take control away from the player
+			if !Input.IgnoreInput
+			{
+				Input.IgnoreInput = true;
+			}
+			else
+			{
+				Input.Right = true;
 			}
 		}
 	}

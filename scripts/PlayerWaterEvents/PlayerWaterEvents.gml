@@ -113,10 +113,7 @@ function PlayerWaterEvents()
 	
 		// Check for leaving the water
 		if PosY < Stage.WaterLevel and !Death
-		{
-			IsUnderwater = false;	
-			AirTimer     = 1800;
-			
+		{	
 			if instance_exists(BubbleController)
 			{
 				instance_destroy(BubbleController);
@@ -146,17 +143,14 @@ function PlayerWaterEvents()
 				}
 			}
 			
+			IsUnderwater = false;	
+			AirTimer     = 1800;
+			
 			// Reset gravity and double vertical speed
 			if !Hurt and GlideState != GlideAir
 			{
-				if global.S3WaterPhysics
-				{
-					if Ysp >= -4
-					{
-						Ysp *= 2;
-					}
-				}
-				else
+				if !global.S3WaterPhysics
+				or  global.S3WaterPhysics and Ysp >= -4
 				{
 					Ysp *= 2;
 				}
