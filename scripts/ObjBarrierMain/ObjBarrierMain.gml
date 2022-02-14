@@ -11,11 +11,6 @@ function ObjBarrierMain()
 	// Update barrier
 	else switch Player.BarrierType
 	{
-		case BarrierNormal:
-		{
-			animation_play(sprite_index, 4, 0);
-		}
-		break;
 		case BarrierThunder:
 		{
 			if image_index == 19

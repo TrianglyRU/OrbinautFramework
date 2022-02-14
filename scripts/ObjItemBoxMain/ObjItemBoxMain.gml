@@ -159,7 +159,8 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						object_set_depth(Player, 1);
+						// Update animation
+						event_perform(ev_create, 0);
 					}
 					audio_sfx_play(sfxBarrier, false);
 				}
@@ -174,7 +175,8 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						animation_play(spr_obj_barrier_flame, 2, 0);
+						// Update animation
+						event_perform(ev_create, 0);
 					}
 					audio_sfx_play(sfxFlameBarrier, false);
 				}
@@ -189,7 +191,8 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						animation_play(spr_obj_barrier_thunder, 2, 0);
+						// Update animation
+						event_perform(ev_create, 0);
 					}
 					audio_sfx_play(sfxThunderBarrier, false);
 				}
@@ -204,8 +207,8 @@ function ObjItemBoxMain()
 					}
 					else with Barrier
 					{
-						object_set_depth(Player, 1); 
-						animation_play(spr_obj_barrier_water, 2, 0);
+						// Update animation
+						event_perform(ev_create, 0);
 					}
 					audio_sfx_play(sfxWaterBarrier, false);
 						
