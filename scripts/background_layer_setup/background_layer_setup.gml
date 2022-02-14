@@ -1,4 +1,4 @@
-/// @function background_layer_setup(id,ofstY,nodeY,heightY,scrollX,scrollY,autoXSpeed,animDuration,[inclineHeight],[inclineStep],[inclineY])
+/// @function background_layer_setup(id,ofstY,nodeY,heightY,scrollX,scrollY,autoXSpeed,animDuration,inclineHeight,inclineStep,inclineY)
 function background_layer_setup(id,ofstY,nodeY,heightY,scrollX,scrollY,autoXSpeed,animDuration,inclineHeight,inclineStep,inclineY)
 {
 	with Background

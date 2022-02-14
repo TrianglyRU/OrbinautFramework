@@ -21,22 +21,29 @@
 	uniform vec2      u_texSizeSnd;
 	uniform float     u_indSnd[PaletteLimit];
 	
-	// This block of code is based on the shader by Pixelated Pope, which we purchased! Credits to him <3
+	// This block of code is a modified part of the shader by Pixelated Pope. Credits to him!
 	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[PaletteLimit]) 
-	{
-		for (float i = corner.y; i < corner.z; i += pixelSize.y) 
-		{
-			vec2 testPos = vec2(corner.x, i);
-			if (texture2D(sampler, testPos) == inCol) 
-			{
-				float Index = palID[int((i - corner.y) / pixelSize.y)];
-				testPos.x  += pixelSize.x * floor(Index + 1.);
-				
-				return mix(texture2D(sampler, vec2(testPos.x - pixelSize.x, testPos.y)), texture2D(sampler, testPos), fract(Index));
-			}
-		}
-		return inCol;
-	}
+    {
+        for (float i = corner.y; i < corner.z; i += pixelSize.y) 
+        {
+            vec2 testPos = vec2(corner.x, i);
+            if (texture2D(sampler, testPos).rgb == inCol.rgb) 
+            {
+                float Index = palID[int((i - corner.y) / pixelSize.y)];
+                testPos.x  += pixelSize.x * floor(Index + 1.);
+                
+                if (inCol.a == 1.)
+                {
+                    return mix(texture2D(sampler, vec2(testPos.x - pixelSize.x, testPos.y)), texture2D(sampler, testPos), fract(Index));
+                }
+                else
+                {
+                    return vec4(mix(texture2D(sampler, vec2(testPos.x - pixelSize.x, testPos.y)).rgb, texture2D(sampler, testPos).rgb, fract(Index)), inCol.a);
+                }
+            }
+        }
+        return inCol;
+    }
 	
 	uniform bool  u_parallaxActive;
 	uniform vec2  u_pos;

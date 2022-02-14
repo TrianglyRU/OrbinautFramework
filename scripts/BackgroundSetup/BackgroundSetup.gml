@@ -18,8 +18,8 @@ function BackgroundSetup()
 			background_layer_setup(1, 0,   117, 28,  0.15, 0.05,  0,   0, 0,   0,     false);
 			background_layer_setup(2, 0,   145, 46,  0.19, 0.05,  0,   0, 0,   0,     false);
 			background_layer_setup(3, 0,   191, 121, 0.6,  0.05,  0,   0, 0,   0,	  false);
-			background_layer_setup(4, 0,   0,  -1,   0.13, 0.05, -0.1, 0, 20, -0.05,  false);
-			background_layer_setup(5, 166, 0,  -1,   0.19, 0.05,  0,   0, 1,   0.008, false);
+			background_layer_setup(4, 0,   0,   0,   0.13, 0.05, -0.1, 0, 20, -0.05,  false);
+			background_layer_setup(5, 166, 0,   0,   0.19, 0.05,  0,   0, 1,   0.008, false);
 			
 			// Set colour
 			background_colour_set($004400);
