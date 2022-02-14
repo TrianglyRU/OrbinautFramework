@@ -2,6 +2,6 @@ function InterfaceOverlayStartup()
 {	
 	// Initialise variables
 	Enabled = true;
-	OffsetX = 0;
+	OffsetX = global.ScreenBufer;
 	OffsetY = 0;
 }

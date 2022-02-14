@@ -36,5 +36,5 @@ function CameraStartup()
 	}
 	
 	// Update application and camera size to game resolution	
-	application_set_size(global.Width, global.Height);
+	application_set_size(global.Width, global.Height, global.ScreenBufer);
 }

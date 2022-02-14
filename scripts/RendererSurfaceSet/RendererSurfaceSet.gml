@@ -3,7 +3,7 @@ function RendererSurfaceSet()
     // Create surfaces
     if !surface_exists(SurfaceLow)
     {
-        SurfaceLow = surface_create(global.Width, global.Height);
+        SurfaceLow = surface_create(global.Width + global.ScreenBufer * 2, global.Height);
         
         surface_set_target(SurfaceLow);
         draw_clear_alpha(c_black, 0);

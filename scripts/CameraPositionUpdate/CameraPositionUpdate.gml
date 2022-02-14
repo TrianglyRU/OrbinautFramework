@@ -15,5 +15,5 @@ function CameraPositionUpdate()
 	ViewY += ShakeY;
 	
 	// Update camera position
-	camera_set_view_pos(GameCamera, ViewX, ViewY);
+	camera_set_view_pos(GameCamera, ViewX - global.ScreenBufer, ViewY);
 }
