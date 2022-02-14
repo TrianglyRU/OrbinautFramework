@@ -7,7 +7,7 @@ function GameWindowStartup()
 	}
 	
 	// Update application and camera size to game resolution
-	application_set_size(global.Width, global.Height, global.ScreenBufer);
+	application_set_size(global.Width, global.Height);
 	
 	// Set window properties
 	var Width  = global.Width  * global.WindowSize;

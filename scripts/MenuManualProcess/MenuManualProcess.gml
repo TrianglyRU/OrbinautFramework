@@ -29,12 +29,12 @@ function MenuManualProcess()
 					if  Slot != 0
 					{
 						global.Character = Slot[0];
-						global.Stage	   = Slot[1];
+						global.Stage	 = Slot[1];
 						global.Emeralds  = Slot[2];
-						global.Lives	   = Slot[3];
+						global.Lives	 = Slot[3];
 						global.Continues = Slot[4];
 						global.SaveState = Slot[5];
-						global.Score	   = Slot[6];
+						global.Score	 = Slot[6];
 						
 						if !global.SaveState
 						{
@@ -70,10 +70,10 @@ function MenuManualProcess()
 				// If starting a new game, load into the first stage
 				if PreviousMenuID[MenuID] == 1
 				{
-					global.Lives	   = 3;
+					global.Lives	 = 3;
 					global.Continues = 0;
 					global.Emeralds  = 0;
-					global.Score	   = 0;
+					global.Score	 = 0;
 					
 					if global.ActiveSave != -1
 					{
@@ -96,10 +96,10 @@ function MenuManualProcess()
 		{
 			if Input.APress or Input.StartPress
 			{	
-				global.Lives	   = 3;
+				global.Lives	 = 1;
 				global.Continues = 2;
 				global.Emeralds  = 7;
-				global.Score	   = 0;
+				global.Score	 = 0;
 				
 				// Load into the game in "no-save" mode
 				if MenuRedirect[MenuID][OptionID] != noone

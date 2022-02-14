@@ -6,8 +6,8 @@ function InterfaceGameOverDraw()
 	}
 	
 	// Move assets
-	GameOverValue[0] = min(GameOverValue[0] + 16 * (global.Width / 320), global.Width / 2 - 40);
-	GameOverValue[1] = max(GameOverValue[1] - 16 * (global.Width / 320), global.Width / 2 + 40);
+	GameOverValue[0] = min(GameOverValue[0] + 16 * (global.Width / 320), application_centre(0) - 40);
+	GameOverValue[1] = max(GameOverValue[1] - 16 * (global.Width / 320), application_centre(0) + 40);
 	
 	// Draw assets
 	draw_sprite(gui_gameover_gametime, Stage.Time == 36000 and Player.Lives, GameOverValue[0], global.Height / 2);

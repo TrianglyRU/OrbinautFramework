@@ -204,8 +204,8 @@ function InterfaceResultsDraw()
 	}
 	
 	// Get screen centre
-	var CentreX = global.Width  / 2;
-	var CentreY = global.Height / 2;
+	var CentreX = application_center(0);
+	var CentreY = application_center(1);
 	
 	// Draw assets
 	draw_sprite(gui_results_head,	   global.Character, CentreX + 53 + ResultsValue[1], CentreY - 25);

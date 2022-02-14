@@ -1,5 +1,5 @@
-/// @function application_set_size(width,height,screenbuffer)
-function application_set_size(width,height,screenbuffer)
+/// @function application_set_size(width,height)
+function application_set_size(width,height)
 {	
 	// Free surfaces, they'll be re-created in RendererSurfaceSet()
 	if instance_exists(Renderer)
@@ -19,5 +19,5 @@ function application_set_size(width,height,screenbuffer)
 	view_enabled[0] = true;
 	view_visible[0] = true;
 	
-	camera_set_view_size(GameCamera, width + screenbuffer * 2, height);
+	camera_set_view_size(GameCamera, width + global.ScreenBuffer * 2, height);
 }

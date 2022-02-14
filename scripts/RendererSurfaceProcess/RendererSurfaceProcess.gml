@@ -12,7 +12,7 @@ function RendererSurfaceProcess()
 			shader_set_uniform_i(Shader.PalColour, Palette.FadeBlend);
 			shader_set_uniform_i(Shader.PalMode,   Palette.FadeMode);
 			
-			draw_surface(SurfaceLow, -global.ScreenBufer, 0);
+			draw_surface(SurfaceLow, -global.ScreenBuffer, 0);
 		}
 		shader_reset();
 	}
