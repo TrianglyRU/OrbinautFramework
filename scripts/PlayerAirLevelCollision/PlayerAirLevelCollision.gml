@@ -35,22 +35,36 @@ function PlayerAirLevelCollision()
 				Xsp   = 0;
 			}
 			
-			// Collide with floor
-			var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
-			if  FindFloor[0] < 0 and FindFloor[0] >= -(Ysp + 8)
+			// Collide with floor. We have to remember both distances, so we do not use tile_find_2v here
+			var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+			var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+			
+			if FindFloor1[0] <= FindFloor2[0]
 			{
-				if FindFloor[1] >= 46.41 and FindFloor[1] <= 315
+				var Dist = FindFloor1[0];
+				var Ang	 = FindFloor1[1];
+			}
+			else
+			{
+				var Dist = FindFloor2[0];
+				var Ang	 = FindFloor2[1];
+			}
+			var ClipCheck = -(Ysp + 8)
+			
+			if Dist < 0 and (FindFloor1[0] >= ClipCheck or FindFloor2[0] >= ClipCheck)
+			{
+				if Ang >= 46.41 and Ang <= 315
 				{
 					if Ysp > 15.75
 					{
 						Ysp = 15.75;
 					}
 					Xsp = 0;
-					Gsp = FindFloor[1] < 180 ? -Ysp : Ysp;
+					Gsp = Ang < 180 ? -Ysp : Ysp;
 				}
-				else if FindFloor[1] >= 23.91 and FindFloor[1] <= 337.5
+				else if Ang >= 23.91 and Ang <= 337.5
 				{
-					Gsp = FindFloor[1] < 180 ? -Ysp / 2 : Ysp / 2;
+					Gsp = Ang < 180 ? -Ysp / 2 : Ysp / 2;
 				}
 				else 
 				{	
@@ -59,8 +73,8 @@ function PlayerAirLevelCollision()
 				}
 					
 				// Adhere to the surface and land
-				PosY    += FindFloor[0];
-				Angle    = FindFloor[1];
+				PosY    += Dist;
+				Angle    = Ang;
 				Grounded = true;
 			}
 		}
