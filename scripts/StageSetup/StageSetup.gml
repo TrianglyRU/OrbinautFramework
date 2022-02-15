@@ -18,7 +18,7 @@ function StageSetup()
 			ActID            = 0;
 			IsLastZoneAct    = true;
 			WaterEnabled     = true;
-			WaterLevel       = 1384;
+			WaterLevel       = 976 //1384;
 			StageMusic       = TestValley;
 			LeftBoundary     = 0;
 			TopBoundary      = 0;
