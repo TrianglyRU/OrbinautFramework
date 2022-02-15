@@ -3,4 +3,3 @@
 
 	StageSetup();
 	StageStartup();
-	StageLayersSetup();

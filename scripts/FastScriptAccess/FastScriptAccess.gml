@@ -12,6 +12,7 @@ function FastScriptAccess()
 	PaletteSetup();
 	StageSetup();
 	StagePaletteUpdate();
+	RendererDistortionSetup();
 	
 	MenuSetup();
 	MenuManualProcess();

@@ -4,8 +4,8 @@
 	/* Anything called here will be rendered
 	using game resolution */
 	
-	/* Low plane is rendered below the fade
-	and is affected by palette functions */
+	/* Low plane is rendered below the fade and is affected by palette functions.
+	Please note that you have to add global.ScreenBuffer to your x positions here */
 	InterfaceRendererLowProcess();
 	InterfaceOverlayDraw();
 	InterfaceResultsDraw();

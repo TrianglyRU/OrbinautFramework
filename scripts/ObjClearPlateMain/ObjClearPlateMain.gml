@@ -19,7 +19,7 @@ function ObjClearPanelMain()
 				}
 				Stage.TimeEnabled = false;
 				
-				audio_bgm_stop(TypePrimary, 1);
+				audio_bgm_stop(TypePrimary, 2);
 				audio_sfx_play(sfxClearPanel, false);
 				animation_play(SpriteData[0], 1, 0);
 				
