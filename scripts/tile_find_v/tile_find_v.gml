@@ -4,14 +4,17 @@ function tile_find_v(x,y,toPositive,ignoreTop,tilelayer)
 	x = floor(x);
 	y = floor(y);
 	
-	// Subtract 1 if we're not the player
 	if toPositive and object_index != Player
 	{
 		x--;
 		y--;
 	}
 	
-	// Exit if outside of the room
+	// Exit if no tiledata found
+	if !array_length(global.TileData)
+	{
+		return [32, noone];
+	}
 	if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
 	{
 		return [32, noone];

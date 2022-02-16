@@ -3,7 +3,12 @@ function InterfaceDebugSensorsDraw()
 	/* This code is handled manually. If you make changes to player
 	collision code, it won't be reflected here! */
 	
-	if !global.DevMode
+	if !global.DevMode or !array_length(global.TileData)
+	{
+		return;
+	}
+	
+	if !DebugSensors
 	{
 		return;
 	}
@@ -11,14 +16,9 @@ function InterfaceDebugSensorsDraw()
 	layer_set_visible(layer_get_id(global.TileLayers[2]), DebugSensors and Player.Layer == LayerA);
 	layer_set_visible(layer_get_id(global.TileLayers[3]), DebugSensors and Player.Layer == LayerB);
 	
-	if !DebugSensors
-	{
-		return;
-	}
-	
 	draw_set_alpha(0.5);
 	draw_rectangle_colour(Camera.ViewX, Camera.ViewY, Camera.ViewX + global.Width, Camera.ViewY + global.Height,
-						  c_black,		c_black,	  c_black,					 c_black,		false);
+						  c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1.0);
 	
 	if !Player.AllowCollision

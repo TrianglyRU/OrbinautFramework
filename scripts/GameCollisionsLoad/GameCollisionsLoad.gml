@@ -7,6 +7,13 @@ function GameCollisionsLoad()
 	
 	if !array_length(global.TileData)
 	{
+		if instance_exists(Stage)
+		{
+			show_debug_message("\n=============================================\n"
+							 + "No collision was set for this Stage! \n"
+							 + "Please, set the collision in GameCollisionsSetup() script. \n"
+							 + "=============================================");
+		}
 		return;
 	}
 

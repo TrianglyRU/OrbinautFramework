@@ -32,8 +32,6 @@
 				PlayerPosition();
 				PlayerKnuxClimb();
 				PlayerKnuxGlide();
-				PlayerResetOnFloor();
-				PlayerHitboxUpdate();
 			}
 			PlayerResetOnFloor();
 			PlayerHitboxUpdate();
