@@ -24,7 +24,7 @@ function PlayerWaterEvents()
 			}
 				
 			// Create splash object
-			if !Grounded and !ClimbState
+			if !Grounded and !ClimbState and GlideState != GlideGround
 			{
 				audio_sfx_play(sfxWaterSplash, false);
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);

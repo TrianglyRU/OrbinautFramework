@@ -1,6 +1,6 @@
 function PlayerAirLevelCollision()
 {
-	if !AllowCollision or ClimbState or GlideState
+	if !AllowCollision
 	{
 		return;
 	}

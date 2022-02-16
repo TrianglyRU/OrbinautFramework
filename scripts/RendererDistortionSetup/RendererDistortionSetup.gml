@@ -20,12 +20,13 @@ function RendererDistortionSetup()
 			   -1,-2,-3,-3,-2,-1,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			];
-			var WaveData2 = 
+			distortion_set(0, WaveData,  2, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 2);
+			
+			/*var WaveData2 = 
 			[
 				1,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 			];
-			distortion_set(0, WaveData,  2, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 2);
-			distortion_set(1, WaveData2, 1, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 1);
+			distortion_set(1, WaveData2, 1, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 1);*/
 		}
 		break;
 	}

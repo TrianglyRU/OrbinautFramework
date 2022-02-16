@@ -10,42 +10,58 @@
 	}
 	else if PlayerProcess()
 	{
+		// Airborne
 		if !Grounded
 		{
-			PlayerJump();
-			PlayerMovementAir();
-			PlayerLevelBound();
-			PlayerPosition();
-			PlayerSonicDropdash();
-			PlayerTailsFlight();
-			PlayerAirLevelCollision();
-			PlayerKnuxClimb();
-			PlayerKnuxGlide();
+			if !GlideState and !ClimbState
+			{
+				// Not gliding or climbing
+				PlayerJump();
+				PlayerMovementAir();
+				PlayerLevelBound();
+				PlayerPosition();
+				PlayerSonicDropdash();
+				PlayerTailsFlight();
+				PlayerAirLevelCollision();
+			}
+			else
+			{
+				// Gliding or climbing
+				PlayerKnuxGlideControl();
+				PlayerLevelBound();
+				PlayerPosition();
+				PlayerKnuxClimb();
+				PlayerKnuxGlide();
+				PlayerResetOnFloor();
+				PlayerHitboxUpdate();
+			}
 			PlayerResetOnFloor();
 			PlayerHitboxUpdate();
 		}
-		else if Grounded and !Spinning
+		
+		// Grounded
+		else
 		{
-			if PlayerSpindash()  return;
-			if PlayerPeelout()   return;
-			if PlayerJumpStart() return;
-			PlayerSlopeResist();
-			PlayerMovementGround();
-			PlayerBalance();
-			PlayerGroundWallCollision();	
-			PlayerRollStart();
-			PlayerLevelBound();
-			PlayerPosition();
-			PlayerGroundFloorCollision();
-			PlayerSlopeRepel();
-			PlayerHitboxUpdate();
-		}
-		else if Grounded and Spinning
-		{
-			if PlayerJumpStart() return;
-			PlayerSlopeResistRoll();	
-			PlayerMovementRoll();
-			PlayerGroundWallCollision();
+			if !Spinning
+			{
+				// Not rolling
+				if PlayerSpindash()  return;
+				if PlayerPeelout()   return;
+				if PlayerJumpStart() return;
+				PlayerSlopeResist();
+				PlayerMovementGround();
+				PlayerBalance();
+				PlayerGroundWallCollision();	
+				PlayerRollStart();	
+			}
+			else
+			{
+				// Rolling
+				if PlayerJumpStart() return;
+				PlayerSlopeResistRoll();	
+				PlayerMovementRoll();
+				PlayerGroundWallCollision();
+			}
 			PlayerLevelBound();
 			PlayerPosition();
 			PlayerGroundFloorCollision();

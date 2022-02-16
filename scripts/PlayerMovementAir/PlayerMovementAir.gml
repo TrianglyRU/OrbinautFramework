@@ -16,11 +16,6 @@ function PlayerMovementAir()
 		Ysp = -15.75;
 	}
 	
-	if GlideState > GlideFall or ClimbState
-	{
-		return;
-	}
-	
 	if !AirLock
 	{
 		if Input.Left
