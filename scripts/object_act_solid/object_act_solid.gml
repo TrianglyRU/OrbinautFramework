@@ -157,11 +157,14 @@ function object_act_solid(sides,top,bottom,resetActions)
 						PosY    -= YDistance - 4;
 						OnObject = ObjectID;
 						Gsp		 = Xsp;
+						Ysp		 = 0;
 						Angle    = 360;
-						Grounded = true;
 						
-						// Call player script
-						PlayerResetOnFloor();
+						// Call player script if airborne
+						if !Grounded
+						{
+							Grounded = true; PlayerResetOnFloor();
+						}
 					}
 					Obj_SolidTouchU = true;
 				}

@@ -39,19 +39,12 @@ function PlayerResetOnFloor()
 		}
 		
 		// Reset flags
-		if !(OnObject and Ysp == 0)
-		{
-			Spinning = false;
-		}
-		if OnObject
-		{
-			Ysp = 0;
-		}
 		if Hurt
 		{
-			Hurt = false;	
+			Hurt = false;
 			Gsp  = 0;
 		}
+		Spinning		 = false;
 		Jumping			 = false;
 		AirLock			 = false;
 		Pushing			 = false;
@@ -132,7 +125,7 @@ function PlayerResetOnFloor()
 			}
 			
 			// Apply dropspeed
-			Gsp	    = Dropspeed;
+			Gsp			= Dropspeed;
 			DropdashRev = -1;
 			Spinning    = true;
 			Animation   = AnimSpin;

@@ -5,6 +5,75 @@ function PlayerBalance()
 		return;
 	}
 	
+	// Balance subfunctions
+	#region SubFunctions
+	{
+		// @subfunction PlayerBalanceLeft()
+		function PlayerBalanceLeft()
+		{
+			if global.Character == CharSonic and !SuperState
+			{
+				var FindFloor  = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
+				if  FindFloor >= 12
+				{
+					if Facing == FlipRight
+					{
+						Animation = AnimBalanceTurn;
+						Facing	  = FlipLeft;
+					}
+					else
+					{
+						Animation = AnimBalancePanic;
+					}
+				}
+			}
+			else
+			{
+				if Facing == FlipLeft
+				{
+					Animation = AnimBalance;
+				}
+				else if Facing == FlipRight
+				{
+					Animation = AnimBalanceFlip;
+				}
+			}
+		}
+		
+		// @subfunction PlayerBalanceRight()
+		function PlayerBalanceRight()
+		{
+			if global.Character == CharSonic and !SuperState
+			{
+				var FindFloor  = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
+				if  FindFloor >= 12
+				{
+					if Facing == FlipLeft
+					{
+						Animation = AnimBalanceTurn;
+						Facing	  = FlipRight;
+					}
+					else
+					{
+						Animation = AnimBalancePanic;
+					}
+				}
+			}
+			else
+			{
+				if Facing == FlipRight
+				{
+					Animation = AnimBalance;
+				}
+				else if Facing == FlipLeft
+				{
+					Animation = AnimBalanceFlip;
+				}
+			}
+		}
+	}
+	#endregion
+	
 	// Balance on floor
 	if !OnObject
 	{
@@ -32,89 +101,15 @@ function PlayerBalance()
 		{
 			return;
 		}
-	
-		// Balance on the left side
+		
+		// Balance!
 		if !FindAngle1
 		{	
-			if !SuperState and global.Character == CharSonic
-			{
-				// Use "panic balance" animation
-				var FindFloor  = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
-				if  FindFloor >= 12
-				{
-					if Facing == FlipRight
-					{
-						Animation = AnimBalanceTurn;
-						Facing	  = FlipLeft;
-					}
-					else
-					{
-						Animation = AnimBalancePanic;
-					}
-				}
-				
-				// Use two-sided balance animation
-				else
-				{
-					if Facing == FlipLeft
-					{
-						Animation = AnimBalance;
-					}
-					else if Facing == FlipRight
-					{
-						Animation = AnimBalanceFlip;
-					}
-				}
-			}
-			
-			// Use one-sided balance animation
-			else
-			{
-				Facing    = FlipLeft;
-				Animation = AnimBalance;
-			}
+			PlayerBalanceLeft();
 		}
-		
-		// Balance on the right side
 		else if !FindAngle2
 		{
-			if !SuperState and global.Character == CharSonic
-			{
-				// Use "panic balance" animation
-				var FindFloor  = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
-				if  FindFloor >= 12
-				{
-					if Facing == FlipLeft
-					{
-						Animation = AnimBalanceTurn;
-						Facing	  = FlipRight;
-					}
-					else
-					{
-						Animation = AnimBalancePanic;
-					}
-				}
-				
-				// Use two-sided balance animation
-				else
-				{
-					if Facing == FlipRight
-					{
-						Animation = AnimBalance;
-					}
-					else if Facing == FlipLeft
-					{
-						Animation = AnimBalanceFlip;
-					}
-				}
-			}
-			
-			// Use one-sided balance animation
-			else
-			{
-				Facing    = FlipRight;
-				Animation = AnimBalance;
-			}
+			PlayerBalanceRight();
 		}
 	}
 	
@@ -134,86 +129,14 @@ function PlayerBalance()
 		var PlayerX   = OnObject.Obj_SolidX - OnObject.x + floor(PosX);
 		var RightEdge = OnObject.Obj_SolidX * 2 - 1;
 		
-		// Balance on the left side
+		// Balance!
 		if PlayerX < 2
 		{
-			if !SuperState and global.Character == CharSonic
-			{
-				// Use "panic balance" animation
-				if PlayerX < -2
-				{
-					if Facing == FlipRight
-					{
-						Animation = AnimBalanceTurn;
-						Facing	  = FlipLeft;
-					}
-					else
-					{
-						Animation = AnimBalancePanic;
-					}
-				}
-				
-				// Use two-sided balance animation
-				else
-				{
-					if Facing == FlipLeft
-					{
-						Animation = AnimBalance;
-					}
-					else if Facing == FlipRight
-					{
-						Animation = AnimBalanceFlip;
-					}
-				}
-			}
-			
-			// Use one-sided balance animation
-			else
-			{
-				Facing    = FlipLeft;
-				Animation = AnimBalance;
-			}
+			PlayerBalanceLeft();
 		}
-		
-		// Balance on the right side
 		else if PlayerX > RightEdge - 2
 		{
-			if !SuperState and global.Character == CharSonic
-			{
-				// Use "panic balance" animation
-				if PlayerX > RightEdge + 2
-				{
-					if Facing == FlipLeft
-					{
-						Animation = AnimBalanceTurn;
-						Facing	  = FlipRight;
-					}
-					else
-					{
-						Animation = AnimBalancePanic;
-					}
-				}
-				
-				// Use two-sided balance animation
-				else
-				{
-					if Facing == FlipRight
-					{
-						Animation = AnimBalance;
-					}
-					else if Facing == FlipLeft
-					{
-						Animation = AnimBalanceFlip;
-					}
-				}
-			}
-			
-			// Use one-sided balance animation
-			else
-			{
-				Facing    = FlipRight;
-				Animation = AnimBalance;
-			}
+			PlayerBalanceRight();
 		}
 	}
 }

@@ -30,8 +30,8 @@
 				PlayerKnuxGlideControl();
 				PlayerLevelBound();
 				PlayerPosition();
-				PlayerKnuxClimb();
 				PlayerKnuxGlide();
+				PlayerKnuxClimb();
 			}
 			PlayerResetOnFloor();
 			PlayerHitboxUpdate();

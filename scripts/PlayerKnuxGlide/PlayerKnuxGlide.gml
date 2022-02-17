@@ -7,7 +7,7 @@ function PlayerKnuxGlide()
 	
 	// Collide with left wall
 	var FindWall = tile_find_h(PosX - RadiusX, PosY, false, true, Layer);
-	if  FindWall[0] < 0
+	if  FindWall[0] <= 0
 	{
 		if !(Xsp > 0)
 		{
@@ -19,7 +19,6 @@ function PlayerKnuxGlide()
 			{
 				Ysp		   = 0;
 				ClimbValue = 0;
-				GlideState = false;
 				ClimbState = ClimbWall;
 				Animation  = AnimClimb;
 
@@ -31,7 +30,7 @@ function PlayerKnuxGlide()
 			
 	// Collide with right wall
 	var FindWall = tile_find_h(PosX + RadiusX, PosY, true, true, Layer);
-	if  FindWall[0] < 0
+	if  FindWall[0] <= 0
 	{
 		if !(Xsp < 0)
 		{
@@ -43,7 +42,6 @@ function PlayerKnuxGlide()
 			{
 				Ysp		   = 0;
 				ClimbValue = 0;
-				GlideState = false;
 				ClimbState = ClimbWall;
 				Animation  = AnimClimb;
 			
@@ -149,6 +147,7 @@ function PlayerKnuxGlide()
 			{
 				// Adhere to the surface
 				PosY += FindFloor[0];
+				Angle = FindFloor[1];
 			}
 		}
 	}

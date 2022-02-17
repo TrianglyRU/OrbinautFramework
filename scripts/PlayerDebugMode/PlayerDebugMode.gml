@@ -36,7 +36,7 @@ function PlayerDebugMode()
 			DebugSpeed       =  0;
 			Xsp			     =  0;
 			Ysp			     =  0;
-			Gsp		     =  0;
+			Gsp				 =  0;
 			DoubleSpinAttack = SpinRecharge;
 			DropdashFlag	 = DashLocked;
 			Camera.Enabled   = true;

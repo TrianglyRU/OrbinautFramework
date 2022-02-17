@@ -333,6 +333,9 @@ function PlayerAnimate()
 				case AnimBalance:
 					animation_play(spr_tails_balance, 20, 0);
 				break;
+				case AnimBalanceFlip:
+					animation_play(spr_tails_balance_flip, 20, 0);
+				break;
 				case AnimTransform:
 					animation_play(spr_tails_transform, [6, 3, 3], 1);
 				break;
@@ -490,6 +493,9 @@ function PlayerAnimate()
 				break;
 				case AnimBalance:
 					animation_play(spr_knuckles_balance, [8, 8, 8, 8, 8, 8, 60, 12, 12, 8, 8, 8], 9);
+				break;
+				case AnimBalanceFlip:
+					animation_play(spr_knuckles_balance_flip, [8, 8, 8, 8, 60, 12, 12, 8, 8, 8], 7);
 				break;
 				case AnimTransform:
 					animation_play(spr_knuckles_transform, [6, 3, 3], 1);
