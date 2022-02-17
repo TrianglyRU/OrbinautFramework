@@ -1,6 +1,6 @@
 function PlayerKnuxGlide()
 {
-	if !AllowCollision
+	if !AllowCollision or ClimbState
 	{
 		return;
 	}

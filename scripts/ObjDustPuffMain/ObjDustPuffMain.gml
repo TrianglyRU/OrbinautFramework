@@ -1,7 +1,7 @@
 function ObjDustPuffMain()
 {
-	// Destroy on animation end
-	if image_index == 4
+	// Destroy on animation end or underwater
+	if image_index == 4 or y > Stage.WaterLevel
 	{
 		instance_destroy();
 	}

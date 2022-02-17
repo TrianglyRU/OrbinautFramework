@@ -70,18 +70,25 @@ function MenuManualProcess()
 				// If starting a new game, load into the first stage
 				if PreviousMenuID[MenuID] == 1
 				{
-					global.Lives	 = 3;
-					global.Continues = 0;
-					global.Emeralds  = 0;
-					global.Score	 = 0;
-					
-					if global.ActiveSave != -1
+					if StartStage != noone
 					{
-						gamedata_save(global.ActiveSave);
-					}
-					room_goto(StartStage);
+						global.Lives	 = 3;
+						global.Continues = 0;
+						global.Emeralds  = 0;
+						global.Score	 = 0;
 					
-					// Cancel MenuAutomaticProcess()
+						if global.ActiveSave != -1
+						{
+							gamedata_save(global.ActiveSave);
+						}
+						room_goto(StartStage);
+					}
+					else
+					{
+						audio_sfx_play(sfxFail, false);
+					}
+					
+					// Cancel MenuAutomaticProcess(). We shouldn't be sent to Room Select
 					return true;
 				}
 				
@@ -96,19 +103,23 @@ function MenuManualProcess()
 		{
 			if Input.APress or Input.StartPress
 			{	
-				global.Lives	 = 1;
-				global.Continues = 2;
-				global.Emeralds  = 7;
-				global.Score	 = 0;
-				
 				// Load into the game in "no-save" mode
 				if MenuRedirect[MenuID][OptionID] != noone
 				{
+					global.ActiveSave = -1;
+					global.Lives	  = 3;
+					global.Continues  = 2;
+					global.Emeralds   = 0;
+					global.Score	  = 0;
+					
 					room_goto(MenuRedirect[MenuID][OptionID]);
 				}
-				global.ActiveSave = -1;
+				else
+				{
+					audio_sfx_play(sfxFail, false);
+				}
 				
-				// Cancel MenuAutomaticProcess()
+				// Cancel MenuAutomaticProcess(). We shouln't load a MenuID with ID of our room
 				return true;
 			}
 		}

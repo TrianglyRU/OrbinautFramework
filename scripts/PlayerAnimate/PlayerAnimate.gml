@@ -18,7 +18,7 @@ function PlayerAnimate()
 	{
 		AnimStandTime = 16;
 	}
-	if Gsp > 0 and Input.Left or Gsp < 0 and Input.Right
+	if Grounded and Gsp > 0 and Input.Left or Gsp < 0 and Input.Right
 	{
 		AnimSkidTime = global.Character == CharKnuckles ? 16 : 24;
 	}
