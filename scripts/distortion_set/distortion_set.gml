@@ -23,12 +23,13 @@ function distortion_set(slot,distData,distScale,layers,boundType)
 	}
 	catch (Exception)
 	{
-		show_debug_message("\n=============================================\n"
-							+ "distortion_set() function didn't proceed, you \n"
-						    + "are missing the wave distortion effect! \n"
-							+ "\n"
-							+ "Please, install the effect from the Release Package you downloaded. \n"
-							+ "=============================================");
+		show_debug_message("\n"
+						   + "============================================= \n"
+						   + "distortion_set() function didn't proceed, you \n"
+						   + "are missing the wave distortion effect! \n"
+						   + "\n"
+						   + "Please, install the effect from the Release Package you downloaded. \n"
+						   + "=============================================");
 		DistortionEffect = noone;
 		DistortionBound  = 0;
 	}

@@ -5,7 +5,7 @@ function GameSetup()
 	global.StartRoom	   = Screen_DevMenu;
 	global.DevMode         = true;
 	global.ShowSplash      = false;
-	global.Width           = 428;
+	global.Width           = 424;
 	global.Height		   = 240;
 	global.ScreenBuffer    = 8;
 	global.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
@@ -13,21 +13,22 @@ function GameSetup()
 	/* Default volume, screen size and fullscreen mode 
 	are set in gamesettings_load() script */
 	
-	// Originals differences
+	// Originals differences. By defualt, the framework is in a mix of S2 and S3(K) state
 	global.SpindashEnabled    = true;
-	global.PeeloutEnabled	  = true;
+	global.PeeloutEnabled	  = false;
 	global.DropdashEnabled    = false;
 	global.DSpinAttackEnabled = false;
 	global.GroundSpeedcap	  = false;
 	global.AirSpeedcap	      = false;
 	global.RolljumpControl    = false;
-	global.S1FloorCollision	  = false;
+	global.S2SpringBehaviour  = true;
+	global.S2FloorCollision	  = true;
 	global.S3SlopePhysics	  = false;
 	global.S3WaterPhysics     = false;
 	global.S3DeathRestart     = false;
 	global.SKCrouch			  = false;
-	global.SKRollDeceleration = false;
-	global.SKWallCollision	  = false;
+	global.SKRollDeceleration = true;
+	global.SKWallCollision	  = true;
 	global.SKItemBoxBehaviour = false;
 	global.CDStageTimer	      = false;
 	global.CDCamera			  = false;

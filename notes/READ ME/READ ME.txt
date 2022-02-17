@@ -1,28 +1,3 @@
 
-	Welcome to Orbinaut Framework!
-	
-	If you have downloaded the master branch only please, download the release package,
-	as it includes our Tile Editor and PDF Handbook. It is always available at this link:
-	
-	https://github.com/TrianglyRU/OrbinautFramework/releases
-	
-	First of all, RENAME THE PROJECT if you didn't! You can do that by going to File -> Save Project As.
-	You have to do that to avoid any conflicts between different projects running on Orbinaut.
-	
-	If you encounter any glitch/bug/inaccuracy and are familiar with GitHub:
-	- if you find the way to fix it, you may pull request to our repository;
-	- if you can't fix it, please, create an issue.
-	
-	QUICK START:
-	- You can setup various framework flags in GameSetup();
-	- Do not create a new room for your stage, just dublicate Stage_Template room and then rename it;
-	- Your new stage can be set up in StageSetup();
-	- When creating a new stage, you SHOULD initialise a collision tileset for it in GameCollisionsSetup();
-	- When creating a new stage, you can also initialise a palette sheet for it, if needed, in PaletteSetup();
-	- When in DevMode, you can use keys F1-F12. F4 is always enabled and toggles fullscreen.
-	- If you get an error like "can't open the file" when trying to run the project, run GMS2 as Administrator;
-	
-	Thank you for choosing our framework <3
-	Make sure to join our Discord community for more help & awesome guides: https://discord.gg/vyNr2MmjbJ
-	
-	- Triangly, MicG
+	THIS IS A DEV VERSION AND SHOULDN'T BE USED FOR
+	ACTIVE FANGAME DEVELOPMENT. USE IT ONLY FOR LEARNING PURPOSES!

@@ -138,7 +138,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = global.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
+				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
@@ -168,7 +168,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = global.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
+				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
@@ -198,7 +198,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = global.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
+				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
@@ -228,7 +228,7 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = global.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
+				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove

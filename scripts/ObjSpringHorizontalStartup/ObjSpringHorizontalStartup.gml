@@ -10,6 +10,10 @@ function ObjSpringHorizontalStartup()
 	}
 	
 	// Set object properties
+	if global.S2SpringBehaviour
+	{
+		object_set_triggerbox(0 - !image_xscale * 40, 40 - !image_xscale * 40, -24, 24);
+	}
 	object_set_unload(FlagPause);
 	object_set_depth(Player, 0);
 	object_set_solidbox(8, 16, false);

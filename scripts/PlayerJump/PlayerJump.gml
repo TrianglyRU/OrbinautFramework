@@ -31,20 +31,17 @@ function PlayerJump()
 	
 	/* Everything below is special mid-jump actions */
 	
-	// Do not perform anything if action button hasn't been released just yet
 	if Ysp < JumpMin or !Input.ABCPress
 	{
 		return;
 	}
 	
-	// Transform into super form
+	// Transform into the super form
 	if global.Emeralds == 7 and !SuperState and Rings >= 50 and !Stage.IsFinished
 	{
-		// Make sure we don't have elemental barrier if we're Sonic
 		if global.Character == CharSonic and BarrierType <= BarrierNormal
 		or global.Character != CharSonic
 		{
-			// Set animation
 			Animation		    = AnimTransform;
 			InvincibilityFrames = 0;
 			Jumping				= false;
@@ -94,6 +91,8 @@ function PlayerJump()
 			// Perform barrier action
 			else if !(InvincibleBonus or BarrierIsActive or SuperState)
 			{	
+				BarrierIsActive = true;
+				
 				switch BarrierType
 				{
 					case BarrierFlame:
@@ -107,7 +106,7 @@ function PlayerJump()
 						Xsp		= 8 * Facing;
 						Ysp		= 0;
 												
-						// Update barrier animation
+						// Update barrier
 						with Barrier
 						{
 							object_set_depth(Player, 1);
@@ -141,7 +140,7 @@ function PlayerJump()
 						Xsp		= 0;
 						Ysp		= 8;
 						
-						// Update barrier animation
+						// Update barrier
 						with Barrier
 						{
 							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0);
@@ -151,58 +150,44 @@ function PlayerJump()
 					}
 					break;
 				}
-					
-				// Set flag
-				BarrierIsActive = true;
 			}
 		}
 		break;
 		case CharTails:
 		{
-			// Reset collision radiuses
-			RadiusX = DefaultRadiusX;
-			RadiusY = DefaultRadiusY;
-				
-			// Set flags
+			RadiusX		= DefaultRadiusX;
+			RadiusY		= DefaultRadiusY;
 			AirLock     = false;
 			Jumping     = false;
 			Spinning    = false;
 			FlightState = true;
 			FlightValue = 480;
 			Grv			= 0.03125;
-				
-			// Play sound
+			
 			if !IsUnderwater
 			{
 				audio_sfx_play(sfxFlying, true);
 			}
 				
-			// Clear action buttons
 			Input.ABC      = false;
 			Input.ABCPress = false;
 		}
 		break;
 		case CharKnuckles:
 		{
-			// Set collision radiuses
-			RadiusX = 10;
-			RadiusY = 10;
-				
-			// Set speeds
-			Gsp = 0;
-			Xsp = 4 * Facing;
-			Ysp = Ysp <= 0 ? 0 : Ysp + 2;
-				
-			// Set flags
+			Gsp		= 0;
+			Xsp		= 4 * Facing;
+			Ysp		= Ysp <= 0 ? 0 : Ysp + 2;
+			
+			RadiusX		   = 10;
+			RadiusY		   = 10;
 			AirLock        = false;
 			Jumping        = false;
 			Spinning       = false;
+			Animation	   = AnimGlide;
 			GlideState     = GlideAir;
 			GlideDirection = Facing;
 			GlideValue     = Facing == FlipLeft ? 0 : 180;
-				
-			// Set animation
-			Animation = AnimGlide;
 		}
 		break;
 	}

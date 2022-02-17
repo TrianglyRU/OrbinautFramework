@@ -3,17 +3,31 @@ function ObjSpringHorizontalMain()
 	// Do collision
 	object_act_solid(true, true, true, false);
 	
-	// Launch player
-	if Player.Grounded and object_check_touch(image_xscale ? ColSolidR : ColSolidL)
+	// Check for overlap
+	if !global.S2SpringBehaviour
 	{
-		Player.Xsp	      = image_xscale * LaunchForce;
-		Player.Facing     = image_xscale;	
-		Player.Gsp    = Player.Xsp;
-		Player.Pushing    = false;
-		Player.GroundLock = 16;
-		Player.Animation  = Player.Spinning ? AnimSpin : AnimMove;
+		var TouchCheck = object_check_touch(image_xscale ? ColSolidR : ColSolidL);
+	}
+	else
+	{
+		var TouchCheck = object_check_touch(image_xscale ? ColSolidR : ColSolidL)
+					  or object_check_touch(ColTrigger) and Player.Facing == image_xscale;			
+	}
+	
+	// Launch player
+	if Player.Grounded and TouchCheck
+	{
+		if image_index + 1 == image_number
+		{
+			Player.Xsp	      = image_xscale * LaunchForce;
+			Player.Facing     = image_xscale;	
+			Player.Gsp		  = Player.Xsp;
+			Player.Pushing    = false;
+			Player.GroundLock = 16;
+			Player.Animation  = Player.Spinning ? AnimSpin : AnimMove;
 			
-		animation_reset(1);
-		audio_sfx_play(sfxSpring, false);
+			animation_reset(1);
+			audio_sfx_play(sfxSpring, false);
+		}
 	}
 }
