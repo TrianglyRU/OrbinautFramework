@@ -9,7 +9,7 @@ function ObjFloatingPlatformMain()
 			
 			if object_check_touch(ColSolidU)
 			{
-				if DoFall == 1
+				if DoFall and DoFall != 2
 				{
 					// Increment flag
 					DoFall = 2;
@@ -29,11 +29,12 @@ function ObjFloatingPlatformMain()
 			{
 				if (++Timer) == 30
 				{
+					DoFall += 1;
 					State  += 1;
 					Timer   = 32;
 					OriginY = OriginY + Weight;
 					
-					object_set_unload(FlagDelete);
+					object_set_unload(FlagReset);
 				}
 			}
 			
@@ -78,6 +79,11 @@ function ObjFloatingPlatformMain()
 		break;
 		case 1:
 		{
+			if y > Stage.BottomBoundary
+			{
+				break;
+			}
+			
 			FallSpeed += 0.21875;
 			OriginY   += FallSpeed;
 
@@ -88,7 +94,7 @@ function ObjFloatingPlatformMain()
 			{
 				if object_check_touch(ColSolidU)
 				{
-					//Player.PosY	   += FallSpeed;
+					Player.Ysp		= FallSpeed;
 					Player.OnObject = false;
 					Player.Grounded = false;
 				}

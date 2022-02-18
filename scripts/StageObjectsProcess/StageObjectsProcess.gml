@@ -32,7 +32,7 @@ function StageObjectsProcess()
 				// Deactivate object
 				case FlagPause:
 				{
-					if x < LeftBound or x > RightBound
+					if (x < LeftBound or x > RightBound) and (Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound)
 					{
 						var Length = array_length(Obj_ChildrenIDs);
 						if  Length
