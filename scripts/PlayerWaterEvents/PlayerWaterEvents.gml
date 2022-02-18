@@ -103,12 +103,12 @@ function PlayerWaterEvents()
 			{
 				Death = true;
 			}
-			
-			// If we have a barrier, destroy it
-			if BarrierType == BarrierFlame or BarrierType == BarrierThunder
-			{
-				BarrierType = false;
-			}
+		}
+		
+		// If we have a barrier, destroy it
+		if BarrierType == BarrierFlame or BarrierType == BarrierThunder
+		{
+			BarrierType = false;
 		}
 	
 		// Check for leaving the water
@@ -146,7 +146,7 @@ function PlayerWaterEvents()
 			IsUnderwater = false;	
 			AirTimer     = 1800;
 			
-			// Reset gravity and double vertical speed
+			// Reset Tails' gravity and double vertical speed
 			if !Hurt and GlideState != GlideAir
 			{
 				if !global.S3WaterPhysics
@@ -154,7 +154,6 @@ function PlayerWaterEvents()
 				{
 					Ysp *= 2;
 				}
-				
 				if Ysp < -16
 				{
 					Ysp = -16;
@@ -165,14 +164,13 @@ function PlayerWaterEvents()
 					Grv = 0.21875;
 				}
 			}
-			
 			if FlightState
 			{
 				audio_sfx_play(sfxFlying, true);
 			}
 			
 			// Create splash object
-			if !Grounded and !ClimbState
+			if !Grounded and !ClimbState and GlideState != GlideGround
 			{
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				audio_sfx_play(sfxWaterSplash, false);
