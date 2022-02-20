@@ -26,6 +26,6 @@ function RendererDistortionProcess()
 	}
 	
 	// Process effect
-	fx_set_parameter(DistortionEffect, "g_Time",  DistortionTimer);
+	fx_set_parameter(DistortionEffect, "g_Time",  DistortionTimer + Camera.ViewY);
 	fx_set_parameter(DistortionEffect, "g_Bound", Bound);
 }

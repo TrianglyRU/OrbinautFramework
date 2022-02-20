@@ -6,12 +6,12 @@ function StageWaterSurfaceDraw()
     }
 	
 	// Calculate offsets
-	var XOffset = dcos((Renderer.AnimationTime[? GlobalTime] + 90) / 2 mod 360) * 32;
-	var YOffset = dsin( Renderer.AnimationTime[? GlobalTime]		   mod 360) / 6.75;
+	static XOffset = 0;
 	
-	if Renderer.UpdateAnimations
+	if Stage.UpdateObjects
 	{
-		WaterLevel -= YOffset;
+		XOffset		= dcos((Renderer.AnimationTime[? GlobalTime] + 90) / 2 mod 360) * 32;
+		WaterLevel -= dsin( Renderer.AnimationTime[? GlobalTime]		   mod 360) / 6.75;
 	}
 	var Width = sprite_get_width(tex_water_surface);
 
