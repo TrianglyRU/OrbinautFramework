@@ -11,6 +11,16 @@ function PlayerBalance()
 		// @subfunction PlayerBalanceLeft()
 		function PlayerBalanceLeft()
 		{
+			if Facing == FlipLeft
+			{
+				Animation = AnimBalance;
+			}
+			else if Facing == FlipRight
+			{
+				Animation = AnimBalanceFlip;
+			}
+			
+			// Play additional animations for Sonic
 			if global.Character == CharSonic and !SuperState
 			{
 				var FindFloor  = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
@@ -27,22 +37,21 @@ function PlayerBalance()
 					}
 				}
 			}
-			else
-			{
-				if Facing == FlipLeft
-				{
-					Animation = AnimBalance;
-				}
-				else if Facing == FlipRight
-				{
-					Animation = AnimBalanceFlip;
-				}
-			}
 		}
 		
 		// @subfunction PlayerBalanceRight()
 		function PlayerBalanceRight()
 		{
+			if Facing == FlipRight
+			{
+				Animation = AnimBalance;
+			}
+			else if Facing == FlipLeft
+			{
+				Animation = AnimBalanceFlip;
+			}
+			
+			// Play additional animations for Sonic
 			if global.Character == CharSonic and !SuperState
 			{
 				var FindFloor  = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
@@ -57,17 +66,6 @@ function PlayerBalance()
 					{
 						Animation = AnimBalancePanic;
 					}
-				}
-			}
-			else
-			{
-				if Facing == FlipRight
-				{
-					Animation = AnimBalance;
-				}
-				else if Facing == FlipLeft
-				{
-					Animation = AnimBalanceFlip;
 				}
 			}
 		}
@@ -118,6 +116,7 @@ function PlayerBalance()
 	{
 		/* In orginals, the widest balance range varies from 
 		object to object (2 to 4). We'll use a range of 2 pixels */
+		var Tolerance = 2;
 		
 		// Ignore specific objects
 		if OnObject.object_index == Bridge
@@ -130,11 +129,11 @@ function PlayerBalance()
 		var RightEdge = OnObject.Obj_SolidX * 2 - 1;
 		
 		// Balance!
-		if PlayerX < 2
+		if PlayerX < Tolerance
 		{
 			PlayerBalanceLeft();
 		}
-		else if PlayerX > RightEdge - 2
+		else if PlayerX > RightEdge - Tolerance
 		{
 			PlayerBalanceRight();
 		}
