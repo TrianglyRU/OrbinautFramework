@@ -8,13 +8,13 @@ function InterfaceDebugSensorsDraw()
 		return;
 	}
 	
+	layer_set_visible(layer_get_id(global.TileLayers[2]), DebugSensors and Player.Layer == LayerA);
+	layer_set_visible(layer_get_id(global.TileLayers[3]), DebugSensors and Player.Layer == LayerB);
+	
 	if !DebugSensors
 	{
 		return;
 	}
-	
-	layer_set_visible(layer_get_id(global.TileLayers[2]), DebugSensors and Player.Layer == LayerA);
-	layer_set_visible(layer_get_id(global.TileLayers[3]), DebugSensors and Player.Layer == LayerB);
 	
 	draw_set_alpha(0.5);
 	draw_rectangle_colour(Camera.ViewX, Camera.ViewY, Camera.ViewX + global.Width, Camera.ViewY + global.Height,

@@ -72,6 +72,6 @@ function PlayerMovementRoll()
 	}
 	else if Gsp == 0
 	{
-		Gsp = 4 * Facing;
+		Gsp = 2 * Facing;
 	}
 }
