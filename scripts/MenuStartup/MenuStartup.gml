@@ -3,8 +3,8 @@ function MenuStartup()
 	// Set default data for 20 MenuIDs
 	for (var i = 0; i < 20; i++)
 	{
-		MenuSize[i]	      = 0;
 		MenuHeader[i]	  = "TEMPLATE HEADER";
+		MenuSize[i]	      = 0;
 		PreviousMenuID[i] = 0;
 	}
 	

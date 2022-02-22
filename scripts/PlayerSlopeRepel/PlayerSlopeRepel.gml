@@ -10,38 +10,32 @@ function PlayerSlopeRepel()
 	{
 		GroundLock--;
 	}
+	
+	// Check if we are on a steep slope and going slow
 	else
 	{
-		// Check if we are on a steep slope and going slow
 		if !global.S3SlopePhysics
 		{	
 			// Angle check here is different in comparison to collision mode checks
 			if Angle >= 46.41 and Angle <= 315 and abs(Gsp) < 2.5
 			{	
 				Grounded   = false;
-				Gsp    = 0;
-				
-				// Lock horizontal control for 30 frames
-				GroundLock = 30;		
+				GroundLock = 30;
+				Gsp		   = 0;		
 			} 
 		}
 		else
 		{
 			if Angle >= 35.16 and Angle <= 326.25 and abs(Gsp) < 2.5
 			{
-				// Fall off the slope
 				if Angle >= 68.91 and Angle <= 292.5
 				{
 					Grounded = false;
 				}
-				
-				// Slide down the slope
 				else
 				{
 					Gsp += Angle > 180 ? 0.5 : -0.5;
 				}
-				
-				// Lock horizontal input controls for 30 frames
 				GroundLock = 30;
 			}
 		}	

@@ -14,7 +14,7 @@ function gamedata_save(slot)
 		
 		/* The function saves data in the following order:
 		- Character
-		- Stage (ZoneID)
+		- Zone ID
 		- Emeralds
 		- Lives
 		- Continues
@@ -23,7 +23,7 @@ function gamedata_save(slot)
 		*/
 		
 		file_bin_write_byte(File, global.Character); 
-		file_bin_write_byte(File, global.Stage);	  
+		file_bin_write_byte(File, global.ZoneID);	  
 		file_bin_write_byte(File, global.Emeralds); 
 		file_bin_write_byte(File, global.Lives);
 		file_bin_write_byte(File, global.Continues); 

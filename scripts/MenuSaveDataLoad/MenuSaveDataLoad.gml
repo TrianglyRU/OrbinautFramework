@@ -1,7 +1,7 @@
 function MenuSaveDataLoad()
 {
 	for (var i = 0; i < 4; i++)
-	{
+	{	
 		// If empty, display as "new game" slot
 		if global.SaveData[i] == 0
 		{
@@ -11,7 +11,14 @@ function MenuSaveDataLoad()
 		// If has data, setup stuff
 		else
 		{
-			switch global.SaveData[i][0]
+			var DataCharacter = global.SaveData[i][0];
+			var DataZone      = global.SaveData[i][1];
+			var DataEmeralds  = global.SaveData[i][2];
+			var DataLives     = global.SaveData[i][3];
+			var DataConts     = global.SaveData[i][4];
+			var GameCleared   = global.SaveData[i][5];
+		
+			switch DataCharacter
 			{
 				case 0:
 					var DataCharacter = "S";
@@ -26,11 +33,6 @@ function MenuSaveDataLoad()
 					var DataCharacter = "UNK";
 				break;
 			}
-			var DataZone     = global.SaveData[i][1];
-			var DataEmeralds = global.SaveData[i][2];
-			var DataLives    = global.SaveData[i][3];
-			var DataConts    = global.SaveData[i][4];
-			var GameCleared  = global.SaveData[i][5];
 
 			// Set information to display
 			if !GameCleared

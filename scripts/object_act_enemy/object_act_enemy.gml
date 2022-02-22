@@ -6,10 +6,10 @@ function object_act_enemy(enemyType)
 		return false;
 	}
 	
-	// Check if player can damage enemy by gliding, spinning or spindashing
+	// Check if player can damage our enemy
 	var SpinCheck       = Player.Spinning    or Player.SpindashRev != -1;
 	var InvincibleCheck = Player.SuperState  or Player.InvincibleBonus;
-	var ActionCheck	    = Player.FlightState and floor(Player.PosY) > y and Player.Ysp < 0 or Player.GlideState > GlideFall;
+	var ActionCheck	    = Player.FlightState and floor(Player.PosY) > y or Player.GlideState > GlideFall;
 	
 	// Damage enemy
 	if ActionCheck or SpinCheck or InvincibleCheck    

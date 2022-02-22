@@ -1,6 +1,9 @@
 function StageStartup()
 {
 	// Initialise variables
+	RightBoundary  =  room_width;
+	LeftBoundary   =  0;
+	TopBoundary	   =  0;
 	RestartTimer   =  0;
 	RestartEvent   =  0;
 	IsFinished	   =  0;
@@ -11,8 +14,7 @@ function StageStartup()
 	OscillateAngle =  1.40625;
 	UpdateObjects  =  false;
 	
-	// Store current zone ID and room index
-	global.Stage     = ZoneID;
+	// Remember current room index
 	global.StageRoom = room;
 	
 	// Set bubble wobble data

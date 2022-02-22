@@ -56,7 +56,7 @@ function GameSetup()
 	global.Lives		   = 0;
 	global.Continues	   = 0;
 	global.Emeralds	       = 0;
-	global.Stage		   = 0;
+	global.ZoneID		   = 0;
 	global.StageRoom       = 0;
 	global.SpecialScore    = 0;
 	global.SpecialState    = 0;

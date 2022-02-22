@@ -1,15 +1,17 @@
 function MenuSetup()
 {
-	/* List of the first acts of each zone in their gameplay order. 
-	Use 'noone' to fill the blank zones */
+	/* The game will use global.ZoneID of the selected saveslot as an index for this array,
+	and therefore it should contain the first acts of your zones in their gameplay order
+	
+	Use 'noone' to fill the blanks slots for the zones that do not exist yet */
 	ZoneOrder =
 	[
-		Stage_TVZ,
+		noone,
 		noone,
 		noone,
 		noone
 	];
-	StartStage = Stage_TVZ;
+	StartStage = noone;
 	
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");

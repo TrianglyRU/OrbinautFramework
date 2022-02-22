@@ -13,7 +13,7 @@ function gamedata_load(slot)
 		
 		/* The function reads data in the following order:
 		- Character
-		- Stage (ZoneID)
+		- Stage
 		- Emeralds
 		- Lives
 		- Continues

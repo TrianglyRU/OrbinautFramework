@@ -17,7 +17,7 @@ function PlayerStartup()
 	Ysp					= 0;
 	Gsp					= 0;
 	SlopeGravity        = 0;
-	Angle				= 0;	
+	Angle				= 0;
 	GroundLock			= 0;
 	AirLock				= 0;
 	ForcedRoll			= 0;

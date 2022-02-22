@@ -10,16 +10,16 @@ function StageEndProcess()
 	global.SpecialRingList = [];
 	global.StarPostData	   = [];
 	
-	if IsLastZoneAct = true and global.ActiveSave != -1
+	if SaveProgress and global.ActiveSave != -1
 	{
-		if ZoneID == FinalZoneID
+		if IsFinalStage
 		{
-			// Mark savefile as completed if this was the last zone
+			// Mark savefile as completed if this was the last stage
 			global.SaveState = 1;
 		}
 		else
 		{
-			global.Stage++;
+			global.ZoneID++;
 		}
 		
 		// Save our progress

@@ -20,16 +20,14 @@ function MenuManualProcess()
 				// Set active saveslot (no-save slot will be -1)
 				global.ActiveSave = OptionID - 1;
 				
-				// Read saveslot1-saveslot4 data
-				if OptionID > 0 and OptionID < 5
-				{
+				if OptionID >= 1 and OptionID <= 4
+				{	
+					// If saveslot isn't empty, load into the game
 					var Slot = global.SaveData[global.ActiveSave];
-					
-					// If file isn't empty, load into the game
 					if  Slot != 0
 					{
 						global.Character = Slot[0];
-						global.Stage	 = Slot[1];
+						global.ZoneID	 = Slot[1];
 						global.Emeralds  = Slot[2];
 						global.Lives	 = Slot[3];
 						global.Continues = Slot[4];
@@ -38,18 +36,24 @@ function MenuManualProcess()
 						
 						if !global.SaveState
 						{
-							if ZoneOrder[global.Stage] != noone
+							if ZoneOrder[global.ZoneID] != noone
 							{
-								room_goto(ZoneOrder[global.Stage]);
+								room_goto(ZoneOrder[global.ZoneID]);
 							}
 							else
 							{
+								show_debug_message("\n"
+											     + "============================================= \n"
+											     + "NO STAGE FOUND! \n"
+											     + "\n"
+											     + "Index " + string(global.ZoneID) + " of ZoneOrder array isn't assigned \n"
+											     + "=============================================");
 								audio_sfx_play(sfxFail, false);
 							}
 						}
 						else
 						{
-							// Load into the in-game stage select
+							// Load into the in-game stage select?
 						}
 						
 						// Cancel MenuAutomaticProcess()
@@ -76,6 +80,8 @@ function MenuManualProcess()
 						global.Continues = 0;
 						global.Emeralds  = 0;
 						global.Score	 = 0;
+						global.ZoneID    = 0;
+						global.SaveState = 0;
 					
 						if global.ActiveSave != -1
 						{
@@ -85,6 +91,12 @@ function MenuManualProcess()
 					}
 					else
 					{
+						show_debug_message("\n"
+									     + "============================================= \n"
+										 + "NO STAGE FOUND! \n"
+										 + "\n"
+										 + "StartStage is currently set to NOONE \n"
+										 + "=============================================");
 						audio_sfx_play(sfxFail, false);
 					}
 					
@@ -107,10 +119,12 @@ function MenuManualProcess()
 				if MenuRedirect[MenuID][OptionID] != noone
 				{
 					global.ActiveSave = -1;
-					global.Lives	  = 3;
-					global.Continues  = 2;
-					global.Emeralds   = 0;
-					global.Score	  = 0;
+					global.Lives	  =  3;
+					global.Continues  =  2;
+					global.Emeralds   =  0;
+					global.Score	  =  0;
+					global.ZoneID     =  0;
+					global.SaveState  =  0;
 					
 					room_goto(MenuRedirect[MenuID][OptionID]);
 				}

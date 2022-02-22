@@ -10,24 +10,12 @@ function PlayerSlopeResist()
 	SlopeGravity = 0.125 * dsin(Angle);
 	
 	// Apply it
-	if !global.S3SlopePhysics
+	if Gsp != 0
 	{
-		if Gsp != 0
-		{
-			Gsp -= SlopeGravity;
-		}
+		Gsp -= SlopeGravity;
 	}
-	else
+	else if global.S3SlopePhysics and abs(SlopeGravity) > 0.05078125
 	{
-		if Gsp != 0
-		{
-			Gsp -= SlopeGravity;
-		}
-		
-		// If moving, subtract slope gravity only if it is greater than 0.05078125
-		else if abs(SlopeGravity) > 0.05078125
-		{
-			Gsp -= SlopeGravity;
-		}
+		Gsp -= SlopeGravity;
 	}
 }
