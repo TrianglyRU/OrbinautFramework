@@ -4,14 +4,12 @@ function PlayerDisplay()
 	y		     = floor(PosY);
 	image_angle  = VisualAngle;
 	
-	// Update xscale once animation frame updates
-	if Obj_AnimTimer + 1 == Obj_AnimDuration or Obj_AnimTimer <= 1
+	// If spinning, update xscale once animation frame updates (always applied in Sonic 1)
+	if Animation != AnimSpin or Obj_AnimTimer + 1 == Obj_AnimDuration or Obj_AnimTimer <= 1
 	{
 		image_xscale = Facing;
-	}
-	
-	// Fix that one pixel offset when facing left
-	if Facing == FlipLeft
+	}	
+	if image_xscale == FlipLeft
 	{
 		x++;
 	}
