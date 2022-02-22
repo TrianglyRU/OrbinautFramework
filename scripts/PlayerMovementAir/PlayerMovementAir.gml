@@ -36,11 +36,7 @@ function PlayerMovementAir()
 				}
 			}
 			
-			// If spinning, flip only once animation frame has been updated (always applied in Sonic 1)
-			if Animation != AnimSpin or Obj_AnimTimer <= 1
-			{
-				Facing = FlipLeft;
-			}
+			Facing = FlipLeft;
 		}
 		if Input.Right
 		{	
@@ -60,17 +56,13 @@ function PlayerMovementAir()
 				}
 			}
 			
-			// If spinning, flip only once animation frame has been updated (always applied in Sonic 1)
-			if Animation != AnimSpin or Obj_AnimTimer <= 1
-			{
-				Facing = FlipRight;
-			}
+			Facing = FlipRight;
 		}	
 	}
 	
 	// Apply air drag
 	if Ysp < 0 and Ysp > -4 and !Hurt
 	{
-		Xsp -= floor(Xsp/0.125) / 256;
+		Xsp -= floor(Xsp / 0.125) / 256;
 	}
 }
