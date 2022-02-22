@@ -35,7 +35,12 @@ function PlayerMovementAir()
 					Xsp = -TopAcc;
 				}
 			}
-			Facing = FlipLeft;
+			
+			// If spinning, flip only once animation frame has been updated (always applied in Sonic 1)
+			if Animation != AnimSpin or Obj_AnimTimer <= 1
+			{
+				Facing = FlipLeft;
+			}
 		}
 		if Input.Right
 		{	
@@ -54,7 +59,12 @@ function PlayerMovementAir()
 					Xsp = TopAcc;
 				}
 			}
-			Facing = FlipRight;
+			
+			// If spinning, flip only once animation frame has been updated (always applied in Sonic 1)
+			if Animation != AnimSpin or Obj_AnimTimer <= 1
+			{
+				Facing = FlipRight;
+			}
 		}	
 	}
 	
