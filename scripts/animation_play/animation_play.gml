@@ -19,7 +19,7 @@ function animation_play(spriteid,duration,loopframe)
 	}
 	else 
 	{
-		// Update frame duration
+		// Update target frame duration
 		if !is_array(duration) and Obj_AnimDuration != duration
 		or  is_array(duration) and !is_array(Obj_AnimDuration)
 		{
@@ -38,7 +38,7 @@ function animation_play(spriteid,duration,loopframe)
 			}
 		}
 		
-		// Update looping frame
+		// Update target loop frame
 		if Obj_AnimLoopframe != loopframe
 		{
 			Obj_AnimLoopframe = loopframe;

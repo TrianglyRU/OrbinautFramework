@@ -68,13 +68,5 @@ function InterfaceOverlayDraw()
 	draw_set_font(Font.FontDigits2);
 	draw_text(X + 68, Y + global.Height - 12, Player.Lives);
 	
-	if global.Character == CharSonic
-	{
-		var SpriteFrame = Player.SuperState ? 3 : global.Character;
-	}
-	else
-	{
-		var SpriteFrame = global.Character;
-	}
-	draw_sprite(gui_hud_lives, SpriteFrame, X + 40, Y + global.Height - 16);
+	draw_sprite(gui_hud_lives, global.Character, X + 40, Y + global.Height - 16);
 }

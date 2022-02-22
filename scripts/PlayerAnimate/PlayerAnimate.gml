@@ -20,7 +20,7 @@ function PlayerAnimate()
 	}
 	if Grounded and Gsp > 0 and Input.Left or Gsp < 0 and Input.Right
 	{
-		AnimSkidTime = global.Character == CharKnuckles ? 16 : 24;
+		AnimSkidTime = global.Character == CharSonic ? 24 : 16;
 	}
 	
 	// Animate character
@@ -29,129 +29,139 @@ function PlayerAnimate()
 		#region Sonic
 		case CharSonic:
 		{
-			if !SuperState
+			// Regular Sonic
+			if !SuperState then switch Animation
 			{
-				switch Animation
+				case AnimIdle:
 				{
-					case AnimIdle:
+					animation_play(spr_sonic_idle, [288, 24, 48, 24, 24], 3);
+				}
+				break;
+				case AnimMove:	
+				{
+					if abs(Gsp) < 6
 					{
-						animation_play(spr_sonic_idle, [288, 24, 48, 24, 24], 3);
+						animation_play(spr_sonic_walk, floor(max(1, 9 - abs(Gsp))), 0);
 					}
-					break;
-					case AnimMove:	
+					else
 					{
-						if abs(Gsp) < 6
+						if global.PeeloutEnabled
 						{
-							animation_play(spr_sonic_walk, round(max(1, 8 - abs(Gsp))), 0);
+							var Sprite = abs(Gsp) < 10 ? spr_sonic_run : spr_sonic_peelout;
 						}
 						else
-						{
-							if global.PeeloutEnabled
-							{
-								var Sprite = abs(Gsp) < 10 ? spr_sonic_run : spr_sonic_peelout;
-							}
-							else
-							{
-								var Sprite = spr_sonic_run;
-							}
-							animation_play(Sprite, round(max(1, 9 - abs(Gsp))), 0);
-						}
-					}
-					break;
-					case AnimPeelout:
-					{
-						if abs(PeeloutRev) < 6
-						{
-							var Sprite = spr_sonic_walk;
-						}
-						else if abs(PeeloutRev) < 10
 						{
 							var Sprite = spr_sonic_run;
 						}
-						else
-						{
-							var Sprite = spr_sonic_peelout;
-						}	
-						animation_play(Sprite, round(max(1, 8 - abs(PeeloutRev))), 0);
+						animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
 					}
-					break;
-					case AnimSpin:
-						animation_play(abs(Gsp) < 6 ? spr_sonic_spin : spr_sonic_spin_fast, round(max(1, 5 - abs(Gsp))), 0);
-					break;
-					case AnimSpindash:
-						animation_play(spr_sonic_spindash, 1, 0);
-					break;
-					case AnimCrouch:
-						animation_play(spr_sonic_crouch, 4, 1);
-					break;
-					case AnimLookup:
-						animation_play(spr_sonic_lookup, 4, 1);
-					break;
-					case AnimSkid:
-					{
-						if !(--AnimSkidTime)
-						{
-							Animation = AnimMove;
-						}
-						else
-						{
-							animation_play(spr_sonic_skid, 6, 2);
-						}
-					}
-					break;
-					case AnimPush:
-						animation_play(spr_sonic_push, round(max(1, 8 - abs(Gsp)) * 4), 0);
-					break;
-					case AnimHurt:
-						animation_set(spr_sonic_hurt, 0);
-					break;
-					case AnimDeath:
-						animation_set(spr_sonic_death, 0);
-					break;	
-					case AnimDrown:
-						animation_set(spr_sonic_drown, 0);
-					break;
-					case AnimBalance:
-						animation_play(spr_sonic_balance, 16, 0);
-					break;
-					case AnimBalanceFlip:
-						animation_play(spr_sonic_balance_flip, 16, 0);
-					break;
-					case AnimBalancePanic:
-						animation_play(spr_sonic_balance_panic, 4, 0);
-					break;
-					case AnimBalanceTurn:
-						animation_set(spr_sonic_balance_turn, 0);
-					break;
-					case AnimSpring:
-					{
-						if !(--AnimSpringTime)
-						{
-							Animation = AnimMove;
-						}
-						else
-						{
-							animation_set(spr_sonic_spring, 0);
-						}
-					}
-					break;
-					case AnimBreathe:
-					{
-						if !(--AnimBreatheTime)
-						{
-							Animation = AnimMove;
-						}
-						else
-						{
-							animation_set(spr_sonic_breathe, 0);
-						}
-					}
-					break;
-					case AnimDropdash:
-						animation_play(spr_sonic_dropdash, 1, 0);
-					break;
 				}
+				break;
+				case AnimPeelout:
+				{
+					if abs(PeeloutRev) < 6
+					{
+						var Sprite = spr_sonic_walk;
+					}
+					else if abs(PeeloutRev) < 10
+					{
+						var Sprite = spr_sonic_run;
+					}
+					else
+					{
+						var Sprite = spr_sonic_peelout;
+					}	
+					animation_play(Sprite, floor(max(1, 8 - abs(PeeloutRev))), 0);
+				}
+				break;
+				case AnimSpin:
+				{
+					if abs(Gsp) < 6
+					{
+						var Sprite = spr_sonic_spin;
+					}
+					else
+					{
+						var Sprite = spr_sonic_spin_fast;
+					}
+					animation_play(Sprite, floor(max(1, 5 - abs(Gsp))), 0);
+				}
+				break;
+				case AnimSpindash:
+					animation_play(spr_sonic_spindash, 1, 0);
+				break;
+				case AnimCrouch:
+					animation_play(spr_sonic_crouch, 4, 1);
+				break;
+				case AnimLookup:
+					animation_play(spr_sonic_lookup, 4, 1);
+				break;
+				case AnimSkid:
+				{
+					if !(--AnimSkidTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_play(spr_sonic_skid, 6, 2);
+					}
+				}
+				break;
+				case AnimPush:
+					animation_play(spr_sonic_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
+				break;
+				case AnimHurt:
+					animation_set(spr_sonic_hurt, 0);
+				break;
+				case AnimDeath:
+					animation_set(spr_sonic_death, 0);
+				break;	
+				case AnimDrown:
+					animation_set(spr_sonic_drown, 0);
+				break;
+				case AnimBalance:
+					animation_play(spr_sonic_balance, 16, 0);
+				break;
+				case AnimBalanceFlip:
+					animation_play(spr_sonic_balance_flip, 16, 0);
+				break;
+				case AnimBalancePanic:
+					animation_play(spr_sonic_balance_panic, 4, 0);
+				break;
+				case AnimBalanceTurn:
+					animation_set(spr_sonic_balance_turn, 0);
+				break;
+				case AnimSpring:
+				{
+					if !(--AnimSpringTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_set(spr_sonic_spring, 0);
+					}
+				}
+				break;
+				case AnimBreathe:
+				{
+					if !(--AnimBreatheTime)
+					{
+						Animation = AnimMove;
+					}
+					else
+					{
+						animation_set(spr_sonic_breathe, 0);
+					}
+				}
+				break;
+				case AnimDropdash:
+					animation_play(spr_sonic_dropdash, 1, 0);
+				break;
 			}
+			
+			// Super Sonic
 			else switch Animation
 			{
 				case AnimTransform:
@@ -170,14 +180,34 @@ function PlayerAnimate()
 					{
 						var Sprite = spr_supersonic_fly;
 					}
-					animation_play(Sprite, round(max(1, 8 - abs(Gsp))), 0);
+					animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
 				}
 				break;
-				case AnimPeelout: 
-					animation_play(abs(PeeloutRev) < 6 ? spr_supersonic_walk : spr_supersonic_fly, round(max(1, 8 - abs(PeeloutRev))), 0);
+				case AnimPeelout:
+				{
+					if abs(PeeloutRev) < 8
+					{
+						var Sprite = spr_supersonic_walk;
+					}
+					else
+					{
+						var Sprite = spr_supersonic_fly
+					}
+					animation_play(Sprite, floor(max(1, 8 - abs(PeeloutRev))), 0);
+				}
 				break;
 				case AnimSpin:
-					animation_play(abs(Gsp) < 6 ? spr_sonic_spin : spr_sonic_spin_fast, round(max(1, 5 - abs(Gsp))), 0);
+				{
+					if abs(Gsp) < 6
+					{
+						var Sprite = spr_sonic_spin;
+					}
+					else
+					{
+						var Sprite = spr_sonic_spin_fast;
+					}
+					animation_play(Sprite, floor(max(1, 5 - abs(Gsp))), 0);
+				}
 				break;
 				case AnimSpindash:
 					animation_play(spr_sonic_spindash, 1, 0); 
@@ -201,7 +231,7 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimPush:
-					animation_play(spr_supersonic_push, round(max(1, 8 - abs(Gsp)) * 4), 0);
+					animation_play(spr_supersonic_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
 				break;
 				case AnimHurt:
 					animation_set(spr_supersonic_hurt, 0);
@@ -246,6 +276,7 @@ function PlayerAnimate()
 		}
 		break;
 		#endregion
+		
 		#region Tails
 		case CharTails:
 		{
@@ -264,12 +295,17 @@ function PlayerAnimate()
 				{
 					if abs(Gsp) < 6
 					{
-						animation_play(spr_tails_walk, round(max(1, 8 - abs(Gsp))), 0);
+						var Sprite = spr_tails_walk;
 					}
-					else 
+					else if abs(Gsp) < 10
 					{
-						animation_play(abs(Gsp) < 10 ? spr_tails_run : spr_tails_dash, round(max(1, 9 - abs(Gsp))), 0);
+						var Sprite = spr_tails_run;
 					}
+					else
+					{
+						var Sprite = spr_tails_dash;
+					}
+					animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
 				}
 				break;
 				case AnimSpin:
@@ -328,7 +364,7 @@ function PlayerAnimate()
 				}
 				break;
 				case AnimPush:
-					animation_play(spr_tails_push, round(max(1, 8 - abs(Gsp)) * 4), 0);
+					animation_play(spr_tails_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
 				break;
 				case AnimBalance:
 					animation_play(spr_tails_balance, 20, 0);
@@ -355,6 +391,7 @@ function PlayerAnimate()
 		}
 		break;
 		#endregion
+		
 		#region Knuckles
 		case CharKnuckles:
 		{
@@ -375,16 +412,17 @@ function PlayerAnimate()
 				{
 					if abs(Gsp) < 6
 					{
-						animation_play(spr_knuckles_walk, round(max(1, 8 - abs(Gsp))), 0);
+						var Sprite = spr_knuckles_walk;
 					}
 					else
 					{
-						animation_play(spr_knuckles_run, round(max(1, 9 - abs(Gsp))), 0);
+						var Sprite = spr_knuckles_run;
 					}
+					animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
 				}
 				break;
 				case AnimSpin:
-					animation_play(spr_knuckles_roll, round(max(1, 5 - abs(Gsp))), 0);
+					animation_play(spr_knuckles_roll, floor(max(1, 5 - abs(Gsp))), 0);
 				break;
 				case AnimSpindash:
 					animation_play(spr_knuckles_spindash, 1, 0); 
@@ -477,7 +515,7 @@ function PlayerAnimate()
 					animation_set(spr_knuckles_drop, 1);
 				break;
 				case AnimPush:
-					animation_play(spr_knuckles_push, round(max(1, 8 - abs(Gsp))), 0);
+					animation_play(spr_knuckles_push, floor(max(1, 8 - abs(Gsp))), 0);
 				break;
 				case AnimSpring:
 				{

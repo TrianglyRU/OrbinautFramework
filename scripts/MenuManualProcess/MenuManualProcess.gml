@@ -130,6 +130,12 @@ function MenuManualProcess()
 				}
 				else
 				{
+					show_debug_message("\n"
+									     + "============================================= \n"
+										 + "NO STAGE FOUND! \n"
+										 + "\n"
+										 + "Target room is set to NOONE for this option \n"
+										 + "=============================================");
 					audio_sfx_play(sfxFail, false);
 				}
 				
