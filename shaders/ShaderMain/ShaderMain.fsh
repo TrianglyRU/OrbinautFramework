@@ -83,9 +83,15 @@
 	    return OutPos;
 	}
 	
+	uniform sampler2D bugfix1;
+	uniform sampler2D bugfix2;
+	
 	void main() 
 	{
 		vec4 Col = texture2D(gm_BaseTexture, parallax());
+		
+		texture2D(bugfix1, vec2(0.));
+		texture2D(bugfix2, vec2(0.));
 		
 		if  (u_bound <= gl_FragCoord.y)
 		{

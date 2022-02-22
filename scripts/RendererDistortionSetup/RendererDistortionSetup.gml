@@ -11,7 +11,8 @@ function RendererDistortionSetup()
 	{
 		case Stage_TVZ:
 		{
-			var WaveData = 
+			/*
+			var WaveData1 = 
 			[
 				1,2,3,3,2,1,
 				0,0,0,0,0,0,0,0,0,0,
@@ -20,13 +21,12 @@ function RendererDistortionSetup()
 			   -1,-2,-3,-3,-2,-1,
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			];
-			distortion_set(0, WaveData,  2, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 2);
-			
-			/*var WaveData2 = 
+			var WaveData2 = 
 			[
 				1,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 			];
-			distortion_set(1, WaveData2, 1, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 1);*/
+			*/
+			distortion_set(wave_heat, wave_underwater, 1, 2, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 2);
 		}
 		break;
 	}

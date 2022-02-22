@@ -1,36 +1,43 @@
-/// @function distortion_set(slot,distData,distScale,layers,boundType)
-function distortion_set(slot,distData,distScale,layers,boundType)
+/// @function distortion_set(distData1,distData2,distScale1,distScale2,layers,boundType)
+function distortion_set(distData1,distData2,distScale1,distScale2,layers,boundType)
 {
-	try
-	{
-		DistortionEffect = fx_create("_filter_waves");
-		DistortionBound  = boundType;
-		
-		// Set parameters
-		fx_set_parameter(DistortionEffect, "g_WaveData",  distData);
-		fx_set_parameter(DistortionEffect, "g_DataLen",   distScale);
-		fx_set_parameter(DistortionEffect, "g_DataSize",  array_length(distData));
-		fx_set_parameter(DistortionEffect, "g_ScreenWid", global.Width);
 	
-		fx_set_single_layer(DistortionEffect, true);
+	var Data1 = sprite_get_texture(distData1, 0);
+	var Data2 = sprite_get_texture(distData2, 0);
 	
-		// Apply the effect to our layers
-		var Length = array_length(layers);
-		for (var i = 0; i < Length; i++)
-		{
-			layer_set_fx(layers[i],	DistortionEffect);
-		}
-	}
-	catch (Exception)
+	DistortionEffect = fx_create("_filter_waves");
+	
+	DistortionBound  = boundType;
+	
+	// Set parameters
+	fx_set_parameter(DistortionEffect, "g_WaveData1",  distData1);
+	fx_set_parameter(DistortionEffect, "g_WaveData2",  distData2);
+	fx_set_parameter(DistortionEffect, "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
+	
+	var Width  = sprite_get_width(distData1);
+	var Height = sprite_get_height(distData1);
+	var TexW   = texture_get_texel_width(Data1);
+	var TexH   = texture_get_texel_height(Data1);
+	var Len    = Width * Height;
+	
+	fx_set_parameter(DistortionEffect, "g_DataValues1", distScale1, Len);
+	fx_set_parameter(DistortionEffect, "g_DataParams1", Width, Height, TexW, TexH);
+	
+	Width  = sprite_get_width(distData2);
+	Height = sprite_get_height(distData2);
+	TexW   = texture_get_texel_width(Data2);
+	TexH   = texture_get_texel_height(Data2);
+	Len    = Width * Height;	
+	
+	fx_set_parameter(DistortionEffect, "g_DataValues2", distScale2, Len);
+	fx_set_parameter(DistortionEffect, "g_DataParams2", Width, Height, TexW, TexH);
+	
+	fx_set_single_layer(DistortionEffect, true);
+
+	// Apply the effect to our layers
+	var Length = array_length(layers);
+	for (var i = 0; i < Length; i++)
 	{
-		show_debug_message("\n"
-						   + "============================================= \n"
-						   + "distortion_set() function didn't proceed, you \n"
-						   + "are missing the wave distortion effect! \n"
-						   + "\n"
-						   + "Please, install the effect from the Release Package you downloaded. \n"
-						   + "=============================================");
-		DistortionEffect = noone;
-		DistortionBound  = 0;
+		layer_set_fx(layers[i],	DistortionEffect);
 	}
 }
