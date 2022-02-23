@@ -31,7 +31,6 @@ function MenuSaveDataLoad()
 				break;
 				default:
 					var DataCharacter = "UNK";
-				break;
 			}
 
 			// Set information to display

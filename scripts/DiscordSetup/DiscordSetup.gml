@@ -11,20 +11,20 @@ function DiscordSetup()
 	switch room 
 	{
 		case Stage_TVZ:
-			DetailsString = "Test Stage Act 1";
+			TopString = "Wireframe Valley";
 		break;
 		case SStage_Template:
 		case Screen_SStage:
-			DetailsString = "Special Stage";
+			TopString = "Special Stage";
 		break;
 		case BStage_Template:
-			DetailsString = "Bonus Stage";
+			TopString = "Bonus Stage";
 		break;
 		default:
-			DetailsString = "In Menus";
-		break;
+			TopString = "In Menus";
 	}
-	if DetailsString != "In Menus"
+	
+	if TopString != "In Menus"
 	{
 		switch global.Character
 		{
@@ -39,24 +39,23 @@ function DiscordSetup()
 			break;
 			default:		  
 				var Char = "";
-			break;
 		}
 		if global.Emeralds != 1
 		{
-			DetailsString += " (" + string(global.Emeralds) + " Chaos Emeralds)";
+			TopString += " (" + string(global.Emeralds) + " Chaos Emeralds)";
 		}
 		else
 		{
-			DetailsString += " (" + string(global.Emeralds) + " Chaos Emerald)";
+			TopString += " (" + string(global.Emeralds) + " Chaos Emerald)";
 		}
-		StateString = Char;	
+		BottomString = Char;	
 	}
 	else
 	{
-		StateString = "";
+		BottomString = "";
 	}
 	
-	// Images
+	// Set images
 	MainImage      = "orbinaut";
 	MainImageDesc  = "";
 	SmallImageDesc = "";

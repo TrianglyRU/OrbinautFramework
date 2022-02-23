@@ -21,7 +21,6 @@ function object_set_depth(target,depthFlag)
 			break;
 			default:     
 				var Tolerance = 50; 
-			break;
 		}
 		depth = Player.depth - (depthFlag ? Tolerance : -Tolerance);
 	}

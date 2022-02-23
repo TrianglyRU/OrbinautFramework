@@ -26,7 +26,6 @@ function ObjTailsObjectMain()
 		break;
 		default:
 			animation_play(spr_tails_tail_hidden, 0, 0);
-		break;
 	}
 	
 	if !Player.Spinning

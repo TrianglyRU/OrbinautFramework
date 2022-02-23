@@ -19,7 +19,7 @@
 			'true' once you want your stage to exit boss state! */
 			switch room
 			{
-				default: break;
+				default:
 			}
 			Stage.IsBossfight = true;
 		}

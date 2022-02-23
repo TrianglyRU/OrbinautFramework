@@ -35,7 +35,6 @@ function ObjCollapsingPlatformStartup()
 			var Solidbox  = [];
 			sprite_index  = spr_tempobject;
 		}
-		break;
 	}
 	
 	TimeDelay = 0;

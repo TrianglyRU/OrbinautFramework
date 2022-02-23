@@ -13,6 +13,5 @@ function PaletteSetup()
 			palette_load(PalPrimary,   noone);
 			palette_load(PalSecondary, noone);
 		}
-		break;
 	}
 }

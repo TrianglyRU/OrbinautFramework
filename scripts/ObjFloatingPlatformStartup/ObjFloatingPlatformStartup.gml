@@ -23,7 +23,6 @@ function ObjFloatingPlatformStartup()
 			var Solidbox = [0, 0];
 			sprite_index = spr_tempobject;
 		}
-		break;
 	}
 	
 	// Initialise variables

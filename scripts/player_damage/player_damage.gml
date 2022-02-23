@@ -138,16 +138,12 @@ function player_damage(isFlame,isThunder,instantKill)
 	{
 		switch object_index
 		{
-			case SpikesVertical: case SpikesHorizontal:
-			{
+			case SpikesVertical: 
+			case SpikesHorizontal:
 				audio_sfx_play(sfxHurtSpike, false);
-			}
 			break;
 			default:
-			{
 				audio_sfx_play(sfxHurt, false);
-			}
-			break;
 		}
 	}
 }

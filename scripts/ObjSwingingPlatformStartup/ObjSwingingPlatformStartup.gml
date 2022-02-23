@@ -20,7 +20,6 @@ function ObjSwingingPlatformStartup()
 			SpriteData   = [spr_tempobject, spr_tempobject, spr_tempobject];
 					    /* [platform,	    chain,	        pendulum] */
 		}
-		break;
 	}
 	
 	// Initialise variables

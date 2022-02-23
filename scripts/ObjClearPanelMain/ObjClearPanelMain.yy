@@ -6,7 +6,7 @@
     "path": "folders/Room Objects/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ObjClearPlateMain",
+  "name": "ObjClearPanelMain",
   "tags": [],
   "resourceType": "GMScript",
 }

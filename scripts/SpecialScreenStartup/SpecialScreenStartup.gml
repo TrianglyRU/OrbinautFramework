@@ -26,7 +26,6 @@ function SpecialScreenStartup()
 		{
 			default:
 				room_goto(SStage_Template);
-			break;
 		}
 		fade_perform(ModeInto, BlendWhite, 0);
 	}

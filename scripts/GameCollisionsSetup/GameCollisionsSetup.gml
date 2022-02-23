@@ -7,6 +7,5 @@ function GameCollisionsSetup()
 		break;
 		default:
 			tile_data_set(noone, "", "", "");
-		break;
 	}
 }

@@ -73,7 +73,6 @@ function InterfaceResultsDraw()
 						break;
 						default:
 							ResultsValue[10] = 0;	  
-						break;
 					}
 				}			
 			

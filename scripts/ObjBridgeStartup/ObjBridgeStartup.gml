@@ -14,7 +14,6 @@ function ObjBridgeStartup()
 		default:
 			SpriteData = [spr_tempobject, spr_tempobject];
 					  /* [log,		      post] */
-		break;
 	}
 	
 	// Initialise variables

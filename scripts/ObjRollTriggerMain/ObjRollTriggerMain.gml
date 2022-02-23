@@ -1,37 +1,26 @@
 function ObjRollTriggerMain()
 {	
+	// Check for overlap
 	if object_check_touch(ColTrigger) 
 	{
-		if !State
+		// Force player to roll
+		if Player.Grounded or Player.GlideState
 		{
-			if !Player.ForcedRoll
+			if !State and abs(Player.Gsp) < 2
 			{
-				// Force player to roll
-				if Player.Grounded or Player.GlideState
-				{
-					if abs(Player.Gsp) < 2
-					{
-						Player.Gsp = 2 * Player.Facing;
-					}
-				}
-				Player.ForcedRoll = true;
-				
-				State = 1;
+				Player.Gsp = 2 * Player.Facing;
 			}
-			
-			// If already forced to roll, tell the object to clear our flag once we cross it
-			else
-			{
-				State = 2;
-			}	
+			Player.ForcedRoll = true;
+		
+			// Increment state
+			State = 1;
 		}
 	}
+	
+	// Reset
 	else if State
 	{
-		if State == 2
-		{
-			Player.ForcedRoll = false;
-		}
-		State = 0;
+		State			  = false;
+		Player.ForcedRoll = false;
 	}
 }

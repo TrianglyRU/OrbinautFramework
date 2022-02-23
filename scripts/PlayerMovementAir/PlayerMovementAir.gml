@@ -27,7 +27,7 @@ function PlayerMovementAir()
 			} 
 			
 			// Accelerate
-			else if !global.AirSpeedcap and Xsp > -TopAcc or global.AirSpeedcap
+			else if global.AirSpeedcap or Xsp > -TopAcc
 			{
 				Xsp -= AirAcc;
 				if Xsp <= -TopAcc
@@ -36,7 +36,11 @@ function PlayerMovementAir()
 				}
 			}
 			
-			Facing = FlipLeft;
+			// If spinning, update facing flag once animation frame updates (applied always in Sonic 1)
+			if Animation != AnimSpin or Obj_AnimTimer <= 1
+			{
+				Facing = FlipLeft;
+			}
 		}
 		if Input.Right
 		{	
@@ -47,7 +51,7 @@ function PlayerMovementAir()
 			} 
 			
 			// Accelerate
-			else if (!global.AirSpeedcap and Xsp < TopAcc) or global.AirSpeedcap
+			else if global.AirSpeedcap or Xsp < TopAcc
 			{
 				Xsp += AirAcc;
 				if Xsp >= TopAcc
@@ -56,7 +60,11 @@ function PlayerMovementAir()
 				}
 			}
 			
-			Facing = FlipRight;
+			// If spinning, update facing flag once animation frame updates (applied always in Sonic 1)
+			if Animation != AnimSpin or Obj_AnimTimer <= 1
+			{
+				Facing = FlipRight;
+			}
 		}	
 	}
 	

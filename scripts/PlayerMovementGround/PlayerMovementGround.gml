@@ -29,7 +29,7 @@ function PlayerMovementGround()
 					
 					animation_reset(0);
 				}
-				if !global.GroundSpeedcap and Gsp > -TopAcc or global.GroundSpeedcap
+				if global.GroundSpeedcap or Gsp > -TopAcc
 				{
 					Gsp = max(Gsp - Acc, -TopAcc);
 				} 
@@ -57,7 +57,7 @@ function PlayerMovementGround()
 					
 					animation_reset(0);
 				}
-				if !global.GroundSpeedcap and Gsp < TopAcc or global.GroundSpeedcap
+				if global.GroundSpeedcap or Gsp < TopAcc
 				{
 					Gsp = min(Gsp + Acc, TopAcc);
 				} 
@@ -91,7 +91,7 @@ function PlayerMovementGround()
 		Pushing = false;
 	}
 
-	// Convert Gsp to speed
+	// Convert ground inertia to speed
 	Xsp = Gsp *  dcos(Angle);
 	Ysp = Gsp * -dsin(Angle);
 	
@@ -104,7 +104,6 @@ function PlayerMovementGround()
 		break;
 		default:
 			var AnimationPriority = false;
-		break;
 	}
 	
 	// Set animation

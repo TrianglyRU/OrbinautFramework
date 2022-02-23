@@ -39,8 +39,7 @@ function PlayerJump()
 	// Transform into the super form
 	if global.Emeralds == 7 and !SuperState and Rings >= 50 and !Stage.IsFinished
 	{
-		if global.Character == CharSonic and BarrierType <= BarrierNormal
-		or global.Character != CharSonic
+		if global.Character != CharSonic or BarrierType <= BarrierNormal
 		{
 			Animation		    = AnimTransform;
 			InvincibilityFrames = 0;

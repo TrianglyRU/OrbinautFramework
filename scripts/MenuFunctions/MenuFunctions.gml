@@ -138,7 +138,7 @@ function MenuFunctions()
 			case 48:  return "0"	 break;
 			case 187: return "EQUAL" break;
 			case 220: return "LSLSH" break;
-			default:  return "UNDEF" break;
+			default:  return "UNDEF";
 		}
 	}
 }

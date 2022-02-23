@@ -42,6 +42,5 @@ function StageSetup()
 			IsFinalStage = false;
 			NextStage	 = Screen_DevMenu;
 		}
-		break;
 	}
 }

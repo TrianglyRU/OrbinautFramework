@@ -18,7 +18,7 @@ function ObjInvincibilityStarMain()
 		case 3:  image_index = FrameTable2[FrameValue[0] + 6]; break;
 		case 4:  image_index = FrameTable3[FrameValue[1]];     break;
 		case 5:  image_index = FrameTable3[FrameValue[1] + 5]; break;
-		default: image_index = FrameTable4[FrameValue[0]];	   break;	// 6, 7
+		default: image_index = FrameTable4[FrameValue[0]];	   // 6, 7
 	}
 	
 	// Set rotation data

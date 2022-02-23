@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_trigger2",
-    "path": "sprites/spr_trigger2/spr_trigger2.yy",
+    "name": "spr_trigger",
+    "path": "sprites/spr_trigger/spr_trigger.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,7 +24,10 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":1,"value":"16","rangeEnabled":true,"rangeMin":0.0,"rangeMax":16.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"XSize","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"32","rangeEnabled":true,"rangeMin":0.0,"rangeMax":32.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"YSize","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "Room Objects",
