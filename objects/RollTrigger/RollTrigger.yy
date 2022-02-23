@@ -34,7 +34,7 @@
     "path": "folders/Room Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "RollTriggerV",
+  "name": "RollTrigger",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -65,7 +65,7 @@
     {"id":{"name":"RingSparkle","path":"objects/RingSparkle/RingSparkle.yy",},"order":15,},
     {"id":{"name":"spr_knuckles_breathe","path":"sprites/spr_knuckles_breathe/spr_knuckles_breathe.yy",},"order":77,},
     {"id":{"name":"ObjBossTriggerDraw","path":"scripts/ObjBossTriggerDraw/ObjBossTriggerDraw.yy",},"order":64,},
-    {"id":{"name":"RollTriggerV","path":"objects/RollTriggerV/RollTriggerV.yy",},"order":29,},
+    {"id":{"name":"RollTrigger","path":"objects/RollTrigger/RollTrigger.yy",},"order":29,},
     {"id":{"name":"background_layer_setup","path":"scripts/background_layer_setup/background_layer_setup.yy",},"order":69,},
     {"id":{"name":"Interface","path":"objects/Interface/Interface.yy",},"order":0,},
     {"id":{"name":"sfxSpecialWarp","path":"sounds/sfxSpecialWarp/sfxSpecialWarp.yy",},"order":24,},
