@@ -57,7 +57,7 @@ function InterfaceDebugSensorsDraw()
 					draw_point_colour(floor(PosX + RadiusY), floor(PosY + RadiusX), Colour);
 					draw_point_colour(floor(PosX + RadiusY), floor(PosY - RadiusX), Colour);
 					
-					if Angle >= 90 and Angle <= 270
+					if Angle > 90 and Angle <= 270
 					{
 						if !global.SKWallCollision or Angle mod 90 != 0
 						{
@@ -79,7 +79,7 @@ function InterfaceDebugSensorsDraw()
 					draw_point_colour(floor(PosX + RadiusX), floor(PosY - RadiusY), Colour);
 					draw_point_colour(floor(PosX - RadiusX), floor(PosY - RadiusY), Colour);
 					
-					if Angle >= 90 and Angle <= 270
+					if Angle > 90 and Angle <= 270
 					{
 						if !global.SKWallCollision or Angle mod 90 != 0
 						{
@@ -101,7 +101,7 @@ function InterfaceDebugSensorsDraw()
 					draw_point_colour(floor(PosX - RadiusY), floor(PosY - RadiusX), Colour);
 					draw_point_colour(floor(PosX - RadiusY), floor(PosY + RadiusX), Colour);
 					
-					if Angle >= 90 and Angle <= 270
+					if Angle > 90 and Angle <= 270
 					{
 						if !global.SKWallCollision or Angle mod 90 != 0
 						{
