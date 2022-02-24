@@ -14,7 +14,7 @@ function RendererDistortionProcess()
 	}
 	
 	// Set speed
-	fx_set_parameter(DistortionEffect, "g_Time", DistortionTimer + Camera.ViewY);
+	fx_set_parameter(DistortionEffect, "g_Time", floor(DistortionTimer + Camera.ViewY));
 		
 	// Set a vertical limit of the distortion effect on our screen
 	switch DistortionBound

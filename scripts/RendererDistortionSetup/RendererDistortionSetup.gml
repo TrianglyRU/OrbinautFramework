@@ -26,7 +26,7 @@ function RendererDistortionSetup()
 				1,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 			];
 			*/
-			distortion_set(wave_heat, wave_underwater, 1, 2, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 2);
+			distortion_set(wave_heat, wave_underwater, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 2);
 		}
 		break;
 	}
