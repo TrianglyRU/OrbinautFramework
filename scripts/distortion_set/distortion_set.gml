@@ -1,33 +1,53 @@
-/// @function distortion_set(distData1,distData2,layers,boundType)
-function distortion_set(distData1,distData2,layers,boundType)
+/// @function distortion_set(data1,data2,layerArray)
+function distortion_set(data1,data2,layerArray)
 {	
-	DistortionEffect = fx_create("_filter_waves");
-	
-	DistortionBound  = boundType;
-	
-	// Set parameters
-	fx_set_parameter(DistortionEffect, "g_WaveData1",  distData1);
-	fx_set_parameter(DistortionEffect, "g_WaveData2",  distData2);
-	fx_set_parameter(DistortionEffect, "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
-	
-	var tex		= sprite_get_texture(distData1, 0);
-	var UVs		= sprite_get_uvs(distData1, 0);
-	var texel_x	= texture_get_texel_width(tex);
-	var texel_y = texture_get_texel_height(tex);
-	fx_set_parameter(DistortionEffect, "g_DataParams1", UVs[0] + texel_x / 2, UVs[1] + texel_y / 2, texel_y);
-	
-	var tex		= sprite_get_texture(distData2, 0);
-	var UVs		= sprite_get_uvs(distData2, 0);
-	var texel_x	= texture_get_texel_width(tex);
-	var texel_y = texture_get_texel_height(tex);
-	fx_set_parameter(DistortionEffect, "g_DataParams2", UVs[0] + texel_x / 2, UVs[1] + texel_y / 2, texel_y);
-	
-	fx_set_single_layer(DistortionEffect, true);
-
-	// Apply the effect to our layers
-	var Length = array_length(layers);
-	for (var i = 0; i < Length; i++)
+	try
 	{
-		layer_set_fx(layers[i],	DistortionEffect);
+		// Set mode
+		if instance_exists(Stage)
+		{
+			DistortionMode = 0;
+		}
+		else
+		{
+			DistortionMode = 1;
+		}
+		DistortionEffect = fx_create("_filter_waves");
+		
+		// Load texture data
+		for (var i = 0; i < 1; i++)
+		{
+			var Data    = i ? data2 : data1;	
+			var UVs		= sprite_get_uvs(Data, 0);
+			var Texture = sprite_get_texture(Data, 0);
+			var TexelX	= texture_get_texel_width(Texture);
+			var TexelY  = texture_get_texel_height(Texture);
+			
+			fx_set_parameter(DistortionEffect, "g_WaveData"   + string(i + 1), Data);
+			fx_set_parameter(DistortionEffect, "g_DataParams" + string(i + 1), UVs[0] + TexelX / 2, UVs[1] + TexelY / 2, TexelY);
+		}
+		
+		// Set additional parameters
+		fx_set_parameter(DistortionEffect, "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
+		fx_set_single_layer(DistortionEffect, true);
+		
+		// Apply the effect to our layers
+		for (var i = 0; i < array_length(layerArray); i++)
+		{
+			layer_set_fx(layerArray[i],	DistortionEffect);
+		}
+	}
+	catch (Exception)
+	{
+		show_debug_message("\n"
+						   + "============================================= \n"
+						   + "distortion_set() function didn't proceed, you \n"
+						   + "are missing the wave distortion effect! \n"
+						   + "\n"
+						   + "Please, install the effect from the Release Package you downloaded. \n"
+						   + "You may also see this message because you setup the distortion data incorrectly. \n"
+						   + "=============================================");
+		DistortionEffect = noone;
+		DistortionMode   = noone;
 	}
 }

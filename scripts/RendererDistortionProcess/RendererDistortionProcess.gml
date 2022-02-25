@@ -2,32 +2,26 @@ function RendererDistortionProcess()
 {		
 	if DistortionEffect == noone
 	{
-		exit;
+		return;
 	}
 	
-	// Count time (basically, it is the speed of distortion effect)
-	static StageExists = instance_exists(Stage);
-	if  StageExists and Stage.UpdateObjects
-	or !StageExists and Renderer.UpdateAnimations
+	// Count time (basically, it is the speed of the distortion effect)
+	if !DistortionMode and Stage.UpdateObjects
+	or  DistortionMode and Renderer.UpdateAnimations
 	{
 		DistortionTimer += 0.5;
 	}
 	
-	// Set speed
-	fx_set_parameter(DistortionEffect, "g_Time", floor(DistortionTimer + Camera.ViewY));
-		
-	// Set a vertical limit of the distortion effect on our screen
-	switch DistortionBound
+	// Set a distortion boundary (water level for a playable stage, entire screen otherwise)
+	if !DistortionMode
 	{
-		case 0:
-			var Bound = 0;
-		break;
-		case 1:
-			var Bound = global.Height;
-		break;
-		case 2:
-			var Bound = global.Height - clamp(Camera.ViewY - Stage.WaterLevel + global.Height, 0, global.Height);
-		break;
+		var Bound = global.Height - clamp(Camera.ViewY - Stage.WaterLevel + global.Height, 0, global.Height);
 	}
+	else
+	{
+		var Bound = 0;
+	}
+	
+	fx_set_parameter(DistortionEffect, "g_Time",  floor(DistortionTimer + Camera.ViewY));
 	fx_set_parameter(DistortionEffect, "g_Bound", Bound);
 }

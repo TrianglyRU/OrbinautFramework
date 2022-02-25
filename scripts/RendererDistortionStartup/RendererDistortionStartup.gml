@@ -1,6 +1,6 @@
 function RendererDistortionStartup()
 {
 	DistortionEffect = noone;
-	DistortionBound  = 0;
+	DistortionMode   = noone;
 	DistortionTimer  = 0;
 }

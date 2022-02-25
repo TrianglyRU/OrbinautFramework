@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Palettes",
-    "path": "folders/Palettes.yy",
+    "name": "Texture Data",
+    "path": "folders/Texture Data.yy",
   },
   "resourceVersion": "1.0",
   "name": "pal_example_type1",

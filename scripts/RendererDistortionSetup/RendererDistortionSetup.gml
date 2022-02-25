@@ -1,32 +1,16 @@
 function RendererDistortionSetup()
 {
-	/* Distortion Boundary Types:
-	0 - on the entire screen;
-	1 - only above water level, requires Stage Controller to exist;
-	2 - only below water level, requires Stage Controller to exist;
-	*/
+	/* Please note, that if there is no Stage controller in the room,
+	the game will only use a distortion effect assigned to data1
 	
-	// Setup wave distortion data
+	If you don't want a distortion effect in your room, simply
+	don't call the function */
+	
 	switch room
 	{
 		case Stage_TVZ:
 		{
-			/*
-			var WaveData1 = 
-			[
-				1,2,3,3,2,1,
-				0,0,0,0,0,0,0,0,0,0,
-			   -1,-2,-3,-3,-2,-1,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-			   -1,-2,-3,-3,-2,-1,
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			];
-			var WaveData2 = 
-			[
-				1,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-			];
-			*/
-			distortion_set(wave_heat, wave_underwater, ["GraphicsA", "AnimatedTiles", "GraphicsB"], 2);
+			distortion_set(dist_heat, dist_empty, ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
 		}
 		break;
 	}
