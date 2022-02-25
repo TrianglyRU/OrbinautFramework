@@ -121,7 +121,7 @@ function MenuManualProcess()
 					global.ActiveSave = -1;
 					global.Lives	  =  3;
 					global.Continues  =  2;
-					global.Emeralds   =  0;
+					global.Emeralds   =  7;
 					global.Score	  =  0;
 					global.ZoneID     =  0;
 					global.SaveState  =  0;

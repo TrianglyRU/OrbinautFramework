@@ -19,7 +19,7 @@ function RendererDistortionProcess()
 	}
 	else
 	{
-		var Bound = 0;
+		var Bound = room_height;
 	}
 	
 	fx_set_parameter(DistortionEffect, "g_Time",  floor(DistortionTimer + Camera.ViewY));

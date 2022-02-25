@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "palette_handle_range",
+  "name": "palette_update_colour",
   "tags": [],
   "resourceType": "GMScript",
 }

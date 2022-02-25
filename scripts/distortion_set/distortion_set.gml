@@ -15,16 +15,26 @@ function distortion_set(data1,data2,layerArray)
 		DistortionEffect = fx_create("_filter_waves");
 		
 		// Load texture data
+		var UVs		= sprite_get_uvs(data1, 0);
+		var Texture = sprite_get_texture(data1, 0);
+		var TexelX	= texture_get_texel_width(Texture);
+		var TexelY  = texture_get_texel_height(Texture);
+			
+		fx_set_parameter(DistortionEffect, "g_WaveData1",   data1);
+		fx_set_parameter(DistortionEffect, "g_DataParams1", UVs[0] + TexelX / 2, UVs[1] + TexelY / 2, TexelY);
+		
+		var UVs		= sprite_get_uvs(data2, 0);
+		var Texture = sprite_get_texture(data2, 0);
+		var TexelX	= texture_get_texel_width(Texture);
+		var TexelY  = texture_get_texel_height(Texture);
+			
+		fx_set_parameter(DistortionEffect, "g_WaveData2",   data2);
+		fx_set_parameter(DistortionEffect, "g_DataParams2", UVs[0] + TexelX / 2, UVs[1] + TexelY / 2, TexelY);
+		
+		
 		for (var i = 0; i < 1; i++)
 		{
-			var Data    = i ? data2 : data1;	
-			var UVs		= sprite_get_uvs(Data, 0);
-			var Texture = sprite_get_texture(Data, 0);
-			var TexelX	= texture_get_texel_width(Texture);
-			var TexelY  = texture_get_texel_height(Texture);
 			
-			fx_set_parameter(DistortionEffect, "g_WaveData"   + string(i + 1), Data);
-			fx_set_parameter(DistortionEffect, "g_DataParams" + string(i + 1), UVs[0] + TexelX / 2, UVs[1] + TexelY / 2, TexelY);
 		}
 		
 		// Set additional parameters

@@ -1,5 +1,5 @@
-/// @function palette_handle(Pal?,iCol,rCol1,rCol2,duration)
-function palette_handle(palType,iCol,rCol1,rCol2,duration)
+/// @function palette_update_colour(Pal?,iCol,rCol1,rCol2,duration)
+function palette_update_colour(palType,iCol,rCol1,rCol2,duration)
 {
 	if Palette.ColourSet[palType] == false or !Renderer.UpdateAnimations
 	{
@@ -18,7 +18,7 @@ function palette_handle(palType,iCol,rCol1,rCol2,duration)
 	}
 	
 	// Update sequence
-	else if duration
+	if duration
 	{
 		if !(--Palette.SwapTime[palType,iCol])
 		{

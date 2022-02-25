@@ -10,12 +10,12 @@
   "bbox_left": 0,
   "bbox_right": 21,
   "bbox_top": 0,
-  "bbox_bottom": 11,
+  "bbox_bottom": 10,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "width": 22,
-  "height": 12,
+  "height": 11,
   "textureGroupId": {
     "name": "tgGameplay",
     "path": "texturegroups/tgGameplay",
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"47db6dec-3998-4183-980b-b96630a3bd8d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6529e55e-eb07-49e9-b59c-0d19e79de1cc","path":"sprites/pal_tz_type1/pal_tz_type1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"18547808-c5b1-4d3c-b49b-c29f975316af","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6529e55e-eb07-49e9-b59c-0d19e79de1cc","path":"sprites/pal_tz_type1/pal_tz_type1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
