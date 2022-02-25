@@ -30,13 +30,7 @@ function distortion_set(data1,data2,layerArray)
 			
 		fx_set_parameter(DistortionEffect, "g_WaveData2",   data2);
 		fx_set_parameter(DistortionEffect, "g_DataParams2", UVs[0] + TexelX / 2, UVs[1] + TexelY / 2, TexelY);
-		
-		
-		for (var i = 0; i < 1; i++)
-		{
-			
-		}
-		
+
 		// Set additional parameters
 		fx_set_parameter(DistortionEffect, "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
 		fx_set_single_layer(DistortionEffect, true);

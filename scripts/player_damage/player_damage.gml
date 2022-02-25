@@ -45,7 +45,9 @@ function player_damage(isFlame,isThunder,instantKill)
 			Ysp	  = -7;
 			Xsp	  =  0;
 			Gsp   =  0;
-			depth =  0;
+			
+			// Draw player above everything
+			depth = 50;
 		}
 		
 		// Make player lose their rings or barrier

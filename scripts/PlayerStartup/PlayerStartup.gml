@@ -110,32 +110,27 @@ function PlayerStartup()
 	RadiusX = DefaultRadiusX;
 	RadiusY = DefaultRadiusY;
 	
-	// If respawning on checkpoint, load saved player data
+	/* If respawning on a checkpoint or coming back from a Special Stage, load saved player data.
+	These arrays are cleared then in StageStartup() after the stage loads its data as well
+	
+	If none of the positions below exist, player will spawn
+	on a spawnpoint. It is handled from its side!
+	*/	
 	if array_length(global.StarPostData)
 	{
 		PosX = global.StarPostData[0];
 		PosY = global.StarPostData[1];
 	}
-	
-	// If coming back from special stage, load saved player data
 	if array_length(global.SpecialRingData)
 	{
-		PosX = global.SpecialRingData[0];
-		PosY = global.SpecialRingData[1];
-		
-		// Load saved ring and barrier
-		if global.SpecialRingData[3]
-		{
-			BarrierType = global.SpecialRingData[3];
-			instance_create(PosX, PosY, Barrier);
-		}
-		Rings = global.SpecialRingData[2];
+		PosX		= global.SpecialRingData[0];
+		PosY		= global.SpecialRingData[1];
+		Rings		= global.SpecialRingData[2];
+		BarrierType = global.SpecialRingData[3]; 
+		instance_create(PosX, PosY, Barrier);
 	}
 	
-	/* If none of the positions above exist, player will spawn
-	on spawnpoint. It is handled from its side! */
-	
-	// If coming back from bonus stage, load saved rings and barrier
+	// If coming back from a bonus stage, load saved rings and barrier
 	if array_length(global.BonusStageData)
 	{
 		Rings		= global.BonusStageData[0];

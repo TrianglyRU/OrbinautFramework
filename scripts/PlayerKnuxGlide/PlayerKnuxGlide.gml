@@ -17,6 +17,7 @@ function PlayerKnuxGlide()
 			// Attach to it
 			if GlideState == GlideAir and Facing == FlipLeft and FindWall[1] mod 90 == 0
 			{
+				GlideState = false;
 				Ysp		   = 0;
 				ClimbValue = 0;
 				ClimbState = ClimbWall;
@@ -40,6 +41,7 @@ function PlayerKnuxGlide()
 			// Attach to it
 			if GlideState == GlideAir and Facing == FlipRight and FindWall[1] mod 90 == 0
 			{
+				GlideState = false;
 				Ysp		   = 0;
 				ClimbValue = 0;
 				ClimbState = ClimbWall;

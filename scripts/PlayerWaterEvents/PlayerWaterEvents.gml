@@ -97,7 +97,7 @@ function PlayerWaterEvents()
 				AirLock		      = true;	
 				
 				// Draw player above everything
-				depth = 0;
+				depth = 50;
 			}
 			else if floor(PosY) >= Camera.ViewY + global.Height + 276
 			{

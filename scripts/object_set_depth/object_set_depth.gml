@@ -14,13 +14,13 @@ function object_set_depth(target,depthFlag)
 			break; */	
 			
 			case Bridge:
-				var Tolerance = 40;
+				var Tolerance = 5;
 			break;
 			case BridgePost:
-				var Tolerance = 60;
+				var Tolerance = 15;
 			break;
 			default:     
-				var Tolerance = 50; 
+				var Tolerance = 10; 
 		}
 		depth = Player.depth - (depthFlag ? Tolerance : -Tolerance);
 	}

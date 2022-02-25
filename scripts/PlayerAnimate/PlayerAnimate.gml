@@ -536,8 +536,7 @@ function PlayerAnimate()
 					animation_play(spr_knuckles_balance_flip, [8, 8, 8, 8, 60, 12, 12, 8, 8, 8], 7);
 				break;
 				case AnimTransform:
-					animation_set(spr_knuckles_spring, 0);
-					//animation_play(spr_knuckles_transform, [6, 3, 3], 1);
+					animation_play(spr_knuckles_transform, [6, 3, 3], 1);
 				break;
 				case AnimBreathe:
 				{

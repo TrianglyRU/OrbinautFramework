@@ -23,7 +23,7 @@ function GameMacro()
 	#macro TypePrimary   -1
 	#macro TypeSecondary -2
 	
-	// Texture Data macro
+	// Palette macro
 	#macro PalLimit	    64
 	#macro PalPrimary	0
 	#macro PalSecondary 1
