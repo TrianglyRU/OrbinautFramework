@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_crouch","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_crouch",
     "tags": [],
     "resourceType": "GMSequence",

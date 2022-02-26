@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_pushableblock","path":"sprites/spr_obj_pushableblock/spr_obj_pushableblock.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_pushableblock",
     "tags": [],
     "resourceType": "GMSequence",

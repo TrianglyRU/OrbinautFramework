@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_tail_idle","path":"sprites/spr_tails_tail_idle/spr_tails_tail_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_tail_idle",
     "tags": [],
     "resourceType": "GMSequence",

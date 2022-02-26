@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_water_surface","path":"sprites/tex_water_surface/tex_water_surface.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_water_surface",
     "tags": [],
     "resourceType": "GMSequence",

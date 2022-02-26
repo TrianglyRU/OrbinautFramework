@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_obj_cont_tails_wait","path":"sprites/tex_obj_cont_tails_wait/tex_obj_cont_tails_wait.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_obj_cont_tails_wait",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_collapsingplatform_editor","path":"sprites/spr_obj_collapsingplatform_editor/spr_obj_collapsingplatform_editor.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_collapsingplatform_editor",
     "tags": [],
     "resourceType": "GMSequence",

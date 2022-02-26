@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_balance_flip","path":"sprites/spr_tails_balance_flip/spr_tails_balance_flip.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_balance_flip",
     "tags": [],
     "resourceType": "GMSequence",

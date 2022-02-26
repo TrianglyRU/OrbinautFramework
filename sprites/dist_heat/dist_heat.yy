@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"dist_heat","path":"sprites/dist_heat/dist_heat.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "dist_heat",
     "tags": [],
     "resourceType": "GMSequence",

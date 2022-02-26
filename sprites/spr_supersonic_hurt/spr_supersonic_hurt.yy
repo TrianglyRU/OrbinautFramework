@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_supersonic_hurt","path":"sprites/spr_supersonic_hurt/spr_supersonic_hurt.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_supersonic_hurt",
     "tags": [],
     "resourceType": "GMSequence",

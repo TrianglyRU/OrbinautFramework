@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_watersplash","path":"sprites/spr_obj_watersplash/spr_obj_watersplash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_watersplash",
     "tags": [],
     "resourceType": "GMSequence",

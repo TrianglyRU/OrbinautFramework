@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_prison_button","path":"sprites/spr_obj_prison_button/spr_obj_prison_button.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_prison_button",
     "tags": [],
     "resourceType": "GMSequence",

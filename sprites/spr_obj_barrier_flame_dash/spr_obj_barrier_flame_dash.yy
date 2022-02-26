@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_barrier_flame_dash","path":"sprites/spr_obj_barrier_flame_dash/spr_obj_barrier_flame_dash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_barrier_flame_dash",
     "tags": [],
     "resourceType": "GMSequence",

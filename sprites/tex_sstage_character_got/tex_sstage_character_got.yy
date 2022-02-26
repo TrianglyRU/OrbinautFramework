@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_sstage_character_got","path":"sprites/tex_sstage_character_got/tex_sstage_character_got.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_sstage_character_got",
     "tags": [],
     "resourceType": "GMSequence",

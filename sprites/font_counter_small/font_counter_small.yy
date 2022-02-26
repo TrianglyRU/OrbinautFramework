@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"font_counter_small","path":"sprites/font_counter_small/font_counter_small.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "font_counter_small",
     "tags": [],
     "resourceType": "GMSequence",

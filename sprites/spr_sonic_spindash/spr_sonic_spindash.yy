@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_spindash","path":"sprites/spr_sonic_spindash/spr_sonic_spindash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_spindash",
     "tags": [],
     "resourceType": "GMSequence",

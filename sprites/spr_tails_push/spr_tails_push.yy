@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_push","path":"sprites/spr_tails_push/spr_tails_push.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_push",
     "tags": [],
     "resourceType": "GMSequence",

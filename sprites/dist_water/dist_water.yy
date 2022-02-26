@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"dist_water","path":"sprites/dist_water/dist_water.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "dist_water",
     "tags": [],
     "resourceType": "GMSequence",

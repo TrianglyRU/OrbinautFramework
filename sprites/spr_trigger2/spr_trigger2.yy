@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_trigger2","path":"sprites/spr_trigger2/spr_trigger2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_trigger2",
     "tags": [],
     "resourceType": "GMSequence",

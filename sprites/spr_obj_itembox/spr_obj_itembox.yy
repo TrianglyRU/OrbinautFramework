@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_itembox","path":"sprites/spr_obj_itembox/spr_obj_itembox.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_itembox",
     "tags": [],
     "resourceType": "GMSequence",

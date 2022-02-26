@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_motobug_smoke","path":"sprites/spr_obj_motobug_smoke/spr_obj_motobug_smoke.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_motobug_smoke",
     "tags": [],
     "resourceType": "GMSequence",

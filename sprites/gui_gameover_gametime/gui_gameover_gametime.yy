@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_gameover_gametime","path":"sprites/gui_gameover_gametime/gui_gameover_gametime.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_gameover_gametime",
     "tags": [],
     "resourceType": "GMSequence",

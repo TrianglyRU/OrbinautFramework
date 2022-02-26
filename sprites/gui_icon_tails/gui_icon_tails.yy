@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_icon_tails","path":"sprites/gui_icon_tails/gui_icon_tails.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_icon_tails",
     "tags": [],
     "resourceType": "GMSequence",

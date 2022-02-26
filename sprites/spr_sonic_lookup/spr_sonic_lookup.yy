@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_lookup","path":"sprites/spr_sonic_lookup/spr_sonic_lookup.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_lookup",
     "tags": [],
     "resourceType": "GMSequence",

@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_spindashdust","path":"sprites/spr_obj_spindashdust/spr_obj_spindashdust.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_spindashdust",
     "tags": [],
     "resourceType": "GMSequence",

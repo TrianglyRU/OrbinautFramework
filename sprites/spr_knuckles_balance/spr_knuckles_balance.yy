@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_balance","path":"sprites/spr_knuckles_balance/spr_knuckles_balance.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_balance",
     "tags": [],
     "resourceType": "GMSequence",

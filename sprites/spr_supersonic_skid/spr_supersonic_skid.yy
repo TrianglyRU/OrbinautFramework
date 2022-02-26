@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_supersonic_skid","path":"sprites/spr_supersonic_skid/spr_supersonic_skid.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_supersonic_skid",
     "tags": [],
     "resourceType": "GMSequence",

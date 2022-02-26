@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_spring","path":"sprites/spr_tails_spring/spr_tails_spring.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_spring",
     "tags": [],
     "resourceType": "GMSequence",

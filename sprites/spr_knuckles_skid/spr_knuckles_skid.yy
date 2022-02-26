@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_skid","path":"sprites/spr_knuckles_skid/spr_knuckles_skid.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_skid",
     "tags": [],
     "resourceType": "GMSequence",

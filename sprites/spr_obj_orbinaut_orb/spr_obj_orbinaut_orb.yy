@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_orbinaut_orb","path":"sprites/spr_obj_orbinaut_orb/spr_obj_orbinaut_orb.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_orbinaut_orb",
     "tags": [],
     "resourceType": "GMSequence",

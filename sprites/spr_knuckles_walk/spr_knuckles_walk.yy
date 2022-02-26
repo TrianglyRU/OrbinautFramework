@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_walk","path":"sprites/spr_knuckles_walk/spr_knuckles_walk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_walk",
     "tags": [],
     "resourceType": "GMSequence",

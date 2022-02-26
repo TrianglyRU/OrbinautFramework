@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_ringsparkle","path":"sprites/spr_obj_ringsparkle/spr_obj_ringsparkle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_ringsparkle",
     "tags": [],
     "resourceType": "GMSequence",

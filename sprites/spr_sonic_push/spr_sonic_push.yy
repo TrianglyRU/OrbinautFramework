@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_push","path":"sprites/spr_sonic_push/spr_sonic_push.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_push",
     "tags": [],
     "resourceType": "GMSequence",

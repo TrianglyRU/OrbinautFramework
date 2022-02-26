@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_spindash","path":"sprites/spr_knuckles_spindash/spr_knuckles_spindash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_spindash",
     "tags": [],
     "resourceType": "GMSequence",

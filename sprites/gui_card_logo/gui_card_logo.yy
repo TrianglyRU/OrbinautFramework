@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_card_logo","path":"sprites/gui_card_logo/gui_card_logo.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_card_logo",
     "tags": [],
     "resourceType": "GMSequence",

@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_sstage_character_gotall","path":"sprites/tex_sstage_character_gotall/tex_sstage_character_gotall.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_sstage_character_gotall",
     "tags": [],
     "resourceType": "GMSequence",

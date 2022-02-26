@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_barrier_normal","path":"sprites/spr_obj_barrier_normal/spr_obj_barrier_normal.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_barrier_normal",
     "tags": [],
     "resourceType": "GMSequence",

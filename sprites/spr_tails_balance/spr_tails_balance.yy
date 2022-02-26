@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_balance","path":"sprites/spr_tails_balance/spr_tails_balance.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_balance",
     "tags": [],
     "resourceType": "GMSequence",

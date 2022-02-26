@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_hud_time","path":"sprites/gui_hud_time/gui_hud_time.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_hud_time",
     "tags": [],
     "resourceType": "GMSequence",

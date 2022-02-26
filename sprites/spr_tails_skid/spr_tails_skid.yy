@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_skid","path":"sprites/spr_tails_skid/spr_tails_skid.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_skid",
     "tags": [],
     "resourceType": "GMSequence",

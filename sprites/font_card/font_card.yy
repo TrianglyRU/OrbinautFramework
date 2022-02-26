@@ -159,7 +159,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"font_card","path":"sprites/font_card/font_card.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "font_card",
     "tags": [],
     "resourceType": "GMSequence",

@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_run","path":"sprites/spr_sonic_run/spr_sonic_run.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_run",
     "tags": [],
     "resourceType": "GMSequence",

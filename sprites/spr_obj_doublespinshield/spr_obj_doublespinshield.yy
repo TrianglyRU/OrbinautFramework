@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_doublespinshield","path":"sprites/spr_obj_doublespinshield/spr_obj_doublespinshield.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_doublespinshield",
     "tags": [],
     "resourceType": "GMSequence",

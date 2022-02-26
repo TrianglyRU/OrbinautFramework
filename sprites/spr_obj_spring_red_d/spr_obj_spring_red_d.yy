@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_spring_red_d","path":"sprites/spr_obj_spring_red_d/spr_obj_spring_red_d.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_spring_red_d",
     "tags": [],
     "resourceType": "GMSequence",

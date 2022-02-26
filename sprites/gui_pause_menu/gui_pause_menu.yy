@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_pause_menu","path":"sprites/gui_pause_menu/gui_pause_menu.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_pause_menu",
     "tags": [],
     "resourceType": "GMSequence",

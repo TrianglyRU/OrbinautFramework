@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_swim","path":"sprites/spr_tails_swim/spr_tails_swim.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_swim",
     "tags": [],
     "resourceType": "GMSequence",

@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_roll","path":"sprites/spr_knuckles_roll/spr_knuckles_roll.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_roll",
     "tags": [],
     "resourceType": "GMSequence",

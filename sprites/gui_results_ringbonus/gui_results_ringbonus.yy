@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_results_ringbonus","path":"sprites/gui_results_ringbonus/gui_results_ringbonus.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_results_ringbonus",
     "tags": [],
     "resourceType": "GMSequence",

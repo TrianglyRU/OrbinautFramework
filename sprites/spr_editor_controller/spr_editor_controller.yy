@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_editor_controller","path":"sprites/spr_editor_controller/spr_editor_controller.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_editor_controller",
     "tags": [],
     "resourceType": "GMSequence",

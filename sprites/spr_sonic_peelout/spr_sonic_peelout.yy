@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_peelout","path":"sprites/spr_sonic_peelout/spr_sonic_peelout.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_peelout",
     "tags": [],
     "resourceType": "GMSequence",

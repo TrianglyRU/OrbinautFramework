@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_bubble_number5","path":"sprites/spr_obj_bubble_number5/spr_obj_bubble_number5.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_bubble_number5",
     "tags": [],
     "resourceType": "GMSequence",

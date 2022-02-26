@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_collapsingplatform_tvz","path":"sprites/spr_obj_collapsingplatform_tvz/spr_obj_collapsingplatform_tvz.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_collapsingplatform_tvz",
     "tags": [],
     "resourceType": "GMSequence",

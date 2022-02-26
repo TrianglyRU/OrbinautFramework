@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"pal_tz_type2","path":"sprites/pal_tz_type2/pal_tz_type2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "pal_tz_type2",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_breathe","path":"sprites/spr_knuckles_breathe/spr_knuckles_breathe.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_breathe",
     "tags": [],
     "resourceType": "GMSequence",

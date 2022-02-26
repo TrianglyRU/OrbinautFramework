@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_results_head","path":"sprites/gui_results_head/gui_results_head.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_results_head",
     "tags": [],
     "resourceType": "GMSequence",

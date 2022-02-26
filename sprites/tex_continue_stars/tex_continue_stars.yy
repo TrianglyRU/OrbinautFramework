@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_continue_stars","path":"sprites/tex_continue_stars/tex_continue_stars.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_continue_stars",
     "tags": [],
     "resourceType": "GMSequence",

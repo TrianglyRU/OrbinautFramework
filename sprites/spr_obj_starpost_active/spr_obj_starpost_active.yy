@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_starpost_active","path":"sprites/spr_obj_starpost_active/spr_obj_starpost_active.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_starpost_active",
     "tags": [],
     "resourceType": "GMSequence",

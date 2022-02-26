@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_sstage_stage","path":"sprites/tex_sstage_stage/tex_sstage_stage.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_sstage_stage",
     "tags": [],
     "resourceType": "GMSequence",

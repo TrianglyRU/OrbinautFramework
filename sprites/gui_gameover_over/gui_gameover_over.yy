@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_gameover_over","path":"sprites/gui_gameover_over/gui_gameover_over.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_gameover_over",
     "tags": [],
     "resourceType": "GMSequence",

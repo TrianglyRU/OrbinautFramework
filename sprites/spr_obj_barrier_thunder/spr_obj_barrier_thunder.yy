@@ -223,7 +223,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_barrier_thunder","path":"sprites/spr_obj_barrier_thunder/spr_obj_barrier_thunder.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_barrier_thunder",
     "tags": [],
     "resourceType": "GMSequence",

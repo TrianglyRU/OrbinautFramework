@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_tvz_tileset","path":"sprites/tex_tvz_tileset/tex_tvz_tileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_tvz_tileset",
     "tags": [],
     "resourceType": "GMSequence",

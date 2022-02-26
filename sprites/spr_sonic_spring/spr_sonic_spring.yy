@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_spring","path":"sprites/spr_sonic_spring/spr_sonic_spring.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_spring",
     "tags": [],
     "resourceType": "GMSequence",

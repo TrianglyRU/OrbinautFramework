@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_icon_sonic","path":"sprites/gui_icon_sonic/gui_icon_sonic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_icon_sonic",
     "tags": [],
     "resourceType": "GMSequence",

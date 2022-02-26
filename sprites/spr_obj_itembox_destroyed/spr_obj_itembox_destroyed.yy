@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_itembox_destroyed","path":"sprites/spr_obj_itembox_destroyed/spr_obj_itembox_destroyed.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_itembox_destroyed",
     "tags": [],
     "resourceType": "GMSequence",

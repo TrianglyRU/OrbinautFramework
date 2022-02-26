@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_spawnpoint","path":"sprites/spr_obj_spawnpoint/spr_obj_spawnpoint.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_spawnpoint",
     "tags": [],
     "resourceType": "GMSequence",

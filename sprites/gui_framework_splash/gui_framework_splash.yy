@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_framework_splash","path":"sprites/gui_framework_splash/gui_framework_splash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_framework_splash",
     "tags": [],
     "resourceType": "GMSequence",

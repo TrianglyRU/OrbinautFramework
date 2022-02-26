@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_drown","path":"sprites/spr_sonic_drown/spr_sonic_drown.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_drown",
     "tags": [],
     "resourceType": "GMSequence",

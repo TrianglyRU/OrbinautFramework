@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_hud_rings","path":"sprites/gui_hud_rings/gui_hud_rings.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_hud_rings",
     "tags": [],
     "resourceType": "GMSequence",

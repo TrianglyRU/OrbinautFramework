@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_clearpanel_end_s","path":"sprites/spr_obj_clearpanel_end_s/spr_obj_clearpanel_end_s.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_clearpanel_end_s",
     "tags": [],
     "resourceType": "GMSequence",

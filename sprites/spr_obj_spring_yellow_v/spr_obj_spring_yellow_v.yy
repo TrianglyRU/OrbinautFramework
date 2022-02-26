@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_spring_yellow_v","path":"sprites/spr_obj_spring_yellow_v/spr_obj_spring_yellow_v.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_spring_yellow_v",
     "tags": [],
     "resourceType": "GMSequence",

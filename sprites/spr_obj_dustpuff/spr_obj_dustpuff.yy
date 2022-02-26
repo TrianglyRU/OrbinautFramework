@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_dustpuff","path":"sprites/spr_obj_dustpuff/spr_obj_dustpuff.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_dustpuff",
     "tags": [],
     "resourceType": "GMSequence",

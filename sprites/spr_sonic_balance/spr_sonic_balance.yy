@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_balance","path":"sprites/spr_sonic_balance/spr_sonic_balance.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_balance",
     "tags": [],
     "resourceType": "GMSequence",

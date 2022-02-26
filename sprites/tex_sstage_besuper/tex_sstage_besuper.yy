@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_sstage_besuper","path":"sprites/tex_sstage_besuper/tex_sstage_besuper.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_sstage_besuper",
     "tags": [],
     "resourceType": "GMSequence",

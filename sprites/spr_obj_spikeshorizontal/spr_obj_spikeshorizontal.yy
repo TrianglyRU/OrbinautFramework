@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_spikeshorizontal","path":"sprites/spr_obj_spikeshorizontal/spr_obj_spikeshorizontal.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_spikeshorizontal",
     "tags": [],
     "resourceType": "GMSequence",

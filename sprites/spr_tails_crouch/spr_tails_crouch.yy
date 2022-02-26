@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_crouch","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_crouch",
     "tags": [],
     "resourceType": "GMSequence",

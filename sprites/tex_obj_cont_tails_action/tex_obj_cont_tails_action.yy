@@ -115,7 +115,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_obj_cont_tails_action","path":"sprites/tex_obj_cont_tails_action/tex_obj_cont_tails_action.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_obj_cont_tails_action",
     "tags": [],
     "resourceType": "GMSequence",

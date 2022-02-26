@@ -95,7 +95,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_balance_flip","path":"sprites/spr_knuckles_balance_flip/spr_knuckles_balance_flip.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_balance_flip",
     "tags": [],
     "resourceType": "GMSequence",

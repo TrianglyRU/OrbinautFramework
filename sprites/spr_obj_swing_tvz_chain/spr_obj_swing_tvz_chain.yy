@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_swing_tvz_chain","path":"sprites/spr_obj_swing_tvz_chain/spr_obj_swing_tvz_chain.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_swing_tvz_chain",
     "tags": [],
     "resourceType": "GMSequence",

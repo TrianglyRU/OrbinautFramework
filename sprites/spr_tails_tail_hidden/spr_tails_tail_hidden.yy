@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_tail_hidden","path":"sprites/spr_tails_tail_hidden/spr_tails_tail_hidden.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_tail_hidden",
     "tags": [],
     "resourceType": "GMSequence",

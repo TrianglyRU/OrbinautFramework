@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_specialring","path":"sprites/spr_obj_specialring/spr_obj_specialring.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_specialring",
     "tags": [],
     "resourceType": "GMSequence",

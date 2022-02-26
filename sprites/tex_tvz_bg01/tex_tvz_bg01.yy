@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_tvz_bg01","path":"sprites/tex_tvz_bg01/tex_tvz_bg01.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_tvz_bg01",
     "tags": [],
     "resourceType": "GMSequence",

@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_supersonic_push","path":"sprites/spr_supersonic_push/spr_supersonic_push.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_supersonic_push",
     "tags": [],
     "resourceType": "GMSequence",

@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_walk","path":"sprites/spr_sonic_walk/spr_sonic_walk.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_walk",
     "tags": [],
     "resourceType": "GMSequence",

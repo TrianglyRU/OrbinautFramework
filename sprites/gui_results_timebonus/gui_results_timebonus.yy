@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_results_timebonus","path":"sprites/gui_results_timebonus/gui_results_timebonus.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_results_timebonus",
     "tags": [],
     "resourceType": "GMSequence",

@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_airbubbler","path":"sprites/spr_obj_airbubbler/spr_obj_airbubbler.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_airbubbler",
     "tags": [],
     "resourceType": "GMSequence",

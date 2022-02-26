@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_sstage_reward","path":"sprites/tex_sstage_reward/tex_sstage_reward.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_sstage_reward",
     "tags": [],
     "resourceType": "GMSequence",

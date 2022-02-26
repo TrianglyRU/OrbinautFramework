@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_barriersparkle","path":"sprites/spr_obj_barriersparkle/spr_obj_barriersparkle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_barriersparkle",
     "tags": [],
     "resourceType": "GMSequence",

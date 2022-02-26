@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_crabmeat_move","path":"sprites/spr_obj_crabmeat_move/spr_obj_crabmeat_move.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_crabmeat_move",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_supersonic_death","path":"sprites/spr_supersonic_death/spr_supersonic_death.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_supersonic_death",
     "tags": [],
     "resourceType": "GMSequence",

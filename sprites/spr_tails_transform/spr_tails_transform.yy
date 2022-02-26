@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_transform","path":"sprites/spr_tails_transform/spr_tails_transform.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_transform",
     "tags": [],
     "resourceType": "GMSequence",

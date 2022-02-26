@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_results_score","path":"sprites/gui_results_score/gui_results_score.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_results_score",
     "tags": [],
     "resourceType": "GMSequence",

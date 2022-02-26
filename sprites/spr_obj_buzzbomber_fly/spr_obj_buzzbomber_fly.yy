@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_buzzbomber_fly","path":"sprites/spr_obj_buzzbomber_fly/spr_obj_buzzbomber_fly.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_buzzbomber_fly",
     "tags": [],
     "resourceType": "GMSequence",

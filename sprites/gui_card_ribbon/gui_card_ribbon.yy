@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_card_ribbon","path":"sprites/gui_card_ribbon/gui_card_ribbon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_card_ribbon",
     "tags": [],
     "resourceType": "GMSequence",

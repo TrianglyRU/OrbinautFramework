@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_animal_pocky","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_animal_pocky",
     "tags": [],
     "resourceType": "GMSequence",

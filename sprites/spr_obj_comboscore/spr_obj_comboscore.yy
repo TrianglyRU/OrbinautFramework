@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_comboscore","path":"sprites/spr_obj_comboscore/spr_obj_comboscore.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_comboscore",
     "tags": [],
     "resourceType": "GMSequence",

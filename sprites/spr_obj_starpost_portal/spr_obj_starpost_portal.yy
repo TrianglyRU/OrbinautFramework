@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_starpost_portal","path":"sprites/spr_obj_starpost_portal/spr_obj_starpost_portal.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_starpost_portal",
     "tags": [],
     "resourceType": "GMSequence",

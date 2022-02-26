@@ -85,7 +85,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_dustexplosion","path":"sprites/spr_obj_dustexplosion/spr_obj_dustexplosion.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_dustexplosion",
     "tags": [],
     "resourceType": "GMSequence",

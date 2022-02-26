@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_starpost_lamp","path":"sprites/spr_obj_starpost_lamp/spr_obj_starpost_lamp.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_starpost_lamp",
     "tags": [],
     "resourceType": "GMSequence",

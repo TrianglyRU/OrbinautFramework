@@ -219,7 +219,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"font_menu","path":"sprites/font_menu/font_menu.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "font_menu",
     "tags": [],
     "resourceType": "GMSequence",

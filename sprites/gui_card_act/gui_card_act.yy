@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_card_act","path":"sprites/gui_card_act/gui_card_act.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_card_act",
     "tags": [],
     "resourceType": "GMSequence",

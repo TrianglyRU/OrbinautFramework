@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_swing_tvz_pendulum","path":"sprites/spr_obj_swing_tvz_pendulum/spr_obj_swing_tvz_pendulum.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_swing_tvz_pendulum",
     "tags": [],
     "resourceType": "GMSequence",

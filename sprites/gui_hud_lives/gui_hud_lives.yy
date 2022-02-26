@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"gui_hud_lives","path":"sprites/gui_hud_lives/gui_hud_lives.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "gui_hud_lives",
     "tags": [],
     "resourceType": "GMSequence",

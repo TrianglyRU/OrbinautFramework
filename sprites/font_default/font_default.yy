@@ -327,7 +327,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"font_default","path":"sprites/font_default/font_default.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "font_default",
     "tags": [],
     "resourceType": "GMSequence",

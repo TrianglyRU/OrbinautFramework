@@ -103,7 +103,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_obj_itembox_card","path":"sprites/spr_obj_itembox_card/spr_obj_itembox_card.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_obj_itembox_card",
     "tags": [],
     "resourceType": "GMSequence",
