@@ -1,5 +1,5 @@
-/// @function gamedata_load(slot)
-function gamedata_load(slot)
+/// @function savedata_load(slot)
+function savedata_load(slot)
 {
 	/* It is not recommended to modify saveslot file to save/load additional data.
 	You'd want to create additional file for that case, like saveextra */

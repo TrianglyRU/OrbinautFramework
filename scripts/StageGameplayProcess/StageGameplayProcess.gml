@@ -98,7 +98,7 @@ function StageGameplayProcess()
 						global.Score     = 0;
 						global.Continues = 0;
 							
-						gamedata_save(global.ActiveSave);
+						savedata_save(global.ActiveSave);
 					}
 					room_goto(Screen_DevMenu);
 				}

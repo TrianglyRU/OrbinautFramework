@@ -1,5 +1,5 @@
-/// @function gamesettings_save()
-function gamesettings_save()
+/// @function settings_save()
+function settings_save()
 {
 	ini_open("config.ini");
 	

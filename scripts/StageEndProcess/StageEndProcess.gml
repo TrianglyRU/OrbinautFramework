@@ -23,7 +23,7 @@ function StageEndProcess()
 		}
 		
 		// Save our progress
-		gamedata_save(global.ActiveSave);
+		savedata_save(global.ActiveSave);
 	}
 
 	// Load into the next stage

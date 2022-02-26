@@ -43,7 +43,7 @@ function ContinueScreenProcess()
 						global.Score     = 0;
 						global.Continues = 0;
 				
-						gamedata_save(global.ActiveSave);
+						savedata_save(global.ActiveSave);
 					}
 					fade_perform(ModeInto, BlendBlack, 1);
 					
@@ -108,7 +108,7 @@ function ContinueScreenProcess()
 				// Overwrite savedata if not playing in 'no save' slot
 				if global.ActiveSave != -1
 				{
-					gamedata_save(global.ActiveSave);
+					savedata_save(global.ActiveSave);
 				}
 			
 				// Head back to our stage

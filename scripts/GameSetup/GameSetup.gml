@@ -11,7 +11,7 @@ function GameSetup()
 	global.KeyboardControl = [vk_up, vk_down, vk_left, vk_right, ord("Z"), ord("X"), ord("C"), vk_space, vk_enter];
 	
 	/* Default volume, screen size and fullscreen mode 
-	are set in gamesettings_load() script */
+	are set in settings_load() script */
 	
 	// Originals differences. By defualt, the framework is in a mix of S2 and S3(K) state
 	global.SpindashEnabled    = true;

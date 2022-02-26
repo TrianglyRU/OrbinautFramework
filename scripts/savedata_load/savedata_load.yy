@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "gamedata_save",
+  "name": "savedata_load",
   "tags": [],
   "resourceType": "GMScript",
 }

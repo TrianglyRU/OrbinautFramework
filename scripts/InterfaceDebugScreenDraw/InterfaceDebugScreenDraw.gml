@@ -59,7 +59,7 @@ function InterfaceDebugScreenDraw()
 				break;
 			}
 		}
-		#endregion
+		#endregion		
 		
 		// Draw rectangle
 		draw_set_alpha(0.65);
@@ -165,7 +165,7 @@ function InterfaceDebugScreenDraw()
 				+ "\n   B BOUND: "		   + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
 				+ "\n   L BOUND: "		   + string(Stage.LeftBoundary)   + " TARGET: " + string(Stage.TargetLeftBoundary)
 				+ "\n   R BOUND: "		   + string(Stage.RightBoundary)  + " TARGET: " + string(Stage.TargetRightBoundary)
-				+ "\n   OBJECTS LOADED: "  + string(instance_count - (9 + global.RichPresenceSupport)),
+				+ "\n   OBJECTS LOADED: "  + string(instance_count - (10 + global.RichPresenceSupport)),
 				
 		8, 256, 0.28, 0.28, 0);
 	}

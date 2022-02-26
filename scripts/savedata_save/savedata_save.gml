@@ -1,5 +1,5 @@
-/// @function gamedata_save(slot)
-function gamedata_save(slot)
+/// @function savedata_save(slot)
+function savedata_save(slot)
 {
 	/* It is not recommended to modify saveslot file to save/load additional data.
 	You'd want to create additional file in this case, like saveextra.bin */
@@ -37,5 +37,5 @@ function gamedata_save(slot)
 	}
 	
 	// Update slot
-	global.SaveData[slot] = gamedata_load(slot);
+	global.SaveData[slot] = savedata_load(slot);
 }

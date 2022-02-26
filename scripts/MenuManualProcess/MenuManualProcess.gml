@@ -85,7 +85,7 @@ function MenuManualProcess()
 					
 						if global.ActiveSave != -1
 						{
-							gamedata_save(global.ActiveSave);
+							savedata_save(global.ActiveSave);
 						}
 						room_goto(StartStage);
 					}
@@ -187,7 +187,7 @@ function MenuManualProcess()
 			// Update config file
 			else if Input.BPress
 			{
-				gamesettings_save();
+				settings_save();
 			}
 			
 			var Option0 = menu_get_initial_string(MenuID, 0);
