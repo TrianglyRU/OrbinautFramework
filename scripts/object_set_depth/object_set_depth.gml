@@ -6,19 +6,21 @@ function object_set_depth(target,depthFlag)
 	{
 		switch object_index
 		{
-			/* You can add your objects for more advanced depth 
-			manipulation. Example: 
+			/* You can add your objects for 
+			more advanced depth manipulation here
 			
-			case FloatingPlatform:
-				var Tolerance = 25;
-			break; */	
+			For objects rendered above the player, the higher 
+			tolerance value means higher render priority
+			
+			For objects rendered below the player it means lower render priority */
 			
 			case Bridge:
 				var Tolerance = 5;
 			break;
 			case BridgePost:
+			case RingSparkle:
 				var Tolerance = 15;
-			break;
+			break;	
 			default:     
 				var Tolerance = 10; 
 		}

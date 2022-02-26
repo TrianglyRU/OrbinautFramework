@@ -52,7 +52,7 @@ function ObjFloatingPlatformMain()
 					break;
 					case "Vertical":
 					{
-						PosY += dsin(Angle) * Distance * (InverseY ? 1 : -1);
+						PosY += dsin(Angle) * Distance * (InverseY ? -1 : 1);
 					}
 					break;
 					case "Diagonal":
