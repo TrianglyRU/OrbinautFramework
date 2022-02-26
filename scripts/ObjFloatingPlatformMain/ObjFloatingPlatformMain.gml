@@ -47,12 +47,12 @@ function ObjFloatingPlatformMain()
 				{
 					case "Horizontal":
 					{
-						PosX += dcos(Angle + 90) * Distance * (InverseX ? -1 : 1);
+						PosX += dcos(Angle + 90) * Distance * (InverseX ? 1 : -1);
 					}
 					break;
 					case "Vertical":
 					{
-						PosY += dsin(Angle) * Distance * (InverseY ? -1 : 1);
+						PosY += dsin(Angle) * Distance * (InverseY ? 1 : -1);
 					}
 					break;
 					case "Diagonal":
@@ -63,8 +63,8 @@ function ObjFloatingPlatformMain()
 					break;
 					case "Circular":
 					{
-						PosX += dcos(Angle) * Distance * (InverseX ? -1 : 1);
-						PosY += dsin(Angle) * Distance * (InverseY ? -1 : 1);
+						PosX += dcos(Angle) * Distance * (InverseX ? 1 : -1);
+						PosY += dsin(Angle) * Distance * (InverseY ? 1 : -1);
 					}
 					break;
 				}
