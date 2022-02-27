@@ -41,13 +41,12 @@ function ObjFloatingPlatformMain()
 			// Move the platform according to its movement type
 			if MovementType != "None"
 			{
-				var Angle = (abs(Speed * Stage.OscillateAngle) * Stage.Time) mod 360;
-
+				var Angle = abs(Speed * Stage.OscillateAngle) * (Stage.Time + 90) mod 360;
 				switch MovementType
 				{
 					case "Horizontal":
 					{
-						PosX += dcos(Angle + 90) * Distance * (InverseX ? 1 : -1);
+						PosX += dcos(Angle) * Distance * (InverseX ? 1 : -1);
 					}
 					break;
 					case "Vertical":
