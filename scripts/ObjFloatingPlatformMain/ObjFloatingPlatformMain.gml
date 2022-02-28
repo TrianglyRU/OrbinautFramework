@@ -7,15 +7,13 @@ function ObjFloatingPlatformMain()
 			var PosX = OriginX;
 			var PosY = OriginY;
 			
+			// Lower the platform
 			if object_check_touch(ColSolidU)
 			{
-				if DoFall and DoFall != 2
+				if MovementType == "Fall"
 				{
-					// Increment flag
-					DoFall = 2;
+					FallFlag = true;
 				}
-				
-				// Lower the platform
 				Weight += 0.25;
 			}
 			else
@@ -24,54 +22,51 @@ function ObjFloatingPlatformMain()
 			}
 			Weight = clamp(Weight, 0, 4);
 			
-			// Fall after 30 frames if flag is set
-			if DoFall == 2
+			// Update platform movement
+			if MovementType == "Fall"
 			{
-				if (++Timer) == 30
+				if FallFlag and (++Timer) == 30
 				{
-					DoFall += 1;
 					State  += 1;
-					Timer   = 32;
+					Timer   = 31;
 					OriginY = OriginY + Weight;
 					
+					// Platform should reset itself once it goes off-screen
 					object_set_unload(FlagReset);
 				}
 			}
-			
-			// Move the platform according to its movement type
-			if MovementType != "None"
+			else 
 			{
-				var Angle = abs(Speed * Stage.OscillateAngle) * (Stage.Time + 90) mod 360;
+				var Angle = abs(Speed * Stage.OscillateAngle) * (Stage.Time) mod 360;
+				var Flip  = Inverse ? 1 : -1;
+				
 				switch MovementType
 				{
 					case "Horizontal":
-					{
-						PosX += dcos(Angle) * Distance * (InverseX ? 1 : -1);
-					}
+						PosX += dcos(Angle + 90) * Distance * Flip;
 					break;
 					case "Vertical":
-					{
-						PosY += dsin(Angle) * Distance * (InverseY ? -1 : 1);
-					}
+						PosY += dcos(Angle + 90) * Distance * Flip;
 					break;
-					case "Diagonal":
-					{
-						PosX += dsin(Angle + InverseX * 180) * Distance;
-						PosY += dsin(Angle + InverseY * 180) * Distance;
-					}
+					case "Diagonal 45":
+						PosX += dsin(Angle + 180) * Distance * Flip;
+						PosY += dsin(Angle)		  * Distance * Flip;
+					break;
+					case "Diagonal 315":
+						PosX -= dsin(Angle) * Distance * Flip;
+						PosY -= dsin(Angle) * Distance * Flip;
 					break;
 					case "Circular":
-					{
-						PosX += dcos(Angle) * Distance * (InverseX ? 1 : -1);
-						PosY += dsin(Angle) * Distance * (InverseY ? 1 : -1);
-					}
+						PosX += dsin(Angle) * Distance * Flip;
+						PosY += dcos(Angle) * Distance * Flip;
 					break;
 				}
 			}
-	
+			
+			// Update position
 			x = floor(PosX);
 			y = floor(PosY + Weight);
-	
+			
 			// Do collision
 			object_act_solid(false, true, false, false);
 		}
@@ -80,13 +75,13 @@ function ObjFloatingPlatformMain()
 		{
 			if y > Stage.BottomBoundary
 			{
-				break;
+				State++;
 			}
 			
+			// Move and update position
 			FallSpeed += 0.21875;
 			OriginY   += FallSpeed;
-
-			y = floor(OriginY);
+			y		   = floor(OriginY);
 		
 			// Make player lose the platform after 32 frames
 			if (--Timer) == 0
@@ -98,7 +93,7 @@ function ObjFloatingPlatformMain()
 					Player.Grounded = false;
 				}
 			}
-			else if Timer > 0
+			else
 			{
 				// Do collision
 				object_act_solid(false, true, false, false);

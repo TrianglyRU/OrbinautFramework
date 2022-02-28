@@ -27,16 +27,16 @@
   "properties": [
     {"varType":0,"value":"1","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Speed","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"64","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Distance","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
-        "\"None\"",
+    {"varType":6,"value":"\"Static\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"Static\"",
+        "\"Fall\"",
         "\"Horizontal\"",
         "\"Vertical\"",
-        "\"Diagonal\"",
+        "\"Diagonal 45\"",
+        "\"Diagonal 315\"",
         "\"Circular\"",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"MovementType","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"InverseX","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"InverseY","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"DoFall","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"Inverse","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

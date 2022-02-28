@@ -3,10 +3,8 @@ function ObjFloatingPlatformStartup()
 	/* Variable Definitions	
 	1. Speed,        default = 1
 	2. Distance,     default = 64
-	3. MovementType, default = "None"
-	4. InverseX,	 default = false
-	5. InverseY,	 default = false
-	6. DoFall,       default = false
+	3. MovementType, default = "Static"
+	4. Inverse,		 default = false
 	*/
 	
 	// Setup object
@@ -32,6 +30,7 @@ function ObjFloatingPlatformStartup()
 	State     = 0;
 	Timer     = 0;
 	FallSpeed = 0;
+	FallFlag  = false;
 	
 	// Set object properties
 	object_set_unload(FlagPause);

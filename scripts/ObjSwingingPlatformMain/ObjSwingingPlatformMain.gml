@@ -17,9 +17,9 @@ function ObjSwingingPlatformMain()
 	}
 	
 	// Calculate distances
-	var Angle = dcos(abs(Speed * Stage.OscillateAngle) * (Stage.Time + 90) mod 360);
-	DistanceX = dcos(90 + Angle * 90) * 16;
-	DistanceY = dsin(90 + Angle * 90) * 16;
+	var Angle = abs(Speed * Stage.OscillateAngle) * (Stage.Time + 60) mod 360;
+	DistanceX = dcos(dcos(Angle) * 90 + 90) * 16;
+	DistanceY = dsin(dcos(Angle) * 90 + 90) * 16;
 	
 	// Calculate final position
 	x = floor(OriginX + DistanceX * (ChainCount + 0.5));
