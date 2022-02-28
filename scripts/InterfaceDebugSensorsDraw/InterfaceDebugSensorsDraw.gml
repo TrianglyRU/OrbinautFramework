@@ -33,7 +33,7 @@ function InterfaceDebugSensorsDraw()
 	{
 		if Grounded
 		{
-			switch CollisionMode[0]
+			switch FloorMode[0]
 			{
 				case 0:
 				{
@@ -59,10 +59,7 @@ function InterfaceDebugSensorsDraw()
 					
 					if Angle > 90 and Angle <= 270
 					{
-						if !global.SKWallCollision or Angle mod 90 != 0
-						{
-							break;
-						}
+						break;
 					}
 					if Gsp < 0
 					{
@@ -81,10 +78,7 @@ function InterfaceDebugSensorsDraw()
 					
 					if Angle > 90 and Angle <= 270
 					{
-						if !global.SKWallCollision or Angle mod 90 != 0
-						{
-							break;
-						}
+						break;
 					}
 					if Gsp < 0
 					{
@@ -103,10 +97,7 @@ function InterfaceDebugSensorsDraw()
 					
 					if Angle > 90 and Angle <= 270
 					{
-						if !global.SKWallCollision or Angle mod 90 != 0
-						{
-							break;
-						}
+						break;
 					}
 					if Gsp < 0
 					{

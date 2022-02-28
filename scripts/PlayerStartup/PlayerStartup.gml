@@ -65,12 +65,13 @@ function PlayerStartup()
 	DropdashRev      = -1;
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
-	Grv			     =  0.21875;
-	AirTimer	     =  1800;
-	Facing			 =  FlipRight;
-	DoubleSpinAttack =  SpinReady;
-	DropdashFlag     =  DashLocked;
-	CollisionMode    = [0, 0];
+	Grv			     = 0.21875;
+	AirTimer	     = 1800;
+	FloorMode        = [0, 0];
+	Facing			 = FlipRight;
+	DoubleSpinAttack = SpinReady;
+	DropdashFlag     = DashLocked;
+	
 
 	// Set default sprite and depth
 	switch global.Character

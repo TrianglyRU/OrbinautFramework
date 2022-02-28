@@ -1,14 +1,15 @@
 /// @function object_check_touch(Col?)
 function object_check_touch(collisionType)
 {	
-	if !Player.AllowCollision
+	if collisionType != ColTrigger and !Player.AllowCollision
 	{
 		return false;
 	}	
 	
 	switch collisionType
 	{
-		case ColHitbox: case ColHitbox2:
+		case ColHitbox: 
+		case ColHitbox2:
 		{	
 			// Exit if object can't be touched
 			if !Obj_HitX or !Obj_HitY
@@ -21,8 +22,8 @@ function object_check_touch(collisionType)
 			}
 			
 			// Get object's size
-			var ObjectTop    = floor(y - Obj_HitY - 0);
-			var ObjectLeft   = floor(x - Obj_HitX - 0);
+			var ObjectTop    = floor(y - Obj_HitY);
+			var ObjectLeft   = floor(x - Obj_HitX);
 			var ObjectRight  = floor(x + Obj_HitX - 1);
 			var ObjectBottom = floor(y + Obj_HitY - 1);
 		
@@ -50,7 +51,11 @@ function object_check_touch(collisionType)
 			return true;
 		}
 		break;
-		case ColSolidU: case ColSolidD: case ColSolidL: case ColSolidR:
+		
+		case ColSolidU: 
+		case ColSolidD: 
+		case ColSolidL: 
+		case ColSolidR:
 		{
 			// Exit if object can't be touched
 			if !object_is_onscreen(id)
@@ -62,7 +67,7 @@ function object_check_touch(collisionType)
 			switch collisionType
 			{
 				case ColSolidU:
-					return Obj_SolidTouchU or Player.OnObject == id;
+					return Obj_SolidTouchU;
 				break;
 				case ColSolidD:
 					return Obj_SolidTouchD;
@@ -76,6 +81,7 @@ function object_check_touch(collisionType)
 			}
 		}
 		break;
+		
 		case ColSolidP:
 		{
 			// Exit if object can't be touched
@@ -87,6 +93,7 @@ function object_check_touch(collisionType)
 			return Obj_SolidPush;
 		}
 		break;
+		
 		case ColTrigger:
 		{
 			return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));

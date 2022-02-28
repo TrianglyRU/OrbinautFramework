@@ -13,26 +13,26 @@ function PlayerGroundFloorCollision()
 		{
 			if Angle <= 45 or Angle >= 315
 			{
-				CollisionMode[0] = 0;
+				FloorMode[0] = 0;
 			}
 			else if Angle >= 46.41 and Angle <= 133.59
 			{
-				CollisionMode[0] = 1;
+				FloorMode[0] = 1;
 			}
 			else if Angle >= 135 and Angle <= 225
 			{
-				CollisionMode[0] = 2;
+				FloorMode[0] = 2;
 			}
 			else if Angle >= 226.41 and Angle <= 313.59
 			{
-				CollisionMode[0] = 3;
+				FloorMode[0] = 3;
 			}
 		}
 	
 		// ...or update collision mode using a custom method
-		else if !CollisionMode[1]
+		else if !FloorMode[1]
 		{
-			switch CollisionMode[0]
+			switch FloorMode[0]
 			{
 				case 0:
 				{
@@ -41,7 +41,7 @@ function PlayerGroundFloorCollision()
 					{
 						if FindTile[1] - Angle mod 360 < 45
 						{
-							CollisionMode[0] = 1;
+							FloorMode[0] = 1;
 						}
 					}
 			
@@ -50,7 +50,7 @@ function PlayerGroundFloorCollision()
 					{
 						if Angle - FindTile[1] < 45
 						{
-							CollisionMode[0] = 3;
+							FloorMode[0] = 3;
 						}
 					}
 				}
@@ -62,7 +62,7 @@ function PlayerGroundFloorCollision()
 					{
 						if Angle - FindTile[1] mod 360 < 45
 						{
-							CollisionMode[0] = 0;
+							FloorMode[0] = 0;
 						}
 					}
 			
@@ -71,7 +71,7 @@ function PlayerGroundFloorCollision()
 					{
 						if FindTile[1] - Angle < 45
 						{
-							CollisionMode[0] = 2;
+							FloorMode[0] = 2;
 						}
 					}
 				}
@@ -83,7 +83,7 @@ function PlayerGroundFloorCollision()
 					{
 						if Angle - FindTile[1] < 45
 						{
-							CollisionMode[0] = 1;
+							FloorMode[0] = 1;
 						}
 					}
 			
@@ -92,7 +92,7 @@ function PlayerGroundFloorCollision()
 					{
 						if FindTile[1] - Angle < 45
 						{
-							CollisionMode[0] = 3;
+							FloorMode[0] = 3;
 						}
 					}
 				}
@@ -104,7 +104,7 @@ function PlayerGroundFloorCollision()
 					{
 						if FindTile[1] - Angle < 45
 						{
-							CollisionMode[0] = 0;
+							FloorMode[0] = 0;
 						}
 					}
 			
@@ -113,7 +113,7 @@ function PlayerGroundFloorCollision()
 					{
 						if Angle - FindTile[1] < 45
 						{
-							CollisionMode[0] = 2;
+							FloorMode[0] = 2;
 						}
 					}
 				}
@@ -122,13 +122,13 @@ function PlayerGroundFloorCollision()
 		}
 		else
 		{
-			CollisionMode[1] = false;
+			FloorMode[1] = false;
 		}
 	}
 	#endregion
 	
 	// Perform collision!
-	switch CollisionMode[0]
+	switch FloorMode[0]
 	{
 		case 0:
 		{		

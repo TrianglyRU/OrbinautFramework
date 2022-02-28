@@ -44,8 +44,8 @@ function ObjItemBoxMain()
 					object_set_unload(false);	
 
 					// Increment state
-					Timer = 0;
-					State++;
+					Timer  = 0;
+					State += 1;
 				}
 			}
 			
@@ -100,29 +100,25 @@ function ObjItemBoxMain()
 			CardSpeed = max(CardSpeed - 0.09375, 0);
 			CardY	 -= CardSpeed;
 			
-			// If itemcard is moving, exit
-			if CardSpeed 
+			if CardSpeed > 0
 			{
 				break;
 			}
-			
-			// Increment state
-			Timer  = 30;
-			State += 1;
-			
+
 			// Give bonus
 			switch BoxType
 			{
 				case "10 Rings":
 				{
-					Player.Rings += 10;	
+					audio_sfx_play(sfxRingLeft,  false);
+					audio_sfx_play(sfxRingRight, false);
 					
-					audio_sfx_play(Player.Rings mod 2 == 0 ? sfxRingLeft : sfxRingRight, false);
+					Player.Rings += 10;		
 				}
 				break;
 				case "High Speed":
 				{
-					if !Player.SuperState
+					if !Player.SuperState and !Player.HighspeedBonus
 					{
 						audio_bgm_play(TypePrimary, HighSpeed);
 					}
@@ -143,10 +139,9 @@ function ObjItemBoxMain()
 							var Object = instance_create(PosX, PosY, InvincibilityStar);
 							Object.ID  = i;
 						}
+						audio_bgm_play(TypePrimary, Invincibility);
 					}
 					Player.InvincibleBonus = 1200;
-					
-					audio_bgm_play(TypePrimary, Invincibility);
 				}
 				break;
 				case "Barrier":
@@ -211,10 +206,10 @@ function ObjItemBoxMain()
 						event_perform(ev_create, 0);
 					}
 					audio_sfx_play(sfxWaterBarrier, false);
-						
+					
+					// Play previous track if player is running out of air
 					if Player.AirTimer <= 720
 					{	
-						// Play previous track if player was running out of air
 						if !Player.SuperState
 						{
 							if Player.InvincibleBonus
@@ -235,6 +230,8 @@ function ObjItemBoxMain()
 							audio_bgm_play(TypePrimary, SuperTheme);
 						}
 					}
+					
+					// Reset air timer
 					Player.AirTimer = 1800;
 				}
 				break;
@@ -250,11 +247,15 @@ function ObjItemBoxMain()
 				}
 				break;
 			}
+			
+			// Increment state
+			Timer  = 30;
+			State += 1;
 		}
 		break;
 		case 2:
 		{
-			// Display the item card for 30 frames
+			// Display item card for 30 frames
 			if !(--Timer)
 			{
 				State++;

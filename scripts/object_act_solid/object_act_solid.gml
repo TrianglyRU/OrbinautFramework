@@ -1,8 +1,8 @@
 /// @function object_act_solid(sides,top,bottom,resetActions)
 function object_act_solid(sides,top,bottom,resetActions)
 {
-	/* The following is long and replicates the original method of colliding with an object, 
-	however, it was tweaked in several places to make collision much more consistent */
+	/* The following is long and replicates the method of colliding with an object
+	straight from the original games */
 	
 	// Clear flags
 	Obj_SolidPush   = false;
@@ -32,46 +32,50 @@ function object_act_solid(sides,top,bottom,resetActions)
 	// Get object and player data
 	var PlayerX         = floor(Player.PosX);
 	var PlayerY         = floor(Player.PosY);
-	var ObjectID	    = id;
 	var ObjectX		    = x;
 	var ObjectY         = y;
+	var ObjectID	    = id;
+	var ObjectMap		= Obj_SolidMap;
+	var ObjectWidth     = Obj_SolidX;
+	var ObjectHeight    = Obj_SolidY;
 	var ObjectAddWidth  = Obj_SolidX + Player.RadiusW + 1;
 	var ObjectAddHeight = Obj_SolidY + Player.RadiusY + 1;
 	
-	// Get height array
-	if Obj_SolidMap != false
+	// Calculate height difference
+	if ObjectMap != false
 	{
 		if image_xscale
 		{
-			var ArrayHeight = PlayerX - (x - Obj_SolidX);
+			var Index = PlayerX - (ObjectX - ObjectWidth);
 		}
 		else
 		{
-			var ArrayHeight = (x + Obj_SolidX - 1) - PlayerX;
+			var Index = (ObjectX + ObjectWidth - 1) - PlayerX;
 		}	
-		ArrayHeight = clamp(ArrayHeight, 0, array_length(Obj_SolidMap) - 1);
+		Index = clamp(Index, 0, array_length(ObjectMap) - 1);
 		
-		// Calculate height difference
-		var SlopeOffset = (Obj_SolidY * 2 - Obj_SolidMap[ArrayHeight]) * image_yscale;	
+		var SlopeOffset = (ObjectHeight * 2 - ObjectMap[Index]) * image_yscale;	
 	}
 	else
 	{
 		var SlopeOffset = 0;
 	}
 	
-	// Attach to the object
+	// Collide with the object
 	if Player.OnObject == ObjectID
 	{	
-		Obj_SolidTouchU = true;
+		// Move player
+		Player.PosX += ObjectX - xprevious;
+		Player.PosY  = ObjectY - ObjectHeight - Player.RadiusY - 1 + SlopeOffset;
 		
-		Player.PosX += floor(x - xprevious);
-		Player.PosY  = ObjectY - Obj_SolidY - Player.RadiusY + SlopeOffset - 1;
+		var PlayerX = floor(Player.PosX);
+		var PlayerY = floor(Player.PosY);
+		
+		var FallRadius = sides ? ObjectAddWidth : ObjectWidth;
+		var XDiff      = PlayerX - ObjectX + FallRadius;
 		
 		// Lose the object if the player is outside its boundaries
-		var FallRadius = sides ? ObjectAddWidth : Obj_SolidX + 1;
-		
-		var XDiff  = floor(Player.PosX) - ObjectX + FallRadius;
-		if  XDiff <= 0 or XDiff >= FallRadius * 2 - 1
+		if XDiff < sides or XDiff > FallRadius * 2 - 1
 		{
 			var ThisObject = object_index;
 			with Player
@@ -83,31 +87,33 @@ function object_act_solid(sides,top,bottom,resetActions)
 				OnObject = false;
 			}
 		}
+		else
+		{
+			// Tell the object it is being touched
+			Obj_SolidTouchU = true;
+		}
 	}
-	
-	// Collide with the object
 	else
 	{		
-		var VGrip = 4; // <- This allows us to grip to the object even if we're 4 pixels above it
-		
 		// Check for overlap
 		var XClip = PlayerX - ObjectX + ObjectAddWidth;
-		if  XClip < 0 or XClip > ObjectAddWidth * 2 - 1
+		var YClip = PlayerY - ObjectY + ObjectAddHeight - SlopeOffset + 4;
+		
+		if XClip < 0 or XClip > ObjectAddWidth * 2 - 1
 		{
 			return;
 		}
-		var YClip = PlayerY - ObjectY - SlopeOffset + ObjectAddHeight + VGrip;
-		if  YClip < 0 or YClip > ObjectAddHeight * 2 + VGrip - 1
+		if YClip < 0 or YClip > ObjectAddHeight * 2 - 1
 		{
 			return;
 		}
-		var XDistance = PlayerX > ObjectX ? XClip - ObjectAddWidth  * 2 + 1			: XClip;
-		var YDistance = PlayerY > ObjectY ? YClip - ObjectAddHeight * 2 - VGrip + 1 : YClip;
+		
+		var XDistance = PlayerX <= ObjectX ? XClip : XClip - ObjectAddWidth  * 2 + 1;
+		var YDistance = PlayerY <= ObjectY ? YClip : YClip - ObjectAddHeight * 2 + 1;
 		
 		// Collide vertically
 		if abs(XDistance) >= abs(YDistance)
 		{	
-			// Collide from below
 			if bottom and YDistance < 0
 			{
 				if PlayerY > ObjectY
@@ -121,52 +127,52 @@ function object_act_solid(sides,top,bottom,resetActions)
 					}
 					else if Player.Ysp < 0
 					{
-						if Player.FlightState
-						{
-							Player.Grv = 0.03125;
-						}
-						Player.PosY -= YDistance;
+						Player.PosY -= YDistance - 4;
 						Player.Ysp   = 0;
 					}
+					
+					// Tell the object it is being touched
 					Obj_SolidTouchD = true;
 				}
 			}
-			
-			// Collide from above
 			else if top and YDistance >= 0 and YDistance < 16
 			{
-				if PlayerY < ObjectY and Player.Ysp >= 0 and !Player.OnObject
+				if PlayerY < ObjectY 
 				{
-					// Exit if the player is outside object's boundaries
-					var LandRadius = sides ? ObjectAddWidth : Obj_SolidX + 1;
-					
-					var XDiff  = PlayerX - ObjectX + LandRadius;
-					if  XDiff <= 0 or XDiff >= LandRadius * 2 - 1
+					if Player.Ysp >= 0 and !Player.OnObject
 					{
-						return;
-					}
-					
-					// Land on the object
-					with Player
-					{
-						if resetActions
+						// Continue only if player is within the object diameter
+						var XDiff = PlayerX - ObjectX + ObjectWidth;
+						if  XDiff < 0 or XDiff > ObjectWidth * 2 - 1
 						{
-							BarrierIsActive = false;
-							DropdashRev		= -1;
+							return;
 						}
-						PosY    -= YDistance - 4;
-						OnObject = ObjectID;
-						Gsp		 = Xsp;
-						Ysp		 = 0;
-						Angle    = 360;
+					
+						// Land on the object
+						with Player
+						{
+							PosY    -= YDistance - 4;
+							OnObject = ObjectID;
+							Gsp		 = Xsp;
+							Ysp		 = 0;
+							Angle    = 360;
+							
+							if resetActions
+							{
+								BarrierIsActive = false;
+								DropdashRev		= -1;
+							}
 						
-						// Call player script if airborne
-						if !Grounded
-						{
-							Grounded = true; PlayerResetOnFloor();
+							// Call player script if airborne
+							if !Grounded
+							{
+								Grounded = true; PlayerResetOnFloor();
+							}
 						}
+						
+						// Tell the object it is being touched
+						Obj_SolidTouchU = true;
 					}
-					Obj_SolidTouchU = true;
 				}
 			}		
 		}
@@ -176,27 +182,20 @@ function object_act_solid(sides,top,bottom,resetActions)
 		{	
 			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
 			{
-				Player.Gsp    = 0;
-				Player.Xsp	  = 0;					
-				Obj_SolidPush = true;
+				Player.Pushing = true;
+				Player.Gsp     = 0;
+				Player.Xsp	   = 0;
+				Obj_SolidPush  = true;
 			}
 			Player.PosX -= XDistance;
 			
 			// Tell the object it is being touched
 			if PlayerX < ObjectX
 			{
-				if Player.Facing == FlipRight
-				{
-					Player.Pushing = true;
-				}
 				Obj_SolidTouchL = true;
 			}
 			else
 			{
-				if Player.Facing == FlipLeft
-				{
-					Player.Pushing = true;
-				}
 				Obj_SolidTouchR = true;
 			}
 		}
