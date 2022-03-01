@@ -53,7 +53,7 @@
 	uniform vec2  u_pos;
 	uniform float u_width;
 	uniform float u_yScale;
-	uniform float u_offset;
+	uniform vec2  u_offset;
 	uniform float u_ilHeight;
 	uniform float u_ilStep;
 	uniform float u_mapSize;
@@ -71,7 +71,7 @@
 		}
 		
 		CurPos = v_vPosition - u_pos;
-		OutX   = u_offset;
+		OutX   = u_offset.x;
 		if (u_ilHeight > 0.)
 		{
 			RowX = floor(CurPos.y / u_ilHeight / u_yScale);
@@ -81,7 +81,7 @@
 			}
 			OutX *= RowX * u_ilStep + 1.;
 		}
-		OutX = mod(floor(OutX) + CurPos.x, u_width) - CurPos.x;
+		OutX = mod(mod(floor(OutX) + CurPos.x - u_offset.y, u_width) + u_width, u_width) - CurPos.x;
 		OutPos = vec2(v_vTexcoord.x + OutX / u_mapSize, v_vTexcoord.y);
 
 	    return OutPos;

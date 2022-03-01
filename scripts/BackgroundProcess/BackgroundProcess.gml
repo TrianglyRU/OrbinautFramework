@@ -5,6 +5,8 @@ function BackgroundProcess()
 	// Enable parallax
 	shader_set_uniform_i(Shader.PrlActive, true);
 	
+	var ScrnBuffer = global.ScreenBuffer;
+	
 	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
 	{
@@ -30,7 +32,7 @@ function BackgroundProcess()
 		var AutoXOffset	  = BGValues[i][13];
 		
 		// Define draw position
-		var DrawX = Camera.ViewX;
+		var DrawX = Camera.ViewX - ScrnBuffer;
 		var DrawY = floor(Camera.ViewY * (1 - ScrollY)) + PosY;
 		
 		// Set y-scale mode properties
@@ -60,7 +62,7 @@ function BackgroundProcess()
 			shader_set_uniform_f(Shader.PrlIncHeight, InclineHeight);
 			shader_set_uniform_f(Shader.PrlYScale,    YScale);
 		}
-		shader_set_uniform_f(Shader.PrlOffset,  DrawX * ScrollX - AutoXOffset);
+		shader_set_uniform_f(Shader.PrlOffset,  Camera.ViewX * ScrollX - AutoXOffset, ScrnBuffer);
 		shader_set_uniform_f(Shader.PrlPos,     DrawX, DrawY);
 		shader_set_uniform_f(Shader.PrlWidth,   TexWidth);
 		shader_set_uniform_f(Shader.PrlMapSize, TexMapSize);

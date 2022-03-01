@@ -15,6 +15,7 @@
     {"id":{"name":"sfxBlockPush","path":"sounds/sfxBlockPush/sfxBlockPush.yy",},"order":43,},
     {"id":{"name":"pal_tz_type1","path":"sprites/pal_tz_type1/pal_tz_type1.yy",},"order":8,},
     {"id":{"name":"StartupScreenStartup","path":"scripts/StartupScreenStartup/StartupScreenStartup.yy",},"order":2,},
+    {"id":{"name":"dist_water_bg","path":"sprites/dist_water_bg/dist_water_bg.yy",},"order":9,},
     {"id":{"name":"Bumper","path":"objects/Bumper/Bumper.yy",},"order":6,},
     {"id":{"name":"ObjBuzzbomberStartup","path":"scripts/ObjBuzzbomberStartup/ObjBuzzbomberStartup.yy",},"order":13,},
     {"id":{"name":"Buzzbomber","path":"objects/Buzzbomber/Buzzbomber.yy",},"order":1,},
