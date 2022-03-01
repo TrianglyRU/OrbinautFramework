@@ -184,7 +184,10 @@ function InterfaceResultsDraw()
 					if !audio_sfx_is_playing(sfxScoreTally)
 					{
 						global.Continues++;
+						
 						audio_sfx_play(sfxContinue, false);
+						instance_create(Camera.ViewX + global.Width  / 2 + 96, 
+										Camera.ViewY + global.Height / 2 + 11, ContinueIcon);
 						
 						// Increment timer
 						ResultsValue[0] = 0;
@@ -215,25 +218,10 @@ function InterfaceResultsDraw()
 	draw_sprite(gui_results_timebonus, 0,			     CentreX - 38 + ResultsValue[5], CentreY + 31);
 	draw_sprite(gui_results_ringbonus, 0,			     CentreX - 38 + ResultsValue[6], CentreY + 47);
 	
-	// Draw continue icon
+	// Blink continue icon
 	if ResultsValue[8] == 3 and ResultsValue[0] >= 0
 	{
-		if (ResultsValue[0] mod 32) <= 15
-		{
-			switch global.Character
-			{
-				case CharSonic:
-					var Icon = gui_icon_sonic;
-				break;
-				case CharTails:
-					var Icon = gui_icon_tails;
-				break;
-				case CharKnuckles:
-					var Icon = gui_icon_knuckles;
-				break;
-			}
-			draw_animated_sprite(Icon, 8, false, CentreX + 96, CentreY + 11);
-		}
+		ContinueIcon.image_alpha = (ResultsValue[0] mod 32) <= 15;
 	}
 	
 	// Draw counters

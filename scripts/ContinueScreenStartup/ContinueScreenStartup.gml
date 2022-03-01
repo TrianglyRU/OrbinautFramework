@@ -32,7 +32,7 @@ function ContinueScreenStartup()
 	var SpriteData = [CharSprite[0], CharSpeed[0]];
 	
 	// Create character object and set an animation for them
-	CharObject = instance_create(RoomX, RoomY + 45, ContinueCharacter);
+	CharObject = instance_create(RoomX, RoomY + 45 + (global.Character == CharTails) * 4, ContinueCharacter);
 	with CharObject
 	{
 		animation_play(SpriteData[0], SpriteData[1], 0);

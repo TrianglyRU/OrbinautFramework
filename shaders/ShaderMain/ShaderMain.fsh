@@ -1,13 +1,15 @@
 //
-// Screen shader
+// Main Screen Shader
 //
 	precision highp float;
+	
+	#define PaletteLimit 64
+	
+	/* Colour Swap */
 	
 	varying vec2 v_vTexcoord;
 	varying vec4 v_vColour;
 	varying vec2 v_vPosition;
-	
-	#define PaletteLimit 64
 	
 	uniform float u_bound;
 	
@@ -21,7 +23,7 @@
 	uniform vec2      u_texSizeSnd;
 	uniform float     u_indSnd[PaletteLimit];
 	
-	// This block of code is a modified part of the shader by Pixelated Pope. Credits to him!
+	// This is a heavy modification of function from the shader by Pixelated Pope. Credits to him!
 	vec4 findAltColor(vec4 inCol, vec3 corner, vec2 pixelSize, sampler2D sampler, float palID[PaletteLimit]) 
     {
         for (float i = corner.y; i < corner.z; i += pixelSize.y) 
@@ -44,6 +46,8 @@
         }
         return inCol;
     }
+	
+	/* Background Parallax */
 	
 	uniform bool  u_parallaxActive;
 	uniform vec2  u_pos;
@@ -83,10 +87,11 @@
 	    return OutPos;
 	}
 	
+	// A fix of a stupid GLSL bug. We won't go into details here
 	uniform sampler2D bugfix1;
 	uniform sampler2D bugfix2;
 	
-	float Change[8];
+	/* Process */
 	
 	void main() 
 	{
@@ -95,7 +100,7 @@
 		texture2D(bugfix1, vec2(0.));
 		texture2D(bugfix2, vec2(0.));
 		
-		if  (u_bound <= gl_FragCoord.y)
+		if (u_bound <= gl_FragCoord.y)
 		{
 			Col = findAltColor(Col, u_UVsSnd, u_texSizeSnd, u_texSnd, u_indSnd);
 		}
@@ -103,33 +108,6 @@
 		{
 			Col = findAltColor(Col, u_UVsFst, u_texSizeFst, u_texFst, u_indFst);
 		}
-		
-		Col.rgb *= 255.;
-        if ((mod(Col.r, 36.) > 0.) || (mod(Col.g, 36.) > 0.) || (mod(Col.b, 36.) > 0.))
-        {
-            Col.rgb = vec3(1., 0., .86);
-        }
-        else
-        {
-            Change[0] = 0.;
-            Change[1] = 56.;
-            Change[2] = 87.;
-            Change[3] = 116.;
-            Change[4] = 144.;
-            Change[5] = 172.;
-            Change[6] = 206.;
-            Change[7] = 255.;
-			
-			Change[0] = 0.;
-            Change[1] = 36.;
-            Change[2] = 72.;
-            Change[3] = 108.;
-            Change[4] = 144.;
-            Change[5] = 180.;
-            Change[6] = 216.;
-            Change[7] = 252.;
-            Col.rgb = vec3(Change[int(Col.r / 36.)], Change[int(Col.g / 36.)], Change[int(Col.b / 36.)]) / 255.;
-        }
 		
 		gl_FragColor = Col * v_vColour;
 	}

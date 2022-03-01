@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Rooms (Screens & Menus)/Continue Screen/Objects.yy",
+    "name": "Call-Only",
+    "path": "folders/Room Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueIcon",

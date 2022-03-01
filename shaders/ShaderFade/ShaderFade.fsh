@@ -1,6 +1,9 @@
 //
-// Fade shader
+// Fade Shader
 //
+	
+	/* Fade */
+
 	varying vec2 v_vTexcoord;
 	varying vec4 v_vColour;
 	
@@ -37,6 +40,8 @@
 	{
 	    return max(252. - u_step, Val1);
 	}
+	
+	/* Process */
 
 	void main()
 	{
