@@ -12,30 +12,30 @@ function ContinueScreenStartup()
 	{
 		case CharSonic:
 		{		
-			CharSprite = [tex_obj_cont_sonic_wait, tex_obj_cont_sonic_action];
+			CharSprite = [tex_obj_cont_sonic_wait, tex_obj_cont_sonic_react, spr_sonic_walk, spr_sonic_run];
 			CharSpeed  = [18, 0];
 		}
 		break;
 		case CharTails:
 		{
-			CharSprite = [tex_obj_cont_tails_wait, tex_obj_cont_tails_action];
+			CharSprite = [tex_obj_cont_tails_wait, tex_obj_cont_tails_react, spr_tails_walk, spr_tails_run];
 			CharSpeed  = [24, 0];
 		}
 		break;
 		case CharKnuckles:
 		{
-			CharSprite = [tex_obj_cont_knux_wait, tex_obj_cont_knux_action];
-			CharSpeed  = [12, 0];
+			CharSprite = [tex_obj_cont_knux_wait, tex_obj_cont_knux_react, spr_knuckles_walk, spr_knuckles_run];
+			CharSpeed  = [[24, 12], 0];
 		}
 		break;
 	}
-	var StartData = [CharSprite[0], CharSpeed[0]];
-
+	var SpriteData = [CharSprite[0], CharSpeed[0]];
+	
 	// Create character object and set an animation for them
-	CharObject = instance_create(RoomX, RoomY + 52, ContinueCharacter);
+	CharObject = instance_create(RoomX, RoomY + 45, ContinueCharacter);
 	with CharObject
 	{
-		animation_play(StartData[0], StartData[1], 0);
+		animation_play(SpriteData[0], SpriteData[1], 0);
 	}
 	
 	// Create continue objects

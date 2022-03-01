@@ -1,5 +1,8 @@
 function ContinueScreenProcess()
 {
+	// Intitialise staitc
+	static AnimationState = -1;
+	
 	if Countdown == 659 and fade_check(StateActive)
 	{
 		return;
@@ -17,10 +20,17 @@ function ContinueScreenProcess()
 				}
 				if Input.StartPress or Input.ABCPress
 				{	
+					// Update player animation
+					var SpriteData = [CharSprite[1], sprite_get_number(CharSprite[1]) - 1];
+					with CharObject 
+					{
+						animation_play(SpriteData[0], 8, SpriteData[1]);
+					}
 					audio_sfx_play(sfxCharge, false);
 					
 					// Increment state
-					State++;
+					AnimationState = 0;
+					State		  += 1;
 				}
 				
 				if Countdown > 60
@@ -60,14 +70,30 @@ function ContinueScreenProcess()
 		{
 			// Increse animation speed
 			CharSpeed[1] = min(CharSpeed[1] + 0.125, 8);
-		
+			
 			// Animate character
-			var SpriteData = [CharSprite[1], round(max(1, 8 - abs(CharSpeed[1])))];
-			with CharObject 
+			if CharSpeed[1] < 6.25
 			{
-				animation_play(SpriteData[0], SpriteData[1], 11);
+				var Sprite = CharSprite[2];
 			}
-		
+			else
+			{
+				var Sprite = CharSprite[3];
+			}
+			var Speed = floor(max(1, 9 - abs(CharSpeed[1]))); 
+			
+			with CharObject
+			{
+				if !AnimationState and image_index == image_number - 1
+				{
+					AnimationState = 1;
+				}
+				if AnimationState
+				{
+					animation_play(Sprite, Speed, 0);
+				}
+			}
+			
 			// Flick continue object while charging
 			if CharSpeed[1] != 8
 			{

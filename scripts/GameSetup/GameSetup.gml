@@ -15,9 +15,9 @@ function GameSetup()
 	
 	// Originals differences. By defualt, the framework is in a mix of S2 and S3(K) state
 	global.SpindashEnabled    = true;
-	global.PeeloutEnabled	  = false;
-	global.DropdashEnabled    = false;
-	global.DSpinAttackEnabled = false;
+	global.PeeloutEnabled	  = true;
+	global.DropdashEnabled    = true;
+	global.DSpinAttackEnabled = true;
 	global.GroundSpeedcap	  = false;
 	global.AirSpeedcap	      = false;
 	global.RolljumpControl    = false;

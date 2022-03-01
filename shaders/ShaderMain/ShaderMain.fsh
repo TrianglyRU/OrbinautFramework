@@ -86,6 +86,8 @@
 	uniform sampler2D bugfix1;
 	uniform sampler2D bugfix2;
 	
+	float Change[8];
+	
 	void main() 
 	{
 		vec4 Col = texture2D(gm_BaseTexture, parallax());
@@ -101,6 +103,33 @@
 		{
 			Col = findAltColor(Col, u_UVsFst, u_texSizeFst, u_texFst, u_indFst);
 		}
+		
+		Col.rgb *= 255.;
+        if ((mod(Col.r, 36.) > 0.) || (mod(Col.g, 36.) > 0.) || (mod(Col.b, 36.) > 0.))
+        {
+            Col.rgb = vec3(1., 0., .86);
+        }
+        else
+        {
+            Change[0] = 0.;
+            Change[1] = 56.;
+            Change[2] = 87.;
+            Change[3] = 116.;
+            Change[4] = 144.;
+            Change[5] = 172.;
+            Change[6] = 206.;
+            Change[7] = 255.;
+			
+			Change[0] = 0.;
+            Change[1] = 36.;
+            Change[2] = 72.;
+            Change[3] = 108.;
+            Change[4] = 144.;
+            Change[5] = 180.;
+            Change[6] = 216.;
+            Change[7] = 252.;
+            Col.rgb = vec3(Change[int(Col.r / 36.)], Change[int(Col.g / 36.)], Change[int(Col.b / 36.)]) / 255.;
+        }
 		
 		gl_FragColor = Col * v_vColour;
 	}
