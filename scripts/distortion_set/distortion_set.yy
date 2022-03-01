@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Renderer",
-    "path": "folders/Game Logic/Renderer.yy",
+    "name": "Game Functions",
+    "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "RendererFunctions",
+  "name": "distortion_set",
   "tags": [],
   "resourceType": "GMScript",
 }

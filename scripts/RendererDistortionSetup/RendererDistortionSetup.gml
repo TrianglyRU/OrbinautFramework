@@ -9,9 +9,7 @@ function RendererDistortionSetup()
 	switch room
 	{
 		case Stage_TVZ:
-		{
-			distortion_set(noone, noone, ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
-		}
+			distortion_set(noone, dist_water, ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
 		break;
 	}
 }
