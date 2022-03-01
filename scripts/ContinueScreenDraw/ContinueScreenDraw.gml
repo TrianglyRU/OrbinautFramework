@@ -4,7 +4,7 @@ function ContinueScreenDraw()
 	draw_set_font(Font.FontCard); 
 	draw_set_halign(fa_center);
 	
-	draw_text(RoomX + 7, RoomY - 49, "CONTINUE");
+	draw_text(RoomX + 8, RoomY - 49, "CONTINUE");
 	
 	// Draw countdown
 	draw_set_font(Font.FontDigits1); 

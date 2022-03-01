@@ -297,7 +297,7 @@ function PlayerAnimate()
 					{
 						var Sprite = spr_tails_walk;
 					}
-					else if abs(Gsp) < 10
+					else if abs(Gsp) < 8
 					{
 						var Sprite = spr_tails_run;
 					}
