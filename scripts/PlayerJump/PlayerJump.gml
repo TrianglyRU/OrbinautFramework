@@ -13,7 +13,7 @@ function PlayerJump()
 			Ysp = JumpMin;
 		}
 		
-		// Reset dropdash
+		// Update dropdash flag
 		if DropdashFlag == DashLocked
 		{
 			DropdashFlag = DashReady;
@@ -25,7 +25,7 @@ function PlayerJump()
 				Animation    = AnimSpin;
 				DropdashFlag = DashRecharge;
 			}
-			DropdashRev  = -1;
+			DropdashRev = -1;
 		}
 	}
 	
@@ -68,9 +68,9 @@ function PlayerJump()
 			if BarrierType <= BarrierNormal
 			{	
 				// Perform double spin attack
-				if !BarrierType
+				if !BarrierType and !SuperState and !InvincibleBonus
 				{
-					if global.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != SpinReady)
+					if global.DSpinAttackEnabled and DoubleSpinAttack == SpinReady
 					{
 						DoubleSpinAttack = SpinActive;
 						

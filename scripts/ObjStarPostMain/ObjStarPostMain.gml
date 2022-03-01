@@ -10,7 +10,7 @@ function ObjStarPostMain()
 				State = 2;
 				Angle = 900;
 				
-				animation_play(spr_obj_starpost_active, 4, 0);
+				animation_play(sprite_index, 4, 1);
 			}
 			else if object_check_touch(ColTrigger) 
 			{
@@ -24,7 +24,7 @@ function ObjStarPostMain()
 				
 				// Increment state
 				State       = 1;
-				image_index = 1;
+				image_index = 0;
 				
 				audio_sfx_play(sfxStarPost, false);
 			
@@ -48,9 +48,13 @@ function ObjStarPostMain()
 			{
 				Angle += 22.5;
 			}
-			else
+			if Angle == 900
 			{
-				animation_play(spr_obj_starpost_active, 4, 0); State++;
+				image_index = 1;
+				animation_play(sprite_index, 4, 1);
+				
+				// Increment state
+				State += 1;
 			}
 		}
 		break;

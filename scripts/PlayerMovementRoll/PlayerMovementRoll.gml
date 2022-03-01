@@ -47,7 +47,7 @@ function PlayerMovementRoll()
 		Gsp = min(Gsp + RollFrc, 0);
 	}
 	
-	// Convert Gsp to speeds
+	// Convert ground inertia to speeds
 	Xsp = Gsp *  dcos(Angle);
 	Ysp = Gsp * -dsin(Angle);
 	
@@ -70,8 +70,10 @@ function PlayerMovementRoll()
 			Animation = AnimIdle;
 		}
 	}
+	
+	// If forced to roll, continue rolling
 	else if Gsp == 0
 	{
-		Gsp = 2 * Facing;
+		Gsp = 2;
 	}
 }

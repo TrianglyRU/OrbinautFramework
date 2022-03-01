@@ -133,11 +133,11 @@ function ObjItemBoxMain()
 					}
 					if !Player.InvincibleBonus
 					{
-						// Create particles
+						// Create star objects
 						for (var i = 0; i < 8; i++)
 						{
-							var Object = instance_create(PosX, PosY, InvincibilityStar);
-							Object.ID  = i;
+							var Object	  = instance_create(Player.PosX, Player.PosY, InvincibilityStar);
+								Object.ID = i;
 						}
 						audio_bgm_play(TypePrimary, Invincibility);
 					}
