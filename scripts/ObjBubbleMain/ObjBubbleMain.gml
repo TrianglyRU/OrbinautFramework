@@ -105,7 +105,7 @@ function ObjBubbleMain()
 			Player.GroundLock = 35;
 			Player.Xsp		  = 0;
 			Player.Ysp		  = 0;
-			Player.Gsp	  = 0;	
+			Player.Gsp		  = 0;	
 			Player.Jumping    = false;
 			Player.Spinning	  = false;
 			

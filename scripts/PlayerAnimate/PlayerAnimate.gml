@@ -28,251 +28,254 @@ function PlayerAnimate()
 	{	
 		#region Sonic
 		case CharSonic:
+		{	
+		if !SuperState then switch Animation
 		{
-			// Regular Sonic
-			if !SuperState then switch Animation
+			case AnimIdle:
 			{
-				case AnimIdle:
+				animation_play(spr_sonic_idle, [288, 24, 48, 24, 24], 3);
+			}
+			break;
+			case AnimMove:	
+			{
+				if abs(Gsp) < 6
 				{
-					animation_play(spr_sonic_idle, [288, 24, 48, 24, 24], 3);
+					animation_play(spr_sonic_walk, floor(max(1, 9 - abs(Gsp))), 0);
 				}
-				break;
-				case AnimMove:	
+				else
 				{
-					if abs(Gsp) < 6
+					if global.PeeloutEnabled
 					{
-						animation_play(spr_sonic_walk, floor(max(1, 9 - abs(Gsp))), 0);
+						var Sprite = abs(Gsp) < 10 ? spr_sonic_run : spr_sonic_peelout;
 					}
 					else
-					{
-						if global.PeeloutEnabled
-						{
-							var Sprite = abs(Gsp) < 10 ? spr_sonic_run : spr_sonic_peelout;
-						}
-						else
-						{
-							var Sprite = spr_sonic_run;
-						}
-						animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
-					}
-				}
-				break;
-				case AnimPeelout:
-				{
-					if abs(PeeloutRev) < 6
-					{
-						var Sprite = spr_sonic_walk;
-					}
-					else if abs(PeeloutRev) < 10
 					{
 						var Sprite = spr_sonic_run;
 					}
-					else
-					{
-						var Sprite = spr_sonic_peelout;
-					}	
-					animation_play(Sprite, floor(max(1, 8 - abs(PeeloutRev))), 0);
-				}
-				break;
-				case AnimSpin:
-				{
-					if abs(Gsp) < 6
-					{
-						var Sprite = spr_sonic_spin;
-					}
-					else
-					{
-						var Sprite = spr_sonic_spin_fast;
-					}
-					animation_play(Sprite, floor(max(1, 5 - abs(Gsp))), 0);
-				}
-				break;
-				case AnimSpindash:
-					animation_play(spr_sonic_spindash, 1, 0);
-				break;
-				case AnimCrouch:
-					animation_play(spr_sonic_crouch, 4, 1);
-				break;
-				case AnimLookup:
-					animation_play(spr_sonic_lookup, 4, 1);
-				break;
-				case AnimSkid:
-				{
-					if !(--AnimSkidTime)
-					{
-						Animation = AnimMove;
-					}
-					else
-					{
-						animation_play(spr_sonic_skid, 6, 2);
-					}
-				}
-				break;
-				case AnimPush:
-					animation_play(spr_sonic_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
-				break;
-				case AnimHurt:
-					animation_set(spr_sonic_hurt, 0);
-				break;
-				case AnimDeath:
-					animation_set(spr_sonic_death, 0);
-				break;	
-				case AnimDrown:
-					animation_set(spr_sonic_drown, 0);
-				break;
-				case AnimBalance:
-					animation_play(spr_sonic_balance, 16, 0);
-				break;
-				case AnimBalanceFlip:
-					animation_play(spr_sonic_balance_flip, 16, 0);
-				break;
-				case AnimBalancePanic:
-					animation_play(spr_sonic_balance_panic, 4, 0);
-				break;
-				case AnimBalanceTurn:
-					animation_set(spr_sonic_balance_turn, 0);
-				break;
-				case AnimSpring:
-				{
-					if !(--AnimSpringTime)
-					{
-						Animation = AnimMove;
-					}
-					else
-					{
-						animation_set(spr_sonic_spring, 0);
-					}
-				}
-				break;
-				case AnimBreathe:
-				{
-					if !(--AnimBreatheTime)
-					{
-						Animation = AnimMove;
-					}
-					else
-					{
-						animation_set(spr_sonic_breathe, 0);
-					}
-				}
-				break;
-				case AnimDropdash:
-					animation_play(spr_sonic_dropdash, 1, 0);
-				break;
-			}
-			
-			// Super Sonic
-			else switch Animation
-			{
-				case AnimTransform:
-					animation_play(spr_supersonic_transform, [6, 6, 3, 3, 3], 3);
-				break;
-				case AnimIdle:
-					animation_play(spr_supersonic_idle, 8, 0);
-				break;
-				case AnimMove:	
-				{
-					if abs(Gsp) < (IsUnderwater ? 6 : 8)
-					{
-						var Sprite = spr_supersonic_walk;
-					}
-					else
-					{
-						var Sprite = spr_supersonic_fly;
-					}
 					animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
 				}
-				break;
-				case AnimPeelout:
-				{
-					if abs(PeeloutRev) < 8
-					{
-						var Sprite = spr_supersonic_walk;
-					}
-					else
-					{
-						var Sprite = spr_supersonic_fly
-					}
-					animation_play(Sprite, floor(max(1, 8 - abs(PeeloutRev))), 0);
-				}
-				break;
-				case AnimSpin:
-				{
-					if abs(Gsp) < 6
-					{
-						var Sprite = spr_sonic_spin;
-					}
-					else
-					{
-						var Sprite = spr_sonic_spin_fast;
-					}
-					animation_play(Sprite, floor(max(1, 5 - abs(Gsp))), 0);
-				}
-				break;
-				case AnimSpindash:
-					animation_play(spr_sonic_spindash, 1, 0); 
-				break;
-				case AnimCrouch:
-					animation_play(spr_supersonic_crouch, [4, 8, 8, 8, 8], 1);
-				break;
-				case AnimLookup:
-					animation_play(spr_supersonic_lookup, [4, 8, 8, 8, 8], 1);
-				break;
-				case AnimSkid:
-				{
-					if !(--AnimSkidTime)
-					{
-						Animation = AnimMove;
-					}
-					else
-					{
-						animation_play(spr_supersonic_skid, 3, 4);
-					}
-				}
-				break;
-				case AnimPush:
-					animation_play(spr_supersonic_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
-				break;
-				case AnimHurt:
-					animation_set(spr_supersonic_hurt, 0);
-				break;
-				case AnimDeath:
-					animation_set(spr_supersonic_death, 0);
-				break;	
-				case AnimDrown:
-					animation_set(spr_supersonic_drown, 0);
-				break;
-				case AnimBalance:
-					animation_play(spr_supersonic_balance, 10, 0);
-				break;
-				case AnimSpring:
-				{
-					if !(--AnimSpringTime)
-					{
-						Animation = AnimMove;
-					}
-					else
-					{
-						animation_play(spr_supersonic_spring, 4, 0);
-					}
-				}
-				break;
-				case AnimBreathe:
-				{	
-					if !(--AnimBreatheTime)
-					{
-						Animation = AnimMove;
-					}
-					else
-					{
-						animation_set(spr_supersonic_breathe, 0);
-					}
-				}
-				break;
-				case AnimDropdash:
-					animation_play(spr_sonic_dropdash, 1, 0);
-				break;
 			}
+			break;
+			case AnimPeelout:
+			{
+				if abs(PeeloutRev) < 6
+				{
+					var Sprite = spr_sonic_walk;
+				}
+				else if abs(PeeloutRev) < 10
+				{
+					var Sprite = spr_sonic_run;
+				}
+				else
+				{
+					var Sprite = spr_sonic_peelout;
+				}	
+				animation_play(Sprite, floor(max(1, 8 - abs(PeeloutRev))), 0);
+			}
+			break;
+			case AnimSpin:
+			{
+				if abs(Gsp) < 6
+				{
+					var Sprite = spr_sonic_spin;
+				}
+				else
+				{
+					var Sprite = spr_sonic_spin_fast;
+				}
+				animation_play(Sprite, floor(max(1, 5 - abs(Gsp))), 0);
+			}
+			break;
+			case AnimSpindash:
+				animation_play(spr_sonic_spindash, 1, 0);
+			break;
+			case AnimCrouch:
+				animation_play(spr_sonic_crouch, 4, 1);
+			break;
+			case AnimLookup:
+				animation_play(spr_sonic_lookup, 4, 1);
+			break;
+			case AnimSkid:
+			{
+				if !(--AnimSkidTime)
+				{
+					Animation = AnimMove;
+				}
+				else
+				{
+					animation_play(spr_sonic_skid, 6, 2);
+				}
+			}
+			break;
+			case AnimPush:
+				animation_play(spr_sonic_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
+			break;
+			case AnimHurt:
+				animation_set(spr_sonic_hurt, 0);
+			break;
+			case AnimDeath:
+				animation_set(spr_sonic_death, 0);
+			break;	
+			case AnimDrown:
+				animation_set(spr_sonic_drown, 0);
+			break;
+			case AnimBalance:
+				animation_play(spr_sonic_balance, 16, 0);
+			break;
+			case AnimBalanceFlip:
+				animation_play(spr_sonic_balance_flip, 16, 0);
+			break;
+			case AnimBalancePanic:
+				animation_play(spr_sonic_balance_panic, 4, 0);
+			break;
+			case AnimBalanceTurn:
+				animation_set(spr_sonic_balance_turn, 0);
+			break;
+			case AnimSpring:
+			{
+				if !(--AnimSpringTime)
+				{
+					Animation = AnimMove;
+				}
+				else
+				{
+					animation_set(spr_sonic_spring, 0);
+				}
+			}
+			break;
+			case AnimBreathe:
+			{
+				if !(--AnimBreatheTime)
+				{
+					Animation = AnimMove;
+				}
+				else
+				{
+					animation_set(spr_sonic_breathe, 0);
+				}
+			}
+			break;
+			case AnimDropdash:
+				animation_play(spr_sonic_dropdash, 1, 0);
+			break;
+		}
+		#endregion
+		
+		#region Super Sonic
+		else switch Animation
+		{
+			case AnimTransform:
+				animation_play(spr_supersonic_transform, [6, 6, 3, 3, 3], 3);
+			break;
+			case AnimIdle:
+				animation_play(spr_supersonic_idle, 8, 0);
+			break;
+			case AnimMove:	
+			{
+				if abs(Gsp) < (IsUnderwater ? 6 : 8)
+				{
+					var Sprite = spr_supersonic_walk;
+				}
+				else
+				{
+					var Sprite = spr_supersonic_fly;
+				}
+				animation_play(Sprite, floor(max(1, 9 - abs(Gsp))), 0);
+			}
+			break;
+			case AnimPeelout:
+			{
+				if abs(PeeloutRev) < 8
+				{
+					var Sprite = spr_supersonic_walk;
+				}
+				else
+				{
+					var Sprite = spr_supersonic_fly
+				}
+				animation_play(Sprite, floor(max(1, 8 - abs(PeeloutRev))), 0);
+			}
+			break;
+			case AnimSpin:
+			{
+				if abs(Gsp) < 6
+				{
+					var Sprite = spr_sonic_spin;
+				}
+				else
+				{
+					var Sprite = spr_sonic_spin_fast;
+				}
+				animation_play(Sprite, floor(max(1, 5 - abs(Gsp))), 0);
+			}
+			break;
+			case AnimSpindash:
+				animation_play(spr_sonic_spindash, 1, 0); 
+			break;
+			case AnimCrouch:
+				animation_play(spr_supersonic_crouch, [4, 8, 8, 8, 8], 1);
+			break;
+			case AnimLookup:
+				animation_play(spr_supersonic_lookup, [4, 8, 8, 8, 8], 1);
+			break;
+			case AnimSkid:
+			{
+				if !(--AnimSkidTime)
+				{
+					Animation = AnimMove;
+				}
+				else
+				{
+					animation_play(spr_supersonic_skid, 3, 4);
+				}
+			}
+			break;
+			case AnimPush:
+				animation_play(spr_supersonic_push, floor(max(1, 8 - abs(Gsp)) * 4), 0);
+			break;
+			case AnimHurt:
+				animation_set(spr_supersonic_hurt, 0);
+			break;
+			case AnimDeath:
+				animation_set(spr_supersonic_death, 0);
+			break;	
+			case AnimDrown:
+				animation_set(spr_supersonic_drown, 0);
+			break;
+			case AnimBalance:
+				animation_play(spr_supersonic_balance, 10, 0);
+			break;
+			case AnimBalanceFlip:
+				animation_play(spr_supersonic_balance_flip, 10, 0);
+			break;
+			case AnimSpring:
+			{
+				if !(--AnimSpringTime)
+				{
+					Animation = AnimMove;
+				}
+				else
+				{
+					animation_play(spr_supersonic_spring, 4, 0);
+				}
+			}
+			break;
+			case AnimBreathe:
+			{	
+				if !(--AnimBreatheTime)
+				{
+					Animation = AnimMove;
+				}
+				else
+				{
+					animation_set(spr_supersonic_breathe, 0);
+				}
+			}
+			break;
+			case AnimDropdash:
+				animation_play(spr_sonic_dropdash, 1, 0);
+			break;
+		}
 		}
 		break;
 		#endregion

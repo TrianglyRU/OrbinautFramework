@@ -285,6 +285,7 @@
     {"id":{"name":"ObjSpringHorizontalStartup","path":"scripts/ObjSpringHorizontalStartup/ObjSpringHorizontalStartup.yy",},"order":79,},
     {"id":{"name":"ObjAirBubblerStartup","path":"scripts/ObjAirBubblerStartup/ObjAirBubblerStartup.yy",},"order":2,},
     {"id":{"name":"RendererDistortionSetup","path":"scripts/RendererDistortionSetup/RendererDistortionSetup.yy",},"order":9,},
+    {"id":{"name":"spr_supersonic_balance_flip","path":"sprites/spr_supersonic_balance_flip/spr_supersonic_balance_flip.yy",},"order":94,},
     {"id":{"name":"sfxHurtSpike","path":"sounds/sfxHurtSpike/sfxHurtSpike.yy",},"order":39,},
     {"id":{"name":"dist_heat","path":"sprites/dist_heat/dist_heat.yy",},"order":4,},
     {"id":{"name":"ObjSpringVerticalMain","path":"scripts/ObjSpringVerticalMain/ObjSpringVerticalMain.yy",},"order":80,},

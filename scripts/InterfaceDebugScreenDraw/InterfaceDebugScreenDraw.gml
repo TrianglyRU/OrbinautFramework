@@ -14,7 +14,7 @@ function InterfaceDebugScreenDraw()
 		{
 			if Audio.PrimaryTrack[1]
 			{
-				var LowPlaying = audio_get_name(Audio.PrimaryTrack[1]);
+				var LowPlaying = string_upper(audio_get_name(Audio.PrimaryTrack[1]));
 			}
 			else
 			{
@@ -22,7 +22,7 @@ function InterfaceDebugScreenDraw()
 			}
 			if Audio.SecondaryTrack[1]
 			{
-				var HighPlaying = audio_get_name(Audio.SecondaryTrack[1]);
+				var HighPlaying = string_upper(audio_get_name(Audio.SecondaryTrack[1]));
 			}
 			else
 			{
@@ -130,7 +130,7 @@ function InterfaceDebugScreenDraw()
 				+ "\n         * PLAYER VISUALS *"
 				+ "\n"
 				+ "\n   ANIMATION ID: "  + string(Player.Animation)
-				+ "\n   SPRITE: "		 + sprite_get_name(Player.sprite_index)
+				+ "\n   SPRITE: "		 + string_upper(sprite_get_name(Player.sprite_index))
 				+ "\n   CURRENT FRAME: " + string(Player.image_index + 1)
 				+ "\n   FRAMES TOTAL: "  + string(Player.image_number)
 				+ "\n   VISUAL ANGLE: "  + string(Player.VisualAngle)
