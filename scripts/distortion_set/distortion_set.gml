@@ -33,7 +33,6 @@ function distortion_set(data1,data2,layerArray)
 			}
 		}
 
-		// Set additional parameters
 		fx_set_parameter(DistortionEffect[0], "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
 		fx_set_single_layer(DistortionEffect[0], true);
 		
@@ -48,7 +47,7 @@ function distortion_set(data1,data2,layerArray)
 	{
 		show_debug_message("\n"
 							+ "============================================= \n"
-							+ "distortion_set_bg() function didn't proceed,  \n"
+							+ "distortion_set() function didn't proceed, \n"
 							+ "an error has occured! \n"
 							+ "\n"
 							+ "If you don't have the effect, please, install it from the Release Package you downloaded. \n"

@@ -36,7 +36,7 @@ function ObjAirBubblerMain()
 			{
 				with NewObject
 				{
-					Direction  = FlipRight;
+					Direction  = choose(FlipLeft, FlipRight);
 					BubbleType = 2;
 					
 					object_set_triggerbox(-16, 16, -16, 16);
@@ -50,7 +50,7 @@ function ObjAirBubblerMain()
 			{
 				with NewObject
 				{
-					Direction  = FlipRight;
+					Direction  = choose(FlipLeft, FlipRight);
 					BubbleType = 0;
 						
 					animation_play(sprite_index, 15, 6);
@@ -60,7 +60,7 @@ function ObjAirBubblerMain()
 			// Mark bubble as medium
 			else with NewObject
 			{
-				Direction  = FlipRight;
+				Direction  = choose(FlipLeft, FlipRight);
 				BubbleType = 1;
 					
 				animation_play(sprite_index, 15, 6);

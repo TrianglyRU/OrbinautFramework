@@ -3,11 +3,10 @@ function BackgroundStartup()
 	// Initialise variables
 	BGSprites = [];
 	BGValues  = [];
-	BGColour  = c_gray;
+	BGColour  = c_black;
 	
-	// Draw background behind everything if controller is on the GameControllers layer
-	if depth == 0
-	{
-		depth = 9999;
-	}
+	// Create a background layer
+	var Layer = layer_create(9999, "Background");
+	depth	  = layer_get_depth(Layer);
+	layer	  = Layer;
 }

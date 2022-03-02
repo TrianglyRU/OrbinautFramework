@@ -32,13 +32,12 @@ function distortion_set_bg(data1,data2)
 				DistortionEnabled[1][i] = true;
 			}
 		}
-
-		// Set additional parameters
+		
 		fx_set_parameter(DistortionEffect[1], "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
 		fx_set_single_layer(DistortionEffect[1], true);
 		
 		// Apply the effect to our background layer
-		layer_set_fx(string(layer_get_name(Background.layer)), DistortionEffect[1]);
+		layer_set_fx("Background", DistortionEffect[1]);
 	}
 	catch (Exception)
 	{
