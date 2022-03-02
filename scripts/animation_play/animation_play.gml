@@ -15,7 +15,8 @@ function animation_play(spriteid,duration,loopframe)
 		Obj_AnimDuration  = duration;
 		Obj_AnimLoopframe = loopframe;
 		sprite_index      = spriteid;
-		image_index		  = 0;	
+		image_index		  = 0;
+		image_speed		  = 0;
 	}
 	
 	// Update if called every frame

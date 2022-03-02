@@ -8,7 +8,7 @@ function RendererDistortionSetup()
 		case Stage_TVZ:
 		{
 			distortion_set(noone, dist_water, ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
-			distortion_set_bg(dist_heat, dist_water_bg);
+			distortion_set_bg(noone, dist_water_bg);
 		}
 		break;
 	}

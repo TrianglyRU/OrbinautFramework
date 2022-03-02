@@ -6,6 +6,7 @@ function instance_initialise()
 		Obj_AnimTimer     = 0;
 		Obj_AnimDuration  = 0;
 		Obj_AnimLoopframe = 0;
+		image_index		  = 0;
 		image_speed		  = 0;
 	}
 	if !variable_instance_exists(id, "Obj_SolidX")
