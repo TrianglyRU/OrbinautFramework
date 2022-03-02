@@ -56,6 +56,7 @@ function object_check_touch(collisionType)
 		case ColSolidD: 
 		case ColSolidL: 
 		case ColSolidR:
+		case ColSolidP:
 		{
 			// Exit if object can't be touched
 			if !object_is_onscreen(id)
@@ -66,6 +67,9 @@ function object_check_touch(collisionType)
 			// Return touch flag
 			switch collisionType
 			{
+				case ColSolidP:
+					return Obj_SolidPush;
+				break;
 				case ColSolidU:
 					return Obj_SolidTouchU;
 				break;
@@ -79,18 +83,6 @@ function object_check_touch(collisionType)
 					return Obj_SolidTouchR;
 				break;
 			}
-		}
-		break;
-		
-		case ColSolidP:
-		{
-			// Exit if object can't be touched
-			if !object_is_onscreen(id)
-			{
-				return false;
-			}
-			
-			return Obj_SolidPush;
 		}
 		break;
 		

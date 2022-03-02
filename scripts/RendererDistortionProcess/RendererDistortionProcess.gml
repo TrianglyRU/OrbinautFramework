@@ -35,7 +35,7 @@ function RendererDistortionProcess()
 				fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 1), Bound);
 				
 				// Set position
-				if i == 1 and array_length(Background.BGValues)
+				if i == 1 and array_length(Background.BGSprites)
 				{
 					fx_set_parameter(DistortionEffect[i], "g_WaveY" + string(j + 1), floor(DistortionShift[i][j] + Camera.ViewY * Background.BGValues[0][4]));
 				}

@@ -3,13 +3,17 @@ function BackgroundProcess()
 	// Draw background colour
 	draw_clear(BGColour);
 	
+	var BGData = array_length(BGSprites);
+	if !BGData
+	{
+		return;
+	}
+	var ScreenBuffer = global.ScreenBuffer;
+	
 	// Enable parallax
 	shader_set_uniform_i(Shader.PrlActive, true);
 	
-	var ScreenBuffer = global.ScreenBuffer;	
-	var Length       = array_length(BGSprites);
-	
-	for (var i = 0; i < Length; i++)
+	for (var i = 0; i < BGData; i++)
 	{
 		// Update autoscroll value
 		if Renderer.UpdateAnimations

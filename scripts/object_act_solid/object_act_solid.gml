@@ -182,10 +182,13 @@ function object_act_solid(sides,top,bottom,resetActions)
 		{	
 			if XDistance != 0 and sign(XDistance) == sign(Player.Xsp)
 			{
-				Player.Pushing = true;
+				if Player.Grounded
+				{
+					Obj_SolidPush  = true;
+					Player.Pushing = true;
+				}
 				Player.Gsp     = 0;
 				Player.Xsp	   = 0;
-				Obj_SolidPush  = true;
 			}
 			Player.PosX -= XDistance;
 			
