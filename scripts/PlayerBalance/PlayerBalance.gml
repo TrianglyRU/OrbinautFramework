@@ -115,8 +115,8 @@ function PlayerBalance()
 	else
 	{
 		/* In orginals, the widest balance range varies from 
-		object to object (2 to 4). We'll use a range of 2 pixels */
-		var Tolerance = 2;
+		object to object (2 to 4). We'll use a range of 4 pixels */
+		var Tolerance = 4;
 		
 		// Ignore specific objects
 		if OnObject.object_index == Bridge

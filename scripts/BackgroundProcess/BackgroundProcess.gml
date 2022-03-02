@@ -1,13 +1,14 @@
 function BackgroundProcess()
 {	
+	// Draw background colour
 	draw_clear(BGColour);
 	
 	// Enable parallax
 	shader_set_uniform_i(Shader.PrlActive, true);
 	
-	var ScrnBuffer = global.ScreenBuffer;
+	var ScreenBuffer = global.ScreenBuffer;	
+	var Length       = array_length(BGSprites);
 	
-	var Length = array_length(BGSprites);
 	for (var i = 0; i < Length; i++)
 	{
 		// Update autoscroll value
@@ -32,7 +33,7 @@ function BackgroundProcess()
 		var AutoXOffset	  = BGValues[i][13];
 		
 		// Define draw position
-		var DrawX = Camera.ViewX - ScrnBuffer;
+		var DrawX = Camera.ViewX - ScreenBuffer;
 		var DrawY = floor(Camera.ViewY * (1 - ScrollY)) + PosY;
 		
 		// Set y-scale mode properties
@@ -62,7 +63,7 @@ function BackgroundProcess()
 			shader_set_uniform_f(Shader.PrlIncHeight, InclineHeight);
 			shader_set_uniform_f(Shader.PrlYScale,    YScale);
 		}
-		shader_set_uniform_f(Shader.PrlOffset,  Camera.ViewX * ScrollX - AutoXOffset, ScrnBuffer);
+		shader_set_uniform_f(Shader.PrlOffset,  Camera.ViewX * ScrollX - AutoXOffset, ScreenBuffer);
 		shader_set_uniform_f(Shader.PrlPos,     DrawX, DrawY);
 		shader_set_uniform_f(Shader.PrlWidth,   TexWidth);
 		shader_set_uniform_f(Shader.PrlMapSize, TexMapSize);

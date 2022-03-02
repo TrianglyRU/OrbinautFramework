@@ -6,8 +6,10 @@ function RendererDistortionSetup()
 	switch room
 	{
 		case Stage_TVZ:
-			distortion_set(0, noone, dist_water,    ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
-			distortion_set(1, noone, dist_water_bg, ["GameControllersLow"]);
+		{
+			distortion_set(noone, dist_water, ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
+			distortion_set_bg(dist_heat, dist_water_bg);
+		}
 		break;
 	}
 }

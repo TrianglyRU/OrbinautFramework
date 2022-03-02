@@ -1,26 +1,27 @@
 function RendererDistortionProcess()
 {		
-	for (var j = 0; j < 2; j++)
+	// Loop through FG and BG distortion effects
+	for (var i = 0; i < 2; i++)
 	{
-		if DistortionEffect[j] != noone
+		if DistortionEffect[i] != noone
 		{
-			// Count time (basically, it is the speed of the distortion effect)
-			if !DistortionMode[j] and Stage.UpdateObjects
-			or  DistortionMode[j] and Renderer.UpdateAnimations
+			if !DistortionMode[i] and Stage.UpdateObjects
+			or  DistortionMode[i] and Renderer.UpdateAnimations
 			{
-				DistortionPos[j][0] += DistortionSpeed[j][0];
-				DistortionPos[j][1] += DistortionSpeed[j][1];
+				// Count time (basically, it is the speed of the distortion effect)
+				DistortionShift[i][0] += DistortionSpeed[i][0];
+				DistortionShift[i][1] += DistortionSpeed[i][1];
 			}
-	
-			// Update effects
-			for (var i = 0; i < 2; i++)
+			
+			for (var j = 0; j < 2; j++)
 			{
-				if DistortionEnabled[j][i]
+				// Set boundaries
+				if DistortionEnabled[i][j]
 				{
-					if i == 1 or !DistortionMode[j]
+					if j == 1 or !DistortionMode[i]
 					{
 						var Height = global.Height;
-						var Bound = Height - clamp(Camera.ViewY - Stage.WaterLevel + Height, 0, Height);
+						var Bound  = Height - clamp(Camera.ViewY - Stage.WaterLevel + Height, 0, Height);
 					}
 					else
 					{
@@ -29,10 +30,19 @@ function RendererDistortionProcess()
 				}
 				else
 				{
-					var Bound = i ? room_height : 0;
+					var Bound = j ? room_height : 0;
 				}
-				fx_set_parameter(DistortionEffect[j], "g_WaveY" + string(i + 1), floor(DistortionPos[j][i] + Camera.ViewY));
-				fx_set_parameter(DistortionEffect[j], "g_Bound" + string(i + 1), Bound);
+				fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 1), Bound);
+				
+				// Set position
+				if i == 1 and array_length(Background.BGValues)
+				{
+					fx_set_parameter(DistortionEffect[i], "g_WaveY" + string(j + 1), floor(DistortionShift[i][j] + Camera.ViewY * Background.BGValues[0][4]));
+				}
+				else
+				{
+					fx_set_parameter(DistortionEffect[i], "g_WaveY" + string(j + 1), floor(DistortionShift[i][j] + Camera.ViewY));
+				}
 			}
 		}
 	}
