@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms (Stages)/Test Valley Zone/Textures.yy",
+    "path": "folders/Rooms (Stages)/Test Stage/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_tvz_anitile00",

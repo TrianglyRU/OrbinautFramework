@@ -416,8 +416,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "Test Valley Zone",
-    "path": "folders/Rooms (Stages)/Test Valley Zone.yy",
+    "name": "Test Stage",
+    "path": "folders/Rooms (Stages)/Test Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "TVZTileset",

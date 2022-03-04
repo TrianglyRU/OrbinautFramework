@@ -16,9 +16,9 @@ function StageSetup()
 			WaterLevel       = 1384;
 			WaterEnabled     = true;
 			StageMusic       = TestValley;
-			AnimatedGraphics = [tex_tvz_anitile00, 24];
+			AnimatedGraphics = [tex_tsz_anitile, 6];
 			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
-			BottomBoundary   = 1016;
+			BottomBoundary   = room_height;
 			
 			SaveProgress = false;
 			IsFinalStage = false;

@@ -65,12 +65,12 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"cd4e5ac1-cc86-479e-a720-f374f27e3c8f","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":34.0,"displayName":"default","resourceVersion":"1.0","name":"cd4e5ac1-cc86-479e-a720-f374f27e3c8f","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms (Stages)/Test Valley Zone/Textures.yy",
+    "path": "folders/Rooms (Stages)/Test Stage/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_tvz_tileset",
