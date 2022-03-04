@@ -35,7 +35,7 @@ function GameSetup()
 	
 	// Orbinaut improvements
 	global.SmoothRotation	    = true;
-	global.RichPresenceSupport  = false;
+	global.RichPresenceSupport  = true;
 	global.BetterPlayerTileGrip = false;
 	global.PreciseRingBehaviour = false;
 	global.FixRollJump		    = false;
