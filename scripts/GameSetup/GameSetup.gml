@@ -48,7 +48,7 @@ function GameSetup()
 	global.ActiveSave      = 0;
 	global.SaveData		   = 0;
 	global.SaveState       = 0;
-	global.FullscreenMode  = 0;
+	global.StartFullscreen = 0;
 	global.WindowSize	   = 0;
 	global.MusicVolume	   = 0;
 	global.SoundVolume     = 0;

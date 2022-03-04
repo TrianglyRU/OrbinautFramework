@@ -21,6 +21,12 @@ function MenuAutomaticProcess()
 			PreviousMenuID[Target]   = MenuID;
 			MenuID					 = Target;
 			OptionID				 = 0;
+	
+			Input.APress	 = false;
+			Input.StartPress = false;
+			
+			// Update
+			MenuManualProcess()
 		}
 	}
 
@@ -35,6 +41,10 @@ function MenuAutomaticProcess()
 		{
 			OptionID = 0;
 		}
-		MenuID = PreviousMenuID[MenuID];
+		MenuID		 = PreviousMenuID[MenuID];
+		Input.BPress = false;
+		
+		// Update
+		MenuManualProcess()
 	}
 }

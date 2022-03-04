@@ -139,7 +139,7 @@ function MenuManualProcess()
 					audio_sfx_play(sfxFail, false);
 				}
 				
-				// Cancel MenuAutomaticProcess(). We shouln't load a MenuID with ID of our room
+				// Cancel MenuAutomaticProcess(). We shouldn't load a MenuID with ID of our room
 				return true;
 			}
 		}

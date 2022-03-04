@@ -1,5 +1,11 @@
 function InputHotkeysProcess()
 {	
+	// Toggle fullscreen (F4)
+	if keyboard_check_pressed(vk_f4)
+	{
+		window_set_fullscreen(!window_get_fullscreen());
+	}
+	
 	if !global.DevMode
 	{
 		return;
@@ -23,34 +29,34 @@ function InputHotkeysProcess()
 		room_restart();
 	}
 	
-	// Debug overlay (F4 -> F10)
+	// Debug overlay (F5 -> F11)
 	if instance_exists(Interface)
 	{
-		if keyboard_check_pressed(vk_f4)
+		if keyboard_check_pressed(vk_f5)
 		{
 			Interface.DebugPositions = !Interface.DebugPositions;
 		}
-		else if keyboard_check_pressed(vk_f5)
+		else if keyboard_check_pressed(vk_f6)
 		{
 			Interface.DebugSensors = !Interface.DebugSensors;
 		}
-		else if keyboard_check_pressed(vk_f6)
+		else if keyboard_check_pressed(vk_f7)
 		{
 			Interface.DebugSolids = !Interface.DebugSolids;
 		}
-		else if keyboard_check_pressed(vk_f7)
+		else if keyboard_check_pressed(vk_f8)
 		{
 			Interface.DebugHitboxes = !Interface.DebugHitboxes;
 		}
-		else if keyboard_check_pressed(vk_f8)
+		else if keyboard_check_pressed(vk_f9)
 		{
 			Interface.DebugTriggers = !Interface.DebugTriggers;
 		}
-		else if keyboard_check_pressed(vk_f9)
+		else if keyboard_check_pressed(vk_f10)
 		{
 			Interface.DebugFPS = !Interface.DebugFPS;
 		}
-		else if keyboard_check_pressed(vk_f10)
+		else if keyboard_check_pressed(vk_f11)
 		{
 			Interface.DebugVariables = !Interface.DebugVariables;
 		}
