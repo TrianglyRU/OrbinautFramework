@@ -11,7 +11,7 @@ function StageSetup()
 		// Wireframe Valley
 		case Stage_TVZ:
 		{
-			ZoneName         = "WIREFRAME VALLEY";
+			ZoneName         = "  MOONLIGHT QUADRANT";
 			ActID            = 0;
 			WaterLevel       = 1384;
 			WaterEnabled     = true;
