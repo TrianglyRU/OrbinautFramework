@@ -30,7 +30,7 @@ function ObjInvincibilityStarMain()
 		case 3: case 7: var Delay = 0; break;
 	}
 	Angle        = 45 * ID - AngleOffset;
-	AngleOffset += real(11.25 * Player.Facing) mod 360;	// YYC can't process mod operator (%) used with a double?
+	AngleOffset += 11.25 * Player.Facing;
  
 	// Rotate
 	x = Player.RecordedPosX[| Delay] + dsin(Angle) * 16;
