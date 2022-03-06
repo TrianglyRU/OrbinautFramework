@@ -312,7 +312,7 @@
     {"id":{"name":"ObjDoubleSpinShieldStartup","path":"scripts/ObjDoubleSpinShieldStartup/ObjDoubleSpinShieldStartup.yy",},"order":117,},
     {"id":{"name":"RendererSurfaceProcess","path":"scripts/RendererSurfaceProcess/RendererSurfaceProcess.yy",},"order":3,},
     {"id":{"name":"AudioEnd","path":"scripts/AudioEnd/AudioEnd.yy",},"order":6,},
-    {"id":{"name":"palette_update_colour","path":"scripts/palette_update_colour/palette_update_colour.yy",},"order":24,},
+    {"id":{"name":"palette_upd_colour","path":"scripts/palette_upd_colour/palette_upd_colour.yy",},"order":24,},
     {"id":{"name":"InterfaceDebugSensorsDraw","path":"scripts/InterfaceDebugSensorsDraw/InterfaceDebugSensorsDraw.yy",},"order":8,},
     {"id":{"name":"palette_load","path":"scripts/palette_load/palette_load.yy",},"order":25,},
     {"id":{"name":"PlayerGroundFloorCollision","path":"scripts/PlayerGroundFloorCollision/PlayerGroundFloorCollision.yy",},"order":1,},

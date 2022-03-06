@@ -68,7 +68,6 @@ function ObjAnimalStartup()
 		// Set object properties
 		object_set_unload(FlagDelete);
 		object_set_depth(Player, 0);
-		object_set_solidbox(8, 12, false);
 		
 		animation_set(AnimalType, 0); image_xscale = -1;
 	}

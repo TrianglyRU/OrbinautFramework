@@ -11,26 +11,20 @@ function InputHotkeysProcess()
 		return;
 	}
 	
-	// Load into DevMenu
+	// Debug keys (ESC -> F3)
 	if keyboard_check_pressed(vk_escape)
 	{
 		room_goto(Screen_DevMenu);
 	}
-		
-	// Restart game (F1)
-	if keyboard_check_pressed(vk_f1) 
+	else if keyboard_check_pressed(vk_f1) 
 	{
 		game_restart();
 	}
-	
-	// Restart room (F2)
-	if keyboard_check_pressed(vk_f2)
+	else if keyboard_check_pressed(vk_f2)
 	{	
 		room_restart();
 	}
-	
-	// Frame-by-frame mode (F3)
-	if keyboard_check_pressed(vk_f3) 
+	else if keyboard_check_pressed(vk_f3) 
 	{
 		if game_get_speed(gamespeed_fps) == 60
 		{
@@ -42,35 +36,35 @@ function InputHotkeysProcess()
 		}
 	}
 	
-	// Debug overlay (F5 -> F11)
+	// Debug overlay (Key 1 -> Key)
 	if instance_exists(Interface)
 	{
 		
-		if keyboard_check_pressed(vk_f5)
+		if keyboard_check_pressed(ord("1"))
 		{
 			Interface.DebugSensors = !Interface.DebugSensors;
 		}
-		else if keyboard_check_pressed(vk_f6)
+		else if keyboard_check_pressed(ord("2"))
 		{
 			Interface.DebugPositions = !Interface.DebugPositions;
 		}
-		else if keyboard_check_pressed(vk_f7)
+		else if keyboard_check_pressed(ord("3"))
 		{
 			Interface.DebugSolids = !Interface.DebugSolids;
 		}
-		else if keyboard_check_pressed(vk_f8)
+		else if keyboard_check_pressed(ord("4"))
 		{
 			Interface.DebugHitboxes = !Interface.DebugHitboxes;
 		}
-		else if keyboard_check_pressed(vk_f9)
+		else if keyboard_check_pressed(ord("5"))
 		{
 			Interface.DebugTriggers = !Interface.DebugTriggers;
 		}
-		else if keyboard_check_pressed(vk_f10)
+		else if keyboard_check_pressed(ord("9"))
 		{
 			Interface.DebugFPS = !Interface.DebugFPS;
 		}
-		else if keyboard_check_pressed(vk_f11)
+		else if keyboard_check_pressed(ord("0"))
 		{
 			Interface.DebugVariables = !Interface.DebugVariables;
 		}
