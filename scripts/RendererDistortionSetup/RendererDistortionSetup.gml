@@ -5,7 +5,7 @@ function RendererDistortionSetup()
 	
 	switch room
 	{
-		case Stage_TVZ:
+		case Stage_TSZ:
 		{
 			distortion_set(noone, dist_water, ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
 			distortion_set_bg(noone, dist_water_bg);

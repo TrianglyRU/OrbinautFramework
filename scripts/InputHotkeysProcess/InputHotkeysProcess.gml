@@ -29,16 +29,30 @@ function InputHotkeysProcess()
 		room_restart();
 	}
 	
+	// Frame-by-frame mode (F3)
+	if keyboard_check_pressed(vk_f3) 
+	{
+		if game_get_speed(gamespeed_fps) == 60
+		{
+			game_set_speed(2, gamespeed_fps);
+		}
+		else
+		{
+			game_set_speed(60, gamespeed_fps);
+		}
+	}
+	
 	// Debug overlay (F5 -> F11)
 	if instance_exists(Interface)
 	{
+		
 		if keyboard_check_pressed(vk_f5)
 		{
-			Interface.DebugPositions = !Interface.DebugPositions;
+			Interface.DebugSensors = !Interface.DebugSensors;
 		}
 		else if keyboard_check_pressed(vk_f6)
 		{
-			Interface.DebugSensors = !Interface.DebugSensors;
+			Interface.DebugPositions = !Interface.DebugPositions;
 		}
 		else if keyboard_check_pressed(vk_f7)
 		{
@@ -59,19 +73,6 @@ function InputHotkeysProcess()
 		else if keyboard_check_pressed(vk_f11)
 		{
 			Interface.DebugVariables = !Interface.DebugVariables;
-		}
-	}
-
-	// Frame-by-frame mode (F12)
-	if keyboard_check_pressed(vk_f12) 
-	{
-		if game_get_speed(gamespeed_fps) == 60
-		{
-			game_set_speed(2, gamespeed_fps);
-		}
-		else
-		{
-			game_set_speed(60, gamespeed_fps);
 		}
 	}
 }

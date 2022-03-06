@@ -9,7 +9,7 @@ function StageSetup()
 	switch room 
 	{	
 		// Wireframe Valley
-		case Stage_TVZ:
+		case Stage_TSZ:
 		{
 			ZoneName         = "  MOONLIGHT QUADRANT";
 			ActID            = 0;

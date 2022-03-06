@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_obj_swingplatform_editor",
-    "path": "sprites/spr_obj_swingplatform_editor/spr_obj_swingplatform_editor.yy",
+    "name": "spr_tempobject",
+    "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
   "visible": true,

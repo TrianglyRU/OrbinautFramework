@@ -7,13 +7,16 @@ function ObjFloatingPlatformStartup()
 	4. Inverse,		 default = false
 	*/
 	
+	/* Tip: assign your sprite to the object
+	so you can see it in the room editor */
+	
 	// Setup object
 	switch room
 	{
-		case Stage_TVZ:
+		case Stage_TSZ:
 		{
 			var Solidbox = [40, 11];
-			sprite_index = spr_obj_floatingplatform_tvz;
+			sprite_index = spr_obj_floatingplatform_tsz;
 		}
 		break;
 		default:

@@ -2,7 +2,7 @@ function PaletteSetup()
 {	
 	switch room 
 	{
-		case Stage_TVZ:
+		case Stage_TSZ:
 		{
 			palette_load(PalPrimary,   pal_tz_type1);
 			palette_load(PalSecondary, pal_tz_type2);

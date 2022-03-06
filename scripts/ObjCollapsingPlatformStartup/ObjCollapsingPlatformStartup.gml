@@ -1,9 +1,12 @@
 function ObjCollapsingPlatformStartup()
 {
+	/* Tip: assign your sprite to the object
+	so you can see it in the room editor */
+	
 	// Setup object
 	switch room
 	{
-		case Stage_TVZ:
+		case Stage_TSZ:
 		{
 			var Heightmap = 
 			[
@@ -26,7 +29,7 @@ function ObjCollapsingPlatformStartup()
 				80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80
 			];
 			var Solidbox  = [];
-			sprite_index  = spr_obj_collapsingplatform_tvz;
+			sprite_index  = spr_obj_collapsingplatform_tsz;
 		}
 		break;
 		default:

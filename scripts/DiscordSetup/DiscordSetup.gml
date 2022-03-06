@@ -10,7 +10,7 @@ function DiscordSetup()
 	// Set details
 	switch room 
 	{
-		case Stage_TVZ:
+		case Stage_TSZ:
 			TopString = "Wireframe Valley";
 		break;
 		case SStage_Template:

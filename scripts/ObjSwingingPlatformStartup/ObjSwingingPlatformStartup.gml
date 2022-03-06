@@ -5,13 +5,16 @@ function ObjSwingingPlatformStartup()
 	2. Speed,	   default = 1
 	*/
 	
+	/* Tip: assign your pendulum sprite to the 
+	object so you can see it in the room editor */
+	
 	// Setup object
 	switch room
 	{
-		case Stage_TVZ:
+		case Stage_TSZ:
 		{
 			var Solidbox = [24, 8];
-			SpriteData   = [spr_obj_swing_tvz_platform, spr_obj_swing_tvz_chain, spr_obj_swing_tvz_pendulum];
+			SpriteData   = [spr_obj_swing_tsz_platform, spr_obj_swing_tsz_chain, spr_obj_swing_tsz_pendulum];
 		}
 		break;
 		default:

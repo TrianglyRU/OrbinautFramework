@@ -3,7 +3,7 @@ function BackgroundSetup()
 	switch room
 	{	
 		// Test Stage
-		case Stage_TVZ:
+		case Stage_TSZ:
 		{	
 			// Add layers
 			background_layer_add(0,  tex_tsz_bg00);
