@@ -2,7 +2,7 @@
 function savedata_save(slot)
 {
 	/* It is not recommended to modify saveslot file to save/load additional data.
-	You'd want to create additional file in this case, like saveextra.bin */
+	You'd want to create additional file in that case */
 	
 	// Get savedata file name
 	var Filename = "saveslot" + string(slot + 1) + ".bin";
@@ -19,8 +19,7 @@ function savedata_save(slot)
 		- Lives
 		- Continues
 		- SaveState (game clear flag)
-		- Score (split into 4 values)
-		*/
+		- Score (split into 4 values) */
 		
 		file_bin_write_byte(File, global.Character); 
 		file_bin_write_byte(File, global.ZoneID);	  

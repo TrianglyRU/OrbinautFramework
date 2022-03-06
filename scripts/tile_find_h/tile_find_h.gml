@@ -1,5 +1,5 @@
-/// @function tile_find_h(x,y,toPositive,ignoreTop,tilelayer)
-function tile_find_h(x,y,toPositive,ignoreTop,tilelayer)
+/// @function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
+function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
 {	
 	x = floor(x);
 	y = floor(y);
@@ -57,7 +57,7 @@ function tile_find_h(x,y,toPositive,ignoreTop,tilelayer)
 	}
 	
 	// Exit if tile is top-only and we're ignoring them
-	if ignoreTop and TileIndex > global.TileData[1]
+	if noTopSolid and TileIndex > global.TileData[1]
 	{
 		return [32, noone];
 	}

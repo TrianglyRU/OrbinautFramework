@@ -111,5 +111,6 @@ function AudioPrimaryProcess()
 				audio_sound_gain(Track, VolumeLevel, 0);
 			}
 		}
+		break;
 	}
 }

@@ -1,4 +1,4 @@
-/// @function palette_set_colour_range(Pal?,iCol1,iCol2,rCol)
+/// @function palette_set_colour_range(palType,iCol1,iCol2,rCol)
 function palette_set_colour_range(palType,iCol1,iCol2,rCol)
 {
 	if Palette.ColourSet[palType] == false or !Renderer.UpdateAnimations

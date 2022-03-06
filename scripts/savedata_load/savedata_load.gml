@@ -2,7 +2,7 @@
 function savedata_load(slot)
 {
 	/* It is not recommended to modify saveslot file to save/load additional data.
-	You'd want to create additional file for that case, like saveextra */
+	You'd want to create additional file in that case */
 	
 	// Get savedata file name
 	var Filename = "saveslot" + string(slot + 1) + ".bin";
@@ -18,8 +18,7 @@ function savedata_load(slot)
 		- Lives
 		- Continues
 		- SaveState (game clear flag)
-		- Score (split into 4 values)
-		*/
+		- Score (split into 4 values) */
 		
 		// Read data
 		var Data;

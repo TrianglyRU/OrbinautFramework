@@ -16,7 +16,7 @@ function PlayerSuperPalettesProcess()
 					{
 						palette_set_colour(PalPrimary, 0, 17);
 					}	
-					palette_update_colour(PalPrimary, 0, 21, 1, 4);
+					palette_upd_colour(PalPrimary, 0, 21, 1, 4);
 				}
 			}
 			
@@ -25,15 +25,15 @@ function PlayerSuperPalettesProcess()
 			{
 				if Colour == 1
 				{
-					palette_update_colour(PalPrimary, 0, 1, 2, 19);
+					palette_upd_colour(PalPrimary, 0, 1, 2, 19);
 				}
 				else if Colour < 7
 				{
-					palette_update_colour(PalPrimary, 0, 6, 7, 4);
+					palette_upd_colour(PalPrimary, 0, 6, 7, 4);
 				}
 				else
 				{
-					palette_update_colour(PalPrimary, 0, 16, 7, 8);
+					palette_upd_colour(PalPrimary, 0, 16, 7, 8);
 				}
 			}
 			
@@ -55,7 +55,7 @@ function PlayerSuperPalettesProcess()
 				var Colour = palette_get_colour(PalPrimary, 4);
 				if  Colour > 1
 				{
-					palette_update_colour(PalPrimary, 4, 7, 1, 12);
+					palette_upd_colour(PalPrimary, 4, 7, 1, 12);
 				}
 			}
 				
@@ -64,11 +64,11 @@ function PlayerSuperPalettesProcess()
 			{
 				if Colour == 1
 				{
-					palette_update_colour(PalPrimary, 4, 1, 2, 28);
+					palette_upd_colour(PalPrimary, 4, 1, 2, 28);
 				}
 				else
 				{
-					palette_update_colour(PalPrimary, 4, 7, 2, 12);
+					palette_upd_colour(PalPrimary, 4, 7, 2, 12);
 				}
 			}
 			
@@ -91,7 +91,7 @@ function PlayerSuperPalettesProcess()
 			{
 				if  Colour > 1
 				{
-					palette_update_colour(PalPrimary, 6, 11, 1, 3);
+					palette_upd_colour(PalPrimary, 6, 11, 1, 3);
 				}
 			}
 			
@@ -100,15 +100,15 @@ function PlayerSuperPalettesProcess()
 			{
 				if Colour == 1
 				{
-					palette_update_colour(PalPrimary, 6, 1, 2, 17);
+					palette_upd_colour(PalPrimary, 6, 1, 2, 17);
 				}
 				else if Colour == 2
 				{
-					palette_update_colour(PalPrimary, 6, 2, 3, 15);
+					palette_upd_colour(PalPrimary, 6, 2, 3, 15);
 				}
 				else
 				{
-					palette_update_colour(PalPrimary, 6, 11, 2, 3);
+					palette_upd_colour(PalPrimary, 6, 11, 2, 3);
 				}
 			}
 			

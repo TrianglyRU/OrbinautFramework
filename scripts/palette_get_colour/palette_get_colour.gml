@@ -1,4 +1,4 @@
-/// @function palette_get_colour(Pal?,iCol)
+/// @function palette_get_colour(palType,iCol)
 function palette_get_colour(palType,iCol)
 {
 	// Return first colour if no pallete set

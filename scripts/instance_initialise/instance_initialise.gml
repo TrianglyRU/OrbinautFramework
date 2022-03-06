@@ -1,6 +1,5 @@
 function instance_initialise()
 {
-	// Initialise system variables
 	if !variable_instance_exists(id, "Obj_AnimDuration")
 	{
 		Obj_AnimTimer     = 0;

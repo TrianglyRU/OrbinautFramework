@@ -6,14 +6,14 @@ function GameShadersStartup()
 	Shader.PalColour     = shader_get_uniform(ShaderFade, "u_colour");
 	
 	// Setup palette module
-	Shader.PalBoundary   = shader_get_uniform(ShaderMain,	   "u_bound");
-	Shader.PalTexelSize1 = shader_get_uniform(ShaderMain,	   "u_texSizeFst");
-	Shader.PalUVs1	     = shader_get_uniform(ShaderMain,	   "u_UVsFst");
-	Shader.PalIndex1	 = shader_get_uniform(ShaderMain,	   "u_indFst");
+	Shader.PalBoundary   = shader_get_uniform(ShaderMain,	    "u_bound");
+	Shader.PalTexelSize1 = shader_get_uniform(ShaderMain,	    "u_texSizeFst");
+	Shader.PalUVs1	     = shader_get_uniform(ShaderMain,	    "u_UVsFst");
+	Shader.PalIndex1	 = shader_get_uniform(ShaderMain,	    "u_indFst");
 	Shader.PalTex1		 = shader_get_sampler_index(ShaderMain, "u_texFst");
-	Shader.PalTexelSize2 = shader_get_uniform(ShaderMain,	   "u_texSizeSnd");
-	Shader.PalUVs2       = shader_get_uniform(ShaderMain,	   "u_UVsSnd");
-	Shader.PalIndex2	 = shader_get_uniform(ShaderMain,	   "u_indSnd");
+	Shader.PalTexelSize2 = shader_get_uniform(ShaderMain,	    "u_texSizeSnd");
+	Shader.PalUVs2       = shader_get_uniform(ShaderMain,	    "u_UVsSnd");
+	Shader.PalIndex2	 = shader_get_uniform(ShaderMain,	    "u_indSnd");
 	Shader.PalTex2       = shader_get_sampler_index(ShaderMain, "u_texSnd");
 
 	// Setup parallax module

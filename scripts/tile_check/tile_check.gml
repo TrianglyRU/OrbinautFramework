@@ -1,10 +1,14 @@
-/// @function tile_check(x,y,ignoreTop,tilelayer)
-function tile_check(x,y,ignoreTop,tilelayer)
+/// @function tile_check(x,y,noTopSolid,tilelayer)
+function tile_check(x,y,noTopSolid,tilelayer)
 {
 	x = floor(x);
 	y = floor(y);
 	
-	// Exit if outside of the room
+	// Exit if no tiledata found
+	if !array_length(global.TileData)
+	{
+		return false;
+	}
     if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
     {
         return false;
@@ -16,7 +20,7 @@ function tile_check(x,y,ignoreTop,tilelayer)
     var TileIndex = tile_get_index(Tile);
 	
    	// Exit if tile is top-only and we're ignoring them
-    if ignoreTop and TileIndex > global.TileData[1]
+    if noTopSolid and TileIndex > global.TileData[1]
     {
         return false;
     }
