@@ -1,5 +1,5 @@
-/// @function distortion_set(data1,data2,layerArray)
-function distortion_set(data1,data2,layerArray)
+/// @function distortion_set(data1,data2,speed,layerArray)
+function distortion_set(data1,data2,speed,layerArray)
 {	
 	try
 	{
@@ -30,12 +30,14 @@ function distortion_set(data1,data2,layerArray)
 				fx_set_parameter(DistortionEffect[0], "g_DataParams" + string(i + 1), UVs[0] + TexelX / 2, UVs[1] + TexelY / 2, TexelY);
 			
 				DistortionEnabled[0][i] = true;
+				DistortionSpeed[0][i]   = speed;
 			}
 		}
 
 		fx_set_parameter(DistortionEffect[0], "g_Bound1", 0);
 		fx_set_parameter(DistortionEffect[0], "g_Bound4", room_height);
 		fx_set_parameter(DistortionEffect[0], "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
+		
 		fx_set_single_layer(DistortionEffect[0], true);
 		
 		// Apply the effect to our layers

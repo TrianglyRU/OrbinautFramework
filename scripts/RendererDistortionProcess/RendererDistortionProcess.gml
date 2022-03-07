@@ -15,7 +15,7 @@ function RendererDistortionProcess()
 			
 			for (var j = 0; j < 2; j++)
 			{
-				// Set boundaries
+				// Set split boundary
 				if DistortionEnabled[i][j]
 				{
 					if j == 1 or !DistortionMode[i]
