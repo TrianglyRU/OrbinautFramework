@@ -33,6 +33,8 @@ function distortion_set_bg(data1,data2)
 			}
 		}
 		
+		fx_set_parameter(DistortionEffect[1], "g_Bound1", 0);
+		fx_set_parameter(DistortionEffect[1], "g_Bound4", room_height);
 		fx_set_parameter(DistortionEffect[1], "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
 		fx_set_single_layer(DistortionEffect[1], true);
 		
