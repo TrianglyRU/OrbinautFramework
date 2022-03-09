@@ -33,7 +33,7 @@ function StageObjectsProcess()
 				// Deactivate object
 				case FlagPause:
 				{
-					if (x < LeftBound or x > RightBound) and (Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound)
+					if x < LeftBound or x > RightBound
 					{
 						var Length = array_length(Obj_ChildrenIDs);
 						if  Length
@@ -51,44 +51,47 @@ function StageObjectsProcess()
 				// Reset object
 				case FlagReset:
 				{
-					if (x < LeftBound or x > RightBound) and (Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound)
+					if x < LeftBound or x > RightBound
 					{
-						var Length = array_length(Obj_ChildrenIDs);
-						if  Length
+						if Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound
 						{
-							for (var i = 0; i < Length; i++)
+							var Length = array_length(Obj_ChildrenIDs);
+							if  Length
 							{
-								instance_destroy(Obj_ChildrenIDs[i]);
+								for (var i = 0; i < Length; i++)
+								{
+									instance_destroy(Obj_ChildrenIDs[i]);
+								}
+								Obj_ChildrenIDs = [];
 							}
-							Obj_ChildrenIDs = [];
-						}
 		
-						// Reset data
-						x			 = Obj_UnloadData[0];
-						y			 = Obj_UnloadData[1];
-						image_xscale = Obj_UnloadData[2];
-						image_yscale = Obj_UnloadData[3];
-						image_index  = Obj_UnloadData[4];
-						sprite_index = Obj_UnloadData[5];
-						visible      = Obj_UnloadData[6];
+							// Reset data
+							x			 = Obj_UnloadData[0];
+							y			 = Obj_UnloadData[1];
+							image_xscale = Obj_UnloadData[2];
+							image_yscale = Obj_UnloadData[3];
+							image_index  = Obj_UnloadData[4];
+							sprite_index = Obj_UnloadData[5];
+							visible      = Obj_UnloadData[6];
 							
-						// Reset animation data
-						Obj_AnimDuration = 0;
-						Obj_AnimTimer    = 0;
+							// Reset animation data
+							Obj_AnimDuration = 0;
+							Obj_AnimTimer    = 0;
 									
-						// Perform create event to re-initialise variables
-						event_perform(ev_create, 0);
+							// Perform create event to re-initialise variables
+							event_perform(ev_create, 0);
 							
-						// Deactivate object and its children
-						var Length = array_length(Obj_ChildrenIDs);
-						if  Length
-						{
-							for (var i = 0; i < Length; i++)
+							// Deactivate object and its children
+							var Length = array_length(Obj_ChildrenIDs);
+							if  Length
 							{
-								instance_deactivate_object(Obj_ChildrenIDs[i]);
+								for (var i = 0; i < Length; i++)
+								{
+									instance_deactivate_object(Obj_ChildrenIDs[i]);
+								}
 							}
+							instance_deactivate_object(id);
 						}
-						instance_deactivate_object(id);
 					}
 				}
 				break;
