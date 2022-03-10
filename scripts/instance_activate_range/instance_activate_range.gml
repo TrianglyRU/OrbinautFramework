@@ -25,5 +25,5 @@ function instance_activate_range(anchorX)
 	
 	// Activate region
 	LeftBound = (anchorX & -128) - 128;
-	instance_activate_region(LeftBound, 0, 128 + max(640, global.Width + 32), room_height, true);
+	instance_activate_region(LeftBound, 0, 128 + global.Width * 2, room_height, true);
 }

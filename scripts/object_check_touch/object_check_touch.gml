@@ -1,4 +1,4 @@
-/// @function object_check_touch(Col?)
+/// @function object_check_touch(collisionType)
 function object_check_touch(collisionType)
 {	
 	if collisionType != ColTrigger and !Player.AllowCollision

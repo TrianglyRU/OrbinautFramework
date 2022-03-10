@@ -41,7 +41,7 @@ function AudioPrimaryProcess()
 		{
 			audio_stop_sound(SndChannel);
 		}
-		audio_bgm_stop(TypePrimary, 0);
+		audio_bgm_stop(AudioPrimary, 0);
 	}
 	
 	switch Event

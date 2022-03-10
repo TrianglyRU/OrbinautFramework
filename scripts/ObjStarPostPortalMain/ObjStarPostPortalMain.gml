@@ -25,8 +25,8 @@ function ObjStarPostPortalMain()
 			if !State and object_check_touch(ColHitbox)
 			{
 				fade_perform(ModeInto, BlendBlack, 1);
-				audio_bgm_stop(TypePrimary,  0.5);
-				audio_bgm_stop(TypeSecondary, 0.5);
+				audio_bgm_stop(AudioPrimary,  0.5);
+				audio_bgm_stop(AudioSecondary, 0.5);
 				
 				Input.IgnoreInput		  = true;
 				Stage.UpdateObjects       = false;

@@ -18,7 +18,7 @@ function BonusStageProcess()
 						global.Lives += 1;
 						RingTarget += 100;
 						
-						audio_bgm_play(TypeSecondary, ExtraLife);	
+						audio_bgm_play(AudioSecondary, ExtraLife);	
 					}
 				}
 	
@@ -47,8 +47,8 @@ function BonusStageProcess()
 				{
 					fade_perform(ModeInto, BlendBlack, 1);
 	
-					audio_bgm_stop(TypePrimary,   0.5);
-					audio_bgm_stop(TypeSecondary, 0.5);
+					audio_bgm_stop(AudioPrimary,   0.5);
+					audio_bgm_stop(AudioSecondary, 0.5);
 					
 					// Increment state
 					State++;

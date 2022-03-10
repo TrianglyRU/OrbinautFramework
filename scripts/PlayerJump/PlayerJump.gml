@@ -54,7 +54,7 @@ function PlayerJump()
 			RadiusY = DefaultRadiusY;
 		
 			audio_sfx_play(sfxTransform, false);		
-			audio_bgm_play(TypePrimary, SuperTheme);
+			audio_bgm_play(AudioPrimary, SuperTheme);
 			
 			return;
 		}

@@ -59,7 +59,7 @@ function PlayerWaterEvents()
 				}
 				else if AirTimer == 720
 				{			
-					audio_bgm_play(TypePrimary, Drowning);
+					audio_bgm_play(AudioPrimary, Drowning);
 				}
 				AirTimer--
 			}
@@ -126,20 +126,20 @@ function PlayerWaterEvents()
 				{
 					if HighspeedBonus
 					{
-						audio_bgm_play(TypePrimary, HighSpeed);
+						audio_bgm_play(AudioPrimary, HighSpeed);
 					}
 					else if InvincibleBonus
 					{
-						audio_bgm_play(TypePrimary, Invincibility);
+						audio_bgm_play(AudioPrimary, Invincibility);
 					}
 					else
 					{
-						audio_bgm_play(TypePrimary, Stage.StageMusic);
+						audio_bgm_play(AudioPrimary, Stage.StageMusic);
 					}
 				}
 				else
 				{
-					audio_bgm_play(TypePrimary, SuperTheme);
+					audio_bgm_play(AudioPrimary, SuperTheme);
 				}
 			}
 			

@@ -2,10 +2,10 @@ function StageObjectsProcess()
 {	
 	if UpdateObjects
 	{
-		/* Set active object bounds, accurate to the originals. 
+		/* Set active object bounds, accurate to the originals (if Width is set to 320px, obviously). 
 		If you decide to change that, also update instance_activate_range() */
 		var LeftBound  = (Camera.ViewX & -128) - 128;
-		var RightBound = (Camera.ViewX & -128) + max(640, global.Width + 32);
+		var RightBound = (Camera.ViewX & -128) + global.Width * 2;
 	
 		with all 
 		{	
@@ -35,15 +35,18 @@ function StageObjectsProcess()
 				{
 					if x < LeftBound or x > RightBound
 					{
-						var Length = array_length(Obj_ChildrenIDs);
-						if  Length
+						if Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound
 						{
-							for (var i = 0; i < Length; i++)
-							{				
-								instance_deactivate_object(Obj_ChildrenIDs[i]);
+							var Length = array_length(Obj_ChildrenIDs);
+							if  Length
+							{
+								for (var i = 0; i < Length; i++)
+								{				
+									instance_deactivate_object(Obj_ChildrenIDs[i]);
+								}
 							}
+							instance_deactivate_object(id);
 						}
-						instance_deactivate_object(id);
 					}
 				}
 				break;

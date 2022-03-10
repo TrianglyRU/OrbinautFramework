@@ -1,9 +1,9 @@
-/// @function audio_bgm_play(channelType,soundid)
-function audio_bgm_play(channelType,soundid)
+/// @function audio_bgm_play(audioType,soundid)
+function audio_bgm_play(audioType,soundid)
 {	
-	switch channelType
+	switch audioType
 	{
-		case TypePrimary:
+		case AudioPrimary:
 		{
 			audio_stop_sound(Audio.PrimaryTrack[1]);
 			audio_sound_gain(soundid, global.MusicVolume, 0);
@@ -39,7 +39,7 @@ function audio_bgm_play(channelType,soundid)
 			}
 		}
 		break;
-		case TypeSecondary:
+		case AudioSecondary:
 		{
 			audio_stop_sound(Audio.SecondaryTrack[1]);
 			audio_sound_gain(soundid, global.MusicVolume, 0);

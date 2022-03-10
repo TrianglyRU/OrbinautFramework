@@ -12,7 +12,7 @@ function ObjPrisonMain()
 					// Make player exit their super form
 					Player.SuperState = false;
 					
-					audio_bgm_play(TypePrimary, Stage.StageMusic);					
+					audio_bgm_play(AudioPrimary, Stage.StageMusic);					
 				}
 				Stage.TimeEnabled = false;
 				Input.IgnoreInput = true;
@@ -100,7 +100,7 @@ function ObjPrisonMain()
 			}
 			else if !object_is_onscreen(TargetAnimal)
 			{
-				audio_bgm_play(TypePrimary, ActClear);
+				audio_bgm_play(AudioPrimary, ActClear);
 				
 				// Increment stage & object state
 				Stage.IsFinished = 2;

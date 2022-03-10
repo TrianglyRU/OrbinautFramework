@@ -120,7 +120,7 @@ function ObjItemBoxMain()
 				{
 					if !Player.SuperState and !Player.HighspeedBonus
 					{
-						audio_bgm_play(TypePrimary, HighSpeed);
+						audio_bgm_play(AudioPrimary, HighSpeed);
 					}
 					Player.HighspeedBonus = 1200;
 				}
@@ -139,7 +139,7 @@ function ObjItemBoxMain()
 							var Object	  = instance_create(Player.PosX, Player.PosY, InvincibilityStar);
 								Object.ID = i;
 						}
-						audio_bgm_play(TypePrimary, Invincibility);
+						audio_bgm_play(AudioPrimary, Invincibility);
 					}
 					Player.InvincibleBonus = 1200;
 				}
@@ -214,20 +214,20 @@ function ObjItemBoxMain()
 						{
 							if Player.InvincibleBonus
 							{
-								audio_bgm_play(TypePrimary, Invincibility);
+								audio_bgm_play(AudioPrimary, Invincibility);
 							}
 							else if Player.HighspeedBonus
 							{
-								audio_bgm_play(TypePrimary, HighSpeed);
+								audio_bgm_play(AudioPrimary, HighSpeed);
 							}
 							else
 							{
-								audio_bgm_play(TypePrimary, Stage.StageMusic);
+								audio_bgm_play(AudioPrimary, Stage.StageMusic);
 							}
 						}
 						else
 						{
-							audio_bgm_play(TypePrimary, SuperTheme);
+							audio_bgm_play(AudioPrimary, SuperTheme);
 						}
 					}
 					
@@ -238,7 +238,7 @@ function ObjItemBoxMain()
 				case "Extra Life":
 				{
 					Player.Lives++;
-					audio_bgm_play(TypeSecondary, ExtraLife);
+					audio_bgm_play(AudioSecondary, ExtraLife);
 				}
 				break;
 				case "Eggman":

@@ -4,5 +4,5 @@ function SpecialStageStartup()
 	StateTimer = 0;
 	
 	fade_perform(ModeFrom, BlendWhite, 1);
-	audio_bgm_play(TypePrimary, SpecialTheme);
+	audio_bgm_play(AudioPrimary, SpecialTheme);
 }

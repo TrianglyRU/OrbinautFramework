@@ -48,8 +48,8 @@ function StageGameplayProcess()
 			{
 				RestartEvent = true;
 					
-				audio_bgm_stop(TypeSecondary, 0);
-				audio_bgm_play(TypePrimary, GameOver);
+				audio_bgm_stop(AudioSecondary, 0);
+				audio_bgm_play(AudioPrimary, GameOver);
 			}
 		}
 		RestartTimer++;
@@ -59,8 +59,8 @@ function StageGameplayProcess()
 		{
 			fade_perform(ModeInto, BlendBlack, 1);
 				
-			audio_bgm_stop(TypePrimary,   0.5);
-			audio_bgm_stop(TypeSecondary, 0.5);
+			audio_bgm_stop(AudioPrimary,   0.5);
+			audio_bgm_stop(AudioSecondary, 0.5);
 			
 			// Stop animations and background autoscrolling
 			Renderer.UpdateAnimations = false;

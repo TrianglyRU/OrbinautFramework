@@ -53,7 +53,7 @@ function SpecialScreenProcess()
 					RenderAlpha += 0.1;
 				}
 				
-				if !audio_bgm_is_playing(TypePrimary)
+				if !audio_bgm_is_playing(AudioPrimary)
 				{		
 					if global.SpecialScore
 					{
@@ -68,7 +68,7 @@ function SpecialScreenProcess()
 						if global.Score mod 50000 == 0
 						{
 							global.Lives++;
-							audio_bgm_play(TypeSecondary, ExtraLife);
+							audio_bgm_play(AudioSecondary, ExtraLife);
 						}
 					}
 					else if global.Emeralds != 7

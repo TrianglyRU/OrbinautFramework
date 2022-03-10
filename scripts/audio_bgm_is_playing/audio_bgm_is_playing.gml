@@ -1,12 +1,12 @@
-/// @function audio_bgm_is_playing(channelType|soundid)
+/// @function audio_bgm_is_playing(audioType|soundid)
 function audio_bgm_is_playing(check)
 {
 	switch check
 	{
-		case TypePrimary:
+		case AudioPrimary:
 			return Audio.PrimaryTrack[1];
 		break;
-		case TypeSecondary:
+		case AudioSecondary:
 			return Audio.SecondaryTrack[1];
 		break;
 	}

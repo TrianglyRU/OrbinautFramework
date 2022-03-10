@@ -48,9 +48,9 @@ function PlayerDebugMode()
 			depth		= layer_get_depth("Objects");
 			
 			// Reset music
-			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(TypePrimary)
+			if audio_bgm_is_playing(Drowning) or !audio_bgm_is_playing(AudioPrimary)
 			{
-				audio_bgm_play(TypePrimary, Stage.StageMusic);
+				audio_bgm_play(AudioPrimary, Stage.StageMusic);
 			}
 		}
 		else

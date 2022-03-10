@@ -1,14 +1,9 @@
 function ObjSwingingPlatformDraw()
 {
-	if !ProcessObject
-	{
-		return;
-	}
-	
-	// Draw origin sprite
+	// Draw pendulum
     draw_sprite(SpriteData[2], 0, OriginX, OriginY);
     
-	// Calculate chain sprites
+	// Draw chain
     for (var i = 1; i < ChainCount + 1; i++)
     {
         var X = floor(OriginX + DistanceX * i);

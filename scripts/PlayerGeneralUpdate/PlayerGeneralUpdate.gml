@@ -22,7 +22,7 @@ function PlayerGeneralUpdate()
 		{
 			if audio_bgm_is_playing(HighSpeed)
 			{
-				audio_bgm_play(TypePrimary, Stage.StageMusic);
+				audio_bgm_play(AudioPrimary, Stage.StageMusic);
 			}
 		}	
 	}
@@ -34,7 +34,7 @@ function PlayerGeneralUpdate()
 		{
 			if audio_bgm_is_playing(Invincibility)
 			{
-				audio_bgm_play(TypePrimary, Stage.StageMusic);
+				audio_bgm_play(AudioPrimary, Stage.StageMusic);
 			}
 		}
 	}
@@ -45,7 +45,7 @@ function PlayerGeneralUpdate()
 		Lives			+= 1;
 		LivesRewards[0] += 100;
 							
-		audio_bgm_play(TypeSecondary, ExtraLife);
+		audio_bgm_play(AudioSecondary, ExtraLife);
 	}
 	
 	// Grant extra life for exceeding 50000 points
@@ -54,6 +54,6 @@ function PlayerGeneralUpdate()
 		Lives		    += 1;
 		LivesRewards[1] += 50000;
 		
-		audio_bgm_play(TypeSecondary, ExtraLife);
+		audio_bgm_play(AudioSecondary, ExtraLife);
 	}
 }

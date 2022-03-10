@@ -16,7 +16,7 @@ function SpecialScreenStartup()
 		Offset[5]  =  330;
 		RenderFlag = -1;
 		
-		audio_bgm_play(TypePrimary, ActClear);
+		audio_bgm_play(AudioPrimary, ActClear);
 	}
 	
 	// Else redirect to Special Stage

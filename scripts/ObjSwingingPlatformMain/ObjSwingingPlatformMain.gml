@@ -1,21 +1,5 @@
 function ObjSwingingPlatformMain()
 {
-	// Use custom unload boundaries
-	if OriginX + Amplitude < Camera.ViewX or OriginX - Amplitude > Camera.ViewX + global.Width 
-	or OriginY + Amplitude < Camera.ViewY or OriginY - Amplitude > Camera.ViewY + global.Height
-	{
-		ProcessObject = false;
-	}
-	else
-	{
-		ProcessObject = true;
-	}
-	
-	if !ProcessObject
-	{
-		return;
-	}
-	
 	// Calculate distances
 	var Angle = abs(Speed * Stage.OscillateAngle) * (Stage.Time + 60);
 	DistanceX = dcos(dcos(Angle) * 90 + 90) * 16;

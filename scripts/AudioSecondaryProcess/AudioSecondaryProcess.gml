@@ -23,11 +23,11 @@ function AudioSecondaryProcess()
 	// Automatically mute and unmute primary track
 	if Track and Event != EventMute and Event != EventStop
 	{
-		audio_bgm_mute(TypePrimary, 0);
+		audio_bgm_mute(AudioPrimary, 0);
 	}
 	else if PrimaryTrack[0] == EventMute
 	{
-		audio_bgm_unmute(TypePrimary, 1);
+		audio_bgm_unmute(AudioPrimary, 1);
 	}
 	
 	// Stop track once it finished playing
@@ -37,7 +37,7 @@ function AudioSecondaryProcess()
 		{
 			audio_stop_sound(SndChannel);
 		}
-		audio_bgm_stop(TypeSecondary, 0);
+		audio_bgm_stop(AudioSecondary, 0);
 	}
 	
 	switch Event

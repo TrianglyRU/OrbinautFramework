@@ -98,8 +98,8 @@ function ObjSpecialRingMain()
 				State++;
 				
 				// Stop music instantly
-				audio_bgm_stop(TypePrimary,  0);
-				audio_bgm_stop(TypeSecondary, 0);
+				audio_bgm_stop(AudioPrimary,  0);
+				audio_bgm_stop(AudioSecondary, 0);
 			}
 		}
 		break;

@@ -51,5 +51,5 @@ function ContinueScreenStartup()
 	}
 	
 	fade_perform(ModeFrom, BlendBlack, 1);
-	audio_bgm_play(TypePrimary, Continue);
+	audio_bgm_play(AudioPrimary, Continue);
 }

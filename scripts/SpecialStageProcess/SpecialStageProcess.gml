@@ -15,8 +15,8 @@ function SpecialStageProcess()
 					
 					fade_perform(ModeInto, BlendWhite, 1);
 			
-					audio_bgm_stop(TypePrimary,   0.5);
-					audio_bgm_stop(TypeSecondary, 0.5);
+					audio_bgm_stop(AudioPrimary,   0.5);
+					audio_bgm_stop(AudioSecondary, 0.5);
 					
 					// Increment state
 					State++;
@@ -30,8 +30,8 @@ function SpecialStageProcess()
 					
 					fade_perform(ModeInto, BlendWhite, 1);
 			
-					audio_bgm_stop(TypePrimary,   0.5);
-					audio_bgm_stop(TypeSecondary, 0.5);
+					audio_bgm_stop(AudioPrimary,   0.5);
+					audio_bgm_stop(AudioSecondary, 0.5);
 					
 					// Increment state
 					State++;

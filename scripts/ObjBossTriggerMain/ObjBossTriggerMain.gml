@@ -13,7 +13,7 @@
 				Stage.TargetTopBoundary = Stage.BottomBoundary - ArenaHeight;
 			}
 			
-			audio_bgm_play(TypePrimary, BossTheme); 
+			audio_bgm_play(AudioPrimary, BossTheme); 
 
 			/* SPAWN YOUR BOSS HERE. Do not forget to set BossTrigger.BossDefeated to
 			'true' once you want your stage to exit boss state! */
@@ -49,11 +49,11 @@
 			// Restore music
 			if Player.SuperState
 			{
-				audio_bgm_play(TypePrimary, SuperTheme);
+				audio_bgm_play(AudioPrimary, SuperTheme);
 			}
 			else
 			{
-				audio_bgm_play(TypePrimary, Stage.StageMusic);
+				audio_bgm_play(AudioPrimary, Stage.StageMusic);
 			}
 			
 			instance_destroy();
