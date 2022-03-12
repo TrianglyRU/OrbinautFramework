@@ -4,5 +4,9 @@ function InterfacePauseDraw()
 	{
 		return;
 	}
-	draw_sprite(gui_pause_menu,	PauseTimer > 7 ? 0 : PauseValue + 1, application_centre(0), application_centre(1));
+	
+	var CentreX = global.Width  / 2 + global.ScreenBuffer;
+	var CentreY = global.Height / 2;
+	
+	draw_sprite(gui_pause_menu,	PauseTimer > 7 ? 0 : PauseValue + 1, CentreX, CentreY);
 }

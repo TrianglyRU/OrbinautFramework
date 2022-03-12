@@ -267,7 +267,6 @@
     {"id":{"name":"draw_animated_sprite_reset","path":"scripts/draw_animated_sprite_reset/draw_animated_sprite_reset.yy",},"order":73,},
     {"id":{"name":"draw_animated_sprite_ext","path":"scripts/draw_animated_sprite_ext/draw_animated_sprite_ext.yy",},"order":67,},
     {"id":{"name":"ObjSpawnPointStartup","path":"scripts/ObjSpawnPointStartup/ObjSpawnPointStartup.yy",},"order":84,},
-    {"id":{"name":"application_centre","path":"scripts/application_centre/application_centre.yy",},"order":79,},
     {"id":{"name":"DRPC","path":"extensions/DRPC/DRPC.yy",},"order":0,},
     {"id":{"name":"spr_obj_animal_cucky","path":"sprites/spr_obj_animal_cucky/spr_obj_animal_cucky.yy",},"order":0,},
     {"id":{"name":"ObjOrbinautStartup","path":"scripts/ObjOrbinautStartup/ObjOrbinautStartup.yy",},"order":25,},
