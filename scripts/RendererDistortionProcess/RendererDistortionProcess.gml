@@ -32,7 +32,19 @@ function RendererDistortionProcess()
 				{
 					var Bound = j ? room_height : 0;
 				}
-				fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), Bound);
+				
+				if i == 1 and j == 0
+				{
+					var Pos = Camera.ViewY - floor(Camera.ViewY * (1 - Background.BGValues[0][4])) + Height;
+					var Bound1  = Height - clamp(Pos - 32, 0, Height);
+					var Bound2  = Height - clamp(Pos, 0, Height);
+					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), Bound1);
+					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 1), Bound2);
+				}
+				else
+				{
+					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), Bound);
+				}
 				
 				// Set position
 				if i == 1 and array_length(Background.BGSprites)
