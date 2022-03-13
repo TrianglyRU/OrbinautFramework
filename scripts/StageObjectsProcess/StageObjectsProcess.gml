@@ -2,10 +2,12 @@ function StageObjectsProcess()
 {	
 	if UpdateObjects
 	{
-		/* Set active object bounds, accurate to the originals (if Width is set to 320px, obviously). 
+		/* Set active object bounds, accurate to the originals (if Width is set to 320px obviously, else adjusted). 
 		If you decide to change that, also update instance_activate_range() */
-		var LeftBound  = (Camera.ViewX & -128) - 128;
-		var RightBound = (Camera.ViewX & -128) + global.Width * 2;
+		var AdjustBound = global.Width - 320;
+		
+		var LeftBound   = (Camera.ViewX & -128) - 128 - AdjustBound;
+		var RightBound  = (Camera.ViewX & -128) + 640 + AdjustBound;
 	
 		with all 
 		{	

@@ -24,6 +24,8 @@ function instance_activate_range(anchorX)
 	}
 	
 	// Activate region
-	LeftBound = (anchorX & -128) - 128;
-	instance_activate_region(LeftBound, 0, 128 + global.Width * 2, room_height, true);
+	var Adjust     = global.Width - 320;
+	    LeftBound  = (anchorX & -128) - 128;
+		
+	instance_activate_region(LeftBound - Adjust, 0, Adjust * 2 + 128 + 640, room_height, true);
 }

@@ -14,7 +14,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 65,
+  "width": 64,
   "height": 62,
   "textureGroupId": {
     "name": "tgGameplay",
