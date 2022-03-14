@@ -1,5 +1,8 @@
 function RendererDistortionProcess()
-{		
+{
+	var Height = global.Height;
+	var Range  = DistortionBGRange;
+	
 	// Loop through FG and BG distortion effects
 	for (var i = 0; i < 2; i++)
 	{
@@ -8,42 +11,47 @@ function RendererDistortionProcess()
 			if !DistortionMode[i] and Stage.UpdateObjects
 			or  DistortionMode[i] and Renderer.UpdateAnimations
 			{
-				// Count time (basically, it is the speed of the distortion effect)
-				DistortionShift[i][0] += DistortionSpeed[i][0];
-				DistortionShift[i][1] += DistortionSpeed[i][1];
+				// Update distortion
+				DistortionShift[i][0] += DistortionSpeed[i];
+				DistortionShift[i][1] += DistortionSpeed[i];
 			}
 			
+			// Loop through surface and underwater distortion
 			for (var j = 0; j < 2; j++)
 			{
-				// Set split boundary
-				if DistortionEnabled[i][j]
+				// Set a boundary between surface and underwater distortion
+				if DistortionLoaded[i][j]
 				{
-					if j == 1 or !DistortionMode[i]
+					if j == 1 and !DistortionMode[i]
 					{
-						var Height = global.Height;
-						var Bound  = Height - clamp(Camera.ViewY - Stage.WaterLevel + Height, 0, Height);
+						var SplitBound = Height - clamp(Camera.ViewY - Stage.WaterLevel + Height, 0, Height);
 					}
 					else
 					{
-						var Bound = room_height;
+						var SplitBound = room_height;
 					}
 				}
 				else
 				{
-					var Bound = j ? room_height : 0;
+					var SplitBound = j ? room_height : 0;
 				}
 				
-				if i == 1 and j == 0
+				// Apply it
+				if !(i == 1 and j == 0 and Range[0] != noone)
 				{
-					var Pos = Camera.ViewY - floor(Camera.ViewY * (1 - Background.BGValues[0][4])) + Height;
-					var Bound1  = Height - clamp(Pos - 32, 0, Height);
-					var Bound2  = Height - clamp(Pos, 0, Height);
-					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), Bound1);
-					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 1), Bound2);
+					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), SplitBound);
 				}
+				
+				// Apply custom distortion boundaries for surface background
 				else
 				{
-					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), Bound);
+					var Position = Camera.ViewY - floor(Camera.ViewY * (1 - Background.BGValues[0][4])) + Height;
+					
+					var Bound1 = Height - clamp(Position - Range[0], 0, Height);
+					var Bound2 = Height - clamp(Position - Range[1], 0, Height);
+					
+					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 1), Bound1);
+					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), Bound2);
 				}
 				
 				// Set position

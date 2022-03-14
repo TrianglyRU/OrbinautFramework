@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spr_obj_platform_tsz",
+    "path": "sprites/spr_obj_platform_tsz/spr_obj_platform_tsz.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,11 +22,17 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
-    {"varType":1,"value":"4","rangeEnabled":true,"rangeMin":1.0,"rangeMax":12.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"ChainCount","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":6,"value":"\"Stationary\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "\"Stationary\"",
+        "\"Falls\"",
+        "\"Left -> Right\"",
+        "\"Right -> Left\"",
+        "\"Up -> Down\"",
+        "\"Down -> Up\"",
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"MovementType","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {
@@ -34,7 +40,7 @@
     "path": "folders/Room Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "SwingingPlatform",
+  "name": "PlatformTSZ",
   "tags": [],
   "resourceType": "GMObject",
 }

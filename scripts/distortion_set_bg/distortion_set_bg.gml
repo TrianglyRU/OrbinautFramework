@@ -1,5 +1,5 @@
-/// @function distortion_set_bg(data1,data2,speed)
-function distortion_set_bg(data1,data2,speed)
+/// @function distortion_set_bg(data1,data2,speed,data1range)
+function distortion_set_bg(data1,data2,speed,data1range)
 {
 	try
 	{
@@ -13,6 +13,7 @@ function distortion_set_bg(data1,data2,speed)
 			DistortionMode[1] = 1;
 		}
 		DistortionEffect[1] = fx_create("_filter_waves");
+		DistortionSpeed[1]  = speed;
 		
 		// Load effects
 		var Data = [data1, data2];
@@ -29,9 +30,12 @@ function distortion_set_bg(data1,data2,speed)
 				fx_set_parameter(DistortionEffect[1], "g_WaveData"   + string(i + 1), Data[i]);
 				fx_set_parameter(DistortionEffect[1], "g_DataParams" + string(i + 1), UVs[0] + TexelX / 2, UVs[1] + TexelY / 2, TexelY);
 				
-				DistortionEnabled[1][i] = true;
-				DistortionSpeed[1][i]   = speed;				
+				DistortionLoaded[1][i] = true;			
 			}
+		}
+		if data1range != noone
+		{
+			DistortionBGRange = data1range;
 		}
 		
 		fx_set_parameter(DistortionEffect[1], "g_Bound1", 0);
@@ -55,6 +59,6 @@ function distortion_set_bg(data1,data2,speed)
 							+ "=============================================");
 		DistortionMode[1]    = noone;
 		DistortionEffect[1]  = noone;
-		DistortionEnabled[1] = [false, false];
+		DistortionLoaded[1] = [false, false];
 	}
 }

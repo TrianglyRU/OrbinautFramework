@@ -11,7 +11,7 @@ function StageStartup()
 	Time		   =  0;
 	TimeEnabled	   =  0;
 	IsBossfight    = -1;
-	OscillateAngle =  1.40625;
+	OscillateAngle = -2.8125;
 	UpdateObjects  =  false;
 	
 	// Remember current room index

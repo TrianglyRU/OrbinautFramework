@@ -1,8 +1,9 @@
 function RendererDistortionStartup()
 {
-	DistortionEffect  = [noone, noone];
-	DistortionMode	  = [noone, noone];
-	DistortionEnabled = [[false, false], [false, false]];
+	DistortionEffect  =  [noone, noone];
+	DistortionMode	  =  [noone, noone];
+	DistortionBGRange =  [noone, noone];
+	DistortionSpeed   =  [0, 0];
 	DistortionShift   = [[0, 0], [0, 0]];
-	DistortionSpeed   = [[0.5, 0.5], [0.5, 0.5]];
+	DistortionLoaded  = [[false, false], [false, false]];
 }

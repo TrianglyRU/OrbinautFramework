@@ -1,4 +1,4 @@
-/// @description Startup
+/// @description Draw
 // You can write your code in this editor
 	
-	ObjSwingStartup();
+	ObjLedgeDraw();
