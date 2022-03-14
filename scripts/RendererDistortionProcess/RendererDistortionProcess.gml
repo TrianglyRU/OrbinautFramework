@@ -8,8 +8,8 @@ function RendererDistortionProcess()
 	{
 		if DistortionEffect[i] != noone
 		{
-			if !DistortionMode[i] and Stage.UpdateObjects
-			or  DistortionMode[i] and Renderer.UpdateAnimations
+			if DistortionMode[i] == "Stage"  and Stage.UpdateObjects
+			or DistortionMode[i] == "Screen" and Renderer.UpdateAnimations
 			{
 				// Update distortion
 				DistortionShift[i][0] += DistortionSpeed[i];
@@ -22,7 +22,7 @@ function RendererDistortionProcess()
 				// Set a boundary between surface and underwater distortion
 				if DistortionLoaded[i][j]
 				{
-					if j == 1 and !DistortionMode[i]
+					if j == 1 and DistortionMode[i] == "Stage"
 					{
 						var SplitBound = Height - clamp(Camera.ViewY - Stage.WaterLevel + Height, 0, Height);
 					}

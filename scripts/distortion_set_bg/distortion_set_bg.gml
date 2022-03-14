@@ -1,4 +1,4 @@
-/// @function distortion_set_bg(data1,data2,speed,data1range)
+/// @function distortion_set_bg(data1,data2,speed,[data1range])
 function distortion_set_bg(data1,data2,speed,data1range)
 {
 	try
@@ -6,21 +6,20 @@ function distortion_set_bg(data1,data2,speed,data1range)
 		// Set mode
 		if instance_exists(Stage)
 		{
-			DistortionMode[1] = 0;
+			DistortionMode[1] = "Stage";
 		}
 		else
 		{
-			DistortionMode[1] = 1;
+			DistortionMode[1] = "Screen";
 		}
 		DistortionEffect[1] = fx_create("_filter_waves");
-		DistortionSpeed[1]  = speed;
 		
 		// Load effects
 		var Data = [data1, data2];
 		
 		for (var i = 0; i < 2; i++)
 		{
-			if Data[i] != noone and (i == 0 or !DistortionMode[1])
+			if Data[i] != noone and (i == 0 or DistortionMode[1] == "Stage")
 			{	
 				var UVs		= sprite_get_uvs(Data[i], 0);
 				var Texture = sprite_get_texture(Data[i], 0);
@@ -37,6 +36,7 @@ function distortion_set_bg(data1,data2,speed,data1range)
 		{
 			DistortionBGRange = data1range;
 		}
+		DistortionSpeed[1] = speed;
 		
 		fx_set_parameter(DistortionEffect[1], "g_Bound1", 0);
 		fx_set_parameter(DistortionEffect[1], "g_Bound4", room_height);
@@ -57,8 +57,6 @@ function distortion_set_bg(data1,data2,speed,data1range)
 							+ "If you don't have the effect, please, install it from the Release Package you downloaded. \n"
 							+ "You may also get this message because you set up the distortion incorrectly. \n"
 							+ "=============================================");
-		DistortionMode[1]    = noone;
-		DistortionEffect[1]  = noone;
-		DistortionLoaded[1] = [false, false];
+		DistortionEffect[1] = noone;
 	}
 }

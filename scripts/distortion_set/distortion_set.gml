@@ -1,26 +1,25 @@
-/// @function distortion_set(data1,data2,speed,layerArray)
-function distortion_set(data1,data2,speed,layerArray)
+/// @function distortion_set(data1,data2,speed,[layers])
+function distortion_set(data1,data2,speed,layers)
 {	
 	try
 	{
 		// Set mode
 		if instance_exists(Stage)
 		{
-			DistortionMode[0] = 0;
+			DistortionMode[0] = "Stage";
 		}
 		else
 		{
-			DistortionMode[0] = 1;
+			DistortionMode[0] = "Screen";
 		}
 		DistortionEffect[0] = fx_create("_filter_waves");
-		DistortionSpeed[0]  = speed;
 		
 		// Load effects
 		var Data = [data1, data2];
 		
 		for (var i = 0; i < 2; i++)
 		{
-			if Data[i] != noone and (i == 0 or !DistortionMode[0])
+			if Data[i] != noone and (i == 0 or DistortionMode[0] == "Stage")
 			{	
 				var UVs		= sprite_get_uvs(Data[i], 0);
 				var Texture = sprite_get_texture(Data[i], 0);
@@ -33,7 +32,8 @@ function distortion_set(data1,data2,speed,layerArray)
 				DistortionLoaded[0][i] = true;
 			}
 		}
-
+		DistortionSpeed[0] = speed;
+		
 		fx_set_parameter(DistortionEffect[0], "g_Bound1", 0);
 		fx_set_parameter(DistortionEffect[0], "g_Bound4", room_height);
 		fx_set_parameter(DistortionEffect[0], "g_ScreenWid",  global.Width + global.ScreenBuffer * 2);
@@ -41,10 +41,10 @@ function distortion_set(data1,data2,speed,layerArray)
 		fx_set_single_layer(DistortionEffect[0], true);
 		
 		// Apply the effect to our layers
-		var Len = array_length(layerArray);
-		for (var i = 0; i < Len; i++)
+		var Length = array_length(layers);
+		for (var i = 0; i < Length; i++)
 		{
-			layer_set_fx(layerArray[i],	DistortionEffect[0]);
+			layer_set_fx(layers[i],	DistortionEffect[0]);
 		}
 	}
 	catch (Exception)
@@ -57,8 +57,6 @@ function distortion_set(data1,data2,speed,layerArray)
 							+ "If you don't have the effect, please, install it from the Release Package you downloaded. \n"
 							+ "You may also get this message because you set up the distortion incorrectly. \n"
 							+ "=============================================");
-		DistortionMode[0]    = noone;
-		DistortionEffect[0]  = noone;
-		DistortionLoaded[0] = [false, false];
+		DistortionEffect[0] = noone;
 	}
 }
