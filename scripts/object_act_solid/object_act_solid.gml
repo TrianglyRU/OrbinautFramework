@@ -6,7 +6,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 	
 	// Clear flags
 	Obj_SolidPush   = false;
-	Obj_SolidTouchU	= false;
 	Obj_SolidTouchD	= false;
 	Obj_SolidTouchL	= false;
 	Obj_SolidTouchR	= false;
@@ -87,11 +86,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 				OnObject = false;
 			}
 		}
-		else
-		{
-			// Tell the object it is being touched
-			Obj_SolidTouchU = true;
-		}
 	}
 	else
 	{		
@@ -169,9 +163,6 @@ function object_act_solid(sides,top,bottom,resetActions)
 								Grounded = true; PlayerResetOnFloor();
 							}
 						}
-						
-						// Tell the object it is being touched
-						Obj_SolidTouchU = true;
 					}
 				}
 			}		

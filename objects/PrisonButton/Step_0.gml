@@ -12,7 +12,8 @@
 			image_index  = 0;
 			
 			// Increment state
-			State++;
+			State	    += 1;
+			Player.PosY += 8;
 		}
 	}
 	

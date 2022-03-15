@@ -47,12 +47,12 @@ function object_act_enemy(enemyType)
 				instance_create(x, y, DustExplosion);
 			
 				// Destroy children
-				var Length = array_length(Obj_ChildrenIDs);
+				var Length = array_length(Obj_SubObjectIDs);
 				if  Length
 				{
 					for (var i = 0; i < Length; i++)
 					{
-						with Obj_ChildrenIDs[i] 
+						with Obj_SubObjectIDs[i] 
 						{
 							instance_destroy();
 						}

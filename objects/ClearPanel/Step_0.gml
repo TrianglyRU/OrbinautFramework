@@ -12,7 +12,7 @@
 		// Idle
 		case 0:
 		{
-			if floor(Player.PosX) > x
+			if object_check_touch(ColTrigger)
 			{
 				if Player.SuperState
 				{

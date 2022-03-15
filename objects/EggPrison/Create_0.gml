@@ -12,8 +12,4 @@
 	object_set_solidbox(32, 25, false);
 	
 	// Create button object
-	ButtonObj = instance_create_child(x, y - 38, PrisonButton);
-	with ButtonObj
-	{
-		object_set_depth(EggPrison, 0);
-	}
+	ButtonObj = instance_create(x, y - 38, PrisonButton);

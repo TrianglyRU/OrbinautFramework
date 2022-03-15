@@ -533,7 +533,7 @@
     {"id":{"name":"spr_obj_bubble_number3","path":"sprites/spr_obj_bubble_number3/spr_obj_bubble_number3.yy",},"order":35,},
     {"id":{"name":"spr_obj_dustexplosion","path":"sprites/spr_obj_dustexplosion/spr_obj_dustexplosion.yy",},"order":44,},
     {"id":{"name":"tile_find_2h","path":"scripts/tile_find_2h/tile_find_2h.yy",},"order":72,},
-    {"id":{"name":"instance_create_child","path":"scripts/instance_create_child/instance_create_child.yy",},"order":44,},
+    {"id":{"name":"instance_create_subobj","path":"scripts/instance_create_subobj/instance_create_subobj.yy",},"order":44,},
     {"id":{"name":"StageLayersSetup","path":"scripts/StageLayersSetup/StageLayersSetup.yy",},"order":11,},
     {"id":{"name":"spr_obj_dustpuff","path":"sprites/spr_obj_dustpuff/spr_obj_dustpuff.yy",},"order":41,},
     {"id":{"name":"spr_obj_fireexplosion","path":"sprites/spr_obj_fireexplosion/spr_obj_fireexplosion.yy",},"order":45,},

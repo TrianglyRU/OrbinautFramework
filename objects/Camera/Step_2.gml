@@ -124,7 +124,7 @@
 			var ShiftDown = Player.Animation == AnimCrouch;
 			var ShiftUp   = Player.Animation == AnimLookup;
 	
-			if (ShiftUp or ShiftDown)
+			if (ShiftUp or ShiftDown) and !Player.DebugMode
 			{
 				if OverviewDelay
 				{

@@ -258,14 +258,14 @@
 					{
 						if x < LeftBound or x > RightBound or y > Stage.BottomBoundary or y < Stage.TopBoundary
 						{
-							var Length = array_length(Obj_ChildrenIDs);
+							var Length = array_length(Obj_SubObjectIDs);
 							if  Length
 							{
 								for (var i = 0; i < Length; i++)
 								{				
-									instance_destroy(Obj_ChildrenIDs[i]);
+									instance_destroy(Obj_SubObjectIDs[i]);
 								}
-								Obj_ChildrenIDs = [];
+								Obj_SubObjectIDs = [];
 							}
 							instance_destroy();
 						}
@@ -279,12 +279,12 @@
 						{
 							if Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound
 							{
-								var Length = array_length(Obj_ChildrenIDs);
+								var Length = array_length(Obj_SubObjectIDs);
 								if  Length
 								{
 									for (var i = 0; i < Length; i++)
 									{				
-										instance_deactivate_object(Obj_ChildrenIDs[i]);
+										instance_deactivate_object(Obj_SubObjectIDs[i]);
 									}
 								}
 								instance_deactivate_object(id);
@@ -300,14 +300,14 @@
 						{
 							if Obj_UnloadData[0] < LeftBound or Obj_UnloadData[0] > RightBound
 							{
-								var Length = array_length(Obj_ChildrenIDs);
+								var Length = array_length(Obj_SubObjectIDs);
 								if  Length
 								{
 									for (var i = 0; i < Length; i++)
 									{
-										instance_destroy(Obj_ChildrenIDs[i]);
+										instance_destroy(Obj_SubObjectIDs[i]);
 									}
-									Obj_ChildrenIDs = [];
+									Obj_SubObjectIDs = [];
 								}
 		
 								// Reset data
@@ -327,12 +327,12 @@
 								event_perform(ev_create, 0);
 							
 								// Deactivate object and its children
-								var Length = array_length(Obj_ChildrenIDs);
+								var Length = array_length(Obj_SubObjectIDs);
 								if  Length
 								{
 									for (var i = 0; i < Length; i++)
 									{
-										instance_deactivate_object(Obj_ChildrenIDs[i]);
+										instance_deactivate_object(Obj_SubObjectIDs[i]);
 									}
 								}
 								instance_deactivate_object(id);

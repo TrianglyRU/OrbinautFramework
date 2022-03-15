@@ -35,8 +35,8 @@ function instance_initialise()
 		Obj_UnloadType = false;
 		Obj_UnloadData = [];
 	}
-	if !variable_instance_exists(id, "Obj_ChildrenIDs")
+	if !variable_instance_exists(id, "Obj_SubObjectIDs")
 	{
-		Obj_ChildrenIDs = [];
+		Obj_SubObjectIDs = [];
 	}
 }

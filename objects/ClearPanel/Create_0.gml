@@ -38,3 +38,4 @@
 	// Set object properties
 	object_set_unload(FlagPause);
 	object_set_depth(Player, 0);
+	object_set_triggerbox(0, 32, -y, room_height - y);

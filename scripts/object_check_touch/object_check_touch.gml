@@ -70,17 +70,17 @@ function object_check_touch(collisionType)
 				case ColSolidP:
 					return Obj_SolidPush;
 				break;
-				case ColSolidU:
-					return Obj_SolidTouchU;
-				break;
-				case ColSolidD:
-					return Obj_SolidTouchD;
-				break;
 				case ColSolidL:
 					return Obj_SolidTouchL;
 				break;
 				case ColSolidR:
 					return Obj_SolidTouchR;
+				break;
+				case ColSolidD:
+					return Obj_SolidTouchD;
+				break;
+				case ColSolidU:
+					return Player.OnObject == id;
 				break;
 			}
 		}
