@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Background",
-    "path": "folders/Game Logic/_ScriptsOld/Background.yy",
+    "path": "folders/_Old/Game Logic Scripts/Background.yy",
   },
   "resourceVersion": "1.0",
   "name": "BackgroundSetup",

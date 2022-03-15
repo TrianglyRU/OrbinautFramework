@@ -1,4 +1,4 @@
-function ObjSpawnPointSetup()
+function ObjSpawnPointStartup()
 {
 	instance_destroy();
 	

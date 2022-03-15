@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Startup Screen",
-    "path": "folders/Rooms (Screens & Menus)/Startup Screen.yy",
+    "path": "folders/Screens/Startup Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "StartupScreen",

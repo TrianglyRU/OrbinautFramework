@@ -1,4 +1,4 @@
-function ObjExplosionScript()
+function ObjExplosionMain()
 {
 	// Destroy on animation end
 	if image_index == 5

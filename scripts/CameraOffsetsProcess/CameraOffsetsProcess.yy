@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Camera",
-    "path": "folders/Game Logic/_ScriptsOld/Camera.yy",
+    "path": "folders/_Old/Game Logic Scripts/Camera.yy",
   },
   "resourceVersion": "1.0",
   "name": "CameraOffsetsProcess",

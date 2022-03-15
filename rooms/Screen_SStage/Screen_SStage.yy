@@ -49,7 +49,7 @@
   },
   "parent": {
     "name": "Special Screen",
-    "path": "folders/Rooms (Screens & Menus)/Special Screen.yy",
+    "path": "folders/Screens/Special Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_SStage",

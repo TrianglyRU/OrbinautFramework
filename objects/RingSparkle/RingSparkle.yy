@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Call-Only",
-    "path": "folders/Objects/Call-Only.yy",
+    "path": "folders/Stage Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "RingSparkle",

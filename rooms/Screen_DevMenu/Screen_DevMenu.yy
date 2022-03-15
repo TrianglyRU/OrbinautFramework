@@ -49,7 +49,7 @@
   },
   "parent": {
     "name": "Developer Menu",
-    "path": "folders/Rooms (Screens & Menus)/Developer Menu.yy",
+    "path": "folders/Screens/Developer Menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "Screen_DevMenu",

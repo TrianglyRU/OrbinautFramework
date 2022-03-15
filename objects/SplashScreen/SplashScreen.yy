@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Splash Screen",
-    "path": "folders/Rooms (Screens & Menus)/Splash Screen.yy",
+    "path": "folders/Screens/Splash Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "SplashScreen",

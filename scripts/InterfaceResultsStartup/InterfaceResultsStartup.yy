@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Interface",
-    "path": "folders/Game Logic/_ScriptsOld/Interface.yy",
+    "path": "folders/_Old/Game Logic Scripts/Interface.yy",
   },
   "resourceVersion": "1.0",
   "name": "InterfaceResultsStartup",

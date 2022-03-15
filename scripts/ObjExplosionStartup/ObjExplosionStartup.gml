@@ -1,4 +1,4 @@
-function ObjExplosionSetup()
+function ObjExplosionStartup()
 {
 	// Set object properties
 	object_set_depth(Player, 1);

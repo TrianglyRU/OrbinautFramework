@@ -51,7 +51,7 @@ function distortion_set_bg(data1,data2,speed,data1range)
 	{
 		show_debug_message("\n"
 							+ "============================================= \n"
-							+ "distortion_set_bg() function didn't proceed,  \n"
+							+ Exception.script + " function didn't proceed,  \n"
 							+ "an error has occured! \n"
 							+ "\n"
 							+ "If you don't have the effect, please, install it from the Release Package you downloaded. \n"

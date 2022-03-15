@@ -33,8 +33,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Stage Objects",
+    "path": "folders/Stage Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "BackgroundTrigger",

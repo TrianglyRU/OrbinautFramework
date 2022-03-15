@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "_ScriptsOld",
-    "path": "folders/Objects/_ScriptsOld.yy",
+    "name": "Object Scripts",
+    "path": "folders/_Old/Object Scripts.yy",
   },
   "resourceVersion": "1.0",
   "name": "ObjSpawnPointStartup",

@@ -51,7 +51,7 @@ function distortion_set(data1,data2,speed,layers)
 	{
 		show_debug_message("\n"
 							+ "============================================= \n"
-							+ "distortion_set() function didn't proceed, \n"
+							+ Exception.script + " function didn't proceed,  \n"
 							+ "an error has occured! \n"
 							+ "\n"
 							+ "If you don't have the effect, please, install it from the Release Package you downloaded. \n"

@@ -56,6 +56,7 @@
 		TopBoundary	   =  0;
 		RestartTimer   =  0;
 		RestartEvent   =  0;
+		WaterOffset	   =  0;
 		IsFinished	   =  0;
 		IsPaused	   =  0;
 		Time		   =  0;

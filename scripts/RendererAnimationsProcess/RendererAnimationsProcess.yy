@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Renderer",
-    "path": "folders/Game Logic/_ScriptsOld/Renderer.yy",
+    "path": "folders/_Old/Game Logic Scripts/Renderer.yy",
   },
   "resourceVersion": "1.0",
   "name": "RendererAnimationsProcess",

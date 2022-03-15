@@ -66,5 +66,4 @@
 			PlayerSlopeRepel();
 			PlayerHitboxUpdate();
 		}
-	}
-	
+	}	

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms (Screens & Menus)/Continue Screen/Textures.yy",
+    "path": "folders/Screens/Continue Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_continue_stars",

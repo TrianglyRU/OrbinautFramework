@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Game",
-    "path": "folders/Game Logic/_ScriptsOld/Game.yy",
+    "path": "folders/_Old/Game Logic Scripts/Game.yy",
   },
   "resourceVersion": "1.0",
   "name": "GameFontsSetup",

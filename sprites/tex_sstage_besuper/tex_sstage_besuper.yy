@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms (Screens & Menus)/Special Screen/Textures.yy",
+    "path": "folders/Screens/Special Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sstage_besuper",

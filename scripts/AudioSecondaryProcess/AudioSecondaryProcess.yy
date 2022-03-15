@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Audio",
-    "path": "folders/Game Logic/_ScriptsOld/Audio.yy",
+    "path": "folders/_Old/Game Logic Scripts/Audio.yy",
   },
   "resourceVersion": "1.0",
   "name": "AudioSecondaryProcess",

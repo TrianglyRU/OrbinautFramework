@@ -86,7 +86,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Objects/Sprites.yy",
+    "path": "folders/Stage Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_ringsparkle",

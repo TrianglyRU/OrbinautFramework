@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Input",
-    "path": "folders/Game Logic/_ScriptsOld/Input.yy",
+    "path": "folders/_Old/Game Logic Scripts/Input.yy",
   },
   "resourceVersion": "1.0",
   "name": "InputGamepadProcess",

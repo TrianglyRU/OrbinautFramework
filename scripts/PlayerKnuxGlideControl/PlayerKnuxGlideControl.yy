@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Player",
-    "path": "folders/Game Logic/Player.yy",
+    "name": "Player Code",
+    "path": "folders/Game Logic/Player Code.yy",
   },
   "resourceVersion": "1.0",
   "name": "PlayerKnuxGlideControl",

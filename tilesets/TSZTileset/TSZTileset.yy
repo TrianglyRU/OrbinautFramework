@@ -299,7 +299,7 @@
   },
   "parent": {
     "name": "> Test Stage",
-    "path": "folders/Rooms (Stages)/> Test Stage.yy",
+    "path": "folders/Stages/> Test Stage.yy",
   },
   "resourceVersion": "1.0",
   "name": "TSZTileset",
