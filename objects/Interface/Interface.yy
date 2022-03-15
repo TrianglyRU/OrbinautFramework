@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Interface",
-    "path": "folders/Game Logic/Interface.yy",
+    "name": "Game Logic",
+    "path": "folders/Game Logic.yy",
   },
   "resourceVersion": "1.0",
   "name": "Interface",

@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage Gameplay",
-    "path": "folders/Game Logic/Stage Gameplay.yy",
+    "name": "Game Logic",
+    "path": "folders/Game Logic.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage",

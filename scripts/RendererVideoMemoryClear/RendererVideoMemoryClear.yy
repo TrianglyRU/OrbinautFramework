@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Renderer",
-    "path": "folders/Game Logic/Renderer.yy",
+    "path": "folders/Game Logic/_ScriptsOld/Renderer.yy",
   },
   "resourceVersion": "1.0",
   "name": "RendererVideoMemoryClear",

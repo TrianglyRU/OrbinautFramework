@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Discord",
-    "path": "folders/Game Logic/Discord.yy",
+    "name": "Game Logic",
+    "path": "folders/Game Logic.yy",
   },
   "resourceVersion": "1.0",
   "name": "Discord",

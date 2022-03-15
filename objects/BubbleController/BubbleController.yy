@@ -4,7 +4,7 @@
     "path": "sprites/spr_tempobject/spr_tempobject.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Call-Only",
-    "path": "folders/Room Objects/Call-Only.yy",
+    "path": "folders/Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "BubbleController",

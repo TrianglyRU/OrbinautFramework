@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Camera",
-    "path": "folders/Game Logic/Camera.yy",
+    "name": "Game Logic",
+    "path": "folders/Game Logic.yy",
   },
   "resourceVersion": "1.0",
   "name": "Camera",

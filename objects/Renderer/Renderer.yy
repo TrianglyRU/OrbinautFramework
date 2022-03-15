@@ -32,8 +32,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Renderer",
-    "path": "folders/Game Logic/Renderer.yy",
+    "name": "Game Logic",
+    "path": "folders/Game Logic.yy",
   },
   "resourceVersion": "1.0",
   "name": "Renderer",

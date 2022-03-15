@@ -1,4 +1,7 @@
 /// @description Draw
 // You can write your code in this editor
 	
-	ObjAirBubblerDraw();
+	if Stage.WaterEnabled and y >= Stage.WaterLevel
+	{
+		draw_self();
+	}

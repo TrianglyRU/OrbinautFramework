@@ -4,7 +4,7 @@
     "path": "sprites/spr_trigger3/spr_trigger3.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -30,16 +30,6 @@
         "\"None\"",
         "LayerA",
         "LayerB",
-      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"LeftDirection","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
-        "\"None\"",
-        "LayerA",
-        "LayerB",
-      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"RightDirection","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
-        "\"None\"",
-        "LayerA",
-        "LayerB",
       ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"DownDirection","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":6,"value":"\"None\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "\"None\"",
@@ -49,8 +39,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Room Objects",
-    "path": "folders/Room Objects.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "CollisionTriggerH",

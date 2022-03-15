@@ -1,4 +1,4 @@
-/// @description Draw 2
+/// @description Reset Main Shader
 // You can write your code in this editor
 	
 	/* Reset ShaderMain. All later events across

@@ -1,5 +1,6 @@
 function GameMacro()
 {	
+	/*
 	// Global framework macro
 	#macro GlobalTime -1
 	#macro Shader	   global
@@ -101,5 +102,5 @@ function GameMacro()
 	#macro ColSolidR  6
 	#macro ColSolidP  7
 	#macro LayerA	  0
-	#macro LayerB	  1
+	#macro LayerB	  1*/
 }

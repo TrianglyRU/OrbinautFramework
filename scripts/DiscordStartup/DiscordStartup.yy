@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Discord",
-    "path": "folders/Game Logic/Discord.yy",
+    "path": "folders/Game Logic/_ScriptsOld/Discord.yy",
   },
   "resourceVersion": "1.0",
   "name": "DiscordStartup",

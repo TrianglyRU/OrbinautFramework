@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Palette",
-    "path": "folders/Game Logic/Palette.yy",
+    "path": "folders/Game Logic/_ScriptsOld/Palette.yy",
   },
   "resourceVersion": "1.0",
   "name": "PaletteFadeProcess",

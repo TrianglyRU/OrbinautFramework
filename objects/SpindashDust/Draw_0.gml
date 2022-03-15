@@ -1,4 +1,8 @@
 /// @description Draw
 // You can write your code in this editor
 	
-	ObjSpindashDustDraw();
+	if !Player.Grounded
+	{
+		return;
+	}
+	draw_self();

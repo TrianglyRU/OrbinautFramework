@@ -1,4 +1,7 @@
 /// @description Main
 // You can write your code in this editor
 	
-	ObjBoundaryTriggerMain();
+	if object_check_touch(ColTrigger)
+	{
+		Stage.TargetBottomBoundary = y;
+	}

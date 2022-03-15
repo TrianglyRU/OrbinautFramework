@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spr_obj_swing_editor",
+    "path": "sprites/spr_obj_swing_editor/spr_obj_swing_editor.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,8 +30,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Room Objects",
-    "path": "folders/Room Objects.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "SwingingPlatform",

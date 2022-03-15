@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Call-Only",
-    "path": "folders/Room Objects/Call-Only.yy",
+    "path": "folders/Objects/Call-Only.yy",
   },
   "resourceVersion": "1.0",
   "name": "StarPostPortal",

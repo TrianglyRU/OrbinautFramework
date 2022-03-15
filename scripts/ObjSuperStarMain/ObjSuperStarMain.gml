@@ -18,5 +18,5 @@ function ObjSuperStarMain()
 			}
 		}
 		instance_destroy();
-	}	
+	}
 }

@@ -78,7 +78,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Room Objects/Sprites.yy",
+    "path": "folders/Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_obj_crabmeat_move",
