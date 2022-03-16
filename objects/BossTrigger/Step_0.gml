@@ -35,7 +35,8 @@
 			// Check for a key to be pressed if it is example bossfight
 			if Template and keyboard_check_pressed(ord("K"))
 			{
-				BossDefeated = true;
+				Player.Score += 1000;
+				BossDefeated  = true;
 			}
 		}
 		else
@@ -43,12 +44,7 @@
 			/* Set right boundary. Normally, you have to place Egg Prison or Clear Panel
 			after the arena, so the game will automatically set new boundaries once again */
 			Stage.TargetRightBoundary = room_width;
-			
-			if Template
-			{
-				Player.Score += 1000;
-			}
-			Stage.IsBossfight = false;
+			Stage.IsBossfight         = false;
 			
 			// Restore music
 			if Player.SuperState

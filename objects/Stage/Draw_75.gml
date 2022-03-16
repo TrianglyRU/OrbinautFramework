@@ -5,7 +5,7 @@
 	will be active for that frame, but will be deactivated on the next one
 	
 	This allows us to do some initialisation stuff in 
-	GameInstsancesStartup() script from the Framework Controller
+	Room Start event of the Framework Controller
 	*/
 	
 	if !UpdateObjects

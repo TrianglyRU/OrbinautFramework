@@ -101,9 +101,9 @@
 			window_set_fullscreen(!window_get_fullscreen());
 		}
 	
+		// Debug keys (ESC -> F3, F5 -> F10)
 		if global.DevMode
 		{
-			// Debug keys (ESC -> F3)
 			if keyboard_check_pressed(vk_escape)
 			{
 				room_goto(Screen_DevMenu);
@@ -127,35 +127,30 @@
 					game_set_speed(60, gamespeed_fps);
 				}
 			}
-	
-			// Debug overlay (Key 1 -> Key)
+			
 			if instance_exists(Interface)
 			{
-				if keyboard_check_pressed(ord("1"))
-				{
-					Interface.DebugSensors = !Interface.DebugSensors;
-				}
-				else if keyboard_check_pressed(ord("2"))
+				if keyboard_check_pressed(vk_f5) 
 				{
 					Interface.DebugPositions = !Interface.DebugPositions;
 				}
-				else if keyboard_check_pressed(ord("3"))
+				else if keyboard_check_pressed(vk_f6)
 				{
 					Interface.DebugSolids = !Interface.DebugSolids;
 				}
-				else if keyboard_check_pressed(ord("4"))
+				else if keyboard_check_pressed(vk_f7)
 				{
 					Interface.DebugHitboxes = !Interface.DebugHitboxes;
 				}
-				else if keyboard_check_pressed(ord("5"))
+				else if keyboard_check_pressed(vk_f8)
 				{
 					Interface.DebugTriggers = !Interface.DebugTriggers;
 				}
-				else if keyboard_check_pressed(ord("9"))
+				else if keyboard_check_pressed(vk_f9)
 				{
 					Interface.DebugFPS = !Interface.DebugFPS;
 				}
-				else if keyboard_check_pressed(ord("0"))
+				else if keyboard_check_pressed(vk_f10)
 				{
 					Interface.DebugVariables = !Interface.DebugVariables;
 				}

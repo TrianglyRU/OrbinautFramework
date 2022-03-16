@@ -41,13 +41,17 @@
 					instance_create(PosX, PosY, DustExplosion);
 					audio_sfx_play(sfxDestroy, false);
 				
-					// Temporary do not unload the object
-					object_set_unload(false);	
+					// Update object
+					object_set_unload(false);
+					object_set_hitbox(0, 0);
 
 					// Increment state
 					Timer  = 0;
 					State += 1;
 				}
+				
+				// Clear solidbox
+				object_set_solidbox(0, 0, false);
 			}
 			
 			// Else act as solid
@@ -63,8 +67,8 @@
 					}
 				}
 				
-				// Do collision
-				object_act_solid(true, true, false, false);
+				// Set solidbox
+				object_set_solidbox(15, 15, false);
 			}
 		
 			// Check if itembox is falling
@@ -265,3 +269,6 @@
 		}
 		break;
 	}
+	
+	// Do collision
+	object_act_solid(true, true, false, false);

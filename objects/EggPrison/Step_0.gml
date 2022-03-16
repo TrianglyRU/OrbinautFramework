@@ -8,27 +8,20 @@
 			// Check if the button has been pressed
 			if ButtonObj.State > 0
 			{
+				// Make player exit their super form
 				if Player.SuperState
 				{
-					// Make player exit their super form
 					Player.SuperState = false;
-					
 					audio_bgm_play(AudioPrimary, Stage.StageMusic);					
 				}
+				
 				Stage.TimeEnabled = false;
 				Input.IgnoreInput = true;
-				
-				// Increment stage state
-				Stage.IsFinished = 1;
-				
+				Stage.IsFinished  = 1;
+
 				// Increment state
-				State	  += 1;
-				StateTimer = 60;
-			}
-			else
-			{
-				// Do collision
-				object_act_solid(true, true, true, false);
+				State			+= 1;
+				StateTimer		 = 60;
 			}
 		}	
 		break;
@@ -54,6 +47,9 @@
 			}
 			else
 			{
+				// Clear solidbox
+				object_set_solidbox(0, 0, false);
+				
 				// Destroy the button
 				instance_destroy(ButtonObj);
 				
@@ -111,6 +107,9 @@
 		break;
 	}
 	
+	// Do collision
+	object_act_solid(true, true, true, false);
+
 	// Update stage boundaries
 	if !Stage.IsBossfight and x - floor(Player.PosX) < global.Width * 2
 	{

@@ -14,18 +14,17 @@
 		{
 			if object_check_touch(ColTrigger)
 			{
+				// Make player exit their super form
 				if Player.SuperState
 				{
 					Player.SuperState = false;
+					audio_bgm_play(AudioPrimary, Stage.StageMusic);	
 				}
 				Stage.TimeEnabled = false;
-				
-				audio_bgm_stop(AudioPrimary, 2);
+				Stage.IsFinished  = 1;
+
 				audio_sfx_play(sfxClearPanel, false);
 				animation_play(SpriteData[0], 1, 0);
-				
-				// Increment stage state
-				Stage.IsFinished  = 1;
 				
 				// Increment state
 				State++;

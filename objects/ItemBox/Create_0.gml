@@ -53,6 +53,5 @@
 	object_set_unload(FlagReset);
 	object_set_depth(Player, 0);
 	object_set_hitbox(16, 16);
-	object_set_solidbox(15, 15, false);
 	
 	animation_play(sprite_index, 4, 0);

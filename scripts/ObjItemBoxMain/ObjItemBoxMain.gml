@@ -40,8 +40,10 @@ function ObjItemBoxMain()
 					instance_create(PosX, PosY, DustExplosion);
 					audio_sfx_play(sfxDestroy, false);
 				
-					// Temporary do not unload the object
-					object_set_unload(false);	
+					// Update object
+					object_set_unload(false);
+					object_set_hitbox(0, 0);
+					object_set_solidbox(0, 0, false);
 
 					// Increment state
 					Timer  = 0;
@@ -60,10 +62,7 @@ function ObjItemBoxMain()
 						Ysp        = -1.5;
 						Player.Ysp = -Player.Ysp;
 					}
-				}
-				
-				// Do collision
-				object_act_solid(true, true, false, false);
+				}		
 			}
 		
 			// Check if itembox is falling
@@ -264,4 +263,7 @@ function ObjItemBoxMain()
 		}
 		break;
 	}
+	
+	// Do collision
+	object_act_solid(true, true, false, false);
 }

@@ -1,4 +1,4 @@
-/// @description Draw Debug
+/// @description Draw Debug Data
 // You can call your scripts in this editor
 	
 	#region Draw Solidboxes

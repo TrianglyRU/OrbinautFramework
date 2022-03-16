@@ -4,7 +4,6 @@
 	#region Debug Startup
 	{
 		DebugPositions = 0;
-		DebugSensors   = 0;
 		DebugFPS	   = 0;
 		DebugVariables = 0;
 		DebugSolids	   = 0;

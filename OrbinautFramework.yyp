@@ -629,7 +629,6 @@
     {"id":{"name":"gui_gameover_over","path":"sprites/gui_gameover_over/gui_gameover_over.yy",},"order":12,},
     {"id":{"name":"spr_sonic_push","path":"sprites/spr_sonic_push/spr_sonic_push.yy",},"order":29,},
     {"id":{"name":"spr_sonic_spin","path":"sprites/spr_sonic_spin/spr_sonic_spin.yy",},"order":30,},
-    {"id":{"name":"BackgroundTrigger","path":"objects/BackgroundTrigger/BackgroundTrigger.yy",},"order":33,},
     {"id":{"name":"spr_sonic_run","path":"sprites/spr_sonic_run/spr_sonic_run.yy",},"order":31,},
     {"id":{"name":"ObjBarrierStartup","path":"scripts/ObjBarrierStartup/ObjBarrierStartup.yy",},"order":112,},
     {"id":{"name":"spr_sonic_skid","path":"sprites/spr_sonic_skid/spr_sonic_skid.yy",},"order":32,},

@@ -15,7 +15,7 @@ function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
 	{
 		return [32, noone];
 	}
-	if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
+	if x < 0 or y < 0 or x > room_width or y > room_height 
 	{
 		return [32, noone];
 	}

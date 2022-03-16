@@ -1,7 +1,7 @@
 /// @description Process Camera
 // You can call your scripts in this editor
 
-	#region Follow Process
+	#region Process Follow
 	{
 		if Enabled and instance_exists(Target)
 		{
@@ -10,7 +10,7 @@
 			{
 				if Player.Spinning and Player.ClimbState != ClimbJump
 				{
-					var Offset = (Player.DefaultRadiusY - Player.RadiusY);
+					var Offset = Player.DefaultRadiusY - Player.RadiusY;
 				}
 				else
 				{
@@ -82,7 +82,7 @@
 	}
 	#endregion
 	
-	#region Offsets Process
+	#region Update Offsets
 	{
 		// Shake the camera. Not quite accurate to originals, but somewhat close (we hope)
 		if ShakeTime

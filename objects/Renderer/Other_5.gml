@@ -4,6 +4,7 @@
 	#region Reset Animations
 	{
 		ds_map_destroy(AnimationTime);
+		
 		AnimationTime = -1;
 	}
 	#endregion
