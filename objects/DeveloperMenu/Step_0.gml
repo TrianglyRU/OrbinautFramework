@@ -45,13 +45,7 @@
 								}
 								else
 								{
-									show_debug_message("\n"
-												     + "============================================= \n"
-												     + "NO STAGE FOUND! \n"
-												     + "\n"
-												     + "Index " + string(global.ZoneID) + " of ZoneOrder array isn't assigned \n"
-												     + "=============================================");
-									audio_sfx_play(sfxFail, false);
+									show_message("NO STAGE FOUND! \nIndex " + string(global.ZoneID) + " of ZoneOrder array isn't assigned");
 								}
 							}
 							else
@@ -94,13 +88,7 @@
 						}
 						else
 						{
-							show_debug_message("\n"
-										     + "============================================= \n"
-											 + "NO STAGE FOUND! \n"
-											 + "\n"
-											 + "StartStage is currently set to NOONE \n"
-											 + "=============================================");
-							audio_sfx_play(sfxFail, false);
+							show_message("NO STAGE FOUND! \nStartStage is currently set to NOONE");
 						}
 					
 						// Cancel automatic process
@@ -133,13 +121,7 @@
 					}
 					else
 					{
-						show_debug_message("\n"
-										     + "============================================= \n"
-											 + "NO STAGE FOUND! \n"
-											 + "\n"
-											 + "Target room is set to NOONE for this option \n"
-											 + "=============================================");
-						audio_sfx_play(sfxFail, false);
+						show_message("NO STAGE FOUND! \nTarget room is set to NOONE for this option");
 					}
 				
 					// Cancel automatic process

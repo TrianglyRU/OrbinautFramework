@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_editor_controller",
-    "path": "sprites/spr_editor_controller/spr_editor_controller.yy",
+    "name": "spr_obj_player",
+    "path": "sprites/spr_obj_player/spr_obj_player.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Game Logic",
-    "path": "folders/Game Logic.yy",
+    "name": "Player Object",
+    "path": "folders/Player Object.yy",
   },
   "resourceVersion": "1.0",
   "name": "Player",

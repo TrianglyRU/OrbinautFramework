@@ -6,8 +6,6 @@
 		return;
 	}
 	
-	show_debug_message("Kek!");
-	
 	switch State
 	{
 		// Idle

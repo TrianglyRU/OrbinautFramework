@@ -209,7 +209,7 @@
 		// Alert about incorrect global.Width
 		if (global.Width / 2) mod 2 or (global.Height / 2) mod 2 != 0
 		{
-			show_message("Halved game width or height isn't an even number. You may experience some issues because of that!");
+			show_message("UNSUPPORTED RESOLUTION! \nHalved game width or height isn't an even number. You may experience some issues because of that");
 		}
 	
 		// Update application and camera size to game resolution

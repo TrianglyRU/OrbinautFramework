@@ -1,6 +1,6 @@
 /// @description Draw Overlay
 // You can call your scripts in this editor
-	
+
 	#region Pause Process
 	{
 		if Stage.IsPaused

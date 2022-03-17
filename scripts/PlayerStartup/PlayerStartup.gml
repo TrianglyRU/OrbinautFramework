@@ -111,12 +111,10 @@ function PlayerStartup()
 	RadiusX = DefaultRadiusX;
 	RadiusY = DefaultRadiusY;
 	
-	/* If respawning on a checkpoint or coming back from a Special Stage, load saved player data.
-	These arrays are cleared then in StageStartup() after the stage loads its data as well
+	// Set spawn position and centre the camera on us
+	PosX = x;
+	PosY = y - RadiusY - 1;
 	
-	If none of the positions below exist, player will spawn
-	on a spawnpoint. It is handled from its side!
-	*/	
 	if array_length(global.StarPostData)
 	{
 		PosX = global.StarPostData[0];
@@ -130,6 +128,9 @@ function PlayerStartup()
 		BarrierType = global.SpecialRingData[3]; 
 		instance_create(PosX, PosY, Barrier);
 	}
+	
+	Camera.PosX = PosX - global.Width  / 2;
+	Camera.PosY = PosY - global.Height / 2 + 16;
 	
 	// If coming back from a bonus stage, load saved rings and barrier
 	if array_length(global.BonusStageData)

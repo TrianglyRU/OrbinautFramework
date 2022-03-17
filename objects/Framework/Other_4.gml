@@ -25,11 +25,7 @@
 		{
 			if instance_exists(Stage)
 			{
-				show_debug_message("\n"
-								 + "============================================= \n"
-								 + "No collision tiledata was set for this Stage! \n"
-								 + "Please, setup the collision in GameCollisionsSetup() script. \n"
-								 + "=============================================");
+				show_message("NO COLLISION TILEDATA FOUND! \nPlease, setup the collision in Room Start event of Framework controller");
 			}
 		}
 		else

@@ -12,11 +12,10 @@
 	{
 		instance_deactivate_all(true);
 		
-		// Activate controllers back, we need them!
+		// Activate controllers and player object back, we need them!
 		var IgnoreList = 
 		[
 			Framework, 
-			Player,
 			Input, 
 			Interface,
 			Camera, 
@@ -24,7 +23,8 @@
 			Palette,
 			Renderer,
 			Background, 
-			Audio
+			Audio,
+			Player
 		];
 		
 		var Length = array_length(IgnoreList);
