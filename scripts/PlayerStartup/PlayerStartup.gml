@@ -71,7 +71,7 @@ function PlayerStartup()
 	Facing			 = FlipRight;
 	DoubleSpinAttack = SpinReady;
 	DropdashFlag     = DashLocked;
-	
+	DrawOrder		 = depth;
 
 	// Set default sprite and depth
 	switch global.Character
@@ -86,7 +86,6 @@ function PlayerStartup()
 			sprite_index = spr_knuckles_idle;
 		break;
 	}
-	depth = layer_get_depth("Objects");
 	
 	// Set collision radiuses (RadiusW is usually 1 pixel longer than DefaultRadiusX)
 	if global.Character != CharTails
