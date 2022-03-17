@@ -1,8 +1,5 @@
 /// @description Draw Debug Screen
-// You can call your scripts in this editor
-	
-	/* Anything called here will be rendered
-	using window resolution */
+// You can write your code in this editor
 	
 	// Draw debug screen
 	if DebugFPS

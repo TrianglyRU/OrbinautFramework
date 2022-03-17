@@ -3,8 +3,8 @@
 	
 	/* Variable Definitions	
 	1. GroundOnly,    default = false		
-	2. DownDirection, default = "None"	
-	3. UpDirection,   default = "None"			
+	2. UpDirection,   default = "None"	
+	3. DownDirection, default = "None"			
 	*/
 	
 	State = 0;

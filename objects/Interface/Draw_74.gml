@@ -100,10 +100,7 @@
 		}
 	}
 	#endregion
-	
-	/* Anything called here will be rendered
-	using game resolution */
-	
+
 	/* Low plane is rendered below the fade. Please note that you have
 	to add global.ScreenBuffer to your X positions here */
 	
