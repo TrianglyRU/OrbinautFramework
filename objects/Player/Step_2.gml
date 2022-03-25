@@ -2,7 +2,7 @@
 // You can call your scripts in this editor
 
 	/* This is called after stage object
-	scripts are processed */
+	scripts are processed (normally) */
 	
 	if !PlayerProcess()
 	{

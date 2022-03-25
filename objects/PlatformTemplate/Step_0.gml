@@ -43,16 +43,16 @@
 				switch MovementType
 				{
 					case "Left -> Right":
-						PosX += dcos(Angle) * 64;
-					break;
-					case "Right -> Left":
 						PosX += dcos(Angle + 180) * 64;
 					break;
+					case "Right -> Left":
+						PosX += dcos(Angle) * 64;
+					break;
 					case "Up -> Down":
-						PosY += dcos(Angle) * 64;
+						PosY += dcos(Angle + 180) * 64;
 					break;
 					case "Down -> Up":
-						PosY += dcos(Angle + 180) * 64;
+						PosY += dcos(Angle) * 64;
 					break;
 				}
 			}
