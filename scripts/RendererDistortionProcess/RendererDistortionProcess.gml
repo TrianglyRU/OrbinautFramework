@@ -1,7 +1,6 @@
 function RendererDistortionProcess()
 {
 	var Height = global.Height;
-	var Range  = DistortionBGRange;
 	
 	// Loop through FG and BG distortion effects
 	for (var i = 0; i < 2; i++)
@@ -16,19 +15,21 @@ function RendererDistortionProcess()
 				DistortionShift[i][1] += DistortionSpeed[i];
 			}
 			
+			var Range = i ? DistortionRangeBG : DistortionRangeFG;
+			
 			// Loop through surface and underwater distortion
 			for (var j = 0; j < 2; j++)
 			{
 				// Set a boundary between surface and underwater distortion
 				if DistortionLoaded[i][j]
 				{
-					if j == 1 and DistortionMode[i] == "Stage"
+					if DistortionMode[i] == "Stage"
 					{
-						var SplitBound = Height - clamp(Camera.ViewY - Stage.WaterLevel + Height, 0, Height);
+						var SplitBound = Height - clamp(floor(Camera.ViewY - Stage.WaterLevel + Height), 0, Height);
 					}
 					else
 					{
-						var SplitBound = room_height;
+						var SplitBound = j ? 0 : room_height;
 					}
 				}
 				else
@@ -37,21 +38,17 @@ function RendererDistortionProcess()
 				}
 				
 				// Apply it
-				if !(i == 1 and j == 0 and Range[0] != noone)
-				{
-					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), SplitBound);
-				}
+				fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), SplitBound);
 				
-				// Apply custom distortion boundaries for surface background
+				if j == 0
+				{
+					var Bound = Range[0] != noone ? max(SplitBound - Range[0], 0) : 0;
+					fx_set_parameter(DistortionEffect[i], "g_Bound1", Bound);
+				}
 				else
 				{
-					var Position = Camera.ViewY - floor(Camera.ViewY * (1 - Background.BGValues[0][4])) + Height;
-					
-					var Bound1 = Height - clamp(Position - Range[0], 0, Height);
-					var Bound2 = Height - clamp(Position - Range[1], 0, Height);
-					
-					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 1), Bound1);
-					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), Bound2);
+					var Bound = Range[1] != noone ? min(SplitBound + Range[1], Height) : Height;
+					fx_set_parameter(DistortionEffect[i], "g_Bound4", Bound);
 				}
 				
 				// Set position

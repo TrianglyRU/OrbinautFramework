@@ -1,5 +1,5 @@
-/// @function distortion_set_bg(data1,data2,speed,[data1range])
-function distortion_set_bg(data1,data2,speed,data1range)
+/// @function distortion_set_bg(data1,data2,speed,[datarange])
+function distortion_set_bg(data1,data2,speed,datarange)
 {
 	try
 	{
@@ -32,10 +32,8 @@ function distortion_set_bg(data1,data2,speed,data1range)
 				DistortionLoaded[1][i] = true;			
 			}
 		}
-		if data1range != noone
-		{
-			DistortionBGRange = data1range;
-		}
+		
+		DistortionRangeBG = is_array(datarange) ? datarange : [noone, noone];
 		DistortionSpeed[1] = speed;
 		
 		fx_set_parameter(DistortionEffect[1], "g_Bound1", 0);

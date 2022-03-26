@@ -1,5 +1,5 @@
-/// @function distortion_set(data1,data2,speed,[layers])
-function distortion_set(data1,data2,speed,layers)
+/// @function distortion_set(data1,data2,speed,[datarange],[layers])
+function distortion_set(data1,data2,speed,datarange,layers)
 {	
 	try
 	{
@@ -32,6 +32,8 @@ function distortion_set(data1,data2,speed,layers)
 				DistortionLoaded[0][i] = true;
 			}
 		}
+		
+		DistortionRangeFG = is_array(datarange) ? datarange : [noone, noone];
 		DistortionSpeed[0] = speed;
 		
 		fx_set_parameter(DistortionEffect[0], "g_Bound1", 0);

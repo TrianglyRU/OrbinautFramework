@@ -22,7 +22,8 @@
 	{
 		DistortionMode	  =  ["", ""];
 		DistortionEffect  =  [noone, noone];
-		DistortionBGRange =  [noone, noone];
+		DistortionRangeBG =  [noone, noone];
+		DistortionRangeFG =  [noone, noone];
 		DistortionSpeed   =  [0, 0];
 		DistortionShift   = [[0, 0], [0, 0]];
 		DistortionLoaded  = [[false, false], [false, false]];
@@ -38,8 +39,8 @@
 		{
 			case Stage_TSZ:
 			{
-				distortion_set(noone, dist_water, 0.5, ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
-				distortion_set_bg(dist_heat, dist_water_bg, 0.5, [0, 32]);
+				distortion_set(noone, dist_water, 0.5, noone, ["GraphicsA", "AnimatedTiles", "GraphicsB"]);
+				distortion_set_bg(dist_heat, dist_water_bg, 0.5, noone);
 			}
 			break;
 		}
