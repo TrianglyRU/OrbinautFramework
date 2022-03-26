@@ -24,7 +24,7 @@
 			Weight = clamp(Weight, 0, 4);
 			
 			// Update platform movement
-			if MovementType == "Falls"
+			if MovementType == "Falls When Stood On"
 			{
 				if FallFlag and (++Timer) == 30
 				{

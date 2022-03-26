@@ -28,7 +28,7 @@
   "properties": [
     {"varType":6,"value":"\"Stationary\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "\"Stationary\"",
-        "\"Falls\"",
+        "\"Falls When Stood On\"",
         "\"Left -> Right\"",
         "\"Right -> Left\"",
         "\"Up -> Down\"",

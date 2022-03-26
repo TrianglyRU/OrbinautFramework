@@ -7,8 +7,8 @@
 	// Draw chain
     for (var i = 1; i < ChainCount + 1; i++)
     {
-        var X = floor(OriginX + DistanceX * i);
-        var Y = floor(OriginY + DistanceY * i);
+        var X = round(OriginX + DistanceX * i);
+        var Y = round(OriginY + DistanceY * i);
 		
         draw_sprite(SpriteData[1], 0, X, Y);
     }

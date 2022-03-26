@@ -21,7 +21,7 @@
 		
 		with Orb[i]
 		{
-			x = ThisObject.x + 16 * dsin(NewAngle);
-			y = ThisObject.y + 16 * dcos(NewAngle);
+			x = round(ThisObject.x + 16 * dsin(NewAngle));
+			y = round(ThisObject.y + 16 * dcos(NewAngle));
 		}
 	}
