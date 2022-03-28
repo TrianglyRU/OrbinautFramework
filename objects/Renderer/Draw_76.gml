@@ -46,7 +46,6 @@
                     else
                     {
 						fx_set_parameter(DistortionEffect[i], "g_Bound" + (j ? "3" : "1"), SplitBound);
-                        //fx_set_parameter(DistortionEffect[i], "g_Bound" + (j ? "3" : "1"), (j ? 0 : Height));
                     }
                     
                     fx_set_parameter(DistortionEffect[i], "g_WaveY" + (j ? "2" : "1"), floor(DistortionShift[i][j] + DistortionY));
