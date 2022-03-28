@@ -29,17 +29,15 @@
 				background_layer_add(4, tex_tsz_test);
 				background_layer_add(5, tex_tsz_test);
 				background_layer_add(6, tex_tsz_test);
-				//background_layer_add(7, tex_tsz_test);
 				
-				background_layer_setup(0, 0, 0,   112, 0.01563, 0, 0, 0, 0, 0, false);
-				background_layer_setup(1, 0, 112, 16,  0.06250, 0, 0, 0, 0, 0, false);
-				background_layer_setup(2, 0, 128, 16,  0.12500, 0, 0, 0, 0, 0, false);
+				background_layer_setup(0, 0, 0,   112, 0, 0.01563, 0, 0, 0, 0, false);
+				background_layer_setup(1, 0, 112, 16,  0, 0.06250, 0, 0, 0, 0, false);
+				background_layer_setup(2, 0, 128, 16,  0, 0.12500, 0, 0, 0, 0, false);
 				
-				background_layer_setup(3, 0, 144, 51, 0.12891, 0, 0, 0, 1, 0.0039,  false);		
-				background_layer_setup(4, 0, 195, 8,  0.33203, 0, 0, 0, 2, 0.00781, false);
-				background_layer_setup(5, 0, 203, 9,  0.36719, 0, 0, 0, 3, 0.01562, false);
-				background_layer_setup(6, 0, 212, 44, 0.43750, 0, 0, 0, 4, 0.03125, false);
-				//background_layer_setup(7, 0, 244, 12, 0.67188, 0, 0, 0, 4, 0.02525, false);
+				background_layer_setup(3, 0, 144, 51, 0, 0.12891, 0, 0, 1, -0.0039,  false);		
+				background_layer_setup(4, 0, 195, 8,  0, 0.33203, 0, 0, 2, -0.00781, false);
+				background_layer_setup(5, 0, 203, 9,  0, 0.36719, 0, 0, 3, -0.01562, false);
+				background_layer_setup(6, 0, 212, 44, 0, 0.43750, 0, 0, 4, -0.03125, false);
 				
 				// Add layers
 				/*background_layer_add(0,  tex_tsz_bg00);

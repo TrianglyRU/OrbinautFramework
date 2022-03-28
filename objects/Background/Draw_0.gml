@@ -5,7 +5,6 @@
 	draw_clear(BGColour);
 	
 	var BGData = array_length(BGSprites);
-	show_debug_message(BGData)
 	if !BGData
 	{
 		return;
@@ -17,33 +16,33 @@
 	
 	for (var i = 0; i < BGData; i++)
 	{
-		// Update autoscroll value
+		// Update ScrollX offset
 		if Renderer.UpdateAnimations
 		{
-			BGValues[i][13] += BGValues[i][5];
+			BGValues[i][13] -= BGValues[i][5];
 		}
 		
 		// Get background data
-		var PosY	      = BGValues[i][0];
-		var NodeY	      = BGValues[i][1];
-		var HeightY	      = BGValues[i][2];
-		var ScrollX	      = BGValues[i][3];
-		var ScrollY	      = BGValues[i][4];
-		var InclineHeight = BGValues[i][6];
-		var InclineStep   = BGValues[i][7];
-		var InclineY      = BGValues[i][8];
-		var AnimSpeed     = BGValues[i][9];
-		var TexHeight	  = BGValues[i][10];
-		var TexWidth	  = BGValues[i][11];
-		var TexMapSize    = BGValues[i][12];
-		var AutoXOffset	  = BGValues[i][13];
+		var PosY	     = BGValues[i][0];
+		var NodeY	     = BGValues[i][1];
+		var HeightY	     = BGValues[i][2];
+		var FactorX	     = BGValues[i][3];
+		var FactorY	     = BGValues[i][4];
+		var ScaleXHeight = BGValues[i][6];
+		var ScaleXStep   = BGValues[i][7];
+		var ScaleY       = BGValues[i][8];
+		var AnimDuration = BGValues[i][9];
+		var TexHeight	 = BGValues[i][10];
+		var TexWidth	 = BGValues[i][11];
+		var TexMapSize   = BGValues[i][12];
+		var AutoXOffset	 = BGValues[i][13];
 		
 		// Define draw position
 		var DrawX = Camera.ViewX - ScreenBuffer;
-		var DrawY = floor(Camera.ViewY * (1 - ScrollY)) + PosY;
+		var DrawY = floor(Camera.ViewY * (1 - FactorY)) + PosY;
 		
-		// Set y-scale mode properties
-		if InclineY and instance_exists(Stage) and Stage.WaterEnabled
+		// Set ScaleY properties
+		if ScaleY and instance_exists(Stage) and Stage.WaterEnabled
 		{
 			var YScale = clamp((Stage.WaterLevel - DrawY) / TexHeight, -1, 1);
 		} 
@@ -53,24 +52,24 @@
 		}
 			
 		// Get a frame to display
-		if !AnimSpeed
+		if !AnimDuration
 		{
 			var Frame = 0;
 		}
 		else
 		{
-			var Frame = Renderer.AnimationTime[? GlobalTime] div AnimSpeed mod sprite_get_number(BGSprites[i]);
+			var Frame = Renderer.AnimationTime[? GlobalTime] div AnimDuration mod sprite_get_number(BGSprites[i]);
 		}
 		
-		// Transfer data to the shader
-		if InclineHeight != 0 
+		// Set shader data
+		if ScaleXHeight != 0 
 		{
-			shader_set_uniform_f(Shader.PrlIncStep,   InclineStep / ScrollX);
-			shader_set_uniform_f(Shader.PrlIncHeight, InclineHeight);
+			shader_set_uniform_f(Shader.PrlIncStep,   ScaleXStep / FactorX);
+			shader_set_uniform_f(Shader.PrlIncHeight, ScaleXHeight);
 			shader_set_uniform_f(Shader.PrlYScale,    YScale);
-			shader_set_uniform_f(Shader.PrlOriginY,   InclineStep < 0 ? NodeY + HeightY : NodeY);
+			shader_set_uniform_f(Shader.PrlOriginY,   ScaleXStep < 0 ? NodeY + HeightY : NodeY);
 		}
-		shader_set_uniform_f(Shader.PrlOffset,  Camera.ViewX * ScrollX - AutoXOffset, ScreenBuffer);
+		shader_set_uniform_f(Shader.PrlOffset,  Camera.ViewX * FactorX - AutoXOffset, ScreenBuffer);
 		shader_set_uniform_f(Shader.PrlPos,     DrawX, DrawY);
 		shader_set_uniform_f(Shader.PrlWidth,   TexWidth);
 		shader_set_uniform_f(Shader.PrlMapSize, TexMapSize);
@@ -78,7 +77,7 @@
 		// Draw background piece
 		if HeightY == -1
 		{
-			if InclineY
+			if ScaleY
 			{
 				draw_sprite_ext(BGSprites[i], Frame, DrawX, DrawY, 1, YScale, 0, c_white, 1);
 			}
@@ -89,7 +88,7 @@
 		}
 		else 
 		{
-			if InclineY
+			if ScaleY
 			{
 				draw_sprite_part_ext(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), HeightY, DrawX, DrawY, 1, YScale, c_white, 1);
 			}
@@ -99,8 +98,8 @@
 			}
 		}
 		
-		// Apply horizontal scale
-		if InclineHeight != 0
+		// Reset ScaleX
+		if ScaleXHeight != 0
 		{
 			shader_set_uniform_f(Shader.PrlIncHeight, 0);
 			shader_set_uniform_f(Shader.PrlOriginY,   0);

@@ -1,28 +1,21 @@
-/// @function background_layer_setup(id,ofstY,nodeY,heightY,scrollX,scrollY,autoXSpeed,animDuration,inclineHeight,inclineStep,inclineY)
-function background_layer_setup(id,ofstY,nodeY,heightY,scrollX,scrollY,autoXSpeed,animDuration,inclineHeight,inclineStep,inclineY)
+/// @function background_layer_setup(id,ofstY,nodeY,heightY,animDuration,factorX,factorY,scrollX,scaleXHeight,scaleXStep,scaleY)
+function background_layer_setup(id,ofstY,nodeY,heightY,animDuration,factorX,factorY,scrollX,scaleXHeight,scaleXStep,scaleY)
 {
 	with Background
 	{
-		// Offset the background
-		if inclineStep < 0
-		{	
-			sprite_set_offset(BGSprites[id], 0, sprite_get_height(BGSprites[id]));	
-		}	
-		else
-		{
-			sprite_set_offset(BGSprites[id], 0, 0);
-		}
+		// Force-offset the background
+		sprite_set_offset(BGSprites[id], 0, 0);
 		
 		// Get values
-		BGValues[id][0] = ofstY + nodeY + (inclineStep < 0) * sprite_get_height(BGSprites[id]);
+		BGValues[id][0] = ofstY + nodeY;
 		BGValues[id][1] = nodeY;
 		BGValues[id][2] = heightY;
-		BGValues[id][3] = scrollX;
-		BGValues[id][4] = scrollY;
-		BGValues[id][5] = autoXSpeed;
-		BGValues[id][6] = inclineHeight;
-		BGValues[id][7] = inclineStep;
-		BGValues[id][8] = inclineY;
+		BGValues[id][3] = factorX;
+		BGValues[id][4] = factorY;
+		BGValues[id][5] = scrollX;
+		BGValues[id][6] = scaleXHeight;
+		BGValues[id][7] = scaleXStep;
+		BGValues[id][8] = scaleY;
 		BGValues[id][9] = animDuration;
 		
 		// Get texel data
