@@ -401,6 +401,7 @@
     {"id":{"name":"sfxDoubleSpinAttack","path":"sounds/sfxDoubleSpinAttack/sfxDoubleSpinAttack.yy",},"order":47,},
     {"id":{"name":"ObjAirBubblerDraw","path":"scripts/ObjAirBubblerDraw/ObjAirBubblerDraw.yy",},"order":0,},
     {"id":{"name":"tile_get_width","path":"scripts/tile_get_width/tile_get_width.yy",},"order":30,},
+    {"id":{"name":"tex_tsz_test","path":"sprites/tex_tsz_test/tex_tsz_test.yy",},"order":22,},
     {"id":{"name":"spr_obj_crabmeat_move_angled","path":"sprites/spr_obj_crabmeat_move_angled/spr_obj_crabmeat_move_angled.yy",},"order":24,},
     {"id":{"name":"ObjDropdashDustMain","path":"scripts/ObjDropdashDustMain/ObjDropdashDustMain.yy",},"order":44,},
     {"id":{"name":"PlayerSpindash","path":"scripts/PlayerSpindash/PlayerSpindash.yy",},"order":31,},
