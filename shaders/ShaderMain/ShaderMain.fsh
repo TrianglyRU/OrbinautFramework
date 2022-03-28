@@ -72,12 +72,11 @@
 		}
 		
 		CurPos = v_vPosition - u_pos;
-		//CurPos.y -= u_originY;
 		OutX   = u_offset.x;
-		if (u_ilHeight > 0.)
+		if (u_ilHeight != 0.)
 		{
-			//RowX = floor((CurPos.y / u_yScale - u_originY) / u_ilHeight);
-			RowX = floor(CurPos.y / u_ilHeight / u_yScale);
+			RowX = floor((CurPos.y / u_yScale - u_originY) / u_ilHeight);
+			//RowX = floor(CurPos.y / u_ilHeight / u_yScale);
 			if (u_ilStep < 0.)
 			{
 				RowX += 1.;
