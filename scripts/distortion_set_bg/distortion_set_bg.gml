@@ -33,7 +33,7 @@ function distortion_set_bg(data1,data2,speed,datarange)
 			}
 		}
 		
-		DistortionRangeBG = is_array(datarange) ? datarange : [noone, noone];
+		DistortionRangeBG  = is_array(datarange) ? datarange : [noone, noone];
 		DistortionSpeed[1] = speed;
 		
 		fx_set_parameter(DistortionEffect[1], "g_Bound1", 0);
@@ -53,7 +53,7 @@ function distortion_set_bg(data1,data2,speed,datarange)
 							+ "an error has occured! \n"
 							+ "\n"
 							+ "If you don't have the effect, please, install it from the Release Package you downloaded. \n"
-							+ "You may also get this message because you set up the distortion incorrectly. \n"
+							+ "You may also get this message because you configured the distortion incorrectly. \n"
 							+ "=============================================");
 		DistortionEffect[1] = noone;
 	}

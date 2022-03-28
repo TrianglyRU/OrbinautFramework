@@ -74,14 +74,19 @@ function object_act_solid(sides,top,bottom,resetActions)
 		var XDiff      = PlayerX - ObjectX + FallRadius;
 		
 		// Lose the object if the player is outside its boundaries
-		if XDiff < sides or XDiff > FallRadius * 2 - 1
+		if XDiff < sides or XDiff > FallRadius * 2 - 1 - sides
 		{
 			var ThisObject = object_index;
 			with Player
 			{
+				// Reset player's animation
 				if Animation == AnimMove and ThisObject != Bridge
 				{
-					animation_reset(0);
+					if  !tile_check(PosX - RadiusX, PosY + RadiusY + 1, false, Layer)
+					and !tile_check(PosX + RadiusX, PosY + RadiusY + 1, false, Layer)
+					{
+						animation_reset(0);
+					}
 				}
 				OnObject = false;
 			}

@@ -2,72 +2,59 @@
 // You can write your code in this editor
 	
 	#region Process Distortion
-	{
-		var Height = global.Height;
-	
-		// Loop through FG and BG distortion effects
-		for (var i = 0; i < 2; i++)
-		{
-			if DistortionEffect[i] != noone
-			{
-				if DistortionMode[i] == "Stage"  and Stage.UpdateObjects
-				or DistortionMode[i] == "Screen" and Renderer.UpdateAnimations
-				{
-					// Update distortion
-					DistortionShift[i][0] += DistortionSpeed[i];
-					DistortionShift[i][1] += DistortionSpeed[i];
-				}
-			
-				var Range = i ? DistortionRangeBG : DistortionRangeFG;
-			
-				// Loop through surface and underwater distortion
-				for (var j = 0; j < 2; j++)
-				{
-					// Set a boundary between surface and underwater distortion
-					if DistortionLoaded[i][j]
-					{
-						if DistortionMode[i] == "Stage"
-						{
-							var SplitBound = Height - clamp(floor(Camera.ViewY - Stage.WaterLevel + Height), 0, Height);
-						}
-						else
-						{
-							var SplitBound = j ? 0 : room_height;
-						}
-					}
-					else
-					{
-						var SplitBound = j ? room_height : 0;
-					}
+    {
+        var Height = global.Height;
+    
+        // Loop through FG and BG distortion effects
+        for (var i = 0; i < 2; i++)
+        {
+            if DistortionEffect[i] != noone
+            {
+                if DistortionMode[i] == "Stage"  and Stage.UpdateObjects
+                or DistortionMode[i] == "Screen" and Renderer.UpdateAnimations
+                {
+                    // Update distortion
+                    DistortionShift[i][0] += DistortionSpeed[i];
+                    DistortionShift[i][1] += DistortionSpeed[i];
+                }
+				var BGExists = array_length(Background.BGSprites);
 				
-					// Apply it
-					fx_set_parameter(DistortionEffect[i], "g_Bound" + string(j + 2), SplitBound);
-				
-					if j == 0
-					{
-						var Bound = Range[0] != noone ? max(SplitBound - Range[0], 0) : 0;
-						fx_set_parameter(DistortionEffect[i], "g_Bound1", Bound);
-					}
-					else
-					{
-						var Bound = Range[1] != noone ? min(SplitBound + Range[1], Height) : Height;
-						fx_set_parameter(DistortionEffect[i], "g_Bound4", Bound);
-					}
-				
-					// Set position
-					if i == 1 and array_length(Background.BGSprites)
-					{
-						fx_set_parameter(DistortionEffect[i], "g_WaveY" + string(j + 1), floor(DistortionShift[i][j] + Camera.ViewY * Background.BGValues[0][4]));
-					}
-					else
-					{
-						fx_set_parameter(DistortionEffect[i], "g_WaveY" + string(j + 1), floor(DistortionShift[i][j] + Camera.ViewY));
-					}
-				}
-			}
-		}
-	}
-	#endregion
+                var Range		= i ? DistortionRangeBG : DistortionRangeFG;
+                var DistortionY = i and BGExists ? ceil(Camera.ViewY * Background.BGValues[0][4]) : Camera.ViewY;
+ 
+                // Set a boundary between surface and underwater distortion
+                if DistortionMode[i] == "Stage"
+                {
+                    var SplitBound = Height - clamp(floor(Camera.ViewY - Stage.WaterLevel + Height), 0, Height);
+                }
+                else
+                {
+                    var SplitBound = room_height;
+                }
+                
+                // Apply it
+                fx_set_parameter(DistortionEffect[i], "g_Bound2", SplitBound);
+            
+                // Loop through surface and underwater distortion
+                for (var j = 0; j < 2; j++)
+                {
+                    if DistortionLoaded[i][j]
+                    {
+                        var Bound = Range[j] != noone ? clamp(Range[j] - DistortionY, 0, Height) : (j ? Height : 0);
+                        fx_set_parameter(DistortionEffect[i], "g_Bound" + (j ? "3" : "1"), Bound);
+                    }
+                    else
+                    {
+						fx_set_parameter(DistortionEffect[i], "g_Bound" + (j ? "3" : "1"), SplitBound);
+                        //fx_set_parameter(DistortionEffect[i], "g_Bound" + (j ? "3" : "1"), (j ? 0 : Height));
+                    }
+                    
+                    fx_set_parameter(DistortionEffect[i], "g_WaveY" + (j ? "2" : "1"), floor(DistortionShift[i][j] + DistortionY));
+                }
+            }
+        }
+    }
+    #endregion
 	
 	#region Create Surfaces
 	{

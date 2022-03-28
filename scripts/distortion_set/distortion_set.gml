@@ -1,5 +1,5 @@
-/// @function distortion_set(data1,data2,speed,[datarange],[layers])
-function distortion_set(data1,data2,speed,datarange,layers)
+/// @function distortion_set(data1,data2,speed,[layers],[datarange])
+function distortion_set(data1,data2,speed,layers,datarange)
 {	
 	try
 	{
@@ -33,7 +33,7 @@ function distortion_set(data1,data2,speed,datarange,layers)
 			}
 		}
 		
-		DistortionRangeFG = is_array(datarange) ? datarange : [noone, noone];
+		DistortionRangeFG  = is_array(datarange) ? datarange : [noone, noone];
 		DistortionSpeed[0] = speed;
 		
 		fx_set_parameter(DistortionEffect[0], "g_Bound1", 0);
@@ -57,7 +57,7 @@ function distortion_set(data1,data2,speed,datarange,layers)
 							+ "an error has occured! \n"
 							+ "\n"
 							+ "If you don't have the effect, please, install it from the Release Package you downloaded. \n"
-							+ "You may also get this message because you set up the distortion incorrectly. \n"
+							+ "You may also get this message because you configured the distortion incorrectly. \n"
 							+ "=============================================");
 		DistortionEffect[0] = noone;
 	}

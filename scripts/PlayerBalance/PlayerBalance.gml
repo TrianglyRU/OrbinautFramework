@@ -8,8 +8,8 @@ function PlayerBalance()
 	// Balance subfunctions
 	#region SubFunctions
 	{
-		// @subfunction PlayerBalanceLeft()
-		function PlayerBalanceLeft()
+		// @subfunction PlayerBalanceLeft(panicCheck)
+		function PlayerBalanceLeft(panicCheck)
 		{
 			if Facing == FlipLeft
 			{
@@ -23,8 +23,7 @@ function PlayerBalance()
 			// Play additional animations for Sonic
 			if global.Character == CharSonic and !SuperState
 			{
-				var FindFloor  = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
-				if  FindFloor >= 12
+				if panicCheck
 				{
 					if Facing == FlipRight
 					{
@@ -39,8 +38,8 @@ function PlayerBalance()
 			}
 		}
 		
-		// @subfunction PlayerBalanceRight()
-		function PlayerBalanceRight()
+		// @subfunction PlayerBalanceRight(panicCheck)
+		function PlayerBalanceRight(panicCheck)
 		{
 			if Facing == FlipRight
 			{
@@ -54,8 +53,7 @@ function PlayerBalance()
 			// Play additional animations for Sonic
 			if global.Character == CharSonic and !SuperState
 			{
-				var FindFloor  = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
-				if  FindFloor >= 12
+				if panicCheck
 				{
 					if Facing == FlipLeft
 					{
@@ -72,7 +70,7 @@ function PlayerBalance()
 	}
 	#endregion
 	
-	// Balance on floor
+	// Balance on the floor
 	if !OnObject
 	{
 		if global.SKCrouch and Input.Down
@@ -103,11 +101,13 @@ function PlayerBalance()
 		// Balance!
 		if !FindAngle1
 		{	
-			PlayerBalanceLeft();
+			var FindFloor = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
+			PlayerBalanceLeft(FindFloor >= 12);
 		}
 		else if !FindAngle2
 		{
-			PlayerBalanceRight();
+			var FindFloor = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
+			PlayerBalanceRight(FindFloor >= 12);
 		}
 	}
 	
@@ -115,8 +115,8 @@ function PlayerBalance()
 	else
 	{
 		/* In orginals, the widest balance range varies from 
-		object to object (2 to 4). We'll use a range of 4 pixels */
-		var Tolerance = 4;
+		object to object (2 to 4). We'll use a range of 2 pixels */
+		var Tolerance = 2;
 		
 		// Ignore specific objects
 		if OnObject.object_index == Bridge
@@ -128,14 +128,18 @@ function PlayerBalance()
 		var PlayerX   = OnObject.Obj_SolidX - OnObject.x + floor(PosX);
 		var RightEdge = OnObject.Obj_SolidX * 2 - 1;
 		
-		// Balance!
-		if PlayerX < Tolerance
+		// Balance! (if no floor found right below us)
+		if  !tile_check(PosX - RadiusX, PosY + RadiusY + 1, false, Layer)
+		and !tile_check(PosX + RadiusX, PosY + RadiusY + 1, false, Layer)
 		{
-			PlayerBalanceLeft();
-		}
-		else if PlayerX > RightEdge - Tolerance
-		{
-			PlayerBalanceRight();
+			if PlayerX < Tolerance
+			{
+				PlayerBalanceLeft(PlayerX < -Tolerance);
+			}
+			else if PlayerX > RightEdge - Tolerance
+			{
+				PlayerBalanceRight(PlayerX > RightEdge + Tolerance);
+			}
 		}
 	}
 }

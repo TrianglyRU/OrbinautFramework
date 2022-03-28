@@ -5,7 +5,7 @@
 	{
 		BGSprites = [];
 		BGValues  = [];
-		BGColour  = c_black;
+		BGColour  = c_gray;
 	
 		// Create a background layer
 		var Layer = layer_create(9999, "Background");

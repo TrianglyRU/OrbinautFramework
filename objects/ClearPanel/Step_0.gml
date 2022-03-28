@@ -69,13 +69,16 @@
 			}
 				
 			// Take control away from the player
-			if !Input.IgnoreInput
+			if !Player.DebugMode
 			{
-				Input.IgnoreInput = true;
-			}
-			else
-			{
-				Input.Right = true;
+				if !Input.IgnoreInput
+				{
+					Input.IgnoreInput = true;
+				}
+				else
+				{
+					Input.Right = true;
+				}
 			}
 		}
 	}
