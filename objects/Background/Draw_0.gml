@@ -5,6 +5,7 @@
 	draw_clear(BGColour);
 	
 	var BGData = array_length(BGSprites);
+	show_debug_message(BGData)
 	if !BGData
 	{
 		return;
@@ -75,7 +76,7 @@
 		shader_set_uniform_f(Shader.PrlMapSize, TexMapSize);
 		
 		// Draw background piece
-		if InclineHeight or HeightY == -1
+		if HeightY == -1
 		{
 			if InclineY
 			{
@@ -88,11 +89,19 @@
 		}
 		else 
 		{
-			draw_sprite_part(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), HeightY, DrawX, DrawY);
+			if InclineY
+			{
+				draw_sprite_part_ext(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), HeightY, DrawX, DrawY, 1, YScale, c_white, 1);
+			}
+			else
+			{
+				draw_sprite_part(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), HeightY, DrawX, DrawY);
+			}
 		}
 		if InclineHeight != 0
 		{
 			shader_set_uniform_f(Shader.PrlIncHeight, 0);
+			shader_set_uniform_f(Shader.PrlOriginY,   0);
 		}
 	}
 	

@@ -31,7 +31,7 @@
 				background_layer_setup(1, 0, 112, 16,  0.06250, 0, 0, 0, 0, 0, false);
 				background_layer_setup(2, 0, 128, 16,  0.12500, 0, 0, 0, 0, 0, false);
 				
-				background_layer_setup(3, 0, 144, 52, 0.12891, 0, 0, 0, 1, 0.0039, false);
+				background_layer_setup(3, 0, 144, 52,  0.12891, 0, 0, 0, 1, 0.0039, false);
 				
 				// Add layers
 				/*background_layer_add(0,  tex_tsz_bg00);
