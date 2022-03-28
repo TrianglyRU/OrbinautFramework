@@ -30,7 +30,7 @@
 		var FactorY	     = BGValues[i][4];
 		var ScaleXHeight = BGValues[i][6];
 		var ScaleXStep   = BGValues[i][7];
-		var ScaleY       = BGValues[i][8];
+		var ScaleYFlag   = BGValues[i][8];
 		var AnimDuration = BGValues[i][9];
 		var TexHeight	 = BGValues[i][10];
 		var TexWidth	 = BGValues[i][11];
@@ -42,13 +42,13 @@
 		var DrawY = floor(Camera.ViewY * (1 - FactorY)) + PosY;
 		
 		// Set ScaleY properties
-		if ScaleY and instance_exists(Stage) and Stage.WaterEnabled
+		if ScaleYFlag and instance_exists(Stage) and Stage.WaterEnabled
 		{
-			var YScale = clamp((Stage.WaterLevel - DrawY) / TexHeight, -1, 1);
+			var ScaleY = clamp((Stage.WaterLevel - DrawY) / TexHeight, -1, 1);
 		} 
 		else 
 		{
-			YScale = 1;
+			ScaleY = 1;
 		}
 			
 		// Get a frame to display
@@ -66,7 +66,7 @@
 		{
 			shader_set_uniform_f(Shader.PrlIncStep,   ScaleXStep / FactorX);
 			shader_set_uniform_f(Shader.PrlIncHeight, ScaleXHeight);
-			shader_set_uniform_f(Shader.PrlScaleY,    YScale);
+			shader_set_uniform_f(Shader.PrlScaleY,    ScaleY);
 			
 			if ScaleXStep < 0
 			{
@@ -81,9 +81,9 @@
 		// Draw background piece
 		if Height == -1
 		{
-			if ScaleY
+			if ScaleYFlag
 			{
-				draw_sprite_ext(BGSprites[i], Frame, DrawX, DrawY, 1, YScale, 0, c_white, 1);
+				draw_sprite_ext(BGSprites[i], Frame, DrawX, DrawY, 1, ScaleY, 0, c_white, 1);
 			}
 			else
 			{
@@ -94,7 +94,7 @@
 		{
 			if ScaleY
 			{
-				draw_sprite_part_ext(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), Height, DrawX, DrawY, 1, YScale, c_white, 1);
+				draw_sprite_part_ext(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), Height, DrawX, DrawY, 1, ScaleY, c_white, 1);
 			}
 			else
 			{
@@ -105,12 +105,11 @@
 		// Reset ScaleX
 		if ScaleXHeight != 0
 		{
-			shader_set_uniform_f(Shader.PrlIncHeight, 0);
-			
 			if ScaleXStep < 0
 			{
 				shader_set_uniform_f(Shader.PrlHeight, 0);
 			}
+			shader_set_uniform_f(Shader.PrlIncHeight, 0);
 		}
 	}
 	
