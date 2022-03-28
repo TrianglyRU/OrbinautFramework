@@ -25,7 +25,7 @@
 		// Get background data
 		var PosY	     = BGValues[i][0];
 		var NodeY	     = BGValues[i][1];
-		var HeightY	     = BGValues[i][2];
+		var Height	     = BGValues[i][2];
 		var FactorX	     = BGValues[i][3];
 		var FactorY	     = BGValues[i][4];
 		var ScaleXHeight = BGValues[i][6];
@@ -66,8 +66,12 @@
 		{
 			shader_set_uniform_f(Shader.PrlIncStep,   ScaleXStep / FactorX);
 			shader_set_uniform_f(Shader.PrlIncHeight, ScaleXHeight);
-			shader_set_uniform_f(Shader.PrlYScale,    YScale);
-			shader_set_uniform_f(Shader.PrlOriginY,   ScaleXStep < 0 ? HeightY : 0);
+			shader_set_uniform_f(Shader.PrlScaleY,    YScale);
+			
+			if ScaleXStep < 0
+			{
+				shader_set_uniform_f(Shader.PrlHeight, Height);
+			}
 		}
 		shader_set_uniform_f(Shader.PrlOffset,  Camera.ViewX * FactorX - AutoXOffset, ScreenBuffer);
 		shader_set_uniform_f(Shader.PrlPos,     DrawX, DrawY);
@@ -75,7 +79,7 @@
 		shader_set_uniform_f(Shader.PrlMapSize, TexMapSize);
 		
 		// Draw background piece
-		if HeightY == -1
+		if Height == -1
 		{
 			if ScaleY
 			{
@@ -90,11 +94,11 @@
 		{
 			if ScaleY
 			{
-				draw_sprite_part_ext(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), HeightY, DrawX, DrawY, 1, YScale, c_white, 1);
+				draw_sprite_part_ext(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), Height, DrawX, DrawY, 1, YScale, c_white, 1);
 			}
 			else
 			{
-				draw_sprite_part(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), HeightY, DrawX, DrawY);
+				draw_sprite_part(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), Height, DrawX, DrawY);
 			}
 		}
 		
@@ -102,7 +106,11 @@
 		if ScaleXHeight != 0
 		{
 			shader_set_uniform_f(Shader.PrlIncHeight, 0);
-			shader_set_uniform_f(Shader.PrlOriginY,   0);
+			
+			if ScaleXStep < 0
+			{
+				shader_set_uniform_f(Shader.PrlHeight, 0);
+			}
 		}
 	}
 	

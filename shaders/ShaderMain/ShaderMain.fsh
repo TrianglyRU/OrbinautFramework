@@ -52,12 +52,12 @@
 	uniform bool  u_parallaxActive;
 	uniform vec2  u_pos;
 	uniform float u_width;
-	uniform float u_yScale;
+	uniform float u_scaleY;
 	uniform vec2  u_offset;
 	uniform float u_ilHeight;
 	uniform float u_ilStep;
 	uniform float u_mapSize;
-	uniform float u_originY;
+	uniform float u_height;
 	
 	vec2  CurPos;
 	vec2  OutPos;
@@ -75,8 +75,7 @@
 		OutX   = u_offset.x;
 		if (u_ilHeight != 0.)
 		{
-			RowX = floor((CurPos.y / u_yScale - u_originY) / u_ilHeight);
-			//RowX = floor(CurPos.y / u_ilHeight / u_yScale);
+			RowX = floor((CurPos.y / u_scaleY - u_height) / u_ilHeight);
 			if (u_ilStep < 0.)
 			{
 				RowX += 1.;

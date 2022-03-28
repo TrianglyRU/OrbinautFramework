@@ -20,10 +20,10 @@ function GameShadersStartup()
 	Shader.PrlActive    = shader_get_uniform(ShaderMain, "u_parallaxActive");
 	Shader.PrlPos       = shader_get_uniform(ShaderMain, "u_pos");
 	Shader.PrlWidth     = shader_get_uniform(ShaderMain, "u_width");
-	Shader.PrlYScale    = shader_get_uniform(ShaderMain, "u_yScale");
+	Shader.PrlHeight    = shader_get_uniform(ShaderMain, "u_height");
+	Shader.PrlScaleY    = shader_get_uniform(ShaderMain, "u_scaleY");
 	Shader.PrlOffset	= shader_get_uniform(ShaderMain, "u_offset");
 	Shader.PrlIncHeight = shader_get_uniform(ShaderMain, "u_ilHeight");
 	Shader.PrlIncStep   = shader_get_uniform(ShaderMain, "u_ilStep");
 	Shader.PrlMapSize   = shader_get_uniform(ShaderMain, "u_mapSize");
-	Shader.PrlOriginY   = shader_get_uniform(ShaderMain, "u_originY");
 }
