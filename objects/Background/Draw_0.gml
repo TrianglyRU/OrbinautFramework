@@ -67,6 +67,7 @@
 			shader_set_uniform_f(Shader.PrlIncStep,   InclineStep / ScrollX);
 			shader_set_uniform_f(Shader.PrlIncHeight, InclineHeight);
 			shader_set_uniform_f(Shader.PrlYScale,    YScale);
+			shader_set_uniform_f(Shader.PrlOriginY,   InclineStep < 0 ? NodeY + HeightY : NodeY);
 		}
 		shader_set_uniform_f(Shader.PrlOffset,  Camera.ViewX * ScrollX - AutoXOffset, ScreenBuffer);
 		shader_set_uniform_f(Shader.PrlPos,     DrawX, DrawY);

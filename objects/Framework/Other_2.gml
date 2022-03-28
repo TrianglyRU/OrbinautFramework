@@ -259,5 +259,6 @@
 		Shader.PrlIncHeight = shader_get_uniform(ShaderMain, "u_ilHeight");
 		Shader.PrlIncStep   = shader_get_uniform(ShaderMain, "u_ilStep");
 		Shader.PrlMapSize   = shader_get_uniform(ShaderMain, "u_mapSize");
+		Shader.PrlOriginY   = shader_get_uniform(ShaderMain, "u_originY");
 	}
 	#endregion

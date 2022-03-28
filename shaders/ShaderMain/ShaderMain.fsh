@@ -57,6 +57,7 @@
 	uniform float u_ilHeight;
 	uniform float u_ilStep;
 	uniform float u_mapSize;
+	uniform float u_originY;
 	
 	vec2  CurPos;
 	vec2  OutPos;
@@ -74,7 +75,8 @@
 		OutX   = u_offset.x;
 		if (u_ilHeight > 0.)
 		{
-			RowX = floor(CurPos.y / u_ilHeight / u_yScale);
+			RowX = abs(floor(CurPos.y / u_ilHeight / u_yScale - u_originY));
+			//RowX = floor(CurPos.y / u_ilHeight / u_yScale);
 			if (u_ilStep < 0.)
 			{
 				RowX += 1.;
