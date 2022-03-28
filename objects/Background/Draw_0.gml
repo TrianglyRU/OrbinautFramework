@@ -48,7 +48,7 @@
 		} 
 		else 
 		{
-			ScaleY = 1;
+			var ScaleY = 1;
 		}
 			
 		// Get a frame to display
@@ -64,14 +64,13 @@
 		// Set shader data
 		if ScaleXHeight != 0 
 		{
-			shader_set_uniform_f(Shader.PrlIncStep,   ScaleXStep / FactorX);
-			shader_set_uniform_f(Shader.PrlIncHeight, ScaleXHeight);
-			shader_set_uniform_f(Shader.PrlScaleY,    ScaleY);
-			
 			if ScaleXStep < 0
 			{
 				shader_set_uniform_f(Shader.PrlHeight, Height);
-			}
+			}	
+			shader_set_uniform_f(Shader.PrlIncStep,   ScaleXStep / FactorX);
+			shader_set_uniform_f(Shader.PrlIncHeight, ScaleXHeight);
+			shader_set_uniform_f(Shader.PrlScaleY,    ScaleY);
 		}
 		shader_set_uniform_f(Shader.PrlOffset,  Camera.ViewX * FactorX - AutoXOffset, ScreenBuffer);
 		shader_set_uniform_f(Shader.PrlPos,     DrawX, DrawY);
@@ -92,7 +91,7 @@
 		}
 		else 
 		{
-			if ScaleY
+			if ScaleYFlag
 			{
 				draw_sprite_part_ext(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), Height, DrawX, DrawY, 1, ScaleY, c_white, 1);
 			}
