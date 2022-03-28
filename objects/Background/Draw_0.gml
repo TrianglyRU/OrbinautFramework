@@ -12,7 +12,7 @@
 	}
 	var ScreenBuffer = global.ScreenBuffer;
 	
-	// Enable parallax
+	// Apply parallax
 	shader_set_uniform_i(Shader.PrlActive, true);
 	
 	for (var i = 0; i < BGData; i++)
@@ -98,6 +98,8 @@
 				draw_sprite_part(BGSprites[i], Frame, 0, NodeY, sprite_get_width(BGSprites[i]), HeightY, DrawX, DrawY);
 			}
 		}
+		
+		// Apply horizontal scale
 		if InclineHeight != 0
 		{
 			shader_set_uniform_f(Shader.PrlIncHeight, 0);
@@ -105,5 +107,5 @@
 		}
 	}
 	
-	// Disable parallax
+	// Stop parallax
 	shader_set_uniform_i(Shader.PrlActive, false);

@@ -227,7 +227,6 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"Chopper","path":"objects/Chopper/Chopper.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":968.0,"y":1040.0,"resourceVersion":"1.0","name":"inst_414C5B9E","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"SpikesVertical","path":"objects/SpikesVertical/SpikesVertical.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1280.0,"y":848.0,"resourceVersion":"1.0","name":"inst_2789EAD5","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"PlatformTSZ","path":"objects/PlatformTSZ/PlatformTSZ.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":112.0,"y":824.0,"resourceVersion":"1.0","name":"inst_AEDE6E7","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"ClearPanel","path":"objects/ClearPanel/ClearPanel.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1632.0,"y":840.0,"resourceVersion":"1.0","name":"inst_2014BE70","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"Player","path":"objects/Player/Player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":74.0,"y":944.0,"resourceVersion":"1.0","name":"inst_32287A06","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
@@ -320,7 +319,6 @@
     {"name":"inst_414C5B9E","path":"rooms/Stage_TSZ/Stage_TSZ.yy",},
     {"name":"inst_2789EAD5","path":"rooms/Stage_TSZ/Stage_TSZ.yy",},
     {"name":"inst_AEDE6E7","path":"rooms/Stage_TSZ/Stage_TSZ.yy",},
-    {"name":"inst_2014BE70","path":"rooms/Stage_TSZ/Stage_TSZ.yy",},
     {"name":"inst_32287A06","path":"rooms/Stage_TSZ/Stage_TSZ.yy",},
   ],
   "inheritCreationOrder": false,
