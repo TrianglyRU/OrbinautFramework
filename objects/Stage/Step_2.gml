@@ -204,40 +204,6 @@
 	}
 	#endregion
 	
-	#region Process Stage End
-	{
-		if IsFinished and fade_check(StateMax)
-		{
-			global.Score		   = Player.Score;
-			global.Lives		   = Player.Lives;
-			global.SpecialRingList = [];
-			global.StarPostData	   = [];
-	
-			if SaveProgress and global.ActiveSave != -1
-			{
-				if IsFinalStage
-				{
-					// Mark savefile as completed if this was the last stage
-					global.SaveState = 1;
-				}
-				else
-				{
-					global.ZoneID++;
-				}
-		
-				// Save our progress
-				savedata_save(global.ActiveSave);
-			}
-
-			// Load into the next stage
-			if NextStage != noone
-			{
-				room_goto(NextStage);
-			}
-		}
-	}
-	#endregion
-	
 	#region Process Objects
 	{
 		if UpdateObjects
@@ -346,5 +312,39 @@
 	
 		// Load objects (objects that were deactivated on this frame won't activate!)
 		instance_activate_range(Camera.ViewX);
+	}
+	#endregion
+	
+	#region Process Stage End
+	{
+		if IsFinished and fade_check(StateMax)
+		{
+			global.Score		   = Player.Score;
+			global.Lives		   = Player.Lives;
+			global.SpecialRingList = [];
+			global.StarPostData	   = [];
+	
+			if SaveProgress and global.ActiveSave != -1
+			{
+				if IsFinalStage
+				{
+					// Mark savefile as completed if this was the last stage
+					global.SaveState = 1;
+				}
+				else
+				{
+					global.ZoneID++;
+				}
+		
+				// Save our progress
+				savedata_save(global.ActiveSave);
+			}
+
+			// Load into the next stage
+			if NextStage != noone
+			{
+				room_goto(NextStage);
+			}
+		}
 	}
 	#endregion

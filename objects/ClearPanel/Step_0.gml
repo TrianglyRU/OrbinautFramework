@@ -84,13 +84,15 @@
 	}
 	
 	// Update stage boundaries
-	if floor(Player.PosX) > (x - global.Width * 1.5 + 64) + global.Width / 2
+	if Camera.ViewX > x - global.Width * 1.5 + 64
 	{
-		Stage.TargetLeftBoundary  = x - global.Width * 1.5 + 64;
-		Stage.TargetRightBoundary = x + global.Width / 2;
-		
-		if State > 0
+		if State
 		{
 			Stage.TargetLeftBoundary = x - (global.Width / 2);
+		}
+		else
+		{
+			Stage.TargetLeftBoundary  = x - global.Width * 1.5 + 64;
+			Stage.TargetRightBoundary = x + global.Width / 2;
 		}
 	}
