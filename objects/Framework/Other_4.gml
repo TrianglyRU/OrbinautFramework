@@ -3,6 +3,11 @@
 	
 	#region Collision Setup
 	{
+		/* Default Tileset: 250 tiles
+		   S1 Tileset: 247 tiles
+	       S2 Tileset: 220 tiles
+		   S3 Tileset: 247 tiles */
+		
 		switch room
 		{
 			case Stage_TSZ:
