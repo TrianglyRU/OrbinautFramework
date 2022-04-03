@@ -16,7 +16,7 @@
 			{
 				ZoneName         = "MOONLIGHT QUADRANT";
 				ActID            = 0;
-				WaterLevel       = 1664 //1384;
+				WaterLevel       = 1384;
 				WaterEnabled     = true;
 				StageMusic       = TestValley;
 				AnimatedGraphics = [tex_tsz_anitile, 6];
