@@ -72,6 +72,7 @@ function PlayerJump()
 				{
 					if global.DSpinAttackEnabled and DoubleSpinAttack == SpinReady
 					{
+						AirLock			 = false;
 						DoubleSpinAttack = SpinActive;
 						
 						instance_create(PosX, PosY, DoubleSpinShield);
