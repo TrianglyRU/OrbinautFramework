@@ -44,6 +44,7 @@
 		}
 	
 		/// @function menu_get_keyname(UTF8value)
+		/*
 		function menu_get_keyname(UTF8value)
 		{
 			switch UTF8value 
@@ -144,6 +145,7 @@
 				default:  return "UNDEF";
 			}
 		}
+		*/
 	}
 	#endregion
 	

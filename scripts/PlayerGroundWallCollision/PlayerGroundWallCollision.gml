@@ -15,19 +15,19 @@ function PlayerGroundWallCollision()
 	// Get current angle quadrant (walls are in priority, comparing to default ground collision)
 	if Angle <= 43.59 or Angle >= 316.41			
 	{
-		var WallMode = 0;
+		WallMode = 0;
 	}
 	else if Angle >= 45 and Angle <= 135	
 	{
-		var WallMode = 1;
+		WallMode = 1;
 	}
 	else if Angle >= 136.41 and Angle <= 223.59
 	{
-		var WallMode = 2;
+		WallMode = 2;
 	}
 	else if Angle >= 225 and Angle <= 315	
 	{
-		var WallMode = 3;
+		WallMode = 3;
 	}
 	
 	// Lower wall sensors by 8 pixels on a flat floor

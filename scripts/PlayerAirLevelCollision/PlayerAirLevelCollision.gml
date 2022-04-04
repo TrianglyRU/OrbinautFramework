@@ -155,7 +155,7 @@ function PlayerAirLevelCollision()
 					{
 						PosY	+= FindFloor[0];
 						Angle    = FindFloor[1];
-						Gsp  = Xsp;
+						Gsp		 = Xsp;
 						Ysp      = 0;
 						Grounded = true;
 					}
@@ -197,7 +197,7 @@ function PlayerAirLevelCollision()
 					{
 						PosY	+= FindFloor[0];
 						Angle    = FindFloor[1];
-						Gsp  = Xsp
+						Gsp		 = Xsp
 						Ysp      = 0;
 						Grounded = true;
 					}
@@ -207,7 +207,7 @@ function PlayerAirLevelCollision()
 		break;
 	}
 	
-	// If landed, update our custom collision mode
+	// If landed, update floor mode if using custom method
 	if global.BetterPlayerTileGrip and Grounded
 	{
 		if Angle <= 45 or Angle >= 315
@@ -227,7 +227,7 @@ function PlayerAirLevelCollision()
 			FloorMode[0] = 3;
 		}
 		
-		// This will disable mode check for one frame, allowing us to land on the ceilings safely
+		// This will disable floor mode check for one frame, allowing us to land on the ceilings safely
 		FloorMode[1] = true;
 	}
 }
