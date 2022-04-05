@@ -26,14 +26,14 @@
 		#macro AudioPrimary   -1
 		#macro AudioSecondary -2
 	
-		// Palette macro
+		// Palette macro. If you decide to change PalLimit, do the same with the value in ShaderMain.sfh
 		#macro PalLimit	    64
 		#macro PalPrimary	0
 		#macro PalSecondary 1
 	
 		// Fade macro
-		#macro StateActive 0
-		#macro StateMax    1
+		#macro StateActive 1
+		#macro StateMax    2
 		#macro ModeInto    0
 		#macro ModeFrom    1
 		#macro BlendBlack  0
@@ -235,9 +235,9 @@
 	#region Shaders Startup
 	{
 		// Setup fade module
-		Shader.PalStep       = shader_get_uniform(ShaderFade, "u_step");
-		Shader.PalMode       = shader_get_uniform(ShaderFade, "u_mode");
-		Shader.PalColour     = shader_get_uniform(ShaderFade, "u_colour");
+		Shader.PalFadeValue  = shader_get_uniform(ShaderFade, "u_step");
+		Shader.PalFadeMode   = shader_get_uniform(ShaderFade, "u_mode");
+		Shader.PalFadeColour = shader_get_uniform(ShaderFade, "u_colour");
 	
 		// Setup palette module
 		Shader.PalBoundary   = shader_get_uniform(ShaderMain,	    "u_bound");

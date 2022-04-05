@@ -36,14 +36,28 @@
 	
 	#region Process Fade
 	{
-		// Update fade
-		if FadeMode and FadeStep < 756
+		// Update flag
+		if FadeValue == 0
 		{
-			FadeStep = min(FadeStep + FadeSpeed, 756);
+			FadeFlag = StateMax;
 		}
-		else if !FadeMode and FadeStep > 0
+		else if FadeValue < 756
 		{
-			FadeStep = max(FadeStep - FadeSpeed, 0);
+			FadeFlag = StateActive;
+		}
+		else
+		{
+			FadeFlag = false;
+		}
+		
+		// Update value
+		if FadeMode and FadeValue < 756
+		{
+			FadeValue = min(FadeValue + FadeSpeed, 756);
+		}
+		else if !FadeMode and FadeValue > 0
+		{
+			FadeValue = max(FadeValue - FadeSpeed, 0);
 		}
 	}
 	#endregion

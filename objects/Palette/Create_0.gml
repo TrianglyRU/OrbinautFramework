@@ -7,10 +7,11 @@
 		Duration     = [];
 		SwapTime     = [];
 		Sequence     = [];
-		FadeStep     = 756;
+		FadeValue    = 756;
 		FadeMode     = 1;
 		FadeBlend    = 0;
 		FadeSpeed    = 0;
+		FadeFlag     = false;
 		depth		 = 10000; // This is used to perform Draw event earlier than Background Draw event
 	
 		// Initialise palette animation storage

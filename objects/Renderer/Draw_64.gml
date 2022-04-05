@@ -9,9 +9,9 @@
 	{
 		shader_set(ShaderFade);
 		{
-			shader_set_uniform_f(Shader.PalStep,   Palette.FadeBlend == BlendFlash ? Palette.FadeStep div 3 : Palette.FadeStep);
-			shader_set_uniform_i(Shader.PalColour, Palette.FadeBlend);
-			shader_set_uniform_i(Shader.PalMode,   Palette.FadeMode);
+			shader_set_uniform_f(Shader.PalFadeValue,  Palette.FadeBlend == BlendFlash ? Palette.FadeValue div 3 : Palette.FadeValue);
+			shader_set_uniform_i(Shader.PalFadeColour, Palette.FadeBlend);
+			shader_set_uniform_i(Shader.PalFadeMode,   Palette.FadeMode);
 			
 			draw_surface(SurfaceLow, -global.ScreenBuffer, 0);
 		}
