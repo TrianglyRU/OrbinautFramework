@@ -13,7 +13,7 @@
 	switch room 
 	{
 		case Stage_TSZ:
-			TopString = "Wireframe Valley";
+			TopString = "Moonlight Quadrant";
 		break;
 		case SStage_Template:
 		case Screen_SStage:

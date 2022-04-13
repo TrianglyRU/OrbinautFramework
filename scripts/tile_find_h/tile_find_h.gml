@@ -30,7 +30,7 @@ function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
 	var TileWidth = tile_get_width(y, Tile, TileIndex);
 	
 	// If no width found, get a tile away from the player
-	if !TileWidth
+	if !TileWidth or noTopSolid and TileIndex > global.TileData[1]
 	{
 		Shift		= 16;
 		Tile        = tilemap_get(Layer, (x + Shift * Direction) div 16, y div 16);
@@ -45,9 +45,9 @@ function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
 		Tile        = tilemap_get(Layer, (x + Shift * Direction) div 16, y div 16);
 		TileIndex   = tile_get_index(Tile);
 		TileWidth   = tile_get_width(y, Tile, TileIndex);
-		
+
 		// If no width found, revert back to the previous tile	
-		if !TileWidth
+		if !TileWidth or noTopSolid and TileIndex > global.TileData[1]
 		{
 			Shift		= 0;
 			Tile        = tilemap_get(Layer, x div 16, y div 16);
@@ -56,7 +56,7 @@ function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
 		}
 	}
 	
-	// Exit if tile is top-only and we're ignoring them
+	// If final tile is top-only-solid and we're ignoring them, ignore it!
 	if noTopSolid and TileIndex > global.TileData[1]
 	{
 		return [32, noone];

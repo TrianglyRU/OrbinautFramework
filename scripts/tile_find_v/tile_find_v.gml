@@ -30,7 +30,7 @@ function tile_find_v(x,y,toPositive,noTopSolid,tilelayer)
 	var TileHeight = tile_get_height(x, Tile, TileIndex);
 	
 	// If no height found, get a tile away from the player
-	if !TileHeight
+	if !TileHeight or noTopSolid and TileIndex > global.TileData[1]
 	{
 		Shift		= 16;
 		Tile	    = tilemap_get(Layer, x div 16, (y + Shift * Direction) div 16);
@@ -47,7 +47,7 @@ function tile_find_v(x,y,toPositive,noTopSolid,tilelayer)
 		TileHeight  = tile_get_height(x, Tile, TileIndex);
 		
 		// If no height found, revert back to the previous tile	
-		if !TileHeight
+		if !TileHeight or noTopSolid and TileIndex > global.TileData[1]
 		{
 			Shift		= 0;
 			Tile        = tilemap_get(Layer, x div 16, y div 16);
@@ -56,7 +56,7 @@ function tile_find_v(x,y,toPositive,noTopSolid,tilelayer)
 		}
 	}
 	
-	// Exit if tile is top-only and we're ignoring them or it is below the room
+	// If final tile is top-only-solid and we're ignoring them or it is outside the room, ignore it!
 	if noTopSolid and TileIndex > global.TileData[1] or (y + Shift * Direction) & -16 >= room_height
 	{
 		return [32, noone];
