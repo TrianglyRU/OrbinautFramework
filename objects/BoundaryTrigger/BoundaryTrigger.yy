@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_trigger",
-    "path": "sprites/spr_trigger/spr_trigger.yy",
+    "name": "spr_trigger_bound",
+    "path": "sprites/spr_trigger_bound/spr_trigger_bound.yy",
   },
   "solid": false,
   "visible": false,

@@ -34,5 +34,5 @@
 	AngleOffset += 11.25 * Player.Facing;
  
 	// Rotate
-	x = Player.RecordedPosX[| Delay] + dsin(Angle) * 16;
-	y = Player.RecordedPosY[| Delay] + dcos(Angle) * 16;
+	x = round(Player.RecordedPosX[| Delay] + dsin(Angle) * 16);
+	y = round(Player.RecordedPosY[| Delay] + dcos(Angle) * 16);

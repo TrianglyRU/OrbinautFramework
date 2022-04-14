@@ -5,4 +5,4 @@
 	event_inherited();
 	
 	// Setup this object
-	object_set_solidbox(40, 11, false);
+	object_set_solidbox(32, 10, false);
