@@ -11,14 +11,14 @@
 	
 		switch room 
 		{	
-			// Wireframe Valley
+			// Twilight Garden
 			case Stage_TSZ:
 			{
-				ZoneName         = "MOONLIGHT QUADRANT";
+				ZoneName         = "TWILIGHT STATION";
 				ActID            = 0;
 				WaterLevel       = 1384;
 				WaterEnabled     = true;
-				StageMusic       = TestValley;
+				StageMusic       = TestStage;
 				AnimatedGraphics = [tex_tsz_anitile, 6];
 				AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
 				BottomBoundary   = room_height;

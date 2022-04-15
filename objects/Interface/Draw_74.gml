@@ -516,7 +516,7 @@
 						// Move zone name
 						if CardValue[0] > 24
 						{
-							CardValue[7] = max(global.Width - 48, CardValue[7] - 24);
+							CardValue[7] = max(global.Width - 32, CardValue[7] - 24);
 						}
 					}
 				}
@@ -600,7 +600,7 @@
 			// Draw assets
 			draw_sprite(gui_card_act, Stage.ActID, CardValue[6], global.Height / 2 + 4);	
 			draw_sprite(gui_card_ribbon, 0, floor(CardValue[3]), floor(CardValue[2]));
-			draw_sprite_ext(gui_card_logo, 0, floor(CardValue[4]), global.Height - 24, CardValue[5], CardValue[5], 0, c_white, 1);
+			draw_sprite_ext(gui_card_logo2, 0, floor(CardValue[4]), global.Height - 24, CardValue[5], CardValue[5], 0, c_white, 1);
 		
 			// Draw zone name
 			draw_set_halign(fa_right);

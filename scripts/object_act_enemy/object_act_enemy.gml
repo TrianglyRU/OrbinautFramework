@@ -1,4 +1,4 @@
-/// @function object_act_enemy(Enemy?)
+/// @function object_act_enemy(enemyType)
 function object_act_enemy(enemyType)
 {
 	if !object_check_touch(ColHitbox2)

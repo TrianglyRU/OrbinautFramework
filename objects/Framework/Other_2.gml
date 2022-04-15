@@ -114,7 +114,7 @@
 		global.WindowTitle     = "Orbinaut Framework";
 		global.StartRoom	   = Screen_DevMenu;
 		global.DevMode         = true;
-		global.ShowSplash      = false;
+		global.ShowSplash      = true;
 		global.Width           = 400;
 		global.Height		   = 224;
 		global.ScreenBuffer    = 8;
@@ -182,7 +182,7 @@
 	{
 		Font.FontDefault = font_add_sprite_ext(font_default, "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*.:!-+", false, 0);
 		Font.FontMenu    = font_add_sprite_ext(font_menu, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:-></", false, 1);
-		Font.FontCard    = font_add_sprite_ext(font_card, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", true, 1);
+		Font.FontCard    = font_add_sprite_ext(font_card2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", true, 1);
 		Font.FontDigits1 = font_add_sprite_ext(font_counter, "0123456789:';", false, 1);
 		Font.FontDigits2 = font_add_sprite_ext(font_counter_small, "0123456789", false, 1);
 	}
