@@ -6,7 +6,17 @@
 		switch room
 		{
 			case Stage_TSZ:
-				palette_upd_colour(PalPrimary, 11, 4, 1, 8);
+			{
+				// Update colour
+				palette_upd_colour(PalPrimary, 11, 8, 1, 4);
+				
+				// Sync others
+				var Colour = palette_get_colour(PalPrimary, 11);
+				{
+					palette_set_colour(PalSecondary, 18, Colour); 
+					palette_set_colour_range(PalPrimary, 12, 18, Colour);
+				}
+			}
 			break;
 		}
 	}

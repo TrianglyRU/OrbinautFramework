@@ -1,6 +1,7 @@
 /// @function object_act_enemy(enemyType)
 function object_act_enemy(enemyType)
 {
+	// Check for overlap with the player (ColHitbox2 -- we're taking Double Spin Attack into account)
 	if !object_check_touch(ColHitbox2)
 	{
 		return false;
@@ -46,7 +47,7 @@ function object_act_enemy(enemyType)
 				instance_create(x, y, Animal);
 				instance_create(x, y, DustExplosion);
 			
-				// Destroy children
+				// Destroy subobjects
 				var Length = array_length(Obj_SubObjectIDs);
 				if  Length
 				{
@@ -60,7 +61,8 @@ function object_act_enemy(enemyType)
 				}
 			
 				// Destroy badnik and play sound
-				audio_sfx_play(sfxDestroy, false); instance_destroy();
+				audio_sfx_play(sfxDestroy, false); 
+				instance_destroy();
 			}
 			break;
 			case EnemyBoss:

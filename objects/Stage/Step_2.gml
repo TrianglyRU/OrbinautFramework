@@ -227,6 +227,7 @@
 							var Length = array_length(Obj_SubObjectIDs);
 							if  Length
 							{
+								// Destroy subobjects
 								for (var i = 0; i < Length; i++)
 								{				
 									instance_destroy(Obj_SubObjectIDs[i]);
@@ -269,6 +270,7 @@
 								var Length = array_length(Obj_SubObjectIDs);
 								if  Length
 								{
+									// Destroy subobjects
 									for (var i = 0; i < Length; i++)
 									{
 										instance_destroy(Obj_SubObjectIDs[i]);
@@ -292,7 +294,7 @@
 								// Perform create event to re-initialise variables
 								event_perform(ev_create, 0);
 							
-								// Deactivate object and its children
+								// Deactivate object and its subobjects
 								var Length = array_length(Obj_SubObjectIDs);
 								if  Length
 								{

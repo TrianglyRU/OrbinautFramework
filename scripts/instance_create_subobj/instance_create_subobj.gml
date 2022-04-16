@@ -8,9 +8,10 @@ function instance_create_subobj(x,y,obj)
 		instance_initialise();
 	}
 	
-	// If this function is called in the create event, global instance_initialise() won't work for that frame
 	if event_type == ev_create and !variable_instance_exists(id, "Obj_SubObjectIDs")
 	{
+		/* If this function is called in the create event, global instance_initialise() 
+		won't work for that frame, so we're initialising the array manually */
 		Obj_SubObjectIDs = [];
 	}
 	array_push(Obj_SubObjectIDs, NewObject);

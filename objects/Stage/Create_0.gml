@@ -11,7 +11,7 @@
 	
 		switch room 
 		{	
-			// Twilight Garden
+			// Twilight Station
 			case Stage_TSZ:
 			{
 				ZoneName         = "TWILIGHT STATION";
@@ -37,8 +37,8 @@
 				WaterLevel	     = 0;
 				WaterEnabled     = false;
 				StageMusic       = noone;
-				AnimatedGraphics = noone;		// Array: [sprite1, sprite1_duration, sprite2, sprite2_duration...]	
-				AnimalSet	     = noone;		// Array: [animal_sprite1, animal_sprite2...]
+				AnimatedGraphics = noone;		// Array: [sprite1, sprite1 duration, sprite2, sprite2 duration...]	
+				AnimalSet	     = noone;		// Array: [animalsprite1, animalsprite2...]
 				BottomBoundary	 = room_height;
 			
 				SaveProgress = false;

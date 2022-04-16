@@ -1,3 +1,4 @@
+/// @function instance_initialise()
 function instance_initialise()
 {
 	if !variable_instance_exists(id, "Obj_AnimDuration")
