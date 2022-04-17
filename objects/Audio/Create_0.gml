@@ -32,7 +32,7 @@
 	
 	#region Setup
 	{
-		/* The game will refer to data stored here to loop the tracks. 
+		/* The game will refer to data stored here to loop music tracks. 
 		If no data set here for the track, it won't be looped */
 	
 		audio_bgm_setloop(TestStage,	 16.74, 87.66);
@@ -46,7 +46,7 @@
 		/* The game will refer to data stored here to play an additional channel. 
 		If no data set here for the track, nothing will happen. You are not forced to do this */
 
-		audio_bgm_add_channel(TestStage,    TestStage_DAC);
+		audio_bgm_add_channel(TestStage,     TestStage_DAC);
 		audio_bgm_add_channel(HighSpeed,     HighSpeed_DAC);
 		audio_bgm_add_channel(Invincibility, Invincibility_DAC);
 		audio_bgm_add_channel(ExtraLife,     ExtraLife_DAC);

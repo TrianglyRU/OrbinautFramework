@@ -60,7 +60,7 @@ function PlayerResetOnFloor()
 		audio_sfx_stop(sfxTired);
 	
 		// Update visual angle if floor is steep enough
-		if global.SmoothRotation and Angle > 33.75 and Angle < 326.25
+		if global.SmoothRotation and Angle >= 35.16 and Angle <= 324.84
 		{
 			VisualAngle = Angle;
 		}

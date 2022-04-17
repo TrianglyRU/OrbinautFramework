@@ -146,7 +146,7 @@
 		// Orbinaut improvements
 		global.SmoothRotation	    = true;
 		global.RichPresenceSupport  = true;
-		global.BetterPlayerTileGrip = false;
+		global.BetterPlayerTileGrip = true;
 		global.PreciseRingBehaviour = false;
 		global.FixRollJump		    = false;
 		global.FixDashRelease		= true;

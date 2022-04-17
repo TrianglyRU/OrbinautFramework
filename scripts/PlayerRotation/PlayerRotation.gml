@@ -14,8 +14,7 @@ function PlayerRotation()
 				/* Smooth rotation code by Nihil (NullSpace)
 				Used with permission! */
 				
-				// We use Mania angle range for smooth rotation
-				if Angle > 33.75 and Angle < 326.25
+				if Angle >= 35.16 and Angle <= 324.84
 				{
 					var TargetAngle  = Angle;
 					var RotationStep = (abs(Gsp) / 16 + abs(Gsp) / 32 - 2) * -1
@@ -46,7 +45,7 @@ function PlayerRotation()
 		}
 	
 		// Apply regular classic-like rotation
-		else if Angle > 22.5 and Angle < 338.91
+		else if Angle >= 23.91 and Angle <= 337.5
 		{	
 			VisualAngle = ceil((Angle - 22.5) / 45) * 45;
 		}

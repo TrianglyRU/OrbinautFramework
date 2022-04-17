@@ -37,30 +37,30 @@
 	{
 		if !Player.Grounded
 		{
-			// Get motion angle if airborne
+			// Get motion angle
 			if Player.Facing == FlipRight
 			{
-				Angle = point_direction(Player.PosX, Player.PosY, Player.PosX + Player.Xsp, Player.PosY + Player.Ysp);
+				var Angle = point_direction(Player.PosX, Player.PosY, Player.PosX + Player.Xsp, Player.PosY + Player.Ysp);
 			}
 			else if Player.Facing == FlipLeft
 			{
-				Angle = point_direction(Player.PosX + Player.Xsp, Player.PosY + Player.Ysp, Player.PosX, Player.PosY);
+				var Angle = point_direction(Player.PosX + Player.Xsp, Player.PosY + Player.Ysp, Player.PosX, Player.PosY);
 			}
 			
+			// Apply it
 			if !global.SmoothRotation
 			{
-				
 				VisualAngle = ceil((Angle - 22.5) / 45) * 45;
 			}
 			else
 			{
-				// Apply motion angle
 				VisualAngle = Angle;
 			}
 		}
 		else
 		{	
-			Angle = Player.Angle;
+			// Get floor angle
+			var Angle = Player.Angle;
 			
 			// Apply regular classic-like rotation
 			if !global.SmoothRotation
@@ -74,7 +74,7 @@
 				/* Smooth rotation code by Nihil (NullSpace)
 				Used with permission! */
 				
-				if Angle >= 33.75 and Angle <= 326.25
+				if Angle >= 35.16 and Angle <= 324.84
 				{
 					var TargetAngle  = Angle;
 					var RotationStep = (abs(Player.Gsp) / 16 + abs(Player.Gsp) / 32 - 2) * -1
