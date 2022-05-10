@@ -1,5 +1,11 @@
 function PlayerMovementAir()
-{	
+{
+	// Lock control while performing Knuckles' actions unless we're falling from a glide
+	if ClimbState or GlideState and GlideState != GlideFall
+	{
+		return;
+	}
+	
 	// Rotate angle back to 360 degrees
 	if Angle < 180
 	{
@@ -10,19 +16,12 @@ function PlayerMovementAir()
 		Angle = min(Angle + 2.8125, 360);
 	}
 	
-	// Limit negative vertical speed if not jumping
+	// Limit vertical speed if not jumping
 	if Ysp < -15.75 and !Jumping
 	{
 		Ysp = -15.75;
 	}
 	
-	// Exit if gliding or climbing
-	if GlideState > GlideFall or ClimbState
-	{
-		exit;
-	}
-	
-	// Handle air movement
 	if !AirLock
 	{
 		if Input.Left
@@ -34,7 +33,7 @@ function PlayerMovementAir()
 			} 
 			
 			// Accelerate
-			else if !Game.AirSpeedcap and Xsp > -TopAcc or Game.AirSpeedcap
+			else if global.AirSpeedcap or Xsp > -TopAcc
 			{
 				Xsp -= AirAcc;
 				if Xsp <= -TopAcc
@@ -53,7 +52,7 @@ function PlayerMovementAir()
 			} 
 			
 			// Accelerate
-			else if (!Game.AirSpeedcap and Xsp < TopAcc) or Game.AirSpeedcap
+			else if global.AirSpeedcap or Xsp < TopAcc
 			{
 				Xsp += AirAcc;
 				if Xsp >= TopAcc
@@ -68,6 +67,6 @@ function PlayerMovementAir()
 	// Apply air drag
 	if Ysp < 0 and Ysp > -4 and !Hurt
 	{
-		Xsp -= floor(Xsp/0.125) / 256;
+		Xsp -= floor(Xsp / 0.125) / 256;
 	}
 }

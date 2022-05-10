@@ -1,17 +1,14 @@
-/// @function audio_bgm_is_playing(channelType|soundid)
+/// @function audio_bgm_is_playing(audioType|soundid)
 function audio_bgm_is_playing(check)
 {
-	// Check if specific track or something on the channel is playing
 	switch check
 	{
-		case ChannelPrimary:
+		case AudioPrimary:
 			return Audio.PrimaryTrack[1];
 		break;
-		case ChannelSecondary:
+		case AudioSecondary:
 			return Audio.SecondaryTrack[1];
 		break;
-		default:
-			return audio_is_playing(check);
-		break;
 	}
+	return audio_is_playing(check);
 }

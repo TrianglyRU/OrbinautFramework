@@ -1,14 +1,14 @@
 /// @function animation_set(spriteid,frame)
 function animation_set(spriteid,frame)
 {	
-	// Update or set animation
+	// Update or set animation for the instance
 	if sprite_index != spriteid or event_type == ev_create
 	{
-		image_loopframe = frame;
-		image_timer     = 0;
-		image_speed     = 0;
-		sprite_index    = spriteid;
+		Obj_AnimLoopframe = frame;
+		Obj_AnimTimer     = 0;
+		image_speed       = 0;
+		sprite_index      = spriteid;
 	}
-	image_duration = 0;
-	image_index	   = frame;
+	Obj_AnimDuration = 0;
+	image_index	     = frame;
 }

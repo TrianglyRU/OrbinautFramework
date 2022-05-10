@@ -87,7 +87,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_supersonic_balance","path":"sprites/spr_supersonic_balance/spr_supersonic_balance.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_supersonic_balance",
     "tags": [],
     "resourceType": "GMSequence",

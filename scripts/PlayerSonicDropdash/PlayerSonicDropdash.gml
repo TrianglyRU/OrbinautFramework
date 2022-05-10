@@ -1,9 +1,8 @@
 function PlayerSonicDropdash()
 {
-	// Exit if dropdash isn't ready to be charged
 	if DropdashFlag != DashActive
 	{
-		exit;
+		return;
 	}
 	
 	// Define our dropdash direction by checking towards witch side we're moving and facing

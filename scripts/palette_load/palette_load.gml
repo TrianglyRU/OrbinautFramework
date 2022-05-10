@@ -1,5 +1,5 @@
-/// @function palette_load(paletteType,list)
-function palette_load(paletteType,list)
+/// @function palette_load(palType,list)
+function palette_load(palType,list)
 {
 	if object_index != Palette
 	{
@@ -10,8 +10,8 @@ function palette_load(paletteType,list)
 		// Do not load palette list if not given
 		if !sprite_exists(list)
 		{
-			ColourSet[paletteType] = false;
-			exit;
+			ColourSet[palType] = false;
+			return;
 		}
 	
 		// Do texture and texel initialisation
@@ -20,7 +20,7 @@ function palette_load(paletteType,list)
 		var texel_x	= texture_get_texel_width(tex);
 		var texel_y = texture_get_texel_height(tex);
 	
-		// Load the data into palette slot
-		ColourSet[paletteType] = [tex, texel_x, texel_y, UVs[0] + texel_x / 2, UVs[1] + texel_y / 2, UVs[3]];
+		// Load data into the palette slot
+		ColourSet[palType] = [tex, texel_x, texel_y, UVs[0] + texel_x / 2, UVs[1] + texel_y / 2, UVs[3]];
 	}
 }

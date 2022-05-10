@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "HighSpeed.ogg",
-  "duration": 36.06202,
+  "duration": 28.69,
   "parent": {
     "name": "BGM",
     "path": "folders/Audio/BGM.yy",

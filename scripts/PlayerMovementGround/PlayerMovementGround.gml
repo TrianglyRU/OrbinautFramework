@@ -1,28 +1,21 @@
 function PlayerMovementGround()
 {	
-	// Initialise static variable
-	static SkidTime = 0;
-	
-	// Exit if charging a spindash or peelout
 	if SpindashRev != -1 or PeeloutRev != -1
 	{
-		exit;
+		return;
 	}
 	
-	// Perform movement
 	if !GroundLock 
 	{
-		// Move left
 		if Input.Left
 		{	
 			// Decelerate
-			if Inertia > 0 
+			if Gsp > 0 
 			{
-				// Decelerate
-				Inertia -= Dec;
-				if Inertia <= 0
+				Gsp -= Dec;
+				if Gsp <= 0
 				{
-					Inertia = -0.5;	
+					Gsp = -0.5;
 				}
 			} 
 			
@@ -33,24 +26,24 @@ function PlayerMovementGround()
 				{
 					Facing  = FlipLeft;
 					Pushing = false;
+					
+					animation_reset(0);
 				}
-				if !Game.GroundSpeedcap and Inertia > -TopAcc or Game.GroundSpeedcap
+				if global.GroundSpeedcap or Gsp > -TopAcc
 				{
-					Inertia = max(Inertia - Acc, -TopAcc);
+					Gsp = max(Gsp - Acc, -TopAcc);
 				} 
 			}
 		}
-		
-		// Move right
 		else if Input.Right
 		{			
 			// Decelerate
-			if Inertia < 0 
+			if Gsp < 0 
 			{
-				Inertia += Dec;
-				if Inertia >= 0
+				Gsp += Dec;
+				if Gsp >= 0
 				{
-					Inertia = 0.5;
+					Gsp = 0.5;
 				}
 			} 
 			
@@ -61,10 +54,12 @@ function PlayerMovementGround()
 				{
 					Facing  = FlipRight;
 					Pushing = false;
+					
+					animation_reset(0);
 				}
-				if !Game.GroundSpeedcap and Inertia < TopAcc or Game.GroundSpeedcap
+				if global.GroundSpeedcap or Gsp < TopAcc
 				{
-					Inertia = min(Inertia + Acc, TopAcc);
+					Gsp = min(Gsp + Acc, TopAcc);
 				} 
 			}
 		}
@@ -72,22 +67,11 @@ function PlayerMovementGround()
 		// Perform skid. Angle check here is different in comparison to collision mode checks
 		if (Angle <= 45 or Angle >= 316.41) and Animation != AnimSkid
 		{
-			if Input.Left and Inertia >= 4 or Input.Right and Inertia <= -4
+			if Input.Left and Gsp >= 4 or Input.Right and Gsp <= -4
 			{
-				if Game.Character != CharKnuckles
-				{
-					SkidTime = 32;
-				}
-				else
-				{
-					SkidTime = 16;
-				}
 				Animation = AnimSkid;
 						
-				// Play sound
 				audio_sfx_play(sfxSkid, false);
-						
-				// Create dust object
 				instance_create(PosX, PosY + RadiusY, DustPuff);
 			}
 		}
@@ -96,24 +80,22 @@ function PlayerMovementGround()
 	// Apply friction
 	if !Input.Left and !Input.Right
 	{
-		if Inertia > 0
+		if Gsp > 0
 		{
-			Inertia = max(Inertia - Frc, 0);
+			Gsp = max(Gsp - Frc, 0);
 		}
 		else
 		{
-			Inertia = min(Inertia + Frc, 0);
+			Gsp = min(Gsp + Frc, 0);
 		}
-		
-		// Clear push flag
 		Pushing = false;
 	}
 
-	// Convert inertia to speed
-	Xsp = Inertia *  dcos(Angle);
-	Ysp = Inertia * -dsin(Angle);
+	// Convert ground inertia to speed
+	Xsp = Gsp *  dcos(Angle);
+	Ysp = Gsp * -dsin(Angle);
 	
-	// Define which animations should be priority over Idle animation
+	// Define which animations should be in priority over the idle animation
 	switch Animation
 	{
 		case AnimDropStand:
@@ -122,17 +104,14 @@ function PlayerMovementGround()
 		break;
 		default:
 			var AnimationPriority = false;
-		break;
 	}
 	
-	// If pushing, set push animation
+	// Set animation
 	if Pushing
 	{
 		Animation = AnimPush;
 	}
-	
-	// Check which animation we should use when standing still
-	else if Inertia == 0
+	else if Gsp == 0
 	{
 		// Same unsymmetrical angle check, just like above...
 		if (Angle <= 45 or Angle >= 316.41) and !AnimationPriority
@@ -151,34 +130,15 @@ function PlayerMovementGround()
 			}
 		}
 	}
-	
-	// Check which animation we should use when moving
 	else
 	{
-		// If not skidding, use movement animation
 		if Animation != AnimSkid
 		{
 			Animation = AnimMove;
 		}
-		else 
+		else if Gsp > 0 and Input.Right or Gsp < 0 and Input.Left
 		{
-			// Cancel skid animation by pressing movement button
-			if Inertia > 0 and Input.Right or Inertia < 0 and Input.Left
-			{
-				Animation = AnimMove;
-			}
-				
-			// Reset skid timer to keep skidding
-			else if Inertia > 0 and Input.Left or Inertia < 0 and Input.Right
-			{
-				SkidTime = Game.Character != CharKnuckles ? 16 : 32;
-			}
-				
-			// Cancel skid animation automatically
-			if !(SkidTime--)
-			{
-				Animation = AnimMove;
-			}
+			Animation = AnimMove;
 		}
 	}
 }

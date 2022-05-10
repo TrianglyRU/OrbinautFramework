@@ -1,9 +1,8 @@
 function PlayerSpindash()
 {
-	// Exit if spindash is disableds
-	if !Game.SpindashEnabled
+	if !global.SpindashEnabled
 	{
-		exit;
+		return;
 	}
 	
 	// Start spindash
@@ -14,57 +13,53 @@ function PlayerSpindash()
 			SpindashRev = 0;
 			Xsp			= 0;
 			
-			// Play sound
-			audio_sfx_play(sfxCharge, false);
-			
-			// Create dust effect
 			instance_create(PosX, PosY + RadiusY, SpindashDust);
+			audio_sfx_play(sfxCharge, false);
 		}
 	}
 	
 	// Charge spindash
 	else if Input.Down
 	{
-		// Reduce force
-		SpindashRev -= floor(SpindashRev / 0.125) / 256;
-		
-		// Increase force
 		if Input.ABCPress
 		{
 			SpindashRev = min(SpindashRev + 2, 8);
-			audio_sfx_play(sfxCharge, false);
 			
-			// Reset animation
 			animation_reset(0);
+			audio_sfx_play(sfxCharge, false);
+		}
+		else
+		{
+			SpindashRev -= floor(SpindashRev / 0.125) / 256;
 		}
 	}
 	
 	// Release spindash
 	else
 	{
-		// Calculate minimum release speed
-		var MinimumSpd = !SuperState ? 8 : 11;
-
-		// Launch player
-		Inertia	    = (MinimumSpd + round(SpindashRev) / 2) * Facing;
+		if !global.CDCamera
+		{
+			Camera.ScrollDelay = 16;
+		}
+		
+		Gsp	        = ((SuperState ? 11 : 8) + round(SpindashRev) / 2) * Facing;
 		Spinning    = true;
 		SpindashRev = -1;
 		Animation   = AnimSpin;
 			
-		// Freeze the screen for 16 frames
-		if !Game.CDCamera
-		{
-			Camera.ScrollDelay = 16;
-		}
-			
-		// Update collision radiuses
 		RadiusX	= SmallRadiusX;
 		RadiusY	= SmallRadiusY;
 		PosY   += DefaultRadiusY - SmallRadiusY;
 		
-		// Play sound
 		audio_sfx_stop(sfxCharge);
 		audio_sfx_play(sfxRelease, false);
+		
+		// Convert Gsp to speed. Originals don't do this, so you could jump straight upwards there!
+		if global.FixDashRelease
+		{
+			Xsp = Gsp *  dcos(Angle);
+			Ysp = Gsp * -dsin(Angle);
+		}
 	}
 	
 	// Apply spindash animation
@@ -73,6 +68,5 @@ function PlayerSpindash()
 		Animation = AnimSpindash;
 	}
 	
-	// Return spindash result
 	return Spinning;
 }

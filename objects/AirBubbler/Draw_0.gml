@@ -1,5 +1,7 @@
 /// @description Draw
 // You can write your code in this editor
 	
-	// Call object script
-	ObjAirBubblerDraw();
+	if Stage.WaterEnabled and y >= Stage.WaterLevel
+	{
+		draw_self();
+	}

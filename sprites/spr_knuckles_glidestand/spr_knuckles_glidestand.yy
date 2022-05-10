@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_glidestand","path":"sprites/spr_knuckles_glidestand/spr_knuckles_glidestand.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_glidestand",
     "tags": [],
     "resourceType": "GMSequence",

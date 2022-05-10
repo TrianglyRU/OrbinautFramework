@@ -75,7 +75,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_climb","path":"sprites/spr_knuckles_climb/spr_knuckles_climb.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_climb",
     "tags": [],
     "resourceType": "GMSequence",

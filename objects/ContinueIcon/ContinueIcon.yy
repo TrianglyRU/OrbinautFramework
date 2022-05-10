@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_tempobject",
-    "path": "sprites/spr_tempobject/spr_tempobject.yy",
+    "name": "spr_controller_object",
+    "path": "sprites/spr_controller_object/spr_controller_object.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Continue Screen",
-    "path": "folders/Rooms/Continue Screen.yy",
+    "path": "folders/Screens/Continue Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueIcon",

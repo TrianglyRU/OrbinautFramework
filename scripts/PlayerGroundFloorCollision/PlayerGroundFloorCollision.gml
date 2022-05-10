@@ -1,39 +1,38 @@
 function PlayerGroundFloorCollision()
 {	
-	// Exit if collisions are disabled or we are standing on the object
 	if !AllowCollision or OnObject
 	{
-		exit;
+		return;
 	}
 	
-	// Update floor collision mode
+	// Update floor mode
 	#region Code
 	{
-		// Get current angle quadrant (floor and ceiling are in priority, comparing to wall collision)
-		if !Game.BetterPlayerTileGrip
+		// Originals method: get current angle quadrant (floor and ceiling are in priority, comparing to wall collision)
+		if !global.BetterPlayerTileGrip
 		{
 			if Angle <= 45 or Angle >= 315
 			{
-				CollisionMode[0] = 0;
+				FloorMode[0] = 0;
 			}
 			else if Angle >= 46.41 and Angle <= 133.59
 			{
-				CollisionMode[0] = 1;
+				FloorMode[0] = 1;
 			}
 			else if Angle >= 135 and Angle <= 225
 			{
-				CollisionMode[0] = 2;
+				FloorMode[0] = 2;
 			}
 			else if Angle >= 226.41 and Angle <= 313.59
 			{
-				CollisionMode[0] = 3;
+				FloorMode[0] = 3;
 			}
 		}
 	
-		// Update collision mode using custom method
-		else if !CollisionMode[1]
+		// Custom method
+		else if !FloorMode[1]
 		{
-			switch CollisionMode[0]
+			switch FloorMode[0]
 			{
 				case 0:
 				{
@@ -42,7 +41,7 @@ function PlayerGroundFloorCollision()
 					{
 						if FindTile[1] - Angle mod 360 < 45
 						{
-							CollisionMode[0] = 1;
+							FloorMode[0] = 1;
 						}
 					}
 			
@@ -51,7 +50,7 @@ function PlayerGroundFloorCollision()
 					{
 						if Angle - FindTile[1] < 45
 						{
-							CollisionMode[0] = 3;
+							FloorMode[0] = 3;
 						}
 					}
 				}
@@ -63,7 +62,7 @@ function PlayerGroundFloorCollision()
 					{
 						if Angle - FindTile[1] mod 360 < 45
 						{
-							CollisionMode[0] = 0;
+							FloorMode[0] = 0;
 						}
 					}
 			
@@ -72,7 +71,7 @@ function PlayerGroundFloorCollision()
 					{
 						if FindTile[1] - Angle < 45
 						{
-							CollisionMode[0] = 2;
+							FloorMode[0] = 2;
 						}
 					}
 				}
@@ -84,7 +83,7 @@ function PlayerGroundFloorCollision()
 					{
 						if Angle - FindTile[1] < 45
 						{
-							CollisionMode[0] = 1;
+							FloorMode[0] = 1;
 						}
 					}
 			
@@ -93,7 +92,7 @@ function PlayerGroundFloorCollision()
 					{
 						if FindTile[1] - Angle < 45
 						{
-							CollisionMode[0] = 3;
+							FloorMode[0] = 3;
 						}
 					}
 				}
@@ -105,7 +104,7 @@ function PlayerGroundFloorCollision()
 					{
 						if FindTile[1] - Angle < 45
 						{
-							CollisionMode[0] = 0;
+							FloorMode[0] = 0;
 						}
 					}
 			
@@ -114,7 +113,7 @@ function PlayerGroundFloorCollision()
 					{
 						if Angle - FindTile[1] < 45
 						{
-							CollisionMode[0] = 2;
+							FloorMode[0] = 2;
 						}
 					}
 				}
@@ -123,13 +122,13 @@ function PlayerGroundFloorCollision()
 		}
 		else
 		{
-			CollisionMode[1] = false;
+			FloorMode[1] = false;
 		}
 	}
 	#endregion
 	
-	// Collide with floor
-	switch CollisionMode[0]
+	// Perform collision!
+	switch FloorMode[0]
 	{
 		case 0:
 		{		
@@ -139,16 +138,16 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
+				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
 					{
-						// Restart animation...?
 						animation_reset(0);
 					}
 					Pushing  = false;
 					Grounded = false;
+					
 					break;
 				}		
 			}
@@ -169,16 +168,16 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
+				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
 					{
-						// Restart animation...?
 						animation_reset(0);
 					}
 					Pushing  = false;
 					Grounded = false;
+					
 					break;
 				}	
 			}
@@ -199,16 +198,16 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
+				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Xsp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
 					{
-						// Restart animation...?
 						animation_reset(0);
 					}
 					Pushing  = false;
 					Grounded = false;
+					
 					break;
 				}
 			}
@@ -229,16 +228,16 @@ function PlayerGroundFloorCollision()
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
 			{
-				var Distance = Game.S1FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
+				var Distance = !global.S2FloorCollision ? 14 : min(4 + abs(floor(Ysp)), 14);
 				if  FindFloor[0] > Distance
 				{
 					if Animation == AnimMove
 					{
-						// Restart animation...?
 						animation_reset(0);
 					}
 					Pushing  = false;
 					Grounded = false;
+					
 					break;
 				}
 			}

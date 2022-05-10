@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_skid","path":"sprites/spr_sonic_skid/spr_sonic_skid.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_skid",
     "tags": [],
     "resourceType": "GMSequence",

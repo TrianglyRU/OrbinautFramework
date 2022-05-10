@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_getup","path":"sprites/spr_knuckles_getup/spr_knuckles_getup.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_getup",
     "tags": [],
     "resourceType": "GMSequence",

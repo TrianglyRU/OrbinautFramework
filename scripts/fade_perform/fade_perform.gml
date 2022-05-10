@@ -8,9 +8,9 @@ function fade_perform(fadeMode,fadeBlend,speed)
     var InstantFade = speed == 0;
     
     // Perform fade
-    if InstantFade or !(Palette.FadeStep mod 756)
+    if InstantFade or !(Palette.FadeValue mod 756)
     {
-        Palette.FadeStep = InstantFade xor fadeMode ? 0 : 756; 
+        Palette.FadeValue = InstantFade xor fadeMode ? 0 : 756; 
         Palette.FadeMode = fadeMode; 
     }
     Palette.FadeBlend = fadeBlend;

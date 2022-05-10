@@ -5,12 +5,12 @@ function PlayerMovementRoll()
 	{
 		if Input.Left
 		{
-			if Inertia > 0
+			if Gsp > 0
 			{
-				Inertia -= RollDec;
-				if Inertia < 0
+				Gsp -= RollDec;
+				if Gsp < 0
 				{
-					Inertia = -0.5;
+					Gsp = -0.5;
 				}
 			}
 			else
@@ -21,12 +21,12 @@ function PlayerMovementRoll()
 		}
 		if Input.Right
 		{
-			if Inertia < 0
+			if Gsp < 0
 			{
-				Inertia += RollDec;
-				if Inertia >= 0
+				Gsp += RollDec;
+				if Gsp >= 0
 				{
-					Inertia = 0.5;
+					Gsp = 0.5;
 				}
 			}
 			else
@@ -38,21 +38,21 @@ function PlayerMovementRoll()
 	}
 
 	// Apply friction
-	if Inertia > 0
+	if Gsp > 0
 	{
-		Inertia = max(Inertia - RollFrc, 0);
+		Gsp = max(Gsp - RollFrc, 0);
 	}
-	else if Inertia < 0
+	else if Gsp < 0
 	{
-		Inertia = min(Inertia + RollFrc, 0);
+		Gsp = min(Gsp + RollFrc, 0);
 	}
 	
-	// Convert inertia to speeds
-	Xsp = Inertia *  dcos(Angle);
-	Ysp = Inertia * -dsin(Angle);
+	// Convert ground inertia to speeds
+	Xsp = Gsp *  dcos(Angle);
+	Ysp = Gsp * -dsin(Angle);
 	
 	// Limit rolling speed
-	if !Game.NoRollSpeedLimit
+	if !global.NoRollSpeedLimit
 	{
 		Xsp = clamp(Xsp, -16, 16);
 	}
@@ -60,20 +60,20 @@ function PlayerMovementRoll()
 	// Unroll
 	if !ForcedRoll
 	{
-		if !Game.SKCrouch and Inertia == 0 
-		or  Game.SKCrouch and abs(Inertia) < 0.5
+		if !global.SKCrouch and Gsp == 0 
+		or  global.SKCrouch and abs(Gsp) < 0.5
 		{
-			// Reset collision radiuses
-			RadiusX = DefaultRadiusX;
-			RadiusY = DefaultRadiusY;
-			PosY   -= DefaultRadiusY - SmallRadiusY;
-			
+			PosY     -= DefaultRadiusY - SmallRadiusY;
+			RadiusX   = DefaultRadiusX;
+			RadiusY   = DefaultRadiusY;		
 			Spinning  = false;
 			Animation = AnimIdle;
 		}
 	}
-	else if Inertia == 0
+	
+	// If forced to roll, continue rolling
+	else if Gsp == 0
 	{
-		Inertia = 4 * Facing;
+		Gsp = 2;
 	}
 }

@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_dropdash","path":"sprites/spr_sonic_dropdash/spr_sonic_dropdash.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_dropdash",
     "tags": [],
     "resourceType": "GMSequence",

@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_swim_tired","path":"sprites/spr_tails_swim_tired/spr_tails_swim_tired.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_swim_tired",
     "tags": [],
     "resourceType": "GMSequence",

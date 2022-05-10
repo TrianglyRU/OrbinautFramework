@@ -1,19 +1,18 @@
 function PlayerJumpStart()
 {	
-	// Exit if no action button is pressed or special ability is active
 	if !Input.ABCPress or SpindashRev != -1 or PeeloutRev != -1
 	{
-		exit;
+		return;
 	}
 
-	// Check if there is a room between player's head and ceiling (there is no check when on the ceiling)
-	switch CollisionMode[0]
+	// Check if there is a room between player's head and ceiling above them
+	switch FloorMode[0]
 	{
 		case 0:
 		{
 			if tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer)[0] < 6
 			{
-				exit;
+				return;
 			}
 		}
 		break;
@@ -21,57 +20,60 @@ function PlayerJumpStart()
 		{
 			if tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, true, noone, Layer)[0] < 6
 			{
-				exit;
+				return;
 			}
+		}
+		break;
+		case 2:
+		{
+			/* There is no check when on the actual ceiling! */
 		}
 		break;
 		case 3:
 		{
 			if tile_find_2h(PosX + RadiusY, PosY - RadiusX, PosX + RadiusY, PosY + RadiusX, true, true, noone, Layer)[0] < 6
 			{
-				exit;
+				return;
 			}
 		}
 		break;
 	}
 	
-	// Set speeds
-	Xsp += Jump * dsin(Angle);
-	Ysp	+= Jump * dcos(Angle);	
-		
-	// Update flags
+	Xsp			 += Jump * dsin(Angle);
+	Ysp			 += Jump * dcos(Angle);	
 	Pushing		  = false;
 	Grounded      = false;
 	OnObject	  = false;
 	StickToConvex = false;
 	Jumping       = true;
 	Animation     = AnimSpin;
-	
-	// Update collision radiuses
-	RadiusX	= SmallRadiusX;
-	RadiusY = SmallRadiusY;
-	PosY   += DefaultRadiusY - SmallRadiusY;
-	
-	// Set spinning flag
+	RadiusX		  = DefaultRadiusX;
+	RadiusY		  = DefaultRadiusY;
+
 	if !Spinning
 	{	
+		PosY    += DefaultRadiusY - SmallRadiusY;
+		RadiusX	 = SmallRadiusX;
+		RadiusY  = SmallRadiusY;
 		Spinning = true;
+		
+		/* Yes, originals seems to reset radiuses first and then set them once again. This
+		leads to an oversight few lines below, fixed with the global.FixRollJump flag */		
 	}
-	
-	// Lock airborne control
 	else
 	{
-		if !Game.RolljumpControl
+		if !global.RolljumpControl
 		{
 			AirLock = true;
 		}
-		PosY -= DefaultRadiusY - SmallRadiusY;
 		
-		/* In originals, it would set rolljump flag and reset radiuses, resulting in collision with floor and ceiling
-		happening earlier. It is an oversight, so we fix that by updating radiuses in both cases */
+		// Sonic Team :|
+		if global.FixRollJump
+		{
+			RadiusX	= SmallRadiusX;
+			RadiusY = SmallRadiusY;
+		}
 	}
-	
-	// Play sound
 	audio_sfx_play(sfxJump, false);
 			
 	// Return action result

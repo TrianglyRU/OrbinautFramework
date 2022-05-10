@@ -1,5 +1,4 @@
 /// @description Startup
 // You can write your code in this editor
 	
-	// Call object script
-	ObjRingFlashStartup();
+	animation_play(sprite_index, 2, 8);

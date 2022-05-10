@@ -1,5 +1,6 @@
 /// @description Startup
 // You can write your code in this editor
 	
-	// Call object script
-	ObjTailsObjectStartup();
+	x			 = Player.PosX;
+	y			 = Player.PosY;
+	VisualAngle  = 0;

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_breathe","path":"sprites/spr_sonic_breathe/spr_sonic_breathe.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_breathe",
     "tags": [],
     "resourceType": "GMSequence",

@@ -79,7 +79,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_spin_fast","path":"sprites/spr_sonic_spin_fast/spr_sonic_spin_fast.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_spin_fast",
     "tags": [],
     "resourceType": "GMSequence",

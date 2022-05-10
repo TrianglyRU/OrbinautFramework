@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_editor_controller",
-    "path": "sprites/spr_editor_controller/spr_editor_controller.yy",
+    "name": "spr_controller_main",
+    "path": "sprites/spr_controller_main/spr_controller_main.yy",
   },
   "solid": false,
   "visible": true,
@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screen (Continue)",
-    "path": "folders/Game Code/Screen (Continue).yy",
+    "name": "Continue Screen",
+    "path": "folders/Screens/Continue Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "ContinueScreen",

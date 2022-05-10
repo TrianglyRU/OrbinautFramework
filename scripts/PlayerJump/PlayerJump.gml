@@ -1,20 +1,19 @@
 function PlayerJump()
 {
-	// If not jumping, exit
 	if !Jumping
 	{
-		exit;
+		return;
 	}
 	
-	// If action button is not held, shorten jump force
 	if !Input.ABC
 	{
+		// Shorten jump force
 		if Ysp < JumpMin
 		{
 			Ysp = JumpMin;
 		}
 		
-		// Reset dropdash
+		// Update dropdash flag
 		if DropdashFlag == DashLocked
 		{
 			DropdashFlag = DashReady;
@@ -26,73 +25,65 @@ function PlayerJump()
 				Animation    = AnimSpin;
 				DropdashFlag = DashRecharge;
 			}
-			DropdashRev  = -1;
+			DropdashRev = -1;
 		}
 	}
 	
-	// Do not perform anything if action buttons weren't released yet
+	/* Everything below is special mid-jump actions */
+	
 	if Ysp < JumpMin or !Input.ABCPress
 	{
-		exit;
+		return;
 	}
 	
-	// Transform into super form
-	if Game.Emeralds == 7 and !SuperState and Rings >= 50 and !Stage.IsFinished
+	// Transform into the super form
+	if global.Emeralds == 7 and !SuperState and Rings >= 50 and !Stage.IsFinished
 	{
-		// Make sure we don't have elemental barrier if we're Sonic
-		if Game.Character == CharSonic and BarrierType <= BarrierNormal
-		or Game.Character != CharSonic
+		if global.Character != CharSonic or BarrierType <= BarrierNormal
 		{
-			// Set animation
-			Animation = AnimTransform;
-		
-			// Set flags
+			Animation		    = AnimTransform;
 			InvincibilityFrames = 0;
-			Jumping		    = false;
-			Spinning	    = false;
-			InvincibleBonus = false;
-			SuperStateValue = false;
-			SuperState      = true;
-			AirLock			= true;
+			Jumping				= false;
+			Spinning			= false;
+			InvincibleBonus		= false;
+			AllowCollision		= false;
+			SuperStateValue		= false;
+			SuperState			= true;
+			AirLock				= true;
 			
-			// Reset collision radiuses
 			RadiusX = DefaultRadiusX;
 			RadiusY = DefaultRadiusY;
 		
-			// Play sound and music
 			audio_sfx_play(sfxTransform, false);		
-			audio_bgm_play(ChannelPrimary, SuperTheme);
-				
-			// Exit the code
-			exit;
+			audio_bgm_play(AudioPrimary, SuperTheme);
+			
+			return;
 		}
 	}
 
 	// Perform character action
-	switch Game.Character
+	switch global.Character
 	{
 		case CharSonic:
 		{	
 			if BarrierType <= BarrierNormal
 			{	
-				// Perform double spin attack if enabled
-				if !BarrierType
+				// Perform double spin attack
+				if !BarrierType and !SuperState and !InvincibleBonus
 				{
-					if Game.DSpinAttackEnabled and !(InvincibleBonus or SuperState or DoubleSpinAttack != SpinReady)
+					if global.DSpinAttackEnabled and DoubleSpinAttack == SpinReady
 					{
-						// Set flag
+						AirLock			 = false;
 						DoubleSpinAttack = SpinActive;
-					
-						// Create object and play sound
+						
 						instance_create(PosX, PosY, DoubleSpinShield);
 						audio_sfx_play(sfxDoubleSpinAttack, false);
 					}
 				}
 				
-				// Perform dropdash if enabled
-				if Game.DropdashEnabled and DropdashFlag == DashReady
+				// Perform dropdash
+				if global.DropdashEnabled and DropdashFlag == DashReady
 				{
-					// Set flags
 					AirLock      = false;
 					DropdashFlag = DashActive;
 				}
@@ -101,36 +92,36 @@ function PlayerJump()
 			// Perform barrier action
 			else if !(InvincibleBonus or BarrierIsActive or SuperState)
 			{	
+				BarrierIsActive = true;
+				
 				switch BarrierType
 				{
 					case BarrierFlame:
 					{
-						// Freeze the screen for 16 frames
-						if !Game.CDCamera
+						if !global.CDCamera
 						{
 							Camera.ScrollDelay = 16;
 						}
-							
-						// Set barrier animation
+						
+						AirLock = true;
+						Xsp		= 8 * Facing;
+						Ysp		= 0;
+												
+						// Update barrier
 						with Barrier
 						{
 							object_set_depth(Player, 1);
-							animation_play(spr_obj_barrier_flame_dash, 2, 0, 0);
+							animation_play(spr_obj_barrier_flame_dash, 2, 0);
 						}
 						
-						// Set speeds
-						Xsp = 8 * Facing;
-						Ysp = 0;
-							
-						// Lock control
-						AirLock = true;
-						
-						// Play sound
 						audio_sfx_play(sfxFlameBarrierDash, false);
 					}
 					break;
 					case BarrierThunder:
-					{
+					{	
+						AirLock = false;
+						Ysp		= -5.5;
+						
 						// Create sparkles
 						for (var i = 0; i < 4; i++)
 						{
@@ -140,89 +131,64 @@ function PlayerJump()
 								SparkleID = i;
 							}
 						}
-							
-						// Restore control
-						AirLock = false;
 						
-						// Set vertical speed
-						Ysp = -5.5;
-						
-						// Play sound
 						audio_sfx_play(sfxThunderBarrierJump, false);
 					}
 					break;
 					case BarrierWater:
 					{						
-						// Set barrier animation
+						AirLock = false;
+						Xsp		= 0;
+						Ysp		= 8;
+						
+						// Update barrier
 						with Barrier
 						{
-							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0, 0);
+							animation_play(spr_obj_barrier_water_drop, [6, 19, 0], 0);
 						}
-							
-						// Restore control
-						AirLock = false;
-						
-						// Set speeds
-						Xsp = 0;
-						Ysp = 8;
-							
-						// Play sound
+
 						audio_sfx_play(sfxWaterBarrierBounce, false);
 					}
 					break;
 				}
-					
-				// Set flag
-				BarrierIsActive = true;
 			}
 		}
 		break;
 		case CharTails:
 		{
-			// Reset collision radiuses
-			RadiusX = DefaultRadiusX;
-			RadiusY = DefaultRadiusY;
-				
-			// Set flags
+			RadiusX		= DefaultRadiusX;
+			RadiusY		= DefaultRadiusY;
 			AirLock     = false;
 			Jumping     = false;
 			Spinning    = false;
 			FlightState = true;
 			FlightValue = 480;
 			Grv			= 0.03125;
-				
-			// Play sound
+			
 			if !IsUnderwater
 			{
 				audio_sfx_play(sfxFlying, true);
 			}
 				
-			// Clear action buttons
 			Input.ABC      = false;
 			Input.ABCPress = false;
 		}
 		break;
 		case CharKnuckles:
 		{
-			// Set collision radiuses
-			RadiusX = 10;
-			RadiusY = 10;
-				
-			// Set speeds
-			Inertia = 0;
-			Xsp     = 4 * Facing;
-			Ysp     = Ysp <= 0 ? 0 : Ysp + 2;
-				
-			// Set flags
+			Gsp		= 0;
+			Xsp		= 4 * Facing;
+			Ysp		= Ysp <= 0 ? 0 : Ysp + 2;
+			
+			RadiusX		   = 10;
+			RadiusY		   = 10;
 			AirLock        = false;
 			Jumping        = false;
 			Spinning       = false;
+			Animation	   = AnimGlide;
 			GlideState     = GlideAir;
 			GlideDirection = Facing;
 			GlideValue     = Facing == FlipLeft ? 0 : 180;
-				
-			// Set animation
-			Animation = AnimGlide;
 		}
 		break;
 	}

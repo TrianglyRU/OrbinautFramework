@@ -141,7 +141,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_clamber","path":"sprites/spr_knuckles_clamber/spr_knuckles_clamber.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_clamber",
     "tags": [],
     "resourceType": "GMSequence",

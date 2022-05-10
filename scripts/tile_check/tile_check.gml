@@ -1,30 +1,31 @@
-/// @function tile_check(x,y,ignoreTop,tilelayer)
-function tile_check(x,y,ignoreTop,tilelayer)
+/// @function tile_check(x,y,noTopSolid,tilelayer)
+function tile_check(x,y,noTopSolid,tilelayer)
 {
-	// Floor positions
 	x = floor(x);
 	y = floor(y);
 	
-	// Return false if outside of the room
+	// Exit if no tiledata found
+	if !array_length(global.TileData)
+	{
+		return false;
+	}
     if x <= 0 or y <= 0 or x >= room_width or y >= room_height 
     {
         return false;
     }
 	
-	// Get tilelayer ID
-	var Layer = Game.TileLayers[tilelayer];
-    
-    // Get tile at position
+	// Get tile at position
+	var Layer	  = global.TileLayers[tilelayer];
     var Tile      = tilemap_get(Layer, x div 16, y div 16);
     var TileIndex = tile_get_index(Tile);
 	
-   	// Return false if target tile is top-collision tile and we're ignoring it
-    if ignoreTop and TileIndex > Game.TileData[1]
+   	// Exit if tile is top-only and we're ignoring them
+    if noTopSolid and TileIndex > global.TileData[1]
     {
         return false;
     }
-  
-    // Return result
+	
+	// Return check result
 	if tile_get_flip(Tile)
 	{
 		return y mod 16 < tile_get_height(x, Tile, TileIndex);

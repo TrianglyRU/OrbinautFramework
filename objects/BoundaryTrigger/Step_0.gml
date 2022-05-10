@@ -1,5 +1,7 @@
 /// @description Main
 // You can write your code in this editor
 	
-	// Call object script
-	ObjBoundaryTriggerMain();
+	if object_check_player(ColTrigger)
+	{
+		Stage.TargetBottomBoundary = y;
+	}

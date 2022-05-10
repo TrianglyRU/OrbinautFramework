@@ -1,5 +1,5 @@
 function PlayerStartup()
-{	
+{		
 	// Initialise variables
 	PosX				= 0;
 	PosY				= 0;
@@ -15,9 +15,9 @@ function PlayerStartup()
 	TopAcc				= 0;
 	Xsp					= 0;
 	Ysp					= 0;
-	Inertia				= 0;
+	Gsp					= 0;
 	SlopeGravity        = 0;
-	Angle				= 0;	
+	Angle				= 0;
 	GroundLock			= 0;
 	AirLock				= 0;
 	ForcedRoll			= 0;
@@ -60,21 +60,22 @@ function PlayerStartup()
 	HitboxData			= [];
 	
 	// Set defaults
-	DrawOrder		 = layer_get_depth("Objects");
-	Facing			 = FlipRight;
-	Grv			     = 0.21875;
-	AirTimer	     = 1800;
 	AllowCollision   = true;
 	AllowMovement    = true;
-	DoubleSpinAttack = SpinReady;
-	DropdashFlag     = DashLocked;
 	DropdashRev      = -1;
 	PeeloutRev       = -1;
 	SpindashRev      = -1;
-	CollisionMode    = [0, 0];
+	Grv			     = 0.21875;
+	AirTimer	     = 1800;
+	FloorMode        = [0, 0];
+	WallMode		 = 0;
+	Facing			 = FlipRight;
+	DoubleSpinAttack = SpinReady;
+	DropdashFlag     = DashLocked;
+	DrawOrder		 = depth;
 
-	// Set default sprite
-	switch Game.Character
+	// Set default sprite and depth
+	switch global.Character
 	{
 		case CharSonic:
 			sprite_index = spr_sonic_idle;
@@ -88,7 +89,7 @@ function PlayerStartup()
 	}
 	
 	// Set collision radiuses
-	if Game.Character != CharTails
+	if global.Character != CharTails
 	{
 		DefaultRadiusY = 19;
 		DefaultRadiusX = 9;
@@ -107,50 +108,48 @@ function PlayerStartup()
 	}
 	RadiusX = DefaultRadiusX;
 	RadiusY = DefaultRadiusY;
-	RadiusW = 10;				// Wall radius. It is 10 for everyone by default
 	
-	// If respawning on checkpoint, load saved player data
-	if array_length(Game.StarPostData)
+	// Set spawn position and centre the camera on us
+	PosX = x;
+	PosY = y - RadiusY - 1;
+	
+	if array_length(global.StarPostData)
 	{
-		PosX = Game.StarPostData[0];
-		PosY = Game.StarPostData[1];
+		PosX = global.StarPostData[0];
+		PosY = global.StarPostData[1];
 	}
-	
-	// If coming back from special stage, load saved player data
-	if array_length(Game.SpecialRingData)
+	if array_length(global.SpecialRingData)
 	{
-		PosX  = Game.SpecialRingData[0];
-		PosY  = Game.SpecialRingData[1];
-		
-		// Load saved ring and barrier
-		if Game.SpecialRingData[3]
-		{
-			BarrierType = Game.SpecialRingData[3];
-			instance_create(PosX, PosY, Barrier);
-		}
-		Rings = Game.SpecialRingData[2];
-	}
-	
-	/* If none of the positions above exist, player will spawn
-	on spawnpoint. It is handled from its side! */
-	
-	// If coming back from bonus stage, load saved rings and barrier
-	if array_length(Game.BonusStageData)
-	{
-		Rings		= Game.BonusStageData[0];
-		BarrierType = Game.BonusStageData[1];
+		PosX		= global.SpecialRingData[0];
+		PosY		= global.SpecialRingData[1];
+		Rings		= global.SpecialRingData[2];
+		BarrierType = global.SpecialRingData[3]; 
 		instance_create(PosX, PosY, Barrier);
 		
-		// Clear array
-		Game.BonusStageData = [];
+		// Clear data
+		global.SpecialRingData = [];
+	}
+	
+	Camera.PosX = PosX - global.Width  / 2;
+	Camera.PosY = PosY - global.Height / 2 + 16;
+	
+	// If coming back from a bonus stage, load saved rings and barrier
+	if array_length(global.BonusStageData)
+	{
+		Rings		= global.BonusStageData[0];
+		BarrierType = global.BonusStageData[1];
+		instance_create(PosX, PosY, Barrier);
+		
+		// Clear data
+		global.BonusStageData = [];
 	}
 	
 	// Load score and lives
-	Score		 = Game.Score;
-	Lives		 = Game.Lives;
+	Score		 = global.Score;
+	Lives		 = global.Lives;
 	LivesRewards = [(Rings div 100 * 100) + 100, (Score div 50000 * 50000) + 50000];
 	
-	// Initialise recorded position datalist
+	// Initialise datalist
 	RecordedPosX = ds_list_create();
 	RecordedPosY = ds_list_create();
 	

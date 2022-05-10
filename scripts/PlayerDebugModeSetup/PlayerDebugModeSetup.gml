@@ -1,9 +1,8 @@
 function PlayerDebugModeSetup()
 {
-	// Exit the code if dev mode is disabled
-	if !Game.DevMode
+	if !global.DevMode
 	{
-		exit;
+		return;
 	}
 
 	// Define debug objects list
@@ -14,25 +13,8 @@ function PlayerDebugModeSetup()
 		ItemBox,
 		SpikesVertical,
 		SpikesHorizontal,
-		SpringYellowVertical,
-		SpringYellowHorizontal,
-		SpringYellowDiagonal,
 		SpringRedVertical,
 		SpringRedHorizontal,
 		SpringRedDiagonal,
-		StarPost,
-		Bridge,
-		FloatingPlatform,
-		CollapsingPlatform,
-		SwingingPlatform,
-		Buzzbomber,
-		Motobug,
-		Crabmeat,
-		Orbinaut,
-		PushableBlock,
-		Bumper,
-		Animal,
-		ClearPanel,
-		EggPrison,
 	];
 }

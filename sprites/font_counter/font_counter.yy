@@ -107,7 +107,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"font_counter","path":"sprites/font_counter/font_counter.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "font_counter",
     "tags": [],
     "resourceType": "GMSequence",

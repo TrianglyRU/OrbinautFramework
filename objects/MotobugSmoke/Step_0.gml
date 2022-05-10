@@ -1,5 +1,8 @@
 /// @description Main
 // You can write your code in this editor
 	
-	// Call object script
-	ObjMotobugSmokeMain();
+	// Destroy on animation end
+	if image_index == 12
+	{
+		instance_destroy();
+	}

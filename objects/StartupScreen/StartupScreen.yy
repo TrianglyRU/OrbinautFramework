@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_editor_controller",
-    "path": "sprites/spr_editor_controller/spr_editor_controller.yy",
+    "name": "spr_controller_main",
+    "path": "sprites/spr_controller_main/spr_controller_main.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,13 +22,13 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screen (Startup)",
-    "path": "folders/Game Code/Screen (Startup).yy",
+    "name": "Startup Screen",
+    "path": "folders/Screens/Startup Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "StartupScreen",

@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"tex_sstage_chaosemerald","path":"sprites/tex_sstage_chaosemerald/tex_sstage_chaosemerald.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "tex_sstage_chaosemerald",
     "tags": [],
     "resourceType": "GMSequence",
@@ -74,7 +74,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Textures",
-    "path": "folders/Rooms/Special Stage/Textures.yy",
+    "path": "folders/Screens/Special Screen/Textures.yy",
   },
   "resourceVersion": "1.0",
   "name": "tex_sstage_chaosemerald",

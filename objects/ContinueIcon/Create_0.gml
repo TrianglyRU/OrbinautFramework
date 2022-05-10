@@ -1,8 +1,10 @@
 /// @description Startup
 // You can write your code in this editor
 	
-	// Define animation
-	switch Game.Character
+	/* This object isn't used during the Results,
+	the sprite is drawn instead */
+	
+	switch global.Character
 	{
 		case CharSonic:
 			sprite_index = gui_icon_sonic;
@@ -14,4 +16,4 @@
 			sprite_index = gui_icon_knuckles;
 		break;
 	}
-	animation_play(sprite_index, 16, 0, 0);
+	animation_play(sprite_index, 16, 0);

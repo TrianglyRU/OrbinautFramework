@@ -11,10 +11,11 @@ function fade_check(fadeState)
 	switch fadeState
 	{
 		case StateActive:
-			return Palette.FadeStep < 756;
+			return Palette.FadeFlag != false;
 		break;
 		case StateMax:
-			return Palette.FadeStep == 0;
+			return Palette.FadeFlag == StateMax;
 		break;
-	}	
+	}
+	return false;
 }

@@ -1,16 +1,15 @@
-/// @function audio_bgm_stop(channelType,time)
-function audio_bgm_stop(channelType,time)
+/// @function audio_bgm_stop(audioType,time)
+function audio_bgm_stop(audioType,time)
 {	
-	// Stop track
-	switch channelType
+	switch audioType
 	{
-		case ChannelPrimary:
+		case AudioPrimary:
 		{
 			Audio.PrimaryTrack[0] = EventStop;
 			Audio.PrimaryTrack[2] = time;
 		}
 		break;
-		case ChannelSecondary:
+		case AudioSecondary:
 		{
 			Audio.SecondaryTrack[0] = EventStop;
 			Audio.SecondaryTrack[2] = time;

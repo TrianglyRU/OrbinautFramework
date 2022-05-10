@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tails_run","path":"sprites/spr_tails_run/spr_tails_run.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tails_run",
     "tags": [],
     "resourceType": "GMSequence",

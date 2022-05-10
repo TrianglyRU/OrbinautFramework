@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_transform","path":"sprites/spr_knuckles_transform/spr_knuckles_transform.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_transform",
     "tags": [],
     "resourceType": "GMSequence",

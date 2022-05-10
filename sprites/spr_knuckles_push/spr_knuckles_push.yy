@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_push","path":"sprites/spr_knuckles_push/spr_knuckles_push.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_push",
     "tags": [],
     "resourceType": "GMSequence",

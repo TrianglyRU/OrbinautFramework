@@ -1,5 +1,4 @@
-/// @description Visualisation Code
+/// @description Draw
 // You can write your code in this editor
-	
-	// Visualisation Script
-	SplashScreenDraw();
+
+	draw_sprite(gui_framework_splash, 0, global.Width / 2, global.Height / 2);

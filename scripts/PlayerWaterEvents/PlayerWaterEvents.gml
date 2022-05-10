@@ -1,9 +1,8 @@
 function PlayerWaterEvents()
 {
-	// If there is no water in the stage, exit
 	if !Stage.WaterEnabled
 	{
-		exit;
+		return;
 	}
 	
 	// Check for falling into the water
@@ -11,6 +10,9 @@ function PlayerWaterEvents()
 	{
 		if floor(PosY) > Stage.WaterLevel and !Death
 		{
+			audio_sfx_stop(sfxFlying);
+			audio_sfx_stop(sfxTired);
+				
 			Xsp			*= 0.5;
 			Ysp			*= 0.25;
 			IsUnderwater = true;
@@ -21,24 +23,26 @@ function PlayerWaterEvents()
 				Grv = 0.0625;
 			}
 				
-			// Stop sound
-			if FlightState
-			{
-				audio_sfx_stop(sfxFlying);
-				audio_sfx_stop(sfxTired);
-			}
-				
 			// Create splash object
-			if !Grounded and !ClimbState
+			if !Grounded and !ClimbState and GlideState != GlideGround
 			{
 				audio_sfx_play(sfxWaterSplash, false);
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
+			}
+			
+			// Destroy barrier
+			if BarrierType == BarrierFlame or BarrierType == BarrierThunder
+			{	
+				if BarrierType == BarrierThunder
+				{
+					fade_perform(ModeFrom, BlendFlash, 4);
+				}
+				BarrierType = false;			
 			}
 		}
 	}
 	else
 	{ 
-		// Create player bubble maker object
 		if !instance_exists(BubbleController)
 		{
 			instance_create(-16, -16, BubbleController);
@@ -55,7 +59,7 @@ function PlayerWaterEvents()
 				}
 				else if AirTimer == 720
 				{			
-					audio_bgm_play(ChannelPrimary, Drowning);
+					audio_bgm_play(AudioPrimary, Drowning);
 				}
 				AirTimer--
 			}
@@ -66,15 +70,12 @@ function PlayerWaterEvents()
 		{
 			if !Drown
 			{
-				// Play sound
 				audio_sfx_play(sfxDrown, false);
 				
-				// Reset speeds
 				Xsp	= 0;
 				Ysp	= 0;
 				Grv = 0.0625;
 				
-				// Set flags
 				Stage.TimeEnabled = false;
 				Camera.Enabled    = false;
 				AllowCollision    = false;
@@ -91,35 +92,28 @@ function PlayerWaterEvents()
 				PeeloutRev        = -1;
 				DoubleSpinAttack  = SpinRecharge;
 				DropdashFlag	  = DashLocked;
-				Drown			  = true;
-				AirLock		      = true;
 				Animation		  = AnimDrown;
+				Drown			  = true;
+				AirLock		      = true;	
 				
 				// Draw player above everything
-				DrawOrder = 0;
+				depth = 50;
 			}
-			
-			// Enter death state if off-screen
-			else if floor(PosY) >= Camera.ViewY + Game.Height + 276
+			else if floor(PosY) >= Camera.ViewY + global.Height + 276
 			{
 				Death = true;
 			}
 		}
 		
-		// Destroy barrier
+		// If we have a barrier, destroy it
 		if BarrierType == BarrierFlame or BarrierType == BarrierThunder
-		{	
-			if BarrierType == BarrierThunder
-			{
-				fade_perform(ModeFrom, BlendFlash, 8);
-			}
-			BarrierType = false;			
+		{
+			BarrierType = false;
 		}
-			
+	
 		// Check for leaving the water
 		if PosY < Stage.WaterLevel and !Death
-		{
-			// Destroy player bubble maker object
+		{	
 			if instance_exists(BubbleController)
 			{
 				instance_destroy(BubbleController);
@@ -132,61 +126,51 @@ function PlayerWaterEvents()
 				{
 					if HighspeedBonus
 					{
-						audio_bgm_play(ChannelPrimary, HighSpeed);
+						audio_bgm_play(AudioPrimary, HighSpeed);
 					}
 					else if InvincibleBonus
 					{
-						audio_bgm_play(ChannelPrimary, Invincibility);
+						audio_bgm_play(AudioPrimary, Invincibility);
 					}
 					else
 					{
-						audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+						audio_bgm_play(AudioPrimary, Stage.StageMusic);
 					}
 				}
 				else
 				{
-					audio_bgm_play(ChannelPrimary, SuperTheme);
+					audio_bgm_play(AudioPrimary, SuperTheme);
 				}
 			}
 			
-			// Reset gravity and double vertical speed
+			IsUnderwater = false;	
+			AirTimer     = 1800;
+			
+			// Reset Tails' gravity and double vertical speed
 			if !Hurt and GlideState != GlideAir
 			{
-				if Game.S3WaterPhysics
-				{
-					if Ysp >= -4
-					{
-						Ysp *= 2;
-					}
-				}
-				else
+				if !global.S3WaterPhysics
+				or  global.S3WaterPhysics and Ysp >= -4
 				{
 					Ysp *= 2;
 				}
-				
-				// Reset gravity (if not flying)
-				if !FlightState
-				{
-					Grv = 0.21875;
-				}
-				
-				// Limit vertical speed
 				if Ysp < -16
 				{
 					Ysp = -16;
 				}
+				
+				if !FlightState
+				{
+					Grv = 0.21875;
+				}
 			}
-			
-			// Play sound
 			if FlightState
 			{
 				audio_sfx_play(sfxFlying, true);
 			}
-			IsUnderwater = false;	
-			AirTimer     = 1800;
 			
 			// Create splash object
-			if !Grounded and !ClimbState
+			if !Grounded and !ClimbState and GlideState != GlideGround
 			{
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 				audio_sfx_play(sfxWaterSplash, false);

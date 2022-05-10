@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_balance_panic","path":"sprites/spr_sonic_balance_panic/spr_sonic_balance_panic.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_balance_panic",
     "tags": [],
     "resourceType": "GMSequence",

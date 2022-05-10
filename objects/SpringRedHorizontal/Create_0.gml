@@ -1,5 +1,8 @@
 /// @description Startup
 // You can write your code in this editor
 
-	// Call object script
-	ObjSpringHorizontalStartup();
+	// Inherit the parent event
+	event_inherited();
+	
+	// Overwrite LaunchForce
+	LaunchForce = 16;

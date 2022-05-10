@@ -7,12 +7,12 @@ function palette_get_colour(palType,iCol)
 		return 0;
 	}
 	
-	// Return colour
-	if palType == TypePrimary
+	// Else return current colour
+	if palType == PalPrimary
 	{
 		return Palette.IndexType1[iCol];
 	}
-	else if palType == TypeSecondary
+	else if palType == PalSecondary
 	{
 		return Palette.IndexType2[iCol];
 	}

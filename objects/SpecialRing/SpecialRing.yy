@@ -4,7 +4,7 @@
     "path": "sprites/spr_obj_specialring/spr_obj_specialring.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

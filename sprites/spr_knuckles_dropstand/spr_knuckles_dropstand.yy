@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_dropstand","path":"sprites/spr_knuckles_dropstand/spr_knuckles_dropstand.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_dropstand",
     "tags": [],
     "resourceType": "GMSequence",

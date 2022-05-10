@@ -137,7 +137,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_supersonic_idle","path":"sprites/spr_supersonic_idle/spr_supersonic_idle.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_supersonic_idle",
     "tags": [],
     "resourceType": "GMSequence",

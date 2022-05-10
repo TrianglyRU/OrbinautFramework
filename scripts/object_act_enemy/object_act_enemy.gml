@@ -1,23 +1,23 @@
 /// @function object_act_enemy(enemyType)
 function object_act_enemy(enemyType)
 {
-	// Wait until collision occurs
-	if !object_check_overlap(TypeHitbox2)
+	// Check for overlap with the player (ColHitbox2 -- we're taking Double Spin Attack into account)
+	if !object_check_player(ColHitbox2)
 	{
 		return false;
 	}
 	
-	// Check if player can damage enemy by gliding, spinning or spindashing
+	// Check if player can damage our enemy
 	var SpinCheck       = Player.Spinning    or Player.SpindashRev != -1;
 	var InvincibleCheck = Player.SuperState  or Player.InvincibleBonus;
-	var ActionCheck	    = Player.FlightState and floor(Player.PosY) > y and Player.Ysp < 0 or Player.GlideState > GlideFall;
+	var ActionCheck	    = Player.FlightState and floor(Player.PosY) > y or Player.GlideState > GlideFall;
 	
 	// Damage enemy
 	if ActionCheck or SpinCheck or InvincibleCheck    
 	{	
 		switch enemyType
 		{
-			case TypeBadnik:
+			case EnemyBadnik:
 			{
 				// Make player bounce if they are airborne
 				if !Player.Grounded
@@ -47,37 +47,21 @@ function object_act_enemy(enemyType)
 				instance_create(x, y, Animal);
 				instance_create(x, y, DustExplosion);
 			
-				// Destroy children
-				if variable_instance_exists(id, "Obj_ChildrenIDs")
-				{
-					var Length = array_length(Obj_ChildrenIDs);
-					for (var i = 0; i < Length; i++)
-					{
-						with Obj_ChildrenIDs[i]
-						{
-							instance_destroy();
-						}
-					}
-				}
-			
 				// Destroy badnik and play sound
-				audio_sfx_play(sfxDestroy, false);
+				audio_sfx_play(sfxDestroy, false); 
 				instance_destroy();
 			}
 			break;
-			case TypeBoss:
+			case EnemyBoss:
 			{
 				if !Player.Grounded
 				{
-					// If gliding, stop
 					if Player.GlideState
 					{
 						Player.GlideState = GlideFall;
 						Player.Animation  = AnimGlideFall;
-					
-						// Reset collision radiuses
-						Player.RadiusX = Player.DefaultRadiusX;
-						Player.RadiusY = Player.DefaultRadiusY;
+						Player.RadiusX	  = Player.DefaultRadiusX;
+						Player.RadiusY    = Player.DefaultRadiusY;
 					
 						// Reset gravity
 						if !Player.IsUnderwater
@@ -86,29 +70,23 @@ function object_act_enemy(enemyType)
 						}
 						else
 						{
-							// Lower by 0x28 (0.15625) if underwater
+							// Reduce by 0x28 (0.15625) if underwater
 							Player.Grv = 0.0625
 						}
 					}
-				
-					// Reverse speeds
+					
 					Player.Xsp *= -0.5;
 					Player.Ysp *= -0.5;
 				}
 				
-				// Play sound
 				audio_sfx_play(sfxBossHit, false);
 			}
 			break;
 		}
 		
-		// Return successful hit
 		return true;
 	}
 	
 	// Damage player
-	player_damage(false, false, false);
-	
-	// Return nothing
-	return false;
+	player_damage(false, false, false); return false;
 }

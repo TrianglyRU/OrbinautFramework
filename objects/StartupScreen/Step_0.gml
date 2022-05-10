@@ -1,5 +1,14 @@
-/// @description Process Code
+/// @description Main
 // You can write your code in this editor
 	
-	// Process Script
-	StartupScreenProcess();
+	if !(--RoomTimer)
+	{
+		if global.ShowSplash
+		{
+			room_goto(Screen_Splash);
+		}
+		else
+		{
+			room_goto(global.StartRoom);
+		}
+	}

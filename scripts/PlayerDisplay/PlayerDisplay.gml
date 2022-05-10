@@ -1,14 +1,17 @@
 function PlayerDisplay()
 {	
-	// Update player
 	x			 = floor(PosX);
 	y		     = floor(PosY);
-	depth		 = DrawOrder;
-	image_xscale = Facing;
 	image_angle  = VisualAngle;
 	
-	// Fix that one pixel offset when facing left
-	if Facing == FlipLeft
+	// If spinning, update xscale once animation frame updates (in Sonic 1, it is always applied)
+	if Animation != AnimSpin or Obj_AnimTimer == Obj_AnimDuration
+	{
+		image_xscale = Facing;
+	}
+	
+	// Sprite is offset one pixel to the left when mirrored. Let's fix that
+	if image_xscale == FlipLeft
 	{
 		x++;
 	}

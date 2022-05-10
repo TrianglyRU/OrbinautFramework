@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_spring","path":"sprites/spr_knuckles_spring/spr_knuckles_spring.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_spring",
     "tags": [],
     "resourceType": "GMSequence",

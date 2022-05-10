@@ -1,24 +1,23 @@
 /// @function application_set_size(width,height)
 function application_set_size(width,height)
 {	
-	// Set camera and surface size
-	camera_set_view_size(GameCamera, width, height);
+	// Free surfaces, they'll be re-created in RendererSurfaceSet()
+	if instance_exists(Renderer)
+	{
+		if surface_exists(Renderer.SurfaceLow)
+		{
+			surface_free(Renderer.SurfaceLow);
+		}
+		if surface_exists(Renderer.SurfaceHigh)
+		{
+			surface_free(Renderer.SurfaceHigh);
+		}
+	}
 	surface_resize(application_surface, width, height);
-
-	// Resize palette surfaces
-	if surface_exists(Palette.SurfaceLow)
-	{
-		surface_resize(Palette.SurfaceLow, width, height);
-	}
-	if surface_exists(Palette.SurfaceHigh)
-	{
-		surface_resize(Palette.SurfaceHigh, width, height);
-	}
 	
-	// Update room size
-	if !instance_exists(Stage)
-	{
-		room_width  = Game.Width;
-		room_height = Game.Height;
-	}
+	// Update camera and its viewport size
+	view_enabled[0] = true;
+	view_visible[0] = true;
+	
+	camera_set_view_size(GameCamera, width + global.ScreenBuffer * 2, height);
 }

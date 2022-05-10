@@ -1,18 +1,17 @@
 /// @function palette_set_colour(palType,iCol,rCol)
 function palette_set_colour(palType,iCol,rCol)
 {
-	// Exit if no pallete set, playable stage is paused or fade is active
-	if Palette.ColourSet[palType] == false or variable_check(Stage, "IsPaused") or fade_check(StateActive)
+	if Palette.ColourSet[palType] == false or !Renderer.UpdateAnimations
 	{
-		exit;
+		return;
 	}
 	
 	// Update colour
-	if palType == TypePrimary
+	if palType == PalPrimary
 	{
 		Palette.IndexType1[iCol] = rCol;
 	}
-	else if palType == TypeSecondary
+	else if palType == PalSecondary
 	{
 		Palette.IndexType2[iCol] = rCol;
 	}

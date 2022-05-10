@@ -1,30 +1,26 @@
 function PlayerSuperFormsProcess()
 {
-	// Handle superform
 	switch SuperState
 	{	
-		// Transformation start
 		case 1:
 		{
-			// Count timer
-			SuperStateValue++
-			
-			// Reset speeds for 16 frames
-			if SuperStateValue < 16
+			// Reset speeds for 15 frames
+			if (++SuperStateValue) < 16
 			{
-				Inertia = 0;
-				Xsp		= 0;
-				Ysp		= 0;	
+				Gsp = 0;
+				Xsp	= 0;
+				Ysp	= 0;	
 			}
 			
 			// Restore control on 16th frame
 			else if SuperStateValue == 16
 			{
-				AirLock = false;
+				AllowCollision = true;
+				AirLock		   = false;
 			}
 			
 			// Become super on 40th (or 37th) frame
-			else if SuperStateValue == 40 - (Game.Character != CharSonic) * 3
+			else if SuperStateValue == 40 - (global.Character != CharSonic) * 3
 			{
 				if Animation == AnimTransform
 				{
@@ -35,11 +31,9 @@ function PlayerSuperFormsProcess()
 			}				
 		}
 		break;
-		
-		// Superform
 		case 2:
 		{
-			// Decrease rings
+			// Decrease ring counter
 			if Rings and !Death and !Drown
 			{
 				if (++SuperStateValue) == 61
@@ -49,34 +43,36 @@ function PlayerSuperFormsProcess()
 				}
 			}
 			
-			// Create star particle (and make it follow the player)
-			if abs(Inertia) >= TopAcc and !instance_exists(SuperStar)
+			if abs(Gsp) >= TopAcc and !instance_exists(SuperStar)
 			{
-				var  Object = instance_create(PosX, PosY, SuperStar);
-				with Object 
+				// Create star particle
+				var  NewObject = instance_create(PosX, PosY, SuperStar);
+				with NewObject 
 				{
 					State = true;
 				}
 			}
 			
-			// Exit superform
 			if !Rings
 			{	
+				// Restore music
 				if audio_bgm_is_playing(SuperTheme)
 				{
 					if Stage.IsBossfight
 					{
-						audio_bgm_play(ChannelPrimary, Boss);
+						audio_bgm_play(AudioPrimary, BossTheme);
 					}
 					else if HighspeedBonus
 					{
-						audio_bgm_play(ChannelPrimary, HighSpeed);
+						audio_bgm_play(AudioPrimary, HighSpeed);
 					}
 					else
 					{
-						audio_bgm_play(ChannelPrimary, Stage.StageMusic);
+						audio_bgm_play(AudioPrimary, Stage.StageMusic);
 					}					
 				}
+				
+				// Exit super form
 				SuperStateValue = false;
 				SuperState	    = false;
 			}

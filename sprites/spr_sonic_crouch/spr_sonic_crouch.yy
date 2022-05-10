@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"13b94935-9571-476a-946a-a8b3305c37fe","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"13b94935-9571-476a-946a-a8b3305c37fe","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"LayerId":{"name":"ea11f92a-6bbb-4af3-aae1-90a9bebfbffd","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_sonic_crouch","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","name":"13b94935-9571-476a-946a-a8b3305c37fe","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"d9510123-ebcc-4734-9bef-7ad2b9b30465","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"d9510123-ebcc-4734-9bef-7ad2b9b30465","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"LayerId":{"name":"ea11f92a-6bbb-4af3-aae1-90a9bebfbffd","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_sonic_crouch","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","name":"d9510123-ebcc-4734-9bef-7ad2b9b30465","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"7598280f-ddf7-4665-8b24-103acaf3a998","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"7598280f-ddf7-4665-8b24-103acaf3a998","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"LayerId":{"name":"ea11f92a-6bbb-4af3-aae1-90a9bebfbffd","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_sonic_crouch","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","name":"7598280f-ddf7-4665-8b24-103acaf3a998","tags":[],"resourceType":"GMSpriteFrame",},
@@ -44,7 +44,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"76c18dd7-1817-4b3a-8ab5-3f69ddef0149","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"13b94935-9571-476a-946a-a8b3305c37fe","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ddf74b1b-22cf-47d9-8fdf-7d1bf9f245bd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d9510123-ebcc-4734-9bef-7ad2b9b30465","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"37f69de8-bacb-4773-83e5-a338ab4fed39","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7598280f-ddf7-4665-8b24-103acaf3a998","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sonic_crouch","path":"sprites/spr_sonic_crouch/spr_sonic_crouch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sonic_crouch",
     "tags": [],
     "resourceType": "GMSequence",

@@ -1,5 +1,4 @@
 /// @description Startup
 // You can write your code in this editor
 	
-	// Call object script
-	ObjMotobugSmokeStartup();
+	animation_play(sprite_index, 2, 12);

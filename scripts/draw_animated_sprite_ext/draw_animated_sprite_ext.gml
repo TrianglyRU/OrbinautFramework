@@ -1,30 +1,28 @@
 /// @function draw_animated_sprite_ext(spriteid,duration,useGlobalTime,x,y,xscale,yscale)
 function draw_animated_sprite_ext(spriteid,duration,useGlobalTime,x,y,xscale,yscale)
 {
-	// Set duration timer for that sprite
+	// Define a timer for the sprite
 	if !useGlobalTime
 	{
-		if !ds_map_exists(Game.SpriteTimers, spriteid)
+		if !ds_map_exists(Renderer.AnimationTime, spriteid)
 		{
-			Game.SpriteTimers[? spriteid] = 0;
+			ds_map_add(Renderer.AnimationTime, spriteid, 0);
 		}
-	
-		// Count timer
-		else if !fade_check(StateActive) and !variable_check(Stage, "IsPaused")
+		else if Renderer.UpdateAnimations
 		{
-			Game.SpriteTimers[? spriteid]++;
+			Renderer.AnimationTime[? spriteid]++;
 		}
-		var Timer = Game.SpriteTimers[? spriteid];
+		var Timer = Renderer.AnimationTime[? spriteid];
 	}
 	else
 	{
-		var Timer = Game.GlobalTime;
+		var Timer = Renderer.AnimationTime[? GlobalTime];
 	}
 	
-	// Draw sprite
+	// Draw it
 	if !duration
 	{
-		show_debug_message("WARNING: Called draw_animated_sprite with duration equals to 0 or less. Use regular draw_sprite() function!");
+		show_debug_message("WARNING: draw_animated_sprite called with duration equals to 0 or less. Use regular draw_sprite() function!");
 	}
 	else
 	{

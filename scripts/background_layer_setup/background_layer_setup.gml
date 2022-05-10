@@ -1,35 +1,35 @@
-/// @function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,[inclineHeight],[inclineStep],[inclineY])
-function background_layer_setup(id,x,y,scrollX,scrollY,scrollXAuto,animDuration,inclineHeight,inclineStep,inclineY)
+/// @function background_layer_setup(id,ofstY,nodeY,heightY,animDuration,factorX,factorY,scrollX,scaleXHeight,scaleXStep,scaleY)
+function background_layer_setup(id,ofstY,nodeY,heightY,animDuration,factorX,factorY,scrollX,scaleXHeight,scaleXStep,scaleY)
 {
 	with Background
 	{
-		// Offset the background
-		if inclineStep < 0
-		{	
-			sprite_set_offset(BGSprites[id], 0, sprite_get_height(BGSprites[id]));	
-		}	
-		else
-		{
-			sprite_set_offset(BGSprites[id], 0, 0);
-		}
+		// Force-offset the background
+		sprite_set_offset(BGSprites[id], 0, 0);
 		
 		// Get values
-		BGValues[id][0]  = x;
-		BGValues[id][1]  = y + (inclineStep < 0) * sprite_get_height(BGSprites[id]);
-		BGValues[id][2]  = scrollX;
-		BGValues[id][3]  = scrollY;
-		BGValues[id][4]  = scrollXAuto;
-		BGValues[id][5]  = inclineHeight;
-		BGValues[id][6]  = inclineStep;
-		BGValues[id][7]  = inclineY;
-		BGValues[id][8]  = animDuration;
+		BGValues[id][0] = ofstY + nodeY;
+		BGValues[id][1] = nodeY;
+		BGValues[id][2] = heightY;
+		BGValues[id][3] = factorX;
+		BGValues[id][4] = factorY;
+		BGValues[id][5] = scrollX;
+		BGValues[id][6] = scaleXHeight;
+		BGValues[id][7] = scaleXStep;
+		BGValues[id][8] = scaleY;
+		BGValues[id][9] = animDuration;
 		
-		// Set texel data
-		BGValues[id][9]  = sprite_get_height(BGSprites[id]);
-		BGValues[id][10] = sprite_get_width(BGSprites[id]);
-		BGValues[id][11] = 1 / texture_get_texel_width(sprite_get_texture(BGSprites[id], 0));
+		// Get texel data
+		BGValues[id][10] = sprite_get_height(BGSprites[id]);
+		BGValues[id][11] = sprite_get_width(BGSprites[id]);
+		BGValues[id][12] = 1 / texture_get_texel_width(sprite_get_texture(BGSprites[id], 0));
 		
-		// Initialise autoscroll speed
-		BGValues[id][12] = 0;
+		// Initialise autoscroll offset value
+		BGValues[id][13] = 0;
+		
+		// We don't know how to describe that, but that thing has to be done!
+		if heightY == -1
+		{
+			BGValues[id][2] = -BGValues[id][10];
+		}
 	}
 }

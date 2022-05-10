@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_editor_controller",
-    "path": "sprites/spr_editor_controller/spr_editor_controller.yy",
+    "name": "spr_controller_main",
+    "path": "sprites/spr_controller_main/spr_controller_main.yy",
   },
   "solid": false,
   "visible": true,
@@ -25,12 +25,13 @@
     {"isDnD":false,"eventNum":75,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Stage",
-    "path": "folders/Game Code/Stage.yy",
+    "name": "Game Logic",
+    "path": "folders/Game Logic.yy",
   },
   "resourceVersion": "1.0",
   "name": "Stage",

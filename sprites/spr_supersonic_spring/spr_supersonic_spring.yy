@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_supersonic_spring","path":"sprites/spr_supersonic_spring/spr_supersonic_spring.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_supersonic_spring",
     "tags": [],
     "resourceType": "GMSequence",

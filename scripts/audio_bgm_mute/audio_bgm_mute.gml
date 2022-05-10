@@ -1,16 +1,15 @@
-/// @function audio_bgm_mute(channelType,time)
-function audio_bgm_mute(channelType,time)
+/// @function audio_bgm_mute(audioType,time)
+function audio_bgm_mute(audioType,time)
 {	
-	// Mute track
-	switch channelType
+	switch audioType
 	{
-		case ChannelPrimary:
+		case AudioPrimary:
 		{
 			Audio.PrimaryTrack[0] = EventMute;
 			Audio.PrimaryTrack[2] = time;
 		}
 		break;
-		case ChannelSecondary:
+		case AudioSecondary:
 		{
 			Audio.SecondaryTrack[0] = EventMute;
 			Audio.SecondaryTrack[2] = time;

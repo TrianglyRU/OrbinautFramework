@@ -63,7 +63,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_knuckles_crouch","path":"sprites/spr_knuckles_crouch/spr_knuckles_crouch.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_knuckles_crouch",
     "tags": [],
     "resourceType": "GMSequence",
