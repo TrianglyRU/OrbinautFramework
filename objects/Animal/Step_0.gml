@@ -11,7 +11,7 @@
 			if Ysp > 0 
 			{
 				// Check for floor
-				var FindFloor = tile_find_v(PosX, PosY + 12, true, false, LayerA)[0];
+				var FindFloor = tile_find_v(PosX, PosY + 12, true, LayerA)[0];
 				if  FindFloor < 0
 				{
 					PosY += FindFloor;
@@ -62,7 +62,7 @@
 			// Check for floor
 			if Ysp > 0
 			{
-				var FindFloor = tile_find_v(PosX, PosY + 12, true, false, LayerA)[0]
+				var FindFloor = tile_find_v(PosX, PosY + 12, true, LayerA)[0]
 				if  FindFloor < 0
 				{
 					PosY += FindFloor;

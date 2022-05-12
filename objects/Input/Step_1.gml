@@ -18,7 +18,7 @@
 	{
 		if !IgnoreInput and Type == "Gamepad"
 		{
-			// Choose between XInput and DirectInput. XInput is priority
+			// Choose between XInput and DirectInput. XInput is in priority
 			var PadID = gamepad_is_connected(0) ? 0 : 4;
 	
 			var LVAxisValue = gamepad_axis_value(PadID, gp_axislv);
@@ -57,12 +57,11 @@
 	
 	#region Keyboard Process
 	{
-		// Check if we should exit
 		if !IgnoreInput and Type == "Keyboard"
 		{
 			var Key = global.KeyboardControl;
 		
-			// Key Pressed
+			// Key Press
 			UpPress    = keyboard_check_pressed(Key[0]);
 			DownPress  = keyboard_check_pressed(Key[1]);
 			LeftPress  = keyboard_check_pressed(Key[2]);
@@ -75,7 +74,7 @@
 			StartPress = keyboard_check_pressed(Key[8]);
 	
 			ABCPress   = APress or BPress or CPress;
-		
+			
 			// Key Down
 			Up    = keyboard_check(Key[0]);
 			Down  = keyboard_check(Key[1]);

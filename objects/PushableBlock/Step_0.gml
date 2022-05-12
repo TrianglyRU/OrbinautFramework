@@ -39,7 +39,7 @@
 			}
 			
 			// Check for floor
-			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 16, true, LayerA)[0];
 			if  FindFloor > 4
 			{
 				if Direction == FlipRight
@@ -62,13 +62,13 @@
 			}
 			
 			// Check for walls and increment state if the wall was found
-			var FindWall = tile_find_h(PosX - 16, PosY, false, true, LayerA)[0];
+			var FindWall = tile_find_h(PosX - 16, PosY, false, LayerA)[0];
 			if  FindWall < 0
 			{
 				PosX  -= FindWall;
 				State += 2;
 			}
-			var FindWall = tile_find_h(PosX + 16, PosY, true, true, LayerA)[0];
+			var FindWall = tile_find_h(PosX + 16, PosY, true, LayerA)[0];
 			if  FindWall < 0
 			{
 				PosX  += FindWall;
@@ -90,7 +90,7 @@
 			}
 		
 			// Check for floor
-			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 16, true, LayerA)[0];
 			if  FindFloor < 0
 			{
 				PosY += FindFloor;

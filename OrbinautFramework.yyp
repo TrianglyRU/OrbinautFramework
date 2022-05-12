@@ -481,7 +481,7 @@
     {"id":{"name":"spr_tails_swim","path":"sprites/spr_tails_swim/spr_tails_swim.yy",},"order":57,},
     {"id":{"name":"spr_tails_swim_tired","path":"sprites/spr_tails_swim_tired/spr_tails_swim_tired.yy",},"order":58,},
     {"id":{"name":"spr_tails_tail_fly","path":"sprites/spr_tails_tail_fly/spr_tails_tail_fly.yy",},"order":84,},
-    {"id":{"name":"audio_bgm_add_channel","path":"scripts/audio_bgm_add_channel/audio_bgm_add_channel.yy",},"order":77,},
+    {"id":{"name":"audio_bgm_add_subtrack","path":"scripts/audio_bgm_add_subtrack/audio_bgm_add_subtrack.yy",},"order":77,},
     {"id":{"name":"spr_tails_tail_hidden","path":"sprites/spr_tails_tail_hidden/spr_tails_tail_hidden.yy",},"order":85,},
     {"id":{"name":"spr_tails_tail_idle","path":"sprites/spr_tails_tail_idle/spr_tails_tail_idle.yy",},"order":86,},
     {"id":{"name":"spr_tails_tail_type1","path":"sprites/spr_tails_tail_type1/spr_tails_tail_type1.yy",},"order":87,},

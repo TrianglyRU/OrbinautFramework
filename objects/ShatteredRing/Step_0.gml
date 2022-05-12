@@ -12,7 +12,7 @@
 	// Check for floor
 	if Ysp >= 0
 	{
-		var FindFloor = tile_find_v(PosX, PosY + 8, true, false, Player.Layer)[0];
+		var FindFloor = tile_find_v(PosX, PosY + 8, true, Player.Layer)[0];
 		if  FindFloor < 0
 		{
 			PosY += FindFloor;
@@ -26,7 +26,7 @@
 		// Check for ceiling
 		if Ysp < 0 
 		{
-			var FindRoof = tile_find_v(PosX, PosY - 8, false, true, Player.Layer)[0];
+			var FindRoof = tile_find_v(PosX, PosY - 8, false, Player.Layer)[0];
 			if  FindRoof < 0
 			{
 				Ysp *= -0.75;
@@ -36,7 +36,7 @@
 		// Check for left wall
 		if Xsp < 0
 		{
-			var FindWall = tile_find_h(PosX - 8, PosY, false, true, Player.Layer)[0];
+			var FindWall = tile_find_h(PosX - 8, PosY, false, Player.Layer)[0];
 			if  FindWall < 0
 			{
 				Xsp *= -0.75;
@@ -46,7 +46,7 @@
 		// Check for right wall
 		else if Xsp > 0
 		{
-			var FindWall = tile_find_h(PosX + 8, PosY, false, true, Player.Layer)[0];
+			var FindWall = tile_find_h(PosX + 8, PosY, false, Player.Layer)[0];
 			if  FindWall < 0
 			{
 				Xsp *= -0.75;

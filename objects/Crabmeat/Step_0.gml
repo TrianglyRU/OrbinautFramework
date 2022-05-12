@@ -15,7 +15,7 @@
 			Ysp  += 0.21875;
 			
 			// Check for floor
-			var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 16, true, LayerA)[0];
 			if  FindFloor < 0
 			{
 				PosY += FindFloor;
@@ -38,11 +38,11 @@
 			// Check for floor
 			if StateTimer mod 2 == 0
 			{
-				var FindFloor = tile_find_v(PosX + 16 * Direction, PosY + 16, true, false, LayerA)[0]; 
+				var FindFloor = tile_find_v(PosX + 16 * Direction, PosY + 16, true, LayerA)[0]; 
 			}
 			else
 			{
-				var FindFloor = tile_find_v(PosX, PosY + 16, true, false, LayerA);
+				var FindFloor = tile_find_v(PosX, PosY + 16, true, LayerA);
 			}
 			
 			// Increment state

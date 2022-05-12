@@ -1,9 +1,9 @@
-/// @function tile_find_2h(x1,y1,x2,y2,toPositive,noTopSolid,objectAngle,tilelayer)
-function tile_find_2h(x1,y1,x2,y2,toPositive,noTopSolid,objectAngle,tilelayer)
+/// @function tile_find_2h(x1,y1,x2,y2,toPositive,objectAngle,tilelayer)
+function tile_find_2h(x1,y1,x2,y2,toPositive,objectAngle,tilelayer)
 {
 	// Get tiles at positions
-	var FindTile1 = tile_find_h(x1, y1, toPositive, noTopSolid, tilelayer);
-	var FindTile2 = tile_find_h(x2, y2, toPositive, noTopSolid, tilelayer);
+	var FindTile1 = tile_find_h(x1, y1, toPositive, tilelayer);
+	var FindTile2 = tile_find_h(x2, y2, toPositive, tilelayer);
 	
 	// Use closest tile
 	if FindTile1[0] <= FindTile2[0]

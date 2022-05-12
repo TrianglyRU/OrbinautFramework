@@ -42,7 +42,7 @@ function PlayerGroundWallCollision()
 		{
 			case 0:
 			{	
-				var FindWall = tile_find_h(PosX + Xsp - WRadius, PosY + Ysp + YOffset, false, true, Layer)[0];
+				var FindWall = tile_find_h(PosX + Xsp - WRadius, PosY + Ysp + YOffset, false, Layer)[0];
 				if  FindWall < 0 
 				{	
 					Xsp -= FindWall;
@@ -58,7 +58,7 @@ function PlayerGroundWallCollision()
 			break;
 			case 1:
 			{
-				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp + WRadius, true, true, Layer)[0];
+				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp + WRadius, true, Layer)[0];
 				if  FindWall < 0
 				{
 					Ysp += FindWall;
@@ -68,7 +68,7 @@ function PlayerGroundWallCollision()
 			break;
 			case 2:
 			{	
-				var FindWall = tile_find_h(PosX + Xsp + WRadius, PosY + Ysp, true, true, Layer)[0];
+				var FindWall = tile_find_h(PosX + Xsp + WRadius, PosY + Ysp, true, Layer)[0];
 				if  FindWall < 0
 				{	
 					Xsp += FindWall;
@@ -78,7 +78,7 @@ function PlayerGroundWallCollision()
 			break;
 			case 3:
 			{
-				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp - WRadius, false, true, Layer)[0];
+				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp - WRadius, false, Layer)[0];
 				if  FindWall < 0
 				{	
 					Ysp -= FindWall;
@@ -96,7 +96,7 @@ function PlayerGroundWallCollision()
 		{
 			case 0:
 			{	
-				var FindWall = tile_find_h(PosX + Xsp + WRadius, PosY + Ysp + YOffset, true, true, Layer)[0];
+				var FindWall = tile_find_h(PosX + Xsp + WRadius, PosY + Ysp + YOffset, true, Layer)[0];
 				if  FindWall < 0
 				{	
 					Xsp += FindWall;
@@ -112,7 +112,7 @@ function PlayerGroundWallCollision()
 			break;
 			case 1:
 			{
-				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp - WRadius, false, true, Layer)[0];
+				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp - WRadius, false, Layer)[0];
 				if  FindWall < 0
 				{	
 					Ysp -= FindWall;
@@ -122,7 +122,7 @@ function PlayerGroundWallCollision()
 			break;
 			case 2:
 			{	
-				var FindWall = tile_find_h(PosX + Xsp - WRadius, PosY + Ysp, false, true, Layer)[0];
+				var FindWall = tile_find_h(PosX + Xsp - WRadius, PosY + Ysp, false, Layer)[0];
 				if  FindWall < 0
 				{	
 					Xsp -= FindWall;
@@ -132,7 +132,7 @@ function PlayerGroundWallCollision()
 			break;
 			case 3:
 			{
-				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp + WRadius, true, true, Layer)[0];
+				var FindWall = tile_find_v(PosX + Xsp, PosY + Ysp + WRadius, true, Layer)[0];
 				if  FindWall < 0
 				{	
 					Ysp += FindWall;

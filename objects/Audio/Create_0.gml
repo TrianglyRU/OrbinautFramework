@@ -25,8 +25,8 @@
 		SecondaryTrack[3] = noone;
 	
 		// Create data structures
-		TrackLoop	  = ds_map_create();
-		SecondChannel = ds_map_create();
+		TrackLoopData = ds_map_create();
+		SubTrackData  = ds_map_create();
 	}
 	#endregion
 	
@@ -46,14 +46,14 @@
 		/* The game will refer to data stored here to play an additional channel. 
 		If no data set here for the track, nothing will happen. You are not forced to do this */
 
-		audio_bgm_add_channel(TestStage,     TestStage_DAC);
-		audio_bgm_add_channel(HighSpeed,     HighSpeed_DAC);
-		audio_bgm_add_channel(Invincibility, Invincibility_DAC);
-		audio_bgm_add_channel(ExtraLife,     ExtraLife_DAC);
-		audio_bgm_add_channel(Continue,      Continue_DAC);
-		audio_bgm_add_channel(BossTheme,     BossTheme_DAC);
-		audio_bgm_add_channel(SuperTheme,    SuperTheme_DAC);
-		audio_bgm_add_channel(BonusTheme,    BonusTheme_DAC);
-		audio_bgm_add_channel(SpecialTheme,  SpecialTheme_DAC);
+		audio_bgm_add_subtrack(TestStage,     TestStage_DAC);
+		audio_bgm_add_subtrack(HighSpeed,     HighSpeed_DAC);
+		audio_bgm_add_subtrack(Invincibility, Invincibility_DAC);
+		audio_bgm_add_subtrack(ExtraLife,     ExtraLife_DAC);
+		audio_bgm_add_subtrack(Continue,      Continue_DAC);
+		audio_bgm_add_subtrack(BossTheme,     BossTheme_DAC);
+		audio_bgm_add_subtrack(SuperTheme,    SuperTheme_DAC);
+		audio_bgm_add_subtrack(BonusTheme,    BonusTheme_DAC);
+		audio_bgm_add_subtrack(SpecialTheme,  SpecialTheme_DAC);
 	}
 	#endregion

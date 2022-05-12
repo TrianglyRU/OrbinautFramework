@@ -14,6 +14,10 @@ function GameSetup()
 	/* Default (first-time-load) volume, screen size and fullscreen mode 
 	are set in settings_load() function */
 	
+	/* Do not use boolean flags below in your code if you are going to add
+	new character abilities. They are used to quickly turn off/on abilities and
+	features ENTIRELY */
+	
 	// Originals differences. By defualt, the framework is in a "mix" state
 	global.SpindashEnabled    = true;
 	global.PeeloutEnabled	  = true;

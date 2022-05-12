@@ -6,7 +6,7 @@ function PlayerKnuxGlide()
 	}
 	
 	// Collide with left wall
-	var FindWall = tile_find_h(PosX - RadiusX, PosY, false, true, Layer);
+	var FindWall = tile_find_h(PosX - RadiusX, PosY, false, Layer);
 	if  FindWall[0] <= 0
 	{
 		if !(Xsp > 0)
@@ -30,7 +30,7 @@ function PlayerKnuxGlide()
 	}
 			
 	// Collide with right wall
-	var FindWall = tile_find_h(PosX + RadiusX, PosY, true, true, Layer);
+	var FindWall = tile_find_h(PosX + RadiusX, PosY, true, Layer);
 	if  FindWall[0] <= 0
 	{
 		if !(Xsp < 0)
@@ -54,7 +54,7 @@ function PlayerKnuxGlide()
 	}
 	
 	// Collide with ceiling
-	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+	var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, noone, Layer);
 	if  FindRoof[0] < 0
 	{	
 		Ysp   = 0;			
@@ -67,7 +67,7 @@ function PlayerKnuxGlide()
 		var X1 = PosX - RadiusX;
 		var X2 = PosX + RadiusX;
 		var Y1 = PosY + RadiusY;
-		var FindFloor = tile_find_2v(X1, Y1, X2, Y1, true, false, noone, Layer);
+		var FindFloor = tile_find_2v(X1, Y1, X2, Y1, true, noone, Layer);
 		
 		// Are we airborne?
 		if GlideState != GlideGround 

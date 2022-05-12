@@ -16,7 +16,7 @@
 			Ysp  += 0.21875;
 			
 			// Check for floor
-			var FindFloor = tile_find_v(PosX, PosY + 15, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 15, true, LayerA)[0];
 			if  FindFloor < 0
 			{
 				PosY += FindFloor;
@@ -34,7 +34,7 @@
 			PosX += image_xscale;
 			
 			// Check for floor
-			var FindFloor = tile_find_v(PosX, PosY + 15, true, false, LayerA)[0];
+			var FindFloor = tile_find_v(PosX, PosY + 15, true, LayerA)[0];
 			if  FindFloor >= 12 or FindFloor < -8
 			{
 				animation_set(sprite_index, 0);

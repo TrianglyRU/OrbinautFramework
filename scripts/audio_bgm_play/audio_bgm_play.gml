@@ -13,9 +13,9 @@ function audio_bgm_play(audioType,soundid)
 			Audio.PrimaryTrack[1] = audio_play_sound(soundid, 0, false);
 			
 			// Set loopdata
-			if ds_map_exists(Audio.TrackLoop, soundid)
+			if ds_map_exists(Audio.TrackLoopData, soundid)
 			{
-				Audio.PrimaryTrack[3] = Audio.TrackLoop[? soundid];
+				Audio.PrimaryTrack[3] = Audio.TrackLoopData[? soundid];
 			}
 			else
 			{
@@ -27,11 +27,11 @@ function audio_bgm_play(audioType,soundid)
 			{
 				audio_stop_sound(Audio.PrimaryTrack[4]);
 			}
-			if ds_map_exists(Audio.SecondChannel, soundid)
+			if ds_map_exists(Audio.SubTrackData, soundid)
 			{
-				Audio.PrimaryTrack[4] = audio_play_sound(Audio.SecondChannel[? soundid], 0, false);
+				Audio.PrimaryTrack[4] = audio_play_sound(Audio.SubTrackData[? soundid], 0, false);
 				
-				audio_sound_gain(Audio.SecondChannel[? soundid], global.MusicVolume, 0);
+				audio_sound_gain(Audio.SubTrackData[? soundid], global.MusicVolume, 0);
 			}
 			else
 			{
@@ -53,11 +53,11 @@ function audio_bgm_play(audioType,soundid)
 			{
 				audio_stop_sound(Audio.SecondaryTrack[3]);
 			}
-			if ds_map_exists(Audio.SecondChannel, soundid)
+			if ds_map_exists(Audio.SubTrackData, soundid)
 			{
-				Audio.SecondaryTrack[3] = audio_play_sound(Audio.SecondChannel[? soundid], 0, false);
+				Audio.SecondaryTrack[3] = audio_play_sound(Audio.SubTrackData[? soundid], 0, false);
 				
-				audio_sound_gain(Audio.SecondChannel[? soundid], global.MusicVolume, 0);
+				audio_sound_gain(Audio.SubTrackData[? soundid], global.MusicVolume, 0);
 			}
 			else
 			{

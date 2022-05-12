@@ -1,10 +1,10 @@
 /// @description Unload
 // You can write your code in this editor
 
-	ds_map_destroy(TrackLoop);	   
-	ds_map_destroy(SecondChannel); 
+	ds_map_destroy(TrackLoopData);	   
+	ds_map_destroy(SubTrackData); 
 	
-	TrackLoop	  = -1;
-	SecondChannel = -1;
+	TrackLoopData = -1;
+	SubTrackData  = -1;
 	
 	audio_stop_all();

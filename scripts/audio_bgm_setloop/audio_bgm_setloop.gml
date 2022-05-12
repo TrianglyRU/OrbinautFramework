@@ -7,6 +7,6 @@ function audio_bgm_setloop(soundid,loopstart,loopend)
     }
     else
     {
-        TrackLoop[? soundid] = [loopstart, loopend];
+        TrackLoopData[? soundid] = [loopstart, loopend];
     }
 }

@@ -1,7 +1,7 @@
 /// @function application_set_size(width,height)
 function application_set_size(width,height)
 {	
-	// Free surfaces, they'll be re-created in RendererSurfaceSet()
+	// Free surfaces, they'll be re-created in the Pre-Draw Event of Renderer contoller
 	if instance_exists(Renderer)
 	{
 		if surface_exists(Renderer.SurfaceLow)

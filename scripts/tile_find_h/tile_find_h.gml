@@ -1,5 +1,5 @@
-/// @function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
-function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
+/// @function tile_find_h(x,y,toPositive,tilelayer)
+function tile_find_h(x,y,toPositive,tilelayer)
 {	
 	x = floor(x);
 	y = floor(y);
@@ -30,34 +30,34 @@ function tile_find_h(x,y,toPositive,noTopSolid,tilelayer)
 	var TileWidth = tile_get_width(y, Tile, TileIndex);
 	
 	// If no width found, get a tile away from the player
-	if !TileWidth or noTopSolid and TileIndex > global.TileData[1]
+	if !TileWidth or TileIndex > global.TileData[1]
 	{
-		Shift		= 16;
-		Tile        = tilemap_get(Layer, (x + Shift * Direction) div 16, y div 16);
-		TileIndex   = tile_get_index(Tile);
-		TileWidth   = tile_get_width(y, Tile, TileIndex);
+		Shift     = 16;
+		Tile      = tilemap_get(Layer, (x + Shift * Direction) div 16, y div 16);
+		TileIndex = tile_get_index(Tile);
+		TileWidth = tile_get_width(y, Tile, TileIndex);
 	}
 	
 	// If width found is 16px, try to find a tile closer to the player
 	else if TileWidth == 16
 	{
-		Shift		= -16;
-		Tile        = tilemap_get(Layer, (x + Shift * Direction) div 16, y div 16);
-		TileIndex   = tile_get_index(Tile);
-		TileWidth   = tile_get_width(y, Tile, TileIndex);
+		Shift     = -16;
+		Tile      = tilemap_get(Layer, (x + Shift * Direction) div 16, y div 16);
+		TileIndex = tile_get_index(Tile);
+		TileWidth = tile_get_width(y, Tile, TileIndex);
 
 		// If no width found, revert back to the previous tile	
-		if !TileWidth or noTopSolid and TileIndex > global.TileData[1]
+		if !TileWidth or TileIndex > global.TileData[1]
 		{
-			Shift		= 0;
-			Tile        = tilemap_get(Layer, x div 16, y div 16);
-			TileIndex   = tile_get_index(Tile);
-			TileWidth   = tile_get_width(y, Tile, TileIndex);
+			Shift     = 0;
+			Tile      = tilemap_get(Layer, x div 16, y div 16);
+			TileIndex = tile_get_index(Tile);
+			TileWidth = tile_get_width(y, Tile, TileIndex);
 		}
 	}
 	
-	// If final tile is top-only-solid and we're ignoring them, ignore it!
-	if noTopSolid and TileIndex > global.TileData[1]
+	// If final tile is top solid, ignore it!
+	if TileIndex > global.TileData[1]
 	{
 		return [32, noone];
 	}

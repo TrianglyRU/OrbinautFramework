@@ -21,7 +21,7 @@ function PlayerAirLevelCollision()
 		case "MoveDown":
 		{
 			// Collide with left wall
-			var FindWall = tile_find_h(PosX - WRadius, PosY, false, true, Layer)[0];
+			var FindWall = tile_find_h(PosX - WRadius, PosY, false, Layer)[0];
 			if  FindWall < 0
 			{
 				PosX -= FindWall;
@@ -29,7 +29,7 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Collide with right wall
-			var FindWall = tile_find_h(PosX + WRadius, PosY, true, true, Layer)[0];
+			var FindWall = tile_find_h(PosX + WRadius, PosY, true, Layer)[0];
 			if  FindWall < 0
 			{
 				PosX += FindWall;
@@ -37,8 +37,8 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Collide with floor. We have to remember both distances, so we do not use tile_find_2v here
-			var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
-			var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+			var FindFloor1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, Layer);
+			var FindFloor2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, Layer);
 			
 			if FindFloor1[0] <= FindFloor2[0]
 			{
@@ -83,7 +83,7 @@ function PlayerAirLevelCollision()
 		case "MoveUp":
 		{
 			// Collide with left wall
-			var FindWall = tile_find_h(PosX - WRadius, PosY, false, true, Layer)[0];
+			var FindWall = tile_find_h(PosX - WRadius, PosY, false, Layer)[0];
 			if  FindWall < 0
 			{
 				PosX -= FindWall;
@@ -91,7 +91,7 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Collide with right wall
-			var FindWall = tile_find_h(PosX + WRadius, PosY, true, true, Layer)[0];
+			var FindWall = tile_find_h(PosX + WRadius, PosY, true, Layer)[0];
 			if  FindWall < 0
 			{
 				PosX += FindWall;
@@ -99,7 +99,7 @@ function PlayerAirLevelCollision()
 			}
 			
 			// Collide with ceiling
-			var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+			var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, noone, Layer);
 			if  FindRoof[0] < 0
 			{	
 				if (FindRoof[1] >= 91.41  and FindRoof[1] <= 136.41 
@@ -125,7 +125,7 @@ function PlayerAirLevelCollision()
 		case "MoveLeft":
 		{
 			// Collide with left wall
-			var FindWall = tile_find_h(PosX - WRadius, PosY, false, true, Layer)[0];
+			var FindWall = tile_find_h(PosX - WRadius, PosY, false, Layer)[0];
 			if  FindWall < 0
 			{
 				PosX -= FindWall;
@@ -135,7 +135,7 @@ function PlayerAirLevelCollision()
 			else
 			{
 				// Collide with ceiling
-				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, noone, Layer);
 				if  FindRoof[0] < 0
 				{	
 					if Ysp < 0
@@ -151,7 +151,7 @@ function PlayerAirLevelCollision()
 				else if Ysp > 0
 				{
 					// Collide with floor
-					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, noone, Layer);
 					if  FindFloor[0] < 0
 					{
 						PosY	+= FindFloor[0];
@@ -167,7 +167,7 @@ function PlayerAirLevelCollision()
 		case "MoveRight":
 		{
 			// Collide with right wall
-			var FindWall = tile_find_h(PosX + WRadius, PosY, true, true, Layer)[0];
+			var FindWall = tile_find_h(PosX + WRadius, PosY, true, Layer)[0];
 			if  FindWall < 0
 			{
 				PosX += FindWall;
@@ -177,7 +177,7 @@ function PlayerAirLevelCollision()
 			else
 			{
 				// Collide with ceiling
-				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer);
+				var FindRoof = tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, noone, Layer);
 				if  FindRoof[0] < 0
 				{	
 					if Ysp < 0
@@ -193,7 +193,7 @@ function PlayerAirLevelCollision()
 				else if Ysp > 0
 				{
 					// Collide with floor
-					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, noone, Layer);
+					var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, noone, Layer);
 					if  FindFloor[0] < 0
 					{
 						PosY	+= FindFloor[0];

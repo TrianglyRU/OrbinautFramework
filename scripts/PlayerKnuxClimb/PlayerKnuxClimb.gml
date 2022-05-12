@@ -47,15 +47,15 @@ function PlayerKnuxClimb()
 		else
 		{
 			// Collide with ceiling
-			var FindRoof = tile_find_v(PosX + RadiusX * Facing, PosY - DefaultRadiusY, false, true, Layer)[0];
+			var FindRoof = tile_find_v(PosX + RadiusX * Facing, PosY - DefaultRadiusY, false, Layer)[0];
 			if  FindRoof < 0
 			{
 				PosY -= FindRoof;
 			}
-			else
+			else if Ysp
 			{
 				// Collide with floor
-				var FindFloor = tile_find_v(PosX + RadiusX * Facing, PosY + DefaultRadiusY, true, false, Layer);
+				var FindFloor = tile_find_v(PosX + RadiusX * Facing, PosY + DefaultRadiusY, true, Layer);
 				if  FindFloor[0] < 0
 				{
 					if FindFloor[1] <= 45 or FindFloor[1] >= 316.41
@@ -71,7 +71,7 @@ function PlayerKnuxClimb()
 			}
 				
 			// Drop if no tile found in front of us or we're actually inside of it
-			var FindWall = tile_find_h(PosX + RadiusX * Facing, PosY + 10, Facing, false, Layer);
+			var FindWall = tile_find_h(PosX + RadiusX * Facing, PosY + 10, Facing, Layer);
 			if  FindWall[0] < 0 or FindWall[1] == noone
 			{
 				Animation  = AnimDrop;
@@ -94,14 +94,14 @@ function PlayerKnuxClimb()
 			}
 				
 			// If no tile found above us, start clambering
-			var FindWall = tile_find_h(PosX + RadiusX * Facing, PosY - 10, Facing, false, Layer);
+			var FindWall = tile_find_h(PosX + (RadiusX + 1) * Facing, PosY - 10, Facing, Layer);
 			if  FindWall[1] == noone
 			{
 				Ysp		   = 0;
 				ClimbState = ClimbLedge;
 					
 				// Align to the edge
-				var Align = tile_find_v(PosX + (RadiusX + 1) * Facing, PosY - 11, true, false, Layer)[0];
+				var Align = tile_find_v(PosX + (RadiusX + 1) * Facing, PosY - 11, true, Layer)[0];
 				if  Align
 				{
 					PosY += Align; 

@@ -10,7 +10,7 @@ function PlayerJumpStart()
 	{
 		case 0:
 		{
-			if tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, true, noone, Layer)[0] < 6
+			if tile_find_2v(PosX - RadiusX, PosY - RadiusY, PosX + RadiusX, PosY - RadiusY, false, noone, Layer)[0] < 6
 			{
 				return;
 			}
@@ -18,7 +18,7 @@ function PlayerJumpStart()
 		break;
 		case 1:
 		{
-			if tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, true, noone, Layer)[0] < 6
+			if tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, noone, Layer)[0] < 6
 			{
 				return;
 			}
@@ -31,7 +31,7 @@ function PlayerJumpStart()
 		break;
 		case 3:
 		{
-			if tile_find_2h(PosX + RadiusY, PosY - RadiusX, PosX + RadiusY, PosY + RadiusX, true, true, noone, Layer)[0] < 6
+			if tile_find_2h(PosX + RadiusY, PosY - RadiusX, PosX + RadiusY, PosY + RadiusX, true, noone, Layer)[0] < 6
 			{
 				return;
 			}

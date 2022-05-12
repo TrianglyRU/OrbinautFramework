@@ -14,16 +14,16 @@
 		[1] - Track ID - Not asset ID!
 		[2] - Event Time
 		[3] - Loop Data
-		[4] - 2nd Channel ID - Not asset ID!
+		[4] - SubTrack ID - Not asset ID!
 		------------------------
 		*/
 	
 		// Get track data
-		var Event      = PrimaryTrack[0];
-		var Track      = PrimaryTrack[1];
-		var EventTime  = PrimaryTrack[2];
-		var LoopData   = PrimaryTrack[3];
-		var SndChannel = PrimaryTrack[4];
+		var Event     = PrimaryTrack[0];
+		var Track     = PrimaryTrack[1];
+		var EventTime = PrimaryTrack[2];
+		var LoopData  = PrimaryTrack[3];
+		var SubTrack  = PrimaryTrack[4];
 
 		// Loop track
 		var TrackPosition = audio_sound_get_track_position(Track);
@@ -31,18 +31,18 @@
 		{
 			if TrackPosition >= LoopData[1]
 			{
-				if SndChannel
+				if SubTrack
 				{
-					audio_sound_set_track_position(SndChannel, LoopData[0] + (TrackPosition - LoopData[1]));
+					audio_sound_set_track_position(SubTrack, LoopData[0] + (TrackPosition - LoopData[1]));
 				}
 				audio_sound_set_track_position(Track, LoopData[0] + (TrackPosition - LoopData[1]));
 			}
 		}
 		else if !audio_bgm_is_playing(Track)
 		{
-			if SndChannel
+			if SubTrack
 			{
-				audio_stop_sound(SndChannel);
+				audio_stop_sound(SubTrack);
 			}
 			audio_bgm_stop(AudioPrimary, 0);
 		}
@@ -55,9 +55,9 @@
 				// Reset event
 				if audio_sound_get_gain(Track) == 1
 				{
-					if SndChannel
+					if SubTrack
 					{
-						audio_sound_gain(SndChannel, 1, 0);
+						audio_sound_gain(SubTrack, 1, 0);
 					}
 					PrimaryTrack[0] = EventIdle;
 					PrimaryTrack[2] = 0;
@@ -79,9 +79,9 @@
 				var VolumeStep  = 1 / (EventTime * 60);
 				var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 			
-				if SndChannel
+				if SubTrack
 				{
-					audio_sound_gain(SndChannel, 0, 0);
+					audio_sound_gain(SubTrack, 0, 0);
 				}
 				audio_sound_gain(Track, VolumeLevel, 0);
 			}
@@ -106,10 +106,10 @@
 					var VolumeStep  = 1 / (EventTime * 60);
 					var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 				
-					if SndChannel
+					if SubTrack
 					{
-						audio_stop_sound(SndChannel);
-						audio_sound_gain(SndChannel, global.MusicVolume, 0);
+						audio_stop_sound(SubTrack);
+						audio_sound_gain(SubTrack, global.MusicVolume, 0);
 					}
 					audio_sound_gain(Track, VolumeLevel, 0);
 				}
@@ -131,15 +131,15 @@
 		[0] - Event
 		[1] - Track ID - Not asset ID!
 		[2] - Event Time
-		[3] - 2nd Channel ID - Not asset ID!
+		[3] - SubTrack ID - Not asset ID!
 		------------------------
 		*/
 	
 		// Get secondary track data
-		var Event      = SecondaryTrack[0];
-		var Track      = SecondaryTrack[1];
-		var EventTime  = SecondaryTrack[2];
-		var SndChannel = SecondaryTrack[3];
+		var Event     = SecondaryTrack[0];
+		var Track     = SecondaryTrack[1];
+		var EventTime = SecondaryTrack[2];
+		var SubTrack  = SecondaryTrack[3];
 	
 		// Automatically mute and unmute primary track
 		if Track and Event != EventMute and Event != EventStop
@@ -154,9 +154,9 @@
 		// Stop track once it finished playing
 		if !audio_bgm_is_playing(Track)
 		{
-			if SndChannel
+			if SubTrack
 			{
-				audio_stop_sound(SndChannel);
+				audio_stop_sound(SubTrack);
 			}
 			audio_bgm_stop(AudioSecondary, 0);
 		}
@@ -169,9 +169,9 @@
 				// Reset event
 				if audio_sound_get_gain(Track) == 1
 				{
-					if SndChannel
+					if SubTrack
 					{
-						audio_sound_gain(SndChannel, 1, 0);
+						audio_sound_gain(SubTrack, 1, 0);
 					}
 					SecondaryTrack[0] = EventIdle;
 					SecondaryTrack[2] = 0;
@@ -193,9 +193,9 @@
 				var VolumeStep  = 1 / (EventTime * 60);
 				var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 			
-				if SndChannel
+				if SubTrack
 				{
-					audio_sound_gain(SndChannel, 0, 0);
+					audio_sound_gain(SubTrack, 0, 0);
 				}
 				audio_sound_gain(Track, VolumeLevel, 0);
 			}
@@ -220,10 +220,10 @@
 					var VolumeStep  = 1 / (EventTime * 60);
 					var VolumeLevel = max(audio_sound_get_gain(Track) - VolumeStep, 0);
 				
-					if SndChannel
+					if SubTrack
 					{
-						audio_stop_sound(SndChannel);
-						audio_sound_gain(SndChannel, global.MusicVolume, 0);
+						audio_stop_sound(SubTrack);
+						audio_sound_gain(SubTrack, global.MusicVolume, 0);
 					}
 					audio_sound_gain(Track, VolumeLevel, 0);
 				}

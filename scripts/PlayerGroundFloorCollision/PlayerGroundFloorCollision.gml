@@ -36,7 +36,7 @@ function PlayerGroundFloorCollision()
 			{
 				case 0:
 				{
-					var FindTile = tile_find_h(PosX + RadiusY, PosY + RadiusX, true, false, Layer);
+					var FindTile = tile_find_h(PosX + RadiusY, PosY + RadiusX, true, Layer);
 					if  FindTile[0] < 0
 					{
 						if FindTile[1] - Angle mod 360 < 45
@@ -45,7 +45,7 @@ function PlayerGroundFloorCollision()
 						}
 					}
 			
-					var FindTile = tile_find_h(PosX - RadiusY, PosY + RadiusX, false, false, Layer);
+					var FindTile = tile_find_h(PosX - RadiusY, PosY + RadiusX, false, Layer);
 					if  FindTile[0] < 0
 					{
 						if Angle - FindTile[1] < 45
@@ -57,7 +57,7 @@ function PlayerGroundFloorCollision()
 				break;
 				case 1:	
 				{
-					var FindTile = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer);
+					var FindTile = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, Layer);
 					if  FindTile[0] < 0
 					{
 						if Angle - FindTile[1] mod 360 < 45
@@ -66,7 +66,7 @@ function PlayerGroundFloorCollision()
 						}
 					}
 			
-					var FindTile = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, false, Layer);
+					var FindTile = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, Layer);
 					if  FindTile[0] < 0
 					{
 						if FindTile[1] - Angle < 45
@@ -78,7 +78,7 @@ function PlayerGroundFloorCollision()
 				break;
 				case 2:
 				{
-					var FindTile = tile_find_h(PosX + RadiusY, PosY - RadiusX, true, false, Layer);
+					var FindTile = tile_find_h(PosX + RadiusY, PosY - RadiusX, true, Layer);
 					if  FindTile[0] < 0
 					{
 						if Angle - FindTile[1] < 45
@@ -87,7 +87,7 @@ function PlayerGroundFloorCollision()
 						}
 					}
 			
-					var FindTile = tile_find_h(PosX - RadiusY, PosY - RadiusX, false, false, Layer);
+					var FindTile = tile_find_h(PosX - RadiusY, PosY - RadiusX, false, Layer);
 					if  FindTile[0] < 0
 					{
 						if FindTile[1] - Angle < 45
@@ -99,7 +99,7 @@ function PlayerGroundFloorCollision()
 				break;
 				case 3:
 				{
-					var FindTile = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer);
+					var FindTile = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, Layer);
 					if  FindTile[0] < 0
 					{
 						if FindTile[1] - Angle < 45
@@ -108,7 +108,7 @@ function PlayerGroundFloorCollision()
 						}
 					}
 			
-					var FindTile = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, false, Layer);
+					var FindTile = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, Layer);
 					if  FindTile[0] < 0
 					{
 						if Angle - FindTile[1] < 45
@@ -133,7 +133,7 @@ function PlayerGroundFloorCollision()
 		case 0:
 		{		
 			// Get tile below us
-			var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, false, Angle, Layer);
+			var FindFloor = tile_find_2v(PosX - RadiusX, PosY + RadiusY, PosX + RadiusX, PosY + RadiusY, true, Angle, Layer);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
@@ -163,7 +163,7 @@ function PlayerGroundFloorCollision()
 		case 1:
 		{	
 			// Get tile to our right
-			var FindFloor = tile_find_2h(PosX + RadiusY, PosY + RadiusX, PosX + RadiusY, PosY - RadiusX, true, false, Angle, Layer);
+			var FindFloor = tile_find_2h(PosX + RadiusY, PosY + RadiusX, PosX + RadiusY, PosY - RadiusX, true, Angle, Layer);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
@@ -193,7 +193,7 @@ function PlayerGroundFloorCollision()
 		case 2:	
 		{	
 			// Get tile above us
-			var FindFloor = tile_find_2v(PosX + RadiusX, PosY - RadiusY, PosX - RadiusX, PosY - RadiusY, false, false, Angle, Layer);
+			var FindFloor = tile_find_2v(PosX + RadiusX, PosY - RadiusY, PosX - RadiusX, PosY - RadiusY, false, Angle, Layer);
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex
@@ -223,7 +223,7 @@ function PlayerGroundFloorCollision()
 		case 3:
 		{	
 			// Get tile to our left
-			var FindFloor = tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, false, Angle, Layer); 
+			var FindFloor = tile_find_2h(PosX - RadiusY, PosY - RadiusX, PosX - RadiusY, PosY + RadiusX, false, Angle, Layer); 
 			
 			// Go airborne if surface is too far away from us
 			if !StickToConvex

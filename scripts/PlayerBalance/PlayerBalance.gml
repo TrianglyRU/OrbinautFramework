@@ -83,15 +83,15 @@ function PlayerBalance()
 		}
 		
 		// Check for floor
-		var FindFloor = tile_find_v(PosX, PosY + RadiusY, true, false, Layer)[0];	
+		var FindFloor = tile_find_v(PosX, PosY + RadiusY, true, Layer)[0];	
 		if  FindFloor < 12
 		{
 			return;
 		}
 		
 		// Get floor angles and continue if only one exists
-		var FindAngle1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, false, Layer)[1];
-		var FindAngle2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, false, Layer)[1];
+		var FindAngle1 = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, Layer)[1];
+		var FindAngle2 = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, Layer)[1];
 		
 		if !(FindAngle1 and !FindAngle2 or !FindAngle1 and FindAngle2)
 		{
@@ -101,12 +101,12 @@ function PlayerBalance()
 		// Balance!
 		if !FindAngle1
 		{	
-			var FindFloor = tile_find_v(PosX + 6, PosY + RadiusY, true, false, Layer)[0];
+			var FindFloor = tile_find_v(PosX + 6, PosY + RadiusY, true, Layer)[0];
 			PlayerBalanceLeft(FindFloor >= 12);
 		}
 		else if !FindAngle2
 		{
-			var FindFloor = tile_find_v(PosX - 6, PosY + RadiusY, true, false, Layer)[0];
+			var FindFloor = tile_find_v(PosX - 6, PosY + RadiusY, true, Layer)[0];
 			PlayerBalanceRight(FindFloor >= 12);
 		}
 	}

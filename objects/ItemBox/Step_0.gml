@@ -78,7 +78,7 @@
 				PosY += Ysp;
 			
 				// Check for floor
-				var FindFloor = tile_find_v(PosX, PosY + 15, true, false, Player.Layer)[0];
+				var FindFloor = tile_find_v(PosX, PosY + 15, true, Player.Layer)[0];
 				if  FindFloor < 0
 				{
 					PosY     += FindFloor;
