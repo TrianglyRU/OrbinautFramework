@@ -76,7 +76,7 @@
 		draw_text_ext_transformed(global.Width - 86, 8,
 		
 					"         ORBINAUT  FRAMEWORK"
-				+ "\n           STANDALONE VER."
+				+ "\n            DEBUG SCREEN"
 				+ "\n"
 				+ "\n"
 				+ "\n          * PLAYER MOTION *"

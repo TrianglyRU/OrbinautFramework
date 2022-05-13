@@ -232,7 +232,7 @@
 		StartStage = noone;
 	
 		// Main Menu
-		menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEVELOPER MENU");
+		menu_add_header(0,    "ORBINAUT FRAMEWORK" + "\n\nDEFAULT MENU");
 		menu_add_option(0, 0, "GAME START",   1);
 		menu_add_option(0, 1, "SCENE SELECT", 3);
 		menu_add_option(0, 2, "OPTIONS",      6);	

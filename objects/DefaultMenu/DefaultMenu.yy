@@ -28,11 +28,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Developer Menu",
-    "path": "folders/Screens/Developer Menu.yy",
+    "name": "Default Menu",
+    "path": "folders/Screens/Default Menu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "DeveloperMenu",
+  "name": "DefaultMenu",
   "tags": [],
   "resourceType": "GMObject",
 }
