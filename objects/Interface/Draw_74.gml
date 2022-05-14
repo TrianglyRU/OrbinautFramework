@@ -189,8 +189,8 @@
 		----------------------------
 		Value[0]  - Timer
 		Value[1]  - Character Head X
-		Value[2]  - 'CHARACTER' X
-		Value[3]  - 'GOT THROUGH' X
+		Value[2]  - 'CHARACTER GOT ' X
+		Value[3]  - 'THROUGH' X
 		Value[4]  - 'SCORE' X
 		Value[5]  - 'TIME BONUS' X
 		Value[6]  - 'RINGS BONUS' X
@@ -384,38 +384,58 @@
 					break;
 				}
 			}
+			
+			// Get character
+			switch global.Character
+			{
+				case CharSonic:
+				{
+					var Char = "SONIC____GOT";
+					var Icon = gui_icon_sonic;
+				}
+				break;
+				case CharTails:
+				{
+					var Char = "TAILS____GOT";
+					var Icon = gui_icon_tails;
+				}
+				break;
+				case CharKnuckles:
+				{
+					var Char = "KNUCKLES____GOT";
+					var Icon = gui_icon_knuckles;
+				}
+				break;
+				default:
+				{
+					var Char = "CHARACTER";
+					var Icon = noone;
+				}
+			}
 	
 			// Get screen centre
 			var CentreX = global.Width  / 2 + global.ScreenBuffer;
 			var CentreY = global.Height / 2;
-	
-			// Draw assets
+			
+			// Draw assets and main text
+			draw_set_font(Font.FontCard);
+			draw_set_halign(fa_center);
+			
 			draw_sprite(gui_results_head,	   global.Character, CentreX + 53 + ResultsValue[1], CentreY - 25);
-			draw_sprite(gui_results_char,	   global.Character, CentreX - 14 - ResultsValue[2], CentreY - 52);
 			draw_sprite(gui_results_act,	   Stage.ActID,      CentreX + 46 + ResultsValue[7], CentreY - 23);	
-			draw_sprite(gui_results_through,   0,			     CentreX - 15 - ResultsValue[3], CentreY - 32);
 			draw_sprite(gui_results_score,	   0,			     CentreX - 58 + ResultsValue[4], CentreY + 15);
 			draw_sprite(gui_results_timebonus, 0,			     CentreX - 38 + ResultsValue[5], CentreY + 31);
 			draw_sprite(gui_results_ringbonus, 0,			     CentreX - 38 + ResultsValue[6], CentreY + 47);
-	
+			
+			draw_text(CentreX - 7 - ResultsValue[2], CentreY - 52, Char);
+			draw_text(CentreX - 8 - ResultsValue[3], CentreY - 32, "THROUGH");
+			
 			// Draw continue icon
-			if ResultsValue[8] == 3 and ResultsValue[0] >= 0
+			if ResultsValue[8] == 3 and Icon != noone
 			{
-				switch global.Character
+				if ResultsValue[0] >= 0 and ResultsValue[0] mod 32 <= 15
 				{
-					case CharSonic:
-						var Sprite = gui_icon_sonic;
-					break;
-					case CharTails:
-						var Sprite = gui_icon_tails;
-					break;
-					case CharKnuckles:
-						var Sprite = gui_icon_knuckles;
-					break;
-				}
-				if ResultsValue[0] mod 32 <= 15
-				{
-					draw_animated_sprite(Sprite, 8, false, CentreX + 96, CentreY + 11);
+					draw_animated_sprite(Icon, 8, false, CentreX + 96, CentreY + 11);
 				}
 			}
 	

@@ -17,8 +17,8 @@
   "width": 476,
   "height": 647,
   "textureGroupId": {
-    "name": "tgTest",
-    "path": "texturegroups/tgTest",
+    "name": "tgTestStage",
+    "path": "texturegroups/tgTestStage",
   },
   "swatchColours": null,
   "gridX": 0,

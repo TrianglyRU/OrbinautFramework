@@ -6,7 +6,7 @@
     "path": "folders/Setup Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "DiscordSetup",
+  "name": "CollisionSetup",
   "tags": [],
   "resourceType": "GMScript",
 }

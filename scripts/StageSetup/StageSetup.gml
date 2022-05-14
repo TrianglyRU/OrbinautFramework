@@ -12,7 +12,7 @@ function StageSetup()
 		// Twilight Station (Test Stage)
 		case Stage_TSZ:
 		{
-			ZoneName         = "TWILIGHT STATION";
+			ZoneName         = "TWILIGHT____STATION";
 			ActID            = 0;
 			WaterLevel       = 1384;
 			WaterEnabled     = true;

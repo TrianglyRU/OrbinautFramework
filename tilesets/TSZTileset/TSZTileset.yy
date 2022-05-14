@@ -11,8 +11,8 @@
   "tilevsep": 2,
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "tgTest",
-    "path": "texturegroups/tgTest",
+    "name": "tgTestStage",
+    "path": "texturegroups/tgTestStage",
   },
   "out_tilehborder": 2,
   "out_tilevborder": 2,

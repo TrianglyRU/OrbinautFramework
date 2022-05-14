@@ -1,23 +1,8 @@
 /// @description Collision & Instances Init.
 // You can write your code in this editor
 	
-	#region Collision Setup
-	{
-		/* Default Tileset: 250 tiles
-		   S1 Tileset: 247 tiles
-	       S2 Tileset: 220 tiles
-		   S3 Tileset: 249 tiles */
-		
-		switch room
-		{
-			case Stage_TSZ:
-				tile_data_set("", 250, "CollisionLayerA", "CollisionLayerB");
-			break;
-			default:
-				tile_data_set(noone, "", "", "");
-		}
-	}
-	#endregion
+	// Setup Script
+	CollisionSetup();
 	
 	#region Collision Load
 	{
