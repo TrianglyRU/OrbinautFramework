@@ -29,21 +29,5 @@
 	}
 	#endregion
 	
-	#region Setup
-	{
-		switch room 
-		{
-			case Stage_TSZ:
-			{
-				palette_load(PalPrimary,   pal_tz_type1);
-				palette_load(PalSecondary, pal_tz_type2);
-			}
-			break;
-			default:
-			{
-				palette_load(PalPrimary,   noone);
-				palette_load(PalSecondary, noone);
-			}
-		}
-	}
-	#endregion
+	// Setup Script
+	PaletteSetup();
