@@ -7,6 +7,8 @@ Whether you are a beginner or an experienced fan game developer, visual or tradi
 - Accurate object and stage (tile) collision method based on distances and collision arrays
 - Various toggleable frameworks tweaks, including differences between mainline classic games
 - Discord Rich Presence support
+- Distortion support
+- Custom background system
 - Insane optimisation
 - Nicely formated code
 - Simple and understandable architecture
