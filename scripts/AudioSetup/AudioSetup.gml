@@ -1,4 +1,4 @@
-/// @ Called in Audio -> Create Event
+/// @ Called in Audio Controller -> Create Event
 function AudioSetup()
 {
 	/* The game will refer to data stored here to loop music tracks. 

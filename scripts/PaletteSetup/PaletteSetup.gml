@@ -1,4 +1,4 @@
-/// @ Called in Palette -> Create Event
+/// @ Called in Palette Controller -> Create Event
 function PaletteSetup()
 {
 	switch room 

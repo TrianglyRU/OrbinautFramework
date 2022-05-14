@@ -1,4 +1,4 @@
-/// @ Called in Framework -> Room Start Event
+/// @ Called in Framework Controller -> Room Start Event
 function CollisionSetup()
 {
 	/* Default Tileset: 250 tiles

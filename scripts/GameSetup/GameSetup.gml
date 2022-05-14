@@ -1,4 +1,4 @@
-/// @ Called in Framework -> Game Start Event
+/// @ Called in Framework Controller -> Game Start Event
 function GameSetup()
 {
 	// Game settings

@@ -1,4 +1,4 @@
-/// @ Called in Renderer -> Create Event
+/// @ Called in Renderer Controller -> Create Event
 function DistortionSetup()
 {
 	/* Please note that if there is no Stage controller in the room,

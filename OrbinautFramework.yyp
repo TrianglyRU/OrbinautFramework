@@ -460,6 +460,7 @@
     {"id":{"name":"draw_animated_sprite","path":"scripts/draw_animated_sprite/draw_animated_sprite.yy",},"order":56,},
     {"id":{"name":"spr_tails_crouch","path":"sprites/spr_tails_crouch/spr_tails_crouch.yy",},"order":44,},
     {"id":{"name":"BridgePost","path":"objects/BridgePost/BridgePost.yy",},"order":26,},
+    {"id":{"name":"BackgroundSetup","path":"scripts/BackgroundSetup/BackgroundSetup.yy",},"order":8,},
     {"id":{"name":"spr_tails_death","path":"sprites/spr_tails_death/spr_tails_death.yy",},"order":45,},
     {"id":{"name":"spr_tails_fly","path":"sprites/spr_tails_fly/spr_tails_fly.yy",},"order":46,},
     {"id":{"name":"sfxThunderBarrierJump","path":"sounds/sfxThunderBarrierJump/sfxThunderBarrierJump.yy",},"order":41,},

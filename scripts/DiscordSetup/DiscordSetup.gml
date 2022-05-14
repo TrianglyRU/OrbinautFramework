@@ -1,4 +1,4 @@
-/// @ Called in Discord -> Room Start Event
+/// @ Called in Discord Controller -> Room Start Event
 function DiscordSetup()
 {
 	/* Please note that default ID provides some basic icons

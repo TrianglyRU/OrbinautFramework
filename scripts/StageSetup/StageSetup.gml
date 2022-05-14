@@ -1,4 +1,4 @@
-/// @ Called in Stage -> Create Event
+/// @ Called in Stage Controller -> Create Event
 function StageSetup()
 {
 	/* Please note, that SaveProgress should be set to true only if the current stage

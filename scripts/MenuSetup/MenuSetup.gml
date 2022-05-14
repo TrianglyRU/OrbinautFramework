@@ -1,4 +1,4 @@
-/// @ Called in DefaultMenu -> Create Event
+/// @ Called in DefaultMenu Controller -> Create Event
 function MenuSetup()
 {
 	/* The game will use global.ZoneID of the selected saveslot as an index for this array,
