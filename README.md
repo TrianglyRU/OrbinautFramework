@@ -7,6 +7,8 @@ Whether you are a beginner or an experienced fan game developer, visual or tradi
 - Accurate object and stage (tile) collision method based on distances and collision arrays
 - Various toggleable frameworks tweaks, including differences between mainline classic games
 - Discord Rich Presence support
+- Distortion support
+- Custom background system
 - Insane optimisation
 - Nicely formated code
 - Simple and understandable architecture
@@ -21,10 +23,10 @@ We have a handbook to help you get started! It is included in the Release Packag
 - Nihil (NullSpace) -- for the player rotation code;
 - PixelatedPope -- for the original colour swap shader;
 - Nkrapivin -- for Discord Rich Presence plugin and MASSIVE help with shaders and surfaces;
-- Rosabelle -- various graphics;
-- Dolphman -- various graphics;
-- DarkVampireDee -- Moonlight Quadrant Zone graphics;
-- Gingocat -- various framework-exclusive graphics;
+- Rosabelle, Dolphman, A+Start -- various graphics;
+- Gingocat -- various framework-exclusive artwork and graphics;
+- DarkVampireDee -- Twilight Station graphics;
+- Bluesteak, N8rtot -- Twilight Station level design;
 - and to all members of our Discord server who helped and supported us!
 
 # Terms of Use
