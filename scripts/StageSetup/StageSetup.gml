@@ -14,7 +14,7 @@ function StageSetup()
 		{
 			ZoneName         = "TWILIGHT____STATION";
 			ActID            = 0;
-			WaterLevel       = 1384;
+			WaterLevel       = 1440;
 			WaterEnabled     = true;
 			StageMusic       = TestStage;
 			AnimatedGraphics = [tex_tsz_anitile, 6];

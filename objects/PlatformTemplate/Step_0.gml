@@ -11,7 +11,7 @@
 			// Lower the platform
 			if object_check_player(ColSolidU)
 			{
-				if MovementType == "Falls"
+				if MovementType == "Falls When Stood On"
 				{
 					FallFlag = true;
 				}
@@ -34,6 +34,8 @@
 					
 					// Platform should reset itself once it goes off-screen
 					object_set_unload(FlagReset);
+					
+					return;
 				}
 			}
 			else 

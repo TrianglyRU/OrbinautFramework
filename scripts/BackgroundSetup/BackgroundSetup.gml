@@ -22,7 +22,7 @@ function BackgroundSetup()
 			background_layer_add(12, tex_tsz_bg03);
 			
 			// Calculate parallax
-			var FactorY = (216 - global.Height / 2) / (1384 - global.Height / 2);
+			var FactorY = (216 - global.Height / 2) / (1440 - global.Height / 2);
 			var StepX   = (1 - 0.22) / sprite_get_height(tex_tsz_bg03);
 			
 			// Setup layers

@@ -9,7 +9,7 @@ function DiscordSetup()
 	switch room 
 	{
 		case Stage_TSZ:
-			TopString = "Moonlight Quadrant";
+			TopString = "Test Stage";
 		break;
 		case SStage_Template:
 		case Screen_SStage:
