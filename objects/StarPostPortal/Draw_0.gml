@@ -18,7 +18,7 @@
 		var PosY = (Y * Temp1) >> 21;
 		
 		// Draw sprite
-		draw_animated_sprite(spr_obj_starpost_portal, 8, false, round(x + PosX), round(y + PosY));
+		draw_anisprite(spr_obj_starpost_portal, 8, false, round(x + PosX), round(y + PosY));
 
 		/* 8 here is actually equals to 2, because we call the function FOUR times per frame so the timer
 		is increased by 4 instead of 1, and therefore the duration should be 4 times greater as well 

@@ -19,7 +19,7 @@ function StageSetup()
 			StageMusic       = TestStage;
 			AnimatedGraphics = [tex_tsz_anitile, 6];
 			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
-			BottomBoundary   = room_height;
+			BottomBoundary   = 1040;
 			
 			NextStage	 = Screen_DevMenu;
 			SaveProgress = false;

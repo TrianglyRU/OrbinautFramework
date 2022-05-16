@@ -143,7 +143,7 @@
 			// Draw TIME
 			if Stage.Time > 32400
 			{
-				draw_animated_sprite(gui_hud_time, 8, true, X + 32, Y + 30);
+				draw_anisprite(gui_hud_time, 8, true, X + 32, Y + 30);
 			}
 			else
 			{
@@ -164,7 +164,7 @@
 			// Draw RINGS
 			if !Player.Rings
 			{
-				draw_animated_sprite(gui_hud_rings, 8, true, X + 36, Y + 46);
+				draw_anisprite(gui_hud_rings, 8, true, X + 36, Y + 46);
 			}
 			else
 			{
@@ -435,7 +435,7 @@
 			{
 				if ResultsValue[0] >= 0 and ResultsValue[0] mod 32 <= 15
 				{
-					draw_animated_sprite(Icon, 8, false, CentreX + 96, CentreY + 11);
+					draw_anisprite(Icon, 8, false, CentreX + 96, CentreY + 11);
 				}
 			}
 	

@@ -1,17 +1,12 @@
 /// @function object_check_object(target)
 function object_check_object(target)
 {
-    var targetObj = noone;
-    
     // If our target object exist, get the nearest one to the current object, else exit
-    if instance_exists(target)
+    if !instance_exists(target)
     {
-        targetObj = instance_nearest(x, y, target);
+		return false;
     }
-    else
-    {
-        return false;
-    }
+	var targetObj = instance_nearest(x, y, target);
 
     // Exit if one of the objects doesn't have hitbox initialised
     if !Obj_HitX or !Obj_HitY or !targetObj.Obj_HitX or !targetObj.Obj_HitY

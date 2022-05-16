@@ -15,7 +15,7 @@
 		{
 			if instance_exists(Stage)
 			{
-				show_message("NO COLLISION TILEDATA FOUND! \nPlease, setup the collision in Room Start event of Framework controller");
+				show_message("NO COLLISION TILEDATA FOUND! \nPlease, setup the collision in CollisionSetup() script");
 			}
 		}
 		else

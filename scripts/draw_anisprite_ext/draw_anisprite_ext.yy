@@ -6,7 +6,7 @@
     "path": "folders/Game Functions.yy",
   },
   "resourceVersion": "1.0",
-  "name": "draw_animated_sprite",
+  "name": "draw_anisprite_ext",
   "tags": [],
   "resourceType": "GMScript",
 }

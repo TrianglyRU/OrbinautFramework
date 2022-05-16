@@ -7,7 +7,7 @@ function palette_sync_colours(iPalType,iCol,rPalType,rCol1,rCol2)
 	// Update other colours
 	if rCol2 - rCol1 <= 0
 	{
-		show_debug_message("WARNING: palette_sync_colours called with only one colour selected. Use palette_update_colour() function!");
+		show_debug_message("WARNING: palette_sync_colours function called with only one colour selected. Use palette_update_colour function!");
 	}
 	else for (var i = rCol1; i <= rCol2; i++)
 	{

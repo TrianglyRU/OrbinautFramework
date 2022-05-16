@@ -2,7 +2,7 @@
 function object_act_solid(sides,top,bottom,resetActions)
 {
 	/* The following is long and replicates the method of colliding with an object
-	straight from the original games */
+	straight from the original games closely enough */
 	
 	// Clear flags
 	Obj_SolidPush   = false;

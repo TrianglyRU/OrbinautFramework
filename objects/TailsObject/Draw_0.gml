@@ -9,11 +9,5 @@
 	visible		 = Player.visible;
 	depth		 = Player.depth + 1;
 	
-	// Sprite is offset one pixel to the left when mirrored. Let's fix that
-	if image_xscale == FlipLeft
-	{
-		x++;
-	}
-	
 	// Draw object
 	draw_self();

@@ -33,7 +33,7 @@
 			    var Length = ceil(global.Width / Width) + 2;
 			    for (var i = -1; i < Length; i++)
 			    {
-					draw_animated_sprite(tex_water_surface, 8, true, (floor(Camera.ViewX / Width) + i) * Width + WaterOffset, WaterLevel);
+					draw_anisprite(tex_water_surface, 8, true, (floor(Camera.ViewX / Width) + i) * Width + WaterOffset, WaterLevel);
 			    }
 			}
 	    }

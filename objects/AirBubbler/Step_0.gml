@@ -13,8 +13,7 @@
 		{
 			if !(--Delay)
 			{
-				// Once delay timer runs out, set generation properties
-				Delay		 = irandom_range(1, 32);			
+				// Once delay timer runs out, set generation properties		
 				ChosenSet    = irandom_range(0, 3);
 				BubbleAmount = irandom_range(1, 6);
 				
@@ -30,69 +29,60 @@
 		// Bubble Generation
 		case 1:
 		{
-			var NewObject = instance_create(x + irandom_range(-8, 7), y, Bubble);
-			
-			// Mark bubble as large
-			if BubbleID == LargeID and !(Cycle mod GenerationSpeed)
+			if !(--Delay)
 			{
-				with NewObject
+				var NewObject = instance_create(x + irandom_range(-8, 7), y, Bubble);
+			
+				// Mark bubble as large if this is the cycle that should generate a large bubble
+				if (Cycle mod AirFrequency) == 0 and BubbleID == LargeID 
 				{
-					Direction  = choose(FlipLeft, FlipRight);
-					BubbleType = 2;
+					with NewObject
+					{
+						Direction  = choose(FlipLeft, FlipRight);
+						BubbleType = 2;
 					
-					object_set_triggerbox(-16, 16, -16, 16);
+						object_set_triggerbox(-16, 16, -16, 16);
 					
-					animation_play(sprite_index, 15, 6); image_index = 2;
+						animation_play(sprite_index, 15, 6); 
+						image_index = 2;
+					}
 				}
-			}
 			
-			// Mark bubble as small
-			else if !BubbleSet[ChosenSet][BubbleID]
-			{
-				with NewObject
+				// Mark bubble as medium
+				else if BubbleSet[ChosenSet][BubbleID] == 1
+				{
+					with NewObject
+					{
+						Direction  = choose(FlipLeft, FlipRight);
+						BubbleType = 1;
+					
+						animation_play(sprite_index, 15, 6);
+					
+					}
+				}
+			
+				// Mark bubble as small
+				else with NewObject
 				{
 					Direction  = choose(FlipLeft, FlipRight);
 					BubbleType = 0;
 						
 					animation_play(sprite_index, 15, 6);
 				}
-			}
 			
-			// Mark bubble as medium
-			else with NewObject
-			{
-				Direction  = choose(FlipLeft, FlipRight);
-				BubbleType = 1;
-					
-				animation_play(sprite_index, 15, 6);
-			}
-			
-			// Decrease amount of bubbles left
-			BubbleAmount--;
-			Delay = irandom_range(0, 31);
-			
-			// Increment state
-			State++;
-		}
-		break;
-		
-		// Continue or Switch Back
-		case 2:
-		{
-			if !BubbleAmount
-			{
-				Cycle++;
-				Delay = irandom_range(128, 255);
-				
-				// Return to state 0
-				State -= 2;
-			}
-			else if !(--Delay)
-			{
-				BubbleID++;
-				
-				// Return to state 1
-				State--;
+				// If no bubbles left to generate, return to idle state
+				if !(--BubbleAmount)
+				{
+					Delay = AirBubbler_SetDelayTime();
+					Cycle++;
+					State--;	
+				}
+				else
+				{
+					// Set a delay until next bubble
+					Delay = irandom_range(0, 31);
+					BubbleID++;
+				}
 			}
 		}
 		break;
