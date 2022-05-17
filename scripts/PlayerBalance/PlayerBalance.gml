@@ -8,8 +8,8 @@ function PlayerBalance()
 	// Balance subfunctions
 	#region SubFunctions
 	{
-		// @subfunction PlayerBalanceLeft(panicCheck)
-		function PlayerBalanceLeft(panicCheck)
+		// @subfunction PlayerBalanceLeft(panicCondition)
+		function PlayerBalanceLeft(panicCondition)
 		{
 			if Facing == FlipLeft
 			{
@@ -23,7 +23,7 @@ function PlayerBalance()
 			// Play additional animations for Sonic
 			if global.Character == CharSonic and !SuperState
 			{
-				if panicCheck
+				if panicCondition
 				{
 					if Facing == FlipRight
 					{
@@ -38,8 +38,8 @@ function PlayerBalance()
 			}
 		}
 		
-		// @subfunction PlayerBalanceRight(panicCheck)
-		function PlayerBalanceRight(panicCheck)
+		// @subfunction PlayerBalanceRight(panicCondition)
+		function PlayerBalanceRight(panicCondition)
 		{
 			if Facing == FlipRight
 			{
@@ -53,7 +53,7 @@ function PlayerBalance()
 			// Play additional animations for Sonic
 			if global.Character == CharSonic and !SuperState
 			{
-				if panicCheck
+				if panicCondition
 				{
 					if Facing == FlipLeft
 					{
@@ -101,13 +101,11 @@ function PlayerBalance()
 		// Balance!
 		if !FindAngle1
 		{	
-			var FindFloor = tile_find_v(PosX + 6, PosY + RadiusY, true, Layer)[0];
-			PlayerBalanceLeft(FindFloor >= 12);
+			PlayerBalanceLeft(tile_find_v(PosX + 6, PosY + RadiusY, true, Layer)[0] >= 12);
 		}
 		else if !FindAngle2
 		{
-			var FindFloor = tile_find_v(PosX - 6, PosY + RadiusY, true, Layer)[0];
-			PlayerBalanceRight(FindFloor >= 12);
+			PlayerBalanceRight(tile_find_v(PosX - 6, PosY + RadiusY, true, Layer)[0] >= 12);
 		}
 	}
 	
@@ -128,18 +126,14 @@ function PlayerBalance()
 		var PlayerX   = OnObject.Obj_SolidX - OnObject.x + floor(PosX);
 		var RightEdge = OnObject.Obj_SolidX * 2 - 1;
 		
-		// Balance! (if no floor found right below us)
-		if  !tile_check(PosX - RadiusX, PosY + RadiusY + 1, false, Layer)
-		and !tile_check(PosX + RadiusX, PosY + RadiusY + 1, false, Layer)
+		// Balance!
+		if PlayerX < Tolerance
 		{
-			if PlayerX < Tolerance
-			{
-				PlayerBalanceLeft(PlayerX < -Tolerance);
-			}
-			else if PlayerX > RightEdge - Tolerance
-			{
-				PlayerBalanceRight(PlayerX > RightEdge + Tolerance);
-			}
+			PlayerBalanceLeft(PlayerX < -Tolerance);
+		}
+		else if PlayerX > RightEdge - Tolerance
+		{
+			PlayerBalanceRight(PlayerX > RightEdge + Tolerance);
 		}
 	}
 }

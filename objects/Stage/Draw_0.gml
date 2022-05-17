@@ -7,9 +7,9 @@
 		{
 			case Stage_TSZ:
 			{
-				palette_upd_colour(PalPrimary, 11, 8, 1, 4);
-				palette_sync_colours(PalPrimary, 11, PalPrimary, 12, 18);
-				palette_sync_colours(PalPrimary, 11, PalSecondary, 28, 35);
+				palette_upd_colour(PalPrimary, 17, 8, 1, 4);
+				palette_sync_colours(PalPrimary, 17, PalPrimary, 18, 24);
+				palette_sync_colours(PalPrimary, 17, PalSecondary, 34, 41);
 			}
 			break;
 		}

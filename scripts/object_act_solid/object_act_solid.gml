@@ -31,6 +31,8 @@ function object_act_solid(sides,top,bottom,resetActions)
 	// Get object and player data
 	var PlayerX         = floor(Player.PosX);
 	var PlayerY         = floor(Player.PosY);
+	var ObjectXLast		= xprevious;
+	var ObjectYLast		= yprevious;
 	var ObjectX		    = x;
 	var ObjectY         = y;
 	var ObjectID	    = id;
@@ -64,7 +66,7 @@ function object_act_solid(sides,top,bottom,resetActions)
 	if Player.OnObject == ObjectID
 	{	
 		// Move player
-		Player.PosX += ObjectX - xprevious;
+		Player.PosX += ObjectX - ObjectXLast;
 		Player.PosY  = ObjectY - ObjectHeight - Player.RadiusY - 1 + SlopeOffset;
 		
 		var PlayerX = floor(Player.PosX);
@@ -76,20 +78,13 @@ function object_act_solid(sides,top,bottom,resetActions)
 		// Lose the object if the player is outside its boundaries
 		if XDiff < sides or XDiff > FallRadius * 2 - 1 - sides
 		{
-			var ThisObject = object_index;
-			with Player
+			if ObjectY == ObjectYLast
 			{
-				// Reset player's animation
-				if Animation == AnimMove and ThisObject != Bridge
-				{
-					if  !tile_check(PosX - RadiusX, PosY + RadiusY + 1, false, Layer)
-					and !tile_check(PosX + RadiusX, PosY + RadiusY + 1, false, Layer)
-					{
-						animation_reset(0);
-					}
-				}
-				OnObject = false;
+				/* If object is stationary vertically, restore player's y position from last frame.
+				We do that in case we override player's y position after the collision */
+				Player.PosY	= Player.yprevious;
 			}
+			Player.OnObject = false;
 		}
 	}
 	else
