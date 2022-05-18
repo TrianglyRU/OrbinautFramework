@@ -95,24 +95,22 @@
 			}
 			var Speed = floor(max(1, 9 - abs(CharSpeed[1]))); 
 			
+			// Switch to running animation once idle animation switches to its second frame
 			switch AnimationState
 			{
 				case 0:
 				{
-					if image_index != 1
+					if CharObject.image_index != 1
 					{
 						break;
 					}
+					
+					// Fallthrough to case 1 (no break)
+					AnimationState = 1;
 				}
 				case 1:
-				{
-					with CharObject
-					{
-						animation_play(Sprite, Speed, 0);
-					}
-				}
+					with CharObject animation_play(Sprite, Speed, 0);
 				break;
-				
 			}
 			
 			// Flick continue object while charging
