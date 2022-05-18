@@ -8,6 +8,7 @@ function object_check_player(collisionType)
 	
 	switch collisionType
 	{
+		// Hitbox collision
 		case ColHitbox: 
 		case ColHitbox2:
 		{	
@@ -49,6 +50,7 @@ function object_check_player(collisionType)
 		}
 		break;
 		
+		// Solidbox collision
 		case ColSolidU: 
 		case ColSolidD: 
 		case ColSolidL: 
@@ -77,12 +79,13 @@ function object_check_player(collisionType)
 					return Obj_SolidTouchD;
 				break;
 				case ColSolidU:
-					return Player.OnObject == id;
+					return Obj_SolidTouchU;
 				break;
 			}
 		}
 		break;
 		
+		// Triggerbox collision
 		case ColTrigger:
 		{
 			return point_in_rectangle(floor(Player.PosX), floor(Player.PosY), floor(x + Obj_TriggerLeft), floor(y + Obj_TriggerTop), floor(x + Obj_TriggerRight - 1), floor(y + Obj_TriggerBottom - 1));

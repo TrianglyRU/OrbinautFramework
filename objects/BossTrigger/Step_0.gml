@@ -46,6 +46,12 @@
 			Stage.TargetRightBoundary = room_width;
 			Stage.IsBossfight         = false;
 			
+			// Increase water level for test stage
+			if room == Stage_TSZ
+			{
+				Stage.WaterLevel = 1392;
+			}
+			
 			// Restore music
 			if Player.SuperState
 			{

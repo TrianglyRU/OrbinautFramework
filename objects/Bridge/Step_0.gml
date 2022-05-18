@@ -22,7 +22,7 @@
 			RecoveryAngle += 5.625;
 		}
 		
-		// Player is one pixel into the bridge in the originals
+		// Player is one pixel into the bridge in original games
 		Player.PosY++;
     } 
     else if RecoveryAngle > 0

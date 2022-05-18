@@ -21,6 +21,12 @@ function object_set_depth(target,depthFlag)
 				break;
 				case BridgePost:
 				case RingSparkle:
+				case SpringYellowVertical:
+				case SpringYellowHorizontal:
+				case SpringYellowDiagonal:
+				case SpringRedVertical:
+				case SpringRedHorizontal:
+				case SpringRedDiagonal:
 					var Tolerance = 15;
 				break;	
 				default:     
