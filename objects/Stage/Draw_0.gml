@@ -9,7 +9,7 @@
 			{
 				palette_upd_colour(PalPrimary, 17, 8, 1, 4);
 				palette_sync_colours(PalPrimary, 17, PalPrimary, 18, 24);
-				palette_sync_colours(PalPrimary, 17, PalSecondary, 34, 41);
+				palette_sync_colours(PalPrimary, 17, PalSecondary, 59, 62);
 			}
 			break;
 		}

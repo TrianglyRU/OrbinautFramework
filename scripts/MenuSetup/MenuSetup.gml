@@ -31,7 +31,7 @@ function MenuSetup()
 	menu_add_option(1, 5, "DELETE SAVE",		  7);
 	
 	// Scene Select
-	menu_add_header(2,    "SELECT SCENE TYPE");
+	menu_add_header(2,    "SELECT A SCENE TYPE");
 	menu_add_option(2, 0, "STAGE",  4);
 	menu_add_option(2, 1, "SCREEN", 5);
 	
@@ -44,18 +44,18 @@ function MenuSetup()
 	// Stage Select
 	menu_add_header(4,    "SELECT A STAGE");
 	menu_add_option(4, 0, "TEST STAGE",  Stage_TSZ);
-	menu_add_option(4, 1, "- -",		 noone);
+	menu_add_option(4, 1, "BONUS STAGE", BStage_Template);
 	menu_add_option(4, 2, "- -",		 noone);
 	menu_add_option(4, 3, "- -",		 noone);
 	menu_add_option(4, 4, "- -",		 noone);
 	
 	// Screen select
 	menu_add_header(5,    "SELECT A SCREEN");
-	menu_add_option(5, 0, "SPLASH",   Screen_Splash);
-	menu_add_option(5, 1, "CONTINUE", Screen_Continue);
-	menu_add_option(5, 2, "- -",	  noone);
-	menu_add_option(5, 3, "- -",	  noone);
-	menu_add_option(5, 4, "- -",	  noone);
+	menu_add_option(5, 0, "SPLASH",		   Screen_Splash);
+	menu_add_option(5, 1, "CONTINUE",	   Screen_Continue);
+	menu_add_option(5, 2, "SPECIAL START", Screen_SStage);
+	menu_add_option(5, 3, "- -",		   noone);
+	menu_add_option(5, 4, "- -",		   noone);
 	
 	// Options
 	menu_add_header(6,    "OPTIONS");

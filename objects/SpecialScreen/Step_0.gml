@@ -150,8 +150,15 @@
 		{			
 			if fade_check(StateMax) and !audio_sfx_is_playing(sfxSpecialWarp)
 			{
-				// Return to stage
-				room_goto(global.StageRoom);
+				// Return to stage or devmenu
+				if array_length(global.SpecialRingData)
+				{
+					room_goto(global.StageRoom);
+				}
+				else
+				{
+					room_goto(Screen_DevMenu);
+				}
 				
 				// Clear Special Stage flag
 				global.SpecialState = 0;

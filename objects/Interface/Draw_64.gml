@@ -98,7 +98,6 @@
 				+ "\n   X RADIUS: "			 + string(Player.RadiusX)
 				+ "\n   Y RADIUS: "		     + string(Player.RadiusY)
 				+ "\n   WIDE X RADIUS: "     + string(Player.DefaultRadiusX + 1)
-				+ "\n   WALL OFFSET: "       + string((Player.Grounded and Player.Angle == 360) * 8)
 				+ "\n   ON OBJECT: "		 + string(Player.OnObject)
 				+ "\n   GROUNDED: "			 + string(Player.Grounded)
 				+ "\n   FACING: "			 + string(Player.Facing)
@@ -167,7 +166,7 @@
 				+ "\n   B BOUND: "		   + string(Stage.BottomBoundary) + " TARGET: " + string(Stage.TargetBottomBoundary)
 				+ "\n   L BOUND: "		   + string(Stage.LeftBoundary)   + " TARGET: " + string(Stage.TargetLeftBoundary)
 				+ "\n   R BOUND: "		   + string(Stage.RightBoundary)  + " TARGET: " + string(Stage.TargetRightBoundary)
-				+ "\n   OBJECTS LOADED: "  + string(instance_count - (10 + global.RichPresenceSupport)),
+				+ "\n   OBJECTS LOADED: "  + string(instance_count),
 				
 		8, 256, 0.28, 0.28, 0);
 	}

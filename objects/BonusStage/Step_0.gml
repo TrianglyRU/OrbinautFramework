@@ -59,10 +59,18 @@
 		break;
 		case 1:
 		{
-			// Return back to the stage
+			// Return back to the stage / devmenu
 			if fade_check(StateMax)
 			{
-				room_goto(global.StageRoom);
+				if array_length(global.StarPostData)
+				{
+					room_goto(global.StageRoom);
+				}
+				else
+				{
+					global.BonusStageData = [];
+					room_goto(Screen_DevMenu);
+				}
 			}
 		}
 	}

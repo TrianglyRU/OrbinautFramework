@@ -95,16 +95,24 @@
 			}
 			var Speed = floor(max(1, 9 - abs(CharSpeed[1]))); 
 			
-			with CharObject
+			switch AnimationState
 			{
-				if !ContinueScreen.AnimationState and image_index == 1
+				case 0:
 				{
-					ContinueScreen.AnimationState = 1;
+					if image_index != 1
+					{
+						break;
+					}
 				}
-				if ContinueScreen.AnimationState
+				case 1:
 				{
-					animation_play(Sprite, Speed, 0);
+					with CharObject
+					{
+						animation_play(Sprite, Speed, 0);
+					}
 				}
+				break;
+				
 			}
 			
 			// Flick continue object while charging
