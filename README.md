@@ -14,8 +14,8 @@ Whether you are a beginner or an experienced fan game developer, visual or tradi
 - Simple and understandable architecture
 - ...and much more!
 
-# Handbook
-We have a handbook to help you get started! It is included in the Release Package and describes basic structure, functions and more.
+# Wiki
+We have a wiki in progress! For now, you may refer to kinda outdated handbook included with 2.0 release
 
 # Credits
 - LapperDev -- for updates on SPG and help with M68K;
