@@ -1,5 +1,5 @@
 /// @function object_set_unload(unloadFlag)
-function object_set_unload(arg)
+function object_set_unload(unloadFlag)
 {
 	if !variable_instance_exists(id, "Obj_UnloadState")
 	{
@@ -8,5 +8,5 @@ function object_set_unload(arg)
 		Obj_UnloadData  = [x, y, image_xscale, image_yscale, image_index, sprite_index, visible];
 		Obj_UnloadState = true;
 	}
-	Obj_UnloadType = arg;
+	Obj_UnloadType = unloadFlag;
 }

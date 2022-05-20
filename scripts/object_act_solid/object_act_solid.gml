@@ -19,19 +19,19 @@ function object_act_solid(sides,top,bottom,resetActions)
 	// Exit if can't be collided
 	if !Player.AllowCollision
 	{
-		return false;
+		return;
 	}
 	if !SideCollision and !TopCollision and !BottomCollision
 	{
-		return false;
+		return;
 	}
 	if !Obj_SolidX or !Obj_SolidY
 	{
-		return false;	
+		return;	
 	}
 	if !object_is_onscreen(id)
 	{
-		return false;
+		return;
 	}
 	
 	// Get object and player data
