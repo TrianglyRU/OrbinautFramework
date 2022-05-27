@@ -18,16 +18,15 @@ Whether you are a beginner or an experienced fan game developer, visual or tradi
 We have a wiki in progress! For now, you may refer to kinda outdated handbook included with 2.0 release
 
 # Credits
-- LapperDev -- for updates on SPG and help with M68K;
-- Mercury -- for breaking down the logic of bubble generation;
-- Nihil (NullSpace) -- for the player rotation code;
-- PixelatedPope -- for the original colour swap shader;
-- Nkrapivin -- for Discord Rich Presence plugin and MASSIVE help with shaders and surfaces;
-- Rosabelle, Dolphman, A+Start -- various graphics;
-- Gingocat -- various framework-exclusive artwork and graphics;
-- DarkVampireDee -- Twilight Station graphics;
-- Bluesteak, N8rtot -- Twilight Station level design;
-- and to all members of our Discord server who helped and supported us!
+Various people (or their work) were involved into the project across three releases, but we'll credit them all even if their work isn't included in the latest release!
+
+- **Project Lead**: Triangly
+- **Programming**: Triangly, Michael Gallinago (MicG)
+- **Level Design**: Bluesteak, N8rtot, Triangly
+- **Framework Artwork**: Gingocat, Mr.HTuber, Rosabelle, Techokami, Dolphman, Bluesteak, DarkVampireDee, Team Megamix, A+Start
+- **Background Music**: Bouncy Glow's Music Room, Woofle, SonicTweaker, BGVC
+- **Special Thanks**: LapperDev, Mercury, Nihil (NullSpace), PixelatedPope, Nkrapivin, darkerd, John-Kun, Moonchild6279, and to all members of our Discord server!
+- **SAGE'21 Beta Testers**: thevaleev, LapperDev, NoahCopeland, Nihil (NullSpace), A+Start, DarkVampireDee, SNick, @Jakob64_YT, @aranesque, @LamixaDev, @CrabsLooksCute, @PlatinumMewtwo
 
 # Terms of Use
 You are not allowed:
