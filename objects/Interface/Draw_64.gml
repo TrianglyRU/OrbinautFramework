@@ -91,7 +91,7 @@
 				+ "\n   AIR LOCK: "       + string(Player.AirLock)
 				+ "\n   SLOPE GRAVITY: "  + string(Player.SlopeGravity)
 				+ "\n   ANGLE: "		  + string(Player.Angle)
-				+ "\n   COLLISION MODE: " + string(Player.FloorMode[0]) + " : " + string(Player.FloorMode[1])
+				+ "\n   COLLISION MODE: " + string(Player.CollisionMode[0]) + " : " + string(Player.CollisionMode[1])
 				+ "\n"
 				+ "\n         * PLAYER FLAGS *"
 				+ "\n"

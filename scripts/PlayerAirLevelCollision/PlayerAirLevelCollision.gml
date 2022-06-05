@@ -5,6 +5,8 @@ function PlayerAirLevelCollision()
 		return;
 	}
 	
+	var WRadius = DefaultRadiusX + 1;
+	
 	// Define direction of our movement
 	if abs(Xsp) >= abs(Ysp)
 	{
@@ -14,8 +16,8 @@ function PlayerAirLevelCollision()
 	{
 		var MoveDirection = Ysp > 0 ? "MoveDown" : "MoveUp";
 	}
-	var WRadius = DefaultRadiusX + 1;
 	
+	// Process collision
 	switch MoveDirection
 	{
 		case "MoveDown":
@@ -208,27 +210,27 @@ function PlayerAirLevelCollision()
 		break;
 	}
 	
-	// If landed, update floor mode if using custom method
+	// If landed, update floor mode if using the custom method
 	if global.BetterPlayerTileGrip and Grounded
 	{
 		if Angle <= 45 or Angle >= 315
 		{
-			FloorMode[0] = 0;
+			CollisionMode[0] = 0;
 		}
 		else if Angle >= 46.41 and Angle <= 133.59
 		{
-			FloorMode[0] = 1;
+			CollisionMode[0] = 1;
 		}
 		else if Angle >= 135 and Angle <= 225
 		{
-			FloorMode[0] = 2;
+			CollisionMode[0] = 2;
 		}
 		else if Angle >= 226.41 and Angle <= 313.59
 		{
-			FloorMode[0] = 3;
+			CollisionMode[0] = 3;
 		}
 		
 		// This will disable floor mode check for one frame, allowing us to land on the ceilings safely
-		FloorMode[1] = true;
+		CollisionMode[1] = true;
 	}
 }

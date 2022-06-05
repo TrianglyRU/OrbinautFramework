@@ -6,7 +6,7 @@ function PlayerJumpStart()
 	}
 
 	// Check if there is a room between player's head and ceiling above them
-	switch FloorMode[0]
+	switch CollisionMode[0]
 	{
 		case 0:
 		{

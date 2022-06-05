@@ -15,10 +15,11 @@ function palette_set_colour(palType,iCol,rCol)
 	{
 		Palette.IndexType2[iCol] = rCol;
 	}
-		
+	
 	// Reset swaptime
-	if Palette.Duration[palType,iCol] != noone
+	var Duration  = Palette.Duration[palType,iCol];
+	if  Duration != noone
 	{
-		Palette.SwapTime[palType,iCol] = Palette.Duration[palType,iCol];
+		Palette.SwapTime[palType,iCol] = Duration;
 	}
 }

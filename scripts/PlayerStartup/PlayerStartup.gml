@@ -67,8 +67,7 @@ function PlayerStartup()
 	SpindashRev      = -1;
 	Grv			     = 0.21875;
 	AirTimer	     = 1800;
-	FloorMode        = [0, 0];
-	WallMode		 = 0;
+	CollisionMode    = [0, 0];
 	Facing			 = FlipRight;
 	DoubleSpinAttack = SpinReady;
 	DropdashFlag     = DashLocked;

@@ -50,14 +50,10 @@
 		break;
 		case BarrierWater:
 		{
-			if sprite_index == spr_obj_barrier_water_drop
-			or sprite_index == spr_obj_barrier_water_bounce
+			if sprite_index != spr_obj_barrier_water and image_index == 2
 			{
-				if image_index == 2
-				{
-					// Reset animation
-					animation_play(spr_obj_barrier_water, 2, 0);
-				}
+				// Reset animation
+				animation_play(spr_obj_barrier_water, 2, 0);
 			}
 			object_set_depth(Player, 1);
 		}

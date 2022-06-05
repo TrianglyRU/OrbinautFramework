@@ -6,114 +6,117 @@ function PlayerGroundFloorCollision()
 	}
 	
 	// Update floor mode
-	#region Code
+	#region CodeW
 	{
-		// Originals method: get current angle quadrant (floor and ceiling are in priority, comparing to wall collision)
+		// Originals method: get current angle quadrant
 		if !global.BetterPlayerTileGrip
 		{
 			if Angle <= 45 or Angle >= 315
 			{
-				FloorMode[0] = 0;
+				CollisionMode[0] = 0;
 			}
 			else if Angle >= 46.41 and Angle <= 133.59
 			{
-				FloorMode[0] = 1;
+				CollisionMode[0] = 1;
 			}
 			else if Angle >= 135 and Angle <= 225
 			{
-				FloorMode[0] = 2;
+				CollisionMode[0] = 2;
 			}
 			else if Angle >= 226.41 and Angle <= 313.59
 			{
-				FloorMode[0] = 3;
+				CollisionMode[0] = 3;
 			}
 		}
 	
 		// Custom method
-		else if !FloorMode[1]
+		else if !CollisionMode[1]
 		{
-			switch FloorMode[0]
+			// If the difference between found angle and current angle is greater than this, floor mode won't update
+			var AngleTolerance = 45;
+			
+			switch CollisionMode[0]
 			{
 				case 0:
 				{
-					var FindTile = tile_find_h(PosX + RadiusY, PosY + RadiusX, true, Layer);
+					var FindTile = tile_find_h(PosX + RadiusY - 2, PosY + RadiusX, true, Layer);
 					if  FindTile[0] < 0
 					{
-						if FindTile[1] - Angle mod 360 < 45
+						if FindTile[1] - Angle mod 360 < AngleTolerance
 						{
-							FloorMode[0] = 1;
+							CollisionMode[0] = 1;
 						}
 					}
 			
-					var FindTile = tile_find_h(PosX - RadiusY, PosY + RadiusX, false, Layer);
+					var FindTile = tile_find_h(PosX - RadiusY + 2, PosY + RadiusX, false, Layer);
 					if  FindTile[0] < 0
 					{
-						if Angle - FindTile[1] < 45
+						if Angle - FindTile[1] < AngleTolerance
 						{
-							FloorMode[0] = 3;
+							CollisionMode[0] = 3;
 						}
 					}
 				}
 				break;
 				case 1:	
 				{
-					var FindTile = tile_find_v(PosX + RadiusX, PosY + RadiusY, true, Layer);
+					var FindTile = tile_find_v(PosX + RadiusX, PosY + RadiusY - 2, true, Layer);
 					if  FindTile[0] < 0
 					{
-						if Angle - FindTile[1] mod 360 < 45
+						if Angle - FindTile[1] mod 360 < AngleTolerance
 						{
-							FloorMode[0] = 0;
+							CollisionMode[0] = 0;
 						}
 					}
 			
-					var FindTile = tile_find_v(PosX + RadiusX, PosY - RadiusY, false, Layer);
+					var FindTile = tile_find_v(PosX + RadiusX, PosY - RadiusY + 2, false, Layer);
 					if  FindTile[0] < 0
 					{
-						if FindTile[1] - Angle < 45
+						if FindTile[1] - Angle < AngleTolerance
 						{
-							FloorMode[0] = 2;
+							CollisionMode[0] = 2;
 						}
 					}
 				}
 				break;
 				case 2:
 				{
-					var FindTile = tile_find_h(PosX + RadiusY, PosY - RadiusX, true, Layer);
+					var FindTile = tile_find_h(PosX + RadiusY - 2, PosY - RadiusX, true, Layer);
 					if  FindTile[0] < 0
 					{
-						if Angle - FindTile[1] < 45
+						if Angle - FindTile[1] < AngleTolerance
 						{
-							FloorMode[0] = 1;
+							CollisionMode[0] = 1;
 						}
 					}
 			
-					var FindTile = tile_find_h(PosX - RadiusY, PosY - RadiusX, false, Layer);
+					var FindTile = tile_find_h(PosX - RadiusY + 2, PosY - RadiusX, false, Layer);
 					if  FindTile[0] < 0
 					{
-						if FindTile[1] - Angle < 45
+						if FindTile[1] - Angle < AngleTolerance
 						{
-							FloorMode[0] = 3;
+							CollisionMode[0] = 3;
 						}
 					}
 				}
 				break;
 				case 3:
 				{
-					var FindTile = tile_find_v(PosX - RadiusX, PosY + RadiusY, true, Layer);
+					var FindTile = tile_find_v(PosX - RadiusX, PosY + RadiusY - 2, true, Layer);
 					if  FindTile[0] < 0
 					{
-						if FindTile[1] - Angle < 45
+						if FindTile[1] - Angle < AngleTolerance
 						{
-							FloorMode[0] = 0;
+							CollisionMode[0] = 0;
 						}
 					}
 			
-					var FindTile = tile_find_v(PosX - RadiusX, PosY - RadiusY, false, Layer);
+					var FindTile = tile_find_v(PosX - RadiusX, PosY - RadiusY + 2, false, Layer);
 					if  FindTile[0] < 0
 					{
-						if Angle - FindTile[1] < 45
+						if Angle - FindTile[1] < AngleTolerance
 						{
-							FloorMode[0] = 2;
+							CollisionMode[0] = 2;
 						}
 					}
 				}
@@ -122,13 +125,14 @@ function PlayerGroundFloorCollision()
 		}
 		else
 		{
-			FloorMode[1] = false;
+			// Reset landing flag
+			CollisionMode[1] = false;
 		}
 	}
 	#endregion
 	
 	// Perform collision!
-	switch FloorMode[0]
+	switch CollisionMode[0]
 	{
 		case 0:
 		{		

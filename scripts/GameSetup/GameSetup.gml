@@ -46,8 +46,7 @@ function GameSetup()
 	global.FixDashRelease		= true;
 	global.NoRollSpeedLimit	    = false;
 	global.FlightCancel	        = false;
-	global.BetterPlayerTileGrip = true;		// <- this flag makes collision more stable on convex slopes comparing to originals,
-											// but may result in unexpected behaviour if level design is too jagged
+	global.BetterPlayerTileGrip = true;
 	
 	// Initialise other variables. Do not edit these
 	global.Character	   = 0;
