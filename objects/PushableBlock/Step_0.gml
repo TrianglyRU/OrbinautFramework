@@ -65,14 +65,18 @@
 			var FindWall = tile_find_h(PosX - 16, PosY, false, LayerA)[0];
 			if  FindWall < 0
 			{
-				PosX  -= FindWall;
-				State += 2;
+				Player.Gsp   = 0;
+				Player.PosX -= FindWall;
+				PosX		-= FindWall;
+				State       += 2;
 			}
 			var FindWall = tile_find_h(PosX + 16, PosY, true, LayerA)[0];
 			if  FindWall < 0
 			{
-				PosX  += FindWall;
-				State += 2;
+				Player.Gsp   = 0;
+				Player.PosX += FindWall;
+				PosX		+= FindWall;
+				State       += 2;
 			}
 		}
 		break;
@@ -100,6 +104,12 @@
 				State = 0;
 			}
 		}
+		case 2:
+		{
+			// Do collision
+			object_act_solid(true, true, true, false);
+		}
+		break;
 	}
 	
 	// Update position

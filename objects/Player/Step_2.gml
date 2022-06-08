@@ -1,8 +1,7 @@
 /// @description Main 2
 // You can call your scripts in this editor
 
-	/* This is called after stage object
-	scripts are processed (normally) */
+	/* This is called after stage objects are processed */
 	
 	if !PlayerProcess()
 	{

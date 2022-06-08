@@ -1,25 +1,25 @@
-/// @function palette_set_colour(palType,iCol,rCol)
-function palette_set_colour(palType,iCol,rCol)
+/// @function palette_set_colour(forPalType,rowID,toColumnID)
+function palette_set_colour(forPalType,atRowID,toColumnID)
 {
-	if Palette.ColourSet[palType] == false or !Renderer.UpdateAnimations
+	if Palette.ColourSet[forPalType] == false or !Renderer.UpdateAnimations
 	{
 		return;
 	}
 	
 	// Update colour
-	if palType == PalPrimary
+	if forPalType == PalPrimary
 	{
-		Palette.IndexType1[iCol] = rCol;
+		Palette.IndexType1[atRowID] = toColumnID;
 	}
-	else if palType == PalSecondary
+	else if forPalType == PalSecondary
 	{
-		Palette.IndexType2[iCol] = rCol;
+		Palette.IndexType2[atRowID] = toColumnID;
 	}
 	
 	// Reset swaptime
-	var Duration  = Palette.Duration[palType,iCol];
+	var Duration  = Palette.Duration[forPalType,atRowID];
 	if  Duration != noone
 	{
-		Palette.SwapTime[palType,iCol] = Duration;
+		Palette.SwapTime[forPalType,atRowID] = Duration;
 	}
 }

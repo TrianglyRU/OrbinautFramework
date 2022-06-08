@@ -1,7 +1,11 @@
 /// @description Main
 // You can write your code in this editor
 	
-	if Player.BarrierType == BarrierWater or Player.DebugMode or Stage.IsFinished
+	if Player.DebugMode or Stage.IsFinished or !Player.IsUnderwater
+	{
+		instance_destroy(); return;
+	}
+	if Player.BarrierType == BarrierWater
 	{
 		return;
 	}

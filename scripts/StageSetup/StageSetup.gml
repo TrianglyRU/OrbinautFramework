@@ -16,7 +16,7 @@ function StageSetup()
 			ActID            = 0;
 			WaterLevel       = 1440;
 			WaterEnabled     = true;
-			StageMusic       = Aeronaut;
+			StageMusic       = TestStage;
 			AnimatedGraphics = [tex_tsz_anitile, 6];
 			AnimalSet        = [spr_obj_animal_flicky, spr_obj_animal_ricky];
 			BottomBoundary   = 1040;

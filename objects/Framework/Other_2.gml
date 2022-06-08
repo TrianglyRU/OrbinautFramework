@@ -105,7 +105,7 @@
 		#macro ColSolidP  7
 		#macro LayerA	  0
 		#macro LayerB	  1
-		#macro TileCount  256
+		#macro TileCount  255
 	}
 	#endregion
 	

@@ -1,19 +1,19 @@
-/// @function palette_get_colour(palType,iCol)
-function palette_get_colour(palType,iCol)
+/// @function palette_get_colour(fromPalType,atRowID)
+function palette_get_colour(fromPalType,atRowID)
 {
 	// Return first colour if no pallete set
-	if Palette.ColourSet[palType] == false
+	if Palette.ColourSet[fromPalType] == false
 	{
 		return 0;
 	}
 	
 	// Else return current colour
-	if palType == PalPrimary
+	if fromPalType == PalPrimary
 	{
-		return Palette.IndexType1[iCol];
+		return Palette.IndexType1[atRowID];
 	}
-	else if palType == PalSecondary
+	else if fromPalType == PalSecondary
 	{
-		return Palette.IndexType2[iCol];
+		return Palette.IndexType2[atRowID];
 	}
 }

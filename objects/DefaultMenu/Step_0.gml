@@ -72,6 +72,7 @@
 					// If starting a new game, load into the first stage
 					if PreviousMenuID[MenuID] == 1
 					{
+						// NEW GAME
 						if StartStage != noone
 						{
 							global.Lives	 = 3;

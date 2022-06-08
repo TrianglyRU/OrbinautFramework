@@ -1,8 +1,7 @@
 /// @description Main 1
 // You can call your scripts in this editor
 
-	/* This is called before stage object
-	scripts are processed */
+	/* This is called before stage objects are processed */
 	
 	if PlayerDebugMode()
 	{

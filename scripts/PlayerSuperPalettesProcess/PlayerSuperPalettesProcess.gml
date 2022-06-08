@@ -16,7 +16,7 @@ function PlayerSuperPalettesProcess()
 					{
 						palette_set_colour(PalPrimary, 0, 17);
 					}	
-					palette_upd_colour(PalPrimary, 0, 21, 1, 4);
+					palette_updt_colour(PalPrimary, 0, 1, 21, 4);
 				}
 			}
 			
@@ -25,21 +25,21 @@ function PlayerSuperPalettesProcess()
 			{
 				if Colour == 1
 				{
-					palette_upd_colour(PalPrimary, 0, 1, 2, 19);
+					palette_updt_colour(PalPrimary, 0, 1, 2, 19);
 				}
 				else if Colour < 7
 				{
-					palette_upd_colour(PalPrimary, 0, 6, 7, 4);
+					palette_updt_colour(PalPrimary, 0, 6, 7, 4);
 				}
 				else
 				{
-					palette_upd_colour(PalPrimary, 0, 16, 7, 8);
+					palette_updt_colour(PalPrimary, 0, 7, 16, 8);
 				}
 			}
 			
 			// Sync other colours
-			palette_sync_colours(PalPrimary, 0, PalPrimary,   1, 3);
-			palette_sync_colours(PalPrimary, 0, PalSecondary, 0, 3);
+			palette_sync_colour(PalPrimary,   1, 3, PalPrimary, 0);
+			palette_sync_colour(PalSecondary, 0, 3, PalPrimary, 0);
 		}
 		break;
 		case CharTails:
@@ -50,10 +50,9 @@ function PlayerSuperPalettesProcess()
 			// Regular form
 			if !Player.SuperState
 			{	
-				var Colour = palette_get_colour(PalPrimary, 4);
-				if  Colour > 1
+				if Colour > 1
 				{
-					palette_upd_colour(PalPrimary, 4, 7, 1, 12);
+					palette_updt_colour(PalPrimary, 4, 1, 7, 12);
 				}
 			}
 				
@@ -62,22 +61,19 @@ function PlayerSuperPalettesProcess()
 			{
 				if Colour == 1
 				{
-					palette_upd_colour(PalPrimary, 4, 1, 2, 28);
+					palette_updt_colour(PalPrimary, 4, 1, 2, 28);
 				}
 				else
 				{
-					palette_upd_colour(PalPrimary, 4, 7, 2, 12);
+					palette_updt_colour(PalPrimary, 4, 2, 7, 12);
 				}
 			}
 			
 			// Sync other colours
-			var Colour = palette_get_colour(PalPrimary, 4);
-			
-			palette_set_colour(PalPrimary,	 5, Colour);
-			palette_set_colour(PalPrimary,   9, Colour);			
-			palette_set_colour(PalSecondary, 4, Colour);
-			palette_set_colour(PalSecondary, 5, Colour);
-			palette_set_colour(PalSecondary, 9, Colour);
+			palette_sync_colour(PalPrimary,   5, 5, PalPrimary, 4);
+			palette_sync_colour(PalPrimary,   9, 9, PalPrimary, 4);
+			palette_sync_colour(PalSecondary, 4, 5, PalPrimary, 4);
+			palette_sync_colour(PalSecondary, 9, 9, PalPrimary, 4);
 		}
 		break;
 		case CharKnuckles:
@@ -90,7 +86,7 @@ function PlayerSuperPalettesProcess()
 			{
 				if Colour > 1
 				{
-					palette_upd_colour(PalPrimary, 6, 11, 1, 3);
+					palette_updt_colour(PalPrimary, 6, 1, 11, 3);
 				}
 			}
 			
@@ -99,21 +95,21 @@ function PlayerSuperPalettesProcess()
 			{
 				if Colour == 1
 				{
-					palette_upd_colour(PalPrimary, 6, 1, 2, 17);
+					palette_updt_colour(PalPrimary, 6, 1, 2, 17);
 				}
 				else if Colour == 2
 				{
-					palette_upd_colour(PalPrimary, 6, 2, 3, 15);
+					palette_updt_colour(PalPrimary, 6, 2, 3, 15);
 				}
 				else
 				{
-					palette_upd_colour(PalPrimary, 6, 11, 2, 3);
+					palette_updt_colour(PalPrimary, 6, 2, 11, 3);
 				}
 			}
 			
 			// Sync other colours
-			palette_sync_colours(PalPrimary, 6, PalPrimary,   7, 8);
-			palette_sync_colours(PalPrimary, 6, PalSecondary, 6, 8);
+			palette_sync_colour(PalPrimary,   7, 8, PalPrimary, 6);
+			palette_sync_colour(PalSecondary, 6, 8, PalPrimary, 6);
 		}
 		break;
 	}

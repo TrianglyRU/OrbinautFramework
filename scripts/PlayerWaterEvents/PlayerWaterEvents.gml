@@ -16,6 +16,12 @@ function PlayerWaterEvents()
 			Xsp			*= 0.5;
 			Ysp			*= 0.25;
 			IsUnderwater = true;
+			
+			// Create bubble controller once we enter the water
+			if !instance_exists(BubbleController) and !DebugMode
+			{
+				instance_create(-16, -16, BubbleController);
+			}
 				
 			// Lower default gravity value by 0x28 (0.15625)
 			if !Hurt and !FlightState and GlideState != GlideAir
@@ -26,7 +32,6 @@ function PlayerWaterEvents()
 			// Create splash object
 			if !Grounded and !ClimbState and GlideState != GlideGround
 			{
-				audio_sfx_play(sfxWaterSplash, false);
 				instance_create(PosX, Stage.WaterLevel, WaterSplash);
 			}
 			
@@ -42,12 +47,7 @@ function PlayerWaterEvents()
 		}
 	}
 	else
-	{ 
-		if !instance_exists(BubbleController)
-		{
-			instance_create(-16, -16, BubbleController);
-		}
-		
+	{
 		// Countdown air timer
 		if AirTimer > 0
 		{
@@ -113,12 +113,7 @@ function PlayerWaterEvents()
 	
 		// Check for leaving the water
 		if PosY < Stage.WaterLevel and !Death
-		{	
-			if instance_exists(BubbleController)
-			{
-				instance_destroy(BubbleController);
-			}
-			
+		{
 			// Play previous track if running out of air
 			if AirTimer <= 720
 			{	

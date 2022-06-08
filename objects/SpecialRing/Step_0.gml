@@ -44,6 +44,7 @@
 				}
 				else
 				{
+					Player.AllowCollision = false;
 					Input.IgnoreInput = true;
 					
 					// Remember player and stage data
