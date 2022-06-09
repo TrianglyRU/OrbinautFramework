@@ -176,16 +176,6 @@
 				{
 					settings_save();
 				}
-			
-				var Option0 = menu_get_initial_string(MenuID, 0);
-				var Option1 = menu_get_initial_string(MenuID, 1);
-				var Option2 = menu_get_initial_string(MenuID, 2);
-				var Option3 = menu_get_initial_string(MenuID, 3);
-			
-				menu_update_option(MenuID, 0, Option0 + menu_get_boolean(window_get_fullscreen()));
-				menu_update_option(MenuID, 1, Option1 + string(global.WindowSize) + "X");
-				menu_update_option(MenuID, 2, Option2 + string(round(global.SoundVolume * 100)));
-				menu_update_option(MenuID, 3, Option3 + string(round(global.MusicVolume * 100)));
 			}
 			break;
 		
@@ -256,5 +246,31 @@
 			MenuID		 = PreviousMenuID[MenuID];
 			Input.BPress = false;
 		}
+	}
+	#endregion
+	
+	#region Update Option Strings
+	{
+		/* Because automatic process (i.e. redirection) happens after manual process,
+		there is 1 frame delay for strings that have to load some data to display, so
+		we're updating them here */
+		
+		// Exit if we're not in the options menu
+		if MenuID != 6
+		{
+			return;
+		}
+		
+		// Get initial option name
+		var Option0 = menu_get_initial_string(MenuID, 0);
+		var Option1 = menu_get_initial_string(MenuID, 1);
+		var Option2 = menu_get_initial_string(MenuID, 2);
+		var Option3 = menu_get_initial_string(MenuID, 3);
+		
+		// Update option
+		menu_update_option(MenuID, 0, Option0 + menu_get_boolean(window_get_fullscreen()));
+		menu_update_option(MenuID, 1, Option1 + string(global.WindowSize) + "X");
+		menu_update_option(MenuID, 2, Option2 + string(round(global.SoundVolume * 100)));
+		menu_update_option(MenuID, 3, Option3 + string(round(global.MusicVolume * 100)));
 	}
 	#endregion

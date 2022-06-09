@@ -5,10 +5,11 @@ function PlayerGroundFloorCollision()
 		return;
 	}
 	
-	// Update floor mode
-	#region CodeW
+	// Update collision mode
+	#region Code
 	{
-		// Originals method: get current angle quadrant
+		/* Originals method, get current angle quadrant */
+
 		if !global.BetterPlayerTileGrip
 		{
 			if Angle <= 45 or Angle >= 315
@@ -29,16 +30,19 @@ function PlayerGroundFloorCollision()
 			}
 		}
 	
-		// Custom method
+		/* Custom method, check for slopes. Provides better stability on convex ones */
+		
 		else if !CollisionMode[1]
 		{
-			// If the difference between found angle and current angle is greater than this, floor mode won't update
+			// If the difference between found angle and current angle is greater than this, collision mode won't update
 			var AngleTolerance = 45;
 			
 			switch CollisionMode[0]
 			{
+				// Floor mode
 				case 0:
 				{
+					// Switch to right wall mode
 					var FindTile = tile_find_h(PosX + RadiusY - 2, PosY + RadiusX, true, Layer);
 					if  FindTile[0] < 0
 					{
@@ -47,7 +51,8 @@ function PlayerGroundFloorCollision()
 							CollisionMode[0] = 1;
 						}
 					}
-			
+					
+					// Switch to left wall mode
 					var FindTile = tile_find_h(PosX - RadiusY + 2, PosY + RadiusX, false, Layer);
 					if  FindTile[0] < 0
 					{
@@ -58,8 +63,11 @@ function PlayerGroundFloorCollision()
 					}
 				}
 				break;
+				
+				// Right wall mode
 				case 1:	
 				{
+					// Switch to floor mode
 					var FindTile = tile_find_v(PosX + RadiusX, PosY + RadiusY - 2, true, Layer);
 					if  FindTile[0] < 0
 					{
@@ -68,7 +76,8 @@ function PlayerGroundFloorCollision()
 							CollisionMode[0] = 0;
 						}
 					}
-			
+					
+					// Switch to ceiling mode
 					var FindTile = tile_find_v(PosX + RadiusX, PosY - RadiusY + 2, false, Layer);
 					if  FindTile[0] < 0
 					{
@@ -79,8 +88,11 @@ function PlayerGroundFloorCollision()
 					}
 				}
 				break;
+				
+				// Ceiling mode
 				case 2:
 				{
+					// Switch to right wall mode
 					var FindTile = tile_find_h(PosX + RadiusY - 2, PosY - RadiusX, true, Layer);
 					if  FindTile[0] < 0
 					{
@@ -89,7 +101,8 @@ function PlayerGroundFloorCollision()
 							CollisionMode[0] = 1;
 						}
 					}
-			
+					
+					// Switch to left wall mode
 					var FindTile = tile_find_h(PosX - RadiusY + 2, PosY - RadiusX, false, Layer);
 					if  FindTile[0] < 0
 					{
@@ -100,8 +113,11 @@ function PlayerGroundFloorCollision()
 					}
 				}
 				break;
+				
+				// Left wall mode
 				case 3:
 				{
+					// Switch to floor mode
 					var FindTile = tile_find_v(PosX - RadiusX, PosY + RadiusY - 2, true, Layer);
 					if  FindTile[0] < 0
 					{
@@ -110,7 +126,8 @@ function PlayerGroundFloorCollision()
 							CollisionMode[0] = 0;
 						}
 					}
-			
+					
+					// Switch to ceiling mode
 					var FindTile = tile_find_v(PosX - RadiusX, PosY - RadiusY + 2, false, Layer);
 					if  FindTile[0] < 0
 					{
@@ -131,9 +148,10 @@ function PlayerGroundFloorCollision()
 	}
 	#endregion
 	
-	// Perform collision!
+	// Perform collision based on current collision mode
 	switch CollisionMode[0]
 	{
+		// Floor mode
 		case 0:
 		{		
 			// Get tile below us
@@ -164,6 +182,8 @@ function PlayerGroundFloorCollision()
 			}
 		}
 		break;
+		
+		// Right wall mode
 		case 1:
 		{	
 			// Get tile to our right
@@ -194,6 +214,8 @@ function PlayerGroundFloorCollision()
 			}
 		}
 		break;
+		
+		// Ceiling mode
 		case 2:	
 		{	
 			// Get tile above us
@@ -224,6 +246,8 @@ function PlayerGroundFloorCollision()
 			}
 		}
 		break;
+		
+		// Left wall mode
 		case 3:
 		{	
 			// Get tile to our left
