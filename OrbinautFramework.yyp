@@ -606,7 +606,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/tiledata","resourceVersion":"1.0","name":"widthmapS3.bin","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.5.1.14",
+    "IDEVersion": "2022.5.1.16",
   },
   "resourceVersion": "1.5",
   "name": "OrbinautFramework",

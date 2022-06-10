@@ -6,6 +6,10 @@ function palette_set_colour(forPalType,atRowID,toColumnID)
 		return;
 	}
 	
+	/* Reference our 2d array. YoYo freaked up their YYC compiler with one
+	of the latest updates it is now crashing if not referenced. */
+	var A = Palette.Duration[forPalType,atRowID];
+	
 	// Update colour
 	if forPalType == PalPrimary
 	{
@@ -17,9 +21,8 @@ function palette_set_colour(forPalType,atRowID,toColumnID)
 	}
 	
 	// Reset swaptime
-	var Duration  = Palette.Duration[forPalType,atRowID];
-	if  Duration != noone
+	if Palette.Duration[forPalType,atRowID] != noone
 	{
-		Palette.SwapTime[forPalType,atRowID] = Duration;
+		Palette.SwapTime[forPalType,atRowID] = Palette.Duration[forPalType,atRowID];
 	}
 }
