@@ -30,7 +30,8 @@ Various people (or their work) were involved into the project across three relea
 
 # Terms of Use
 You are not allowed:
-- to re-release our framework in any form (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.), even if it is a heavy modification of it.
+- to re-release our framework in any form (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.), even if it is a heavy modification of it;
+- to use any part of tile collision system (scripts, architecture, code, software etc.) in your own non-Orbinaut project.
 
 You are allowed:
 - to use it for your own games and commercial (not Sonic!) releases;
