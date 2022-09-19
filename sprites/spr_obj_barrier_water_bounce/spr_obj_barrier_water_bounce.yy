@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_obj_barrier_water_bounce",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,18 +27,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f4f309dc-cdbb-43ab-a4c3-756ab4063332","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f4f309dc-cdbb-43ab-a4c3-756ab4063332","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"LayerId":{"name":"08033662-b7ae-4fd8-b972-cbd6a93dcd1d","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_barrier_water_bounce","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","name":"f4f309dc-cdbb-43ab-a4c3-756ab4063332","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"191761e8-7c22-40dd-bce3-beefba001385","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"191761e8-7c22-40dd-bce3-beefba001385","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"LayerId":{"name":"08033662-b7ae-4fd8-b972-cbd6a93dcd1d","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_barrier_water_bounce","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","name":"191761e8-7c22-40dd-bce3-beefba001385","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"a990e3a2-df06-4572-95a8-176d6ea874b6","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a990e3a2-df06-4572-95a8-176d6ea874b6","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"LayerId":{"name":"08033662-b7ae-4fd8-b972-cbd6a93dcd1d","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_barrier_water_bounce","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","name":"a990e3a2-df06-4572-95a8-176d6ea874b6","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f4f309dc-cdbb-43ab-a4c3-756ab4063332",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"191761e8-7c22-40dd-bce3-beefba001385",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a990e3a2-df06-4572-95a8-176d6ea874b6",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_obj_barrier_water_bounce","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_obj_barrier_water_bounce",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -46,11 +45,11 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"1e49a25c-9d29-42cc-8018-4da12155df5e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f4f309dc-cdbb-43ab-a4c3-756ab4063332","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"f5e2c14b-a60b-48f4-9fbf-7604d91c0cd0","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"191761e8-7c22-40dd-bce3-beefba001385","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"74af5899-56ed-4b78-80f6-2a3a7c7913c8","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a990e3a2-df06-4572-95a8-176d6ea874b6","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +65,13 @@
     "yorigin": 24,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_obj_barrier_water_bounce","path":"sprites/spr_obj_barrier_water_bounce/spr_obj_barrier_water_bounce.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_obj_barrier_water_bounce",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"08033662-b7ae-4fd8-b972-cbd6a93dcd1d","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"08033662-b7ae-4fd8-b972-cbd6a93dcd1d","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Stage Objects/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_obj_barrier_water_bounce",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "gui_icon_knuckles",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"d403a2a8-e358-4f0a-b63a-d2af30cb9619","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"d403a2a8-e358-4f0a-b63a-d2af30cb9619","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"LayerId":{"name":"9d390894-4381-491e-a7b2-e6b683697267","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"gui_icon_knuckles","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"resourceVersion":"1.0","name":"d403a2a8-e358-4f0a-b63a-d2af30cb9619","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"f49a87ef-20a4-4bba-80e7-b5bf5f1a37a3","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f49a87ef-20a4-4bba-80e7-b5bf5f1a37a3","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"LayerId":{"name":"9d390894-4381-491e-a7b2-e6b683697267","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"gui_icon_knuckles","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"resourceVersion":"1.0","name":"f49a87ef-20a4-4bba-80e7-b5bf5f1a37a3","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d403a2a8-e358-4f0a-b63a-d2af30cb9619",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f49a87ef-20a4-4bba-80e7-b5bf5f1a37a3",},
   ],
   "sequence": {
-    "spriteId": {"name":"gui_icon_knuckles","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "gui_icon_knuckles",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -43,10 +44,10 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"36e88440-eb7a-44c9-a1cb-153baa57bbf0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d403a2a8-e358-4f0a-b63a-d2af30cb9619","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"94c976e7-53d5-4b1b-80b7-b8f149b03114","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f49a87ef-20a4-4bba-80e7-b5bf5f1a37a3","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 11,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"gui_icon_knuckles","path":"sprites/gui_icon_knuckles/gui_icon_knuckles.yy",},
-    "resourceVersion": "1.4",
-    "name": "gui_icon_knuckles",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9d390894-4381-491e-a7b2-e6b683697267","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9d390894-4381-491e-a7b2-e6b683697267","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "GUI",
     "path": "folders/GUI.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "gui_icon_knuckles",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

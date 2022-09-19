@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_supersonic_breathe",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"1e496821-8ebb-4331-8323-864d4eea505d","path":"sprites/spr_supersonic_breathe/spr_supersonic_breathe.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"1e496821-8ebb-4331-8323-864d4eea505d","path":"sprites/spr_supersonic_breathe/spr_supersonic_breathe.yy",},"LayerId":{"name":"ca9698c0-3119-4d6b-b7e6-e8e8b671d9b1","path":"sprites/spr_supersonic_breathe/spr_supersonic_breathe.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_supersonic_breathe","path":"sprites/spr_supersonic_breathe/spr_supersonic_breathe.yy",},"resourceVersion":"1.0","name":"1e496821-8ebb-4331-8323-864d4eea505d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1e496821-8ebb-4331-8323-864d4eea505d",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_supersonic_breathe","path":"sprites/spr_supersonic_breathe/spr_supersonic_breathe.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_supersonic_breathe",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -40,9 +43,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"6e658a42-f03c-442e-8666-62bbffc8058f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1e496821-8ebb-4331-8323-864d4eea505d","path":"sprites/spr_supersonic_breathe/spr_supersonic_breathe.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 20,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_supersonic_breathe","path":"sprites/spr_supersonic_breathe/spr_supersonic_breathe.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_supersonic_breathe",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ca9698c0-3119-4d6b-b7e6-e8e8b671d9b1","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ca9698c0-3119-4d6b-b7e6-e8e8b671d9b1","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Characters",
     "path": "folders/Characters.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_supersonic_breathe",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

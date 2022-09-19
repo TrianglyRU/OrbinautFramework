@@ -138,7 +138,7 @@
 			draw_sprite(gui_hud_score, 0, X + 36, Y + 14);
 	
 			draw_set_halign(fa_right);	
-			draw_text(X + 116, Y + 14, Player.Score);
+			draw_text(X + 113, Y + 9, Player.Score);
 	
 			// Draw TIME
 			if Stage.Time > 32400
@@ -159,7 +159,7 @@
 			}
 			draw_set_halign(fa_left);
 	
-			draw_text(X + 60, Y + 30, TimeString);
+			draw_text(X + 57, Y + 25, TimeString);
 	
 			// Draw RINGS
 			if !Player.Rings
@@ -172,11 +172,11 @@
 			}	
 			draw_set_halign(fa_right);
 	
-			draw_text(X + 92, Y + 46, Player.Rings);
+			draw_text(X + 89, Y + 41, Player.Rings);
 
 			// Draw LIVES
 			draw_set_font(Font.FontDigits2);
-			draw_text(X + 68, Y + global.Height - 12, Player.Lives);
+			draw_text(X + 65, Y + global.Height - 15, Player.Lives);
 	
 			draw_sprite(gui_hud_lives, global.Character, X + 40, Y + global.Height - 16);
 		}
@@ -427,8 +427,8 @@
 			draw_sprite(gui_results_timebonus, 0,			     CentreX - 38 + ResultsValue[5], CentreY + 31);
 			draw_sprite(gui_results_ringbonus, 0,			     CentreX - 38 + ResultsValue[6], CentreY + 47);
 			
-			draw_text(CentreX - 7 - ResultsValue[2], CentreY - 52, Char);
-			draw_text(CentreX - 8 - ResultsValue[3], CentreY - 32, "THROUGH");
+			draw_text(CentreX - 18 - ResultsValue[2], CentreY - 60, Char);
+			draw_text(CentreX - 19 - ResultsValue[3], CentreY - 40, "THROUGH");
 			
 			// Draw continue icon
 			if ResultsValue[8] == 3 and Icon != noone
@@ -443,9 +443,9 @@
 			draw_set_font(Font.FontDigits1);
 			draw_set_halign(fa_right);
 	
-			draw_text(CentreX + 83 + ResultsValue[4], CentreY + 13, Player.Score);
-			draw_text(CentreX + 83 + ResultsValue[5], CentreY + 29, ResultsValue[10]);
-			draw_text(CentreX + 83 + ResultsValue[6], CentreY + 45, ResultsValue[9]);
+			draw_text(CentreX + 80 + ResultsValue[4], CentreY + 8,  Player.Score);
+			draw_text(CentreX + 80 + ResultsValue[5], CentreY + 24, ResultsValue[10]);
+			draw_text(CentreX + 80 + ResultsValue[6], CentreY + 40, ResultsValue[9]);
 		}
 	}
 	#endregion
@@ -637,7 +637,7 @@
 			// Draw zone name
 			draw_set_halign(fa_right);
 			draw_set_font(Font.FontCard);
-			draw_text(CardValue[7], global.Height / 2 - 32, Stage.ZoneName);
+			draw_text(CardValue[7] - 11, global.Height / 2 - 40, Stage.ZoneName);
 		}
 	}
 	#endregion

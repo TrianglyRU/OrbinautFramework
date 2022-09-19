@@ -15,20 +15,21 @@
 		// Process animated graphics
 		if AnimatedGraphics != noone
 		{	
-			var Update = Renderer.UpdateAnimations; 
-			var Length = array_length(AnimatedGraphics);
+			var Update  = Renderer.UpdateAnimations; 
+			var Length  = array_length(AnimatedGraphics);
+		        var GameFPS = game_get_speed(gamespeed_fps);
 		
 			for (var i = 0; i < Length; i += 2)
 			{
 				if Update
 				{
-					var AnimSpeed = 1 / AnimatedGraphics[i + 1];
+					var AnimSpeed = GameFPS / AnimatedGraphics[i + 1];
 				}
 				else
 				{
 					var AnimSpeed = 0;
 				}
-				sprite_set_speed(AnimatedGraphics[i], AnimSpeed, spritespeed_framespergameframe);
+				sprite_set_speed(AnimatedGraphics[i], AnimSpeed, spritespeed_framespersecond);
 			}
 		}
 

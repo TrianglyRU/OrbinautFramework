@@ -6,6 +6,11 @@ function palette_updt_colour(palType,rowID,fromColumnID,toColumnID,duration)
 		return;
 	}
 	
+	// YoYo, fix your engine!!!
+	var CrashFix = Palette.Sequence;
+		CrashFix = Palette.Duration;
+		CrashFix = Palette.SwapTime;
+	
 	// Get unique ID for this palette sequence
 	var SequenceID = string(fromColumnID) + "_" + string(toColumnID);
 	

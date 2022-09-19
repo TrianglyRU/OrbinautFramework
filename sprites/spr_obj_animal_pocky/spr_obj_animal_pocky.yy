@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_obj_animal_pocky",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,18 +27,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a14d7e3d-4ea7-4ae4-8353-39181b0e02ed","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a14d7e3d-4ea7-4ae4-8353-39181b0e02ed","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"LayerId":{"name":"1bb50ca5-6229-4f01-b974-de9aa5305034","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_animal_pocky","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","name":"a14d7e3d-4ea7-4ae4-8353-39181b0e02ed","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"9d63bff7-a86e-447c-953a-7f645f58f231","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9d63bff7-a86e-447c-953a-7f645f58f231","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"LayerId":{"name":"1bb50ca5-6229-4f01-b974-de9aa5305034","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_animal_pocky","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","name":"9d63bff7-a86e-447c-953a-7f645f58f231","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"b208bf96-4fc8-4af6-a20d-448024a25b04","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b208bf96-4fc8-4af6-a20d-448024a25b04","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"LayerId":{"name":"1bb50ca5-6229-4f01-b974-de9aa5305034","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_animal_pocky","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","name":"b208bf96-4fc8-4af6-a20d-448024a25b04","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a14d7e3d-4ea7-4ae4-8353-39181b0e02ed",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9d63bff7-a86e-447c-953a-7f645f58f231",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b208bf96-4fc8-4af6-a20d-448024a25b04",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_obj_animal_pocky","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_obj_animal_pocky",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -46,11 +45,11 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"c2e514ff-6adc-4e6d-8ebd-dad06d34daa6","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a14d7e3d-4ea7-4ae4-8353-39181b0e02ed","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"5ddc5fa2-9590-47da-9b13-9092f69d576b","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9d63bff7-a86e-447c-953a-7f645f58f231","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"8c012c5d-299d-4b73-8b81-18cd88f220c6","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b208bf96-4fc8-4af6-a20d-448024a25b04","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +65,13 @@
     "yorigin": 12,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_obj_animal_pocky","path":"sprites/spr_obj_animal_pocky/spr_obj_animal_pocky.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_obj_animal_pocky",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"1bb50ca5-6229-4f01-b974-de9aa5305034","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1bb50ca5-6229-4f01-b974-de9aa5305034","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Stage Objects/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_obj_animal_pocky",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

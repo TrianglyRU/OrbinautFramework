@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "tex_water_surface",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,21 +27,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"17122983-d028-4b8e-ba3d-432161f23547","path":"sprites/tex_water_surface/tex_water_surface.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"17122983-d028-4b8e-ba3d-432161f23547","path":"sprites/tex_water_surface/tex_water_surface.yy",},"LayerId":{"name":"aee1813c-7cca-40a1-8bd6-80643041258c","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"tex_water_surface","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","name":"17122983-d028-4b8e-ba3d-432161f23547","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"c30d7743-e3ce-472a-a8d7-94085f03629d","path":"sprites/tex_water_surface/tex_water_surface.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c30d7743-e3ce-472a-a8d7-94085f03629d","path":"sprites/tex_water_surface/tex_water_surface.yy",},"LayerId":{"name":"aee1813c-7cca-40a1-8bd6-80643041258c","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"tex_water_surface","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","name":"c30d7743-e3ce-472a-a8d7-94085f03629d","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"8024347d-0659-4137-a81a-8cad6ffded28","path":"sprites/tex_water_surface/tex_water_surface.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8024347d-0659-4137-a81a-8cad6ffded28","path":"sprites/tex_water_surface/tex_water_surface.yy",},"LayerId":{"name":"aee1813c-7cca-40a1-8bd6-80643041258c","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"tex_water_surface","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","name":"8024347d-0659-4137-a81a-8cad6ffded28","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"2cca99db-6c6b-4e50-8f57-bd81189ea7a1","path":"sprites/tex_water_surface/tex_water_surface.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2cca99db-6c6b-4e50-8f57-bd81189ea7a1","path":"sprites/tex_water_surface/tex_water_surface.yy",},"LayerId":{"name":"aee1813c-7cca-40a1-8bd6-80643041258c","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"tex_water_surface","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","name":"2cca99db-6c6b-4e50-8f57-bd81189ea7a1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"17122983-d028-4b8e-ba3d-432161f23547",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c30d7743-e3ce-472a-a8d7-94085f03629d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8024347d-0659-4137-a81a-8cad6ffded28",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2cca99db-6c6b-4e50-8f57-bd81189ea7a1",},
   ],
   "sequence": {
-    "spriteId": {"name":"tex_water_surface","path":"sprites/tex_water_surface/tex_water_surface.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "tex_water_surface",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -49,12 +46,12 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"5982a11b-43db-44f6-a95b-5b89c5870aa4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"17122983-d028-4b8e-ba3d-432161f23547","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"5b651d31-1286-4a24-b546-cd16b8a23cde","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c30d7743-e3ce-472a-a8d7-94085f03629d","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"be0f8746-f1c7-4fb9-a8d8-d45916bdf775","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8024347d-0659-4137-a81a-8cad6ffded28","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"5485b14a-5936-4286-9bfe-b6bf653680af","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2cca99db-6c6b-4e50-8f57-bd81189ea7a1","path":"sprites/tex_water_surface/tex_water_surface.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -70,22 +67,13 @@
     "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"tex_water_surface","path":"sprites/tex_water_surface/tex_water_surface.yy",},
-    "resourceVersion": "1.4",
-    "name": "tex_water_surface",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":50.0,"displayName":"default","resourceVersion":"1.0","name":"aee1813c-7cca-40a1-8bd6-80643041258c","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"aee1813c-7cca-40a1-8bd6-80643041258c","visible":true,"isLocked":false,"blendMode":0,"opacity":50.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Stages",
     "path": "folders/Stages.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tex_water_surface",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

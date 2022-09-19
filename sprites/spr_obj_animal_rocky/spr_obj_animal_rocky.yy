@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_obj_animal_rocky",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,18 +27,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"b8b71cd2-0aaa-4d32-be69-535ab8c82a05","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b8b71cd2-0aaa-4d32-be69-535ab8c82a05","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"LayerId":{"name":"a48a4e58-ce3e-4826-a166-b3494a6d5e1b","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_animal_rocky","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","name":"b8b71cd2-0aaa-4d32-be69-535ab8c82a05","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"9c7407c7-7c3e-47be-b3ac-f8ef7d6a3d4a","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9c7407c7-7c3e-47be-b3ac-f8ef7d6a3d4a","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"LayerId":{"name":"a48a4e58-ce3e-4826-a166-b3494a6d5e1b","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_animal_rocky","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","name":"9c7407c7-7c3e-47be-b3ac-f8ef7d6a3d4a","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"52998c98-dde9-4f79-90af-3c4950a6ebb1","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"52998c98-dde9-4f79-90af-3c4950a6ebb1","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"LayerId":{"name":"a48a4e58-ce3e-4826-a166-b3494a6d5e1b","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_obj_animal_rocky","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","name":"52998c98-dde9-4f79-90af-3c4950a6ebb1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b8b71cd2-0aaa-4d32-be69-535ab8c82a05",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9c7407c7-7c3e-47be-b3ac-f8ef7d6a3d4a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"52998c98-dde9-4f79-90af-3c4950a6ebb1",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_obj_animal_rocky","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_obj_animal_rocky",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -46,11 +45,11 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"5a512f67-009e-4dc5-9970-8c50d0aa62c1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b8b71cd2-0aaa-4d32-be69-535ab8c82a05","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"ccfdef3f-bcb2-458e-81f7-5f1708188760","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9c7407c7-7c3e-47be-b3ac-f8ef7d6a3d4a","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"3a114c41-0003-4880-81a5-7f84b655e2a9","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"52998c98-dde9-4f79-90af-3c4950a6ebb1","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +65,13 @@
     "yorigin": 12,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_obj_animal_rocky","path":"sprites/spr_obj_animal_rocky/spr_obj_animal_rocky.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_obj_animal_rocky",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a48a4e58-ce3e-4826-a166-b3494a6d5e1b","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a48a4e58-ce3e-4826-a166-b3494a6d5e1b","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Stage Objects/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_obj_animal_rocky",
-  "tags": [],
-  "resourceType": "GMSprite",
 }
