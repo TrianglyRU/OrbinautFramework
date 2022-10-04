@@ -2,7 +2,7 @@
 https://sonicfangameshq.com/forums/showcase/orbinaut-framework.947/
 
 Orbinaut Framework is highly-accurate and very easy to use classic Sonic framework, made for GameMaker Studio 2. 
-Whether you are a beginner or an experienced fan game developer, visual or traditional coding fan: Orbinaut is made for everyone!
+Orbinaut is making GameMaker to play by its own rules, so please refer to our wiki. This is not a "traditional" GameMaker framework.
 
 # Features
 - 99% classic-accurate physics
