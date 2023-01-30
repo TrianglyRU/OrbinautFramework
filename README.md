@@ -37,7 +37,7 @@ You are not allowed:
 
 You are allowed:
 - to use it for your own games and commercial (not Sonic!) releases;
-- to use our code and/or shaders in your own projects while crediting us under "additional programming" and/or "shaders". If you decide to use the palette shader, please, make sure to credit PixelatedPope as well;
+- to use our code (except for tile collision, as said above) and/or shaders in your own projects while crediting us under "additional programming" and/or "shaders". If you decide to use the palette shader, please, make sure to credit PixelatedPope as well;
 - to make fangames with .exe thematic. Please note, that we won't provide ANY development support for you in this case.
 
 Whenever you are crediting us, please, refer to us as Team Orbinaut or by names (Triangly, MicG)
