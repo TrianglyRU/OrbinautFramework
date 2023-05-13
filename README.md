@@ -34,12 +34,11 @@ Various people (or their work) were involved into the project across three relea
 
 # Terms of Use
 You are not allowed:
-- to re-release our framework in any form (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.), even if it is a heavy modification of it;
-- to use any part of tile collision system (scripts, architecture, code, software etc.) in your own non-Orbinaut project (that means the game has to be powered by Orbinaut).
+- to re-release our framework in any form (like Orbinaut Framework Plus, Orbinaut Framework EX, etc. etc.), even if it is a heavy modification of it.
 
 You are allowed:
 - to use it for your own games and commercial (not Sonic!) releases;
-- to use our code (except for tile collision, as said above) and/or shaders in your own projects while crediting us under "additional programming" and/or "shaders". If you decide to use the palette shader, please, make sure to credit PixelatedPope as well;
-- to make fangames with .exe thematic. Please note, that we won't provide ANY development support for you in this case.
+- to use any of our code and/or shaders in your own projects while crediting us under "additional programming". If decide to use our tile collision system, please, credit us separately for that. If you decide to use the palette shader, make sure to credit PixelatedPope as well;
+- to make .exe fangames. Please note, that we won't provide ANY development support or recognition for you in this case.
 
-Whenever you are crediting us, please, refer to us as Team Orbinaut or by names (Triangly, MicG)
+Whenever you are crediting us, please, refer to us as Team Orbinaut.
