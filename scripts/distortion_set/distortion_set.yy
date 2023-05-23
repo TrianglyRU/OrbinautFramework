@@ -1,11 +1,12 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "distortion_set",
-  "isCompatibility": false,
   "isDnD": false,
+  "isCompatibility": false,
   "parent": {
     "name": "Game Functions",
     "path": "folders/Game Functions.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "distortion_set",
+  "tags": [],
+  "resourceType": "GMScript",
 }

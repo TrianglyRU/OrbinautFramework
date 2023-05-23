@@ -1,11 +1,12 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "audio_bgm_is_playing",
-  "isCompatibility": false,
   "isDnD": false,
+  "isCompatibility": false,
   "parent": {
     "name": "Game Functions",
     "path": "folders/Game Functions.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "audio_bgm_is_playing",
+  "tags": [],
+  "resourceType": "GMScript",
 }

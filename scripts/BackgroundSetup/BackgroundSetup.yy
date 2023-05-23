@@ -1,11 +1,12 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "BackgroundSetup",
-  "isCompatibility": false,
   "isDnD": false,
+  "isCompatibility": false,
   "parent": {
     "name": "Game Setup",
     "path": "folders/Game Setup.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "BackgroundSetup",
+  "tags": [],
+  "resourceType": "GMScript",
 }
