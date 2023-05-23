@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "CollisionSetup",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Game Setup",
     "path": "folders/Game Setup.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "CollisionSetup",
-  "tags": [],
-  "resourceType": "GMScript",
 }

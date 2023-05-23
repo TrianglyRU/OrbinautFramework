@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "StageSetup",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Game Setup",
     "path": "folders/Game Setup.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "StageSetup",
-  "tags": [],
-  "resourceType": "GMScript",
 }
