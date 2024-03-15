@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player Object",
-    "path": "folders/Player Object.yy",
+  "$GMScript":"",
+  "%Name":"PlayerDisplay",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerDisplay",
+  "parent":{
+    "name":"Player Object",
+    "path":"folders/Player Object.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "PlayerDisplay",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

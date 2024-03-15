@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+  "$GMScript":"",
+  "%Name":"tile_get_width",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tile_get_width",
+  "parent":{
+    "name":"Game Functions",
+    "path":"folders/Game Functions.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tile_get_width",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

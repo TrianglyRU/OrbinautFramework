@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+  "$GMScript":"",
+  "%Name":"tile_data_set",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tile_data_set",
+  "parent":{
+    "name":"Game Functions",
+    "path":"folders/Game Functions.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tile_data_set",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

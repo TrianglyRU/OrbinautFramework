@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player Object",
-    "path": "folders/Player Object.yy",
+  "$GMScript":"",
+  "%Name":"PlayerSonicDropdash",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerSonicDropdash",
+  "parent":{
+    "name":"Player Object",
+    "path":"folders/Player Object.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "PlayerSonicDropdash",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

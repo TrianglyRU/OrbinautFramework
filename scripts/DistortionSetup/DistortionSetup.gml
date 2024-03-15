@@ -8,8 +8,8 @@ function DistortionSetup()
 	{
 		case Stage_TSZ:
 		{
-			distortion_set(noone, dist_water, 0.5, ["GraphicsA", "AnimatedTiles", "GraphicsB"], noone);
-			distortion_set_bg(noone, dist_water_bg, 0.5, noone);
+			distortion_set(dist_empty, dist_water, 0.5, ["GraphicsA", "AnimatedTiles", "GraphicsB"], noone);
+			distortion_set_bg(dist_empty, dist_water_bg, 0.5, noone);
 		}
 		break;
 	}

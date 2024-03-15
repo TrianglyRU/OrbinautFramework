@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+  "$GMScript":"",
+  "%Name":"tile_ignore_v",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tile_ignore_v",
+  "parent":{
+    "name":"Game Functions",
+    "path":"folders/Game Functions.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tile_ignore_v",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

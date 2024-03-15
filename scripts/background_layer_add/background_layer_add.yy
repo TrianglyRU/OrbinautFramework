@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+  "$GMScript":"",
+  "%Name":"background_layer_add",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"background_layer_add",
+  "parent":{
+    "name":"Game Functions",
+    "path":"folders/Game Functions.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "background_layer_add",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

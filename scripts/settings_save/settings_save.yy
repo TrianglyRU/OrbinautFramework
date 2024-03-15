@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Game Functions",
-    "path": "folders/Game Functions.yy",
+  "$GMScript":"",
+  "%Name":"settings_save",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"settings_save",
+  "parent":{
+    "name":"Game Functions",
+    "path":"folders/Game Functions.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "settings_save",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

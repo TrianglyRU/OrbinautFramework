@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player Object",
-    "path": "folders/Player Object.yy",
+  "$GMScript":"",
+  "%Name":"PlayerHitboxUpdate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerHitboxUpdate",
+  "parent":{
+    "name":"Player Object",
+    "path":"folders/Player Object.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "PlayerHitboxUpdate",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Game Setup",
-    "path": "folders/Game Setup.yy",
+  "$GMScript":"",
+  "%Name":"DistortionSetup",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DistortionSetup",
+  "parent":{
+    "name":"Game Setup",
+    "path":"folders/Game Setup.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "DistortionSetup",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

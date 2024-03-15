@@ -1,6 +1,0 @@
-	
-	You've downloaded the git version of Orbinaut Framework
-	=======================================================
-	
-	Please, download the full package from the Releases tab to get
-	additional software and custom distortion effect!

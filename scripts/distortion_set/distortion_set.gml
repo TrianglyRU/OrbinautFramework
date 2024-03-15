@@ -12,6 +12,7 @@ function distortion_set(data1,data2,speed,layers,datarange)
 		{
 			DistortionMode[0] = "Screen";
 		}
+		
 		DistortionEffect[0] = fx_create("_filter_waves");
 		
 		// Load effects
@@ -19,7 +20,7 @@ function distortion_set(data1,data2,speed,layers,datarange)
 		
 		for (var i = 0; i < 2; i++)
 		{
-			if Data[i] != noone and (i == 0 or DistortionMode[0] == "Stage")
+			if i == 0 or DistortionMode[0] == "Stage"
 			{	
 				var UVs		= sprite_get_uvs(Data[i], 0);
 				var Texture = sprite_get_texture(Data[i], 0);

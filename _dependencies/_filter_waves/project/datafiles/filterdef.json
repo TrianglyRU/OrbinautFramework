@@ -1,0 +1,95 @@
+{
+    "name": "_filter_waves",
+    "displayname": "Waves",
+    "type": "filter",
+    "parameters": [
+	{
+            "name": "g_WaveY1",
+            "displayname": "WaveY 1",
+            "type": "float",
+            "elements": 1,
+            "default": 0.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+	{
+            "name": "g_WaveY2",
+            "displayname": "WaveY 2",
+            "type": "float",
+            "elements": 1,
+            "default": 0.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+	{
+            "name": "g_Bound1",
+            "displayname": "Bound 1",
+            "type": "float",
+            "elements": 1,
+            "default": 0.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+	{
+            "name": "g_Bound2",
+            "displayname": "Bound 2",
+            "type": "float",
+            "elements": 1,
+            "default": 0.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+	{
+            "name": "g_Bound3",
+            "displayname": "Bound 3",
+            "type": "float",
+            "elements": 1,
+            "default": 0.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "name": "g_ScreenWid",
+            "displayname": "Screen Width",
+            "type": "float",
+            "elements": 1,
+            "default": 0.0,
+            "min": 0.0,
+            "max": 0.0
+	},
+	{
+            "name": "g_DataParams1",
+            "displayname": "Data Params 1",
+            "type": "float",
+            "elements": 3,
+            "default": [0.0, 0.0, 0.0],
+            "min": [0.0, 0.0, 0.0],
+            "max": [0.0, 0.0, 0.0]
+	},
+	{
+            "name": "g_DataParams2",
+            "displayname": "Data Params 2",
+            "type": "float",
+            "elements": 3,
+            "default": [0.0, 0.0, 0.0],
+            "min": [0.0, 0.0, 0.0],
+            "max": [0.0, 0.0, 0.0]
+	},
+	{
+            "name": "g_WaveData1",
+            "displayname": "Wave Data 1",
+            "type": "sampler",
+            "elements": 1,
+            "default": "",
+	    "options": "repeat|filter"
+	},
+	{
+            "name": "g_WaveData2",
+            "displayname": "Wave Data 2",
+            "type": "sampler",
+            "elements": 1,
+            "default": "",
+	    "options": "repeat|filter"
+	}
+    ]
+}
