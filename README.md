@@ -21,7 +21,7 @@ Orbinaut is making GameMaker to play by its own rules, so please refer to our wi
 - ...and much more!
 
 # Wiki
-We have a semi-complited wiki, check it out here: https://github.com/TrianglyRU/OrbinautFramework/wiki.
+We have a semi-completed wiki, check it out here: https://github.com/TrianglyRU/OrbinautFramework/wiki.
 
 # Credits
 Various people (or their work) were involved into the project across three releases, but we'll credit them all even if their work isn't included in the latest release!
