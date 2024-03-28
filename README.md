@@ -1,8 +1,8 @@
-# [COMING SOON]
+# ORBINAUT FRAMEWORK 2
 
-![1679223337199](https://github.com/TrianglyRU/OrbinautFramework/assets/45323263/c9c75ddc-a73a-4bcd-87ea-c5aaca7687aa)
+![image](https://github.com/TrianglyRU/OrbinautFramework/assets/45323263/3171a29c-daa6-47e1-9e04-fbb9f9c226b2)
 
-# About
+# About Orbinaut Framework
 https://sonicfangameshq.com/forums/showcase/orbinaut-framework.947/
 
 Orbinaut Framework is highly-accurate and very easy to use classic Sonic framework, made for GameMaker Studio 2. 
