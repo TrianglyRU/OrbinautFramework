@@ -27,8 +27,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"XSize","filters":[],"listItems":[],"multiselect":false,"name":"XSize","rangeEnabled":true,"rangeMax":16.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"16","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"YSize","filters":[],"listItems":[],"multiselect":false,"name":"YSize","rangeEnabled":true,"rangeMax":32.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"32","varType":1,},
+    {"$GMObjectProperty":"","%Name":"XSize","filters":[],"listItems":[],"multiselect":false,"name":"XSize","rangeEnabled":true,"rangeMax":16.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"16","varType":1,},
+    {"$GMObjectProperty":"","%Name":"YSize","filters":[],"listItems":[],"multiselect":false,"name":"YSize","rangeEnabled":true,"rangeMax":32.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"32","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

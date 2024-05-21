@@ -28,8 +28,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"BridgeLength","filters":[],"listItems":[],"multiselect":false,"name":"BridgeLength","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"12","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"SpawnPosts","filters":[],"listItems":[],"multiselect":false,"name":"SpawnPosts","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"True","varType":3,},
+    {"$GMObjectProperty":"","%Name":"BridgeLength","filters":[],"listItems":[],"multiselect":false,"name":"BridgeLength","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"12","varType":1,},
+    {"$GMObjectProperty":"","%Name":"SpawnPosts","filters":[],"listItems":[],"multiselect":false,"name":"SpawnPosts","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"True","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

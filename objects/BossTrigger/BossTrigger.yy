@@ -33,9 +33,9 @@
   ],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"ArenaWidth","filters":[],"listItems":[],"multiselect":false,"name":"ArenaWidth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"400","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"ArenaHeight","filters":[],"listItems":[],"multiselect":false,"name":"ArenaHeight","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"Template","filters":[],"listItems":[],"multiselect":false,"name":"Template","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"True","varType":3,},
+    {"$GMObjectProperty":"","%Name":"ArenaWidth","filters":[],"listItems":[],"multiselect":false,"name":"ArenaWidth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"400","varType":1,},
+    {"$GMObjectProperty":"","%Name":"ArenaHeight","filters":[],"listItems":[],"multiselect":false,"name":"ArenaHeight","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":1,},
+    {"$GMObjectProperty":"","%Name":"Template","filters":[],"listItems":[],"multiselect":false,"name":"Template","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"True","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

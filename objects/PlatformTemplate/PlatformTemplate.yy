@@ -28,14 +28,14 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"MovementType","filters":[],"listItems":[
+    {"$GMObjectProperty":"","%Name":"MovementType","filters":[],"listItems":[
         "\"Stationary\"",
         "\"Falls When Stood On\"",
         "\"Left -> Right\"",
         "\"Right -> Left\"",
         "\"Up -> Down\"",
         "\"Down -> Up\"",
-      ],"multiselect":false,"name":"MovementType","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"Stationary\"","varType":6,},
+      ],"multiselect":false,"name":"MovementType","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"Stationary\"","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

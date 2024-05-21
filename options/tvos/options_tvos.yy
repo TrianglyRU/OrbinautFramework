@@ -1,9 +1,10 @@
 {
-  "$GMtvOSOptions":"v1",
+  "$GMtvOSOptions":"",
   "%Name":"tvOS",
   "name":"tvOS",
   "option_tvos_build_number":0,
   "option_tvos_bundle_name":"com.company.game",
+  "option_tvos_cocoapods_checkbox":true,
   "option_tvos_display_cursor":false,
   "option_tvos_display_name":"Made in GameMaker Studio 2",
   "option_tvos_enable_broadcast":false,
