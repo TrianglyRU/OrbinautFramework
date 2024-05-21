@@ -27,17 +27,17 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"GroundOnly","filters":[],"listItems":[],"multiselect":false,"name":"GroundOnly","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
-    {"$GMObjectProperty":"","%Name":"UpDirection","filters":[],"listItems":[
+    {"$GMObjectProperty":"v1","%Name":"GroundOnly","filters":[],"listItems":[],"multiselect":false,"name":"GroundOnly","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"UpDirection","filters":[],"listItems":[
         "\"None\"",
         "LayerA",
         "LayerB",
-      ],"multiselect":false,"name":"UpDirection","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"None\"","varType":6,},
-    {"$GMObjectProperty":"","%Name":"DownDirection","filters":[],"listItems":[
+      ],"multiselect":false,"name":"UpDirection","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"None\"","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"DownDirection","filters":[],"listItems":[
         "\"None\"",
         "LayerA",
         "LayerB",
-      ],"multiselect":false,"name":"DownDirection","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"None\"","varType":6,},
+      ],"multiselect":false,"name":"DownDirection","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"None\"","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

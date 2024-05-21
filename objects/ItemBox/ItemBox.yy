@@ -28,7 +28,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"BoxType","filters":[],"listItems":[
+    {"$GMObjectProperty":"v1","%Name":"BoxType","filters":[],"listItems":[
         "\"Empty\"",
         "\"10 Rings\"",
         "\"High Speed\"",
@@ -39,7 +39,7 @@
         "\"Water Barrier\"",
         "\"Extra Life\"",
         "\"Eggman\"",
-      ],"multiselect":false,"name":"BoxType","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"Empty\"","varType":6,},
+      ],"multiselect":false,"name":"BoxType","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"Empty\"","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
