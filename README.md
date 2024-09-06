@@ -36,11 +36,13 @@ If you have any questions about the framework, feel free to use the [Discussions
 ## Credits
 
 - **Project Lead**: Triangly
-- **Programmers**: Triangly, Michael Gallinago, <>
+- **Programmers**: Triangly, Michael Gallinago, techncolour
 - **Framework Branding & Sprite Edits**: Natufox
 - **Framework Trailer**: Lapper, Triangly
 - **Tech Stadium Zone**: Enrico Cartmanuel
 - **Level Design**: FieryN8
+- **"Giganorbi" Boss Programming**: techncolour
+- **Special Thanks**: Lapper, Mercury, NicoCW, Valeev, Noah N. Copeland, The Sonic 1, 2 and 3 Dissasembly Community, @RunningPigeon, and our Twitter followers!
 
 ---
 
