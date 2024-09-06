@@ -40,7 +40,7 @@ If you have any questions about the framework, feel free to use the [Discussions
 - **Framework Branding & Sprite Edits**: Natufox
 - **Framework Trailer**: Lapper, Triangly
 - **Tech Stadium Zone**: Enrico Cartmanuel
-- **Level Design**: <>
+- **Level Design**: FieryN8
 
 ---
 
