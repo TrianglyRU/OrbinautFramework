@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ani_resume",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ani_resume",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

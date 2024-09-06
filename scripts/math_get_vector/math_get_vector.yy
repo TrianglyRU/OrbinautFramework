@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"math_get_vector",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"math_get_vector",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

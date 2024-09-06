@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_player_animate_knuckles",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_player_animate_knuckles",
+  "parent":{
+    "name":"Player",
+    "path":"folders/Objects/Player.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

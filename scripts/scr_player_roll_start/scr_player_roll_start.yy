@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_player_roll_start",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_player_roll_start",
+  "parent":{
+    "name":"Player",
+    "path":"folders/Objects/Player.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

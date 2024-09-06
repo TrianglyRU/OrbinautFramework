@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"input_reset",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"input_reset",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

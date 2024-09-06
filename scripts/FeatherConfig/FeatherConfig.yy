@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"FeatherConfig",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FeatherConfig",
+  "parent":{
+    "name":"OrbinautFramework2",
+    "path":"OrbinautFramework2.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

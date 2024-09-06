@@ -1,0 +1,1 @@
+// Empty Draw Event so we do not draw the object

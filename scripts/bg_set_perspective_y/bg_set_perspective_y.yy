@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bg_set_perspective_y",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bg_set_perspective_y",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

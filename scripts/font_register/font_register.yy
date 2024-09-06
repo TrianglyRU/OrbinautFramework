@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"font_register",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"font_register",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

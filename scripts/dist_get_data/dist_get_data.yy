@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"dist_get_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"dist_get_data",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

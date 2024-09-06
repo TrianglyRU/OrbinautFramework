@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_stage_palette",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_stage_palette",
+  "parent":{
+    "name":"Rooms",
+    "path":"folders/Rooms.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

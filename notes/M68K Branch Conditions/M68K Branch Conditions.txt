@@ -1,0 +1,15 @@
+INSTRUCTION         BRANCH IF
+
+BLO / BCS           REG >= 0 and REG < VALUE
+BLS                 REG >= 0 and REG <= VALUE
+BHI                 REG < 0 or REG > VALUE
+BHS / BCC           REG < 0 or REG >= VALUE
+
+BMI                 REG < 0
+BPL                 REG >= 0
+BLT                 REG < VALUE
+BLE                 REG <= VALUE
+BGT                 REG > VALUE
+BGE                 REG >= VALUE
+	
+TST, BNE			REG != 0

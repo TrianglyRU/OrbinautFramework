@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"ts_tsz_graphics_waterfall",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"ts_tsz_graphics_waterfall",
+  "out_columns":2,
+  "out_tilehborder":0,
+  "out_tilevborder":0,
+  "parent":{
+    "name":"Test Stage",
+    "path":"folders/Rooms/Test Stage.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"spr_tsz_graphics_waterfall",
+    "path":"sprites/spr_tsz_graphics_waterfall/spr_tsz_graphics_waterfall.yy",
+  },
+  "spriteNoExport":true,
+  "textureGroupId":{
+    "name":"tex_stage_tsz",
+    "path":"texturegroups/tex_stage_tsz",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":128,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":128,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":5,
+}

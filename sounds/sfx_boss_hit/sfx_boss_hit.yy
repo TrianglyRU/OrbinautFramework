@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sfx_boss_hit",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.666644,
+  "name":"sfx_boss_hit",
+  "parent":{
+    "name":"SFX",
+    "path":"folders/Audio/SFX.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfx_boss_hit.wav",
+  "type":0,
+  "volume":1.0,
+}

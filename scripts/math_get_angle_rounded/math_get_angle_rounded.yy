@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"math_get_angle_rounded",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"math_get_angle_rounded",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

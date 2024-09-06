@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bg_add_layer",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bg_add_layer",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

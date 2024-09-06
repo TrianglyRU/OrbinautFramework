@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_giganorbi_state_machine",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_giganorbi_state_machine",
+  "parent":{
+    "name":"Bosses",
+    "path":"folders/Objects/Bosses.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

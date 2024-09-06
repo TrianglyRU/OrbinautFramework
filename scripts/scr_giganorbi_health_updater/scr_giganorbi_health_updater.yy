@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_giganorbi_health_updater",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_giganorbi_health_updater",
+  "parent":{
+    "name":"Bosses",
+    "path":"folders/Objects/Bosses.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

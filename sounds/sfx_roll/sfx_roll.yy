@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sfx_roll",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":2.019819,
+  "name":"sfx_roll",
+  "parent":{
+    "name":"SFX",
+    "path":"folders/Audio/SFX.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfx_roll.wav",
+  "type":0,
+  "volume":1.0,
+}

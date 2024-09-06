@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"fade_perform_black",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"fade_perform_black",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

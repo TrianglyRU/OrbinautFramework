@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ani_stop",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ani_stop",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

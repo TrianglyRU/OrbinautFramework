@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bg_set_colour",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bg_set_colour",
+  "parent":{
+    "name":"Functions",
+    "path":"folders/Functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

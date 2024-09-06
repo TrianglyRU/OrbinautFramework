@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sfx_charge2",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":2.500159,
+  "name":"sfx_charge2",
+  "parent":{
+    "name":"SFX",
+    "path":"folders/Audio/SFX.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfx_charge2.wav",
+  "type":0,
+  "volume":1.0,
+}
