@@ -3,5 +3,5 @@
 /// @returns {Bool}
 function ani_get_stopped()
 {
-	return data_ani.timer == -4;
+	return data_ani.timer == -1;
 }

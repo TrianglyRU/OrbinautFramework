@@ -11,7 +11,6 @@ corner_x = floor(x - sprite_get_xoffset(sprite_index));
 corner_y = floor(y - sprite_get_yoffset(sprite_index));
 width  = sprite_get_width(sprite_index);
 height = sprite_get_height(sprite_index);
-fragment_count = 0;
 	
 obj_set_solid(floor(CollisionWidth / 2), floor(CollisionHeight / 2));
 obj_set_priority(5);

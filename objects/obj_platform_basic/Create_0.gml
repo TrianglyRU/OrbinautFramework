@@ -13,3 +13,6 @@ vel_y = 0;
 obj_set_solid(floor(CollisionWidth / 2), floor(CollisionHeight / 2));
 obj_set_priority(5);
 obj_set_culling(CULLING.ORIGINRESPAWN);
+
+// Set oscillation
+event_perform(ev_step, ev_step_normal);

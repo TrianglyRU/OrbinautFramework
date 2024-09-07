@@ -7,7 +7,7 @@
 	#define BINARY_SEARCH 0	// Set to 1 to significantly speed up colour replacement (requires sorted palette)
 	#define PALETTE_LIMIT 256 // This constant should match ENGINE_PALETTE_MAX_SLOTS macro
 	
-	const float LIMIT1 = 252.0;
+	const float LIMIT1 = 255.0;
     const float LIMIT2 = LIMIT1 * 2.0;
     const float LIMIT3 = LIMIT1 * 3.0;
 	
@@ -42,11 +42,6 @@
 	// Calculate faded colour (this will combust on very low-end devices, please YoYo update your GLSL :skull:)
     vec3 getFadeColour(vec3 colour)
     {
-		if (u_fade_step == 0.0)
-		{
-			return u_fade_type < 4 ? vec3(0.0) : vec3(255.0);
-		}
-		
         if (u_fade_type == 0)
         {
 			return min(colour - LIMIT3 + u_fade_step + vec3(0.0, colour.r, colour.r + colour.g), colour);

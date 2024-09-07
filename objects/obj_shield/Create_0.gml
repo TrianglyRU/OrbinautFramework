@@ -1,12 +1,6 @@
 // Inherit the parent event
 event_inherited();
 
-/// @method m_shield_set_visibility
-m_shield_set_visibility = function()
-{
-	visible = TargetPlayer.super_timer <= 0 && TargetPlayer.item_inv_timer == 0 && TargetPlayer.visible;
-}
-
 /// @method m_shield_reset_fire_animation
 m_shield_reset_fire_animation = function()
 {
@@ -17,15 +11,16 @@ m_shield_reset_fire_animation = function()
 m_shield_reset_bubble_animation = function()
 {
 	ani_start(spr_obj_shield_bubble);
-		
+	
 	var _order =
 	[
 		4,  0, 4,  0, 4,  0, 5, 1, 5, 1, 5, 1, 6,  0, 6,  0, 6,  0, 7,  1, 7,  1, 7,  1, 
 		8,  0, 8,  0, 8,  0, 9, 1, 9, 1, 9, 1, 10, 0, 10, 0, 10, 0, 11, 1, 11, 1, 11, 1,
 		12, 0, 12, 0, 12, 0
 	];
-		
-	ani_update(0, true, _order, 1, 0);
+	
+	// Since we use the same sprite for every Bubble Shield animation, call ani_update()
+	ani_update(0, true, _order, 2, 0);
 }
 	
 switch TargetPlayer.shield
@@ -72,5 +67,4 @@ switch TargetPlayer.shield
 	break;
 }
 
-m_shield_set_visibility();
 obj_set_culling(CULLING.PAUSEONLY);

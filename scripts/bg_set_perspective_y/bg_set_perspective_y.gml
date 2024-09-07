@@ -9,5 +9,5 @@ function bg_set_perspective_y(_target_y)
 	var _pd = _background.parallax_data[_index];
 	
 	// Set vertical perspective effect parameters
-	_background.perspective_y_data = [_target_y, _target_y, _pd.offset_y + _pd.node_y, _index, false];
+	_background.perspective_y_data = [_target_y, _target_y, _pd.offset_y, _index, false];
 }

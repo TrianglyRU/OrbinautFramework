@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Handles collision detection and response between the player and a solid object.
 /// @param {Id.Instance} player The player object instance.
 /// @param {Enum.SOLIDOBJECT} type The type of solid object.
@@ -251,7 +251,7 @@ function obj_act_solid(_player, _type, _attach_type = SOLIDATTACH.DEFAULT)
 	else if _player.vel_y >= 0
 	{
 		var _relative_x = _px - _obj_x + _obj_w;
-		var _y_clip = _obj_y - _obj_h - _py - _ph - _grip_y;
+		var _y_clip = _obj_y - _obj_h - _grip_y + _slope_offset - _py - _ph;
 		
 		if _relative_x < -_ext_x || _relative_x > _obj_w * 2 + _ext_x
 		{

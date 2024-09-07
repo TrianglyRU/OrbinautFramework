@@ -6,7 +6,7 @@ switch state
 		var _player = player_get(0);
 		var _dist = _player.x - x;
 		
-		if _dist < 0 || _dist >= 32 || _player.state >= PLAYER_STATE_NO_CONTROL
+		if _dist < 0 || _dist >= 32 || _player.state == PLAYER_STATE_DEBUG_MODE
 		{
 			break;
 		}
@@ -51,17 +51,6 @@ switch state
 					state = SIGNPOST_STATE_MOVE_PLAYER;
 					ani_update(sign_char_frame, true, [], 0, 0);
 					ani_stop();
-					
-					// Clear input for all players
-					with obj_player
-					{
-						cpu_timer_input = 0;
-						input_no_control = true;
-						input_down = input_create();
-						input_press = input_create();
-					}
-					
-					break;
 			}
 			
 			sign_spin_timer = 60;
@@ -88,18 +77,40 @@ switch state
 	break;
 	
 	case SIGNPOST_STATE_MOVE_PLAYER:
-	
-		// Force player 1 to move
-		if player_object.state < PLAYER_STATE_NO_CONTROL
+		
+		if player_object.state != PLAYER_STATE_NO_CONTROL
 		{
-			player_object.input_down.right = true;
+			if player_object.state > PLAYER_STATE_NO_CONTROL || !player_object.is_grounded
+			{
+				break;
+			}
+			
+			with obj_player
+			{
+				if !input_no_control
+				{
+					input_no_control = true;
+					input_down = input_create();
+					input_press = input_create();
+				}
+				
+				// Force non-CPU players to move right
+				if player_index == camera_data.index
+				{
+					input_down.right = true;
+				}
+				
+				cpu_timer_input = 0;
+			}
+				
+			if floor(player_object.x) < c_stage.bound_end - 24
+			{
+				break;
+			}
 		}
 		
-		if player_object.x >= c_stage.bound_end - 24
-		{
-			instance_create_depth(0, 0, RENDERER_DEPTH_HUD, obj_gui_results);		
-			state++;
-		}
+		instance_create_depth(0, 0, RENDERER_DEPTH_HUD, obj_gui_results);		
+		state++;
 		
 	break;
 }

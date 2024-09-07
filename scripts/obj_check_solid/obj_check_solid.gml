@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Checks for solid collision between the calling object and a player object.
 /// @param {Id.Instance} player The player object instance.
 /// @param {Enum.SOLIDCOLLISION} type The type of collision.

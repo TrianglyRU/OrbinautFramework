@@ -79,11 +79,6 @@ function scr_player_debug_mode()
 	}
 	else if _debug_button
 	{
-	    if c_framework.state == STATE_STOP_OBJECTS
-	    {
-	        c_framework.state = STATE_NORMAL;
-	    }
-		
 	    state = PLAYER_STATE_CONTROL;
 	    animation = ANI_MOVE;
 	    air_lock_flag = false;
@@ -99,6 +94,5 @@ function scr_player_debug_mode()
 		
 	    m_player_reset_gravity();
 	    m_player_reset();
-	    obj_reset_priority();
 	}
 }

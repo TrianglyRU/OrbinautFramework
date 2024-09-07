@@ -31,8 +31,18 @@ function scr_player_debug_mode_enter()
 	if _debug_button
 	{
 		visible = true;
+		image_alpha = 1.0;
 	    state = PLAYER_STATE_DEBUG_MODE;
-	    camera_data.allow_movement = true;
+		camera_data.allow_movement = true;
+		
+		obj_reset_priority();
+		
+		// Due to certain culling implementation limitations, we reactivate everything back here,
+		// not when the player leaves the Debug Mode
+		if c_framework.state == STATE_STOP_OBJECTS
+	    {
+	        c_framework.state = STATE_NORMAL;
+	    }
 		
 	    if audio_is_playing(bgm_drowning) || !audio_bgm_is_playing()
 	    {

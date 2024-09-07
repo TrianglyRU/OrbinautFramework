@@ -58,17 +58,20 @@ function scr_player_spindash()
 		
 		return false;
 	}
-
-	// Release Spin Dash
-	m_player_set_camera_delay(16);
 	
-	var _base_speed = super_timer > 0 ? 11 : 8;
+	// Release Spin Dash
+	var _min_speed = 8;
+	var _speed = (super_timer > 0 ? 11 : _min_speed) + round(spindash_charge) / 2;
+	var _raw_camera_delay = -((_speed - _min_speed) * 2) + 32;
+	
+	m_player_set_camera_delay(floor(_raw_camera_delay / 2));
+	
 	y += radius_y - radius_y_spin;	
 	radius_x = radius_x_spin;
 	radius_y = radius_y_spin;
 	animation = ANI_SPIN;
 	action = ACTION_NONE;
-	spd_ground = (_base_speed + round(spindash_charge) / 2) * facing;
+	spd_ground = _speed * facing;
 
 	if global.fix_dash_release
 	{

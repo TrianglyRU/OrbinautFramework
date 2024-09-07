@@ -23,7 +23,7 @@ for /f "delims=" %%i in ('dir /b /ad /o-d "%DEST_DIR_BASE%"') do (
     goto found_latest
 )
 
-rem Check if destination directory exists
+REM Check if destination directory exists
 :found_latest
 if "%LATEST_DIR%"=="" (
     echo "%LATEST_DIR% runtime does not exist. Make sure GameMaker is installed."
@@ -33,6 +33,18 @@ if "%LATEST_DIR%"=="" (
 
 REM FiltersAndEffects path
 set "DEST_DIR=%DEST_DIR_BASE%\%LATEST_DIR%\bin\FiltersAndEffects"
+
+REM Check if destination folder exists and delete it
+if exist "%DEST_DIR%\_orbinaut_filter_distortion" (
+    echo "Existing folder found. Deleting it..."
+    rmdir /s /q "%DEST_DIR%\_orbinaut_filter_distortion"
+    if %errorlevel% neq 0 (
+        echo "Failed to delete existing folder. Please check permissions."
+        pause
+        exit /b 1
+    )
+    echo "Existing folder successfully deleted."
+)
 
 REM Copy folder
 xcopy /e /i /y "%SOURCE_DIR%" "%DEST_DIR%\_orbinaut_filter_distortion"

@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Clears the flag that forces a push animation on the specified player object, reverting to the default move animation.
 /// @param {Id.Instance} player The player object instance.
 function obj_clear_player_push(_player)

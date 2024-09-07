@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Determines whether the calling object collides with the specified target object's hitbox.
 /// @param {Id.Instance} target The object instance to check.
 /// @param {Bool} [use_target_ext] If true, checks the target's extended hitbox; if false, checks the standard hitbox (optional, defaults to false).

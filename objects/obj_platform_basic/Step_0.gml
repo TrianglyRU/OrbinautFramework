@@ -49,7 +49,7 @@ switch state
 			break;
 
 			case "Vertical":
-				y = obj_oscillate_y(ystart, _osc_angle + 90, 64, 1, _reverse + AngleOffset);
+				y = obj_oscillate_y(ystart, _osc_angle, 64, 1, _reverse + AngleOffset - 90);
 			break;
 
 			case "Circular":

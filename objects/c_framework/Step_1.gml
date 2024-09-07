@@ -99,8 +99,12 @@ for (var i = 0; i < ENGINE_INPUT_MAX_DEVICE_COUNT; i++)
 		
 	    if _vibration[i] >= 0
 	    {
+			if _vibration[i] == 0
+			{
+				gamepad_set_vibration(_pad_id, 0, 0);
+			}
+			
 			_vibration[i]--;
-	        gamepad_set_vibration(_pad_id, 0, 0);
 	    }
 
 	    var _lv_value = gamepad_axis_value(_pad_id, gp_axislv);
@@ -259,37 +263,22 @@ else with obj_gui_pause
 
 if state != STATE_NORMAL
 {
-	var _framework = id;
 	var _ignored_behaviour = state == STATE_STOP_OBJECTS ? CULLING.PAUSEONLY : CULLING.NONE;
-
+	var _list = ds_cull_list_pause;
+	
 	with c_object
 	{
-	    var _behaviour = data_culling.behaviour;
-
-	    if _behaviour <= _ignored_behaviour
+	    if data_culling.behaviour > _ignored_behaviour
 		{
-	        continue;
+			ds_list_add(_list, id);				// Add objects to the ds_cull_list_pause list to let the engine draw them later
+			instance_deactivate_object(id);
 	    }
-		
-		// Add objects to the ds_cull_list_pause list to let the engine draw them later
-		if !_framework.is_initial_cull || _behaviour <= CULLING.ACTIVE || obj_is_visible()
-		{
-			ds_list_add(_framework.ds_cull_list_pause, id);
-		}
-		
-	    instance_deactivate_object(id);
 	}
-} 
+}
 else 
 {
 	// Reactivate the objects added to the ds_cull_list_pause list
 	m_framework_activate_stopped_objects();
-	
-	// Remember currently loaded objects
-	with c_object
-	{
-		ds_list_add(c_framework.ds_cull_list_active, id);
-	}
 	
 	// Activate objects within the camera's new culling region
 	for (var i = 0; i < CAMERA_COUNT; i++)
@@ -301,8 +290,8 @@ else
 	        continue;
 	    }
 		
-	    _camera.coarse_x = (camera_get_x(i) - 128) & -128;
-	    _camera.coarse_y = (camera_get_y(i) - 128) & -128;
+	    _camera.coarse_x = (camera_get_x(i) - ENGINE_CULLING_ROUND_VALUE) & -ENGINE_CULLING_ROUND_VALUE;
+	    _camera.coarse_y = (camera_get_y(i) - ENGINE_CULLING_ROUND_VALUE) & -ENGINE_CULLING_ROUND_VALUE;
 		
 	    if _camera.coarse_x_last == _camera.coarse_x && _camera.coarse_y_last == _camera.coarse_y
 		{
@@ -312,10 +301,10 @@ else
 		_camera.coarse_x_last = _camera.coarse_x;
 	    _camera.coarse_y_last = _camera.coarse_y;
 		
-		var _cull_width = camera_get_width(i) * 2;
-	    var _cull_height = camera_get_height(i) * 2 + 64;
+		var _width =  camera_get_width(i) + ENGINE_CULLING_ROUND_VALUE + ENGINE_CULLING_ADD_WIDTH - 1;
+		var _height = camera_get_height(i) + ENGINE_CULLING_ROUND_VALUE + ENGINE_CULLING_ADD_HEIGHT - 1;
 		
-	    instance_activate_region(_camera.coarse_x, _camera.coarse_y, _cull_width - 1, _cull_height - 1, true);	
+	    instance_activate_region(_camera.coarse_x, _camera.coarse_y, _width, _height, true);
 	}
 	
 	with c_object
@@ -325,124 +314,130 @@ else
 		
 	    var _data_culling = data_culling;
 	    var _behaviour = _data_culling.behaviour;
-			
+		
 	    if _behaviour <= CULLING.ACTIVE 
 		{
 	        continue;
 	    }
 		
-		// Reset or deactivate the object if it was just loaded
-		if ds_list_find_index(c_framework.ds_cull_list_active, id) == -1
+		// Were we just respawned?
+		if _data_culling.respawn_flag
 		{
-			if obj_is_visible()
-			{
-				instance_deactivate_object(id);
-			}
-			else if _behaviour >= CULLING.RESPAWN
-			{
-				event_perform(ev_create, 0);
-			}
+		    image_xscale = _data_culling.scale_x;
+		    image_yscale = _data_culling.scale_y;
+		    image_index = _data_culling.img_index;
+		    sprite_index = _data_culling.spr_index;
+		    visible = _data_culling.is_visible;
+		    depth = _data_culling.priority;
 			
-			continue;
+			event_perform(ev_create, 0);
 		}
 		
-		// Cull objects
-	    var _cull_width, _cull_height, _cull_action, _dist_x, _dist_y, _y;
-		
+		var _cull_action = CULLING.NONE;
+
 		for (var i = 0; i < CAMERA_COUNT; i++) 
 		{
-		    var _camera = camera_get_data(i);
-
-		    if _camera == noone
+			var _camera = camera_get_data(i);
+	
+			if _camera == noone
 			{
 				continue;
 			}
-			
-			// Reset the flag
+	
+			// Clear flag
 			_cull_action = CULLING.NONE;
 			
-		    _cull_width = camera_get_width(i) * 2;
-		    _cull_height = camera_get_height(i) * 2 + 64;
-
-		    switch _behaviour
+			var _cull_width = camera_get_width(i) + ENGINE_CULLING_ADD_WIDTH + ENGINE_CULLING_ROUND_VALUE;
+			var _cull_height = camera_get_height(i) + ENGINE_CULLING_ADD_HEIGHT + ENGINE_CULLING_ROUND_VALUE;
+	
+			switch _behaviour
 			{
-		        case CULLING.RESPAWN:
 				case CULLING.DISABLE:
+				case CULLING.RESPAWN:
 				
-		            _dist_x = (floor(x) - _camera.coarse_x) & -128;
-		            _dist_y = (floor(y) - _camera.coarse_y) & -128;
+					var _x = floor(x);
 					
-		            if _dist_x < 0 || _dist_x >= _cull_width || _dist_y < 0 || _dist_y >= _cull_height
+					if _x < _camera.coarse_x || _x >= _camera.coarse_x + _cull_width
 					{
-						_cull_action = _behaviour;
-					} 
-					
-		        break;
-				
-				case CULLING.ORIGINRESPAWN:
+						if _behaviour == CULLING.DISABLE
+						{
+							_cull_action = _behaviour;
+						}
+						else if xstart >= _camera.coarse_x && xstart < _camera.coarse_x + _cull_width
+						{
+							// "Disappear"
+							x = -128;
+							y = -128;
+							visible = false;
+						}
+						else
+						{
+							_cull_action = _behaviour;
+						}
+					}
+		
+				break;
+		
 				case CULLING.ORIGINDISABLE:
-				
-		            _dist_x = (xstart - _camera.coarse_x) & -128;
-		            _dist_y = (ystart - _camera.coarse_y) & -128;
-					
-		            if _dist_x < 0 || _dist_x >= _cull_width || _dist_y < 0 || _dist_y >= _cull_height
-					{
-						_cull_action = _behaviour;
-					}
-					
-		        break;
-				
-		        case CULLING.REMOVE:
-					
-		            _y = floor(y);
-		            _dist_x = (floor(x) - _camera.coarse_x) & -128;
-		            _dist_y = (_y - camera_get_y(i)) + 128;
-					
-					if _dist_x < 0 || _dist_x >= _cull_width || _dist_y < 0 || _dist_y >= _cull_height || _y >= _camera.max_y
-					{
-						_cull_action = _behaviour;
-					}
-					
-		        break;
-		    }
+				case CULLING.ORIGINRESPAWN:
 			
-			// Do not check the next available camera if the flag is not set
+					if xstart < _camera.coarse_x || xstart >= _camera.coarse_x + _cull_width
+					{
+						_cull_action = _behaviour;
+					}
+		
+				break;
+		
+				case CULLING.REMOVE:
+				
+					var _x = floor(x);
+					var _y = floor(y);
+					var _dist_y = _y - camera_get_y(i) + ENGINE_CULLING_ROUND_VALUE;
+					
+					if _y >= _camera.max_y
+					{
+						_cull_action = _behaviour;
+						break;
+					}
+					
+					if _x < _camera.coarse_x || _x >= _camera.coarse_x + _cull_width || _dist_y < 0 || _dist_y >= _cull_height
+					{
+						_cull_action = _behaviour;
+					}
+		
+				break;
+			}
+			
+			// If no flag has been set, do not check next camera
 			if _cull_action == CULLING.NONE
 			{
 				break;
 			}
 		}
 		
-		// Perform the action based on the flag set
-		switch _cull_action
+		// Has flag been set?
+		if _cull_action != CULLING.NONE
 		{
-			case CULLING.RESPAWN:
-			case CULLING.ORIGINRESPAWN:
-			
-				x = xstart;
-		        y = ystart;
-		        image_xscale = _data_culling.scale_x;
-		        image_yscale = _data_culling.scale_y;
-		        image_index = _data_culling.img_index;
-		        sprite_index = _data_culling.spr_index;
-		        visible = _data_culling.is_visible;
-		        depth = _data_culling.priority;
-		        instance_deactivate_object(id);
+			if _cull_action != CULLING.REMOVE
+			{
+				// Trigger Create Event next on respawn. Not using _data_culling here because in case
+				// the object was respawned, it might be a new data_culling struct
+				if _cull_action >= CULLING.RESPAWN
+				{	
+					x = xstart;
+					y = ystart;
 				
-			break;
+					data_culling.respawn_flag = true;
+				}
 			
-			case CULLING.DISABLE:
-			case CULLING.ORIGINDISABLE:
 				instance_deactivate_object(id);
-			break;
-			
-			case CULLING.REMOVE:
+			}
+			else
+			{
 				instance_destroy();
-			break;
+			}
 		}
 	}
-	
-	ds_list_clear(ds_cull_list_active);
 }
 
 #endregion

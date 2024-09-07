@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Configures the collision properties for a sloped object using a heightmap.
 /// @param {Array<Real>} heightmap An array of numbers representing the height at various points.
 /// @param {Real} [offset_x] The horizontal offset of the collision area from the object's centre (optional, defaults to 0).

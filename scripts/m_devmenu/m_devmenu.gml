@@ -1,21 +1,19 @@
 /// @method m_devmenu_add_category
-m_devmenu_add_category = function()
+m_devmenu_add_category = function(_title, _entry_array)
 {
-    var _data = 
-    [
-		0,				// previous category_id
-		0,				// stored option_id
-		argument[0]		// title
-    ];
+	// previous category_id, stored option_id, title
+    var _data = [0, 0, _title];
 	
-    for (var i = 1; i < argument_count; i++)
+    for (var _i = 0; _i < array_length(_entry_array); _i++)
     {
-        array_push(_data, argument[i]);
+        array_push(_data, _entry_array[_i]);
     }
 	
     ds_map_add(all_categories_data, categories_count, _data);
+	
     categories_count++;
 }
+
 /// @method m_devmenu_load_category
 m_devmenu_load_category = function(_id)
 {

@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Checks if the specified object is visible within any of the current view boundaries. Note that this function refers to the any GameMaker camera, not specifically the one created with the `camera_new()` function.
 /// @param {Id.Instance} id The object instance (optional, defaults to the current instance).
 /// @returns {Bool}

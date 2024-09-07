@@ -1,6 +1,6 @@
 /// @self c_object
 /// @description Registers a new animation for the object and immediately starts playing it.
-/// @param {Asset.GMSprite} sprite_id The sprite asset.
+/// @param {Asset.GMSprite} spriteid The sprite asset.
 /// @param {Real|Array<Real>} [duration] The duration of the frames in the object's current animation (optional, defaults to 0). Refer to ani_update_duration() function for more information.
 /// @param {Real} [start_frame] The index of the starting frame of the animation. If a custom sequence is provided, this will be the index of the frame in that sequence (optional, defaults to 0).
 /// @param {Real} [loop_frame] The index of the frame to which the animation will loop back after playing the last frame in the sequence. If a custom sequence is provided, this will be the index of the frame in that sequence (optional, defaults to 0).

@@ -28,6 +28,7 @@ function scr_player_jump()
 		animation = ANI_TRANSFORM;
 		action = ACTION_TRANSFORM;
 		inv_frames = 0;
+		item_inv_timer = 0;
 		super_timer = 1;
 		transform_timer = global.player_physics >= PHYSICS_S3 ? 26 : 36;
 		image_alpha = 1.0;
@@ -42,7 +43,7 @@ function scr_player_jump()
 		case PLAYER_SONIC:
 			
 			// Drop Dash initiation
-			if global.drop_dash && action == ACTION_NONE && !input_down.action_any
+			if global.drop_dash && action == ACTION_NONE && shield_state == SHIELD_STATE_NONE && !input_down.action_any
 			{
 				if shield <= SHIELD_NORMAL || super_timer > 0 || item_inv_timer > 0
 				{
@@ -87,7 +88,7 @@ function scr_player_jump()
 					
 					with obj_shield if TargetPlayer == other.id
 					{
-						ani_update(0, true, [1, 2], [6, 19], 1);
+						ani_update(0, true, [1, 2], [6, 18], 1);
 					}
 					
 					audio_play_sfx(sfx_shield_bubble2);
@@ -152,6 +153,7 @@ function scr_player_jump()
 				break;
 			}
 			
+			carry_target = noone;
 			air_lock_flag = false;
 			is_jumping = false;
 			grv = PARAM_GRV_TAILS_DOWN;

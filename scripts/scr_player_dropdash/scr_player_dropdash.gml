@@ -85,28 +85,24 @@ function scr_player_dropdash()
 	if shield > SHIELD_NORMAL && super_timer <= 0 && item_inv_timer == 0
 	{
 		// Force-cancel Drop Dash and reset to default action
-	    animation = ANI_SPIN;
 	    action = ACTION_NONE;
 	}
 
 	// Manage Drop Dash charge based on input
 	else if input_down.action_any
 	{
-	    if ++dropdash_charge == PARAM_DROPDASH_CHARGE
-	    {
-	        audio_play_sfx(sfx_charge3);
-	    }
+		if dropdash_charge >= 0
+		{
+		    if ++dropdash_charge == PARAM_DROPDASH_CHARGE
+		    {
+		        audio_play_sfx(sfx_charge3);
+			}
+		}
 		
 	    air_lock_flag = false;
 	}
 	else if dropdash_charge > 0
 	{
-	    if dropdash_charge >= PARAM_DROPDASH_CHARGE
-	    {        
-	        animation = ANI_SPIN;
-	        action = ACTION_DROPDASH_C;
-	    }
-		
-	    dropdash_charge = 0;
+	    dropdash_charge = dropdash_charge >= PARAM_DROPDASH_CHARGE ? -1 : 0;
 	}
 }

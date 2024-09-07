@@ -4,8 +4,6 @@ if !instance_exists(TargetPlayer) || TargetPlayer.shield == SHIELD_NONE
     exit;
 }
 
-m_shield_set_visibility();
-
 // Render the shield above the player by default
 var _priority = 1;
 

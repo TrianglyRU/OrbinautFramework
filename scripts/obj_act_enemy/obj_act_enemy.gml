@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Defines the behaviour and logic for an enemy object. Returns true if the enemy was not destroyed, false otherwise.
 /// @param {Enum.ENEMYTYPE} [type] The type of enemy (optional, defaults to ENEMYTYPE.BADNIK)
 /// @returns {Bool} 

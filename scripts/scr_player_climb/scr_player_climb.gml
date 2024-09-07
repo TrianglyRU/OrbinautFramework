@@ -119,6 +119,8 @@ function scr_player_climb()
 				facing *= -1;
 				vel_x = 3.5 * facing;
 				vel_y = jump_min_vel;
+				radius_x = radius_x_spin;
+				radius_y = radius_y_spin;
 				
 				audio_play_sfx(sfx_jump);
 				m_player_reset_gravity();

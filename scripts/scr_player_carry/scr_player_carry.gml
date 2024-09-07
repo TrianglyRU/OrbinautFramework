@@ -66,6 +66,8 @@ function scr_player_carry()
 			
 				audio_play_sfx(sfx_grab);
 				m_local_attach_to_tails(_player, id);
+				
+				break;
 			}	
 		}
 

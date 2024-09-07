@@ -1,8 +1,5 @@
 ds_list_destroy(ds_cull_list_pause);
-ds_list_destroy(ds_cull_list_active);
-
 ds_cull_list_pause = -1;
-ds_cull_list_active = -1;
 
 delete sprite_animator;
 

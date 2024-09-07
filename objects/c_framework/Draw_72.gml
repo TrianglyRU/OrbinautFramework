@@ -159,7 +159,7 @@ if _gfx_enabled
             continue;
 		}
 
-        var _factor_y = _background.perspective_y_data[2] == undefined ? _background.min_factor_y : _perspective_factor_y;
+        var _factor_y = _background.perspective_y_data[3] == undefined ? _background.min_factor_y : _perspective_factor_y;
         var _draw_y = i == 0 ? _view_y : _view_y * _factor_y;
         var _effect_range = _distortion.effect_range[i];
         var _u_bound = _effect_range[0] >= 0 ? clamp(_effect_range[0] - _draw_y, 0, _view_height) : 0;

@@ -29,11 +29,19 @@ for (var p = 0; p < PLAYER_COUNT; p++)
 	}
 
 	// Update the player properties and position
-	_player.x -= 4 * sign(_smash_vel);
-	_player.vel_x = _smash_vel;
-	_player.spd_ground = _player.vel_x;
-	_player.set_push_anim_by = noone;
-
+	with _player
+	{
+		if (action == ACTION_GLIDE && action_state == GLIDE_STATE_AIR)
+		{
+			m_player_glide_release(0);
+		}
+		
+		x -= 4 * sign(_smash_vel);
+		vel_x = _smash_vel;
+		spd_ground = vel_x;
+		set_push_anim_by = noone;
+	}
+	
 	var _smash_dir = floor(_player.x) >= x ? 1 : -1;
 
 	for (var i = 0; i < 2; i ++)

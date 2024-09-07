@@ -7,12 +7,8 @@
 /// @param {Real} range_end The lower boundary of the distortion area, in background space.
 function dist_set_bg(_data1, _data2, _spd, _range_start, _range_end)
 {
-	// NOTE:
-	// All filters & effects do not display correctly as of Runtime 2024.8.0.216. Please, follow our
-	// Twitter, we'll let you know once the issue is fixed by YoYo!
-	
 	// Create the distortion effect and check if it's valid
-	var _effect = -1; // fx_create("_orbinaut_filter_distortion");
+	var _effect = fx_create("_orbinaut_filter_distortion");
 	
 	if _effect == -1
 	{

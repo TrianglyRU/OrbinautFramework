@@ -322,6 +322,21 @@ for (var i = 0; i < ENGINE_AUDIO_BGM_CHANNELS; i++)
 
 #endregion
 
+#region OBJECT CULLING
+
 // Reactivate objects that were stopped during the inactive framework 
 // state to let the engine draw them
 m_framework_activate_stopped_objects();
+
+with c_object
+{
+	var _parent = data_culling.parent_object;
+	
+	// Destroy if parent is set but does not exist
+	if _parent != noone && !instance_exists(_parent)
+	{
+		instance_destroy();
+	}
+}
+
+#endregion

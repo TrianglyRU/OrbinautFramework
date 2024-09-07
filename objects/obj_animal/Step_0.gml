@@ -3,10 +3,10 @@ if state == ANIMAL_STATE_CAPSULE
 {
     if --ReleaseTimer == 0
     {
-        state = ANIMAL_STATE_APPEAR;
-      
-	  obj_set_priority(1);
+		state = ANIMAL_STATE_APPEAR;
+		obj_set_priority(1);
     }
+	
     exit;
 }
 

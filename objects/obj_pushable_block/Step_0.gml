@@ -22,13 +22,12 @@ switch state
 				continue;
 			}
 			
-			// Determine push force based on direction
-			var _push_force = direction_x;
+			// 0.25 is the default push force
 			_player.spd_ground = 0.25 * direction_x;
 			_player.vel_x = 0;
-			_player.x += _push_force;
+			_player.x += direction_x;
 			
-			x = floor(x + _push_force);
+			x = floor(x + direction_x);
 			
 			if !audio_is_playing(sfx_push)
 			{

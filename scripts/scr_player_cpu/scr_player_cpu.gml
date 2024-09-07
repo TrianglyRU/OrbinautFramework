@@ -47,7 +47,12 @@ function scr_player_cpu()
 	switch cpu_state
 	{
 	    case CPU_STATE_RESPAWN_INIT:
-		
+			
+			if cpu_target.state == PLAYER_STATE_DEATH
+			{
+				break;
+			}
+			
 	        // If can receive input, take up to 64 steps to respawn if no input is detected
 	        if _can_receive_input && !(input_down.action_any || input_down.start) && c_framework.frame_counter % 64 != 0
 	        {
@@ -57,7 +62,11 @@ function scr_player_cpu()
 	        x = cpu_target.x;
 	        y = cpu_target.y - camera_get_height(cpu_target.camera_data.index) + 32;
 	        cpu_state = CPU_STATE_RESPAWN;
-			camera_data.allow_movement = true;
+			
+			if (camera_data.index == player_index)
+			{
+				camera_data.allow_movement = true;
+			}
 			
 	    break;
 

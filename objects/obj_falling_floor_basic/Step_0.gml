@@ -28,17 +28,22 @@ switch state
         // Initialise variables for fragment creation
         var _is_flipped = image_xscale < 0;
         var i = _is_flipped ? 0 : width - 16;
+		
+		var _column = 0;
+		var _row = 0;
+		var _wait_timer = 0;
         
         // Create fragments
         while true
         {
             for (var j = height - 16; j >= 0; j -= 16)
             {
-                fragment_count++;
+                _wait_timer = _row * 2 + _column * 4;
+				_row++;
                     
                 instance_create(corner_x + i + 8, corner_y + j + 8, obj_fragment,
                 {
-                    WaitTime: fragment_count * 2,
+                    WaitTime: _wait_timer,
                     Sprite: sprite_index,
                     X: _is_flipped ? width - i - 16 : i,
                     Y: j,
@@ -50,6 +55,9 @@ switch state
             
             // Move to the next piece
             i = _is_flipped ? i + 16 : i - 16;
+			
+			_column++;
+			_row = 0;
             
             // Exit if out of bounds
             if (i < 0 || i > width)
@@ -63,7 +71,7 @@ switch state
         audio_play_sfx(sfx_break_ledge);
         
         state = FALLING_FLOOR_STATE_FALL;
-        wait_timer = fragment_count * 2;
+        wait_timer = _wait_timer;
 
     break;
     

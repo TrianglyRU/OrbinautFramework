@@ -26,7 +26,8 @@ function scr_player_dash()
 	}
 
 	// Charge Dash and update velocity
-	var _launch_speed = (item_speed_timer > 0 || super_timer > 0) ? acc_top * 1.5 : acc_top * 2;
+	var _increment_value = 0.390625;
+	var _speed_cap = (item_speed_timer > 0 || super_timer > 0) ? acc_top * 1.5 : acc_top * 2;
 
 	if input_down.up
 	{
@@ -35,8 +36,9 @@ function scr_player_dash()
 	        dash_charge++;
 	    }
 		
-	    dash_vel = clamp(dash_vel + 0.390625 * facing, -_launch_speed, _launch_speed);
-	    spd_ground = dash_vel;
+	    dash_vel = min(dash_vel + _increment_value, _speed_cap);
+	    spd_ground = dash_vel * facing;
+		
 	    return false;
 	}
 
@@ -46,7 +48,11 @@ function scr_player_dash()
 	// Release Dash or reset if not fully charged
 	if dash_charge == PARAM_DASH_CHARGE
 	{
-	    m_player_set_camera_delay(16);
+		// There is no camera delay for Dash in CD, so we assume it uses the same logic as the Spin Dash camera delay
+		var _min_speed = _increment_value * PARAM_DASH_CHARGE;
+		var _raw_camera_delay = -((abs(spd_ground) - _min_speed) * 2) + 32;
+		
+	    m_player_set_camera_delay(floor(_raw_camera_delay / 2));
 	    audio_play_sfx(sfx_release2);
 		
 	    if global.fix_dash_release

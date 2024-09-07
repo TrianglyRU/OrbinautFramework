@@ -5,9 +5,11 @@
 Orbinaut Framework 2 is the successor to the original Orbinaut Framework, a classic Sonic framework created for GameMaker. It prioritises ease-of-use and has a certain level of templating at its core (as it basically should), making it friendly for both beginners and advanced users.
 Orbinaut is written from scratch and everything here is new.
 
-## Framework Documentation & Installation
+## Installation & Documentation
 
-Orbinaut Framework 2 features comprehensive documentation available in the [Wiki](https://github.com/TrianglyRU/OrbinautFramework/wiki) section. Even if you feel like you can skip it, make sure to read the [installation guide](https://github.com/TrianglyRU/OrbinautFramework/wiki#installation) — the project has a critical dependency, and the game **will not compile** without it!
+Orbinaut Framework 2 is specifically designed to work with the LTS'24 version of GameMaker and its preceding regular release, v2024.11. Compatibility with other versions is neither supported nor guaranteed.
+
+OF2 includes detailed documentation, accessible in the [Wiki](https://github.com/TrianglyRU/OrbinautFramework/wiki) section. While you might be tempted to skip it, **be sure to review the** [installation guide](https://github.com/TrianglyRU/OrbinautFramework/wiki#installation) to ensure everything is set up correctly.
 
 ## Basic Features
 
@@ -29,9 +31,9 @@ Although the framework is designed to match the look and feel of the original fo
 
 ## Future Plans & Support
 
-The framework is fully complete, with all features functional² and ready to use, so **no further updates** will be released. While we wait for the LTS release, the repository will only be updated if something breaks or stops working after a new runtime or IDE version is released. In such cases, if you are already working on your project, you can manually fix your local project by following the change log.
+The framework is fully complete, with all features working as intended and ready for use. **No further updates** are planned. However, we will update the repository if a major GameMaker update is released that introduces significant changes, such as alterations to the project format.
 
-If you have any questions about the framework, feel free to use the [Discussions](https://github.com/TrianglyRU/OrbinautFramework/discussions) tab. All major news will be posted there and on Twitter.
+If you have any questions about the framework, feel free to use the [Discussions](https://github.com/TrianglyRU/OrbinautFramework/discussions) tab. All major news will be posted there and on Twitter. Please, do not use it for bug reports.
 
 ## Credits
 
@@ -42,10 +44,17 @@ If you have any questions about the framework, feel free to use the [Discussions
 - **Tech Stadium Zone**: Enrico Cartmanuel
 - **Level Design**: FieryN8
 - **"Giganorbi" Boss Programming**: techncolour
-- **Special Thanks**: Lapper, Mercury, NicoCW, Valeev, Noah N. Copeland, The Sonic 1, 2 and 3 Dissasembly Community, @RunningPigeon, and our Twitter followers!
+- **Discord Rich Presence Plugin**: nkrapivin
+- **Special Thanks**: Lapper, Mercury, NicoCW, Valeev, Noah N. Copeland, The Sonic 1, 2 and 3 Dissasembly Community, and our Twitter followers!
+
+## Terms of Use
+
+- For fangames: non-profitable, as always.
+- For original IPs: [MIT License](https://github.com/TrianglyRU/OrbinautFramework/blob/master/LICENSE.md).
+
+Please credit us as Team Orbinaut.    
+We'd also like to ask that you not distribute a modified versions of the framework, thank you!    
 
 ---
 
 ¹ Default splitscreen support is basic, providing separate screens for CPUs that can be taken under control like in Sonic 2 or Sonic 3(K). There is no "complete splitscreen experience", as you may call it that.    
-
-² The distortion effect does not work correctly right now (and therefore is disabled) due to the latest GameMaker update. The problem is not on our side and we're waiting for the fix.​

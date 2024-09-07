@@ -1,27 +1,27 @@
 var _c_framework = c_framework;
+var _do_update = _c_framework.state != STATE_PAUSED;
 
-// Set distortion and palette split boundaries to water level
-_c_framework.distortion.split_bound = water_level;
-_c_framework.palette.split_bound = water_level;
+if water_enabled
+{
+	// Adjust water level
+	if _do_update
+	{
+		water_level = obj_oscillate_y(water_level_init, _c_framework.frame_counter * ANGLE_INCREMENT, 10, 1, 90);
+	}
+	
+	// Set distortion and palette split boundaries to water level
+	_c_framework.distortion.split_bound = water_level;
+	_c_framework.palette.split_bound = water_level;
+	_c_framework.background.perspective_y_data[0] = water_level;
+}
 
-if _c_framework.state == STATE_PAUSED
+if !_do_update
 {
 	exit;
 }
 
 // Rotate the stage palette
 scr_stage_palette();
-
-// Adjust water level
-if water_enabled
-{
-	water_level = obj_oscillate_y(water_level_init, _c_framework.frame_counter * ANGLE_INCREMENT, 10, 1, 90);
-	
-	if room == rm_stage_tsz0
-	{
-		c_framework.background.perspective_y_data[0] = water_level;
-	}
-}
 
 // Adjust camera bounds to level bounds
 for (var i = 0; i < CAMERA_COUNT; i++)

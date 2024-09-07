@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Configures the object's solid collision area by setting its size and offset relative to the object's centre.
 /// @param {Real} radius_x The horizontal radius of the solid collision area.
 /// @param {Real} radius_y The vertical radius of the solid collision area.

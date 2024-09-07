@@ -10,6 +10,7 @@ function bg_clear(_colour = undefined)
 	_background.scroll_offset = 0;
 	_background.min_factor_y = 0;
 	_background.parallax_data = [];
+	_background.perspective_y_data[3] = undefined;
 	
 	// Optionally set a new background color
 	if _colour != undefined

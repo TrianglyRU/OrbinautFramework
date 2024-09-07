@@ -27,13 +27,24 @@ fi
 # FiltersAndEffects path
 DEST_DIR="${LATEST_DIR}/bin/FiltersAndEffects"
 
+# Check if destination folder exists and delete it
+if [ -d "${DEST_DIR}/_orbinaut_filter_distortion" ]; then
+  echo "Existing folder found. Deleting it..."
+  rm -rf "${DEST_DIR}/_orbinaut_filter_distortion"
+  if [ $? -ne 0 ]; then
+    echo "Failed to delete existing folder. Please check permissions."
+    exit 1
+  fi
+  echo "Existing folder successfully deleted."
+fi
+
 # Copy folder
 cp -r "$SOURCE_DIR" "$DEST_DIR"
 
 # Check if copying was successful
 if [ $? -eq 0 ]; then
-  echo "Effect has been succesfully installed for runtime ${LATEST_DIR}"
+  echo "Effect has been successfully installed for runtime ${LATEST_DIR}"
 else
-  echo "An error has occured while installing the effect..."
+  echo "An error has occurred while installing the effect..."
   exit 1
 fi

@@ -1,4 +1,4 @@
-if !instance_exists(TargetPlayer) || TargetPlayer.super_timer > 0 || TargetPlayer.item_inv_timer == 0
+if !instance_exists(TargetPlayer) || TargetPlayer.item_inv_timer == 0
 {
 	instance_destroy();
 	exit;

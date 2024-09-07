@@ -1,8 +1,8 @@
 /// @function scr_fw_game_setup
 function scr_fw_game_setup()
 {
-	// Developer mode. Enables dev shortcuts
-	global.dev_mode = false;
+	// Developer mode. Enables dev shortcuts && room select
+	global.dev_mode = true;
 	
 	// Default settings. Some of them may be overwritten by the config file
 	global.window_name = "Orbinaut Framework 2"

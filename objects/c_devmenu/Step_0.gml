@@ -131,16 +131,9 @@ switch category_id
 	
 	// Room selection
 	case 2:
-	
-		switch option_id
-		{
-			case 0: room_to_load = rm_stage_tsz0; break;
-			case 1: room_to_load = rm_bonus; break;
-			case 2: room_to_load = rm_special; break;
-			case 3: room_to_load = rm_continue; break;
-			default: room_to_load = noone;
-		}
 
+		room_to_load = option_id;
+		
 		if room_to_load == noone
 		{
 			audio_play_sfx(sfx_fail);

@@ -15,6 +15,7 @@ data_ani =
 data_culling =
 {
 	behaviour: CULLING.ACTIVE,
+	respawn_flag: false,
 	parent_object: noone,
 	scale_x: image_xscale,
 	scale_y: image_yscale,

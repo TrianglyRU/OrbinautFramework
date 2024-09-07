@@ -30,21 +30,18 @@ function scr_player_hammerspin()
 	// Manage Hammer Spin charge based on input
 	if input_down.action_any
 	{
-		if ++dropdash_charge == PARAM_DROPDASH_CHARGE
+		if dropdash_charge >= 0
 		{
-			audio_play_sfx(sfx_charge3);
+			if ++dropdash_charge == PARAM_DROPDASH_CHARGE
+			{
+				audio_play_sfx(sfx_charge3);
+			}
 		}
 	
 		air_lock_flag = false;
 	}
 	else if dropdash_charge > 0
 	{
-		if dropdash_charge >= PARAM_DROPDASH_CHARGE
-		{
-			animation = ANI_SPIN;
-			action = ACTION_HAMMERSPIN_C;
-		}
-	
-		dropdash_charge = 0;
+		dropdash_charge = dropdash_charge >= PARAM_DROPDASH_CHARGE ? -1 : 0;
 	}
 }

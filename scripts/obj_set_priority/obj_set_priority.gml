@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Adjusts the object's drawing priority based on the specified priority value from 0 to 8, inclusive.
 /// @param {Real} priority The desired priority level.
 function obj_set_priority(_priority)

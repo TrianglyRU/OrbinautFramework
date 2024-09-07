@@ -1,6 +1,6 @@
 /// @self
 /// @description Checks if BGM is playing on the specified channel.
-/// @param {Real} [channel_id] The index of the channel (optional, defaults to 0).
+/// @param {Real} [channel_index] The index of the channel (optional, defaults to 0).
 /// @returns {Bool}
 function audio_bgm_is_playing(_channel_index = 0)
 {

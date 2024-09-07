@@ -1,7 +1,7 @@
 /// @self
 /// @description Stops the BGM on the specified channel, fading out the volume over a given duration.
 /// @param {Real} time The duration over which the volume will decrease to 0, in seconds.
-/// @param {Real} [channel_id] The ID of the channel (optional, defaults to 0).
+/// @param {Real} [channel_index] The index of the channel (optional, defaults to 0).
 function audio_stop_bgm(_time, _channel_id = 0)
 {
 	var _audio = c_framework.audio;

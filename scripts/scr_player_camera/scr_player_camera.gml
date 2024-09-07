@@ -72,7 +72,7 @@ function scr_player_camera()
 				_camera_data.offset_x += _x_shift_spd * _x_shift_dir;
 			}
 		}
-		else
+		else if _camera_data.offset_x != 0
 		{
 			_camera_data.offset_x -= _x_shift_spd * sign(_camera_data.offset_x);
 		}
@@ -84,7 +84,7 @@ function scr_player_camera()
 
 	if _do_shift_down || _do_shift_up
 	{
-		if camera_view_timer > 0
+		if camera_view_timer > 0 && state != PLAYER_STATE_DEBUG_MODE
 		{
 			camera_view_timer--;
 		}

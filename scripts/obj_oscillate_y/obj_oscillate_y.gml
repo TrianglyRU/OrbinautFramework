@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Oscillates an object's y position based on the specified parameters.
 /// @param {Real} start_x The initial y position for the oscillation.
 /// @param {Real} angle The angle or timer value used for the oscillation.

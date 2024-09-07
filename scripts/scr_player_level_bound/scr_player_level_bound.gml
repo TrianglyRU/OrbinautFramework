@@ -20,7 +20,7 @@ function scr_player_level_bound()
 	}
 	
 	// Check and handle right boundary
-	if instance_exists(obj_signpost) && x >= obj_signpost.x
+	if instance_exists(obj_signpost)
 	{
 		_right_bound += 64;
 	}

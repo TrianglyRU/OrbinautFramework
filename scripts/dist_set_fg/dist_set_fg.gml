@@ -8,12 +8,8 @@
 /// @param {Array<String>} layers An array of layer names to which the distortion will be applied.
 function dist_set_fg(_data1, _data2, _spd, _range_start, _range_end, _layers)
 {
-	// NOTE:
-	// All filters & effects do not display correctly as of Runtime 2024.8.0.216. Please, follow our
-	// Twitter, we'll let you know once the issue is fixed by YoYo!
-	
 	// Create the foreground distortion effect and check if it's valid
-	var _effect = -1; // fx_create("_orbinaut_filter_distortion");
+	var _effect = fx_create("_orbinaut_filter_distortion");
 	
 	if _effect == -1
 	{

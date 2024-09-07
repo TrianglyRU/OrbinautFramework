@@ -14,7 +14,7 @@ m_player_respawn = function()
 	{
 		x = 127;
 		y = 0;
-		depth = RENDERER_DEPTH_HIGHEST;	
+		depth = RENDERER_DEPTH_HIGHEST + player_index;	
 		cpu_state = CPU_STATE_RESPAWN_INIT;
 		state = PLAYER_STATE_NO_CONTROL;
 		is_grounded = false;
@@ -42,6 +42,7 @@ m_player_reset = function()
 	}
 
 	action = ACTION_NONE;
+	shield_state = SHIELD_STATE_NONE;
 	is_jumping = false;
 	is_grounded = false;
 	forced_roll = false;
@@ -100,7 +101,7 @@ m_player_land = function()
 
 		with obj_shield if TargetPlayer == other.id
 		{
-			ani_update(0, true, [3, 2], [7, 13], 1);
+			ani_update(0, true, [3, 2], [12, 6], 1);
 		}
 
 		audio_play_sfx(sfx_shield_bubble2);
@@ -112,6 +113,11 @@ m_player_land = function()
 		spd_ground = 0;
 	}
 
+	if carry_target != noone
+	{
+		carry_target.action = ACTION_NONE;
+	}
+	
 	animation = ANI_MOVE;
 	state = PLAYER_STATE_CONTROL;
 	cpu_state = CPU_STATE_MAIN;
@@ -121,11 +127,11 @@ m_player_land = function()
 	set_push_anim_by = noone;
 	score_combo = 0;
 	tile_behaviour = TILEBEHAVIOUR.DEFAULT;
-	visual_angle = angle;
+	visual_angle = angle > 22.5 && angle < 337.5 ? angle : 0;
 
 	scr_player_dropdash();
 	scr_player_hammerspin();
-
+	
 	if action != ACTION_HAMMERDASH
 	{
 		action = ACTION_NONE;
@@ -133,9 +139,11 @@ m_player_land = function()
 
 	if animation != ANI_SPIN
 	{
-		y -= radius_y_normal - radius_y;
+		var _diff = radius_y_normal - radius_y;
 		radius_x = radius_x_normal;
-		radius_y = radius_y_normal; 
+		radius_y = radius_y_normal;
+		
+		y = angle > 90 && angle <= 270 ? y + _diff : y - _diff;
 	}
 }
 
@@ -250,11 +258,10 @@ m_player_kill = function(_sound = sfx_hurt)
 		c_framework.state = STATE_STOP_OBJECTS;
 	}
 	
-	depth = RENDERER_DEPTH_HIGHEST;
+	depth = RENDERER_DEPTH_HIGHEST + player_index;
 	action = ACTION_NONE;
 	animation = ANI_DEATH;
 	state = PLAYER_STATE_DEATH;
-	shield = SHIELD_NONE;
 	grv = 0.21875;
 	vel_y = -7;
 	vel_x = 0;

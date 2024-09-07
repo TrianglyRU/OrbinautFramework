@@ -2,6 +2,7 @@
 
 #macro ENGINE_CULLING_ADD_WIDTH 320
 #macro ENGINE_CULLING_ADD_HEIGHT 288
+#macro ENGINE_CULLING_ROUND_VALUE 128
 #macro ENGINE_PLAYER_MAX_COUNT 8
 #macro ENGINE_ANGLE_MAX_RAW 256
 #macro ENGINE_ANGLE_MAX_DEC 360
@@ -14,8 +15,8 @@
 #macro ENGINE_AUDIO_BGM_CHANNELS 4
 #macro ENGINE_FADE_FLAG_IDLE 0
 #macro ENGINE_FADE_FLAG_UPDATE 1
-#macro ENGINE_FADE_TIMER_MAX 756
-#macro ENGINE_FADE_TIMER_STEP 36
+#macro ENGINE_FADE_TIMER_MAX 765
+#macro ENGINE_FADE_TIMER_STEP (255 / 7)
 #macro ENGINE_PALETTE_MAX_SLOTS 256
 #macro ENGINE_COLLISION_TOUCH_NONE 0
 #macro ENGINE_COLLISION_TOUCH_TOP 1
@@ -36,7 +37,7 @@
 #macro INPUT_RUMBLE_MEDIUM 0.5
 #macro INPUT_RUMBLE_STRONG 0.75
 
-#macro AUDIO_CHANNEL_JINGLE ENGINE_AUDIO_BGM_CHANNELS - 1
+#macro AUDIO_CHANNEL_JINGLE (ENGINE_AUDIO_BGM_CHANNELS - 1)
 
 #macro ANGLE_INCREMENT (ENGINE_ANGLE_MAX_DEC / ENGINE_ANGLE_MAX_RAW)
 #macro ANGLE_EMPTY 1024
@@ -179,9 +180,34 @@ m_framework_activate_stopped_objects = function()
 	{
 	    for (var i = 0; i < _list_size; i++)
 		{
-		    instance_activate_object(ds_cull_list_pause[| i]);
+			var _object = ds_cull_list_pause[| i];
+			
+			instance_activate_object(_object);
+			
+			if !is_initial_cull
+			{
+				continue;
+			}
+			
+			with _object
+			{
+				var _data_culling = data_culling;
+				
+				if _data_culling.behaviour <= CULLING.ACTIVE || obj_is_visible()
+				{
+					continue;
+				}
+				
+				if _data_culling.behaviour >= CULLING.RESPAWN
+				{
+					_data_culling.respawn_flag = true;
+				}
+				
+				// Do not activate back objects outside of the visible camera areas on initial cull
+				instance_deactivate_object(id);
+			}
 		}
-	
+		
 		ds_list_clear(ds_cull_list_pause);
 	}
 	
@@ -196,7 +222,6 @@ allow_pause = false;
 frame_counter = 0; 
 is_initial_cull = true;
 ds_cull_list_pause = ds_list_create();
-ds_cull_list_active = ds_list_create();
 ring_spill_counter = 0;
 layer = layer_create(ENGINE_RENDERER_DRAW_PRIORITY);
 

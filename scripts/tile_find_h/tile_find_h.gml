@@ -101,6 +101,7 @@ function tile_find_h(_x, _y, _dir, _layer, _behaviour = TILEBEHAVIOUR.DEFAULT)
 			{
 				_ang = (540 - _ang) % 360;
 			}
+			
 			if _mirror
 			{
 				_ang = 360 - _ang;

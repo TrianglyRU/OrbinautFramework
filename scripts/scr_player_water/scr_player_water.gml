@@ -98,7 +98,7 @@ function scr_player_water()
 				audio_play_sfx(sfx_drown);
 				m_player_reset();
 				
-				depth = RENDERER_DEPTH_HIGHEST;
+				depth = RENDERER_DEPTH_HIGHEST + player_index;
 				animation = ANI_DROWN;
 				grv = PARAM_GRV_UNDERWATER;
 				state = PLAYER_STATE_DEATH;

@@ -4,7 +4,7 @@
 /// @param {Bool} reset_timer Refer to `ani_update_frame()` function.
 /// @param {Array<Real>|Undefined} order Refer to `ani_update_order()` function. Pass `undefined` if no changes are required.
 /// @param {Real|Array<Real>|Undefined} duration Refer to `ani_update_duration()` function. Pass `undefined` if no changes are required.
-/// @param {Real|Undefined} loopframe Refer to `ani_update_loopframe()` function. Pass `undefined` if no changes are required.
+/// @param {Real|Undefined} loop_frame Refer to `ani_update_loopframe()` function. Pass `undefined` if no changes are required.
 function ani_update(_frame, _reset_timer, _order, _duration, _loopframe)
 {
 	if _duration != undefined

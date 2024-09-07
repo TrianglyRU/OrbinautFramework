@@ -1,4 +1,4 @@
-if state == RESULTS_STATE_LOAD
+if state == SS_RESULTS_STATE_LOAD
 {
     exit;
 }

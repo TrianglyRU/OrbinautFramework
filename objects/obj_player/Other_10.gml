@@ -86,8 +86,12 @@ switch state
 			break;
 		}
 		
-		scr_player_carry();
-		scr_player_water();
+		if state != PLAYER_STATE_DEATH
+		{
+			scr_player_carry();
+			scr_player_water();
+		}
+		
 		scr_player_update_status();
 		scr_player_animate();
 		m_player_record_data(0);
@@ -120,7 +124,6 @@ switch state
 		
 		scr_player_death();
 		scr_player_position();
-		scr_player_animate();
 		m_player_record_data(0);
 		
 	break;

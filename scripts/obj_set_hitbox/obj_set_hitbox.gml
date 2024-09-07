@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Configures the object's hitbox by setting its size and offset from the object's centre.
 /// @param {Real} radius_x The horizontal radius of the hitbox.
 /// @param {Real} radius_y The vertical radius of the hitbox.
