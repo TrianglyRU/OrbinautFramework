@@ -39,7 +39,7 @@ m_devmenu_add_category    // ID 1
 // Automatically generate a room list
 var _room_list = [];
 
-for (var _i = 0; _i < room_last; _i++)
+for (var _i = 0; _i <= room_last; _i++)
 {
 	_room_list[_i] = string_upper(room_get_name(_i));
 }
