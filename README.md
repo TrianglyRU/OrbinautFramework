@@ -2,12 +2,12 @@
 
 ## About
  
-Orbinaut Framework 2 is the successor to the original Orbinaut Framework, a classic Sonic framework created for GameMaker. It prioritises ease-of-use and has a certain level of templating at its core (as it basically should), making it friendly for both beginners and advanced users.
+Orbinaut Framework 2 is the successor to the original Orbinaut Framework, a classic Sonic framework created for GameMaker. It prioritises ease-of-use and has a certain level of templating at its core, making it friendly for its users (basic programming and GameMaker IDE knowledge is required).
 Orbinaut is written from scratch and everything here is new.
 
 ## Installation & Documentation
 
-Orbinaut Framework 2 is specifically designed to work with the LTS'24 version of GameMaker and its preceding regular release, v2024.11. Compatibility with other versions is neither supported nor guaranteed.
+Orbinaut Framework 2 is specifically designed to work with the LTS'25 version of GameMaker and its preceding regular release, v2025.01. Compatibility with other versions is neither supported nor guaranteed.
 
 OF2 includes detailed documentation, accessible in the [Wiki](https://github.com/TrianglyRU/OrbinautFramework/wiki) section. While you might be tempted to skip it, **be sure to review the** [installation guide](https://github.com/TrianglyRU/OrbinautFramework/wiki#installation) to ensure everything is set up correctly.
 
