@@ -124,6 +124,7 @@ switch state
 		
 		scr_player_death();
 		scr_player_position();
+		scr_player_animate();
 		m_player_record_data(0);
 		
 	break;
