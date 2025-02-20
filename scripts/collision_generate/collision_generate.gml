@@ -6,8 +6,8 @@
 /// @param {Real} off_y The vertical offset of the sprite on the tilemap.
 /// @param {Real} sep_x The horizontal spacing between tiles on the tilemap.
 /// @param {Real} sep_y The vertical spacing between tiles on the tilemap.
-/// @param {Real} limit Orbinaut detects tiles based on ENGINE_TILE_SIZE, use this in case you have an row lower than tile size
-function collision_generate(_sprite_id, _angle_data, _off_x = 0, _off_y = 0, _sep_x = 0, _sep_y = 0, _limit = ENGINE_TILE_SIZE)
+/// @param {Real} row_limit Use this in case you have a row lower than tilemap size.
+function collision_generate(_sprite_id, _angle_data, _off_x = 0, _off_y = 0, _sep_x = 0, _sep_y = 0, _row_limit = ENGINE_TILE_SIZE)
 {
     // Initialise arrays and variables for collision data
 	var _height_arr = array_create(ENGINE_TILE_COUNT, 0);
@@ -41,7 +41,7 @@ function collision_generate(_sprite_id, _angle_data, _off_x = 0, _off_y = 0, _se
 	{		
 		var _tile = sprite_create_from_surface
 		(
-			_surface, _off_x + _xcell_size * (i % _limit), _off_y + _ycell_size * floor(i / _limit), ENGINE_TILE_SIZE, ENGINE_TILE_SIZE, false, false, 0, 0
+			_surface, _off_x + _xcell_size * (i % _row_limit), _off_y + _ycell_size * floor(i / _row_limit), ENGINE_TILE_SIZE, ENGINE_TILE_SIZE, false, false, 0, 0
 		);
 
 		_height_arr[i] = array_create(ENGINE_TILE_SIZE);
