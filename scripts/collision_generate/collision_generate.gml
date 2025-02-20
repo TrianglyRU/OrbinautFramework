@@ -9,7 +9,7 @@
 /// @param {Real} limit Orbinaut detects tiles based on ENGINE_TILE_SIZE, use this in case you have an row lower than tile size
 function collision_generate(_sprite_id, _angle_data, _off_x = 0, _off_y = 0, _sep_x = 0, _sep_y = 0, _limit = ENGINE_TILE_SIZE)
 {
-        // Initialise arrays and variables for collision data
+    // Initialise arrays and variables for collision data
 	var _height_arr = array_create(ENGINE_TILE_COUNT, 0);
 	var _width_arr = array_create(ENGINE_TILE_COUNT, 0);
 	var _angle_arr = array_create(ENGINE_TILE_COUNT, 0);
