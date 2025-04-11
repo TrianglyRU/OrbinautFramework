@@ -42,8 +42,8 @@ if water_enabled
     instance_create_depth(0, 0, RENDERER_DEPTH_HIGHEST, obj_water_surface);
 }
 
-instance_create_depth(0, 0, RENDERER_DEPTH_HUD, obj_gui_titlecard);
 instance_create_depth(0, 0, RENDERER_DEPTH_HUD, obj_gui_hud);
+instance_create_depth(0, 0, RENDERER_DEPTH_HUD, obj_gui_titlecard);
 
 audio_play_bgm(bgm_track);
 
