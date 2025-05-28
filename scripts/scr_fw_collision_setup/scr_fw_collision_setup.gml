@@ -1,13 +1,13 @@
 /// @function scr_fw_collision_setup
 function scr_fw_collision_setup()
 {
-	// All collision data in the framework is already saved in binary files. Here are the data and code used 
-	// for this purpose. Refer to the OF2 Wiki for more information.
+	// All collision data in the framework is already saved into the binary files. Here is the
+	// raw data used  to do that. Refer to the OF2 Wiki for more information.
 	
 	/*
 	
 	// Test Stage collision data
-	var _tsz_data =
+	var _tsz_anglemap =
 	[
 			 0,   240, 240, 248, 248, 248, 248, 254, 248, 246, 246, 246, 246, 248, 254,
 		0,   254, 252, 248, 246, 244, 246, 242, 238, 238, 240, 240, 244, 248, 252, 252,
@@ -16,10 +16,10 @@ function scr_fw_collision_setup()
 		44,  64,  192, 48,  88,  88,  244, 236, 222, 212, 204
 	]
 	
-	collision_generate(spr_collision_tsz, _tsz_data, 0, 0, 2, 2);
+	collision_generate(spr_collision_tsz, _tsz_anglemap, 0, 0, 2, 2, 16);
 	
 	// Sonic 1 collision data
-	var _s1_data =
+	var _s1_anglemap =
 	[
 			 0,   136, 144, 160, 176, 184, 196, 0,   0,   0,   0,   208, 0,   0,   0,    
 		252, 252, 252, 252, 252, 252, 252, 252, 248, 248, 248, 248, 240, 240, 208, 208, 
@@ -39,10 +39,10 @@ function scr_fw_collision_setup()
 		250, 252, 56,  56,  56,  56,  228, 0
 	]
 	
-	collision_generate(spr_collision_s1, _s1_data, 0, 0, 2, 2);
+	collision_generate(spr_collision_s1, _s1_anglemap, 0, 0, 2, 2, 16);
 	
 	// Sonic 2 collision data
-	var _s2_data =
+	var _s2_anglemap =
 	[
 			 0,   224, 208, 208, 200, 200, 200, 200, 240, 240, 248, 248, 248, 248, 0, 
 		252, 248, 244, 240, 232, 228, 226, 224, 0,   212, 208, 208, 200, 198, 196, 252, 
@@ -60,10 +60,10 @@ function scr_fw_collision_setup()
 		252, 254, 248, 240, 32,  208, 204, 194, 228, 228, 228, 228, 0
 	]
 	
-	collision_generate(spr_collision_s2, _s2_data, 0, 0, 2, 2);
+	collision_generate(spr_collision_s2, _s2_anglemap, 0, 0, 2, 2, 16);
 	
 	// Sonic 3K collision data
-	var _s3_data =
+	var _s3_anglemap =
 	[
 			 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 
 		252, 252, 252, 252, 252, 252, 252, 252, 248, 248, 248, 0,   240, 240, 226, 208, 
@@ -83,7 +83,7 @@ function scr_fw_collision_setup()
 		236, 0,   0,   0,   250, 250, 244, 240, 224, 0
 	]
 	
-	collision_generate(spr_collision_s3, _s3_data, 0, 0, 2, 2);
+	collision_generate(spr_collision_s3, _s3_anglemap, 0, 0, 2, 2, 16);
 	
 	*/
 }
