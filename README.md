@@ -5,9 +5,11 @@
 Orbinaut Framework 2 is the successor to the original Orbinaut Framework, a classic Sonic framework created for GameMaker. It prioritises ease-of-use and has a certain level of templating at its core, making it friendly for its users (basic programming and GameMaker IDE knowledge is required).
 Orbinaut is written from scratch and everything here is new.
 
+If you're comfortable enough with OF2 and want a bit more, a director's cut version of the framework, called the Sol Framework, is available [here](https://github.com/TrianglyRU/SolFramework). Please note that no support or assistance will be provided for it.
+
 ## Installation & Documentation
 
-Orbinaut Framework 2 is specifically designed to work with the LTS'25 version of GameMaker and its preceding regular release, v2025.01. Compatibility with other versions is neither supported nor guaranteed.
+Orbinaut Framework 2 is specifically designed to work with the LTS'25 version of GameMaker and its *preceding regular* release. Compatibility with other versions is neither supported nor guaranteed.
 
 OF2 includes detailed documentation, accessible in the [Wiki](https://github.com/TrianglyRU/OrbinautFramework/wiki) section. While you might be tempted to skip it, **be sure to review the** [installation guide](https://github.com/TrianglyRU/OrbinautFramework/wiki#installation) to ensure everything is set up correctly.
 
