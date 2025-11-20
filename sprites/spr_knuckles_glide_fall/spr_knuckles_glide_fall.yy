@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_knuckles_glide_fall",
   "bboxMode":0,
   "bbox_bottom":46,
@@ -12,8 +12,8 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"9ae9a935-ed58-482b-b056-ab57565c1578","name":"9ae9a935-ed58-482b-b056-ab57565c1578","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"20fe7e07-c1ab-47d0-b99c-47ef591a3809","name":"20fe7e07-c1ab-47d0-b99c-47ef591a3809","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"9ae9a935-ed58-482b-b056-ab57565c1578","name":"9ae9a935-ed58-482b-b056-ab57565c1578","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"20fe7e07-c1ab-47d0-b99c-47ef591a3809","name":"20fe7e07-c1ab-47d0-b99c-47ef591a3809","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

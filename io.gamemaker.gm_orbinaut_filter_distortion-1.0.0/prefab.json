@@ -1,0 +1,11 @@
+{
+  "$PrefabMetadata":"v2",
+  "Author":"Team Orbinaut",
+  "Description":"Distortion Filter Prefab for Orbinaut Framework 2",
+  "DisplayName":"Orbinaut Distortion Filter",
+  "Exports":[
+    {"$PrefabExportMetadata":"v3","AssetName":"_orbinaut_filter_distortion","Description":"Shader","DisplayName":"_orbinaut_filter_distortion","FolderPath":"Shaders","ResourceType":"GMShader","ResourceVersion":0,},
+  ],
+  "PackageId":"io.gamemaker.gm_orbinaut_filter_distortion",
+  "Version":"1.0.0",
+}

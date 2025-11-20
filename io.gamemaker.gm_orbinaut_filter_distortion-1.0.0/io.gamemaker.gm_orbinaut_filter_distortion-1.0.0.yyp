@@ -1,8 +1,8 @@
 {
   "$GMProject":"v1",
-  "%Name":"_orbinaut_filter_distortion",
+  "%Name":"io.gamemaker.gm_orbinaut_filter_distortion-1.0.0",
   "AudioGroups":[
-    {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -19,9 +19,9 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.14.1.210",
   },
-  "name":"_orbinaut_filter_distortion",
+  "name":"io.gamemaker.gm_orbinaut_filter_distortion-1.0.0",
   "resources":[
     {"id":{"name":"_orbinaut_filter_distortion_shader","path":"shaders/_orbinaut_filter_distortion_shader/_orbinaut_filter_distortion_shader.yy",},},
   ],

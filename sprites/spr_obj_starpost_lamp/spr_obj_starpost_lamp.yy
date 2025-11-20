@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_obj_starpost_lamp",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,8 +12,8 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"319aeb6a-181f-4980-8e55-96d9f1f2c236","name":"319aeb6a-181f-4980-8e55-96d9f1f2c236","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"c50050b4-e621-4007-ae93-83552c50617c","name":"c50050b4-e621-4007-ae93-83552c50617c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"319aeb6a-181f-4980-8e55-96d9f1f2c236","name":"319aeb6a-181f-4980-8e55-96d9f1f2c236","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c50050b4-e621-4007-ae93-83552c50617c","name":"c50050b4-e621-4007-ae93-83552c50617c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

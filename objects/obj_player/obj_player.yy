@@ -33,7 +33,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"PlayerType","filters":[],"listItems":[
+    {"$GMObjectProperty":"v2","%Name":"PlayerType","filters":[],"listItems":[
         "PLAYER_NOONE",
         "PLAYER_SONIC",
         "PLAYER_TAILS",

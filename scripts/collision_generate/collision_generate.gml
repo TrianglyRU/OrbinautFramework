@@ -1,7 +1,7 @@
 /// @self scr_fw_collision_setup
 /// @description Generates collision data for the tilemap associated with the specified sprite.
 /// @param {Asset.GMSprite} sprite_id The sprite used in the tilemap.
-/// @param {Array<Real>} angle_data An array of values representing the angles for each tile.
+/// @param {Array<Real>|Undefined} _angle_data An array of values representing the angles for each tile. Leave undefined to let the framework calculate it automatically.
 /// @param {Real} off_x The horizontal offset of the sprite on the tilemap.
 /// @param {Real} off_y The vertical offset of the sprite on the tilemap.
 /// @param {Real} sep_x The horizontal spacing between tiles on the tilemap.
@@ -13,14 +13,13 @@ function collision_generate(_sprite_id, _angle_data, _off_x = 0, _off_y = 0, _se
 	var _height_arr = array_create(ENGINE_TILE_COUNT, 0);
 	var _width_arr = array_create(ENGINE_TILE_COUNT, 0);
 	var _angle_arr = array_create(ENGINE_TILE_COUNT, 0);
-	var _angle_data_length = array_length(_angle_data);
 	var _xcell_size = ENGINE_TILE_SIZE + _sep_x;
 	var _ycell_size = ENGINE_TILE_SIZE + _sep_y;
 
 	// Set up the sprite and create the surface
 	sprite_set_offset(_sprite_id, 0, 0);
-	instance_create(0, 0, obj_tile);
 	
+	var _obj = instance_create(0, 0, obj_tile);
 	var _surface = surface_create(sprite_get_width(_sprite_id), sprite_get_height(_sprite_id));
 	surface_set_target(_surface);
 	draw_clear_alpha(c_black, 0);
@@ -45,48 +44,187 @@ function collision_generate(_sprite_id, _angle_data, _off_x = 0, _off_y = 0, _se
 		_width_arr[i] = array_create(ENGINE_TILE_SIZE);
 
 		sprite_collision_mask(_tile, true, 1, 0, 0, 0, 0, 0, 0);
-		obj_tile.sprite_index = _tile;
+		_obj.sprite_index = _tile;
 
 		for (var m = 0; m < ENGINE_TILE_SIZE; m++)
 		{	
 			for (var n = 0; n < ENGINE_TILE_SIZE; n++)
 			{
-				if collision_point(obj_tile.x + m, obj_tile.y + n, obj_tile, true, false)
+				if collision_point(_obj.x + m, _obj.y + n, obj_tile, true, false)
 				{
 					_height_arr[i][m]++;
 					_width_arr[i][n]++;
 				}
 			}
 		}
+		
+		if _angle_data == undefined
+		{
+			#region ANGLE CALCULATION
+			
+			var _limit = ENGINE_TILE_SIZE - 1;	
+			var _top_dist_y = 0;
+			var _bottom_dist_y = 0;
+			var _top_dist_x = 0;
+			var _bottom_dist_x = 0;
+			
+			var _x1 = _obj.x;
+			var _y1 = _obj.y;
+			var _x2 = _obj.x + _limit;
+			var _y2 = _obj.y;
+			var _x3 = _obj.x;
+			var _y3 = _obj.y + _limit;
+			var _x4 = _obj.x + _limit;
+			var _y4 = _obj.y + _limit;
+			
+			// Move top-left
+			while !collision_point(_x1, _y1, obj_tile, true, false) && _y1 < _limit
+			{
+				_y1++;
+				_top_dist_y++;
+			}
+			
+			// Move top-right
+			while !collision_point(_x2, _y2, obj_tile, true, false) && _y2 < _limit
+			{
+				_y2++;
+				_top_dist_y++;
+			}
+			
+			// Align with the tile
+			if _y1 < _y2
+			{
+				while collision_point(_x1 + 1, _y1, obj_tile, true, false) && _x1 < _limit
+				{
+					_x1++;
+					_top_dist_x++;
+				}
+			
+				while !collision_point(_x2, _y2, obj_tile, true, false) && _x2 > 0
+				{
+					_x2--;
+					_top_dist_x++;
+				}
+			}
+			else if _y1 > _y2
+			{
+				while !collision_point(_x1, _y1, obj_tile, true, false) && _x1 < _limit
+				{
+					_x1++;
+					_top_dist_x++;
+				}
+				
+				while collision_point(_x2 - 1, _y2, obj_tile, true, false) && _x2 > 0
+				{
+					_x2--;
+					_top_dist_x++;
+				}
+			}
+				
+			// Move bottom-left
+			while !collision_point(_x3, _y3, obj_tile, true, false) && _y3 > 0
+			{
+				_y3--;
+				_bottom_dist_y++;
+			}
+			
+			// Move bottom-right
+			while !collision_point(_x4, _y4, obj_tile, true, false) && _y4 > 0
+			{
+				_y4--;
+				_bottom_dist_y++;
+			}
+			
+			// Align with the tile
+			if _y3 < _y4
+			{
+				while !collision_point(_x3, _y3, obj_tile, true, false) && _x3 < _limit
+				{
+					_x3++;
+					_bottom_dist_x++;
+				}
+			
+				while collision_point(_x4 - 1, _y4, obj_tile, true, false) && _x4 > 0
+				{
+					_x4--;
+					_bottom_dist_x++;
+				}
+			}
+			else if _y3 > _y4
+			{
+				while collision_point(_x3 + 1, _y3, obj_tile, true, false) && _x3 < _limit
+				{
+					_x3++;
+					_bottom_dist_x++;
+				}
+				
+				while !collision_point(_x4, _y4, obj_tile, true, false) && _x4 > 0
+				{
+					_x4--;
+					_bottom_dist_x++;
+				}
+			}
+			
+			/// @feather ignore GM2018
+			var _is_upside_down;
+			if _top_dist_y == _bottom_dist_y
+			{
+				_is_upside_down = _top_dist_x > _bottom_dist_x;
+			}
+			else
+			{
+				_is_upside_down = _bottom_dist_y > _top_dist_y;
+			}
+			
+			var _angle;
+			if _is_upside_down
+			{
+				_angle = point_direction(_x4, _y4, _x3, _y3);
+			}
+			else
+			{
+				_angle = point_direction(_x1, _y1, _x2, _y2);
+			}
+			
+			_angle_arr[i] = math_get_angle_rounded(_angle);
+			
+			#endregion
+		}
+	
 		sprite_delete(_tile);
 	}
 	
-	// Set angle data based on input array or default to zero
-	if _angle_data_length == 0
+	if _angle_data != undefined
 	{
-		for (var i = 1; i < ENGINE_TILE_COUNT; i++)
-		{
-			_angle_arr[i] = 0;
-		}
-	}
-	else
-	{
-		var i = 1;
+		var _angle_data_length = array_length(_angle_data);
 		
-		for (; i <= _angle_data_length; i++)
+		// Set angle data based on input array or default to zero
+		if _angle_data_length == 0
 		{
-			_angle_arr[i] = math_get_angle_degree(_angle_data[i - 1]);
+			for (var i = 1; i < ENGINE_TILE_COUNT; i++)
+			{
+				_angle_arr[i] = 0;
+			}
 		}
-		
-		for (; i < ENGINE_TILE_COUNT; i++)
+		else
 		{
-			_angle_arr[i] = 0;
+			var i = 1;
+		
+			for (; i <= _angle_data_length; i++)
+			{
+				_angle_arr[i] = math_get_angle_degree(_angle_data[i - 1]);
+			}
+		
+			for (; i < ENGINE_TILE_COUNT; i++)
+			{
+				_angle_arr[i] = 0;
+			}
 		}
 	}
 		
 	// Clean up
 	surface_free(_surface);
-	instance_destroy(obj_tile);
+	instance_destroy(_obj);
 	
 	// Store the generated data
 	if !global.tools_binary_collision

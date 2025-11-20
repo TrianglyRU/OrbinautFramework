@@ -31,9 +31,9 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"VelocityX","filters":[],"listItems":[],"multiselect":false,"name":"VelocityX","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"VelocityY","filters":[],"listItems":[],"multiselect":false,"name":"VelocityY","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"State","filters":[],"listItems":[],"multiselect":false,"name":"State","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"RING_STATE_STATIC","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"VelocityX","filters":[],"listItems":[],"multiselect":false,"name":"VelocityX","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"VelocityY","filters":[],"listItems":[],"multiselect":false,"name":"VelocityY","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"State","filters":[],"listItems":[],"multiselect":false,"name":"State","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"RING_STATE_STATIC","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

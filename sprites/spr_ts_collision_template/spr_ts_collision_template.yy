@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_ts_collision_template",
   "bboxMode":0,
   "bbox_bottom":861,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"6d19430f-de41-4e65-9338-1b6ad66f389c","name":"6d19430f-de41-4e65-9338-1b6ad66f389c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"6d19430f-de41-4e65-9338-1b6ad66f389c","name":"6d19430f-de41-4e65-9338-1b6ad66f389c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

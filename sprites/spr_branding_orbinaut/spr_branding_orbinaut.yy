@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_branding_orbinaut",
   "bboxMode":0,
   "bbox_bottom":140,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"098c5504-71ad-4754-ab9e-ecaa096f2a8f","name":"098c5504-71ad-4754-ab9e-ecaa096f2a8f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"098c5504-71ad-4754-ab9e-ecaa096f2a8f","name":"098c5504-71ad-4754-ab9e-ecaa096f2a8f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

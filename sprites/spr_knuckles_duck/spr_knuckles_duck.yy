@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_knuckles_duck",
   "bboxMode":0,
   "bbox_bottom":31,
@@ -12,8 +12,8 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"c11bbd37-4e96-434d-b097-85b60057bf89","name":"c11bbd37-4e96-434d-b097-85b60057bf89","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"337cced2-fb4d-40bc-98f1-51608dc21b73","name":"337cced2-fb4d-40bc-98f1-51608dc21b73","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c11bbd37-4e96-434d-b097-85b60057bf89","name":"c11bbd37-4e96-434d-b097-85b60057bf89","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"337cced2-fb4d-40bc-98f1-51608dc21b73","name":"337cced2-fb4d-40bc-98f1-51608dc21b73","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

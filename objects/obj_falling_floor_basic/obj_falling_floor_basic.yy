@@ -30,8 +30,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"CollisionWidth","filters":[],"listItems":[],"multiselect":false,"name":"CollisionWidth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"64","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"CollisionHeight","filters":[],"listItems":[],"multiselect":false,"name":"CollisionHeight","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"16","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"CollisionWidth","filters":[],"listItems":[],"multiselect":false,"name":"CollisionWidth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"64","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"CollisionHeight","filters":[],"listItems":[],"multiselect":false,"name":"CollisionHeight","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"16","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

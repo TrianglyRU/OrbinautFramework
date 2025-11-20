@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_bridge_log_tsz",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"2c192a43-4ac3-4405-9eb4-207bba7a32d2","name":"2c192a43-4ac3-4405-9eb4-207bba7a32d2","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"2c192a43-4ac3-4405-9eb4-207bba7a32d2","name":"2c192a43-4ac3-4405-9eb4-207bba7a32d2","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

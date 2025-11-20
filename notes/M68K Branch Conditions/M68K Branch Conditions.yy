@@ -1,5 +1,5 @@
 {
-  "$GMNotes":"",
+  "$GMNotes":"v1",
   "%Name":"M68K Branch Conditions",
   "name":"M68K Branch Conditions",
   "parent":{

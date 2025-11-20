@@ -32,15 +32,15 @@
   ],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"Speed","filters":[],"listItems":[
+    {"$GMObjectProperty":"v2","%Name":"Speed","filters":[],"listItems":[
         "2",
         "4",
         "8",
         "16",
         "32",
       ],"multiselect":false,"name":"Speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"2","varType":6,},
-    {"$GMObjectProperty":"v1","%Name":"BottomLimit","filters":[],"listItems":[],"multiselect":false,"name":"BottomLimit","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"room_height","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"TopLimit","filters":[],"listItems":[],"multiselect":false,"name":"TopLimit","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"BottomLimit","filters":[],"listItems":[],"multiselect":false,"name":"BottomLimit","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"room_height","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"TopLimit","filters":[],"listItems":[],"multiselect":false,"name":"TopLimit","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

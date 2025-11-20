@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_sonic_duck_super",
   "bboxMode":0,
   "bbox_bottom":31,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"02b4b9f5-2d82-474a-8fd4-d7d566aa1aff","name":"02b4b9f5-2d82-474a-8fd4-d7d566aa1aff","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"02b4b9f5-2d82-474a-8fd4-d7d566aa1aff","name":"02b4b9f5-2d82-474a-8fd4-d7d566aa1aff","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

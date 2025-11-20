@@ -31,7 +31,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"LogSprite","filters":[],"listItems":[],"multiselect":false,"name":"LogSprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"spr_obj_bridge","path":"sprites/spr_obj_bridge/spr_obj_bridge.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_obj_bridge","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"LogSprite","filters":[],"listItems":[],"multiselect":false,"name":"LogSprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"spr_obj_bridge","path":"sprites/spr_obj_bridge/spr_obj_bridge.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_obj_bridge","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

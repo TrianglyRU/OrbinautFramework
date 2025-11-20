@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"spr_platform_swing_bob_tsz",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"d30a1a71-97c2-48ec-8ace-8fd48e72b407","name":"d30a1a71-97c2-48ec-8ace-8fd48e72b407","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"d30a1a71-97c2-48ec-8ace-8fd48e72b407","name":"d30a1a71-97c2-48ec-8ace-8fd48e72b407","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

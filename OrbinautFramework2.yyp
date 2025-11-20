@@ -2,7 +2,7 @@
   "$GMProject":"v1",
   "%Name":"OrbinautFramework2",
   "AudioGroups":[
-    {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -49,7 +49,9 @@
     {"$GMFolder":"","%Name":"Sonic","folderPath":"folders/Sprites/Player/Sonic.yy","name":"Sonic","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tails","folderPath":"folders/Sprites/Player/Tails.yy","name":"Tails","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "ForcedPrefabProjectReferences":[],
+  "ForcedPrefabProjectReferences":[
+    {"link":"io.gamemaker.gm_orbinaut_filter_distortion-1.0.0","name":"io.gamemaker.gm_orbinaut_filter_distortion-1.0.0","path":"io.gamemaker.gm_orbinaut_filter_distortion-1.0.0.yyp",},
+  ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"angles_s1.bin","CopyToMask":3035426170322551022,"filePath":"datafiles/collision","name":"angles_s1.bin","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"angles_s2.bin","CopyToMask":-1,"filePath":"datafiles/collision","name":"angles_s2.bin","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -67,7 +69,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.13.0.190",
+    "IDEVersion":"2024.14.1.210",
   },
   "name":"OrbinautFramework2",
   "resources":[

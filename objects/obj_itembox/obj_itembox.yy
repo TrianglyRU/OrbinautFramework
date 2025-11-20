@@ -31,7 +31,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"Type","filters":[],"listItems":[
+    {"$GMObjectProperty":"v2","%Name":"Type","filters":[],"listItems":[
         "\"Empty\"",
         "\"Eggman Mark\"",
         "\"Super Ring\"",

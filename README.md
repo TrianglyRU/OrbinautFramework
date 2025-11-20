@@ -12,7 +12,7 @@ If you're comfortable enough with OF2 and want a bit more, a director's cut vers
 
 ## Installation & Documentation
 
-Orbinaut Framework 2 is specifically designed to work with the LTS'25 version of GameMaker and its preceding regular release. Compatibility with other versions is neither supported nor guaranteed.
+Orbinaut Framework 2 is specifically designed to work with the latest available version of GameMaker. Compatibility with other versions is neither supported nor guaranteed.
 
 OF2 includes detailed documentation, accessible in the [Wiki](https://github.com/TrianglyRU/OrbinautFramework/wiki) section. While you might be tempted to skip it, **be sure to review the** [installation guide](https://github.com/TrianglyRU/OrbinautFramework/wiki#installation) to ensure everything is set up correctly.
 

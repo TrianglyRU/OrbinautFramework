@@ -27,12 +27,12 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"GroundOnly","filters":[],"listItems":[],"multiselect":false,"name":"GroundOnly","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
-    {"$GMObjectProperty":"v1","%Name":"LayerAbove","filters":[],"listItems":[
+    {"$GMObjectProperty":"v2","%Name":"GroundOnly","filters":[],"listItems":[],"multiselect":false,"name":"GroundOnly","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v2","%Name":"LayerAbove","filters":[],"listItems":[
         "TILELAYER.MAIN",
         "TILELAYER.SECONDARY",
       ],"multiselect":false,"name":"LayerAbove","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"TILELAYER.SECONDARY","varType":6,},
-    {"$GMObjectProperty":"v1","%Name":"LayerBelow","filters":[],"listItems":[
+    {"$GMObjectProperty":"v2","%Name":"LayerBelow","filters":[],"listItems":[
         "TILELAYER.MAIN",
         "TILELAYER.SECONDARY",
       ],"multiselect":false,"name":"LayerBelow","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"TILELAYER.MAIN","varType":6,},

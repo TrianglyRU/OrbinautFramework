@@ -16,12 +16,10 @@
   "exportToGame":true,
   "extensionVersion":"1.3.1",
   "files":[
-    {"$GMExtensionFile":"","%Name":"NekoPresence.gml","constants":[],"copyToTargets":194,"filename":"NekoPresence.gml","final":"","functions":[
+    {"$GMExtensionFile":"v1","%Name":"NekoPresence.gml","constants":[],"copyToTargets":194,"filename":"NekoPresence.gml","final":"","functions":[
         {"$GMExtensionFunction":"","%Name":"np_get_avatar_url","argCount":0,"args":[1,1,],"documentation":"","externalName":"np_get_avatar_url","help":"np_get_avatar_url(user_id,avatar_hash)","hidden":false,"kind":2,"name":"np_get_avatar_url","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":1,},
-      ],"init":"","kind":2,"name":"NekoPresence.gml","order":[
-        {"name":"np_get_avatar_url","path":"extensions/NekoPresence/NekoPresence.yy",},
-      ],"origname":"","ProxyFiles":[],"resourceType":"GMExtensionFile","resourceVersion":"2.0","uncompress":false,"usesRunnerInterface":false,},
-    {"$GMExtensionFile":"","%Name":"NekoPresence.dll","constants":[
+      ],"init":"","kind":2,"name":"NekoPresence.gml","origname":"","ProxyFiles":[],"resourceType":"GMExtensionFile","resourceVersion":"2.0","uncompress":false,"usesRunnerInterface":false,},
+    {"$GMExtensionFile":"v1","%Name":"NekoPresence.dll","constants":[
         {"$GMExtensionConstant":"","%Name":"np_steam_app_id","hidden":false,"name":"np_steam_app_id","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"string(steam_get_app_id())",},
         {"$GMExtensionConstant":"","%Name":"np_steam_app_id_empty","hidden":false,"name":"np_steam_app_id_empty","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"\"0\"",},
         {"$GMExtensionConstant":"","%Name":"DISCORD_REPLY_NO","hidden":false,"name":"DISCORD_REPLY_NO","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"0",},
@@ -46,23 +44,7 @@
         {"$GMExtensionFunction":"","%Name":"np_respond","argCount":0,"args":[1,2,],"documentation":"","externalName":"np_respond","help":"np_respond(user_id,reply)","hidden":false,"kind":1,"name":"np_respond","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":2,},
         {"$GMExtensionFunction":"","%Name":"np_setpresence_timestamps","argCount":0,"args":[2,2,2,],"documentation":"","externalName":"np_setpresence_timestamps","help":"np_setpresence_timestamps(startTimestamp,endTimestamp,is_unix)","hidden":false,"kind":1,"name":"np_setpresence_timestamps","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":2,},
         {"$GMExtensionFunction":"","%Name":"np_setpresence_buttons","argCount":0,"args":[2,1,1,],"documentation":"","externalName":"np_setpresence_buttons","help":"np_setpresence_buttons(btnId,btnName,btnUrl)","hidden":false,"kind":1,"name":"np_setpresence_buttons","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":2,},
-      ],"init":"__np_initdll","kind":1,"name":"NekoPresence.dll","order":[
-        {"name":"__np_initdll","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"__np_shutdown","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_initdiscord","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_setpresence","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_update","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"__np_registercallbacks_do_not_call","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_setpresence_more","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_clearpresence","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_registergame","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_registergame_steam","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_setpresence_secrets","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_setpresence_partyparams","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_respond","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_setpresence_timestamps","path":"extensions/NekoPresence/NekoPresence.yy",},
-        {"name":"np_setpresence_buttons","path":"extensions/NekoPresence/NekoPresence.yy",},
-      ],"origname":"","ProxyFiles":[
+      ],"init":"__np_initdll","kind":1,"name":"NekoPresence.dll","origname":"","ProxyFiles":[
         {"$GMProxyFile":"","%Name":"libnekopresence.so","name":"libnekopresence.so","resourceType":"GMProxyFile","resourceVersion":"2.0","TargetMask":7,},
         {"$GMProxyFile":"","%Name":"NekoPresence_x64.dll","name":"NekoPresence_x64.dll","resourceType":"GMProxyFile","resourceVersion":"2.0","TargetMask":6,},
         {"$GMProxyFile":"","%Name":"libnekopresenceMac.dylib","name":"libnekopresenceMac.dylib","resourceType":"GMProxyFile","resourceVersion":"2.0","TargetMask":1,},
