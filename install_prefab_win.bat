@@ -17,11 +17,16 @@ if not exist "%SOURCE_DIR%" (
     exit /b 1
 )
 
-REM Ensure destination exists
+REM Ensure destination exists (create if missing)
 if not exist "%DEST_DIR%" (
-    echo Destination folder not found: "%DEST_DIR%"
-    pause
-    exit /b 1
+    echo Creating destination folder...
+    mkdir "%DEST_DIR%"
+    
+    if errorlevel 1 (
+        echo Failed to create destination folder.
+        pause
+        exit /b 1
+    )
 )
 
 REM Remove old copy if exists

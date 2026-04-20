@@ -15,10 +15,15 @@ if [ ! -d "$SOURCE_DIR" ]; then
   exit 1
 fi
 
-# Ensure destination exists
+# Ensure destination exists (create if missing)
 if [ ! -d "$DEST_DIR" ]; then
-  echo "Destination folder not found: ${DEST_DIR}"
-  exit 1
+  echo "Creating destination folder..."
+  mkdir -p "$DEST_DIR"
+
+  if [ $? -ne 0 ]; then
+    echo "Failed to create destination folder: ${DEST_DIR}"
+    exit 1
+  fi
 fi
 
 # Remove old copy if exists
