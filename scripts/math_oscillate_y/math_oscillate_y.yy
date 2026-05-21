@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"math_oscillate_y",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"math_oscillate_y",
+  "parent":{
+    "name":"Math",
+    "path":"folders/Functions/Math.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

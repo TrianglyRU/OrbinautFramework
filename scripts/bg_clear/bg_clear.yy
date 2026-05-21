@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bg_clear",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bg_clear",
+  "parent":{
+    "name":"Background",
+    "path":"folders/Functions/Background.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

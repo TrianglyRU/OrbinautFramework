@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"input_set_rumble",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"input_set_rumble",
+  "parent":{
+    "name":"Input",
+    "path":"folders/Functions/Input.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

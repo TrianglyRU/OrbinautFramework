@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"deform_layers",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"deform_layers",
+  "parent":{
+    "name":"Deformation",
+    "path":"folders/Functions/Deformation.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

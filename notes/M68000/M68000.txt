@@ -1,0 +1,27 @@
+INSTRUCTION         BRANCH IF
+
+SUB + BCS           SIGN(RESULT) != SIGN(REG) 	when REG != 0
+					VALUE > 0 					when REG == 0
+
+ADD + BCS           OVERFLOW
+CMP + BCS           REG >= 0 and REG < VALUE
+
+SUB + BCC           SIGN(RESULT) == SIGN(REG) 	when REG != 0
+					VALUE <= 0 					when REG == 0
+
+ADD + BCC           NO OVERFLOW
+CMP + BCC           REG < 0 or REG >= VALUE
+
+BLO                 REG >= 0 and REG < VALUE
+BLS                 REG >= 0 and REG <= VALUE
+BHI                 REG < 0 or REG > VALUE
+BHS                 REG < 0 or REG >= VALUE
+
+BMI                 REG < 0
+BPL                 REG >= 0
+BLT                 REG < VALUE
+BLE                 REG <= VALUE
+BGT                 REG > VALUE
+BGE                 REG >= VALUE
+	
+TST, BNE			REG != 0

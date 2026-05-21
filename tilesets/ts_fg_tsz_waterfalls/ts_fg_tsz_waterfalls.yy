@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"ts_fg_tsz_waterfalls",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"ts_fg_tsz_waterfalls",
+  "out_columns":2,
+  "out_tilehborder":0,
+  "out_tilevborder":0,
+  "parent":{
+    "name":"Tech Stadium",
+    "path":"folders/Tile Sets/Tech Stadium.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"spr_fg_tsz_waterfalls",
+    "path":"sprites/spr_fg_tsz_waterfalls/spr_fg_tsz_waterfalls.yy",
+  },
+  "spriteNoExport":true,
+  "textureGroupId":{
+    "name":"texgroup_tsz_graphics",
+    "path":"texturegroups/texgroup_tsz_graphics",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":128,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":128,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":5,
+}

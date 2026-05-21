@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"event_animator",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"event_animator",
+  "parent":{
+    "name":"Events",
+    "path":"folders/Functions/Events.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

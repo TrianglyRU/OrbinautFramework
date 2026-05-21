@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_ring_loss",
+  "audioGroupId":{
+    "name":"audiogroup_global",
+    "path":"audiogroups/audiogroup_global",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.5126874,
+  "exportDir":"",
+  "name":"snd_ring_loss",
+  "parent":{
+    "name":"Global",
+    "path":"folders/Sounds/SFX/Global.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_ring_loss.wav",
+  "volume":1.0,
+}

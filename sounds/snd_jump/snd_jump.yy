@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_jump",
+  "audioGroupId":{
+    "name":"audiogroup_global",
+    "path":"audiogroups/audiogroup_global",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.455625,
+  "exportDir":"",
+  "name":"snd_jump",
+  "parent":{
+    "name":"Global",
+    "path":"folders/Sounds/SFX/Global.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_jump.wav",
+  "volume":1.0,
+}

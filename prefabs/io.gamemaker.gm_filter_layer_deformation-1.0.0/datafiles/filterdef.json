@@ -1,0 +1,43 @@
+{
+    "name": "_filter_layer_deformation",
+    "displayname": "_filter_layer_deformation",
+    "type": "filter",
+    "parameters": [
+        {
+            "name": "g_Offset",
+            "type": "float"
+        },
+        {
+            "name": "g_BoundUpper",
+            "type": "float"
+        },
+        {
+            "name": "g_BoundMiddle",
+            "type": "float"
+        },
+        {
+            "name": "g_BoundLower",
+            "type": "float"
+        },
+        {
+            "name": "g_Width",
+            "type": "float"
+        },
+        {
+            "name": "g_DataSizeA",
+            "type": "float"
+        },
+        {
+            "name": "g_DataSizeB",
+            "type": "float"
+        },
+        {
+            "name": "g_DataA",
+            "type": "float"
+        },
+        {
+            "name": "g_DataB",
+            "type": "float"
+        }
+    ]
+}

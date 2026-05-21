@@ -1,0 +1,11 @@
+{
+  "$PrefabMetadata":"v2",
+  "Author":"Michael Gallinago",
+  "Description":"Layer Deformation Filter for Orbinaut Framework 2.1",
+  "DisplayName":"Orbinaut Framework: Layer Deformation Filter",
+  "Exports":[
+    {"$PrefabExportMetadata":"v4","AssetName":"_filter_layer_deformation_shader","Description":"Shader","DisplayName":"_filter_layer_deformation_shader","FolderPath":"Shaders","ResourceType":"GMShader","ResourceVersion":0,},
+  ],
+  "PackageId":"io.gamemaker.gm_filter_layer_deformation",
+  "Version":"1.0.0",
+}

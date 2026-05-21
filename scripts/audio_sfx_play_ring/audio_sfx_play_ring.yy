@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"audio_sfx_play_ring",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"audio_sfx_play_ring",
+  "parent":{
+    "name":"Audio",
+    "path":"folders/Functions/Audio.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

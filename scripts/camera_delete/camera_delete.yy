@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"camera_delete",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"camera_delete",
+  "parent":{
+    "name":"Camera",
+    "path":"folders/Functions/Camera.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

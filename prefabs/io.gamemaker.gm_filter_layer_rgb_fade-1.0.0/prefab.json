@@ -1,0 +1,11 @@
+{
+  "$PrefabMetadata":"v2",
+  "Author":"Michael Gallinago",
+  "Description":"Layer RGB Fade Filter for Orbinaut Framework 2.1",
+  "DisplayName":"Orbinaut Framework: Layer RGB Fade Filter",
+  "Exports":[
+    {"$PrefabExportMetadata":"v4","AssetName":"_filter_layer_rgb_fade_shader","Description":"Shader","DisplayName":"_filter_layer_rgb_fade_shader","FolderPath":"Shaders","ResourceType":"GMShader","ResourceVersion":0,},
+  ],
+  "PackageId":"io.gamemaker.gm_filter_layer_rgb_fade",
+  "Version":"1.0.0",
+}

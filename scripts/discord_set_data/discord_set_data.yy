@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"discord_set_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"discord_set_data",
+  "parent":{
+    "name":"Discord",
+    "path":"folders/Functions/Discord.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"game_clear_level_data_all",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"game_clear_level_data_all",
+  "parent":{
+    "name":"Data",
+    "path":"folders/Functions/Data.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

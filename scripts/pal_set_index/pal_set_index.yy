@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"pal_set_index",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"pal_set_index",
+  "parent":{
+    "name":"Palette",
+    "path":"folders/Functions/Palette.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

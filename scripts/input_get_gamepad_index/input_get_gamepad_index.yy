@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"input_get_gamepad_index",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"input_get_gamepad_index",
+  "parent":{
+    "name":"Input",
+    "path":"folders/Functions/Input.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

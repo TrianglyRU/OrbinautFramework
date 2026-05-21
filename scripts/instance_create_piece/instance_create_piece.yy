@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"instance_create_piece",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"instance_create_piece",
+  "parent":{
+    "name":"Instances",
+    "path":"folders/Functions/Instances.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_branding",
+  "audioGroupId":{
+    "name":"audiogroup_branding",
+    "path":"audiogroups/audiogroup_branding",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.494125,
+  "exportDir":"",
+  "name":"snd_branding",
+  "parent":{
+    "name":"Branding",
+    "path":"folders/Sounds/SFX/Branding.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_branding.wav",
+  "volume":1.0,
+}

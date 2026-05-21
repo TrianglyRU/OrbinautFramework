@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"draw_line_floored",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"draw_line_floored",
+  "parent":{
+    "name":"Draw",
+    "path":"folders/Functions/Draw.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

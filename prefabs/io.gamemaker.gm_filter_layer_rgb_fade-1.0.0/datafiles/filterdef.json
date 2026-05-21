@@ -1,0 +1,15 @@
+{
+    "name": "_filter_layer_rgb_fade",
+    "displayname": "_filter_layer_rgb_fade",
+    "type": "filter",
+    "parameters": [
+        {
+            "name": "g_Type",
+            "type": "int"
+        },
+        {
+            "name": "g_Timer",
+            "type": "float"
+        }
+    ]
+}

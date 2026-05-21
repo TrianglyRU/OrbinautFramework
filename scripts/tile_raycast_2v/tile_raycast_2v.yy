@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"tile_raycast_2v",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tile_raycast_2v",
+  "parent":{
+    "name":"Tiles",
+    "path":"folders/Functions/Tiles.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

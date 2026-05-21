@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"input_copy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"input_copy",
+  "parent":{
+    "name":"Input",
+    "path":"folders/Functions/Input.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

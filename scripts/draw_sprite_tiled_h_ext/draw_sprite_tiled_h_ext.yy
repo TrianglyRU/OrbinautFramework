@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"draw_sprite_tiled_h_ext",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"draw_sprite_tiled_h_ext",
+  "parent":{
+    "name":"Draw",
+    "path":"folders/Functions/Draw.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"ts_fg_ehz_b",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"ts_fg_ehz_b",
+  "out_columns":15,
+  "out_tilehborder":0,
+  "out_tilevborder":0,
+  "parent":{
+    "name":"Emerald Hill",
+    "path":"folders/Tile Sets/Emerald Hill.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"spr_fg_ehz_b",
+    "path":"sprites/spr_fg_ehz_b/spr_fg_ehz_b.yy",
+  },
+  "spriteNoExport":true,
+  "textureGroupId":{
+    "name":"texgroup_ehz_graphics",
+    "path":"texturegroups/texgroup_ehz_graphics",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":128,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":128,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":225,
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"async_get",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"async_get",
+  "parent":{
+    "name":"Async",
+    "path":"folders/Functions/Async.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

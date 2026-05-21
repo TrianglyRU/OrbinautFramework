@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"camera_toggle_movement",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"camera_toggle_movement",
+  "parent":{
+    "name":"Camera",
+    "path":"folders/Functions/Camera.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

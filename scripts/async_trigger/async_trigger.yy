@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"async_trigger",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"async_trigger",
+  "parent":{
+    "name":"Async",
+    "path":"folders/Functions/Async.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

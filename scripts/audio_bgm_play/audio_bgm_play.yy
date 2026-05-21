@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"audio_bgm_play",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"audio_bgm_play",
+  "parent":{
+    "name":"Audio",
+    "path":"folders/Functions/Audio.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

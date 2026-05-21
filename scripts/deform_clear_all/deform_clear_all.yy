@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"deform_clear_all",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"deform_clear_all",
+  "parent":{
+    "name":"Deformation",
+    "path":"folders/Functions/Deformation.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"camera_get_culling_width",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"camera_get_culling_width",
+  "parent":{
+    "name":"Camera",
+    "path":"folders/Functions/Camera.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

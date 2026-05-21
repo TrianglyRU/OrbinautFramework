@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"ts_fg_ghz_a",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"ts_fg_ghz_a",
+  "out_columns":7,
+  "out_tilehborder":0,
+  "out_tilevborder":0,
+  "parent":{
+    "name":"Green Hill",
+    "path":"folders/Tile Sets/Green Hill.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"spr_fg_ghz_a",
+    "path":"sprites/spr_fg_ghz_a/spr_fg_ghz_a.yy",
+  },
+  "spriteNoExport":true,
+  "textureGroupId":{
+    "name":"texgroup_ghz_graphics",
+    "path":"texturegroups/texgroup_ghz_graphics",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":256,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":256,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":56,
+}

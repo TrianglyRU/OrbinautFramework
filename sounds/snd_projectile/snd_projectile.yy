@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_projectile",
+  "audioGroupId":{
+    "name":"audiogroup_global",
+    "path":"audiogroups/audiogroup_global",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.16204166,
+  "exportDir":"",
+  "name":"snd_projectile",
+  "parent":{
+    "name":"Global",
+    "path":"folders/Sounds/SFX/Global.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_projectile.wav",
+  "volume":1.0,
+}

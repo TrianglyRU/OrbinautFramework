@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"fade_perform",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"fade_perform",
+  "parent":{
+    "name":"Fade",
+    "path":"folders/Functions/Fade.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

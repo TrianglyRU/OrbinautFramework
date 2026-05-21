@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"audio_bgm_set_loop",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"audio_bgm_set_loop",
+  "parent":{
+    "name":"Audio",
+    "path":"folders/Functions/Audio.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

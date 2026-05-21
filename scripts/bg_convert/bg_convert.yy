@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bg_convert",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bg_convert",
+  "parent":{
+    "name":"Background",
+    "path":"folders/Functions/Background.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

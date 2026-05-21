@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"pal_stop_rotation",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"pal_stop_rotation",
+  "parent":{
+    "name":"Palette",
+    "path":"folders/Functions/Palette.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

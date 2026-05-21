@@ -1,0 +1,1 @@
+ds_map_destroy(icon_map);

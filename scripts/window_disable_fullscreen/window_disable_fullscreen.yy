@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"window_disable_fullscreen",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"window_disable_fullscreen",
+  "parent":{
+    "name":"Window",
+    "path":"folders/Functions/Window.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

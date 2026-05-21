@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"tile_calculate_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tile_calculate_data",
+  "parent":{
+    "name":"Tiles",
+    "path":"folders/Functions/Tiles.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

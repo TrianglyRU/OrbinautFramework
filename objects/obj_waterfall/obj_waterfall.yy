@@ -1,0 +1,43 @@
+{
+  "$GMObject":"",
+  "%Name":"obj_waterfall",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_waterfall",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Emerald Hill",
+    "path":"folders/Objects/Emerald Hill.yy",
+  },
+  "parentObjectId":{
+    "name":"obj_gameobject",
+    "path":"objects/obj_gameobject/obj_gameobject.yy",
+  },
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"iv_is_long_waterfall","filters":[],"listItems":[],"multiselect":false,"name":"iv_is_long_waterfall","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+  ],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_waterfall_alpha",
+    "path":"sprites/spr_waterfall_alpha/spr_waterfall_alpha.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}

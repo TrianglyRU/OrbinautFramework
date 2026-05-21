@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"v1",
+  "%Name":"RGB-9",
+  "name":"RGB-9",
+  "parent":{
+    "name":"Notes",
+    "path":"folders/Notes.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

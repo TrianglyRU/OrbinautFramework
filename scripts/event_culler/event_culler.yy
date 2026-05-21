@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"event_culler",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"event_culler",
+  "parent":{
+    "name":"Events",
+    "path":"folders/Functions/Events.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

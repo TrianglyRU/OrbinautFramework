@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"sprite_set_animation",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"sprite_set_animation",
+  "parent":{
+    "name":"Sprites",
+    "path":"folders/Functions/Sprites.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

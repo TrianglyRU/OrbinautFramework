@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"instance_is_drawn",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"instance_is_drawn",
+  "parent":{
+    "name":"Instances",
+    "path":"folders/Functions/Instances.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

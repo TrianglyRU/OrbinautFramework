@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"math_get_quadrant",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"math_get_quadrant",
+  "parent":{
+    "name":"Math",
+    "path":"folders/Functions/Math.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

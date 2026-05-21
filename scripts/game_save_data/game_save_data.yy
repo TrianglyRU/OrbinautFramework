@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"game_save_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"game_save_data",
+  "parent":{
+    "name":"Data",
+    "path":"folders/Functions/Data.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

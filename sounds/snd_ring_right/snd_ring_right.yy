@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_ring_right",
+  "audioGroupId":{
+    "name":"audiogroup_global",
+    "path":"audiogroups/audiogroup_global",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.6272917,
+  "exportDir":"",
+  "name":"snd_ring_right",
+  "parent":{
+    "name":"Global",
+    "path":"folders/Sounds/SFX/Global.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_ring_right.wav",
+  "volume":1.0,
+}
