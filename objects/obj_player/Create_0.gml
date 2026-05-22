@@ -244,6 +244,11 @@ release_glide = function(_frame)
 	reset_gravity();
 }
 
+get_rotation_bounds = function()
+{
+	return [22.5, 337.5 + (ANGLE_INCREMENT * global.player_physics == PHYSICS.S1)];
+}
+
 land = function()
 {
 	is_grounded = true;
@@ -290,6 +295,8 @@ land = function()
 		spd = 0;
 	}
 	
+	var _rotation_bounds = get_rotation_bounds();
+	
 	state = PLAYER_STATE.DEFAULT;
 	cpu_state = CPU_STATE.MAIN;
 	shield_state = SHIELD_STATE.NONE;
@@ -297,7 +304,7 @@ land = function()
 	is_jumping = false;
 	set_push_anim_by = noone;
 	score_combo = 0;
-	visual_angle = angle > 22.5 && angle < 337.5 ? angle : 0;
+	visual_angle = angle > _rotation_bounds[0] && angle < _rotation_bounds[1] ? angle : 0;
 	clear_carry();
 	
 	if !run_on_water && !is_forced_roll
@@ -316,7 +323,17 @@ land = function()
 	
 	if animation != ANIM.SPIN
 	{
-		y -= radius_y_normal - radius_y;
+		var _diff = radius_y_normal - radius_y;
+		
+		// Originals do only QUADRANT.DOWN
+		switch math_get_quadrant(angle)
+		{
+			case QUADRANT.DOWN:  y -= _diff; break;
+			case QUADRANT.LEFT:  x += _diff; break;
+			case QUADRANT.UP:    y += _diff; break;
+			case QUADRANT.RIGHT: x -= _diff; break;
+		}
+		
 		radius_x = radius_x_normal;
 		radius_y = radius_y_normal;
 	}

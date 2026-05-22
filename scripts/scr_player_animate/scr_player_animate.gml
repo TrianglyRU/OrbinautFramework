@@ -2,10 +2,8 @@
 function scr_player_animate()
 {
 	var _use_mania = global.rotation_mode == ROTATION.MANIA;
-	var _min_angle = 22.5;
-	var _max_angle = 337.5 - (ANGLE_INCREMENT * global.player_physics != PHYSICS.S1)
-	
-	var _target_ground_angle = angle > _min_angle && angle <= _max_angle ? angle : 0;
+	var _rotation_bounds = get_rotation_bounds();
+	var _target_ground_angle = angle > _rotation_bounds[0] && angle < _rotation_bounds[1] ? angle : 0;
 	
 	if is_grounded
 	{
