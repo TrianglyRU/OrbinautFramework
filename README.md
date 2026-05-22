@@ -1,4 +1,4 @@
-![banner](https://github.com/TrianglyRU/OrbinautFramework2/assets/45323263/9e802204-355f-4a26-a3d2-28f7aa8eff54)
+![banner](https://drive.google.com/uc?export=view&id=1CATXp7IeKvr1ayG1Y3kslcn4UzCMg1MS)
 
 ## About
  
@@ -16,7 +16,7 @@ Detailed documentation for the latest release is currently in progress
 
 - All gameplay objects in the framework provided by default are accurate to their Sonic 2 presentation, both code and animation-wise
 - Character physics, character-to-object, and object-to-terrain collisions are faithfully recreated, delivering behaviour identical to the original games, making OF one of the most accurate classic Sonic frameworks ever made
-- Four playable characters are available: Sonic, Tails, Knuckles, and Amy (Origins)
+- Four playable characters: Sonic, Tails, Knuckles, and Amy (with her Origins abilities)
 - Support for multiple player objects, which can be set up to be controlled by either a CPU or a real person
 - Up to 8 player splitscreen support¹
 - The ability to customise gameplay by toggling various differences between the four classic titles, ensuring you get the experience you want to have in your game
