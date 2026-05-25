@@ -2,5 +2,3 @@
 
 // This event can be used as a Begin Step that is guaranteed
 // to run AFTER obj_game's Begin Step
-//
-// obj_player uses this event

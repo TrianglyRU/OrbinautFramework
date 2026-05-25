@@ -1,6 +1,6 @@
-if obj_game.fade_state != FADE_STATE.NONE
+if obj_game.state >= GAME_STATE.STOP_SYSTEM
 {
-	return;
+    return;
 }
 
 FOR_EACH_CAMERA
