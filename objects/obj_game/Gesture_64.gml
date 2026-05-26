@@ -9,8 +9,8 @@ if !global.dev_mode
 	return;
 }
 
-var _w = global.init_resolution_w;
-var _h = global.init_resolution_h;
+var _w = surface_get_width(application_surface);
+var _h = surface_get_height(application_surface);
 
 var _x = event_data[? "guiposX"];
 var _y = event_data[? "guiposY"];

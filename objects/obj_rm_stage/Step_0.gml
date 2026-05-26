@@ -7,7 +7,7 @@ FOR_EACH_CAMERA
 {
 	var _camera_data = view_data[_c];
 	
-	if _camera_data == undefined || !_camera_data.allow_movement
+	if _camera_data == undefined || !_camera_data.allow_updates
 	{
 		continue;
 	}
@@ -44,17 +44,28 @@ FOR_EACH_CAMERA
 		}
 	}
 	
-	if camera_bound_speed[_c] < 2
-	{
-		camera_bound_speed[_c] = 2;
-	}
-	
 	var _left_bound = left_bound[_c];
 	var _right_bound = right_bound[_c];
 	var _top_bound = top_bound[_c];
 	var _bottom_bound = bottom_bound[_c];
 	var _bound_speed = camera_bound_speed[_c];
 	
+	if camera_bound_speed[_c] >= ACT_TRANSITION_BOUND_SPEED
+	{
+		_camera_data.left_bound = _left_bound;
+		_camera_data.right_bound = _right_bound;
+		_camera_data.top_bound = _top_bound;
+		_camera_data.bottom_bound = _bottom_bound;
+		camera_bound_speed[_c] = 2;
+		
+		continue;
+	}
+
+	if camera_bound_speed[_c] < 2
+	{
+		camera_bound_speed[_c] = 2;
+	}
+
 	// Left camera bound
 	if _camera_data.left_bound < _left_bound
 	{

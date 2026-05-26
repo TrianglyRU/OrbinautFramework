@@ -121,7 +121,7 @@ function scr_player_water()
 				
 				if player_index == camera_data.index
 				{
-					camera_data.allow_movement = false;
+					camera_data.allow_updates = false;
 				}
 		}
 	}

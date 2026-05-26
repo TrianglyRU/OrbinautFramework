@@ -2,9 +2,9 @@ visible = player_get(0).state == PLAYER_STATE.DEBUG_MODE;
 
 FOR_EACH_CAMERA
 {
-	var _camera = view_data[_c];
+	var _camera_data = view_data[_c];
 	
-	if _camera == undefined
+	if _camera_data == undefined
 	{
 		continue;
 	}
@@ -12,8 +12,8 @@ FOR_EACH_CAMERA
 	var _w = camera_get_width(_c);
 	var _h = camera_get_height(_c);
 	
-	var _x = _camera.raw_x + _w * 0.5;
-	var _y = _camera.raw_y + _h * 0.5;
+	var _x = _camera_data.raw_x + _w * 0.5;
+	var _y = _camera_data.raw_y + _h * 0.5;
 	
 	_x = floor(_x);
 	_y = floor(_y);
@@ -26,7 +26,7 @@ FOR_EACH_CAMERA
 			
 			if iv_speed == 0
 			{
-				_camera.bottom_bound = obj_rm_stage.bottom_bound[_c];
+				_camera_data.bottom_bound = obj_rm_stage.bottom_bound[_c];
 			}
 			else
 			{
@@ -39,7 +39,7 @@ FOR_EACH_CAMERA
 			
 			if iv_speed == 0
 			{
-				_camera.top_bound = obj_rm_stage.top_bound[_c];
+				_camera_data.top_bound = obj_rm_stage.top_bound[_c];
 			}
 			else
 			{

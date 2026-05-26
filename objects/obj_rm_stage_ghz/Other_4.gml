@@ -2,7 +2,7 @@
 event_inherited();
 
 // Adjust bound triggers to account different resolutions
-var _h_res = global.init_resolution_h;
+var _h_res = camera_get_height(0);
 
 if _h_res <= 224
 {

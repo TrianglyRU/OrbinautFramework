@@ -1,8 +1,6 @@
 /// @description Startup
 
 // Common
-global.init_resolution_w = room_width;	// See scr_game_setup()
-global.init_resolution_h = room_height;
 global.tile_widths = ds_map_create();
 global.tile_heights = ds_map_create();
 global.tile_angles = ds_map_create();

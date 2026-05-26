@@ -28,7 +28,7 @@ switch state
 			weight -= _weight_inc;
 		}
 		
-		var _osc_angle = obj_game.oscillation_angle;
+		var _osc_angle = obj_game.oscillation_angle * iv_speed_multiplier + iv_angle_offset;
 	
 		switch iv_type
 		{
@@ -38,19 +38,19 @@ switch state
 			
 			case PLATFORM_TYPE.HORIZONTAL:
 			
-				x = math_oscillate_x(xstart, _osc_angle, iv_radius, iv_speed_multiplier, iv_angle_offset);
+				x = math_oscillate_x(xstart, _osc_angle , iv_radius);
 				y = ystart;
 				
 			break;
 			
 			case PLATFORM_TYPE.VERTICAL:
-				y = math_oscillate_y(ystart, _osc_angle - 90, iv_radius, iv_speed_multiplier, iv_angle_offset);
+				y = math_oscillate_y(ystart, _osc_angle - 90, iv_radius);
 			break;
 			
 			case PLATFORM_TYPE.CIRCULAR:
 			
-				x = math_oscillate_x(xstart, _osc_angle, iv_radius, iv_speed_multiplier, iv_angle_offset);
-				y = math_oscillate_y(ystart, _osc_angle - 180, iv_radius, iv_speed_multiplier, iv_angle_offset);
+				x = math_oscillate_x(xstart, _osc_angle, iv_radius);
+				y = math_oscillate_y(ystart, _osc_angle - 180, iv_radius);
 				
 			break;
 			

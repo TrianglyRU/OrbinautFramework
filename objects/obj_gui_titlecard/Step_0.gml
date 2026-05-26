@@ -11,7 +11,15 @@ if timer <= 96
 		}
 		else FOR_EACH_CAMERA
 		{
-			camera_toggle_movement(_c, true);
+			// Instantly adjust the camera bounds to the stage bounds
+			obj_rm_stage.camera_bound_speed[_c] = ACT_TRANSITION_BOUND_SPEED;
+			
+			var _camera_data = view_data[_c];
+			
+			if _camera_data != undefined
+			{
+				_camera_data.allow_updates = true;
+			}
 		}
     }
     else if timer >= 8

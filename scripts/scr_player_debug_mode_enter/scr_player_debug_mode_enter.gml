@@ -22,7 +22,7 @@ function scr_player_debug_mode_enter()
 	    
 		if camera_data.index == player_index
 		{
-			camera_data.allow_movement = true;
+			camera_data.allow_updates = true;
 		}
 		
 		if obj_game.state == GAME_STATE.STOP_OBJECTS

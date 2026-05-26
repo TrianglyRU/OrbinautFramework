@@ -1,7 +1,7 @@
 /// @self obj_player
 function scr_player_movement_air()
 {
-	if action == ACTION.CLIMB || action == ACTION.SPIN_DASH || is_true_glide()
+	if action == ACTION.CLIMB || is_true_glide()
 	{
 		return;
 	}

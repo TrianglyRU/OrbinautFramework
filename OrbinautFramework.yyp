@@ -288,7 +288,6 @@
     {"id":{"name":"camera_get_x","path":"scripts/camera_get_x/camera_get_x.yy",},},
     {"id":{"name":"camera_get_y","path":"scripts/camera_get_y/camera_get_y.yy",},},
     {"id":{"name":"camera_new","path":"scripts/camera_new/camera_new.yy",},},
-    {"id":{"name":"camera_toggle_movement","path":"scripts/camera_toggle_movement/camera_toggle_movement.yy",},},
     {"id":{"name":"collision_player","path":"scripts/collision_player/collision_player.yy",},},
     {"id":{"name":"deform_clear_all","path":"scripts/deform_clear_all/deform_clear_all.yy",},},
     {"id":{"name":"deform_clear","path":"scripts/deform_clear/deform_clear.yy",},},

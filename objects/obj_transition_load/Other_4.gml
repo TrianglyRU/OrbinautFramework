@@ -9,6 +9,17 @@ var _x = x;
 var _y = y;
 var _player_data = _transition_data.player_data;
 
+// Disable camera updates
+FOR_EACH_CAMERA
+{	
+	var _camera_data = view_data[_c];
+	
+	if _camera_data != undefined
+	{
+		_camera_data.allow_updates = false;
+	}
+}
+
 with obj_player
 {
 	var _data = _player_data[player_index];
@@ -43,7 +54,7 @@ with obj_player
 		camera_data.raw_x = _x - _data.camera_offset_x;
 		camera_data.raw_y = _y - _data.camera_offset_y;
 		
-		// Match the bounds to the camera's own size so the players can't leave the screen
+		// Match the bounds to the camera size so players can't leave the screen
 		camera_data.left_bound = camera_data.raw_x;
 		camera_data.top_bound = camera_data.raw_y;
 		camera_data.right_bound = camera_data.left_bound + camera_get_width(_camera_index);
@@ -52,12 +63,6 @@ with obj_player
 		// Reset the maximum x-velocity so it smoothly accelerates back to its regular value later
 		camera_data.max_vel_x = 0;
 	}
-}
-
-// Lock the movement and adjust to the stage boundaries instantly as soon as being unlocked
-FOR_EACH_CAMERA
-{	
-	camera_toggle_movement(_c, false); obj_rm_stage.camera_bound_speed[_c] = 65536;
 }
 
 if _transition_data.background_transition

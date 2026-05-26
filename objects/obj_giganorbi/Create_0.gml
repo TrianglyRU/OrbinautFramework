@@ -21,7 +21,7 @@ oscillate_y = function(_step)
 		move_siner = move_siner - 360;
 	}
 	
-	y = math_oscillate_y(osc_y, move_siner, 14, 1, 90);
+	y = math_oscillate_y(osc_y, move_siner + 90, 14);
 }
 
 create_orbs = function()

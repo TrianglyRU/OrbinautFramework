@@ -1,4 +1,5 @@
 #macro ACT_SINGLE 3
+#macro ACT_TRANSITION_BOUND_SPEED 65535
 
 setup_stage = function(_name, _act_index, _bgm, _animals, _next_room, _progress_flag)
 {

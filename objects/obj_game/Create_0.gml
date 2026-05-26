@@ -112,8 +112,9 @@ resize_window_with_hotkey = function(_scale)
 	}
 }
 
-var _w = global.init_resolution_w;
-var _h = global.init_resolution_h;
+var _startup_info = room_get_info(rm_startup);
+var _w = _startup_info.width;
+var _h = _startup_info.height;
 
 FOR_EACH_CAMERA
 {
@@ -122,7 +123,7 @@ FOR_EACH_CAMERA
 	view_visible[_c] = false;
 }
 
-surface_resize(application_surface, global.init_resolution_w, global.init_resolution_h);
+surface_resize(application_surface, _w, _h);
 camera_new(0, _w, _h, _w, _h);
 
 #endregion

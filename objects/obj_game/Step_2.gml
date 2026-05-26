@@ -72,7 +72,7 @@ FOR_EACH_CAMERA
 		view_surface_id[_c] = surface_create(_camera_data.surface_w, _camera_data.surface_h);
 	}
 	
-	if state < GAME_STATE.STOP_SYSTEM && _camera_data.allow_movement
+	if state < GAME_STATE.STOP_SYSTEM && _camera_data.allow_updates
 	{
 		var _target = _camera_data.target;
 		

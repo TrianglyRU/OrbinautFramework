@@ -17,7 +17,7 @@ function camera_new(_index, _w, _h, _canvas_width, _canvas_height, _canvas_x = 0
     var _camera_data =
     {
         index: _index,	
-        allow_movement: true,
+        allow_updates: true,
         target: noone,
 		max_vel_x: CAMERA_MAX_VEL_X,
 		max_vel_y: CAMERA_MAX_VEL_Y,

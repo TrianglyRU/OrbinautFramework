@@ -190,7 +190,7 @@ respawn = function()
 	}
 	else
 	{
-		camera_data.allow_movement = true;
+		camera_data.allow_updates = true;
 		state = PLAYER_STATE.RESPAWN;
 	}
 }
@@ -472,7 +472,7 @@ kill = function(_sound = snd_hurt)
 	
 	if camera_data.index == player_index
 	{
-		camera_data.allow_movement = false;
+		camera_data.allow_updates = false;
 	}
 }
 

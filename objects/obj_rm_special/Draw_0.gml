@@ -14,7 +14,7 @@ draw_set_halign(fa_center);
 for (var _i = 0; _i < _length; _i++)
 {
     var _offset_x = (_i - round(_length * 0.5)) * 8;
-    var _offset_y = math_oscillate_y(0, obj_game.frame_counter * 4, 2, 1, _i * 48);
+    var _offset_y = math_oscillate_y(0, obj_game.frame_counter * 4 + _i * 48, 2);
 	
     draw_text(_half_width + _offset_x, 48 + _offset_y, string_char_at(_title_string, _i + 1));
 }

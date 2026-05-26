@@ -40,7 +40,7 @@ function scr_player_cpu()
 			
 			if camera_data.index == player_index
 			{
-				camera_data.allow_movement = true;
+				camera_data.allow_updates = true;
 			}
 			
 	    break;
