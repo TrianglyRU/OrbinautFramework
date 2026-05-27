@@ -2,15 +2,11 @@
 
 ## About
  
-Orbinaut Framework is a classic Sonic framework created for GameMaker. Built entirely from scratch, the framework is designed with extreme accuracy in mind, replicating the original games' core logic and game loop. It prioritises ease-of-use and includes a templated foundation to help new users get started
+Orbinaut Framework is a classic Sonic framework created for GameMaker. Built entirely from scratch, it is designed with extreme accuracy in mind, replicating the original games’ core logic and gameplay loop. The project is aimed at developers with prior GameMaker experience and is not intended as an entry-level tool for beginners
 
-Although the framework is specifically designed for creating classic Sonic games, its architecture is modular, making it equally suitable for entirely original projects
+Although primarily designed for creating classic Sonic games, it is also suitable for entirely original projects
 
-Orbinaut Framework is designed to work with the latest **LTS (Long-Term Stable)** release of GameMaker. Compatibility with other versions is neither supported nor guaranteed
-
-## Documentation
-
-Detailed documentation for the latest release is currently in progress
+Orbinaut Framework is intended to work with the latest LTS (Long-Term Stable) release of GameMaker. Compatibility with other versions is neither supported nor guaranteed
 
 ## Sonic Features
 
@@ -18,25 +14,17 @@ Detailed documentation for the latest release is currently in progress
 - Character physics, character-to-object, and object-to-terrain collisions are faithfully recreated, delivering behaviour identical to the original games, making OF one of the most accurate classic Sonic frameworks ever made
 - Four playable characters: Sonic, Tails, Knuckles, and Amy (with her Origins abilities)
 - Support for multiple player objects, which can be set up to be controlled by either a CPU or a real person
-- Up to 8 player splitscreen support¹
-- The ability to customise gameplay by toggling various differences between the four classic titles, ensuring you get the experience you want to have in your game
+- Up to 8 player splitscreen support (separate screens for CPUs that can be taken under control)
+- The ability to customise gameplay by toggling various differences between the four classic titles
 - The framework offers various graphical effects you can see in the classic games, including layer deformation and palette-based fade in/out
+
+## Documentation
+
+Documentation, answers to frequently asked questions and initial framework setup are available on the [Wiki](https://github.com/TrianglyRU/OrbinautFramework/wiki)
 
 ## Updates & Support
 
-The framework is complete with all features working as intended and ready for use. We will push updates directly to the repository each LTS update. If you have any questions about the framework, feel free to use the [Discussions](https://github.com/TrianglyRU/OrbinautFramework/discussions) tab. Please, do not use it for bug reports
-
-## Credits
-
-- **Founders**: Triangly, Michael Gallinago
-- **Programmers**: Triangly, Michael Gallinago, techncolour
-- **Framework Branding & Sprite Edits**: Natufox
-- **Framework Trailer**: Lapper
-- **Tech Stadium Zone**: Enrico Cartmanuel
-- **Level Design**: FieryN8
-- **Giganorbi Boss Programming**: techncolour
-- **Neko Presence Plugin**: nkrapivin
-- **Special Thanks**: Lapper, Mercury, NicoCW, thevaleev, Noah N. Copeland, The Sonic 1, 2 and 3 Dissasembly Community, and our Twitter followers!
+The framework is complete, with all features working as intended and ready for use. Small updates may occasionally be pushed to the repository to address minor oversights, bugs, inconsistencies, and other issues discovered over time. If you have any questions about the framework, feel free to use the [Discussions](https://github.com/TrianglyRU/OrbinautFramework/discussions) tab. Please, do not use it for bug reports
 
 ## Terms of Use
 
@@ -47,6 +35,14 @@ Please credit us as Team Orbinaut
 
 Even though the license does not prohibit it, we'd like to ask that you do not distribute modified versions of the framework. Thank you!
 
----
+## Credits
 
-¹ Default splitscreen support is basic, providing separate screens for CPUs that can be taken under control like in Sonic 2 or Sonic 3(K). There is no "complete splitscreen experience", as you may call it that
+- **Project Leads**: Triangly, Michael Gallinago
+- **Programming**: Triangly, Michael Gallinago, techncolour
+- **Boss Design & Programming**: techncolour
+- **Branding & Sprite Editing**: Natufox
+- **Trailer Production**: Lapper
+- **Tech Stadium Zone Art**: Enrico Cartmanuel
+- **Level Design**: FieryN8
+- **Neko Presence Plugin**: nkrapivin
+- **Special Thanks**: Lapper, Mercury, NicoCW, thevaleev, Noah N. Copeland, The Sonic 1, 2 and 3 Disassembly Community, and our Twitter followers
