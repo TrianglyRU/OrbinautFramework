@@ -8,7 +8,7 @@ if room == rm_startup
 
 enum GAME_STATE
 {
-	NORMAL, STOP_OBJECTS, STOP_SYSTEM, STOP_ALL
+	NORMAL, STOP_OBJECTS, STOP_ALL
 }
 
 enum SAVE_DATA_STATE
@@ -161,7 +161,6 @@ debug_get_state_name = function()
 	{
 		case GAME_STATE.NORMAL: return "NORMAL";
 		case GAME_STATE.STOP_OBJECTS: return "STPOBJ";
-		case GAME_STATE.STOP_SYSTEM: return "STPSYS";
 		case GAME_STATE.STOP_ALL: return "STPALL";
 		default: return "UNKNWN";
 	}

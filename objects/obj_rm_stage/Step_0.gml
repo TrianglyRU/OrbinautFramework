@@ -1,4 +1,4 @@
-if obj_game.state >= GAME_STATE.STOP_SYSTEM
+if obj_game.state == GAME_STATE.STOP_ALL
 {
     return;
 }

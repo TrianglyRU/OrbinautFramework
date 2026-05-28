@@ -161,7 +161,7 @@ else if fade_timer == 0
 	}
 }
 
-if state < GAME_STATE.STOP_SYSTEM
+if state != GAME_STATE.STOP_ALL
 {
 	if allow_pause && input_press[| 0].start
 	{
@@ -220,7 +220,7 @@ else
 	}
 }
 
-if state < GAME_STATE.STOP_SYSTEM
+if state != GAME_STATE.STOP_ALL
 {
 	frame_counter++;
 	oscillation_angle = frame_counter * ANGLE_INCREMENT;

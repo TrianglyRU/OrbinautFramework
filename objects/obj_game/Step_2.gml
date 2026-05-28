@@ -72,7 +72,7 @@ FOR_EACH_CAMERA
 		view_surface_id[_c] = surface_create(_camera_data.surface_w, _camera_data.surface_h);
 	}
 	
-	if state < GAME_STATE.STOP_SYSTEM && _camera_data.allow_updates
+	if state != GAME_STATE.STOP_ALL && _camera_data.allow_updates
 	{
 		var _target = _camera_data.target;
 		
@@ -185,7 +185,7 @@ FOR_EACH_CAMERA
     camera_set_view_pos(view_camera[_c], _x - CAMERA_HORIZONTAL_BUFFER, _y);
 }
 
-if state < GAME_STATE.STOP_SYSTEM
+if state != GAME_STATE.STOP_ALL
 {
 	if global.ring_spill_counter > 0
     {

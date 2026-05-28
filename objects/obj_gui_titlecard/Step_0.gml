@@ -8,6 +8,9 @@ if timer <= 96
 		if obj_game.fade_state == FADE_STATE.PLAIN_COLOUR
 		{
 			fade_perform_black(FADE_DIRECTION.IN, 1);
+			
+			// Do not update during the fade transition
+			max_allowed_game_state = GAME_STATE.STOP_OBJECTS;
 		}
 		else FOR_EACH_CAMERA
 		{
