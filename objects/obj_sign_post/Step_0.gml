@@ -1,6 +1,6 @@
 switch state
 {
-	case SIGNPOST_STATE.IDLE:
+	case SIGN_POST_STATE.IDLE:
 	
 		var _player = player_get(0);
 		var _dist = floor(_player.x) - x;
@@ -22,14 +22,14 @@ switch state
 		
 		obj_gui_hud.update_timer = false;
 		
-		state = SIGNPOST_STATE.ROTATE;
+		state = SIGN_POST_STATE.ROTATE;
 		player = _player;
 		
 		audio_sfx_play(snd_sign_post);
 		
 	break;
 	
-	case SIGNPOST_STATE.ROTATE:
+	case SIGN_POST_STATE.ROTATE:
 	
 		if --sign_spin_timer < 0
 		{
@@ -80,7 +80,7 @@ switch state
 				
 				case 3:
 					
-					state = SIGNPOST_STATE.CHECK_RESULTS;
+					state = SIGN_POST_STATE.CHECK_RESULTS;
 					animator.clear(0);
 					
 				break;
@@ -104,8 +104,8 @@ switch state
 		
 	break;
 	
-	case SIGNPOST_STATE.CHECK_RESULTS:
-	case SIGNPOST_STATE.RESULTS:
+	case SIGN_POST_STATE.CHECK_RESULTS:
+	case SIGN_POST_STATE.RESULTS:
 		
 		var _is_transition = instance_exists(obj_transition_save);
 		
@@ -147,14 +147,14 @@ switch state
 					continue;
 				}
 				
-				if _results_state == SIGNPOST_STATE.CHECK_RESULTS || _lead_player.animation == ANIM.ACT_CLEAR
+				if _results_state == SIGN_POST_STATE.CHECK_RESULTS || _lead_player.animation == ANIM.ACT_CLEAR
 				{
 					set_victory_pose();
 				}
 			}
 		}
 		
-		if state == SIGNPOST_STATE.CHECK_RESULTS
+		if state == SIGN_POST_STATE.CHECK_RESULTS
 		{
 			if !_is_transition
 			{
@@ -171,7 +171,7 @@ switch state
 			instance_create(0, 0, obj_gui_results);
 			
 			// Do not run these checks anymore
-			state = SIGNPOST_STATE.RESULTS;
+			state = SIGN_POST_STATE.RESULTS;
 		}
 		
 	break;

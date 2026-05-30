@@ -54,14 +54,15 @@ function tile_raycast_v(_x, _y, _dir, _secondary_layer = COLLISION_LAYER.PATH_A,
 		
 		while true
 		{
-			var _tile_buffer, _index_buffer, _height_buffer, _mirror_buffer;
+			var _tile_buffer, _index_buffer, _height_buffer, _mirror_buffer, _height_data;
 			
 			_tile = tilemap_get(_tilemap, _cell_id_x, _cell_id_y);
 			_mirror = tile_get_mirror(_tile);
 			_index = tile_get_index(_tile);
+			_height_data = _heights[? _index];
 			
 			// Check validity and read height
-			if _tile != -1 && _index > 0
+			if _height_data != undefined
 			{
 				var _marker_index = 0;
 				var _markermap = _markers[_i];
@@ -111,7 +112,7 @@ function tile_raycast_v(_x, _y, _dir, _secondary_layer = COLLISION_LAYER.PATH_A,
 						_height_index = _mod_x;
 					}
 					
-					_h = _heights[? _index][_height_index];
+					_h = _height_data[_height_index];
 				}
 				else
 				{

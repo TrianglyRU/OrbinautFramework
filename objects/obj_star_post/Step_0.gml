@@ -1,4 +1,4 @@
-if state != STARPOST_STATE.IDLE
+if state != STAR_POST_STATE.IDLE
 {
 	return;
 }
@@ -7,7 +7,7 @@ var _checkpoint_data = global.checkpoint_data;
 
 if array_length(_checkpoint_data) > 0 && _checkpoint_data[7] >= iv_index
 {
-	state = STARPOST_STATE.ACTIVE;
+	state = STAR_POST_STATE.ACTIVE;
 	lamp_obj.activate();
 	
 	return;
@@ -29,7 +29,7 @@ if _player.state < PLAYER_STATE.NO_INTERACT && point_in_rectangle(floor(_player.
 		iv_index
 	];
 	
-	state = STARPOST_STATE.ACTIVE;
+	state = STAR_POST_STATE.ACTIVE;
 	lamp_obj.state = LAMP_STATE.ROTATE;
 	
 	if global.player_rings >= 20

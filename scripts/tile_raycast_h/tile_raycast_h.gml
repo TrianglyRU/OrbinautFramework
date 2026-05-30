@@ -55,14 +55,15 @@ function tile_raycast_h(_x, _y, _dir, _secondary_layer = COLLISION_LAYER.PATH_A,
 		
         while true
         {
-			var _tile_buffer, _index_buffer, _width_buffer, _flip_buffer;
+			var _tile_buffer, _index_buffer, _width_buffer, _flip_buffer, _width_data;
 			
 			_tile = tilemap_get(_tilemap, _cell_id_x, _cell_id_y);
 			_flip = tile_get_flip(_tile);
 			_index = tile_get_index(_tile);	
+			_width_data = _widths[? _index];
 			
 			// Check validity and get width
-			if _tile != -1 && _index > 0
+			if _width_data != undefined
 			{
 				var _marker_index = 0;
 				var _markermap = _markers[_i];
@@ -112,7 +113,7 @@ function tile_raycast_h(_x, _y, _dir, _secondary_layer = COLLISION_LAYER.PATH_A,
 						_width_index = _mod_y;
 					}
 				
-					_w = _widths[? _index][_width_index];
+					_w = _width_data[_width_index];
 				}
 				else
 				{

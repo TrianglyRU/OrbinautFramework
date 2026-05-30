@@ -8,5 +8,5 @@ depth = draw_depth(40);
 sprite_index = spr_platform_swing_base;
 sprite_chain = spr_platform_swing_chain;
 sprite_pendulum = spr_platform_swing_bob;
-distance = iv_chains * SWING_CHAIN_SIZE - SWING_CHAIN_SIZE * 0.5;
+distance = (iv_chains + 1) * SWING_CHAIN_SIZE - SWING_CHAIN_SIZE * 0.5;
 osc_angle = 0;

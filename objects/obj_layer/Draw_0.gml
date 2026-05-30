@@ -1,18 +1,11 @@
-if !draw_enabled[view_current]
+if view_camera[view_current] == -1 || !draw_enabled[view_current]
 {
     return;
 }
 
-var _camera = view_camera[view_current];
-
-if _camera == -1
-{
-    return;
-}
-
-var _cx = camera_get_x(_camera);
-var _cy = camera_get_y(_camera);
-var _cw = camera_get_width(_camera);
+var _cx = camera_get_x(view_current);
+var _cy = camera_get_y(view_current);
+var _cw = camera_get_width(view_current);
 
 var _draw_x = get_draw_x(_cx, factor_x) + draw_offset_x;
 var _draw_y = get_draw_y(_cy, factor_y) + draw_offset_y;
@@ -39,7 +32,7 @@ else if htiled
 {
     if line_height < 0
     {
-        draw_sprite_tiled_h_ext(sprite_index, image_index, 0, 0, tex_width, tex_height, _draw_x, _draw_y, image_xscale, _scale_y, draw_colour, image_alpha, _camera_limit_left, _camera_limit_right);
+        draw_sprite_tiled_h_ext(sprite_index, image_index, 0, 0, width, height, _draw_x, _draw_y, image_xscale, _scale_y, draw_colour, image_alpha, _camera_limit_left, _camera_limit_right);
     }
     else
     {
@@ -76,7 +69,7 @@ else if htiled
                 _line_y = _draw_y - (_lines_total - 1 - _i) * _scaled_line_h;
             }
 			
-			draw_sprite_tiled_h_ext(sprite_index, image_index, 0, _src_y, tex_width, _line_height, _line_x, _line_y, image_xscale, _flip * abs(_scale_y), draw_colour, image_alpha, _camera_limit_left, _camera_limit_right);
+			draw_sprite_tiled_h_ext(sprite_index, image_index, 0, _src_y, width, _line_height, _line_x, _line_y, image_xscale, _flip * abs(_scale_y), draw_colour, image_alpha, _camera_limit_left, _camera_limit_right);
 		}
     }
 }

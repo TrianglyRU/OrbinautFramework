@@ -43,7 +43,7 @@ function bg_convert(_layer, _factor_x, _factor_y, _scroll_x, _scroll_y, _frame_d
 	
 	FOR_EACH_CAMERA
 	{
-		_object.rendered[_c] = _is_visible;
+		_object.draw_enabled[_c] = _is_visible;
 	}
 	
 	layer_destroy(_layer);

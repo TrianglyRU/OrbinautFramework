@@ -32,7 +32,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"iv_chains","filters":[],"listItems":[],"multiselect":false,"name":"iv_chains","rangeEnabled":true,"rangeMax":16.0,"rangeMin":1.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"iv_chains","filters":[],"listItems":[],"multiselect":false,"name":"iv_chains","rangeEnabled":true,"rangeMax":16.0,"rangeMin":1.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"3","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"iv_range","filters":[],"listItems":[],"multiselect":false,"name":"iv_range","rangeEnabled":true,"rangeMax":360.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"180","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"iv_offset","filters":[],"listItems":[],"multiselect":false,"name":"iv_offset","rangeEnabled":true,"rangeMax":360.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
   ],

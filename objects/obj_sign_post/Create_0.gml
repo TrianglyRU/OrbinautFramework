@@ -3,7 +3,7 @@ event_inherited();
 event_animator();
 event_culler(CULL_ACTION.PAUSE);
 
-enum SIGNPOST_STATE
+enum SIGN_POST_STATE
 {
 	IDLE,
 	ROTATE,
@@ -14,7 +14,7 @@ enum SIGNPOST_STATE
 obj_rm_stage.end_bound = x + camera_get_width(0) * 0.5;
 
 depth = draw_depth(50);
-state = SIGNPOST_STATE.IDLE;
+state = SIGN_POST_STATE.IDLE;
 sign_spin_timer = 0;
 sign_spin_cycle = 0;
 player = noone;

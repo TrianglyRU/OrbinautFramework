@@ -46,13 +46,9 @@ switch state
 		{
 			var _player = player_get(obj_game.frame_counter % PLAYER_COUNT);
 			var _dist_x = x - floor(_player.x);
+	        var _abs_dist_x = abs(_dist_x);
 			
-			if _dist_x < 0
-			{
-				_dist_x *= -1;
-			}
-			
-			if _dist_x >= 0 && _dist_x < 96 && instance_is_drawn()
+			if _abs_dist_x >= 0 && _abs_dist_x < 96 && instance_is_drawn()
 			{
 				state = BUZZ_BOMBER_STATE.FIRE;
 				state_timer = 29;
