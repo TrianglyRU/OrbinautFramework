@@ -90,6 +90,7 @@ switch state
 			with obj_player
 			{
 				release_from_solid(other.id);
+				vel_y = other.vel_y;
 			}
 		}
 		

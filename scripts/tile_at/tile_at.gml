@@ -4,23 +4,24 @@
 /// @param {Real} _y											The y-coordinate of the position.
 /// @param {Enum.COLLISION_LAYER|Undefined} [_secondary_layer]	The index of the secondary tile layer to check within (default is COLLISION_LAYER.PATH_A).
 /// @returns {Enum.TILE_SOLIDITY}
-function tile_at(_x, _y, _secondary_layer)
+function tile_at(_x, _y, _secondary_layer = COLLISION_LAYER.PATH_A)
 {
-	var _tilemaps = obj_game.tilemaps;
 	var _markers = obj_game.marker_tilemaps;
+	var _tilemaps = obj_game.tilemaps;
+	var _tilemaps_num = array_length(_tilemaps);
 	
 	_x = floor(_x);
 	_y = floor(_y);
 	
-    for (var _j = array_length(_tilemaps) - 1; _j >= 0; _j--)
+    for (var _i = 0; _i < _tilemaps_num; _i++)
 	{
         // Don't check anything other than the main layer or the specified secondary layer
-		if _j != COLLISION_LAYER.MAIN && _j != _secondary_layer
+		if _i != COLLISION_LAYER.MAIN && _i != _secondary_layer
 		{
 			continue;
 		}
 		
-		var _tilemap = _tilemaps[_j];
+        var _tilemap = _tilemaps[_i];
 		
         if _tilemap == -1
         {
@@ -33,7 +34,7 @@ function tile_at(_x, _y, _secondary_layer)
 		}
 		
 		var _marker_index = 0;
-		var _markermap = _markers[_j];
+		var _markermap = _markers[_i];
 		
 		if _markermap != -1
 		{
@@ -47,7 +48,7 @@ function tile_at(_x, _y, _secondary_layer)
 			}
 		}
 		
-		return _marker_index;
+		return _marker_index + 1;
 	}
 	
 	return TILE_SOLIDITY.NONE;

@@ -6,6 +6,7 @@ depth = RENDER_DEPTH_PRIORITY - 1;
 max_allowed_game_state = GAME_STATE.STOP_OBJECTS;
 current_level = ystart;
 target_level = ystart;
+velocity = 0;
 animator.start(sprite_index, 0, 0, 16);
 
 obj_game.deformation_bound = ystart;

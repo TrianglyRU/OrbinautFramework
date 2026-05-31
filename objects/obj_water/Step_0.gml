@@ -1,10 +1,10 @@
 if current_level < target_level
 {
-	current_level++;
+	current_level = min(current_level + velocity, target_level);
 }
 else if current_level > target_level
 {
-	current_level--;
+	current_level = max(current_level - velocity, target_level);
 }
 
 y = iv_oscillate ? math_oscillate_y(current_level, obj_game.oscillation_angle + 90, 10) : current_level;
