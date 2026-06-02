@@ -254,13 +254,20 @@ land = function()
 	is_grounded = true;
 	reset_gravity();
 	
-	if action == ACTION.SPIN_DASH || action == ACTION.DASH || action == ACTION.HAMMER_DASH
+	if action == ACTION.HAMMER_DASH
+	{
+		return;
+	}
+	
+	if action == ACTION.SPIN_DASH || action == ACTION.DASH
 	{
 		// Retain the charge
 		if action == ACTION.DASH
 		{
 			spd = dash_vel;
 		}
+		
+		vel_x = 0;
 		
 		return;
 	}
