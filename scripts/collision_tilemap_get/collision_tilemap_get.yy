@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"tile_at",
+  "%Name":"collision_tilemap_get",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"tile_at",
+  "name":"collision_tilemap_get",
   "parent":{
     "name":"Tiles",
     "path":"folders/Functions/Tiles.yy",

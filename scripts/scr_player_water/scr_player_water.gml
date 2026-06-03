@@ -130,8 +130,6 @@ function scr_player_water()
 /// @self scr_player_water
 function _spawn_splash()
 {
-	gml_pragma("forceinline");
-	
 	if vel_y != 0
 	{
 		if state != PLAYER_STATE.NO_INTERACT && action != ACTION.CLIMB && !is_true_glide() && cpu_state != CPU_STATE.RESPAWN
@@ -145,8 +143,6 @@ function _spawn_splash()
 /// @self scr_player_water
 function _set_gravity()
 {
-	gml_pragma("forceinline");
-	
 	if action != ACTION.FLIGHT && !is_true_glide()
 	{
 		reset_gravity();

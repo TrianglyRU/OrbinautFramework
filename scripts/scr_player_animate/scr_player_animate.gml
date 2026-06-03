@@ -83,6 +83,5 @@ function scr_player_animate()
 /// @self scr_player_animate
 function _ceil_angle(_angle)
 {
-	gml_pragma("forceinline");
 	return ceil((_angle - 22.5) / 45) * 45;
 }

@@ -1,8 +1,6 @@
 /// @function scr_giganorbi_state_machine
 function scr_giganorbi_state_machine()
 {
-	gml_pragma("forceinline");
-	
 	x += vel_x;
 	y += vel_y;
 
@@ -146,9 +144,10 @@ function scr_giganorbi_state_machine()
 				break;
 			}
 			
-			if tile_at(x, y + 31)
+			// Collide with the level
+			if tile_check_v(x, y + 31, 1)
 			{
-				while tile_at(x, y + 31)
+				while tile_check_v(x, y + 31, 1)
 				{
 					y--;
 				}

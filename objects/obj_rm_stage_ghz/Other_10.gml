@@ -6,8 +6,6 @@ global.player_physics = PHYSICS.S1;
 setup_stage("GREEN HILL", 0, snd_bgm_ghz, [spr_animal_flicky, spr_animal_pocky], rm_stage_ehz_1, GAME_PROGRESS_GHZ);
 drp_room_icon = "stage_ghz";
 
-tile_load_data(spr_collision_s1);
-
 bg_convert("Clouds_1", 0.375, -0.03125, -1, 0, 0);
 bg_convert("Clouds_2", 0.375, -0.03125, -0.5, 0, 0);
 bg_convert("Clouds_3", 0.375, -0.03125, -0.25, 0, 0);

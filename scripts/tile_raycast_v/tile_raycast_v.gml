@@ -8,212 +8,212 @@
 /// @returns {Array<Real>}
 function tile_raycast_v(_x, _y, _dir, _secondary_layer = COLLISION_LAYER.PATH_A, _quadrant = QUADRANT.DOWN)
 {
-    _x = floor(_x);
-    _y = floor(_y);
+	_x = floor(_x);
+	_y = floor(_y);
 	
-    var _best_distance = TILE_SIZE * 2;
-    var _best_ang = TILE_EMPTY_ANGLE;
-	
-    if _x < 0 || _x > room_width
+    if _x < 0 || _x >= room_width
     {
-        return [_best_distance, _best_ang];
+        return [TILE_SIZE * 2, TILE_EMPTY_ANGLE];
     }
-    
-	var _markers = obj_game.marker_tilemaps;
-	var _tilemaps = obj_game.tilemaps;
-	var _heights = obj_game.tile_heights_ref;
-	var _angles = obj_game.tile_angles_ref;
-	var _tilemaps_num = array_length(_tilemaps);
 	
-	var _start_cell_id_x = floor(_x / TILE_SIZE);
-    var _start_cell_id_y = floor(_y / TILE_SIZE);
-	var _mod_x = _x % TILE_SIZE;
+	// Get distance to the nearest surface
+	var _distance = _calc_distance_v(_x, _y, _dir, _secondary_layer, _quadrant);
+	var _sy = _y + _dir * _distance;
 	
-    for (var _i = 0; _i < _tilemaps_num; _i++)
+	var _tilemap = collision_tilemap_get(_x, _sy, _secondary_layer);
+	var _angle;
+	
+	if _tilemap != -1
 	{
-        // Don't check anything other than the main layer or the specified secondary layer
-		if _i != COLLISION_LAYER.MAIN && _i != _secondary_layer
+		var _tile = tilemap_get_at_pixel(_tilemap, _x, _sy);
+		var _set_angle = global.tile_angles[? tilemap_get_tileset(_tilemap)][? tile_get_index(_tile)];
+		
+		if tile_get_empty(_tile)
 		{
-			continue;
+			_angle = TILE_EMPTY_ANGLE;
 		}
-		
-        var _tilemap = _tilemaps[_i];
-		
-        if _tilemap == -1
-        {
-            continue;
-        }
-        
-        var _result_ang = TILE_EMPTY_ANGLE;
-		var _result_distance = _best_distance;
-		var _cell_id_x = _start_cell_id_x;
-        var _cell_id_y = _start_cell_id_y;
-        
-		var _check_index = 0;
-		var _tile, _index, _h, _mirror;
-		
-		while true
+		else
 		{
-			var _tile_buffer, _index_buffer, _height_buffer, _mirror_buffer, _height_data;
-			
-			_tile = tilemap_get(_tilemap, _cell_id_x, _cell_id_y);
-			_mirror = tile_get_mirror(_tile);
-			_index = tile_get_index(_tile);
-			_height_data = _heights[? _index];
-			
-			// Check validity and read height
-			if _height_data != undefined
+			// Get angle of the surface
+			if _set_angle == undefined
 			{
-				var _marker_index = 0;
-				var _markermap = _markers[_i];
+				var _ax1 = floor(_x / TILE_SIZE) * TILE_SIZE;
+				var _ax2 = _ax1 + TILE_SIZE - 1;
+				var _ay1 = _sy + _dir * _calc_distance_v(_ax1, _sy, _dir, _secondary_layer, _quadrant);
+				var _ay2 = _sy + _dir * _calc_distance_v(_ax2, _sy, _dir, _secondary_layer, _quadrant);
 				
-				if _markermap != -1
+				if _dir > 0
 				{
-					var _marker_tile = tilemap_get(_markermap, _cell_id_x, _cell_id_y);
-					
-					if _marker_tile != -1
-					{
-						_marker_index = tile_get_index(_marker_tile);
-					}
-				}
-				
-				var _is_down = _quadrant == QUADRANT.DOWN;
-				var _is_up = _quadrant == QUADRANT.UP;
-				var _is_positive = _dir == 1;
-				var _is_valid;
-				
-	            switch _marker_index
-	            {
-	                // Top Solid
-	                case 1: 
-	                    _is_valid = _is_down && _is_positive || _is_up && !_is_positive;
-					break;
-					
-	                // LBR Solid
-	                case 2: 
-	                    _is_valid = _is_down && !_is_positive || _is_up && _is_positive || !_is_down && !_is_up;
-					break;
-					
-					// All Solid
-					default:
-						_is_valid = true;
-	            }
-				
-				if _is_valid
-				{
-					var _height_index;
-					
-					if _mirror
-					{
-						_height_index = TILE_SIZE - 1 - _mod_x;
-					}
-					else
-					{
-						_height_index = _mod_x;
-					}
-					
-					_h = _height_data[_height_index];
+					_angle = point_direction(_ax1, _ay1, _ax2, _ay2);
 				}
 				else
 				{
-					_h = 0;
+					_angle = point_direction(_ax2, _ay2, _ax1, _ay1);
 				}
+		
+				_angle = _correct_angle(_angle);
 			}
-			else
+	
+			// Read set angle
+			else if _set_angle != 0
 			{
-				_h = 0;
-			}
-			
-			// Check nearest tiles
-            if _check_index == 0
-            {
-                if _h == 0
-                {
-					_check_index = 1;
-                    _cell_id_y += _dir;
-					
-                }
-                else if _h == TILE_SIZE
-                {
-					_check_index = 2;
-					_cell_id_y -= _dir;
-                    _tile_buffer = _tile;
-                    _index_buffer = _index;
-                    _height_buffer = _h;
-					_mirror_buffer = _mirror;
-                }
-                else
-                {
-                    break;
-                }
-            }
-			else
-			{
-				if _check_index == 2 && _h == 0
+				if tile_get_flip(_tile)
 				{
-					_tile = _tile_buffer;
-			        _index = _index_buffer;
-			        _h = _height_buffer;
-					_mirror = _mirror_buffer;
-			        _cell_id_y += _dir;
+				    _set_angle = (540 - _set_angle) % 360;
+				}
+        
+				if tile_get_mirror(_tile)
+				{
+				    _set_angle = 360 - _set_angle;
 				}
 				
-				break;
+				_angle = _set_angle;
+			}
+			else
+			{
+				_angle = _dir == 1 ? 0 : 180;
 			}
 		}
-        
-	    var _flip = tile_get_flip(_tile);
-		var _ang = _index <= 0 ? TILE_EMPTY_ANGLE : _angles[? _index];
+	}
+	else
+	{
+		_angle = TILE_EMPTY_ANGLE;
+	}
+	
+	return [_distance - 1, _angle];
+}
+
+/// @self tile_raycast_v
+function _calc_distance_v(_x, _y, _dir, _secondary_layer, _quadrant)
+{
+	var _tile_y = floor(_y / TILE_SIZE) * TILE_SIZE;
+	var _height = _read_height(_x, _tile_y, _dir, _secondary_layer, _quadrant);
+	
+	if _height == 0 || _height == TILE_SIZE
+    {
+		var _tile_y_prev = _tile_y;
+		var _tile_step = _dir * TILE_SIZE;
 		
-		// Get angle
-	    if _ang != TILE_EMPTY_ANGLE
-	    {
-	        if _ang > 0
-	        {
-	            if _flip
-	            {
-	                _ang = (540 - _ang) % 360;
-	            }
-                
-	            if _mirror
-	            {
-	                _ang = 360 - _ang;
-	            }
+		if _height == 0
+		{
+			_tile_y += _tile_step;
+		}
+		else
+		{
+			_tile_y -= _tile_step;
+		}
+		
+		var _height_2 = _read_height(_x, _tile_y, _dir, _secondary_layer, _quadrant);
+		
+		if _tile_y == _tile_y_prev - _tile_step && _height_2 == 0
+		{
+			_tile_y = _tile_y_prev;
+		}
+		else
+		{
+			_height = _height_2;
+		}
+	}
+	
+	if _dir > 0
+	{
+	    return _tile_y + TILE_SIZE - _height - _y;
+	}
+	else
+	{
+	    return _y - _tile_y - _height + 1;
+	}
+}
+
+/// @self tile_raycast_v
+function _read_height(_x, _y, _dir, _secondary_layer, _quadrant)
+{
+	var _tilemap = collision_tilemap_get(_x, _y, _secondary_layer);
+	
+	if _tilemap == -1
+	{
+		return 0;
+	}
+	
+	var _tile = tilemap_get_at_pixel(_tilemap, _x, _y);
+	
+	if tile_get_empty(_tile)
+	{
+		return 0;
+	}
+	
+	var _tileset = tilemap_get_tileset(_tilemap);
+	var _index = tile_get_index(_tile);
+	var _height_data = global.tile_heights[? _tileset][? _index];
+	
+	if _height_data == undefined
+	{
+		return 0;
+	}
+	
+	var _marker_index = 0;
+	var _marker = obj_game.markers[? _tilemap];
+	
+	if _marker != -1
+	{
+		var _marker_tile = tilemap_get_at_pixel(_marker, _x, _y);
 				
-				_result_ang = _ang;
-	        }
-	        else
-	        {
-	            // Force full height if found from the opposite side
-	            if _h > 0
-	            {
-	                if _dir == 1 && _flip || _dir == -1 && !_flip
-	                {
-	                    _h = TILE_SIZE;
-	                }
-	            }
-                
-	            _result_ang = _dir == 1 ? 0 : 180;
-	        }
-	    }
+		if _marker_tile != -1
+		{
+			_marker_index = tile_get_index(_marker_tile);
+		}
+	}
 		
-		// Calculate distance to the edge of the surface
-	    if _dir == 1
-	    {
-	        _result_distance = _cell_id_y * TILE_SIZE + TILE_SIZE - 1 - _h - _y;
-	    }
-	    else
-	    {
-	        _result_distance = _y - _cell_id_y * TILE_SIZE - _h;
-	    }
+	var _is_down = _quadrant == QUADRANT.DOWN;
+	var _is_up = _quadrant == QUADRANT.UP;
+	var _is_positive = _dir == 1;
+	var _is_valid;
 		
-		// Get closest tile among the checked layers
-        if _result_distance < _best_distance
-        {
-            _best_distance = _result_distance;
-            _best_ang = _result_ang;
-        }
-    }
-    
-    return [_best_distance, _best_ang];
+	switch _marker_index
+	{
+	    // Top Solid
+	    case 1: 
+	        _is_valid = _is_down && _is_positive || _is_up && !_is_positive;
+		break;
+					
+	    // LBR Solid
+	    case 2: 
+	        _is_valid = _is_down && !_is_positive || _is_up && _is_positive || !_is_down && !_is_up;
+		break;
+					
+		// All Solid
+		default:
+			_is_valid = true;
+	}
+		
+	if !_is_valid
+	{
+		return 0;
+	}
+	
+	var _height_index = _x % TILE_SIZE;
+	
+	if tile_get_mirror(_tile)
+	{
+		_height_index = TILE_SIZE - 1 - _height_index;	
+	}
+	
+	var _height = _height_data[_height_index];
+	
+	if _height != 0
+	{
+		var _raw_angle = global.tile_angles[? _tileset][? _index];
+		
+		if _raw_angle != undefined && _raw_angle == 0
+		{
+			var _flip = tile_get_flip(_tile);
+			
+			if _dir > 0 && _flip || _dir < 0 && !_flip
+		    {
+		        _height = TILE_SIZE;
+		    }
+		}
+	}
+
+	return _height;
 }

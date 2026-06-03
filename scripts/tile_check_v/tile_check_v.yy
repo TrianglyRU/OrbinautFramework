@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"tile_load_data",
+  "%Name":"tile_check_v",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"tile_load_data",
+  "name":"tile_check_v",
   "parent":{
     "name":"Tiles",
     "path":"folders/Functions/Tiles.yy",

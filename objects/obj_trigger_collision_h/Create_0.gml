@@ -7,11 +7,11 @@ layer_data = [];
 switch image_index % image_number
 {
 	case 0:
-		layer_data = [COLLISION_LAYER.PATH_A, COLLISION_LAYER.PATH_B];
+		layer_data = [COLLISION_LAYER.PATH_B, COLLISION_LAYER.PATH_A];
 	break;
 	
 	case 1:
-		layer_data = [COLLISION_LAYER.PATH_B, COLLISION_LAYER.PATH_A];
+		layer_data = [COLLISION_LAYER.PATH_A, COLLISION_LAYER.PATH_B];
 	break;
 	
 	case 2:

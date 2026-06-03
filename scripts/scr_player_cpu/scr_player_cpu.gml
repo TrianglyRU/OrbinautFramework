@@ -338,8 +338,6 @@ function scr_player_cpu()
 /// @self scr_player_cpu
 function _start_respawn()
 {
-	gml_pragma("forceinline");
-	
 	if instance_is_drawn() || x >= camera_data.right_bound
 	{
 	    cpu_timer_respawn = 0; return false;

@@ -13,7 +13,7 @@ function scr_player_collision_ground_walls()
 	var _angle_quad = math_get_quadrant(angle);
 	var _wall_quad;
 	
-	// _wall_quad's angle ranges are differnt from the math_get_quadrant() ones
+	// _wall_quad's angle ranges differ from those used by math_get_quadrant()
 	if angle >= 45 && angle <= 128
 	{
 	    _wall_quad = QUADRANT.RIGHT;

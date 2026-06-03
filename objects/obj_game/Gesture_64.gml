@@ -21,7 +21,7 @@ if _y >= _h * 0.875
 	{
 		event_perform(ev_keypress, vk_f8);
 	}
-	else if _x >= _w * 0.125
+	else if _x >= _w * 0.875
 	{
 		event_perform(ev_keypress, vk_escape);
 	}

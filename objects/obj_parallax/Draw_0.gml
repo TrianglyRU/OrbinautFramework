@@ -50,7 +50,6 @@ else if htiled
 			var _src_y = _j * line_height;
 			var _line_height = min(line_height, tex_height - _src_y);
 			
-			// Out of sprite texture bounds
 			if _line_height <= 0
 			{
 				break;

@@ -6,7 +6,7 @@ if obj_game.fade_state != FADE_STATE.NONE
 var _frame = floor(obj_game.frame_counter * 0.5);
 var _frame_num = array_length(bg_playback_data);
 
-with obj_layer
+with obj_parallax
 {
 	image_index = other.bg_playback_data[_frame % _frame_num];
 }
@@ -70,7 +70,7 @@ if level_entries[global.selected_level_entry] == "SOUND TEST"
 			
 			if string_starts_with(_sound_name, "snd_bgm")
 	        {
-	            audio_bgm_play(_sound_id, string_ends_with(_sound_name, "extralife") ? AUDIO_CHANNEL_JINGLE : 0);
+	            audio_bgm_play(_sound_id, string_ends_with(_sound_name, "extra_life") ? AUDIO_CHANNEL_JINGLE : 0);
 	        }
 	        else
 	        {

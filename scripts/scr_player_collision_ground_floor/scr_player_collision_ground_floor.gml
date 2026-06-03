@@ -186,8 +186,6 @@ function scr_player_collision_ground_floor()
 /// @self scr_player_collision_ground_floor
 function _snap_angle(_angle)
 {
-	gml_pragma("forceinline");
-		
 	var _diff = abs(angle % 180 - _angle % 180);
 	
 	if _diff >= 45 && _diff <= 135

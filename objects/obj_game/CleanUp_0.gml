@@ -24,9 +24,8 @@ FOR_EACH_CAMERA
 
 // COLLISION
 
-tile_angles_ref = undefined;
-tile_widths_ref = undefined;
-tile_heights_ref = undefined;
+ds_map_destroy(angle_map);
+ds_map_destroy(markers);
 
 // CULLING
 

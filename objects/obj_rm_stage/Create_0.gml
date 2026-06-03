@@ -53,12 +53,6 @@ switch global.player_main
 		drp_char_icon = "player_sonic";	
 }
 
-discord_set_data(zone_name, act_index == ACT_SINGLE ? "Single Act" : "Act " + string(act_index + 1), drp_room_icon, drp_char_icon);
-
-instance_create(0, 0, obj_gui_titlecard);
-instance_create(0, 0, obj_gui_hud);
-audio_bgm_play(bgm_track);
-
 var _ring_data = global.giant_ring_data;
 var _checkpoint_data = global.checkpoint_data;
 
@@ -99,3 +93,9 @@ FOR_EACH_CAMERA
         _camera_data.right_bound = right_bound[_c];
     }
 }
+
+instance_create(0, 0, obj_gui_titlecard);
+instance_create(0, 0, obj_gui_hud);
+audio_bgm_play(bgm_track);
+
+discord_set_data(zone_name, act_index == ACT_SINGLE ? "Single Act" : "Act " + string(act_index + 1), drp_room_icon, drp_char_icon);

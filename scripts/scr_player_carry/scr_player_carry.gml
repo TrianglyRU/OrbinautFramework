@@ -103,8 +103,6 @@ function scr_player_carry()
 /// @self scr_player_carry
 function _attach_to_tails(_attached_player)
 {
-	gml_pragma("forceinline");
-	
 	var _target_x = x;
 	var _target_y = y + 28;
 	

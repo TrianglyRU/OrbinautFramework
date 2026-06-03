@@ -4,8 +4,6 @@ global.player_physics = PHYSICS.S2;
 setup_stage("EMERALD HILL", 0, snd_bgm_ehz, [spr_animal_flicky, spr_animal_ricky], rm_level_select, GAME_PROGRESS_MAX);
 drp_room_icon = "stage_ehz";
 
-tile_load_data(spr_collision_s2);
-
 bg_convert("Clouds", 0.015625, 0, 0, 0, 0);
 bg_convert("Hills_1", 0.0625, 0, 0, 0, 0);
 bg_convert("Hills_2", 0.09375, 0, 0, 0, 0);

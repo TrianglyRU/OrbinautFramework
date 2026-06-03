@@ -12,199 +12,189 @@ function tile_raycast_h(_x, _y, _dir, _secondary_layer = COLLISION_LAYER.PATH_A,
 	_y = floor(_y);
 	_y = max(0, _y);
 	
-	var _best_distance = TILE_SIZE * 2;
-    var _best_ang = TILE_EMPTY_ANGLE;
-	
-	if _y > room_height
+	if _y >= room_height
 	{
-		return [_best_distance, _best_ang];
+		return [TILE_SIZE * 2, TILE_EMPTY_ANGLE];
 	}
 	
-	var _markers = obj_game.marker_tilemaps;
-	var _tilemaps = obj_game.tilemaps;
-	var _widths = obj_game.tile_widths_ref;
-	var _angles = obj_game.tile_angles_ref;
-	var _tilemaps_num = array_length(_tilemaps);
+	// Get distance to the nearest surface
+	var _distance = _calc_distance_h(_x, _y, _dir, _secondary_layer, _quadrant);
+	var _sx = _x + _dir * _distance;
 	
-	var _start_cell_id_x = floor(_x / TILE_SIZE);
-    var _start_cell_id_y = floor(_y / TILE_SIZE);
-	var _mod_y = _y % TILE_SIZE;
+	var _tilemap = collision_tilemap_get(_sx, _y, _secondary_layer);
+	var _angle;
 	
-    for (var _i = 0; _i < _tilemaps_num; _i++)
+	if _tilemap != -1
 	{
-        // Don't check anything other than the main layer or the specified secondary layer
-		if _i != COLLISION_LAYER.MAIN && _i != _secondary_layer
+		var _tile = tilemap_get_at_pixel(_tilemap, _sx, _y);
+		
+		if tile_get_empty(_tile)
 		{
-			continue;
-		}
-		
-        var _tilemap = _tilemaps[_i];
-		
-        if _tilemap == -1
-        {
-            continue;
-        }
-        
-        var _result_ang = TILE_EMPTY_ANGLE;
-		var _result_distance = _best_distance;
-        var _cell_id_x = _start_cell_id_x;
-        var _cell_id_y = _start_cell_id_y;
-		
-		var _check_index = 0;
-        var _tile, _index, _w, _flip;
-		
-        while true
-        {
-			var _tile_buffer, _index_buffer, _width_buffer, _flip_buffer, _width_data;
-			
-			_tile = tilemap_get(_tilemap, _cell_id_x, _cell_id_y);
-			_flip = tile_get_flip(_tile);
-			_index = tile_get_index(_tile);	
-			_width_data = _widths[? _index];
-			
-			// Check validity and get width
-			if _width_data != undefined
-			{
-				var _marker_index = 0;
-				var _markermap = _markers[_i];
-				
-				if _markermap != -1
-				{
-					var _marker_tile = tilemap_get(_markermap, _cell_id_x, _cell_id_y);
-					
-					if _marker_tile != -1
-					{
-						_marker_index = tile_get_index(_marker_tile);
-					}
-				}
-				
-				var _is_right = _quadrant == QUADRANT.RIGHT;
-				var _is_left = _quadrant == QUADRANT.LEFT;
-				var _is_positive = _dir == 1;
-				var _is_valid;
-				
-				switch _marker_index
-				{	
-					// Top Solid
-					case 1:
-						_is_valid = _is_right && _is_positive || _is_left && !_is_positive;
-					break;
-					
-					// LBR Solid
-					case 2:
-						_is_valid = _is_right && !_is_positive || _is_left && _is_positive || !_is_right && !_is_left;
-					break;
-					
-					// All Solid
-					default:
-						_is_valid = true;
-				}
-				
-				if _is_valid
-				{
-					var _width_index;
-				
-					if _flip
-					{
-						_width_index = TILE_SIZE - 1 - _mod_y;
-					}
-					else
-					{
-						_width_index = _mod_y;
-					}
-				
-					_w = _width_data[_width_index];
-				}
-				else
-				{
-					_w = 0;
-				}
-			}
-			else
-			{
-				_w = 0;
-			}
-			
-			// Check nearest tiles
-			if _check_index == 0
-			{
-				if _w == 0
-				{
-					_check_index = 1;
-					_cell_id_x += _dir;
-				}
-				else if _w == TILE_SIZE
-				{
-					_check_index = 2;
-					_cell_id_x -= _dir;
-					_tile_buffer = _tile;
-					_index_buffer = _index;
-					_width_buffer = _w;
-					_flip_buffer = _flip;
-				}
-				else
-				{
-					break;
-				}
-			}
-			else 
-			{
-				if _check_index == 2 && _w == 0
-				{
-					_tile = _tile_buffer;
-					_index = _index_buffer;
-					_w = _width_buffer;
-					_flip = _flip_buffer;
-					_cell_id_x += _dir;
-				}
-			
-				break;
-			}
-        }
-        
-		var _mirror = tile_get_mirror(_tile);
-		var _ang = _index <= 0 ? TILE_EMPTY_ANGLE : _angles[? _index];
-		
-		// Get angle
-		if _ang != TILE_EMPTY_ANGLE
-		{
-			if _ang > 0
-			{
-				if _flip
-				{
-					_ang = (540 - _ang) % 360;
-				}
-			
-				if _mirror
-				{
-					_ang = 360 - _ang;
-				}
-				
-				_result_ang = _ang;
-			}
-			else
-			{
-				_result_ang = _dir == 1 ? 90 : 270;
-			}
-		}
-		
-		// Calculate distance to the edge of the surface
-		if _dir == 1
-		{
-			_result_distance = _cell_id_x * TILE_SIZE + TILE_SIZE - 1 - _w - _x;
+			_angle = TILE_EMPTY_ANGLE;
 		}
 		else
 		{
-			_result_distance = _x - _cell_id_x * TILE_SIZE - _w;
+			var _set_angle = global.tile_angles[? tilemap_get_tileset(_tilemap)][? tile_get_index(_tile)];
+			
+			if _set_angle == undefined
+			{
+				var _ay1 = floor(_y / TILE_SIZE) * TILE_SIZE;
+				var _ay2 = _ay1 + TILE_SIZE - 1;
+				var _ax1 = _sx + _dir * _calc_distance_h(_sx, _ay1, _dir, _secondary_layer, _quadrant);
+				var _ax2 = _sx + _dir * _calc_distance_h(_sx, _ay2, _dir, _secondary_layer, _quadrant);
+				
+				if _dir > 0
+				{
+					_angle = point_direction(_ax2, _ay2, _ax1, _ay1);
+				}
+				else
+				{
+					_angle = point_direction(_ax1, _ay1, _ax2, _ay2);
+				}
+				
+				_angle = _correct_angle(_angle);
+			}
+			else if _set_angle != 0
+			{
+				if tile_get_flip(_tile)
+				{
+					_set_angle = (540 - _set_angle) % 360;
+				}
+			
+				if tile_get_mirror(_tile)
+				{
+					_set_angle = 360 - _set_angle;
+				}
+			
+				_angle = _set_angle;
+			}
+			else
+			{
+				_angle = _dir == 1 ? 90 : 270;
+			}
 		}
-        
-		// Get closest tile among the checked layers
-        if _result_distance < _best_distance
-        {
-            _best_distance = _result_distance;
-            _best_ang = _result_ang;
-        }
-    }
+	}
+	else
+	{
+		_angle = TILE_EMPTY_ANGLE;
+	}
 	
-	return [_best_distance, _best_ang];
+	return [_distance - 1, _angle];
+}
+
+/// @self tile_raycast_h
+function _calc_distance_h(_x, _y, _dir, _secondary_layer, _quadrant)
+{
+	var _tile_x = floor(_x / TILE_SIZE) * TILE_SIZE;
+	var _width = _read_width(_tile_x, _y, _dir, _secondary_layer, _quadrant);
+	
+	if _width == 0 || _width == TILE_SIZE
+    {
+		var _tile_x_prev = _tile_x;
+		var _tile_step = _dir * TILE_SIZE;
+		
+		if _width == 0
+		{
+			_tile_x += _tile_step;
+		}
+		else
+		{
+			_tile_x -= _tile_step;
+		}
+		
+		var _width_2 = _read_width(_tile_x, _y, _dir, _secondary_layer, _quadrant);
+		
+		if _tile_x == _tile_x_prev - _tile_step && _width_2 == 0
+		{
+			_tile_x = _tile_x_prev;
+		}
+		else
+		{
+			_width = _width_2;
+		}
+	}
+	
+	if _dir > 0
+	{
+	    return _tile_x + TILE_SIZE - _width - _x;
+	}
+	else
+	{
+	    return _x - _tile_x - _width + 1;
+	}
+}
+
+function _read_width(_x, _y, _dir, _secondary_layer, _quadrant)
+{
+	var _tilemap = collision_tilemap_get(_x, _y, _secondary_layer);
+	
+	if _tilemap == -1
+	{
+		return 0;
+	}
+	
+	var _tile = tilemap_get_at_pixel(_tilemap, _x, _y);
+	
+	if tile_get_empty(_tile)
+	{
+		return 0;
+	}
+	
+	var _tileset = tilemap_get_tileset(_tilemap);
+	var _index = tile_get_index(_tile);
+	var _width_data = global.tile_widths[? _tileset][? _index];
+	
+	if _width_data == undefined
+	{
+		return 0;
+	}
+	
+	var _marker_index = 0;
+	var _marker = obj_game.markers[? _tilemap];
+	
+	if _marker != -1
+	{
+		var _marker_tile = tilemap_get_at_pixel(_marker, _x, _y);
+			
+		if _marker_tile != -1
+		{
+			_marker_index = tile_get_index(_marker_tile);
+		}
+	}
+		
+	var _is_right = _quadrant == QUADRANT.RIGHT;
+	var _is_left = _quadrant == QUADRANT.LEFT;
+	var _is_positive = _dir == 1;
+	var _is_valid;
+				
+	switch _marker_index
+	{	
+		// Top Solid
+		case 1:
+			_is_valid = _is_right && _is_positive || _is_left && !_is_positive;
+		break;
+					
+		// LBR Solid
+		case 2:
+			_is_valid = _is_right && !_is_positive || _is_left && _is_positive || !_is_right && !_is_left;
+		break;
+					
+		// All Solid
+		default:
+			_is_valid = true;
+	}
+		
+	if !_is_valid
+	{
+		return 0;
+	}
+	
+	var _width_index = _y % TILE_SIZE;
+	
+	if tile_get_flip(_tile)
+	{
+		_width_index = TILE_SIZE - 1 - _width_index;
+	}
+	
+	return _width_data[_width_index];
 }

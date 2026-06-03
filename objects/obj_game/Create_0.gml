@@ -4,8 +4,6 @@ if room == rm_startup
 	return;
 }
 
-#region COMMON
-
 enum GAME_STATE
 {
 	NORMAL, STOP_OBJECTS, STOP_ALL
@@ -32,10 +30,7 @@ oscillation_angle = 0;
 player_count = 0;
 allow_pause = false;
 clear_vram_on_room_end = true;
-
 depth = 16000;
-
-#endregion
 
 #region AUDIO
 
@@ -125,6 +120,46 @@ FOR_EACH_CAMERA
 
 surface_resize(application_surface, _w, _h);
 camera_new(0, _w, _h, _w, _h);
+
+#endregion
+
+#region COLLISION
+
+enum COLLISION_LAYER
+{
+    MAIN = 0,
+	PATH_A = 1,
+	PATH_B = 2
+}
+
+#macro TILE_COUNT 256
+#macro TILE_SIZE 16
+#macro TILE_EMPTY_ANGLE -4
+
+/// @function _get_layer
+var _get_layer = function(_layer)
+{
+	return layer_exists(_layer) ? layer_tilemap_get_id(_layer) : -1;
+}
+
+angle_map = ds_map_create();
+markers = ds_map_create();
+
+var _marker_ids = 
+[
+	_get_layer("Markers_Main"), _get_layer("Markers_A"), _get_layer("Markers_B")
+];
+
+// MAIN 0, PATH_A 1, PATH_B 2
+tilemaps =
+[
+	_get_layer("Collision_Main"), _get_layer("Collision_A"), _get_layer("Collision_B")	
+];
+
+for (var _i = 0; _i < array_length(tilemaps); _i++)
+{
+	markers[? tilemaps[_i]] = _marker_ids[_i];
+}
 
 #endregion
 
@@ -262,34 +297,5 @@ palette_data = [undefined, undefined];
 
 sprite_array = [];
 sprite_update_enabled = false;
-
-#endregion
-
-#region COLLISION
-
-enum COLLISION_LAYER
-{
-    MAIN = 0,
-	PATH_A = 1,
-	PATH_B = 2
-}
-
-enum TILE_SOLIDITY
-{
-	NONE = 0,
-	ALL = 1,
-	TOP_ONLY = 2,
-	LEFT_BOTTOM_RIGHT = 3
-}
-
-#macro TILE_COUNT 256
-#macro TILE_SIZE 16
-#macro TILE_EMPTY_ANGLE -4
-
-tilemaps = [];
-marker_tilemaps = [];
-tile_angles_ref = undefined;
-tile_widths_ref = undefined;
-tile_heights_ref = undefined;
 
 #endregion

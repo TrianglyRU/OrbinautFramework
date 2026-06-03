@@ -1,8 +1,6 @@
 /// @function scr_giganorbi_rotate_orbs
 function scr_giganorbi_rotate_orbs()
 {
-	gml_pragma("forceinline");
-	
 	if boss_state == GIGANORBI_STATE.WAIT
 	{
 		exit;

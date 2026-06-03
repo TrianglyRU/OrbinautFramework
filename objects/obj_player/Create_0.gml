@@ -544,13 +544,15 @@ set_victory_pose = function()
 	{
 		return;
 	}
-
+	
 	y -= radius_y_normal - radius_y;
-	radius_y = radius_y_normal;
 	vel_x = 0;
 	vel_y = 0;
 	state = PLAYER_STATE.FROZEN;
 	animation = ANIM.ACT_CLEAR;
+	
+	reset_substate();
+	is_grounded = true;
 }
 
 is_true_glide = function()

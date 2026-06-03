@@ -1,8 +1,6 @@
 /// @function scr_giganorbi_health_updater
 function scr_giganorbi_health_updater()
 {
-	gml_pragma("forceinline");
-	
 	if !visible
 	{
 		return;
