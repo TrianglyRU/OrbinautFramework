@@ -184,9 +184,6 @@ if state == GAME_STATE.NORMAL
 			continue;
 		}
 		
-		_camera_data.coarse_x = (camera_get_x(_c) - CULLING_ROUND_VALUE) & -CULLING_ROUND_VALUE;
-		_camera_data.coarse_y = (camera_get_y(_c) - CULLING_ROUND_VALUE) & -CULLING_ROUND_VALUE;
-		
 		if _camera_data.coarse_x != _camera_data.coarse_x_last || _camera_data.coarse_y != _camera_data.coarse_y_last
 		{
 			instance_activate_region(_camera_data.coarse_x, _camera_data.coarse_y, camera_get_culling_width(_c) - 1, camera_get_culling_height(_c) - 1, true);

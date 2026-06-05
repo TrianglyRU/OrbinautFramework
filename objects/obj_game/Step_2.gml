@@ -176,13 +176,8 @@ FOR_EACH_CAMERA
 	    }
 	}
 	
-	var _raw_pos_x = floor(_camera_data.raw_x + _camera_data.offset_x);
-	var _raw_pos_y = floor(_camera_data.raw_y + _camera_data.offset_y);
-	
-	var _x = clamp(_raw_pos_x, _camera_data.left_bound, _camera_data.right_bound - camera_get_width(_c)) + _camera_data.shake_offset;
-    var _y = clamp(_raw_pos_y, _camera_data.top_bound, _camera_data.bottom_bound - camera_get_height(_c)) + _camera_data.shake_offset;
-	
-    camera_set_view_pos(view_camera[_c], _x - CAMERA_HORIZONTAL_BUFFER, _y);
+	// Set actual position
+	update_camera_pos(_camera_data);
 }
 
 if state != GAME_STATE.STOP_ALL

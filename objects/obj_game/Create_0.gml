@@ -107,6 +107,21 @@ resize_window_with_hotkey = function(_scale)
 	}
 }
 
+update_camera_pos = function(_camera_data)
+{
+	var _c = _camera_data.index;
+	var _raw_pos_x = floor(_camera_data.raw_x + _camera_data.offset_x);
+	var _raw_pos_y = floor(_camera_data.raw_y + _camera_data.offset_y);
+	
+	var _x = clamp(_raw_pos_x, _camera_data.left_bound, _camera_data.right_bound - camera_get_width(_c)) + _camera_data.shake_offset;
+    var _y = clamp(_raw_pos_y, _camera_data.top_bound, _camera_data.bottom_bound - camera_get_height(_c)) + _camera_data.shake_offset;
+	
+	_camera_data.coarse_x = (_x - CULLING_ROUND_VALUE) & -CULLING_ROUND_VALUE;
+	_camera_data.coarse_y = (_y - CULLING_ROUND_VALUE) & -CULLING_ROUND_VALUE;
+	
+    camera_set_view_pos(view_camera[_c], _x - CAMERA_HORIZONTAL_BUFFER, _y);
+}
+
 var _startup_info = room_get_info(rm_startup);
 var _w = _startup_info.width;
 var _h = _startup_info.height;

@@ -377,7 +377,6 @@
     {"id":{"name":"scr_player_glide","path":"scripts/scr_player_glide/scr_player_glide.yy",},},
     {"id":{"name":"scr_player_hammer_dash","path":"scripts/scr_player_hammer_dash/scr_player_hammer_dash.yy",},},
     {"id":{"name":"scr_player_hammer_spin","path":"scripts/scr_player_hammer_spin/scr_player_hammer_spin.yy",},},
-    {"id":{"name":"scr_player_init","path":"scripts/scr_player_init/scr_player_init.yy",},},
     {"id":{"name":"scr_player_input","path":"scripts/scr_player_input/scr_player_input.yy",},},
     {"id":{"name":"scr_player_jump_start","path":"scripts/scr_player_jump_start/scr_player_jump_start.yy",},},
     {"id":{"name":"scr_player_jump","path":"scripts/scr_player_jump/scr_player_jump.yy",},},
