@@ -203,8 +203,8 @@ if state == GAME_STATE.NORMAL
 }
 else
 {
-	var _list = stopped_objects;
 	var _state = state;
+	var _list = stopped_objects;
 	
 	with obj_gameobject
 	{
@@ -221,14 +221,6 @@ if state != GAME_STATE.STOP_ALL
 {
 	frame_counter++;
 	oscillation_angle = frame_counter * ANGLE_INCREMENT;
-	
-	with obj_gameobject
-	{
-		if animator != noone
-		{
-			animator.update();
-		}
-	}
 	
 	for (var _i = 0; _i < PALETTE_TOTAL_SLOT_COUNT; _i++)
 	{
@@ -260,4 +252,15 @@ with obj_gameobject
 if state == GAME_STATE.NORMAL && _prev_state != state
 {
 	restore_stopped_objects();
+}
+
+if state != GAME_STATE.STOP_ALL
+{
+	with obj_gameobject
+	{
+		if animator != noone
+		{
+			animator.update();
+		}
+	}
 }
