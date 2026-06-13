@@ -17,8 +17,6 @@ event_animator();
 #macro PARAM_SKID_SPEED_THRESHOLD 4
 #macro PARAM_RECORD_LENGTH 32
 #macro PARAM_CPU_DELAY 16
-#macro PLAYER_MAX_COUNT 8
-#macro PLAYER_COUNT obj_game.player_count
 
 enum PLAYER
 {
@@ -123,7 +121,7 @@ enum ANIM
 	SPIN_DASH,
 	PUSH,
 	DUCK,
-	LOOKUP,
+	LOOK_UP,
 	GRAB,
 	HURT,
 	DEATH,
@@ -198,7 +196,7 @@ respawn = function()
 	}
 	else
 	{
-		camera_data.allow_updates = true;
+		view_data_ref.allow_updates = true;
 		state = PLAYER_STATE.RESPAWN;
 	}
 }
@@ -485,17 +483,17 @@ kill = function(_sound = snd_hurt)
 	spd = 0;
 	depth = RENDER_DEPTH_PRIORITY + player_index;
 	
-	if camera_data.index == player_index
+	if view_data_ref.index == player_index
 	{
-		camera_data.allow_updates = false;
+		view_data_ref.allow_updates = false;
 	}
 }
 
 set_camera_delay = function(_delay)
 {
-	if !global.cd_camera && camera_data.target == noone && camera_data.index == player_index
+	if !global.cd_camera && view_data_ref.target == noone && view_data_ref.index == player_index
 	{
-		camera_data.delay_x = _delay;
+		view_data_ref.delay_x = _delay;
 	}
 }
 
@@ -877,26 +875,23 @@ if player_type == PLAYER.TAILS
 		player = other.id;
 	}
 }
-	
-camera_data = view_data[0];
-	
-if player_index > 0
+
+var _screen_index = min(player_index, VIEW_COUNT - 1);
+
+view_data_ref = view_data[0];
+
+if player_index > 0 && view_visible[_screen_index]
 {
-	var _camera_data = view_data[player_index];
-		
-	if _camera_data != undefined
-	{
-		camera_data = _camera_data;
-	}
+	view_data_ref = view_data[_screen_index];
 }
 
-if !_is_respawned && camera_data.index == player_index
+if !_is_respawned && view_data_ref.index == player_index
 {
-	camera_data.raw_x = x - camera_get_width(camera_data.index) * 0.5;
-	camera_data.raw_y = y - camera_get_height(camera_data.index) * 0.5 + 16;
+	view_data_ref.raw_x = x - camera_get_width(view_data_ref.index) * 0.5;
+	view_data_ref.raw_y = y - camera_get_height(view_data_ref.index) * 0.5 + 16;
 	
 	// Set actual camera position
-	obj_game.update_camera_pos(camera_data);
+	obj_game.update_view_camera_pos(player_index);
 }
 
 if player_index == 0 && global.player_cpu != PLAYER.NONE

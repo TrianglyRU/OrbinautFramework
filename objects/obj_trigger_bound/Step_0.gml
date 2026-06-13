@@ -1,19 +1,13 @@
 visible = player_get(0).state == PLAYER_STATE.DEBUG_MODE;
 
-FOR_EACH_CAMERA
+FOR_EACH_VISIBLE_VIEW
 {
-	var _camera_data = view_data[_c];
+	var _w = camera_get_width(_v);
+	var _h = camera_get_height(_v);
 	
-	if _camera_data == undefined
-	{
-		continue;
-	}
-	
-	var _w = camera_get_width(_c);
-	var _h = camera_get_height(_c);
-	
-	var _x = _camera_data.raw_x + _w * 0.5;
-	var _y = _camera_data.raw_y + _h * 0.5;
+	var _view_data = view_data[_v];
+	var _x = _view_data.raw_x + _w * 0.5;
+	var _y = _view_data.raw_y + _h * 0.5;
 	
 	_x = floor(_x);
 	_y = floor(_y);
@@ -22,28 +16,28 @@ FOR_EACH_CAMERA
 	{
 		if sign(image_yscale) >= 0
 		{
-			obj_rm_stage.bottom_bound[_c] = max(y, _h);
+			obj_rm_stage.bottom_bound[_v] = max(y, _h);
 			
 			if iv_speed == 0
 			{
-				_camera_data.bottom_bound = obj_rm_stage.bottom_bound[_c];
+				_view_data.bottom_bound = obj_rm_stage.bottom_bound[_v];
 			}
 			else
 			{
-				obj_rm_stage.camera_bound_speed[_c] = iv_speed;
+				obj_rm_stage.camera_bound_speed[_v] = iv_speed;
 			}
 		}
 		else
 		{
-			obj_rm_stage.top_bound[_c] = min(y, room_height - _h);
+			obj_rm_stage.top_bound[_v] = min(y, room_height - _h);
 			
 			if iv_speed == 0
 			{
-				_camera_data.top_bound = obj_rm_stage.top_bound[_c];
+				_view_data.top_bound = obj_rm_stage.top_bound[_v];
 			}
 			else
 			{
-				obj_rm_stage.camera_bound_speed[_c] = iv_speed;
+				obj_rm_stage.camera_bound_speed[_v] = iv_speed;
 			}
 		}
 	}

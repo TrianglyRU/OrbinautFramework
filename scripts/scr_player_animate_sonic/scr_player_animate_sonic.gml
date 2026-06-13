@@ -128,11 +128,11 @@ function scr_player_animate_sonic()
 			
 		break;
 		
-		case ANIM.LOOKUP:
+		case ANIM.LOOK_UP:
 		
-			if sprite_index != spr_sonic_lookup
+			if sprite_index != spr_sonic_look_up
 			{
-				animator.start(spr_sonic_lookup, 0, 1, 4);
+				animator.start(spr_sonic_look_up, 0, 1, 4);
 			}
 			
 		break;

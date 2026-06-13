@@ -20,15 +20,19 @@ function scr_player_debug_mode_enter()
 		visible = true;
 		depth = base_depth;
 	    
-		if camera_data.index == player_index
+		if view_data_ref.index == player_index
 		{
-			camera_data.allow_updates = true;
+			view_data_ref.allow_updates = true;
 		}
 		
 		if obj_game.state == GAME_STATE.STOP_OBJECTS
 	    {
 	        obj_game.state = GAME_STATE.NORMAL;
 			obj_game.allow_pause = true;
+			
+			// The framework has already processed state changes by this point. Since we change obj_game.state 
+			// manually here, stopped objects need to be reactivated manually as well
+			obj_game.restore_stopped_objects();
 	    }
 		
 		if !audio_bgm_is_playing() || audio_is_playing(snd_bgm_drowning)

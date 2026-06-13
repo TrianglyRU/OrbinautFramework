@@ -7,7 +7,7 @@
 /// @returns {Id.Instance}
 function player_spawn(_x, _y, _player_type, _depth = depth)
 {
-	if PLAYER_COUNT > PLAYER_MAX_COUNT
+	if PLAYER_COUNT >= PLAYER_MAX_COUNT
 	{
 		return noone;
 	}

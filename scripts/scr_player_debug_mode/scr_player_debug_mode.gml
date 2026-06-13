@@ -25,8 +25,8 @@ function scr_player_debug_mode()
 	        x += debug_mode_spd;
 	    }
 		
-		x = clamp(x, camera_data.left_bound, camera_data.right_bound - 1);
-		y = clamp(y, camera_data.top_bound, camera_data.bottom_bound - 1);
+		x = clamp(x, view_data_ref.left_bound, view_data_ref.right_bound - 1);
+		y = clamp(y, view_data_ref.top_bound, view_data_ref.bottom_bound - 1);
 	}
 	else
 	{

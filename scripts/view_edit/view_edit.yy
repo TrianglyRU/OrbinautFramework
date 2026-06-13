@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"camera_delete",
+  "%Name":"view_edit",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"camera_delete",
+  "name":"view_edit",
   "parent":{
-    "name":"Camera",
-    "path":"folders/Functions/Camera.yy",
+    "name":"Renderer",
+    "path":"folders/Functions/Renderer.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -175,22 +175,19 @@ else with obj_gui_pause
 
 if state == GAME_STATE.NORMAL
 {
-	FOR_EACH_CAMERA
-	{
-		var _camera_data = view_data[_c];
+	restore_stopped_objects();
 	
-		if _camera_data == undefined
+	FOR_EACH_VISIBLE_VIEW
+	{
+		var _view_data = view_data[_v];
+		
+		if _view_data.coarse_x != _view_data.coarse_x_last || _view_data.coarse_y != _view_data.coarse_y_last
 		{
-			continue;
+			instance_activate_region(_view_data.coarse_x, _view_data.coarse_y, camera_get_culling_width(_v) - 1, camera_get_culling_height(_v) - 1, true);
 		}
 		
-		if _camera_data.coarse_x != _camera_data.coarse_x_last || _camera_data.coarse_y != _camera_data.coarse_y_last
-		{
-			instance_activate_region(_camera_data.coarse_x, _camera_data.coarse_y, camera_get_culling_width(_c) - 1, camera_get_culling_height(_c) - 1, true);
-		}
-		
-		_camera_data.coarse_x_last = _camera_data.coarse_x;
-		_camera_data.coarse_y_last = _camera_data.coarse_y;
+		_view_data.coarse_x_last = _view_data.coarse_x;
+		_view_data.coarse_y_last = _view_data.coarse_y;
 	}
 	
 	with obj_gameobject
@@ -222,6 +219,14 @@ if state != GAME_STATE.STOP_ALL
 	frame_counter++;
 	oscillation_angle = frame_counter * ANGLE_INCREMENT;
 	
+	with obj_gameobject
+	{
+		if animator != noone
+		{
+			animator.update();
+		}
+	}
+	
 	for (var _i = 0; _i < PALETTE_TOTAL_SLOT_COUNT; _i++)
 	{
 		var _duration = palette_durations[_i];
@@ -246,21 +251,4 @@ if state != GAME_STATE.STOP_ALL
 with obj_gameobject
 {
 	event_user(11);
-}
-
-// Activate stopped objects to process them if the game state has returned to normal
-if state == GAME_STATE.NORMAL && _prev_state != state
-{
-	restore_stopped_objects();
-}
-
-if state != GAME_STATE.STOP_ALL
-{
-	with obj_gameobject
-	{
-		if animator != noone
-		{
-			animator.update();
-		}
-	}
 }

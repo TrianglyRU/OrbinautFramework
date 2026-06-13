@@ -5,20 +5,14 @@ if !instance_exists(obj_water)
 	return;
 }
 
-FOR_EACH_CAMERA
+FOR_EACH_VISIBLE_VIEW
 {
-	var _camera_data = view_data[_c];
+	var _w = camera_get_width(_v);
+	var _h = camera_get_height(_v);
 	
-	if _camera_data == undefined
-	{
-		continue;
-	}
-	
-	var _w = camera_get_width(_c);
-	var _h = camera_get_height(_c);
-		
-	var _x = _camera_data.raw_x + _w * 0.5;
-	var _y = _camera_data.raw_y + _h * 0.5;
+	var _view_data = view_data[_v];
+	var _x = _view_data.raw_x + _w * 0.5;
+	var _y = _view_data.raw_y + _h * 0.5;
 		
 	if !point_in_rectangle(_x, _y, bbox_left, bbox_top, bbox_right - 1, bbox_bottom - 1)
 	{

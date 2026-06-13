@@ -36,10 +36,10 @@ function scr_giganorbi_state_machine()
 
 				boss_state_timer = 0;
 				
-				FOR_EACH_CAMERA
+				FOR_EACH_VISIBLE_VIEW
 				{
-					obj_rm_stage.left_bound[_c] = x - 320;
-					obj_rm_stage.right_bound[_c] = x + 320;
+					obj_rm_stage.left_bound[_v] = x - 320;
+					obj_rm_stage.right_bound[_v] = x + 320;
 				}
 				
 				audio_bgm_stop(1);
@@ -158,7 +158,7 @@ function scr_giganorbi_state_machine()
 			}
 			
 			vel_y *= -1;
-			boss_target.camera_data.shake_timer = 8;
+			boss_target.view_data_ref.shake_timer = 8;
 			
 			audio_sfx_play(snd_collision);
 			audio_sfx_play(snd_spin_release);

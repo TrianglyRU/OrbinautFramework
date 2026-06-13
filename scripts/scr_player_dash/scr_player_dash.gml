@@ -8,7 +8,7 @@ function scr_player_dash()
 	
 	if action != ACTION.DASH
 	{    
-	    if action == ACTION.NONE && animation == ANIM.LOOKUP && input_down.up && input_press_action_any()
+	    if action == ACTION.NONE && animation == ANIM.LOOK_UP && input_down.up && input_press_action_any()
 	    {
 	        animation = ANIM.MOVE;
 	        action = ACTION.DASH;

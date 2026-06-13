@@ -97,7 +97,7 @@ function scr_player_movement_ground_regular()
 		{
 			if input_down.up
 			{
-				animation = ANIM.LOOKUP;
+				animation = ANIM.LOOK_UP;
 			}
 			else if input_down.down
 			{

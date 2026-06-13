@@ -22,6 +22,9 @@ enum SAVE_DATA_STATE
 #macro SCORE_THRESHOLD 50000
 #macro ANGLE_RAW_MAX 256
 #macro ANGLE_INCREMENT (360 / ANGLE_RAW_MAX)
+
+#macro PLAYER_MAX_COUNT 8
+#macro PLAYER_COUNT obj_game.player_count
 #macro FOR_EACH_PLAYER for (var _p = 0; _p < PLAYER_COUNT; _p++)
 
 state = GAME_STATE.NORMAL; 
@@ -68,73 +71,6 @@ bg_distance_x = 0;
 bg_distance_y = 0;
 bg_scroll_x = 0;
 bg_scroll_y = 0;
-
-#endregion
-
-#region CAMERA & RENDERER
-
-#macro draw_colour draw_get_colour()
-#macro draw_color draw_get_colour()
-#macro resolution_width surface_get_width(application_surface)
-#macro resolution_height surface_get_height(application_surface)
-#macro view_data obj_game.view_camera_data
-
-#macro RENDER_DEPTH_OVERLAY -25
-#macro RENDER_DEPTH_HUD_PRIORITY 0
-#macro RENDER_DEPTH_HUD 25
-#macro RENDER_DEPTH_PRIORITY 50
-
-#macro CAMERA_COUNT 8
-#macro CAMERA_HORIZONTAL_BUFFER 8
-#macro CAMERA_VIEW_TIMER_DEFAULT 120
-#macro CAMERA_MAX_VEL_X 16
-#macro CAMERA_MAX_VEL_Y 16
-#macro CAMERA_FREESPACE_X 16
-#macro CAMERA_FREESPACE_Y 32
-#macro FOR_EACH_CAMERA for (var _c = 0; _c < CAMERA_COUNT; _c++)
-
-resize_window_with_hotkey = function(_scale)
-{
-	global.window_scale = _scale;
-	
-	if window_get_fullscreen()
-	{
-		window_disable_fullscreen();
-	}
-	else
-	{
-		window_resize();
-	}
-}
-
-update_camera_pos = function(_camera_data)
-{
-	var _c = _camera_data.index;
-	var _raw_pos_x = floor(_camera_data.raw_x + _camera_data.offset_x);
-	var _raw_pos_y = floor(_camera_data.raw_y + _camera_data.offset_y);
-	
-	var _x = clamp(_raw_pos_x, _camera_data.left_bound, _camera_data.right_bound - camera_get_width(_c)) + _camera_data.shake_offset;
-    var _y = clamp(_raw_pos_y, _camera_data.top_bound, _camera_data.bottom_bound - camera_get_height(_c)) + _camera_data.shake_offset;
-	
-	_camera_data.coarse_x = (_x - CULLING_ROUND_VALUE) & -CULLING_ROUND_VALUE;
-	_camera_data.coarse_y = (_y - CULLING_ROUND_VALUE) & -CULLING_ROUND_VALUE;
-	
-    camera_set_view_pos(view_camera[_c], _x - CAMERA_HORIZONTAL_BUFFER, _y);
-}
-
-var _startup_info = room_get_info(rm_startup);
-var _w = _startup_info.width;
-var _h = _startup_info.height;
-
-FOR_EACH_CAMERA
-{
-	view_camera_data[_c] = undefined;
-	view_camera[_c] = -1;
-	view_visible[_c] = false;
-}
-
-surface_resize(application_surface, _w, _h);
-camera_new(0, _w, _h, _w, _h);
 
 #endregion
 
@@ -305,6 +241,121 @@ palette_indices = array_create(PALETTE_TOTAL_SLOT_COUNT, 1);
 palette_loop_indices = array_create(PALETTE_TOTAL_SLOT_COUNT, 0);
 palette_end_indices = array_create(PALETTE_TOTAL_SLOT_COUNT, 0);
 palette_data = [undefined, undefined];
+
+#endregion
+
+#region RENDERER
+
+#macro draw_colour draw_get_colour()
+#macro draw_color draw_get_colour()
+
+#macro RENDER_APPLICATION_WIDTH surface_get_width(application_surface)
+#macro RENDER_APPLICATION_HEIGHT surface_get_height(application_surface)
+#macro RENDER_DEPTH_OVERLAY -25
+#macro RENDER_DEPTH_HUD_PRIORITY 0
+#macro RENDER_DEPTH_HUD 25
+#macro RENDER_DEPTH_PRIORITY 50
+
+#macro VIEW_COUNT 4
+#macro FOR_EACH_VIEW for (var _v = 0; _v < VIEW_COUNT; _v++)
+#macro FOR_EACH_VISIBLE_VIEW for (var _v = 0; _v < VIEW_COUNT; _v++) if (view_visible[_v])
+#macro view_data obj_game.view_data_struct
+
+#macro CAMERA_HORIZONTAL_BUFFER 8
+#macro CAMERA_VIEW_TIMER_DEFAULT 120
+#macro CAMERA_MAX_VEL_X 16
+#macro CAMERA_MAX_VEL_Y 16
+#macro CAMERA_FREESPACE_X 16
+#macro CAMERA_FREESPACE_Y 32
+
+resize_window_with_hotkey = function(_scale)
+{
+	global.window_scale = _scale;
+	
+	if window_get_fullscreen()
+	{
+		window_disable_fullscreen();
+	}
+	else
+	{
+		window_resize();
+	}
+}
+
+update_view_camera_pos = function(_index)
+{
+	if _index >= VIEW_COUNT
+	{
+		return;
+	}
+	
+	var _view_data = view_data[_index];
+	var _raw_pos_x = floor(_view_data.raw_x + _view_data.offset_x);
+	var _raw_pos_y = floor(_view_data.raw_y + _view_data.offset_y);
+	
+	var _x = clamp(_raw_pos_x, _view_data.left_bound, _view_data.right_bound - camera_get_width(_index)) + _view_data.shake_offset;
+    var _y = clamp(_raw_pos_y, _view_data.top_bound, _view_data.bottom_bound - camera_get_height(_index)) + _view_data.shake_offset;
+	
+	_view_data.coarse_x = (_x - CULLING_ROUND_VALUE) & -CULLING_ROUND_VALUE;
+	_view_data.coarse_y = (_y - CULLING_ROUND_VALUE) & -CULLING_ROUND_VALUE;
+	
+    camera_set_view_pos(view_camera[_index], _x - CAMERA_HORIZONTAL_BUFFER, _y);
+}
+
+var _startup_info = room_get_info(rm_startup);
+var _w = _startup_info.width;
+var _h = _startup_info.height;
+
+FOR_EACH_VIEW
+{
+	view_data[_v] =
+	{
+        index: _v,
+        allow_updates: true,
+        target: noone,
+		max_vel_x: CAMERA_MAX_VEL_X,
+		max_vel_y: CAMERA_MAX_VEL_Y,
+        vel_x: 0,
+        vel_y: 0,
+        raw_x: 0,
+        raw_y: 0,
+        pos_x_prev: 0,
+        pos_y_prev: 0,
+        delay_x: 0,
+        delay_y: 0,
+        offset_x: 0,
+        offset_y: 0,
+		top_bound: 0,
+        left_bound: 0,
+        right_bound: room_width,
+        bottom_bound: room_height,
+        shake_offset: 0,
+        shake_timer: 0,
+        coarse_x: -1,
+        coarse_y: -1,
+        coarse_x_last: -1,
+        coarse_y_last: -1,
+        surface_x: 0,
+        surface_y: 0,
+        surface_w: _w + CAMERA_HORIZONTAL_BUFFER * 2,
+        surface_h: _h
+    };
+	
+	camera_destroy(view_camera[_v]);
+	
+	view_camera[_v] = camera_create_view(-CAMERA_HORIZONTAL_BUFFER, 0, _w + CAMERA_HORIZONTAL_BUFFER * 2, _h);
+	view_visible[_v] = false;
+}
+
+for (var _i = VIEW_COUNT; _i < 8; _i++)
+{
+	view_visible[_i] = false;
+}
+
+view_visible[0] = true;
+view_enabled = true;
+
+surface_resize(application_surface, _w, _h);
 
 #endregion
 

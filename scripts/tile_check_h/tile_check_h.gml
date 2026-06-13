@@ -19,7 +19,7 @@ function tile_check_h(_x, _y, _dir, _secondary_layer = COLLISION_LAYER.PATH_A, _
 	}
 	else
 	{
-	    _distance = _x - _tile_x - _width + 1;
+	    _distance = _x - _tile_x - _width;
 	}
 	
 	return _distance <= 0;

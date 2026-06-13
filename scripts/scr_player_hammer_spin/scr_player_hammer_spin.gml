@@ -12,9 +12,9 @@ function scr_player_hammer_spin()
 		action = ACTION.HAMMER_DASH;
 		hammer_dash_timer = 0;
 
-		if super_timer > 0 && player_index == camera_data.index
+		if super_timer > 0 && player_index == view_data_ref.index
 		{
-			camera_data.shake_timer = 6;
+			view_data_ref.shake_timer = 6;
 		}
 		
 		// Start hammer_dash

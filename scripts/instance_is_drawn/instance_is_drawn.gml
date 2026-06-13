@@ -1,5 +1,5 @@
 /// @description					Checks if the instance is visible or drawn within any of the current view boundaries.
-/// @param {ID.Instance} _inst_id	The instance to check (default is the calling instance)
+/// @param {ID.Instance} _inst_id	The instance to check (default is the calling instance).
 /// @returns {Bool}
 function instance_is_drawn(_inst_id = id)
 {
@@ -13,15 +13,10 @@ function instance_is_drawn(_inst_id = id)
 		return false;
 	}
 	
-	FOR_EACH_CAMERA
+	FOR_EACH_VISIBLE_VIEW
 	{
-		if view_camera[_c] == -1
-		{
-			continue;
-		}
-		
-		var _cx = camera_get_x(_c);
-		var _cw = camera_get_width(_c);
+		var _cx = camera_get_x(_v);
+		var _cw = camera_get_width(_v);
 		
 		var _x = _inst_id.x;
 		var _y = _inst_id.y;
@@ -30,8 +25,8 @@ function instance_is_drawn(_inst_id = id)
 		
 		if _x + _w - 1 >= _cx && _x - _w < _cx + _cw
 		{
-			var _cy = camera_get_y(_c);
-			var _ch = camera_get_height(_c);
+			var _cy = camera_get_y(_v);
+			var _ch = camera_get_height(_v);
 			
 			if _y + _h - 1 >= _cy && _y - _h < _cy + _ch
 			{

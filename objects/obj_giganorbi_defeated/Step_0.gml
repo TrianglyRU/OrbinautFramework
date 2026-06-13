@@ -10,10 +10,10 @@ if timer < 120
 	{
 		return;
 	}
-
-	FOR_EACH_CAMERA
+	
+	FOR_EACH_VISIBLE_VIEW
 	{
-		obj_rm_stage.right_bound[_c] = room_width;
+		obj_rm_stage.right_bound[_v] = room_width;
 	}
 
 	vel_y = -3;

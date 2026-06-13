@@ -75,8 +75,8 @@ function scr_player_animate_tails()
 			sprite_index = spr_tails_duck;
 		break;
 		
-		case ANIM.LOOKUP:
-			sprite_index = spr_tails_lookup;
+		case ANIM.LOOK_UP:
+			sprite_index = spr_tails_look_up;
 		break;
 		
 		case ANIM.GRAB:

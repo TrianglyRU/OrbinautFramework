@@ -12,7 +12,7 @@ switch player.animation
 	case ANIM.IDLE:
 	case ANIM.WAIT:
 	case ANIM.DUCK:
-	case ANIM.LOOKUP:
+	case ANIM.LOOK_UP:
 		
 		if sprite_index != spr_tails_tail_idle || animator.duration == 0
 		{

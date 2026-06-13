@@ -34,13 +34,13 @@ function scr_player_cpu()
 	        }
 			
 	        x = cpu_target.x;
-	        y = cpu_target.y - camera_get_height(cpu_target.camera_data.index) + 32;
+	        y = cpu_target.y - camera_get_height(cpu_target.view_data_ref.index) + 32;
 			visible = true;
 	        cpu_state = CPU_STATE.RESPAWN;
 			
-			if camera_data.index == player_index
+			if view_data_ref.index == player_index
 			{
-				camera_data.allow_updates = true;
+				view_data_ref.allow_updates = true;
 			}
 			
 	    break;
@@ -338,7 +338,7 @@ function scr_player_cpu()
 /// @self scr_player_cpu
 function _start_respawn()
 {
-	if instance_is_drawn() || x >= camera_data.right_bound
+	if instance_is_drawn() || x >= view_data_ref.right_bound
 	{
 	    cpu_timer_respawn = 0; return false;
 	}

@@ -119,9 +119,9 @@ function scr_player_water()
 				spd = 0;
 				depth = RENDER_DEPTH_PRIORITY + player_index;
 				
-				if player_index == camera_data.index
+				if player_index == view_data_ref.index
 				{
-					camera_data.allow_updates = false;
+					view_data_ref.allow_updates = false;
 				}
 		}
 	}

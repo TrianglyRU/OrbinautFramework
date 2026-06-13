@@ -5,7 +5,7 @@ function scr_player_death()
 	{
 	    case DEATH_STATE.WAIT:
 		
-	        var _index = camera_data.index;
+	        var _index = view_data_ref.index;
 			var _cy = camera_get_y(_index);
 			var _ch = camera_get_height(_index);
 			var _pos_y = floor(y);
@@ -26,7 +26,7 @@ function scr_player_death()
 			
 	        if global.player_physics < PHYSICS.S3
 	        {
-	            _bound += camera_data.bottom_bound;
+	            _bound += view_data_ref.bottom_bound;
 	        }
 	        else
 	        {

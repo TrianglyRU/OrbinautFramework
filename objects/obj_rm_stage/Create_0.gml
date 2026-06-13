@@ -22,13 +22,13 @@ drp_char_icon = "";
 animal_set = [];
 end_bound = room_width;
 
-FOR_EACH_CAMERA
+FOR_EACH_VIEW
 {
-	camera_bound_speed[_c] = 0;
-	left_bound[_c] = 0;
-	top_bound[_c] = 0;
-	right_bound[_c] = room_width;
-	bottom_bound[_c] = room_height;
+	camera_bound_speed[_v] = 0;
+	left_bound[_v] = 0;
+	top_bound[_v] = 0;
+	right_bound[_v] = room_width;
+	bottom_bound[_v] = room_height;
 }
 
 // Call Setup Event
@@ -55,46 +55,29 @@ switch global.player_main
 
 var _ring_data = global.giant_ring_data;
 var _checkpoint_data = global.checkpoint_data;
+var _data = array_length(_ring_data) > 0 ? _ring_data : _checkpoint_data;
 
-if array_length(_ring_data) > 0
+if array_length(_data) > 0
 {
-	obj_game.frame_counter = _ring_data[2];
+	obj_game.frame_counter = _data[2];
 	
-    FOR_EACH_CAMERA
+    FOR_EACH_VIEW
     {
-        top_bound[_c] = _ring_data[3];
-        bottom_bound[_c] = _ring_data[4];
-        left_bound[_c] = _ring_data[5];
-        right_bound[_c] = _ring_data[6];
-    }
-}
-else if array_length(_checkpoint_data) > 0
-{
-	obj_game.frame_counter = _checkpoint_data[2];
-	
-    FOR_EACH_CAMERA
-    {
-        top_bound[_c] = _checkpoint_data[3];
-        bottom_bound[_c] = _checkpoint_data[4];
-        left_bound[_c] = _checkpoint_data[5];
-        right_bound[_c] = _checkpoint_data[6];
+        top_bound[_v] = _data[3];
+        bottom_bound[_v] = _data[4];
+        left_bound[_v] = _data[5];
+        right_bound[_v] = _data[6];
+		
+		var _view_data = view_data[_v];
+		
+        _view_data.top_bound = top_bound[_v];
+        _view_data.bottom_bound = bottom_bound[_v];
+        _view_data.left_bound = left_bound[_v];
+        _view_data.right_bound = right_bound[_v];
     }
 }
 
-FOR_EACH_CAMERA
-{
-    var _camera_data = view_data[_c];
-	
-    if _camera_data != undefined
-    {
-        _camera_data.top_bound = top_bound[_c];
-        _camera_data.bottom_bound = bottom_bound[_c];
-        _camera_data.left_bound = left_bound[_c];
-        _camera_data.right_bound = right_bound[_c];
-    }
-}
-
-instance_create(0, 0, obj_gui_titlecard);
+instance_create(0, 0, obj_gui_title_card);
 instance_create(0, 0, obj_gui_hud);
 audio_bgm_play(bgm_track);
 

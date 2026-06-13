@@ -125,14 +125,15 @@ switch state
 					continue;
 				}
 				
-				input_lock_control = true;
-				input_down = input_create();
-				input_press = input_create();
+				input_reset(input_down);
+				input_reset(input_press);
 				
-				if player_index == camera_data.index
+				if player_index == view_data_ref.index
 				{
 					input_down.right = true;
 				}
+				
+				input_lock_control = true;
 			}
 		}
 		else

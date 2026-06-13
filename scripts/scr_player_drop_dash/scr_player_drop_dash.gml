@@ -20,9 +20,9 @@ function scr_player_drop_dash()
 	        _force = 12;
 	        _max_speed = 13;
 			
-	        if camera_data.target == noone && player_index == camera_data.index
+	        if view_data_ref.target == noone && player_index == view_data_ref.index
 	        {
-	            camera_data.shake_timer = 6;
+	            view_data_ref.shake_timer = 6;
 	        }
 	    }
 

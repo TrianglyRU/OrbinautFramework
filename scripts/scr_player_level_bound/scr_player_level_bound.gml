@@ -1,10 +1,10 @@
 /// @self obj_player
 function scr_player_level_bound()
 {
-	var _left_bound = camera_data.left_bound;
-	var _right_bound = camera_data.right_bound;
-	var _top_bound = camera_data.top_bound;
-	var _bottom_bound = camera_data.bottom_bound;
+	var _left_bound = floor(view_data_ref.left_bound);
+	var _right_bound = floor(view_data_ref.right_bound);
+	var _top_bound = floor(view_data_ref.top_bound);
+	var _bottom_bound = floor(view_data_ref.bottom_bound);
 	
 	// Most of the checks here use not floored but real positions including
 	// subpixels (_i.e., LONG instead of WORD)
@@ -21,7 +21,7 @@ function scr_player_level_bound()
 		_right_bound += 64;
 	}
 	
-	if x < _right_bound && x + vel_x >= _right_bound - 24
+	if x < _right_bound && x + vel_x > _right_bound - 24
 	{
 		spd = 0;
 		vel_x = 0;
@@ -49,7 +49,7 @@ function scr_player_level_bound()
 	
 	if instance_exists(obj_rm_stage)
 	{
-		if air_timer > 0 && floor(y) >= max(_bottom_bound, obj_rm_stage.bottom_bound[camera_data.index])
+		if air_timer > 0 && floor(y) >= max(_bottom_bound, floor(obj_rm_stage.bottom_bound[view_data_ref.index]))
 		{
 			kill();
 		}

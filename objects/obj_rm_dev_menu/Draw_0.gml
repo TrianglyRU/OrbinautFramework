@@ -1,5 +1,5 @@
-var _w = camera_get_width(0);
-var _h = camera_get_height(0);
+var _w = camera_get_width(view_current);
+var _h = camera_get_height(view_current);
 var _dx = _w * 0.5;
 var _dy = _h * 0.5 - 16;
 var _options_per_page = 7;

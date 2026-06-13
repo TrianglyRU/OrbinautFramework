@@ -17,7 +17,7 @@ with obj_gameobject
 		
 		// GUI
 		case obj_gui_hud:
-		case obj_gui_titlecard:
+		case obj_gui_title_card:
 		case obj_gui_save:
 		
 		// Stage

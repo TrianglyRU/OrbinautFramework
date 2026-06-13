@@ -88,11 +88,11 @@ function scr_player_animate_knuckles()
 			
 		break;
 		
-		case ANIM.LOOKUP:
+		case ANIM.LOOK_UP:
 			
-			if sprite_index != spr_knuckles_lookup
+			if sprite_index != spr_knuckles_look_up
 			{
-				animator.start(spr_knuckles_lookup, 0, 1, 6);
+				animator.start(spr_knuckles_look_up, 0, 1, 6);
 			}
 			
 		break;

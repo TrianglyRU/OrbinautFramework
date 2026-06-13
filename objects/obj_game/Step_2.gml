@@ -57,24 +57,19 @@ for (var _i = 0; _i < AUDIO_CHANNEL_COUNT; _i++)
     }
 }
 
-FOR_EACH_CAMERA
+FOR_EACH_VISIBLE_VIEW
 {
-    var _camera_data = view_data[_c];
-	
-    if _camera_data == undefined
-    {
-        continue;
-    }
-	
+	var _view_data = view_data[_v];
+	 
 	// Create a surface for the camera if it doesn't exist. Doing so in Draw event results in a blank frame
-	if !surface_exists(view_surface_id[_c])
+	if !surface_exists(view_surface_id[_v])
 	{
-		view_surface_id[_c] = surface_create(_camera_data.surface_w, _camera_data.surface_h);
+		view_surface_id[_v] = surface_create(_view_data.surface_w, _view_data.surface_h);
 	}
 	
-	if state != GAME_STATE.STOP_ALL && _camera_data.allow_updates
+	if state != GAME_STATE.STOP_ALL && _view_data.allow_updates
 	{
-		var _target = _camera_data.target;
+		var _target = _view_data.target;
 		
 	    if _target != noone
 	    {
@@ -83,101 +78,101 @@ FOR_EACH_CAMERA
 			// Track an object if set to do so; obj_player does it on its own in the scr_player_camera() script
 			if instance_exists(_target)
 			{
-				var _w = camera_get_width(_c);
-				var _h = camera_get_height(_c);
+				var _w = camera_get_width(_v);
+				var _h = camera_get_height(_v);
 	
-		        var _target_x = _target.x - _camera_data.raw_x - _w * 0.5;
-		        var _target_y = _target.y - _camera_data.raw_y - _h * 0.5 + 16;
-				var _max_vel_x = _camera_data.max_vel_x;
-				var _max_vel_y = _camera_data.max_vel_y;
+		        var _target_x = _target.x - _view_data.raw_x - _w * 0.5;
+		        var _target_y = _target.y - _view_data.raw_y - _h * 0.5 + 16;
+				var _max_vel_x = _view_data.max_vel_x;
+				var _max_vel_y = _view_data.max_vel_y;
 				
 		        if _target_x > 0
 		        {
-		            _camera_data.vel_x = min(_target_x, _max_vel_x);
+		            _view_data.vel_x = min(_target_x, _max_vel_x);
 		        }
 		        else if _target_x < -CAMERA_FREESPACE_X
 		        {
-		            _camera_data.vel_x = max(_target_x + CAMERA_FREESPACE_X, -_max_vel_x);
+		            _view_data.vel_x = max(_target_x + CAMERA_FREESPACE_X, -_max_vel_x);
 		        }
 		        else
 		        {
-		            _camera_data.vel_x = 0;
+		            _view_data.vel_x = 0;
 		        }
 				
 		        if _target_y > CAMERA_FREESPACE_Y
 		        {
-		            _camera_data.vel_y = min(_target_y - CAMERA_FREESPACE_Y, _max_vel_y);
+		            _view_data.vel_y = min(_target_y - CAMERA_FREESPACE_Y, _max_vel_y);
 		        }
 		        else if _target_y < -CAMERA_FREESPACE_Y
 		        {
-		            _camera_data.vel_y = max(_target_y + CAMERA_FREESPACE_Y, -_max_vel_y);
+		            _view_data.vel_y = max(_target_y + CAMERA_FREESPACE_Y, -_max_vel_y);
 		        }
 		        else
 		        {
-		            _camera_data.vel_y = 0;
+		            _view_data.vel_y = 0;
 		        }
 		    }
 		    else
 		    {
-		        _camera_data.target = noone;
+		        _view_data.target = noone;
 		    }
 		}
 		
-		if _camera_data.max_vel_x < CAMERA_MAX_VEL_X
+		if _view_data.max_vel_x < CAMERA_MAX_VEL_X
 		{
-			_camera_data.max_vel_x += 0.25;
+			_view_data.max_vel_x += 0.25;
 		}
 		
-		if _camera_data.max_vel_y < CAMERA_MAX_VEL_Y
+		if _view_data.max_vel_y < CAMERA_MAX_VEL_Y
 		{
-			_camera_data.max_vel_y += 0.25;
+			_view_data.max_vel_y += 0.25;
 		}
 		
-	    if _camera_data.shake_timer > 0
+	    if _view_data.shake_timer > 0
 	    {
-	        if _camera_data.shake_offset == 0
+	        if _view_data.shake_offset == 0
 	        {
-	            _camera_data.shake_offset = _camera_data.shake_timer;
+	            _view_data.shake_offset = _view_data.shake_timer;
 	        }
-	        else if _camera_data.shake_offset < 0
+	        else if _view_data.shake_offset < 0
 	        {
-	            _camera_data.shake_offset = -1 - _camera_data.shake_offset;
+	            _view_data.shake_offset = -1 - _view_data.shake_offset;
 	        }
 	        else
 	        {
-	            _camera_data.shake_offset = -_camera_data.shake_offset;
+	            _view_data.shake_offset = -_view_data.shake_offset;
 	        }
 
-	        _camera_data.shake_timer--;
+	        _view_data.shake_timer--;
 	    }
 	    else
 	    {
-	        _camera_data.shake_offset = 0;
+	        _view_data.shake_offset = 0;
 	    }
 		
-	    if _camera_data.delay_x == 0
+	    if _view_data.delay_x == 0
 	    {
-	        _camera_data.pos_x_prev = _camera_data.raw_x;
-	        _camera_data.raw_x += _camera_data.vel_x;
+	        _view_data.pos_x_prev = _view_data.raw_x;
+	        _view_data.raw_x += _view_data.vel_x;
 	    }
-	    else if _camera_data.delay_x > 0
+	    else if _view_data.delay_x > 0
 	    {
-	        _camera_data.delay_x--;
+	        _view_data.delay_x--;
 	    }
 		
-	    if _camera_data.delay_y == 0
+	    if _view_data.delay_y == 0
 	    {
-	        _camera_data.pos_y_prev = _camera_data.raw_y;
-	        _camera_data.raw_y += _camera_data.vel_y;
+	        _view_data.pos_y_prev = _view_data.raw_y;
+	        _view_data.raw_y += _view_data.vel_y;
 	    }
-	    else if _camera_data.delay_y > 0
+	    else if _view_data.delay_y > 0
 	    {
-	        _camera_data.delay_y--;
+	        _view_data.delay_y--;
 	    }
 	}
 	
 	// Set actual position
-	update_camera_pos(_camera_data);
+	update_view_camera_pos(_v);
 }
 
 if state != GAME_STATE.STOP_ALL

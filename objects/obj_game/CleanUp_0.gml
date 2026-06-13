@@ -15,13 +15,6 @@ for (var _i = 0; _i < AUDIO_CHANNEL_COUNT; _i++)
 
 audio_emitter_free(audio_emitter_sfx);
 
-// CAMERA
-
-FOR_EACH_CAMERA
-{
-	camera_delete(_c);
-}
-
 // COLLISION
 
 ds_map_destroy(angle_map);
@@ -39,3 +32,11 @@ ds_list_destroy(deformations_data);
 
 ds_list_destroy(input_down);
 ds_list_destroy(input_press);
+
+// RENDERER
+
+FOR_EACH_VIEW
+{
+	surface_free(view_surface_id[_v]);
+	camera_destroy(view_camera[_v]);
+}

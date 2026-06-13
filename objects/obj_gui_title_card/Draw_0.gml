@@ -14,6 +14,11 @@ draw_set_halign(fa_right);
 _dx = _centre_x - 64;
 _dy = _centre_y - 24 + offset_banner * _factor_y;
 
+if timer < 8
+{
+	return;
+}
+
 draw_sprite(spr_gui_card_banner, 0, _dx, _dy);
 
 _dx = _centre_x + 129 + offset_zonename * _factor_x;

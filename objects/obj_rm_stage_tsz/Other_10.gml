@@ -1,4 +1,4 @@
-setup_stage("TECH STADIUM", ACT_SINGLE, snd_bgm_tsz, [spr_animal_cucky, spr_animal_picky], rm_level_select, GAME_PROGRESS_MAX);
+setup_stage("TERMINAL SPECTRUM", ACT_SINGLE, snd_bgm_tsz, [spr_animal_cucky, spr_animal_picky], rm_level_select, GAME_PROGRESS_MAX);
 drp_room_icon = "stage_tsz";
 
 var _fy = 0.056179775;

@@ -10,14 +10,9 @@ var _y = y;
 var _player_data = _transition_data.player_data;
 
 // Disable camera updates
-FOR_EACH_CAMERA
-{	
-	var _camera_data = view_data[_c];
-	
-	if _camera_data != undefined
-	{
-		_camera_data.allow_updates = false;
-	}
+FOR_EACH_VIEW
+{
+	view_data[_v].allow_updates = false;
 }
 
 with obj_player
@@ -47,21 +42,21 @@ with obj_player
 		record_data(_i);
 	}
 	
-	var _camera_index = camera_data.index;
+	var _camera_index = view_data_ref.index;
 	
 	if _camera_index == player_index
 	{
-		camera_data.raw_x = _x - _data.camera_offset_x;
-		camera_data.raw_y = _y - _data.camera_offset_y;
+		view_data_ref.raw_x = _x - _data.camera_offset_x;
+		view_data_ref.raw_y = _y - _data.camera_offset_y;
 		
 		// Match the bounds to the camera size so players can't leave the screen
-		camera_data.left_bound = camera_data.raw_x;
-		camera_data.top_bound = camera_data.raw_y;
-		camera_data.right_bound = camera_data.left_bound + camera_get_width(_camera_index);
-		camera_data.bottom_bound = camera_data.top_bound + camera_get_height(_camera_index);
+		view_data_ref.left_bound = view_data_ref.raw_x;
+		view_data_ref.top_bound = view_data_ref.raw_y;
+		view_data_ref.right_bound = view_data_ref.left_bound + camera_get_width(_camera_index);
+		view_data_ref.bottom_bound = view_data_ref.top_bound + camera_get_height(_camera_index);
 		
 		// Reset the maximum x-velocity so it smoothly accelerates back to its regular value later
-		camera_data.max_vel_x = 0;
+		view_data_ref.max_vel_x = 0;
 	}
 }
 

@@ -16,7 +16,7 @@ scale_target_y_init = -1;
 
 draw_offset_x = 0;
 draw_offset_y = 0;
-draw_enabled = array_create(CAMERA_COUNT, true);
+draw_enabled = array_create(VIEW_COUNT, true);
 
 get_draw_x = function(_camera_x, _factor_x)
 {

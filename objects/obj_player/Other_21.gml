@@ -129,7 +129,7 @@ switch state
 	case PLAYER_STATE.RESPAWN:
 		
 		// Don't do anything until the camera finds us
-		if camera_data.vel_x == 0 && camera_data.vel_y == 0
+		if view_data_ref.vel_x == 0 && view_data_ref.vel_y == 0
 		{
 			state = PLAYER_STATE.DEFAULT;
 		}

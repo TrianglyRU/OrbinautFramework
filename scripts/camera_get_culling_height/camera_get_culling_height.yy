@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"camera_get_culling_height",
   "parent":{
-    "name":"Camera",
-    "path":"folders/Functions/Camera.yy",
+    "name":"Renderer",
+    "path":"folders/Functions/Renderer.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

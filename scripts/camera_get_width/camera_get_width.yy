@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"camera_get_width",
   "parent":{
-    "name":"Camera",
-    "path":"folders/Functions/Camera.yy",
+    "name":"Renderer",
+    "path":"folders/Functions/Renderer.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -12,17 +12,11 @@ if timer <= 96
 			// Do not update during the fade transition
 			max_allowed_game_state = GAME_STATE.STOP_OBJECTS;
 		}
-		else FOR_EACH_CAMERA
+		else FOR_EACH_VISIBLE_VIEW
 		{
 			// Instantly adjust the camera bounds to the stage bounds
-			obj_rm_stage.camera_bound_speed[_c] = ACT_TRANSITION_BOUND_SPEED;
-			
-			var _camera_data = view_data[_c];
-			
-			if _camera_data != undefined
-			{
-				_camera_data.allow_updates = true;
-			}
+			obj_rm_stage.camera_bound_speed[_v] = ACT_TRANSITION_BOUND_SPEED;	
+			view_data[_v].allow_updates = true;
 		}
     }
     else if timer >= 8
