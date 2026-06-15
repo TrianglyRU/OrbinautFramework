@@ -1,5 +1,5 @@
 /// @self
-/// @description												Finds a tile along a vertical axis at the given position within a specified tile layer and returns an array containing two values: the distance to the tile's edge and its angle.
+/// @description												Finds a tile along a vertical axis at the given position within a specified tile layer and returns an array containing two values: the distance to the tile's edge and its (or its surface) angle.
 /// @param {Real} _x											The x-coordinate of the position.
 /// @param {Real} _y											The y-coordinate of the position.
 /// @param {Real} _dir											The direction in which to perform the search.
@@ -26,15 +26,16 @@ function tile_raycast_v(_x, _y, _dir, _secondary_layer = COLLISION_LAYER.PATH_A,
 	if _tilemap != -1
 	{
 		var _tile = tilemap_get_at_pixel(_tilemap, _x, _sy);
-		var _set_angle = global.tile_angles[? tilemap_get_tileset(_tilemap)][? tile_get_index(_tile)];
 		
-		if tile_get_empty(_tile)
+		if _tile_is_empty(_tilemap, _tile)
 		{
 			_angle = TILE_EMPTY_ANGLE;
 		}
 		else
 		{
 			// Get angle of the surface
+			var _set_angle = global.tile_angles[? tilemap_get_tileset(_tilemap)][? tile_get_index(_tile)];
+			
 			if _set_angle == undefined
 			{
 				var _ax1 = floor(_x / TILE_SIZE) * TILE_SIZE;
@@ -136,14 +137,14 @@ function _read_height(_x, _y, _dir, _secondary_layer, _quadrant)
 	}
 	
 	var _tile = tilemap_get_at_pixel(_tilemap, _x, _y);
+	var _index = tile_get_index(_tile);
 	
-	if tile_get_empty(_tile)
+	if _index <= 0
 	{
 		return 0;
 	}
 	
 	var _tileset = tilemap_get_tileset(_tilemap);
-	var _index = tile_get_index(_tile);
 	var _height_data = global.tile_heights[? _tileset][? _index];
 	
 	if _height_data == undefined

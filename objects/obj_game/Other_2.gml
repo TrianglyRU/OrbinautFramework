@@ -4,6 +4,7 @@
 global.tile_widths = ds_map_create();
 global.tile_heights = ds_map_create();
 global.tile_angles = ds_map_create();
+global.empty_tiles = ds_map_create();
 global.font_data = ds_map_create();
 global.gamepads = ds_list_create();
 global.looped_bgm = ds_list_create();

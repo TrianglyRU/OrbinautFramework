@@ -8,10 +8,23 @@ function collision_tilemap_get(_x, _y, _secondary_layer)
 {
 	var _tilemap = obj_game.tilemaps[_secondary_layer];
 	
-	if _tilemap == -1 || tile_get_empty(tilemap_get_at_pixel(_tilemap, _x, _y))
+	if _tilemap == -1 || _tile_is_empty(_tilemap, tilemap_get_at_pixel(_tilemap, _x, _y))
 	{
 	    _tilemap = obj_game.tilemaps[COLLISION_LAYER.MAIN];
 	}
 	
 	return _tilemap;
+}
+
+/// @self collision_tilemap_get
+function _tile_is_empty(_tilemap, _tile)
+{
+	var _index = tile_get_index(_tile);
+	
+	if _index <= 0
+	{
+		return true;
+	}
+	
+	return global.empty_tiles[? tilemap_get_tileset(_tilemap)][? _index] ? true : false;
 }

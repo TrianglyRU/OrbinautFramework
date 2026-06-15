@@ -10,6 +10,7 @@ function tile_calculate_data(_tileset, _sprite_id, _angle_map = [])
 	var _height_data = ds_map_create();
 	var _width_data = ds_map_create();
 	var _angle_data = ds_map_create();
+	var _empty_indices = ds_map_create();
 	
 	var _w = sprite_get_width(_sprite_id);
 	var _h = sprite_get_height(_sprite_id);
@@ -61,8 +62,12 @@ function tile_calculate_data(_tileset, _sprite_id, _angle_map = [])
 			_height_data[? _i] = _height_array;
 			_width_data[? _i] = _width_array;
 		}
+		else
+		{
+			_empty_indices[? _i] = true;
+		}
 	}
-	
+
 	buffer_delete(_buffer);
 	
 	var _entries = array_length(_angle_map);
@@ -86,9 +91,10 @@ function tile_calculate_data(_tileset, _sprite_id, _angle_map = [])
 		}
 	}
 	
-	global.tile_heights[? _tileset] = _height_data;	
-	global.tile_widths[? _tileset] = _width_data;
-	global.tile_angles[? _tileset] = _angle_data;
+	ds_map_add_map(global.tile_heights, _tileset, _height_data);
+	ds_map_add_map(global.tile_widths, _tileset, _width_data);
+	ds_map_add_map(global.tile_angles, _tileset, _angle_data);
+	ds_map_add_map(global.empty_tiles, _tileset, _empty_indices);
 }
 
 /// @self tile_calculate_data
