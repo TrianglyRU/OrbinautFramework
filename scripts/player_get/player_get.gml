@@ -4,5 +4,13 @@
 /// @returns {Id.Instance}
 function player_get(_player_index)
 {
-	return instance_find(obj_player, _player_index);
+	with obj_player
+	{
+		if _player_index == player_index
+		{
+			return id;
+		}
+	}
+	
+	return noone;
 }
