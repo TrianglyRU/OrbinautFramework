@@ -2,7 +2,7 @@ switch state
 {
 	case NEWTRON_STATE.FIND_TARGET:
 		
-		var _player = player_get(obj_game.frame_counter % PLAYER_COUNT);
+		var _player = player_get(FRAME_COUNTER % PLAYER_COUNT);
 		var _dist_x = floor(_player.x) - x;
 		
 		if abs(_dist_x) >= 128

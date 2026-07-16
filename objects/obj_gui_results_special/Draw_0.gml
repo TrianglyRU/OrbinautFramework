@@ -77,7 +77,7 @@ draw_text(_dx + 97, _dy - 7, ring_bonus);
 _dx = _centre_x;
 _dy = _centre_y - 36;
 
-draw_set_alpha(obj_game.frame_counter % 2 == 0 ? 1 : 0);
+draw_set_alpha(FRAME_COUNTER % 2 == 0 ? 1 : 0);
 
 for (var _i = 0; _i < global.emerald_count; _i++)
 {

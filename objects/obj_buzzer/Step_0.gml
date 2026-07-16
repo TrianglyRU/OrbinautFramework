@@ -12,7 +12,7 @@ switch state
 	
 	    if shot_flag
 	    {
-	        var _player = player_get(obj_game.frame_counter % PLAYER_COUNT);
+	        var _player = player_get(FRAME_COUNTER % PLAYER_COUNT);
 	        var _dist_x = x - floor(_player.x);
 	        var _abs_dist_x = abs(_dist_x);
 			

@@ -529,7 +529,7 @@ record_data = function(_insert_pos)
 
 play_tails_sound = function()
 {
-	if (obj_game.frame_counter + 8) % 16 != 0 || is_underwater || !instance_is_drawn()
+	if (FRAME_COUNTER + 8) % 16 != 0 || is_underwater || !instance_is_drawn()
 	{
 		return;
 	}
@@ -635,9 +635,11 @@ var _is_respawned = variable_instance_exists(id, "player_index");
 
 if !_is_respawned
 {
-	obj_game.player_count++;
-	player_index = PLAYER_COUNT - 1;
+	player_index = PLAYER_COUNT;
 	base_depth = draw_depth(20 + player_index);
+	
+	// Cache player count to save iteration time (instance_number is O(n))
+	PLAYER_COUNT++;
 }
 else
 {

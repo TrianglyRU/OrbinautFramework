@@ -1,6 +1,6 @@
 if frame_duration > 0
 {
-    image_index = floor(obj_game.frame_counter / frame_duration) % image_number;
+    image_index = floor(FRAME_COUNTER / frame_duration) % image_number;
 }
 
 draw_offset_x = floor(obj_game.bg_scroll_x * scroll_mult_x);

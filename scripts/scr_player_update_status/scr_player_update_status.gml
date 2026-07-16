@@ -75,7 +75,7 @@ function scr_player_update_status()
 		}
 	}
 	
-	if obj_game.frame_counter == 36000 && player_index == 0
+	if FRAME_COUNTER == 36000 && player_index == 0
 	{
 		kill();
 	}

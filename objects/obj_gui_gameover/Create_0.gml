@@ -51,7 +51,7 @@ on_fade_continue_game = function()
 }
 
 depth = RENDER_DEPTH_HUD;
-image_index = global.life_count > 0 && obj_game.frame_counter >= 36000;
+image_index = global.life_count > 0 && FRAME_COUNTER >= 36000;
 max_allowed_game_state = GAME_STATE.STOP_OBJECTS;
 state = GAMEOVER_STATE.SLIDE_IN;
 wait_timer = 720;

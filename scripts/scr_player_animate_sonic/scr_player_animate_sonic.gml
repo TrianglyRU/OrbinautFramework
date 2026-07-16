@@ -51,7 +51,7 @@ function scr_player_animate_sonic()
 				animator.duration = _move_timing;
 			}
 			
-			if obj_game.frame_counter % 4 <= 1
+			if FRAME_COUNTER % 4 <= 1
 			{
 				if sprite_index == spr_sonic_walk_super
 				{

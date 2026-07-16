@@ -54,7 +54,7 @@ switch state
 	
     case CAPSULE_STATE.SPAWN_ANIMALS:
         
-        if obj_game.frame_counter % 8 == 0
+        if FRAME_COUNTER % 8 == 0
         {
 			with instance_create(x + irandom_range(-25, 24), y, obj_animal)
 			{

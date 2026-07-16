@@ -22,6 +22,7 @@ enum SAVE_DATA_STATE
 #macro SCORE_THRESHOLD 50000
 #macro ANGLE_RAW_MAX 256
 #macro ANGLE_INCREMENT (360 / ANGLE_RAW_MAX)
+#macro FRAME_COUNTER obj_game.frame_counter
 
 #macro PLAYER_MAX_COUNT 8
 #macro PLAYER_COUNT obj_game.player_count

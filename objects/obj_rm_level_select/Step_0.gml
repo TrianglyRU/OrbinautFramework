@@ -3,7 +3,7 @@ if obj_game.fade_state != FADE_STATE.NONE
 	return;
 }
 
-var _frame = floor(obj_game.frame_counter * 0.5);
+var _frame = floor(FRAME_COUNTER * 0.5);
 var _frame_num = array_length(bg_playback_data);
 
 with obj_parallax

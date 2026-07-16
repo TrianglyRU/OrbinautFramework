@@ -59,7 +59,7 @@ var _data = array_length(_ring_data) > 0 ? _ring_data : _checkpoint_data;
 
 if array_length(_data) > 0
 {
-	obj_game.frame_counter = _data[2];
+	FRAME_COUNTER = _data[2];
 	
     FOR_EACH_VIEW
     {

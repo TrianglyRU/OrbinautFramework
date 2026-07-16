@@ -26,7 +26,7 @@ switch state
 			
 	        global.giant_ring_data =
 	        [
-	            x, y, obj_game.frame_counter, obj_rm_stage.top_bound[0], obj_rm_stage.bottom_bound[0], obj_rm_stage.left_bound[0], obj_rm_stage.right_bound[0]
+	            x, y, FRAME_COUNTER, obj_rm_stage.top_bound[0], obj_rm_stage.bottom_bound[0], obj_rm_stage.left_bound[0], obj_rm_stage.right_bound[0]
 	        ];
         
 	        state = GIANT_RING_STATE.ENTRY;

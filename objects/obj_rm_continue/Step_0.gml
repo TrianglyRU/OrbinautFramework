@@ -10,7 +10,7 @@ if character_main.vel_charge != 0
 		var _last_icon = continue_icons[continue_count - 1];
 	
 	    _last_icon.animator.timer = -1;
-	    _last_icon.visible = obj_game.frame_counter % 2 == 0;
+	    _last_icon.visible = FRAME_COUNTER % 2 == 0;
 	}
 
 	var _bound = camera_get_width(0) + 64;

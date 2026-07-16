@@ -1,4 +1,4 @@
-instance_animate(obj_game.frame_counter, 12);
+instance_animate(FRAME_COUNTER, 12);
 
 // Offset the hitbox each animation frame
 offset_x = 16 * image_index;

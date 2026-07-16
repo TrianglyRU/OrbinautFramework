@@ -6,7 +6,7 @@ switch state
 		{
 			if parent_boss.boss_inv_frames != 0
 			{
-				visible = obj_game.frame_counter % 2 != 0; 
+				visible = FRAME_COUNTER % 2 != 0; 
 			}
 			else
 			{

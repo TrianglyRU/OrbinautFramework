@@ -1,4 +1,4 @@
-obj_game.player_count--;
+PLAYER_COUNT--;
 
 if variable_instance_exists(id, "player_index")
 {

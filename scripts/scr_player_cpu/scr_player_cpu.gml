@@ -27,7 +27,7 @@ function scr_player_cpu()
 			
 	        if _can_receive_input && !input_down_action_any() && !input_down.start
 	        {
-				if obj_game.frame_counter % 64 != 0 || cpu_target.state >= PLAYER_STATE.NO_INTERACT
+				if FRAME_COUNTER % 64 != 0 || cpu_target.state >= PLAYER_STATE.NO_INTERACT
 				{
 					break;
 				}
@@ -247,7 +247,7 @@ function scr_player_cpu()
 
 	            if !cpu_auto_jump
 	            {	
-	                if _dist_x >= 64 && obj_game.frame_counter % (_jump_freq * 4) != 0 || _target_y - floor(y) > -32
+	                if _dist_x >= 64 && FRAME_COUNTER % (_jump_freq * 4) != 0 || _target_y - floor(y) > -32
 	                {
 	                    _do_auto_jump = false;  
 	                }
@@ -271,7 +271,7 @@ function scr_player_cpu()
 			
 			_do_auto_jump &= animation != ANIM.DUCK;
 			_do_auto_jump &= cpu_target.animation != ANIM.WAIT;
-			_do_auto_jump &= obj_game.frame_counter % _jump_freq == 0;
+			_do_auto_jump &= FRAME_COUNTER % _jump_freq == 0;
 			
 	        if _do_auto_jump
 	        {
@@ -316,7 +316,7 @@ function scr_player_cpu()
 
 	        input_down.down = true;
 			
-			if obj_game.frame_counter % 128 == 0
+			if FRAME_COUNTER % 128 == 0
 			{
 				input_down.down = false;
 				input_press.action1 = false;
@@ -324,7 +324,7 @@ function scr_player_cpu()
 				input_press.action3 = false;
 				cpu_state = CPU_STATE.MAIN;
 			}
-			else if obj_game.frame_counter % 32 == 0
+			else if FRAME_COUNTER % 32 == 0
 			{
 				input_press.action1 = true;
 				input_press.action2 = true;

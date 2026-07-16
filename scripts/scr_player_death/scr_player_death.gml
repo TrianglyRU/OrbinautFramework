@@ -42,7 +42,7 @@ function scr_player_death()
 	        {
 	            obj_gui_hud.update_timer = false;
 				
-	            if --global.life_count > 0 && obj_game.frame_counter < 36000
+	            if --global.life_count > 0 && FRAME_COUNTER < 36000
 	            {
 	                death_state = DEATH_STATE.RESTART;
 	                restart_timer = 60;

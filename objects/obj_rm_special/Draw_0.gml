@@ -14,14 +14,14 @@ draw_set_halign(fa_center);
 for (var _i = 0; _i < _length; _i++)
 {
     var _offset_x = (_i - round(_length * 0.5)) * 8;
-    var _offset_y = math_oscillate_y(0, obj_game.frame_counter * 4 + _i * 48, 2);
+    var _offset_y = math_oscillate_y(0, FRAME_COUNTER * 4 + _i * 48, 2);
 	
     draw_text(_half_width + _offset_x, 48 + _offset_y, string_char_at(_title_string, _i + 1));
 }
 
 if state >= SPECIAL_STAGE_STATE.EMERALD
 {
-    if obj_game.frame_counter % 20 < 10
+    if FRAME_COUNTER % 20 < 10
     {
 		var _text = state == SPECIAL_STAGE_STATE.EMERALD ? "YOU GOT A CHAOS EMERALD!"
 													     : "YOU GOT ALL CHAOS EMERALDS!";												   

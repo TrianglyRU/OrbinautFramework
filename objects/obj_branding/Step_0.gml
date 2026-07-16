@@ -1,7 +1,7 @@
 orbinaut_alpha = min(orbinaut_alpha + 0.05, 1.0);
 orbinaut_scale = max(orbinaut_scale - (orbinaut_scale - 1) / 8, 1.0);
 
-if obj_game.frame_counter >= 8 
+if FRAME_COUNTER >= 8 
 {
     logo_alpha = min(logo_alpha + 0.05, 1.0);
     logo_scale = max(logo_scale - (logo_scale - 1) / 8, 1.0);

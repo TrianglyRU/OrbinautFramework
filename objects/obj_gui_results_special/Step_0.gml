@@ -57,7 +57,7 @@ switch state
             total_score += 100;
             global.score_count += 100;
 			
-            if obj_game.frame_counter % 4 == 0
+            if FRAME_COUNTER % 4 == 0
             {
                 audio_sfx_play(snd_beep);
             }

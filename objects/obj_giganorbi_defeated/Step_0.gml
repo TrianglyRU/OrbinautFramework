@@ -1,4 +1,4 @@
-if obj_game.frame_counter % 6 == 0
+if FRAME_COUNTER % 6 == 0
 {
 	instance_create(x + random_range(-32, 31), y + random_range(-32, 31), obj_explosion);
 	audio_sfx_play(snd_explosion);

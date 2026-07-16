@@ -21,7 +21,7 @@ if _player.state < PLAYER_STATE.NO_INTERACT && point_in_rectangle(floor(_player.
 	[
 		x,
 		y,
-		obj_game.frame_counter, 
+		FRAME_COUNTER, 
 		obj_rm_stage.top_bound[0], 
 		obj_rm_stage.bottom_bound[0], 
 		obj_rm_stage.left_bound[0], 
