@@ -3,23 +3,6 @@ function scr_player_update_hitbox()
 {
 	switch player_type
 	{
-		case PLAYER.SONIC:
-		
-			if animation == ANIM.DUCK && image_index == image_number - 1 && global.player_physics < PHYSICS.S3
-			{
-				mask_index = spr_mask_sonic_duck;
-			}
-			else if radius_y == radius_y_normal
-			{
-				mask_index = spr_mask_sonic_normal;
-			}
-			else
-			{
-				mask_index = spr_mask_sonic_spin;
-			}
-			
-		break;
-		
 		case PLAYER.TAILS:
 			mask_index = radius_y == radius_y_normal ? spr_mask_tails_normal : spr_mask_tails_spin;
 		break;
@@ -48,6 +31,22 @@ function scr_player_update_hitbox()
 		case PLAYER.AMY:
 			mask_index = radius_y == radius_y_normal ? spr_mask_amy_normal : spr_mask_amy_spin;
 		break;
+		
+		// PLAYER.SONIC, others
+		default:
+		
+			if animation == ANIM.DUCK && image_index == image_number - 1 && global.player_physics < PHYSICS.S3
+			{
+				mask_index = spr_mask_sonic_duck;
+			}
+			else if radius_y == radius_y_normal
+			{
+				mask_index = spr_mask_sonic_normal;
+			}
+			else
+			{
+				mask_index = spr_mask_sonic_spin;
+			}
 	}
 	
 	if action == ACTION.HAMMER_SPIN
