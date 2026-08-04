@@ -5,28 +5,35 @@ precision highp float;
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
-uniform float g_Width;
+uniform vec4 g_ContextRect;
 uniform float g_Offset;
+uniform float g_Width;
 uniform float g_DataSizeA;
 uniform float g_DataSizeB;
-uniform float g_BoundUpper;    
-uniform float g_BoundMiddle;
-uniform float g_BoundLower;
 uniform float g_DataA[256];
 uniform float g_DataB[256];
+
+float getContext()
+{
+    vec2 p = gl_FragCoord.xy;
+    return step(g_ContextRect.x, p.x) * step(g_ContextRect.y, p.y) * step(p.x, g_ContextRect.z) * step(p.y, g_ContextRect.w);
+}
 
 void main()
 {
     vec2 uv = v_vTexcoord;
     float y = gl_FragCoord.y;
     
-    if (y >= g_BoundUpper && y <= g_BoundLower)
+    if (getContext() < 0.5)
     {
-        if (y < g_BoundMiddle)
+        if (g_DataSizeA > 0.0)
         {
             uv.x -= g_DataA[int(mod(g_Offset + y, g_DataSizeA))] / g_Width;
         }
-        else
+    }
+    else
+    {
+        if (g_DataSizeB > 0.0)
         {
             uv.x -= g_DataB[int(mod(g_Offset + y, g_DataSizeB))] / g_Width;
         }

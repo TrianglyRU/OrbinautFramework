@@ -40,9 +40,12 @@ start_results = function()
 
 state = SPECIAL_STAGE_STATE.IDLE;
 
-audio_bgm_play(snd_bgm_special_stage);
 bg_convert("Far_Clouds", 0, 0, 0, 0, 0);
 bg_convert("Close_Clouds", 0, 0, -0.05, 0, 0);
+bg_convert("Reflection", 0, 0, -0.05, 0, 0);
+
+deform_layers(["Reflection"], 1, 0.25, DEFORM_DATA.LBZ_1, undefined);
+
 discord_set_data("SPECIAL STAGE", "", "room_special", undefined);
-deform_layers(["Close_Clouds"], deform_get_data(DEFORM_DATA.LBZ_1), undefined, 1, 0.25, 144, 239);
+audio_bgm_play(snd_bgm_special_stage);
 fade_perform_white(FADE_DIRECTION.IN, 1);

@@ -33,6 +33,6 @@ draw_text(_dx, _dy, "ZONE");
 
 _dx = _centre_x + 117 + offset_act * _factor_x;
 _dy = _centre_y + 12;
-	
+
 draw_sprite(spr_gui_act, obj_rm_stage.act_index, _dx, _dy);
 draw_set_halign(fa_left);

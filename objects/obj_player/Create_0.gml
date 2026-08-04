@@ -31,8 +31,8 @@ enum PLAYER_STATE
 {
 	DEFAULT,
 	HURT,
-	FROZEN,
-	NO_INTERACT,
+	MANUAL_INTERACT,
+	MANUAL_NO_INTERACT,
 	DEBUG_MODE,
 	DEATH,
 	RESPAWN
@@ -191,7 +191,7 @@ respawn = function()
 		visible = false;
 		depth = RENDER_DEPTH_PRIORITY + player_index;	
 		cpu_state = CPU_STATE.RESPAWN_INIT;
-		state = PLAYER_STATE.NO_INTERACT;
+		state = PLAYER_STATE.MANUAL_NO_INTERACT;
 		is_grounded = false;
 	}
 	else
@@ -554,7 +554,7 @@ set_victory_pose = function()
 	y -= radius_y_normal - radius_y;
 	vel_x = 0;
 	vel_y = 0;
-	state = PLAYER_STATE.FROZEN;
+	state = PLAYER_STATE.MANUAL_INTERACT;
 	animation = ANIM.ACT_CLEAR;
 	
 	reset_substate();
@@ -655,7 +655,7 @@ switch player_type
 		radius_y_normal = 16;
 		radius_x_spin = 8;
 		radius_y_spin = 15;
-		palette_colours = [4, 5, 6];
+		palette_slots = [4, 5, 6];
 			
 	break;
 		
@@ -665,7 +665,7 @@ switch player_type
 		radius_y_normal = 20;
 		radius_x_spin = 8;
 		radius_y_spin = 15;
-		palette_colours = [7, 8, 9];
+		palette_slots = [7, 8, 9];
 			
 	break;
 		
@@ -675,7 +675,7 @@ switch player_type
 		radius_y_normal = 17;
 		radius_x_spin = 8;
 		radius_y_spin = 13;
-		palette_colours = [10, 11, 12];
+		palette_slots = [10, 11, 12];
 		
 	break;
 		
@@ -686,7 +686,7 @@ switch player_type
 		radius_y_normal = 20;
 		radius_x_spin = 8;
 		radius_y_spin = 15;
-		palette_colours = [0, 1, 2, 3];
+		palette_slots = [0, 1, 2, 3];
 }
 	
 radius_x = radius_x_normal;

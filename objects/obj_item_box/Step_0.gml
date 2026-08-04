@@ -3,9 +3,9 @@ if state == ITEM_BOX_STATE.DESTROYED
 	return;
 }
 
-if itembox_type >= 9
+if item_box_type >= 9
 {
-	itembox_type = 9 + global.player_main;
+	item_box_type = 9 + global.player_main;
 }
 
 FOR_EACH_PLAYER
@@ -59,7 +59,7 @@ FOR_EACH_PLAYER
 			
 	        with instance_create(x, y - 3, obj_item_card)
 			{
-				image_index = other.itembox_type;
+				image_index = other.item_box_type;
 			}
 			
 	        instance_create(x, y, obj_explosion_dust);

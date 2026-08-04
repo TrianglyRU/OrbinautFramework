@@ -12,7 +12,7 @@ function scr_player_draw()
 	    }
 	}
 	
-	// Draw using visual_angle instead instead of image_angle to keep the hitbox static
+	// Draw player using visual_angle instead instead of image_angle to keep the hitbox static
 	var _angle = animation == ANIM.MOVE || animation == ANIM.HAMMER_DASH ? visual_angle : 0;
 	var _alpha = state == PLAYER_STATE.DEATH ? 1 : image_alpha;
 	

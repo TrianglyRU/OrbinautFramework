@@ -130,7 +130,8 @@ else
 	
 set_room_to_load();
 
-audio_bgm_play(snd_bgm_level_select);
 bg_convert("Background", 0, 0, 0, 0, 0);
+
 discord_set_data("LEVEL SELECT", "", "room_levels", "");
+audio_bgm_play(snd_bgm_level_select);
 fade_perform_black(FADE_DIRECTION.IN, 1);

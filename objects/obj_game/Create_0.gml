@@ -34,7 +34,6 @@ oscillation_angle = 0;
 player_count = 0;
 allow_pause = false;
 clear_vram_on_room_end = true;
-depth = 16000;
 
 #region AUDIO
 
@@ -232,20 +231,23 @@ for (var _i = 0; _i < INPUT_SLOT_COUNT; _i++)
 
 #region PALETTE
 
-// Should match sh_palette_map limit
-#macro PALETTE_TOTAL_SLOT_COUNT 256
+#macro PALETTE_TOTAL_SLOT_COUNT 256		// should match sh_palette_multimap
+#macro PALETTE_MAP_OBJECT 0
+#macro PALETTE_MAP_PLAYER 1
+#macro PALETTE_MAP_LEVEL 2
 
 palette_bound = room_height;
-palette_durations = array_create(PALETTE_TOTAL_SLOT_COUNT, 0);
-palette_timers = array_create(PALETTE_TOTAL_SLOT_COUNT, 0);
-palette_indices = array_create(PALETTE_TOTAL_SLOT_COUNT, 1);
-palette_loop_indices = array_create(PALETTE_TOTAL_SLOT_COUNT, 0);
-palette_end_indices = array_create(PALETTE_TOTAL_SLOT_COUNT, 0);
-palette_data = [undefined, undefined];
+palette_masks = array_create(8, -1);
+palette_maps = ds_map_create();
+palette_maps_keys = undefined;
+palette_entry_current = undefined;
+palette_entry_previous = undefined;
 
 #endregion
 
 #region RENDERER
+
+depth = 16000;
 
 #macro draw_colour draw_get_colour()
 #macro draw_color draw_get_colour()
@@ -307,6 +309,8 @@ var _startup_info = room_get_info(rm_startup);
 var _w = _startup_info.width;
 var _h = _startup_info.height;
 
+surface_resize(application_surface, _w, _h);
+
 FOR_EACH_VIEW
 {
 	view_data[_v] =
@@ -355,8 +359,6 @@ for (var _i = VIEW_COUNT; _i < 8; _i++)
 
 view_visible[0] = true;
 view_enabled = true;
-
-surface_resize(application_surface, _w, _h);
 
 #endregion
 

@@ -12,8 +12,8 @@
   "out_tilehborder":0,
   "out_tilevborder":0,
   "parent":{
-    "name":"Tech Stadium",
-    "path":"folders/Tile Sets/Tech Stadium.yy",
+    "name":"Trial Stadium",
+    "path":"folders/Tile Sets/Trial Stadium.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

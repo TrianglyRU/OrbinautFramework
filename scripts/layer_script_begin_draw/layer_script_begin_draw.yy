@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"layer_script_begin_draw",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"layer_script_begin_draw",
+  "parent":{
+    "name":"Layers",
+    "path":"folders/Functions/Layers.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

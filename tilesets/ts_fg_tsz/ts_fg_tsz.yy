@@ -303,8 +303,8 @@
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
-    "name":"Tech Stadium",
-    "path":"folders/Tile Sets/Tech Stadium.yy",
+    "name":"Trial Stadium",
+    "path":"folders/Tile Sets/Trial Stadium.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

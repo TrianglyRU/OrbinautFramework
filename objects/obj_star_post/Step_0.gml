@@ -15,7 +15,7 @@ if array_length(_checkpoint_data) > 0 && _checkpoint_data[7] >= iv_index
 
 var _player = player_get(0);
 
-if _player.state < PLAYER_STATE.NO_INTERACT && point_in_rectangle(floor(_player.x), floor(_player.y), bbox_left, bbox_top, bbox_right - 1, bbox_bottom - 1)
+if _player.state < PLAYER_STATE.MANUAL_NO_INTERACT && point_in_rectangle(floor(_player.x), floor(_player.y), bbox_left, bbox_top, bbox_right - 1, bbox_bottom - 1)
 {
 	global.checkpoint_data =
 	[

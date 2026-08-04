@@ -4,8 +4,8 @@ scr_player_input();
 switch state
 {
 	case PLAYER_STATE.DEFAULT:
-	case PLAYER_STATE.FROZEN:
-	case PLAYER_STATE.NO_INTERACT:
+	case PLAYER_STATE.MANUAL_INTERACT:
+	case PLAYER_STATE.MANUAL_NO_INTERACT:
 		
 		if scr_player_debug_mode_enter()
 		{

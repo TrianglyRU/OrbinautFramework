@@ -7,7 +7,7 @@ FOR_EACH_PLAYER
 		visible = _player.state == PLAYER_STATE.DEBUG_MODE;
 	}
 	
-	if _player.state >= PLAYER_STATE.NO_INTERACT
+	if _player.state >= PLAYER_STATE.MANUAL_NO_INTERACT
 	{
 		continue;
 	}

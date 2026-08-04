@@ -9,7 +9,7 @@
 /// @returns {Bool}
 function collision_player(_player, _use_extra_mask = false, _bbleft = bbox_left, _bbtop = bbox_top, _bbright = bbox_right, _bbbottom = bbox_bottom)
 {
-	if !_player.interact_flag || _player.state != PLAYER_STATE.DEFAULT && _player.state != PLAYER_STATE.FROZEN
+	if !_player.interact_flag || _player.state != PLAYER_STATE.DEFAULT && _player.state != PLAYER_STATE.MANUAL_INTERACT
 	{
 		return false;
 	}

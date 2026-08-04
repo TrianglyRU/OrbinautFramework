@@ -1,21 +1,28 @@
 /// @self
-/// @description							Sets the palette index for the given colour indices.
-/// @param {Array<Real>} _colour_indices	An array of colour indices to modify.
-/// @param {Real} _replacement_index		The new palette index.
-function pal_set_index(_colour_indices, _replacement_index)
+/// @description				Sets the colour index for the given slots.
+/// @param {Real} _entry		The palette entry identifier.
+/// @param {Array<Real>} _slots	An array of slots to update.
+/// @param {Real} _value		The colour index to set.
+function pal_set_index(_entry, _slots, _index)
 {
-	var _timers = obj_game.palette_timers;
-	var _durations = obj_game.palette_durations;
-	var _indices = obj_game.palette_indices;
+	var _map = obj_game.palette_maps[? _entry];
 	
-	for (var _i = array_length(_colour_indices) - 1; _i >= 0; _i--)
+	if _map == undefined
 	{
-		var _index = _colour_indices[_i];
+		return;
+	}
+	
+	var _data = _map[0];
+	var _count = array_length(_slots);
+	
+	for (var _i = 0; _i < _count; _i++)
+	{
+		var _slot = _slots[_i];
 		
-		if _index < PALETTE_TOTAL_SLOT_COUNT
+		if _slot < PALETTE_TOTAL_SLOT_COUNT
 		{
-			_timers[_index] = _durations[_index];
-			_indices[_index] = _replacement_index;
+			_data.timers[_slot] = _data.durations[_slot];
+			_data.indices[_slot] = _index;
 		}
 	}
 }

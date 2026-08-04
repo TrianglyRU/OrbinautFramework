@@ -18,7 +18,7 @@ function scr_game_setup()
 	global.vsync = true;
 	global.start_fullscreen = false;
 	global.start_exclusive_fullscreen = true;
-	global.start_room = rm_branding;
+	global.start_room = rm_dev_menu;
 	
 	global.player_physics = PHYSICS.S2;
 	global.cpu_behaviour = CPU_BEHAVIOUR.S3;
@@ -82,7 +82,7 @@ function scr_game_setup()
 	// Default
 	tile_calculate_data(ts_collision_default, spr_collision_default);
 	
-	// Tech Stadium
+	// Trial Stadium
 	tile_calculate_data(ts_collision_tsz, spr_collision_tsz,
 	[
 		[75, 67.5]

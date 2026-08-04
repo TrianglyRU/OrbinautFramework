@@ -4,19 +4,11 @@
     "type": "filter",
     "parameters": [
         {
+            "name": "g_ContextRect",
+            "type": "float"
+        },
+        {
             "name": "g_Offset",
-            "type": "float"
-        },
-        {
-            "name": "g_BoundUpper",
-            "type": "float"
-        },
-        {
-            "name": "g_BoundMiddle",
-            "type": "float"
-        },
-        {
-            "name": "g_BoundLower",
             "type": "float"
         },
         {

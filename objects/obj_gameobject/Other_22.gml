@@ -1,4 +1,4 @@
-/// @description End Step (Pre-Framework) - Path Step
+/// @description End Step (Pre-Framework)
 
 // This event can be used as a End Step that is guaranteed
 // to run BEFORE obj_game's End Step

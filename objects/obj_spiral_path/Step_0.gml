@@ -11,7 +11,7 @@ FOR_EACH_PLAYER
 			continue;
 		}
 		
-		if _player.state >= PLAYER_STATE.NO_INTERACT
+		if _player.state >= PLAYER_STATE.MANUAL_NO_INTERACT
 		{
 			continue;
 		}

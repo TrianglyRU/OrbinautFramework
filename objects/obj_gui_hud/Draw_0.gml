@@ -32,7 +32,10 @@ draw_set_font(global.font_data[? spr_font_digits_small]);
 _dx = _x + 40 + lives_offset;
 _dy = _y + _h - 16;
 
+pal_draw(PALETTE_MAP_PLAYER);
 draw_sprite(spr_gui_hud_lives, view_current > 0 ? global.player_cpu : global.player_main, _dx, _dy);	
+pal_draw_previous();
+
 draw_set_halign(fa_right);
 draw_text(_dx + 25, _dy + 1, global.life_count);
 draw_set_halign(fa_left);

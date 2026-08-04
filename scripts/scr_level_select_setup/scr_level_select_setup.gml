@@ -30,7 +30,7 @@ function scr_level_select_setup()
 		"         |2",
 		"/p",
 		"",
-		"TERMINAL SPECTRUM",
+		"TRIAL STADIUM",
 		"",
 		"",
 		"SPECIAL STAGE",

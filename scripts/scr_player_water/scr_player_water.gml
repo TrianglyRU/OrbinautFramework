@@ -132,7 +132,7 @@ function _spawn_splash()
 {
 	if vel_y != 0
 	{
-		if state != PLAYER_STATE.NO_INTERACT && action != ACTION.CLIMB && !is_true_glide() && cpu_state != CPU_STATE.RESPAWN
+		if state != PLAYER_STATE.MANUAL_NO_INTERACT && action != ACTION.CLIMB && !is_true_glide() && cpu_state != CPU_STATE.RESPAWN
 		{
 			instance_create(x, obj_water.y, obj_water_splash);
 			audio_sfx_play(snd_splash);

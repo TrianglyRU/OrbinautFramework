@@ -9,8 +9,8 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_breakable_wall","path":"objects/obj_breakable_wall/obj_breakable_wall.yy",},"propertyId":{"name":"iv_knuckles_only","path":"objects/obj_breakable_wall/obj_breakable_wall.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
   ],
   "parent":{
-    "name":"Tech Stadium",
-    "path":"folders/Objects/Tech Stadium.yy",
+    "name":"Trial Stadium",
+    "path":"folders/Objects/Trial Stadium.yy",
   },
   "parentObjectId":{
     "name":"obj_breakable_wall",

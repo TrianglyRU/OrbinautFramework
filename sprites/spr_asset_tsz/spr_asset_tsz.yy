@@ -65,7 +65,7 @@
   "origin":4,
   "parent":{
     "name":"Graphics",
-    "path":"folders/Sprites/Tech Stadium/Graphics.yy",
+    "path":"folders/Sprites/Trial Stadium/Graphics.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

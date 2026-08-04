@@ -5,7 +5,7 @@ if obj_game.state != GAME_STATE.STOP_ALL
 {
 	if FRAME_COUNTER % 6 == 0
 	{
-		pal_set_index([36], irandom_range(1, 3));
+		pal_set_index(PALETTE_MAP_LEVEL, [7], irandom_range(1, 3));
 	}
 	
 	with obj_parallax

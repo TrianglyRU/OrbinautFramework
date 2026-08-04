@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Giganorbi",
-    "path":"folders/Objects/Tech Stadium/Giganorbi.yy",
+    "path":"folders/Objects/Trial Stadium/Giganorbi.yy",
   },
   "parentObjectId":{
     "name":"obj_gameobject",

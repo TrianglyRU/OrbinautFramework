@@ -1,32 +1,42 @@
 /// @self
-/// @description							Registers rotation for the colours at the given indices in the palette map.
-/// @param {Array<Real>} _colour_indices	An array of colour indices to rotate.
-/// @param {Real} _duration					The duration per one palette index, in game steps.
-/// @param {Real} _loop_index				The palette index to loop back to.
-/// @param {Real} _end_index				The ending palette index.
-function pal_set_rotation(_colour_indices, _duration, _loop_index, _end_index)
+/// @description							Registers the palette rotation for the given slots.
+/// @param {Real} _entry					The palette entry identifier.
+/// @param {Array<Real>} _slots				An array of slots to update.
+/// @param {Real} _duration					The duration per one colour index, in game steps.
+/// @param {Real} _loop_index				The colour index to loop back to.
+/// @param {Real} _end_index				The ending colour index.
+/// @param {Real|Undefined} [_index]		The colour index to set (default is undefined).
+function pal_set_rotation(_entry, _slots, _duration, _loop_index, _end_index, _index)
 {
-	var _timers = obj_game.palette_timers;
-	var _durations = obj_game.palette_durations;
-	var _loop_indices = obj_game.palette_loop_indices;
-	var _end_indices = obj_game.palette_end_indices;
+	var _map = obj_game.palette_maps[? _entry];
 	
-	for (var _i = array_length(_colour_indices) - 1; _i >= 0; _i--)
+	if _map == undefined
 	{
-		var _index = _colour_indices[_i];
+		return;
+	}
+	
+	var _data = _map[0];
+	var _count = array_length(_slots);
+	
+	for (var _i = 0; _i < _count; _i++)
+	{
+		var _slot = _slots[_i];
 		
-		if _index >= PALETTE_TOTAL_SLOT_COUNT
+		if _slot < PALETTE_TOTAL_SLOT_COUNT
 		{
-			continue;
-		}
-		
-		if _durations[_index] != _duration
-		{
-			_timers[_index] = _duration;
-		}
+			if _data.durations[_slot] != _duration
+			{
+				_data.timers[_slot] = _duration;
+			}
 			
-		_loop_indices[_index] = _loop_index;
-		_end_indices[_index] = _end_index;
-		_durations[_index] = _duration;
+			_data.loop_indices[_slot] = _loop_index;
+			_data.end_indices[_slot] = _end_index;
+			_data.durations[_slot] = _duration;
+			
+			if _index != undefined
+			{
+				_data.indices[_slot] = _index;
+			}
+		}
 	}
 }

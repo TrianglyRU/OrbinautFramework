@@ -27,7 +27,7 @@ function scr_player_cpu()
 			
 	        if _can_receive_input && !input_down_action_any() && !input_down.start
 	        {
-				if FRAME_COUNTER % 64 != 0 || cpu_target.state >= PLAYER_STATE.NO_INTERACT
+				if FRAME_COUNTER % 64 != 0 || cpu_target.state >= PLAYER_STATE.MANUAL_NO_INTERACT
 				{
 					break;
 				}
@@ -149,7 +149,7 @@ function scr_player_cpu()
 			
 	        if cpu_target.state == PLAYER_STATE.DEATH
 	        {
-	            state = PLAYER_STATE.NO_INTERACT;
+	            state = PLAYER_STATE.MANUAL_NO_INTERACT;
 	            cpu_state = CPU_STATE.RESPAWN;
 	            reset_substate();
 				
@@ -161,7 +161,7 @@ function scr_player_cpu()
 	            break;
 	        }
 			
-			if state >= PLAYER_STATE.FROZEN
+			if state >= PLAYER_STATE.MANUAL_INTERACT
 			{
 				break;
 			}

@@ -7,7 +7,7 @@ FOR_EACH_PLAYER
 		visible = _player.state == PLAYER_STATE.DEBUG_MODE;
 	}
 	
-	if _player.state >= PLAYER_STATE.NO_INTERACT || !_player.is_grounded && iv_ground_only
+	if _player.state >= PLAYER_STATE.MANUAL_NO_INTERACT || !_player.is_grounded && iv_ground_only
 	{
 		continue;
 	}

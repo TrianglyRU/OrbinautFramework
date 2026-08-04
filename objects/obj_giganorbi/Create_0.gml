@@ -1,3 +1,5 @@
+#macro PALETTE_MAP_GIGANORBI 99
+
 // Inherit the parent event
 event_inherited();
 event_culler(CULL_ACTION.PAUSE);
@@ -60,3 +62,5 @@ orb_spin_speed = 1;
 move_siner = 0;
 angle = 0;
 angle_step = 0;
+
+pal_load(PALETTE_MAP_GIGANORBI, spr_pal_tsz_giganorbi);

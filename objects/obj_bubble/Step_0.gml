@@ -56,7 +56,7 @@ FOR_EACH_PLAYER
 {
     var _player = player_get(_p);
 	
-    if _player.state >= PLAYER_STATE.NO_INTERACT || global.player_shields[_p] == SHIELD.BUBBLE
+    if _player.state >= PLAYER_STATE.MANUAL_NO_INTERACT || global.player_shields[_p] == SHIELD.BUBBLE
     {
         continue;
     }

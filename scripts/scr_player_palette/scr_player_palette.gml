@@ -1,7 +1,7 @@
 /// @self obj_player
 function scr_player_palette()
 {
-	var _colour = pal_get_index(palette_colours[0]);
+	var _colour = pal_get_index(PALETTE_MAP_PLAYER, palette_slots[0]);
 	var _colour_last = 0;
 	var _colour_loop = 0;
 	var _duration = 0;
@@ -97,5 +97,5 @@ function scr_player_palette()
 	}
 	
 	// Update rotation properties each frame
-	pal_set_rotation(palette_colours, _duration, _colour_loop, _colour_last);
+	pal_set_rotation(PALETTE_MAP_PLAYER, palette_slots, _duration, _colour_loop, _colour_last);
 }

@@ -6,18 +6,12 @@ function scr_giganorbi_health_updater()
 		return;
 	}
 	
-	var _black_id = 255;
-	
 	if boss_inv_frames > 0
 	{
-		if --boss_inv_frames != 0
+		if --boss_inv_frames == 0
 		{
-			pal_set_index([_black_id], pal_get_index(_black_id) == 2 ? 1 : 2);
-		}
-		else 
-		{
-			pal_set_index([_black_id], 1);
 			image_index = boss_state == GIGANORBI_STATE.BOUNCE ? 1 : 0;
+			pal_stop_rotation(PALETTE_MAP_GIGANORBI, [0], 1);
 		}
 		
 		return;
@@ -36,7 +30,7 @@ function scr_giganorbi_health_updater()
 		image_index = 2;
 		
 		audio_sfx_play(snd_boss_hit);
-		pal_set_index([_black_id], 2);
+		pal_set_rotation(PALETTE_MAP_GIGANORBI, [0], 1, 1, 2, 2);
 	}
 	else
 	{

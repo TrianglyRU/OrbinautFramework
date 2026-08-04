@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"pal_draw",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"pal_draw",
+  "parent":{
+    "name":"Palette",
+    "path":"folders/Functions/Palette.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

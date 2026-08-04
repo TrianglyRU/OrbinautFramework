@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Tech Stadium",
-    "path":"folders/Sprites/Tech Stadium.yy",
+    "name":"Trial Stadium",
+    "path":"folders/Sprites/Trial Stadium.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

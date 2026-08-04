@@ -6,7 +6,7 @@
   "name":"scr_giganorbi_health_updater",
   "parent":{
     "name":"Giganorbi",
-    "path":"folders/Objects/Tech Stadium/Giganorbi.yy",
+    "path":"folders/Objects/Trial Stadium/Giganorbi.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

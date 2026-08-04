@@ -8,8 +8,8 @@
   "name":"obj_platform_swing_tsz",
   "overriddenProperties":[],
   "parent":{
-    "name":"Tech Stadium",
-    "path":"folders/Objects/Tech Stadium.yy",
+    "name":"Trial Stadium",
+    "path":"folders/Objects/Trial Stadium.yy",
   },
   "parentObjectId":{
     "name":"obj_platform_swing",

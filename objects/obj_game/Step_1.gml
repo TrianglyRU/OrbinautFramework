@@ -4,6 +4,9 @@ if room == rm_startup
 	return;
 }
 
+// Feather ignore GM1024 (we don't care)
+room_speed = 60;
+
 with obj_gameobject
 {
 	event_user(10);
@@ -227,23 +230,40 @@ if state != GAME_STATE.STOP_ALL
 		}
 	}
 	
-	for (var _i = 0; _i < PALETTE_TOTAL_SLOT_COUNT; _i++)
+	if palette_maps_keys != undefined
 	{
-		var _duration = palette_durations[_i];
+		var _map_count = array_length(palette_maps_keys);
 		
-		if _duration > 0 && --palette_timers[_i] <= 0
+		for (var j = 0; j < _map_count; j++)
 		{
-		    if ++palette_indices[_i] > palette_end_indices[_i]
-		    {
-				palette_indices[_i] = palette_loop_indices[_i];	
-				
-				if palette_loop_indices[_i] == palette_end_indices[_i]
-				{
-					palette_durations[_i] = 0;
-				}
-		    }
+		    var _entry = palette_maps_keys[j];
+		    var _map = palette_maps[? _entry];
+			var _data = _map[0];
 			
-			palette_timers[_i] = _duration;
+			for (var _i = 0; _i < PALETTE_TOTAL_SLOT_COUNT; _i++)
+			{
+				var _duration = _data.durations[_i];
+			
+				if _duration <= 0
+				{
+					continue;
+				}
+			
+				if --_data.timers[_i] <= 0
+				{
+				    if ++_data.indices[_i] > _data.end_indices[_i]
+				    {
+						_data.indices[_i] = _data.loop_indices[_i];	
+				
+						if _data.loop_indices[_i] == _data.end_indices[_i]
+						{
+							_data.durations[_i] = 0;
+						}
+				    }
+				
+					_data.timers[_i] = _duration;
+				}
+			}
 		}
 	}
 }
