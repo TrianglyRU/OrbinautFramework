@@ -273,6 +273,7 @@
     {"id":{"name":"bg_clear","path":"scripts/bg_clear/bg_clear.yy",},},
     {"id":{"name":"bg_convert_scaled","path":"scripts/bg_convert_scaled/bg_convert_scaled.yy",},},
     {"id":{"name":"bg_convert","path":"scripts/bg_convert/bg_convert.yy",},},
+    {"id":{"name":"bg_copy","path":"scripts/bg_copy/bg_copy.yy",},},
     {"id":{"name":"camera_get_culling_height","path":"scripts/camera_get_culling_height/camera_get_culling_height.yy",},},
     {"id":{"name":"camera_get_culling_width","path":"scripts/camera_get_culling_width/camera_get_culling_width.yy",},},
     {"id":{"name":"camera_get_height","path":"scripts/camera_get_height/camera_get_height.yy",},},

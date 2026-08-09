@@ -1,12 +1,10 @@
-![banner](https://drive.google.com/uc?export=view&id=1CATXp7IeKvr1ayG1Y3kslcn4UzCMg1MS)
+![banner](https://drive.google.com/uc?export=view&id=1f7BNRLHcvkhJLv9i84knWymneNwKfpUi)
 
 ## About
  
-Orbinaut Framework is a classic Sonic framework created for GameMaker. Built entirely from scratch, it is designed with extreme accuracy in mind, replicating the original games’ core logic and gameplay loop. The project is aimed at developers with prior GameMaker experience and is not intended as an entry-level tool for beginners
+Orbinaut Framework is a classic Sonic framework created for GameMaker. Built entirely from scratch, it is designed with extreme accuracy in mind, replicating the original games’ core logic and gameplay loop. Although primarily designed for creating classic Sonic games, it is also suitable for entirely original projects
 
-Although primarily designed for creating classic Sonic games, it is also suitable for entirely original projects
-
-Orbinaut Framework is intended to work with the latest LTS (Long-Term Stable) release of GameMaker. Compatibility with other versions is neither supported nor guaranteed
+The framework is intended to work with the latest LTS (Long-Term Stable) release of GameMaker. Compatibility with other versions is neither supported nor guaranteed
 
 ## Sonic Features
 
@@ -20,11 +18,11 @@ Orbinaut Framework is intended to work with the latest LTS (Long-Term Stable) re
 
 ## Documentation
 
-Documentation, answers to frequently asked questions and initial framework setup are available on the [Wiki](https://github.com/TrianglyRU/OrbinautFramework/wiki)
+Documentation, answers to frequently asked questions, and framework setup are available on the [Wiki](https://github.com/TrianglyRU/OrbinautFramework/wiki)
 
 ## Updates & Support
 
-The framework is complete, with all features working as intended and ready for use. Small updates may occasionally be pushed to the repository to address minor oversights, bugs, inconsistencies, and other issues discovered over time. If you have any questions about the framework, feel free to use the [Discussions](https://github.com/TrianglyRU/OrbinautFramework/discussions) tab. Please, do not use it for bug reports
+The framework is complete, with all features working as intended and ready for use. Updates may occasionally be pushed to the repository to improve various systems, address minor oversights, bugs, inconsistencies, and other issues discovered over time. If you have any questions about the framework, feel free to use the [Discussions](https://github.com/TrianglyRU/OrbinautFramework/discussions) tab. Please, do not use it for bug reports!
 
 ## Terms of Use
 
@@ -42,7 +40,7 @@ Even though the license does not prohibit it, we'd like to ask that you do not d
 - **Boss Design & Programming**: techncolour
 - **Branding & Sprite Editing**: Natufox
 - **Trailer Production**: Lapper
-- **Tech Stadium Zone Art**: Enrico Cartmanuel
+- **Trial Stadium Zone Art**: Enrico Cartmanuel
 - **Level Design**: FieryN8
 - **Neko Presence Plugin**: nkrapivin
 - **Special Thanks**: Lapper, Mercury, NicoCW, thevaleev, Noah N. Copeland, The Sonic 1, 2 and 3 Disassembly Community, and our Twitter followers

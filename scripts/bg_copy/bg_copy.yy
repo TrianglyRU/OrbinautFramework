@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bg_copy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bg_copy",
+  "parent":{
+    "name":"Background",
+    "path":"folders/Functions/Background.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

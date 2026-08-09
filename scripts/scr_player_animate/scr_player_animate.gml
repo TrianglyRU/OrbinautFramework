@@ -57,10 +57,6 @@ function scr_player_animate()
 	
 	switch player_type
 	{
-		case PLAYER.SONIC:
-			scr_player_animate_sonic();
-		break;
-		
 		case PLAYER.TAILS:
 			scr_player_animate_tails();
 		break;
@@ -72,6 +68,10 @@ function scr_player_animate()
 		case PLAYER.AMY:
 			scr_player_animate_amy();
 		break;
+		
+		// PLAYER.SONIC, others
+		default:
+			scr_player_animate_sonic();
 	}
 	
 	if animation != ANIM.SPIN || animator.timer == animator.duration
