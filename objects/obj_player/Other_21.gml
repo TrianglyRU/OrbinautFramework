@@ -45,7 +45,12 @@ switch state
 					
 						scr_player_collision_ground_walls();
 						scr_player_roll_start();
-						scr_player_level_bound();
+						
+						if scr_player_level_bound()
+						{
+							break;
+						}
+						
 						scr_player_position();
 						scr_player_collision_ground_floor();
 						scr_player_slope_repel();
@@ -68,7 +73,12 @@ switch state
 						scr_player_hammer_dash();
                         
 						scr_player_movement_air();
-						scr_player_level_bound();
+						
+						if scr_player_level_bound()
+						{
+							break;
+						}
+						
 						scr_player_position();
 						scr_player_collision_air_regular();
 						scr_player_collision_air_glide();

@@ -14,6 +14,13 @@ with obj_gameobject
 
 var _prev_state = state;
 
+// Can't do this in Room Start because some objects use Room Start as well
+if !room_start_cull_done
+{
+	cull_objects();
+	room_start_cull_done = true;
+}
+
 var _act_1a = ord("A"), _act_1b = ord("Z");
 var _act_2a = ord("S"), _act_2b = ord("X");
 var _act_3a = ord("D"), _act_3b = ord("C");
@@ -193,13 +200,7 @@ if state == GAME_STATE.NORMAL
 		_view_data.coarse_y_last = _view_data.coarse_y;
 	}
 	
-	with obj_gameobject
-	{
-		if culler != noone
-		{
-			culler.run();
-		}
-	}
+	cull_objects();
 }
 else
 {
@@ -207,11 +208,10 @@ else
 	var _list = stopped_objects;
 	
 	with obj_gameobject
-	{
-		ds_list_add(_list, id);
-		
+	{	
 		if max_allowed_game_state < _state
 		{
+			ds_list_add(_list, id);
 			instance_deactivate_object(id);
 		}
 	}

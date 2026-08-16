@@ -23,6 +23,7 @@ enum SAVE_DATA_STATE
 #macro ANGLE_RAW_MAX 256
 #macro ANGLE_INCREMENT (360 / ANGLE_RAW_MAX)
 #macro FRAME_COUNTER obj_game.frame_counter
+#macro OSCILLATION_ANGLE obj_game.oscillation_angle
 
 #macro PLAYER_MAX_COUNT 8
 #macro PLAYER_COUNT obj_game.player_count
@@ -135,7 +136,19 @@ restore_stopped_objects = function()
 	}
 }
 
+cull_objects = function()
+{
+	with obj_gameobject
+	{
+		if culler != noone
+		{
+			culler.run();
+		}	
+	}
+}
+
 stopped_objects = ds_list_create();
+room_start_cull_done = false;
 
 #endregion
 

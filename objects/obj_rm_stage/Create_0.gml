@@ -60,6 +60,7 @@ var _data = array_length(_ring_data) > 0 ? _ring_data : _checkpoint_data;
 if array_length(_data) > 0
 {
 	FRAME_COUNTER = _data[2];
+	OSCILLATION_ANGLE = FRAME_COUNTER * ANGLE_INCREMENT;
 	
     FOR_EACH_VIEW
     {

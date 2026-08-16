@@ -7,7 +7,7 @@ else if current_level > target_level
 	current_level = max(current_level - velocity, target_level);
 }
 
-y = iv_oscillate ? math_oscillate_y(current_level, obj_game.oscillation_angle + 90, 10) : current_level;
+y = iv_oscillate ? math_oscillate_y(current_level, OSCILLATION_ANGLE + 90, 10) : current_level;
 
 obj_game.deformation_bound = y;
 obj_game.palette_bound = y;
@@ -37,13 +37,11 @@ with obj_player
 		run_on_water = false;
 		
 		// S3K does not check whether we already successfully jumped while grounded. So even if we did,
-		// it would still execute whatever comes next anyway (just uncomment this bruh)
-		/*
+		// it would still execute whatever comes next anyway
 		if is_jumping
 		{
 			return;
 		}
-		*/
 		
 		radius_x = radius_x_spin;
 		radius_y = radius_y_spin;

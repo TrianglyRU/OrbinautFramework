@@ -28,7 +28,7 @@ switch state
 			weight -= _weight_inc;
 		}
 		
-		var _osc_angle = obj_game.oscillation_angle * iv_speed_multiplier + iv_angle_offset;
+		var _osc_angle = OSCILLATION_ANGLE * iv_speed_multiplier + iv_angle_offset;
 	
 		switch iv_type
 		{

@@ -52,6 +52,9 @@ function scr_player_level_bound()
 		if air_timer > 0 && floor(y) >= max(_bottom_bound, floor(obj_rm_stage.bottom_bound[view_data_ref.index]))
 		{
 			kill();
+			
+			// Exit the player control routine
+			return true;
 		}
 	}
 }
