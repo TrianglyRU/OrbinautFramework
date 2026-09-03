@@ -15,15 +15,14 @@ else
 	_timer = fade_timer;
 }
 
-
-// Set fade filter parameters for the current view
+// Set fade filter parameters
 if fade_effect != -1
 {
 	fx_set_parameter(fade_effect, "g_Type", fade_type);
 	fx_set_parameter(fade_effect, "g_Timer", _timer);	
 }
 
-// Set fade shader parameters for the current view (and disable it right after, we're not using it by default)
+// Set fade shader parameters (and disable it right after, we're not using it by default)
 shader_set(sh_rgb_fade);
 shader_set_uniform_i(shader_get_uniform(sh_rgb_fade, "u_type"), fade_type);
 shader_set_uniform_f(shader_get_uniform(sh_rgb_fade, "u_timer"), _timer);

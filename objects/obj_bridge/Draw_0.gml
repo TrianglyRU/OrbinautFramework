@@ -1,4 +1,4 @@
-for (var _i = 0; _i < log_amount; _i++)
+for (var _i = 0; _i < plank_count; _i++)
 {
-	draw_sprite(sprite_index, 0, log_x[_i], log_y[_i]);
+	draw_sprite(sprite_index, 0, plank_x[_i], plank_y[_i]);
 }

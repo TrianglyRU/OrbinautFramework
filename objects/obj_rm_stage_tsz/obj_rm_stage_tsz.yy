@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_object",
-    "path":"sprites/spr_object/spr_object.yy",
+    "name":"spr_controller",
+    "path":"sprites/spr_controller/spr_controller.yy",
   },
   "spriteMaskId":null,
   "visible":true,

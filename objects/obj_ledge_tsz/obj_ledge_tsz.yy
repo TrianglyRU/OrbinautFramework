@@ -10,8 +10,8 @@
     "path":"folders/Objects/Trial Stadium.yy",
   },
   "parentObjectId":{
-    "name":"obj_falling_floor",
-    "path":"objects/obj_falling_floor/obj_falling_floor.yy",
+    "name":"obj_collapsing_floor",
+    "path":"objects/obj_collapsing_floor/obj_collapsing_floor.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

@@ -1,1 +1,1 @@
-ds_list_destroy(players_on);
+ds_list_destroy(players_on_bridge);

@@ -10,20 +10,13 @@ save_data = function()
 	var _marker_sprite = sprite_index;
 	var _marker_depth = depth;
 	
-	var _background_transition = false;
+	var _background_transition = iv_visible_background;
 	var _background_distance_x = x;
 	var	_background_distance_y = y;
 	var	_background_scroll_x = obj_game.bg_scroll_x;
 	var	_background_scroll_y = obj_game.bg_scroll_y;
 	
 	var _deformation_timer = obj_game.deformation_timer;
-	
-	switch room
-	{
-//		case room_with_visible_bg:
-//			_background_transition = true;
-		default:
-	}
 	
 	if instance_exists(obj_sign_post)
 	{

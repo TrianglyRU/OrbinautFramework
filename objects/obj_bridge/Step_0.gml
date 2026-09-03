@@ -1,8 +1,8 @@
-var _max_bend_value_temp = 0;
-var _apply_bend = false;
-var _use_modern_bend = global.rotation_mode == ROTATION.MANIA;
+var _current_max_sag = 0;
+var _someone_on_bridge = false;
+var _smooth_sag = global.rotation_mode == ROTATION.MANIA;
 
-// Calculate bend properties based on players' positions
+// Determine which plank each player is standing on and find the plank with max sag
 FOR_EACH_PLAYER
 {
     var _player = player_get(_p);
@@ -11,77 +11,77 @@ FOR_EACH_PLAYER
 	
 	if _player.on_object != id
 	{
-		ds_list_delete_value(players_on, _player);
+		ds_list_delete_value(players_on_bridge, _player);
 		continue;
 	}
 	
-	ds_list_add_once(players_on, _player);
+	ds_list_add_once(players_on_bridge, _player);
 	
-	_apply_bend = true;
+	_someone_on_bridge = true;
 	
-	var _log_index = clamp(floor(floor(_player.x - x + log_amount * log_size_half) / log_size) + 1, 1, log_amount) - 1;
-	var _bend_value = log_bend_value[_log_index];
+	var _plank_index = clamp(floor(floor(_player.x - x + plank_count * plank_width_half) / plank_width) + 1, 1, plank_count) - 1;
+	var _plank_sag = plank_max_sag[_plank_index];
 	
-	if _bend_value > _max_bend_value_temp
+	if _plank_sag > _current_max_sag
 	{
-		max_bend_log_number = _log_index + 1;
-		max_bend_value = _bend_value;
+		peak_sag_plank_index = _plank_index + 1;
+		peak_sag_value = _plank_sag;
 		
-		_max_bend_value_temp = _bend_value;
+		_current_max_sag = _plank_sag;
 	}
 	
-	log_index_by_player[_p] = _log_index;
+	player_plank_index[_p] = _plank_index;
 }
 
-// Apply bend
-if _apply_bend
+// Smoothly raise or lower the whole bridge via sag_angle
+if _someone_on_bridge
 {
-	if bend_angle < 90
+	if sag_angle < 90
 	{
-		bend_angle += BRIDGE_ANGLE_INCREMENT;
+		sag_angle += BRIDGE_ANGLE_INCREMENT;
 	}	
 }
-else if bend_angle > 0
+else if sag_angle > 0
 {
-	bend_angle -= BRIDGE_ANGLE_INCREMENT;
+	sag_angle -= BRIDGE_ANGLE_INCREMENT;
 }
 
-// Update logs
-for (var _i = 0; _i < log_amount; _i++)
+// Recalculate each plank's sag relative to the peak-sag plank
+for (var _i = 0; _i < plank_count; _i++)
 {
-	var _distance = abs(_i + 1 - max_bend_log_number);
-	var _strength = 1;
+	var _distance_from_peak = abs(_i + 1 - peak_sag_plank_index);
+	var _sag_strength = 1;
 	
-	if _i < max_bend_log_number
+	if _i < peak_sag_plank_index
 	{
-		_strength -= _distance / max_bend_log_number;
+		_sag_strength -= _distance_from_peak / peak_sag_plank_index;
 	}
 	else
 	{
-		_strength -= _distance / (log_amount - max_bend_log_number + 1);
+		_sag_strength -= _distance_from_peak / (plank_count - peak_sag_plank_index + 1);
 	}
 	
-	var _bend_offset = max_bend_value * dsin(90 * _strength);
+	var _target_sag_offset = peak_sag_value * dsin(90 * _sag_strength);
     
-    if _use_modern_bend
+    if _smooth_sag
 	{
-        log_bend_offset[_i] += (_bend_offset - log_bend_offset[_i]) * BRIDGE_LERP_VALUE;
+        plank_sag_offset[_i] += (_target_sag_offset - plank_sag_offset[_i]) * BRIDGE_LERP_VALUE;
 	}
     else
 	{
-        log_bend_offset[_i] = _bend_offset;
+        plank_sag_offset[_i] = _target_sag_offset;
 	}
 	
-	log_y[_i] = y + log_bend_offset[_i] * dsin(bend_angle);
+	plank_y[_i] = y + plank_sag_offset[_i] * dsin(sag_angle);
 }
 
-// Update players
-for (var _i = ds_list_size(players_on) - 1; _i >= 0; _i--)
+// Move players along with the plank they're standing on
+for (var _i = ds_list_size(players_on_bridge) - 1; _i >= 0; _i--)
 {
-	var _player = players_on[| _i];
+	var _player = players_on_bridge[| _i];
 	
 	if instance_exists(_player)
 	{
-		_player.y += round(log_bend_offset[log_index_by_player[_player.player_index]] * dsin(bend_angle));
+		_player.y += round(plank_sag_offset[player_plank_index[_player.player_index]] * dsin(sag_angle));
 	}
 }

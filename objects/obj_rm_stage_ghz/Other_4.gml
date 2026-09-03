@@ -11,7 +11,7 @@ if _h_res <= 224
 
 var _h_diff = (_h_res - 224) * 0.5;
 
-with obj_trigger_bound
+with obj_level_bound
 {
 	y += _h_diff * sign(image_yscale);
 }

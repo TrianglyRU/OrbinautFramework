@@ -25,12 +25,10 @@ if _deform_count > 0
 	for (var _i = 0; _i < _deform_count; _i++)
 	{
 	    var _data = deformations_data[| _i];
-	    var _has_a = _data.values_a != undefined;
-	    var _has_b = _data.values_b != undefined;
 		var _effect = _data.effect;
 		var _offset = (floor(_camera_y * _data.factor) + floor(_data.offset)) * _scale_y_factor;
 	
-	    if _has_a
+	    if _data.values_a != undefined
 		{
 	        fx_set_parameter(_effect, "g_DataA", _data.values_a);
 	        fx_set_parameter(_effect, "g_DataSizeA", array_length(_data.values_a));
@@ -40,7 +38,7 @@ if _deform_count > 0
 	        fx_set_parameter(_effect, "g_DataSizeA", 0);
 		}
 	
-	    if _has_b
+	    if _data.values_b != undefined
 		{
 	        fx_set_parameter(_effect, "g_DataB", _data.values_b);
 	        fx_set_parameter(_effect, "g_DataSizeB", array_length(_data.values_b));
