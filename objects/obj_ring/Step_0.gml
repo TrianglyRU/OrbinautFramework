@@ -105,11 +105,12 @@ switch state
 	
 		if vel_y >= 0 && _spill_timer % 4 == 0
 		{
-			var _floor_dist = tile_raycast_v(x, bbox_bottom + 2 - 1, 1)[0];
+			var _floor_dist = tile_check_v(x, bbox_bottom + 2 - 1, 1);
 			
 			if _floor_dist < 0
 			{
-				y += _floor_dist; vel_y *= -0.75;
+				y += _floor_dist;
+				vel_y *= -0.75;
 			}
 		}
 		

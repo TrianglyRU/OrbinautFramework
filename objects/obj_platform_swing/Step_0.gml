@@ -1,3 +1,4 @@
+mask_index = sprite_platform;
 osc_angle = dsin(OSCILLATION_ANGLE + iv_offset) * iv_range * 0.5;
 
 x = math_oscillate_x(xstart, osc_angle, distance);

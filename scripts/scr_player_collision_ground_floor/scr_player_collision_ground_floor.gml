@@ -15,7 +15,7 @@ function scr_player_collision_ground_floor()
 	{
 		case QUADRANT.DOWN:
 			
-			var _floor_data = tile_raycast_2v(x - radius_x, y + radius_y - 1, x + radius_x - 1, y + radius_y - 1, 1, secondary_layer, _angle_quad);
+			var _floor_data = tile_check_2v_ext(x - radius_x, y + radius_y - 1, x + radius_x - 1, y + radius_y - 1, 1, secondary_layer, _angle_quad);
 			var _floor_dist = _floor_data[0];
 			var _floor_angle = _floor_data[1];
 			
@@ -23,6 +23,8 @@ function scr_player_collision_ground_floor()
 			{
 				_floor_angle = _snap_angle(_floor_angle);
 			}
+			
+			floor_angle_side = _floor_data[2] == 1 ? -1 : 1;
 			
 			if !stick_to_convex
 			{
@@ -57,7 +59,7 @@ function scr_player_collision_ground_floor()
 		
 		case QUADRANT.RIGHT:
 			
-			var _floor_data = tile_raycast_2h(x + radius_y - 1, y + radius_x - 1, x + radius_y - 1, y - radius_x, 1, secondary_layer, _angle_quad);
+			var _floor_data = tile_check_2h_ext(x + radius_y - 1, y + radius_x - 1, x + radius_y - 1, y - radius_x, 1, secondary_layer, _angle_quad);
 			var _floor_dist = _floor_data[0];
 			var _floor_angle = _floor_data[1];
 			
@@ -65,6 +67,8 @@ function scr_player_collision_ground_floor()
 			{
 				_floor_angle = _snap_angle(_floor_angle);
 			}
+			
+			floor_angle_side = _floor_data[2] == 1 ? -1 : 1;
 			
 			if !stick_to_convex
 			{
@@ -99,7 +103,7 @@ function scr_player_collision_ground_floor()
 		
 		case QUADRANT.UP:
 			
-			var _floor_data = tile_raycast_2v(x + radius_x - 1, y - radius_y, x - radius_x, y - radius_y, -1, secondary_layer, _angle_quad);
+			var _floor_data = tile_check_2v_ext(x + radius_x - 1, y - radius_y, x - radius_x, y - radius_y, -1, secondary_layer, _angle_quad);
 			var _floor_dist = _floor_data[0];
 			var _floor_angle = _floor_data[1];
 			
@@ -107,6 +111,8 @@ function scr_player_collision_ground_floor()
 			{
 				_floor_angle = _snap_angle(_floor_angle);
 			}
+			
+			floor_angle_side = _floor_data[2] == 1 ? -1 : 1;
 			
 			if !stick_to_convex
 			{
@@ -141,7 +147,7 @@ function scr_player_collision_ground_floor()
 		
 		case QUADRANT.LEFT:
 			
-			var _floor_data = tile_raycast_2h(x - radius_y, y - radius_x, x - radius_y, y + radius_x - 1, -1, secondary_layer, _angle_quad);
+			var _floor_data = tile_check_2h_ext(x - radius_y, y - radius_x, x - radius_y, y + radius_x - 1, -1, secondary_layer, _angle_quad);
 			var _floor_dist = _floor_data[0];
 			var _floor_angle = _floor_data[1];
 		
@@ -149,6 +155,8 @@ function scr_player_collision_ground_floor()
 			{
 				_floor_angle = _snap_angle(_floor_angle);
 			}
+			
+			floor_angle_side = _floor_data[2] == 1 ? -1 : 1;
 			
 			if !stick_to_convex
 			{
@@ -186,6 +194,11 @@ function scr_player_collision_ground_floor()
 /// @self scr_player_collision_ground_floor
 function _snap_angle(_angle)
 {
+	if _angle == TILE_EMPTY_ANGLE
+	{
+		return _angle;
+	}
+	
 	var _diff = abs(angle % 180 - _angle % 180);
 	
 	if _diff >= 45 && _diff <= 135

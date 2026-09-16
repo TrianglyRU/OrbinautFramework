@@ -14,7 +14,7 @@ switch state
 				continue;
 			}
 			
-			var _wall_dist = tile_raycast_h(_direction == 1 ? bbox_right - 1 : bbox_left, y, _direction)[0];
+			var _wall_dist = tile_check_h(_direction == 1 ? bbox_right - 1 : bbox_left, y, _direction);
 			
 			if _wall_dist <= 0
 			{
@@ -35,7 +35,7 @@ switch state
 			
 			if !iv_no_gravity
 			{
-				var _floor_dist = tile_raycast_v(x, bbox_bottom - 1, 1)[0];
+				var _floor_dist = tile_check_v(x, bbox_bottom - 1, 1);
 				
 				if _floor_dist <= 4
 				{
@@ -70,7 +70,7 @@ switch state
 		y += vel_y;
 		vel_y += 0.09375;
 		
-		var _floor_dist = tile_raycast_v(x, bbox_bottom - 1, 1)[0];
+		var _floor_dist = tile_check_v(x, bbox_bottom - 1, 1,, false);
 		
 		if _floor_dist < 0
 		{

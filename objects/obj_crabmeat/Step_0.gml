@@ -8,7 +8,7 @@ switch state
 		y += vel_y;
 		vel_y += GLOBAL_PARAM_GRV;
 		
-		var _floor_data = tile_raycast_v(x, bbox_bottom - 1, 1);
+		var _floor_data = tile_check_v_ext(x, bbox_bottom - 1, 1);
 		var _floor_dist = _floor_data[0];
 		var _floor_angle = _floor_data[1];
 		
@@ -71,7 +71,7 @@ switch state
 				_check_x = vel_x < 0 ? x - 16 : x + 15;
 			}
 			
-			var _floor_data = tile_raycast_v(_check_x, bbox_bottom - 1, 1);
+			var _floor_data = tile_check_v_ext(_check_x, bbox_bottom - 1, 1);
 			var _floor_dist = _floor_data[0];
 			var _floor_angle = _floor_data[1];
 			

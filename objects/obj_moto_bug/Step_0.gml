@@ -8,7 +8,7 @@ switch state
 		y += vel_y;
 		vel_y += GLOBAL_PARAM_GRV;
 		
-		var _floor_dist = tile_raycast_v(x, bbox_bottom, 1)[0];
+		var _floor_dist = tile_check_v(x, bbox_bottom, 1);
 		
 		if _floor_dist < 0
 		{
@@ -37,7 +37,7 @@ switch state
 	
 		x += vel_x;
 		
-		var _floor_dist = tile_raycast_v(x, bbox_bottom, 1)[0];
+		var _floor_dist = tile_check_v(x, bbox_bottom, 1);
 		
 		if _floor_dist >= 12 || _floor_dist < -8
 		{

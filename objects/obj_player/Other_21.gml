@@ -42,7 +42,7 @@ switch state
 							scr_player_movement_ground_regular();
 							scr_player_balance();
 						}
-					
+						
 						scr_player_collision_ground_walls();
 						scr_player_roll_start();
 						
@@ -56,10 +56,10 @@ switch state
 						scr_player_slope_repel();
 				
 					break;
-			
+					
 					// Airborne
 					case false:
-				
+						
 						if scr_player_jump()
 						{
 							break;
@@ -80,8 +80,15 @@ switch state
 						}
 						
 						scr_player_position();
-						scr_player_collision_air_regular();
-						scr_player_collision_air_glide();
+						
+						if action == ACTION.GLIDE
+						{
+							scr_player_collision_air_glide();
+						}
+						else if action != ACTION.CLIMB
+						{
+							scr_player_collision_air_regular();
+						}
 				
 					break;
 				}

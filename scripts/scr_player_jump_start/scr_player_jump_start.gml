@@ -19,15 +19,15 @@ function scr_player_jump_start()
 	switch _angle_quad
 	{
 		case QUADRANT.DOWN:	
-			_ceil_dist = tile_raycast_2v(x - radius_x, y - radius_y, x + radius_x - 1, y - radius_y, -1, secondary_layer, _angle_quad)[0];	
+			_ceil_dist = tile_check_2v(x - radius_x, y - radius_y, x + radius_x - 1, y - radius_y, -1, secondary_layer, _angle_quad);
 		break;
 
 		case QUADRANT.RIGHT:
-			_ceil_dist = tile_raycast_2h(x - radius_y, y - radius_x, x - radius_y, y + radius_x - 1, -1, secondary_layer, _angle_quad)[0];
+			_ceil_dist = tile_check_2h(x - radius_y, y - radius_x, x - radius_y, y + radius_x - 1, -1, secondary_layer, _angle_quad);
 		break;
 
 		case QUADRANT.LEFT:
-			_ceil_dist = tile_raycast_2h(x + radius_y - 1, y - radius_x, x + radius_y - 1, y + radius_x - 1, 1, secondary_layer, _angle_quad)[0];
+			_ceil_dist = tile_check_2h(x + radius_y - 1, y - radius_x, x + radius_y - 1, y + radius_x - 1, 1, secondary_layer, _angle_quad);
 		break;
 	}
 

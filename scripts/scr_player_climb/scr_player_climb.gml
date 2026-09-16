@@ -47,7 +47,7 @@ function scr_player_climb()
 			
 			if vel_y < 0
 			{
-				var _wall_dist = tile_raycast_h(x + _radius_x, y - radius_y - 1, facing, secondary_layer)[0];
+				var _wall_dist = tile_check_h(x + _radius_x, y - radius_y - 1, facing, secondary_layer);
 				
 				if _wall_dist >= 4
 				{
@@ -68,7 +68,7 @@ function scr_player_climb()
 				}
 				
 				// Original game adds 1 to y coordinate for some reason...
-				var _ceil_dist = tile_raycast_v(x + _radius_x, y - radius_y_normal + 1, -1, secondary_layer)[0];
+				var _ceil_dist = tile_check_v(x + _radius_x, y - radius_y_normal + 1, -1, secondary_layer);
 				
 				if _ceil_dist < 0
 				{
@@ -78,7 +78,7 @@ function scr_player_climb()
 			}
 			else
 			{
-				var _wall_dist = tile_raycast_h(x + _radius_x, y + radius_y, facing, secondary_layer)[0];
+				var _wall_dist = tile_check_h(x + _radius_x, y + radius_y, facing, secondary_layer);
 				
 				if _wall_dist != 0
 				{
@@ -86,7 +86,7 @@ function scr_player_climb()
 					break;
 				}
 				
-				var _floor_data = tile_raycast_v(x + _radius_x, y + radius_y_normal - 1, 1, secondary_layer);
+				var _floor_data = tile_check_v_ext(x + _radius_x, y + radius_y_normal - 1, 1, secondary_layer);
 				var _floor_dist = _floor_data[0];
 				var _floor_angle = _floor_data[1];
 				

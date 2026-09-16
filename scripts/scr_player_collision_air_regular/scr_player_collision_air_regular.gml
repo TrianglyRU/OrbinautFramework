@@ -1,17 +1,12 @@
 /// @self obj_player
 function scr_player_collision_air_regular()
 {
-	if action == ACTION.GLIDE || action == ACTION.CLIMB
-	{
-		return;
-	}
-	
 	var _vector = math_get_vector_rounded(vel_x, vel_y);
 	var _move_quad = math_get_quadrant(_vector);
 	
 	if _move_quad != QUADRANT.RIGHT
 	{
-		var _wall_dist = tile_raycast_h(x - radius_wall, y, -1, secondary_layer)[0];
+		var _wall_dist = tile_check_h(x - radius_wall, y, -1, secondary_layer);
 		
 		if _wall_dist < 0
 		{
@@ -28,7 +23,7 @@ function scr_player_collision_air_regular()
 	
 	if _move_quad != QUADRANT.LEFT
 	{
-		var _wall_dist = tile_raycast_h(x + radius_wall - 1, y, 1, secondary_layer)[0];
+		var _wall_dist = tile_check_h(x + radius_wall - 1, y, 1, secondary_layer);
 		
 		if _wall_dist < 0
 		{
@@ -45,13 +40,13 @@ function scr_player_collision_air_regular()
 	
 	if _move_quad != QUADRANT.DOWN
 	{
-		var _roof_data = tile_raycast_2v(x - radius_x, y - radius_y, x + radius_x - 1, y - radius_y, -1, secondary_layer);
+		var _roof_data = tile_check_2v_ext(x - radius_x, y - radius_y, x + radius_x - 1, y - radius_y, -1, secondary_layer);
 		var _roof_dist = _roof_data[0];
 		var _roof_angle = _roof_data[1];
 	
 		if _roof_dist <= -14 && _move_quad == QUADRANT.LEFT && global.player_physics >= PHYSICS.S3
 		{	
-			var _wall_dist = tile_raycast_h(x + radius_wall - 1, y, 1, secondary_layer)[0];
+			var _wall_dist = tile_check_h(x + radius_wall - 1, y, 1, secondary_layer);
 			
 			if _wall_dist < 0
 			{
@@ -99,8 +94,8 @@ function scr_player_collision_air_regular()
 		
 		if _move_quad == QUADRANT.DOWN
 		{
-			var _floor_data_l = tile_raycast_v(x - radius_x,     y + radius_y - 1, 1, secondary_layer);
-			var _floor_data_r = tile_raycast_v(x + radius_x - 1, y + radius_y - 1, 1, secondary_layer);
+			var _floor_data_l = tile_check_v_ext(x - radius_x,     y + radius_y - 1, 1, secondary_layer);
+			var _floor_data_r = tile_check_v_ext(x + radius_x - 1, y + radius_y - 1, 1, secondary_layer);
 		
 			if _floor_data_l[0] > _floor_data_r[0]
 			{
@@ -143,7 +138,7 @@ function scr_player_collision_air_regular()
 		}
 		else if vel_y >= 0
 		{
-			var _floor_data = tile_raycast_2v(x - radius_x, y + radius_y - 1, x + radius_x - 1, y + radius_y - 1, 1, secondary_layer);
+			var _floor_data = tile_check_2v_ext(x - radius_x, y + radius_y - 1, x + radius_x - 1, y + radius_y - 1, 1, secondary_layer);
 			
 			_floor_dist = _floor_data[0];
 			_floor_angle = _floor_data[1];

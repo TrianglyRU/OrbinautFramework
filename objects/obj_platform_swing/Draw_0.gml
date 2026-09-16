@@ -6,7 +6,5 @@ for (var _i = 1; _i <= iv_chains; _i++)
 	draw_sprite(sprite_chain, 0, _x, _y);
 }
 
-draw_sprite(sprite_pendulum, 0, xstart, ystart);
-
-// Draw self
-event_inherited();
+draw_sprite(sprite_index, 0, xstart, ystart);
+draw_sprite(sprite_platform, 0, floor(x), floor(y));

@@ -145,17 +145,14 @@ function scr_giganorbi_state_machine()
 			}
 			
 			// Collide with the level
-			if tile_check_v(x, y + 31, 1)
-			{
-				while tile_check_v(x, y + 31, 1)
-				{
-					y--;
-				}
-			}
-			else
+			var _floor_dist = tile_check_v(x, bbox_bottom - 1, 1);
+			
+			if _floor_dist >= 0
 			{
 				break;
 			}
+			
+			y += _floor_dist;
 			
 			vel_y *= -1;
 			boss_target.view_data_ref.shake_timer = 8;

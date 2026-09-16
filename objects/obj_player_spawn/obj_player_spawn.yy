@@ -29,10 +29,11 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"iv_shared_exclude_sonic","filters":[],"listItems":[],"multiselect":false,"name":"iv_shared_exclude_sonic","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
-    {"$GMObjectProperty":"v2","%Name":"iv_shared_exclude_tails","filters":[],"listItems":[],"multiselect":false,"name":"iv_shared_exclude_tails","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
-    {"$GMObjectProperty":"v2","%Name":"iv_shared_exclude_knuckles","filters":[],"listItems":[],"multiselect":false,"name":"iv_shared_exclude_knuckles","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
-    {"$GMObjectProperty":"v2","%Name":"iv_shared_exclude_amy","filters":[],"listItems":[],"multiselect":false,"name":"iv_shared_exclude_amy","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"v2","%Name":"iv_sonic_spawn_excluded","filters":[],"listItems":[
+        "PLAYER.TAILS",
+        "PLAYER.KNUCKLES",
+        "PLAYER.AMY",
+      ],"multiselect":true,"name":"iv_sonic_spawn_excluded","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

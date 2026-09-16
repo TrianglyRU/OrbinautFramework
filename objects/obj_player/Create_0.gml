@@ -705,13 +705,14 @@ run_on_water = false;
 on_object = noone;
 extra_mask = noone;
 interact_flag = true;
-	
+
 vel_x = 0;
 vel_y = 0;
 spd = 0;
 angle = 0;
+floor_angle_side = -1;
 grv = PARAM_GRV_DEFAULT;
-	
+
 acc_glide = 0;
 acc_climb = 0;
 acc = 0;
@@ -840,9 +841,9 @@ else
 	{
 		y -= radius_y;
 	}
-		
-	var _floor_dist = tile_raycast_2v(x - radius_x, y + radius_y - 1, x + radius_x - 1, y + radius_y - 1, 1, secondary_layer)[0];
-		
+	
+	var _floor_dist = tile_check_2v(x - radius_x, y + radius_y - 1, x + radius_x - 1, y + radius_y - 1, 1, secondary_layer);
+	
 	if _floor_dist < 14
 	{
 		y += _floor_dist;

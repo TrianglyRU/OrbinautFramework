@@ -24,7 +24,7 @@ if vel_y < 0
     return;
 }
 
-var _floor_dist = tile_raycast_v(x, bbox_bottom - 1, 1)[0];
+var _floor_dist = tile_check_v(x, bbox_bottom - 1, 1);
 
 if _floor_dist < 0
 {

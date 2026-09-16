@@ -30,29 +30,30 @@ function scr_player_collision_ground_walls()
 	{
 		_wall_quad = QUADRANT.DOWN;
 	}
-
+	
+	var _x = x + vel_x;
+	var _y = y + vel_y;
+	
 	if spd < 0
 	{
 	    var _wall_dist;
-	    var _x = x + vel_x;
-	    var _y = y + vel_y;
 		
 	    switch _wall_quad
 	    {
 			case QUADRANT.DOWN:
-				_wall_dist = tile_raycast_h(_x - radius_wall, _y + _y_offset - 1, -1, secondary_layer, _wall_quad)[0];
+				_wall_dist = tile_check_h(_x - radius_wall, _y + _y_offset - 1, -1, secondary_layer, _wall_quad);
 			break;
 			
 	        case QUADRANT.RIGHT:
-	            _wall_dist = tile_raycast_v(_x, _y + radius_wall - 1, 1, secondary_layer, _wall_quad)[0];
+	            _wall_dist = tile_check_v(_x, _y + radius_wall - 1, 1, secondary_layer, _wall_quad);
 	        break;
 			
 	        case QUADRANT.UP:
-	            _wall_dist = tile_raycast_h(_x + radius_wall - 1, _y, 1, secondary_layer, _wall_quad)[0];
+	            _wall_dist = tile_check_h(_x + radius_wall - 1, _y, 1, secondary_layer, _wall_quad);
 	        break;
 			
 	        case QUADRANT.LEFT:
-	            _wall_dist = tile_raycast_v(_x, _y - radius_wall, -1, secondary_layer, _wall_quad)[0];
+	            _wall_dist = tile_check_v(_x, _y - radius_wall, -1, secondary_layer, _wall_quad);
 	        break;	
 	    }
 
@@ -65,7 +66,7 @@ function scr_player_collision_ground_walls()
 	    {
 	        case QUADRANT.DOWN:
 			
-	            vel_x -= _wall_dist;
+				vel_x = _x - _wall_dist - x;
 	            spd = 0;
 				
 	            if facing == -1 && animation != ANIM.SPIN
@@ -76,12 +77,12 @@ function scr_player_collision_ground_walls()
 	        break;
 			
 	        case QUADRANT.RIGHT:
-	            vel_y += _wall_dist;
+	            vel_y = _y + _wall_dist - y;
 	        break;
 			
 	        case QUADRANT.UP:
 			
-	            vel_x += _wall_dist;
+	            vel_x = _x + _wall_dist - x;
 	            spd = 0;
 				
 	            if facing == -1 && animation != ANIM.SPIN
@@ -92,32 +93,30 @@ function scr_player_collision_ground_walls()
 	        break;
 			
 	        case QUADRANT.LEFT:
-	            vel_y -= _wall_dist;
+				vel_y = _y - _wall_dist - y;
 	        break;
 	    }
 	}
 	else if spd > 0
 	{
 	    var _wall_dist;
-	    var _x = x + vel_x;
-	    var _y = y + vel_y;
 		
 	    switch _wall_quad
 	    {
 			case QUADRANT.DOWN:
-				_wall_dist = tile_raycast_h(_x + radius_wall - 1, _y + _y_offset - 1, 1, secondary_layer, _wall_quad)[0];
+				_wall_dist = tile_check_h(_x + radius_wall - 1, _y + _y_offset - 1, 1, secondary_layer, _wall_quad);
 			break;
 			
 	        case QUADRANT.RIGHT:
-	            _wall_dist = tile_raycast_v(_x, _y - radius_wall, -1, secondary_layer, _wall_quad)[0];
+	            _wall_dist = tile_check_v(_x, _y - radius_wall, -1, secondary_layer, _wall_quad);
 	        break;
 			
 	        case QUADRANT.UP:
-	            _wall_dist = tile_raycast_h(_x - radius_wall, _y, -1, secondary_layer, _wall_quad)[0];
+	            _wall_dist = tile_check_h(_x - radius_wall, _y, -1, secondary_layer, _wall_quad);
 	        break;
 			
 	        case QUADRANT.LEFT:
-	            _wall_dist = tile_raycast_v(_x, _y + radius_wall - 1, 1, secondary_layer, _wall_quad)[0];
+	            _wall_dist = tile_check_v(_x, _y + radius_wall - 1, 1, secondary_layer, _wall_quad);
 	        break;     
 	    }
 		
@@ -130,7 +129,7 @@ function scr_player_collision_ground_walls()
 	    {
 	        case QUADRANT.DOWN:
 			
-	            vel_x += _wall_dist;
+				vel_x = _x + _wall_dist - x;
 	            spd = 0;
 				
 	            if facing == 1 && animation != ANIM.SPIN
@@ -141,12 +140,12 @@ function scr_player_collision_ground_walls()
 	        break;
 			
 	        case QUADRANT.RIGHT:
-	            vel_y -= _wall_dist;
+				vel_y = _y - _wall_dist - y;
 	        break;
 			
 	        case QUADRANT.UP:
 			
-	            vel_x -= _wall_dist;
+				vel_x = _x - _wall_dist - x;
 	            spd = 0;
 				
 	            if facing == 1 && animation != ANIM.SPIN
@@ -157,7 +156,7 @@ function scr_player_collision_ground_walls()
 	        break;
 			
 	        case QUADRANT.LEFT:
-	            vel_y += _wall_dist;
+				vel_y = _y + _wall_dist - y;
 	        break;
 	    }
 	}

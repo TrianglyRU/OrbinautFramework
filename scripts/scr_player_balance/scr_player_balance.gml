@@ -21,7 +21,7 @@ function scr_player_balance()
 			return;
 		}
 		
-		var _floor_data = tile_raycast_v(x, y + radius_y - 1, 1, secondary_layer);
+		var _floor_data = tile_check_v_ext(x, y + radius_y - 1, 1, secondary_layer);
 		var _floor_dist = _floor_data[0];
 		
 		if _floor_dist < 12
@@ -30,35 +30,20 @@ function scr_player_balance()
 		}
 		
 		var _floor_angle = _floor_data[1];
-		
-		if _floor_angle == TILE_EMPTY_ANGLE
-		{
-			_floor_angle = 0;
-		}
-		
 		var _slope_diff = abs(angle % 180 - _floor_angle % 180);
 		
-		if _slope_diff >= 45 && _slope_diff <= 135
+		if _floor_angle == TILE_EMPTY_ANGLE || _slope_diff >= 45 && _slope_diff <= 135
 		{
 			return;
 		}
 		
-		var _angle_left = tile_raycast_v(x - radius_x, y + radius_y - 1, 1, secondary_layer)[1];
-		var _angle_right = tile_raycast_v(x + radius_x - 1, y + radius_y - 1, 1, secondary_layer)[1];
-		
-		if _angle_left == TILE_EMPTY_ANGLE && _angle_right == TILE_EMPTY_ANGLE
-		|| _angle_left != TILE_EMPTY_ANGLE && _angle_right != TILE_EMPTY_ANGLE
-		{
-			return;
-		}
-		
-		if _angle_left == TILE_EMPTY_ANGLE
+		if floor_angle_side == 1
 		{	
-			_balance_left(tile_raycast_v(x + 5, y + radius_y - 1, 1, secondary_layer)[0] >= 12);
+			_balance_left(tile_check_v(x + 5, y + radius_y - 1, 1, secondary_layer) >= 12);
 		}
-		else if _angle_right == TILE_EMPTY_ANGLE
+		else
 		{
-			_balance_right(tile_raycast_v(x - 6, y + radius_y - 1, 1, secondary_layer)[0] >= 12);
+			_balance_right(tile_check_v(x - 6, y + radius_y - 1, 1, secondary_layer) >= 12);
 		}
 	}
 	else if instance_exists(on_object) && on_object.solid_balance

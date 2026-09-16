@@ -81,7 +81,7 @@ if state == ITEM_BOX_STATE.FALLING
     y += vel_y;
     vel_y += GLOBAL_PARAM_GRV;
     
-    var _floor_dist = tile_raycast_v(x, bbox_bottom - 1, 1)[0];
+    var _floor_dist = tile_check_v(x, bbox_bottom - 1, 1);
 	
     if _floor_dist < 0
     {
