@@ -3,7 +3,7 @@
 /// @returns {Bool}
 function instance_is_drawn(_inst_id = id)
 {
-	if _inst_id != id && !instance_exists(_inst_id)
+	if _inst_id != id || !instance_exists(_inst_id)
 	{
 		return false;
 	}

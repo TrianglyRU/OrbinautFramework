@@ -7,7 +7,7 @@ if image_index == 0
 		return;
 	}
 }
-else if global.player_main != image_index
+else if global.player_main != (image_index % image_number)
 {
 	return;
 }

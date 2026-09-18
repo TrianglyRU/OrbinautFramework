@@ -84,7 +84,6 @@ enum COLLISION_LAYER
 	PATH_B = 2
 }
 
-#macro TILE_COUNT 256
 #macro TILE_SIZE 16
 #macro TILE_EMPTY_ANGLE -4
 
@@ -94,24 +93,13 @@ var _get_layer = function(_layer)
 	return layer_exists(_layer) ? layer_tilemap_get_id(_layer) : -1;
 }
 
-angle_map = ds_map_create();
-markers = ds_map_create();
-
-var _marker_ids = 
-[
-	_get_layer("Markers_Main"), _get_layer("Markers_A"), _get_layer("Markers_B")
-];
-
-// MAIN 0, PATH_A 1, PATH_B 2
+// MAIN 0, PATH_A 1, PATH_B 2. This should match the order used in the enum
 tilemaps =
 [
 	_get_layer("Collision_Main"), _get_layer("Collision_A"), _get_layer("Collision_B")	
 ];
 
-for (var _i = 0; _i < array_length(tilemaps); _i++)
-{
-	markers[? tilemaps[_i]] = _marker_ids[_i];
-}
+typemap = _get_layer("Collision_Type");
 
 #endregion
 
@@ -278,7 +266,6 @@ depth = 16000;
 #macro view_data obj_game.view_data_struct
 
 #macro CAMERA_HORIZONTAL_BUFFER 8
-#macro CAMERA_VIEW_TIMER_DEFAULT 120
 #macro CAMERA_MAX_VEL_X 16
 #macro CAMERA_MAX_VEL_Y 16
 #macro CAMERA_FREESPACE_X 16
@@ -352,14 +339,14 @@ FOR_EACH_VIEW
         coarse_x: -1,
         coarse_y: -1,
         coarse_x_last: -1,
-        coarse_y_last: -1,
-        surface_x: 0,
-        surface_y: 0,
-        surface_w: _w + CAMERA_HORIZONTAL_BUFFER * 2,
-        surface_h: _h
+        coarse_y_last: -1
     };
 	
 	camera_destroy(view_camera[_v]);
+	view_set_xport(_v, 0)
+	view_set_hport(_v, 0);
+	view_set_wport(_v, _w + CAMERA_HORIZONTAL_BUFFER * 2);
+	view_set_hport(_v, _h);
 	
 	view_camera[_v] = camera_create_view(-CAMERA_HORIZONTAL_BUFFER, 0, _w + CAMERA_HORIZONTAL_BUFFER * 2, _h);
 	view_visible[_v] = false;

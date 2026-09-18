@@ -1,13 +1,13 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"ts_markers",
+  "%Name":"ts_collision_types",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"ts_markers",
+  "name":"ts_collision_types",
   "out_columns":2,
   "out_tilehborder":2,
   "out_tilevborder":2,
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"spr_markers",
-    "path":"sprites/spr_markers/spr_markers.yy",
+    "name":"spr_collision_types",
+    "path":"sprites/spr_collision_types/spr_collision_types.yy",
   },
   "spriteNoExport":true,
   "textureGroupId":{

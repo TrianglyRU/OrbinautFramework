@@ -340,12 +340,14 @@ function _start_respawn()
 {
 	if instance_is_drawn() || x >= view_data_ref.right_bound
 	{
-	    cpu_timer_respawn = 0; return false;
+	    cpu_timer_respawn = 0;
+		return false;
 	}
 	
 	if ++cpu_timer_respawn >= 300 || on_object != noone && !instance_exists(on_object)
 	{
-	    respawn(); return true;
+	    respawn();
+		return true;
 	}
 
 	return false;

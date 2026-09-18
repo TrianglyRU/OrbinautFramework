@@ -9,10 +9,7 @@ surface_set_target(application_surface);
 
 FOR_EACH_VISIBLE_VIEW
 {
-	var _surface = view_surface_id[_v];
-	var _view_data = view_data[_v];
-	
-	draw_surface_part(_surface, CAMERA_HORIZONTAL_BUFFER, 0, surface_get_width(_surface) - CAMERA_HORIZONTAL_BUFFER * 2, surface_get_height(_surface), _view_data.surface_x, _view_data.surface_y);
+	draw_surface_part(view_surface_id[_v], CAMERA_HORIZONTAL_BUFFER, 0, view_get_wport(_v) - CAMERA_HORIZONTAL_BUFFER * 2, view_get_hport(_v), view_get_xport(_v), view_get_yport(_v));
 }
 
 surface_reset_target();

@@ -145,16 +145,16 @@ function _read_width(_x, _y, _dir, _secondary_layer, _quadrant)
 		return 0;
 	}
 	
-	var _marker_index = 0;
-	var _marker = obj_game.markers[? _tilemap];
+	var _type = 0;
+	var _typemap = obj_game.typemap;
 	
-	if _marker != -1
+	if _typemap != -1
 	{
-		var _marker_tile = tilemap_get_at_pixel(_marker, _x, _y);
+		var _type_tile = tilemap_get_at_pixel(_typemap, _x, _y);
 			
-		if _marker_tile != -1
+		if _type_tile != -1
 		{
-			_marker_index = tile_get_index(_marker_tile);
+			_type = tile_get_index(_type_tile);
 		}
 	}
 		
@@ -163,7 +163,7 @@ function _read_width(_x, _y, _dir, _secondary_layer, _quadrant)
 	var _is_positive = _dir == 1;
 	var _is_valid;
 				
-	switch _marker_index
+	switch _type
 	{	
 		// Top Solid
 		case 1:

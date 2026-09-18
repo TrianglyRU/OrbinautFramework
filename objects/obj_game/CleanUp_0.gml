@@ -15,11 +15,6 @@ for (var _i = 0; _i < AUDIO_CHANNEL_COUNT; _i++)
 
 audio_emitter_free(audio_emitter_sfx);
 
-// COLLISION
-
-ds_map_destroy(angle_map);
-ds_map_destroy(markers);
-
 // CULLING
 
 ds_list_destroy(stopped_objects);
