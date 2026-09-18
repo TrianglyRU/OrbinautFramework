@@ -1,4 +1,6 @@
 /// @description Begin Step (Post-Framework)
+var _plc = global.precise_player_level_collision;
+
 scr_player_input();
 
 switch state
@@ -43,7 +45,7 @@ switch state
 							scr_player_balance();
 						}
 						
-						var _substeps = clamp(floor(abs(spd / TILE_SUB_SIZE)), 1, TILE_SUB_SIZE);
+						var _substeps = _plc ? clamp(floor(abs(spd / TILE_SUB_SIZE)), 1, TILE_SUB_SIZE) : 1;
 						var _substep = 1;
 						
 						repeat _substeps
@@ -97,7 +99,8 @@ switch state
 							break;
 						}
 						
-						var _substeps = clamp(floor(max(abs(vel_x / TILE_SUB_SIZE), abs(vel_y / TILE_SUB_SIZE))), 1, TILE_SUB_SIZE);
+						var _substeps = _plc ? clamp(floor(max(abs(vel_x / TILE_SUB_SIZE), abs(vel_y / TILE_SUB_SIZE))), 1, TILE_SUB_SIZE) : 1;
+						
 						repeat _substeps
 						{
 							scr_player_position(_substeps);
@@ -143,7 +146,8 @@ switch state
 		
 		scr_player_level_bound();
 		
-		var _substeps = clamp(floor(max(abs(vel_x / TILE_SUB_SIZE), abs(vel_y / TILE_SUB_SIZE))), 1, TILE_SUB_SIZE);
+		var _substeps = _plc ? clamp(floor(max(abs(vel_x / TILE_SUB_SIZE), abs(vel_y / TILE_SUB_SIZE))), 1, TILE_SUB_SIZE) : 1;
+		
 		repeat _substeps
 		{
 			scr_player_position(_substeps);

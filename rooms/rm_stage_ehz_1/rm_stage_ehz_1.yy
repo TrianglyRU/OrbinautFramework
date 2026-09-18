@@ -887,7 +887,7 @@
               268435636,-702,-2147483648,4,220,268435637,268435635,268435636,-5880,-2147483648,
             ],"TileDataFormat":1,},"tilesetId":{"name":"ts_collision_s2","path":"tilesets/ts_collision_s2/ts_collision_s2.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
         {"$GMRTileLayer":"","%Name":"Collision_B","depth":500,"effectEnabled":true,"effectType":"_filter_tintfilter","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Collision_B","properties":[
-            {"name":"g_TintCol","type":1,"value":"#FFFF0000",},
+            {"name":"g_TintCol","type":1,"value":"#FFDB4924",},
           ],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":64,"SerialiseWidth":704,"TileCompressedData":[
               -16632,-2147483648,-28,0,-75,-2147483648,-17,0,-400,-2147483648,3,0,172,173,-10,268435621,3,268435629,
               268435628,0,-168,-2147483648,-28,0,-75,-2147483648,-2,0,2,172,173,-10,165,3,268435629,268435628,0,-400,

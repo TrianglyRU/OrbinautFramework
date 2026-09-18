@@ -23,8 +23,6 @@ function scr_game_setup()
 	global.player_physics = PHYSICS.S2;
 	global.cpu_behaviour = CPU_BEHAVIOUR.S3;
 	global.rotation_mode = ROTATION.CLASSIC;
-	global.better_solid_collision = false;
-	global.better_angle_snap = false;
 	global.spin_dash = true;
 	global.dash	= true;
 	global.drop_dash = false;
@@ -34,6 +32,11 @@ function scr_game_setup()
 	global.roll_lock = true;
 	global.speed_cap = false;
 	global.roll_speed_cap = true;
+	
+	// precise_player_level_collision is recommended; greatly improves collision precision with minimal impact on overall accuracy
+	global.precise_player_level_collision = true;
+	global.better_solid_collision = false;
+	global.better_angle_snap = false;
 	
 	// Values set here will apply only if loading into the stage directly
 	global.player_main = PLAYER.SONIC;

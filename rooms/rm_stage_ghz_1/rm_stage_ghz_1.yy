@@ -518,7 +518,7 @@
               -5,0,-21408,-2147483648,
             ],"TileDataFormat":1,},"tilesetId":{"name":"ts_collision_s1","path":"tilesets/ts_collision_s1/ts_collision_s1.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
         {"$GMRTileLayer":"","%Name":"Collision_B","depth":500,"effectEnabled":true,"effectType":"_filter_tintfilter","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Collision_B","properties":[
-            {"name":"g_TintCol","type":1,"value":"#FFFF0000",},
+            {"name":"g_TintCol","type":1,"value":"#FFDB4924",},
           ],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":80,"SerialiseWidth":640,"TileCompressedData":[
               -2236,-2147483648,-13,0,-627,-2147483648,-13,0,-627,-2147483648,-13,0,-627,-2147483648,-13,0,-627,-2147483648,
               -13,0,-627,-2147483648,-13,0,-627,-2147483648,-13,0,-627,-2147483648,-13,0,-627,-2147483648,-13,0,-627,
