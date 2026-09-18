@@ -85,6 +85,7 @@ enum COLLISION_LAYER
 }
 
 #macro TILE_SIZE 16
+#macro TILE_SUB_SIZE 4
 #macro TILE_EMPTY_ANGLE -4
 
 /// @function _get_layer

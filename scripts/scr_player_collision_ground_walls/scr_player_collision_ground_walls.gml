@@ -1,5 +1,5 @@
 /// @self obj_player
-function scr_player_collision_ground_walls()
+function scr_player_collision_ground_walls(_substeps = 1, _substep = 1)
 {
 	if angle > 90 && angle <= 270
 	{
@@ -31,8 +31,8 @@ function scr_player_collision_ground_walls()
 		_wall_quad = QUADRANT.DOWN;
 	}
 	
-	var _x = x + vel_x;
-	var _y = y + vel_y;
+	var _x = x + vel_x / _substeps * _substep;
+	var _y = y + vel_y / _substeps * _substep;
 	
 	if spd < 0
 	{

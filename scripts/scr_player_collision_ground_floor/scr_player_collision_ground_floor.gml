@@ -1,5 +1,5 @@
 /// @self obj_player
-function scr_player_collision_ground_floor()
+function scr_player_collision_ground_floor(_substeps = 1, _substep = 1)
 {
 	if on_object != noone && instance_exists(on_object)
 	{
@@ -52,7 +52,11 @@ function scr_player_collision_ground_floor()
 			if _floor_dist >= -_max_tolerance
 			{
 				y += _floor_dist;
-				angle = _floor_angle;
+				
+				if _substep == _substeps
+				{
+					angle = _floor_angle;
+				}
 			}
 		
 		break;
@@ -96,7 +100,11 @@ function scr_player_collision_ground_floor()
 			if _floor_dist >= -_max_tolerance
 			{
 				x += _floor_dist;
-				angle = _floor_angle;
+				
+				if _substep == _substeps
+				{
+					angle = _floor_angle;
+				}
 			}
 		
 		break;
@@ -140,7 +148,11 @@ function scr_player_collision_ground_floor()
 			if _floor_dist >= -_max_tolerance
 			{
 				y -= _floor_dist;
-				angle = _floor_angle;
+				
+				if _substep == _substeps
+				{
+					angle = _floor_angle;
+				}
 			}
 		
 		break;
@@ -184,7 +196,11 @@ function scr_player_collision_ground_floor()
 			if _floor_dist >= -_max_tolerance
 			{
 				x -= _floor_dist;
-				angle = _floor_angle;
+				
+				if _substep == _substeps
+				{
+					angle = _floor_angle;
+				}
 			}
 			
 		break;

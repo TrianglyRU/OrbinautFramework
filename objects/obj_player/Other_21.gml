@@ -43,7 +43,14 @@ switch state
 							scr_player_balance();
 						}
 						
-						scr_player_collision_ground_walls();
+						var _substeps = clamp(floor(abs(spd / TILE_SUB_SIZE)), 1, TILE_SUB_SIZE);
+						var _substep = 1;
+						
+						repeat _substeps
+						{
+							scr_player_collision_ground_walls(_substeps, _substep++);
+						}
+						
 						scr_player_roll_start();
 						
 						if scr_player_level_bound()
@@ -51,8 +58,19 @@ switch state
 							break;
 						}
 						
-						scr_player_position();
-						scr_player_collision_ground_floor();
+						_substep = 1;
+						
+						repeat _substeps
+						{
+							scr_player_position(_substeps);
+							
+							// Do not run floor collision if the player loses the ground during a substep
+							if is_grounded 
+							{
+								scr_player_collision_ground_floor(_substeps, _substep++);
+							}
+						}
+						
 						scr_player_slope_repel();
 				
 					break;
@@ -79,15 +97,25 @@ switch state
 							break;
 						}
 						
-						scr_player_position();
-						
-						if action == ACTION.GLIDE
+						var _substeps = clamp(floor(max(abs(vel_x / TILE_SUB_SIZE), abs(vel_y / TILE_SUB_SIZE))), 1, TILE_SUB_SIZE);
+						repeat _substeps
 						{
-							scr_player_collision_air_glide();
-						}
-						else if action != ACTION.CLIMB
-						{
-							scr_player_collision_air_regular();
+							scr_player_position(_substeps);
+							
+							if action == ACTION.GLIDE 
+							{
+								scr_player_collision_air_glide();
+							}
+							else if action != ACTION.CLIMB
+							{
+								scr_player_collision_air_regular();
+							}
+
+							// Exit the substep loop once the player lands
+							if is_grounded
+							{
+								break;
+							}
 						}
 				
 					break;
@@ -114,8 +142,20 @@ switch state
 		}
 		
 		scr_player_level_bound();
-		scr_player_position();
-		scr_player_collision_air_regular();
+		
+		var _substeps = clamp(floor(max(abs(vel_x / TILE_SUB_SIZE), abs(vel_y / TILE_SUB_SIZE))), 1, TILE_SUB_SIZE);
+		repeat _substeps
+		{
+			scr_player_position(_substeps);
+			scr_player_collision_air_regular();
+
+			// Exit the substep loop once the player lands
+			if is_grounded
+			{
+				break;
+			}
+		}
+		
 		scr_player_animate();
 		scr_player_update_hitbox();
 		
