@@ -313,7 +313,12 @@ land = function()
 	
 	state = PLAYER_STATE.DEFAULT;
 	cpu_state = CPU_STATE.MAIN;
-	shield_state = SHIELD_STATE.NONE;
+	
+	if shield_state != SHIELD_STATE.DOUBLE_SPIN
+	{
+		shield_state = SHIELD_STATE.NONE;
+	}
+	
 	air_lock_flag = false;
 	is_jumping = false;
 	set_push_anim_by = noone;
