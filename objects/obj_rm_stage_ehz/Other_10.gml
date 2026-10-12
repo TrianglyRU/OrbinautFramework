@@ -23,7 +23,7 @@ bg_convert("Hills_2", 0.09375, 0, 0, 0, 0);
 bg_convert_scaled("Field_1", _y0 / 128, 0, 0, 0, (_y1 - 1) / 128, 1, -1, 0);
 bg_convert_scaled("Field_2", _y1 / 128, 0, 0, 0, (_y2 - 2) / 128, 2, -1, 0);
 bg_convert_scaled("Field_3", _y2 / 128, 0, 0, 0, (_y3 - 3) / 128, 3, -1, 0);
-bg_convert_scaled("Field_4", _y3 / 128, 0, 0, 0, (_y4 - 4) / 128, 4, -1, 0);
+bg_convert_scaled("Field_4", _y3 / 128, 0, 0, 0, (_y4 - 3) / 128, 3, -1, 0);		// there's no parallax for this part of the background in vanilla S2 due to it being offscreen
 
 deform_layers(["Ocean"], 0, 0.125, DEFORM_DATA.EHZ, undefined);
 
