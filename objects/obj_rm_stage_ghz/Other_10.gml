@@ -9,12 +9,14 @@ drp_room_icon = "stage_ghz";
 sprite_set_animation(spr_asset_ghz_1, 16);
 sprite_set_animation(spr_asset_ghz_2, 8);
 
+var _h = sprite_get_height(spr_bg_ghz_6);
+
 bg_convert("Clouds_1", 0.375, -0.03125, -1, 0, 0);
 bg_convert("Clouds_2", 0.375, -0.03125, -0.5, 0, 0);
 bg_convert("Clouds_3", 0.375, -0.03125, -0.25, 0, 0);
 bg_convert("Mountains_1", 0.375, -0.03125, 0, 0, 0);
 bg_convert("Mountains_2", 0.5, -0.03125, 0, 0, 0);
-bg_convert_scaled("Lake", 0.5, -0.03125, 0, 0, 1, 1, -1, 0);
+bg_convert_scaled("Lake", 0.5, -0.03125, 0, 0, 0.5 + (_h - 1) / (_h * 2), 1, -1, 0);
 
 pal_load(PALETTE_MAP_PLAYER, spr_pal_player);
 pal_load(PALETTE_MAP_LEVEL, spr_pal_ghz_level);

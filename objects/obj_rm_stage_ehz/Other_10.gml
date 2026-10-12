@@ -10,12 +10,20 @@ sprite_set_animation(spr_asset_ehz_3, 4);
 sprite_set_animation(spr_asset_ehz_4, 8);
 sprite_set_animation(spr_asset_ehz_5, 2);
 
+var _y0 = 16;
+var _y1 = sprite_get_height(spr_bg_ehz_5) + _y0;
+var _y2 = sprite_get_height(spr_bg_ehz_6) + _y1;
+var _y3 = sprite_get_height(spr_bg_ehz_7) + _y2;
+var _y4 = sprite_get_height(spr_bg_ehz_8) + _y3;
+
 bg_convert("Clouds", 0.015625, 0, 0, 0, 0);
 bg_convert("Ocean", 0.015625, 0, 0, 0, 0);
 bg_convert("Hills_1", 0.0625, 0, 0, 0, 0);
 bg_convert("Hills_2", 0.09375, 0, 0, 0, 0);
-bg_convert_scaled("Field_1", 0.09375, 0, 0, 0, 0.3515625, 1, -1, 0);
-bg_convert_scaled("Field_2", 0.3515625, 0, 0, 0, 1, 3, -1, 0);
+bg_convert_scaled("Field_1", _y0 / 128, 0, 0, 0, (_y1 - 1) / 128, 1, -1, 0);
+bg_convert_scaled("Field_2", _y1 / 128, 0, 0, 0, (_y2 - 2) / 128, 2, -1, 0);
+bg_convert_scaled("Field_3", _y2 / 128, 0, 0, 0, (_y3 - 3) / 128, 3, -1, 0);
+bg_convert_scaled("Field_4", _y3 / 128, 0, 0, 0, (_y4 - 4) / 128, 4, -1, 0);
 
 deform_layers(["Ocean"], 0, 0.125, DEFORM_DATA.EHZ, undefined);
 

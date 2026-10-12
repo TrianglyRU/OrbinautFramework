@@ -13,7 +13,8 @@ function bg_convert(_layer, _factor_x, _factor_y, _scroll_x, _scroll_y, _frame_d
 	// use the following formula to calculate factor_y:
 	// (background height - camera height) / (room height - camera height)
 	
-	var _bg_layer = layer_background_get_id(_layer);
+	var _old_layer_id = layer_get_id(_layer);
+	var _bg_layer = layer_background_get_id(_old_layer_id);
 	var _sprite_id = layer_background_get_sprite(_bg_layer);
 	
 	if _sprite_id == -1
@@ -21,16 +22,23 @@ function bg_convert(_layer, _factor_x, _factor_y, _scroll_x, _scroll_y, _frame_d
 		return noone;
 	}
 	
-	var _depth = layer_get_depth(_layer);
+	var _depth = layer_get_depth(_old_layer_id);
+	var _is_visible = layer_get_visible(_old_layer_id);
+	var _x = layer_get_x(_old_layer_id);
+	var _y = layer_get_y(_old_layer_id);
+	var _htiled = layer_background_get_htiled(_bg_layer);
+	var _vtiled = layer_background_get_vtiled(_bg_layer);
+	
+	layer_destroy(_old_layer_id);
+	
 	var _new_layer = layer_create(_depth, _layer);
 	var _object = instance_create_layer(0, 0, _new_layer, obj_parallax);
-	var _is_visible = layer_get_visible(_layer);
 	
 	_object.sprite_index = _sprite_id;
-	_object.x = layer_get_x(_layer);
-	_object.y = layer_get_y(_layer);
-	_object.htiled = layer_background_get_htiled(_bg_layer);
-	_object.vtiled = layer_background_get_vtiled(_bg_layer);
+	_object.x = _x;
+	_object.y = _y;
+	_object.htiled = _htiled;
+	_object.vtiled = _vtiled;
 	_object.width = sprite_get_width(_sprite_id);
 	_object.height = sprite_get_height(_sprite_id);
 	_object.tex_width = sprite_get_texture_width(_sprite_id);
@@ -46,7 +54,6 @@ function bg_convert(_layer, _factor_x, _factor_y, _scroll_x, _scroll_y, _frame_d
 		_object.draw_enabled[_v] = _is_visible;
 	}
 	
-	layer_destroy(_layer);
 	sprite_set_offset(_sprite_id, 0, 0);
 	
 	return _object;
