@@ -365,6 +365,6 @@ view_enabled = true;
 #region SPRITE ANIMATOR
 
 sprite_array = [];
-sprite_update_enabled = false;
+sprite_update_enabled = true;
 
 #endregion
