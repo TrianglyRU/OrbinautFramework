@@ -32,7 +32,7 @@ function scr_player_balance()
 		var _floor_angle = _floor_data[1];
 		var _slope_diff = abs(angle % 180 - _floor_angle % 180);
 		
-		if _floor_angle == TILE_EMPTY_ANGLE || _slope_diff >= 45 && _slope_diff <= 135
+		if _floor_angle != TILE_EMPTY_ANGLE && _slope_diff >= 45 && _slope_diff <= 135
 		{
 			return;
 		}
