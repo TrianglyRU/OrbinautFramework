@@ -1,5 +1,7 @@
 visible = player_get(0).state == PLAYER_STATE.DEBUG_MODE;
 
+var _by = floor(y);
+
 FOR_EACH_VISIBLE_VIEW
 {
 	var _w = camera_get_width(_v);
@@ -17,14 +19,14 @@ FOR_EACH_VISIBLE_VIEW
 		continue;
 	}
 	
-	if iv_range == BOUND_RANGE.ABOVE && _y >= y || iv_range == BOUND_RANGE.BELOW && _y < y
+	if iv_range == BOUND_RANGE.ABOVE && _y >= _by || iv_range == BOUND_RANGE.BELOW && _y < _by
 	{
 		continue;
 	}
 	
 	if image_yscale >= 0
 	{
-		obj_rm_stage.bottom_bound[_v] = max(y, _h);
+		obj_rm_stage.bottom_bound[_v] = max(_by, _h);
 			
 		if iv_speed == 0
 		{
@@ -37,7 +39,7 @@ FOR_EACH_VISIBLE_VIEW
 	}
 	else
 	{
-		obj_rm_stage.top_bound[_v] = min(y, room_height - _h);
+		obj_rm_stage.top_bound[_v] = min(_by, room_height - _h);
 			
 		if iv_speed == 0
 		{
