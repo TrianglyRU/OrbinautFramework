@@ -1,5 +1,5 @@
 /// @self obj_player
-function scr_player_position(_substeps = 1)
+function scr_player_position(_substeps = 1, _substep = 1)
 {
 	if stick_to_convex
 	{
@@ -10,8 +10,8 @@ function scr_player_position(_substeps = 1)
 	x += vel_x / _substeps;
 	y += vel_y / _substeps;
 	
-	if !is_grounded
+	if !is_grounded && _substeps == _substep
 	{
-		vel_y += grv / _substeps;
+		vel_y += grv;
 	}
 }

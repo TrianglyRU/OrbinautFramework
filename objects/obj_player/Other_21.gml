@@ -100,10 +100,11 @@ switch state
 						}
 						
 						var _substeps = _plc ? clamp(floor(max(abs(vel_x / TILE_SUB_SIZE), abs(vel_y / TILE_SUB_SIZE))), 1, TILE_SUB_SIZE) : 1;
+						var _substep = 1;
 						
 						repeat _substeps
 						{
-							scr_player_position(_substeps);
+							scr_player_position(_substeps, _substep++);
 							
 							if action == ACTION.GLIDE 
 							{
