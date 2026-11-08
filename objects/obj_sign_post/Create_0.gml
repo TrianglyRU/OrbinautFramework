@@ -26,3 +26,7 @@ ring_sparkle_pos =
 	-24, 8, -16, 24, 0, 16, -24, 24,	// x
 	-16, 8,  0, -8, -8, 0,   8,  16		// y
 ];
+
+// A hack so we can load the object at any height
+image_yscale *= 999;
+mask_index = sprite_index;

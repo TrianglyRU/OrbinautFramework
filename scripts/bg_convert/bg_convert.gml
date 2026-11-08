@@ -41,13 +41,12 @@ function bg_convert(_layer, _factor_x, _factor_y, _scroll_x, _scroll_y, _frame_d
 	_object.vtiled = _vtiled;
 	_object.width = sprite_get_width(_sprite_id);
 	_object.height = sprite_get_height(_sprite_id);
-	_object.tex_width = sprite_get_texture_width(_sprite_id);
-	_object.tex_height = sprite_get_texture_height(_sprite_id);
 	_object.factor_x = _factor_x;
 	_object.factor_y = _factor_y;
 	_object.scroll_mult_x = _scroll_x;
 	_object.scroll_mult_y = _scroll_y;
 	_object.frame_duration = _frame_duration;
+	_object.texture = sprite_get_texture(_sprite_id, 0);
 	
 	FOR_EACH_VIEW
 	{

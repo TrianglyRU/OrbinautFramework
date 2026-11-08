@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"shader_line_scroll",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"shader_line_scroll",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Functions/Shaders.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

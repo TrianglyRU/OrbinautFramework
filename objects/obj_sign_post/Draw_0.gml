@@ -1,0 +1,1 @@
+draw_sprite_ext(sprite_index, image_index, floor(x), floor(y), image_xscale, culler.image_yscale_start, image_angle, draw_colour, image_alpha);

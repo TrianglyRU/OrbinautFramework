@@ -3,9 +3,8 @@ switch state
 	case SIGN_POST_STATE.IDLE:
 	
 		var _player = player_get(0);
-		var _dist = floor(_player.x) - x;
 		
-		if _dist < 0 || _dist >= 32
+		if !point_in_rectangle(floor(_player.x), floor(_player.y), bbox_left, bbox_top, bbox_right - 1, bbox_bottom - 1)
 		{
 			break;
 		}

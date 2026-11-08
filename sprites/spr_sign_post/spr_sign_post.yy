@@ -1,9 +1,9 @@
 {
   "$GMSprite":"v2",
   "%Name":"spr_sign_post",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":47,
-  "bbox_left":0,
+  "bbox_left":24,
   "bbox_right":47,
   "bbox_top":0,
   "collisionKind":1,

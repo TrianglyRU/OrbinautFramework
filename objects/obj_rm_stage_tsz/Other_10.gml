@@ -14,7 +14,7 @@ bg_convert("Buildings", 0.225, _fy, 0, 0, 0);
 bg_convert("Wall", 0.125, _fy, 0, 0, 0);
 bg_convert_scaled("Lights", 0.130, _fy, 0, 0, 0.230, 2, -1, 0);
 bg_convert_scaled("Tubes", 0.280, _fy, 0, 0, 0.750, 8, -1, 0);
-bg_convert_scaled("Water_Surface", 0.300, _fy, 0, 0, 1.000, 4, obj_water.ystart, 0);
+bg_convert_scaled("Water_Surface", 0.300, _fy, 0, 0, 1.000, 1, obj_water.ystart, 0);
 
 deform_depth("Water_Surface", _fy, -0.25,  undefined, DEFORM_DATA.LZ_BG);
 deform_layers(["Sprites_Front", "Tiles_Front", "Sprites_Back", "Tiles_Back", "Tiles_Waterfalls"], 1, -0.5, undefined, DEFORM_DATA.AIZ_FG_WATER);

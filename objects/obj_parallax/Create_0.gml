@@ -4,15 +4,16 @@ factor_x = 0;
 factor_y = 0;
 width = 0;
 height = 0;
-tex_width = 0;
-tex_height = 0;
 scroll_mult_x = 0;
 scroll_mult_y = 0;
 frame_duration = 0;
 line_factor_x = 0;
-line_height = -1;
+line_height = 0;
 scale_target_y = -1;
 scale_target_y_init = -1;
+
+texture = -1;
+surface = -1;
 
 draw_offset_x = 0;
 draw_offset_y = 0;
