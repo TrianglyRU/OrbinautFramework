@@ -32,9 +32,16 @@ var _use_line_scroll = line_height > 0;
 if _use_line_scroll
 {
 	// Create a surface matching the raw camera view size
-	if !surface_exists(surface)
+	var _rw = camera_get_view_width(_c);
+	var _rh = camera_get_view_height(_c);
+	
+	if !surface_exists(surface) 
 	{
-		surface = surface_create(camera_get_view_width(_c), camera_get_view_height(_c));
+		surface = surface_create(_rw, _rh);
+	}
+	else if surface_get_width(surface) != _rw || surface_get_height(surface) != _rh
+	{
+		surface_resize(surface, _rw, _rh);
 	}
 	
 	surface_set_target(surface);

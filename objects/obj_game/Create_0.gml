@@ -239,7 +239,6 @@ for (var _i = 0; _i < INPUT_SLOT_COUNT; _i++)
 #macro PALETTE_MAP_LEVEL 2
 
 palette_bound = room_height;
-palette_masks = array_create(8, -1);
 palette_maps = ds_map_create();
 palette_maps_keys = undefined;
 palette_entry_current = undefined;

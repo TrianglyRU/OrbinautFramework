@@ -30,11 +30,6 @@ ds_list_destroy(input_press);
 
 // PALETTE
 
-for (var _i = 0; _i < 8; _i++)
-{
-	surface_free(palette_masks[_i]);
-}
-
 ds_map_destroy(palette_maps);
 
 // RENDERER

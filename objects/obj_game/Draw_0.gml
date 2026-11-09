@@ -17,11 +17,11 @@ var _deform_count = ds_list_size(deformations_data);
 
 if _deform_count > 0
 {
-	// Define rectangle mask for the deformation effect (outside is primary, inside is secondary)
+	// Rectangle mask for the deformation effect (outside is primary, inside is secondary)
 	var _deform_ss_bound = deformation_bound - _camera_y;
 	var _deform_mask = [0, _deform_ss_bound * _scale_y_factor, _wport, _hport];
 
-	// Set deformation filter parameters for the current view
+	// Set the deformation filter for the current view
 	for (var _i = 0; _i < _deform_count; _i++)
 	{
 	    var _data = deformations_data[| _i];
@@ -56,23 +56,12 @@ if _deform_count > 0
 
 if ds_map_size(palette_maps) > 0
 {
-	// Define a texture mask for the palette shader (black is primary, white is secondary)
-	if !surface_exists(palette_masks[_v])
-	{
-		palette_masks[_v] = surface_create(_wport, _hport);
-	}
-
+	// Rectangle mask for the palette shader (outside is primary, inside is secondary)
 	var _palette_ss_bound = palette_bound - _camera_y;
-	var _palette_mask = palette_masks[_v];
-
-	surface_set_target(_palette_mask);
-	draw_clear_alpha(c_black, 1);
-	draw_rectangle_colour(0, _palette_ss_bound * _scale_y_factor, _wport, _hport, c_white, c_white, c_white, c_white, false);
-	surface_reset_target();
-
-	// Upload the mask into the shader for the current view
+	var _palette_mask = [0, _palette_ss_bound * _scale_y_factor, _wport, _hport];
+	
+	// Set the palette shader for the current view
 	shader_set(sh_palette_multimap);
-	texture_set_stage(shader_get_sampler_index(sh_palette_multimap, "u_context_mask"), surface_get_texture(_palette_mask));
-	shader_set_uniform_f(shader_get_uniform(sh_palette_multimap, "u_context_mask_size"), _wport, _hport);
+	shader_set_uniform_f_array(shader_get_uniform(sh_palette_multimap, "u_context_rect"), _palette_mask);
 	shader_reset();
 }

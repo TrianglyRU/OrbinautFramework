@@ -60,11 +60,17 @@ for (var _i = 0; _i < AUDIO_CHANNEL_COUNT; _i++)
 FOR_EACH_VISIBLE_VIEW
 {
 	var _view_data = view_data[_v];
-	 
+	var _wport = view_get_wport(_v);
+	var _hport = view_get_hport(_v);
+	
 	// Create a surface for the camera if it doesn't exist. Doing so in Draw event results in a blank frame
 	if !surface_exists(view_surface_id[_v])
 	{
-		view_surface_id[_v] = surface_create(view_get_wport(_v), view_get_hport(_v));
+		view_surface_id[_v] = surface_create(_wport, _hport);
+	}
+	else if surface_get_width(view_surface_id[_v]) != _wport || surface_get_height(view_surface_id[_v]) != _hport
+	{
+		surface_resize(view_surface_id[_v], _wport, _hport)
 	}
 	
 	if state != GAME_STATE.STOP_ALL && _view_data.allow_updates
