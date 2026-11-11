@@ -16,14 +16,14 @@ var _y2 = sprite_get_height(spr_bg_ehz_6) + _y1;
 var _y3 = sprite_get_height(spr_bg_ehz_7) + _y2;
 var _y4 = sprite_get_height(spr_bg_ehz_8) + _y3;
 
-bg_convert("Clouds", 0.015625, 0, 0, 0, 0);
-bg_convert("Ocean", 0.015625, 0, 0, 0, 0);
-bg_convert("Hills_1", 0.0625, 0, 0, 0, 0);
-bg_convert("Hills_2", 0.09375, 0, 0, 0, 0);
-bg_convert_scaled("Field_1", _y0 / 128, 0, 0, 0, (_y1 - 1) / 128, 1, -1, 0);
-bg_convert_scaled("Field_2", _y1 / 128, 0, 0, 0, (_y2 - 2) / 128, 2, -1, 0);
-bg_convert_scaled("Field_3", _y2 / 128, 0, 0, 0, (_y3 - 3) / 128, 3, -1, 0);
-bg_convert_scaled("Field_4", _y3 / 128, 0, 0, 0, (_y4 - 3) / 128, 3, -1, 0);		// there's no parallax for this part of the background in vanilla S2 due to it being offscreen
+bg_create("Clouds", 0.015625, 0, 0, 0, 0);
+bg_create("Ocean", 0.015625, 0, 0, 0, 0);
+bg_create("Hills_1", 0.0625, 0, 0, 0, 0);
+bg_create("Hills_2", 0.09375, 0, 0, 0, 0);
+bg_create_scaled("Field_1", _y0 / 128, 0, 0, 0, (_y1 - 1) / 128, 1, -1, 0);
+bg_create_scaled("Field_2", _y1 / 128, 0, 0, 0, (_y2 - 2) / 128, 2, -1, 0);
+bg_create_scaled("Field_3", _y2 / 128, 0, 0, 0, (_y3 - 3) / 128, 3, -1, 0);
+bg_create_scaled("Field_4", _y3 / 128, 0, 0, 0, (_y4 - 3) / 128, 3, -1, 0);		// there's no parallax for this part of the background in vanilla S2 due to it being offscreen
 
 deform_layers(["Ocean"], 0, 0.125, DEFORM_DATA.EHZ, undefined);
 
@@ -31,22 +31,22 @@ pal_load(PALETTE_MAP_PLAYER, spr_pal_player);
 pal_load(PALETTE_MAP_LEVEL, spr_pal_ehz_level);
 pal_set_rotation(PALETTE_MAP_LEVEL, [0, 1, 2, 3], 8, 1, 4);
 
-layer_script_begin_draw("Ocean", function()
+layer_script("Level_Palette_Start_1", function()
 {
 	pal_draw(PALETTE_MAP_LEVEL);
 });
 
-layer_script_end_draw("Ocean", function()
+layer_script("Level_Palette_End_1", function()
 {
-	pal_draw_previous();
+	pal_draw_stop();
 });
 
-layer_script_begin_draw("Chunks_Back", function()
+layer_script("Level_Palette_Start_2", function()
 {
 	pal_draw(PALETTE_MAP_LEVEL);
 });
 
-layer_script_end_draw("Chunks_Back", function()
+layer_script("Level_Palette_End_2", function()
 {
 	pal_draw_stop();
 });

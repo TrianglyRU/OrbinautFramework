@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"layer_script_begin_draw",
+  "%Name":"bg_create",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"layer_script_begin_draw",
+  "name":"bg_create",
   "parent":{
-    "name":"Layers",
-    "path":"folders/Functions/Layers.yy",
+    "name":"Background",
+    "path":"folders/Functions/Background.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

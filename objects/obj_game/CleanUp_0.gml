@@ -15,6 +15,10 @@ for (var _i = 0; _i < AUDIO_CHANNEL_COUNT; _i++)
 
 audio_emitter_free(audio_emitter_sfx);
 
+// BACKGROUND
+
+surface_free(bg_surface);
+
 // CULLING
 
 ds_list_destroy(stopped_objects);

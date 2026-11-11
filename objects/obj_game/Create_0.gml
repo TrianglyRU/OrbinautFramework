@@ -72,6 +72,7 @@ bg_distance_x = 0;
 bg_distance_y = 0;
 bg_scroll_x = 0;
 bg_scroll_y = 0;
+bg_surface = -1;
 
 #endregion
 

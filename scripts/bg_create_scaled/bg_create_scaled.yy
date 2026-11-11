@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"bg_create_scaled",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"bg_create_scaled",
+  "parent":{
+    "name":"Background",
+    "path":"folders/Functions/Background.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

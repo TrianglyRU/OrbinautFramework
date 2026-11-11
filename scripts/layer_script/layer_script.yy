@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"layer_script_end_draw",
+  "%Name":"layer_script",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"layer_script_end_draw",
+  "name":"layer_script",
   "parent":{
     "name":"Layers",
     "path":"folders/Functions/Layers.yy",

@@ -1,9 +1,9 @@
 /// @self
 /// @description									Loads the primary (A) and the secondary (B) palette data from two sprite textures.
 /// @param {Real} _entry							The palette entry identifier.
-/// @param {Asset.GMSprite} _palette_a				The primary palette sprite.
+/// @param {Asset.GMSprite|Undefined} [_palette_a]	The primary palette sprite (default is undefined).
 /// @param {Asset.GMSprite|Undefined} [_palette_b]	The secondary palette sprite (default is undefined).
-function pal_load(_entry, _palette_a, _palette_b = undefined)
+function pal_load(_entry, _palette_a = undefined, _palette_b = undefined)
 {
 	var _sprites = [_palette_a, _palette_b];
 	var _sprite_info;
