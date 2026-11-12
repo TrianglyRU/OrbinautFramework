@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"bg_clear_all",
+  "%Name":"bg_parallax_scaled",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"bg_clear_all",
+  "name":"bg_parallax_scaled",
   "parent":{
     "name":"Background",
     "path":"folders/Functions/Background.yy",

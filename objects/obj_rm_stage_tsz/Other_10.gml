@@ -5,16 +5,16 @@ sprite_set_animation(spr_asset_tsz, 12);
 
 var _fy = 0.056179775;
 
-bg_create("Discs_1", 0.375, _fy, -0.100, 0, 0);
-bg_create("Discs_2", 0.340, _fy, -0.025, 0, 0);
-bg_create("Generators_Top", 0.300, _fy, 0, 0, 0);
-bg_create("Generators_Bottom", 0.300, _fy, 0, 0, 0);
-bg_create_scaled("Sky", 0.305, _fy, 0, 0, 0.2, 8, -1, 0);
-bg_create("Buildings", 0.225, _fy, 0, 0, 0);
-bg_create("Wall", 0.125, _fy, 0, 0, 0);
-bg_create_scaled("Lights", 0.130, _fy, 0, 0, 0.230, 2, -1, 0);
-bg_create_scaled("Tubes", 0.280, _fy, 0, 0, 0.750, 8, -1, 0);
-bg_create_scaled("Water_Surface", 0.300, _fy, 0, 0, 1.000, 1, obj_water.ystart, 0);
+bg_parallax("Discs_1", 0.375, _fy, -0.100, 0, 0);
+bg_parallax("Discs_2", 0.340, _fy, -0.025, 0, 0);
+bg_parallax("Generators_Top", 0.300, _fy, 0, 0, 0);
+bg_parallax("Generators_Bottom", 0.300, _fy, 0, 0, 0);
+bg_parallax_scaled("Sky", 0.305, _fy, 0, 0, 0.2, 8, -1, 0);
+bg_parallax("Buildings", 0.225, _fy, 0, 0, 0);
+bg_parallax("Wall", 0.125, _fy, 0, 0, 0);
+bg_parallax_scaled("Lights", 0.130, _fy, 0, 0, 0.230, 2, -1, 0);
+bg_parallax_scaled("Tubes", 0.280, _fy, 0, 0, 0.750, 8, -1, 0);
+bg_parallax_scaled("Water_Surface", 0.300, _fy, 0, 0, 1.000, 1, obj_water.ystart, 0);
 
 deform_depth("Water_Surface", _fy, -0.25,  undefined, DEFORM_DATA.LZ_BG);
 deform_layers(["Sprites_Front", "Tiles_Front", "Sprites_Back", "Tiles_Back", "Tiles_Waterfalls"], 1, -0.5, undefined, DEFORM_DATA.AIZ_FG_WATER);

@@ -16,14 +16,14 @@ var _y2 = sprite_get_height(spr_bg_ehz_6) + _y1;
 var _y3 = sprite_get_height(spr_bg_ehz_7) + _y2;
 var _y4 = sprite_get_height(spr_bg_ehz_8) + _y3;
 
-bg_create("Clouds", 0.015625, 0, 0, 0, 0);
-bg_create("Ocean", 0.015625, 0, 0, 0, 0);
-bg_create("Hills_1", 0.0625, 0, 0, 0, 0);
-bg_create("Hills_2", 0.09375, 0, 0, 0, 0);
-bg_create_scaled("Field_1", _y0 / 128, 0, 0, 0, (_y1 - 1) / 128, 1, -1, 0);
-bg_create_scaled("Field_2", _y1 / 128, 0, 0, 0, (_y2 - 2) / 128, 2, -1, 0);
-bg_create_scaled("Field_3", _y2 / 128, 0, 0, 0, (_y3 - 3) / 128, 3, -1, 0);
-bg_create_scaled("Field_4", _y3 / 128, 0, 0, 0, (_y4 - 3) / 128, 3, -1, 0);		// there's no parallax for this part of the background in vanilla S2 due to it being offscreen
+bg_parallax("Clouds", 0.015625, 0, 0, 0, 0);
+bg_parallax("Ocean", 0.015625, 0, 0, 0, 0);
+bg_parallax("Hills_1", 0.0625, 0, 0, 0, 0);
+bg_parallax("Hills_2", 0.09375, 0, 0, 0, 0);
+bg_parallax_scaled("Field_1", _y0 / 128, 0, 0, 0, (_y1 - 1) / 128, 1, -1, 0);
+bg_parallax_scaled("Field_2", _y1 / 128, 0, 0, 0, (_y2 - 2) / 128, 2, -1, 0);
+bg_parallax_scaled("Field_3", _y2 / 128, 0, 0, 0, (_y3 - 3) / 128, 3, -1, 0);
+bg_parallax_scaled("Field_4", _y3 / 128, 0, 0, 0, (_y4 - 3) / 128, 3, -1, 0);		// there's no parallax for this part of the background in vanilla S2 due to it being offscreen
 
 deform_layers(["Ocean"], 0, 0.125, DEFORM_DATA.EHZ, undefined);
 

@@ -12,7 +12,7 @@ on_fade_return_to_stage = function()
 rings_earned = 0;
 continue_earned = false;
 
-bg_convert("Background", 0, 0, 0.25, 0.25, 0);
+bg_parallax("Background", 0, 0, 0.25, 0.25, 0);
 
 discord_set_data("BONUS STAGE", "", "room_bonus", undefined);
 audio_bgm_play(snd_bgm_bonus_stage);

@@ -22,5 +22,11 @@ with obj_player
 		view_data_ref.raw_y = y - camera_get_height(view_data_ref.index) * 0.5 + 16;
 		
 		obj_game.update_view_camera_pos(player_index);
-	}
+	}	
+}
+
+FOR_EACH_VIEW
+{
+    obj_rm_stage.bottom_bound[_v] = room_height;
+    view_data[_v].bottom_bound = room_height;
 }

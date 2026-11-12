@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"bg_convert_scaled",
+  "%Name":"bg_clear_data",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"bg_convert_scaled",
+  "name":"bg_clear_data",
   "parent":{
     "name":"Background",
     "path":"folders/Functions/Background.yy",

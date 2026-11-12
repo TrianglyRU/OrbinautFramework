@@ -20,10 +20,14 @@ start_results = function()
 		{
 			global.emerald_count = 7;
 		}
-	
+		
 		state = SPECIAL_STAGE_STATE.RESULTS;
-	
-		bg_clear_all();
+		
+		layer_destroy("Reflection");
+		layer_destroy("Close_Clouds");
+		layer_destroy("Far_Clouds");
+		
+		bg_clear_data();
 		deform_clear_all();
 		fade_perform_white(FADE_DIRECTION.IN, 0);
 	
@@ -40,9 +44,9 @@ start_results = function()
 
 state = SPECIAL_STAGE_STATE.IDLE;
 
-bg_convert("Far_Clouds", 0, 0, 0, 0, 0);
-bg_convert("Close_Clouds", 0, 0, -0.05, 0, 0);
-bg_convert("Reflection", 0, 0, -0.05, 0, 0);
+bg_parallax("Far_Clouds", 0, 0, 0, 0, 0);
+bg_parallax("Close_Clouds", 0, 0, -0.05, 0, 0);
+bg_parallax("Reflection", 0, 0, -0.05, 0, 0);
 
 deform_layers(["Reflection"], 1, 0.25, DEFORM_DATA.LBZ_1, undefined);
 

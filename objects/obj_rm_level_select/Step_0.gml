@@ -6,10 +6,7 @@ if obj_game.fade_state != FADE_STATE.NONE
 var _frame = floor(FRAME_COUNTER * 0.5);
 var _frame_num = array_length(bg_playback_data);
 
-with obj_parallax
-{
-	image_index = other.bg_playback_data[_frame % _frame_num];
-}
+layer_background_index(background, other.bg_playback_data[_frame % _frame_num]);
 
 down_cooldown++;
 

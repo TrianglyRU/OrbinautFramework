@@ -82,6 +82,7 @@ cheat_code_string = "";
 down_cooldown = 0;
 room_to_load = undefined;
 sound_ids = [];
+background = layer_background_get_id("Background");
 bg_playback_data = 
 [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -129,8 +130,6 @@ else
 }
 	
 set_room_to_load();
-
-bg_convert("Background", 0, 0, 0, 0, 0);
 
 discord_set_data("LEVEL SELECT", "", "room_levels", "");
 audio_bgm_play(snd_bgm_level_select);

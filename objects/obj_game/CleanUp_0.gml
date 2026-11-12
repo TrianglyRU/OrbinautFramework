@@ -17,6 +17,7 @@ audio_emitter_free(audio_emitter_sfx);
 
 // BACKGROUND
 
+ds_map_destroy(bg_data);
 surface_free(bg_surface);
 
 // CULLING

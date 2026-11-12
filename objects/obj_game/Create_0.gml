@@ -73,6 +73,7 @@ bg_distance_y = 0;
 bg_scroll_x = 0;
 bg_scroll_y = 0;
 bg_surface = -1;
+bg_data = ds_map_create();
 
 #endregion
 

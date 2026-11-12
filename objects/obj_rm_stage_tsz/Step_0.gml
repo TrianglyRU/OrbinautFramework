@@ -8,11 +8,5 @@ if obj_game.state != GAME_STATE.STOP_ALL
 		pal_set_index(PALETTE_MAP_LEVEL, [7], irandom_range(1, 3));
 	}
 	
-	with obj_parallax
-	{
-		if sprite_index == spr_bg_tsz_10
-		{
-			scale_target_y = obj_water.y; break;
-		}
-	}
+	obj_game.bg_data[? "Water_Surface"].scale_target_y = obj_water.y;
 }

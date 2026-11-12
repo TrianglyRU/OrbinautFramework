@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"bg_convert",
+  "%Name":"bg_parallax",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"bg_convert",
+  "name":"bg_parallax",
   "parent":{
     "name":"Background",
     "path":"folders/Functions/Background.yy",
